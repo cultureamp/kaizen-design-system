@@ -112,6 +112,7 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
+        dataViz: customPropertiesThemeVersion3.dataViz,
         color: customPropertiesThemeVersion3.color,
         DEPRECATED: customPropertiesThemeVersion3.DEPRECATED,
         kz: {

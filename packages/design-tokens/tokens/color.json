@@ -1,4 +1,14 @@
 {
+  "dataViz": {
+    "favorable": "var(--data-viz-favorable, #6B6E94)",
+    "favorable-rgb": "var(--data-viz-favorable-rgb, 107, 110, 148)",
+    "favorable-rgb-id": "--data-viz-favorable-rgb",
+    "favorable-id": "--data-viz-favorable",
+    "unfavorable": "var(--data-viz-unfavorable, #FCCFD4)",
+    "unfavorable-rgb": "var(--data-viz-unfavorable-rgb, 252, 207, 212)",
+    "unfavorable-rgb-id": "--data-viz-unfavorable-rgb",
+    "unfavorable-id": "--data-viz-unfavorable"
+  },
   "color": {
     "wisteria": {
       "100": "var(--color-wisteria-100, #F0F1F4)",
