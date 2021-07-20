@@ -48,11 +48,6 @@ export const parseVariable = (node: WordNode): Variable | null => {
       name,
       nameWithPrefix: cleanedValue,
       prefix: firstChar,
-
-      // Notice here that if a token is labelled as removed it takes precendence over tokens that currently exist in design-tokens.
-      // This means that whatever version of tokens is in generated/removedTokens.json is what users will start seeing as completely removed.
-
-      // NEGATED FOR NOW, NEED TO FIX TESTS
       kaizenToken: foundKaizenToken || foundRemovedToken,
       interpolated,
       negated,
