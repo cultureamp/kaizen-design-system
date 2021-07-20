@@ -14,6 +14,7 @@ describe("kaizenTokens", () => {
         )
         if (!replacement) return
         if (isKaizenTokenDeprecatedOrRemoved(replacement.name)) {
+          // eslint-disable-next-line no-console
           console.warn(
             `Kaizen token: ${value.name}, is deprecated and has a replacement of ${replacement.name}, but the replacement is also deprecated`
           )

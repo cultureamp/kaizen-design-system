@@ -842,6 +842,7 @@ describe("Codemod", () => {
         fix: true,
       })
       if (result.results[0]?.warnings.length !== expectedWarnings) {
+        // eslint-disable-next-line no-console
         console.warn(
           `Unexpected warnings for test: ${language}: ${testName}`,
           result.results[0]?.warnings
