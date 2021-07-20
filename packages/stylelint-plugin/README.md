@@ -27,16 +27,18 @@ Using this preset allows you to adopt the Kaizen rules easily, and allows the pa
 
 These rules are included by default:
 
-- `kaizen/prefer-var-tokens` - Detects usages of non-themable tokens, and attempts to migrate them to our tokens that support theming with CSS variables.
-- `kaizen/no-invalid-use-of-var-tokens-in-functions` - Detects invalid usages of Kaizen variable tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used.
-- `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
-- `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
-- `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
-- `kaizen/rename-tokens` - Reports and automatically renames any deprecated color names to the newer name. E.g:
+- `kaizen/no-deprecated-or-removed-tokens` - Reports and autofixes (if replacements exist) deprecated or completely removed tokens, for example: 
+  - `kz-color-cluny-100` -> `color-blue-100`
   - `kz-var-color-wisteria-100 -> color-purple-100`
   - `kz-var-spacing-md` -> `spacing-md`
   - `kz-var-id-color-peach-100` -> `color-orange-100-id`
   - `kz-var-color-seedling-500-rgb-params` -> `color-green-500-rgb`
+- `kaizen/no-invalid-use-of-var-tokens-in-functions` - Detects invalid usages of Kaizen variable tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used.
+- `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
+- `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
+- `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
+
+
 
 
 Also available, but not enabled by default:
