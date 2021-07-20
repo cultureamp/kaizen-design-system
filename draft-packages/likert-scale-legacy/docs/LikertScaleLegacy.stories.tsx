@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from "react"
+import React, { useState } from "react"
 
 import {
   LikertScaleLegacy,
@@ -6,7 +6,6 @@ import {
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/component-library"
-import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
@@ -50,20 +49,11 @@ const scale: Scale = [
 
 const labelId = "456"
 
-const pageStyles: CSSProperties = {
-  padding: "24px 24px",
-  width: "100%",
-  boxSizing: "border-box",
-  height: "100vh",
-  display: "flex",
-  flexDirection: "column",
-}
-
 export const DefaultStory = () => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
-    <div style={pageStyles}>
+    <div>
       <div style={{ marginBottom: "40px" }} id={labelId}>
         <Heading variant="heading-4">How would you rate this survey?</Heading>
       </div>
@@ -84,12 +74,7 @@ export const Reversed = () => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
-    <div
-      style={{
-        ...pageStyles,
-        background: "#6B6E94",
-      }}
-    >
+    <div>
       <div style={{ marginBottom: "40px" }} id={labelId}>
         <Heading variant="heading-4" color="white">
           How would you rate this survey?
@@ -108,3 +93,4 @@ export const Reversed = () => {
 }
 
 Reversed.storyName = "Reversed"
+Reversed.parameters = { backgrounds: { default: "Wisteria 700" } }

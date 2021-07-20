@@ -2,7 +2,6 @@ import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./RadioGroup.stories.scss"
 
 type RenderProps = {
   selectedOption: string
