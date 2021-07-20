@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.6...@kaizen/draft-slider@1.4.7) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
 ## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.5...@kaizen/draft-slider@1.4.6) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-slider
