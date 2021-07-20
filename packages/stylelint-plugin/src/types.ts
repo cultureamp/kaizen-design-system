@@ -41,8 +41,10 @@ export type DeprecatedKaizenToken = CurrentKaizenToken & {
  * We can't do much with these because we don't know anything about them apart from their name and a potential replacement. */
 export type RemovedKaizenToken = {
   name: string
+  value: string
   deprecated: true
   removed: true
+  cssVariable?: CSSVariable
 }
 
 export type KaizenToken =

@@ -4,8 +4,9 @@ import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import {
   getReplacementForDeprecatedOrRemovedToken,
-  isKaizenTokenDeprecated,
+  isKaizenTokenDeprecatedOrRemoved,
   kaizenTokensByName,
+  removedKaizenTokensByName,
 } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
 import { walkVariablesOnValue } from "./walkers"
@@ -25,9 +26,9 @@ export const stringifyVariable = (variable: Variable) => {
   Given a postcss-value-parser WordNode, return either a Variable or null. The variable will contain a kaizenToken if there is a matchine one.
 */
 export const parseVariable = (node: WordNode): Variable | null => {
-  // I wish postcss-value-parser was just a bit better at knowing how to handle a few more tokens like negating a variable or string interpolation.
+  // I wish postcss-value-parser was just a bit better at knowing how to handle a few more syntactic concepts like negating a variable or string interpolation.
   // It doesn't seem to be built directly for SASS or LESS, but it mostly works with them.
-  // In order to get around this (mostly), we detect a few edge cases in this function.
+  // In order to get around this (partially), we detect a few edge cases in this function.
 
   const interpolated = sassInterpolationPattern.test(node.value)
   const valueWithoutInterpolation = node.value.replace(
@@ -41,13 +42,18 @@ export const parseVariable = (node: WordNode): Variable | null => {
   const firstChar = cleanedValue[0]
   if (firstChar === "@" || firstChar === "$") {
     const name = cleanedValue.substr(1)
-
+    const foundRemovedToken = removedKaizenTokensByName[name]
     const foundKaizenToken = kaizenTokensByName[name]
     return {
       name,
       nameWithPrefix: cleanedValue,
       prefix: firstChar,
-      kaizenToken: foundKaizenToken,
+
+      // Notice here that if a token is labelled as removed it takes precendence over tokens that currently exist in design-tokens.
+      // This means that whatever version of tokens is in generated/removedTokens.json is what users will start seeing as completely removed.
+
+      // NEGATED FOR NOW, NEED TO FIX TESTS
+      kaizenToken: foundKaizenToken || foundRemovedToken,
       interpolated,
       negated,
       node,

@@ -1,16 +1,8 @@
 import {
-  getDeprecatedTokens,
   getReplacementForDeprecatedOrRemovedToken,
-  isKaizenTokenDeprecated,
+  isKaizenTokenDeprecatedOrRemoved,
   kaizenTokensByName,
 } from "./kaizenTokens"
-const allKeysArray = Object.keys(kaizenTokensByName)
-
-const allKeys = new Set(allKeysArray.filter(n => !n.includes("deprecated")))
-
-const allValidTokenKeys = new Set(
-  allKeysArray.filter(token => !isKaizenTokenDeprecated(token))
-)
 
 describe("kaizenTokens", () => {
   describe(getReplacementForDeprecatedOrRemovedToken.name, () => {
@@ -21,29 +13,13 @@ describe("kaizenTokens", () => {
           value.name
         )
         if (!replacement) return
-        expect(isKaizenTokenDeprecated(replacement.name)).toBeFalsy()
-      })
-    })
-  })
-
-  // Note: this becomes hard (impossible?) to test once deprecated tokens are removed from design-tokens
-  describe(getDeprecatedTokens.name, () => {
-    test("all deprecated tokens can be recovered", () => {
-      let generatedTokens = new Set<string>()
-
-      // Generate deprecated tokens for every valid token
-      allValidTokenKeys.forEach(validTokenName => {
-        if (validTokenName.includes("data-viz")) {
-          debugger
+        if (isKaizenTokenDeprecatedOrRemoved(replacement.name)) {
+          console.warn(
+            `Kaizen token: ${value.name}, is deprecated and has a replacement of ${replacement.name}, but the replacement is also deprecated`
+          )
         }
-        generatedTokens = generatedTokens.add(validTokenName)
-        getDeprecatedTokens(validTokenName).forEach(generatedToken => {
-          generatedTokens = generatedTokens.add(generatedToken)
-        })
+        expect(isKaizenTokenDeprecatedOrRemoved(replacement.name)).toBeFalsy()
       })
-
-      // Assert that generated tokens is the same as the current tokens
-      expect(generatedTokens).toBe(allKeys)
     })
   })
 })

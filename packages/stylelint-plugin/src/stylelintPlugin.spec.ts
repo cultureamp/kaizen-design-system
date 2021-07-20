@@ -1,5 +1,8 @@
 import { lint } from "stylelint"
 import { Language } from "./types"
+
+jest.setTimeout(10000)
+
 const testStylelintConfig = require("../test-config.js")
 
 type TestExample = {
@@ -700,7 +703,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     input:
-      ".foo { test-prop: $kz-var-color-white $color-stone $color-ash $color-iron $color-slate; }",
+      ".foo { test-prop: $kz-var-color-white $kz-var-color-stone $kz-var-color-ash $kz-var-color-iron $kz-var-color-slate; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { test-prop: $color-white $color-gray-100 $color-gray-300 $color-gray-500 $color-gray-600; }',
     testName: "grays are renamed in declarations",
@@ -709,7 +712,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     input:
-      ".foo { test-prop: $kz-var-color-blue-100, $kz-var-spacing-md $kz-var-shadow-large-box-shadow; }",
+      ".foo { test-prop: $kz-var-color-cluny-100, $kz-var-spacing-md $kz-var-shadow-large-box-shadow; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/shadow"; @import "~@kaizen/design-tokens/sass/spacing"; @import "~@kaizen/design-tokens/sass/color"; .foo { test-prop: $color-blue-100, $spacing-md $shadow-large-box-shadow; }',
     testName: "kz-var prefix is removed in declarations",
@@ -717,7 +720,7 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    input: ".foo { test-prop: $kz-var-id-color-blue-100; }",
+    input: ".foo { test-prop: $kz-var-id-color-cluny-100; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { test-prop: $color-blue-100-id; }',
     testName: "kz-var-id-* is replaced with *-id ",
@@ -813,7 +816,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     input:
-      "@testrule($kz-var-color-blue-100, $kz-var-spacing-md $kz-var-shadow-large-box-shadow)",
+      "@testrule($kz-var-color-cluny-100, $kz-var-spacing-md $kz-var-shadow-large-box-shadow)",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/shadow"; @import "~@kaizen/design-tokens/sass/spacing"; @import "~@kaizen/design-tokens/sass/color"; @testrule($color-blue-100, $spacing-md $shadow-large-box-shadow)',
     testName: "kz-var prefix is removed in at-rules",
@@ -838,17 +841,16 @@ describe("Codemod", () => {
         code: input,
         fix: true,
       })
-
-      expect(result.output.replace(/(\n|\t| )+/g, " ").trim()).toBe(
-        expectedOutput.replace(/(\n|\t| )+/g, " ").trim()
-      )
-
       if (result.results[0]?.warnings.length !== expectedWarnings) {
         console.warn(
           `Unexpected warnings for test: ${language}: ${testName}`,
           result.results[0]?.warnings
         )
       }
+
+      expect(result.output.replace(/(\n|\t| )+/g, " ").trim()).toBe(
+        expectedOutput.replace(/(\n|\t| )+/g, " ").trim()
+      )
 
       expect(result.results[0]?.warnings.length).toBe(expectedWarnings)
     })

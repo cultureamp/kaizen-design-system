@@ -10,7 +10,7 @@ import {
 import { Options, RuleDefinition } from "../types"
 import {
   getReplacementForDeprecatedOrRemovedToken,
-  isKaizenTokenDeprecated,
+  isKaizenTokenDeprecatedOrRemoved,
 } from "../util/kaizenTokens"
 import {
   isVariable,
@@ -46,8 +46,8 @@ const disallowedAtRules = new Set([
  *
  * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
  */
-export const preferVarTokens: RuleDefinition = {
-  name: "no-deprecated-tokens",
+export const noDeprecatedOrRemovedTokens: RuleDefinition = {
+  name: "no-deprecated-or-removed-tokens",
   ruleFunction: (styleSheetNode: Root, options: Options) => {
     // Loop through every declaration within the stylesheet IF that declaration value contains a kaizen token.
     // An example declaration with a kaizen token is something like: `color: $kz-color-wisteria-800`.
@@ -55,9 +55,8 @@ export const preferVarTokens: RuleDefinition = {
     walkDeclsWithKaizenTokens(
       styleSheetNode,
       ({ parsedValue, kaizenVariables, postcssNode }) => {
-        // Because every KaizenToken type has a `deprecated: boolean` we can easily extract a list of only deprecated tokens found on the declaration.
         const deprecatedVariables = kaizenVariables.filter(variable =>
-          isKaizenTokenDeprecated(variable.name)
+          isKaizenTokenDeprecatedOrRemoved(variable.name)
         )
         // If the whole declaration contains only valid tokens, nothing needs to be done, so just return.
         if (!deprecatedVariables.length) {
@@ -152,7 +151,7 @@ export const preferVarTokens: RuleDefinition = {
         let replacedNodeParams = postcssNode.params
         kaizenVariables.forEach(variable => {
           // We only care about deprecated tokens
-          if (isKaizenTokenDeprecated(variable.name)) {
+          if (isKaizenTokenDeprecatedOrRemoved(variable.name)) {
             const kaizenToken = variable.kaizenToken
 
             const replacement = getReplacementForDeprecatedOrRemovedToken(

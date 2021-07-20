@@ -2,7 +2,7 @@ import stylelint from "stylelint"
 import { Root } from "postcss"
 import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
 import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
-import { preferVarTokens } from "./rules/no-deprecated-tokens"
+import { noDeprecatedOrRemovedTokens } from "./rules/no-deprecated-or-removed-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
@@ -26,7 +26,7 @@ const rules: StyleLintRule[] = [
   allTokenImportsMustBeUsed,
   noInvalidUseOfVarTokensInEquations,
   noInvalidUseOfVarTokensInFunctions,
-  preferVarTokens,
+  noDeprecatedOrRemovedTokens,
 ]
 
 export default rules.map(rule =>

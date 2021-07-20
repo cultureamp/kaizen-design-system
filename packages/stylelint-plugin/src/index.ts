@@ -9,7 +9,7 @@ const kaizenStylelintRules = {
     true,
     { severity: "warning", disableFixing: false },
   ],
-  "kaizen/no-deprecated-tokens": [
+  "kaizen/no-deprecated-or-removed-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],

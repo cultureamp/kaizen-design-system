@@ -16,6 +16,10 @@ export const allTokenImportsMustBeUsed: RuleDefinition = {
     // Get a map of all distinct kaizen tokens within the stylesheet
     const foundKaizenTokens = new Map<string, KaizenToken>()
     walkKaizenTokens(stylesheetNode, ({ variable }) => {
+      // If a Kaizen token is removed and doesn't exist within the consumer's local version of design tokens, we don't want to do anything regarding imports.
+      // This will make it so that the consecutive code has no idea about them.
+      if (variable.kaizenToken?.removed) return
+
       foundKaizenTokens.set(variable.name, variable.kaizenToken)
     })
 
@@ -26,7 +30,7 @@ export const allTokenImportsMustBeUsed: RuleDefinition = {
     // Each kaizen token (KaizenToken type) contains a `lessModulePath` or a `sassModulePath`.
     const requiredImports = new Set(
       Array.from(foundKaizenTokens.values())
-        // if a Kaizen token doesn't actually exist anymore, we definitely don't want to recommend importing from a module that doesn't have it
+        // if a Kaizen token doesn't actually exist anymore, lets not do anything with it.
         .filter(
           (k): k is CurrentKaizenToken | DeprecatedKaizenToken => !k.removed
         )
