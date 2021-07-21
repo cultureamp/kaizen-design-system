@@ -43,28 +43,42 @@ const MenuInstance: React.FunctionComponent = () => (
       label="Menu button but the label is too long"
     />
     <MenuItem
-      action="https://www.cultureamp.com/"
+      action={(e: any) => {
+        e.preventDefault()
+      }}
       icon={trashIcon}
       destructive
       label="Destructive Menu button"
     />
     <MenuItem
-      action="https://www.cultureamp.com/"
+      action={(e: any) => {
+        e.preventDefault()
+      }}
       icon={trashIcon}
       disabled
       label="Disabled Menu button"
     />
     <MenuItem
-      action="https://www.cultureamp.com/"
+      action={(e: any) => {
+        e.preventDefault()
+      }}
       icon={trashIcon}
       disabled
       destructive
       label="Disabled Destructive Menu button"
     />
     <MenuItem
-      action="https://www.cultureamp.com/"
-      disabled
+      action={(e: any) => {
+        e.preventDefault()
+      }}
       label="Menu button no icon"
+    />
+    <MenuItem
+      action={(e: any) => {
+        e.preventDefault()
+      }}
+      disabled
+      label="Disabled button no icon"
     />
   </MenuContent>
 )
