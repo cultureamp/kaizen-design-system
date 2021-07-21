@@ -97,6 +97,9 @@ $padding: $kz-var-spacing-xs;
 
 .menuItem--disabled {
   color: rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
+  .menuItem__Icon {
+    color: rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
+  }
 }
 
 .menuItem--active {
@@ -108,6 +111,13 @@ $padding: $kz-var-spacing-xs;
   color: $kz-var-color-coral-600;
   .menuItem__Icon {
     color: $kz-var-color-coral-600;
+  }
+}
+
+.menuItem--destructive.menuItem--disabled {
+  color: rgba($kz-var-color-coral-600-rgb-params, 0.3);
+  .menuItem__Icon {
+    color: rgba($kz-var-color-coral-600-rgb-params, 0.3);
   }
 }
 

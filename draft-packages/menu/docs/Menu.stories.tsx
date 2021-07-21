@@ -29,29 +29,42 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuHeader title="Other actions" />
     <MenuItem
       action={(e: any) => {
+        alert("Hello")
+        e.preventDefault()
+      }}
+      icon={editIcon}
+      label="Menu button"
+    />
+    <MenuItem
+      action={(e: any) => {
         e.preventDefault()
       }}
       icon={duplicateIcon}
       label="Menu button but the label is too long"
     />
     <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      icon={editIcon}
-      label="Menu button"
-    />
-
-    <MenuItem
       action="https://www.cultureamp.com/"
       icon={trashIcon}
       destructive
-      label="Menu button"
+      label="Destructive Menu button"
+    />
+    <MenuItem
+      action="https://www.cultureamp.com/"
+      icon={trashIcon}
+      disabled
+      label="Disabled Menu button"
+    />
+    <MenuItem
+      action="https://www.cultureamp.com/"
+      icon={trashIcon}
+      disabled
+      destructive
+      label="Disabled Destructive Menu button"
     />
     <MenuItem
       action="https://www.cultureamp.com/"
       disabled
-      label="Menu button"
+      label="Menu button no icon"
     />
   </MenuContent>
 )
