@@ -2,7 +2,6 @@ import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./CheckboxGroup.stories.scss"
 
 interface RenderProps {
   checkedStatus: string

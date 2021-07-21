@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tile",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "The draft tile component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,8 +36,8 @@
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/component-library": "^10.0.7",
-    "@kaizen/draft-button": "^3.3.19",
+    "@kaizen/component-library": "^10.0.8",
+    "@kaizen/draft-button": "^3.3.20",
     "classnames": "^2.2.6"
   }
 }

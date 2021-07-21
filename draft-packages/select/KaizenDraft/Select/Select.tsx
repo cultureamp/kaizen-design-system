@@ -3,7 +3,7 @@ import * as React from "react"
 import ReactSelect, { components } from "react-select"
 import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
-import { Props as ReactSelectProps } from "react-select/src/Select"
+import { NamedProps as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -13,7 +13,7 @@ import styles from "./styles.react.scss"
 
 export type { ValueType } from "react-select"
 
-export type SelectProps = {
+export interface SelectProps extends ReactSelectProps<any, boolean> {
   /**
    * The secondary variant is a more subdued variant that takes up as little space as possible
    * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
@@ -41,62 +41,57 @@ export type SelectProps = {
 
 export type VariantType = "default" | "secondary" | "secondary-small"
 
-export const Select = React.forwardRef(
-  (
-    props: SelectProps & ReactSelectProps<any, boolean>,
-    ref: React.Ref<any>
-  ) => {
-    if (props.fullWidth === false && props.variant !== "secondary") {
-      throw new Error(
-        'the prop fullWidth=false is not yet implemented when variant="default"'
-      )
-    }
-    const { variant = "default", reversed = false } = props
-
-    // the default for fullWidth depends on the variant
-    const fullWidth =
-      props.fullWidth != null
-        ? props.fullWidth
-        : variant === "secondary" || variant === "secondary-small"
-        ? false
-        : true
-
-    if (reversed === true && variant === "default") {
-      throw new Error(
-        'the combo variant="default" and reversed=true is not yet implemented for the Select component'
-      )
-    }
-
-    const classes = classNames(props.className, styles.specificityIncreaser, {
-      [styles.default]: !reversed,
-      [styles.reversed]: reversed,
-      [styles.secondary]: variant === "secondary",
-      [styles.secondarySmall]: variant === "secondary-small",
-      [styles.notFullWidth]: !fullWidth,
-      [styles.disabled]: props.isDisabled,
-    })
-    return (
-      <ReactSelect
-        {...props}
-        ref={ref}
-        components={{
-          Control,
-          Placeholder,
-          DropdownIndicator,
-          Menu,
-          Option,
-          NoOptionsMessage,
-          SingleValue,
-          MultiValue,
-          IndicatorsContainer,
-          ClearIndicator,
-          IndicatorSeparator: null,
-        }}
-        className={classes}
-      />
+export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
+  if (props.fullWidth === false && props.variant !== "secondary") {
+    throw new Error(
+      'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
-)
+  const { variant = "default", reversed = false } = props
+
+  // the default for fullWidth depends on the variant
+  const fullWidth =
+    props.fullWidth != null
+      ? props.fullWidth
+      : variant === "secondary" || variant === "secondary-small"
+      ? false
+      : true
+
+  if (reversed === true && variant === "default") {
+    throw new Error(
+      'the combo variant="default" and reversed=true is not yet implemented for the Select component'
+    )
+  }
+
+  const classes = classNames(props.className, styles.specificityIncreaser, {
+    [styles.default]: !reversed,
+    [styles.reversed]: reversed,
+    [styles.secondary]: variant === "secondary",
+    [styles.secondarySmall]: variant === "secondary-small",
+    [styles.notFullWidth]: !fullWidth,
+    [styles.disabled]: props.isDisabled,
+  })
+  return (
+    <ReactSelect
+      {...props}
+      ref={ref}
+      components={{
+        Control,
+        Placeholder,
+        DropdownIndicator,
+        Menu,
+        Option,
+        NoOptionsMessage,
+        SingleValue,
+        MultiValue,
+        IndicatorsContainer,
+        ClearIndicator,
+        IndicatorSeparator: null,
+      }}
+      className={classes}
+    />
+  )
+})
 Select.displayName = "Select"
 
 interface AsyncProps

@@ -16,6 +16,8 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Tile (React)",
+  component: MultiActionTile,
+  subcomponents: { InformationTile, TileGrid },
   parameters: {
     docs: {
       description: {

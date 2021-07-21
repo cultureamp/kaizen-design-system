@@ -5,6 +5,7 @@ import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
 export default {
   title: "Icon (React)",
+  component: Icon,
   parameters: {
     docs: {
       description: {
