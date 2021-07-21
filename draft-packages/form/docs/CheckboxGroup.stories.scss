@@ -1,9 +1,0 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-
-a {
-  color: $ca-link-text-color;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}

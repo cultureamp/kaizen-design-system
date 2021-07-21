@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.3.2...@kaizen/draft-title-block-zen@3.3.3) (2021-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.3.1...@kaizen/draft-title-block-zen@3.3.2) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.3.0...@kaizen/draft-title-block-zen@3.3.1) (2021-07-19)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.65...@kaizen/draft-title-block-zen@3.3.0) (2021-07-19)
+
+
+### Features
+
+* Allow the TitleBlockZen to generate an avatar instead of having a component passed in ([#1771](https://github.com/cultureamp/kaizen-design-system/issues/1771)) ([e7c5a32](https://github.com/cultureamp/kaizen-design-system/commit/e7c5a327ab1b2701b52cfc686b0c1c9c9102351c))
+
+
+
+
+
 ## [3.2.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.64...@kaizen/draft-title-block-zen@3.2.65) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

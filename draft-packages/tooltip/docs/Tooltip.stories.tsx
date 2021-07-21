@@ -22,6 +22,7 @@ const excludeFromChromatic = Story => {
 
 export default {
   title: "Tooltip (React)",
+  component: Tooltip,
   parameters: {
     docs: {
       description: {
