@@ -47,9 +47,9 @@ $padding: $kz-var-spacing-xs;
   flex: 0 0 100%;
   box-sizing: border-box;
   background: none;
-  border: none;
+  border: 2px transparent solid;
   text-align: left;
-  padding: 8px $side-padding;
+  padding: 6px calc(#{$side-padding} - 2px);
   margin: 0 $padding;
   min-height: calc(1.75 * #{$kz-var-spacing-md});
   border-radius: 4px;
@@ -87,6 +87,15 @@ $padding: $kz-var-spacing-xs;
       .menuItem__Icon {
         color: $kz-var-color-coral-600;
       }
+    }
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    border: 2px $kz-var-color-cluny-500 solid;
+    outline: none;
+    &.menuItem--destructive {
+      border: 2px $kz-var-color-coral-600 solid;
     }
   }
 
