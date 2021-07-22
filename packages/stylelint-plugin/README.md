@@ -39,9 +39,6 @@ These rules are included by default:
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
 - `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
 
-
-
-
 Also available, but not enabled by default:
 
 - `kaizen/no-tokens-in-variables` - Prevent and fix the usage of Kaizen design tokens in Sass or Less variables. This does not include design tokens in variables that have been imported into the current stylesheet. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed and would be autofixed to `background-color: $kz-color-wisteria-800;`. 
