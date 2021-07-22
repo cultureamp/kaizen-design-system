@@ -117,6 +117,13 @@ export const BrandMomentError = ({
   )
 }
 
+export const BrandMomentStarterKit = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/brand-moments-starter-kit.svg"
+  />
+)
+
 export const EmptyStatesAction = ({
   isAnimated,
   alt,
