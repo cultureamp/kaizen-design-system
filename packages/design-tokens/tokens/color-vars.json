@@ -19,24 +19,6 @@
         "700-rgb-params": "var(--kz-var-color-wisteria-700-rgb-params, 75, 77, 104)",
         "800-rgb-params": "var(--kz-var-color-wisteria-800-rgb-params, 53, 55, 74)"
       },
-      "purple": {
-        "100": "var(--kz-var-color-purple-100, #F0F1F4)",
-        "200": "var(--kz-var-color-purple-200, #E1E2EA)",
-        "300": "var(--kz-var-color-purple-300, #C4C5D4)",
-        "400": "var(--kz-var-color-purple-400, #A7A9C1)",
-        "500": "var(--kz-var-color-purple-500, #898BA9)",
-        "600": "var(--kz-var-color-purple-600, #6B6E94)",
-        "700": "var(--kz-var-color-purple-700, #4B4D68)",
-        "800": "var(--kz-var-color-purple-800, #35374A)",
-        "100-rgb-params": "var(--kz-var-color-purple-100-rgb-params, 240, 241, 244)",
-        "200-rgb-params": "var(--kz-var-color-purple-200-rgb-params, 225, 226, 234)",
-        "300-rgb-params": "var(--kz-var-color-purple-300-rgb-params, 196, 197, 212)",
-        "400-rgb-params": "var(--kz-var-color-purple-400-rgb-params, 167, 169, 193)",
-        "500-rgb-params": "var(--kz-var-color-purple-500-rgb-params, 137, 139, 169)",
-        "600-rgb-params": "var(--kz-var-color-purple-600-rgb-params, 107, 110, 148)",
-        "700-rgb-params": "var(--kz-var-color-purple-700-rgb-params, 75, 77, 104)",
-        "800-rgb-params": "var(--kz-var-color-purple-800-rgb-params, 53, 55, 74)"
-      },
       "cluny": {
         "100": "var(--kz-var-color-cluny-100, #E6F0F7)",
         "200": "var(--kz-var-color-cluny-200, #CCE1F0)",
@@ -52,22 +34,6 @@
         "500-rgb-params": "var(--kz-var-color-cluny-500-rgb-params, 1, 104, 179)",
         "600-rgb-params": "var(--kz-var-color-cluny-600-rgb-params, 0, 81, 140)",
         "700-rgb-params": "var(--kz-var-color-cluny-700-rgb-params, 0, 49, 87)"
-      },
-      "blue": {
-        "100": "var(--kz-var-color-blue-100, #E6F0F7)",
-        "200": "var(--kz-var-color-blue-200, #CCE1F0)",
-        "300": "var(--kz-var-color-blue-300, #99C3E1)",
-        "400": "var(--kz-var-color-blue-400, #4D95CA)",
-        "500": "var(--kz-var-color-blue-500, #0168B3)",
-        "600": "var(--kz-var-color-blue-600, #00518C)",
-        "700": "var(--kz-var-color-blue-700, #003157)",
-        "100-rgb-params": "var(--kz-var-color-blue-100-rgb-params, 230, 240, 247)",
-        "200-rgb-params": "var(--kz-var-color-blue-200-rgb-params, 204, 225, 240)",
-        "300-rgb-params": "var(--kz-var-color-blue-300-rgb-params, 153, 195, 225)",
-        "400-rgb-params": "var(--kz-var-color-blue-400-rgb-params, 77, 149, 202)",
-        "500-rgb-params": "var(--kz-var-color-blue-500-rgb-params, 1, 104, 179)",
-        "600-rgb-params": "var(--kz-var-color-blue-600-rgb-params, 0, 81, 140)",
-        "700-rgb-params": "var(--kz-var-color-blue-700-rgb-params, 0, 49, 87)"
       },
       "seedling": {
         "100": "var(--kz-var-color-seedling-100, #E9F6F3)",
@@ -85,22 +51,6 @@
         "600-rgb-params": "var(--kz-var-color-seedling-600-rgb-params, 23, 114, 97)",
         "700-rgb-params": "var(--kz-var-color-seedling-700-rgb-params, 34, 89, 74)"
       },
-      "green": {
-        "100": "var(--kz-var-color-green-100, #E9F6F3)",
-        "200": "var(--kz-var-color-green-200, #BCE3DC)",
-        "300": "var(--kz-var-color-green-300, #90D1C5)",
-        "400": "var(--kz-var-color-green-400, #64BFAE)",
-        "500": "var(--kz-var-color-green-500, #21A38B)",
-        "600": "var(--kz-var-color-green-600, #177261)",
-        "700": "var(--kz-var-color-green-700, #22594a)",
-        "100-rgb-params": "var(--kz-var-color-green-100-rgb-params, 233, 246, 243)",
-        "200-rgb-params": "var(--kz-var-color-green-200-rgb-params, 188, 227, 220)",
-        "300-rgb-params": "var(--kz-var-color-green-300-rgb-params, 144, 209, 197)",
-        "400-rgb-params": "var(--kz-var-color-green-400-rgb-params, 100, 191, 174)",
-        "500-rgb-params": "var(--kz-var-color-green-500-rgb-params, 33, 163, 139)",
-        "600-rgb-params": "var(--kz-var-color-green-600-rgb-params, 23, 114, 97)",
-        "700-rgb-params": "var(--kz-var-color-green-700-rgb-params, 34, 89, 74)"
-      },
       "yuzu": {
         "100": "var(--kz-var-color-yuzu-100, #FFFAE8)",
         "200": "var(--kz-var-color-yuzu-200, #FFF5D2)",
@@ -116,22 +66,6 @@
         "500-rgb-params": "var(--kz-var-color-yuzu-500-rgb-params, 255, 206, 30)",
         "600-rgb-params": "var(--kz-var-color-yuzu-600-rgb-params, 198, 134, 0)",
         "700-rgb-params": "var(--kz-var-color-yuzu-700-rgb-params, 135, 100, 0)"
-      },
-      "yellow": {
-        "100": "var(--kz-var-color-yellow-100, #FFFAE8)",
-        "200": "var(--kz-var-color-yellow-200, #FFF5D2)",
-        "300": "var(--kz-var-color-yellow-300, #FFEBA5)",
-        "400": "var(--kz-var-color-yellow-400, #FFE278)",
-        "500": "var(--kz-var-color-yellow-500, #FFCE1E)",
-        "600": "var(--kz-var-color-yellow-600, #c68600)",
-        "700": "var(--kz-var-color-yellow-700, #876400)",
-        "100-rgb-params": "var(--kz-var-color-yellow-100-rgb-params, 255, 250, 232)",
-        "200-rgb-params": "var(--kz-var-color-yellow-200-rgb-params, 255, 245, 210)",
-        "300-rgb-params": "var(--kz-var-color-yellow-300-rgb-params, 255, 235, 165)",
-        "400-rgb-params": "var(--kz-var-color-yellow-400-rgb-params, 255, 226, 120)",
-        "500-rgb-params": "var(--kz-var-color-yellow-500-rgb-params, 255, 206, 30)",
-        "600-rgb-params": "var(--kz-var-color-yellow-600-rgb-params, 198, 134, 0)",
-        "700-rgb-params": "var(--kz-var-color-yellow-700-rgb-params, 135, 100, 0)"
       },
       "coral": {
         "100": "var(--kz-var-color-coral-100, #FCEDEF)",
@@ -149,22 +83,6 @@
         "600-rgb-params": "var(--kz-var-color-coral-600-rgb-params, 176, 33, 48)",
         "700-rgb-params": "var(--kz-var-color-coral-700-rgb-params, 108, 30, 32)"
       },
-      "red": {
-        "100": "var(--kz-var-color-red-100, #FCEDEF)",
-        "200": "var(--kz-var-color-red-200, #FCCFD4)",
-        "300": "var(--kz-var-color-red-300, #FCAEB6)",
-        "400": "var(--kz-var-color-red-400, #FC7C89)",
-        "500": "var(--kz-var-color-red-500, #E22B3E)",
-        "600": "var(--kz-var-color-red-600, #B02130)",
-        "700": "var(--kz-var-color-red-700, #6c1e20)",
-        "100-rgb-params": "var(--kz-var-color-red-100-rgb-params, 252, 237, 239)",
-        "200-rgb-params": "var(--kz-var-color-red-200-rgb-params, 252, 207, 212)",
-        "300-rgb-params": "var(--kz-var-color-red-300-rgb-params, 252, 174, 182)",
-        "400-rgb-params": "var(--kz-var-color-red-400-rgb-params, 252, 124, 137)",
-        "500-rgb-params": "var(--kz-var-color-red-500-rgb-params, 226, 43, 62)",
-        "600-rgb-params": "var(--kz-var-color-red-600-rgb-params, 176, 33, 48)",
-        "700-rgb-params": "var(--kz-var-color-red-700-rgb-params, 108, 30, 32)"
-      },
       "peach": {
         "100": "var(--kz-var-color-peach-100, #FFF1EE)",
         "200": "var(--kz-var-color-peach-200, #FDD6CD)",
@@ -180,36 +98,6 @@
         "500-rgb-params": "var(--kz-var-color-peach-500-rgb-params, 250, 117, 88)",
         "600-rgb-params": "var(--kz-var-color-peach-600-rgb-params, 184, 93, 74)",
         "700-rgb-params": "var(--kz-var-color-peach-700-rgb-params, 144, 60, 0)"
-      },
-      "orange": {
-        "100": "var(--kz-var-color-orange-100, #FFF1EE)",
-        "200": "var(--kz-var-color-orange-200, #FDD6CD)",
-        "300": "var(--kz-var-color-orange-300, #FDBAAB)",
-        "400": "var(--kz-var-color-orange-400, #FC9E8A)",
-        "500": "var(--kz-var-color-orange-500, #FA7558)",
-        "600": "var(--kz-var-color-orange-600, #B85D4A)",
-        "700": "var(--kz-var-color-orange-700, #903c00)",
-        "100-rgb-params": "var(--kz-var-color-orange-100-rgb-params, 255, 241, 238)",
-        "200-rgb-params": "var(--kz-var-color-orange-200-rgb-params, 253, 214, 205)",
-        "300-rgb-params": "var(--kz-var-color-orange-300-rgb-params, 253, 186, 171)",
-        "400-rgb-params": "var(--kz-var-color-orange-400-rgb-params, 252, 158, 138)",
-        "500-rgb-params": "var(--kz-var-color-orange-500-rgb-params, 250, 117, 88)",
-        "600-rgb-params": "var(--kz-var-color-orange-600-rgb-params, 184, 93, 74)",
-        "700-rgb-params": "var(--kz-var-color-orange-700-rgb-params, 144, 60, 0)"
-      },
-      "gray": {
-        "100": "var(--kz-var-color-gray-100, #F9F9F9)",
-        "200": "var(--kz-var-color-gray-200, #F4F4F5)",
-        "300": "var(--kz-var-color-gray-300, #EAEAEC)",
-        "400": "var(--kz-var-color-gray-400, #CDCDD0)",
-        "500": "var(--kz-var-color-gray-500, #8C8C97)",
-        "600": "var(--kz-var-color-gray-600, #524E56)",
-        "100-rgb-params": "var(--kz-var-color-gray-100-rgb-params, 249, 249, 249)",
-        "200-rgb-params": "var(--kz-var-color-gray-200-rgb-params, 244, 244, 245)",
-        "300-rgb-params": "var(--kz-var-color-gray-300-rgb-params, 234, 234, 236)",
-        "400-rgb-params": "var(--kz-var-color-gray-400-rgb-params, 205, 205, 208)",
-        "500-rgb-params": "var(--kz-var-color-gray-500-rgb-params, 140, 140, 151)",
-        "600-rgb-params": "var(--kz-var-color-gray-600-rgb-params, 82, 78, 86)"
       },
       "white": "var(--kz-var-color-white, #FFFFFF)",
       "white-rgb-params": "var(--kz-var-color-white-rgb-params, 255, 255, 255)",

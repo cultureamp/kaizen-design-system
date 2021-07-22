@@ -38,10 +38,12 @@
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.3",
+    "@types/lodash.omit": "^4.5.6",
     "@types/react-highlight": "^0.12.2",
     "@types/yargs": "^16.0.0",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
+    "lodash.omit": "^4.5.0",
     "prettier": "*",
     "react-highlight": "^0.13.0",
     "react-intersection-observer": "^8.31.0",

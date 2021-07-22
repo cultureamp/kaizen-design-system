@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import { format } from "prettier"
 import * as yargs from "yargs"
+import omit from "lodash.omit"
 import { defaultTheme, heartTheme, Theme, zenTheme } from "../"
 import {
   augmentCssVariable,
@@ -113,8 +114,19 @@ const run = () => {
     formatJson(
       JSON.stringify({
         dataViz: customPropertiesThemeVersion3.dataViz,
-        color: customPropertiesThemeVersion3.color,
-        DEPRECATED: customPropertiesThemeVersion3.DEPRECATED,
+        color: omit(
+          customPropertiesThemeVersion3.color,
+          "ash",
+          "stone",
+          "slate",
+          "iron",
+          "wisteria",
+          "cluny",
+          "peach",
+          "yuzu",
+          "coral",
+          "seedling"
+        ),
         kz: {
           color: defaultTheme.color,
           DEPRECATED: defaultTheme.DEPRECATED,
@@ -197,7 +209,16 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          color: customPropertiesThemeVersion2[cssVariableThemeNamespace].color,
+          color: omit(
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].color,
+            "purple",
+            "blue",
+            "orange",
+            "yellow",
+            "red",
+            "green",
+            "gray"
+          ),
           DEPRECATED:
             customPropertiesThemeVersion2[cssVariableThemeNamespace].DEPRECATED,
         },

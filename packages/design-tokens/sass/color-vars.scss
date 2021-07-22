@@ -56,62 +56,6 @@ $kz-var-color-wisteria-800-rgb-params: var(
   55,
   74
 );
-$kz-var-color-purple-100: var(--kz-var-color-purple-100, #f0f1f4);
-$kz-var-color-purple-200: var(--kz-var-color-purple-200, #e1e2ea);
-$kz-var-color-purple-300: var(--kz-var-color-purple-300, #c4c5d4);
-$kz-var-color-purple-400: var(--kz-var-color-purple-400, #a7a9c1);
-$kz-var-color-purple-500: var(--kz-var-color-purple-500, #898ba9);
-$kz-var-color-purple-600: var(--kz-var-color-purple-600, #6b6e94);
-$kz-var-color-purple-700: var(--kz-var-color-purple-700, #4b4d68);
-$kz-var-color-purple-800: var(--kz-var-color-purple-800, #35374a);
-$kz-var-color-purple-100-rgb-params: var(
-  --kz-var-color-purple-100-rgb-params,
-  240,
-  241,
-  244
-);
-$kz-var-color-purple-200-rgb-params: var(
-  --kz-var-color-purple-200-rgb-params,
-  225,
-  226,
-  234
-);
-$kz-var-color-purple-300-rgb-params: var(
-  --kz-var-color-purple-300-rgb-params,
-  196,
-  197,
-  212
-);
-$kz-var-color-purple-400-rgb-params: var(
-  --kz-var-color-purple-400-rgb-params,
-  167,
-  169,
-  193
-);
-$kz-var-color-purple-500-rgb-params: var(
-  --kz-var-color-purple-500-rgb-params,
-  137,
-  139,
-  169
-);
-$kz-var-color-purple-600-rgb-params: var(
-  --kz-var-color-purple-600-rgb-params,
-  107,
-  110,
-  148
-);
-$kz-var-color-purple-700-rgb-params: var(
-  --kz-var-color-purple-700-rgb-params,
-  75,
-  77,
-  104
-);
-$kz-var-color-purple-800-rgb-params: var(
-  --kz-var-color-purple-800-rgb-params,
-  53,
-  55,
-  74
-);
 $kz-var-color-cluny-100: var(--kz-var-color-cluny-100, #e6f0f7);
 $kz-var-color-cluny-200: var(--kz-var-color-cluny-200, #cce1f0);
 $kz-var-color-cluny-300: var(--kz-var-color-cluny-300, #99c3e1);
@@ -157,55 +101,6 @@ $kz-var-color-cluny-600-rgb-params: var(
 );
 $kz-var-color-cluny-700-rgb-params: var(
   --kz-var-color-cluny-700-rgb-params,
-  0,
-  49,
-  87
-);
-$kz-var-color-blue-100: var(--kz-var-color-blue-100, #e6f0f7);
-$kz-var-color-blue-200: var(--kz-var-color-blue-200, #cce1f0);
-$kz-var-color-blue-300: var(--kz-var-color-blue-300, #99c3e1);
-$kz-var-color-blue-400: var(--kz-var-color-blue-400, #4d95ca);
-$kz-var-color-blue-500: var(--kz-var-color-blue-500, #0168b3);
-$kz-var-color-blue-600: var(--kz-var-color-blue-600, #00518c);
-$kz-var-color-blue-700: var(--kz-var-color-blue-700, #003157);
-$kz-var-color-blue-100-rgb-params: var(
-  --kz-var-color-blue-100-rgb-params,
-  230,
-  240,
-  247
-);
-$kz-var-color-blue-200-rgb-params: var(
-  --kz-var-color-blue-200-rgb-params,
-  204,
-  225,
-  240
-);
-$kz-var-color-blue-300-rgb-params: var(
-  --kz-var-color-blue-300-rgb-params,
-  153,
-  195,
-  225
-);
-$kz-var-color-blue-400-rgb-params: var(
-  --kz-var-color-blue-400-rgb-params,
-  77,
-  149,
-  202
-);
-$kz-var-color-blue-500-rgb-params: var(
-  --kz-var-color-blue-500-rgb-params,
-  1,
-  104,
-  179
-);
-$kz-var-color-blue-600-rgb-params: var(
-  --kz-var-color-blue-600-rgb-params,
-  0,
-  81,
-  140
-);
-$kz-var-color-blue-700-rgb-params: var(
-  --kz-var-color-blue-700-rgb-params,
   0,
   49,
   87
@@ -259,55 +154,6 @@ $kz-var-color-seedling-700-rgb-params: var(
   89,
   74
 );
-$kz-var-color-green-100: var(--kz-var-color-green-100, #e9f6f3);
-$kz-var-color-green-200: var(--kz-var-color-green-200, #bce3dc);
-$kz-var-color-green-300: var(--kz-var-color-green-300, #90d1c5);
-$kz-var-color-green-400: var(--kz-var-color-green-400, #64bfae);
-$kz-var-color-green-500: var(--kz-var-color-green-500, #21a38b);
-$kz-var-color-green-600: var(--kz-var-color-green-600, #177261);
-$kz-var-color-green-700: var(--kz-var-color-green-700, #22594a);
-$kz-var-color-green-100-rgb-params: var(
-  --kz-var-color-green-100-rgb-params,
-  233,
-  246,
-  243
-);
-$kz-var-color-green-200-rgb-params: var(
-  --kz-var-color-green-200-rgb-params,
-  188,
-  227,
-  220
-);
-$kz-var-color-green-300-rgb-params: var(
-  --kz-var-color-green-300-rgb-params,
-  144,
-  209,
-  197
-);
-$kz-var-color-green-400-rgb-params: var(
-  --kz-var-color-green-400-rgb-params,
-  100,
-  191,
-  174
-);
-$kz-var-color-green-500-rgb-params: var(
-  --kz-var-color-green-500-rgb-params,
-  33,
-  163,
-  139
-);
-$kz-var-color-green-600-rgb-params: var(
-  --kz-var-color-green-600-rgb-params,
-  23,
-  114,
-  97
-);
-$kz-var-color-green-700-rgb-params: var(
-  --kz-var-color-green-700-rgb-params,
-  34,
-  89,
-  74
-);
 $kz-var-color-yuzu-100: var(--kz-var-color-yuzu-100, #fffae8);
 $kz-var-color-yuzu-200: var(--kz-var-color-yuzu-200, #fff5d2);
 $kz-var-color-yuzu-300: var(--kz-var-color-yuzu-300, #ffeba5);
@@ -353,55 +199,6 @@ $kz-var-color-yuzu-600-rgb-params: var(
 );
 $kz-var-color-yuzu-700-rgb-params: var(
   --kz-var-color-yuzu-700-rgb-params,
-  135,
-  100,
-  0
-);
-$kz-var-color-yellow-100: var(--kz-var-color-yellow-100, #fffae8);
-$kz-var-color-yellow-200: var(--kz-var-color-yellow-200, #fff5d2);
-$kz-var-color-yellow-300: var(--kz-var-color-yellow-300, #ffeba5);
-$kz-var-color-yellow-400: var(--kz-var-color-yellow-400, #ffe278);
-$kz-var-color-yellow-500: var(--kz-var-color-yellow-500, #ffce1e);
-$kz-var-color-yellow-600: var(--kz-var-color-yellow-600, #c68600);
-$kz-var-color-yellow-700: var(--kz-var-color-yellow-700, #876400);
-$kz-var-color-yellow-100-rgb-params: var(
-  --kz-var-color-yellow-100-rgb-params,
-  255,
-  250,
-  232
-);
-$kz-var-color-yellow-200-rgb-params: var(
-  --kz-var-color-yellow-200-rgb-params,
-  255,
-  245,
-  210
-);
-$kz-var-color-yellow-300-rgb-params: var(
-  --kz-var-color-yellow-300-rgb-params,
-  255,
-  235,
-  165
-);
-$kz-var-color-yellow-400-rgb-params: var(
-  --kz-var-color-yellow-400-rgb-params,
-  255,
-  226,
-  120
-);
-$kz-var-color-yellow-500-rgb-params: var(
-  --kz-var-color-yellow-500-rgb-params,
-  255,
-  206,
-  30
-);
-$kz-var-color-yellow-600-rgb-params: var(
-  --kz-var-color-yellow-600-rgb-params,
-  198,
-  134,
-  0
-);
-$kz-var-color-yellow-700-rgb-params: var(
-  --kz-var-color-yellow-700-rgb-params,
   135,
   100,
   0
@@ -455,55 +252,6 @@ $kz-var-color-coral-700-rgb-params: var(
   30,
   32
 );
-$kz-var-color-red-100: var(--kz-var-color-red-100, #fcedef);
-$kz-var-color-red-200: var(--kz-var-color-red-200, #fccfd4);
-$kz-var-color-red-300: var(--kz-var-color-red-300, #fcaeb6);
-$kz-var-color-red-400: var(--kz-var-color-red-400, #fc7c89);
-$kz-var-color-red-500: var(--kz-var-color-red-500, #e22b3e);
-$kz-var-color-red-600: var(--kz-var-color-red-600, #b02130);
-$kz-var-color-red-700: var(--kz-var-color-red-700, #6c1e20);
-$kz-var-color-red-100-rgb-params: var(
-  --kz-var-color-red-100-rgb-params,
-  252,
-  237,
-  239
-);
-$kz-var-color-red-200-rgb-params: var(
-  --kz-var-color-red-200-rgb-params,
-  252,
-  207,
-  212
-);
-$kz-var-color-red-300-rgb-params: var(
-  --kz-var-color-red-300-rgb-params,
-  252,
-  174,
-  182
-);
-$kz-var-color-red-400-rgb-params: var(
-  --kz-var-color-red-400-rgb-params,
-  252,
-  124,
-  137
-);
-$kz-var-color-red-500-rgb-params: var(
-  --kz-var-color-red-500-rgb-params,
-  226,
-  43,
-  62
-);
-$kz-var-color-red-600-rgb-params: var(
-  --kz-var-color-red-600-rgb-params,
-  176,
-  33,
-  48
-);
-$kz-var-color-red-700-rgb-params: var(
-  --kz-var-color-red-700-rgb-params,
-  108,
-  30,
-  32
-);
 $kz-var-color-peach-100: var(--kz-var-color-peach-100, #fff1ee);
 $kz-var-color-peach-200: var(--kz-var-color-peach-200, #fdd6cd);
 $kz-var-color-peach-300: var(--kz-var-color-peach-300, #fdbaab);
@@ -552,97 +300,6 @@ $kz-var-color-peach-700-rgb-params: var(
   144,
   60,
   0
-);
-$kz-var-color-orange-100: var(--kz-var-color-orange-100, #fff1ee);
-$kz-var-color-orange-200: var(--kz-var-color-orange-200, #fdd6cd);
-$kz-var-color-orange-300: var(--kz-var-color-orange-300, #fdbaab);
-$kz-var-color-orange-400: var(--kz-var-color-orange-400, #fc9e8a);
-$kz-var-color-orange-500: var(--kz-var-color-orange-500, #fa7558);
-$kz-var-color-orange-600: var(--kz-var-color-orange-600, #b85d4a);
-$kz-var-color-orange-700: var(--kz-var-color-orange-700, #903c00);
-$kz-var-color-orange-100-rgb-params: var(
-  --kz-var-color-orange-100-rgb-params,
-  255,
-  241,
-  238
-);
-$kz-var-color-orange-200-rgb-params: var(
-  --kz-var-color-orange-200-rgb-params,
-  253,
-  214,
-  205
-);
-$kz-var-color-orange-300-rgb-params: var(
-  --kz-var-color-orange-300-rgb-params,
-  253,
-  186,
-  171
-);
-$kz-var-color-orange-400-rgb-params: var(
-  --kz-var-color-orange-400-rgb-params,
-  252,
-  158,
-  138
-);
-$kz-var-color-orange-500-rgb-params: var(
-  --kz-var-color-orange-500-rgb-params,
-  250,
-  117,
-  88
-);
-$kz-var-color-orange-600-rgb-params: var(
-  --kz-var-color-orange-600-rgb-params,
-  184,
-  93,
-  74
-);
-$kz-var-color-orange-700-rgb-params: var(
-  --kz-var-color-orange-700-rgb-params,
-  144,
-  60,
-  0
-);
-$kz-var-color-gray-100: var(--kz-var-color-gray-100, #f9f9f9);
-$kz-var-color-gray-200: var(--kz-var-color-gray-200, #f4f4f5);
-$kz-var-color-gray-300: var(--kz-var-color-gray-300, #eaeaec);
-$kz-var-color-gray-400: var(--kz-var-color-gray-400, #cdcdd0);
-$kz-var-color-gray-500: var(--kz-var-color-gray-500, #8c8c97);
-$kz-var-color-gray-600: var(--kz-var-color-gray-600, #524e56);
-$kz-var-color-gray-100-rgb-params: var(
-  --kz-var-color-gray-100-rgb-params,
-  249,
-  249,
-  249
-);
-$kz-var-color-gray-200-rgb-params: var(
-  --kz-var-color-gray-200-rgb-params,
-  244,
-  244,
-  245
-);
-$kz-var-color-gray-300-rgb-params: var(
-  --kz-var-color-gray-300-rgb-params,
-  234,
-  234,
-  236
-);
-$kz-var-color-gray-400-rgb-params: var(
-  --kz-var-color-gray-400-rgb-params,
-  205,
-  205,
-  208
-);
-$kz-var-color-gray-500-rgb-params: var(
-  --kz-var-color-gray-500-rgb-params,
-  140,
-  140,
-  151
-);
-$kz-var-color-gray-600-rgb-params: var(
-  --kz-var-color-gray-600-rgb-params,
-  82,
-  78,
-  86
 );
 $kz-var-color-white: var(--kz-var-color-white, #ffffff);
 $kz-var-color-white-rgb-params: var(
