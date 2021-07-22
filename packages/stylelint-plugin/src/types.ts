@@ -38,7 +38,7 @@ export type DeprecatedKaizenToken = CurrentKaizenToken & {
 }
 
 /** Represents a Kaizen token that is both removed/non-existent and deprecated.
- * We can't do much with these because we don't know anything about them apart from their name and a potential replacement. */
+ * We can't do much with these because we don't know anything about them apart from their name, value, and a potential replacement. */
 export type RemovedKaizenToken = {
   name: string
   value: string
