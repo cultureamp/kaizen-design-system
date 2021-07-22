@@ -94,9 +94,6 @@ $padding: $kz-var-spacing-xs;
   &.focus-visible {
     border: 2px $kz-var-color-cluny-500 solid;
     outline: none;
-    &.menuItem--destructive {
-      border: 2px $kz-var-color-coral-600 solid;
-    }
   }
 
   [dir="rtl"] & {
