@@ -140,7 +140,16 @@ const run = () => {
           "seedling"
         ),
         kz: {
-          color: defaultTheme.color,
+          color: omit(
+            defaultTheme.color,
+            "purple",
+            "blue",
+            "orange",
+            "yellow",
+            "red",
+            "green",
+            "gray"
+          ),
           DEPRECATED: defaultTheme.DEPRECATED,
         },
       })
