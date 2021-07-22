@@ -48,6 +48,7 @@ export const parseVariable = (node: WordNode): Variable | null => {
       name,
       nameWithPrefix: cleanedValue,
       prefix: firstChar,
+      // Important bit here. If a token exists in the consumers version of `@kaizen/design-tokens`, it will take precedence over ones that we know are removed.
       kaizenToken: foundKaizenToken || foundRemovedToken,
       interpolated,
       negated,
