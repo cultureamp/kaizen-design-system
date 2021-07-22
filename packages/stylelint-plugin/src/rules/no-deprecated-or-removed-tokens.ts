@@ -41,8 +41,8 @@ const disallowedAtRules = new Set([
 ])
 
 /**
- * This linter will report any deprecated tokens, and replace them with their new CSS variable replacement IF POSSIBLE.
- * If the linter determines it can't migrate, it will report an unmigratable declaration.
+ * This linter will report any deprecated or removed tokens, and potentially replace them with new ones.
+ * If the linter determines it can't automatically do a replacement, it will report an unfixable declaration (perhaps the replacement would cause an error).
  *
  * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
  */
@@ -150,7 +150,7 @@ export const noDeprecatedOrRemovedTokens: RuleDefinition = {
       ({ postcssNode, kaizenVariables, parsedValue }) => {
         let replacedNodeParams = postcssNode.params
         kaizenVariables.forEach(variable => {
-          // We only care about deprecated tokens
+          // We only care about deprecated or removed tokens
           if (isKaizenTokenDeprecatedOrRemoved(variable.name)) {
             const kaizenToken = variable.kaizenToken
 
