@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.3...@kaizen/draft-select@1.18.4) (2021-07-21)
+
+
+### Bug Fixes
+
+* Select types passing through to consumer ([c9438e8](https://github.com/cultureamp/kaizen-design-system/commit/c9438e875cb8b1db895c3e8877c8185a2bad0b12))
+
+
+
+
+
+## [1.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.2...@kaizen/draft-select@1.18.3) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.1...@kaizen/draft-select@1.18.2) (2021-07-19)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.0...@kaizen/draft-select@1.18.1) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-select

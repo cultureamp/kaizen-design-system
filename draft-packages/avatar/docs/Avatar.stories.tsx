@@ -6,6 +6,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Avatar (React)",
+  component: Avatar,
   parameters: {
     docs: {
       description: {

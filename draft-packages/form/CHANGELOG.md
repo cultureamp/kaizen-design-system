@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.5...@kaizen/draft-form@3.6.6) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.4...@kaizen/draft-form@3.6.5) (2021-07-19)
+
+
+### Bug Fixes
+
+* Change checkbox inactive hover colour to stone ([#1775](https://github.com/cultureamp/kaizen-design-system/issues/1775)) ([21e59d7](https://github.com/cultureamp/kaizen-design-system/commit/21e59d7b999765db5fb88b5689bfb6597645fe67)), closes [#1696](https://github.com/cultureamp/kaizen-design-system/issues/1696)
+
+
+
+
+
 ## [3.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.3...@kaizen/draft-form@3.6.4) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-form

@@ -17,6 +17,7 @@ export default {
           'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
       },
     },
+    backgrounds: { default: "Stone" },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
@@ -49,12 +50,16 @@ export const Default = () => (
   />
 )
 
+Default.storyName = "Default"
+
 export const DefaultWithoutActions = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
   />
 )
+
+DefaultWithoutActions.storyName = "Default Without Actions"
 
 export const WithoutActionArrowButton = () => (
   <GuidanceBlock
@@ -74,6 +79,8 @@ export const WithoutActionArrowButton = () => (
     withActionButtonArrow={false}
   />
 )
+
+WithoutActionArrowButton.storyName = "Without Action Arrow Button"
 
 export const WithoutMaxWidth = () => (
   <GuidanceBlock
@@ -95,6 +102,8 @@ export const WithoutMaxWidth = () => (
   />
 )
 
+WithoutMaxWidth.storyName = "Without Max Width"
+
 export const Persistent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
@@ -110,6 +119,8 @@ export const Persistent = () => (
     persistent
   />
 )
+
+Persistent.storyName = "Persistent"
 
 export const SecondaryAction = () => (
   <GuidanceBlock
@@ -132,6 +143,8 @@ export const SecondaryAction = () => (
   />
 )
 
+SecondaryAction.storyName = "Secondary Action"
+
 export const Prominent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
@@ -147,6 +160,8 @@ export const Prominent = () => (
     variant="prominent"
   />
 )
+
+Prominent.storyName = "Prominent"
 
 export const WithCustomDescription = () => (
   <GuidanceBlock
@@ -175,6 +190,7 @@ export const WithCustomDescription = () => (
     persistent
   />
 )
+WithCustomDescription.storyName = "With custom description"
 
 export const WithTooltip = () => (
   <GuidanceBlock
@@ -203,51 +219,3 @@ export const WithTooltip = () => (
     }}
   />
 )
-
-Default.storyName = "Default"
-
-Default.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-DefaultWithoutActions.storyName = "Default Without Actions"
-
-DefaultWithoutActions.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Persistent.storyName = "Persistent"
-
-Persistent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutActionArrowButton.storyName = "Without Action Arrow Button"
-
-WithoutActionArrowButton.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutMaxWidth.storyName = "Without Max Width"
-
-WithoutMaxWidth.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-SecondaryAction.storyName = "Secondary Action"
-
-SecondaryAction.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Prominent.storyName = "Prominent"
-
-Prominent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithCustomDescription.storyName = "With custom description"
-
-WithCustomDescription.paramters = {
-  backgrounds: { default: "Stone" },
-}

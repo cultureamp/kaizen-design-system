@@ -8,6 +8,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Badge (React)",
+  component: Badge,
   parameters: {
     docs: {
       description: {

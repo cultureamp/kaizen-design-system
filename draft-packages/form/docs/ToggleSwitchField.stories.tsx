@@ -28,14 +28,7 @@ class ToggleStateContainer extends React.Component<
   }
   render() {
     return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "0.2rem",
-        }}
-      >
+      <div>
         {this.props.children({
           toggledStatus: this.state.toggledStatus,
           toggle: this.toggle,

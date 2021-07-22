@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.15...@kaizen/draft-modal@5.6.16) (2021-07-21)
+
+
+### Bug Fixes
+
+* remove input edit modal typography that's adding a gap ([#1782](https://github.com/cultureamp/kaizen-design-system/issues/1782)) ([af323f7](https://github.com/cultureamp/kaizen-design-system/commit/af323f7700f52e39cece2c9455a0603a1b1938bd))
+
+
+
+
+
+## [5.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.14...@kaizen/draft-modal@5.6.15) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.13...@kaizen/draft-modal@5.6.14) (2021-07-19)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.12...@kaizen/draft-modal@5.6.13) (2021-07-19)
 
 **Note:** Version bump only for package @kaizen/draft-modal
