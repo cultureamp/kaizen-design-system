@@ -1,5 +1,11 @@
 #!/usr/bin/env yarn ts-node
 
+/**
+ * Use this script to generate a file containing tokens from a previous version of `@kaizen/design-token`.
+ * This allows the stylelint plugin to pick up old tokens, and recommend replacements.
+ * The rationale behind choosing this solution over others (e.g. detecting patterns in variable names) is in the PR description.
+ */
+
 import path from "path"
 import fs from "fs"
 import fetch from "node-fetch"
