@@ -223,19 +223,7 @@
     "white": "var(--color-white, #FFFFFF)",
     "white-rgb": "var(--color-white-rgb, 255, 255, 255)",
     "white-rgb-id": "--color-white-rgb",
-    "white-id": "--color-white",
-    "ash-rgb": "var(--color-ash-rgb, 236, 236, 239)",
-    "ash-rgb-id": "--color-ash-rgb",
-    "ash-id": "--color-ash",
-    "stone-rgb": "var(--color-stone-rgb, 246, 246, 246)",
-    "stone-rgb-id": "--color-stone-rgb",
-    "stone-id": "--color-stone",
-    "iron-rgb": "var(--color-iron-rgb, 140, 140, 151)",
-    "iron-rgb-id": "--color-iron-rgb",
-    "iron-id": "--color-iron",
-    "slate-rgb": "var(--color-slate-rgb, 82, 78, 86)",
-    "slate-rgb-id": "--color-slate-rgb",
-    "slate-id": "--color-slate"
+    "white-id": "--color-white"
   },
   "kz": {
     "color": {
