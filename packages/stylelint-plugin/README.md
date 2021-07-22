@@ -33,6 +33,7 @@ These rules are included by default:
   - `kz-var-spacing-md` -> `spacing-md`
   - `kz-var-id-color-peach-100` -> `color-orange-100-id`
   - `kz-var-color-seedling-500-rgb-params` -> `color-green-500-rgb`
+  - `kz-deprecated-color-lapis` -> no automatic replacement
 - `kaizen/no-invalid-use-of-var-tokens-in-functions` - Detects invalid usages of Kaizen variable tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used.
 - `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
