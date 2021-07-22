@@ -10,6 +10,7 @@ import path from "path"
 import fs from "fs"
 import fetch from "node-fetch"
 import merge from "lodash.merge"
+import { format } from "prettier"
 
 // Changing this version will change which unsupported/non-existent tokens the stylelint plugin knows about
 const version = "2.9.3"
@@ -39,7 +40,7 @@ const run = async () => {
   )
   fs.writeFileSync(
     path.resolve(__dirname, "generated", "removedTokens.json"),
-    JSON.stringify(removedTokens, undefined, 2)
+    format(JSON.stringify(removedTokens, undefined, 2), { parser: "json" })
   )
 }
 
