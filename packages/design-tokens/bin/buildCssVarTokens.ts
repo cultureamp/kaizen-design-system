@@ -78,13 +78,49 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  const customPropertiesThemeVersion2 = makeCSSVariableTheme(
+  /**
+   * This contains the css variable theme object on the "kz-var" top level namespace, with additional leaf keys in the style of version 2.
+   * It will look something like:
+   * ```
+   * {
+   *    "kz-var": {
+   *      color: {
+   *          wisteria: {
+   *            100: "var(--kz-var-color-wisteria-100, #012345)",
+   *            100-rgb-params: "var(--kz-var-color-wisteria-100-rgb-params, 000, 111, 222)",
+   *          }
+   *        }
+   *     }
+   *     ...
+   *     ...
+   * }
+   * ```
+   */
+  const augmentedThemeWithCSSVariableValuesVersion2 = makeCSSVariableTheme(
     defaultTheme,
     objectPathToCssVarReference,
     false
   )
 
-  const customPropertiesThemeVersion3 = makeCSSVariableTheme(
+  /**
+   * This contains the css variable theme object WITHOUT the "kz-var" top level namespace, with additional leaf keys in the style of version 3.
+   * It will look something like:
+   * ```
+   * {
+   *    color: {
+   *       wisteria: {
+   *         100: "var(--kz-var-color-wisteria-100, #012345)",
+   *         100-id: "--kz-var-color-wisteria-100",
+   *         100-rgb: "var(--kz-var-color-wisteria-100-rgb, 000, 111, 222)",
+   *         100-rgb-id: "--kz-var-color-wisteria-100-rgb",
+   *       }
+   *    }
+   *    ...
+   *    ...
+   *  }
+   * ```
+   */
+  const augmentedThemeWithCSSVariableValuesVersion3 = makeCSSVariableTheme(
     defaultTheme,
     objectPathToCssVarReference,
     true
@@ -116,9 +152,9 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
-        dataViz: customPropertiesThemeVersion3.dataViz,
+        dataViz: augmentedThemeWithCSSVariableValuesVersion3.dataViz,
         color: omit(
-          customPropertiesThemeVersion3.color,
+          augmentedThemeWithCSSVariableValuesVersion3.color,
           "ash",
           "ash-rgb",
           "ash-id",
@@ -154,7 +190,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { border: defaultTheme.border },
-        border: customPropertiesThemeVersion3.border,
+        border: augmentedThemeWithCSSVariableValuesVersion3.border,
       })
     )
   )
@@ -163,7 +199,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { animation: defaultTheme.animation },
-        animation: customPropertiesThemeVersion3.animation,
+        animation: augmentedThemeWithCSSVariableValuesVersion3.animation,
       })
     )
   )
@@ -182,7 +218,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { shadow: defaultTheme.shadow },
-        shadow: customPropertiesThemeVersion3.shadow,
+        shadow: augmentedThemeWithCSSVariableValuesVersion3.shadow,
       })
     )
   )
@@ -191,7 +227,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { spacing: defaultTheme.spacing },
-        spacing: customPropertiesThemeVersion3.spacing,
+        spacing: augmentedThemeWithCSSVariableValuesVersion3.spacing,
       })
     )
   )
@@ -200,7 +236,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { typography: defaultTheme.typography },
-        typography: customPropertiesThemeVersion3.typography,
+        typography: augmentedThemeWithCSSVariableValuesVersion3.typography,
       })
     )
   )
@@ -225,10 +261,14 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           color: omitHeartColorNames(
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].color
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].color
           ),
           DEPRECATED:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].DEPRECATED,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].DEPRECATED,
         },
       })
     )
@@ -239,7 +279,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           border:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].border,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].border,
         },
       })
     )
@@ -250,7 +292,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           animation:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].animation,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].animation,
         },
       })
     )
@@ -261,7 +305,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           layout:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].layout,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].layout,
         },
       })
     )
@@ -272,7 +318,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           shadow:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].shadow,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].shadow,
         },
       })
     )
@@ -283,7 +331,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           spacing:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].spacing,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].spacing,
         },
       })
     )
@@ -294,7 +344,9 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           typography:
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].typography,
+            augmentedThemeWithCSSVariableValuesVersion2[
+              cssVariableThemeNamespace
+            ].typography,
         },
       })
     )

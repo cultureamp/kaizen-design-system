@@ -124,11 +124,11 @@ export const flattenObjectToCSSVariables = (
  * ```
  */
 
-export const makeCSSVariableTheme = (
+export const makeCSSVariableTheme = <V3 extends boolean>(
   theme: Theme,
   printValue = objectPathToCssVarReference,
   /* This will change the way the theme is generated so to support the new token naming requirements, such as changing `-rgb-params` to `-rgb` etc. */
-  version3 = false
+  version3: V3 = false as V3
 ) => {
   const augmentedTheme: Record<string, unknown> = {}
   const mapper = (leafPath: string[], value: unknown) => {
@@ -160,12 +160,14 @@ export const makeCSSVariableTheme = (
   }
 
   // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
-  mapLeafsOfObject(theme, mapper)
-  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
+  if (version3) mapLeafsOfObject(theme, mapper)
+  else mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
-  return augmentedTheme as DeepMapObjectLeafs<Theme, string> & {
-    [cssVariableThemeNamespace]: DeepMapObjectLeafs<Theme, string>
-  }
+  return augmentedTheme as typeof version3 extends true
+    ? DeepMapObjectLeafs<Theme, string>
+    : {
+        [cssVariableThemeNamespace]: DeepMapObjectLeafs<Theme, string>
+      }
 }
 
 /**
