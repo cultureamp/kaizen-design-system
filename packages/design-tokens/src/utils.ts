@@ -181,7 +181,9 @@ export const makeCSSVariableTheme = (
  * }
  * ```
  */
-export const makeCSSVariablesOfTheme = (theme: Theme) =>
+export const makeCSSVariablesOfTheme = (
+  theme: Record<string | number, unknown>
+) =>
   flattenObjectToCSSVariables({
     ...theme,
     [cssVariableThemeNamespace]: theme,

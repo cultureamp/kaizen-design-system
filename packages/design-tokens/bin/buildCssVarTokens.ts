@@ -14,6 +14,9 @@ import {
   cssVariableThemeNamespace,
 } from "../src/utils"
 
+const omitHeartColorNames = (obj: Record<any, any>) =>
+  omit(obj, "purple", "blue", "orange", "yellow", "red", "green", "gray")
+
 const { jsonOutput, cssOutput } = yargs
   .option("jsonOutput", {
     description:
@@ -32,7 +35,7 @@ const { jsonOutput, cssOutput } = yargs
 const formatJson = (jsonString: string) =>
   format(jsonString, { parser: "json" })
 
-const themeToCssVariableStylesheetString = (theme: Theme) =>
+const themeToCssVariableStylesheetString = (theme: Record<string, unknown>) =>
   format(
     `:root {
 ${Object.entries(makeCSSVariablesOfTheme(theme))
@@ -140,16 +143,7 @@ const run = () => {
           "seedling"
         ),
         kz: {
-          color: omit(
-            defaultTheme.color,
-            "purple",
-            "blue",
-            "orange",
-            "yellow",
-            "red",
-            "green",
-            "gray"
-          ),
+          color: omitHeartColorNames(defaultTheme.color),
           DEPRECATED: defaultTheme.DEPRECATED,
         },
       })
@@ -230,15 +224,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          color: omit(
-            customPropertiesThemeVersion2[cssVariableThemeNamespace].color,
-            "purple",
-            "blue",
-            "orange",
-            "yellow",
-            "red",
-            "green",
-            "gray"
+          color: omitHeartColorNames(
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].color
           ),
           DEPRECATED:
             customPropertiesThemeVersion2[cssVariableThemeNamespace].DEPRECATED,
@@ -316,15 +303,24 @@ const run = () => {
   /* Write CSS variable theme files */
   fs.writeFileSync(
     path.resolve(cssOutput, "zen-theme.css"),
-    themeToCssVariableStylesheetString(zenTheme)
+    themeToCssVariableStylesheetString({
+      ...zenTheme,
+      color: omitHeartColorNames(zenTheme.color),
+    })
   )
   fs.writeFileSync(
     path.resolve(cssOutput, "heart-theme.css"),
-    themeToCssVariableStylesheetString(heartTheme)
+    themeToCssVariableStylesheetString({
+      ...zenTheme,
+      color: omitHeartColorNames(heartTheme.color),
+    })
   )
   fs.writeFileSync(
     path.resolve(cssOutput, "default-theme.css"),
-    themeToCssVariableStylesheetString(defaultTheme)
+    themeToCssVariableStylesheetString({
+      ...zenTheme,
+      color: omitHeartColorNames(defaultTheme.color),
+    })
   )
 }
 
