@@ -105,7 +105,7 @@ const run = () => {
     ```
    */
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
-    defaultTheme,
+    { ...defaultTheme, color: omitHeartColorNames(defaultTheme.color) } as any, // the "as any" here is temporary until we remove this
     objectPathToCssVarIdentifier,
     false
   )
