@@ -1,5 +1,5 @@
 :root {
-  --theme-key: zen;
+  --theme-key: heart;
   --theme-key-id: --theme-key;
   --animation-easing-function-ease-in-out: cubic-bezier(
     0.455,
@@ -321,15 +321,15 @@
   --color-slate-rgb-id: --color-slate-rgb;
   --color-slate-rgb-params: 82, 78, 86;
   --color-slate-id: --color-slate;
-  --data-viz-favorable: #6b6e94;
-  --data-viz-favorable-rgb: 107, 110, 148;
+  --data-viz-favorable: #7dd5bd;
+  --data-viz-favorable-rgb: 125, 213, 189;
   --data-viz-favorable-rgb-id: --data-viz-favorable-rgb;
-  --data-viz-favorable-rgb-params: 107, 110, 148;
+  --data-viz-favorable-rgb-params: 125, 213, 189;
   --data-viz-favorable-id: --data-viz-favorable;
-  --data-viz-unfavorable: #fccfd4;
-  --data-viz-unfavorable-rgb: 252, 207, 212;
+  --data-viz-unfavorable: #e68d97;
+  --data-viz-unfavorable-rgb: 230, 141, 151;
   --data-viz-unfavorable-rgb-id: --data-viz-unfavorable-rgb;
-  --data-viz-unfavorable-rgb-params: 252, 207, 212;
+  --data-viz-unfavorable-rgb-params: 230, 141, 151;
   --data-viz-unfavorable-id: --data-viz-unfavorable;
   --deprecated-color-lapis: #253c64;
   --deprecated-color-lapis-rgb: 37, 60, 100;
@@ -363,9 +363,9 @@
   --layout-breakpoints-medium-id: --layout-breakpoints-medium;
   --layout-breakpoints-large: 1080px;
   --layout-breakpoints-large-id: --layout-breakpoints-large;
-  --shadow-small-box-shadow: 0 0 4px rgba(0, 0, 0, 0.09);
+  --shadow-small-box-shadow: 0 0 6px rgba(53, 55, 74, 0.09);
   --shadow-small-box-shadow-id: --shadow-small-box-shadow;
-  --shadow-large-box-shadow: 0 0 12px rgba(0, 0, 0, 0.19);
+  --shadow-large-box-shadow: 0 0 12px rgba(53, 55, 74, 0.19);
   --shadow-large-box-shadow-id: --shadow-large-box-shadow;
   --spacing-xs: 0.375rem;
   --spacing-xs-id: --spacing-xs;
@@ -385,8 +385,8 @@
   --spacing-xxxxl-id: --spacing-xxxxl;
   --spacing-xxxxxl: 6rem;
   --spacing-xxxxxl-id: --spacing-xxxxxl;
-  --typography-data-large-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-data-large-font-family: "Inter", "Noto Sans", Helvetica, Arial,
+    sans-serif;
   --typography-data-large-font-family-id: --typography-data-large-font-family;
   --typography-data-large-font-weight: 700;
   --typography-data-large-font-weight-id: --typography-data-large-font-weight;
@@ -396,8 +396,8 @@
   --typography-data-large-line-height-id: --typography-data-large-line-height;
   --typography-data-large-letter-spacing: normal;
   --typography-data-large-letter-spacing-id: --typography-data-large-letter-spacing;
-  --typography-data-large-units-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --typography-data-large-units-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --typography-data-large-units-font-family-id: --typography-data-large-units-font-family;
   --typography-data-large-units-font-weight: 700;
   --typography-data-large-units-font-weight-id: --typography-data-large-units-font-weight;
@@ -407,8 +407,8 @@
   --typography-data-large-units-line-height-id: --typography-data-large-units-line-height;
   --typography-data-large-units-letter-spacing: normal;
   --typography-data-large-units-letter-spacing-id: --typography-data-large-units-letter-spacing;
-  --typography-data-medium-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-data-medium-font-family: "Inter", "Noto Sans", Helvetica, Arial,
+    sans-serif;
   --typography-data-medium-font-family-id: --typography-data-medium-font-family;
   --typography-data-medium-font-weight: 700;
   --typography-data-medium-font-weight-id: --typography-data-medium-font-weight;
@@ -418,8 +418,8 @@
   --typography-data-medium-line-height-id: --typography-data-medium-line-height;
   --typography-data-medium-letter-spacing: normal;
   --typography-data-medium-letter-spacing-id: --typography-data-medium-letter-spacing;
-  --typography-data-medium-units-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --typography-data-medium-units-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --typography-data-medium-units-font-family-id: --typography-data-medium-units-font-family;
   --typography-data-medium-units-font-weight: 700;
   --typography-data-medium-units-font-weight-id: --typography-data-medium-units-font-weight;
@@ -451,41 +451,40 @@
   --typography-data-small-units-line-height-id: --typography-data-small-units-line-height;
   --typography-data-small-units-letter-spacing: normal;
   --typography-data-small-units-letter-spacing-id: --typography-data-small-units-letter-spacing;
-  --typography-display-0-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-display-0-font-family: "Tiempos Headline", Georgia, serif;
   --typography-display-0-font-family-id: --typography-display-0-font-family;
-  --typography-display-0-font-weight: 700;
+  --typography-display-0-font-weight: 800;
   --typography-display-0-font-weight-id: --typography-display-0-font-weight;
   --typography-display-0-font-size: 4.5rem;
   --typography-display-0-font-size-id: --typography-display-0-font-size;
-  --typography-display-0-line-height: 4.5rem;
+  --typography-display-0-line-height: 5.25rem;
   --typography-display-0-line-height-id: --typography-display-0-line-height;
-  --typography-display-0-letter-spacing: -0.03em;
+  --typography-display-0-letter-spacing: 0em;
   --typography-display-0-letter-spacing-id: --typography-display-0-letter-spacing;
-  --typography-heading-1-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-heading-1-font-family: "Inter", "Noto Sans", Helvetica, Arial,
+    sans-serif;
   --typography-heading-1-font-family-id: --typography-heading-1-font-family;
   --typography-heading-1-font-weight: 700;
   --typography-heading-1-font-weight-id: --typography-heading-1-font-weight;
-  --typography-heading-1-font-size: 2.25rem;
+  --typography-heading-1-font-size: 2.125rem;
   --typography-heading-1-font-size-id: --typography-heading-1-font-size;
-  --typography-heading-1-line-height: 2.25rem;
+  --typography-heading-1-line-height: 2.625rem;
   --typography-heading-1-line-height-id: --typography-heading-1-line-height;
-  --typography-heading-1-letter-spacing: -0.03em;
+  --typography-heading-1-letter-spacing: normal;
   --typography-heading-1-letter-spacing-id: --typography-heading-1-letter-spacing;
-  --typography-heading-2-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-heading-2-font-family: "Inter", "Noto Sans", Helvetica, Arial,
+    sans-serif;
   --typography-heading-2-font-family-id: --typography-heading-2-font-family;
   --typography-heading-2-font-weight: 700;
   --typography-heading-2-font-weight-id: --typography-heading-2-font-weight;
-  --typography-heading-2-font-size: 1.875rem;
+  --typography-heading-2-font-size: 1.75rem;
   --typography-heading-2-font-size-id: --typography-heading-2-font-size;
   --typography-heading-2-line-height: 2.25rem;
   --typography-heading-2-line-height-id: --typography-heading-2-line-height;
-  --typography-heading-2-letter-spacing: -0.03em;
+  --typography-heading-2-letter-spacing: normal;
   --typography-heading-2-letter-spacing-id: --typography-heading-2-letter-spacing;
-  --typography-heading-3-font-family: "Greycliff CF", "Noto Sans", Helvetica,
-    Arial, sans-serif;
+  --typography-heading-3-font-family: "Inter", "Noto Sans", Helvetica, Arial,
+    sans-serif;
   --typography-heading-3-font-family-id: --typography-heading-3-font-family;
   --typography-heading-3-font-weight: 700;
   --typography-heading-3-font-weight-id: --typography-heading-3-font-weight;
@@ -493,7 +492,7 @@
   --typography-heading-3-font-size-id: --typography-heading-3-font-size;
   --typography-heading-3-line-height: 1.5rem;
   --typography-heading-3-line-height-id: --typography-heading-3-line-height;
-  --typography-heading-3-letter-spacing: -0.03em;
+  --typography-heading-3-letter-spacing: normal;
   --typography-heading-3-letter-spacing-id: --typography-heading-3-letter-spacing;
   --typography-heading-4-font-family: "Inter", "Noto Sans", Helvetica, Arial,
     sans-serif;
@@ -596,7 +595,7 @@
   --typography-button-secondary-line-height-id: --typography-button-secondary-line-height;
   --typography-button-secondary-letter-spacing: normal;
   --typography-button-secondary-letter-spacing-id: --typography-button-secondary-letter-spacing;
-  --kz-var-theme-key: zen;
+  --kz-var-theme-key: heart;
   --kz-var-theme-key-id: --kz-var-theme-key;
   --kz-var-animation-easing-function-ease-in-out: cubic-bezier(
     0.455,
@@ -928,15 +927,15 @@
   --kz-var-color-slate-rgb-id: --kz-var-color-slate-rgb;
   --kz-var-color-slate-rgb-params: 82, 78, 86;
   --kz-var-color-slate-id: --kz-var-color-slate;
-  --kz-var-data-viz-favorable: #6b6e94;
-  --kz-var-data-viz-favorable-rgb: 107, 110, 148;
+  --kz-var-data-viz-favorable: #7dd5bd;
+  --kz-var-data-viz-favorable-rgb: 125, 213, 189;
   --kz-var-data-viz-favorable-rgb-id: --kz-var-data-viz-favorable-rgb;
-  --kz-var-data-viz-favorable-rgb-params: 107, 110, 148;
+  --kz-var-data-viz-favorable-rgb-params: 125, 213, 189;
   --kz-var-data-viz-favorable-id: --kz-var-data-viz-favorable;
-  --kz-var-data-viz-unfavorable: #fccfd4;
-  --kz-var-data-viz-unfavorable-rgb: 252, 207, 212;
+  --kz-var-data-viz-unfavorable: #e68d97;
+  --kz-var-data-viz-unfavorable-rgb: 230, 141, 151;
   --kz-var-data-viz-unfavorable-rgb-id: --kz-var-data-viz-unfavorable-rgb;
-  --kz-var-data-viz-unfavorable-rgb-params: 252, 207, 212;
+  --kz-var-data-viz-unfavorable-rgb-params: 230, 141, 151;
   --kz-var-data-viz-unfavorable-id: --kz-var-data-viz-unfavorable;
   --kz-var-deprecated-color-lapis: #253c64;
   --kz-var-deprecated-color-lapis-rgb: 37, 60, 100;
@@ -970,9 +969,9 @@
   --kz-var-layout-breakpoints-medium-id: --kz-var-layout-breakpoints-medium;
   --kz-var-layout-breakpoints-large: 1080px;
   --kz-var-layout-breakpoints-large-id: --kz-var-layout-breakpoints-large;
-  --kz-var-shadow-small-box-shadow: 0 0 4px rgba(0, 0, 0, 0.09);
+  --kz-var-shadow-small-box-shadow: 0 0 6px rgba(53, 55, 74, 0.09);
   --kz-var-shadow-small-box-shadow-id: --kz-var-shadow-small-box-shadow;
-  --kz-var-shadow-large-box-shadow: 0 0 12px rgba(0, 0, 0, 0.19);
+  --kz-var-shadow-large-box-shadow: 0 0 12px rgba(53, 55, 74, 0.19);
   --kz-var-shadow-large-box-shadow-id: --kz-var-shadow-large-box-shadow;
   --kz-var-spacing-xs: 0.375rem;
   --kz-var-spacing-xs-id: --kz-var-spacing-xs;
@@ -992,8 +991,8 @@
   --kz-var-spacing-xxxxl-id: --kz-var-spacing-xxxxl;
   --kz-var-spacing-xxxxxl: 6rem;
   --kz-var-spacing-xxxxxl-id: --kz-var-spacing-xxxxxl;
-  --kz-var-typography-data-large-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-data-large-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-data-large-font-family-id: --kz-var-typography-data-large-font-family;
   --kz-var-typography-data-large-font-weight: 700;
   --kz-var-typography-data-large-font-weight-id: --kz-var-typography-data-large-font-weight;
@@ -1003,7 +1002,7 @@
   --kz-var-typography-data-large-line-height-id: --kz-var-typography-data-large-line-height;
   --kz-var-typography-data-large-letter-spacing: normal;
   --kz-var-typography-data-large-letter-spacing-id: --kz-var-typography-data-large-letter-spacing;
-  --kz-var-typography-data-large-units-font-family: "Greycliff CF", "Noto Sans",
+  --kz-var-typography-data-large-units-font-family: "Inter", "Noto Sans",
     Helvetica, Arial, sans-serif;
   --kz-var-typography-data-large-units-font-family-id: --kz-var-typography-data-large-units-font-family;
   --kz-var-typography-data-large-units-font-weight: 700;
@@ -1014,8 +1013,8 @@
   --kz-var-typography-data-large-units-line-height-id: --kz-var-typography-data-large-units-line-height;
   --kz-var-typography-data-large-units-letter-spacing: normal;
   --kz-var-typography-data-large-units-letter-spacing-id: --kz-var-typography-data-large-units-letter-spacing;
-  --kz-var-typography-data-medium-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-data-medium-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-data-medium-font-family-id: --kz-var-typography-data-medium-font-family;
   --kz-var-typography-data-medium-font-weight: 700;
   --kz-var-typography-data-medium-font-weight-id: --kz-var-typography-data-medium-font-weight;
@@ -1025,7 +1024,7 @@
   --kz-var-typography-data-medium-line-height-id: --kz-var-typography-data-medium-line-height;
   --kz-var-typography-data-medium-letter-spacing: normal;
   --kz-var-typography-data-medium-letter-spacing-id: --kz-var-typography-data-medium-letter-spacing;
-  --kz-var-typography-data-medium-units-font-family: "Greycliff CF", "Noto Sans",
+  --kz-var-typography-data-medium-units-font-family: "Inter", "Noto Sans",
     Helvetica, Arial, sans-serif;
   --kz-var-typography-data-medium-units-font-family-id: --kz-var-typography-data-medium-units-font-family;
   --kz-var-typography-data-medium-units-font-weight: 700;
@@ -1058,41 +1057,40 @@
   --kz-var-typography-data-small-units-line-height-id: --kz-var-typography-data-small-units-line-height;
   --kz-var-typography-data-small-units-letter-spacing: normal;
   --kz-var-typography-data-small-units-letter-spacing-id: --kz-var-typography-data-small-units-letter-spacing;
-  --kz-var-typography-display-0-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-display-0-font-family: "Tiempos Headline", Georgia, serif;
   --kz-var-typography-display-0-font-family-id: --kz-var-typography-display-0-font-family;
-  --kz-var-typography-display-0-font-weight: 700;
+  --kz-var-typography-display-0-font-weight: 800;
   --kz-var-typography-display-0-font-weight-id: --kz-var-typography-display-0-font-weight;
   --kz-var-typography-display-0-font-size: 4.5rem;
   --kz-var-typography-display-0-font-size-id: --kz-var-typography-display-0-font-size;
-  --kz-var-typography-display-0-line-height: 4.5rem;
+  --kz-var-typography-display-0-line-height: 5.25rem;
   --kz-var-typography-display-0-line-height-id: --kz-var-typography-display-0-line-height;
-  --kz-var-typography-display-0-letter-spacing: -0.03em;
+  --kz-var-typography-display-0-letter-spacing: 0em;
   --kz-var-typography-display-0-letter-spacing-id: --kz-var-typography-display-0-letter-spacing;
-  --kz-var-typography-heading-1-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-1-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-1-font-family-id: --kz-var-typography-heading-1-font-family;
   --kz-var-typography-heading-1-font-weight: 700;
   --kz-var-typography-heading-1-font-weight-id: --kz-var-typography-heading-1-font-weight;
-  --kz-var-typography-heading-1-font-size: 2.25rem;
+  --kz-var-typography-heading-1-font-size: 2.125rem;
   --kz-var-typography-heading-1-font-size-id: --kz-var-typography-heading-1-font-size;
-  --kz-var-typography-heading-1-line-height: 2.25rem;
+  --kz-var-typography-heading-1-line-height: 2.625rem;
   --kz-var-typography-heading-1-line-height-id: --kz-var-typography-heading-1-line-height;
-  --kz-var-typography-heading-1-letter-spacing: -0.03em;
+  --kz-var-typography-heading-1-letter-spacing: normal;
   --kz-var-typography-heading-1-letter-spacing-id: --kz-var-typography-heading-1-letter-spacing;
-  --kz-var-typography-heading-2-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-2-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-2-font-family-id: --kz-var-typography-heading-2-font-family;
   --kz-var-typography-heading-2-font-weight: 700;
   --kz-var-typography-heading-2-font-weight-id: --kz-var-typography-heading-2-font-weight;
-  --kz-var-typography-heading-2-font-size: 1.875rem;
+  --kz-var-typography-heading-2-font-size: 1.75rem;
   --kz-var-typography-heading-2-font-size-id: --kz-var-typography-heading-2-font-size;
   --kz-var-typography-heading-2-line-height: 2.25rem;
   --kz-var-typography-heading-2-line-height-id: --kz-var-typography-heading-2-line-height;
-  --kz-var-typography-heading-2-letter-spacing: -0.03em;
+  --kz-var-typography-heading-2-letter-spacing: normal;
   --kz-var-typography-heading-2-letter-spacing-id: --kz-var-typography-heading-2-letter-spacing;
-  --kz-var-typography-heading-3-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-3-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-3-font-family-id: --kz-var-typography-heading-3-font-family;
   --kz-var-typography-heading-3-font-weight: 700;
   --kz-var-typography-heading-3-font-weight-id: --kz-var-typography-heading-3-font-weight;
@@ -1100,7 +1098,7 @@
   --kz-var-typography-heading-3-font-size-id: --kz-var-typography-heading-3-font-size;
   --kz-var-typography-heading-3-line-height: 1.5rem;
   --kz-var-typography-heading-3-line-height-id: --kz-var-typography-heading-3-line-height;
-  --kz-var-typography-heading-3-letter-spacing: -0.03em;
+  --kz-var-typography-heading-3-letter-spacing: normal;
   --kz-var-typography-heading-3-letter-spacing-id: --kz-var-typography-heading-3-letter-spacing;
   --kz-var-typography-heading-4-font-family: "Inter", "Noto Sans", Helvetica,
     Arial, sans-serif;

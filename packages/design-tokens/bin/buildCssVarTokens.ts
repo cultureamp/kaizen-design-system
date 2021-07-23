@@ -363,14 +363,14 @@ const run = () => {
   fs.writeFileSync(
     path.resolve(cssOutput, "heart-theme.css"),
     themeToCssVariableStylesheetString({
-      ...zenTheme,
+      ...heartTheme,
       color: omitHeartColorNames(heartTheme.color),
     })
   )
   fs.writeFileSync(
     path.resolve(cssOutput, "default-theme.css"),
     themeToCssVariableStylesheetString({
-      ...zenTheme,
+      ...defaultTheme,
       color: omitHeartColorNames(defaultTheme.color),
     })
   )
