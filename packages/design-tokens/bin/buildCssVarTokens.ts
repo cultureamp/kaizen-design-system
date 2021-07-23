@@ -1,17 +1,17 @@
 import fs from "fs"
 import path from "path"
+import omit from "lodash.omit"
 import { format } from "prettier"
 import * as yargs from "yargs"
-import omit from "lodash.omit"
 import { defaultTheme, heartTheme, Theme, zenTheme } from "../"
 import {
   augmentCssVariable,
-  mapLeafsOfObject,
-  makeCSSVariableTheme,
-  objectPathToCssVarIdentifier,
-  makeCSSVariablesOfTheme,
-  objectPathToCssVarReference,
   cssVariableThemeNamespace,
+  makeCSSVariablesOfTheme,
+  makeCSSVariableTheme,
+  mapLeafsOfObject,
+  objectPathToCssVarIdentifier,
+  objectPathToCssVarReference,
 } from "../src/utils"
 
 const omitHeartColorNames = (obj: Record<any, any>) =>
@@ -79,10 +79,19 @@ const run = () => {
   fs.mkdirSync(cssOutput, { recursive: true })
 
   /**
-   * This contains the css variable theme object on the "kz-var" top level namespace, with additional leaf keys in the style of version 2.
+   *
    * It will look something like:
    * ```
    * {
+   *    color: {
+   *       wisteria: {
+   *         100: "var(--kz-var-color-wisteria-100, #012345)",
+   *         100-id: "--kz-var-color-wisteria-100",
+   *         100-rgb: "var(--kz-var-color-wisteria-100-rgb, 000, 111, 222)",
+   *         100-rgb-id: "--kz-var-color-wisteria-100-rgb",
+   *       }
+   *    },
+   *
    *    "kz-var": {
    *      color: {
    *          wisteria: {
@@ -96,34 +105,8 @@ const run = () => {
    * }
    * ```
    */
-  const augmentedThemeWithCSSVariableValuesVersion2 = makeCSSVariableTheme(
-    defaultTheme,
-    objectPathToCssVarReference,
-    false
-  )
-
-  /**
-   * This contains the css variable theme object WITHOUT the "kz-var" top level namespace, with additional leaf keys in the style of version 3.
-   * It will look something like:
-   * ```
-   * {
-   *    color: {
-   *       wisteria: {
-   *         100: "var(--kz-var-color-wisteria-100, #012345)",
-   *         100-id: "--kz-var-color-wisteria-100",
-   *         100-rgb: "var(--kz-var-color-wisteria-100-rgb, 000, 111, 222)",
-   *         100-rgb-id: "--kz-var-color-wisteria-100-rgb",
-   *       }
-   *    }
-   *    ...
-   *    ...
-   *  }
-   * ```
-   */
-  const augmentedThemeWithCSSVariableValuesVersion3 = makeCSSVariableTheme(
-    defaultTheme,
-    objectPathToCssVarReference,
-    true
+  const augmentedThemeWithCSSVariableValuesVersion = makeCSSVariableTheme(
+    defaultTheme
   )
 
   /*
@@ -141,9 +124,8 @@ const run = () => {
     ```
    */
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
-    { ...defaultTheme, color: omitHeartColorNames(defaultTheme.color) } as any, // the "as any" here is temporary until we remove this
-    objectPathToCssVarIdentifier,
-    false
+    defaultTheme,
+    objectPathToCssVarIdentifier
   )
 
   /* Write JSON tokens */
@@ -152,32 +134,8 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
-        dataViz: augmentedThemeWithCSSVariableValuesVersion3.dataViz,
-        color: omit(
-          augmentedThemeWithCSSVariableValuesVersion3.color,
-          "ash",
-          "ash-rgb",
-          "ash-id",
-          "ash-rgb-id",
-          "stone",
-          "stone-rgb",
-          "stone-id",
-          "stone-rgb-id",
-          "slate",
-          "slate-rgb",
-          "slate-id",
-          "slate-rgb-id",
-          "iron",
-          "iron-rgb",
-          "iron-id",
-          "iron-rgb-id",
-          "wisteria",
-          "cluny",
-          "peach",
-          "yuzu",
-          "coral",
-          "seedling"
-        ),
+        dataViz: augmentedThemeWithCSSVariableValuesVersion.dataViz,
+        color: augmentedThemeWithCSSVariableValuesVersion.color,
         kz: {
           color: omitHeartColorNames(defaultTheme.color),
           DEPRECATED: defaultTheme.DEPRECATED,
@@ -190,7 +148,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { border: defaultTheme.border },
-        border: augmentedThemeWithCSSVariableValuesVersion3.border,
+        border: augmentedThemeWithCSSVariableValuesVersion.border,
       })
     )
   )
@@ -199,7 +157,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { animation: defaultTheme.animation },
-        animation: augmentedThemeWithCSSVariableValuesVersion3.animation,
+        animation: augmentedThemeWithCSSVariableValuesVersion.animation,
       })
     )
   )
@@ -218,7 +176,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { shadow: defaultTheme.shadow },
-        shadow: augmentedThemeWithCSSVariableValuesVersion3.shadow,
+        shadow: augmentedThemeWithCSSVariableValuesVersion.shadow,
       })
     )
   )
@@ -227,7 +185,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { spacing: defaultTheme.spacing },
-        spacing: augmentedThemeWithCSSVariableValuesVersion3.spacing,
+        spacing: augmentedThemeWithCSSVariableValuesVersion.spacing,
       })
     )
   )
@@ -236,7 +194,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { typography: defaultTheme.typography },
-        typography: augmentedThemeWithCSSVariableValuesVersion3.typography,
+        typography: augmentedThemeWithCSSVariableValuesVersion.typography,
       })
     )
   )
@@ -260,13 +218,12 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          color: omitHeartColorNames(
-            augmentedThemeWithCSSVariableValuesVersion2[
+          color:
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
-            ].color
-          ),
+            ].color,
           DEPRECATED:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].DEPRECATED,
         },
@@ -279,7 +236,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           border:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].border,
         },
@@ -292,7 +249,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           animation:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].animation,
         },
@@ -305,7 +262,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           layout:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].layout,
         },
@@ -318,7 +275,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           shadow:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].shadow,
         },
@@ -331,7 +288,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           spacing:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].spacing,
         },
@@ -344,7 +301,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           typography:
-            augmentedThemeWithCSSVariableValuesVersion2[
+            augmentedThemeWithCSSVariableValuesVersion[
               cssVariableThemeNamespace
             ].typography,
         },
@@ -355,24 +312,15 @@ const run = () => {
   /* Write CSS variable theme files */
   fs.writeFileSync(
     path.resolve(cssOutput, "zen-theme.css"),
-    themeToCssVariableStylesheetString({
-      ...zenTheme,
-      color: omitHeartColorNames(zenTheme.color),
-    })
+    themeToCssVariableStylesheetString(zenTheme)
   )
   fs.writeFileSync(
     path.resolve(cssOutput, "heart-theme.css"),
-    themeToCssVariableStylesheetString({
-      ...heartTheme,
-      color: omitHeartColorNames(heartTheme.color),
-    })
+    themeToCssVariableStylesheetString(heartTheme)
   )
   fs.writeFileSync(
     path.resolve(cssOutput, "default-theme.css"),
-    themeToCssVariableStylesheetString({
-      ...defaultTheme,
-      color: omitHeartColorNames(defaultTheme.color),
-    })
+    themeToCssVariableStylesheetString(defaultTheme)
   )
 }
 

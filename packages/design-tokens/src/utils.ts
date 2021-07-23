@@ -1,7 +1,19 @@
 import colorString from "color-string"
 import camelToKebab from "lodash.kebabcase"
-import { DeepMapObjectLeafs, Theme } from "./types"
+import { heartColorNamePattern, zenColorNamePattern } from "./patterns"
+import { DeepMapObjectLeafs } from "./types"
 
+const version3VariableAugmentations = {
+  augmentWithId: true,
+  augmentWithRgbParams: false,
+  augmentWithRgb: true,
+}
+
+const version2VariableAugmentations = {
+  augmentWithId: false,
+  augmentWithRgb: false,
+  augmentWithRgbParams: true,
+}
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.
  * This function was build to support mapping theme values to their respective CSS variable identifiers.
@@ -87,13 +99,24 @@ export const flattenObjectToCSSVariables = (
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
+    const version3 = !path[0].includes("kz")
+    if (version3) {
+      // If the key is part of version 3, ignore any zen color names
+      if (path[0] === "color" && zenColorNamePattern.test(path[1])) return
+    } else {
+      // If not, ignore any heart color names
+      if (path[1] === "color" && heartColorNamePattern.test(path[2])) return
+    }
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
     const cssVariablesOfToken = augmentCssVariable(
       path,
       key,
       value,
-      (_, v) => `${v}`
+      (_, v) => `${v}`,
+      version3
+        ? { ...version3VariableAugmentations, augmentWithId: false }
+        : { ...version2VariableAugmentations, augmentWithId: false }
     )
     cssVariables = {
       ...cssVariables,
@@ -104,6 +127,8 @@ export const flattenObjectToCSSVariables = (
 }
 
 /**
+ * This function could use a new name during a breaking change
+ *
  * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys with R, G, B triple values, and
  * convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy.
  * Example:
@@ -120,18 +145,35 @@ export const flattenObjectToCSSVariables = (
  *    color: {
  *        wisteria: "var(--color-wisteria)"
  *    }
+ *    kz-var: {
+ *        color: {
+ *            wisteria: "var(--kz-var-color-wisteria)"
+ *        }
+ *    }
  * }
  * ```
  */
 
-export const makeCSSVariableTheme = <V3 extends boolean>(
-  theme: Theme,
-  printValue = objectPathToCssVarReference,
-  /* This will change the way the theme is generated so to support the new token naming requirements, such as changing `-rgb-params` to `-rgb` etc. */
-  version3: V3 = false as V3
+export const makeCSSVariableTheme = <
+  ThemeType extends Record<string | number, unknown>
+>(
+  theme: ThemeType,
+  printValue = objectPathToCssVarReference
 ) => {
   const augmentedTheme: Record<string, unknown> = {}
   const mapper = (leafPath: string[], value: unknown) => {
+    // We can automatically tell whether we want to produce version 3 variables by looking at the top level namespace
+    const version3 = !leafPath[0].includes("kz")
+
+    if (version3) {
+      // If the key is part of version 3, ignore any zen color names
+      if (leafPath[0] === "color" && zenColorNamePattern.test(leafPath[1]))
+        return
+    } else {
+      // If not, ignore any heart color names
+      if (leafPath[1] === "color" && heartColorNamePattern.test(leafPath[2]))
+        return
+    }
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(
@@ -144,33 +186,23 @@ export const makeCSSVariableTheme = <V3 extends boolean>(
       leafKey,
       value,
       printValue,
-      version3
-        ? {
-            augmentWithId: true,
-            augmentWithRgbParams: false,
-            augmentWithRgb: true,
-          }
-        : {
-            augmentWithId: false,
-            augmentWithRgb: false,
-            augmentWithRgbParams: true,
-          }
+      version3 ? version3VariableAugmentations : version2VariableAugmentations
     )
     Object.assign(leafObject, cssVariablesOfToken)
   }
 
   // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
-  if (version3) mapLeafsOfObject(theme, mapper)
-  else mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
+  mapLeafsOfObject(theme, mapper)
+  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
-  return augmentedTheme as typeof version3 extends true
-    ? DeepMapObjectLeafs<Theme, string>
-    : {
-        [cssVariableThemeNamespace]: DeepMapObjectLeafs<Theme, string>
-      }
+  return augmentedTheme as DeepMapObjectLeafs<ThemeType, string> & {
+    [cssVariableThemeNamespace]: DeepMapObjectLeafs<ThemeType, string>
+  }
 }
 
 /**
+ * Choose a better name during a breaking change
+ *
  * Make a map of CSS variables -> values in a consistent way.
  * Use this to, for example, create a CSS file that declares each theme variable on the `:root` pseudo element.
  * Example output:
