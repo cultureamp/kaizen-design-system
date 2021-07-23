@@ -55,6 +55,7 @@ import {
   BrandMomentPositiveOutro,
   BrandMomentLogin,
   BrandMomentError,
+  BrandMomentStarterKit,
 } from ".."
 
 const withFixedWidth = Story => (
@@ -90,6 +91,9 @@ export const BrandMoments = args => (
     </div>
     <div style={{ width: "450px" }}>
       <BrandMomentError {...args} />
+    </div>
+    <div style={{ width: "450px" }}>
+      <BrandMomentStarterKit alt="" />
     </div>
   </>
 )
