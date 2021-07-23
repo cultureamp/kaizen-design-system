@@ -229,6 +229,9 @@ export const augmentCssVariable = (
 
   // Add the -rgb key containing the RGB triple of the color (if it is a color)
   if (colorRgb) {
+    // If the value is a color, always convert to lowercase
+    result[key] = printValue(path, value).toLowerCase()
+
     if (augmentWithRgb) {
       const rgbPath = [...path, "rgb"]
       const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
