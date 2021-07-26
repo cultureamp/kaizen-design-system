@@ -43,7 +43,7 @@ class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
-  static defaultProps = {
+  static defaultProps: Props = {
     environment: "production",
     loading: false,
     colorScheme: "cultureamp",

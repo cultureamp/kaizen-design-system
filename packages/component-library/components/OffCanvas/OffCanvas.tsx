@@ -35,10 +35,6 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
  * @deprecated OffCanvas is deprecated.
  */
 export class OffCanvas extends React.Component<Props> {
-  static defaultProps = {
-    withTrigger: false,
-  }
-
   render() {
     const {
       menuId,
