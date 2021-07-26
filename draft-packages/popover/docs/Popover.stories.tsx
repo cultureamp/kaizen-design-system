@@ -267,37 +267,3 @@ export const PlacementEnd = () => {
 }
 
 PlacementEnd.storyName = "Placement end"
-
-export const LegacyPopover = () => (
-  <Container>
-    <div
-      style={{
-        position: "relative",
-        height: "200px",
-      }}
-    >
-      <PopoverLegacy heading="Arrow top end" position="end" side="top">
-        The legacy popover gets used when the referenceElement prop is not
-        included.
-      </PopoverLegacy>
-    </div>
-
-    <div
-      style={{
-        position: "relative",
-        height: "200px",
-      }}
-    >
-      <PopoverLegacy
-        heading="Arrow bottom start"
-        position="start"
-        side="bottom"
-      >
-        The legacy popover gets used when the referenceElement prop is not
-        included.
-      </PopoverLegacy>
-    </div>
-  </Container>
-)
-
-LegacyPopover.storyName = "Legacy Popover"
