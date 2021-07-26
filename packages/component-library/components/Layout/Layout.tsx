@@ -1,6 +1,4 @@
 import * as React from "react"
-
-import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import styles from "./Layout.module.scss"
 
 const NavigationBar: React.FunctionComponent = ({ children }) => (
@@ -118,6 +116,4 @@ const extractChildOfType = (
   return match
 }
 
-export default withDeprecatedComponent(Layout, {
-  warning: "Layout is deprecated. Use @kaizen/draft-page-layout instead.",
-})
+export default Layout
