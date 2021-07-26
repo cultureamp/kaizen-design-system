@@ -23,7 +23,7 @@ type Props = {
   loading?: boolean
   colorScheme?: ColorScheme
   badgeHref?: string
-  onNavigationChange: NavigationChange
+  onNavigationChange?: NavigationChange
   headerComponent?: {
     desktop: React.ReactElement
     mobile: React.ReactElement
@@ -73,7 +73,7 @@ class NavigationBar extends React.Component<Props, State> {
               this.setState({
                 mobileKey: this.state.mobileKey + 1,
               })
-              onNavigationChange(event)
+              onNavigationChange && onNavigationChange(event)
             }
           },
           hasExtendedNavigation: !!children?.secondary?.length,
