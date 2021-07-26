@@ -1,6 +1,7 @@
 /* !!! This component is deprecated. Please do not use for new code  !!! */
 
 import * as React from "react"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import styles from "./Menu.module.scss"
 
 /**
@@ -12,4 +13,6 @@ const MenuList = (props: { children: React.ReactNode }) => (
 
 MenuList.displayName = "MenuList"
 
-export default MenuList
+export default withDeprecatedComponent(MenuList, {
+  warning: "MenuList is deprecated. Use @kaizen/draft-menu.",
+})

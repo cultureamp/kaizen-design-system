@@ -3,6 +3,7 @@ import * as React from "react"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import { ZenControlledOffCanvas } from "./helpers"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
@@ -35,6 +36,9 @@ type State = {
   mobileKey: number
 }
 
+/**
+ * @deprecated ZenNavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead
+ */
 class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
@@ -179,4 +183,7 @@ class NavigationBar extends React.Component<Props, State> {
     )
   }
 }
-export default NavigationBar
+export default withDeprecatedComponent(NavigationBar, {
+  warning:
+    "ZenNavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead",
+})

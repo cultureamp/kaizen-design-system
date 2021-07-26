@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import styles from "./Layout.module.scss"
 
 const NavigationBar: React.FunctionComponent = ({ children }) => (
@@ -57,6 +58,9 @@ const Announcers: React.FunctionComponent = ({ children }) => (
 
 Announcers.displayName = "Announcers"
 
+/**
+ * @deprecated Layout is deprecated. Please use draft-page-layout instead.
+ */
 class Layout extends React.Component {
   static displayName = "Layout"
   static NavigationBar = NavigationBar
@@ -114,4 +118,6 @@ const extractChildOfType = (
   return match
 }
 
-export default Layout
+export default withDeprecatedComponent(Layout, {
+  warning: "Layout is deprecated. Use @kaizen/draft-page-layout instead.",
+})

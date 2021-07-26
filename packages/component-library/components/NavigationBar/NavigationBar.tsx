@@ -2,6 +2,7 @@ import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import { ControlledOffCanvas } from "../OffCanvas"
 import {
   LocalBadge,
@@ -26,6 +27,9 @@ type Props = {
   children?: Navigation
 }
 
+/**
+ * @deprecated NavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead
+ */
 class NavigationBar extends React.Component<Props, unknown> {
   static displayName = "NavigationBar"
   static Link = Link
@@ -134,4 +138,7 @@ class NavigationBar extends React.Component<Props, unknown> {
   }
 }
 
-export default NavigationBar
+export default withDeprecatedComponent(NavigationBar, {
+  warning:
+    "NavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead",
+})
