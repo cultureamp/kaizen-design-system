@@ -100,7 +100,7 @@ export const InformativeWithSingleLine = () => {
         variant="informative"
         singleLine
       >
-        {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        {"https://cultureamp.design/iamaverylongurl/" +
           "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
       </Popover>
     </Container>
