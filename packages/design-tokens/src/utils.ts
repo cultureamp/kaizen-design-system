@@ -102,7 +102,11 @@ export const flattenObjectToCSSVariables = (
     const version3 = !path[0].includes("kz")
     if (version3) {
       // If the key is part of version 3, ignore any zen color names, and deprecated tokens
-      if ((path[0] === "color" && zenColorNamePattern.test(path[1])) || path[0].toLowerCase() === "deprecated") return
+      if (
+        (path[0] === "color" && zenColorNamePattern.test(path[1])) ||
+        path[0].toLowerCase() === "deprecated"
+      )
+        return
     } else {
       // If not, ignore any heart color names
       if (path[1] === "color" && heartColorNamePattern.test(path[2])) return

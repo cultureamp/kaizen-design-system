@@ -16,6 +16,10 @@ import type { CSSProperties as ReactCSSProperties } from "react"
  * */
 type KaizenCSSProperties = ReactCSSProperties
 
+type Hex = string
+// Once TypeScript is upgraded in the repo, you can use Lowercase<>
+// type Hex = Lowercase<string>
+
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties["fontFamily"]
   fontWeight: KaizenCSSProperties["fontWeight"]
@@ -77,178 +81,178 @@ export type Theme = {
      * Use purple instead of wisteria, it is being renamed.
      */
     wisteria: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-      "800": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
+      "800": Hex
     }
     purple: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-      "800": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
+      "800": Hex
     }
     /**
      * @deprecated
      * Use blue instead of cluny (soz @Cluny), it is being renamed.
      */
     cluny: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     blue: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     /**
      * @deprecated
      * Use green instead of seedling, it is being renamed.
      */
     seedling: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     green: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     /**
      * @deprecated
      * Use yellow instead of yuzu, it is being renamed.
      */
     yuzu: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     yellow: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     /**
      * @deprecated
      * Use red instead of coral, it is being renamed.
      */
     coral: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     red: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     /**
      * @deprecated
      * Use orange instead of peach, it is being renamed.
      */
     peach: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     orange: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
     gray: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
     }
-    white: string
+    white: Hex
     /**
      * @deprecated
      * Use gray-300 instead of ash, it is being renamed
      */
-    ash: string
+    ash: Hex
     /**
      * @deprecated
      * Use gray-200 instead of stone, it is being renamed
      */
-    stone: string
+    stone: Hex
     /**
      * @deprecated
      * Use gray-500 instead of iron, it is being renamed
      */
-    iron: string
+    iron: Hex
     /**
      * @deprecated
      * Use gray-600 instead of slate, it is being renamed
      */
-    slate: string
+    slate: Hex
   }
   dataViz: {
-    favorable: string
-    unfavorable: string
+    favorable: Hex
+    unfavorable: Hex
   }
   /**
    * @deprecated
    */
   DEPRECATED: {
     color: {
-      lapis: string
-      ocean: string
-      ink: string
-      paper: string
+      lapis: Hex
+      ocean: Hex
+      ink: Hex
+      paper: Hex
     }
   }
   layout: {
