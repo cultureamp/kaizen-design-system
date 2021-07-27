@@ -128,6 +128,6 @@ const withTrigger = (Component: React.ComponentType<any>) =>
     }
   }
 
-export default withDeprecatedComponent(OffCanvas, {
+export default withDeprecatedComponent(withTrigger(OffCanvas), {
   warning: "OffCanvas is deprecated.",
 })
