@@ -31,7 +31,6 @@ export default {
   decorators: [withDesign, withBottomMargin],
 }
 
-const Container: React.FC = ({ children }) => <Box mb={2}>{children}</Box>
 
 export const DefaultKaizenSiteDemo = () => (
   <SplitButton
