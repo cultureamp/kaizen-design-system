@@ -13,7 +13,7 @@ import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 
 export default {
-  title: "ZenNavigationBar (React)",
+  title: "ZenNavigationBar (React) (deprecated)",
 }
 
 const handleNavigationChange = (event: { preventDefault: () => void }) => {
