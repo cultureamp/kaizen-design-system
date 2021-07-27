@@ -94,6 +94,15 @@ const parseCssVariableValue = (value: string): CSSVariable | undefined => {
   return undefined
 }
 
+/**
+ * A map/database of kaizen token name -> RemovedKaizenToken.
+ * E.g.
+ *  - `removedKaizenTokensByName["kz-var-color-white"] -> { name: "kz-var-color-white", value: "#FFFFFF", cssVariable: { identifier: "...", fallback: "#FFFFFF" }, ...}`
+ *  - `removedKaizenTokensByName["color-white"] -> undefined`
+ *  - `removedKaizenTokensByName["something-else"] -> undefined`
+ *
+ * Those examples may change depending on what exists in `generated/removedTokens.json` which is generated at build time, sourced from a prior version of design-tokens
+ */
 export const removedKaizenTokensByName: Readonly<
   Record<string, RemovedKaizenToken | undefined>
 > = Object.entries(
@@ -123,7 +132,7 @@ export const removedKaizenTokensByName: Readonly<
  * The last value in the triple is a boolean that represents whether the rules should terminate at that rule, if it tests true.
  *
  */
-export const version2Rules: Array<[RegExp, string?, boolean?]> = [
+export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
   // If a token has the literal "deprecated" we label it as deprecated without an automatic replacement, and don't apply any further rules.
   [/deprecated/, undefined, true],
   [/color-wisteria/, "color-purple"],
@@ -144,7 +153,7 @@ export const version2Rules: Array<[RegExp, string?, boolean?]> = [
 export const isKaizenTokenDeprecatedOrRemoved = (tokenName: string) => {
   let anyV2RuleMatched = false
 
-  version2Rules.forEach(([pattern]) => {
+  version2DeprecationRules.forEach(([pattern]) => {
     anyV2RuleMatched = anyV2RuleMatched || pattern.test(tokenName)
   })
   return anyV2RuleMatched || tokenName in removedKaizenTokensByName
@@ -192,7 +201,7 @@ export const getReplacementForDeprecatedOrRemovedToken = (
 ): CurrentKaizenToken | undefined => {
   let replacementToken = tokenName
   let terminated = false
-  version2Rules.forEach(renameRule => {
+  version2DeprecationRules.forEach(renameRule => {
     if (terminated) return
 
     const [pattern, replacement, isTerminal] = renameRule
