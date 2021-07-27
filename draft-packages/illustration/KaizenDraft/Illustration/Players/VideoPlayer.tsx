@@ -76,7 +76,6 @@ export const VideoPlayer = ({
     }
     reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
 
-    // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
     return function cleanup() {
       reducedMotionQuery.removeEventListener("change", updateMotionPreferences)
     }
