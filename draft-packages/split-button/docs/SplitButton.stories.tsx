@@ -8,7 +8,7 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Box } from "../../../packages/component-library"
 
-const withBottomMargin = Story => (
+const withBottomMargin = (Story: React.ComponentType) => (
   <Box mb={4}>
     <Story />
   </Box>
@@ -30,7 +30,6 @@ export default {
   },
   decorators: [withDesign, withBottomMargin],
 }
-
 
 export const DefaultKaizenSiteDemo = () => (
   <SplitButton
