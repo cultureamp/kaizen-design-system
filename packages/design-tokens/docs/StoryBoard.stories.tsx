@@ -185,7 +185,7 @@ const ComponentsSection = React.forwardRef(
     ref: React.Ref<HTMLDivElement>
   ) => {
     const theme = useTheme()
-    const border = `solid 1px ${theme.color.wisteria[700]}`
+    const border = `solid 1px ${theme.color.purple[700]}`
     return (
       <div
         ref={ref}
@@ -311,97 +311,94 @@ export const Everything: Story = () => {
     () => (
       <Stack horizontal gapSize={2}>
         <ComponentsSection title="Colors">
-          <Heading variant="heading-3">Wisteria</Heading>
+          <Heading variant="heading-3">Purple</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.wisteria[100]} />
-            <ColorDemo name="200" color={theme.color.wisteria[200]} />
-            <ColorDemo name="300" color={theme.color.wisteria[300]} />
-            <ColorDemo name="400" color={theme.color.wisteria[400]} />
-            <ColorDemo name="500" color={theme.color.wisteria[500]} />
-            <ColorDemo name="600" color={theme.color.wisteria[600]} />
-            <ColorDemo name="700" color={theme.color.wisteria[700]} />
+            <ColorDemo name="100" color={theme.color.purple[100]} />
+            <ColorDemo name="200" color={theme.color.purple[200]} />
+            <ColorDemo name="300" color={theme.color.purple[300]} />
+            <ColorDemo name="400" color={theme.color.purple[400]} />
+            <ColorDemo name="500" color={theme.color.purple[500]} />
+            <ColorDemo name="600" color={theme.color.purple[600]} />
+            <ColorDemo name="700" color={theme.color.purple[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Cluny</Heading>
+          <Heading variant="heading-3">Blue</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.cluny[100]} />
-            <ColorDemo name="200" color={theme.color.cluny[200]} />
-            <ColorDemo name="300" color={theme.color.cluny[300]} />
-            <ColorDemo name="400" color={theme.color.cluny[400]} />
-            <ColorDemo name="500" color={theme.color.cluny[500]} />
-            <ColorDemo name="600" color={theme.color.cluny[600]} />
-            <ColorDemo name="700" color={theme.color.cluny[700]} />
+            <ColorDemo name="100" color={theme.color.blue[100]} />
+            <ColorDemo name="200" color={theme.color.blue[200]} />
+            <ColorDemo name="300" color={theme.color.blue[300]} />
+            <ColorDemo name="400" color={theme.color.blue[400]} />
+            <ColorDemo name="500" color={theme.color.blue[500]} />
+            <ColorDemo name="600" color={theme.color.blue[600]} />
+            <ColorDemo name="700" color={theme.color.blue[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Coral</Heading>
+          <Heading variant="heading-3">Red</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.coral[100]} />
-            <ColorDemo name="200" color={theme.color.coral[200]} />
-            <ColorDemo name="300" color={theme.color.coral[300]} />
-            <ColorDemo name="400" color={theme.color.coral[400]} />
-            <ColorDemo name="500" color={theme.color.coral[500]} />
-            <ColorDemo name="600" color={theme.color.coral[600]} />
-            <ColorDemo name="700" color={theme.color.coral[700]} />
+            <ColorDemo name="100" color={theme.color.red[100]} />
+            <ColorDemo name="200" color={theme.color.red[200]} />
+            <ColorDemo name="300" color={theme.color.red[300]} />
+            <ColorDemo name="400" color={theme.color.red[400]} />
+            <ColorDemo name="500" color={theme.color.red[500]} />
+            <ColorDemo name="600" color={theme.color.red[600]} />
+            <ColorDemo name="700" color={theme.color.red[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Peach</Heading>
+          <Heading variant="heading-3">Orange</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.peach[100]} />
-            <ColorDemo name="200" color={theme.color.peach[200]} />
-            <ColorDemo name="300" color={theme.color.peach[300]} />
-            <ColorDemo name="400" color={theme.color.peach[400]} />
-            <ColorDemo name="500" color={theme.color.peach[500]} />
-            <ColorDemo name="600" color={theme.color.peach[600]} />
-            <ColorDemo name="700" color={theme.color.peach[700]} />
+            <ColorDemo name="100" color={theme.color.orange[100]} />
+            <ColorDemo name="200" color={theme.color.orange[200]} />
+            <ColorDemo name="300" color={theme.color.orange[300]} />
+            <ColorDemo name="400" color={theme.color.orange[400]} />
+            <ColorDemo name="500" color={theme.color.orange[500]} />
+            <ColorDemo name="600" color={theme.color.orange[600]} />
+            <ColorDemo name="700" color={theme.color.orange[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Seedling</Heading>
+          <Heading variant="heading-3">Green</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.seedling[100]} />
-            <ColorDemo name="200" color={theme.color.seedling[200]} />
-            <ColorDemo name="300" color={theme.color.seedling[300]} />
-            <ColorDemo name="400" color={theme.color.seedling[400]} />
-            <ColorDemo name="500" color={theme.color.seedling[500]} />
-            <ColorDemo name="600" color={theme.color.seedling[600]} />
-            <ColorDemo name="700" color={theme.color.seedling[700]} />
+            <ColorDemo name="100" color={theme.color.green[100]} />
+            <ColorDemo name="200" color={theme.color.green[200]} />
+            <ColorDemo name="300" color={theme.color.green[300]} />
+            <ColorDemo name="400" color={theme.color.green[400]} />
+            <ColorDemo name="500" color={theme.color.green[500]} />
+            <ColorDemo name="600" color={theme.color.green[600]} />
+            <ColorDemo name="700" color={theme.color.green[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Yuzu</Heading>
+          <Heading variant="heading-3">Yellow</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.yuzu[100]} />
-            <ColorDemo name="200" color={theme.color.yuzu[200]} />
-            <ColorDemo name="300" color={theme.color.yuzu[300]} />
-            <ColorDemo name="400" color={theme.color.yuzu[400]} />
-            <ColorDemo name="500" color={theme.color.yuzu[500]} />
-            <ColorDemo name="600" color={theme.color.yuzu[600]} />
-            <ColorDemo name="700" color={theme.color.yuzu[700]} />
+            <ColorDemo name="100" color={theme.color.yellow[100]} />
+            <ColorDemo name="200" color={theme.color.yellow[200]} />
+            <ColorDemo name="300" color={theme.color.yellow[300]} />
+            <ColorDemo name="400" color={theme.color.yellow[400]} />
+            <ColorDemo name="500" color={theme.color.yellow[500]} />
+            <ColorDemo name="600" color={theme.color.yellow[600]} />
+            <ColorDemo name="700" color={theme.color.yellow[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Ash</Heading>
+          <Heading variant="heading-3">Gray</Heading>
           <Padding />
-          <ColorDemo color={theme.color.ash} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Stone</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.stone} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Iron</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.iron} />
+          <Stack gapSize={0.5}>
+            <ColorDemo name="100" color={theme.color.gray[100]} />
+            <ColorDemo name="200" color={theme.color.gray[200]} />
+            <ColorDemo name="300" color={theme.color.gray[300]} />
+            <ColorDemo name="400" color={theme.color.gray[400]} />
+            <ColorDemo name="500" color={theme.color.gray[500]} />
+            <ColorDemo name="600" color={theme.color.gray[600]} />
+          </Stack>
           <Padding size={2} />
           <Heading variant="heading-3">White</Heading>
           <Padding />
-          <ColorDemo color={theme.color.white} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Slate</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.slate} />
+          <Stack gapSize={0.5}>
+            <ColorDemo name="White" color={theme.color.white} />
+          </Stack>
         </ComponentsSection>
 
         <ComponentsSection title="Typography">
@@ -474,7 +471,7 @@ export const Everything: Story = () => {
     <div
       style={{
         height: "100vh",
-        backgroundColor: theme.color.stone,
+        backgroundColor: theme.color.gray["100"],
       }}
     >
       <div
