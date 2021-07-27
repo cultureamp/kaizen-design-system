@@ -20,11 +20,6 @@ const getVarsFromJson = (json: Record<any, any>) => {
   return variables
 }
 
-/* import fetch from "node-fetch"
-import { name } from "../../package.json"
-const cacheDir = findCacheDir({ name })
- */
-
 /* Pass in just the name of a module which is used to import variable.
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".
   Assumes that the SASS and LESS modules contain the same variables
