@@ -9,10 +9,32 @@ import {
   RemovedKaizenToken,
 } from "../types"
 
-const getVarsFromJson = (json: Record<any, any>) => {
+/**
+ * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "--level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
+ * json-to-flat-sass does a very similar thing.
+ * E.g.
+ * Input:
+ * ```
+ * {
+ *    level1: {
+ *      level2: {
+ *        level3: {
+ *          leaf: "some value"
+ *        }
+ *      }
+ *    }
+ * }
+ * ```
+ * ```
+ * Output:
+ * {
+ *    "--level1-level2-level3-leaf": "some value"
+ * }
+ * ```
+ */
+const getCSSVarsFromJson = (json: Record<any, any>) => {
   const variables = {} as Record<string, string>
 
-  // Shamelessly using a map function like a forEach
   Utils.mapLeafsOfObject(json, (path, value) => {
     const key = path.map(kebabCase).join("-")
     variables[key] = `${value}`
@@ -29,7 +51,7 @@ const getVarsFromKaizenModule = (moduleName: string) => {
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`
   const source = require(`@kaizen/design-tokens/tokens/${moduleName}.json`)
 
-  const variables = getVarsFromJson(source)
+  const variables = getCSSVarsFromJson(source)
   return {
     moduleName,
     variables,
@@ -101,7 +123,7 @@ const parseCssVariableValue = (value: string): CSSVariable | undefined => {
 export const removedKaizenTokensByName: Readonly<
   Record<string, RemovedKaizenToken | undefined>
 > = Object.entries(
-  getVarsFromJson(require("../../generated/removedTokens.json"))
+  getCSSVarsFromJson(require("../../generated/removedTokens.json"))
 ).reduce(
   (accumulatedResult, [variableName, variableValue]) => ({
     ...accumulatedResult,
@@ -145,6 +167,10 @@ export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
   [/kz-(var-)?/, "", true],
 ]
 
+/**
+ * Use this as a predicate to determine whether a token (given by it's name) is deprecated or not.
+ * The decision process is based off a series of regular expressions that are tested against it.
+ */
 export const isKaizenTokenDeprecatedOrRemoved = (tokenName: string) => {
   let anyV2RuleMatched = false
 
@@ -156,6 +182,7 @@ export const isKaizenTokenDeprecatedOrRemoved = (tokenName: string) => {
 
 /**
  * A nifty map of kaizen token variable -> information about the variable.
+ * Very similar to {@link removedKaizenTokensByName}
  * Looks something like:
  * {
  *    "kz-var-color-wisteria-800": { name: "kz-var-color-wisteria-800", value: "var(--kz-var-color-wisteria-800, #ff0011)", cssVariable: { identifier: "--kz-var-color-wisteria-800", fallback: "#ff0011" }, ... },

@@ -7,7 +7,7 @@ import {
 describe("kaizenTokens", () => {
   describe(getReplacementForDeprecatedOrRemovedToken.name, () => {
     test("never returns another deprecated token across all Kaizen tokens", () => {
-      Object.entries(kaizenTokensByName).forEach(([key, value]) => {
+      Object.values(kaizenTokensByName).forEach(value => {
         if (!value) return
         const replacement = getReplacementForDeprecatedOrRemovedToken(
           value.name
