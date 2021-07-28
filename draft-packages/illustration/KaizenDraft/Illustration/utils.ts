@@ -81,7 +81,7 @@ const parseAnimationData = async (
         return
       }
 
-      return new Promise(resolve => {
+      return new Promise<void>(resolve => {
         deserialize
           ?.file(`images/${asset.p}`)
           ?.async("base64")
@@ -100,4 +100,15 @@ const parseAnimationData = async (
   } catch (err) {
     throw new Error(err)
   }
+}
+
+/**
+ * Detect whether the current browser can play webm files
+ */
+export const canPlayWebm = (): boolean => {
+  const video = document.createElement("video")
+  if (video.canPlayType("video/webm; codecs=vp8")) {
+    return true
+  }
+  return false
 }

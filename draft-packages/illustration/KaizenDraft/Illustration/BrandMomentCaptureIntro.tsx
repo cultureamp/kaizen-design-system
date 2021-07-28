@@ -1,7 +1,9 @@
 import * as React from "react"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { AnimatedSceneProps } from "./Scene"
 import { Base } from "./Base"
 import { VideoPlayer } from "./Players/VideoPlayer"
+import { canPlayWebm } from "./utils"
 
 /**
  * This component is a snowflake. It plays two assets one after the other:
@@ -16,6 +18,31 @@ export const BrandMomentCaptureIntro = ({
   const [firstAnimationComplete, setFirstAnimationComplete] = React.useState(
     false
   )
+
+  React.useEffect(() => {
+    /**
+     * To prevent the inevitable "jump" when loading the ambient animation, we
+     * preemptively fetch the ambient animation when the player is first mounted.
+     * That way, the browser is able to retrieve the second asset from it's cache
+     * when it is needed
+     */
+    if (window) {
+      // Check what format the browser can play, then preload the correct animation
+      if (canPlayWebm()) {
+        fetch(
+          assetUrl(
+            "illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
+          )
+        )
+      } else {
+        fetch(
+          assetUrl(
+            "illustrations/heart/scene/brand-moments-capture-intro-loop.mp4"
+          )
+        )
+      }
+    }
+  }, [])
 
   if (isAnimated) {
     if (!firstAnimationComplete) {
