@@ -228,11 +228,7 @@ export const PersistentSlim = () => (
 PersistentSlim.storyName = "Persistent, Slim"
 
 export const MultipleNotification = () => (
-  <div
-    style={{
-      width: "100%",
-    }}
-  >
+  <React.Fragment>
     <InlineNotification
       type="affirmative"
       title="Success"
@@ -264,7 +260,7 @@ export const MultipleNotification = () => (
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
-  </div>
+  </React.Fragment>
 )
 
 export const NoChildren = () => (
