@@ -16,6 +16,7 @@
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "dependencies": {
+    "color-string": "^1.6.0",
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",
