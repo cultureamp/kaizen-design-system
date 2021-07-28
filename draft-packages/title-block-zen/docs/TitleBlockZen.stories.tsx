@@ -15,7 +15,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./TitleBlockZen.stories.scss"
 
 export default {
-  title: "TitleBlockZen (React)",
+  title: "Components/Title Block",
   parameters: {
     docs: {
       description: {

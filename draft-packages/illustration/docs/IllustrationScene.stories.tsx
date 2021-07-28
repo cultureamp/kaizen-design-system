@@ -65,7 +65,7 @@ const withFixedWidth = Story => (
 )
 
 export default {
-  title: "Illustration, Scene (React)",
+  title: "Components/Illustration/Scene",
   component: ManagerLearningResilience,
   parameters: {
     docs: {

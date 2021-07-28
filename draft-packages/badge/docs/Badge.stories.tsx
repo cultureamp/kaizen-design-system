@@ -7,7 +7,7 @@ import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Badge (React)",
+  title: "Components/Badge",
   component: Badge,
   parameters: {
     docs: {

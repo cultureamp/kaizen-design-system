@@ -30,7 +30,10 @@ addParameters({
     values: backgrounds,
   },
   options: {
-    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
+    storySort: {
+      method: "alphabetical",
+      order: ["Components", "Helpers", "Design Tokens", "Elm", "Deprecated"],
+    },
   },
   docs: {
     extractComponentDescription: (component, { notes }) => {

@@ -2,7 +2,7 @@ import { Text } from "@kaizen/component-library"
 import * as React from "react"
 
 export default {
-  title: "Text (deprecated) (React)",
+  title: "Deprecated/Text",
   component: Text,
   parameters: {
     info: {

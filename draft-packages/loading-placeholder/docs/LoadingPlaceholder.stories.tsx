@@ -11,7 +11,7 @@ const StoryContainer: React.FunctionComponent = ({ children }) => (
 )
 
 export default {
-  title: "LoadingPlaceholder (React)",
+  title: "Components/Loading Placeholder",
   component: LoadingPlaceholder,
   parameters: {
     docs: {

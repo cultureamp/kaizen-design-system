@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/ModalStories.elm").Elm.ElmStories
   .ModalStories
 
-loadElmStories("Modal (Elm)", module, compiledElm, [
+loadElmStories("Elm/Modal", module, compiledElm, [
   "Confirmation (cautionary), shown by default",
   "Generic, shown by default",
   "Confirmation (informative), shown by default",

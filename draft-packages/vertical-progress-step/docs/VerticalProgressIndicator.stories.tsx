@@ -16,7 +16,7 @@ const RelativePositionBlock = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "VerticalProgressIndicator (React)",
+  title: "Deprecated/Vertical Progress Indicator",
   component: VerticalProgressIndicator,
   parameters: {
     docs: {

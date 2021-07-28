@@ -5,7 +5,7 @@ const compiledElm = require("../ElmStories/SelectStories.elm").Elm.ElmStories
   .SelectStories
 
 loadElmStories(
-  "Select (Elm)",
+  "Elm/Select",
   module,
   compiledElm,
   [

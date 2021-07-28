@@ -2,7 +2,7 @@ import React from "react"
 import { useMediaQueries } from "../"
 
 export default {
-  title: "useMediaQueries (React)",
+  title: "Helpers/Responsive/useMediaQueries",
   component: useMediaQueries,
   parameters: {
     docs: {

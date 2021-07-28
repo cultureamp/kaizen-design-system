@@ -19,7 +19,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: "Collapsible (React)",
+  title: "Components/Collapsible",
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },

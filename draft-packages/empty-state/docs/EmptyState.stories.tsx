@@ -29,7 +29,7 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "EmptyState (React)",
+  title: "Components/Empty State",
   component: EmptyState,
   parameters: {
     docs: {

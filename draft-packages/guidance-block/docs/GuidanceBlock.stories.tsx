@@ -8,7 +8,7 @@ const externalLinkIcon = require("@kaizen/component-library/icons/external-link.
   .default
 
 export default {
-  title: "GuidanceBlock (React)",
+  title: "Components/Guidance Block",
   component: GuidanceBlock,
   parameters: {
     docs: {

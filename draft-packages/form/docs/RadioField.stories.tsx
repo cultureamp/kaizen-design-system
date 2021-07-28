@@ -51,7 +51,7 @@ class RadioFieldExample extends React.Component<Props> {
 }
 
 export default {
-  title: "RadioField (React)",
+  title: "Components/Form/Radio Field",
   component: RadioField,
   parameters: {
     docs: {

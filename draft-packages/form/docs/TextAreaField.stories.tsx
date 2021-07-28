@@ -53,7 +53,7 @@ const reversedBg = {
 }
 
 export default {
-  title: "TextAreaField (React)",
+  title: "Components/Form/Text Area Field",
   component: TextAreaField,
   parameters: {
     docs: {

@@ -75,7 +75,7 @@ class ModalStateContainer extends React.Component<
 }
 
 export default {
-  title: "Modal (React)",
+  title: "Components/Modal",
   component: ConfirmationModal,
   parameters: {
     docs: {

@@ -43,7 +43,7 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "ToggleSwitchField (React)",
+  title: "Components/Form/Toggle Switch Field",
   component: ToggleSwitchField,
   parameters: {
     docs: {

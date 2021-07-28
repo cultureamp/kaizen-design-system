@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/TagStories.elm").Elm.ElmStories
   .TagStories
 
-loadElmStories("Tag (Elm)", module, compiledElm, [
+loadElmStories("Elm/Tag", module, compiledElm, [
   "Default - Medium",
   "Default - Small",
   "Sentiment - Positive",

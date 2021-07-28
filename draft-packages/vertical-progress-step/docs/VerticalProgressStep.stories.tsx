@@ -3,7 +3,7 @@ import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
 import * as React from "react"
 
 export default {
-  title: "VerticalProgressStep (React)",
+  title: "Deprecated/Vertical Progress Step",
   component: VerticalProgressStep.CurrentStep,
   parameters: {
     docs: {

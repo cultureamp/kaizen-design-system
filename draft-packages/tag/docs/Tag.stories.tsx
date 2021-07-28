@@ -10,7 +10,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "Tag (React)",
+  title: "Components/Tag",
   component: Tag,
   parameters: {
     docs: {

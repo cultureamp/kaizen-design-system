@@ -9,7 +9,7 @@ import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Popover (React)",
+  title: "Components/Popover",
   component: PopoverRaw,
   parameters: {
     docs: {

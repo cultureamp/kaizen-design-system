@@ -88,7 +88,7 @@ const Triggers = ({
 }
 
 export default {
-  title: "ToastNotification (React)",
+  title: "Components/Notification/Toast Notification",
   component: ToastNotification,
   parameters: {
     docs: {

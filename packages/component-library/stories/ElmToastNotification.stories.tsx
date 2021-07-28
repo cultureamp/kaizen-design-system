@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/ToastNotificationStories.elm").Elm
   .ElmStories.ToastNotificationStories
 
-loadElmStories("ToastNotification (Elm)", module, compiledElm, [
+loadElmStories("Elm/Toast Notification", module, compiledElm, [
   "Positive",
   "Informative",
   "Cautionary",

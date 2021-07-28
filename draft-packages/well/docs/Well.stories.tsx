@@ -26,7 +26,7 @@ const ExampleContent = () => (
 )
 
 export default {
-  title: "Well (React)",
+  title: "Components/Well",
   component: Well,
   parameters: {
     docs: {

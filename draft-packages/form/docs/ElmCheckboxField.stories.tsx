@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/CheckboxFieldStories.elm").Elm
   .ElmStories.CheckboxFieldStories
 
-loadElmStories("CheckboxField (Elm)", module, compiledElm, [
+loadElmStories("Elm/Checkbox Field", module, compiledElm, [
   "On",
   "Mixed",
   "Off",

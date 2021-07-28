@@ -23,7 +23,7 @@ const renderContent = () => (
 )
 
 export default {
-  title: "HeroCard (React)",
+  title: "Components/Hero Card",
   component: HeroCard,
   parameters: {
     docs: {

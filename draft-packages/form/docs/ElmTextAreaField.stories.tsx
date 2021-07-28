@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/TextAreaFieldStories.elm").Elm
   .ElmStories.TextAreaFieldStories
 
-loadElmStories("TextAreaField (Elm)", module, compiledElm, [
+loadElmStories("Elm/Text Area Field", module, compiledElm, [
   "Default",
   "Default, Controlled, Prefilled Value",
   "Default, Uncontrolled, Prefilled Value",

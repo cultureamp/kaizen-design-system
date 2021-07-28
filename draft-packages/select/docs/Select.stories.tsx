@@ -62,7 +62,7 @@ const promiseOptions = (inputValue): Promise<any[]> =>
   })
 
 export default {
-  title: "Select (React)",
+  title: "Components/Select",
   component: Select,
   parameters: {
     docs: {

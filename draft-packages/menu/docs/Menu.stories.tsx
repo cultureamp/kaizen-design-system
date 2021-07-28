@@ -84,7 +84,7 @@ const MenuInstance: React.FunctionComponent = () => (
 )
 
 export default {
-  title: "Menu (React)",
+  title: "Components/Menu",
   component: Menu,
   parameters: {
     docs: {

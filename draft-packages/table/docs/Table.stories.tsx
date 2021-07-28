@@ -121,7 +121,7 @@ const ExampleTableRow = ({
 )
 
 export default {
-  title: "Table (React)",
+  title: "Components/Table",
   component: TableCard,
   parameters: {
     docs: {

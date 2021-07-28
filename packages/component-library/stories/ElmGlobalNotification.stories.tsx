@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/GlobalNotificationStories.elm").Elm
   .ElmStories.GlobalNotificationStories
 
-loadElmStories("GlobalNotification (Elm)", module, compiledElm, [
+loadElmStories("Elm/Global Notification", module, compiledElm, [
   "Positive",
   "Informative",
   "Cautionary",

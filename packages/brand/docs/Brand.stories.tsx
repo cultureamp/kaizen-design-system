@@ -3,7 +3,7 @@ import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 
 export default {
-  title: "Brand (React)",
+  title: "Components/Brand",
   component: Brand,
   parameters: {
     docs: {

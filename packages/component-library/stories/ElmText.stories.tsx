@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/TextStories.elm").Elm.ElmStories
   .TextStories
 
-loadElmStories("Text (Elm) (deprecated)", module, compiledElm, [
+loadElmStories("Elm/Text (deprecated)", module, compiledElm, [
   "h1",
   "h2",
   "h3",

@@ -3,7 +3,7 @@ import * as React from "react"
 import { Slider } from "@kaizen/draft-slider"
 
 export default {
-  title: "Slider (React)",
+  title: "Components/Form/Slider",
   component: Slider,
   parameters: {
     docs: {

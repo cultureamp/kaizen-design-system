@@ -7,7 +7,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./PageLayout.stories.scss"
 
 export default {
-  title: "PageLayout (React)",
+  title: "Components/Page Layout",
   component: Container,
   parameters: {
     docs: {

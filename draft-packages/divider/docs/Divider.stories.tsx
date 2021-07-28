@@ -12,7 +12,7 @@ const reversedBg = {
 }
 
 export default {
-  title: "Divider (React)",
+  title: "Components/Divider",
   component: Divider,
   parameters: {
     docs: {

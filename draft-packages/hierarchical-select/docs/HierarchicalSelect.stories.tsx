@@ -64,7 +64,7 @@ const SelectionSummary = (props: {
 )
 
 export default {
-  title: "HierarchicalSelect (React)",
+  title: "Components/Hierarchical Select",
   component: HierarchicalSelect,
   docs: {
     description: {

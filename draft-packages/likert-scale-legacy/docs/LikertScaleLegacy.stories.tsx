@@ -9,7 +9,7 @@ import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "LikertScaleLegacy (React)",
+  title: "Components/Likert Scale",
   component: LikertScaleLegacy,
   parameters: {
     docs: {

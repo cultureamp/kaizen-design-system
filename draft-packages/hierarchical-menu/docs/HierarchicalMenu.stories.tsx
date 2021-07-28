@@ -41,7 +41,7 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
 }
 
 export default {
-  title: "HierarchicalMenu (React)",
+  title: "Components/Hierarchical Menu",
   component: HierarchicalMenu,
   parameters: {
     docs: {

@@ -21,7 +21,7 @@ const openTooltipInChromatic = (story, config) => {
 }
 
 export default {
-  title: "Tooltip (React)",
+  title: "Components/Tooltip",
   component: Tooltip,
   parameters: {
     docs: {

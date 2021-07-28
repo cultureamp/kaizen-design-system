@@ -15,7 +15,7 @@ import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Tile (React)",
+  title: "Components/Tile",
   component: MultiActionTile,
   subcomponents: { InformationTile, TileGrid },
   parameters: {

@@ -2,7 +2,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/ParagraphStories.elm").Elm.ElmStories
   .ParagraphStories
 
-loadElmStories("Paragraph (Elm)", module, compiledElm, [
+loadElmStories("Elm/Paragraph", module, compiledElm, [
   "IntroLede",
   "Body",
   "Body Dark Reduced Opacity",

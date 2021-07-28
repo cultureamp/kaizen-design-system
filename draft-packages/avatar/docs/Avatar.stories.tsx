@@ -5,7 +5,7 @@ import { Avatar } from "@kaizen/draft-avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Avatar (React)",
+  title: "Components/Avatar",
   component: Avatar,
   parameters: {
     docs: {

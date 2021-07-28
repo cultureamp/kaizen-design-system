@@ -18,7 +18,7 @@ const withMinHeight = Story => {
 }
 
 export default {
-  title: "FilterMenuButton (React)",
+  title: "Components/Filter Menu",
   component: FilterMenuButton,
   parameters: {
     docs: {

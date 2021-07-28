@@ -7,7 +7,7 @@ import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "LoadingSpinner (React)",
+  title: "Components/Loading Spinner",
   component: LoadingSpinner,
   parameters: {
     docs: {

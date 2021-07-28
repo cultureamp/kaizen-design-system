@@ -5,7 +5,7 @@ const compiledElm = require("../ElmStories/SelectFieldStories.elm").Elm
   .ElmStories.SelectFieldStories
 
 loadElmStories(
-  "SelectField (Elm)",
+  "Elm/Select Field",
   module,
   compiledElm,
   ["Single", "Single Disabled", "Multi-Select"],

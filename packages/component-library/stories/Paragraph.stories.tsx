@@ -3,7 +3,7 @@ import * as React from "react"
 import { Paragraph } from "../components/Paragraph"
 
 export default {
-  title: "Paragraph",
+  title: "Components/Typography/Paragraph",
   component: Paragraph,
   parameters: {
     docs: {

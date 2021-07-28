@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/HeadingStories.elm").Elm.ElmStories
   .HeadingStories
 
-loadElmStories("Heading (Elm)", module, compiledElm, [
+loadElmStories("Elm/Heading", module, compiledElm, [
   "Display0",
   "Heading1",
   "Heading2",

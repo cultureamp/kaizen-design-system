@@ -42,7 +42,7 @@ class CheckboxGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "CheckboxGroup (React)",
+  title: "Components/Form/Checkbox Group",
   component: CheckboxGroup,
   parameters: {
     docs: {

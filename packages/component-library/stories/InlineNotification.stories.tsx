@@ -25,7 +25,7 @@ const withContentBelow = (Story: React.FunctionComponent) => (
 )
 
 export default {
-  title: "InlineNotification (React)",
+  title: "Components/Notification/Inline Notification",
   component: InlineNotification,
   parameters: {
     docs: {

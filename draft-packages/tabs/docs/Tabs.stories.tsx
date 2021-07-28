@@ -9,7 +9,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { ExampleLayout } from "./ExampleLayout"
 
 export default {
-  title: "Tabs (React)",
+  title: "Components/Tabs",
   component: Tabs,
   parameters: {
     docs: {

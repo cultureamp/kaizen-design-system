@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/EmptyStateStories.elm").Elm
   .ElmStories.EmptyStateStories
 
-loadElmStories("EmptyState (Elm)", module, compiledElm, [
+loadElmStories("Elm/Empty State", module, compiledElm, [
   "Default",
   "Default (minimal props)",
   "Layout, Content-only",

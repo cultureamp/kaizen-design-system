@@ -95,7 +95,7 @@ import {
 } from ".."
 
 export default {
-  title: "Illustration, Spot (React)",
+  title: "Components/Illustration/Spot",
   component: AccountBasics,
   parameters: {
     docs: {

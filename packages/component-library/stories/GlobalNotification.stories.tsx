@@ -5,7 +5,7 @@ import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "GlobalNotification (React)",
+  title: "Components/Notification/Global Notification",
   component: GlobalNotification,
   parameters: {
     docs: {

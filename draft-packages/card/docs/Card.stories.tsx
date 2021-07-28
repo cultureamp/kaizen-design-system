@@ -5,7 +5,7 @@ import { Card } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Card (React)",
+  title: "Components/Card",
   component: Card,
   parameters: {
     docs: {

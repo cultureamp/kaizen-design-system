@@ -18,7 +18,7 @@ import {
 } from "./ExampleHeaders"
 
 export default {
-  title: "Brand Moment (React)",
+  title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {
     docs: {

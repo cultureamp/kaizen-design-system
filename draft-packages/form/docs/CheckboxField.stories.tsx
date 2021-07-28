@@ -48,7 +48,7 @@ class CheckboxFieldExample extends React.Component<Props> {
 }
 
 export default {
-  title: "CheckboxField (React)",
+  title: "Components/Form/Checkbox Field",
   component: CheckboxField,
   parameters: {
     docs: {

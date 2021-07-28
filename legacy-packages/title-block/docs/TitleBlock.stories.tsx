@@ -34,7 +34,7 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: "TitleBlock (React) (deprecated)",
+  title: "Deprecated/Title Block",
   component: TitleBlock,
   parameters: {
     info: {

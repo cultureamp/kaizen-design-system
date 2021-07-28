@@ -15,7 +15,7 @@ const withBottomMargin = (Story: React.ComponentType) => (
 )
 
 export default {
-  title: "SplitButton (React)",
+  title: "Components/Split Button",
   component: SplitButton,
   argTypes: { onClick: { action: "clicked" } },
   parameters: {
