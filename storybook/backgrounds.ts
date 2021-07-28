@@ -1,29 +1,29 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-import * as tokens from "@kaizen/design-tokens/tokens/color.json"
-import * as variables from "@kaizen/design-tokens/tokens/color-vars.json"
+import * as colors from "@kaizen/design-tokens/tokens/color.json"
+import { defaultTheme } from "@kaizen/design-tokens"
 
 export const backgrounds = [
-  { name: "White", value: tokens.kz.color.white },
-  { name: "Stone", value: tokens.kz.color.stone },
-  { name: "Ash", value: tokens.kz.color.ash },
-  { name: "Wisteria 700", value: tokens.kz.color.wisteria["700"] },
-  { name: "Cluny 500", value: tokens.kz.color.cluny["500"] },
-  { name: "Seedling 500", value: tokens.kz.color.seedling["500"] },
-  { name: "Yuzu 500", value: tokens.kz.color.yuzu["500"] },
-  { name: "Peach 500", value: tokens.kz.color.peach["500"] },
-  { name: "Coral 500", value: tokens.kz.color.coral["500"] },
+  { name: "White", value: defaultTheme.color.white },
+  { name: "Gray 100", value: defaultTheme.color.gray["100"] },
+  { name: "Gray 300", value: defaultTheme.color.gray["300"] },
+  { name: "Purple 700", value: defaultTheme.color.purple["700"] },
+  { name: "Blue 500", value: defaultTheme.color.blue["500"] },
+  { name: "Green 500", value: defaultTheme.color.green["500"] },
+  { name: "Yellow 500", value: defaultTheme.color.yellow["500"] },
+  { name: "Orange 500", value: defaultTheme.color.orange["500"] },
+  { name: "Red 500", value: defaultTheme.color.red["500"] },
 ]
 
 // This is a temporary duplication until we find a way for storybook to like the above ^^ tokens with css variables rather than concretes.
 export const cssVarBackgrounds = [
-  { name: "White", value: variables["kz-var"].color.white },
-  { name: "Stone", value: variables["kz-var"].color.stone },
-  { name: "Ash", value: variables["kz-var"].color.ash },
-  { name: "Wisteria 700", value: variables["kz-var"].color.wisteria["700"] },
-  { name: "Cluny 500", value: variables["kz-var"].color.cluny["500"] },
-  { name: "Seedling 500", value: variables["kz-var"].color.seedling["500"] },
-  { name: "Yuzu 500", value: variables["kz-var"].color.yuzu["500"] },
-  { name: "Peach 500", value: variables["kz-var"].color.peach["500"] },
-  { name: "Coral 500", value: variables["kz-var"].color.coral["500"] },
+  { name: "White", value: colors.color.white },
+  { name: "Gray 100", value: colors.color.gray["100"] },
+  { name: "Gray 300", value: colors.color.gray["300"] },
+  { name: "Purple 700", value: colors.color.purple["700"] },
+  { name: "Blue 500", value: colors.color.blue["500"] },
+  { name: "Green 500", value: colors.color.green["500"] },
+  { name: "Yellow 500", value: colors.color.yellow["500"] },
+  { name: "Orange 500", value: colors.color.orange["500"] },
+  { name: "Red 500", value: colors.color.red["500"] },
 ]
