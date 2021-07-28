@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-vertical-progress-step",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "The draft Vertical progress step component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.8",
+    "@kaizen/component-library": "^10.0.9",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
