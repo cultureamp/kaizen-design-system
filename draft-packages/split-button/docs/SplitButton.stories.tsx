@@ -6,6 +6,13 @@ import { withDesign } from "storybook-addon-designs"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { Box } from "../../../packages/component-library"
+
+const withBottomMargin = (Story: React.ComponentType) => (
+  <Box mb={4}>
+    <Story />
+  </Box>
+)
 
 export default {
   title: "SplitButton (React)",
@@ -21,40 +28,8 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14512%3A404"
     ),
   },
-  decorators: [withDesign],
+  decorators: [withDesign, withBottomMargin],
 }
-
-export const DefaultItemsAbove = () => (
-  <div
-    style={{
-      height: "100vh",
-      display: "flex",
-      alignItems: "flex-end",
-    }}
-  >
-    <SplitButton
-      label="Edit"
-      onClick={() => undefined}
-      dropdownContent={
-        <MenuContent>
-          <MenuItem
-            onClick={e => undefined}
-            icon={editIcon}
-            label="Menu Item 1"
-          />
-          <MenuItem
-            onClick={e => undefined}
-            icon={duplicateIcon}
-            label="Menu Item 2"
-          />
-        </MenuContent>
-      }
-      dropdownAltText="Open menu"
-    />
-  </div>
-)
-
-DefaultItemsAbove.storyName = "Default, Items above"
 
 export const DefaultKaizenSiteDemo = () => (
   <SplitButton
