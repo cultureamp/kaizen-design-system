@@ -2,13 +2,12 @@ import * as React from "react"
 // eslint-disable-next-line max-len
 import { VerticalProgressIndicator } from "../KaizenDraft/VerticalProgressStep/VerticalProgressIndicator"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => (
+const RelativePositionBlock = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      background: "#fff",
       margin: "30px",
-      minWidth: "100px",
       position: "relative",
+      minWidth: "100px",
       minHeight: "150px",
     }}
   >
@@ -30,136 +29,136 @@ export default {
 }
 
 export const StartUpcoming = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="start" completion="upcoming" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 StartUpcoming.storyName = "Start-Upcoming"
 
 export const StartCurrentInactionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator
       position="start"
       completion="current-inactionable"
     />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 StartCurrentInactionable.storyName = "Start-CurrentInactionable"
 
 export const StartCurrentActionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator
       position="start"
       completion="current-actionable"
     />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 StartCurrentActionable.storyName = "Start-CurrentActionable"
 
 export const StartCurrentStarted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="start" completion="current-started" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 StartCurrentStarted.storyName = "Start-CurrentStarted"
 
 export const StartCompleted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="start" completion="completed" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 StartCompleted.storyName = "Start-Completed"
 
 export const MiddleUpcoming = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="middle" completion="upcoming" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 MiddleUpcoming.storyName = "Middle-Upcoming"
 
 export const MiddleCurrentInactionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator
       position="middle"
       completion="current-inactionable"
     />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 MiddleCurrentInactionable.storyName = "Middle-CurrentInactionable"
 
 export const MiddleCurrentActionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator
       position="middle"
       completion="current-actionable"
     />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 MiddleCurrentActionable.storyName = "Middle-CurrentActionable"
 
 export const MiddleCurrentStarted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="middle" completion="current-started" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 MiddleCurrentStarted.storyName = "Middle-CurrentStarted"
 
 export const MiddleCompleted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="middle" completion="completed" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 MiddleCompleted.storyName = "Middle-Completed"
 
 export const EndUpcoming = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="end" completion="upcoming" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 EndUpcoming.storyName = "End-Upcoming"
 
 export const EndCurrentInactionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator
       position="end"
       completion="current-inactionable"
     />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 EndCurrentInactionable.storyName = "End-CurrentInactionable"
 
 export const EndCurrentActionable = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="end" completion="current-actionable" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 EndCurrentActionable.storyName = "End-CurrentActionable"
 
 export const EndCurrentStarted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="end" completion="current-started" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 EndCurrentStarted.storyName = "End-CurrentStarted"
 
 export const EndCompleted = () => (
-  <StoryContainer>
+  <RelativePositionBlock>
     <VerticalProgressIndicator position="end" completion="completed" />
-  </StoryContainer>
+  </RelativePositionBlock>
 )
 
 EndCompleted.storyName = "End-Completed"
