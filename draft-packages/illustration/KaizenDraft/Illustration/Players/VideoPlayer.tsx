@@ -63,6 +63,15 @@ export const VideoPlayer = ({
   }, [])
 
   useEffect(() => {
+    // when the source of the animation is updated, we need to reload the asset
+    // to ensure the video player is in sync with the new source.
+    const { current: videoElement } = videoRef
+    if (videoElement !== null) {
+      videoElement.load()
+    }
+  }, [ambientAnimation])
+
+  useEffect(() => {
     if (!reducedMotionQuery.addEventListener || !window) return
     const updateMotionPreferences = () => {
       const { matches = false } = window.matchMedia(
@@ -84,7 +93,9 @@ export const VideoPlayer = ({
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      videoElement.play().catch(err =>
+      try {
+        videoElement.play()
+      } catch (e) {
         /*
          * An DOMException _may_ be raised by some browsers if we
          * programatically interact with the video before the
@@ -92,9 +103,7 @@ export const VideoPlayer = ({
          * we're going to catch this error without handling it. See:
          * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
          */
-        // eslint-disable-next-line no-console
-        console.warn(err)
-      )
+      }
     }
   }, [prefersReducedMotion])
 
