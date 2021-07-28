@@ -39,7 +39,7 @@ export const LoadingSpinner = ({
           r="22.5"
           stroke="currentColor"
           strokeWidth="3"
-          stroke-opacity="0.3"
+          strokeOpacity="0.3"
         />
         <path
           fillRule="evenodd"
@@ -64,7 +64,7 @@ export const LoadingSpinner = ({
           r="9"
           stroke="currentColor"
           strokeWidth="2"
-          stroke-opacity="0.3"
+          strokeOpacity="0.3"
         />
         <path
           fillRule="evenodd"

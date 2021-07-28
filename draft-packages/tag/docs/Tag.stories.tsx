@@ -13,10 +13,10 @@ export default {
   title: "Tag (React)",
   component: Tag,
   parameters: {
-    info: {
-      text: `
-      import { Tag } from "@kaizen/draft-tag"
-      `,
+    docs: {
+      description: {
+        component: 'import { Tag } from "@kaizen/draft-tag"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A90332"

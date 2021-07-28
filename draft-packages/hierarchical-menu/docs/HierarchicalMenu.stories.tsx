@@ -29,14 +29,7 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
   const [navigatedFrom, setNavigatedFrom] = useState<HierarchyNode | null>(null)
 
   return (
-    <div
-      style={{
-        width: "400px",
-        margin: "12px auto",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <div>
       {children({
         hierarchy,
         setHierarchy,
@@ -49,6 +42,15 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
 
 export default {
   title: "HierarchicalMenu (React)",
+  component: HierarchicalMenu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'import { HierarchicalMenu } from "@kaizen/draft-hierarchical-menu"',
+      },
+    },
+  },
 }
 
 export const DefaultStory = () => (

@@ -14,6 +14,7 @@ export interface TileAction {
   readonly href?: string
   readonly icon?: React.SVGAttributes<SVGSymbolElement>
   readonly automationId?: string
+  readonly newTabAndIUnderstandTheAccessibilityImplications?: boolean
 }
 
 export interface TileInformation {
@@ -123,7 +124,6 @@ const GenericTile: GenericTile = ({
             disabled={!isFlipped}
           />
         </div>
-        {renderTitle()}
         <div className={styles.information}>
           {renderInformation(information)}
         </div>

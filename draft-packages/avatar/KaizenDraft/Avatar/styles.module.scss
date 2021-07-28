@@ -44,6 +44,11 @@
     width: $kz-var-spacing-xxl;
     height: $kz-var-spacing-xxl;
   }
+
+  &.xlarge {
+    width: 7.75rem;
+    height: 7.75rem;
+  }
 }
 
 .avatarImage {
@@ -58,6 +63,9 @@
 .fallbackIcon {
   color: $dt-color-icon-color;
   width: 28px;
+  .xlarge & {
+    width: 62px;
+  }
   .medium & {
     width: 20px;
   }
@@ -85,6 +93,11 @@
     content: "";
     display: block;
     margin-top: -0.001em;
+  }
+
+  .xlarge & {
+    font-size: 34px;
+    letter-spacing: $kz-var-typography-heading-1-letter-spacing;
   }
 
   .medium & {

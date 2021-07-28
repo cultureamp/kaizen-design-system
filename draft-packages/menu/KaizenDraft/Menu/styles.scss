@@ -1,9 +1,4 @@
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 $menu-container-width: 248px;
 
@@ -18,8 +13,4 @@ $menu-container-width: 248px;
 
 .defaultWidth {
   width: $menu-container-width;
-}
-
-.reversedColor {
-  color: $kz-var-color-white;
 }

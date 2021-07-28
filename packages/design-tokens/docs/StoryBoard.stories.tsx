@@ -8,7 +8,6 @@ import * as GlobalNotificationStories from "@kaizen/component-library/stories/Gl
 import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
 import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
 import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
-import * as NavigationBarStories from "@kaizen/component-library/stories/NavigationBar.stories"
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
 import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
@@ -16,9 +15,8 @@ import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
 import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
 import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
-import * as CollapsibleStories from "@kaizen/draft-collapsible/KaizenDraft/Collapsible/Collapsible.stories"
+import * as CollapsibleStories from "@kaizen/draft-collapsible/docs/Collapsible.stories"
 import * as DividerStories from "@kaizen/draft-divider/docs/Divider.stories"
-import * as DropdownStories from "@kaizen/draft-dropdown/docs/Dropdown.stories"
 import * as EmptyStateStories from "@kaizen/draft-empty-state/docs/EmptyState.stories"
 import * as FilterMenuButtonStories from "@kaizen/draft-filter-menu-button/docs/FilterMenuButton.stories"
 import * as CheckboxFieldStories from "@kaizen/draft-form/docs/CheckboxField.stories"
@@ -29,7 +27,6 @@ import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as GuidanceBlockStories from "@kaizen/draft-guidance-block/docs/GuidanceBlock.stories"
 import * as HeroCardStories from "@kaizen/draft-hero-card/docs/HeroCard.stories"
-import * as HeroPanelStories from "@kaizen/draft-hero-panel/docs/HeroPanel.stories"
 import * as HierarchicalMenuStories from "@kaizen/draft-hierarchical-menu/docs/HierarchicalMenu.stories"
 import * as HierarchicalSelectStories from "@kaizen/draft-hierarchical-select/docs/HierarchicalSelect.stories"
 import * as IllustrationSceneStories from "@kaizen/draft-illustration/docs/IllustrationScene.stories"
@@ -39,9 +36,8 @@ import * as LoadingSpinnerStories from "@kaizen/draft-loading-spinner/docs/Loadi
 import * as MenuStories from "@kaizen/draft-menu/docs/Menu.stories"
 import * as ModalStories from "@kaizen/draft-modal/docs/Modal.stories"
 import * as PageLayoutStories from "@kaizen/draft-page-layout/docs/PageLayout.stories"
-import * as RadioGroupStories from "@kaizen/draft-page-layout/docs/RadioGroup.stories"
+import * as RadioGroupStories from "@kaizen/draft-form/docs/RadioGroup.stories"
 import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
-import * as SearchBoxStories from "@kaizen/draft-search-box/docs/SearchBox.stories"
 import * as SelectStories from "@kaizen/draft-select/docs/Select.stories"
 import * as SplitButtonStories from "@kaizen/draft-split-button/docs/SplitButton.stories"
 import * as TableStories from "@kaizen/draft-table/docs/Table.stories"
@@ -189,7 +185,7 @@ const ComponentsSection = React.forwardRef(
     ref: React.Ref<HTMLDivElement>
   ) => {
     const theme = useTheme()
-    const border = `solid 1px ${theme.color.wisteria[700]}`
+    const border = `solid 1px ${theme.color.purple[700]}`
     return (
       <div
         ref={ref}
@@ -315,97 +311,94 @@ export const Everything: Story = () => {
     () => (
       <Stack horizontal gapSize={2}>
         <ComponentsSection title="Colors">
-          <Heading variant="heading-3">Wisteria</Heading>
+          <Heading variant="heading-3">Purple</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.wisteria[100]} />
-            <ColorDemo name="200" color={theme.color.wisteria[200]} />
-            <ColorDemo name="300" color={theme.color.wisteria[300]} />
-            <ColorDemo name="400" color={theme.color.wisteria[400]} />
-            <ColorDemo name="500" color={theme.color.wisteria[500]} />
-            <ColorDemo name="600" color={theme.color.wisteria[600]} />
-            <ColorDemo name="700" color={theme.color.wisteria[700]} />
+            <ColorDemo name="100" color={theme.color.purple[100]} />
+            <ColorDemo name="200" color={theme.color.purple[200]} />
+            <ColorDemo name="300" color={theme.color.purple[300]} />
+            <ColorDemo name="400" color={theme.color.purple[400]} />
+            <ColorDemo name="500" color={theme.color.purple[500]} />
+            <ColorDemo name="600" color={theme.color.purple[600]} />
+            <ColorDemo name="700" color={theme.color.purple[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Cluny</Heading>
+          <Heading variant="heading-3">Blue</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.cluny[100]} />
-            <ColorDemo name="200" color={theme.color.cluny[200]} />
-            <ColorDemo name="300" color={theme.color.cluny[300]} />
-            <ColorDemo name="400" color={theme.color.cluny[400]} />
-            <ColorDemo name="500" color={theme.color.cluny[500]} />
-            <ColorDemo name="600" color={theme.color.cluny[600]} />
-            <ColorDemo name="700" color={theme.color.cluny[700]} />
+            <ColorDemo name="100" color={theme.color.blue[100]} />
+            <ColorDemo name="200" color={theme.color.blue[200]} />
+            <ColorDemo name="300" color={theme.color.blue[300]} />
+            <ColorDemo name="400" color={theme.color.blue[400]} />
+            <ColorDemo name="500" color={theme.color.blue[500]} />
+            <ColorDemo name="600" color={theme.color.blue[600]} />
+            <ColorDemo name="700" color={theme.color.blue[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Coral</Heading>
+          <Heading variant="heading-3">Red</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.coral[100]} />
-            <ColorDemo name="200" color={theme.color.coral[200]} />
-            <ColorDemo name="300" color={theme.color.coral[300]} />
-            <ColorDemo name="400" color={theme.color.coral[400]} />
-            <ColorDemo name="500" color={theme.color.coral[500]} />
-            <ColorDemo name="600" color={theme.color.coral[600]} />
-            <ColorDemo name="700" color={theme.color.coral[700]} />
+            <ColorDemo name="100" color={theme.color.red[100]} />
+            <ColorDemo name="200" color={theme.color.red[200]} />
+            <ColorDemo name="300" color={theme.color.red[300]} />
+            <ColorDemo name="400" color={theme.color.red[400]} />
+            <ColorDemo name="500" color={theme.color.red[500]} />
+            <ColorDemo name="600" color={theme.color.red[600]} />
+            <ColorDemo name="700" color={theme.color.red[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Peach</Heading>
+          <Heading variant="heading-3">Orange</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.peach[100]} />
-            <ColorDemo name="200" color={theme.color.peach[200]} />
-            <ColorDemo name="300" color={theme.color.peach[300]} />
-            <ColorDemo name="400" color={theme.color.peach[400]} />
-            <ColorDemo name="500" color={theme.color.peach[500]} />
-            <ColorDemo name="600" color={theme.color.peach[600]} />
-            <ColorDemo name="700" color={theme.color.peach[700]} />
+            <ColorDemo name="100" color={theme.color.orange[100]} />
+            <ColorDemo name="200" color={theme.color.orange[200]} />
+            <ColorDemo name="300" color={theme.color.orange[300]} />
+            <ColorDemo name="400" color={theme.color.orange[400]} />
+            <ColorDemo name="500" color={theme.color.orange[500]} />
+            <ColorDemo name="600" color={theme.color.orange[600]} />
+            <ColorDemo name="700" color={theme.color.orange[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Seedling</Heading>
+          <Heading variant="heading-3">Green</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.seedling[100]} />
-            <ColorDemo name="200" color={theme.color.seedling[200]} />
-            <ColorDemo name="300" color={theme.color.seedling[300]} />
-            <ColorDemo name="400" color={theme.color.seedling[400]} />
-            <ColorDemo name="500" color={theme.color.seedling[500]} />
-            <ColorDemo name="600" color={theme.color.seedling[600]} />
-            <ColorDemo name="700" color={theme.color.seedling[700]} />
+            <ColorDemo name="100" color={theme.color.green[100]} />
+            <ColorDemo name="200" color={theme.color.green[200]} />
+            <ColorDemo name="300" color={theme.color.green[300]} />
+            <ColorDemo name="400" color={theme.color.green[400]} />
+            <ColorDemo name="500" color={theme.color.green[500]} />
+            <ColorDemo name="600" color={theme.color.green[600]} />
+            <ColorDemo name="700" color={theme.color.green[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Yuzu</Heading>
+          <Heading variant="heading-3">Yellow</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.yuzu[100]} />
-            <ColorDemo name="200" color={theme.color.yuzu[200]} />
-            <ColorDemo name="300" color={theme.color.yuzu[300]} />
-            <ColorDemo name="400" color={theme.color.yuzu[400]} />
-            <ColorDemo name="500" color={theme.color.yuzu[500]} />
-            <ColorDemo name="600" color={theme.color.yuzu[600]} />
-            <ColorDemo name="700" color={theme.color.yuzu[700]} />
+            <ColorDemo name="100" color={theme.color.yellow[100]} />
+            <ColorDemo name="200" color={theme.color.yellow[200]} />
+            <ColorDemo name="300" color={theme.color.yellow[300]} />
+            <ColorDemo name="400" color={theme.color.yellow[400]} />
+            <ColorDemo name="500" color={theme.color.yellow[500]} />
+            <ColorDemo name="600" color={theme.color.yellow[600]} />
+            <ColorDemo name="700" color={theme.color.yellow[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Ash</Heading>
+          <Heading variant="heading-3">Gray</Heading>
           <Padding />
-          <ColorDemo color={theme.color.ash} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Stone</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.stone} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Iron</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.iron} />
+          <Stack gapSize={0.5}>
+            <ColorDemo name="100" color={theme.color.gray[100]} />
+            <ColorDemo name="200" color={theme.color.gray[200]} />
+            <ColorDemo name="300" color={theme.color.gray[300]} />
+            <ColorDemo name="400" color={theme.color.gray[400]} />
+            <ColorDemo name="500" color={theme.color.gray[500]} />
+            <ColorDemo name="600" color={theme.color.gray[600]} />
+          </Stack>
           <Padding size={2} />
           <Heading variant="heading-3">White</Heading>
           <Padding />
-          <ColorDemo color={theme.color.white} />
-          <Padding size={2} />
-          <Heading variant="heading-3">Slate</Heading>
-          <Padding />
-          <ColorDemo color={theme.color.slate} />
+          <Stack gapSize={0.5}>
+            <ColorDemo name="White" color={theme.color.white} />
+          </Stack>
         </ComponentsSection>
 
         <ComponentsSection title="Typography">
@@ -431,14 +424,12 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={CheckboxGroupStories} />
         <StoriesContainer storyModule={CollapsibleStories} />
         <StoriesContainer storyModule={DividerStories} />
-        <StoriesContainer storyModule={DropdownStories} />
         <StoriesContainer storyModule={EmptyStateStories} />
         <StoriesContainer storyModule={FilterMenuButtonStories} />
         <StoriesContainer storyModule={GlobalNotificationStories} />
         <StoriesContainer storyModule={GuidanceBlockStories} />
         <StoriesContainer storyModule={HeadingStories} />
         <StoriesContainer storyModule={HeroCardStories} />
-        <StoriesContainer storyModule={HeroPanelStories} />
         <StoriesContainer storyModule={HierarchicalMenuStories} />
         <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
@@ -450,13 +441,11 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={LoadingSpinnerStories} />
         <StoriesContainer storyModule={MenuStories} />
         <StoriesContainer storyModule={ModalStories} />
-        <StoriesContainer storyModule={NavigationBarStories} />
         <StoriesContainer storyModule={PageLayoutStories} />
         <StoriesContainer storyModule={ParagraphStories} />
         <StoriesContainer storyModule={PopoverStories} />
         <StoriesContainer storyModule={RadioFieldStories} />
         <StoriesContainer storyModule={RadioGroupStories} />
-        <StoriesContainer storyModule={SearchBoxStories} />
         <StoriesContainer storyModule={SelectStories} />
         <StoriesContainer storyModule={SliderStories} />
         <StoriesContainer storyModule={SplitButtonStories} />
@@ -482,7 +471,7 @@ export const Everything: Story = () => {
     <div
       style={{
         height: "100vh",
-        backgroundColor: theme.color.stone,
+        backgroundColor: theme.color.gray["100"],
       }}
     >
       <div

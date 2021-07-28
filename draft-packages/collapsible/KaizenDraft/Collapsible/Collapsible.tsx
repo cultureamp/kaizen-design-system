@@ -74,15 +74,19 @@ class Collapsible extends React.Component<Props, State> {
           [styles.stickyContainer]: isContainer && sticky,
           [styles.groupItem]: group && !separated,
           [styles.separated]: separated,
+          [styles.open]: open,
+          [styles.single]: !group,
         })}
         data-automation-id={automationId || `collapsible-container-${id}`}
       >
         <button
+          type="button"
           id={buttonId}
           className={classnames(styles.button, {
             [styles.defaultVariant]: open && variant === "default",
             [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
+            [styles.open]: open,
           })}
           style={sticky && { top: sticky.top }}
           onClick={this.handleClick}

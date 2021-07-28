@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
-import { Paragraph, Button } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"
 import { Hierarchy, HierarchyNode } from "@kaizen/draft-hierarchical-menu"
 import {
@@ -64,6 +65,13 @@ const SelectionSummary = (props: {
 
 export default {
   title: "HierarchicalSelect (React)",
+  component: HierarchicalSelect,
+  docs: {
+    description: {
+      component:
+        'import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"',
+    },
+  },
 }
 
 export const DefaultStory = () => (

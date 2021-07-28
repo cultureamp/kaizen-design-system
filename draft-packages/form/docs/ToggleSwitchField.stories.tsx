@@ -28,14 +28,7 @@ class ToggleStateContainer extends React.Component<
   }
   render() {
     return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "0.2rem",
-        }}
-      >
+      <div>
         {this.props.children({
           toggledStatus: this.state.toggledStatus,
           toggle: this.toggle,
@@ -53,10 +46,11 @@ export default {
   title: "ToggleSwitchField (React)",
   component: ToggleSwitchField,
   parameters: {
-    info: {
-      text: `
-      import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14361%3A67850"

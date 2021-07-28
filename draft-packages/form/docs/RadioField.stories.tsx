@@ -54,10 +54,10 @@ export default {
   title: "RadioField (React)",
   component: RadioField,
   parameters: {
-    info: {
-      text: `
-      import { RadioField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { RadioField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14354%3A68219"

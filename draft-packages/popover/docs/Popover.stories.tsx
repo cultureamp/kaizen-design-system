@@ -12,10 +12,10 @@ export default {
   title: "Popover (React)",
   component: PopoverRaw,
   parameters: {
-    info: {
-      text: `
-      import { usePopover } from "@kaizen/draft-popover"
-      `,
+    docs: {
+      description: {
+        component: 'import { usePopover } from "@kaizen/draft-popover"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A63845"

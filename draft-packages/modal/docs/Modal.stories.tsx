@@ -24,11 +24,7 @@ import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import {
-  BenefitsSurvey,
-  Negative,
-  ExecutiveReportSharing,
-} from "@kaizen/draft-illustration"
+import { Negative, ExecutiveReportSharing } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
@@ -82,11 +78,13 @@ export default {
   title: "Modal (React)",
   component: ConfirmationModal,
   parameters: {
-    info: {
-      text:
-        "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
-        "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
-        'ModalHeader } from "@kaizen/draft-modal"',
+    docs: {
+      description: {
+        component:
+          "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
+          "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
+          'ModalHeader } from "@kaizen/draft-modal"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"

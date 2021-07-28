@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.72](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.71...@kaizen/draft-hierarchical-menu@2.0.72) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.71](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.70...@kaizen/draft-hierarchical-menu@2.0.71) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.70](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.69...@kaizen/draft-hierarchical-menu@2.0.70) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.69](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.68...@kaizen/draft-hierarchical-menu@2.0.69) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.68](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.67...@kaizen/draft-hierarchical-menu@2.0.68) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.67](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.66...@kaizen/draft-hierarchical-menu@2.0.67) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.66](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.65...@kaizen/draft-hierarchical-menu@2.0.66) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.64...@kaizen/draft-hierarchical-menu@2.0.65) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.64](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.63...@kaizen/draft-hierarchical-menu@2.0.64) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.63](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.62...@kaizen/draft-hierarchical-menu@2.0.63) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.62](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.61...@kaizen/draft-hierarchical-menu@2.0.62) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.61](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.60...@kaizen/draft-hierarchical-menu@2.0.61) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.59...@kaizen/draft-hierarchical-menu@2.0.60) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.59](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.58...@kaizen/draft-hierarchical-menu@2.0.59) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.58](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.57...@kaizen/draft-hierarchical-menu@2.0.58) (2021-05-14)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.57](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.56...@kaizen/draft-hierarchical-menu@2.0.57) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.56](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.55...@kaizen/draft-hierarchical-menu@2.0.56) (2021-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.54...@kaizen/draft-hierarchical-menu@2.0.55) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.54](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.53...@kaizen/draft-hierarchical-menu@2.0.54) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.53](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.52...@kaizen/draft-hierarchical-menu@2.0.53) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.51...@kaizen/draft-hierarchical-menu@2.0.52) (2021-05-04)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.50...@kaizen/draft-hierarchical-menu@2.0.51) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.49...@kaizen/draft-hierarchical-menu@2.0.50) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
 ## [2.0.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.48...@kaizen/draft-hierarchical-menu@2.0.49) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-menu

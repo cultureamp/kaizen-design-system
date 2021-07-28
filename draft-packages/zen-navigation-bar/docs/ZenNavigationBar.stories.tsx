@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Button, Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import {
   Link,
   Menu,

@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.22...@kaizen/draft-well@3.1.23) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.21...@kaizen/draft-well@3.1.22) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.20...@kaizen/draft-well@3.1.21) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.19...@kaizen/draft-well@3.1.20) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.18...@kaizen/draft-well@3.1.19) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.17...@kaizen/draft-well@3.1.18) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.16...@kaizen/draft-well@3.1.17) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.15...@kaizen/draft-well@3.1.16) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.14...@kaizen/draft-well@3.1.15) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.13...@kaizen/draft-well@3.1.14) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.12...@kaizen/draft-well@3.1.13) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.11...@kaizen/draft-well@3.1.12) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.10...@kaizen/draft-well@3.1.11) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.9...@kaizen/draft-well@3.1.10) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [3.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.8...@kaizen/draft-well@3.1.9) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [3.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.1.7...@kaizen/draft-well@3.1.8) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-well

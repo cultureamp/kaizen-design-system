@@ -4,9 +4,8 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../dimensions";
 
-$tileWidth: 330px;
-$tileHeight: 370px;
 $tilePaddingTop: $kz-var-spacing-xl;
 
 .root {
@@ -15,6 +14,11 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .tile {
   width: $tileWidth;
+
+  [data-tile-grid] & {
+    width: auto;
+  }
+
   height: $tileHeight;
   position: relative;
   box-shadow: $kz-var-shadow-small-box-shadow;
@@ -59,6 +63,7 @@ $tilePaddingTop: $kz-var-spacing-xl;
 .faceBack {
   padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
+  background-color: $kz-var-color-cluny-100;
 }
 
 .isFlipped {
@@ -84,21 +89,18 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .information {
   @include ca-padding(
-    $top: 18px,
     $bottom: $kz-var-spacing-md,
     $start: $kz-var-spacing-md,
     $end: $kz-var-spacing-md
   );
-  margin-top: $kz-var-spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: $kz-var-color-cluny-100;
   width: 100%;
   height: 100%;
-  text-align: center;
+  text-align: left;
   border-radius: 0 0 7px 7px;
 }
 

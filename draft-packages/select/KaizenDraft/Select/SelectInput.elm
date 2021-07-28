@@ -10,11 +10,12 @@ module KaizenDraft.Select.SelectInput exposing
     , onFocusMsg
     , onInput
     , onMousedown
-    , preventKeydownOn
+    , onWithStopPropagationAndPreventDefault
     , sizerId
     , view
     )
 
+import CssModules exposing (css)
 import Html exposing (Html, div, input, text)
 import Html.Attributes exposing (attribute, id, size, style, type_, value)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
@@ -39,7 +40,7 @@ type alias Configuration msg =
     , currentValue : Maybe String
     , disabled : Bool
     , minWidth : Int
-    , preventKeydownOn : List (Decode.Decoder msg)
+    , onWithStopPropagationAndPreventDefault : List (Decode.Decoder msg)
     , inputSizing : InputSizing
     }
 
@@ -57,7 +58,7 @@ defaults =
     , currentValue = Nothing
     , disabled = False
     , minWidth = defaultWidth
-    , preventKeydownOn = []
+    , onWithStopPropagationAndPreventDefault = []
     , inputSizing = Dynamic
     }
 
@@ -95,9 +96,9 @@ inputSizing width (Config config) =
     Config { config | inputSizing = width }
 
 
-preventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
-preventKeydownOn decoders (Config config) =
-    Config { config | preventKeydownOn = decoders }
+onWithStopPropagationAndPreventDefault : List (Decode.Decoder msg) -> Config msg -> Config msg
+onWithStopPropagationAndPreventDefault decoders (Config config) =
+    Config { config | onWithStopPropagationAndPreventDefault = decoders }
 
 
 onInput : (String -> msg) -> Config msg -> Config msg
@@ -178,10 +179,10 @@ view (Config config) id_ =
                     ++ [ preventOn ]
 
         preventOn =
-            preventDefaultOn "keydown" <|
-                Decode.map
-                    (\m -> ( m, True ))
-                    (Decode.oneOf config.preventKeydownOn)
+            Html.Events.custom "keydown"
+                (Decode.oneOf config.onWithStopPropagationAndPreventDefault
+                    |> Decode.map (\m -> { message = m, stopPropagation = True, preventDefault = True })
+                )
 
         inputStyles =
             [ style "box-sizing" "content-box"
@@ -206,15 +207,8 @@ view (Config config) id_ =
             , style "letter-spacing" "normal"
             , style "text-transform" "none"
             ]
-
-        autoSizeInputContainerStyles =
-            [ style "padding-bottom" "2px"
-            , style "padding-top" "2px"
-            , style "box-sizing" "border-box"
-            , style "margin" "2px"
-            ]
     in
-    div autoSizeInputContainerStyles
+    div [ styles.class .autosizeInputContainer ]
         [ input
             ([ id (inputId id_), value inputValue, type_ "text", attribute "autocomplete" "new-password" ] ++ events ++ inputStyles)
             []
@@ -222,3 +216,9 @@ view (Config config) id_ =
         -- query the div width to set the input width
         , div ([ id (sizerId id_) ] ++ sizerStyles) [ text inputValue ]
         ]
+
+
+styles =
+    css "@kaizen/draft-select/KaizenDraft/Select/styles.elm.scss"
+        { autosizeInputContainer = "autosizeInputContainer"
+        }

@@ -10,10 +10,11 @@ export default {
   title: "PageLayout (React)",
   component: Container,
   parameters: {
-    info: {
-      text: `
-        import { Container, Content } from "@kaizen/draft-page-layout";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { Container, Content } from "@kaizen/draft-page-layout"',
+      },
     },
   },
   decorators: [withDesign],

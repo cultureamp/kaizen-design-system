@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.10...@kaizen/draft-card@1.2.11) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.9...@kaizen/draft-card@1.2.10) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
 ## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.8...@kaizen/draft-card@1.2.9) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-card

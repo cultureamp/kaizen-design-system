@@ -31,6 +31,7 @@ Team Foundations will release a codemod or stylint plugin to assist with this mi
 
 There are two significant and breaking changes that are occurring as of the next release:
 
-* The old tokens will be removed; only `$kz-var-*` tokens will be available. Perform the above steps to prepare for this change.
+* The top level token namespace will be removed; tokens will be named `$color-purple-100`, `$spacing-md` etc, without any `kz` or `kz-var` prefix.
 
-* There may be more breaking changes, such as renaming color names (e.g. Wisteria -> Purple). Follow #updates_design_systems on Slack to stay informed.
+* The names of the color tokens will use their common name, not the descriptive one. For example, Wisteria becomes Purple, Cluny becomes Blue and so on. 
+* This is not an exhaustive list of changes, there may be other breaking changes. Follow #updates_design_systems on Slack to stay informed.
