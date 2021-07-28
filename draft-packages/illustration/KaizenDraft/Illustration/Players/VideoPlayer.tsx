@@ -16,13 +16,6 @@ export type VideoPlayerProps = {
   loop?: boolean
 
   /**
-   * The path of the initial video asset to play. This is only used in
-   * situations where we have two clips - the `initialAnimation` will play
-   * once, then we will swap to the ambient animation and loop indefinitely
-   */
-  initialAnimation?: string
-
-  /**
    * Fallback image. Used when rendering of the asset fails, or as a
    * poster for the video player.
    */
@@ -33,6 +26,8 @@ export type VideoPlayerProps = {
    * an initial animation.
    */
   ambientAnimation: string
+
+  onEnded?: () => void
 }
 
 export const VideoPlayer = ({
@@ -40,6 +35,7 @@ export const VideoPlayer = ({
   loop = false,
   fallback,
   ambientAnimation,
+  onEnded,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const reducedMotionQuery = window.matchMedia(
@@ -101,6 +97,18 @@ export const VideoPlayer = ({
       )
     }
   }, [prefersReducedMotion])
+
+  useEffect(() => {
+    // Add event listeners for the video element
+    const { current: videoElement } = videoRef
+    if (!videoElement || !onEnded) return
+    videoElement.addEventListener("ended", onEnded)
+
+    // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+    return function cleanup() {
+      videoElement.removeEventListener("ended", onEnded)
+    }
+  }, [videoRef])
 
   return (
     <video
