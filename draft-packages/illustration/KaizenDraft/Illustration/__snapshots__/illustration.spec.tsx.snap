@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Illustration /> Scene BrandMomentCaptureIntro should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-capture-intro-loop.png"
-  />
-</div>
-`;
-
 exports[`<Illustration /> Scene BrandMomentError should exist and render an alt tag 1`] = `
 <div>
   <img

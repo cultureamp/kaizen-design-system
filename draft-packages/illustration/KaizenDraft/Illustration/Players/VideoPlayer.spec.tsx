@@ -39,7 +39,7 @@ describe("<VideoPlayer />", () => {
       <VideoPlayer
         autoplay
         fallback="illustrations/heart/spot/moods-cautionary.svg"
-        ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+        source="illustrations/heart/spot/moods-cautionary.webm"
       />
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
@@ -56,7 +56,7 @@ describe("<VideoPlayer />", () => {
         <VideoPlayer
           autoplay
           fallback="illustrations/heart/spot/moods-cautionary.svg"
-          ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+          source="illustrations/heart/spot/moods-cautionary.webm"
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
@@ -92,7 +92,7 @@ describe("<VideoPlayer />", () => {
         <VideoPlayer
           autoplay
           fallback="illustrations/heart/spot/moods-cautionary.svg"
-          ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+          source="illustrations/heart/spot/moods-cautionary.webm"
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")

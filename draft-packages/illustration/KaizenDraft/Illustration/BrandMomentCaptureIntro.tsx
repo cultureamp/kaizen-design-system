@@ -35,8 +35,6 @@ export const BrandMomentCaptureIntro = ({
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
         source="illustrations/heart/scene/brand-moments-capture-intro-loop"
-        loop={true}
-        autoplay={true}
       />
     )
   }
