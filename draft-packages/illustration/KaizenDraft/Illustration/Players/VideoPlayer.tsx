@@ -22,10 +22,10 @@ export type VideoPlayerProps = {
   fallback: string
 
   /**
-   * The path of the ambient animation. An ambient animation can be used without
-   * an initial animation.
+   * The path of the animation source, excluding the file extension. This
+   * Player will preference Webm over mp4.
    */
-  ambientAnimation: string
+  source: string
 
   onEnded?: () => void
 }
@@ -34,7 +34,7 @@ export const VideoPlayer = ({
   autoplay = true,
   loop = false,
   fallback,
-  ambientAnimation,
+  source,
   onEnded,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -69,7 +69,7 @@ export const VideoPlayer = ({
     if (videoElement !== null) {
       videoElement.load()
     }
-  }, [ambientAnimation])
+  }, [source])
 
   useEffect(() => {
     if (!reducedMotionQuery.addEventListener || !window) return
@@ -132,8 +132,8 @@ export const VideoPlayer = ({
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
-      <source src={assetUrl(`${ambientAnimation}.webm`)} type="video/webm" />
-      <source src={assetUrl(`${ambientAnimation}.mp4`)} type="video/mp4" />
+      <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
     </video>
   )
 }

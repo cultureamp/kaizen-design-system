@@ -2,16 +2,10 @@ import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
+import { SubsetBecomesNever } from "./types"
 
 export type SceneProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
-
-/**
- * All keys K within T will be converted to a never type.
- * This is useful for discriminated unions
- */
-type SubsetBecomesNever<T, K extends keyof T> = T | { [L in K]?: never }
-
-type AnimatedProps = { isAnimated?: true } & Pick<
+export type AnimatedProps = { isAnimated?: true } & Pick<
   VideoPlayerProps,
   "loop" | "autoplay"
 > &
@@ -21,31 +15,8 @@ type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
   "autoplay" | "loop"
 > &
   SceneProps
-type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
-export const BrandMomentCaptureIntro = ({
-  isAnimated,
-  alt,
-  ...otherProps
-}: AnimatedSceneProps) => {
-  if (isAnimated) {
-    return (
-      <VideoPlayer
-        {...otherProps}
-        fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
-        ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop"
-        initialAnimation="illustrations/heart/scene/brand-moments-capture-intro"
-      />
-    )
-  }
-  return (
-    <Base
-      alt={alt || ""}
-      {...otherProps}
-      name="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
-    />
-  )
-}
+export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
 export const BrandMomentPositiveOutro = ({
   isAnimated,
@@ -57,7 +28,7 @@ export const BrandMomentPositiveOutro = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-positive-outro"
-        ambientAnimation="illustrations/heart/scene/brand-moments-positive-outro"
+        source="illustrations/heart/scene/brand-moments-positive-outro"
       />
     )
   }
@@ -80,7 +51,7 @@ export const BrandMomentLogin = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-login"
-        ambientAnimation="illustrations/heart/scene/brand-moments-login"
+        source="illustrations/heart/scene/brand-moments-login"
       />
     )
   }
@@ -104,7 +75,7 @@ export const BrandMomentError = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-error"
-        ambientAnimation="illustrations/heart/scene/brand-moments-error"
+        source="illustrations/heart/scene/brand-moments-error"
       />
     )
   }
@@ -135,7 +106,7 @@ export const EmptyStatesAction = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-action"
-        ambientAnimation="illustrations/heart/scene/empty-states-action"
+        source="illustrations/heart/scene/empty-states-action"
       />
     )
   }
@@ -163,7 +134,7 @@ export const EmptyStatesInformative = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-informative"
-        ambientAnimation="illustrations/heart/scene/empty-states-informative"
+        source="illustrations/heart/scene/empty-states-informative"
       />
     )
   }
@@ -191,7 +162,7 @@ export const EmptyStatesNegative = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-negative"
-        ambientAnimation="illustrations/heart/scene/empty-states-negative"
+        source="illustrations/heart/scene/empty-states-negative"
       />
     )
   }
@@ -219,7 +190,7 @@ export const EmptyStatesPositive = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-positive"
-        ambientAnimation="illustrations/heart/scene/empty-states-positive"
+        source="illustrations/heart/scene/empty-states-positive"
       />
     )
   }
@@ -247,7 +218,7 @@ export const EmptyStatesNeutral = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-neutral"
-        ambientAnimation="illustrations/heart/scene/empty-states-neutral"
+        source="illustrations/heart/scene/empty-states-neutral"
       />
     )
   }
