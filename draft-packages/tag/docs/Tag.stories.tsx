@@ -215,7 +215,12 @@ export const Inline = () => (
 
 export const InlineDismissible = () => (
   <StoryContainer>
-    <Tag variant="default" inline dismissible>
+    <Tag
+      variant="default"
+      inline
+      dismissible
+      onDismiss={() => alert("dismissed action fired")}
+    >
       Inline
     </Tag>
     <Tag
@@ -226,7 +231,12 @@ export const InlineDismissible = () => (
     >
       Inline
     </Tag>
-    <Tag variant="validationPositive" inline dismissible>
+    <Tag
+      variant="validationPositive"
+      inline
+      dismissible
+      onDismiss={() => alert("dismissed action fired")}
+    >
       Inline
     </Tag>
   </StoryContainer>

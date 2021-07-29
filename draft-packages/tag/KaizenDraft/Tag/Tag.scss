@@ -55,7 +55,7 @@ $small: $kz-var-spacing-md;
   margin-top: -1px;
 }
 
-.dismissIcon {
+.dismissButton {
   @include button-reset;
   position: relative;
   display: flex;
@@ -88,6 +88,30 @@ $small: $kz-var-spacing-md;
   svg {
     position: relative;
   }
+
+  :global(.js-focus-visible) & {
+    outline: none;
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) .iconWrapper {
+      color: var($kz-var-id-color-wisteria-800, $kz-var-color-wisteria-700);
+
+      &::after {
+        $focus-ring-offset: calc((#{$kz-var-border-focus-ring-border-width}));
+        content: "";
+        position: absolute;
+        background: transparent;
+        border-radius: 50%;
+        border-width: $kz-var-border-focus-ring-border-width;
+        border-style: $kz-var-border-focus-ring-border-style;
+        border-color: $kz-var-color-cluny-500;
+        top: calc(-1 * #{$focus-ring-offset});
+        left: calc(-1 * #{$focus-ring-offset});
+        right: calc(-1 * #{$focus-ring-offset});
+        bottom: calc(-1 * #{$focus-ring-offset});
+      }
+    }
+  }
 }
 
 .background {
@@ -105,6 +129,7 @@ $small: $kz-var-spacing-md;
 }
 
 .iconWrapper {
+  position: relative;
   height: 16px;
   width: 16px;
 }

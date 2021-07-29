@@ -117,7 +117,7 @@ const Tag = (props: TagProps) => {
         {dismissible && (
           <>
             <button
-              className={styles.dismissIcon}
+              className={styles.dismissButton}
               onClick={onDismiss}
               onMouseDown={onMouseDown}
               onMouseLeave={onMouseLeave}
