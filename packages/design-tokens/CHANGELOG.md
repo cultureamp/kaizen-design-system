@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.0...@kaizen/design-tokens@2.10.1) (2021-07-29)
+
+
+### Bug Fixes
+
+* Exclude spec files from being compiled and published ([#1799](https://github.com/cultureamp/kaizen-design-system/issues/1799)) ([388b31a](https://github.com/cultureamp/kaizen-design-system/commit/388b31a739bf18c47811fd93f0f0df81d5e6f628))
+
+
+
+
+
 # [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.9.6...@kaizen/design-tokens@2.10.0) (2021-07-27)
 
 
