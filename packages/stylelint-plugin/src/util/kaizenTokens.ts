@@ -141,9 +141,8 @@ export const removedKaizenTokensByName: Readonly<
 /**
  * The list of rules that will be applied to determine deprecation and potential replacements for tokens from design-tokens v2.
  * Ensure that any pattern on the left side represents a token that is deprecated (i.e `pattern.test(tokenName) === true` means deprecated)
- * Also please ensure that idempotency is preserved when applying rules.
- * I.e. if you applied every rule once on a string, you would get the same result if you re-ran the rules again.
- * We want idempotency because, otherwise, applying each rule on a token won't always return a non-deprecated token (because of the first constraint)
+ * Also please ensure that if you applied every rule once on a string, you would get the same result if you re-ran the rules again on the first return value.
+ * We want this constraint because, otherwise, applying each rule on a token won't always return a non-deprecated token (because of the first constraint)
  * Order of the rules matters.
  *
  * The last value in the triple is a boolean that represents whether the rules should terminate at that rule, if it tests true.
