@@ -107,7 +107,7 @@ const parseAnimationData = async (
  */
 export const canPlayWebm = (): boolean => {
   const video = document.createElement("video")
-  if (video.canPlayType("video/webm; codecs=vp8")) {
+  if (video.canPlayType("video/webm; codecs=vp8") === "probably") {
     return true
   }
   return false
