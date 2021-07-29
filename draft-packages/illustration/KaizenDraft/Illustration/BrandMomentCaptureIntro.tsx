@@ -19,50 +19,27 @@ export const BrandMomentCaptureIntro = ({
     false
   )
 
-  React.useEffect(() => {
-    /**
-     * To prevent the inevitable "jump" when loading the ambient animation, we
-     * preemptively fetch the ambient animation when the player is first mounted.
-     * That way, the browser is able to retrieve the second asset from it's cache
-     * when it is needed
-     */
-    if (window) {
-      // Check what format the browser can play, then preload the correct animation
-      if (canPlayWebm()) {
-        fetch(
-          assetUrl(
-            "illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
-          )
-        )
-      } else {
-        fetch(
-          assetUrl(
-            "illustrations/heart/scene/brand-moments-capture-intro-loop.mp4"
-          )
-        )
-      }
-    }
-  }, [])
-
   if (isAnimated) {
-    if (!firstAnimationComplete) {
-      return (
-        <VideoPlayer
-          {...otherProps}
-          fallback="illustrations/heart/scene/brand-moments-capture-intro"
-          source="illustrations/heart/scene/brand-moments-capture-intro"
-          onEnded={() => setFirstAnimationComplete(true)}
-          loop={false}
-        />
-      )
-    }
-
     return (
-      <VideoPlayer
-        {...otherProps}
-        fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
-        source="illustrations/heart/scene/brand-moments-capture-intro-loop"
-      />
+      <>
+        <div style={{ display: firstAnimationComplete ? "none" : "" }}>
+          <VideoPlayer
+            {...otherProps}
+            fallback="illustrations/heart/scene/brand-moments-capture-intro"
+            source="illustrations/heart/scene/brand-moments-capture-intro"
+            onEnded={() => setFirstAnimationComplete(true)}
+            loop={false}
+          />
+        </div>
+        <div style={{ display: firstAnimationComplete ? "" : "none" }}>
+          <VideoPlayer
+            {...otherProps}
+            fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
+            source="illustrations/heart/scene/brand-moments-capture-intro-loop"
+            autoplay={firstAnimationComplete ? otherProps.autoplay : false}
+          />
+        </div>
+      </>
     )
   }
   return (
