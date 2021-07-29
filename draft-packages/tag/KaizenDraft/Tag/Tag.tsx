@@ -116,7 +116,7 @@ const Tag = (props: TagProps) => {
         </span>
         {dismissible && (
           <>
-            <span
+            <button
               className={styles.dismissIcon}
               onClick={onDismiss}
               onMouseDown={onMouseDown}
@@ -126,7 +126,7 @@ const Tag = (props: TagProps) => {
               <div className={styles.iconWrapper}>
                 <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
               </div>
-            </span>
+            </button>
           </>
         )}
         {variant === "statusLive" && (

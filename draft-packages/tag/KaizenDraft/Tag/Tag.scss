@@ -4,10 +4,20 @@
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $medium: calc(#{$kz-var-spacing-md} * 1.25);
 $small: $kz-var-spacing-md;
+
+// reset user agent styles for button element type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
 
 .root {
   @include ca-margin($end: calc(#{$kz-var-spacing-md} * 0.5));
@@ -46,6 +56,7 @@ $small: $kz-var-spacing-md;
 }
 
 .dismissIcon {
+  @include button-reset;
   position: relative;
   display: flex;
   height: 100%;
