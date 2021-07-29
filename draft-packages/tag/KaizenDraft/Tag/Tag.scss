@@ -4,10 +4,20 @@
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $medium: calc(#{$kz-var-spacing-md} * 1.25);
 $small: $kz-var-spacing-md;
+
+// reset user agent styles for button element type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
 
 .root {
   @include ca-margin($end: calc(#{$kz-var-spacing-md} * 0.5));
@@ -45,7 +55,8 @@ $small: $kz-var-spacing-md;
   margin-top: -1px;
 }
 
-.dismissIcon {
+.dismissButton {
+  @include button-reset;
   position: relative;
   display: flex;
   height: 100%;
@@ -77,6 +88,30 @@ $small: $kz-var-spacing-md;
   svg {
     position: relative;
   }
+
+  :global(.js-focus-visible) & {
+    outline: none;
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) .iconWrapper {
+      color: var($kz-var-id-color-wisteria-800, $kz-var-color-wisteria-700);
+
+      &::after {
+        $focus-ring-offset: calc((#{$kz-var-border-focus-ring-border-width}));
+        content: "";
+        position: absolute;
+        background: transparent;
+        border-radius: 50%;
+        border-width: $kz-var-border-focus-ring-border-width;
+        border-style: $kz-var-border-focus-ring-border-style;
+        border-color: $kz-var-color-cluny-500;
+        top: calc(-1 * #{$focus-ring-offset});
+        left: calc(-1 * #{$focus-ring-offset});
+        right: calc(-1 * #{$focus-ring-offset});
+        bottom: calc(-1 * #{$focus-ring-offset});
+      }
+    }
+  }
 }
 
 .background {
@@ -94,6 +129,7 @@ $small: $kz-var-spacing-md;
 }
 
 .iconWrapper {
+  position: relative;
   height: 16px;
   width: 16px;
 }
@@ -118,51 +154,27 @@ $small: $kz-var-spacing-md;
 
 .default {
   background-color: var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
-
-  &.dismissible:hover {
-    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
-  }
 }
 
 .sentimentPositive {
   background-color: $kz-var-color-seedling-100;
-
-  &.dismissible:hover {
-    border-color: $kz-var-color-seedling-200;
-  }
 }
 
 .sentimentNeutral {
   background-color: $kz-var-color-ash;
-
-  &.dismissible:hover {
-    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
-  }
 }
 
 .sentimentNegative {
   background-color: $kz-var-color-coral-100;
-
-  &.dismissible:hover {
-    border-color: $kz-var-color-coral-200;
-  }
 }
 
 .sentimentNone {
   background-color: $kz-var-color-white;
   border-color: var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
-
-  &.dismissible:hover {
-    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
-  }
 }
 
 .validationPositive {
   background-color: $kz-var-color-seedling-100;
-
-  &.dismissible:hover {
-    border-color: $kz-var-color-seedling-200;
-  }
 
   .validationIcon {
     color: $kz-var-color-seedling-300;
@@ -172,10 +184,6 @@ $small: $kz-var-spacing-md;
 .validationInformative {
   background-color: $kz-var-color-cluny-100;
 
-  &.dismissible:hover {
-    border-color: $kz-var-color-cluny-300;
-  }
-
   .validationIcon {
     color: $kz-var-color-cluny-500;
   }
@@ -184,10 +192,6 @@ $small: $kz-var-spacing-md;
 .validationNegative {
   background-color: $kz-var-color-coral-100;
 
-  &.dismissible:hover {
-    border-color: $kz-var-color-coral-200;
-  }
-
   .validationIcon {
     color: $kz-var-color-coral-500;
   }
@@ -195,10 +199,6 @@ $small: $kz-var-spacing-md;
 
 .validationCautionary {
   background-color: $kz-var-color-yuzu-100;
-
-  &.dismissible:hover {
-    border-color: $kz-var-color-yuzu-300;
-  }
 
   .validationIcon {
     color: $kz-var-color-yuzu-500;
