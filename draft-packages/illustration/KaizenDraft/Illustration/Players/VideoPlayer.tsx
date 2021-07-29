@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "../style.module.scss"
+import { canPlayWebm } from "../utils"
 
 export type VideoPlayerProps = {
   /**
@@ -130,7 +131,14 @@ export const VideoPlayer = ({
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
-      <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+      {/**
+       * This seems counter-intuitive, but webm support is codec specific.
+       * Only offer webm if we are positive the browser supports it.
+       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+       */}
+      {canPlayWebm() && (
+        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+      )}
       <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
     </video>
   )

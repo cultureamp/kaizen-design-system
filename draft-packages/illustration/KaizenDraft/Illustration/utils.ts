@@ -107,8 +107,6 @@ const parseAnimationData = async (
  */
 export const canPlayWebm = (): boolean => {
   const video = document.createElement("video")
-  // eslint-disable-next-line no-console
-  console.log("canPlayWebm", video.canPlayType("video/webm"))
 
   if (video.canPlayType("video/webm") === "probably") {
     return true
