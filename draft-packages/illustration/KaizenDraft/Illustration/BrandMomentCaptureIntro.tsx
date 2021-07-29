@@ -1,9 +1,7 @@
 import * as React from "react"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { AnimatedSceneProps } from "./Scene"
 import { Base } from "./Base"
 import { VideoPlayer } from "./Players/VideoPlayer"
-import { canPlayWebm } from "./utils"
 
 /**
  * This component is a snowflake. It plays two assets one after the other:
@@ -20,6 +18,9 @@ export const BrandMomentCaptureIntro = ({
   )
 
   if (isAnimated) {
+    // we don't know what codec we're using at the moment
+    // when checking for webm, also check for Safari
+    // OTHERWISE, regenerate the webm files using a VP9 codec
     return (
       <>
         <div style={{ display: firstAnimationComplete ? "none" : "" }}>
