@@ -248,7 +248,7 @@ export const ReversedDefault = () => (
 ReversedDefault.storyName = "Reversed, Default"
 ReversedDefault.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
