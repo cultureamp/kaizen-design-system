@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.3.21...@kaizen/draft-button@3.3.22) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [3.3.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.3.20...@kaizen/draft-button@3.3.21) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-button

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-select",
-  "version": "1.18.6",
+  "version": "1.18.7",
   "description": "The draft Select component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,11 +32,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.9",
+    "@kaizen/component-library": "^10.0.10",
     "@kaizen/deprecated-component-library-helpers": "^2.1.2",
-    "@kaizen/draft-button": "^3.3.21",
-    "@kaizen/draft-form": "^3.6.7",
-    "@kaizen/draft-tag": "^1.9.7",
+    "@kaizen/draft-button": "^3.3.22",
+    "@kaizen/draft-form": "^3.6.8",
+    "@kaizen/draft-tag": "^1.9.8",
     "@types/classnames": "^2.2.10",
     "@types/react-select": "^4.0.17",
     "classnames": "^2.2.6",
