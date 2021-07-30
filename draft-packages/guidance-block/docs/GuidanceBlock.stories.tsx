@@ -17,7 +17,7 @@ export default {
           'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
       },
     },
-    backgrounds: { default: "Stone" },
+    backgrounds: { default: "Gray 100" },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
