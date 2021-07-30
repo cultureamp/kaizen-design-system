@@ -48,7 +48,7 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 

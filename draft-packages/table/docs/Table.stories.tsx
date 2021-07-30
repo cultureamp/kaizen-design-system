@@ -199,7 +199,7 @@ export const Reversed = () => (
 Reversed.storyName = "Reversed"
 Reversed.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 

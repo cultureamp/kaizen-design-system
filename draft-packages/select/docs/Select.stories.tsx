@@ -199,7 +199,7 @@ export const SingleSecondarySmall = () => (
 SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
 SingleSecondarySmall.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -232,7 +232,7 @@ export const SingleSecondaryReversed = () => (
 SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
 SingleSecondaryReversed.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -262,7 +262,7 @@ export const SingleSecondaryWithEllipsis = () => {
 SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
 SingleSecondaryWithEllipsis.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -283,6 +283,6 @@ SingleSecondaryReversedDisabled.storyName =
   "Single Secondary Reversed (disabled)"
 SingleSecondaryReversedDisabled.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
