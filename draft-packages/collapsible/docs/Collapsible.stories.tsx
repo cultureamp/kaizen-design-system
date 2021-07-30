@@ -22,7 +22,7 @@ export default {
   title: "Collapsible (React)",
   component: Collapsible,
   parameters: {
-    backgrounds: { default: "Stone" },
+    backgrounds: { default: "Gray 100" },
     docs: {
       description: {
         component:

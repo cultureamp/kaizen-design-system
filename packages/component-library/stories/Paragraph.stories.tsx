@@ -56,7 +56,7 @@ export const BodyWhite = () => (
 BodyWhite.storyName = "Body White"
 
 BodyWhite.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export const BodyPositive = () => (
