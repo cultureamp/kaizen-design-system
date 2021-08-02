@@ -40,6 +40,16 @@ exports[`<Illustration /> Scene BrandMomentPositiveOutro should exist and render
 </div>
 `;
 
+exports[`<Illustration /> Scene BrandMomentStarterKit should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-starter-kit.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene EmptyStatesAction should exist and render an alt tag 1`] = `
 <div>
   <img

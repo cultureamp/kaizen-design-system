@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.6...@kaizen/draft-select@1.18.7) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [1.18.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.5...@kaizen/draft-select@1.18.6) (2021-07-29)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.18.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.4...@kaizen/draft-select@1.18.5) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.18.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.18.3...@kaizen/draft-select@1.18.4) (2021-07-21)
 
 

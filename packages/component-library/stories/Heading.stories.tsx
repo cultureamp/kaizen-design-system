@@ -77,13 +77,13 @@ export const Heading3Negative = () => (
 Heading1White.storyName = "Heading 1 White"
 
 Heading1White.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 Heading1WhiteReducedOpacity.storyName = "Heading 1 White Reduced Opacity"
 
 Heading1WhiteReducedOpacity.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export {

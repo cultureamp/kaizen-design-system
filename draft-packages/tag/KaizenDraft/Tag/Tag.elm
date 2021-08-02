@@ -349,7 +349,7 @@ viewClear config =
                 , Maybe.map mouseleave config.onMouseleave
                 ]
     in
-    span ([ styles.class .dismissIcon ] ++ events)
+    Html.button ([ styles.class .dismissButton ] ++ events)
         [ div [ styles.class .iconWrapper ]
             [ Icon.view (Icon.presentation |> Icon.inheritSize True)
                 (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
@@ -379,7 +379,7 @@ styles =
         , small = "small"
         , inline = "inline"
         , dismissible = "dismissible"
-        , dismissIcon = "dismissIcon"
+        , dismissButton = "dismissButton"
         , validationIcon = "validationIcon"
         , truncate = "truncate"
         , textContent = "textContent"

@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.1...@kaizen/design-tokens@2.10.2) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.0...@kaizen/design-tokens@2.10.1) (2021-07-29)
+
+
+### Bug Fixes
+
+* Exclude spec files from being compiled and published ([#1799](https://github.com/cultureamp/kaizen-design-system/issues/1799)) ([388b31a](https://github.com/cultureamp/kaizen-design-system/commit/388b31a739bf18c47811fd93f0f0df81d5e6f628))
+
+
+
+
+
+# [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.9.6...@kaizen/design-tokens@2.10.0) (2021-07-27)
+
+
+### Features
+
+* Add new generation of token names ([#1741](https://github.com/cultureamp/kaizen-design-system/issues/1741)) ([30bb501](https://github.com/cultureamp/kaizen-design-system/commit/30bb5014ae3c69e21fac9b8ad8f3531ddc904020))
+
+
+
+
+
 ## [2.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.9.5...@kaizen/design-tokens@2.9.6) (2021-07-19)
 
 **Note:** Version bump only for package @kaizen/design-tokens

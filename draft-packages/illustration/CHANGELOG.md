@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.3...@kaizen/draft-illustration@2.3.4) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.2...@kaizen/draft-illustration@2.3.3) (2021-07-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.1...@kaizen/draft-illustration@2.3.2) (2021-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.0...@kaizen/draft-illustration@2.3.1) (2021-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.2.2...@kaizen/draft-illustration@2.3.0) (2021-07-22)
+
+
+### Features
+
+* Add starter kit brand moment illustration ([#1783](https://github.com/cultureamp/kaizen-design-system/issues/1783)) ([35bf1fe](https://github.com/cultureamp/kaizen-design-system/commit/35bf1fe75ffc76ef6fc63862d27fd3b9153d434e))
+
+
+
+
+
 ## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.2.1...@kaizen/draft-illustration@2.2.2) (2021-07-20)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

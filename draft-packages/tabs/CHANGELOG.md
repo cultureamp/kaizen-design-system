@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.48...@kaizen/draft-tabs@4.1.49) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [4.1.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.47...@kaizen/draft-tabs@4.1.48) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [4.1.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.46...@kaizen/draft-tabs@4.1.47) (2021-07-20)
 
 **Note:** Version bump only for package @kaizen/draft-tabs

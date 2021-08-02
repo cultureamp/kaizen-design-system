@@ -40,5 +40,5 @@ export const CardWithSpace = () => (
 CardWithSpace.storyName = "Card, custom spacing with Box"
 
 CardWithSpace.parameters = {
-  backgrounds: { default: "Stone" },
+  backgrounds: { default: "Gray 100" },
 }
