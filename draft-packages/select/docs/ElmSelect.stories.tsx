@@ -1,11 +1,12 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 import Ports from "../KaizenDraft/Select/ports"
 
 const compiledElm = require("../ElmStories/SelectStories.elm").Elm.ElmStories
   .SelectStories
 
 loadElmStories(
-  "Elm/Select",
+  `${CATEGORIES.elm}/Select`,
   module,
   compiledElm,
   [

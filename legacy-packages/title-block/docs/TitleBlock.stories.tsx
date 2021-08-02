@@ -1,6 +1,7 @@
 import { Button } from "@kaizen/draft-button"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 
 require("./TitleBlock.stories.scss")
 
@@ -34,7 +35,7 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: "Deprecated/Title Block",
+  title: `${CATEGORIES.deprecated}/Title Block`,
   component: TitleBlock,
   parameters: {
     info: {

@@ -3,6 +3,7 @@ import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = () => (
@@ -26,7 +27,7 @@ const ExampleContent = () => (
 )
 
 export default {
-  title: "Components/Well",
+  title: `${CATEGORIES.components}/Well`,
   component: Well,
   parameters: {
     docs: {

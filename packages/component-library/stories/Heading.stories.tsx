@@ -1,8 +1,9 @@
 import * as React from "react"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading } from "../components/Heading"
 
 export default {
-  title: "Components/Typography/Heading",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,
   parameters: {
     docs: {

@@ -2,6 +2,7 @@ import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 type RenderProps = {
   checkedStatus: string
@@ -48,7 +49,7 @@ class CheckboxFieldExample extends React.Component<Props> {
 }
 
 export default {
-  title: "Components/Form/Checkbox Field",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
   component: CheckboxField,
   parameters: {
     docs: {

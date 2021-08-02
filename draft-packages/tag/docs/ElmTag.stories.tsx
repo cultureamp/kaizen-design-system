@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/TagStories.elm").Elm.ElmStories
   .TagStories
 
-loadElmStories("Elm/Tag", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Tag`, module, compiledElm, [
   "Default - Medium",
   "Default - Small",
   "Sentiment - Positive",

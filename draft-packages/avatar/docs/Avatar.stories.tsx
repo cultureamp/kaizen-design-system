@@ -3,9 +3,10 @@ import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Components/Avatar",
+  title: `${CATEGORIES.components}/Avatar`,
   component: Avatar,
   parameters: {
     docs: {

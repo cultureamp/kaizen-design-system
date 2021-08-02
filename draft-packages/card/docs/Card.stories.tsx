@@ -3,9 +3,10 @@ import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Components/Card",
+  title: `${CATEGORIES.components}/Card`,
   component: Card,
   parameters: {
     docs: {

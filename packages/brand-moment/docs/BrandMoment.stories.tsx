@@ -11,6 +11,7 @@ import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
 import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { BrandMoment } from "@kaizen/brand-moment"
+import { CATEGORIES } from "../../../storybook/constants"
 import {
   MinimalBasic,
   MinimalCustomerFocused,
@@ -18,7 +19,7 @@ import {
 } from "./ExampleHeaders"
 
 export default {
-  title: "Components/Brand Moment",
+  title: `${CATEGORIES.components}/Brand Moment`,
   component: BrandMoment,
   parameters: {
     docs: {

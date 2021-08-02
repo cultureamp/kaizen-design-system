@@ -27,6 +27,7 @@ import { withDesign } from "storybook-addon-designs"
 import { Negative, ExecutiveReportSharing } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Modal.stories.scss"
 
 // Add additional height to the stories when running in Chromatic only.
@@ -75,7 +76,7 @@ class ModalStateContainer extends React.Component<
 }
 
 export default {
-  title: "Components/Modal",
+  title: `${CATEGORIES.components}/Modal`,
   component: ConfirmationModal,
   parameters: {
     docs: {

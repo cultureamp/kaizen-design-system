@@ -3,9 +3,10 @@ import * as React from "react"
 import { GlobalNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Components/Notification/Global Notification",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Global Notification`,
   component: GlobalNotification,
   parameters: {
     docs: {

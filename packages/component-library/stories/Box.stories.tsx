@@ -1,8 +1,9 @@
 import * as React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 import { Box } from "../components/Box"
 
 export default {
-  title: "Components/Box",
+  title: `${CATEGORIES.components}/Box`,
   component: Box,
   parameters: {
     docs: {

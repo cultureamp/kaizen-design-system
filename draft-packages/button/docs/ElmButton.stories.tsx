@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/ButtonStories.elm").Elm.ElmStories
   .ButtonStories
 
-loadElmStories("Elm/Button", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Button`, module, compiledElm, [
   "Default",
   "Primary",
   "Secondary",

@@ -6,9 +6,10 @@ import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { Button, CustomButtonProps, ButtonRef } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Components/Button/Button",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",

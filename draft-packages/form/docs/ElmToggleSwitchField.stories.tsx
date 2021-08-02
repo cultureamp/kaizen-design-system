@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/ToggleSwitchFieldStories.elm").Elm
   .ElmStories.ToggleSwitchFieldStories
 
-loadElmStories("Elm/Toggle Switch Field", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Toggle Switch Field`, module, compiledElm, [
   "Default theme",
   "Freemium theme",
   "Disabled Off",

@@ -1,9 +1,10 @@
 import * as React from "react"
 
 import { Slider } from "@kaizen/draft-slider"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Components/Form/Slider",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Slider`,
   component: Slider,
   parameters: {
     docs: {

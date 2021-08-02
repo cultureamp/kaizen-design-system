@@ -2,6 +2,7 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -62,7 +63,7 @@ const promiseOptions = (inputValue): Promise<any[]> =>
   })
 
 export default {
-  title: "Components/Select",
+  title: `${CATEGORIES.components}/Select`,
   component: Select,
   parameters: {
     docs: {

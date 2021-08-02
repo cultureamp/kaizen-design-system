@@ -2,6 +2,7 @@ import { Heading, Paragraph } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./LoadingPlaceholder.stories.scss"
@@ -11,7 +12,7 @@ const StoryContainer: React.FunctionComponent = ({ children }) => (
 )
 
 export default {
-  title: "Components/Loading Placeholder",
+  title: `${CATEGORIES.components}/Loading Placeholder`,
   component: LoadingPlaceholder,
   parameters: {
     docs: {

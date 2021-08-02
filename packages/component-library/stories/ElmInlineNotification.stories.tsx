@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/InlineNotificationStories.elm").Elm
   .ElmStories.InlineNotificationStories
 
-loadElmStories("Elm/Inline Notification", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Inline Notification`, module, compiledElm, [
   "Dismissible, Positive",
   "Dismissible, Informative",
   "Dismissible, Cautionary",

@@ -1,9 +1,10 @@
 import React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 
 export default {
-  title: "Components/Brand",
+  title: `${CATEGORIES.components}/Brand`,
   component: Brand,
   parameters: {
     docs: {

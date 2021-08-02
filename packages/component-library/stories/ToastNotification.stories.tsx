@@ -14,6 +14,7 @@ import { ToastNotificationWithOptionals } from "@kaizen/component-library/compon
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import styles from "./ToastNotification.stories.scss"
 
 const withNavigation = (Story: React.FunctionComponent) => (
@@ -88,7 +89,7 @@ const Triggers = ({
 }
 
 export default {
-  title: "Components/Notification/Toast Notification",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Toast Notification`,
   component: ToastNotification,
   parameters: {
     docs: {

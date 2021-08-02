@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/ToastNotificationStories.elm").Elm
   .ElmStories.ToastNotificationStories
 
-loadElmStories("Elm/Toast Notification", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Toast Notification`, module, compiledElm, [
   "Positive",
   "Informative",
   "Cautionary",

@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/LoadingPlaceholderStories.elm").Elm
   .ElmStories.LoadingPlaceholderStories
 
-loadElmStories("Elm/Loading Placeholder", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Loading Placeholder`, module, compiledElm, [
   "Default, Multiple",
   "Default, Multiple, Inline",
   "Default, Multiple, Variable width",

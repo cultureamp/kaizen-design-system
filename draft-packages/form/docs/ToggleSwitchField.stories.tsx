@@ -5,6 +5,7 @@ import {
 } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
@@ -43,7 +44,7 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "Components/Form/Toggle Switch Field",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Toggle Switch Field`,
   component: ToggleSwitchField,
   parameters: {
     docs: {

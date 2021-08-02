@@ -9,6 +9,7 @@ import { Button } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 /**
  * We should not be running visual regressions on these tooltip stories
@@ -21,7 +22,7 @@ const openTooltipInChromatic = (story, config) => {
 }
 
 export default {
-  title: "Components/Tooltip",
+  title: `${CATEGORIES.components}/Tooltip`,
   component: Tooltip,
   parameters: {
     docs: {

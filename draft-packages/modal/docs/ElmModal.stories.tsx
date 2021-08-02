@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/ModalStories.elm").Elm.ElmStories
   .ModalStories
 
-loadElmStories("Elm/Modal", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Modal`, module, compiledElm, [
   "Confirmation (cautionary), shown by default",
   "Generic, shown by default",
   "Confirmation (informative), shown by default",

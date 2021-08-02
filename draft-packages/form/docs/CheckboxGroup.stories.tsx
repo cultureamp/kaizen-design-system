@@ -2,6 +2,7 @@ import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 interface RenderProps {
   checkedStatus: string
@@ -42,7 +43,7 @@ class CheckboxGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "Components/Form/Checkbox Group",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Group`,
   component: CheckboxGroup,
   parameters: {
     docs: {

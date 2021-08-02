@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/TextStories.elm").Elm.ElmStories
   .TextStories
 
-loadElmStories("Elm/Text (deprecated)", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Text (deprecated)`, module, compiledElm, [
   "h1",
   "h2",
   "h3",

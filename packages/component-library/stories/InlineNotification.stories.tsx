@@ -3,6 +3,7 @@ import * as React from "react"
 import { InlineNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const multilineText = (
   <>
@@ -25,7 +26,7 @@ const withContentBelow = (Story: React.FunctionComponent) => (
 )
 
 export default {
-  title: "Components/Notification/Inline Notification",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
   component: InlineNotification,
   parameters: {
     docs: {

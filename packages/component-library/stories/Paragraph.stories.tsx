@@ -1,9 +1,10 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Paragraph } from "../components/Paragraph"
 
 export default {
-  title: "Components/Typography/Paragraph",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
   component: Paragraph,
   parameters: {
     docs: {
