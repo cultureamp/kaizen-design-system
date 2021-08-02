@@ -12,7 +12,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
     "storybook:build": "build-storybook -c storybook -o storybook/public",
-    "storybook:build-chromatic": "yarn storybook:build --webpack-stats-json",
+    "storybook:build-chromatic": "yarn install && yarn storybook:build --webpack-stats-json",
     "gatsby": "yarn workspace site gatsby",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
@@ -23,8 +23,7 @@
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force",
-    "chromatic": "chromatic",
-    "preinstall": "scripts/check-if-authenticated-to-github-registry.bash"
+    "chromatic": "chromatic"
   },
   "babel": {
     "presets": [
