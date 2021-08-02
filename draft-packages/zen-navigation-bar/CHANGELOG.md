@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.2.11...@kaizen/draft-zen-navigation-bar@3.2.12) (2021-08-02)
+
+
+### Bug Fixes
+
+* Add deprecated jsdocs and wrap with withDeprecatedComponent ([#1787](https://github.com/cultureamp/kaizen-design-system/issues/1787)) ([626188e](https://github.com/cultureamp/kaizen-design-system/commit/626188e15f1b7ff7bf2046793c94e7b569fc3f1b))
+
+
+
+
+
 ## [3.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.2.10...@kaizen/draft-zen-navigation-bar@3.2.11) (2021-07-30)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar

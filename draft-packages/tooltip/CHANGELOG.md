@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.11...@kaizen/draft-tooltip@2.8.12) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [2.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.10...@kaizen/draft-tooltip@2.8.11) (2021-08-02)
 
 
