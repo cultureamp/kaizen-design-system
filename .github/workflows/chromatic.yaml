@@ -31,8 +31,7 @@ jobs:
           node-version: "14.15.x"
       - name: Install package dependencies
         run: |
-          # yarn install --frozen-lockfile --ignore-scripts
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --ignore-scripts
           # --ignore-scripts ignores the preinstall script that checks if the executor is logged into the github registry
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
