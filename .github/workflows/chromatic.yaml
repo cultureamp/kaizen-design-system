@@ -31,7 +31,8 @@ jobs:
           node-version: "14.15.x"
       - name: Install package dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --ignore-scripts
+          # --ignore-scripts ignores the preinstall script that checks if the executor is logged into the github registry
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -41,5 +42,5 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
-          buildScriptName: "yarn storybook:build-chromatic"
+          buildScriptName: "storybook:build-chromatic"
           onlyChanged: true
