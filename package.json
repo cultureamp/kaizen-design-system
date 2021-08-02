@@ -12,7 +12,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
     "storybook:build": "build-storybook -c storybook -o storybook/public",
-    "storybook:build-chromatic": "yarn install && yarn storybook:build --webpack-stats-json",
+    "storybook:build-chromatic": "yarn storybook:build --webpack-stats-json",
     "gatsby": "yarn workspace site gatsby",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
