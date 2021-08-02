@@ -1,9 +1,10 @@
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import * as React from "react"
 import { IconButton } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "IconButton (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button`,
   component: IconButton,
   parameters: {
     docs: {

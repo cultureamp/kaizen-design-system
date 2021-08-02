@@ -7,9 +7,10 @@ import {
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "LikertScaleLegacy (React)",
+  title: `${CATEGORIES.components}/Likert Scale`,
   component: LikertScaleLegacy,
   parameters: {
     docs: {

@@ -2,6 +2,7 @@ import { Button } from "@kaizen/draft-button"
 import { HeroCard } from "@kaizen/draft-hero-card"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const surveyIllustration = require("./survey.png")
@@ -23,7 +24,7 @@ const renderContent = () => (
 )
 
 export default {
-  title: "HeroCard (React)",
+  title: `${CATEGORIES.components}/Hero Card`,
   component: HeroCard,
   parameters: {
     docs: {

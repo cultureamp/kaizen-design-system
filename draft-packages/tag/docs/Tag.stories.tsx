@@ -1,6 +1,7 @@
 import { Tag } from "@kaizen/draft-tag"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -10,7 +11,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "Tag (React)",
+  title: `${CATEGORIES.components}/Tag`,
   component: Tag,
   parameters: {
     docs: {

@@ -2,6 +2,7 @@ import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import React from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 interface RenderProps {
   controlledValue: string
@@ -53,7 +54,7 @@ const reversedBg = {
 }
 
 export default {
-  title: "TextAreaField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
   component: TextAreaField,
   parameters: {
     docs: {

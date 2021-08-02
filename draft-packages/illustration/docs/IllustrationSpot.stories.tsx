@@ -93,9 +93,10 @@ import {
   ValueAdd,
   Recommendation,
 } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Illustration, Spot (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Spot`,
   component: AccountBasics,
   parameters: {
     docs: {

@@ -1,8 +1,9 @@
 import React from "react"
 import { useMediaQueries } from "../"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "useMediaQueries (React)",
+  title: `${CATEGORIES.helpers}/${SUB_CATEGORIES.responsive}/useMediaQueries`,
   component: useMediaQueries,
   parameters: {
     docs: {

@@ -1,9 +1,10 @@
 import { Paragraph } from "@kaizen/component-library"
 import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
 import * as React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "VerticalProgressStep (React)",
+  title: `${CATEGORIES.deprecated}/Vertical Progress Step`,
   component: VerticalProgressStep.CurrentStep,
   parameters: {
     docs: {

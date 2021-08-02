@@ -7,6 +7,7 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Box } from "../../../packages/component-library"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const withBottomMargin = (Story: React.ComponentType) => (
   <Box mb={4}>
@@ -15,7 +16,7 @@ const withBottomMargin = (Story: React.ComponentType) => (
 )
 
 export default {
-  title: "SplitButton (React)",
+  title: `${CATEGORIES.components}/Split Button`,
   component: SplitButton,
   argTypes: { onClick: { action: "clicked" } },
   parameters: {
