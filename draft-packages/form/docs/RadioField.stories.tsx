@@ -2,6 +2,7 @@ import { RadioField } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
@@ -51,13 +52,13 @@ class RadioFieldExample extends React.Component<Props> {
 }
 
 export default {
-  title: "RadioField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
   component: RadioField,
   parameters: {
-    info: {
-      text: `
-      import { RadioField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { RadioField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14354%3A68219"

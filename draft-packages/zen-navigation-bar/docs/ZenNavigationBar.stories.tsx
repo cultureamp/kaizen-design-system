@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Button, Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import {
   Link,
   Menu,
@@ -10,9 +11,10 @@ import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNav
 import caIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "ZenNavigationBar (React)",
+  title: `${CATEGORIES.deprecated}/Navigation Bar`,
 }
 
 const handleNavigationChange = (event: { preventDefault: () => void }) => {

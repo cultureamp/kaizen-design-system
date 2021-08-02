@@ -3,6 +3,151 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.12...@kaizen/draft-tooltip@2.8.13) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.11...@kaizen/draft-tooltip@2.8.12) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.10...@kaizen/draft-tooltip@2.8.11) (2021-08-02)
+
+
+### Bug Fixes
+
+* show tooltips in chromatic tests ([#1800](https://github.com/cultureamp/kaizen-design-system/issues/1800)) ([0b0ad08](https://github.com/cultureamp/kaizen-design-system/commit/0b0ad085abf2fe631e5399ee53095fcc2c36d100))
+
+
+
+
+
+## [2.8.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.9...@kaizen/draft-tooltip@2.8.10) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.8...@kaizen/draft-tooltip@2.8.9) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.7...@kaizen/draft-tooltip@2.8.8) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.6...@kaizen/draft-tooltip@2.8.7) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.5...@kaizen/draft-tooltip@2.8.6) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.4...@kaizen/draft-tooltip@2.8.5) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.3...@kaizen/draft-tooltip@2.8.4) (2021-06-17)
+
+
+### Bug Fixes
+
+* elm tooltip heart uplift quick fix ([#1705](https://github.com/cultureamp/kaizen-design-system/issues/1705)) ([2f07ff6](https://github.com/cultureamp/kaizen-design-system/commit/2f07ff677645cc112db5bac6ec5408488eeaf45b))
+
+
+
+
+
+## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.2...@kaizen/draft-tooltip@2.8.3) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.1...@kaizen/draft-tooltip@2.8.2) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.0...@kaizen/draft-tooltip@2.8.1) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.5...@kaizen/draft-tooltip@2.8.0) (2021-05-21)
+
+
+### Features
+
+* quickfix option for Elm Tooltip to not take up space ([#1611](https://github.com/cultureamp/kaizen-design-system/issues/1611)) ([21fddb6](https://github.com/cultureamp/kaizen-design-system/commit/21fddb639d070ead22d750834519b35052069e19))
+
+
+
+
+
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.4...@kaizen/draft-tooltip@2.7.5) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.3...@kaizen/draft-tooltip@2.7.4) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.2...@kaizen/draft-tooltip@2.7.3) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.1...@kaizen/draft-tooltip@2.7.2) (2021-05-16)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

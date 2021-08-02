@@ -5,6 +5,7 @@ import {
 } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
@@ -28,14 +29,7 @@ class ToggleStateContainer extends React.Component<
   }
   render() {
     return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "0.2rem",
-        }}
-      >
+      <div>
         {this.props.children({
           toggledStatus: this.state.toggledStatus,
           toggle: this.toggle,
@@ -50,13 +44,14 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "ToggleSwitchField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Toggle Switch Field`,
   component: ToggleSwitchField,
   parameters: {
-    info: {
-      text: `
-      import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14361%3A67850"

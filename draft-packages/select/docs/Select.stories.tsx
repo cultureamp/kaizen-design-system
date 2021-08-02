@@ -2,6 +2,7 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -54,7 +55,7 @@ const filterNames = (inputValue: string) =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
 
-const promiseOptions = inputValue =>
+const promiseOptions = (inputValue): Promise<any[]> =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve(filterNames(inputValue))
@@ -62,13 +63,13 @@ const promiseOptions = inputValue =>
   })
 
 export default {
-  title: "Select (React)",
+  title: `${CATEGORIES.components}/Select`,
   component: Select,
   parameters: {
-    info: {
-      text: `
-      import { AsyncSelect, Select } from "@kaizen/draft-select"
-      `,
+    docs: {
+      description: {
+        component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14321%3A65630"
@@ -199,7 +200,7 @@ export const SingleSecondarySmall = () => (
 SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
 SingleSecondarySmall.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -232,7 +233,7 @@ export const SingleSecondaryReversed = () => (
 SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
 SingleSecondaryReversed.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -262,7 +263,7 @@ export const SingleSecondaryWithEllipsis = () => {
 SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
 SingleSecondaryWithEllipsis.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -283,6 +284,6 @@ SingleSecondaryReversedDisabled.storyName =
   "Single Secondary Reversed (disabled)"
 SingleSecondaryReversedDisabled.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }

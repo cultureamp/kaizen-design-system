@@ -3,15 +3,17 @@ import * as React from "react"
 import { GlobalNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "GlobalNotification (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Global Notification`,
   component: GlobalNotification,
   parameters: {
-    info: {
-      text: `
-        import { GlobalNotification } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { GlobalNotification } from "@kaizen/component-library";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A21284"

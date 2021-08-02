@@ -301,6 +301,13 @@ $kz-var-color-peach-700-rgb-params: var(
   60,
   0
 );
+$kz-var-color-white: var(--kz-var-color-white, #ffffff);
+$kz-var-color-white-rgb-params: var(
+  --kz-var-color-white-rgb-params,
+  255,
+  255,
+  255
+);
 $kz-var-color-ash: var(--kz-var-color-ash, #ececef);
 $kz-var-color-ash-rgb-params: var(--kz-var-color-ash-rgb-params, 236, 236, 239);
 $kz-var-color-stone: var(--kz-var-color-stone, #f6f6f6);
@@ -309,13 +316,6 @@ $kz-var-color-stone-rgb-params: var(
   246,
   246,
   246
-);
-$kz-var-color-white: var(--kz-var-color-white, #ffffff);
-$kz-var-color-white-rgb-params: var(
-  --kz-var-color-white-rgb-params,
-  255,
-  255,
-  255
 );
 $kz-var-color-iron: var(--kz-var-color-iron, #8c8c97);
 $kz-var-color-iron-rgb-params: var(

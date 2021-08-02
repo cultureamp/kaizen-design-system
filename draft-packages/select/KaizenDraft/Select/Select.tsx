@@ -3,7 +3,7 @@ import * as React from "react"
 import ReactSelect, { components } from "react-select"
 import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
-import { Props as ReactSelectProps } from "react-select/src/Select"
+import { NamedProps as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -11,9 +11,9 @@ import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
 
-export { ValueType } from "react-select"
+export type { ValueType } from "react-select"
 
-export type SelectProps = {
+export interface SelectProps extends ReactSelectProps<any, boolean> {
   /**
    * The secondary variant is a more subdued variant that takes up as little space as possible
    * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
@@ -41,7 +41,7 @@ export type SelectProps = {
 
 export type VariantType = "default" | "secondary" | "secondary-small"
 
-export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
+export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
       'the prop fullWidth=false is not yet implemented when variant="default"'
@@ -74,6 +74,7 @@ export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
   return (
     <ReactSelect
       {...props}
+      ref={ref}
       components={{
         Control,
         Placeholder,
@@ -90,31 +91,36 @@ export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
       className={classes}
     />
   )
-}
+})
+Select.displayName = "Select"
 
 interface AsyncProps
   extends ReactAsyncSelectProps<any>,
     ReactSelectProps<any, boolean> {}
 
-export const AsyncSelect = (props: AsyncProps) => (
-  <Async
-    {...props}
-    components={{
-      Control,
-      Placeholder,
-      DropdownIndicator,
-      Menu,
-      Option,
-      NoOptionsMessage,
-      SingleValue,
-      MultiValue,
-      IndicatorsContainer,
-      ClearIndicator: null,
-      IndicatorSeparator: null,
-    }}
-    className={classNames(styles.specificityIncreaser, props.className)}
-  />
+export const AsyncSelect = React.forwardRef(
+  (props: AsyncProps, ref: React.Ref<any>) => (
+    <Async
+      {...props}
+      ref={ref}
+      components={{
+        Control,
+        Placeholder,
+        DropdownIndicator,
+        Menu,
+        Option,
+        NoOptionsMessage,
+        SingleValue,
+        MultiValue,
+        IndicatorsContainer,
+        ClearIndicator: null,
+        IndicatorSeparator: null,
+      }}
+      className={classNames(styles.specificityIncreaser, props.className)}
+    />
+  )
 )
+AsyncSelect.displayName = "AsyncSelect"
 
 const Control: typeof components.Control = props => (
   <div data-automation-id="Select__Control">

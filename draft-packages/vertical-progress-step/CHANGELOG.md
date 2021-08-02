@@ -3,6 +3,137 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.11...@kaizen/draft-vertical-progress-step@1.7.12) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.10...@kaizen/draft-vertical-progress-step@1.7.11) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.9...@kaizen/draft-vertical-progress-step@1.7.10) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.8...@kaizen/draft-vertical-progress-step@1.7.9) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.7...@kaizen/draft-vertical-progress-step@1.7.8) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.6...@kaizen/draft-vertical-progress-step@1.7.7) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.5...@kaizen/draft-vertical-progress-step@1.7.6) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.4...@kaizen/draft-vertical-progress-step@1.7.5) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.3...@kaizen/draft-vertical-progress-step@1.7.4) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.2...@kaizen/draft-vertical-progress-step@1.7.3) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.1...@kaizen/draft-vertical-progress-step@1.7.2) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.7.0...@kaizen/draft-vertical-progress-step@1.7.1) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.6.18...@kaizen/draft-vertical-progress-step@1.7.0) (2021-05-25)
+
+
+### Features
+
+* Update all usages and references of deprecated Button ([#1633](https://github.com/cultureamp/kaizen-design-system/issues/1633)) ([11efeb8](https://github.com/cultureamp/kaizen-design-system/commit/11efeb88cc16c95aeb692fd025e1b801a07b0a1d))
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.6.17...@kaizen/draft-vertical-progress-step@1.6.18) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.6.16...@kaizen/draft-vertical-progress-step@1.6.17) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.6.15...@kaizen/draft-vertical-progress-step@1.6.16) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
 ## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.6.14...@kaizen/draft-vertical-progress-step@1.6.15) (2021-05-16)
 
 **Note:** Version bump only for package @kaizen/draft-vertical-progress-step

@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Textfit } from "react-textfit"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import styles from "./styles.module.scss"
 
-type AvatarSizes = "small" | "medium" | "large"
+type AvatarSizes = "small" | "medium" | "large" | "xlarge"
 
-const getInitials: (fullName: string, max2Characters?: boolean) => string = (
+const getInitials: (fullName?: string, max2Characters?: boolean) => string = (
   fullName,
   max2Characters = false
 ) =>
-  fullName
-    .split(/\s/)
-    .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
-    .toUpperCase()
-    .substring(0, max2Characters ? 2 : 8)
+  fullName == null
+    ? ""
+    : fullName
+        .split(/\s/)
+        .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
+        .toUpperCase()
+        .substring(0, max2Characters ? 2 : 8)
 
 const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   if (size === "small") return 8
   if (size === "medium") return 16
+  if (size === "xlarge") return 34
   return 22
 }
 
@@ -27,7 +30,7 @@ export interface AvatarProps {
   /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
-  fullName: string
+  fullName?: string
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
    * This disables this feature and shows the generic avatar.
@@ -60,15 +63,22 @@ export const Avatar = ({
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
+  const image = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     setAvatarState(avatarSrc ? "loading" : "none")
   }, [avatarSrc])
 
-  const isLongName = getInitials(fullName).length > 2 && size !== "small"
+  const initials = getInitials(fullName)
+  const isLongName = initials.length > 2 && size !== "small"
 
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
+
+  // if the image is cached onLoad may not trigger: https://stackoverflow.com/a/59809184
+  useEffect(() => {
+    if (image?.current?.complete) onImageSuccess()
+  }, [image])
 
   const fallbackIcon = (
     <span className={styles.fallbackIcon}>
@@ -87,6 +97,7 @@ export const Avatar = ({
     >
       {avatarState !== "none" && (
         <img
+          ref={image}
           className={styles.avatarImage}
           src={avatarSrc}
           onError={onImageFailure}
@@ -95,7 +106,7 @@ export const Avatar = ({
         />
       )}
       {(avatarState === "none" || avatarState === "error") &&
-        (disableInitials ? (
+        (disableInitials || initials === "" ? (
           fallbackIcon
         ) : (
           <div
@@ -106,7 +117,7 @@ export const Avatar = ({
             {isLongName ? (
               // Only called if 3 or more initials, fits text width for long names
               <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-                {getInitials(fullName)}
+                {initials}
               </Textfit>
             ) : (
               getInitials(fullName, size === "small")

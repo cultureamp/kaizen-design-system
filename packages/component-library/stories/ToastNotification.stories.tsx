@@ -14,6 +14,7 @@ import { ToastNotificationWithOptionals } from "@kaizen/component-library/compon
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import styles from "./ToastNotification.stories.scss"
 
 const withNavigation = (Story: React.FunctionComponent) => (
@@ -88,13 +89,14 @@ const Triggers = ({
 }
 
 export default {
-  title: "ToastNotification (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Toast Notification`,
   component: ToastNotification,
   parameters: {
-    info: {
-      text: `
-        import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/component-library"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A21830"

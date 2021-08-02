@@ -3,6 +3,7 @@ import * as React from "react"
 import { InlineNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const multilineText = (
   <>
@@ -25,13 +26,14 @@ const withContentBelow = (Story: React.FunctionComponent) => (
 )
 
 export default {
-  title: "InlineNotification (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
   component: InlineNotification,
   parameters: {
-    info: {
-      text: `
-        import { InlineNotification } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { InlineNotification } from "@kaizen/component-library";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13877%3A66008"
@@ -227,11 +229,7 @@ export const PersistentSlim = () => (
 PersistentSlim.storyName = "Persistent, Slim"
 
 export const MultipleNotification = () => (
-  <div
-    style={{
-      width: "100%",
-    }}
-  >
+  <React.Fragment>
     <InlineNotification
       type="affirmative"
       title="Success"
@@ -263,7 +261,7 @@ export const MultipleNotification = () => (
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
-  </div>
+  </React.Fragment>
 )
 
 export const NoChildren = () => (

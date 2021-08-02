@@ -10,13 +10,15 @@ module KaizenDraft.EmptyState.EmptyState exposing
     , id
     , illustrationType
     , layoutContext
+    , theme
     , view
     )
 
 import CssModules exposing (css)
 import Html exposing (Html, div, img, text)
 import Html.Attributes exposing (id, src)
-import WebpackAsset exposing (assetUrl)
+import Kaizen.HostedAssets.Image as Image exposing (Role(..), image)
+import Kaizen.Theme as Theme exposing (Theme(..), defaultTheme)
 
 
 
@@ -53,6 +55,7 @@ type alias ConfigValue msg =
     , illustrationType : Illustration
     , layoutContext : LayoutContext
     , children : List (Html msg)
+    , theme : Theme
     }
 
 
@@ -65,32 +68,52 @@ defaults =
     , illustrationType = Informative
     , layoutContext = SidebarAndContent
     , children = []
+    , theme = defaultTheme
     }
 
 
-actionIllustrationUrl : WebpackAsset.AssetUrl
-actionIllustrationUrl =
-    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/action.png"
+illustrationPath : ConfigValue msg -> String
+illustrationPath config =
+    case config.illustrationType of
+        Action ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/scene/empty-states-action.svg"
 
+                Zen ->
+                    "illustrations/scene/empty-states-action.svg"
 
-informativeIllustrationUrl : WebpackAsset.AssetUrl
-informativeIllustrationUrl =
-    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/informative.png"
+        Neutral ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/scene/empty-states-neutral.svg"
 
+                Zen ->
+                    "illustrations/scene/empty-states-neutral.svg"
 
-negativeIllustrationUrl : WebpackAsset.AssetUrl
-negativeIllustrationUrl =
-    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/negative.png"
+        Positive ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/scene/empty-states-positive.svg"
 
+                Zen ->
+                    "illustrations/scene/empty-states-positive.svg"
 
-neutralIllustrationUrl : WebpackAsset.AssetUrl
-neutralIllustrationUrl =
-    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/neutral.png"
+        Informative ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/scene/empty-states-informative.svg"
 
+                Zen ->
+                    "illustrations/scene/empty-states-informative.svg"
 
-positiveIllustrationUrl : WebpackAsset.AssetUrl
-positiveIllustrationUrl =
-    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/positive.png"
+        Negative ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/scene/empty-states-negative.svg"
+
+                Zen ->
+                    "illustrations/scene/empty-states-negative.svg"
 
 
 
@@ -136,28 +159,24 @@ layoutContext value (Config config) =
     Config { config | layoutContext = value }
 
 
+theme : Theme -> Config msg -> Config msg
+theme theme_ (Config config) =
+    Config { config | theme = theme_ }
+
+
 children : List (Html msg) -> Config msg -> Config msg
 children value (Config config) =
     Config { config | children = value }
 
 
-emptyStateIllustration : Illustration -> Html msg
-emptyStateIllustration illustration =
-    case illustration of
-        Positive ->
-            img [ styles.class .illustration, src positiveIllustrationUrl ] []
-
-        Negative ->
-            img [ styles.class .illustration, src negativeIllustrationUrl ] []
-
-        Neutral ->
-            img [ styles.class .illustration, src neutralIllustrationUrl ] []
-
-        Informative ->
-            img [ styles.class .illustration, src informativeIllustrationUrl ] []
-
-        Action ->
-            img [ styles.class .illustration, src actionIllustrationUrl ] []
+emptyStateIllustration : ConfigValue msg -> Html msg
+emptyStateIllustration config =
+    let
+        imageConfig =
+            Image.default
+                |> Image.attributes [ styles.class .illustration ]
+    in
+    image imageConfig (illustrationPath config)
 
 
 illustrationClass :
@@ -233,7 +252,7 @@ view (Config config) =
                ]
         )
         [ div [ styles.class .illustrationSide ]
-            [ emptyStateIllustration config.illustrationType
+            [ emptyStateIllustration config
             ]
         , div [ styles.class .textSide ]
             [ div [ styles.class .textSideInner ]

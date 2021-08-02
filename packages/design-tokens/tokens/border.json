@@ -24,5 +24,47 @@
         "borderStyle": "solid"
       }
     }
+  },
+  "border": {
+    "solid": {
+      "borderWidth": "var(--border-solid-border-width, 2px)",
+      "borderWidth-id": "--border-solid-border-width",
+      "borderRadius": "var(--border-solid-border-radius, 7px)",
+      "borderRadius-id": "--border-solid-border-radius",
+      "borderStyle": "var(--border-solid-border-style, solid)",
+      "borderStyle-id": "--border-solid-border-style",
+      "borderColor": "var(--border-solid-border-color, #e1e2ea)",
+      "borderColor-rgb": "var(--border-solid-border-color-rgb, 225, 226, 234)",
+      "borderColor-rgb-id": "--border-solid-border-color-rgb",
+      "borderColor-id": "--border-solid-border-color"
+    },
+    "dashed": {
+      "borderWidth": "var(--border-dashed-border-width, 2px)",
+      "borderWidth-id": "--border-dashed-border-width",
+      "borderRadius": "var(--border-dashed-border-radius, 7px)",
+      "borderRadius-id": "--border-dashed-border-radius",
+      "borderStyle": "var(--border-dashed-border-style, dashed)",
+      "borderStyle-id": "--border-dashed-border-style"
+    },
+    "borderless": {
+      "borderWidth": "var(--border-borderless-border-width, 2px)",
+      "borderWidth-id": "--border-borderless-border-width",
+      "borderRadius": "var(--border-borderless-border-radius, 7px)",
+      "borderRadius-id": "--border-borderless-border-radius",
+      "borderStyle": "var(--border-borderless-border-style, solid)",
+      "borderStyle-id": "--border-borderless-border-style",
+      "borderColor": "var(--border-borderless-border-color, transparent)",
+      "borderColor-rgb": "var(--border-borderless-border-color-rgb, 0, 0, 0)",
+      "borderColor-rgb-id": "--border-borderless-border-color-rgb",
+      "borderColor-id": "--border-borderless-border-color"
+    },
+    "focusRing": {
+      "borderWidth": "var(--border-focus-ring-border-width, 2px)",
+      "borderWidth-id": "--border-focus-ring-border-width",
+      "borderRadius": "var(--border-focus-ring-border-radius, 10px)",
+      "borderRadius-id": "--border-focus-ring-border-radius",
+      "borderStyle": "var(--border-focus-ring-border-style, solid)",
+      "borderStyle-id": "--border-focus-ring-border-style"
+    }
   }
 }

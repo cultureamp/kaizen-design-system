@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.12...@kaizen/draft-card@1.2.13) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [1.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.11...@kaizen/draft-card@1.2.12) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [1.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.10...@kaizen/draft-card@1.2.11) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.9...@kaizen/draft-card@1.2.10) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
 ## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.2.8...@kaizen/draft-card@1.2.9) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-card

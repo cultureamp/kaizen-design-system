@@ -2,6 +2,7 @@ module KaizenDraft.Form.SelectField.SelectField exposing
     ( Config
     , Status(..)
     , clearable
+    , controlHasUnconstrainedHeight
     , description
     , disabled
     , id
@@ -57,6 +58,7 @@ type alias ConfigValue msg item =
     , disabled : Bool
     , reversed : Bool
     , validationMessage : Maybe String
+    , controlHasUnconstrainedHeight : Bool
     }
 
 
@@ -81,6 +83,7 @@ defaults toMsg =
     , disabled = False
     , reversed = False
     , validationMessage = Nothing
+    , controlHasUnconstrainedHeight = False
     }
 
 
@@ -104,6 +107,7 @@ single required =
 
 multi :
     { truncationWidth : Maybe Float
+    , allowTextWrapping : Bool
     , selectedItems : List (Select.MenuItem item)
     , toMsg : ToMsg msg item
     , id : String
@@ -118,7 +122,9 @@ multi required =
         { config
             | variant =
                 Select.Multi
-                    { truncationWidth = required.truncationWidth }
+                    { truncationWidth = required.truncationWidth
+                    , allowTextWrapping = required.allowTextWrapping
+                    }
                     required.selectedItems
             , id = required.id
         }
@@ -196,6 +202,11 @@ reversed value (Config config) =
 status : Status -> Config msg item -> Config msg item
 status value (Config config) =
     Config { config | status = value }
+
+
+controlHasUnconstrainedHeight : Bool -> Config msg item -> Config msg item
+controlHasUnconstrainedHeight predicate (Config config) =
+    Config { config | controlHasUnconstrainedHeight = predicate }
 
 
 view : Config msg item -> Html msg
@@ -280,6 +291,7 @@ view (Config config) =
                 |> Select.searchable config.searchable
                 |> Select.clearable config.clearable
                 |> Select.disabled config.disabled
+                |> Select.controlHasUnconstrainedHeight config.controlHasUnconstrainedHeight
 
         selectInputId =
             config.id ++ "-field-input"

@@ -13,10 +13,24 @@ import { Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Tile (React)",
+  title: `${CATEGORIES.components}/Tile`,
+  component: MultiActionTile,
+  subcomponents: { InformationTile, TileGrid },
   parameters: {
+    docs: {
+      description: {
+        component: `import {
+                      MultiActionTile,
+                      TileInformation,
+                      TileAction,
+                      InformationTile,
+                      TileGrid
+                    } from "@kaizen/draft-tile"`,
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14489%3A69120"
     ),

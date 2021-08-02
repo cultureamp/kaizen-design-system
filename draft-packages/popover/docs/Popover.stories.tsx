@@ -7,15 +7,16 @@ import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Popover (React)",
+  title: `${CATEGORIES.components}/Popover`,
   component: PopoverRaw,
   parameters: {
-    info: {
-      text: `
-      import { usePopover } from "@kaizen/draft-popover"
-      `,
+    docs: {
+      description: {
+        component: 'import { usePopover } from "@kaizen/draft-popover"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A63845"
@@ -28,7 +29,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
   <div style={{ minHeight: "150px" }}>{children}</div>
 )
 
-const TargetElement = ({
+const InlineBlockTargetElement = ({
   referenceElementRef,
 }: {
   referenceElementRef: (element: HTMLElement | null) => void
@@ -51,7 +52,7 @@ export const DefaultKaizenSiteDemo = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Default">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -66,7 +67,7 @@ export const DefaultWithoutHeading = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover>
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -81,7 +82,7 @@ export const Informative = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Informative" variant="informative">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -94,13 +95,13 @@ export const InformativeWithSingleLine = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover
         heading="Informative-default-with-single-line"
         variant="informative"
         singleLine
       >
-        {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        {"https://cultureamp.design/iamaverylongurl/" +
           "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
       </Popover>
     </Container>
@@ -113,7 +114,7 @@ export const InformativeLarge = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover
         heading="Informative-large-with-multi-line"
         variant="informative"
@@ -130,7 +131,7 @@ export const InformativeLargeWithSingleLine = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover
         heading="Informative-large-with-single-line"
         variant="informative"
@@ -150,7 +151,7 @@ export const InformativeWithCustomIcon = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover
         heading="Informative"
         variant="informative"
@@ -169,7 +170,7 @@ export const Positive = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Positive" variant="positive">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -182,7 +183,7 @@ export const Negative = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Negative" variant="negative">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -195,7 +196,7 @@ export const Cautionary = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Cautionary" variant="cautionary">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -208,7 +209,7 @@ export const Dismissible = () => {
   const [referenceElementRef, Popover] = usePopover()
   return (
     <Container>
-      <TargetElement referenceElementRef={referenceElementRef} />
+      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
       <Popover heading="Dismissible" dismissible>
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
@@ -222,7 +223,7 @@ export const PlacementTop = () => {
   return (
     <Container>
       <div style={{ marginTop: "200px" }}>
-        <TargetElement referenceElementRef={referenceElementRef} />
+        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
         <Popover heading="Placement top" placement="top">
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -239,7 +240,7 @@ export const PlacementStart = () => {
   return (
     <Container>
       <div style={{ marginTop: "1.5rem" }}>
-        <TargetElement referenceElementRef={referenceElementRef} />
+        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
         <Popover heading="Placement start" placement="bottom-start">
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -256,7 +257,7 @@ export const PlacementEnd = () => {
   return (
     <Container>
       <div style={{ marginTop: "1.5rem" }}>
-        <TargetElement referenceElementRef={referenceElementRef} />
+        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
         <Popover heading="Placement end" placement="bottom-end">
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -267,37 +268,3 @@ export const PlacementEnd = () => {
 }
 
 PlacementEnd.storyName = "Placement end"
-
-export const LegacyPopover = () => (
-  <Container>
-    <div
-      style={{
-        position: "relative",
-        height: "200px",
-      }}
-    >
-      <PopoverLegacy heading="Arrow top end" position="end" side="top">
-        The legacy popover gets used when the referenceElement prop is not
-        included.
-      </PopoverLegacy>
-    </div>
-
-    <div
-      style={{
-        position: "relative",
-        height: "200px",
-      }}
-    >
-      <PopoverLegacy
-        heading="Arrow bottom start"
-        position="start"
-        side="bottom"
-      >
-        The legacy popover gets used when the referenceElement prop is not
-        included.
-      </PopoverLegacy>
-    </div>
-  </Container>
-)
-
-LegacyPopover.storyName = "Legacy Popover"
