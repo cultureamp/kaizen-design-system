@@ -57,6 +57,7 @@ import {
   BrandMomentError,
   BrandMomentStarterKit,
 } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const withFixedWidth = Story => (
   <div style={{ width: "500px" }}>
@@ -65,7 +66,7 @@ const withFixedWidth = Story => (
 )
 
 export default {
-  title: "Illustration, Scene (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Scene`,
   component: ManagerLearningResilience,
   parameters: {
     docs: {

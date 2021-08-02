@@ -1,9 +1,10 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/RadioFieldStories.elm").Elm
   .ElmStories.RadioFieldStories
 
-loadElmStories("RadioField (Elm)", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Radio Field`, module, compiledElm, [
   "Interactive",
   "Unselected disabled",
   "Unselected default",

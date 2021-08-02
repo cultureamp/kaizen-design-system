@@ -12,10 +12,11 @@ import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./TitleBlockZen.stories.scss"
 
 export default {
-  title: "TitleBlockZen (React)",
+  title: `${CATEGORIES.components}/Title Block`,
   parameters: {
     docs: {
       description: {

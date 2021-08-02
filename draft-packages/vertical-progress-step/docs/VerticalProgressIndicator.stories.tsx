@@ -1,4 +1,5 @@
 import * as React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 // eslint-disable-next-line max-len
 import { VerticalProgressIndicator } from "../KaizenDraft/VerticalProgressStep/VerticalProgressIndicator"
 
@@ -16,7 +17,7 @@ const RelativePositionBlock = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "VerticalProgressIndicator (React)",
+  title: `${CATEGORIES.deprecated}/Vertical Progress Indicator`,
   component: VerticalProgressIndicator,
   parameters: {
     docs: {

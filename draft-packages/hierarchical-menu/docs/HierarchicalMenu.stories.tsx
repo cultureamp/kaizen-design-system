@@ -5,6 +5,7 @@ import {
   Hierarchy,
   HierarchyNode,
 } from "@kaizen/draft-hierarchical-menu"
+import { CATEGORIES } from "../../../storybook/constants"
 import {
   ResponseTime,
   levelZero,
@@ -41,7 +42,7 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
 }
 
 export default {
-  title: "HierarchicalMenu (React)",
+  title: `${CATEGORIES.components}/Hierarchical Menu`,
   component: HierarchicalMenu,
   parameters: {
     docs: {

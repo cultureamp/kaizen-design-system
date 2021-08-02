@@ -5,9 +5,10 @@ import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Badge (React)",
+  title: `${CATEGORIES.components}/Badge`,
   component: Badge,
   parameters: {
     docs: {

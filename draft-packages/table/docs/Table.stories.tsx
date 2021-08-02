@@ -15,6 +15,7 @@ import {
   TableRowCell,
 } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Table.stories.scss"
 
 const Container: React.FunctionComponent<{
@@ -121,7 +122,7 @@ const ExampleTableRow = ({
 )
 
 export default {
-  title: "Table (React)",
+  title: `${CATEGORIES.components}/Table`,
   component: TableCard,
   parameters: {
     docs: {

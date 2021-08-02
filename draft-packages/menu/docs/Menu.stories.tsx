@@ -19,6 +19,7 @@ import {
   MenuSeparator,
   StatelessMenu,
 } from ".."
+import { CATEGORIES } from "../../../storybook/constants"
 
 const MenuInstance: React.FunctionComponent = () => (
   <MenuContent>
@@ -84,7 +85,7 @@ const MenuInstance: React.FunctionComponent = () => (
 )
 
 export default {
-  title: "Menu (React)",
+  title: `${CATEGORIES.components}/Menu`,
   component: Menu,
   parameters: {
     docs: {
