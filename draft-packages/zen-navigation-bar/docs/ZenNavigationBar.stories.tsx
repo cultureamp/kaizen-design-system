@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Button, Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import {
   Link,
   Menu,
@@ -12,7 +13,7 @@ import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 
 export default {
-  title: "ZenNavigationBar (React)",
+  title: "ZenNavigationBar (React) (deprecated)",
 }
 
 const handleNavigationChange = (event: { preventDefault: () => void }) => {

@@ -14,10 +14,11 @@ export default {
   title: "LoadingPlaceholder (React)",
   component: LoadingPlaceholder,
   parameters: {
-    info: {
-      text: `
-      import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A2"
@@ -229,29 +230,25 @@ export const HeadingLoading = () => (
 
 export const ReversedDefault = () => (
   <StoryContainer>
-    <div className={styles.reversedDefault}>
-      <Paragraph variant="body" color="white">
-        Dr. Brené Brown, author of Daring Greatly, is a research professor from
-        the University of Houston who studies human emotions, including shame
-        and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
-        not weakness, and that myth is profoundly dangerous.” She went on to say
-        that after 12 years of research, she has actually determined that
-        vulnerability is “our most accurate measurement of courage.”
-      </Paragraph>
-    </div>
-    <div className={styles.reversedDefault}>
-      <LoadingPlaceholder reversedDefault />
-      <LoadingPlaceholder reversedDefault />
-      <LoadingPlaceholder reversedDefault />
-      <LoadingPlaceholder reversedDefault />
-      <LoadingPlaceholder reversedDefault />
-    </div>
+    <Paragraph variant="body" color="white">
+      Dr. Brené Brown, author of Daring Greatly, is a research professor from
+      the University of Houston who studies human emotions, including shame and
+      vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
+      weakness, and that myth is profoundly dangerous.” She went on to say that
+      after 12 years of research, she has actually determined that vulnerability
+      is “our most accurate measurement of courage.”
+    </Paragraph>
+    <LoadingPlaceholder reversedDefault />
+    <LoadingPlaceholder reversedDefault />
+    <LoadingPlaceholder reversedDefault />
+    <LoadingPlaceholder reversedDefault />
+    <LoadingPlaceholder reversedDefault />
   </StoryContainer>
 )
 ReversedDefault.storyName = "Reversed, Default"
 ReversedDefault.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -309,8 +306,8 @@ export const InTheWild = () => (
       </Paragraph>
       <div className={styles.tooltip}>
         <div className={styles.tooltipHeader}>
-          <LoadingPlaceholder reversedOcean inline width={80} />
-          <LoadingPlaceholder reversedOcean inline width={10} />
+          <LoadingPlaceholder inline width={80} />
+          <LoadingPlaceholder inline width={10} />
         </div>
         <div className={styles.tooltipBody}>
           <div className={styles.tooltipRow}>

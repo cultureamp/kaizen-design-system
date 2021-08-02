@@ -12,10 +12,10 @@ export default {
   title: "Tabs (React)",
   component: Tabs,
   parameters: {
-    info: {
-      text: `
-      import { Tabs } from "@kaizen/draft-tabs"
-      `,
+    docs: {
+      description: {
+        component: 'import { Tabs } from "@kaizen/draft-tabs"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A72574"
@@ -311,7 +311,7 @@ export const WithLayoutVerticalLTR = () => {
 WithLayoutVerticalLTR.storyName = "(Example) Layout LTR (Vertical)"
 
 WithLayoutVerticalLTR.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export const WithLayoutVerticalRTL = () => {
@@ -342,7 +342,7 @@ export const WithLayoutVerticalRTL = () => {
 WithLayoutVerticalRTL.storyName = "(Example) Layout RTL (Vertical)"
 
 WithLayoutVerticalRTL.parameters = {
-  backgrounds: { default: "Stone" },
+  backgrounds: { default: "Gray 100" },
 }
 
 export const WithHeading = () => {
@@ -386,7 +386,7 @@ export const WithHeading = () => {
 WithHeading.storyName = "(Example) Layout With heading"
 
 WithHeading.parameters = {
-  backgrounds: { default: "Stone" },
+  backgrounds: { default: "Gray 100" },
 }
 
 export const ExampleContentTab = () => {
@@ -420,5 +420,5 @@ export const ExampleContentTab = () => {
 ExampleContentTab.storyName = "(Example) Content Tab in Content Area"
 
 ExampleContentTab.parameters = {
-  backgrounds: { default: "Stone" },
+  backgrounds: { default: "Gray 100" },
 }

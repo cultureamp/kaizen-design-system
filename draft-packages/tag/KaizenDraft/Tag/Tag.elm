@@ -3,6 +3,7 @@ module KaizenDraft.Tag.Tag exposing
     , Size(..)
     , Status(..)
     , Validation(..)
+    , allowTextWrapping
     , default
     , dismissible
     , inline
@@ -39,6 +40,7 @@ type alias Configuration msg =
     , onMousedown : Maybe msg
     , onMouseleave : Maybe msg
     , truncationWidth : Maybe Float
+    , allowTextWrapping : Bool
     }
 
 
@@ -133,6 +135,11 @@ truncateWidth width (Config config) =
     Config { config | truncationWidth = Just width }
 
 
+allowTextWrapping : Bool -> Config msg -> Config msg
+allowTextWrapping value (Config config) =
+    Config { config | allowTextWrapping = value }
+
+
 
 -- root class adds margin right, inline removes all margins.
 
@@ -152,6 +159,7 @@ defaults =
     , onMousedown = Nothing
     , onMouseleave = Nothing
     , truncationWidth = Nothing
+    , allowTextWrapping = False
     }
 
 
@@ -250,13 +258,21 @@ view (Config config) value =
     div
         [ styles.classList
             ([ ( .root, True )
-             , ( .medium, config.size == Medium )
-             , ( .small, config.size == Small )
+             , ( .medium, config.size == Medium && not config.allowTextWrapping )
+             , ( .small, config.size == Small && not config.allowTextWrapping )
              , ( .inline, config.inline )
              , ( .dismissible, config.dismissible )
              ]
                 ++ resolveVariantStyle
             )
+        , stylesElmExtra.classList
+            [ ( .mediumAllowingTextWrapping
+              , config.size == Medium && config.allowTextWrapping
+              )
+            , ( .smallAllowingTextWrapping
+              , config.size == Small && config.allowTextWrapping
+              )
+            ]
         ]
         [ div [ styles.class .layoutContainer ]
             [ resolveValidationIcon
@@ -333,10 +349,12 @@ viewClear config =
                 , Maybe.map mouseleave config.onMouseleave
                 ]
     in
-    span ([ styles.class .dismissIcon ] ++ events)
-        [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-            (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
-            |> Html.map never
+    Html.button ([ styles.class .dismissButton ] ++ events)
+        [ div [ styles.class .iconWrapper ]
+            [ Icon.view (Icon.presentation |> Icon.inheritSize True)
+                (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
+                |> Html.map never
+            ]
         ]
 
 
@@ -361,10 +379,18 @@ styles =
         , small = "small"
         , inline = "inline"
         , dismissible = "dismissible"
-        , dismissIcon = "dismissIcon"
+        , dismissButton = "dismissButton"
         , validationIcon = "validationIcon"
         , truncate = "truncate"
         , textContent = "textContent"
         , pulse = "pulse"
         , pulseRing = "pulseRing"
+        , iconWrapper = "iconWrapper"
+        }
+
+
+stylesElmExtra =
+    css "@kaizen/draft-tag/KaizenDraft/Tag/TagElmExtra.scss"
+        { mediumAllowingTextWrapping = "mediumAllowingTextWrapping"
+        , smallAllowingTextWrapping = "smallAllowingTextWrapping"
         }

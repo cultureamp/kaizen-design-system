@@ -91,10 +91,11 @@ export default {
   title: "ToastNotification (React)",
   component: ToastNotification,
   parameters: {
-    info: {
-      text: `
-        import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/component-library"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A21830"

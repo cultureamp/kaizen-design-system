@@ -32,10 +32,10 @@ export default {
   title: "EmptyState (React)",
   component: EmptyState,
   parameters: {
-    info: {
-      text: `
-        import { EmptyState } from "@kaizen/draft-empty-state";
-      `,
+    docs: {
+      description: {
+        component: 'import { EmptyState } from "@kaizen/draft-empty-state";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A33123"
@@ -45,192 +45,108 @@ export default {
 }
 
 export const DefaultKaizenSiteDemo = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Empty state title"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Empty state title"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      useZenStyles
-    />
-  </SidebarAndContentLayout>
+    useZenStyles
+  />
 )
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const LayoutSidebarContent = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Empty state title"
-      bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-      layoutContext="sidebarAndContent"
-      useZenStyles
-    />
-  </SidebarAndContentLayout>
-)
-
-LayoutSidebarContent.storyName = "Layout, Sidebar + Content"
-
-export const LayoutContentOnly = () => (
-  <ContentOnlyLayout>
-    <EmptyState
-      headingText="Empty state title"
-      bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-      layoutContext="contentOnly"
-      useZenStyles
-    />
-  </ContentOnlyLayout>
-)
-
-LayoutContentOnly.storyName = "Layout, Content-only"
-
 export const Positive = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Positive empty state"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Positive empty state"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="positive"
-      useZenStyles
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
+    illustrationType="positive"
+    useZenStyles
+  >
+    <div className={styles.buttonContainer}>
+      <Button label="Label" icon={chevronRight} iconPosition="end" />
+    </div>
+  </EmptyState>
 )
 
 export const Informative = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Informative empty state"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Informative empty state"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="informative"
-      useZenStyles
-    />
-  </SidebarAndContentLayout>
+    illustrationType="informative"
+    useZenStyles
+  />
 )
 
 export const Action = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Action empty state"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Action empty state"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="action"
-      useZenStyles
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
+    illustrationType="action"
+  >
+    <div className={styles.buttonContainer}>
+      <Button label="Label" icon={chevronRight} iconPosition="end" />
+    </div>
+  </EmptyState>
 )
-
-export const ActionButNotZen = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Action empty state"
-      bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-      illustrationType="action"
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
-)
-
-ActionButNotZen.storyName = "Action (pre-Zen legacy styles)"
-
-export const ActionButton = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Action empty state"
-      bodyText={
-        <p>
-          If providing further actions, include a <a>link</a> to an action or
-          use a Default or Primary action.
-        </p>
-      }
-      illustrationType="action"
-      useZenStyles
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
-)
-
-ActionButton.storyName = "Action, Button"
 
 export const Neutral = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Neutral empty state"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Neutral empty state"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="neutral"
-      useZenStyles
-    />
-  </SidebarAndContentLayout>
+    illustrationType="neutral"
+    useZenStyles
+  />
 )
 
 export const Negative = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Negative empty state"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Negative empty state"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="negative"
-      useZenStyles
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
+    illustrationType="negative"
+    useZenStyles
+  >
+    <div className={styles.buttonContainer}>
+      <Button label="Label" icon={chevronRight} iconPosition="end" />
+    </div>
+  </EmptyState>
 )
 
 export const RtlAction = () => (
   <div dir="rtl">
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Empty state title"
-        bodyText="If providing further actions, include a link to an action or use a
+    <EmptyState
+      headingText="Empty state title"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="action"
-        useZenStyles
-      >
-        <div className={styles.buttonContainer}>
-          <Button label="Label" icon={chevronLeft} iconPosition="end" />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
+      illustrationType="action"
+      useZenStyles
+    >
+      <div className={styles.buttonContainer}>
+        <Button label="Label" icon={chevronLeft} iconPosition="end" />
+      </div>
+    </EmptyState>
   </div>
 )
 
 RtlAction.storyName = "RTL, Action"
 
 export const StraightCorners = () => (
-  <SidebarAndContentLayout>
-    <EmptyState
-      headingText="Empty state title"
-      bodyText="If providing further actions, include a link to an action or use a
+  <EmptyState
+    headingText="Empty state title"
+    bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      illustrationType="action"
-      straightCorners
-      useZenStyles
-    >
-      <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronRight} iconPosition="end" />
-      </div>
-    </EmptyState>
-  </SidebarAndContentLayout>
+    illustrationType="action"
+    straightCorners
+    useZenStyles
+  >
+    <div className={styles.buttonContainer}>
+      <Button label="Label" icon={chevronRight} iconPosition="end" />
+    </div>
+  </EmptyState>
 )
 
 StraightCorners.storyName = "Straight corners"

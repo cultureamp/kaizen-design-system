@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Button } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
@@ -8,7 +8,13 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Badge (React)",
+  component: Badge,
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Badge } from "@kaizen/draft-badge"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14398"
     ),
@@ -106,7 +112,7 @@ export const Reversed = () => (
 Reversed.storyName = "Reversed"
 Reversed.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -129,7 +135,7 @@ export const ReversedActive = () => (
 ReversedActive.storyName = "Reversed, Active"
 ReversedActive.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 

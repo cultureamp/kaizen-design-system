@@ -34,6 +34,10 @@ $focus-border-color: $kz-var-color-cluny-500;
 }
 
 .specificityIncreaser {
+  .multiValue {
+    margin: 0.2375rem;
+  }
+
   .dropdownIndicator {
     color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
     &:hover {
@@ -125,10 +129,6 @@ $focus-border-color: $kz-var-color-cluny-500;
     .singleValueOverrides {
       color: $kz-var-color-white;
     }
-  }
-
-  .multiValue {
-    margin-right: $ca-grid * (7 / 24);
   }
 
   &.secondary,

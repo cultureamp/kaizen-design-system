@@ -80,6 +80,7 @@ class Collapsible extends React.Component<Props, State> {
         data-automation-id={automationId || `collapsible-container-${id}`}
       >
         <button
+          type="button"
           id={buttonId}
           className={classnames(styles.button, {
             [styles.defaultVariant]: open && variant === "default",

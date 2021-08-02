@@ -5,12 +5,13 @@
 @import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 $bannerPadding: $kz-var-spacing-sm;
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   $kz-var-animation-duration-slow ease;
+$illustration-size: 155px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -49,15 +50,15 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   }
 }
 
-.iconWrapper {
+.illustrationWrapper {
   display: flex;
   padding: 0 ($kz-var-spacing-sm);
 
   @include ca-media-tablet {
     text-align: center;
     justify-content: center;
+    align-self: center;
     padding: $kz-var-spacing-sm;
-    width: auto;
   }
 
   @include ca-media-mobile {
@@ -65,10 +66,16 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   }
 }
 
+.illustration {
+  width: $illustration-size;
+  height: $illustration-size;
+}
+
 .descriptionContainer {
   flex: 1;
   margin: $kz-var-spacing-sm 0;
   text-align: center;
+  align-self: center;
   max-width: 780px;
 
   @include ca-media-desktop {
@@ -79,6 +86,19 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   @include ca-media-mobile {
     margin: $kz-var-spacing-sm;
     max-width: 100%;
+  }
+}
+
+.descriptionAndActions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: column;
+    width: 100%;
+    align-items: unset;
   }
 }
 

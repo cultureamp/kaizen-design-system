@@ -16,7 +16,7 @@ export interface SliderProps {
 
 export const Slider = ({
   automationId,
-  initialValue,
+  initialValue = 5.5, // Set default dot to visually center
   disabled = false,
   onChange = () => undefined,
   labelLow = "Not at all",
@@ -24,6 +24,7 @@ export const Slider = ({
   disabledLabel,
 }: SliderProps) => {
   const [value, setValue] = useState(initialValue)
+  const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
 
   // Update local value if a new initialValue is received from the server
   useEffect(() => {
@@ -31,6 +32,8 @@ export const Slider = ({
   }, [initialValue])
 
   const throttledOnChange = useCallback(throttle(onChange, 200), [onChange])
+  const showDisabledLabel =
+    disabled === true && disabledLabel !== undefined && disabledLabel !== ""
 
   return (
     <div
@@ -47,20 +50,21 @@ export const Slider = ({
         role="slider"
         min="1"
         max="10"
-        step="1"
-        value={value || 5}
-        aria-valuenow={value || 5}
+        step={step}
+        value={value}
+        aria-valuenow={value}
         aria-valuemin={1}
         aria-valuemax={10}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setStep(1) // Put the stepper to 1 to avoid floating value
           const v = Number.parseFloat(e.target.value)
-          setValue(v)
+          setValue(Math.round(v))
           throttledOnChange(Math.round(v)) // Save final rounded value
         }}
         disabled={disabled}
       />
       <div className={styles.labelsContainer}>
-        {!disabled && (
+        {!showDisabledLabel && (
           <div className={styles.sliderLabels}>
             <Paragraph
               variant="extra-small"
@@ -78,7 +82,7 @@ export const Slider = ({
             </Paragraph>
           </div>
         )}
-        {disabled && disabledLabel && (
+        {showDisabledLabel && (
           <Paragraph
             variant="extra-small"
             color="dark-reduced-opacity"

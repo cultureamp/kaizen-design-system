@@ -1,10 +1,9 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { assetUrl } from "@kaizen/hosted-assets"
+import { Informative } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-
 const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
   .default
 
@@ -12,21 +11,18 @@ export default {
   title: "GuidanceBlock (React)",
   component: GuidanceBlock,
   parameters: {
-    info: {
-      text: `
-        import { GuidanceBlock } from "@kaizen/draft-guidance-block";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
+      },
     },
+    backgrounds: { default: "Gray 100" },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
   },
-  decorators: [
-    withDesign,
-    story => (
-      <div style={{ display: "flex", justifyContent: "center" }}>{story()}</div>
-    ),
-  ],
+  decorators: [withDesign],
 }
 
 const guidanceBlockText = {
@@ -36,11 +32,9 @@ const guidanceBlockText = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")
-
-const Default = () => (
+export const Default = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -53,20 +47,23 @@ const Default = () => (
         onClick: () => alert("tada: 🎉"),
       },
     }}
-    noMaxWidth
   />
 )
 
-const DefaultWithoutActions = () => (
+Default.storyName = "Default"
+
+export const DefaultWithoutActions = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
   />
 )
 
-const WithoutActionArrowButton = () => (
+DefaultWithoutActions.storyName = "Default Without Actions"
+
+export const WithoutActionArrowButton = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -83,17 +80,33 @@ const WithoutActionArrowButton = () => (
   />
 )
 
-const WithoutMaxWidth = () => (
+WithoutActionArrowButton.storyName = "Without Action Arrow Button"
+
+export const WithoutMaxWidth = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     noMaxWidth
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
   />
 )
 
-const Persistent = () => (
+WithoutMaxWidth.storyName = "Without Max Width"
+
+export const Persistent = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -107,9 +120,11 @@ const Persistent = () => (
   />
 )
 
-const SecondaryAction = () => (
+Persistent.storyName = "Persistent"
+
+export const SecondaryAction = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -128,9 +143,11 @@ const SecondaryAction = () => (
   />
 )
 
-const Prominent = () => (
+SecondaryAction.storyName = "Secondary Action"
+
+export const Prominent = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -144,9 +161,11 @@ const Prominent = () => (
   />
 )
 
-const WithCustomDescription = () => (
+Prominent.storyName = "Prominent"
+
+export const WithCustomDescription = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={{
       title: "Informative guidance block title",
       description: (
@@ -169,13 +188,13 @@ const WithCustomDescription = () => (
       },
     }}
     persistent
-    noMaxWidth
   />
 )
+WithCustomDescription.storyName = "With custom description"
 
-const WithTooltip = () => (
+export const WithTooltip = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={{
       title: "Informative guidance block title",
       description:
@@ -200,63 +219,3 @@ const WithTooltip = () => (
     }}
   />
 )
-
-Default.storyName = "Default"
-
-Default.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-DefaultWithoutActions.storyName = "Default Without Actions"
-
-DefaultWithoutActions.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Persistent.storyName = "Persistent"
-
-Persistent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutActionArrowButton.storyName = "Without Action Arrow Button"
-
-WithoutActionArrowButton.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutMaxWidth.storyName = "Without Max Width"
-
-WithoutMaxWidth.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-SecondaryAction.storyName = "Secondary Action"
-
-SecondaryAction.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Prominent.storyName = "Prominent"
-
-Prominent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithCustomDescription.storyName = "With custom description"
-
-WithCustomDescription.paramters = {
-  backgrounds: { default: "Stone" },
-}
-
-export {
-  Default,
-  DefaultWithoutActions,
-  WithoutMaxWidth,
-  WithoutActionArrowButton,
-  Persistent,
-  SecondaryAction,
-  Prominent,
-  WithCustomDescription,
-  WithTooltip,
-}

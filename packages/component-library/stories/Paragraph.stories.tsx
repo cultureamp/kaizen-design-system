@@ -6,10 +6,10 @@ export default {
   title: "Paragraph",
   component: Paragraph,
   parameters: {
-    info: {
-      text: `
-        import { Paragraph } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component: 'import { Paragraph } from "@kaizen/component-library"',
+      },
     },
   },
 }
@@ -56,7 +56,7 @@ export const BodyWhite = () => (
 BodyWhite.storyName = "Body White"
 
 BodyWhite.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export const BodyPositive = () => (

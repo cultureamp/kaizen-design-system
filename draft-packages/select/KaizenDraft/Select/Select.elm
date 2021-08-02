@@ -8,6 +8,7 @@ module KaizenDraft.Select.Select exposing
     , Style(..)
     , Variant(..)
     , clearable
+    , controlHasUnconstrainedHeight
     , defaults
     , disabled
     , dummyInputIdPrefix
@@ -188,11 +189,14 @@ type alias Configuration item =
     , searchable : Bool
     , clearable : Bool
     , disabled : Bool
+    , controlHasUnconstrainedHeight : Bool
     }
 
 
 type alias MultiSelectTagConfig =
-    { truncationWidth : Maybe Float }
+    { truncationWidth : Maybe Float
+    , allowTextWrapping : Bool
+    }
 
 
 type SelectType
@@ -273,6 +277,7 @@ defaults =
     , searchable = True
     , clearable = False
     , disabled = False
+    , controlHasUnconstrainedHeight = False
     }
 
 
@@ -327,6 +332,11 @@ clearable predicate (Config config) =
 disabled : Bool -> Config item -> Config item
 disabled predicate (Config config) =
     Config { config | disabled = predicate }
+
+
+controlHasUnconstrainedHeight : Bool -> Config item -> Config item
+controlHasUnconstrainedHeight predicate (Config config) =
+    Config { config | controlHasUnconstrainedHeight = predicate }
 
 
 
@@ -784,6 +794,7 @@ view (Config config) selectId =
                 , ( .isFocused, state_.controlFocused )
                 , ( .cautionary, config.selectType == Cautionary && state_.controlFocused == False )
                 , ( .error, config.selectType == Error && state_.controlFocused == False )
+                , ( .controlHasUnconstrainedHeight, config.controlHasUnconstrainedHeight )
                 ]
              , attribute "data-automation-id" "Select__Control"
              ]
@@ -1010,7 +1021,7 @@ viewSelectInput viewSelectInputData =
             |> SelectInput.currentValue resolveInputValue
             |> SelectInput.onMousedown InputMousedowned
             |> resolveInputWidth
-            |> (SelectInput.preventKeydownOn <|
+            |> (SelectInput.onWithStopPropagationAndPreventDefault <|
                     (enterKeydownDecoder |> spaceKeydownDecoder)
                         ++ [ Events.isEscape CloseMenu
                            ]
@@ -1058,26 +1069,25 @@ viewDummyInput viewDummyInputData =
                , id ("dummy-input-" ++ viewDummyInputData.id)
                , onFocus (InputReceivedFocused Nothing)
                , onBlur (OnInputBlurred Nothing)
-               , preventDefaultOn "keydown" <|
-                    Decode.map
-                        (\msg -> ( msg, True ))
-                        (Decode.oneOf
-                            ([ Events.isSpace (ToggleMenuAtKey <| SelectId viewDummyInputData.id)
-                             , Events.isEscape CloseMenu
-                             , Events.isDownArrow (KeyboardDown (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
-                             , Events.isUpArrow (KeyboardUp (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
-                             ]
-                                ++ whenEnterEvent
-                                ++ whenArrowEvents
-                            )
+               , Html.Events.custom "keydown"
+                    (Decode.oneOf
+                        ([ Events.isSpace (ToggleMenuAtKey <| SelectId viewDummyInputData.id)
+                         , Events.isEscape CloseMenu
+                         , Events.isDownArrow (KeyboardDown (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
+                         , Events.isUpArrow (KeyboardUp (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
+                         ]
+                            ++ whenEnterEvent
+                            ++ whenArrowEvents
                         )
+                        |> Decode.map (\msg -> { message = msg, stopPropagation = True, preventDefault = True })
+                    )
                ]
         )
         []
 
 
 viewMultiValue : MultiSelectTagConfig -> InitialMousedown -> Int -> MenuItem item -> Html (Msg item)
-viewMultiValue { truncationWidth } mousedownedItem index menuItem =
+viewMultiValue { truncationWidth, allowTextWrapping } mousedownedItem index menuItem =
     let
         isMousedowned =
             case mousedownedItem of
@@ -1102,6 +1112,13 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
                 Nothing ->
                     tagConfig
 
+        resolveAllowTextWrapping tagConfig =
+            if allowTextWrapping then
+                Tag.allowTextWrapping True tagConfig
+
+            else
+                tagConfig
+
         resolveVariant =
             case menuItem.menuItemType of
                 Default ->
@@ -1125,6 +1142,7 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
                             |> Tag.onMousedown (MultiItemFocus index)
                             |> Tag.inline True
                             |> resolveTruncationWidth
+                            |> resolveAllowTextWrapping
                             |> resolveMouseleave
                         )
                         mi.label
@@ -1452,4 +1470,5 @@ styles =
         , preventPointer = "preventPointer"
         , clearButtonWrapper = "clearButtonWrapper"
         , disabled = "disabled"
+        , controlHasUnconstrainedHeight = "controlHasUnconstrainedHeight"
         }

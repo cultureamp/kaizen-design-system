@@ -1,5 +1,4 @@
 import * as React from "react"
-
 import styles from "./Layout.module.scss"
 
 const NavigationBar: React.FunctionComponent = ({ children }) => (
@@ -57,6 +56,9 @@ const Announcers: React.FunctionComponent = ({ children }) => (
 
 Announcers.displayName = "Announcers"
 
+/**
+ * @deprecated Layout is deprecated. Please use draft-page-layout instead.
+ */
 class Layout extends React.Component {
   static displayName = "Layout"
   static NavigationBar = NavigationBar

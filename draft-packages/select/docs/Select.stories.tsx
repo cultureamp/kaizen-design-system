@@ -54,7 +54,7 @@ const filterNames = (inputValue: string) =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
 
-const promiseOptions = inputValue =>
+const promiseOptions = (inputValue): Promise<any[]> =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve(filterNames(inputValue))
@@ -65,10 +65,10 @@ export default {
   title: "Select (React)",
   component: Select,
   parameters: {
-    info: {
-      text: `
-      import { AsyncSelect, Select } from "@kaizen/draft-select"
-      `,
+    docs: {
+      description: {
+        component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14321%3A65630"
@@ -199,7 +199,7 @@ export const SingleSecondarySmall = () => (
 SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
 SingleSecondarySmall.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -232,7 +232,7 @@ export const SingleSecondaryReversed = () => (
 SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
 SingleSecondaryReversed.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -262,7 +262,7 @@ export const SingleSecondaryWithEllipsis = () => {
 SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
 SingleSecondaryWithEllipsis.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -283,6 +283,6 @@ SingleSecondaryReversedDisabled.storyName =
   "Single Secondary Reversed (disabled)"
 SingleSecondaryReversedDisabled.parameters = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
