@@ -92,7 +92,7 @@ $padding: $kz-var-spacing-xs;
 
   &:focus-visible,
   &.focus-visible {
-    border: 2px $kz-var-color-cluny-500 solid;
+    border-color: $kz-var-color-cluny-500;
     outline: none;
   }
 
