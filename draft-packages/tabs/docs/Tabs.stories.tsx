@@ -6,10 +6,11 @@ import classnames from "classnames"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 import { ExampleLayout } from "./ExampleLayout"
 
 export default {
-  title: "Tabs (React)",
+  title: `${CATEGORIES.components}/Tabs`,
   component: Tabs,
   parameters: {
     docs: {

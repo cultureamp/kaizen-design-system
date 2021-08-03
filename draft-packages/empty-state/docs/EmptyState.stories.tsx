@@ -8,6 +8,7 @@ import { Button } from "@kaizen/draft-button"
 import { withDesign } from "storybook-addon-designs"
 import { EmptyState } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 import styles from "./EmptyState.stories.scss"
 
@@ -29,7 +30,7 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "EmptyState (React)",
+  title: `${CATEGORIES.components}/Empty State`,
   component: EmptyState,
   parameters: {
     docs: {

@@ -25,7 +25,7 @@ You can edit Kaizen Site documentation using GitHub's interface.
 2. **Edit**: Click the pencil icon to "Edit this file".
 3. **Preview**: Makes your changes to the content and click "Preview changes" to see how they look.
 4. **Commit**:
-    - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
+    - Under "Commit changes", write a commit message starting with `docs:`, such as `docs: update typography documentation`.
     - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
     - Click the "Commit changes" button. This will start a pull request.
 5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #prod_design_systems know.
@@ -37,18 +37,16 @@ You can edit Kaizen Site documentation using GitHub's interface.
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
 
-
-
 ## Contributing code
 
 ### Need to know
 
 Every contribution must be **design reviewed** and **communicated**.
 
-- **Kaizen Site** changes use `docs: ` at the start of the first commit message and PR title.
-- **New features** in components use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
-- **Fixes** in components use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
-- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE: ` in the body of a commit message.
+- **Kaizen Site** changes use `docs:` at the start of the first commit message and PR title.
+- **New features** in components use `feat:` at the start of PR titles. For 1 commit, use `feat:` in the commit message too.
+- **Fixes** in components use `fix:` at the start of PR titles. For 1 commit, use `fix:` in the commit message too.
+- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE:` in the body of a commit message.
 - **Design token** changes… let's talk about that.
 
 ### Quality and reviews
@@ -174,7 +172,7 @@ import { loadElmStories } from "elm-storybook"
 
 // JS stories
 
-loadElmStories("MyComponent (Elm)", module, require("./MyComponent.elm"), [
+loadElmStories("Elm/MyComponent", module, require("./MyComponent.elm"), [
   "Your new story #1",
   "Your new story #2",
 ])

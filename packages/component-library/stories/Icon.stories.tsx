@@ -2,9 +2,10 @@ import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Icon (React)",
+  title: `${CATEGORIES.components}/Icon`,
   component: Icon,
   parameters: {
     docs: {
