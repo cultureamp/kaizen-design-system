@@ -23,7 +23,6 @@
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
-    "prettier": "^2.3.2",
     "stylelint": "^13.10.0"
   },
   "peerDependencies": {
@@ -38,6 +37,7 @@
     "@types/stylelint": "^9.10.1",
     "lodash.merge": "^4.6.2",
     "node-fetch": "^2.6.1",
+    "prettier": "^2.3.2",
     "ts-node": "^9.1.1"
   }
 }
