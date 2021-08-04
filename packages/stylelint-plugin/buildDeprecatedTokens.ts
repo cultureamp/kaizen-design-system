@@ -59,17 +59,15 @@ function getReplacementForDeprecatedOrRemovedToken(
   tokenName: string
 ): CurrentKaizenToken | undefined {
   let replacementToken = tokenName
-  let terminated = false
-  version2DeprecationRules.forEach(renameRule => {
-    if (terminated) return
 
+  for (const renameRule of version2DeprecationRules) {
     const [pattern, replacement, isTerminal] = renameRule
     if (replacement !== undefined)
       replacementToken = replacementToken.replace(pattern, replacement)
     if (pattern.test(replacementToken) && isTerminal) {
-      terminated = true
+      break
     }
-  })
+  }
 
   if (replacementToken !== tokenName) {
     return kaizenTokensByName[replacementToken]

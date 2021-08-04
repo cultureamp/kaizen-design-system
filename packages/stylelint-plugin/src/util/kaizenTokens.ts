@@ -27,7 +27,7 @@ import {
  * ```
  * Output:
  * {
- *    "--level1-level2-level3-leaf": "some value"
+ *    "level1-level2-level3-leaf": "some value"
  * }
  * ```
  */
@@ -59,7 +59,7 @@ const getVarsFromKaizenModule = (moduleName: string) => {
   } as const
 }
 
-export const kaizenTokensByModule = {
+const kaizenTokensByModule = {
   color: getVarsFromKaizenModule("color"),
   colorVars: getVarsFromKaizenModule("color-vars"),
   animation: getVarsFromKaizenModule("animation"),
