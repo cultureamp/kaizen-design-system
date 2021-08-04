@@ -57,22 +57,38 @@ export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
  */
 function getReplacementForDeprecatedOrRemovedToken(
   tokenName: string
-): CurrentKaizenToken | undefined {
+): { replacement: CurrentKaizenToken | undefined; deprecated: boolean } {
   let replacementToken = tokenName
-
+  let matchedAny = false
   for (const renameRule of version2DeprecationRules) {
     const [pattern, replacement, isTerminal] = renameRule
-    if (replacement !== undefined)
-      replacementToken = replacementToken.replace(pattern, replacement)
-    if (pattern.test(replacementToken) && isTerminal) {
-      break
+
+    if (pattern.test(replacementToken)) {
+      matchedAny = true
+      if (replacement !== undefined)
+        replacementToken = replacementToken.replace(pattern, replacement)
+      if (isTerminal) {
+        break
+      }
     }
   }
-
-  if (replacementToken !== tokenName) {
-    return kaizenTokensByName[replacementToken]
+  if (matchedAny) {
+    if (replacementToken !== tokenName) {
+      return {
+        replacement: kaizenTokensByName[replacementToken],
+        deprecated: true,
+      }
+    }
+    return {
+      deprecated: true,
+      replacement: undefined,
+    }
+  } else {
+    return {
+      replacement: undefined,
+      deprecated: false,
+    }
   }
-  return undefined
 }
 
 const run = async () => {
@@ -94,9 +110,16 @@ const run = async () => {
     await fetchDesignTokensJsonFile("tokens/variable-identifiers.json")
   )
 
-  const deprecatedTokenKeys = Object.keys(
-    getCSSVarsFromJson(deprecatedTokens)
-  ).map(key => [key, getReplacementForDeprecatedOrRemovedToken(key)?.name])
+  const deprecatedTokenKeys = Object.keys(getCSSVarsFromJson(deprecatedTokens))
+    .map(key => {
+      const replacementResult = getReplacementForDeprecatedOrRemovedToken(key)
+
+      // We don't care about variables that aren't deprecated
+      if (!replacementResult.deprecated) return undefined
+
+      return [key, replacementResult.replacement?.name]
+    })
+    .filter(n => n !== undefined)
   fs.writeFileSync(
     path.resolve(__dirname, "deprecatedTokens.ts"),
     format(
