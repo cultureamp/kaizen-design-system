@@ -1,5 +1,5 @@
 export const missingRequiredKaizenImport = (path: string) =>
-  `Missing required Kaizen token import: ${path}..`
+  `Missing required Kaizen token import: ${path}.`
 export const unnecessaryKaizenImport = (path: string) =>
   `Unnecessary Kaizen token import: ${path}.`
 
