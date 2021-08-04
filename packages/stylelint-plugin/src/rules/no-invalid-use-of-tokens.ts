@@ -46,6 +46,9 @@ const atRulesThatDontSupportCSSVars = new Set([
 
 /**
  * This function attempts to detect and autofix invalid usages of tokens, including ones which are deprecated or used in an incorrect way within functions.
+ * If the linter determines it can't automatically do a replacement, it will report an unfixable declaration (perhaps the replacement would cause an error).
+ *
+ * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
  */
 function detectAndFixInvalidTokens(
   nodeValue: string,
@@ -96,6 +99,7 @@ function detectAndFixInvalidTokens(
 
   walkVariablesOnValue(parsedValue, (variableNode, variable, parent) => {
     // If the variable is a CSS variable, and is used within a function that doesn't support CSS variables, report and keep going.
+    // Without this, non-deprecated CSS variables which are used within functions that don't support CSS variables, won't be warned about.
     if (
       parent &&
       !functionsThatSupportCSSVariables.has(parent.value) &&
@@ -215,10 +219,8 @@ function detectAndFixInvalidTokens(
 }
 
 /**
- * This function attempts to detect and autofix invalid usages of tokens, including ones which are deprecated or used in an incorrect way within functions. See {@link detectAndFixInvalidTokens}.
- * If the linter determines it can't automatically do a replacement, it will report an unfixable declaration (perhaps the replacement would cause an error).
- *
- * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
+ * This is a stylelint rule which detects and autofixes invalid usages of tokens.
+ * See {@link detectAndFixInvalidTokens} for how this works.
  */
 export const noInvalidUseOfTokens: RuleDefinition = {
   name: "no-invalid-use-of-tokens",
