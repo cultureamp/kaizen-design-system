@@ -4,10 +4,11 @@ import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./PageLayout.stories.scss"
 
 export default {
-  title: "PageLayout (React)",
+  title: `${CATEGORIES.components}/Page Layout`,
   component: Container,
   parameters: {
     docs: {

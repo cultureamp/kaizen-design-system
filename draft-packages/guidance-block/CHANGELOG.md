@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.27...@kaizen/draft-guidance-block@3.1.28) (2021-08-03)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.26...@kaizen/draft-guidance-block@3.1.27) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.25...@kaizen/draft-guidance-block@3.1.26) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.24...@kaizen/draft-guidance-block@3.1.25) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.23...@kaizen/draft-guidance-block@3.1.24) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [3.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.22...@kaizen/draft-guidance-block@3.1.23) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.21...@kaizen/draft-guidance-block@3.1.22) (2021-07-29)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [3.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.20...@kaizen/draft-guidance-block@3.1.21) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

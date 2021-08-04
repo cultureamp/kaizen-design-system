@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.5.27...@kaizen/draft-loading-placeholder@1.5.28) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.5.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.5.26...@kaizen/draft-loading-placeholder@1.5.27) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.5.25...@kaizen/draft-loading-placeholder@1.5.26) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.5.24...@kaizen/draft-loading-placeholder@1.5.25) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder

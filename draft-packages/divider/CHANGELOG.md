@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.5...@kaizen/draft-divider@1.4.6) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.4...@kaizen/draft-divider@1.4.5) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.3...@kaizen/draft-divider@1.4.4) (2021-07-20)
 
 **Note:** Version bump only for package @kaizen/draft-divider

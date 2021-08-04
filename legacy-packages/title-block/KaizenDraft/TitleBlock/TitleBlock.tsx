@@ -56,6 +56,9 @@ const COMPACT_NAVIGATION_SCROLL_THRESHOLD = 5
 const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
+/**
+ * @deprecated TitleBlock is deprecated. Please use draft-title-block-zen instead.
+ */
 class TitleBlock extends React.Component<Props, State> {
   static defaultProps: Pick<Props, "textDirection"> = {
     textDirection: "ltr",

@@ -4,15 +4,16 @@ import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
 export default {
-  title: "Divider (React)",
+  title: `${CATEGORIES.components}/Divider`,
   component: Divider,
   parameters: {
     docs: {

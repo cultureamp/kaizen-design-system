@@ -5,9 +5,10 @@ import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "LoadingSpinner (React)",
+  title: `${CATEGORIES.components}/Loading Spinner`,
   component: LoadingSpinner,
   parameters: {
     docs: {

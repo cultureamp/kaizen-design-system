@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.23...@kaizen/draft-collapsible@2.2.24) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.2.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.22...@kaizen/draft-collapsible@2.2.23) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.21...@kaizen/draft-collapsible@2.2.22) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [2.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.20...@kaizen/draft-collapsible@2.2.21) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

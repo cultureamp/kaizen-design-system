@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.9...@kaizen/draft-tag@1.9.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.8...@kaizen/draft-tag@1.9.9) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.7...@kaizen/draft-tag@1.9.8) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.6...@kaizen/draft-tag@1.9.7) (2021-07-29)
+
+
+### Bug Fixes
+
+* Tag dismiss button accessibility + uplift ([#1798](https://github.com/cultureamp/kaizen-design-system/issues/1798)) ([c489025](https://github.com/cultureamp/kaizen-design-system/commit/c489025cd5e3b1135f87e6c09ab593803bd27d8c))
+
+
+
+
+
 ## [1.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.5...@kaizen/draft-tag@1.9.6) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-tag

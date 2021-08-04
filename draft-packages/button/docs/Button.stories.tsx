@@ -6,9 +6,10 @@ import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { Button, CustomButtonProps, ButtonRef } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Button (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",
@@ -31,7 +32,7 @@ export default {
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 

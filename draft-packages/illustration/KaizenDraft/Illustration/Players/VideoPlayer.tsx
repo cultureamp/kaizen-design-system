@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "../style.module.scss"
+import { canPlayWebm } from "../utils"
 
 export type VideoPlayerProps = {
   /**
@@ -16,30 +17,26 @@ export type VideoPlayerProps = {
   loop?: boolean
 
   /**
-   * The path of the initial video asset to play. This is only used in
-   * situations where we have two clips - the `initialAnimation` will play
-   * once, then we will swap to the ambient animation and loop indefinitely
-   */
-  initialAnimation?: string
-
-  /**
    * Fallback image. Used when rendering of the asset fails, or as a
    * poster for the video player.
    */
   fallback: string
 
   /**
-   * The path of the ambient animation. An ambient animation can be used without
-   * an initial animation.
+   * The path of the animation source, excluding the file extension. This
+   * Player will preference Webm over mp4.
    */
-  ambientAnimation: string
+  source: string
+
+  onEnded?: () => void
 }
 
 export const VideoPlayer = ({
   autoplay = true,
   loop = false,
   fallback,
-  ambientAnimation,
+  source,
+  onEnded,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const reducedMotionQuery = window.matchMedia(
@@ -67,6 +64,15 @@ export const VideoPlayer = ({
   }, [])
 
   useEffect(() => {
+    // when the source of the animation is updated, we need to reload the asset
+    // to ensure the video player is in sync with the new source.
+    const { current: videoElement } = videoRef
+    if (videoElement !== null) {
+      videoElement.load()
+    }
+  }, [source])
+
+  useEffect(() => {
     if (!reducedMotionQuery.addEventListener || !window) return
     const updateMotionPreferences = () => {
       const { matches = false } = window.matchMedia(
@@ -87,7 +93,9 @@ export const VideoPlayer = ({
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      videoElement.play().catch(err =>
+      try {
+        videoElement.play()
+      } catch (e) {
         /*
          * An DOMException _may_ be raised by some browsers if we
          * programatically interact with the video before the
@@ -95,11 +103,20 @@ export const VideoPlayer = ({
          * we're going to catch this error without handling it. See:
          * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
          */
-        // eslint-disable-next-line no-console
-        console.warn(err)
-      )
+      }
     }
   }, [prefersReducedMotion])
+
+  useEffect(() => {
+    // Add event listeners for the video element
+    const { current: videoElement } = videoRef
+    if (!videoElement || !onEnded) return
+    videoElement.addEventListener("ended", onEnded)
+
+    return function cleanup() {
+      videoElement.removeEventListener("ended", onEnded)
+    }
+  }, [videoRef])
 
   return (
     <video
@@ -114,8 +131,15 @@ export const VideoPlayer = ({
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
-      <source src={assetUrl(`${ambientAnimation}.webm`)} type="video/webm" />
-      <source src={assetUrl(`${ambientAnimation}.mp4`)} type="video/mp4" />
+      {/**
+       * This seems counter-intuitive, but webm support is codec specific.
+       * Only offer webm if we are positive the browser supports it.
+       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+       */}
+      {canPlayWebm() && (
+        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+      )}
+      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
     </video>
   )
 }

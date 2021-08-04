@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.11...@kaizen/component-library@10.0.12) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.10...@kaizen/component-library@10.0.11) (2021-08-02)
+
+
+### Bug Fixes
+
+* Add deprecated jsdocs and wrap with withDeprecatedComponent ([#1787](https://github.com/cultureamp/kaizen-design-system/issues/1787)) ([626188e](https://github.com/cultureamp/kaizen-design-system/commit/626188e15f1b7ff7bf2046793c94e7b569fc3f1b))
+
+
+
+
+
+## [10.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.9...@kaizen/component-library@10.0.10) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [10.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.8...@kaizen/component-library@10.0.9) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/component-library

@@ -13,9 +13,10 @@ import { Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Tile (React)",
+  title: `${CATEGORIES.components}/Tile`,
   component: MultiActionTile,
   subcomponents: { InformationTile, TileGrid },
   parameters: {

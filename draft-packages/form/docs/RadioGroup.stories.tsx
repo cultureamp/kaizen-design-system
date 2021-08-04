@@ -2,6 +2,7 @@ import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 type RenderProps = {
   selectedOption: string
@@ -37,7 +38,7 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "RadioGroup (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Group`,
   component: RadioGroup,
   parameters: {
     docs: {

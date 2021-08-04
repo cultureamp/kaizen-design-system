@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.5...@kaizen/draft-illustration@2.4.0) (2021-08-03)
+
+
+### Features
+
+* Add an initial animation to the BrandMomentCaptureIntro component ([#1796](https://github.com/cultureamp/kaizen-design-system/issues/1796)) ([b25848b](https://github.com/cultureamp/kaizen-design-system/commit/b25848b431df51db2bd680e9472837bdd5e63dc5))
+
+
+
+
+
+## [2.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.4...@kaizen/draft-illustration@2.3.5) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.3...@kaizen/draft-illustration@2.3.4) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.2...@kaizen/draft-illustration@2.3.3) (2021-07-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.1...@kaizen/draft-illustration@2.3.2) (2021-07-27)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
