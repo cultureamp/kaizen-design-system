@@ -1,9 +1,18 @@
 import { lint } from "stylelint"
 import { Language } from "./types"
-
 jest.setTimeout(10000)
 
-const testStylelintConfig = require("../test-config.js")
+const baseConfig = require("../dev-config")
+const testStylelintConfig = {
+  ...baseConfig,
+  rules: {
+    "kaizen/no-tokens-in-variables": [
+      true,
+      { severity: "warning", disableFixing: false },
+    ],
+    ...baseConfig.rules,
+  },
+}
 
 type TestExample = {
   language: Language
