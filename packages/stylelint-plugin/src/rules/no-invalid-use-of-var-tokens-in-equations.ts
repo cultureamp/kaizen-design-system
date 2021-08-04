@@ -91,6 +91,8 @@ const noInvalidEquationsOnDeclaraion = (
           (isOperator(lastTwoWordNodesNextToEachOther[1].value) &&
             parsedVariable0?.kaizenToken)
         ) {
+          // Go through all the cases where we can fix automatically
+
           const variableInEquation = parsedVariable0 || parsedVariable1
           if (isWithinCalcFunction) {
             // If the variable is interpolated within a calc function, its fine
@@ -158,15 +160,15 @@ export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
  * Check if a declaration contains an equation that we cannot support with CSS Variables.
  * This is exported so other rules can avoid transforming tokens to CSS Variables versions when they are used in unsupported functions.
  **/
-export const declContainsInvalidEquations = (
+export const containsEquationThatDoesntWorkWithCSSVariables = (
   postcssNode: Declaration,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
 ) => {
   let reported = 0
-  noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, {
+  noInvalidEquationsOnDeclaraion(postcssNode.clone(), parsedValue, {
     ...options,
-    fix: false,
+    fix: true,
     reporter: () => {
       reported++
     },

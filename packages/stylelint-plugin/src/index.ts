@@ -1,15 +1,11 @@
 import { Configuration } from "stylelint"
 
 const kaizenStylelintRules = {
-  "kaizen/no-invalid-use-of-var-tokens-in-functions": [
+  "kaizen/no-invalid-use-of-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],
   "kaizen/no-invalid-use-of-var-tokens-in-equations": [
-    true,
-    { severity: "warning", disableFixing: false },
-  ],
-  "kaizen/no-deprecated-or-removed-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],

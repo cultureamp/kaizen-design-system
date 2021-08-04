@@ -6,7 +6,6 @@ import {
   CSSVariable,
   CurrentKaizenToken,
   DeprecatedKaizenToken,
-  RemovedKaizenToken,
 } from "../types"
 
 /**
@@ -32,7 +31,7 @@ import {
  * }
  * ```
  */
-const getCSSVarsFromJson = (json: Record<any, any>) => {
+export const getCSSVarsFromJson = (json: Record<any, any>) => {
   const variables = {} as Record<string, string>
 
   Utils.mapLeafsOfObject(json, (path, value) => {
@@ -112,76 +111,7 @@ const parseCssVariableValue = (value: string): CSSVariable | undefined => {
 }
 
 /**
- * A map/database of kaizen token name -> RemovedKaizenToken.
- * E.g.
- *  - `removedKaizenTokensByName["kz-var-color-white"] -> { name: "kz-var-color-white", value: "#FFFFFF", cssVariable: { identifier: "...", fallback: "#FFFFFF" }, ...}`
- *  - `removedKaizenTokensByName["color-white"] -> undefined`
- *  - `removedKaizenTokensByName["something-else"] -> undefined`
- *
- * Those examples may change depending on what exists in `generated/removedTokens.json` which is generated at build time, sourced from a prior version of design-tokens
- */
-export const removedKaizenTokensByName: Readonly<
-  Record<string, RemovedKaizenToken | undefined>
-> = Object.entries(
-  getCSSVarsFromJson(require("../../generated/removedTokens.json"))
-).reduce(
-  (accumulatedResult, [variableName, variableValue]) => ({
-    ...accumulatedResult,
-    [variableName]: {
-      value: variableValue,
-      deprecated: true,
-      removed: true,
-      name: variableName,
-      cssVariable: parseCssVariableValue(variableValue),
-    } as RemovedKaizenToken,
-  }),
-  {}
-)
-
-/**
- * The list of rules that will be applied to determine deprecation and potential replacements for tokens from design-tokens v2.
- * Ensure that any pattern on the left side represents a token that is deprecated (i.e `pattern.test(tokenName) === true` means deprecated)
- * Also please ensure that if you applied every rule once on a string, you would get the same result if you re-ran the rules again on the first return value.
- * We want this constraint because, otherwise, applying each rule on a token won't always return a non-deprecated token (because of the first constraint)
- * Order of the rules matters.
- *
- * The last value in the triple is a boolean that represents whether the rules should terminate at that rule, if it tests true.
- *
- */
-export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
-  // If a token has the literal "deprecated" we label it as deprecated without an automatic replacement, and don't apply any further rules.
-  [/deprecated/, undefined, true],
-  [/color-wisteria/, "color-purple"],
-  [/color-cluny/, "color-blue"],
-  [/color-yuzu/, "color-yellow"],
-  [/color-coral/, "color-red"],
-  [/color-seedling/, "color-green"],
-  [/color-peach/, "color-orange"],
-  [/color-stone/, "color-gray-100"],
-  [/color-ash/, "color-gray-300"],
-  [/color-iron/, "color-gray-500"],
-  [/color-slate/, "color-gray-600"],
-  [/-rgb-params$/, "-rgb"],
-  [/kz-var-id-(.*)/, "$1-id", true],
-  [/kz-(var-)?/, "", true],
-]
-
-/**
- * Use this as a predicate to determine whether a token (given by it's name) is deprecated or not.
- * The decision process is based off a series of regular expressions that are tested against it.
- */
-export const isKaizenTokenDeprecatedOrRemoved = (tokenName: string) => {
-  let anyV2RuleMatched = false
-
-  version2DeprecationRules.forEach(([pattern]) => {
-    anyV2RuleMatched = anyV2RuleMatched || pattern.test(tokenName)
-  })
-  return anyV2RuleMatched || tokenName in removedKaizenTokensByName
-}
-
-/**
  * A nifty map of kaizen token variable -> information about the variable.
- * Very similar to {@link removedKaizenTokensByName}
  * Looks something like:
  * {
  *    "kz-var-color-wisteria-800": { name: "kz-var-color-wisteria-800", value: "var(--kz-var-color-wisteria-800, #ff0011)", cssVariable: { identifier: "--kz-var-color-wisteria-800", fallback: "#ff0011" }, ... },
@@ -195,7 +125,6 @@ export const kaizenTokensByName: Readonly<
 > = flatmap(Object.values(kaizenTokensByModule), module =>
   Object.entries(module.variables).map(([variableName, value]) => {
     const cssVariable = parseCssVariableValue(value)
-
     return {
       [variableName]: {
         name: variableName,
@@ -204,37 +133,7 @@ export const kaizenTokensByName: Readonly<
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
         lessModulePath: module.lessModulePath,
-        deprecated: isKaizenTokenDeprecatedOrRemoved(variableName),
-        removed: false,
       } as CurrentKaizenToken | DeprecatedKaizenToken,
     }
   })
 ).reduce((acc, next) => ({ ...acc, ...next }), {})
-
-/**
- * Given a token name, such as "kz-var-color-wisteria-100", get the desired replacement for it, if it is deprecated and a repacement exists.
- * Undefined is returned if the token isn't deprecated, a token isn't found for the name that is passed, or there is no replacement.
- * Note: if there is no replacement, that doesn't necessarily mean a token isn't deprecated - however, if there IS a replacement, then it certainly is deprecated.
- * Use {@link isKaizenTokenDeprecatedOrRemoved} for testing whether a token is deprecated.
- */
-export const getReplacementForDeprecatedOrRemovedToken = (
-  tokenName: string
-): CurrentKaizenToken | undefined => {
-  let replacementToken = tokenName
-  let terminated = false
-  version2DeprecationRules.forEach(renameRule => {
-    if (terminated) return
-
-    const [pattern, replacement, isTerminal] = renameRule
-    if (replacement !== undefined)
-      replacementToken = replacementToken.replace(pattern, replacement)
-    if (pattern.test(replacementToken) && isTerminal) {
-      terminated = true
-    }
-  })
-
-  if (replacementToken !== tokenName) {
-    return kaizenTokensByName[replacementToken]
-  }
-  return undefined
-}

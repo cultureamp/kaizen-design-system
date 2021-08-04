@@ -2,12 +2,7 @@ import nanomemoize from "nano-memoize"
 import { ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
-import {
-  getReplacementForDeprecatedOrRemovedToken,
-  isKaizenTokenDeprecatedOrRemoved,
-  kaizenTokensByName,
-  removedKaizenTokensByName,
-} from "./kaizenTokens"
+import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
 import { walkVariablesOnValue } from "./walkers"
 
@@ -22,9 +17,9 @@ export const stringifyVariable = (variable: Variable) => {
   return interpolated
 }
 
-/*
-  Given a postcss-value-parser WordNode, return either a Variable or null. The variable will contain a kaizenToken if there is a matchine one.
-*/
+/**
+ * Given a postcss-value-parser WordNode, return either a Variable or null. The variable will contain a kaizenToken if there is a matching one.
+ */
 export const parseVariable = (node: WordNode): Variable | null => {
   // I wish postcss-value-parser was just a bit better at knowing how to handle a few more syntactic concepts like negating a variable or string interpolation.
   // It doesn't seem to be built directly for SASS or LESS, but it mostly works with them.
@@ -42,14 +37,12 @@ export const parseVariable = (node: WordNode): Variable | null => {
   const firstChar = cleanedValue[0]
   if (firstChar === "@" || firstChar === "$") {
     const name = cleanedValue.substr(1)
-    const foundRemovedToken = removedKaizenTokensByName[name]
     const foundKaizenToken = kaizenTokensByName[name]
     return {
       name,
       nameWithPrefix: cleanedValue,
       prefix: firstChar,
-      // Important bit here. If a token exists in the consumers version of `@kaizen/design-tokens`, it will take precedence over ones that we know are removed.
-      kaizenToken: foundKaizenToken || foundRemovedToken,
+      kaizenToken: foundKaizenToken,
       interpolated,
       negated,
       node,
@@ -65,7 +58,7 @@ export const parseVariable = (node: WordNode): Variable | null => {
 export const replaceTokenInVariable = (
   variable: Variable,
   replacementToken: KaizenToken
-) => {
+): Variable => {
   const nameWithPrefix = `${variable.prefix}${replacementToken.name}`
   return {
     ...variable,

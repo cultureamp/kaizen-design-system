@@ -1,13 +1,7 @@
 import { Root } from "postcss"
 import { unnecessaryKaizenImport } from "../messages"
+import { KaizenToken, Options, RuleDefinition } from "../types"
 import { getCurrentImports, removeImport } from "../util/importUtils"
-import {
-  CurrentKaizenToken,
-  DeprecatedKaizenToken,
-  KaizenToken,
-  Options,
-  RuleDefinition,
-} from "../types"
 import { walkKaizenTokens } from "../util/walkers"
 
 export const allTokenImportsMustBeUsed: RuleDefinition = {
@@ -25,16 +19,11 @@ export const allTokenImportsMustBeUsed: RuleDefinition = {
     // Go through each kaizen token within the stylesheet, and generate a new set of distinct required imports.
     // Each kaizen token (KaizenToken type) contains a `lessModulePath` or a `sassModulePath`.
     const requiredImports = new Set(
-      Array.from(foundKaizenTokens.values())
-        // if a Kaizen token doesn't actually exist anymore, lets not do anything with it.
-        .filter(
-          (k): k is CurrentKaizenToken | DeprecatedKaizenToken => !k.removed
-        )
-        .map(token =>
-          options.language === "less"
-            ? token.lessModulePath
-            : token.sassModulePath
-        )
+      Array.from(foundKaizenTokens.values()).map(token =>
+        options.language === "less"
+          ? token.lessModulePath
+          : token.sassModulePath
+      )
     )
 
     // Loop through each existing import within the stylesheet.

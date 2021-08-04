@@ -175,16 +175,29 @@ const testExamples: TestExample[] = [
         another: rgb($color-blue-200-rgb);
         foo: rgba($color-purple-700-rgb, 0.9);
       }`,
-    expectedWarnings: 4,
+    expectedWarnings: 2,
   },
   {
     language: "less",
     testName: "doesn't fix functions other than rgba, rgb, or add-alpha",
-    input:
-      '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-color-wisteria-800, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-color-cluny-200); foo: add-alpha(@kz-color-wisteria-700, 90%); }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/less/color"; .foo { color: rgba(@color-purple-800-rgb, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@color-blue-200-rgb); foo: rgba(@color-purple-700-rgb, 0.9); }',
-    expectedWarnings: 4,
+    input: `@import "~@kaizen/design-tokens/less/color";
+       @import "~@kaizen/design-tokens/less/color-vars"; 
+      .foo { 
+        color: rgba(@kz-color-wisteria-800, 0.4);
+        background-color: darken(@kz-color-cluny-700, 0.8);
+        test: something-else(@kz-color-yuzu-400);
+        another: rgb(@kz-color-cluny-200);
+        foo: add-alpha(@kz-color-wisteria-700, 90%);
+      }`,
+    expectedOutput: `@import "~@kaizen/design-tokens/less/color";
+      .foo {
+        color: rgba(@color-purple-800-rgb, 0.4);
+        background-color: darken(@kz-color-cluny-700, 0.8);
+        test: something-else(@kz-color-yuzu-400);
+        another: rgb(@color-blue-200-rgb);
+        foo: rgba(@color-purple-700-rgb, 0.9);
+      }`,
+    expectedWarnings: 2,
   },
   {
     language: "scss",
@@ -292,7 +305,6 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
     expectedWarnings: 2,
   },
-
   {
     language: "less",
     testName:
@@ -438,7 +450,7 @@ const testExamples: TestExample[] = [
       color: desaturate($kz-color-wisteria-800, $amount);
     }
   `,
-    expectedWarnings: 16,
+    expectedWarnings: 8,
   },
   {
     language: "scss",
@@ -625,6 +637,15 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { transform: translateX(calc(-1 * #{$kz-var-spacing-md})); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { transform: translateX(calc(-1 * #{$spacing-md})); }',
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "deprecated kaizen tokens are migrated and interpolated, when within a calc function",
+    language: "scss",
+    input: ".test { border-radius: calc(2 * $kz-border-solid-border-radius); }",
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/border"; .test { border-radius: calc(2 * #{$border-solid-border-radius}); }',
     expectedWarnings: 0,
   },
   {
@@ -820,6 +841,13 @@ const testExamples: TestExample[] = [
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/shadow"; @import "~@kaizen/design-tokens/sass/spacing"; @import "~@kaizen/design-tokens/sass/color"; @testrule($color-blue-100, $spacing-md $shadow-large-box-shadow)',
     testName: "kz-var prefix is removed in at-rules",
+    expectedWarnings: 0,
+  },
+  {
+    testName: "benign usage of color mixing functions don't cause any warnings",
+    language: "scss",
+    input: ".test { color: mix($test, $white, 0.6) }",
+    expectedOutput: ".test { color: mix($test, $white, 0.6) }",
     expectedWarnings: 0,
   },
 ]

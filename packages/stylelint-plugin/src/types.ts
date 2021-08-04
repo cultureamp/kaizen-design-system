@@ -28,29 +28,14 @@ export type CurrentKaizenToken = {
   moduleName: string
   cssVariable?: CSSVariable
   deprecated: false
-  removed: false
 }
 
 /**  Represents a Kaizen token that is deprecated, but still exists. */
 export type DeprecatedKaizenToken = CurrentKaizenToken & {
   deprecated: true
-  removed: false
 }
 
-/** Represents a Kaizen token that is both removed/non-existent and deprecated.
- * We can't do much with these because we don't know anything about them apart from their name, value, and a potential replacement. */
-export type RemovedKaizenToken = {
-  name: string
-  value: string
-  deprecated: true
-  removed: true
-  cssVariable?: CSSVariable
-}
-
-export type KaizenToken =
-  | CurrentKaizenToken
-  | DeprecatedKaizenToken
-  | RemovedKaizenToken
+export type KaizenToken = CurrentKaizenToken | DeprecatedKaizenToken
 
 export type CSSVariable = {
   identifier: string
