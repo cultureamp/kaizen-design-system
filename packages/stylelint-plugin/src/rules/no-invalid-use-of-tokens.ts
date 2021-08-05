@@ -7,6 +7,7 @@ import {
   deprecatedTokenInVariableMessage,
   deprecatedTokenUsageMessage,
   deprecatedTokenUsageWithoutReplacementMessage,
+  genericContainsDeprecatedKaizenTokenMessage,
   invalidEquationContainingKaizenTokenMessage,
   replacementCssVariableUsedWithinUnsupportedFunction,
 } from "../messages"
@@ -21,6 +22,13 @@ import {
 import { walkVariablesOnValue } from "../util/walkers"
 import { fixAlphaModificationFunctions } from "./lib/tokensInFunctions"
 import { containsEquationThatDoesntWorkWithCSSVariables } from "./no-invalid-use-of-var-tokens-in-equations"
+
+const deprecatedKaizenTokenPattern = new RegExp(
+  Array.from(deprecatedTokenReplacements.keys()).join("|")
+)
+export function stringContainsDeprecatedKaizenToken(value: string) {
+  return deprecatedKaizenTokenPattern.test(value)
+}
 
 // Most CSS standard functions are allowed to contain CSS variables.
 const functionsThatSupportCSSVariables = new Set(cssStandardFunctions)
@@ -90,6 +98,23 @@ function detectAndFixInvalidTokens(
 ): string | undefined {
   let parsedValue = postcssValueParser(nodeValue)
   let newValue = nodeValue
+  let changed = false
+  let reported = false
+
+  function report({
+    message,
+    autofixAvailable,
+  }: {
+    message: string
+    autofixAvailable: boolean
+  }) {
+    reported = true
+    options.reporter({
+      message,
+      autofixAvailable,
+      node: postcssNode,
+    })
+  }
 
   // Since we have a strong focus on CSS variables, if we detect that there is an equation that currently does or would fail with them
   // we should just report and not do anything else.
@@ -100,10 +125,9 @@ function detectAndFixInvalidTokens(
       options
     )
   ) {
-    options.reporter({
+    report({
       message: invalidEquationContainingKaizenTokenMessage,
       autofixAvailable: false,
-      node: postcssNode,
     })
     return
   }
@@ -114,10 +138,9 @@ function detectAndFixInvalidTokens(
 
   if (fixAlphaModificationFunctionsResult.errors.length) {
     fixAlphaModificationFunctionsResult.errors.forEach(error =>
-      options.reporter({
+      report({
         message: error,
         autofixAvailable: false,
-        node: postcssNode,
       })
     )
     return
@@ -127,6 +150,7 @@ function detectAndFixInvalidTokens(
       fixAlphaModificationFunctionsResult.newValue
     )
     newValue = fixAlphaModificationFunctionsResult.newValue
+    changed = true
   }
 
   walkVariablesOnValue(parsedValue, (variableNode, variable, parent) => {
@@ -140,13 +164,12 @@ function detectAndFixInvalidTokens(
       variable.kaizenToken?.cssVariable &&
       !isDeprecated
     ) {
-      options.reporter({
+      report({
         message: cssVariableUsedWithinUnsupportedFunction(
           variable.name,
           parent.value
         ),
         autofixAvailable: false,
-        node: postcssNode,
       })
       return
     }
@@ -159,9 +182,8 @@ function detectAndFixInvalidTokens(
 
     // If there isn't a replacement we can't automatically replace anything, so just report and bail.
     if (!replacement) {
-      options.reporter({
+      report({
         message: deprecatedTokenUsageWithoutReplacementMessage(variable.name),
-        node: postcssNode,
         autofixAvailable: false,
       })
       return
@@ -172,20 +194,19 @@ function detectAndFixInvalidTokens(
     // We have a spec that ensures this edge case doesn't happen, but we also don't want to use a TypeScript null assertion.
     // Adding this for dilligence.
     if (!replacementKaizenToken) {
-      options.reporter({
+      report({
         message:
           "Internal error. Replacement token is not an existing Kaizen token",
-        node: postcssNode,
         autofixAvailable: false,
       })
       return
     }
 
     const commitReplacement = () => {
+      changed = true
       if (!options.fix) {
-        options.reporter({
+        report({
           message: deprecatedTokenUsageMessage(variable.name, replacement),
-          node: postcssNode,
           autofixAvailable: true,
         })
       } else {
@@ -219,14 +240,13 @@ function detectAndFixInvalidTokens(
       !functionsThatSupportCSSVariables.has(parent.value) &&
       replacementKaizenToken.cssVariable
     ) {
-      options.reporter({
+      report({
         message: replacementCssVariableUsedWithinUnsupportedFunction(
           variable.name,
           replacementKaizenToken.name,
           parent.value
         ),
         autofixAvailable: false,
-        node: postcssNode,
       })
 
       return
@@ -238,13 +258,12 @@ function detectAndFixInvalidTokens(
       replacementKaizenToken.cssVariable &&
       atRulesThatDontSupportCSSVars.has(postcssNode.name)
     ) {
-      options.reporter({
+      report({
         message: cantReplaceDeprecatedTokenInAtRuleMessage(
           variable.name,
           replacementKaizenToken.name
         ),
         autofixAvailable: false,
-        node: postcssNode,
       })
       return
     }
@@ -254,10 +273,9 @@ function detectAndFixInvalidTokens(
     // The process will only reach here if a safe change is not available, due to the checks above.
     // If there isn't, just report, and bail.
     if (postcssNode.type === "decl" && isVariable(postcssNode)) {
-      options.reporter({
+      report({
         message: deprecatedTokenInVariableMessage(variable.name, replacement),
         autofixAvailable: false,
-        node: postcssNode,
       })
       return
     }
@@ -273,14 +291,28 @@ function detectAndFixInvalidTokens(
       options
     )
   ) {
-    options.reporter({
-      node: postcssNode,
+    report({
       message: invalidEquationContainingKaizenTokenMessage,
       autofixAvailable: false,
     })
     return
   }
-  return newValue
+
+  // This is for any remaining edge cases where the above process misses a deprecated token.
+  // An example of this is `#{$kz-spacing-md + 1}`, where there is more than one word/node within an interpolation, since postcss-value-parser, or our extention to it, doesn't know how to parse it yet.
+  if (!reported) {
+    if (stringContainsDeprecatedKaizenToken(newValue)) {
+      options.reporter({
+        message: genericContainsDeprecatedKaizenTokenMessage,
+        autofixAvailable: false,
+        node: postcssNode,
+      })
+    }
+  }
+
+  // Return undefined if no changes we're made
+  if (!changed) return undefined
+  else return newValue
 }
 
 /**

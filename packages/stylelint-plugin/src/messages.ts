@@ -6,6 +6,9 @@ export const unnecessaryKaizenImport = (path: string) =>
 export const deprecatedTokenUsageMessage = (oldName: string, newName: string) =>
   `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}".`
 
+export const genericContainsDeprecatedKaizenTokenMessage =
+  "Deprecated Kaizen token detected"
+
 export const deprecatedTokenUsageWithoutReplacementMessage = (
   deprecatedTokenName: string
 ) => `${deprecatedTokenName} is deprecated and should not be used anymore.`
