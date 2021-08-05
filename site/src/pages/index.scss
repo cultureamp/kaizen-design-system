@@ -1,5 +1,6 @@
+@import "~@kaizen/design-tokens/sass/animation";
+
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/design-tokens/sass/animation-vars";
 
 .content {
   display: grid;
@@ -29,10 +30,9 @@
   background: white;
   width: 240px;
   height: 240px;
-  transition: transform $kz-var-animation-duration-rapid
-      $kz-var-animation-easing-function-ease-in-out,
-    box-shadow $kz-var-animation-duration-rapid
-      $kz-var-animation-easing-function-ease-in-out;
+  transition: transform $animation-duration-rapid
+      $animation-easing-function-ease-in-out,
+    box-shadow $animation-duration-rapid $animation-easing-function-ease-in-out;
 
   &:hover {
     transform: scale(1.025);

@@ -1,10 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-
+@import "~@kaizen/design-tokens/sass/color";
 $dt-color-background-color-default: var(
   --kz-var-color-wisteria-600,
-  $kz-var-color-wisteria-700
+  $color-purple-700
 );
 $dt-color-background-color-education: var(
   --kz-var-color-cluny-100,
-  $kz-var-color-cluny-200
+  $color-blue-200
 );

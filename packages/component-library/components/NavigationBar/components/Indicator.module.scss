@@ -1,9 +1,9 @@
-@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "../decision-tokens.scss";
 
 .container {
   @include ca-margin($end: 4px);
-  width: $kz-var-spacing-sm;
+  width: $spacing-sm;
   color: $dt-color-indicator-color;
 }

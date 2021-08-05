@@ -1,5 +1,6 @@
+@import "~@kaizen/design-tokens/sass/animation";
+
 @import "./styles";
-@import "~@kaizen/design-tokens/sass/animation-vars";
 
 .icon {
   @extend %caIcon;
@@ -17,7 +18,7 @@
   cursor: pointer;
   .icon {
     opacity: 0.7;
-    transition: $kz-var-animation-duration-fast opacity;
+    transition: $animation-duration-fast opacity;
   }
   &:disabled,
   &.disabled {

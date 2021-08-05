@@ -1,7 +1,7 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/animation-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./decision-tokens";
@@ -11,10 +11,10 @@
   @include loading-placeholder-theme-switching-tokens;
 
   background-color: $dt-color-background-default;
-  border-radius: calc(#{$kz-var-border-solid-border-radius} * 3);
+  border-radius: calc(#{$border-solid-border-radius} * 3);
   position: relative;
-  top: calc(#{$kz-var-spacing-md} * 0.175);
-  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
+  top: calc(#{$spacing-md} * 0.175);
+  margin-bottom: calc(#{$spacing-md} * 0.5);
 }
 
 @keyframes fadeInOut {
@@ -31,7 +31,7 @@
 
 .animated {
   animation-name: fadeInOut;
-  animation-duration: calc(#{$kz-var-animation-duration-deliberate} * 2);
+  animation-duration: calc(#{$animation-duration-deliberate} * 2);
   animation-iteration-count: infinite;
 }
 
@@ -45,25 +45,25 @@
 }
 
 .reversedOcean {
-  background-color: var($kz-var-id-color-cluny-200, $kz-var-color-cluny-300);
+  background-color: var($color-blue-200-id, $color-blue-300);
 }
 
 .normal {
-  height: calc(#{$kz-var-spacing-md} * 0.625);
+  height: calc(#{$spacing-md} * 0.625);
 }
 
 .tall {
-  top: calc(#{$kz-var-spacing-md} * 0.25);
-  height: calc(#{$kz-var-spacing-md} * 0.725);
+  top: calc(#{$spacing-md} * 0.25);
+  height: calc(#{$spacing-md} * 0.725);
 }
 
 .inline {
   display: inline-block;
-  margin-bottom: calc(#{$kz-var-spacing-md} * 0.35);
+  margin-bottom: calc(#{$spacing-md} * 0.35);
 }
 
 .inline + .inline {
-  @include ca-margin($start: $kz-var-spacing-md);
+  @include ca-margin($start: $spacing-md);
 }
 
 .noBottomMargin {

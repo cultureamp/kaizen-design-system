@@ -1,12 +1,11 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "../styles";
 
-$menuItem__padding: calc(#{$kz-var-spacing-md} / 2);
+$menuItem__padding: calc(#{$spacing-md} / 2);
 $menuItem__margin: 4px;
 
 .buttonReset {
@@ -31,10 +30,10 @@ $menuItem__margin: 4px;
 }
 
 .arrowIcon {
-  @include ca-margin($start: $kz-var-spacing-sm);
+  @include ca-margin($start: $spacing-sm);
 
   display: flex;
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
+  color: rgba($color-purple-800-rgb, 0.5);
   transition: color $ca-ease $ca-duration-immediate;
 }
 
@@ -56,7 +55,7 @@ $menuItem__margin: 4px;
   min-width: 150px;
   padding: 0 $menuItem__padding;
   text-align: left;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
 
   transition-property: background-color, color;
   transition-duration: $ca-duration-immediate;
@@ -65,12 +64,12 @@ $menuItem__margin: 4px;
   &:hover,
   &:focus,
   .active & {
-    background-color: $kz-var-color-cluny-100;
-    color: $kz-var-color-cluny-500;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
     text-decoration: none;
 
     .arrowIcon {
-      color: $kz-var-color-cluny-500;
+      color: $color-blue-500;
     }
   }
 }
@@ -88,28 +87,28 @@ $menuItem__margin: 4px;
 }
 
 .badge {
-  @include ca-margin($start: $kz-var-spacing-xs);
-  min-height: $kz-var-spacing-md;
-  border-radius: $kz-var-spacing-md;
+  @include ca-margin($start: $spacing-xs);
+  min-height: $spacing-md;
+  border-radius: $spacing-md;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &.badgeNew {
-    @include ca-padding($start: $kz-var-spacing-sm, $end: $kz-var-spacing-sm);
-    background-color: $kz-var-color-seedling-200;
+    @include ca-padding($start: $spacing-sm, $end: $spacing-sm);
+    background-color: $color-green-200;
   }
 
   &.badgeNotification {
     @include ca-padding(
-      $start: calc(#{$kz-var-spacing-md} / 3),
-      $end: calc(#{$kz-var-spacing-md} / 3)
+      $start: calc(#{$spacing-md} / 3),
+      $end: calc(#{$spacing-md} / 3)
     );
-    background-color: $kz-var-color-wisteria-800;
+    background-color: $color-purple-800;
 
     @include navbar-mobile-only {
-      background-color: $kz-var-color-coral-500;
-      color: $kz-var-color-white;
+      background-color: $color-red-500;
+      color: $color-white;
     }
   }
 }

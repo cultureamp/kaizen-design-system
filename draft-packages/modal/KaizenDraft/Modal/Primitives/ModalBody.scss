@@ -1,4 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
+
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modalBody {
@@ -20,9 +21,9 @@
 }
 
 .white {
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
 }
 
 .stone {
-  background-color: $kz-var-color-stone;
+  background-color: $color-gray-100;
 }
