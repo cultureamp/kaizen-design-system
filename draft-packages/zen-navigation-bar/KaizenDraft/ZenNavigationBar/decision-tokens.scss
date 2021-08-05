@@ -2,13 +2,10 @@
 $dt-color-text: $color-purple-800;
 $dt-color-text-reversed: $color-white;
 $dt-color-background-color-default: var(
-  --kz-var-color-wisteria-600,
+  $color-purple-600-id,
   $color-purple-700
 );
-$dt-color-background-color-content: var(
-  --kz-var-color-cluny-100,
-  $color-blue-200
-);
+$dt-color-background-color-content: var($color-blue-100-id, $color-blue-200);
 $dt-color-link: $color-purple-800;
 $dt-color-link-active: $color-blue-500;
 $dt-color-background-color-content-link: $color-blue-500;
@@ -19,11 +16,8 @@ $dt-color-badge-background-color-test: $color-purple-400;
 $dt-color-badge-background-color-local: $color-blue-300;
 $dt-color-badge-background-color-new: $color-green-200;
 $dt-color-indicator-color: $color-green-400;
-$dt-color-menu-background-color: var(
-  --kz-var-color-wisteria-700,
-  $color-purple-800
-);
+$dt-color-menu-background-color: var($color-purple-700-id, $color-purple-800);
 $dt-color-menu-background-color-active: var(
-  --kz-var-color-wisteria-600,
+  $color-purple-600-id,
   $color-purple-700
 );
