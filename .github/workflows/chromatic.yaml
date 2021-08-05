@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
             ${{ runner.os }}-
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.3.2
         if: ${{ env.runChromatic == 'true' }}
         with:
           node-version: "14.15.x"
