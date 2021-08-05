@@ -9,7 +9,7 @@ import {
 } from "../types"
 
 /**
- * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "--level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
+ * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
  * json-to-flat-sass does a very similar thing.
  * E.g.
  * Input:
