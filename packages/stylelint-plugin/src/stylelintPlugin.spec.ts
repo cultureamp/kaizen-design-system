@@ -84,7 +84,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: $kz-spacing-md * 2; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md * 2; }',
-    expectedWarnings: 2,
+    expectedWarnings: 1,
   },
   {
     language: "less",
@@ -92,7 +92,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: @kz-spacing-md * 2; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: @kz-spacing-md * 2; }',
-    expectedWarnings: 2,
+    expectedWarnings: 1,
   },
   {
     language: "scss",
@@ -312,7 +312,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
-    expectedWarnings: 2,
+    expectedWarnings: 1,
   },
   {
     language: "less",
@@ -322,7 +322,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
-    expectedWarnings: 2,
+    expectedWarnings: 1,
   },
   {
     language: "scss",
@@ -617,7 +617,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -$focus-ring-offset }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -(($kz-border-focus-ring-border-width * 2) + 1px) }',
-    expectedWarnings: 4,
+    expectedWarnings: 2,
   },
   {
     language: "scss",
@@ -627,7 +627,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -$focus-ring-offset }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -(($kz-border-focus-ring-border-width * 4) + 10px) }',
-    expectedWarnings: 6,
+    expectedWarnings: 3,
   },
   {
     language: "scss",

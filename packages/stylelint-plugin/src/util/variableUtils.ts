@@ -1,5 +1,5 @@
 import nanomemoize from "nano-memoize"
-import { ChildNode, Container, Declaration, Root } from "postcss"
+import { AtRule, ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
@@ -167,5 +167,5 @@ export const getLexicalTransitiveKaizenVariables = (
 }
 
 const variablePrefixPattern = /^(@|\$)/
-export const isVariable = (declaration: Declaration) =>
-  variablePrefixPattern.test(declaration.prop)
+export const isVariable = (node: Declaration | AtRule) =>
+  node.type === "atrule" ? false : variablePrefixPattern.test(node.prop)

@@ -7,7 +7,7 @@ import {
   deprecatedTokenInVariableMessage,
   deprecatedTokenUsageMessage,
   deprecatedTokenUsageWithoutReplacementMessage,
-  invalidEquationContainingDeprecatedTokenMessage,
+  invalidEquationContainingKaizenTokenMessage,
   replacementCssVariableUsedWithinUnsupportedFunction,
 } from "../messages"
 import { Options, RuleDefinition } from "../types"
@@ -80,6 +80,8 @@ const atRulesThatDontSupportCSSVars = new Set([
  * If the linter determines it can't automatically do a replacement, it will report an unfixable declaration (perhaps the replacement would cause an error).
  *
  * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
+ *
+ * @returns a new string value if there we're changes, or undefined if there weren't any
  */
 function detectAndFixInvalidTokens(
   nodeValue: string,
@@ -92,7 +94,6 @@ function detectAndFixInvalidTokens(
   // Since we have a strong focus on CSS variables, if we detect that there is an equation that currently does or would fail with them
   // we should just report and not do anything else.
   if (
-    postcssNode.type === "decl" &&
     containsEquationThatDoesntWorkWithCSSVariables(
       postcssNode,
       parsedValue,
@@ -100,7 +101,7 @@ function detectAndFixInvalidTokens(
     )
   ) {
     options.reporter({
-      message: invalidEquationContainingDeprecatedTokenMessage,
+      message: invalidEquationContainingKaizenTokenMessage,
       autofixAvailable: false,
       node: postcssNode,
     })
@@ -250,7 +251,8 @@ function detectAndFixInvalidTokens(
 
     // We can only modify variable declarations (e.g. `$card-bg: $kz-var-color-wisteria-100;`) when its current value is a CSS variable, or the replacement isn't a CSS variable
     // (because the only change which isn't safe is going from NonCSSVariable -> CSSVariable)
-    // If it's not, just report, and bail.
+    // The process will only reach here if a safe change is not available, due to the checks above.
+    // If there isn't, just report, and bail.
     if (postcssNode.type === "decl" && isVariable(postcssNode)) {
       options.reporter({
         message: deprecatedTokenInVariableMessage(variable.name, replacement),
@@ -263,6 +265,21 @@ function detectAndFixInvalidTokens(
     commitReplacement()
   })
 
+  // We need to check whether after all replacements, there is an invalid equation.
+  if (
+    containsEquationThatDoesntWorkWithCSSVariables(
+      postcssNode,
+      postcssValueParser(newValue),
+      options
+    )
+  ) {
+    options.reporter({
+      node: postcssNode,
+      message: invalidEquationContainingKaizenTokenMessage,
+      autofixAvailable: false,
+    })
+    return
+  }
   return newValue
 }
 
