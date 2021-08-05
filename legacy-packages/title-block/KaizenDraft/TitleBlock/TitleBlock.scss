@@ -10,13 +10,13 @@
 @import "~@kaizen/component-library/styles/animation";
 
 @mixin title-block-mobile {
-  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+  @media (max-width: $layout-breakpoints-large - 1px) {
     @content;
   }
 }
 
 @mixin title-block-desktop {
-  @media (min-width: $kz-layout-breakpoints-large) {
+  @media (min-width: $layout-breakpoints-large) {
     @content;
   }
 }

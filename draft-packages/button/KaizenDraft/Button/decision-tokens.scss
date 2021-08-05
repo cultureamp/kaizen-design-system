@@ -1,9 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
-$dt-color-background-active: var(--kz-var-color-stone, $color-purple-100);
-$dt-color-background-focus: var(--kz-var-color-stone, $color-purple-100);
-$dt-color-background-hover: var(--kz-var-color-stone, $color-purple-100);
-$dt-color-border-color-base: var(--kz-var-color-iron, $color-purple-500);
-$dt-color-border-color-hover: var(--kz-var-color-slate, $color-purple-700);
-$dt-color-border-color-focus: var(--kz-var-color-slate, $color-purple-700);
-$dt-color-border-color-disabled: var(--kz-var-color-iron, $color-purple-500);
-$dt-color-color-disabled: var(--kz-var-color-wisteria-800, $color-purple-800);
+$dt-color-background-active: var($color-gray-100-id, $color-purple-100);
+$dt-color-background-focus: var($color-gray-100-id, $color-purple-100);
+$dt-color-background-hover: var($color-gray-100-id, $color-purple-100);
+$dt-color-border-color-base: var($color-gray-500-id, $color-purple-500);
+$dt-color-border-color-hover: var($color-gray-600-id, $color-purple-700);
+$dt-color-border-color-focus: var($color-gray-600-id, $color-purple-700);
+$dt-color-border-color-disabled: var($color-gray-500-id, $color-purple-500);
+$dt-color-color-disabled: var($color-purple-800-id, $color-purple-800);
