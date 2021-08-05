@@ -339,64 +339,64 @@ const testExamples: TestExample[] = [
     testName:
       "warns about usage of variable tokens in color mixing functions mix() shade() tint() darken() lighten() adjust-hue() saturate() desaturate()",
     input: `
-      @import "~@kaizen/design-tokens/sass/color-vars";
+      @import "~@kaizen/design-tokens/sass/color";
       $white: white;
       $amount: 80%;
       .mix {
-        color: mix($kz-var-color-wisteria-800, $white, 80%);
+        color: mix($color-purple-800, $white, 80%);
       }
       .shade {
-        color: shade($kz-var-color-wisteria-800, $amount);
+        color: shade($color-purple-800, $amount);
       }
       .tint {
-        color: tint($kz-var-color-wisteria-800, $amount);
+        color: tint($color-purple-800, $amount);
       }
       .darken {
-        color: darken($kz-var-color-wisteria-800, $amount);
+        color: darken($color-purple-800, $amount);
       }
       .lighten {
-        color: lighten($kz-var-color-wisteria-800, $amount);
+        color: lighten($color-purple-800, $amount);
       }
       .adjust-hue {
-        color: adjust-hue($kz-var-color-wisteria-800, $amount);
+        color: adjust-hue($color-purple-800, $amount);
       }
       .saturate {
-        color: saturate($kz-var-color-wisteria-800, $amount);
+        color: saturate($color-purple-800, $amount);
       }
       .desaturate {
-        color: desaturate($kz-var-color-wisteria-800, $amount);
+        color: desaturate($color-purple-800, $amount);
       }
     `,
     expectedOutput: `
-    @import "~@kaizen/design-tokens/sass/color-vars";
+    @import "~@kaizen/design-tokens/sass/color";
     $white: white;
     $amount: 80%;
     .mix {
-      color: mix($kz-var-color-wisteria-800, $white, 80%);
+      color: mix($color-purple-800, $white, 80%);
     }
     .shade {
-      color: shade($kz-var-color-wisteria-800, $amount);
+      color: shade($color-purple-800, $amount);
     }
     .tint {
-      color: tint($kz-var-color-wisteria-800, $amount);
+      color: tint($color-purple-800, $amount);
     }
     .darken {
-      color: darken($kz-var-color-wisteria-800, $amount);
+      color: darken($color-purple-800, $amount);
     }
     .lighten {
-      color: lighten($kz-var-color-wisteria-800, $amount);
+      color: lighten($color-purple-800, $amount);
     }
     .adjust-hue {
-      color: adjust-hue($kz-var-color-wisteria-800, $amount);
+      color: adjust-hue($color-purple-800, $amount);
     }
     .saturate {
-      color: saturate($kz-var-color-wisteria-800, $amount);
+      color: saturate($color-purple-800, $amount);
     }
     .desaturate {
-      color: desaturate($kz-var-color-wisteria-800, $amount);
+      color: desaturate($color-purple-800, $amount);
     }
   `,
-    expectedWarnings: 16,
+    expectedWarnings: 8,
   },
   {
     language: "scss",
@@ -537,57 +537,57 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "transitive kaizen tokens are fixed",
     input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $foo; }',
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800; .foo { color: $foo; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $color-purple-800; }',
-    expectedWarnings: 1,
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800; .foo { color: $color-purple-800; }',
+    expectedWarnings: 0,
   },
   {
     language: "scss",
     testName: "transitive kaizen tokens containing multiple values are fixed",
     input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $foo; }',
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800 $color-purple-700 $color-purple-800; .foo { color: $foo; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $color-purple-800 $color-purple-700 $color-purple-800; }',
-    expectedWarnings: 3,
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800 $color-purple-700 $color-purple-800; .foo { color: $color-purple-800 $color-purple-700 $color-purple-800; }',
+    expectedWarnings: 0,
   },
   {
     language: "scss",
     testName:
-      "color manipulation functions are warned about, even when a transitive kaizen token is used",
+      "color manipulation functions are not warned about (SASS compiler is responsible for them), even when a transitive kaizen token is used",
     input: `
-      @import "~@kaizen/design-tokens/sass/color-vars";
-      $foo: $kz-var-color-wisteria-800;
+      @import "~@kaizen/design-tokens/sass/color";
+      $foo: $color-purple-800;
       .foo {
         color: mix($foo, $white, 80%);
       }`,
     expectedOutput: `
-      @import "~@kaizen/design-tokens/sass/color-vars";
-      $foo: $kz-var-color-wisteria-800;
+      @import "~@kaizen/design-tokens/sass/color";
+      $foo: $color-purple-800;
       .foo {
-        color: mix($kz-var-color-wisteria-800, $white, 80%);
+        color: mix($color-purple-800, $white, 80%);
       }`,
-    expectedWarnings: 3,
+    expectedWarnings: 1,
   },
   {
     language: "scss",
     testName:
-      "color manipulation functions are warned about, even when a transitive kaizen token defined in the same block is used",
+      "color manipulation functions are not warned about (SASS compiler is responsible for them), even when a transitive kaizen token defined in the same block is used",
     input: `
-      @import "~@kaizen/design-tokens/sass/color-vars";
-      $foo: $kz-var-color-wisteria-600;
+      @import "~@kaizen/design-tokens/sass/color";
+      $foo: $color-purple-600;
       .foo {
-        $foo: $kz-var-color-wisteria-800;
+        $foo: $color-purple-800;
         color: mix($foo, $white, 80%);
       }`,
     expectedOutput: `
-      @import "~@kaizen/design-tokens/sass/color-vars";
-      $foo: $kz-var-color-wisteria-600;
+      @import "~@kaizen/design-tokens/sass/color";
+      $foo: $color-purple-600;
       .foo {
-        $foo: $kz-var-color-wisteria-800;
-        color: mix($kz-var-color-wisteria-800, $white, 80%);
+        $foo: $color-purple-800;
+        color: mix($color-purple-800, $white, 80%);
       }`,
-    expectedWarnings: 4,
+    expectedWarnings: 1,
   },
   {
     language: "scss",
@@ -857,6 +857,75 @@ const testExamples: TestExample[] = [
     language: "scss",
     input: ".test { color: mix($test, $white, 0.6) }",
     expectedOutput: ".test { color: mix($test, $white, 0.6) }",
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "usage of non-deprecated tokens in other functions is allowed and not warned of",
+    language: "scss",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .test { padding: @include ca-margin($start: $spacing-md) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .test { padding: @include ca-margin($start: $spacing-md) }',
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "tokens within variable definitions can be replaced when such a token is already a CSS variable",
+    language: "scss",
+    input: "$foo: $kz-var-color-wisteria-100",
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-100',
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "tokens within variable definitions can be replaced when the replacement is not a CSS variable",
+    language: "scss",
+    input:
+      '@import "~@kaizen/design-tokens/sass/layout-vars"; $foo: $kz-var-layout-breakpoints-large @media (max-width: $foo){}',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/layout"; $foo: $layout-breakpoints-large @media (max-width: $foo){}',
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "tokens within functions can be replaced when the replacement is not a CSS variable",
+    language: "scss",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .test { padding: ca-padding($kz-var-spacing-md) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .test { padding: ca-padding($spacing-md) }',
+    expectedWarnings: 0,
+  },
+  {
+    testName: "tokens are migrated within compiler at-rules (@include ...)",
+    language: "scss",
+    input: `
+    .test {
+      @include ca-margin($start: $kz-var-spacing-sm);
+    }`,
+    expectedOutput: `
+    @import "~@kaizen/design-tokens/sass/spacing"; 
+    .test {
+      @include ca-margin($start: $spacing-sm);
+    }`,
+    expectedWarnings: 0,
+  },
+  {
+    testName:
+      "custom atrules with functions and non-deprecated tokens are not warned about",
+    language: "scss",
+    input: `
+    @import "~@kaizen/design-tokens/sass/spacing";
+    .test {
+      @include ca-margin($start: $spacing-sm);
+    }`,
+    expectedOutput: `
+    @import "~@kaizen/design-tokens/sass/spacing"; 
+    .test {
+      @include ca-margin($start: $spacing-sm);
+    }`,
     expectedWarnings: 0,
   },
 ]
