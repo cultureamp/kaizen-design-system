@@ -25,7 +25,7 @@ export const noMatchingRgbParamsVariableMessage = (tokenName: string) =>
   `No matching -rgb variable found for ${tokenName}.`
 
 export const invalidEquationContainingDeprecatedTokenMessage =
-  "Equation contains a deprecated Kaizen token."
+  "Kaizen token used incorrectly within an equation."
 
 export const deprecatedTokenUsedWithinUnsupportedFunction =
   "Deprecated Kaizen token used within unsupported function."
