@@ -11,7 +11,7 @@ import fetch from "node-fetch"
 import merge from "lodash.merge"
 import { format } from "prettier"
 import { getCSSVarsFromJson, kaizenTokensByName } from "./src/util/kaizenTokens"
-import { CurrentKaizenToken } from "./src/types"
+import { KaizenToken } from "./src/types"
 
 // Changing this version will change which unsupported/non-existent tokens the stylelint plugin knows about
 const version = "2.9.3"
@@ -57,7 +57,7 @@ export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
  */
 function getReplacementForDeprecatedOrRemovedToken(
   tokenName: string
-): { replacement: CurrentKaizenToken | undefined; deprecated: boolean } {
+): { replacement: KaizenToken | undefined; deprecated: boolean } {
   let replacementToken = tokenName
   let matchedAny = false
   for (const renameRule of version2DeprecationRules) {
