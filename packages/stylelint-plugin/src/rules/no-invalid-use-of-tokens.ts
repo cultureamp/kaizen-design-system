@@ -26,7 +26,7 @@ import { containsEquationThatDoesntWorkWithCSSVariables } from "./no-invalid-use
 const deprecatedKaizenTokenPattern = new RegExp(
   Array.from(deprecatedTokenReplacements.keys()).join("|")
 )
-export function stringContainsDeprecatedKaizenToken(value: string) {
+function stringContainsDeprecatedKaizenToken(value: string) {
   return deprecatedKaizenTokenPattern.test(value)
 }
 
