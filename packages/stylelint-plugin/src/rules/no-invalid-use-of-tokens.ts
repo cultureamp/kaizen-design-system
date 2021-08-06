@@ -233,9 +233,25 @@ function detectAndFixInvalidTokens(
       const isCurrentTokenCssVariable = !!variable.kaizenToken?.cssVariable
       const isReplacementTokenCssVariable = !!replacementKaizenToken.cssVariable
 
-      // If the current value is a CSS variable, OR the replacement is not a CSS variable, just commit the replacement because it shouldn't be a problematic change.
+      /* If the current value is a CSS variable, OR the replacement is not a CSS variable, just commit the replacement because it shouldn't be a problematic change.
+        E.g. some safe changes would be:
+          - $kz-var-color-wisteria-100 -> $color-purple-100
+          - $kz-layout-breakpoints-large -> $layout-breakpoints-large (the replacement is not a CSS variable)
+
+        An potentially unsafe change would be: $kz-color-wisteria-100 -> $color-purple-100
+
+      */
       if (isCurrentTokenCssVariable || !isReplacementTokenCssVariable) {
         commitReplacement()
+        return
+      }
+
+      // If it's a variable, and there are no safe changes that can be made (from the above check), report and bail.
+      if (isVariable(postcssNode)) {
+        report({
+          message: deprecatedTokenInVariableMessage(variable.name, replacement),
+          autofixAvailable: false,
+        })
         return
       }
 
@@ -273,18 +289,6 @@ function detectAndFixInvalidTokens(
         return
       }
 
-      // We can only modify variable declarations (e.g. `$card-bg: $kz-var-color-wisteria-100;`) when its current value is a CSS variable, or the replacement isn't a CSS variable
-      // (because the only change which isn't safe is going from NonCSSVariable -> CSSVariable)
-      // The process will only reach here if a safe change is not available, due to the checks above.
-      // If there isn't, just report, and bail.
-      if (postcssNode.type === "decl" && isVariable(postcssNode)) {
-        report({
-          message: deprecatedTokenInVariableMessage(variable.name, replacement),
-          autofixAvailable: false,
-        })
-        return
-      }
-
       commitReplacement()
     }
   )
@@ -304,8 +308,13 @@ function detectAndFixInvalidTokens(
     return
   }
 
-  // This is for any remaining edge cases where the above process misses a deprecated token.
-  // An example of this is `#{$kz-spacing-md + 1}`, where there is more than one word/node within an interpolation, since postcss-value-parser, or our extention to it, doesn't know how to parse it yet.
+  /*
+    This is for any remaining edge cases where the above process misses a deprecated token.
+    An example of this is `#{$kz-spacing-md + 1}`, where there is more than one word/node within an interpolation,
+    since postcss-value-parser,or our extention to it,doesn't know how to parse it yet.
+    Another example is picking up other strings like `var(--kz-var-color-wisteria-100)` which is used in the wild occasionally,
+    and would silently cause a style regression when upgrading to v3 of design tokens if left unchanged.
+  */
   if (!reported) {
     if (stringContainsDeprecatedKaizenToken(newValue)) {
       options.reporter({
@@ -318,7 +327,7 @@ function detectAndFixInvalidTokens(
 
   // Return undefined if no changes we're made
   if (!changed) return undefined
-  else return newValue
+  return newValue
 }
 
 /**
