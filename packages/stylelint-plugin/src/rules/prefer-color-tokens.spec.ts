@@ -2,33 +2,50 @@
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
 import postcss from "postcss"
+import colorString from "color-string"
+import { defaultTheme } from "../../../design-tokens"
 import { messages, preferColorTokens } from "./prefer-color-tokens"
+
+function toRgb(color: string) {
+  return colorString.to.rgb(colorString.get(color)!.value)
+}
 
 const tests = {
   accept: [
     { code: ".foo { color: $color-blue-500; }" },
-    { code: ".foo { z-index: 22; }" },
+    {
+      code: `
+        .foo {
+          z-index: 22;
+          padding: 1.5rem;
+          color: #123456;
+          background-color: rgb(123, 123, 123)
+        }
+    `,
+    },
   ],
   reject: [
     {
-      code: ".foo { background-color: #0168b3; }",
+      code: `.foo { background-color: ${defaultTheme.color.blue[500]}; }`,
       fixed: ".foo { background-color: $color-blue-500; }",
-      warnings: [messages.expected("$color-blue-500", "#0168b3")],
+      warnings: [
+        messages.expected("$color-blue-500", defaultTheme.color.blue[500]),
+      ],
     },
     {
       code: `
       .foo {
-        background-color: #0168b3;
-        border-color: #6b6e94
+        background-color: ${defaultTheme.color.blue[500]};
+        border-color: ${defaultTheme.color.purple[600]};
       }`,
       fixed: `
       .foo {
         background-color: $color-blue-500;
-        border-color: $color-purple-600
+        border-color: $color-purple-600;
       }`,
       warnings: [
-        messages.expected("$color-blue-500", "#0168b3"),
-        messages.expected("$color-purple-600", "#6b6e94"),
+        messages.expected("$color-blue-500", defaultTheme.color.blue[500]),
+        messages.expected("$color-purple-600", defaultTheme.color.purple[600]),
       ],
     },
   ],
@@ -37,11 +54,10 @@ const tests = {
 describe(`kaizen/${preferColorTokens.name}`, () => {
   tests.accept.forEach(acceptTest => {
     test(`Accepts: ${acceptTest.code}`, () => {
-      let reports = 0
       preferColorTokens.ruleFunction(postcss.parse(acceptTest.code), {
         fix: true,
         reporter: () => {
-          reports++
+          // no-op
         },
         language: "scss",
       })
@@ -63,7 +79,7 @@ describe(`kaizen/${preferColorTokens.name}`, () => {
       preferColorTokens.ruleFunction(root, {
         fix: true,
         reporter: () => {
-          //
+          // no-op
         },
         language: "scss",
       })

@@ -3,8 +3,8 @@
 
 import colorString from "color-string"
 import { Root } from "postcss"
-import valueParser from "postcss-value-parser"
 import stylelint from "stylelint"
+import postcssValueParser from "postcss-value-parser"
 import { kaizenTokensByValue } from "../util/kaizenTokens"
 import { KaizenToken, Options, RuleDefinition } from "../types"
 import { variablePrefixForLanguage } from "../util/utils"
@@ -42,9 +42,13 @@ const colorMap = Object.entries(kaizenTokensByValue).reduce(
   (acc, [_, value]) => {
     const firstNonDeprecatedColorToken = value
       ?.sort((a, z) => getTokenRank(a.name) - getTokenRank(z.name))
-      .find((token): token is KaizenToken & {
-        color: string
-      } => Boolean(!deprecatedTokenReplacements.has(token.name) && token.color))
+      .find(
+        (
+          token
+        ): token is KaizenToken & {
+          color: string
+        } => !deprecatedTokenReplacements.has(token.name) && !!token.color
+      )
     if (!firstNonDeprecatedColorToken) {
       return acc
     }
@@ -63,16 +67,9 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
 export const preferColorTokens: RuleDefinition = {
   name: ruleName,
   ruleFunction: (root: Root, options: Options) => {
-    // walk all declarations
     root.walkDecls(decl => {
-      const fixPositions: Array<{
-        index: number
-        match: string
-        expectedValue: string
-      }> = []
-
-      const valueSegments = valueParser(decl.value)
-      valueSegments.walk(node => {
+      const parsedValue = postcssValueParser(decl.value)
+      parsedValue.walk(node => {
         const value = node.value
         const type = node.type
 
@@ -88,17 +85,15 @@ export const preferColorTokens: RuleDefinition = {
           const parsedColorHex = colorString.to
             .hex(parsedColor.value)
             .toLowerCase()
+
           const matchingKaizenToken = colorMap[parsedColorHex]
           if (matchingKaizenToken) {
             const expectedValue = `${variablePrefixForLanguage(
               options.language
             )}${matchingKaizenToken.name}`
+
             if (options.fix) {
-              fixPositions.push({
-                index: node.sourceIndex,
-                match: value,
-                expectedValue,
-              })
+              node.value = expectedValue
             } else {
               const message = messages.expected(expectedValue, parsedColorHex)
               options.reporter({
@@ -111,14 +106,12 @@ export const preferColorTokens: RuleDefinition = {
         }
       })
 
-      while (fixPositions.length) {
-        const fix = fixPositions.pop()
-        if (!fix) continue
-        const newVal =
-          decl.value.substring(0, fix.index) +
-          fix.expectedValue +
-          decl.value.substr(fix.index + fix.match.length)
-        decl.value = newVal
+      if (options.fix) {
+        decl.replaceWith(
+          decl.clone({
+            value: postcssValueParser.stringify(parsedValue.nodes),
+          })
+        )
       }
     })
   },
