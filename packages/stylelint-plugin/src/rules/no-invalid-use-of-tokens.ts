@@ -20,7 +20,7 @@ import {
   stringifyVariable,
 } from "../util/variableUtils"
 import { walkVariablesOnValue } from "../util/walkers"
-import { fixAlphaModificationFunctions } from "./lib/tokensInFunctions"
+import { fixAlphaModificationFunctions } from "./lib/fixAlphaModificationFunctions"
 import { containsEquationThatDoesntWorkWithCSSVariables } from "./no-invalid-use-of-var-tokens-in-equations"
 
 const deprecatedKaizenTokenPattern = new RegExp(
