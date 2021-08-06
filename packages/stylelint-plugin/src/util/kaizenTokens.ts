@@ -2,11 +2,7 @@ import { Utils } from "@kaizen/design-tokens"
 import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
 import postcssValueParser from "postcss-value-parser"
-import {
-  CSSVariable,
-  CurrentKaizenToken,
-  DeprecatedKaizenToken,
-} from "../types"
+import { CSSVariable, KaizenToken } from "../types"
 
 /**
  * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
@@ -121,7 +117,7 @@ const parseCssVariableValue = (value: string): CSSVariable | undefined => {
  * }
  */
 export const kaizenTokensByName: Readonly<
-  Record<string, CurrentKaizenToken | DeprecatedKaizenToken | undefined>
+  Record<string, KaizenToken | undefined>
 > = flatmap(Object.values(kaizenTokensByModule), module =>
   Object.entries(module.variables).map(([variableName, value]) => {
     const cssVariable = parseCssVariableValue(value)
@@ -133,7 +129,7 @@ export const kaizenTokensByName: Readonly<
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
         lessModulePath: module.lessModulePath,
-      } as CurrentKaizenToken | DeprecatedKaizenToken,
+      },
     }
   })
 ).reduce((acc, next) => ({ ...acc, ...next }), {})

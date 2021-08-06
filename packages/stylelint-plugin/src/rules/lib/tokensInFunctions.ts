@@ -4,7 +4,7 @@ import {
   cantFindReplacementTokenForDeprecatedMessage,
   noMatchingRgbParamsVariableMessage,
 } from "../../messages"
-import { CurrentKaizenToken, KaizenToken } from "../../types"
+import { KaizenToken } from "../../types"
 import { transformDecl } from "../../util/functionTransformer"
 import { kaizenTokensByName } from "../../util/kaizenTokens"
 import {
@@ -53,7 +53,7 @@ const parsePercentage = (value: string): number | "NaN" => {
 const getReplacementRgbTriple = (
   kaizenToken: KaizenToken
 ):
-  | { replacement: CurrentKaizenToken }
+  | { replacement: KaizenToken }
   /* For example, the token is `$kz-deprecated-color-lapis`, and there is no replacement. */
   | "CantFindReplacementForDeprecatedToken"
   /* Protecting against mistakes where there is no matching -rgb token */
@@ -61,14 +61,14 @@ const getReplacementRgbTriple = (
   /* The token is already an RGB triple, or is not a CSS variable. */
   | "NoReplacementNeeded" => {
   // We'll decide on what this variable should be using a series of rules, then use it as the subject for making replacements
-  let kaizenTokenSubject: CurrentKaizenToken
+  let kaizenTokenSubject: KaizenToken
 
   const replacement =
     kaizenTokensByName[deprecatedTokenReplacements.get(kaizenToken.name) || ""]
 
   if (replacement) {
     kaizenTokenSubject = replacement
-  } else if (!kaizenToken.deprecated) {
+  } else if (!deprecatedTokenReplacements.has(kaizenToken.name)) {
     kaizenTokenSubject = kaizenToken
   } else {
     // Just bail if we reach here, because we couldn't decide on a kaizen token to use.
