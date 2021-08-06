@@ -1,3 +1,6 @@
+// Migrated from https://github.com/cultureamp/node-packages/tree/0407d85/packages/stylelint-kaizen/lib
+// converted to TypeScript, and modified to be integratable with our stylelint plugin.
+
 import colorString from "color-string"
 import { Root } from "postcss"
 import valueParser from "postcss-value-parser"
@@ -12,7 +15,7 @@ import { deprecatedTokenReplacements } from "../../deprecatedTokens"
  * Solved the issue where a dataviz token had the same hex value as a different color token.
  * This ranks names that contain the word "color" in it higher than ones that don't or have it late in the string.
  *
- * You can extend this function if you have issues in the future.
+ * You can extend this function if you have similar token conflicts in the future.
  */
 function getTokenRank(_tokenName: string) {
   const tokenName = _tokenName.toLowerCase()
@@ -20,18 +23,28 @@ function getTokenRank(_tokenName: string) {
 }
 
 const ruleName = "prefer-color-tokens"
+
+/**
+ * This a map of colorHex -> KaizenToken.
+ * It allows you to determine which KaizenToken to use for a given color string in hex form.
+ * {@link kaizenTokensByValue} is a similar map, however, it doesn't only contain colors, and for a given key it will give you an array of KaizenTokens rather than a single one.
+ * This map disambiguates {@link kaizenTokensByValue} by choosing the first non deprecated color token (also sorted using {@link getTokenRank}) out of the array of KaizenTokens that are
+ * given as the values of {@link kaizenTokensByValue}.
+ *
+ * To be concrete:
+ *  we want: `colorMap["#6b6e94"] -> {name: "$color-wisteria-600", value: "#6b6e94", ...}`
+ *  we DON'T want : `colorMap["#6b6e94"] -> [{name: "$data-viz-favorable", value: "#6b6e94", ...}, {name: "$color-wisteria-600", value: "#6b6e94", ...}]
+ *
+ * You can think of this map also as the decider of which tokens to use if there are multiple candidates for a given value.
+ * A lot of the time there won't be any conflicts (e.g. the color `#fff` only has the candidate token `$color-white`), but we want something reliable that works all of the time.
+ */
 const colorMap = Object.entries(kaizenTokensByValue).reduce(
   (acc, [_, value]) => {
     const firstNonDeprecatedColorToken = value
       ?.sort((a, z) => getTokenRank(a.name) - getTokenRank(z.name))
-      .find(
-        (
-          token
-        ): token is KaizenToken & {
-          color: string
-        } =>
-          Boolean(!deprecatedTokenReplacements.has(token.name) && token.color)
-      )
+      .find((token): token is KaizenToken & {
+        color: string
+      } => Boolean(!deprecatedTokenReplacements.has(token.name) && token.color))
     if (!firstNonDeprecatedColorToken) {
       return acc
     }
