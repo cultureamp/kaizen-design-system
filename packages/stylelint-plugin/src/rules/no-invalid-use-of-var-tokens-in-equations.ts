@@ -1,4 +1,4 @@
-import { Declaration, Root } from "postcss"
+import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import {
   kaizenVariableUsedNextToOperatorMessage,
@@ -14,8 +14,8 @@ import {
 } from "../util/variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../util/walkers"
 
-const noInvalidEquationsOnDeclaraion = (
-  postcssNode: Declaration,
+const noInvalidEquations = (
+  postcssNode: Declaration | AtRule,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
 ) => {
@@ -45,7 +45,12 @@ const noInvalidEquationsOnDeclaraion = (
     if (node.type === "word") {
       // Detect the case of the node being a negated variable (because postcss-value-parser doesn't detect the operator and variable as seprate nodes)
       const parsedVariable = parseVariable(node)
-      if (parsedVariable?.negated && parsedVariable?.kaizenToken) {
+
+      if (
+        parsedVariable?.negated &&
+        parsedVariable?.kaizenToken &&
+        parsedVariable?.kaizenToken.cssVariable
+      ) {
         if (
           options.language === "scss" &&
           options.fix &&
@@ -87,10 +92,14 @@ const noInvalidEquationsOnDeclaraion = (
         // If there exists an operator and a variable next to each other, it's invalid
         if (
           (isOperator(lastTwoWordNodesNextToEachOther[0].value) &&
-            parsedVariable1?.kaizenToken) ||
+            parsedVariable1?.kaizenToken &&
+            parsedVariable1?.kaizenToken?.cssVariable) ||
           (isOperator(lastTwoWordNodesNextToEachOther[1].value) &&
-            parsedVariable0?.kaizenToken)
+            parsedVariable0?.kaizenToken &&
+            parsedVariable0?.kaizenToken?.cssVariable)
         ) {
+          // Go through all the cases where we can fix automatically
+
           const variableInEquation = parsedVariable0 || parsedVariable1
           if (isWithinCalcFunction) {
             // If the variable is interpolated within a calc function, its fine
@@ -148,7 +157,7 @@ export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
     walkDeclsWithKaizenTokens(
       stylesheetNode,
       ({ postcssNode, parsedValue }) => {
-        noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
+        noInvalidEquations(postcssNode, parsedValue, options)
       }
     )
   },
@@ -158,15 +167,15 @@ export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
  * Check if a declaration contains an equation that we cannot support with CSS Variables.
  * This is exported so other rules can avoid transforming tokens to CSS Variables versions when they are used in unsupported functions.
  **/
-export const declContainsInvalidEquations = (
-  postcssNode: Declaration,
+export const containsEquationThatDoesntWorkWithCSSVariables = (
+  postcssNode: Declaration | AtRule,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
 ) => {
   let reported = 0
-  noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, {
+  noInvalidEquations(postcssNode.clone(), parsedValue, {
     ...options,
-    fix: false,
+    fix: true,
     reporter: () => {
       reported++
     },
