@@ -164,13 +164,29 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "doesn't fix functions other than rgba, rgb, or add-alpha",
+    testName:
+      "knows not change a token to a CSS variable within a function that doesn't support them",
+    input: `
+      @import "~@kaizen/design-tokens/sass/color";
+      .foo {
+        background-color: darken($kz-color-cluny-700, 0.8);
+      }`,
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/color";
+      .foo {
+        background-color: darken($kz-color-cluny-700, 0.8);
+      }`,
+    expectedWarnings: 1,
+  },
+  {
+    language: "scss",
+    testName:
+      "migrates tokens within rgba, rgb, add-alpha, and other functions we don't know about",
     input: `
       @import "~@kaizen/design-tokens/sass/color";
       @import "~@kaizen/design-tokens/sass/color-vars";
       .foo {
         color: rgba($kz-color-wisteria-800, 0.4);
-        background-color: darken($kz-color-cluny-700, 0.8);
         test: something-else($kz-color-yuzu-400);
         another: rgb($kz-color-cluny-200);
         foo: add-alpha($kz-color-wisteria-700, 90);
@@ -179,12 +195,11 @@ const testExamples: TestExample[] = [
       @import "~@kaizen/design-tokens/sass/color";
       .foo {
         color: rgba($color-purple-800-rgb, 0.4);
-        background-color: darken($kz-color-cluny-700, 0.8);
-        test: something-else($kz-color-yuzu-400);
+        test: something-else($color-yellow-400);
         another: rgb($color-blue-200-rgb);
         foo: rgba($color-purple-700-rgb, 0.9);
       }`,
-    expectedWarnings: 2,
+    expectedWarnings: 0,
   },
   {
     language: "less",
@@ -202,11 +217,11 @@ const testExamples: TestExample[] = [
       .foo {
         color: rgba(@color-purple-800-rgb, 0.4);
         background-color: darken(@kz-color-cluny-700, 0.8);
-        test: something-else(@kz-color-yuzu-400);
+        test: something-else(@color-yellow-400);
         another: rgb(@color-blue-200-rgb);
         foo: rgba(@color-purple-700-rgb, 0.9);
       }`,
-    expectedWarnings: 2,
+    expectedWarnings: 1,
   },
   {
     language: "scss",

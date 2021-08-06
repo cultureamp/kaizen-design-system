@@ -153,135 +153,141 @@ function detectAndFixInvalidTokens(
     changed = true
   }
 
-  walkVariablesOnValue(parsedValue, (variableNode, variable, parent) => {
-    const isDeprecated = deprecatedTokenReplacements.has(variable.name)
+  walkVariablesOnValue(
+    parsedValue,
+    (variableNode, variable, parentFunction) => {
+      const parentFunctionName = parentFunction
+        ? parentFunction.value
+        : undefined
+      const isDeprecated = deprecatedTokenReplacements.has(variable.name)
 
-    // If the variable is a CSS variable, it's not deprecated, and is used within a function that doesn't support CSS variables, report and bail.
-    // Without this, non-deprecated CSS variables which are used within functions that don't support CSS variables, won't be warned about.
-    if (
-      parent &&
-      functionsThatDontSupportCSSVariables.has(parent.value) &&
-      variable.kaizenToken?.cssVariable &&
-      !isDeprecated
-    ) {
-      report({
-        message: cssVariableUsedWithinUnsupportedFunction(
-          variable.name,
-          parent.value
-        ),
-        autofixAvailable: false,
-      })
-      return
-    }
-
-    if (!isDeprecated) {
-      return
-    }
-
-    const replacement = deprecatedTokenReplacements.get(variable.name)
-
-    // If there isn't a replacement we can't automatically replace anything, so just report and bail.
-    if (!replacement) {
-      report({
-        message: deprecatedTokenUsageWithoutReplacementMessage(variable.name),
-        autofixAvailable: false,
-      })
-      return
-    }
-
-    const replacementKaizenToken = kaizenTokensByName[replacement]
-
-    // We have a spec that ensures this edge case doesn't happen, but we also don't want to use a TypeScript null assertion.
-    // Adding this for dilligence.
-    if (!replacementKaizenToken) {
-      report({
-        message:
-          "Internal error. Replacement token is not an existing Kaizen token",
-        autofixAvailable: false,
-      })
-      return
-    }
-
-    const commitReplacement = () => {
-      changed = true
-      if (!options.fix) {
+      // If the variable is a CSS variable, it's not deprecated, and is used within a function that doesn't support CSS variables, report and bail.
+      // Without this, non-deprecated CSS variables which are used within functions that don't support CSS variables, won't be warned about.
+      if (
+        parentFunctionName &&
+        functionsThatDontSupportCSSVariables.has(parentFunctionName) &&
+        variable.kaizenToken?.cssVariable &&
+        !isDeprecated
+      ) {
         report({
-          message: deprecatedTokenUsageMessage(variable.name, replacement),
-          autofixAvailable: true,
+          message: cssVariableUsedWithinUnsupportedFunction(
+            variable.name,
+            parentFunctionName
+          ),
+          autofixAvailable: false,
         })
-      } else {
-        // Here is where we actually commit the replacement
-
-        const replacementVariable = replaceTokenInVariable(
-          variable,
-          replacementKaizenToken
-        )
-        variableNode.value = stringifyVariable(replacementVariable)
-
-        newValue = postcssValueParser.stringify(parsedValue.nodes)
+        return
       }
-    }
 
-    // Now decide whether an autofix can occur using a series of rules.
-    // If we decide that it can't happen, report the reason then return so that we move on to the next node.
+      if (!isDeprecated) {
+        return
+      }
 
-    const isCurrentTokenCssVariable = !!variable.kaizenToken?.cssVariable
-    const isReplacementTokenCssVariable = !!replacementKaizenToken.cssVariable
+      const replacement = deprecatedTokenReplacements.get(variable.name)
 
-    // If the current value is a CSS variable, OR the replacement is not a CSS variable, just commit the replacement because it shouldn't be a problematic change.
-    if (isCurrentTokenCssVariable || !isReplacementTokenCssVariable) {
+      // If there isn't a replacement we can't automatically replace anything, so just report and bail.
+      if (!replacement) {
+        report({
+          message: deprecatedTokenUsageWithoutReplacementMessage(variable.name),
+          autofixAvailable: false,
+        })
+        return
+      }
+
+      const replacementKaizenToken = kaizenTokensByName[replacement]
+
+      // We have a spec that ensures this edge case doesn't happen, but we also don't want to use a TypeScript null assertion.
+      // Adding this for dilligence.
+      if (!replacementKaizenToken) {
+        report({
+          message:
+            "Internal error. Replacement token is not an existing Kaizen token",
+          autofixAvailable: false,
+        })
+        return
+      }
+
+      const commitReplacement = () => {
+        changed = true
+        if (!options.fix) {
+          report({
+            message: deprecatedTokenUsageMessage(variable.name, replacement),
+            autofixAvailable: true,
+          })
+        } else {
+          // Here is where we actually commit the replacement
+
+          const replacementVariable = replaceTokenInVariable(
+            variable,
+            replacementKaizenToken
+          )
+          variableNode.value = stringifyVariable(replacementVariable)
+
+          newValue = postcssValueParser.stringify(parsedValue.nodes)
+        }
+      }
+
+      // Now decide whether an autofix can occur using a series of rules.
+      // If we decide that it can't happen, report the reason then return so that we move on to the next node.
+
+      const isCurrentTokenCssVariable = !!variable.kaizenToken?.cssVariable
+      const isReplacementTokenCssVariable = !!replacementKaizenToken.cssVariable
+
+      // If the current value is a CSS variable, OR the replacement is not a CSS variable, just commit the replacement because it shouldn't be a problematic change.
+      if (isCurrentTokenCssVariable || !isReplacementTokenCssVariable) {
+        commitReplacement()
+        return
+      }
+
+      // If the potential replacement variable is a CSS variable, and is used within a function that doesn't support CSS variables, report and bail
+      if (
+        parentFunctionName &&
+        functionsThatDontSupportCSSVariables.has(parentFunctionName) &&
+        replacementKaizenToken.cssVariable
+      ) {
+        report({
+          message: replacementCssVariableUsedWithinUnsupportedFunction(
+            variable.name,
+            replacementKaizenToken.name,
+            parentFunctionName
+          ),
+          autofixAvailable: false,
+        })
+
+        return
+      }
+
+      // If we're in an AtRule that doesn't support CSS variables, and the replacement is a CSS variable, we shouldn't make the replacement.
+      if (
+        postcssNode.type === "atrule" &&
+        replacementKaizenToken.cssVariable &&
+        atRulesThatDontSupportCSSVars.has(postcssNode.name)
+      ) {
+        report({
+          message: cantReplaceDeprecatedTokenInAtRuleMessage(
+            variable.name,
+            replacementKaizenToken.name
+          ),
+          autofixAvailable: false,
+        })
+        return
+      }
+
+      // We can only modify variable declarations (e.g. `$card-bg: $kz-var-color-wisteria-100;`) when its current value is a CSS variable, or the replacement isn't a CSS variable
+      // (because the only change which isn't safe is going from NonCSSVariable -> CSSVariable)
+      // The process will only reach here if a safe change is not available, due to the checks above.
+      // If there isn't, just report, and bail.
+      if (postcssNode.type === "decl" && isVariable(postcssNode)) {
+        report({
+          message: deprecatedTokenInVariableMessage(variable.name, replacement),
+          autofixAvailable: false,
+        })
+        return
+      }
+
       commitReplacement()
-      return
     }
-
-    // If the potential replacement variable is a CSS variable, and is used within a function that doesn't support CSS variables, report and bail
-    if (
-      parent &&
-      !functionsThatSupportCSSVariables.has(parent.value) &&
-      replacementKaizenToken.cssVariable
-    ) {
-      report({
-        message: replacementCssVariableUsedWithinUnsupportedFunction(
-          variable.name,
-          replacementKaizenToken.name,
-          parent.value
-        ),
-        autofixAvailable: false,
-      })
-
-      return
-    }
-
-    // If we're in an AtRule that doesn't support CSS variables, and the replacement is a CSS variable, we shouldn't make the replacement.
-    if (
-      postcssNode.type === "atrule" &&
-      replacementKaizenToken.cssVariable &&
-      atRulesThatDontSupportCSSVars.has(postcssNode.name)
-    ) {
-      report({
-        message: cantReplaceDeprecatedTokenInAtRuleMessage(
-          variable.name,
-          replacementKaizenToken.name
-        ),
-        autofixAvailable: false,
-      })
-      return
-    }
-
-    // We can only modify variable declarations (e.g. `$card-bg: $kz-var-color-wisteria-100;`) when its current value is a CSS variable, or the replacement isn't a CSS variable
-    // (because the only change which isn't safe is going from NonCSSVariable -> CSSVariable)
-    // The process will only reach here if a safe change is not available, due to the checks above.
-    // If there isn't, just report, and bail.
-    if (postcssNode.type === "decl" && isVariable(postcssNode)) {
-      report({
-        message: deprecatedTokenInVariableMessage(variable.name, replacement),
-        autofixAvailable: false,
-      })
-      return
-    }
-
-    commitReplacement()
-  })
+  )
 
   // We need to check whether after all replacements, there is an invalid equation.
   if (
