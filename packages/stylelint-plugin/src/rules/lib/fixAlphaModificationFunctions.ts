@@ -39,7 +39,7 @@ const parsePercentageOrDecimal = (
 const parsePercentage = (value: string): number | "NaN" => {
   // Add-alpha can be used without a percentage sign, that won't fly.
   // Fix the percentage sign, then convert to a decimal for usage in RGBA
-  const parsed = parseInt(value.replace(/\%/, ""), 10)
+  const parsed = parseFloat(value.replace(/\%/, ""))
   if (isNaN(parsed)) {
     return "NaN"
   }
