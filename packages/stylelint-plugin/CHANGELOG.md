@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.1...@kaizen/stylelint-plugin@1.2.2) (2021-08-09)
+
+
+### Bug Fixes
+
+* Stylelint plugin code polish ([#1819](https://github.com/cultureamp/kaizen-design-system/issues/1819)) ([4930255](https://github.com/cultureamp/kaizen-design-system/commit/4930255cf8ef4870cfe2532d1e20b3fe158ca817))
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.0...@kaizen/stylelint-plugin@1.2.1) (2021-08-09)
 
 
