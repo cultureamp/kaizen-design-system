@@ -165,7 +165,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "knows not change a token to a CSS variable within a function that doesn't support them",
+      "knows not to change a token to a CSS variable within a function that doesn't support them",
     input: `
       @import "~@kaizen/design-tokens/sass/color";
       .foo {
@@ -541,11 +541,21 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "weird add-alpha alpha parameter is fixed",
+    testName: "add-alpha percentage parameter is normalised",
     input:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 0.7) }',
+    expectedWarnings: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "add-alpha percentage parameter is normalised and supports floats",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70.1234) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 0.701234) }',
     expectedWarnings: 0,
   },
   {
@@ -905,7 +915,7 @@ const testExamples: TestExample[] = [
   },
   {
     testName:
-      "tokens within functions can be replaced when the replacement is not a CSS variable",
+      "tokens within functions can be safely replaced when the current/existing token is a CSS variable",
     language: "scss",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .test { padding: ca-padding($kz-var-spacing-md) }',

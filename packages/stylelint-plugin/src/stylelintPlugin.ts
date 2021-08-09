@@ -45,7 +45,7 @@ export default rules.map(rule =>
             stylelint.utils.report({
               ruleName: `kaizen/${rule.name}`,
               message: `${message}${
-                autofixAvailable ? "(autofix avaialable)" : ""
+                autofixAvailable ? " (autofix available)" : ""
               }`,
               node,
               result,
