@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-empty-state",
-  "version": "2.3.23",
+  "version": "2.3.24",
   "description": "The draft Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.13",
-    "@kaizen/draft-illustration": "^2.4.1",
+    "@kaizen/component-library": "^10.0.15",
+    "@kaizen/draft-illustration": "^2.4.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
@@ -42,7 +42,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3",
     "react": "^16.9.0"
   }
 }

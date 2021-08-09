@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -43,7 +43,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.8.3",
+    "@kaizen/design-tokens": "^2.10.3",
     "react": "^16.9.0"
   }
 }
