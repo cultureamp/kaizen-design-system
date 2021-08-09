@@ -165,7 +165,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "knows not change a token to a CSS variable within a function that doesn't support them",
+      "knows not to change a token to a CSS variable within a function that doesn't support them",
     input: `
       @import "~@kaizen/design-tokens/sass/color";
       .foo {
@@ -905,7 +905,7 @@ const testExamples: TestExample[] = [
   },
   {
     testName:
-      "tokens within functions can be replaced when the replacement is not a CSS variable",
+      "tokens within functions can be safely replaced when the current/existing token is a CSS variable",
     language: "scss",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .test { padding: ca-padding($kz-var-spacing-md) }',
