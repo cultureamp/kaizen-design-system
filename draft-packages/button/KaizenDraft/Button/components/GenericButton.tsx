@@ -54,7 +54,6 @@ type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
-  reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
 type WorkingProps = {
@@ -247,11 +246,6 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.reverseColorCluny]: props.reverseColor === "cluny",
-    [styles.reverseColorPeach]: props.reverseColor === "peach",
-    [styles.reverseColorSeedling]: props.reverseColor === "seedling",
-    [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
-    [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
     [styles.working]: !props.iconButton && props.working,
   })
 }
