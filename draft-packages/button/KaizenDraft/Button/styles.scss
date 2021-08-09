@@ -304,26 +304,6 @@ $caButton-verticalPaddingForm: calc(
       border-color: $kz-var-border-borderless-border-color;
       color: $kz-var-color-wisteria-800;
 
-      &%caButtonReverseColorCluny {
-        color: $kz-var-color-cluny-500;
-      }
-
-      &%caButtonReverseColorPeach {
-        color: $kz-var-color-peach-500;
-      }
-
-      &%caButtonReverseColorSeedling {
-        color: $kz-var-color-seedling-500;
-      }
-
-      &%caButtonReverseColorWisteria {
-        color: $kz-var-color-wisteria-500;
-      }
-
-      &%caButtonReverseColorYuzu {
-        color: $kz-var-color-yuzu-500;
-      }
-
       &:hover {
         background: $kz-var-color-seedling-400;
       }
