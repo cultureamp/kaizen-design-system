@@ -4,12 +4,12 @@ import FocusLock from "react-focus-lock"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
-import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
 import borderTokens from "@kaizen/design-tokens/tokens/border.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import { useTheme } from "../../../../packages/design-tokens"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
 import styles from "./styles.module.scss"
 
@@ -47,24 +47,26 @@ export interface HierarchicalMenuProps {
   focusLockDisabled?: boolean
 }
 
-const animationTimeout = Number(
-  animationTokens.kz.animation.duration.rapid.replace("ms", "")
-)
-const optionHeight = spacingTokens.kz.spacing.xl
+const optionHeight = spacingTokens.spacing.xl
 
 const getContainerHeight = (numberOfOptions: number) => {
   const headerHeight = `(2 * ${optionHeight})`
   const bodyHeight = `(${numberOfOptions} * ${optionHeight})`
-  const borderHeight = `(2 * ${borderTokens.kz.border.solid.borderWidth})`
+  const borderHeight = `(2 * ${borderTokens.border.solid.borderWidth})`
   return `calc(${headerHeight} + ${bodyHeight} + ${borderHeight})`
 }
 
 type NavigatingState = "toParent" | "toChild" | null
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
+  const theme = useTheme()
   const [isNavigating, setIsNavigating] = useState<NavigatingState>(null)
   const [incomingNumberOfOptions, setIncomingNumberOfOptions] = useState(0)
 
+  const animationTimeout = React.useMemo(
+    () => Number(theme.animation.duration.rapid.replace("ms", "")),
+    [theme]
+  )
   const {
     hierarchy,
     onLoad,
