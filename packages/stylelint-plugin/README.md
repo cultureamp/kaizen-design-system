@@ -21,18 +21,16 @@ Using this preset allows you to adopt the Kaizen rules easily, and allows the pa
 - It can autofix any variables that are used incorrectly within a `calc()` function, such as ones that aren't interpolated when they should be, or negated variables that need to be wrapped in `calc()` to support CSS variables (e.g. `-$kz-spacing-md` -> `calc(-1 * #{$kz-var-spacing-md}))`
 - Fixes alpha manipulation functions (`add-alpha`, `rgba`, `rgb`, `transparentize`) by using `-rgb-params` variable replacements with `rgba()`.
 - Warns you when you use a new CSS variable Kaizen token incorrectly (most of the time), e.g. when you use it in a function that doesn't support CSS variables such as `darken`, `add-tint`, `mix`, or a custom mixin/function.
-- Any usages of color manipulation functions such as `darken`, `add-shade`, `add-tint`, `mix` etc will be computed within the codemod and replaced with a HEX/RGB/HSL value, using the `sass` compiler.
 
 
 ## Rules
 
 These rules are included by default:
 
-- `kaizen/prefer-var-tokens` - Detects usages of non-themable tokens, and attempts to migrate them to our tokens that support theming with CSS variables.
-- `kaizen/no-invalid-use-of-var-tokens-in-functions` - Detects invalid usages of Kaizen variable tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used.
+- `kaizen/no-invalid-use-of-tokens` - Reports deprecated or removed tokens, invalid usages of them within functions, and autofixes them if replacements won't cause silent failures.
 - `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
-- `kaizen/tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
+- `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
 
 Also available, but not enabled by default:
 

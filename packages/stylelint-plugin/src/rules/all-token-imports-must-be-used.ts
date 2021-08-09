@@ -1,7 +1,7 @@
 import { Root } from "postcss"
 import { unnecessaryKaizenImport } from "../messages"
-import { getCurrentImports, removeImport } from "../util/importUtils"
 import { KaizenToken, Options, RuleDefinition } from "../types"
+import { getCurrentImports, removeImport } from "../util/importUtils"
 import { walkKaizenTokens } from "../util/walkers"
 
 export const allTokenImportsMustBeUsed: RuleDefinition = {
