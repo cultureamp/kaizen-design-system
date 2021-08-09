@@ -1,8 +1,41 @@
+import { Utils } from "@kaizen/design-tokens"
 import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
-import { Utils } from "@kaizen/design-tokens"
 import postcssValueParser from "postcss-value-parser"
 import { CSSVariable, KaizenToken } from "../types"
+
+/**
+ * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
+ * json-to-flat-sass does a very similar thing.
+ * E.g.
+ * Input:
+ * ```
+ * {
+ *    level1: {
+ *      level2: {
+ *        level3: {
+ *          leaf: "some value"
+ *        }
+ *      }
+ *    }
+ * }
+ * ```
+ * ```
+ * Output:
+ * {
+ *    "level1-level2-level3-leaf": "some value"
+ * }
+ * ```
+ */
+export const getCSSVarsFromJson = (json: Record<any, any>) => {
+  const variables = {} as Record<string, string>
+
+  Utils.mapLeafsOfObject(json, (path, value) => {
+    const key = path.map(kebabCase).join("-")
+    variables[key] = `${value}`
+  })
+  return variables
+}
 
 /* Pass in just the name of a module which is used to import variable.
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".
@@ -13,13 +46,7 @@ const getVarsFromKaizenModule = (moduleName: string) => {
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`
   const source = require(`@kaizen/design-tokens/tokens/${moduleName}.json`)
 
-  const variables = {} as Record<string, string>
-
-  // Shamelessly using a map function like a forEach
-  Utils.mapLeafsOfObject(source, (path, value) => {
-    const key = path.map(kebabCase).join("-")
-    variables[key] = `${value}`
-  })
+  const variables = getCSSVarsFromJson(source)
   return {
     moduleName,
     variables,
@@ -28,7 +55,7 @@ const getVarsFromKaizenModule = (moduleName: string) => {
   } as const
 }
 
-export const kaizenTokensByModule = {
+const kaizenTokensByModule = {
   color: getVarsFromKaizenModule("color"),
   colorVars: getVarsFromKaizenModule("color-vars"),
   animation: getVarsFromKaizenModule("animation"),
@@ -45,17 +72,6 @@ export const kaizenTokensByModule = {
   typographyVars: getVarsFromKaizenModule("typography-vars"),
   variableIdentifiers: getVarsFromKaizenModule("variable-identifiers"),
 }
-
-const deprecatedModuleNames = new Set([
-  "color",
-  "animation",
-  "border",
-  // Layout is allowed to be used for now. If that changes, uncomment the next line.
-  // "layout",
-  "shadow",
-  "spacing",
-  "typography",
-])
 
 const parseCssVariableValue = (value: string): CSSVariable | undefined => {
   const parsedValue = postcssValueParser(value)
@@ -109,7 +125,6 @@ export const kaizenTokensByName: Readonly<
       [variableName]: {
         name: variableName,
         value,
-        deprecated: deprecatedModuleNames.has(module.moduleName),
         cssVariable,
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
