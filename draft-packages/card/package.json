@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3",
     "react": "^16.9.0"
   }
 }

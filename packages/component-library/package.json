@@ -26,7 +26,7 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3",
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
