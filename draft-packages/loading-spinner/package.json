@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-loading-spinner",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "The draft loading-spinner component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

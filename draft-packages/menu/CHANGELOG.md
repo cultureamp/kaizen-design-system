@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.42...@kaizen/draft-menu@3.2.43) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
 ## [3.2.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.41...@kaizen/draft-menu@3.2.42) (2021-08-09)
 
 **Note:** Version bump only for package @kaizen/draft-menu
