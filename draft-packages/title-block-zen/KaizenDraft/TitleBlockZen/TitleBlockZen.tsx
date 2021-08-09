@@ -401,7 +401,7 @@ const createTabletOverflowMenuItems = (
 }
 
 const largeViewMinSizeInPixels = parseInt(
-  layoutTokens.kz.layout.breakpoints.large,
+  layoutTokens.layout.breakpoints.large,
   10
 )
 const smallAndMediumMediaQuery = window.matchMedia(
