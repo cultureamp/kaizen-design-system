@@ -1,4 +1,5 @@
 import { Icon } from "@kaizen/component-library"
+import { Tag } from "@kaizen/draft-tag"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
@@ -40,6 +41,16 @@ type ContentNeedToKnowProps = {
   listOfTips: string[]
 }
 
+type HealthItems = {
+  designed: boolean
+  built: boolean
+  latestDesign: boolean
+  allVariants: boolean
+  responsive: boolean
+  internationalized: boolean
+  accessible: boolean
+}
+
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (
   <div className={styles.sidebar}>{children}</div>
 )
@@ -75,7 +86,7 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
     {listOfTips && listOfTips.length > 0 && (
       <div
         className={classnames(
-          styles.contentNeedToKnow,
+          styles.contentTopSection,
           markdownStyles.markdownContainer
         )}
       >
@@ -97,6 +108,88 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
     )}
   </>
 )
+
+export const ContentHealth = ({
+  healthItems,
+}: {
+  healthItems: HealthItems
+}) => {
+  const {
+    designed,
+    built,
+    latestDesign,
+    allVariants,
+    responsive,
+    internationalized,
+    accessible,
+  } = healthItems
+
+  return (
+    <div
+      className={classnames(
+        styles.contentTopSection,
+        markdownStyles.markdownContainer
+      )}
+    >
+      <markdownComponents.h2>
+        <span className="md-anchor-offset" id="health" />
+        <a className="md-heading-link" href="#health">
+          <Icon icon={linkIcon} title="Anchor" />
+        </a>
+        Health
+      </markdownComponents.h2>
+      <div className={styles.healthContent}>
+        <Tag variant={designed ? "validationPositive" : "validationNegative"}>
+          {designed ? "Designed" : "Not yet designed"}
+        </Tag>
+        <Tag variant={built ? "validationPositive" : "validationNegative"}>
+          {built ? "Built" : "Not built"}
+        </Tag>
+        {built && (
+          <>
+            <Tag
+              variant={
+                latestDesign ? "validationPositive" : "validationNegative"
+              }
+            >
+              {latestDesign
+                ? "Matches latest design"
+                : "Doesn’t match latest design"}
+            </Tag>
+            <Tag
+              variant={
+                allVariants ? "validationPositive" : "validationNegative"
+              }
+            >
+              {allVariants
+                ? "Includes all variants"
+                : "Doesn’t have all variants"}
+            </Tag>
+            <Tag
+              variant={responsive ? "validationPositive" : "validationNegative"}
+            >
+              {responsive ? "Responsive" : "Not responsive"}
+            </Tag>
+            <Tag
+              variant={
+                internationalized ? "validationPositive" : "validationNegative"
+              }
+            >
+              {internationalized
+                ? "Internationalized"
+                : "Not internationalized"}
+            </Tag>
+            <Tag
+              variant={accessible ? "validationPositive" : "validationNegative"}
+            >
+              {accessible ? "Accessible" : "Not accessible"}
+            </Tag>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
   children,
