@@ -64,6 +64,11 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: (named, original) => `Expected "${original}" to be "${named}"`,
 })
 
+/**
+ * This is a stylelint rule which will detect inlined color values (in any kind of form such as hex, rgba, hsl, hwb etc)
+ * and recommend replacements for them if they are the same as an existing non-deprecated Kaizen token.
+ * It is capable of automatically committing replacements in `--fix` mode.
+ */
 export const preferColorTokens: RuleDefinition = {
   name: ruleName,
   ruleFunction: (root: Root, options: Options) => {
