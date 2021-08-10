@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.1.5...@kaizen/draft-loading-spinner@2.1.6) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.1.4...@kaizen/draft-loading-spinner@2.1.5) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-loading-spinner
+
+
+
+
+
 ## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.1.3...@kaizen/draft-loading-spinner@2.1.4) (2021-08-02)
 
 **Note:** Version bump only for package @kaizen/draft-loading-spinner

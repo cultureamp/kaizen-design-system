@@ -1,5 +1,5 @@
 // Credits to https://github.com/andyjansson/postcss-functions  (which is using an MIT license)
-// Copied and modified to suit us
+// Copied and modified so that we have access to the function name within transformer functions.
 
 type Transformer = (functionName: string, ...params: string[]) => string
 type FunctionsMap = Record<string, Transformer>

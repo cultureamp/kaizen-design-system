@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.4.1...@kaizen/draft-illustration@2.4.2) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.4.0...@kaizen/draft-illustration@2.4.1) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 # [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.3.5...@kaizen/draft-illustration@2.4.0) (2021-08-03)
 
 
