@@ -405,6 +405,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @return $value-in-rems / $ca-grid;
 }
 
+/*
+  Because these components are deprecated, we've kept any inline/non-token values as values from the Zen theme to prevent any style regressions,
+  as this is what consumers would have expected when pulling them in a the time.
+*/
+
 @mixin kz-typography-greycliff(
   $size,
   $weight,
