@@ -31,8 +31,9 @@ const renderSidebarTabs = (pages, currentPath) =>
     </SidebarTab>
   ))
 
-export default ({ data, pageContext, location }) => {
+export default ({ data, location }) => {
   const md = data.mdx
+  const allIssues = data.allIssue.edges
   const allPages = data.allMdx.edges
   const currentPath = location.pathname
 
@@ -42,6 +43,18 @@ export default ({ data, pageContext, location }) => {
   const pagesWithoutOverview = sortSidebarTabs(
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
+  const relatedIssues = allIssues.filter(({ node }) => {
+    /**
+     * To save time, I'm just using the frontmatter title.
+     * It would be best to add a githubTag field to frontmatter as we'll
+     * probably want more flexibility in the future.
+     */
+    if (!node.labels.length) return false
+    const labelsContainActiveComponent = node.labels.some(({ name }) =>
+      name.includes(`component:${md.frontmatter.title.toLowerCase()}`)
+    )
+    return labelsContainActiveComponent
+  })
 
   const renderStorybookIFrame = () => {
     if (!md.frontmatter.demoStoryId) {
@@ -86,6 +99,15 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
+          <h1>Related issues:</h1>
+          {relatedIssues &&
+            relatedIssues.map(({ node }) => (
+              <ul>
+                <li>
+                  <a href={node.html_url}>{node.title}</a>
+                </li>
+              </ul>
+            ))}
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
@@ -127,6 +149,19 @@ export const query = graphql`
         demoStoryHeight
       }
       tableOfContents
+    }
+    allIssue {
+      edges {
+        node {
+          id
+          html_url
+          title
+          updated_at
+          labels {
+            name
+          }
+        }
+      }
     }
   }
 `
