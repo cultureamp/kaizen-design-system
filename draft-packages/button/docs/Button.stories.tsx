@@ -12,7 +12,7 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
-    label: "Label",
+    label: "Label (Chromatic Test)",
   },
   parameters: {
     actions: {
