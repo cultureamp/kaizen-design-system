@@ -125,6 +125,7 @@ export const VideoPlayer = ({
 
   return (
     <video
+      muted={true}
       aria-hidden={true}
       preload="metadata"
       ref={videoRef}
