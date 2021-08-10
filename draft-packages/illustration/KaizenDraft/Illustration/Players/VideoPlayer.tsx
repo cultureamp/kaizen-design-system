@@ -105,7 +105,12 @@ export const VideoPlayer = ({
          */
       }
     }
-  }, [prefersReducedMotion])
+    /**
+     * Chrome seems to have an issue with changes to autoplay after the video
+     * has been mounted. If there is a change in autoplay we need to force the
+     * play() method to be called.
+     */
+  }, [prefersReducedMotion, autoplay])
 
   useEffect(() => {
     // Add event listeners for the video element
@@ -120,6 +125,7 @@ export const VideoPlayer = ({
 
   return (
     <video
+      muted={true}
       aria-hidden={true}
       preload="metadata"
       ref={videoRef}
