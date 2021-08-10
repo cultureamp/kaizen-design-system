@@ -1,7 +1,9 @@
 import classnames from "classnames"
 import * as React from "react"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 import styles from "./styles.scss"
+import { Icon, Paragraph } from "@kaizen/component-library"
 
 export type FieldMessageStatus = "default" | "success" | "error"
 export type FieldMessageProps = {
@@ -14,6 +16,17 @@ export type FieldMessageProps = {
 }
 
 type FieldMessage = React.SFC<FieldMessageProps>
+
+const warningIcon = (
+  <span className={styles.warningIcon}>
+    <Icon
+      icon={exclamationIcon}
+      title="Error message"
+      role="img"
+      inheritSize={false}
+    />
+  </span>
+)
 
 const FieldMessage: FieldMessage = ({
   id,
@@ -34,7 +47,10 @@ const FieldMessage: FieldMessage = ({
       [styles.positionTop]: position === "top",
     })}
   >
-    {message}
+    {warningIcon}
+    <div className={styles.message}>
+      <Paragraph variant="small">{message}</Paragraph>
+    </div>
   </div>
 )
 

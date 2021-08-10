@@ -184,12 +184,27 @@ export const DefaultError = () => (
       placeholder="Please enter your email"
       onChange={() => undefined}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996"
+      validationMessage="Your email address looks like it’s from 1996."
     />
   </ExampleContainer>
 )
-
 DefaultError.storyName = "Default, Error"
+
+export const DefaultErrorLong = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="super_cool999@hotmail.com"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      status="error"
+      validationMessage="Your email address looks like it’s from 1996. This is a long error message for testing purposes."
+    />
+  </ExampleContainer>
+)
+DefaultErrorLong.storyName = "Default, Error, long"
 
 export const DefaultErrorIcon = () => (
   <ExampleContainer>

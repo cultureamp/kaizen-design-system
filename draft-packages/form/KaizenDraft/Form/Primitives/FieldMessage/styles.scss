@@ -5,8 +5,9 @@
 @import "../../decision-tokens.scss";
 
 .message {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
+  display: flex;
+  align-items: center;
+  gap: $ca-grid * 0.25;
 }
 
 .default {
@@ -29,4 +30,10 @@
 
 .positionTop {
   margin-bottom: $spacing-xs;
+}
+
+.warningIcon {
+  display: flex;
+  align-items: center;
+  color: $color-red-500;
 }
