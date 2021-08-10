@@ -16,7 +16,6 @@
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "dependencies": {
-    "color": "^4.0.1",
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",
@@ -24,19 +23,20 @@
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
-    "stylelint": "^13.10.0"
+    "stylelint": "^13.10.0",
+    "tinycolor2": "^1.4.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3"
   },
   "devDependencies": {
-    "@types/color": "^3.0.2",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^14.14.37",
     "@types/node-fetch": "^2.5.11",
     "@types/postcss-less": "^4.0.0",
     "@types/stylelint": "^9.10.1",
+    "@types/tinycolor2": "^1.4.3",
     "lodash.merge": "^4.6.2",
     "node-fetch": "^2.6.1",
     "prettier": "^2.3.2",
