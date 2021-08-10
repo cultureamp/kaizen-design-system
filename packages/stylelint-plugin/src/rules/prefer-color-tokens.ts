@@ -26,7 +26,7 @@ const ruleName = "prefer-color-tokens"
 
 /**
  * This a map of colorHex -> KaizenToken.
- * It allows you to determine which KaizenToken to use for a given color string in hex form.
+ * It allows you to determine which KaizenToken to use for a given color string (normalised using {@link normaliseColor}).
  * {@link kaizenTokensByValue} is a similar map, however, it doesn't only contain colors, and for a given key it will give you an array of KaizenTokens rather than a single one.
  * This map disambiguates {@link kaizenTokensByValue} by choosing the first non deprecated color token (also sorted using {@link getTokenRank}) out of the array of KaizenTokens that are
  * given as the values of {@link kaizenTokensByValue}.
