@@ -2,8 +2,8 @@ import { Utils } from "@kaizen/design-tokens"
 import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
 import postcssValueParser from "postcss-value-parser"
-import colorString from "color-string"
 import { CSSVariable, KaizenToken } from "../types"
+import { normaliseColor } from "./colors"
 
 /**
  * Use this to turn a deeply nested object into a flattened one, where keys are structured like: "level1-level2-level3-leaf" (which are in the form of CSS variable identifiers).
@@ -122,7 +122,7 @@ export const kaizenTokensByName: Readonly<
 > = flatmap(Object.values(kaizenTokensByModule), module =>
   Object.entries(module.variables).map(([variableName, value]) => {
     const cssVariable = parseCssVariableValue(value)
-    const parsedColor = colorString.get(cssVariable?.fallback ?? value)
+    const normalisedColor = normaliseColor(cssVariable?.fallback ?? value)
     return {
       [variableName]: {
         name: variableName,
@@ -131,9 +131,7 @@ export const kaizenTokensByName: Readonly<
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
         lessModulePath: module.lessModulePath,
-        color: parsedColor
-          ? colorString.to.hex(parsedColor.value).toLowerCase()
-          : undefined,
+        color: normalisedColor ? normalisedColor : undefined,
       },
     }
   })
@@ -158,24 +156,49 @@ export const kaizenTokensByName: Readonly<
  * }
  * ```
  */
-export const kaizenTokensByValue = Object.values(kaizenTokensByName).reduce(
-  (acc, token) => {
-    if (!token) return acc
+export const kaizenTokensByValue: Record<
+  string,
+  KaizenToken[] | undefined
+> = (() => {
+  const allKaizenTokens = Object.values(kaizenTokensByName).filter(
+    <T>(token: T): token is NonNullable<T> => token !== undefined
+  )
 
-    const key = (token.cssVariable?.fallback ?? token.value).toLowerCase()
-    const existingValues = acc[key]
-    const existingNewColorValues = token.color
-      ? acc[token.color.toLowerCase()]
+  const kaizenTokensByValueResult: Record<
+    string,
+    KaizenToken[] | undefined
+  > = {}
+
+  // For every Kaizen token, we'd like to add one more keys to the result base on their values.
+  // Each key will be a token value like "#524e56" or "1.5rem".
+  // We want the values of each key to be an array of Kaizen tokens that contain those values, allowing us to lookup and index Kaizen tokens by their values.
+  // The result might look something like `{ "1.5rem": [{name: "spacing-md", ...}] }`
+  for (const kaizenToken of allKaizenTokens) {
+    const tokenValue = (
+      kaizenToken.cssVariable?.fallback ?? kaizenToken.value
+    ).toLowerCase()
+
+    const existingTokens = kaizenTokensByValueResult[tokenValue]
+
+    kaizenTokensByValueResult[tokenValue] = existingTokens
+      ? [...existingTokens, kaizenToken]
+      : [kaizenToken]
+
+    const colorKey = kaizenToken.color
+      ? normaliseColor(kaizenToken.color)
       : undefined
-    return {
-      ...acc,
-      [key]: existingValues ? [...existingValues, token] : [token],
-      ...(token.color && {
-        [token.color.toLowerCase()]: existingNewColorValues
-          ? [...existingNewColorValues, token]
-          : [token],
-      }),
+
+    // If the token is a color, lets add another key to the result for it's normalised value.
+    // We'd like the indices of the map to contain normalised colors so that they can be looked up in a consistent way.
+    if (colorKey) {
+      const existingValuesOfColorKey = colorKey
+        ? kaizenTokensByValueResult[colorKey]
+        : undefined
+
+      kaizenTokensByValueResult[colorKey] = existingValuesOfColorKey
+        ? [...existingValuesOfColorKey, kaizenToken]
+        : [kaizenToken]
     }
-  },
-  {} as Record<string, KaizenToken[] | undefined>
-)
+  }
+  return kaizenTokensByValueResult
+})()

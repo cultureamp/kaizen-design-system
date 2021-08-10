@@ -16,7 +16,7 @@
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "dependencies": {
-    "color-string": "^1.6.0",
+    "color": "^4.0.1",
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",
@@ -30,6 +30,7 @@
     "@kaizen/design-tokens": "^2.10.3"
   },
   "devDependencies": {
+    "@types/color": "^3.0.2",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^14.14.37",

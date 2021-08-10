@@ -1,7 +1,6 @@
 // Migrated from https://github.com/cultureamp/node-packages/tree/0407d85/packages/stylelint-kaizen/lib
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
-import colorString from "color-string"
 import { Root } from "postcss"
 import stylelint from "stylelint"
 import postcssValueParser from "postcss-value-parser"
@@ -9,6 +8,7 @@ import { kaizenTokensByValue } from "../util/kaizenTokens"
 import { KaizenToken, Options, RuleDefinition } from "../types"
 import { variablePrefixForLanguage } from "../util/utils"
 import { deprecatedTokenReplacements } from "../../deprecatedTokens"
+import { normaliseColor } from "../util/colors"
 
 /**
  * A ranking strategy that causes the preference of tokens with the substring "color" in it, over ones that don't.
@@ -78,15 +78,11 @@ export const preferColorTokens: RuleDefinition = {
           return
         }
 
-        const parsedColor = colorString.get(value)
+        const normalisedColor = normaliseColor(value)
 
         // Only continue if we are dealing with a color
-        if (parsedColor) {
-          const parsedColorHex = colorString.to
-            .hex(parsedColor.value)
-            .toLowerCase()
-
-          const matchingKaizenToken = colorMap[parsedColorHex]
+        if (normalisedColor) {
+          const matchingKaizenToken = colorMap[normalisedColor]
           if (matchingKaizenToken) {
             const expectedValue = `${variablePrefixForLanguage(
               options.language
@@ -95,7 +91,7 @@ export const preferColorTokens: RuleDefinition = {
             if (options.fix) {
               node.value = expectedValue
             } else {
-              const message = messages.expected(expectedValue, parsedColorHex)
+              const message = messages.expected(expectedValue, normalisedColor)
               options.reporter({
                 message,
                 node: decl,

@@ -2,13 +2,8 @@
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
 import postcss from "postcss"
-import colorString from "color-string"
 import { defaultTheme } from "../../../design-tokens"
 import { messages, preferColorTokens } from "./prefer-color-tokens"
-
-function toRgb(color: string) {
-  return colorString.to.rgb(colorString.get(color)!.value)
-}
 
 const tests = {
   accept: [
