@@ -31,7 +31,7 @@ These rules are included by default:
 - `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
 - `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
-- `kaizen/prefer-color-tokens` - Detects inlined color values (in any kind of form such as hex, rgba, hsl, hwb etc) and recommends (or automatically commits) replacements for them if they have the same value as an existing non-deprecated Kaizen token.
+- `kaizen/prefer-color-tokens` - Detects inlined color values (in any kind of form such as hex, rgba, hsl, hwb etc) and recommends and replaces Kaizen tokens for them if one is found with the same value. Only non-deprecated tokens will be recommended.
 
 Also available, but not enabled by default:
 
