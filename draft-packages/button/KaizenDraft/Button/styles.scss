@@ -56,7 +56,7 @@ $caButton-verticalPaddingForm: calc(
   box-sizing: border-box;
   min-height: $caButton-height;
   border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: 0;
   position: relative;
   text-align: center;
   cursor: pointer;
