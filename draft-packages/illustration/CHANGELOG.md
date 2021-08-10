@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.4.2...@kaizen/draft-illustration@2.4.3) (2021-08-10)
+
+
+### Bug Fixes
+
+* Fix Chrome issue for BrandMomentCapture ([#1820](https://github.com/cultureamp/kaizen-design-system/issues/1820)) ([1346d6e](https://github.com/cultureamp/kaizen-design-system/commit/1346d6ea55cacc9df4caed141b3aae9f911a5763))
+
+
+
+
+
 ## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.4.1...@kaizen/draft-illustration@2.4.2) (2021-08-09)
 
 
