@@ -1,13 +1,14 @@
-@import "~@kaizen/design-tokens/sass/layout-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
+
+@import "~@kaizen/design-tokens/sass/layout";
 
 .container {
   margin-top: 20px;
   padding: 1rem;
   display: flex;
-  max-width: $kz-var-layout-content-max-width;
+  max-width: $layout-content-max-width;
   margin: 0 auto;
-  background-color: $kz-var-color-stone;
+  background-color: $color-gray-100;
 }
 
 .sidebar {
@@ -15,7 +16,7 @@
 }
 
 .content {
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
   border-radius: 7px;
   width: 100%;
 }

@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
@@ -48,22 +47,21 @@ $control-height: $ca-grid * 2;
   min-height: $control-height;
   position: relative;
   box-sizing: border-box;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    // Iron for Heart theme and Wisteria500 for Zen. Switching not needed when Zen is removed.
-    var($kz-var-id-color-iron, $kz-var-color-wisteria-500);
-  border-radius: $kz-var-border-solid-border-radius;
+  border: $border-solid-border-width $border-solid-border-style
+    var($color-gray-500-id, $color-purple-500);
+  border-radius: $border-solid-border-radius;
   /* Tech debt - this !important existed before Stylelint rules */
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:not(.disabled):hover {
     // Slate on Heart theme, Wisteria700 on Zen. Switching not needed when Zen is removed.
-    border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-700);
+    border-color: var($color-gray-600-id, $color-purple-700);
     // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed
-    background-color: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
+    background-color: var($color-gray-100-id, $color-purple-100);
   }
 
   &.isFocused {
-    @include select-border($color: $kz-var-color-cluny-500);
+    @include select-border($color: $color-blue-500);
   }
 }
 
@@ -82,9 +80,7 @@ $control-height: $ca-grid * 2;
   }
 
   .controlHasUnconstrainedHeight & {
-    min-height: calc(
-      #{$control-height} - (#{$kz-var-border-solid-border-width} * 2)
-    );
+    min-height: calc(#{$control-height} - (#{$border-solid-border-width} * 2));
   }
 }
 
@@ -108,16 +104,16 @@ $control-height: $ca-grid * 2;
 }
 
 .faded {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
 }
 
 .bold {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   font-weight: $ca-weight-book;
 }
 
 .fadedBold {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   font-weight: $ca-weight-book;
 }
 
@@ -152,9 +148,9 @@ $control-height: $ca-grid * 2;
   width: 100%;
   box-sizing: border-box;
   // Temporary 6px until we redesign this component with Inter
-  border: 6px $kz-var-border-solid-border-style transparent;
-  border-radius: $kz-var-border-solid-border-radius;
-  box-shadow: $kz-var-shadow-large-box-shadow;
+  border: 6px $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
   z-index: 1;
 }
 
@@ -182,24 +178,24 @@ $control-height: $ca-grid * 2;
   outline: none;
 
   &.isTarget:not(.isSelected) {
-    color: $kz-var-color-cluny-500;
-    background-color: $kz-var-color-cluny-100;
+    color: $color-blue-500;
+    background-color: $color-blue-100;
   }
 
   &:focus:not(.isSelected) {
-    background-color: $kz-var-color-cluny-100;
+    background-color: $color-blue-100;
   }
 
   &.isFocused:not(.isSelected) {
-    background-color: $kz-var-color-cluny-100;
+    background-color: $color-blue-100;
   }
 }
 
 .isSelected {
-  background-color: $kz-var-color-cluny-100;
+  background-color: $color-blue-100;
 
   &:hover {
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
   }
 }
 
@@ -209,7 +205,7 @@ $control-height: $ca-grid * 2;
 }
 
 .cautionary {
-  @include select-border($color: $kz-var-color-yuzu-300);
+  @include select-border($color: $color-yellow-300);
 
   &:hover {
     box-shadow: none;
@@ -217,7 +213,7 @@ $control-height: $ca-grid * 2;
 }
 
 .error {
-  @include select-border($color: $kz-var-color-coral-200);
+  @include select-border($color: $color-red-200);
 
   &:hover {
     box-shadow: none;
@@ -229,7 +225,7 @@ $control-height: $ca-grid * 2;
 }
 
 .clearButtonWrapper {
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 70%);
+  color: rgba($color-purple-800-rgb, 70%);
   height: 20px;
   position: relative;
   top: -14px;

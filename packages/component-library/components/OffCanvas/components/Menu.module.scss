@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
 @import "@kaizen/deprecated-component-library-helpers/styles/color";
 @import "@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/border";
@@ -9,10 +9,10 @@
   list-style-type: none;
 
   &.primary {
-    border-bottom: solid 1px $kz-var-color-wisteria-500;
+    border-bottom: solid 1px $color-purple-500;
   }
 }
 
 .active {
-  background-color: $kz-var-color-wisteria-700;
+  background-color: $color-purple-700;
 }

@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -84,7 +84,7 @@ $tableOfContents-width: $ca-grid * 10;
   font-weight: 500;
   margin: 1.5rem 0.75rem 0.75rem;
   letter-spacing: 0.03125em;
-  color: rgba($kz-var-color-wisteria-700-rgb-params, 0.8);
+  color: rgba($color-purple-700-rgb, 0.8);
 }
 
 .tabList {
@@ -109,13 +109,13 @@ $tableOfContents-width: $ca-grid * 10;
     color: inherit;
 
     &:hover {
-      background-color: $kz-var-color-ash;
+      background-color: $color-gray-300;
     }
   }
 
   &.active {
-    background-color: $kz-var-color-ash;
-    color: $kz-var-color-cluny-500;
+    background-color: $color-gray-300;
+    color: $color-blue-500;
   }
 }
 
@@ -127,8 +127,8 @@ $tableOfContents-width: $ca-grid * 10;
 }
 
 .tableOfContentsLabel {
-  font-size: $kz-var-typography-heading-5-font-size;
-  font-weight: $kz-var-typography-paragraph-bold-font-weight;
+  font-size: $typography-heading-5-font-size;
+  font-weight: $typography-paragraph-bold-font-weight;
   margin: 0.5rem 0;
   opacity: 0.75;
 }
@@ -156,7 +156,7 @@ $tableOfContents-width: $ca-grid * 10;
     border-radius: 7px;
   }
   a:hover {
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
   }
   ol {
     list-style-type: none;
