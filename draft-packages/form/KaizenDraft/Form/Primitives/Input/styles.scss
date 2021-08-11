@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
@@ -15,7 +15,7 @@ $input-height: 48px;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
-$input-disabled-background: $kz-var-color-ash;
+$input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
@@ -31,9 +31,8 @@ $input-disabled-border-alpha: 50%;
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    transparent;
-  border-radius: $kz-var-border-solid-border-radius;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius;
   display: block;
   font-size: 1rem;
   line-height: 1.5;
@@ -59,10 +58,7 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: rgba(
-        $kz-var-color-wisteria-800-rgb-params,
-        $input-disabled-opacity
-      );
+      color: rgba($color-purple-800-rgb, $input-disabled-opacity);
     }
   }
 }
@@ -71,9 +67,9 @@ $input-disabled-border-alpha: 50%;
   $focus-ring-offset: 3px;
   position: absolute;
   background: transparent;
-  border-radius: $kz-var-border-focus-ring-border-radius;
-  border-width: $kz-var-border-focus-ring-border-width;
-  border-style: $kz-var-border-focus-ring-border-style;
+  border-radius: $border-focus-ring-border-radius;
+  border-width: $border-focus-ring-border-width;
+  border-style: $border-focus-ring-border-style;
   border-color: transparent;
   top: -$focus-ring-offset;
   left: -$focus-ring-offset;
@@ -148,7 +144,7 @@ $input-disabled-border-alpha: 50%;
 .withStartIconAdornment {
   /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
     opacity: 0.5;
   }
 
@@ -172,7 +168,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed
 .withStartIconAdornment.withReversed {
   .startIconAdornment {
-    color: $kz-var-color-white;
+    color: $color-white;
     opacity: 1;
   }
 
@@ -195,7 +191,7 @@ $input-disabled-border-alpha: 50%;
 
 // Default
 .input.default {
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
   color: $dt-color-form-text-color;
   border-color: $dt-color-form-border-color;
   display: flex;
@@ -217,7 +213,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($kz-var-color-wisteria-800-rgb-params, $input-disabled-opacity);
+    color: rgba($color-purple-800-rgb, $input-disabled-opacity);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -231,18 +227,18 @@ $input-disabled-border-alpha: 50%;
 
 // Reversed (Dark Backgrounds)
 .input.reversed {
-  color: $kz-var-color-white;
-  border-color: rgba($kz-var-color-white-rgb-params, 0.65);
+  color: $color-white;
+  border-color: rgba($color-white-rgb, 0.65);
 
   @include form-input-placeholder {
-    color: $kz-var-color-white;
+    color: $color-white;
     opacity: $input-placeholder-opacity;
   }
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
-    background: rgba($kz-var-color-white-rgb-params, 0.1);
-    border-color: $kz-var-color-white;
+    background: rgba($color-white-rgb, 0.1);
+    border-color: $color-white;
   }
 
   &:focus + .focusRing {
@@ -250,11 +246,8 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($kz-var-color-white-rgb-params, $input-disabled-opacity);
-    border-color: rgba(
-      $kz-var-color-white-rgb-params,
-      $input-disabled-border-alpha
-    );
+    color: rgba($color-white-rgb, $input-disabled-opacity);
+    border-color: rgba($color-white-rgb, $input-disabled-border-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

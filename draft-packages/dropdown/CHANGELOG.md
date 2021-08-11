@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.111](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.110...@kaizen/draft-dropdown@1.3.111) (2021-08-11)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
 ## [1.3.110](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.109...@kaizen/draft-dropdown@1.3.110) (2021-08-09)
 
 

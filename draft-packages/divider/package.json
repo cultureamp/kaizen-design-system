@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-divider",
-  "version": "1.4.7",
+  "version": "1.5.0",
   "description": "The draft divider component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

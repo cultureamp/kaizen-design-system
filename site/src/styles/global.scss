@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
@@ -19,8 +19,8 @@ html {
 }
 
 body {
-  background-color: $kz-var-color-stone;
-  color: $kz-var-color-wisteria-800;
+  background-color: $color-gray-100;
+  color: $color-purple-800;
   font-family: $ca-inter-font-family;
 
   @include ca-media-mobile() {
@@ -29,7 +29,7 @@ body {
 }
 
 a {
-  color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   word-break: break-word;
 }
 
@@ -42,7 +42,7 @@ pre {
 
 code {
   line-height: inherit;
-  background-color: $kz-var-color-stone;
+  background-color: $color-gray-100;
   padding: 0.25em;
   border-radius: 0.25em;
 }

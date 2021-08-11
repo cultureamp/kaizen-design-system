@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "../../decision-tokens.scss";
@@ -22,7 +22,7 @@ $label-start-margin: 10px;
 }
 
 .reversed {
-  color: $kz-var-color-white;
+  color: $color-white;
 }
 
 ///////////////////////////////////////////////////
@@ -75,11 +75,11 @@ $label-start-margin: 10px;
 }
 
 .prominent {
-  font-family: $kz-var-typography-heading-4-font-family;
-  font-weight: $kz-var-typography-heading-4-font-weight;
-  font-size: $kz-var-typography-heading-4-font-size;
-  line-height: $kz-var-typography-heading-4-line-height;
-  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+  font-family: $typography-heading-4-font-family;
+  font-weight: $typography-heading-4-font-weight;
+  font-size: $typography-heading-4-font-size;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
   display: block;
-  margin-bottom: $kz-var-spacing-xs;
+  margin-bottom: $spacing-xs;
 }

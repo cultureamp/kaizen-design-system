@@ -1,4 +1,5 @@
 module.exports = {
+  extends: ["./packages/stylelint-plugin/dev-config.js"],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.53...@kaizen/draft-tabs@4.2.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
 ## [4.1.53](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.52...@kaizen/draft-tabs@4.1.53) (2021-08-09)
 
 

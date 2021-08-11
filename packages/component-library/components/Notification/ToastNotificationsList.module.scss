@@ -11,17 +11,17 @@
   padding-bottom: 0;
   padding-top: 160px + 12px;
   position: fixed;
-  right: $kz-spacing-md;
+  right: $spacing-md;
   top: 0;
   bottom: 0;
   z-index: $ca-z-index-fixed;
   max-width: 100%;
   pointer-events: none;
 
-  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+  @media (max-width: $layout-breakpoints-large - 1px) {
     padding-top: 108px;
   }
-  @media (max-width: $kz-layout-breakpoints-medium - 1px) {
-    left: $kz-spacing-md;
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    left: $spacing-md;
   }
 }

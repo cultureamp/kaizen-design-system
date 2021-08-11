@@ -1,87 +1,55 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
-
+@import "~@kaizen/design-tokens/sass/color";
 // General purpose tokens
-$dt-color-form-border-color: var(
-  $kz-var-id-color-iron,
-  $kz-var-color-wisteria-500
-);
-$dt-color-form-border-color-focus: $kz-var-color-cluny-500;
-$dt-color-form-border-color-hover: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
-);
-$dt-color-form-border-color-reversed-focus: $kz-var-color-cluny-300;
-$dt-color-form-text-color: $kz-var-color-wisteria-800;
-$dt-color-form-text-color-reversed: $kz-var-color-white;
-$dt-color-form-text-color-label: rgba(
-  $kz-var-color-wisteria-800-rgb-params,
-  0.75
-);
-$dt-color-form-text-color-label-reversed: rgba(
-  $kz-var-color-white-rgb-params,
-  0.8
-);
-$dt-color-form-color-icon-reversed: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
-);
-$dt-color-form-text-color-placeholder: rgba(
-  $kz-var-color-wisteria-800-rgb-params,
-  0.7
-);
+$dt-color-form-border-color: var($color-gray-500-id, $color-purple-500);
+$dt-color-form-border-color-focus: $color-blue-500;
+$dt-color-form-border-color-hover: var($color-gray-600-id, $color-purple-700);
+$dt-color-form-border-color-reversed-focus: $color-blue-300;
+$dt-color-form-text-color: $color-purple-800;
+$dt-color-form-text-color-reversed: $color-white;
+$dt-color-form-text-color-label: rgba($color-purple-800-rgb, 0.75);
+$dt-color-form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
+$dt-color-form-color-icon-reversed: var($color-gray-600-id, $color-purple-700);
+$dt-color-form-text-color-placeholder: rgba($color-purple-800-rgb, 0.7);
 
 // component specific tokens
 $dt-color-checkbox-background-color-checked: var(
-  $kz-var-id-color-iron,
-  $kz-var-color-wisteria-500
+  $color-gray-500-id,
+  $color-purple-500
 );
 $dt-color-checkbox-background-color-checked-focus: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
+  $color-gray-600-id,
+  $color-purple-700
 );
 $dt-color-checkbox-background-color-unchecked-focus: var(
-  $kz-var-id-color-stone,
-  $kz-var-color-wisteria-100
+  $color-gray-100-id,
+  $color-purple-100
 );
 $dt-color-checkbox-background-color-hover: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
+  $color-gray-600-id,
+  $color-purple-700
 );
 $dt-color-checkbox-background-color-unchecked-hover: var(
-  $kz-var-id-color-stone,
-  $kz-var-color-wisteria-100
+  $color-gray-100-id,
+  $color-purple-100
 );
 $dt-color-checkbox-border-color-checked-focus: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
+  $color-gray-600-id,
+  $color-purple-700
 );
 $dt-color-checkbox-border-color-focus: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
+  $color-gray-600-id,
+  $color-purple-700
 );
 $dt-color-checkbox-border-color-hover: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
+  $color-gray-600-id,
+  $color-purple-700
 );
-$dt-color-radio-disc-color-base: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
-);
+$dt-color-radio-disc-color-base: var($color-gray-600-id, $color-purple-700);
 $dt-color-radio-background-color-hover: var(
-  $kz-var-id-color-stone,
-  $kz-var-color-wisteria-100
+  $color-gray-100-id,
+  $color-purple-100
 );
-$dt-color-radio-border-color-focus: var(
-  $kz-var-id-color-slate,
-  $kz-var-color-wisteria-700
-);
-$dt-color-toggle-background-color: var(
-  $kz-var-id-color-ash,
-  $kz-var-color-wisteria-300
-);
-$dt-color-toggle-background-color-hover: $kz-var-color-wisteria-500;
-$dt-color-toggle-background-color-hover: rgba(
-  var($kz-var-id-color-iron-rgb-params),
-  0.4
-);
+$dt-color-radio-border-color-focus: var($color-gray-600-id, $color-purple-700);
+$dt-color-toggle-background-color: var($color-gray-300-id, $color-purple-300);
+$dt-color-toggle-background-color-hover: $color-purple-500;
+$dt-color-toggle-background-color-hover: rgba(var($color-gray-500-rgb-id), 0.4);
