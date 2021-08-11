@@ -6,6 +6,7 @@ import {
   kaizenVariableUsedNextToOperatorMessage,
   negatedKaizenVariableMessage,
   replacementCssVariableUsedWithinUnsupportedFunction,
+  deprecatedTokenInVariableMessage,
 } from "./messages"
 import { Language } from "./types"
 jest.setTimeout(10000)
@@ -256,11 +257,17 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName: "doesn't fix tokens within variables",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800;',
+    input: "$foo: $kz-color-wisteria-800;",
+    // Take the import out in the expectedOutput when breaking design-tokens. Imports for deprecated tokens are not automatically added.
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800;',
-    expectedWarningMessages: [],
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
+    expectedWarningMessages: [
+      // Note that this warning message may change when breaking design tokens, and `kz-color-wisteria-800` ceases to exist.
+      deprecatedTokenInVariableMessage(
+        "kz-color-wisteria-800",
+        "color-purple-800"
+      ),
+    ],
   },
   {
     language: "scss",
@@ -932,7 +939,7 @@ const testExamples: TestExample[] = [
     input: "$foo: $kz-var-color-wisteria-100",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-100',
-    expectedWarnings: 0,
+    expectedWarningMessages: [],
   },
   /*
   Delete the above test and replace it with this one when removing deprecated tokens from design-tokens
@@ -1011,7 +1018,6 @@ const testExamples: TestExample[] = [
         "kz-var-color-wisteria-100"
       ),
     ],
-    only: true,
   },
 ]
 

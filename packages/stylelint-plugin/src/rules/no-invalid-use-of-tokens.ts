@@ -26,7 +26,13 @@ import { containsEquationThatDoesntWorkWithCSSVariables } from "./no-invalid-use
 const deprecatedKaizenTokenPattern = new RegExp(
   `(${Array.from(deprecatedTokenReplacements.keys()).join("|")})`
 )
-function getDeprecatedKaizenTokenPatternMatches(value: string) {
+
+/**
+ * Determine if any deprecated token strings show up within the input, and return the pattern matches, allowing you to determine which ones they were.
+ */
+function getDeprecatedKaizenTokenPatternMatches(
+  value: string
+): RegExpMatchArray | null {
   return value.match(deprecatedKaizenTokenPattern)
 }
 
@@ -132,9 +138,8 @@ function detectAndFixInvalidTokens(
     return
   }
 
-  const fixAlphaModificationFunctionsResult = fixAlphaModificationFunctions(
-    nodeValue
-  )
+  const fixAlphaModificationFunctionsResult =
+    fixAlphaModificationFunctions(nodeValue)
 
   if (fixAlphaModificationFunctionsResult.errors.length) {
     fixAlphaModificationFunctionsResult.errors.forEach(error =>
@@ -316,9 +321,8 @@ function detectAndFixInvalidTokens(
     and would silently cause a style regression when upgrading to v3 of design tokens if left unchanged.
   */
   if (!reported) {
-    const deprecatedTokenMatches = getDeprecatedKaizenTokenPatternMatches(
-      newValue
-    )
+    const deprecatedTokenMatches =
+      getDeprecatedKaizenTokenPatternMatches(newValue)
     if (deprecatedTokenMatches) {
       options.reporter({
         message: containsDeprecatedKaizenTokenWithNoReplacement(
