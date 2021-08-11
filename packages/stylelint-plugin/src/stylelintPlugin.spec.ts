@@ -96,14 +96,22 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "doesn't fix variables when used as equation terms",
     input: ".foo { padding: $kz-spacing-md * 2; }",
-    expectedOutput: ".foo { padding: $kz-spacing-md * 2; }",
+    // Take the import out in the expectedOutput when breaking design-tokens. Imports for deprecated tokens are not automatically added.
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/spacing";
+      .foo { padding: $kz-spacing-md * 2; }
+    `,
     expectedWarningMessages: [invalidEquationContainingKaizenTokenMessage],
   },
   {
     language: "less",
     testName: "doesn't fix variables when used as equation terms",
     input: ".foo { padding: @kz-spacing-md * 2; }",
-    expectedOutput: ".foo { padding: @kz-spacing-md * 2; }",
+    // Take the import out in the expectedOutput when breaking design-tokens. Imports for deprecated tokens are not automatically added.
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/less/spacing";
+      .foo { padding: @kz-spacing-md * 2; }
+    `,
     expectedWarningMessages: [invalidEquationContainingKaizenTokenMessage],
   },
   {
@@ -182,7 +190,9 @@ const testExamples: TestExample[] = [
       .foo {
         background-color: darken($kz-color-cluny-700, 0.8);
       }`,
+    // Take the import out in the expectedOutput when breaking design-tokens. Imports for deprecated tokens are not automatically added.
     expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/color";
       .foo {
         background-color: darken($kz-color-cluny-700, 0.8);
       }`,
@@ -486,7 +496,9 @@ const testExamples: TestExample[] = [
         color: desaturate($kz-color-wisteria-800, $amount);
       }
     `,
+    // Take the import out in the expectedOutput when breaking design-tokens. Imports for deprecated tokens are not automatically added.
     expectedOutput: `
+    @import \"~@kaizen/design-tokens/sass/color\";
     $white: white;
     $amount: 80%;
     .mix {
@@ -915,12 +927,23 @@ const testExamples: TestExample[] = [
     expectedWarnings: 0,
   },
   {
-    testName: "removed tokens are warned about within variables",
+    testName:
+      "tokens within variable definitions can be replaced when such a token is already a CSS variable",
+    language: "scss",
+    input: "$foo: $kz-var-color-wisteria-100",
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-100',
+    expectedWarnings: 0,
+  },
+  /*
+  Delete the above test and replace it with this one when removing deprecated tokens from design-tokens
+  {
+    testName: "removed tokens are warned about within variables but not replaced",
     language: "scss",
     input: "$foo: $kz-var-color-wisteria-100",
     expectedOutput: "$foo: $kz-var-color-wisteria-100",
     expectedWarnings: 1,
-  },
+  }, */
   {
     testName:
       "tokens within variable definitions can be replaced when the replacement is not a CSS variable",
