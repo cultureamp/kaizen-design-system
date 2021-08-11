@@ -8,6 +8,7 @@ import { TextField } from "@kaizen/draft-form"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
@@ -15,12 +16,12 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 const ReversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
 export default {
-  title: "TextField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Field`,
   component: TextField,
   parameters: {
     docs: {

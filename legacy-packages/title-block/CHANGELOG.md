@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.23...@kaizen/draft-title-block@3.2.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [3.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.22...@kaizen/draft-title-block@3.1.23) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [3.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.21...@kaizen/draft-title-block@3.1.22) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.20...@kaizen/draft-title-block@3.1.21) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.19...@kaizen/draft-title-block@3.1.20) (2021-08-02)
+
+
+### Bug Fixes
+
+* Add deprecated jsdocs and wrap with withDeprecatedComponent ([#1787](https://github.com/cultureamp/kaizen-design-system/issues/1787)) ([626188e](https://github.com/cultureamp/kaizen-design-system/commit/626188e15f1b7ff7bf2046793c94e7b569fc3f1b))
+
+
+
+
+
+## [3.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.18...@kaizen/draft-title-block@3.1.19) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [3.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.17...@kaizen/draft-title-block@3.1.18) (2021-07-29)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

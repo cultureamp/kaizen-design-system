@@ -14,6 +14,7 @@ import {
   THEME_CHANGE_EVENT_TYPE,
   THEME_KEY_STORE_KEY,
 } from "./theme-switcher-addon/constants"
+import { CATEGORIES } from "./constants"
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -30,7 +31,16 @@ addParameters({
     values: backgrounds,
   },
   options: {
-    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
+    storySort: {
+      method: "alphabetical",
+      order: [
+        CATEGORIES.components,
+        CATEGORIES.helpers,
+        CATEGORIES.designTokens,
+        CATEGORIES.elm,
+        CATEGORIES.deprecated,
+      ],
+    },
   },
   docs: {
     extractComponentDescription: (component, { notes }) => {

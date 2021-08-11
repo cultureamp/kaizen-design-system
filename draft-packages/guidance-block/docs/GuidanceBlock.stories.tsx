@@ -4,11 +4,12 @@ import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { Informative } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
   .default
 
 export default {
-  title: "GuidanceBlock (React)",
+  title: `${CATEGORIES.components}/Guidance Block`,
   component: GuidanceBlock,
   parameters: {
     docs: {
@@ -17,7 +18,7 @@ export default {
           'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
       },
     },
-    backgrounds: { default: "Stone" },
+    backgrounds: { default: "Gray 100" },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),

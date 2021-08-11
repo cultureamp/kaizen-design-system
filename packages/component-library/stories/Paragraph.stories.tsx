@@ -1,9 +1,10 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Paragraph } from "../components/Paragraph"
 
 export default {
-  title: "Paragraph",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
   component: Paragraph,
   parameters: {
     docs: {
@@ -56,7 +57,7 @@ export const BodyWhite = () => (
 BodyWhite.storyName = "Body White"
 
 BodyWhite.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export const BodyPositive = () => (

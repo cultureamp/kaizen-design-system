@@ -16,8 +16,16 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
     return expect(reported === 0)
   }
 
+  test("Equations valid regardless of whether they are deprecated", () => {
+    expectEquationIsValid("$kz-layout-breakpoints-large * 5").toBe(true)
+  })
+  test("Equations are valid when their values are not CSS variables", () => {
+    expectEquationIsValid(
+      "$layout-breakpoints-large + $layout-breakpoints-medium + 5px"
+    ).toBe(true)
+  })
   test("Equations are invalid if not wrapped in calc", () => {
-    expectEquationIsValid("$kz-color-wisteria-800 * 5").toBe(false)
+    expectEquationIsValid("$kz-var-color-wisteria-800 * 5").toBe(false)
   })
 
   test("Valid equations in space separated values are supported", () => {
@@ -27,7 +35,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
   })
 
   test("Invalid equations in space separated values are detected", () => {
-    expectEquationIsValid("solid 1px + $kz-spacing-md black").toBe(false)
+    expectEquationIsValid("solid 1px + $kz-var-spacing-md black").toBe(false)
   })
 
   test("Our rule does not test/change unknown variables", () => {

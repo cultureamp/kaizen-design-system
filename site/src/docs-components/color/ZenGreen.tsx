@@ -1,9 +1,9 @@
 import * as React from "react"
 import ZenColorGroup, { ColorThemeContext } from "./ZenColorGroup"
 
-const ZenCoral = () => {
+const ZenGreen = () => {
   const { color } = React.useContext(ColorThemeContext)
-  return <ZenColorGroup colors={color.coral} />
+  return <ZenColorGroup colors={color.green} />
 }
 
-export default ZenCoral
+export default ZenGreen

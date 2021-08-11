@@ -4,6 +4,7 @@ import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
 import isChromatic from "chromatic/isChromatic"
 import React, { useState } from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./FilterMenuButton.stories.scss"
 
 /**
@@ -18,7 +19,7 @@ const withMinHeight = Story => {
 }
 
 export default {
-  title: "FilterMenuButton (React)",
+  title: `${CATEGORIES.components}/Filter Menu`,
   component: FilterMenuButton,
   parameters: {
     docs: {

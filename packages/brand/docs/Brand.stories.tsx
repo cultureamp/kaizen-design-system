@@ -1,9 +1,10 @@
 import React from "react"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 
 export default {
-  title: "Brand (React)",
+  title: `${CATEGORIES.components}/Brand`,
   component: Brand,
   parameters: {
     docs: {
@@ -16,7 +17,7 @@ export default {
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 

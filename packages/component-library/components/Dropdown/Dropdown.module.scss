@@ -1,12 +1,11 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "../../styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
 
 $width: 248px;
-$caButton-border-width: $kz-var-border-solid-border-width;
+$caButton-border-width: $border-solid-border-width;
 $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 
 .dropdown {
@@ -95,5 +94,5 @@ $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 }
 
 .reversedColor {
-  color: $kz-var-color-white;
+  color: $color-white;
 }

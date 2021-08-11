@@ -1,11 +1,7 @@
 import { Configuration } from "stylelint"
 
 const kaizenStylelintRules = {
-  "kaizen/prefer-var-tokens": [
-    true,
-    { severity: "warning", disableFixing: false },
-  ],
-  "kaizen/no-invalid-use-of-var-tokens-in-functions": [
+  "kaizen/no-invalid-use-of-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],

@@ -1,29 +1,28 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/design-tokens/sass/animation-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 $default-width: 385px;
-$option-height: $kz-var-spacing-xl;
+$option-height: $spacing-xl;
 $max-visible-options: 6;
-$navigation-transition-speed: $kz-var-animation-duration-rapid;
-$navigation-transition-easing: $kz-var-animation-easing-function-ease-in-out;
+$navigation-transition-speed: $animation-duration-rapid;
+$navigation-transition-easing: $animation-easing-function-ease-in-out;
 $delay-before-showing-loading-placeholders: 500ms;
 
 .container {
   -webkit-font-smoothing: antialiased;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $ca-border-color;
-  border-radius: $kz-var-border-solid-border-radius;
+  border: $border-solid-border-width $border-solid-border-style $ca-border-color;
+  border-radius: $border-solid-border-radius;
   display: flex;
   overflow: hidden;
   transition: height $navigation-transition-speed $navigation-transition-easing;
   max-height: calc(
     ((2 + #{$max-visible-options}) * #{$option-height}) +
-      (2 * #{$kz-var-border-solid-border-width})
+      (2 * #{$border-solid-border-width})
   );
 
   &,
@@ -41,17 +40,16 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .header {
-  background-color: $kz-var-color-wisteria-700;
-  color: $kz-var-color-wisteria-200;
+  background-color: $color-purple-700;
+  color: $color-purple-200;
 }
 
 .parent {
-  margin: 0 $kz-var-spacing-sm;
-  border: $kz-var-border-borderless-border-width
-    $kz-var-border-borderless-border-style
-    $kz-var-border-borderless-border-color;
+  margin: 0 $spacing-sm;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
   border-bottom-width: 1px;
-  border-bottom-color: $kz-var-color-wisteria-500;
+  border-bottom-color: $color-purple-500;
   height: $option-height;
   display: flex;
   align-items: center;
@@ -71,8 +69,8 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      outline: $kz-var-border-focus-ring-border-width
-        $kz-var-border-focus-ring-border-style $kz-var-color-cluny-300;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
     }
   }
 }
@@ -83,9 +81,9 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .parentButtonIcon {
-  @include ca-margin($start: -8px, $end: $kz-var-spacing-xs);
-  height: $kz-var-spacing-md;
-  width: $kz-var-spacing-md;
+  @include ca-margin($start: -8px, $end: $spacing-xs);
+  height: $spacing-md;
+  width: $spacing-md;
 }
 
 .parentButtonIcon > svg {
@@ -93,10 +91,9 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .current {
-  margin: 0 $kz-var-spacing-sm;
-  border: $kz-var-border-borderless-border-width
-    $kz-var-border-borderless-border-style
-    $kz-var-border-borderless-border-color;
+  margin: 0 $spacing-sm;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
   height: $option-height;
   display: flex;
   align-items: center;
@@ -106,7 +103,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 .currentButton {
   @include button-reset;
   @include ca-type-align-start;
-  @include ca-margin($end: $kz-var-spacing-md);
+  @include ca-margin($end: $spacing-md);
   color: inherit;
   flex: 1;
   cursor: default;
@@ -117,16 +114,16 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      outline: $kz-var-border-focus-ring-border-width
-        $kz-var-border-focus-ring-border-style $kz-var-color-cluny-300;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
     }
   }
 }
 
 .body {
   @include ca-margin($end: 4px);
-  background-color: $kz-var-color-white;
-  color: $kz-var-color-wisteria-800;
+  background-color: $color-white;
+  color: $color-purple-800;
   max-height: calc(#{$option-height} * #{$max-visible-options});
   overflow-y: auto;
 }
@@ -143,10 +140,9 @@ $delay-before-showing-loading-placeholders: 500ms;
   color: inherit;
   flex: 1 0;
   height: $option-height;
-  padding: 0 $kz-var-spacing-sm;
-  border: $kz-var-border-focus-ring-border-width
-    $kz-var-border-focus-ring-border-style
-    $kz-var-border-borderless-border-color;
+  padding: 0 $spacing-sm;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $border-borderless-border-color;
   cursor: default;
 
   // allows the .childLabelText to be truncated with white-space: nowrap
@@ -159,7 +155,7 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      border-color: $kz-var-color-cluny-500;
+      border-color: $color-blue-500;
     }
   }
 }
@@ -176,12 +172,11 @@ $delay-before-showing-loading-placeholders: 500ms;
   @include button-reset;
   color: inherit;
   height: $option-height;
-  padding: 0 $kz-var-spacing-sm;
+  padding: 0 $spacing-sm;
   display: flex;
   align-items: center;
-  border: $kz-var-border-focus-ring-border-width
-    $kz-var-border-focus-ring-border-style
-    $kz-var-border-borderless-border-color;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $border-borderless-border-color;
   cursor: default;
 
   :global(.js-focus-visible) & {
@@ -190,7 +185,7 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      border-color: $kz-var-color-cluny-500;
+      border-color: $color-blue-500;
     }
   }
 }
@@ -202,17 +197,17 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .keyboardHighlightedChild {
   composes: child;
-  background-color: $kz-var-color-wisteria-100;
+  background-color: $color-purple-100;
 }
 
 .childLabelButton:hover,
 .childDrilldownButton:hover {
-  background-color: $kz-var-color-wisteria-100;
+  background-color: $color-purple-100;
 }
 
 .childDrilldownButtonIcon {
-  height: $kz-var-spacing-md;
-  width: $kz-var-spacing-md;
+  height: $spacing-md;
+  width: $spacing-md;
 }
 
 .parentMenu,
@@ -266,7 +261,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .loadingMenu {
   composes: menu;
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
 
   .parent,
   .current {
@@ -274,7 +269,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   }
 
   .body {
-    transition: opacity $kz-var-animation-duration-deliberate
+    transition: opacity $animation-duration-deliberate
       $navigation-transition-easing;
     transition-delay: $delay-before-showing-loading-placeholders;
     opacity: 0;

@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import * as React from "react"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import { Icon } from "../Icon"
 import chevronDownIcon from "../../icons/chevron-down.icon.svg"
 import ellipsisIcon from "../../icons/ellipsis.icon.svg"
@@ -26,7 +27,7 @@ export type DropdownProps = {
  */
 class Dropdown extends React.Component<DropdownProps, DropdownState> {
   static displayName = "Dropdown"
-  static defaultProps = {
+  static defaultProps: DropdownProps = {
     iconPosition: "start",
   }
 
@@ -154,4 +155,6 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
   }
 }
 
-export default Dropdown
+export default withDeprecatedComponent(Dropdown, {
+  warning: "Dropdown is deprecated. Use @kaizen/draft-menu instead.",
+})

@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.12...@kaizen/draft-form@3.7.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.11...@kaizen/draft-form@3.6.12) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [3.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.10...@kaizen/draft-form@3.6.11) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.9...@kaizen/draft-form@3.6.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.8...@kaizen/draft-form@3.6.9) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.7...@kaizen/draft-form@3.6.8) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
 ## [3.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.6...@kaizen/draft-form@3.6.7) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-form

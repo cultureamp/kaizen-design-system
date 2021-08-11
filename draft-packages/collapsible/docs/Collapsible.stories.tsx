@@ -3,6 +3,7 @@ import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 
 import * as React from "react"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.scss"
 
 const ListItem = ({ children }: { children: JSX.Element }) => (
@@ -19,10 +20,10 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: "Collapsible (React)",
+  title: `${CATEGORIES.components}/Collapsible`,
   component: Collapsible,
   parameters: {
-    backgrounds: { default: "Stone" },
+    backgrounds: { default: "Gray 100" },
     docs: {
       description: {
         component:

@@ -7,9 +7,10 @@ import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Popover (React)",
+  title: `${CATEGORIES.components}/Popover`,
   component: PopoverRaw,
   parameters: {
     docs: {

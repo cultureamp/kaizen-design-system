@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.13...@kaizen/draft-popover@2.3.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [2.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.12...@kaizen/draft-popover@2.2.13) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [2.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.11...@kaizen/draft-popover@2.2.12) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.10...@kaizen/draft-popover@2.2.11) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.9...@kaizen/draft-popover@2.2.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.8...@kaizen/draft-popover@2.2.9) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [2.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.2.7...@kaizen/draft-popover@2.2.8) (2021-07-28)
 
 **Note:** Version bump only for package @kaizen/draft-popover

@@ -5,9 +5,10 @@ import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "LoadingSpinner (React)",
+  title: `${CATEGORIES.components}/Loading Spinner`,
   component: LoadingSpinner,
   parameters: {
     docs: {
@@ -26,7 +27,7 @@ export default {
 export const DefaultStory = () => (
   <div
     style={{
-      color: colorTokens.kz.color.seedling["400"],
+      color: colorTokens.color.green["400"],
     }}
   >
     <Box mb={2}>
@@ -50,7 +51,7 @@ DefaultStory.storyName = "Default (Kaizen Site Demo)"
 export const SizeStory = () => (
   <div
     style={{
-      color: colorTokens.kz.color.wisteria["800"],
+      color: colorTokens.color.purple["800"],
     }}
   >
     <LoadingSpinner
