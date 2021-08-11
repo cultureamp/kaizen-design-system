@@ -1,8 +1,7 @@
 import { lint } from "stylelint"
 import {
+  containsDeprecatedKaizenTokenWithNoReplacement,
   cssVariableUsedWithinUnsupportedFunction,
-  deprecatedTokenUsageWithoutReplacementMessage,
-  genericContainsDeprecatedKaizenTokenMessage,
   invalidEquationContainingKaizenTokenMessage,
   kaizenVariableUsedNextToOperatorMessage,
   negatedKaizenVariableMessage,
@@ -993,6 +992,26 @@ const testExamples: TestExample[] = [
       @include ca-margin($start: $spacing-sm);
     }`,
     expectedWarnings: 0,
+  },
+  {
+    testName: "reports on deprecated tokens in CSS variable identifiers",
+    language: "scss",
+    input: `
+      .test {
+        color: var(--kz-var-color-wisteria-100);
+      }
+    `,
+    expectedOutput: `
+      .test {
+        color: var(--kz-var-color-wisteria-100);
+      }
+    `,
+    expectedWarningMessages: [
+      containsDeprecatedKaizenTokenWithNoReplacement(
+        "kz-var-color-wisteria-100"
+      ),
+    ],
+    only: true,
   },
 ]
 

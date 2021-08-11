@@ -7,7 +7,7 @@ import {
   deprecatedTokenInVariableMessage,
   deprecatedTokenUsageMessage,
   deprecatedTokenUsageWithoutReplacementMessage,
-  genericContainsDeprecatedKaizenTokenMessage as containsDeprecatedKaizenTokenWithNoReplacement,
+  containsDeprecatedKaizenTokenWithNoReplacement,
   invalidEquationContainingKaizenTokenMessage,
   replacementCssVariableUsedWithinUnsupportedFunction,
 } from "../messages"
