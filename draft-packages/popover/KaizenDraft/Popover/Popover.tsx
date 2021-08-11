@@ -38,6 +38,7 @@ export type PopoverProps = {
    Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
   readonly referenceElement: HTMLElement | null
+  readonly isForceUpdate?: boolean
 }
 
 type PopoverModernType = React.FunctionComponent<PopoverProps>
@@ -58,12 +59,13 @@ export const Popover: PopoverModernType = ({
   singleLine = false,
   customIcon,
   referenceElement,
+  isForceUpdate,
 }: PopoverProps) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
-  const { styles: popperStyles, attributes } = usePopper(
+  const { styles: popperStyles, attributes, forceUpdate } = usePopper(
     referenceElement,
     popperElement,
     {
@@ -95,6 +97,10 @@ export const Popover: PopoverModernType = ({
       placement,
     }
   )
+
+  if (isForceUpdate && forceUpdate) {
+    forceUpdate()
+  }
 
   return (
     <div
@@ -170,7 +176,8 @@ type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
  */
 export const usePopover = (): [
   (element: HTMLElement | null) => void,
-  React.FunctionComponent<PopoverPropsWithoutRef>
+  React.FunctionComponent<PopoverPropsWithoutRef>,
+  HTMLElement | null
 ] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
@@ -188,5 +195,5 @@ export const usePopover = (): [
     [referenceElement]
   )
 
-  return [setReferenceElement, PopoverWithRef]
+  return [setReferenceElement, PopoverWithRef, referenceElement]
 }

@@ -254,6 +254,7 @@ PlacementStart.storyName = "Placement start"
 
 export const PlacementEnd = () => {
   const [referenceElementRef, Popover] = usePopover()
+
   return (
     <Container>
       <div style={{ marginTop: "1.5rem" }}>
@@ -268,3 +269,47 @@ export const PlacementEnd = () => {
 }
 
 PlacementEnd.storyName = "Placement end"
+
+export const MoveableTargetElement = () => {
+  const [setReferenceElement, PopoverWithRef, referenceElement] = usePopover()
+  let paddingOnButton = "2rem"
+  setTimeout(() => {
+    paddingOnButton = "5rem"
+  }, 5000)
+
+  // detect changes in the button component
+  // if the button component changes, then trigger update on the popover
+  // via setReferenceElement
+  const [isForceUpdate, setForceUpdate] = React.useState(false)
+
+  // Set a resize observer on the reference element.
+  const referenceElementObserver = React.useMemo(
+    () =>
+      new ResizeObserver(entries => {
+        setForceUpdate(true)
+        console.log("Resize detected")
+      }),
+    []
+  )
+  if (referenceElement) {
+    referenceElementObserver.observe(referenceElement)
+  }
+
+  return (
+    <div>
+      <button
+        id="ally-was-here"
+        ref={setReferenceElement}
+        style={{ backgroundColor: "red", padding: paddingOnButton }}
+      >
+        Click me!
+      </button>
+      <PopoverWithRef heading="Placement end" placement="bottom-start">
+        PopoverWithRef body that explains something useful, is optional, and not
+        critical to completing a task.
+      </PopoverWithRef>
+    </div>
+  )
+}
+
+MoveableTargetElement.storyName = "Moveable Target Element"
