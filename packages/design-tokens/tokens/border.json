@@ -1,30 +1,4 @@
 {
-  "kz": {
-    "border": {
-      "solid": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "solid",
-        "borderColor": "#e1e2ea"
-      },
-      "dashed": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "dashed"
-      },
-      "borderless": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "solid",
-        "borderColor": "transparent"
-      },
-      "focusRing": {
-        "borderWidth": "2px",
-        "borderRadius": "10px",
-        "borderStyle": "solid"
-      }
-    }
-  },
   "border": {
     "solid": {
       "borderWidth": "var(--border-solid-border-width, 2px)",
