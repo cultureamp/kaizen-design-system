@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.15...@kaizen/component-library@10.1.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
 ## [10.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.14...@kaizen/component-library@10.0.15) (2021-08-09)
 
 
