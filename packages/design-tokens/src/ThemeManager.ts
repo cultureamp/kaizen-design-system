@@ -1,4 +1,3 @@
-import identifiers from "../tokens/variable-identifiers.json"
 import { Theme as BaseTheme } from "./types"
 import { makeCSSVariablesOfTheme } from "./utils"
 /**
@@ -29,23 +28,13 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
 
   public getRootElement = () => this.rootElement
   public getCurrentTheme = () => this.theme
-  public getCssVariableThemeKeyIdentifier = () =>
-    identifiers["kz-var-id"].themeKey
-  public getCssVariableThemeKeyValue = () =>
-    this.rootElement.style.getPropertyValue(
-      this.getCssVariableThemeKeyIdentifier()
-    )
+
   public setRootElement = (element: HTMLElement) => {
     this.rootElement = element
   }
   public setAndApplyTheme = (theme: Theme, force?: boolean) => {
     if (!force) {
-      if (
-        this.theme === theme ||
-        // This case will happen if you load a theme initially using CSS.
-        theme.themeKey === this.getCssVariableThemeKeyValue()
-      )
-        return
+      if (this.theme === theme) return
     }
     this.theme = theme
     this.applyCurrentTheme()

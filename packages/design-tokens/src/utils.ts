@@ -1,19 +1,7 @@
 import colorString from "color-string"
 import camelToKebab from "lodash.kebabcase"
-import { heartColorNamePattern, zenColorNamePattern } from "./patterns"
 import { DeepMapObjectLeafs } from "./types"
 
-const version3VariableAugmentations = {
-  augmentWithId: true,
-  augmentWithRgbParams: false,
-  augmentWithRgb: true,
-}
-
-const version2VariableAugmentations = {
-  augmentWithId: false,
-  augmentWithRgb: false,
-  augmentWithRgbParams: true,
-}
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.
  * This function was build to support mapping theme values to their respective CSS variable identifiers.
@@ -69,9 +57,6 @@ export const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
-/** @deprecated we are transitioning to not using a top level namespace anymore */
-export const cssVariableThemeNamespace = "kz-var" as const
-
 /**
  * This function will convert an object/theme to a list of CSS variable key-value pairs, that can be used by element.style.setProperty.
  *
@@ -95,39 +80,24 @@ export const cssVariableThemeNamespace = "kz-var" as const
 export const flattenObjectToCSSVariables = (
   object: Record<string | number, unknown>
 ) => {
-  let cssVariables = {} as Record<string, string>
+  let accumulatedCssVariables = {} as Record<string, string>
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
-    const version3 = !path[0].includes("kz")
-    if (version3) {
-      // If the key is part of version 3, ignore any zen color names, and deprecated tokens
-      if (
-        (path[0] === "color" && zenColorNamePattern.test(path[1])) ||
-        path[0].toLowerCase() === "deprecated"
-      )
-        return
-    } else {
-      // If not, ignore any heart color names
-      if (path[1] === "color" && heartColorNamePattern.test(path[2])) return
-    }
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const cssVariablesOfToken = augmentCssVariable(
+    const nextCssVariables = augmentThemeKeyValue(
       path,
       key,
       value,
-      (_, v) => `${v}`,
-      version3
-        ? { ...version3VariableAugmentations, augmentWithId: false }
-        : { ...version2VariableAugmentations, augmentWithId: false }
+      (_, v) => `${v}`
     )
-    cssVariables = {
-      ...cssVariables,
-      ...cssVariablesOfToken,
+    accumulatedCssVariables = {
+      ...accumulatedCssVariables,
+      ...nextCssVariables,
     }
   })
-  return cssVariables
+  return accumulatedCssVariables
 }
 
 /**
@@ -157,7 +127,6 @@ export const flattenObjectToCSSVariables = (
  * }
  * ```
  */
-
 export const makeCSSVariableTheme = <
   ThemeType extends Record<string | number, unknown>
 >(
@@ -166,18 +135,6 @@ export const makeCSSVariableTheme = <
 ) => {
   const augmentedTheme: Record<string, unknown> = {}
   const mapper = (leafPath: string[], value: unknown) => {
-    // We can automatically tell whether we want to produce version 3 variables by looking at the top level namespace
-    const version3 = !leafPath[0].includes("kz")
-
-    if (version3) {
-      // If the key is part of version 3, ignore any zen color names
-      if (leafPath[0] === "color" && zenColorNamePattern.test(leafPath[1]))
-        return
-    } else {
-      // If not, ignore any heart color names
-      if (leafPath[1] === "color" && heartColorNamePattern.test(leafPath[2]))
-        return
-    }
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(
@@ -185,23 +142,18 @@ export const makeCSSVariableTheme = <
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentCssVariable(
+    const cssVariablesOfToken = augmentThemeKeyValue(
       leafPath,
       leafKey,
       value,
-      printValue,
-      version3 ? version3VariableAugmentations : version2VariableAugmentations
+      printValue
     )
     Object.assign(leafObject, cssVariablesOfToken)
   }
 
-  // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
   mapLeafsOfObject(theme, mapper)
-  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
-  return augmentedTheme as DeepMapObjectLeafs<ThemeType, string> & {
-    [cssVariableThemeNamespace]: DeepMapObjectLeafs<ThemeType, string>
-  }
+  return augmentedTheme as DeepMapObjectLeafs<ThemeType, string>
 }
 
 /**
@@ -221,11 +173,7 @@ export const makeCSSVariableTheme = <
  */
 export const makeCSSVariablesOfTheme = (
   theme: Record<string | number, unknown>
-) =>
-  flattenObjectToCSSVariables({
-    ...theme,
-    [cssVariableThemeNamespace]: theme,
-  })
+) => flattenObjectToCSSVariables(theme)
 
 /**
  * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --color-blah-XXX`.
@@ -244,21 +192,11 @@ export const makeCSSVariablesOfTheme = (
  *    "100-id": "--color-purple-100"
  *  }
  */
-// Rename to augmentThemeKeyValue during breaking change.
-export const augmentCssVariable = (
+const augmentThemeKeyValue = (
   path: string[],
   key: string,
   value: unknown,
-  printValue: <I>(path: string[], value: I) => string,
-  {
-    augmentWithRgbParams = true,
-    augmentWithRgb = true,
-    augmentWithId = true,
-  }: {
-    augmentWithRgbParams?: boolean
-    augmentWithRgb?: boolean
-    augmentWithId?: boolean
-  } = {}
+  printValue: <I>(path: string[], value: I) => string
 ) => {
   const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
   const result = {
@@ -270,29 +208,13 @@ export const augmentCssVariable = (
     // If the value is a color, always convert to lowercase
     result[key] = printValue(path, value).toLowerCase()
 
-    if (augmentWithRgb) {
-      const rgbPath = [...path, "rgb"]
-      const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
-      result[`${key}-rgb`] = rgbTriple
-      if (augmentWithId) {
-        result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
-      }
-    }
-
-    // DEPRECATED - REMOVE IN THE NEXT BREAKING CHANGE
-    if (augmentWithRgbParams) {
-      const rgbParamsPath = [...path, "rgb-params"]
-      const rgbTriple = printValue(
-        rgbParamsPath,
-        colorRgb.slice(0, 3).join(", ")
-      )
-      result[`${key}-rgb-params`] = rgbTriple
-    }
+    const rgbPath = [...path, "rgb"]
+    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
+    result[`${key}-rgb`] = rgbTriple
+    result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
   }
 
-  if (augmentWithId) {
-    result[`${key}-id`] = objectPathToCssVarIdentifier(path)
-  }
+  result[`${key}-id`] = objectPathToCssVarIdentifier(path)
 
   return result
 }
