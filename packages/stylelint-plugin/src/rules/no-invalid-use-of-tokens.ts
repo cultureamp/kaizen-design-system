@@ -138,8 +138,9 @@ function detectAndFixInvalidTokens(
     return
   }
 
-  const fixAlphaModificationFunctionsResult =
-    fixAlphaModificationFunctions(nodeValue)
+  const fixAlphaModificationFunctionsResult = fixAlphaModificationFunctions(
+    nodeValue
+  )
 
   if (fixAlphaModificationFunctionsResult.errors.length) {
     fixAlphaModificationFunctionsResult.errors.forEach(error =>
@@ -321,8 +322,9 @@ function detectAndFixInvalidTokens(
     and would silently cause a style regression when upgrading to v3 of design tokens if left unchanged.
   */
   if (!reported) {
-    const deprecatedTokenMatches =
-      getDeprecatedKaizenTokenPatternMatches(newValue)
+    const deprecatedTokenMatches = getDeprecatedKaizenTokenPatternMatches(
+      newValue
+    )
     if (deprecatedTokenMatches) {
       options.reporter({
         message: containsDeprecatedKaizenTokenWithNoReplacement(
