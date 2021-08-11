@@ -1,4 +1,13 @@
 import { lint } from "stylelint"
+import {
+  cssVariableUsedWithinUnsupportedFunction,
+  deprecatedTokenUsageWithoutReplacementMessage,
+  genericContainsDeprecatedKaizenTokenMessage,
+  invalidEquationContainingKaizenTokenMessage,
+  kaizenVariableUsedNextToOperatorMessage,
+  negatedKaizenVariableMessage,
+  replacementCssVariableUsedWithinUnsupportedFunction,
+} from "./messages"
 import { Language } from "./types"
 jest.setTimeout(10000)
 
@@ -17,11 +26,16 @@ const testStylelintConfig = {
 type TestExample = {
   language: Language
   testName: string
-  expectedWarnings: number
+
   input: string
   expectedOutput: string
   only?: boolean
-}
+} & (
+  | {
+      expectedWarningMessages: string[]
+    }
+  | { expectedWarnings: number }
+)
 
 const testExamples: TestExample[] = [
   {
@@ -82,17 +96,15 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "doesn't fix variables when used as equation terms",
     input: ".foo { padding: $kz-spacing-md * 2; }",
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md * 2; }',
-    expectedWarnings: 1,
+    expectedOutput: ".foo { padding: $kz-spacing-md * 2; }",
+    expectedWarningMessages: [invalidEquationContainingKaizenTokenMessage],
   },
   {
     language: "less",
     testName: "doesn't fix variables when used as equation terms",
     input: ".foo { padding: @kz-spacing-md * 2; }",
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: @kz-spacing-md * 2; }',
-    expectedWarnings: 1,
+    expectedOutput: ".foo { padding: @kz-spacing-md * 2; }",
+    expectedWarningMessages: [invalidEquationContainingKaizenTokenMessage],
   },
   {
     language: "scss",
@@ -167,16 +179,20 @@ const testExamples: TestExample[] = [
     testName:
       "knows not to change a token to a CSS variable within a function that doesn't support them",
     input: `
-      @import "~@kaizen/design-tokens/sass/color";
       .foo {
         background-color: darken($kz-color-cluny-700, 0.8);
       }`,
     expectedOutput: `
-      @import "~@kaizen/design-tokens/sass/color";
       .foo {
         background-color: darken($kz-color-cluny-700, 0.8);
       }`,
-    expectedWarnings: 1,
+    expectedWarningMessages: [
+      replacementCssVariableUsedWithinUnsupportedFunction(
+        "kz-color-cluny-700",
+        "color-blue-700",
+        "darken"
+      ),
+    ],
   },
   {
     language: "scss",
@@ -184,7 +200,6 @@ const testExamples: TestExample[] = [
       "migrates tokens within rgba, rgb, add-alpha, and other functions we don't know about",
     input: `
       @import "~@kaizen/design-tokens/sass/color";
-      @import "~@kaizen/design-tokens/sass/color-vars";
       .foo {
         color: rgba($kz-color-wisteria-800, 0.4);
         test: something-else($kz-color-yuzu-400);
@@ -199,7 +214,7 @@ const testExamples: TestExample[] = [
         another: rgb($color-blue-200-rgb);
         foo: rgba($color-purple-700-rgb, 0.9);
       }`,
-    expectedWarnings: 0,
+    expectedWarningMessages: [],
   },
   {
     language: "less",
@@ -221,23 +236,29 @@ const testExamples: TestExample[] = [
         another: rgb(@color-blue-200-rgb);
         foo: rgba(@color-purple-700-rgb, 0.9);
       }`,
-    expectedWarnings: 1,
+    expectedWarningMessages: [
+      replacementCssVariableUsedWithinUnsupportedFunction(
+        "kz-color-cluny-700",
+        "color-blue-700",
+        "darken"
+      ),
+    ],
   },
   {
     language: "scss",
     testName: "doesn't fix tokens within variables",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800;',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
-    expectedWarnings: 1,
+      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-800;',
+    expectedWarningMessages: [],
   },
   {
     language: "scss",
     testName:
       "fixes new kaizen css variable tokens when used incorrectly in rgba|rgb|add-alpha",
     input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800, 80%) }',
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 80%) }',
     expectedWarnings: 0,
@@ -247,7 +268,7 @@ const testExamples: TestExample[] = [
     testName:
       "fixes new kaizen css variable tokens when used incorrectly in rgba|rgb|add-alpha",
     input:
-      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800, 80%) }',
+      '@import "~@kaizen/design-tokens/less/color"; .foo { color: rgba(@color-purple-800, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color"; .foo { color: rgba(@color-purple-800-rgb, 80%) }',
     expectedWarnings: 0,
@@ -324,20 +345,26 @@ const testExamples: TestExample[] = [
     testName:
       "doesn't fix ambiguous case of negation (knows if it's an equation and not a negation - all it takes is a space)",
     input:
-      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $spacing-lg; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
-    expectedWarnings: 1,
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $spacing-lg; }',
+    expectedWarningMessages: [
+      invalidEquationContainingKaizenTokenMessage,
+      kaizenVariableUsedNextToOperatorMessage,
+    ],
   },
   {
     language: "less",
     testName:
-      "negation of old token is detected as an equation, but not fixed in LESS",
+      "negation of CSS var token is detected as an equation, but not fixed in LESS",
     input:
-      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
+      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@spacing-lg; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
-    expectedWarnings: 1,
+      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@spacing-lg; }',
+    expectedWarningMessages: [
+      invalidEquationContainingKaizenTokenMessage,
+      negatedKaizenVariableMessage,
+    ],
   },
   {
     language: "scss",
@@ -411,13 +438,27 @@ const testExamples: TestExample[] = [
       color: desaturate($color-purple-800, $amount);
     }
   `,
-    expectedWarnings: 8,
+    expectedWarningMessages: [
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "mix"),
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "shade"),
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "tint"),
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "darken"),
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "lighten"),
+      cssVariableUsedWithinUnsupportedFunction(
+        "color-purple-800",
+        "adjust-hue"
+      ),
+      cssVariableUsedWithinUnsupportedFunction("color-purple-800", "saturate"),
+      cssVariableUsedWithinUnsupportedFunction(
+        "color-purple-800",
+        "desaturate"
+      ),
+    ],
   },
   {
     language: "scss",
     testName: "also warns about deprecated tokens in color mixing functions",
     input: `
-      @import "~@kaizen/design-tokens/sass/color";
       $white: white;
       $amount: 80%;
       .mix {
@@ -446,7 +487,6 @@ const testExamples: TestExample[] = [
       }
     `,
     expectedOutput: `
-    @import "~@kaizen/design-tokens/sass/color";
     $white: white;
     $amount: 80%;
     .mix {
@@ -543,7 +583,7 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "add-alpha percentage parameter is normalised",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70) }',
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($color-purple-800, 70) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 0.7) }',
     expectedWarnings: 0,
@@ -553,7 +593,7 @@ const testExamples: TestExample[] = [
     testName:
       "add-alpha percentage parameter is normalised and supports floats",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70.1234) }',
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($color-purple-800, 70.1234) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 0.701234) }',
     expectedWarnings: 0,
@@ -619,50 +659,30 @@ const testExamples: TestExample[] = [
     testName:
       "transitive tokens are fixed correctly when their usages are negated, and their replacements are simple",
     input:
-      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: -$foo; }',
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $spacing-md; .foo { top: -$foo; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: calc(-1 * #{$spacing-md}); }',
-    expectedWarnings: 1,
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $spacing-md; .foo { top: calc(-1 * #{$spacing-md}); }',
+    expectedWarnings: 0,
   },
   {
     language: "scss",
     testName:
       "transitive tokens are fixed correctly when their usages are interpolated",
     input:
-      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$foo}; }',
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $spacing-md; .foo { top: #{$foo}; }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$spacing-md}; }',
-    expectedWarnings: 1,
-  },
-  {
-    language: "scss",
-    testName:
-      "transitive tokens are fixed correctly when their usages are negated, and the replacement variable value is complex",
-    input:
-      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -$focus-ring-offset }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -(($kz-border-focus-ring-border-width * 2) + 1px) }',
-    expectedWarnings: 2,
-  },
-  {
-    language: "scss",
-    testName:
-      "transitive tokens are fixed correctly when their usages are negated, and the replacement variable value is complex, and the variable is declared both locally and globally",
-    input:
-      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -$focus-ring-offset }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -(($kz-border-focus-ring-border-width * 4) + 10px) }',
-    expectedWarnings: 3,
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $spacing-md; .foo { top: #{$spacing-md}; }',
+    expectedWarnings: 0,
   },
   {
     language: "scss",
     testName:
       "transparentize functions are fixed and decimals are parsed and converted correctly",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: transparentize($kz-color-wisteria-800, 0.654); }',
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: transparentize($color-purple-800, 0.654); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: rgba($color-purple-800-rgb, 0.346); }',
-    expectedWarnings: 0,
+    expectedWarningMessages: [],
   },
   {
     language: "scss",
@@ -895,13 +915,11 @@ const testExamples: TestExample[] = [
     expectedWarnings: 0,
   },
   {
-    testName:
-      "tokens within variable definitions can be replaced when such a token is already a CSS variable",
+    testName: "removed tokens are warned about within variables",
     language: "scss",
     input: "$foo: $kz-var-color-wisteria-100",
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; $foo: $color-purple-100',
-    expectedWarnings: 0,
+    expectedOutput: "$foo: $kz-var-color-wisteria-100",
+    expectedWarnings: 1,
   },
   {
     testName:
@@ -961,8 +979,8 @@ describe("Codemod", () => {
     testName,
     input,
     expectedOutput,
-    expectedWarnings,
     only,
+    ...warnings
   }: TestExample) => {
     const testFn = only ? test.only : test
     testFn(`${language}: ${testName}`, async () => {
@@ -972,19 +990,26 @@ describe("Codemod", () => {
         code: input,
         fix: true,
       })
-      if (result.results[0]?.warnings.length !== expectedWarnings) {
-        // eslint-disable-next-line no-console
-        console.warn(
-          `Unexpected warnings for test: ${language}: ${testName}`,
-          result.results[0]?.warnings
+      if ("expectedWarnings" in warnings) {
+        if (result.results[0]?.warnings.length !== warnings.expectedWarnings) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            `Unexpected warnings for test: ${language}: ${testName}`,
+            result.results[0]?.warnings
+          )
+        }
+        expect(result.results[0]?.warnings.length).toBe(
+          warnings.expectedWarnings
+        )
+      } else {
+        expect(new Set(warnings.expectedWarningMessages)).toEqual(
+          new Set(result.results[0]?.warnings.map(warning => warning.text))
         )
       }
 
       expect(result.output.replace(/(\n|\t| )+/g, " ").trim()).toBe(
         expectedOutput.replace(/(\n|\t| )+/g, " ").trim()
       )
-
-      expect(result.results[0]?.warnings.length).toBe(expectedWarnings)
     })
   }
   testExamples.forEach(testExample)

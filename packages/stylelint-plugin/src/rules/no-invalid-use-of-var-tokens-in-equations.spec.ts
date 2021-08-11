@@ -16,7 +16,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
     return expect(reported === 0)
   }
 
-  test("Equations valid regardless of whether they are deprecated", () => {
+  test("Equations are valid regardless of whether they are deprecated", () => {
     expectEquationIsValid("$kz-layout-breakpoints-large * 5").toBe(true)
   })
   test("Equations are valid when their values are not CSS variables", () => {
@@ -25,17 +25,17 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
     ).toBe(true)
   })
   test("Equations are invalid if not wrapped in calc", () => {
-    expectEquationIsValid("$kz-var-color-wisteria-800 * 5").toBe(false)
+    expectEquationIsValid("$color-purple-800 * 5").toBe(false)
   })
 
   test("Valid equations in space separated values are supported", () => {
     // The token is a separate value in a space-separated list.
     // The actual equation has no token.
-    expectEquationIsValid("$kz-var-spacing-md 5px - 2px").toBe(true)
+    expectEquationIsValid("$spacing-md 5px - 2px").toBe(true)
   })
 
   test("Invalid equations in space separated values are detected", () => {
-    expectEquationIsValid("solid 1px + $kz-var-spacing-md black").toBe(false)
+    expectEquationIsValid("solid 1px + $spacing-md black").toBe(false)
   })
 
   test("Our rule does not test/change unknown variables", () => {
@@ -43,26 +43,26 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
   })
 
   test("Interpolation is needed inside calc()", () => {
-    expectEquationIsValid("calc($kz-var-spacing-md + 5px)").toBe(false)
+    expectEquationIsValid("calc($spacing-md + 5px)").toBe(false)
   })
 
   test("Interpolation within calc() is valid", () => {
-    expectEquationIsValid("calc(#{$kz-var-spacing-md} + 5px)").toBe(true)
+    expectEquationIsValid("calc(#{$spacing-md} + 5px)").toBe(true)
   })
 
   test("Negative values are invalid (needs to be calc)", () => {
-    expectEquationIsValid("-$kz-var-spacing-md").toBe(false)
+    expectEquationIsValid("-$spacing-md").toBe(false)
   })
 
   test("Negating values with calc() is valid", () => {
-    expectEquationIsValid("calc(#{$kz-var-spacing-md} * -1)").toBe(true)
+    expectEquationIsValid("calc(#{$spacing-md} * -1)").toBe(true)
   })
 
   test("Multiplying by a negative is valid", () => {
-    expectEquationIsValid("calc(#{$kz-var-spacing-md} * -5rem)").toBe(true)
+    expectEquationIsValid("calc(#{$spacing-md} * -5rem)").toBe(true)
   })
 
   test("Multiplying by a negative, without interpolation, is invalid", () => {
-    expectEquationIsValid("calc($kz-var-spacing-md * -5px)").toBe(false)
+    expectEquationIsValid("calc($spacing-md * -5px)").toBe(false)
   })
 })
