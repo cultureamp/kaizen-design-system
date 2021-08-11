@@ -90,7 +90,8 @@ export const flattenObjectToCSSVariables = (
       path,
       key,
       value,
-      (_, v) => `${v}`
+      (_, v) => `${v}`,
+      { augmentWithId: false }
     )
     accumulatedCssVariables = {
       ...accumulatedCssVariables,
@@ -146,7 +147,8 @@ export const makeCSSVariableTheme = <
       leafPath,
       leafKey,
       value,
-      printValue
+      printValue,
+      { augmentWithId: true }
     )
     Object.assign(leafObject, cssVariablesOfToken)
   }
@@ -196,7 +198,8 @@ const augmentThemeKeyValue = (
   path: string[],
   key: string,
   value: unknown,
-  printValue: <I>(path: string[], value: I) => string
+  printValue: <I>(path: string[], value: I) => string,
+  { augmentWithId }: { augmentWithId: boolean }
 ) => {
   const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
   const result = {
@@ -211,10 +214,13 @@ const augmentThemeKeyValue = (
     const rgbPath = [...path, "rgb"]
     const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
     result[`${key}-rgb`] = rgbTriple
-    result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
+    if (augmentWithId) {
+      result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
+    }
   }
-
-  result[`${key}-id`] = objectPathToCssVarIdentifier(path)
+  if (augmentWithId) {
+    result[`${key}-id`] = objectPathToCssVarIdentifier(path)
+  }
 
   return result
 }

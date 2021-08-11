@@ -17,10 +17,4 @@ describe(ThemeManager.name, () => {
     new ThemeManager(zenTheme, rootElement)
     assertThemeIsActive(zenTheme, rootElement)
   })
-
-  test("css variable theme key identifier is valid", () => {
-    expect(
-      new ThemeManager(zenTheme).getCssVariableThemeKeyIdentifier()
-    ).toBeDefined()
-  })
 })

@@ -150,8 +150,8 @@ describe("kaizen design tokens utilities", () => {
           dashed: {
             borderWidth: "var(--border-dashed-border-width, 2px)",
             "borderWidth-id": "--border-dashed-border-width",
-            redHerringYuzu: "var(--border-dashed-red-herring-yuzu, 5px)",
-            "redHerringYuzu-id": "--border-dashed-red-herring-yuzu",
+            red: "var(--border-dashed-red, 5px)",
+            "red-id": "--border-dashed-red",
           },
         },
       })
