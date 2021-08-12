@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.3...@kaizen/stylelint-plugin@2.0.0) (2021-08-12)
+
+
+### Features
+
+* Removal of deprecated tokens ([#1833](https://github.com/cultureamp/kaizen-design-system/issues/1833)) ([2a76935](https://github.com/cultureamp/kaizen-design-system/commit/2a76935b5cb4f32b8a7bf47880a81820c885270c))
+
+
+### BREAKING CHANGES
+
+* All deprecated tokens from version 2 no longer exist. No variables start with kz or kz-var anymore.
+
+* CSS variable declaration files `css/heart-theme.css`, `css/zen-theme.css` and `css/default-theme.css` no longer exist.
+
+* `*-vars.scss`, `*-vars.less`, `*-vars.json`  no longer exist.
+
+* Exported utilities from `@kaizen/design-tokens` have been renamed and pruned.
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.2...@kaizen/stylelint-plugin@1.2.3) (2021-08-12)
 
 
