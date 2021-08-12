@@ -70,7 +70,8 @@ const noInvalidEquations = (
           options.reporter({
             message: negatedKaizenVariableMessage,
             node: postcssNode,
-            autofixAvailable: !isVariable(postcssNode),
+            autofixAvailable:
+              !isVariable(postcssNode) && options.language === "scss",
           })
         }
 

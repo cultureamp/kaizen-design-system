@@ -44,7 +44,18 @@ export const getCSSVarsFromJson = (json: Record<any, any>) => {
 const getVarsFromKaizenModule = (moduleName: string) => {
   const sassModulePath = `@kaizen/design-tokens/sass/${moduleName}`
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`
-  const source = require(`@kaizen/design-tokens/tokens/${moduleName}.json`)
+
+  let source: any
+  try {
+    source = require(`@kaizen/design-tokens/tokens/${moduleName}.json`)
+  } catch (e) {
+    return {
+      moduleName,
+      variables: {},
+      sassModulePath,
+      lessModulePath,
+    }
+  }
 
   const variables = getCSSVarsFromJson(source)
   return {
