@@ -138,8 +138,9 @@ function detectAndFixInvalidTokens(
     return
   }
 
-  const fixAlphaModificationFunctionsResult =
-    fixAlphaModificationFunctions(nodeValue)
+  const fixAlphaModificationFunctionsResult = fixAlphaModificationFunctions(
+    nodeValue
+  )
 
   if (fixAlphaModificationFunctionsResult.errors.length) {
     fixAlphaModificationFunctionsResult.errors.forEach(error =>
