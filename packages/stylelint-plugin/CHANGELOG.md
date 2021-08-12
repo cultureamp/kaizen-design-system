@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.2...@kaizen/stylelint-plugin@1.2.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* Support design-tokens v3 in stylelint plugin ([#1836](https://github.com/cultureamp/kaizen-design-system/issues/1836)) ([d905096](https://github.com/cultureamp/kaizen-design-system/commit/d9050960571919034e0d9bb6139f07ee35e5ea52))
+
+
+
+
+
 ## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@1.2.1...@kaizen/stylelint-plugin@1.2.2) (2021-08-09)
 
 
