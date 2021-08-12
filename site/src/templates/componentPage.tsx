@@ -145,7 +145,8 @@ export const query = graphql`
         githubLabels
         health {
           designed
-          built
+          documented
+          implemented
           latestDesign
           allVariants
           responsive

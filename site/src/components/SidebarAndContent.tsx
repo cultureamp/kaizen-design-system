@@ -3,6 +3,7 @@ import { Tag } from "@kaizen/draft-tag"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
+import { healthAttributes } from "../constants"
 import markdownComponents from "./markdownComponents"
 
 import styles from "./SidebarAndContent.scss"
@@ -43,7 +44,8 @@ type ContentNeedToKnowProps = {
 
 type HealthItems = {
   designed: boolean
-  built: boolean
+  documented: boolean
+  implemented: boolean
   latestDesign: boolean
   allVariants: boolean
   responsive: boolean
@@ -113,83 +115,36 @@ export const ContentHealth = ({
   healthItems,
 }: {
   healthItems: HealthItems
-}) => {
-  const {
-    designed,
-    built,
-    latestDesign,
-    allVariants,
-    responsive,
-    internationalized,
-    accessible,
-  } = healthItems
-
-  return (
-    <div
-      className={classnames(
-        styles.contentTopSection,
-        markdownStyles.markdownContainer
-      )}
-    >
-      <markdownComponents.h2>
-        <span className="md-anchor-offset" id="health" />
-        <a className="md-heading-link" href="#health">
-          <Icon icon={linkIcon} title="Anchor" />
-        </a>
-        Health
-      </markdownComponents.h2>
-      <div className={styles.healthContent}>
-        <Tag variant={designed ? "validationPositive" : "validationNegative"}>
-          {designed ? "Designed" : "Not yet designed"}
+}) => (
+  <div
+    className={classnames(
+      styles.contentTopSection,
+      markdownStyles.markdownContainer
+    )}
+  >
+    <markdownComponents.h2>
+      <span className="md-anchor-offset" id="health" />
+      <a className="md-heading-link" href="#health">
+        <Icon icon={linkIcon} title="Anchor" />
+      </a>
+      Component health
+    </markdownComponents.h2>
+    <div className={styles.healthContent}>
+      {healthAttributes.map(attribute => (
+        <Tag
+          key={attribute.id}
+          variant={
+            healthItems[attribute.id]
+              ? "validationPositive"
+              : "validationNegative"
+          }
+        >
+          {healthItems[attribute.id] ? attribute.positive : attribute.negative}
         </Tag>
-        <Tag variant={built ? "validationPositive" : "validationNegative"}>
-          {built ? "Built" : "Not built"}
-        </Tag>
-        {built && (
-          <>
-            <Tag
-              variant={
-                latestDesign ? "validationPositive" : "validationNegative"
-              }
-            >
-              {latestDesign
-                ? "Matches latest design"
-                : "Doesn’t match latest design"}
-            </Tag>
-            <Tag
-              variant={
-                allVariants ? "validationPositive" : "validationNegative"
-              }
-            >
-              {allVariants
-                ? "Includes all variants"
-                : "Doesn’t have all variants"}
-            </Tag>
-            <Tag
-              variant={responsive ? "validationPositive" : "validationNegative"}
-            >
-              {responsive ? "Responsive" : "Not responsive"}
-            </Tag>
-            <Tag
-              variant={
-                internationalized ? "validationPositive" : "validationNegative"
-              }
-            >
-              {internationalized
-                ? "Internationalized"
-                : "Not internationalized"}
-            </Tag>
-            <Tag
-              variant={accessible ? "validationPositive" : "validationNegative"}
-            >
-              {accessible ? "Accessible" : "Not accessible"}
-            </Tag>
-          </>
-        )}
-      </div>
+      ))}
     </div>
-  )
-}
+  </div>
+)
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
   children,
