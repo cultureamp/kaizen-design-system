@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import PostCSS, { Declaration } from "postcss"
 
-import { heartColorNamePattern } from "../patterns"
+import { heartColorNamePattern } from "../lib/patterns"
 
 const readSassFile = (fileName: string) =>
   fs.readFileSync(path.join(`${__dirname}../../../sass/`, fileName))

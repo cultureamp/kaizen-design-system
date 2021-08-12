@@ -1,10 +1,10 @@
+import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
 import { ThemeManager } from "../ThemeManager"
 import { zenTheme } from "../themes"
 import { Theme } from "../types"
-import { makeCSSVariablesOfTheme } from "../utils"
 
 const assertThemeIsActive = (theme: Theme, rootElement: HTMLElement) => {
-  const variables = makeCSSVariablesOfTheme(theme)
+  const variables = makeCssVariableDefinitionsMap(theme)
   Object.entries(variables).forEach(([key, value]) => {
     expect(rootElement.style.getPropertyValue(key)).toBe(value)
   })

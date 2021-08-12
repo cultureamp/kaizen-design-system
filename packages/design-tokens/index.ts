@@ -4,11 +4,6 @@ export * from "./src/types"
 export * from "./src/ThemeManager"
 export * from "./react"
 
-export {
-  mapLeafsOfObject,
-  makeCSSVariablesOfTheme,
-  flattenObjectToCSSVariables,
-  makeCSSVariableTheme,
-  objectPathToCssVarIdentifier,
-  objectPathToCssVarReference,
-} from "./src/utils"
+export { makeCssVariableDefinitionsMap } from "./src/lib/makeCssVariableDefinitionsMap"
+export { makeCSSVariableTheme } from "./src/lib/makeCssVariableTheme"
+export { mapLeafsOfObject } from "./src/lib/mapLeafsOfObject"
