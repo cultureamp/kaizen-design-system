@@ -33,8 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-illustration": "^2.4.4",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/illustration": "^2.4.4",
     "@kaizen/hosted-assets": "^1.2.0",
     "@kaizen/responsive": "^1.1.4",
     "@types/classnames": "^2.3.1",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^2.11.0",
-    "@kaizen/draft-select": "^1.19.0",
+    "@kaizen/select": "^1.19.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

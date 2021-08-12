@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.2.0",
-    "@kaizen/draft-button": "^4.1.0",
+    "@kaizen/button": "^4.1.0",
     "@kaizen/hosted-assets": "^1.2.0",
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.6",

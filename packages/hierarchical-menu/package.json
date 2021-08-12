@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-hierarchical-menu",
+  "name": "@kaizen/hierarchical-menu",
   "version": "2.1.0",
-  "description": "The draft hierarchical-menu component",
+  "description": "The hierarchical-menu component",
   "scripts": {
     "prepublish": "yarn tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/hierarchical-menu"
+    "directory": "packages/hierarchical-menu"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,8 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-loading-placeholder": "^1.6.0",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/loading-placeholder": "^1.6.0",
     "classnames": "^2.2.6",
     "react-focus-lock": "^2.4.1",
     "react-transition-group": "^4.4.1"

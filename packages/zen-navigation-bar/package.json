@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-zen-navigation-bar",
+  "name": "@kaizen/zen-navigation-bar",
   "version": "3.3.0",
-  "description": "The draft Zen navigation bar component",
+  "description": "The Zen navigation bar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/zen-navigation-bar"
+    "directory": "packages/zen-navigation-bar"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
+    "@kaizen/button": "^4.1.0",
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",

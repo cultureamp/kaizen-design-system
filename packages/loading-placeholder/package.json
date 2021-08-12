@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-loading-placeholder",
+  "name": "@kaizen/loading-placeholder",
   "version": "1.6.0",
-  "description": "The draft Loading placeholder component",
+  "description": "The Loading placeholder component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/loading-placeholder"
+    "directory": "packages/loading-placeholder"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

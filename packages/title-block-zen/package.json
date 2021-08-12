@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-title-block-zen",
+  "name": "@kaizen/title-block-zen",
   "version": "3.4.0",
-  "description": "The draft Title Block (Zen) component",
+  "description": "The Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/title-block-zen"
+    "directory": "packages/title-block-zen"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,12 +33,12 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-avatar": "^1.6.0",
-    "@kaizen/draft-badge": "^1.5.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-menu": "^3.3.0",
-    "@kaizen/draft-select": "^1.19.0",
-    "@kaizen/draft-tag": "^1.10.0",
+    "@kaizen/avatar": "^1.6.0",
+    "@kaizen/badge": "^1.5.0",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/menu": "^3.3.0",
+    "@kaizen/select": "^1.19.0",
+    "@kaizen/tag": "^1.10.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

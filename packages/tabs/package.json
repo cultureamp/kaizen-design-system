@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-tabs",
+  "name": "@kaizen/tabs",
   "version": "4.2.0",
-  "description": "The draft Tabs component",
+  "description": "The Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/tabs"
+    "directory": "packages/tabs"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

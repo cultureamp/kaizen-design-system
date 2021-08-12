@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-title-block",
+  "name": "@kaizen/title-block",
   "version": "3.2.0",
-  "description": "The draft Title block component",
+  "description": "The Title block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -23,7 +23,7 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!**/*.snap",
-    "!draft-templates",
+    "!templates",
     "!stories",
     "!docs",
     "!tsconfig.dist.json"
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-tag": "^1.10.0",
+    "@kaizen/tag": "^1.10.0",
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",

@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-modal",
+  "name": "@kaizen/modal",
   "version": "5.7.0",
-  "description": "The draft Modal component",
+  "description": "The Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/modal"
+    "directory": "packages/modal"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -35,10 +35,10 @@
     "@headlessui/react": "^0.3.1",
     "@kaizen/component-library": "^10.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.2.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-divider": "^1.5.0",
-    "@kaizen/draft-form": "^3.7.0",
-    "@kaizen/draft-illustration": "^2.4.4",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/divider": "^1.5.0",
+    "@kaizen/form": "^3.7.0",
+    "@kaizen/illustration": "^2.4.4",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",

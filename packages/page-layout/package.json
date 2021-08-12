@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-page-layout",
+  "name": "@kaizen/page-layout",
   "version": "1.3.0",
-  "description": "The draft content block component",
+  "description": "The content block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/page-layout"
+    "directory": "packages/page-layout"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/draft-card": "^1.3.0",
-    "@kaizen/draft-page-layout": "^1.3.0",
+    "@kaizen/card": "^1.3.0",
+    "@kaizen/page-layout": "^1.3.0",
     "classnames": "^2.2.6",
     "resize-observer-polyfill": "^1.5.1"
   },

@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-filter-menu-button",
+  "name": "@kaizen/filter-menu-button",
   "version": "1.2.0",
-  "description": "The draft filter-menu-button component",
+  "description": "The filter-menu-button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/filter-menu-button"
+    "directory": "packages/filter-menu-button"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,8 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-menu": "^3.3.0",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/menu": "^3.3.0",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

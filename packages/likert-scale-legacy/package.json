@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-likert-scale-legacy",
+  "name": "@kaizen/likert-scale-legacy",
   "version": "1.2.0",
-  "description": "The draft likert-scale component",
+  "description": "The likert-scale component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/likert-scale-legacy"
+    "directory": "packages/likert-scale-legacy"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

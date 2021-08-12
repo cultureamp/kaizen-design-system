@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-events",
+  "name": "@kaizen/events",
   "version": "1.2.138",
-  "description": "The draft Events component",
+  "description": "The Events component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/events"
+    "directory": "packages/events"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-select",
+  "name": "@kaizen/select",
   "version": "1.19.0",
-  "description": "The draft Select component",
+  "description": "The Select component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/select"
+    "directory": "packages/select"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -34,9 +34,9 @@
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.2.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-form": "^3.7.0",
-    "@kaizen/draft-tag": "^1.10.0",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/form": "^3.7.0",
+    "@kaizen/tag": "^1.10.0",
     "@types/classnames": "^2.2.10",
     "@types/react-select": "^4.0.17",
     "classnames": "^2.2.6",

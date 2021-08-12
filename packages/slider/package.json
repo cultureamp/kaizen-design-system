@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-slider",
+  "name": "@kaizen/slider",
   "version": "1.5.0",
-  "description": "The draft slider component",
+  "description": "The slider component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/slider"
+    "directory": "packages/slider"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-table",
+  "name": "@kaizen/table",
   "version": "3.7.0",
-  "description": "The draft Table component",
+  "description": "The Table component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/table"
+    "directory": "packages/table"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,8 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-form": "^3.7.0",
-    "@kaizen/draft-tooltip": "^2.9.0",
+    "@kaizen/form": "^3.7.0",
+    "@kaizen/tooltip": "^2.9.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

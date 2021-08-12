@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-menu",
+  "name": "@kaizen/menu",
   "version": "3.3.0",
-  "description": "The draft Menu component",
+  "description": "The Menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/menu"
+    "directory": "packages/menu"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,8 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
-    "@kaizen/draft-divider": "^1.5.0",
+    "@kaizen/button": "^4.1.0",
+    "@kaizen/divider": "^1.5.0",
     "@popperjs/core": "^2.6.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",

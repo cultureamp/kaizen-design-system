@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-tag",
+  "name": "@kaizen/tag",
   "version": "1.10.0",
-  "description": "The draft Tag component",
+  "description": "The Tag component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/tag"
+    "directory": "packages/tag"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

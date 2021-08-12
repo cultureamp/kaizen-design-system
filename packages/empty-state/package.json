@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-empty-state",
+  "name": "@kaizen/empty-state",
   "version": "2.4.0",
-  "description": "The draft Empty state component",
+  "description": "The Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/empty-state"
+    "directory": "packages/empty-state"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-illustration": "^2.4.4",
+    "@kaizen/illustration": "^2.4.4",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

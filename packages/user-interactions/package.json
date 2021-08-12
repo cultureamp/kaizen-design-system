@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-user-interactions",
+  "name": "@kaizen/user-interactions",
   "version": "1.2.139",
-  "description": "The draft User interactions component",
+  "description": "The User interactions component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/user-interactions"
+    "directory": "packages/user-interactions"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

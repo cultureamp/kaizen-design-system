@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-dropdown",
+  "name": "@kaizen/dropdown",
   "version": "1.3.111",
-  "description": "The draft Dropdown component",
+  "description": "The Dropdown component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/dropdown"
+    "directory": "packages/dropdown"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-collapsible",
+  "name": "@kaizen/collapsible",
   "version": "2.3.0",
-  "description": "The draft Collapsible component",
+  "description": "The Collapsible component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/collapsible"
+    "directory": "packages/collapsible"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

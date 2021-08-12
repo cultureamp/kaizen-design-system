@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-tile",
+  "name": "@kaizen/tile",
   "version": "5.1.0",
-  "description": "The draft tile component",
+  "description": "The tile component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/tile"
+    "directory": "packages/tile"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-button": "^4.1.0",
+    "@kaizen/button": "^4.1.0",
     "classnames": "^2.2.6"
   }
 }
