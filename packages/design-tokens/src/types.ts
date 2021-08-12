@@ -76,20 +76,6 @@ export type Theme = {
     }
   }
   color: {
-    /**
-     * @deprecated
-     * Use purple instead of wisteria, it is being renamed.
-     */
-    wisteria: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-      "800": Hex
-    }
     purple: {
       "100": Hex
       "200": Hex
@@ -100,33 +86,7 @@ export type Theme = {
       "700": Hex
       "800": Hex
     }
-    /**
-     * @deprecated
-     * Use blue instead of cluny (soz @Cluny), it is being renamed.
-     */
-    cluny: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-    }
     blue: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-    }
-    /**
-     * @deprecated
-     * Use green instead of seedling, it is being renamed.
-     */
-    seedling: {
       "100": Hex
       "200": Hex
       "300": Hex
@@ -144,19 +104,6 @@ export type Theme = {
       "600": Hex
       "700": Hex
     }
-    /**
-     * @deprecated
-     * Use yellow instead of yuzu, it is being renamed.
-     */
-    yuzu: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-    }
     yellow: {
       "100": Hex
       "200": Hex
@@ -166,33 +113,7 @@ export type Theme = {
       "600": Hex
       "700": Hex
     }
-    /**
-     * @deprecated
-     * Use red instead of coral, it is being renamed.
-     */
-    coral: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-    }
     red: {
-      "100": Hex
-      "200": Hex
-      "300": Hex
-      "400": Hex
-      "500": Hex
-      "600": Hex
-      "700": Hex
-    }
-    /**
-     * @deprecated
-     * Use orange instead of peach, it is being renamed.
-     */
-    peach: {
       "100": Hex
       "200": Hex
       "300": Hex
@@ -219,41 +140,10 @@ export type Theme = {
       "600": Hex
     }
     white: Hex
-    /**
-     * @deprecated
-     * Use gray-300 instead of ash, it is being renamed
-     */
-    ash: Hex
-    /**
-     * @deprecated
-     * Use gray-200 instead of stone, it is being renamed
-     */
-    stone: Hex
-    /**
-     * @deprecated
-     * Use gray-500 instead of iron, it is being renamed
-     */
-    iron: Hex
-    /**
-     * @deprecated
-     * Use gray-600 instead of slate, it is being renamed
-     */
-    slate: Hex
   }
   dataViz: {
     favorable: Hex
     unfavorable: Hex
-  }
-  /**
-   * @deprecated
-   */
-  DEPRECATED: {
-    color: {
-      lapis: Hex
-      ocean: Hex
-      ink: Hex
-      paper: Hex
-    }
   }
   layout: {
     contentMaxWidth: string
