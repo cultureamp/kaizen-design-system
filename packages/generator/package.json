@@ -17,6 +17,6 @@
   ],
   "dependencies": {
     "lodash": "^4.17.15",
-    "yeoman-generator": "^4.9.0"
+    "yeoman-generator": "^5.4.1"
   }
 }
