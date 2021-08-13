@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/guidance-block",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "The Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
     "@kaizen/button": "^4.1.0",
-    "@kaizen/illustration": "^2.4.4",
+    "@kaizen/illustration": "^2.4.5",
     "@kaizen/tooltip": "^2.9.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1",

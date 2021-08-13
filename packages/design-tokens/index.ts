@@ -4,5 +4,6 @@ export * from "./src/types"
 export * from "./src/ThemeManager"
 export * from "./react"
 
-// Utils are namespaced because they are potentially useful but unrelated to direct usage of design tokens.
-export * as Utils from "./src/utils"
+export { makeCssVariableDefinitionsMap } from "./src/lib/makeCssVariableDefinitionsMap"
+export { makeCSSVariableTheme } from "./src/lib/makeCssVariableTheme"
+export { mapLeafsOfObject } from "./src/lib/mapLeafsOfObject"

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/empty-state",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "The Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.1.0",
-    "@kaizen/illustration": "^2.4.4",
+    "@kaizen/illustration": "^2.4.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

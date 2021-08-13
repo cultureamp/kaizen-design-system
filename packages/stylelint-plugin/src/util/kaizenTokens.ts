@@ -1,4 +1,4 @@
-import { Utils } from "@kaizen/design-tokens"
+import { mapLeafsOfObject } from "@kaizen/design-tokens"
 import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
 import postcssValueParser from "postcss-value-parser"
@@ -30,7 +30,7 @@ import { CSSVariable, KaizenToken } from "../types"
 export const getCSSVarsFromJson = (json: Record<any, any>) => {
   const variables = {} as Record<string, string>
 
-  Utils.mapLeafsOfObject(json, (path, value) => {
+  mapLeafsOfObject(json, (path, value) => {
     const key = path.map(kebabCase).join("-")
     variables[key] = `${value}`
   })

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/modal",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "description": "The Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -38,7 +38,7 @@
     "@kaizen/button": "^4.1.0",
     "@kaizen/divider": "^1.5.0",
     "@kaizen/form": "^3.7.0",
-    "@kaizen/illustration": "^2.4.4",
+    "@kaizen/illustration": "^2.4.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",
