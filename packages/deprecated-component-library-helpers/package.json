@@ -16,6 +16,6 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3"
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0"
   }
 }
