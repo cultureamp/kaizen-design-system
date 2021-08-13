@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Box, Paragraph } from "@kaizen/component-library"
-import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
+import { NavigationTab, TitleBlockZen } from "@kaizen/title-block-zen"
 import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -13,8 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { Container, Content } from "@kaizen/draft-page-layout"',
+        component: 'import { Container, Content } from "@kaizen/page-layout"',
       },
     },
   },

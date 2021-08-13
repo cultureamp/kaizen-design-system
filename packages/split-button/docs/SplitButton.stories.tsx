@@ -1,5 +1,5 @@
-import { MenuItem, MenuContent } from "@kaizen/draft-menu"
-import { SplitButton } from "@kaizen/draft-split-button"
+import { MenuItem, MenuContent } from "@kaizen/menu"
+import { SplitButton } from "@kaizen/split-button"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 
@@ -22,7 +22,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: ' import { SplitButton } from "@kaizen/draft-split-button" ',
+        component: ' import { SplitButton } from "@kaizen/split-button" ',
       },
     },
     ...figmaEmbed(

@@ -33,7 +33,7 @@ import KaizenDraft.Events.Events as Events
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss"
+    css "@kaizen/form/KaizenDraft/Form/Primitives/Input/styles.scss"
         { wrapper = "wrapper"
         , input = "input"
         , default = "default"

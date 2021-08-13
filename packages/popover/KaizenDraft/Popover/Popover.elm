@@ -211,11 +211,12 @@ view (Config config) =
             [ styles.classList
                 [ ( mapArrowSideToClass side, True )
                 , ( mapArrowPositionToClass position, True )
-                ], styles.class .arrowWrapper
-            ] [
-              div
+                ]
+            , styles.class .arrowWrapper
+            ]
+            [ div
                 [ styles.classList
-                  [ ( mapArrowVariantToClass config.variant, True ) ]
+                    [ ( mapArrowVariantToClass config.variant, True ) ]
                 , styles.class .arrow
                 ]
                 []
@@ -224,7 +225,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/draft-popover/KaizenDraft/Popover/styles.scss"
+    css "@kaizen/popover/KaizenDraft/Popover/styles.scss"
         { container = "container"
         , root = "root"
         , defaultBox = "defaultBox"
@@ -280,6 +281,7 @@ mapVariantToBoxClass variant =
 
         Cautionary ->
             .cautionaryBox
+
 
 mapVariantToIconClass : Variant -> { b | informativeIcon : a, positiveIcon : a, negativeIcon : a, cautionaryIcon : a } -> a
 mapVariantToIconClass variant =

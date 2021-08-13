@@ -1,5 +1,5 @@
 import { loadElmStories } from "elm-storybook"
-import Ports from "@kaizen/draft-select/KaizenDraft/Select/ports"
+import Ports from "@kaizen/select/KaizenDraft/Select/ports"
 import { CATEGORIES } from "../../../storybook/constants"
 
 const compiledElm = require("../ElmStories/SelectFieldStories.elm").Elm

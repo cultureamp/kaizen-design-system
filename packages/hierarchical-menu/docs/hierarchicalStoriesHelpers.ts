@@ -1,6 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-import { Hierarchy } from "@kaizen/draft-hierarchical-menu"
+import { Hierarchy } from "@kaizen/hierarchical-menu"
 
 export enum ResponseTime {
   INSTANT = 0,

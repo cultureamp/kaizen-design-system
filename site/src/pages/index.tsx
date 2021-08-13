@@ -1,5 +1,5 @@
 import { Heading } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"

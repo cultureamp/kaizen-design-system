@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { withDesign } from "storybook-addon-designs"
-import { Avatar } from "@kaizen/draft-avatar"
+import { Avatar } from "@kaizen/avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: 'import { Avatar } from "@kaizen/avatar"',
       },
     },
     ...figmaEmbed(

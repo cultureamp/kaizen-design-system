@@ -1,4 +1,4 @@
-import { CheckboxField } from "@kaizen/draft-form"
+import { CheckboxField } from "@kaizen/form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -54,7 +54,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { CheckboxField } from "@kaizen/draft-form";',
+        component: 'import { CheckboxField } from "@kaizen/form";',
       },
     },
     ...figmaEmbed(

@@ -10,12 +10,12 @@ module KaizenDraft.Modal.Primitives.ModalHeader exposing
     , view
     )
 
-import KaizenDraft.Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Events exposing (onClick)
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
+import KaizenDraft.Button.Button as Button
 
 
 type Config msg
@@ -193,7 +193,7 @@ preventDismissKeydown keydownDecoders (Config config) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/ModalHeader.scss"
+    css "@kaizen/modal/KaizenDraft/Modal/Primitives/ModalHeader.scss"
         { layout = "layout"
         , filler = "filler"
         , fixed = "fixed"

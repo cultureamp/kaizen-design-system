@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Container, Content } from "@kaizen/draft-page-layout"
+import { Container, Content } from "@kaizen/page-layout"
 import classNames from "classnames"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
 import styles from "./styles.scss"

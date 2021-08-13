@@ -1,4 +1,4 @@
-import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
+import { Label, RadioField, RadioGroup } from "@kaizen/form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -43,7 +43,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { RadioGroup } from "@kaizen/draft-form"',
+        component: 'import { RadioGroup } from "@kaizen/form"',
       },
     },
     ...figmaEmbed(

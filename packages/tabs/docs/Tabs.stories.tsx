@@ -1,7 +1,7 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { Card } from "@kaizen/draft-card"
-import { Tabs } from "@kaizen/draft-tabs"
-import { Divider } from "@kaizen/draft-divider"
+import { Card } from "@kaizen/card"
+import { Tabs } from "@kaizen/tabs"
+import { Divider } from "@kaizen/divider"
 import classnames from "classnames"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
@@ -15,7 +15,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Tabs } from "@kaizen/draft-tabs"',
+        component: 'import { Tabs } from "@kaizen/tabs"',
       },
     },
     ...figmaEmbed(

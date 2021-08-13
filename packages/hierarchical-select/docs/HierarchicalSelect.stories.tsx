@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
 import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
-import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"
-import { Hierarchy, HierarchyNode } from "@kaizen/draft-hierarchical-menu"
+import { Button } from "@kaizen/button"
+import { HierarchicalSelect } from "@kaizen/hierarchical-select"
+import { Hierarchy, HierarchyNode } from "@kaizen/hierarchical-menu"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
   levelZero,
@@ -70,7 +70,7 @@ export default {
   docs: {
     description: {
       component:
-        'import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"',
+        'import { HierarchicalSelect } from "@kaizen/hierarchical-select"',
     },
   },
 }

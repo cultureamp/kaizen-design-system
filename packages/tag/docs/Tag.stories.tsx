@@ -1,4 +1,4 @@
-import { Tag } from "@kaizen/draft-tag"
+import { Tag } from "@kaizen/tag"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -16,7 +16,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Tag } from "@kaizen/draft-tag"',
+        component: 'import { Tag } from "@kaizen/tag"',
       },
     },
     ...figmaEmbed(

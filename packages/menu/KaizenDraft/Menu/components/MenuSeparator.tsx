@@ -1,4 +1,4 @@
-import { Divider } from "@kaizen/draft-divider"
+import { Divider } from "@kaizen/divider"
 import * as React from "react"
 
 const MenuSeparator = () => <Divider variant="menuSeparator" />

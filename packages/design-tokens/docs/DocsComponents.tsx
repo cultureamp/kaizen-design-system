@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { Box, Paragraph } from "@kaizen/component-library"
-import { Card } from "@kaizen/draft-card"
-import { Tabs } from "@kaizen/draft-tabs"
+import { Card } from "@kaizen/card"
+import { Tabs } from "@kaizen/tabs"
 import { LinkTo } from "@storybook/addon-links/react"
 import { Meta } from "@storybook/react"
 import classNames from "classnames"

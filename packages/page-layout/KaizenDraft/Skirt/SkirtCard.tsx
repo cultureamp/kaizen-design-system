@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Card, CardProps } from "@kaizen/draft-card"
+import { Card, CardProps } from "@kaizen/card"
 import classNames from "classnames"
 import styles from "./SkirtCard.scss"
 

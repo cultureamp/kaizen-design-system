@@ -266,7 +266,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/draft-empty-state/KaizenDraft/EmptyState/styles.scss"
+    css "@kaizen/empty-state/KaizenDraft/EmptyState/styles.scss"
         { container = "container"
         , illustrationSide = "illustrationSide"
         , textSide = "textSide"

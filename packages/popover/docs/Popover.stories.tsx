@@ -2,7 +2,7 @@ import {
   PopoverLegacy,
   usePopover,
   Popover as PopoverRaw,
-} from "@kaizen/draft-popover"
+} from "@kaizen/popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
@@ -15,7 +15,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { usePopover } from "@kaizen/draft-popover"',
+        component: 'import { usePopover } from "@kaizen/popover"',
       },
     },
     ...figmaEmbed(

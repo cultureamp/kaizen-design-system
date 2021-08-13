@@ -2,7 +2,7 @@ import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 import { Icon } from "../../Icon"
 import { OffCanvas, OffCanvasContext } from "../.."
 import arrowLeftIcon from "../../../icons/arrow-left.icon.svg"

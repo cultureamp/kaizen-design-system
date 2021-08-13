@@ -1,5 +1,5 @@
-import { Divider } from "@kaizen/draft-divider"
-import { Card } from "@kaizen/draft-card"
+import { Divider } from "@kaizen/divider"
+import { Card } from "@kaizen/card"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Divider } from "@kaizen/draft-divider"',
+        component: 'import { Divider } from "@kaizen/divider"',
       },
     },
     ...figmaEmbed(

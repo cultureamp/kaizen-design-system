@@ -2,7 +2,7 @@ import * as React from "react"
 
 import classNames from "classnames"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 import { ColorScheme } from "../../types"
 
 import styles from "./Header.module.scss"

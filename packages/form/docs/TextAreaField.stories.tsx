@@ -1,4 +1,4 @@
-import { TextAreaField } from "@kaizen/draft-form"
+import { TextAreaField } from "@kaizen/form"
 import { withDesign } from "storybook-addon-designs"
 import React from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -59,7 +59,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { TextAreaField } from "@kaizen/draft-form"',
+        component: 'import { TextAreaField } from "@kaizen/form"',
       },
     },
     ...figmaEmbed(

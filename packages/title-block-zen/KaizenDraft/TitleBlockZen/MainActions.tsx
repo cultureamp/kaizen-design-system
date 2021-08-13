@@ -1,5 +1,5 @@
-import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
+import { Button, IconButton } from "@kaizen/button"
+import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"

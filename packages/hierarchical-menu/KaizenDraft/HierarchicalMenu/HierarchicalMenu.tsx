@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group"
 import FocusLock from "react-focus-lock"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
-import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
+import { LoadingPlaceholder } from "@kaizen/loading-placeholder"
 import borderTokens from "@kaizen/design-tokens/tokens/border.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 

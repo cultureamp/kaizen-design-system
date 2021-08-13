@@ -1,4 +1,4 @@
-import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
+import { CheckboxGroup, CheckboxField, Label } from "@kaizen/form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -48,7 +48,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { CheckboxGroup } from "@kaizen/draft-form";',
+        component: 'import { CheckboxGroup } from "@kaizen/form";',
       },
     },
     ...figmaEmbed(

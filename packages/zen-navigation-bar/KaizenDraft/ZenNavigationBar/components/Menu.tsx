@@ -2,7 +2,7 @@ import * as React from "react"
 import uuid from "uuid/v4"
 
 import { Icon } from "@kaizen/component-library"
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 
 import classNames from "classnames"
 import Media from "react-media"

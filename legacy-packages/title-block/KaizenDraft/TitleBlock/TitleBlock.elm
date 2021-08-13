@@ -237,7 +237,7 @@ class =
 
 
 styles =
-    css "@kaizen/draft-title-block/KaizenDraft/TitleBlock/TitleBlock.scss"
+    css "@kaizen/title-block/KaizenDraft/TitleBlock/TitleBlock.scss"
         { breadcrumb = "breadcrumb"
         , circle = "circle"
         , breadcrumbText = "breadcrumbText"

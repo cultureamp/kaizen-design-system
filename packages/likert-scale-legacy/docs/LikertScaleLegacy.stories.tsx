@@ -4,7 +4,7 @@ import {
   LikertScaleLegacy,
   Scale,
   ScaleItem,
-} from "@kaizen/draft-likert-scale-legacy"
+} from "@kaizen/likert-scale-legacy"
 import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -15,8 +15,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { LikertScale } from "@kaizen/draft-likert-scale-legacy";',
+        component: 'import { LikertScale } from "@kaizen/likert-scale-legacy";',
       },
     },
     ...figmaEmbed(

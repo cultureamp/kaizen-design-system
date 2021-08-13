@@ -1,6 +1,6 @@
 import { Box, Heading } from "@kaizen/component-library"
-import { Divider } from "@kaizen/draft-divider"
-import { ButtonProps } from "@kaizen/draft-button"
+import { Divider } from "@kaizen/divider"
+import { ButtonProps } from "@kaizen/button"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
 import ModalHeader from "../Primitives/ModalHeader"

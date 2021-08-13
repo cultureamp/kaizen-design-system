@@ -23,7 +23,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { VerticalProgressIndicator } from "@kaizen/draft-vertical-progress-step"',
+          'import { VerticalProgressIndicator } from "@kaizen/vertical-progress-step"',
       },
     },
   },

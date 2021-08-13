@@ -101,8 +101,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { AccountBasics } from "@kaizen/draft-illustration";',
+        component: 'import { AccountBasics } from "@kaizen/illustration";',
       },
     },
   },

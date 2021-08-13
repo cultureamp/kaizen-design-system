@@ -3,7 +3,7 @@ import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
-} from "@kaizen/draft-illustration"
+} from "@kaizen/illustration"
 import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"

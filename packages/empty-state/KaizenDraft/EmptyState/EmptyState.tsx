@@ -7,7 +7,7 @@ import {
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
-} from "@kaizen/draft-illustration"
+} from "@kaizen/illustration"
 import styles from "./styles.scss"
 
 const illustrations = {

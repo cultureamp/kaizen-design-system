@@ -116,7 +116,7 @@ baseTooltip body =
 
 
 styles =
-    css "@kaizen/draft-tooltip/KaizenDraft/Tooltip/TooltipElm.scss"
+    css "@kaizen/tooltip/KaizenDraft/Tooltip/TooltipElm.scss"
         { root = "root"
         , default = "default"
         , tooltipWrap = "tooltipWrap"

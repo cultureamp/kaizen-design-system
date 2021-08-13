@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import { Button } from "@kaizen/draft-button"
-import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
-import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { Button } from "@kaizen/button"
+import { ToggleSwitchField, ToggledStatus } from "@kaizen/form"
+import { Badge, BadgeAnimated } from "@kaizen/badge"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Badge } from "@kaizen/draft-badge"',
+        component: 'import { Badge } from "@kaizen/badge"',
       },
     },
     ...figmaEmbed(

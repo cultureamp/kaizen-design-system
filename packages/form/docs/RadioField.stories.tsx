@@ -1,4 +1,4 @@
-import { RadioField } from "@kaizen/draft-form"
+import { RadioField } from "@kaizen/form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -57,7 +57,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { RadioField } from "@kaizen/draft-form"',
+        component: 'import { RadioField } from "@kaizen/form"',
       },
     },
     ...figmaEmbed(

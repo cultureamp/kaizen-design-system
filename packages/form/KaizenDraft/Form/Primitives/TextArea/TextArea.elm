@@ -29,7 +29,7 @@ import KaizenDraft.Events.Events as Events
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/TextArea/styles.scss"
+    css "@kaizen/form/KaizenDraft/Form/Primitives/TextArea/styles.scss"
         { wrapper = "wrapper"
         , textarea = "textarea"
         , default = "default"

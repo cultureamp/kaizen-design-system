@@ -1,5 +1,5 @@
 import { Heading, Paragraph } from "@kaizen/component-library"
-import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
+import { LoadingPlaceholder } from "@kaizen/loading-placeholder"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -18,7 +18,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"',
+          'import { LoadingPlaceholder } from "@kaizen/loading-placeholder"',
       },
     },
     ...figmaEmbed(

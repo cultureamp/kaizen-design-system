@@ -1,11 +1,6 @@
 import { Icon } from "@kaizen/component-library"
-import { ButtonProps } from "@kaizen/draft-button"
-import {
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSeparator,
-} from "@kaizen/draft-menu"
+import { ButtonProps } from "@kaizen/button"
+import { MenuContent, MenuHeader, MenuItem, MenuSeparator } from "@kaizen/menu"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"

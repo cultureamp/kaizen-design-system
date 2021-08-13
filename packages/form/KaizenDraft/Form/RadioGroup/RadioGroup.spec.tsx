@@ -1,4 +1,4 @@
-import { RadioField } from "@kaizen/draft-form"
+import { RadioField } from "@kaizen/form"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import RadioGroup, { RadioGroupProps } from "./RadioGroup"

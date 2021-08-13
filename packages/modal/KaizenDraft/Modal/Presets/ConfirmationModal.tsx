@@ -7,9 +7,9 @@ import {
   Informative,
   Negative,
   PositiveFemale,
-} from "@kaizen/draft-illustration"
+} from "@kaizen/illustration"
 
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import {
   GenericModal,
   ModalAccessibleDescription,

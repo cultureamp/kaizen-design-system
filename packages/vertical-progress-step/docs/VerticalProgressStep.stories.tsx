@@ -1,5 +1,5 @@
 import { Paragraph } from "@kaizen/component-library"
-import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
+import { VerticalProgressStep } from "@kaizen/vertical-progress-step"
 import * as React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"',
+          'import { VerticalProgressStep } from "@kaizen/vertical-progress-step"',
       },
     },
   },

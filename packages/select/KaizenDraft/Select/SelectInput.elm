@@ -219,6 +219,6 @@ view (Config config) id_ =
 
 
 styles =
-    css "@kaizen/draft-select/KaizenDraft/Select/styles.elm.scss"
+    css "@kaizen/select/KaizenDraft/Select/styles.elm.scss"
         { autosizeInputContainer = "autosizeInputContainer"
         }

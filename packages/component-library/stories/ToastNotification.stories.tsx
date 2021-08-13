@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Button } from "@kaizen/draft-button"
-import { Link, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
-import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
+import { Button } from "@kaizen/button"
+import { Link, ZenNavigationBar } from "@kaizen/zen-navigation-bar"
+import { TitleBlockZen } from "@kaizen/title-block-zen"
 import {
   addToastNotification,
   removeToastNotification,
@@ -9,7 +9,7 @@ import {
   Box,
   ToastNotification,
 } from "@kaizen/component-library"
-import { Container, Content } from "@kaizen/draft-page-layout"
+import { Container, Content } from "@kaizen/page-layout"
 import { ToastNotificationWithOptionals } from "@kaizen/component-library/components/Notification/types"
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"

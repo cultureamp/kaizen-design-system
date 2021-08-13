@@ -85,7 +85,7 @@ module.exports = class extends Generator {
         ),
         {
           componentName: pascalCase(this.answers.name),
-          npmPackageName: `@kaizen/draft-${kebabCase(this.answers.name)}`,
+          npmPackageName: `@kaizen/${kebabCase(this.answers.name)}`,
         }
       )
     }

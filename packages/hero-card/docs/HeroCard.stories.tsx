@@ -1,5 +1,5 @@
-import { Button } from "@kaizen/draft-button"
-import { HeroCard } from "@kaizen/draft-hero-card"
+import { Button } from "@kaizen/button"
+import { HeroCard } from "@kaizen/hero-card"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -29,7 +29,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        docs: 'import { HeroCard } from "@kaizen/draft-hero-card";',
+        docs: 'import { HeroCard } from "@kaizen/hero-card";',
       },
     },
     ...figmaEmbed(

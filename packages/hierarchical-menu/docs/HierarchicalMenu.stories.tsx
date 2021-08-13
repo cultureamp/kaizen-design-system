@@ -4,7 +4,7 @@ import {
   HierarchicalMenu,
   Hierarchy,
   HierarchyNode,
-} from "@kaizen/draft-hierarchical-menu"
+} from "@kaizen/hierarchical-menu"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
   ResponseTime,
@@ -48,7 +48,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { HierarchicalMenu } from "@kaizen/draft-hierarchical-menu"',
+          'import { HierarchicalMenu } from "@kaizen/hierarchical-menu"',
       },
     },
   },

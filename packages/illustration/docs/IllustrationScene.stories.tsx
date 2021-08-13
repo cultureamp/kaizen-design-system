@@ -72,7 +72,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { SurveyOverviewClosed } from "@kaizen/draft-illustration"',
+          'import { SurveyOverviewClosed } from "@kaizen/illustration"',
       },
     },
     decorators: [withFixedWidth],

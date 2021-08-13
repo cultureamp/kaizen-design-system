@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Slider } from "@kaizen/draft-slider"
+import { Slider } from "@kaizen/slider"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Slider } from "@kaizen/draft-slider"',
+        component: 'import { Slider } from "@kaizen/slider"',
       },
     },
   },

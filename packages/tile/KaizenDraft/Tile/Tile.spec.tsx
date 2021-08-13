@@ -5,7 +5,7 @@ import {
   MultiActionTile,
   TileAction,
   TileInformation,
-} from "@kaizen/draft-tile"
+} from "@kaizen/tile"
 import { cleanup, render } from "@testing-library/react"
 
 const primaryAction: TileAction = {

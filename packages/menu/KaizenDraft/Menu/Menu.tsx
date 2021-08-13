@@ -1,4 +1,4 @@
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import React, { useState } from "react"
 import StatelessMenu, { StatelessMenuProps } from "./StatelessMenu"
 

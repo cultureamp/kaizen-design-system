@@ -1,10 +1,10 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 
 import React, { useCallback, useRef } from "react"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Tooltip } from "@kaizen/tooltip"
 import { withDesign } from "storybook-addon-designs"
 
-import { TextField } from "@kaizen/draft-form"
+import { TextField } from "@kaizen/form"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -26,7 +26,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { TextField } from "@kaizen/draft-form"',
+        component: 'import { TextField } from "@kaizen/form"',
       },
     },
     ...figmaEmbed(

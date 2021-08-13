@@ -1,6 +1,6 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { TextField } from "@kaizen/draft-form"
-import { Well } from "@kaizen/draft-well"
+import { TextField } from "@kaizen/form"
+import { Well } from "@kaizen/well"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -32,7 +32,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Well } from "@kaizen/draft-well"',
+        component: 'import { Well } from "@kaizen/well"',
       },
     },
     ...figmaEmbed(

@@ -1,5 +1,5 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { AsyncSelect, Select } from "@kaizen/draft-select"
+import { AsyncSelect, Select } from "@kaizen/select"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -68,7 +68,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
+        component: 'import { AsyncSelect, Select } from "@kaizen/select"',
       },
     },
     ...figmaEmbed(

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
@@ -13,8 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { LoadingSpinner } from "@kaizen/draft-loading-spinner"',
+        component: 'import { LoadingSpinner } from "@kaizen/loading-spinner"',
       },
     },
     ...figmaEmbed(

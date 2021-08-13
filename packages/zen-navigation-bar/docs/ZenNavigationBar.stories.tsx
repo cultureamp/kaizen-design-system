@@ -1,13 +1,13 @@
 import * as React from "react"
 import { Icon, Paragraph, Box } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import {
   Link,
   Menu,
   ZenNavigationBar,
   ZenControlledOffCanvas,
-} from "@kaizen/draft-zen-navigation-bar"
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
+} from "@kaizen/zen-navigation-bar"
+import { ColorScheme } from "@kaizen/zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import caIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"

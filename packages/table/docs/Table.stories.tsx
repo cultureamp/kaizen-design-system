@@ -1,6 +1,6 @@
 import { Paragraph } from "@kaizen/component-library"
-import { IconButton, Button } from "@kaizen/draft-button"
-import { CheckboxField } from "@kaizen/draft-form"
+import { IconButton, Button } from "@kaizen/button"
+import { CheckboxField } from "@kaizen/form"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -128,7 +128,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
+          'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/table"',
       },
     },
     ...figmaEmbed(

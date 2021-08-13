@@ -308,12 +308,12 @@ children value (Config config) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/InputEditModal.scss"
+    css "@kaizen/modal/KaizenDraft/Modal/Presets/InputEditModal.scss"
         { header = "header"
         }
 
 
 genericStyles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
         { defaultModalWidth = "defaultModalWidth"
         }

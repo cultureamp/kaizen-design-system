@@ -262,7 +262,7 @@ menuItemView { label, action } =
 
 
 styles =
-    css "@kaizen/draft-split-button/KaizenDraft/SplitButton/styles.scss"
+    css "@kaizen/split-button/KaizenDraft/SplitButton/styles.scss"
         { root = "root"
         , buttonsContainer = "buttonsContainer"
         , label = "label"

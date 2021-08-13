@@ -1,5 +1,5 @@
-import { Button } from "@kaizen/draft-button"
-import { TitleBlock } from "@kaizen/draft-title-block"
+import { Button } from "@kaizen/button"
+import { TitleBlock } from "@kaizen/title-block"
 import * as React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -41,7 +41,7 @@ export default {
     info: {
       text: `
       # Deprecated
-      This component is now deprecated. Please use @kaizen/draft-zen-title-block instead.
+      This component is now deprecated. Please use @kaizen/zen-title-block instead.
       `,
     },
   },

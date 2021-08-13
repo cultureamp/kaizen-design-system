@@ -1,8 +1,8 @@
 import React from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Box } from "@kaizen/component-library"
-import { Select } from "@kaizen/draft-select"
-import { Button } from "@kaizen/draft-button"
+import { Select } from "@kaizen/select"
+import { Button } from "@kaizen/button"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import styles from "./ExampleHeaders.scss"
 

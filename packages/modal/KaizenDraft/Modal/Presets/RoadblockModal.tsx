@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { Heading } from "@kaizen/component-library"
-import { Negative } from "@kaizen/draft-illustration"
+import { Negative } from "@kaizen/illustration"
 
 import {
   GenericModal,

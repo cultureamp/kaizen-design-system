@@ -4,8 +4,8 @@ import {
   InlineNotification,
   Paragraph,
 } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
-import { TextField } from "@kaizen/draft-form"
+import { Button } from "@kaizen/button"
+import { TextField } from "@kaizen/form"
 import {
   ConfirmationModal,
   GenericModal,
@@ -17,14 +17,14 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
-} from "@kaizen/draft-modal"
+} from "@kaizen/modal"
 import isChromatic from "chromatic/isChromatic"
 
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import { Negative, ExecutiveReportSharing } from "@kaizen/draft-illustration"
+import { Negative, ExecutiveReportSharing } from "@kaizen/illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import { CATEGORIES } from "../../../storybook/constants"
@@ -84,7 +84,7 @@ export default {
         component:
           "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
           "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
-          'ModalHeader } from "@kaizen/draft-modal"',
+          'ModalHeader } from "@kaizen/modal"',
       },
     },
     ...figmaEmbed(

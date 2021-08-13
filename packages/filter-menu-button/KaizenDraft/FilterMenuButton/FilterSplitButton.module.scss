@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
-// The styling and mixin in this file originally comes from @kaizen/draft-button styles.module.scss and I modify it to suit with the `SplitButton` for `FilterMenuButton`.
+// The styling and mixin in this file originally comes from @kaizen/button styles.module.scss and I modify it to suit with the `SplitButton` for `FilterMenuButton`.
 
 @mixin button-reset {
   appearance: none;

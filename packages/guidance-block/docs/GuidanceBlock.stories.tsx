@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { Informative } from "@kaizen/draft-illustration"
+import { GuidanceBlock } from "@kaizen/guidance-block"
+import { Informative } from "@kaizen/illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -14,8 +14,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
+        component: 'import { GuidanceBlock } from "@kaizen/guidance-block";',
       },
     },
     backgrounds: { default: "Gray 100" },

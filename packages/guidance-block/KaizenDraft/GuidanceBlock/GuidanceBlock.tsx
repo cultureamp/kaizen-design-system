@@ -1,14 +1,14 @@
 import * as React from "react"
 
-import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
-import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
+import { Tooltip, TooltipProps } from "@kaizen/tooltip"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import Media from "react-media"
-import { SpotProps } from "@kaizen/draft-illustration"
+import { SpotProps } from "@kaizen/illustration"
 
 const styles = require("./GuidanceBlock.scss")
 

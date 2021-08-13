@@ -6,9 +6,9 @@ import {
   TileAction,
   InformationTile,
   TileGrid,
-} from "@kaizen/draft-tile"
-import { Coaching } from "@kaizen/draft-illustration"
-import { Tag } from "@kaizen/draft-tag"
+} from "@kaizen/tile"
+import { Coaching } from "@kaizen/illustration"
+import { Tag } from "@kaizen/tag"
 import { Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
@@ -28,7 +28,7 @@ export default {
                       TileAction,
                       InformationTile,
                       TileGrid
-                    } from "@kaizen/draft-tile"`,
+                    } from "@kaizen/tile"`,
       },
     },
     ...figmaEmbed(

@@ -1,5 +1,5 @@
 import { Icon, Paragraph, Box } from "@kaizen/component-library"
-import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
+import { Collapsible, CollapsibleGroup } from "@kaizen/collapsible"
 
 import * as React from "react"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
@@ -27,7 +27,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";',
+          'import { Collapsible, CollapsibleGroup } from "@kaizen/collapsible";',
       },
     },
   },

@@ -61,7 +61,6 @@ view (Config config) =
 
                 MenuSeparator ->
                     .menuSeparator
-                
     in
     hr
         [ styles.classList
@@ -74,7 +73,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/draft-divider/KaizenDraft/Divider/styles.module.scss"
+    css "@kaizen/divider/KaizenDraft/Divider/styles.module.scss"
         { wrapper = "wrapper"
         , content = "content"
         , canvas = "canvas"

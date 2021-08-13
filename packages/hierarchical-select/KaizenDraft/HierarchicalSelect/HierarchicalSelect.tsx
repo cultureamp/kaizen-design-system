@@ -6,7 +6,7 @@ import {
   MenuWidth,
   MenuDirection,
   HierarchicalMenu,
-} from "@kaizen/draft-hierarchical-menu"
+} from "@kaizen/hierarchical-menu"
 
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"

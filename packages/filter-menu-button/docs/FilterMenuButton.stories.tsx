@@ -1,7 +1,7 @@
 import { Box, Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
-import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
-import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
+import { Button } from "@kaizen/button"
+import { FilterMenuButton } from "@kaizen/filter-menu-button"
+import { CheckboxField, CheckboxGroup } from "@kaizen/form"
 import isChromatic from "chromatic/isChromatic"
 import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -25,7 +25,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"',
+          'import { FilterMenuButton } from "@kaizen/filter-menu-button"',
       },
     },
   },

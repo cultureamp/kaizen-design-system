@@ -14,5 +14,5 @@ const MenuList = (props: { children: React.ReactNode }) => (
 MenuList.displayName = "MenuList"
 
 export default withDeprecatedComponent(MenuList, {
-  warning: "MenuList is deprecated. Use @kaizen/draft-menu.",
+  warning: "MenuList is deprecated. Use @kaizen/menu.",
 })

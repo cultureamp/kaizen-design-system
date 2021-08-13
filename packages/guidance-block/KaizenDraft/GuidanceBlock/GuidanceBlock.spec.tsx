@@ -2,7 +2,7 @@ import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
-import { Informative } from "@kaizen/draft-illustration"
+import { Informative } from "@kaizen/illustration"
 import GuidanceBlock from "./GuidanceBlock"
 
 window.matchMedia = jest.fn().mockImplementation(() => ({

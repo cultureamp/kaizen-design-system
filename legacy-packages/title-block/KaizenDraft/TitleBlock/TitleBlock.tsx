@@ -6,7 +6,7 @@ import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { kz as layoutTokens } from "@kaizen/design-tokens/tokens/layout.json"
-import { Tag } from "@kaizen/draft-tag"
+import { Tag } from "@kaizen/tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
 import forwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -230,6 +230,5 @@ class TitleBlock extends React.Component<Props, State> {
 }
 
 export default withDeprecatedComponent(TitleBlock, {
-  warning:
-    "TitleBlock is deprecated. Use @kaizen/draft-title-block-zen instead.",
+  warning: "TitleBlock is deprecated. Use @kaizen/title-block-zen instead.",
 })

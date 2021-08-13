@@ -156,5 +156,5 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
 }
 
 export default withDeprecatedComponent(Dropdown, {
-  warning: "Dropdown is deprecated. Use @kaizen/draft-menu instead.",
+  warning: "Dropdown is deprecated. Use @kaizen/menu instead.",
 })

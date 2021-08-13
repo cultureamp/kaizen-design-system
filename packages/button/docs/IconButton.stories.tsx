@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { IconButton } from "@kaizen/draft-button";',
+        component: 'import { IconButton } from "@kaizen/button";',
       },
     },
   },

@@ -1,5 +1,5 @@
 import { Box, Paragraph } from "@kaizen/component-library"
-import { Button, IconButton } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
@@ -91,7 +91,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";',
+          'import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/menu";',
       },
     },
     ...figmaEmbed(

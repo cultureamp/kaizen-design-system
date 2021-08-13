@@ -1,8 +1,4 @@
-import {
-  ToggledStatus,
-  ToggleSwitchField,
-  ToggleTheme,
-} from "@kaizen/draft-form"
+import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -50,7 +46,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/form"',
       },
     },
     ...figmaEmbed(

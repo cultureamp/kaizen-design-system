@@ -1,11 +1,11 @@
 import { Heading, Icon } from "@kaizen/component-library"
-import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
+import { Checkbox, CheckedStatus } from "@kaizen/form"
 import classNames from "classnames"
 import * as React from "react"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Tooltip } from "@kaizen/tooltip"
 import styles from "./styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>

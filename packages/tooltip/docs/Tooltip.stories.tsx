@@ -1,12 +1,12 @@
 import * as React from "react"
 
 import { Paragraph } from "@kaizen/component-library"
-import { MenuItem, MenuContent } from "@kaizen/draft-menu"
-import { Tag } from "@kaizen/draft-tag"
-import { SplitButton } from "@kaizen/draft-split-button"
+import { MenuItem, MenuContent } from "@kaizen/menu"
+import { Tag } from "@kaizen/tag"
+import { SplitButton } from "@kaizen/split-button"
 import { withDesign } from "storybook-addon-designs"
-import { Button } from "@kaizen/draft-button"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Button } from "@kaizen/button"
+import { Tooltip } from "@kaizen/tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -27,7 +27,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
+        component: 'import { Tooltip } from "@kaizen/tooltip"',
       },
     },
     ...figmaEmbed(
@@ -51,7 +51,7 @@ DefaultBelowKaizenSiteDemo.storyName = "Default - Below (Kaizen Site Demo)"
 DefaultBelowKaizenSiteDemo.parameters = {
   info: {
     text: `
-    import { Tooltip } from "@kaizen/draft-tooltip"
+    import { Tooltip } from "@kaizen/tooltip"
     `,
   },
 }

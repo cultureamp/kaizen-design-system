@@ -359,7 +359,7 @@ viewClear config =
 
 
 styles =
-    css "@kaizen/draft-tag/KaizenDraft/Tag/Tag.scss"
+    css "@kaizen/tag/KaizenDraft/Tag/Tag.scss"
         { root = "root"
         , layoutContainer = "layoutContainer"
         , default = "default"
@@ -390,7 +390,7 @@ styles =
 
 
 stylesElmExtra =
-    css "@kaizen/draft-tag/KaizenDraft/Tag/TagElmExtra.scss"
+    css "@kaizen/tag/KaizenDraft/Tag/TagElmExtra.scss"
         { mediumAllowingTextWrapping = "mediumAllowingTextWrapping"
         , smallAllowingTextWrapping = "smallAllowingTextWrapping"
         }

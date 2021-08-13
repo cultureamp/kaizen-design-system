@@ -74,6 +74,6 @@ view (Config config) children =
 
 
 styles =
-    css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
+    css "@kaizen/table/KaizenDraft/Table/styles.scss"
         { rowCell = "rowCell"
         }

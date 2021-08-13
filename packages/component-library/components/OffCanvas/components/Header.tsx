@@ -1,5 +1,5 @@
 import * as React from "react"
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 import closeIcon from "../../../icons/close.icon.svg"
 
 import styles from "./Header.module.scss"

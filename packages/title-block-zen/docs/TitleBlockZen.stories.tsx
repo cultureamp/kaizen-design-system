@@ -6,7 +6,7 @@ import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
+import { Container, Content, Skirt, SkirtCard } from "@kaizen/page-layout"
 import { withDesign } from "storybook-addon-designs"
 import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
@@ -20,8 +20,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
+        component: 'import { TitleBlockZen } from "@kaizen/title-block-zen"',
       },
     },
     ...figmaEmbed(

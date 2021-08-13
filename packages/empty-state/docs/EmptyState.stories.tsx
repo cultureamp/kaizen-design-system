@@ -4,7 +4,7 @@ import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg
 
 import * as React from "react"
 
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { withDesign } from "storybook-addon-designs"
 import { EmptyState } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -35,7 +35,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { EmptyState } from "@kaizen/draft-empty-state";',
+        component: 'import { EmptyState } from "@kaizen/empty-state";',
       },
     },
     ...figmaEmbed(

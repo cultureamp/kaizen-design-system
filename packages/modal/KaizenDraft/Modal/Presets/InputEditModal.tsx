@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { Text } from "@kaizen/component-library"
 
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import {
   GenericModal,
   ModalAccessibleLabel,
