@@ -62,21 +62,21 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: resolve("../draft-packages"),
-        name: "draftComponents",
-        ignore: [
-          "**/*.ts",
-          "**/*.tsx",
-          "**/*.elm",
-          "**/*.scss",
-          "**/*.snap",
-          "**/*.png",
-        ],
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: resolve("../packages"),
+    //     name: "draftComponents",
+    //     ignore: [
+    //       "**/*.ts",
+    //       "**/*.tsx",
+    //       "**/*.elm",
+    //       "**/*.scss",
+    //       "**/*.snap",
+    //       "**/*.png",
+    //     ],
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-mdx",
       options: {
