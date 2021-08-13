@@ -1,3 +1,6 @@
+import { HealthAttributeMap } from "../constants"
+import { HealthAttributes } from "../types"
+
 /**
  * Takes component frontmatter and calculates a total for each health attribute.
  *
@@ -27,9 +30,18 @@
  *       documented: 1
  *    }
  */
-export const calculateHealthTotals = (components, healthAttributes) =>
+type ComponentData = Array<{
+  navTitle: string
+  title: string
+  health?: HealthAttributes
+}>
+
+export const calculateHealthTotals = (
+  components: ComponentData,
+  healthAttributeMap: HealthAttributeMap
+) =>
   components.reduce((totalsAccumlator, component) => {
-    const updatedCounts = healthAttributes.reduce(
+    const updatedCounts = healthAttributeMap.reduce(
       (healthAccumlator, currentHealthAttribute) => {
         const isTick =
           component.health && component.health[currentHealthAttribute.id]

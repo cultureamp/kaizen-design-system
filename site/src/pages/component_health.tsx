@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
 import { sortSidebarTabs } from "../templates/util"
-import { healthAttributes } from "../constants"
+import { healthAttributeMap } from "../constants"
 import { calculateHealthTotals } from "../utils/calculateHealthTotals"
 import styles from "./component_health.scss"
 
@@ -25,7 +25,7 @@ export default ({ data, location }) => {
   )
   const totals = calculateHealthTotals(
     componentsFiltered.map(component => component.node.frontmatter),
-    healthAttributes
+    healthAttributeMap
   )
 
   return (
@@ -44,7 +44,7 @@ export default ({ data, location }) => {
                     Component
                   </Heading>
                 </th>
-                {healthAttributes.map(attribute => (
+                {healthAttributeMap.map(attribute => (
                   <th key={attribute.id} className={styles.attributeCol}>
                     <Heading tag="span" variant="heading-6">
                       {attribute.positive}
@@ -61,7 +61,7 @@ export default ({ data, location }) => {
                       {mdx.node.frontmatter.title}
                     </Paragraph>
                   </td>
-                  {healthAttributes.map(attribute => {
+                  {healthAttributeMap.map(attribute => {
                     if (!mdx.node.frontmatter.health) {
                       return <td key={attribute.id}></td>
                     }
@@ -97,7 +97,7 @@ export default ({ data, location }) => {
             <tfoot>
               <tr>
                 <td>Total</td>
-                {healthAttributes.map(attribute => (
+                {healthAttributeMap.map(attribute => (
                   <td key={attribute.id}>{totals[attribute.id]}</td>
                 ))}
               </tr>

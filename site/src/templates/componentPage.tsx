@@ -99,7 +99,7 @@ export default ({ data, location }) => {
         </Sidebar>
         <Content>
           {md.frontmatter.health && (
-            <ContentHealth healthItems={md.frontmatter.health} />
+            <ContentHealth healthAttributes={md.frontmatter.health} />
           )}
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}

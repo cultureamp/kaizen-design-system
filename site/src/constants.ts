@@ -1,4 +1,10 @@
-export const healthAttributes = [
+export type HealthAttributeMap = Array<{
+  id: string
+  positive: string
+  negative: string
+}>
+
+export const healthAttributeMap = [
   {
     id: "designed",
     positive: "Designed",

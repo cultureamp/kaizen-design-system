@@ -3,7 +3,8 @@ import { Tag } from "@kaizen/draft-tag"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
-import { healthAttributes } from "../constants"
+import { healthAttributeMap } from "../constants"
+import { HealthAttributes } from "../types"
 import markdownComponents from "./markdownComponents"
 
 import styles from "./SidebarAndContent.scss"
@@ -40,17 +41,6 @@ type TableOfContentsProps = {
 
 type ContentNeedToKnowProps = {
   listOfTips: string[]
-}
-
-type HealthItems = {
-  designed: boolean
-  documented: boolean
-  implemented: boolean
-  latestDesign: boolean
-  allVariants: boolean
-  responsive: boolean
-  internationalized: boolean
-  accessible: boolean
 }
 
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (
@@ -112,9 +102,9 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
 )
 
 export const ContentHealth = ({
-  healthItems,
+  healthAttributes,
 }: {
-  healthItems: HealthItems
+  healthAttributes: HealthAttributes
 }) => (
   <div
     className={classnames(
@@ -130,16 +120,18 @@ export const ContentHealth = ({
       Component health
     </markdownComponents.h2>
     <div className={styles.healthContent}>
-      {healthAttributes.map(attribute => (
+      {healthAttributeMap.map(attribute => (
         <Tag
           key={attribute.id}
           variant={
-            healthItems[attribute.id]
+            healthAttributes[attribute.id]
               ? "validationPositive"
               : "validationNegative"
           }
         >
-          {healthItems[attribute.id] ? attribute.positive : attribute.negative}
+          {healthAttributes[attribute.id]
+            ? attribute.positive
+            : attribute.negative}
         </Tag>
       ))}
     </div>
