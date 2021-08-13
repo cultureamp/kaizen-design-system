@@ -40,7 +40,7 @@
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3",
+    "@kaizen/design-tokens": "^3.0.0",
     "react": "^16.13.1"
   }
 }
