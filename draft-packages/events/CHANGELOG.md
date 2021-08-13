@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.138...@kaizen/draft-events@1.3.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
 ## [1.2.138](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.137...@kaizen/draft-events@1.2.138) (2021-08-11)
 
 **Note:** Version bump only for package @kaizen/draft-events

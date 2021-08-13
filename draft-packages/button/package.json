@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-button",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "The draft Button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,9 +32,9 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.1.0",
-    "@kaizen/draft-badge": "^1.5.0",
-    "@kaizen/draft-loading-spinner": "^2.2.0",
+    "@kaizen/component-library": "^10.2.0",
+    "@kaizen/draft-badge": "^1.6.0",
+    "@kaizen/draft-loading-spinner": "^2.3.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
