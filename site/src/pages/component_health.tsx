@@ -8,6 +8,7 @@ import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
 import { sortSidebarTabs } from "../templates/util"
 import { healthAttributes } from "../constants"
+import { calculateHealthTotals } from "../utils/calculateHealthTotals"
 import styles from "./component_health.scss"
 
 const ComponentPageHeader = (
@@ -17,44 +18,15 @@ const ComponentPageHeader = (
   />
 )
 
-/**
- * TODO: add decription for this
- *
- * @param components
- * @returns
- */
-const calculateTotals = components =>
-  components.reduce((totalsAccumlator, currentComponent) => {
-    const updatedCounts = healthAttributes.reduce(
-      (healthAccumlator, currentHealthAttribute) => {
-        const isTick =
-          currentComponent.node.frontmatter.health &&
-          currentComponent.node.frontmatter.health[currentHealthAttribute.id]
-        if (!isTick) return healthAccumlator
-
-        const hasExistingCount = totalsAccumlator[currentHealthAttribute.id]
-        return {
-          ...healthAccumlator,
-          [currentHealthAttribute.id]: hasExistingCount
-            ? totalsAccumlator[currentHealthAttribute.id] + 1
-            : 1,
-        }
-      },
-      {}
-    )
-
-    return {
-      ...totalsAccumlator,
-      ...updatedCounts,
-    }
-  }, {})
-
 export default ({ data, location }) => {
   const componentsSorted = sortSidebarTabs(data.allMdx.edges)
   const componentsFiltered = componentsSorted.filter(
     component => component.node
   )
-  const totals = calculateTotals(componentsFiltered)
+  const totals = calculateHealthTotals(
+    componentsFiltered.map(component => component.node.frontmatter),
+    healthAttributes
+  )
 
   return (
     <Layout
