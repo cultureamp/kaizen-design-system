@@ -9,7 +9,7 @@ import { ContentOnly, Content } from "../components/ContentOnly"
 import { sortSidebarTabs } from "../templates/util"
 import { healthAttributeMap } from "../constants"
 import { calculateHealthTotals } from "../utils/calculateHealthTotals"
-import styles from "./component_health.scss"
+import styles from "./component-health.scss"
 
 const ComponentPageHeader = (
   <PageHeader
