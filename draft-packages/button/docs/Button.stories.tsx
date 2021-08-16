@@ -49,7 +49,7 @@ DefaultKaizenSiteDemo.story = {
 }
 
 export const DefaultDisabled = args => (
-  <Button label="Label" disabled={true} {...args} />
+  <Button {...args} label="Label (Chromatic test)" disabled={true} />
 )
 DefaultDisabled.story = {
   name: "Default, Disabled",
