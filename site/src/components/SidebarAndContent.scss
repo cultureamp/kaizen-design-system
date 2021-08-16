@@ -1,6 +1,6 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -69,9 +69,8 @@ $tableOfContents-width: $ca-grid * 10;
 .healthContent {
   margin-top: 2.25rem;
 
-  // Sorry for the hax but there's no way for me currently to add margin bottom
-  // to each tag without creating a parent element for each.
-  div[class^="Tag--"] {
+  .healthTagContainer {
+    display: inline-block;
     margin-bottom: $spacing-xs;
   }
 }

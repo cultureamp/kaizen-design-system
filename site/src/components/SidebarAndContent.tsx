@@ -1,4 +1,4 @@
-import { Icon } from "@kaizen/component-library"
+import { Icon, Box } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import classnames from "classnames"
 import { Link } from "gatsby"
@@ -121,18 +121,20 @@ export const ContentHealth = ({
     </markdownComponents.h2>
     <div className={styles.healthContent}>
       {healthAttributeMap.map(attribute => (
-        <Tag
-          key={attribute.id}
-          variant={
-            healthAttributes[attribute.id]
-              ? "validationPositive"
-              : "validationNegative"
-          }
-        >
-          {healthAttributes[attribute.id]
-            ? attribute.positive
-            : attribute.negative}
-        </Tag>
+        <span className={styles.healthTagContainer}>
+          <Tag
+            key={attribute.id}
+            variant={
+              healthAttributes[attribute.id]
+                ? "validationPositive"
+                : "validationNegative"
+            }
+          >
+            {healthAttributes[attribute.id]
+              ? attribute.positive
+              : attribute.negative}
+          </Tag>
+        </span>
       ))}
     </div>
   </div>
