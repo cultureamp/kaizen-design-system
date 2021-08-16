@@ -65,7 +65,7 @@ export const DefaultWorking = () => {
   return (
     <>
       <Button
-        label="Click here to test"
+        label="Click here to test (Chromatic test)"
         onClick={() => setWorking(!working)}
         primary
       />
