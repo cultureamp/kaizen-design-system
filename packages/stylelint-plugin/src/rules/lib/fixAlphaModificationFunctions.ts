@@ -51,7 +51,7 @@ const parsePercentage = (value: string): number | "NaN" => {
   Will also migrate a deprecated variable within an alpha manipulation function
 */
 const getReplacementRgbTriple = (
-  kaizenToken: KaizenToken
+  kaizenTokenName: string
 ):
   | { replacement: KaizenToken }
   /* For example, the token is `$kz-deprecated-color-lapis`, and there is no replacement. */
@@ -59,20 +59,27 @@ const getReplacementRgbTriple = (
   /* Protecting against mistakes where there is no matching -rgb token */
   | "NoRGBTripleReplacement"
   /* The token is already an RGB triple, or is not a CSS variable. */
-  | "NoReplacementNeeded" => {
+  | "NoReplacementNeeded"
+  /* The token name that was passed was neither found in @kaizen/design-tokens or the deprecated tokens list */
+  | "NotAKaizenToken" => {
   // We'll decide on what this variable should be using a series of rules, then use it as the subject for making replacements
   let kaizenTokenSubject: KaizenToken
 
+  const currentKaizenToken = kaizenTokensByName[kaizenTokenName]
   const replacement =
-    kaizenTokensByName[deprecatedTokenReplacements.get(kaizenToken.name) || ""]
+    kaizenTokensByName[deprecatedTokenReplacements.get(kaizenTokenName) || ""]
+  const isDeprecated = deprecatedTokenReplacements.has(kaizenTokenName)
 
   if (replacement) {
     kaizenTokenSubject = replacement
-  } else if (!deprecatedTokenReplacements.has(kaizenToken.name)) {
-    kaizenTokenSubject = kaizenToken
-  } else {
-    // Just bail if we reach here, because we couldn't decide on a kaizen token to use.
+  } else if (!isDeprecated && currentKaizenToken) {
+    kaizenTokenSubject = currentKaizenToken
+  } else if (!replacement && isDeprecated) {
     return "CantFindReplacementForDeprecatedToken"
+  } else if (!isDeprecated && !currentKaizenToken) {
+    return "NotAKaizenToken"
+  } else {
+    return "NoReplacementNeeded"
   }
 
   // If the value is not like `123, 123, 123`, AND it's a CSS variable, it's not valid
@@ -129,17 +136,31 @@ export const fixAlphaModificationFunctions = (
     // Further parse the AST word node, which tells us whether it's interpolated, negated, and if it is a Kaizen token.
     const variable = parseVariable(parsedFirstParameter)
 
-    // As mentioned, we only care about cases where the first param is a variable and a Kaizen token.
-    if (!variable || !variable.kaizenToken)
+    // We only care about variables
+    if (!variable) {
       return originalValueWithoutModification
+    }
+
+    const isVariableCurrentKaizenToken = !!variable?.kaizenToken
+    const isVariableDeprecatedKaizenToken = deprecatedTokenReplacements.has(
+      variable.name
+    )
+
+    // A variable is a Kaizen token if it exists within @kaizen/design-tokens, or it's within the deprecated tokens map.
+    const isKaizenToken =
+      isVariableCurrentKaizenToken || isVariableDeprecatedKaizenToken
+
+    // We only care about variables that are Kaizen tokens.
+    if (!isKaizenToken) return originalValueWithoutModification
 
     // See if we need a replacement, and if there is any reason why we can't make a replacement
-    const replacementResult = getReplacementRgbTriple(variable.kaizenToken)
+    const replacementResult = getReplacementRgbTriple(variable.name)
 
     let replacement: KaizenToken
 
     switch (replacementResult) {
       case "NoReplacementNeeded":
+      case "NotAKaizenToken":
         return originalValueWithoutModification
 
       case "CantFindReplacementForDeprecatedToken":
@@ -147,9 +168,7 @@ export const fixAlphaModificationFunctions = (
         return originalValueWithoutModification
 
       case "NoRGBTripleReplacement":
-        errors.push(
-          noMatchingRgbParamsVariableMessage(variable.kaizenToken.name)
-        )
+        errors.push(noMatchingRgbParamsVariableMessage(variable.name))
         return originalValueWithoutModification
 
       default:

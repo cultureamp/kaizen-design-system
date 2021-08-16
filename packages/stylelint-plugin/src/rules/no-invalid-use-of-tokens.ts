@@ -7,7 +7,7 @@ import {
   deprecatedTokenInVariableMessage,
   deprecatedTokenUsageMessage,
   deprecatedTokenUsageWithoutReplacementMessage,
-  genericContainsDeprecatedKaizenTokenMessage,
+  containsDeprecatedKaizenTokenWithNoReplacement,
   invalidEquationContainingKaizenTokenMessage,
   replacementCssVariableUsedWithinUnsupportedFunction,
 } from "../messages"
@@ -24,10 +24,16 @@ import { fixAlphaModificationFunctions } from "./lib/fixAlphaModificationFunctio
 import { containsEquationThatDoesntWorkWithCSSVariables } from "./no-invalid-use-of-var-tokens-in-equations"
 
 const deprecatedKaizenTokenPattern = new RegExp(
-  Array.from(deprecatedTokenReplacements.keys()).join("|")
+  `(${Array.from(deprecatedTokenReplacements.keys()).join("|")})`
 )
-function stringContainsDeprecatedKaizenToken(value: string) {
-  return deprecatedKaizenTokenPattern.test(value)
+
+/**
+ * Determine if any deprecated token strings show up within the input, and return the pattern matches, allowing you to determine which ones they were.
+ */
+function getDeprecatedKaizenTokenPatternMatches(
+  value: string
+): RegExpMatchArray | null {
+  return value.match(deprecatedKaizenTokenPattern)
 }
 
 // Most CSS standard functions are allowed to contain CSS variables.
@@ -316,9 +322,14 @@ function detectAndFixInvalidTokens(
     and would silently cause a style regression when upgrading to v3 of design tokens if left unchanged.
   */
   if (!reported) {
-    if (stringContainsDeprecatedKaizenToken(newValue)) {
+    const deprecatedTokenMatches = getDeprecatedKaizenTokenPatternMatches(
+      newValue
+    )
+    if (deprecatedTokenMatches) {
       options.reporter({
-        message: genericContainsDeprecatedKaizenTokenMessage,
+        message: containsDeprecatedKaizenTokenWithNoReplacement(
+          deprecatedTokenMatches[1]
+        ),
         autofixAvailable: false,
         node: postcssNode,
       })

@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
@@ -15,7 +15,7 @@
 }
 
 .header {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   padding: $ca-grid * 0.5 $ca-grid * 1.5;
   text-align: center;
 }

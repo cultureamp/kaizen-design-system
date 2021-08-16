@@ -1,24 +1,16 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
-
+@import "~@kaizen/design-tokens/sass/color";
 @mixin avatar-theme-switching-tokens() {
-  --avatar--color-icon-color: rgba(
-    var(#{$kz-var-id-color-wisteria-800-rgb-params}),
-    0.7
-  );
+  --avatar--color-icon-color: rgba(var(#{$color-purple-800-rgb-id}), 0.7);
 }
-$dt-color-background-color: var($kz-var-id-color-ash, $kz-var-color-stone);
-$dt-color-background-color-initials: var(
-  $kz-var-id-color-ash,
-  $kz-var-color-wisteria-200
-);
+$dt-color-background-color: var($color-gray-300-id, $color-gray-100);
+$dt-color-background-color-initials: var($color-gray-300-id, $color-purple-200);
 $dt-color-background-color-personal: var(
-  $kz-var-id-color-peach-100,
-  $kz-var-color-peach-200
+  $color-orange-100-id,
+  $color-orange-200
 );
-$dt-color-text-color: $kz-var-color-wisteria-800;
-$dt-color-border-color: $kz-var-color-white;
+$dt-color-text-color: $color-purple-800;
+$dt-color-border-color: $color-white;
 $dt-color-icon-color: var(
   --avatar--color-icon-color,
-  rgba($kz-var-color-wisteria-800-rgb-params, 0.3)
+  rgba($color-purple-800-rgb, 0.3)
 );

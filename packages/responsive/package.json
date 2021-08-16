@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/responsive",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "A collection of helpers for responsive UIs",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,7 +35,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "react": "^16.9.0"
   }
 }

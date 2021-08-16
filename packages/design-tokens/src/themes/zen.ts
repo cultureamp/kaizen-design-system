@@ -46,16 +46,6 @@ export const zenTheme: Theme = {
     },
   },
   color: {
-    wisteria: {
-      100: "#f0f1f4",
-      200: "#e1e2ea",
-      300: "#c4c5d4",
-      400: "#a7a9c1",
-      500: "#898ba9",
-      600: "#6b6e94",
-      700: "#4b4d68",
-      800: "#35374a",
-    },
     purple: {
       100: "#f0f1f4",
       200: "#e1e2ea",
@@ -65,16 +55,6 @@ export const zenTheme: Theme = {
       600: "#6b6e94",
       700: "#4b4d68",
       800: "#35374a",
-    },
-    cluny: {
-      100: "#e6f0f7",
-      200: "#cce1f0",
-      300: "#99c3e1",
-      400: "#4d95ca",
-      500: "#0168b3",
-      600: "#00518c",
-      // Duplicate from Heart because it's new
-      700: "#003157",
     },
     blue: {
       100: "#e6f0f7",
@@ -86,16 +66,6 @@ export const zenTheme: Theme = {
       // Duplicate from Heart because it's new
       700: "#003157",
     },
-    seedling: {
-      100: "#e9f6f3",
-      200: "#bce3dc",
-      300: "#90d1c5",
-      400: "#64bfae",
-      500: "#21a38b",
-      600: "#177261",
-      // Duplicate from Heart because it's new
-      700: "#22594a",
-    },
     green: {
       100: "#e9f6f3",
       200: "#bce3dc",
@@ -105,17 +75,6 @@ export const zenTheme: Theme = {
       600: "#177261",
       // Duplicate from Heart because it's new
       700: "#22594a",
-    },
-    yuzu: {
-      100: "#fffae8",
-      200: "#fff5d2",
-      300: "#ffeba5",
-      400: "#ffe278",
-      500: "#ffce1e",
-      // Duplicate from Heart because it's new
-      600: "#c68600",
-      // Duplicate from Heart because it's new
-      700: "#876400",
     },
     yellow: {
       100: "#fffae8",
@@ -128,16 +87,6 @@ export const zenTheme: Theme = {
       // Duplicate from Heart because it's new
       700: "#876400",
     },
-    coral: {
-      100: "#fcedef",
-      200: "#fccfd4",
-      300: "#fcaeb6",
-      400: "#fc7c89",
-      500: "#e22b3e",
-      600: "#b02130",
-      // Duplicate from Heart because it's new
-      700: "#6c1e20",
-    },
     red: {
       100: "#fcedef",
       200: "#fccfd4",
@@ -147,16 +96,6 @@ export const zenTheme: Theme = {
       600: "#b02130",
       // Duplicate from Heart because it's new
       700: "#6c1e20",
-    },
-    peach: {
-      100: "#fff1ee",
-      200: "#fdd6cd",
-      300: "#fdbaab",
-      400: "#fc9e8a",
-      500: "#fa7558",
-      600: "#b85d4a",
-      // Duplicate from Heart because it's new
-      700: "#903c00",
     },
     orange: {
       100: "#fff1ee",
@@ -178,24 +117,10 @@ export const zenTheme: Theme = {
       600: "#524e56",
     },
     white: "#ffffff",
-    ash: "#ececef",
-    stone: "#f6f6f6",
-    // Duplicate from Heart because it's new
-    iron: "#8c8c97",
-    // Duplicate from Heart because it's new
-    slate: "#524e56",
   },
   dataViz: {
     favorable: "#6b6e94",
     unfavorable: "#fccfd4",
-  },
-  DEPRECATED: {
-    color: {
-      lapis: "#253c64",
-      ocean: "#1b7688",
-      ink: "#3e4543",
-      paper: "#f2edde",
-    },
   },
   layout: {
     contentMaxWidth: "1392px",

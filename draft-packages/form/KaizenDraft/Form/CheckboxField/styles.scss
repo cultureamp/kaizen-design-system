@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Checkbox/styles";
@@ -35,7 +36,7 @@
     label:hover {
       input:not([disabled]) + div {
         border-color: $dt-color-form-border-color;
-        background-color: $kz-var-color-stone;
+        background-color: $color-gray-100;
       }
     }
   }

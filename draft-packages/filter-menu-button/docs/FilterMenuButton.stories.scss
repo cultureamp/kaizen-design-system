@@ -1,6 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-
+@import "~@kaizen/design-tokens/sass/spacing";
 $menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens
 $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, which should be using tokens
 
@@ -14,8 +12,8 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   & label {
     width: auto;
   }
-  padding: calc(#{$kz-var-spacing-sm} - #{$menuContentVerticalPadding})
-    calc(#{$kz-var-spacing-sm} - #{$menuContentHorizontalPadding});
+  padding: calc(#{$spacing-sm} - #{$menuContentVerticalPadding})
+    calc(#{$spacing-sm} - #{$menuContentHorizontalPadding});
 }
 
 .siteDemoWrapper {

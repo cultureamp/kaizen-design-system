@@ -1,7 +1,7 @@
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
@@ -17,14 +17,12 @@ $mobile-actions-split-select-square-width: 64px;
   bottom: 0;
   left: 0;
   right: 0;
-  border-top-left-radius: $kz-var-border-solid-border-radius;
-  border-top-right-radius: $kz-var-border-solid-border-radius;
+  border-top-left-radius: $border-solid-border-radius;
+  border-top-right-radius: $border-solid-border-radius;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
-  transform: translateY(
-    calc(100% - #{$kz-var-layout-mobile-actions-drawer-height})
-  );
+  transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   transition: 0.4s ease;
   animation: slide-up 1s ease;
 
@@ -40,15 +38,15 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsTopRow {
   display: flex;
   align-items: center;
-  height: $kz-var-layout-mobile-actions-drawer-height;
+  height: $layout-mobile-actions-drawer-height;
   width: 100%;
-  background-color: $kz-var-color-cluny-500;
+  background-color: $color-blue-500;
 }
 
 .mobileActionsMenuContainer {
   display: flex;
   width: 100%;
-  background: $kz-var-color-white;
+  background: $color-white;
 }
 
 .drawerHandleIcon {
@@ -67,12 +65,12 @@ $mobile-actions-split-select-square-width: 64px;
   text-align: left;
   text-decoration: none;
 
-  color: $kz-var-color-white;
-  font-family: $kz-var-typography-button-primary-font-family;
-  font-weight: $kz-var-typography-button-primary-font-weight;
-  font-size: $kz-var-typography-button-primary-font-size;
-  line-height: $kz-var-typography-button-primary-line-height;
-  letter-spacing: $kz-var-typography-button-primary-letter-spacing;
+  color: $color-white;
+  font-family: $typography-button-primary-font-family;
+  font-weight: $typography-button-primary-font-weight;
+  font-size: $typography-button-primary-font-size;
+  line-height: $typography-button-primary-line-height;
+  letter-spacing: $typography-button-primary-letter-spacing;
 }
 
 .mobileActionsPrimaryButton,
@@ -86,10 +84,10 @@ $mobile-actions-split-select-square-width: 64px;
   border-radius: none;
   border: 0;
   box-sizing: border-box;
-  color: $kz-var-color-white;
+  color: $color-white;
 
   &:focus {
-    background-color: $kz-var-color-cluny-600;
+    background-color: $color-blue-600;
     outline: none;
   }
 
@@ -104,7 +102,7 @@ $mobile-actions-split-select-square-width: 64px;
 
 .mobileActionsExpandButton {
   flex-basis: $ca-grid * 2.5;
-  border-left: 2px solid $kz-var-color-cluny-200;
+  border-left: 2px solid $color-blue-200;
   justify-content: center;
 }
 
@@ -134,8 +132,6 @@ $mobile-actions-split-select-square-width: 64px;
     transform: translateY(100%);
   }
   100% {
-    transform: translateY(
-      calc(100% - #{$kz-var-layout-mobile-actions-drawer-height})
-    );
+    transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   }
 }

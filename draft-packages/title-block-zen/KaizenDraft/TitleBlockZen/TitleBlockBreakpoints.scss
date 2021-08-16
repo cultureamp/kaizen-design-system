@@ -17,7 +17,7 @@
   }
 }
 @mixin title-block-medium-and-small {
-  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+  @media (max-width: $layout-breakpoints-large - 1px) {
     @content;
   }
 }
@@ -27,7 +27,7 @@
   }
 }
 @mixin title-block-small {
-  @media (max-width: $kz-layout-breakpoints-medium - 1px) {
+  @media (max-width: $layout-breakpoints-medium - 1px) {
     @content;
   }
 }

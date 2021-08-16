@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.7.1...@kaizen/draft-modal@5.8.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.7.0...@kaizen/draft-modal@5.7.1) (2021-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.30...@kaizen/draft-modal@5.7.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
 ## [5.6.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.29...@kaizen/draft-modal@5.6.30) (2021-08-10)
 
 **Note:** Version bump only for package @kaizen/draft-modal
