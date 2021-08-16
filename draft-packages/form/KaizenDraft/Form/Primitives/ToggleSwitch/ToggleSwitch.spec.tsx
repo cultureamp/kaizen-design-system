@@ -7,7 +7,6 @@ afterEach(cleanup)
 
 const defaultToggleSwitchProps = {
   id: "someToggleSwitchId",
-  value: "Some field value",
   onToggle: jest.fn(),
 }
 
