@@ -5,6 +5,7 @@ import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
+import RelatedIssues from "../components/RelatedIssues"
 import {
   Content,
   ContentNeedToKnowSection,
@@ -99,17 +100,9 @@ export default ({ data, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          <h1>Related issues:</h1>
-          {relatedIssues &&
-            relatedIssues.map(({ node }) => (
-              <ul>
-                <li>
-                  <a href={node.html_url}>{node.title}</a>
-                </li>
-              </ul>
-            ))}
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
+            <RelatedIssues issues={relatedIssues} />
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
             // @ts-ignore */}
@@ -157,6 +150,8 @@ export const query = graphql`
           html_url
           title
           updated_at
+          created_at
+          state
           labels {
             name
           }
