@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
 @import "../../decision-tokens.scss";
@@ -10,9 +10,9 @@
 
 .textarea {
   @include form-input-reset;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   width: 100%;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+  border: $border-solid-border-width $border-solid-border-style
     $dt-color-form-border-color;
   padding: $ca-grid * 0.5;
   color: $dt-color-form-text-color;
@@ -25,7 +25,7 @@
   }
 
   &.error:not(:focus) {
-    border-color: $kz-var-color-coral-500;
+    border-color: $color-red-500;
   }
 
   @include form-input-placeholder {
@@ -38,9 +38,9 @@
   $focus-ring-offset: 3px;
   position: absolute;
   background: transparent;
-  border-radius: $kz-var-border-focus-ring-border-radius;
-  border-width: $kz-var-border-focus-ring-border-width;
-  border-style: $kz-var-border-focus-ring-border-style;
+  border-radius: $border-focus-ring-border-radius;
+  border-width: $border-focus-ring-border-width;
+  border-style: $border-focus-ring-border-style;
   border-color: transparent;
   top: -$focus-ring-offset;
   left: -$focus-ring-offset;
@@ -57,23 +57,23 @@
 
 // Reversed (Dark Backgrounds)
 .textarea.reversed {
-  color: $kz-var-color-white;
-  border-color: rgba($kz-var-color-white-rgb-params, 0.65);
+  color: $color-white;
+  border-color: rgba($color-white-rgb, 0.65);
   background: transparent;
 
   @include form-input-placeholder {
     line-height: 1.5;
-    color: $kz-var-color-white;
+    color: $color-white;
   }
 
   &:focus,
   &:hover {
-    background: rgba($kz-var-color-white-rgb-params, 0.1);
-    border-color: $kz-var-color-white;
+    background: rgba($color-white-rgb, 0.1);
+    border-color: $color-white;
   }
 
   &.error {
-    border-color: $kz-var-color-coral-300;
+    border-color: $color-red-300;
   }
 
   &:focus + .focusRing {

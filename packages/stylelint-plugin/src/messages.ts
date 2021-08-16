@@ -6,12 +6,13 @@ export const unnecessaryKaizenImport = (path: string) =>
 export const deprecatedTokenUsageMessage = (oldName: string, newName: string) =>
   `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}".`
 
-export const genericContainsDeprecatedKaizenTokenMessage =
-  "Deprecated Kaizen token detected"
+export const containsDeprecatedKaizenTokenWithNoReplacement = (name: string) =>
+  `Deprecated Kaizen token ${name} detected`
 
 export const deprecatedTokenUsageWithoutReplacementMessage = (
   deprecatedTokenName: string
 ) => `${deprecatedTokenName} is deprecated and should not be used anymore.`
+
 export const invalidRgbaUsage = (replacementVariable: string) =>
   `Invalid parameter to rgba or add-alpha function. Expected '-rgb' suffixed replacement: ${replacementVariable}.`
 
@@ -22,7 +23,7 @@ export const tokenNotInterpolatedInCalcMessage =
   "Invalid expression within calc() function. You must wrap variables in a string interpolation, e.g. #{$kz-var-spacing-md}."
 
 export const kaizenVariableUsedNextToOperatorMessage =
-  "Kaizen variable used next to math operator."
+  "Kaizen CSS variable token used next to math operator."
 
 export const noMatchingRgbParamsVariableMessage = (tokenName: string) =>
   `No matching -rgb variable found for ${tokenName}.`

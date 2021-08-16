@@ -1,8 +1,8 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/design-tokens/sass/animation";
 
-$duration: $kz-animation-duration-deliberate; // 700ms
-$delay: -$kz-animation-duration-slow; // -400ms (stagger effect)
+$duration: calc(-1 * #{$animation-duration-deliberate}); // 700ms
+$delay: calc(-1 * #{$animation-duration-slow}); // -400ms (stagger effect)
 
 @include ca-series {
   .spin-1 {

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.11.0...@kaizen/design-tokens@3.0.0) (2021-08-12)
+
+
+### Features
+
+* Removal of deprecated tokens ([#1833](https://github.com/cultureamp/kaizen-design-system/issues/1833)) ([2a76935](https://github.com/cultureamp/kaizen-design-system/commit/2a76935b5cb4f32b8a7bf47880a81820c885270c))
+
+
+### BREAKING CHANGES
+
+* All deprecated tokens from version 2 no longer exist. No variables start with kz or kz-var anymore.
+
+* CSS variable declaration files `css/heart-theme.css`, `css/zen-theme.css` and `css/default-theme.css` no longer exist.
+
+* `*-vars.scss`, `*-vars.less`, `*-vars.json`  no longer exist.
+
+* Exported utilities from `@kaizen/design-tokens` have been renamed and pruned.
+
+
+
+
+
+# [2.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.3...@kaizen/design-tokens@2.11.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
 ## [2.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.2...@kaizen/design-tokens@2.10.3) (2021-08-09)
 
 **Note:** Version bump only for package @kaizen/design-tokens

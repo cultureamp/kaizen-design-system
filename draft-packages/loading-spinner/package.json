@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-loading-spinner",
-  "version": "2.1.6",
+  "version": "2.3.0",
   "description": "The draft loading-spinner component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "react": "^16.9.0"
   }
 }
