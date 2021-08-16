@@ -45,15 +45,11 @@ export default ({ data, location }) => {
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
   const relatedIssues = allIssues.filter(({ node }) => {
-    /**
-     * To save time, I'm just using the frontmatter title.
-     * It would be best to add a githubTag field to frontmatter as we'll
-     * probably want more flexibility in the future.
-     */
-    if (!node.labels.length) return false
-    const labelsContainActiveComponent = node.labels.some(({ name }) =>
-      name.includes(`component:${md.frontmatter.title.toLowerCase()}`)
-    )
+    if (!node.labels.length || !md.frontmatter.githubTags) return false
+    const labelsContainActiveComponent = md.frontmatter.githubTags.some(tag => {
+      const simplifiedLabels = node.labels.map(({ name }) => name)
+      return simplifiedLabels.includes(tag)
+    })
     return labelsContainActiveComponent
   })
 
@@ -140,6 +136,7 @@ export const query = graphql`
         headerImage
         demoStoryId
         demoStoryHeight
+        githubTags
       }
       tableOfContents
     }

@@ -53,7 +53,7 @@ const RelatedIssues = ({ issues }) => {
                   </Tag>
                 </Box>
               </div>
-              <Divider variant="content" />
+              {i < issues.length - 1 && <Divider variant="content" />}
             </>
           ))}
         </Card>
