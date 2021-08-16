@@ -46,13 +46,18 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   let setNotifications:
     | React.Dispatch<React.SetStateAction<ToastNotification[]>>
     | undefined
+  const automationId = "toast-notification-manager-portal"
   if (portal === undefined && typeof window !== "undefined") {
-    portal = document.createElement("div")
-    portal.setAttribute(
-      "data-automation-id",
-      "toast-notification-manager-portal"
+    const existingPortal = document.querySelector(
+      `[data-automation-id="${automationId}"]`
     )
-    document.body.appendChild(portal)
+    if (existingPortal !== null) {
+      portal = existingPortal as HTMLDivElement
+    } else {
+      portal = document.createElement("div")
+      portal.setAttribute("data-automation-id", automationId)
+      document.body.appendChild(portal)
+    }
   }
 
   const state: {
