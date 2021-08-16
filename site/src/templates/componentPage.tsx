@@ -45,11 +45,13 @@ export default ({ data, location }) => {
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
   const relatedIssues = allIssues.filter(({ node }) => {
-    if (!node.labels.length || !md.frontmatter.githubTags) return false
-    const labelsContainActiveComponent = md.frontmatter.githubTags.some(tag => {
-      const simplifiedLabels = node.labels.map(({ name }) => name)
-      return simplifiedLabels.includes(tag)
-    })
+    if (!node.labels.length || !md.frontmatter.githubLabels) return false
+    const labelsContainActiveComponent = md.frontmatter.githubLabels.some(
+      tag => {
+        const simplifiedLabels = node.labels.map(({ name }) => name)
+        return simplifiedLabels.includes(tag)
+      }
+    )
     return labelsContainActiveComponent
   })
 
@@ -136,7 +138,7 @@ export const query = graphql`
         headerImage
         demoStoryId
         demoStoryHeight
-        githubTags
+        githubLabels
       }
       tableOfContents
     }
