@@ -9,7 +9,6 @@ afterEach(cleanup)
 const defaultToggleSwitchProps = {
   id: "someToggleSwitchId",
   onToggle: jest.fn(),
-  toggledStatus: ToggledStatus.OFF,
 }
 
 const renderToggleSwitch = (props?: ToggleSwitchProps) => {
@@ -26,9 +25,18 @@ describe("<ToggleSwitch />", () => {
     expect(defaultToggleSwitchProps.onToggle).toHaveBeenCalledTimes(1)
   })
 
-  it("should show toggledStatus when passed through", async () => {
-    renderToggleSwitch()
-    expect(defaultToggleSwitchProps.toggledStatus).toEqual("off")
+  it("should show toggledStatus class when status is passed through", async () => {
+    const { container } = renderToggleSwitch({
+      toggledStatus: ToggledStatus.ON,
+    })
+    expect(container.querySelector(".on")).toBeTruthy()
+  })
+
+  it("should show toggledStatus class when status is passed through", async () => {
+    const { container } = renderToggleSwitch({
+      toggledStatus: ToggledStatus.OFF,
+    })
+    expect(container.querySelector(".off")).toBeTruthy()
   })
 
   it("has disabled attribute when disabled prop passed in", async () => {
