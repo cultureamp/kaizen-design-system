@@ -1,7 +1,7 @@
 import { Box, Heading } from "@kaizen/component-library"
 import React from "react"
-import styles from "./ProgressBar.scss"
 import classnames from "classnames"
+import styles from "./ProgressBar.scss"
 
 type Props = {
   percentage: number
@@ -10,15 +10,14 @@ type Props = {
 }
 type Mood = "positive" | "informative" | "negative" | "cautionary"
 
-const progressClassNames = (mood: Mood, progress: number) => {
-  return classnames({
+const progressClassNames = (mood: Mood, progress: number) =>
+  classnames({
     [styles.finished]: progress === 100,
     [styles.positive]: mood === "positive",
     [styles.informative]: mood === "informative",
     [styles.cautionary]: mood === "cautionary",
     [styles.negative]: mood === "negative",
   })
-}
 
 export const ProgressBar = ({ percentage, mood, subtext }: Props) => (
   <div>
