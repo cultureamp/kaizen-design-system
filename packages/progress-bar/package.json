@@ -34,5 +34,7 @@
   "peerDependencies": {
     "react": "^16.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@kaizen/component-library": "^10.2.0"
+  }
 }

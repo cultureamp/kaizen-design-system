@@ -1,1 +1,1 @@
-export * from "./src/ProgressBar/ProgressBar"
+export * from "./src/ProgressBar"

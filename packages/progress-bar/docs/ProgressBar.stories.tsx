@@ -1,7 +1,7 @@
 import React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
-import { ProgressBar } from "../src/ProgressBar/ProgressBar"
+import { ProgressBar } from "../index"
 
 export default {
   title: `${CATEGORIES.components}/ProgressBar`,
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-export const DefaultSiteDemo = _ => <ProgressBar />
+export const DefaultSiteDemo = _ => <ProgressBar progress={25} error={false} />
 DefaultSiteDemo.story = {
   name: "Positive",
   parameters: {
