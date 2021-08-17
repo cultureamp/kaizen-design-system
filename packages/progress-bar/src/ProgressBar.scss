@@ -34,7 +34,6 @@ $height: 10px;
   border-radius: $height;
   overflow: hidden;
   right: 0;
-  background: $color-green-400;
   transition: transform 200ms ease;
 
   &::after {
@@ -54,17 +53,48 @@ $height: 10px;
     animation: pulse 2s infinite;
     transition: opacity 0.2s;
   }
+}
 
-  &.noAnimation {
-    &::after {
-      background: $color-green-400;
-      width: 100%;
-      animation: none;
-    }
+.positive {
+  composes: progress;
+  background: $color-green-400;
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-green-300 75%,
+      transparent
+    );
   }
 }
 
-.done {
+.informative {
+  composes: progress;
+  background: $color-blue-400;
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-blue-300 75%,
+      transparent
+    );
+  }
+}
+
+.cautionary {
+  composes: progress;
+  background: $color-yellow-400;
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-yellow-300 75%,
+      transparent
+    );
+  }
+}
+
+.finished {
   composes: progress;
 
   &::after {
@@ -72,9 +102,11 @@ $height: 10px;
   }
 }
 
-.error {
-  width: 0%;
-  height: $height;
-  background: $color-orange-400;
-  transition: width 200ms ease;
+.negative {
+  composes: progress;
+  background: $color-red-400;
+
+  &::after {
+    opacity: 0;
+  }
 }

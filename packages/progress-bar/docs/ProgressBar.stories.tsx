@@ -15,7 +15,9 @@ export default {
   },
 }
 
-export const DefaultSiteDemo = _ => <ProgressBar progress={25} error={false} />
+export const DefaultSiteDemo = _ => (
+  <ProgressBar progress={25} mood="positive" />
+)
 DefaultSiteDemo.story = {
   name: "Positive",
   parameters: {
@@ -24,3 +26,14 @@ DefaultSiteDemo.story = {
     ),
   },
 }
+
+export const PositiveFinished = _ => (
+  <ProgressBar progress={100} mood="positive" />
+)
+PositiveFinished.story = {
+  name: "Positive (100%)",
+}
+
+export const Informative = _ => <ProgressBar progress={25} mood="informative" />
+export const Negative = _ => <ProgressBar progress={25} mood="negative" />
+export const Cautionary = _ => <ProgressBar progress={25} mood="cautionary" />
