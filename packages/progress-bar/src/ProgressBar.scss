@@ -2,8 +2,11 @@
 
 $height: 10px;
 
-.progressBarLabel {
-  display: block;
+.label {
+  text-align: center;
+}
+
+.subtext {
   text-align: center;
 }
 
@@ -94,17 +97,17 @@ $height: 10px;
   }
 }
 
-.finished {
+.negative {
   composes: progress;
+  background: $color-red-400;
 
   &::after {
     opacity: 0;
   }
 }
 
-.negative {
+.finished {
   composes: progress;
-  background: $color-red-400;
 
   &::after {
     opacity: 0;
