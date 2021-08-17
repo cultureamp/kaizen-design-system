@@ -1,0 +1,38 @@
+{
+  "name": "@kaizen/progress-bar",
+  "version": "1.0.0",
+  "description": "The progress bar component",
+  "scripts": {
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/progress-bar"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!templates",
+    "!stories",
+    "!docs",
+    "!tsconfig.dist.json"
+  ],
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
+  "dependencies": {}
+}
