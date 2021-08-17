@@ -9,6 +9,7 @@ import RelatedIssues from "../components/RelatedIssues"
 import {
   Content,
   ContentNeedToKnowSection,
+  ContentHealth,
   Sidebar,
   SidebarAndContent,
   SidebarSection,
@@ -100,6 +101,9 @@ export default ({ data, location }) => {
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
+            {md.frontmatter.health && (
+              <ContentHealth healthAttributes={md.frontmatter.health} />
+            )}
             <RelatedIssues issues={relatedIssues} />
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
@@ -139,6 +143,16 @@ export const query = graphql`
         demoStoryId
         demoStoryHeight
         githubLabels
+        health {
+          designed
+          documented
+          implemented
+          latestDesign
+          allVariants
+          responsive
+          internationalized
+          accessible
+        }
       }
       tableOfContents
     }

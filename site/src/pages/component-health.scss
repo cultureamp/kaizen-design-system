@@ -1,0 +1,58 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.healthTable {
+  border-spacing: 0;
+  border-radius: $border-solid-border-radius;
+  overflow: hidden;
+
+  thead,
+  tfoot {
+    position: sticky;
+  }
+
+  thead {
+    inset-block-start: 60px;
+  }
+
+  th,
+  td {
+    padding: $spacing-sm;
+    border: 1px solid $color-gray-200;
+  }
+
+  th {
+    text-align: start;
+    background: $color-white;
+    overflow: hidden;
+    border-bottom-width: 3px;
+
+    > span {
+      font-weight: $typography-paragraph-bold-font-weight;
+    }
+  }
+
+  tbody td:first-child,
+  tfoot td:first-child {
+    text-align: start;
+  }
+
+  td {
+    background: $color-white;
+    text-align: center;
+  }
+
+  .attributeCol {
+    width: 100px;
+  }
+
+  .positive {
+    background: $color-green-300;
+  }
+
+  .negative {
+    background: $color-red-200;
+  }
+}

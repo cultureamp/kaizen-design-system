@@ -14,6 +14,7 @@
     "@kaizen/draft-divider": "*",
     "@kaizen/draft-tag": "*",
     "@kaizen/draft-button": "*",
+    "@kaizen/draft-tag": "*",
     "@kaizen/design-tokens": "*",
     "@kaizen/hosted-assets": "^1.1.0",
     "@mdx-js/mdx": "^1.4.5",
