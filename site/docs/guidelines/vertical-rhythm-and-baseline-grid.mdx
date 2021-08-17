@@ -30,6 +30,7 @@ In order for visual rhythm to work, not only do elements have to take up the sam
 ## Code implementation & usage details
 
 * We previously used the [Basekick/baseline shift approach](https://github.com/michaeltaranto/basekick) but abandoned it because of the complexities it caused in implementation. Consumers often needed to be aware of what Basekick was and how it worked if they needed to make seemingly minute alterations. Now that Figma accounts for line height in a similar way to what the web does we've deprecated baseline shift. If you'd like to read more about what baseline shift was trying to solve, see [this Figma article](https://www.figma.com/blog/line-height-changes/).
+* Kaizen now uses the `<Box>` component to handle spacing, which is flexible enough to handle almost all your spacing needs without you having to reach for CSS.
 
 ## When to use and when not to use
 
