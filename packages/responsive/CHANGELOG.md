@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.1.4...@kaizen/responsive@1.2.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
 ## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.1.3...@kaizen/responsive@1.1.4) (2021-08-09)
 
 
