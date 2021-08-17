@@ -42,22 +42,6 @@ describe("<TextArea />", () => {
     expect(defaultTextAreaProps.onChange).toBeCalledTimes(1)
   })
 
-  it("should render an `data-automation-id` attribute", () => {
-    const automationId = "someTextAreaAutomationId"
-
-    const { container } = renderTextArea({ automationId })
-    expect(
-      container.querySelector(`[data-automation-id="${automationId}"]`)
-    ).toBeTruthy()
-  })
-
-  it("should render an `id` attribute", () => {
-    const { container } = renderTextArea()
-    expect(
-      container.querySelector(`[id="${defaultTextAreaProps.id}"]`)
-    ).toBeTruthy()
-  })
-
   it("should render a reversed text area", () => {
     const { container } = renderTextArea({ reversed: true })
     expect(container.querySelector(".reversed")).toBeTruthy()
