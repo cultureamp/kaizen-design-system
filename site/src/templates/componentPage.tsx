@@ -5,6 +5,7 @@ import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
+import RelatedIssues from "../components/RelatedIssues"
 import {
   Content,
   ContentNeedToKnowSection,
@@ -31,8 +32,9 @@ const renderSidebarTabs = (pages, currentPath) =>
     </SidebarTab>
   ))
 
-export default ({ data, pageContext, location }) => {
+export default ({ data, location }) => {
   const md = data.mdx
+  const allIssues = data.allIssue.edges
   const allPages = data.allMdx.edges
   const currentPath = location.pathname
 
@@ -42,6 +44,16 @@ export default ({ data, pageContext, location }) => {
   const pagesWithoutOverview = sortSidebarTabs(
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
+  const relatedIssues = allIssues.filter(({ node }) => {
+    if (!node.labels.length || !md.frontmatter.githubLabels) return false
+    const labelsContainActiveComponent = md.frontmatter.githubLabels.some(
+      tag => {
+        const simplifiedLabels = node.labels.map(({ name }) => name)
+        return simplifiedLabels.includes(tag)
+      }
+    )
+    return labelsContainActiveComponent
+  })
 
   const renderStorybookIFrame = () => {
     if (!md.frontmatter.demoStoryId) {
@@ -88,6 +100,7 @@ export default ({ data, pageContext, location }) => {
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
+            <RelatedIssues issues={relatedIssues} />
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
             // @ts-ignore */}
@@ -125,8 +138,24 @@ export const query = graphql`
         headerImage
         demoStoryId
         demoStoryHeight
+        githubLabels
       }
       tableOfContents
+    }
+    allIssue {
+      edges {
+        node {
+          id
+          html_url
+          title
+          updated_at
+          created_at
+          state
+          labels {
+            name
+          }
+        }
+      }
     }
   }
 `
