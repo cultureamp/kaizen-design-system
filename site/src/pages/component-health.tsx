@@ -21,7 +21,8 @@ const ComponentPageHeader = (
 export default ({ data, location }) => {
   const componentsSorted = sortSidebarTabs(data.allMdx.edges)
   const componentsFiltered = componentsSorted.filter(
-    component => component.node
+    component =>
+      component.node && component.node.frontmatter.navTitle !== "Overview"
   )
   const totals = calculateHealthTotals(
     componentsFiltered.map(component => component.node.frontmatter),
