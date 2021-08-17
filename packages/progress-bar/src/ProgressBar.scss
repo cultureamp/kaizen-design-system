@@ -2,6 +2,10 @@
 
 $height: 10px;
 
+@mixin animation-background($color) {
+  background: linear-gradient(90deg, transparent, #{$color} 75%, transparent);
+}
+
 .label {
   text-align: center;
 }
@@ -40,14 +44,9 @@ $height: 10px;
   transition: transform 200ms ease;
 
   &::after {
+    @include animation-background($color-green-300);
     opacity: 1;
     content: "";
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $color-green-300 75%,
-      transparent
-    );
     position: absolute;
     top: 0;
     bottom: 0;
@@ -62,12 +61,7 @@ $height: 10px;
   composes: progress;
   background: $color-green-400;
   &::after {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $color-green-300 75%,
-      transparent
-    );
+    @include animation-background($color-green-300);
   }
 }
 
@@ -75,12 +69,7 @@ $height: 10px;
   composes: progress;
   background: $color-blue-400;
   &::after {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $color-blue-300 75%,
-      transparent
-    );
+    @include animation-background($color-blue-300);
   }
 }
 
@@ -88,12 +77,7 @@ $height: 10px;
   composes: progress;
   background: $color-yellow-400;
   &::after {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $color-yellow-300 75%,
-      transparent
-    );
+    @include animation-background($color-yellow-300);
   }
 }
 

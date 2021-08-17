@@ -12,11 +12,11 @@ type Mood = "positive" | "informative" | "negative" | "cautionary"
 
 const progressClassNames = (mood: Mood, progress: number) =>
   classnames({
-    [styles.finished]: progress === 100,
     [styles.positive]: mood === "positive",
     [styles.informative]: mood === "informative",
     [styles.cautionary]: mood === "cautionary",
     [styles.negative]: mood === "negative",
+    [styles.finished]: progress === 100,
   })
 
 export const ProgressBar = ({ percentage, mood, subtext }: Props) => (
