@@ -4,7 +4,7 @@ import classnames from "classnames"
 import styles from "./ProgressBar.scss"
 
 type Props = {
-  percentage: number
+  progressPercentage: number
   mood: Mood
   subtext?: string
 }
@@ -19,24 +19,24 @@ const progressClassNames = (mood: Mood, progress: number) =>
     [styles.finished]: progress === 100,
   })
 
-export const ProgressBar = ({ percentage, mood, subtext }: Props) => (
+export const ProgressBar = ({ progressPercentage, mood, subtext }: Props) => (
   <div
     role="progressbar"
-    aria-valuenow={percentage}
+    aria-valuenow={progressPercentage}
     aria-valuemin={0}
     aria-valuemax={100}
   >
     <div className={styles.label}>
       <Box pb={0.25}>
         <Heading variant="heading-4" tag="p">
-          {percentage}%
+          {progressPercentage}%
         </Heading>
       </Box>
     </div>
     <div className={styles.progressBackground}>
       <div
-        className={progressClassNames(mood, percentage)}
-        style={{ transform: `translateX(-${100 - percentage}%` }}
+        className={progressClassNames(mood, progressPercentage)}
+        style={{ transform: `translateX(-${100 - progressPercentage}%` }}
       />
     </div>
     {subtext != null ? (
