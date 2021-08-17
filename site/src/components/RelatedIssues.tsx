@@ -21,6 +21,8 @@ const RelatedIssues = ({ issues }) => {
       txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
     )
 
+  const labelsWithoutComponentPrefix = label => !label.includes("component:")
+
   return (
     <div>
       <markdownComponents.h2>
@@ -35,7 +37,10 @@ const RelatedIssues = ({ issues }) => {
           {issues.map(({ node }, i) => (
             <>
               <div className={styles.row}>
-                <Box p={0.5}>
+                <Box
+                  p={0.5}
+                  classNameAndIHaveSpokenToDST={styles.contentColumn}
+                >
                   <Box>
                     <a href={node.html_url}>{node.title}</a>
                   </Box>
@@ -48,9 +53,16 @@ const RelatedIssues = ({ issues }) => {
                   </Box>
                 </Box>
                 <Box p={0.5}>
-                  <Tag variant="sentimentNeutral" size="small">
-                    {toTitleCase(node.state)}
-                  </Tag>
+                  {node.labels
+                    .map(label => label.name)
+                    .filter(labelsWithoutComponentPrefix)
+                    .map(label => (
+                      <div className={styles.tagWrapper}>
+                        <Tag variant="sentimentNeutral" size="small">
+                          {toTitleCase(label)}
+                        </Tag>
+                      </div>
+                    ))}
                 </Box>
               </div>
               {i < issues.length - 1 && <Divider variant="content" />}
