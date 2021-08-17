@@ -20,7 +20,12 @@ const progressClassNames = (mood: Mood, progress: number) =>
   })
 
 export const ProgressBar = ({ percentage, mood, subtext }: Props) => (
-  <div>
+  <div
+    role="progressbar"
+    aria-valuenow={percentage}
+    aria-valuemin={0}
+    aria-valuemax={100}
+  >
     <div className={styles.label}>
       <Box pb={0.25}>
         <Heading variant="heading-4" tag="p">
