@@ -18,9 +18,18 @@ const renderTextArea = (props?: TextAreaProps) => {
 }
 
 describe("<TextArea />", () => {
-  it("should render a value", () => {
+  it("should render a value when component is controlled", () => {
     const { queryByText } = renderTextArea()
     expect(queryByText(defaultTextAreaProps.value)).toBeTruthy()
+  })
+
+  it("should render a default value when component is uncontrolled", () => {
+    const { queryByText } = renderTextArea({
+      defaultValue: "default value",
+      value: undefined,
+    })
+    expect(queryByText(defaultTextAreaProps.value)).toBeFalsy()
+    expect(queryByText("default value")).toBeTruthy()
   })
 
   it("should call the `onChange` event when the value is updated", () => {
