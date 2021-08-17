@@ -106,12 +106,7 @@ export const ContentHealth = ({
 }: {
   healthAttributes: HealthAttributes
 }) => (
-  <div
-    className={classnames(
-      styles.contentTopSection,
-      markdownStyles.markdownContainer
-    )}
-  >
+  <div>
     <markdownComponents.h2>
       <span className="md-anchor-offset" id="health" />
       <a className="md-heading-link" href="#health">
