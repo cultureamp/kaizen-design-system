@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.5.0...@kaizen/draft-empty-state@2.6.0) (2021-08-17)
+
+
+### Features
+
+* Animate empty state illustration ([#1839](https://github.com/cultureamp/kaizen-design-system/issues/1839)) ([06382c7](https://github.com/cultureamp/kaizen-design-system/commit/06382c7910853e3d6ee93b35b3a0f5d3ef9c1f5c))
+
+
+
+
+
 # [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.4.1...@kaizen/draft-empty-state@2.5.0) (2021-08-13)
 
 
