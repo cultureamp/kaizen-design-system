@@ -8,6 +8,7 @@ type Props = {
   variant: Variant
   mood: Mood
   subtext?: string
+  labelExtraContent?: React.ReactNode
 }
 
 type Value =
@@ -81,9 +82,10 @@ export function ProgressBar(props: Props) {
 function Label(props: Props) {
   const percentage = calculatePercentage(props.value)
   const content =
-    props.value.kind === "percentage"
+    (props.value.kind === "percentage"
       ? `${Math.round(percentage)}%`
-      : `${props.value.value}/${props.value.max}`
+      : `${props.value.value}/${props.value.max}`) +
+    (props.labelExtraContent ? " " + props.labelExtraContent : "")
   return (
     <div className={styles.label}>
       <Box pb={0.25}>

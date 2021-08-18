@@ -34,7 +34,7 @@ DefaultStory.story = {
 export const PositiveFinished = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 25 }}
+    value={{ kind: "percentage", value: 100 }}
     mood="positive"
   />
 )
@@ -74,6 +74,29 @@ export const PositiveFraction = _ => (
 )
 PositiveFraction.story = {
   name: "Positive (fraction, static)",
+}
+
+export const PositiveLabelExtraContent = _ => (
+  <ProgressBar
+    variant="static"
+    value={{ kind: "percentage", value: 25 }}
+    mood="positive"
+    labelExtraContent="complete"
+  />
+)
+PositiveLabelExtraContent.story = {
+  name: "Positive (label extra content)",
+}
+
+export const PositiveLongNumber = _ => (
+  <ProgressBar
+    variant="loading"
+    value={{ kind: "percentage", value: 33.33333333 }}
+    mood="positive"
+  />
+)
+PositiveLongNumber.story = {
+  name: "Positive (value: 33.33333333)",
 }
 
 export const Informative = _ => (
