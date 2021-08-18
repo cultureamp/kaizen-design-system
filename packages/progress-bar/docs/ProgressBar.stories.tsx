@@ -28,25 +28,36 @@ DefaultStory.story = {
 }
 
 export const PositiveFinished = _ => (
-  <ProgressBar progressPercentage={100} mood="positive" />
+  <ProgressBar variant="loading" progressPercentage={100} mood="positive" />
 )
 PositiveFinished.story = {
   name: "Positive (100%)",
 }
 
 export const PositiveSubtext = _ => (
-  <ProgressBar progressPercentage={100} mood="positive" subtext="Subtext" />
+  <ProgressBar
+    variant="loading"
+    progressPercentage={25}
+    mood="positive"
+    subtext="Subtext"
+  />
 )
 PositiveSubtext.story = {
   name: "Positive (with subtext)",
 }
+export const PositiveStatic = _ => (
+  <ProgressBar variant="static" progressPercentage={25} mood="positive" />
+)
+PositiveStatic.story = {
+  name: "Positive (static)",
+}
 
 export const Informative = _ => (
-  <ProgressBar progressPercentage={25} mood="informative" />
+  <ProgressBar variant="loading" progressPercentage={25} mood="informative" />
 )
 export const Negative = _ => (
-  <ProgressBar progressPercentage={25} mood="negative" />
+  <ProgressBar variant="loading" progressPercentage={25} mood="negative" />
 )
 export const Cautionary = _ => (
-  <ProgressBar progressPercentage={25} mood="cautionary" />
+  <ProgressBar variant="loading" progressPercentage={25} mood="cautionary" />
 )
