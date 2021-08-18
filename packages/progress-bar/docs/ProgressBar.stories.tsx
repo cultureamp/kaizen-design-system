@@ -15,11 +15,11 @@ export default {
   },
 }
 
-export const DefaultSiteDemo = _ => (
+export const DefaultStory = _ => (
   <ProgressBar progressPercentage={25} mood="positive" />
 )
-DefaultSiteDemo.story = {
-  name: "Positive",
+DefaultStory.story = {
+  name: "Positive (Kaizen Site Demo)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A20890"
