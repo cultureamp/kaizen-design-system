@@ -4,7 +4,7 @@ import Box.Box as Box exposing (..)
 import CssModules exposing (css)
 import Heading.Heading as Heading exposing (TypeVariant(..))
 import Html exposing (..)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (attribute, style)
 
 
 type alias Configuration =
@@ -49,7 +49,11 @@ view { progressPercentage, mood } =
             style "transform" translateXString
     in
     div
-        []
+        [ attribute "role" "progressbar"
+        , attribute "aria-valuenow" (String.fromInt progressPercentage)
+        , attribute "aria-valuemin" "0"
+        , attribute "aria-valuemax" "100"
+        ]
         [ div [ class .label ]
             [ box [ marginBottom 0.25 ]
                 [ Heading.view
