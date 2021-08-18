@@ -47,6 +47,9 @@ view { progressPercentage, mood } =
                     "translateX(" ++ String.fromInt translateXValue ++ "%" ++ ")"
             in
             style "transform" translateXString
+
+        isAnimating =
+            progressPercentage == 100 || mood == Negative
     in
     div
         [ attribute "role" "progressbar"
@@ -65,7 +68,7 @@ view { progressPercentage, mood } =
             [ classList [ ( .progressBackground, True ) ] ]
             [ div
                 [ styles.class (moodToClass mood)
-                , classList [ ( .finished, progressPercentage == 100 ) ]
+                , classList [ ( .animating, isAnimating ) ]
                 , progressBarStyle
                 ]
                 []
@@ -89,5 +92,5 @@ styles =
         , informative = "informative"
         , cautionary = "cautionary"
         , negative = "negative"
-        , finished = "finished"
+        , animating = "animating"
         }
