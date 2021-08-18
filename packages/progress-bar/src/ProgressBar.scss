@@ -7,11 +7,14 @@ $height: 10px;
 }
 
 .label {
+  color: $color-purple-800;
   text-align: center;
 }
 
 .subtext {
+  color: $color-purple-800;
   text-align: center;
+  opacity: 0.8;
 }
 
 .progressBackground {
