@@ -272,9 +272,10 @@ PlacementEnd.storyName = "Placement end"
 
 export const MoveableTargetElement = () => {
   const [setReferenceElement, PopoverWithRef, referenceElement] = usePopover()
-  let paddingOnButton = "2rem"
+  const [paddingAmount, setPaddingAmount] = React.useState("2rem")
+
   setTimeout(() => {
-    paddingOnButton = "5rem"
+    setPaddingAmount("5rem")
   }, 5000)
 
   // detect changes in the button component
@@ -283,14 +284,11 @@ export const MoveableTargetElement = () => {
   const [isForceUpdate, setForceUpdate] = React.useState(false)
 
   // Set a resize observer on the reference element.
-  const referenceElementObserver = React.useMemo(
-    () =>
-      new ResizeObserver(entries => {
-        setForceUpdate(true)
-        console.log("Resize detected")
-      }),
-    []
-  )
+  const referenceElementObserver = new ResizeObserver(entries => {
+    setForceUpdate(true)
+    console.log("Resize detected")
+  })
+
   if (referenceElement) {
     referenceElementObserver.observe(referenceElement)
   }
@@ -300,7 +298,7 @@ export const MoveableTargetElement = () => {
       <button
         id="ally-was-here"
         ref={setReferenceElement}
-        style={{ backgroundColor: "red", padding: paddingOnButton }}
+        style={{ backgroundColor: "red", padding: paddingAmount }}
       >
         Click me!
       </button>
