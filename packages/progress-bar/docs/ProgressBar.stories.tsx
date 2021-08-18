@@ -16,7 +16,11 @@ export default {
 }
 
 export const DefaultStory = _ => (
-  <ProgressBar progressPercentage={25} mood="positive" />
+  <ProgressBar
+    value={{ kind: "percentage", value: 25 }}
+    mood="positive"
+    variant="loading"
+  />
 )
 DefaultStory.story = {
   name: "Positive (Kaizen Site Demo)",
@@ -28,7 +32,11 @@ DefaultStory.story = {
 }
 
 export const PositiveFinished = _ => (
-  <ProgressBar variant="loading" progressPercentage={100} mood="positive" />
+  <ProgressBar
+    variant="loading"
+    value={{ kind: "percentage", value: 25 }}
+    mood="positive"
+  />
 )
 PositiveFinished.story = {
   name: "Positive (100%)",
@@ -37,7 +45,7 @@ PositiveFinished.story = {
 export const PositiveSubtext = _ => (
   <ProgressBar
     variant="loading"
-    progressPercentage={25}
+    value={{ kind: "percentage", value: 25 }}
     mood="positive"
     subtext="Subtext"
   />
@@ -45,19 +53,49 @@ export const PositiveSubtext = _ => (
 PositiveSubtext.story = {
   name: "Positive (with subtext)",
 }
+
 export const PositiveStatic = _ => (
-  <ProgressBar variant="static" progressPercentage={25} mood="positive" />
+  <ProgressBar
+    variant="static"
+    value={{ kind: "percentage", value: 25 }}
+    mood="positive"
+  />
 )
 PositiveStatic.story = {
   name: "Positive (static)",
 }
 
+export const PositiveFraction = _ => (
+  <ProgressBar
+    variant="static"
+    value={{ kind: "fraction", value: 3, max: 10 }}
+    mood="positive"
+  />
+)
+PositiveFraction.story = {
+  name: "Positive (fraction, static)",
+}
+
 export const Informative = _ => (
-  <ProgressBar variant="loading" progressPercentage={25} mood="informative" />
+  <ProgressBar
+    variant="loading"
+    value={{ kind: "percentage", value: 25 }}
+    mood="informative"
+  />
 )
+
 export const Negative = _ => (
-  <ProgressBar variant="loading" progressPercentage={25} mood="negative" />
+  <ProgressBar
+    variant="loading"
+    value={{ kind: "percentage", value: 25 }}
+    mood="negative"
+  />
 )
+
 export const Cautionary = _ => (
-  <ProgressBar variant="loading" progressPercentage={25} mood="cautionary" />
+  <ProgressBar
+    variant="loading"
+    value={{ kind: "percentage", value: 25 }}
+    mood="cautionary"
+  />
 )
