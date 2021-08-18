@@ -5,6 +5,7 @@ import {
 } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
+import useResizeObserver from "@react-hook/resize-observer"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -270,9 +271,24 @@ export const PlacementEnd = () => {
 
 PlacementEnd.storyName = "Placement end"
 
+const useSize = target => {
+  const [size, setSize] = React.useState()
+
+  React.useLayoutEffect(() => {
+    console.log("happening")
+    setSize(target.current.getBoundingClientRect())
+  }, [target])
+
+  // Where the magic happens
+  useResizeObserver(target, entry => setSize(entry.contentRect))
+  return size
+}
+
 export const MoveableTargetElement = () => {
   const [setReferenceElement, PopoverWithRef, referenceElement] = usePopover()
   const [paddingAmount, setPaddingAmount] = React.useState("2rem")
+  const target = React.useRef(null)
+  const targetSize = useSize(target)
 
   setTimeout(() => {
     setPaddingAmount("5rem")
@@ -283,18 +299,15 @@ export const MoveableTargetElement = () => {
   // via setReferenceElement
   const [isForceUpdate, setForceUpdate] = React.useState(false)
 
-  // Set a resize observer on the reference element.
-  const referenceElementObserver = new ResizeObserver(entries => {
+  React.useEffect(() => {
+    console.log(
+      "MoveableTargetElement useEffect triggered because the targetSize changed"
+    )
     setForceUpdate(true)
-    console.log("Resize detected")
-  })
-
-  if (referenceElement) {
-    referenceElementObserver.observe(referenceElement)
-  }
+  }, [targetSize])
 
   return (
-    <div>
+    <div ref={target}>
       <button
         id="ally-was-here"
         ref={setReferenceElement}
@@ -302,10 +315,20 @@ export const MoveableTargetElement = () => {
       >
         Click me!
       </button>
-      <PopoverWithRef heading="Placement end" placement="bottom-start">
+      <PopoverWithRef
+        heading="Placement end"
+        placement="bottom-start"
+        isForceUpdate={isForceUpdate}
+      >
         PopoverWithRef body that explains something useful, is optional, and not
         critical to completing a task.
       </PopoverWithRef>
+      {targetSize &&
+        JSON.stringify(
+          { width: targetSize.width, height: targetSize.height },
+          null,
+          2
+        )}
     </div>
   )
 }

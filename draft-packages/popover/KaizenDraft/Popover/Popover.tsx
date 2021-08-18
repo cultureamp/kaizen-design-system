@@ -3,7 +3,8 @@ import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
-import React, { useMemo, useState } from "react"
+import React, { useMemo, useState, useEffect } from "react"
+
 import styles from "./styles.scss"
 import { Size, Variant } from "./types"
 import {
@@ -98,9 +99,16 @@ export const Popover: PopoverModernType = ({
     }
   )
 
-  if (isForceUpdate && forceUpdate) {
-    forceUpdate()
-  }
+  useEffect(() => {
+    console.log("Popover useEffect triggered because isForceUpdate changed")
+    if (isForceUpdate && forceUpdate) {
+      forceUpdate()
+    }
+  }, [isForceUpdate])
+
+  // setTimeout(() => {
+  //   forceUpdate && forceUpdate()
+  // }, 6000)
 
   return (
     <div
