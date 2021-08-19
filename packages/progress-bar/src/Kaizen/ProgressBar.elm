@@ -1,4 +1,4 @@
-module Kaizen.ProgressBar exposing (Mood(..), view)
+module Kaizen.ProgressBar exposing (Configuration, Mood(..), view)
 
 import Box.Box as Box exposing (..)
 import CssModules exposing (css)
