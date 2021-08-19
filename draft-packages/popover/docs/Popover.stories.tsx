@@ -272,14 +272,12 @@ export const PlacementEnd = () => {
 PlacementEnd.storyName = "Placement end"
 
 const useSize = target => {
-  const [size, setSize] = React.useState()
+  const [size, setSize] = React.useState<DOMRect>()
 
   React.useLayoutEffect(() => {
-    console.log("happening")
     setSize(target.current.getBoundingClientRect())
   }, [target])
 
-  // Where the magic happens
   useResizeObserver(target, entry => setSize(entry.contentRect))
   return size
 }
@@ -300,10 +298,7 @@ export const MoveableTargetElement = () => {
   const [isForceUpdate, setForceUpdate] = React.useState(false)
 
   React.useEffect(() => {
-    console.log(
-      "MoveableTargetElement useEffect triggered because the targetSize changed"
-    )
-    setForceUpdate(true)
+    setForceUpdate(!isForceUpdate)
   }, [targetSize])
 
   return (

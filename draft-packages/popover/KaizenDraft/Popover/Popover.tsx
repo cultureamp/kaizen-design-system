@@ -100,15 +100,10 @@ export const Popover: PopoverModernType = ({
   )
 
   useEffect(() => {
-    console.log("Popover useEffect triggered because isForceUpdate changed")
-    if (isForceUpdate && forceUpdate) {
+    if (typeof isForceUpdate !== "undefined" && forceUpdate) {
       forceUpdate()
     }
   }, [isForceUpdate])
-
-  // setTimeout(() => {
-  //   forceUpdate && forceUpdate()
-  // }, 6000)
 
   return (
     <div
