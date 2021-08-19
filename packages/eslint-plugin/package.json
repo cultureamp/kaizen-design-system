@@ -1,0 +1,9 @@
+{
+  "name": "eslint-plugin-kaizen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.21.0"
+  }
+}
