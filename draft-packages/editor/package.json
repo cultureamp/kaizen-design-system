@@ -1,0 +1,9 @@
+{
+  "name": "editor",
+  "version": "1.0.0",
+  "description": "Rich text editor component",
+  "main": "index.js",
+  "repository": "git+https://github.com/cultureamp/kaizen-design-system.git",
+  "license": "MIT",
+  "private": false
+}
