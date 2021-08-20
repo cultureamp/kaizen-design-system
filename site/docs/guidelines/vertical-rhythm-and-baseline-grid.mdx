@@ -7,6 +7,7 @@ tags: ['Grid']
 needToKnow:
   - "Use Grid Units. Culture Amp’s Grid Unit is 24px. E.g. “margin: $ca-grid;”"
   - "As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) for vertical rhythm."
+  - "Our baseline shift approach we had in place to align text to a baseline grid has been deprecated - see below for details."
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -22,29 +23,14 @@ In order for visual rhythm to work, not only do elements have to take up the sam
 * 1 Grid Unit is 24px. This is intended primarily to achieve vertical rhythm but is also used for [horizontal rhythm](/guidelines/alignment).
     * Note: 1 Grid Unit is implemented in code as 1.5rem so that type adjusts to people’s browser font size settings.
 * As a general rule, use 12px (½ Grid Unit) or 24px (1 Grid Unit) to separate elements within a container.
-* Ensure the baseline of text falls on the baseline grid, and adjust containers around that.
-* We use css `position: relative` to shift text to sit on the baseline, and have SASS mixins to achieve this for a given font style.
-* Our Kaizen components are built to sit on a baseline grid - no extra work required from you.
+
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D258%253A2388" allowfullscreen></iframe>
 
 ## Code implementation & usage details
 
-* When using the Text component, text will be shifted to sit on the baseline grid. If you’re using the component within an area that already has a baseline shift, or for some other reason this shift is undesirable, you can set `inheritBaseline` to true, and it will inherit the baseline of the parent - no longer shifting any text.
-* When adding text to your component or interface, we have SASS mixins that set the correct font family, font size, and position so that the text will sit on the baseline grid. See [typography](/guidelines/typography/) for details on these mixins.
-* If you need to use these mixins, but do not want the baseline grid adjustment, you can also use the `ca-inherit-baseline` mixin.
-* Because our mixins shift the element down on the page, we need to create space in the layout for the element to shift into. For this we have a `ca-type-block` mixin that creates the whitespace necessary for the contained text to shift “into”. That is, it creates the 1/2-grid `padding-bottom` on a container for the text to have room to be shifted “into”.
-    * Watch [“Teaching CSS to talk like a designer”](https://www.youtube.com/watch?v=TGHbkTGVqoU)
-    * Watch from 50:24 in the video recording of this meeting: [internal link](https://cultureamp.slack.com/files/U04S9RRAC/F8XPHLQ13/Front_End_Practice_Meeting_____2018-01-24)
-    * Watch video recording of this Brown Bag (which covered scrollbar issues and the work that we were doing on our baseline grid and vertical rhythm): [internal video link](https://cultureamp.zoom.us/recording/share/bqOJujzbx7saKe2366y4XBYVKUXSiDMJ1bgLchDFH0awIumekTziMw)
-    * We use `position: relative` and `top`. It doesn’t create a new _stacking_ context, but does create a new _positioning_ context.
-    * Previously, `translateY` caused issues with stacking context, and breaking `z-index` rules, so dropdown menus and others started becoming unruly to manage.
-    * With the normal baseline that comes from the `ca-type-inter-x` styles, padding on a box surrounding some text results in, visually, the box having reduced padding on the bottom even though the `padding-top` and `padding-bottom` values are exactly the same
-
-<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1273%253A23079" allowfullscreen></iframe>
-
-* That padding is there because the button and its label is shifted down onto the baseline grid, so it needs guaranteed whitespace to shift into.
-* All buttons are shifted, so that if you have icon buttons and text buttons (and even plain old text) they are well aligned
+* We previously used the [Basekick/baseline shift approach](https://github.com/michaeltaranto/basekick) but abandoned it because of the complexities it caused in implementation. Consumers often needed to be aware of what Basekick was and how it worked if they needed to make seemingly minute alterations. Now that Figma accounts for line height in a similar way to what the web does we've deprecated baseline shift. If you'd like to read more about what baseline shift was trying to solve, see [this Figma article](https://www.figma.com/blog/line-height-changes/).
+* Kaizen now uses the `<Box>` component to handle spacing, which is flexible enough to handle almost all your spacing needs without you having to reach for CSS.
 
 ## When to use and when not to use
 
@@ -56,7 +42,7 @@ In order for visual rhythm to work, not only do elements have to take up the sam
 </WhenToUse>
 <WhenNotToUse>
 
-- There's no need to use the baseline grid for icons that are aligned optically.
+- There's no need to use any new instances of baseline shift as this approach is deprecated.
 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
