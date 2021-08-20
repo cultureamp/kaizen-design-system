@@ -1,9 +1,19 @@
 {
-  "name": "eslint-plugin-kaizen",
+  "name": "@kaizen/eslint-plugin-kaizen",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "cd ../../ && yarn jest ./packages/eslint-plugin",
+    "build": "yarn tsc --project tsconfig.dist.json",
+    "clean": "rimraf dist './src/**/*.js*' './src/**/*.d.ts'",
+    "prepare": "yarn clean && yarn test && yarn build"
+  },
   "devDependencies": {
-    "eslint": "^7.21.0"
+    "eslint": "^7.21.0",
+    "@types/eslint": "^7.28.0"
   }
 }
