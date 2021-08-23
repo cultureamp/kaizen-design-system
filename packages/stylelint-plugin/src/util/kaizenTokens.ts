@@ -141,7 +141,7 @@ export const kaizenTokensByName: Readonly<
  * This is a record of Kaizen CSS variable values -> Kaizen token SCSS variable names.
  * It allows you to find the variable for a value (the inverse of getting the value of a variable).
  * Because colors can be represented in multiple ways, additional keys have been added to here for every variable that holds a color, by running something along the lines of `colorString.to.hex(colorString.get(value).value)`.
- * What this means is, if a value like $color-white holds (a CSS fallback) value of $fff, you will get the additional color of $ffffff, which is what colorString spits out.
+ * What this means is, if a value like $color-white holds (a CSS fallback) value of #fff, you will get the additional color of #ffffff, which is what colorString spits out.
  * If it is a color, we also add an extra key to the value object (the KaizenToken): `color: ...` so that they are easily identifiable. You might've had to run colorString.get again otherwise.
  * It looks something like:
  * ```ts
