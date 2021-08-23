@@ -1,19 +1,16 @@
 import { Box, Heading } from "@kaizen/component-library"
-import React from "react"
+import React, { ReactNode } from "react"
 import classnames from "classnames"
 import styles from "./ProgressBar.scss"
 
 type Props = {
-  value: Value
+  value: number
+  max: number
   variant: Variant
   mood: Mood
   subtext?: string
-  labelExtraContent?: React.ReactNode
+  label?: string
 }
-
-type Value =
-  | { kind: "percentage"; value: number }
-  | { kind: "fraction"; value: number; max: number }
 
 type Mood = "positive" | "informative" | "negative" | "cautionary"
 
@@ -30,28 +27,23 @@ const progressClassNames = (props: Props) => {
   })
 }
 
-function calculatePercentage(value: Value) {
-  return value.kind === "percentage"
-    ? value.value
-    : (value.value / value.max) * 100.0
+function calculatePercentage({ value, max }: Props) {
+  return (value / max) * 100.0
 }
 
-function isAnimating({ variant, mood, value }: Props) {
+function isAnimating({ variant, value, max }: Props) {
   if (variant === "static") {
     return false
   }
-  if (mood === "negative") {
-    return false
-  }
-  if (calculatePercentage(value) === 100) {
+  if (value >= max) {
     return false
   }
   return true
 }
 
 export function ProgressBar(props: Props) {
-  const { value, subtext } = props
-  const percentage = calculatePercentage(value)
+  const { subtext } = props
+  const percentage = calculatePercentage(props)
   return (
     <div
       role="progressbar"
@@ -59,7 +51,7 @@ export function ProgressBar(props: Props) {
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      <Label {...props} />
+      {props.label == null ? null : <Label content={props.label} />}
       <div className={styles.progressBackground}>
         <div
           className={progressClassNames(props)}
@@ -79,13 +71,7 @@ export function ProgressBar(props: Props) {
   )
 }
 
-function Label(props: Props) {
-  const percentage = calculatePercentage(props.value)
-  const content =
-    (props.value.kind === "percentage"
-      ? `${Math.round(percentage)}%`
-      : `${props.value.value}/${props.value.max}`) +
-    (props.labelExtraContent ? " " + props.labelExtraContent : "")
+function Label({ content }: { content: ReactNode }) {
   return (
     <div className={styles.label}>
       <Box pb={0.25}>

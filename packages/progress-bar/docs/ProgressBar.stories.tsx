@@ -17,9 +17,11 @@ export default {
 
 export const DefaultStory = _ => (
   <ProgressBar
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={100}
     mood="positive"
     variant="loading"
+    label="25%"
   />
 )
 DefaultStory.story = {
@@ -34,8 +36,10 @@ DefaultStory.story = {
 export const PositiveFinished = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 100 }}
+    value={100}
+    max={100}
     mood="positive"
+    label="Label"
   />
 )
 PositiveFinished.story = {
@@ -45,8 +49,10 @@ PositiveFinished.story = {
 export const PositiveSubtext = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={100}
     mood="positive"
+    label="Label"
     subtext="Subtext"
   />
 )
@@ -57,7 +63,9 @@ PositiveSubtext.story = {
 export const PositiveStatic = _ => (
   <ProgressBar
     variant="static"
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={25}
+    label="Label"
     mood="positive"
   />
 )
@@ -65,60 +73,36 @@ PositiveStatic.story = {
   name: "Positive (static)",
 }
 
-export const PositiveFraction = _ => (
-  <ProgressBar
-    variant="static"
-    value={{ kind: "fraction", value: 3, max: 10 }}
-    mood="positive"
-  />
-)
-PositiveFraction.story = {
-  name: "Positive (fraction, static)",
-}
-
-export const PositiveLabelExtraContent = _ => (
-  <ProgressBar
-    variant="static"
-    value={{ kind: "percentage", value: 25 }}
-    mood="positive"
-    labelExtraContent="complete"
-  />
-)
-PositiveLabelExtraContent.story = {
-  name: "Positive (label extra content)",
-}
-
-export const PositiveLongNumber = _ => (
-  <ProgressBar
-    variant="loading"
-    value={{ kind: "percentage", value: 33.33333333 }}
-    mood="positive"
-  />
-)
-PositiveLongNumber.story = {
-  name: "Positive (value: 33.33333333)",
-}
-
 export const Informative = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={100}
     mood="informative"
+    label="Label"
   />
 )
 
 export const Negative = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={100}
     mood="negative"
+    label="Label"
   />
 )
 
 export const Cautionary = _ => (
   <ProgressBar
     variant="loading"
-    value={{ kind: "percentage", value: 25 }}
+    value={25}
+    max={100}
     mood="cautionary"
+    label="Label"
   />
+)
+
+export const NoLabel = _ => (
+  <ProgressBar variant="loading" value={25} max={100} mood="positive" />
 )
