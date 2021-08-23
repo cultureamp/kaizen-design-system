@@ -6,15 +6,13 @@ import styles from "./ProgressBar.scss"
 type Props = {
   value: number
   max: number
-  variant: Variant
+  animating: boolean
   mood: Mood
   subtext?: string
   label?: string
 }
 
 type Mood = "positive" | "informative" | "negative" | "cautionary"
-
-type Variant = "static" | "loading"
 
 const progressClassNames = (props: Props) => {
   const { mood } = props
@@ -23,22 +21,12 @@ const progressClassNames = (props: Props) => {
     [styles.informative]: mood === "informative",
     [styles.cautionary]: mood === "cautionary",
     [styles.negative]: mood === "negative",
-    [styles.animating]: isAnimating(props),
+    [styles.animating]: props.animating,
   })
 }
 
 function calculatePercentage({ value, max }: Props) {
   return (value / max) * 100.0
-}
-
-function isAnimating({ variant, value, max }: Props) {
-  if (variant === "static") {
-    return false
-  }
-  if (value >= max) {
-    return false
-  }
-  return true
 }
 
 export function ProgressBar(props: Props) {
