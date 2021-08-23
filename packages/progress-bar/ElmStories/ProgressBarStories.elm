@@ -3,7 +3,7 @@ module ElmStories.ProgressBarStories exposing (main)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div)
 import Html.Attributes exposing (style)
-import Kaizen.ProgressBar as ProgressBar exposing (Mood(..))
+import Kaizen.ProgressBar as ProgressBar exposing (Mood(..), default, mood, progressPercentage, view)
 
 
 container content =
@@ -14,14 +14,29 @@ main =
     storybook
         [ statelessStoryOf "Positive" <|
             container <|
-                ProgressBar.view { progressPercentage = 30, mood = Positive }
+                ProgressBar.view
+                    (default
+                        |> progressPercentage 30
+                    )
         , statelessStoryOf "Informative" <|
             container <|
-                ProgressBar.view { progressPercentage = 30, mood = Informative }
+                ProgressBar.view
+                    (default
+                        |> progressPercentage 30
+                        |> mood Informative
+                    )
         , statelessStoryOf "Cautionary" <|
             container <|
-                ProgressBar.view { progressPercentage = 30, mood = Cautionary }
+                ProgressBar.view
+                    (default
+                        |> progressPercentage 30
+                        |> mood Cautionary
+                    )
         , statelessStoryOf "Negative" <|
             container <|
-                ProgressBar.view { progressPercentage = 30, mood = Negative }
+                ProgressBar.view
+                    (default
+                        |> progressPercentage 30
+                        |> mood Negative
+                    )
         ]

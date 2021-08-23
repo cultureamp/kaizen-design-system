@@ -1,4 +1,4 @@
-module Kaizen.ProgressBar exposing (Configuration, Mood(..), view)
+module Kaizen.ProgressBar exposing (Config, Mood(..), default, mood, progressPercentage, view)
 
 import Box.Box as Box exposing (..)
 import CssModules exposing (css)
@@ -7,7 +7,11 @@ import Html exposing (..)
 import Html.Attributes exposing (attribute, style)
 
 
-type alias Configuration =
+type Config
+    = Config ConfigValue
+
+
+type alias ConfigValue =
     { progressPercentage : Int
     , mood : Mood
     }
@@ -20,8 +24,8 @@ type Mood
     | Negative
 
 
-moodToClass mood =
-    case mood of
+moodToClass moodArg =
+    case moodArg of
         Informative ->
             .informative
 
@@ -35,13 +39,35 @@ moodToClass mood =
             .negative
 
 
-view : Configuration -> Html msg
-view { progressPercentage, mood } =
+default : Config
+default =
+    Config defaults
+
+
+defaults : ConfigValue
+defaults =
+    { mood = Positive
+    , progressPercentage = 0
+    }
+
+
+mood : Mood -> Config -> Config
+mood moodArg (Config config) =
+    Config { config | mood = moodArg }
+
+
+progressPercentage : Int -> Config -> Config
+progressPercentage progressPercentageArg (Config config) =
+    Config { config | progressPercentage = progressPercentageArg }
+
+
+view : Config -> Html msg
+view (Config config) =
     let
         progressBarStyle =
             let
                 translateXValue =
-                    -(100 - progressPercentage)
+                    -(100 - config.progressPercentage)
 
                 translateXString =
                     "translateX(" ++ String.fromInt translateXValue ++ "%" ++ ")"
@@ -49,11 +75,11 @@ view { progressPercentage, mood } =
             style "transform" translateXString
 
         isAnimating =
-            progressPercentage == 100 || mood == Negative
+            config.progressPercentage < 100 || config.mood == Negative
     in
     div
         [ attribute "role" "progressbar"
-        , attribute "aria-valuenow" (String.fromInt progressPercentage)
+        , attribute "aria-valuenow" (String.fromInt config.progressPercentage)
         , attribute "aria-valuemin" "0"
         , attribute "aria-valuemax" "100"
         ]
@@ -61,14 +87,14 @@ view { progressPercentage, mood } =
             [ box [ marginBottom 0.25 ]
                 [ Heading.view
                     (Heading.p |> Heading.variant Heading4)
-                    [ text <| String.fromInt progressPercentage ++ "%" ]
+                    [ text <| String.fromInt config.progressPercentage ++ "%" ]
                 ]
             ]
         , div
             [ classList [ ( .progressBackground, True ) ] ]
             [ div
-                [ styles.class (moodToClass mood)
-                , classList [ ( .animating, isAnimating ) ]
+                [ styles.class (moodToClass config.mood)
+                , classList [ ( .animating, isAnimating |> Debug.log "isAnim" ) ]
                 , progressBarStyle
                 ]
                 []
