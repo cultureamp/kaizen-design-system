@@ -24,4 +24,4 @@
 1. If related to a component, please add a label like so `component:mycomponent`.
 2. Then label with `bug`, `enhancement`/`feature`\* or `documentation`.
 
-**\* A feature is a new component/functionality and an enhancement is an improvement on existing component/functionality.**
+**\* A feature is a new component or piece of functionality and an enhancement is an improvement to an existing component or piece of functionality.**
