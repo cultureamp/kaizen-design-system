@@ -5,7 +5,7 @@
 ## Expected Behavior
 
 
-## Actual Behavior (please provide screenshots)
+## Actual Behavior (please provide screenshots if it's a visual issue)
 
 
 ## Steps to Reproduce the Problem
