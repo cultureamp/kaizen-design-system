@@ -1,7 +1,10 @@
-import { Icon } from "@kaizen/component-library"
+import { Icon, Box } from "@kaizen/component-library"
+import { Tag } from "@kaizen/draft-tag"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
+import { healthAttributeMap } from "../constants"
+import { HealthAttributes } from "../types"
 import markdownComponents from "./markdownComponents"
 
 import styles from "./SidebarAndContent.scss"
@@ -75,7 +78,7 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
     {listOfTips && listOfTips.length > 0 && (
       <div
         className={classnames(
-          styles.contentNeedToKnow,
+          styles.contentTopSection,
           markdownStyles.markdownContainer
         )}
       >
@@ -96,6 +99,40 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
       </div>
     )}
   </>
+)
+
+export const ContentHealth = ({
+  healthAttributes,
+}: {
+  healthAttributes: HealthAttributes
+}) => (
+  <div>
+    <markdownComponents.h2>
+      <span className="md-anchor-offset" id="health" />
+      <a className="md-heading-link" href="#health">
+        <Icon icon={linkIcon} title="Anchor" />
+      </a>
+      Component health
+    </markdownComponents.h2>
+    <div className={styles.healthContent}>
+      {healthAttributeMap.map(attribute => (
+        <span className={styles.healthTagContainer}>
+          <Tag
+            key={attribute.id}
+            variant={
+              healthAttributes[attribute.id]
+                ? "validationPositive"
+                : "validationNegative"
+            }
+          >
+            {healthAttributes[attribute.id]
+              ? attribute.positive
+              : attribute.negative}
+          </Tag>
+        </span>
+      ))}
+    </div>
+  </div>
 )
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({

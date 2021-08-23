@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.2...@kaizen/draft-tag@1.11.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.1...@kaizen/draft-tag@1.11.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.0...@kaizen/draft-tag@1.11.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.10.0...@kaizen/draft-tag@1.11.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
 # [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.12...@kaizen/draft-tag@1.10.0) (2021-08-11)
 
 

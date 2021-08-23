@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.1.2...@kaizen/draft-title-block@4.1.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.1.1...@kaizen/draft-title-block@4.1.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.1.0...@kaizen/draft-title-block@4.1.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.0.0...@kaizen/draft-title-block@4.1.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.2.0...@kaizen/draft-title-block@4.0.0) (2021-08-12)
+
+
+### Features
+
+* Removal of deprecated tokens ([#1833](https://github.com/cultureamp/kaizen-design-system/issues/1833)) ([2a76935](https://github.com/cultureamp/kaizen-design-system/commit/2a76935b5cb4f32b8a7bf47880a81820c885270c))
+
+
+### BREAKING CHANGES
+
+* All deprecated tokens from version 2 no longer exist. No variables start with kz or kz-var anymore.
+
+* CSS variable declaration files `css/heart-theme.css`, `css/zen-theme.css` and `css/default-theme.css` no longer exist.
+
+* `*-vars.scss`, `*-vars.less`, `*-vars.json`  no longer exist.
+
+* Exported utilities from `@kaizen/design-tokens` have been renamed and pruned.
+
+
+
+
+
 # [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.1.23...@kaizen/draft-title-block@3.2.0) (2021-08-11)
 
 

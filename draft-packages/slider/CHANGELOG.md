@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.2...@kaizen/draft-slider@1.6.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.1...@kaizen/draft-slider@1.6.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.0...@kaizen/draft-slider@1.6.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.5.0...@kaizen/draft-slider@1.6.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.13...@kaizen/draft-slider@1.5.0) (2021-08-11)
 
 

@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -55,13 +56,22 @@ $tableOfContents-width: $ca-grid * 10;
   }
 }
 
-.contentNeedToKnow {
+.contentTopSection {
   margin-top: var(--content-top-and-bottom-margin);
   padding: 0 var(--content-side-margin) var(--content-top-and-bottom-margin);
   border-bottom: 1px solid $ca-border-color;
 
   @include ca-media-mobile() {
     padding: 0 0 var(--content-top-and-bottom-margin);
+  }
+}
+
+.healthContent {
+  margin-top: 2.25rem;
+
+  .healthTagContainer {
+    display: inline-block;
+    margin-bottom: $spacing-xs;
   }
 }
 
