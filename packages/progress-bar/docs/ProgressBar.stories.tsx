@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Import { ProgressBar } from "@kaizen/progress-bar"',
+        component: 'import { ProgressBar } from "@kaizen/progress-bar"',
       },
     },
   },
