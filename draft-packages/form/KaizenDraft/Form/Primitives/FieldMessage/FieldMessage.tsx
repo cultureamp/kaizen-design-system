@@ -2,8 +2,8 @@ import classnames from "classnames"
 import * as React from "react"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
-import styles from "./styles.scss"
 import { Icon, Paragraph } from "@kaizen/component-library"
+import styles from "./styles.scss"
 
 export type FieldMessageStatus = "default" | "success" | "error"
 export type FieldMessageProps = {
@@ -47,7 +47,7 @@ const FieldMessage: FieldMessage = ({
       [styles.positionTop]: position === "top",
     })}
   >
-    {warningIcon}
+    {status === "error" && warningIcon}
     <div className={styles.message}>
       <Paragraph variant="small">{message}</Paragraph>
     </div>
