@@ -588,19 +588,18 @@ export const DefaultWithHtmlDescription = () => {
 
 DefaultWithHtmlDescription.storyName = "Default w HTML description"
 
-export const DefaultWithHtmlDescriptionAndErrorMessage = () => (
+export const DefaultWithDescriptionAndErrorMessage = () => (
   <ExampleContainer>
     <TextField
-      id="default-with-html-description"
-      labelText="This a text field with a HTML description"
-      description={
-        "The description may contain a link to further details - we recommended opening the link in a new tab with an"
-      }
-      validationMessage="my cool validation message"
+      id="email"
       status="error"
+      inputValue="testing 1 2 3"
+      labelText="Label"
+      validationMessage="A cool validation message"
+      description="This is a description"
     />
   </ExampleContainer>
 )
 
-DefaultWithHtmlDescriptionAndErrorMessage.storyName =
-  "Default w HTML description and error message"
+DefaultWithDescriptionAndErrorMessage.storyName =
+  "Default w description and error message"
