@@ -11,8 +11,5 @@
     "target": "es5",
     "module": "CommonJS"
   },
-  "include": [
-    "src",
-    "types"
-  ]
+  "include": ["src", "types"]
 }
