@@ -18,6 +18,17 @@ const multilineText = (
     this can fit into one line of text on an average screen...
   </>
 )
+
+const forceMultilineText = (
+  <>
+    This is a short line which we want to see underneath the notification
+    heading.
+    <ol>
+      <li>Contact support</li>
+      <li>Contact your admin</li>
+    </ol>
+  </>
+)
 const withContentBelow = (Story: React.FunctionComponent) => (
   <>
     <Story />
@@ -136,6 +147,19 @@ export const DismissibleMultiline = () => (
 
 DismissibleMultiline.storyName = "Dismissible, Multiline"
 
+export const DismissibleForcedMultiline = () => (
+  <InlineNotification
+    type="negative"
+    title="Negative"
+    automationId="notification1"
+    forceMultiline
+  >
+    {forceMultilineText}
+  </InlineNotification>
+)
+
+DismissibleForcedMultiline.storyName = "Dismissible, Forced Multiline"
+
 export const DismissibleSlim = () => (
   <InlineNotification
     type="affirmative"
@@ -214,6 +238,20 @@ export const PersistentMultiline = () => (
 )
 
 PersistentMultiline.storyName = "Persistent, Multiline"
+
+export const PersistentForcedMultiline = () => (
+  <InlineNotification
+    type="negative"
+    title="Negative"
+    persistent
+    automationId="notification1"
+    forceMultiline
+  >
+    {forceMultilineText}
+  </InlineNotification>
+)
+
+PersistentForcedMultiline.storyName = "Persistent, Forced Multiline"
 
 export const PersistentSlim = () => (
   <InlineNotification

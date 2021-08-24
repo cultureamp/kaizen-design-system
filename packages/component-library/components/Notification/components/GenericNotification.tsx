@@ -26,6 +26,7 @@ type Props = {
   onHide?: () => void
   automationId?: string
   noBottomMargin?: boolean
+  forceMultiline?: boolean
 }
 
 type State = {
@@ -105,7 +106,7 @@ class GenericNotification extends React.Component<Props, State> {
         <div className={styles.icon}>
           <Icon icon={this.iconType()} role="presentation" inheritSize />
         </div>
-        <div className={styles.textContainer}>
+        <div className={this.textContainerClassName()}>
           {this.props.title && (
             <h6 className={styles.title}>{this.props.title}</h6>
           )}
@@ -128,6 +129,12 @@ class GenericNotification extends React.Component<Props, State> {
         [styles.noBottomMargin]: this.props.noBottomMargin,
       }
     )
+  }
+
+  textContainerClassName(): string {
+    return classnames(styles.textContainer, {
+      [styles.forceMultiline]: this.props.forceMultiline,
+    })
   }
 
   marginTop(): string {
