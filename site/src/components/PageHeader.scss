@@ -1,25 +1,25 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
 
 .pageHeader {
   display: grid;
   justify-items: center;
   background: $color-purple-600;
-  padding: calc(var(--ca-grid) * 3.5) var(--ca-grid);
+  padding: $spacing-xxxxl $spacing-md;
   color: white;
+  // calc(#{$spacing-md}
 
   @include ca-media-mobile() {
-    padding-bottom: calc(var(--ca-grid) * 3.5);
+    padding-bottom: $spacing-xxxxl;
     justify-items: left;
   }
 }
 
 .pageHeaderInner {
   display: grid;
-  grid-template-columns: [side] (12 * $ca-grid) [main] 1fr;
-  width: calc(var(--content-max-width) - (#{$ca-grid} * 2));
+  grid-template-columns: [side] calc(#{$spacing-md} * 12) [main] 1fr;
+  width: calc(var(--content-max-width) - ($spacing-xl));
 
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 100%;
@@ -28,7 +28,7 @@
   @include ca-media-mobile() {
     grid-template-columns: 1fr;
     grid-template-rows: [main] auto [side] auto;
-    row-gap: $ca-grid;
+    row-gap: $spacing-sm;
     width: auto;
   }
 
@@ -41,8 +41,8 @@
 .sideSection {
   grid-area: side;
   display: grid;
-  grid-template-rows: ($ca-grid * 7.5) auto;
-  row-gap: $ca-grid;
+  grid-template-rows: calc(#{$spacing-md} * 7.5) auto;
+  row-gap: $spacing-md;
 
   @include ca-media-mobile() {
     grid-template-rows: auto;
@@ -82,7 +82,7 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: $ca-grid / 2;
+  margin-bottom: $spacing-sm;
 }
 
 .tags {
@@ -93,8 +93,8 @@
 
 .mainSection {
   grid-area: main;
-  padding: 0 $ca-grid * 3;
-  max-width: $ca-grid * 27;
+  padding: 0 calc(#{$spacing-md} * 3);
+  max-width: calc(#{$spacing-md} * 27);
 
   @include ca-media-mobile() {
     padding: 0;
@@ -102,7 +102,7 @@
 }
 
 .headingTextContainer {
-  margin-bottom: $ca-grid * 2;
+  margin-bottom: $spacing-xl;
   margin-top: calc(-0.5 * 0.5em); // hack to make text flush with adjacent image
 
   .headingOnly & {

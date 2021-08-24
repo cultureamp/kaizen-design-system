@@ -1,15 +1,13 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
 
 .card {
   box-sizing: border-box;
   min-width: 280px;
-  // margin-bottom: $ca-grid;
   border-radius: 3px;
   background-color: white;
 }
 
 .dark {
-  background-color: $ca-palette-ink;
+  background-color: $color-purple-800;
   color: white;
 }
