@@ -14,6 +14,7 @@ type Props = {
   onHide?: () => void
   automationId?: string
   noBottomMargin?: boolean
+  forceMultiline?: boolean
 }
 
 const InlineNotification = ({
