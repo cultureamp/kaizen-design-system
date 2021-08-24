@@ -17,7 +17,6 @@
 ## Specifications (please add any other notable libs/details)
 
 - Kaizen version:
-- Repo:
 
 ## Labelling
 
