@@ -8,6 +8,7 @@
   background: $color-purple-600;
   padding: $spacing-xxxxl $spacing-md;
   color: white;
+  // calc(#{$spacing-md}
 
   @include ca-media-mobile() {
     padding-bottom: $spacing-xxxxl;
