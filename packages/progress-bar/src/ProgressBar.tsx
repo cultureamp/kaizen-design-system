@@ -6,7 +6,7 @@ import styles from "./ProgressBar.scss"
 type Props = {
   value: number
   max: number
-  animating: boolean
+  isAnimating: boolean
   mood: Mood
   subtext?: string
   label?: string
@@ -21,7 +21,7 @@ const progressClassNames = (props: Props) => {
     [styles.informative]: mood === "informative",
     [styles.cautionary]: mood === "cautionary",
     [styles.negative]: mood === "negative",
-    [styles.animating]: props.animating,
+    [styles.isAnimating]: props.isAnimating,
   })
 }
 

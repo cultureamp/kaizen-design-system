@@ -20,7 +20,7 @@ export const DefaultStory = _ => (
     value={25}
     max={100}
     mood="positive"
-    animating={true}
+    isAnimating={true}
     label="25%"
   />
 )
@@ -35,7 +35,7 @@ DefaultStory.story = {
 
 export const PositiveSubtext = _ => (
   <ProgressBar
-    animating={false}
+    isAnimating={false}
     value={25}
     max={100}
     mood="positive"
@@ -49,7 +49,7 @@ PositiveSubtext.story = {
 
 export const PositiveAnimating = _ => (
   <ProgressBar
-    animating={true}
+    isAnimating={true}
     value={25}
     max={25}
     label="Label"
@@ -57,12 +57,12 @@ export const PositiveAnimating = _ => (
   />
 )
 PositiveAnimating.story = {
-  name: "Positive (animating)",
+  name: "Positive (isAnimating)",
 }
 
 export const Informative = _ => (
   <ProgressBar
-    animating={false}
+    isAnimating={false}
     value={25}
     max={100}
     mood="informative"
@@ -72,7 +72,7 @@ export const Informative = _ => (
 
 export const Negative = _ => (
   <ProgressBar
-    animating={false}
+    isAnimating={false}
     value={25}
     max={100}
     mood="negative"
@@ -82,7 +82,7 @@ export const Negative = _ => (
 
 export const Cautionary = _ => (
   <ProgressBar
-    animating={false}
+    isAnimating={false}
     value={25}
     max={100}
     mood="cautionary"
@@ -91,5 +91,5 @@ export const Cautionary = _ => (
 )
 
 export const NoLabel = _ => (
-  <ProgressBar animating={true} value={25} max={100} mood="positive" />
+  <ProgressBar isAnimating={true} value={25} max={100} mood="positive" />
 )
