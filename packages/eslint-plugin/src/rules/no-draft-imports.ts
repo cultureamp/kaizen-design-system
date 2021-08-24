@@ -46,7 +46,7 @@ module.exports = {
             message: "Unexpected draft import",
             node,
             fix(fixer) {
-              if (typeof node.source.value === "string") {
+              if (typeof node.source.value === "string" && node.source.raw) {
                 const newValue = node.source.raw.replace(
                   "kaizen/draft-",
                   "kaizen/"
