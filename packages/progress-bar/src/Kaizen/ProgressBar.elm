@@ -93,7 +93,7 @@ view (Config config) =
         , div
             [ classList [ ( .progressBackground, True ) ] ]
             [ div
-                [ styles.class (moodToClass config.mood)
+                [ class (moodToClass config.mood)
                 , classList [ ( .animating, isAnimating |> Debug.log "isAnim" ) ]
                 , progressBarStyle
                 ]
