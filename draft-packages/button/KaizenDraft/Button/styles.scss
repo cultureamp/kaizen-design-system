@@ -463,7 +463,7 @@ $caButton-verticalPaddingForm: calc(
     &:active,
     :global(.js-focus-visible) &:global(.focus-visible) {
       color: $color-blue-500;
-      background: $color-blue-100;
+      background: $color-gray-200;
       border-color: $border-borderless-border-color;
     }
   }
