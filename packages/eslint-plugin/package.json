@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/eslint-plugin-kaizen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/src/index.js",
   "license": "MIT",
   "files": [
@@ -13,7 +13,13 @@
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "devDependencies": {
-    "eslint": "^7.21.0",
-    "@types/eslint": "^7.28.0"
+    "@types/eslint": "^7.28.0",
+    "eslint": "^7.21.0"
+  },
+  "peerDependencies": {
+    "eslint": "^7.21.0"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
   }
 }
