@@ -1,5 +1,5 @@
 {
-  "name": "@kaizen/eslint-plugin-kaizen",
+  "name": "@kaizen/eslint-plugin",
   "version": "1.0.1",
   "main": "dist/src/index.js",
   "license": "MIT",
@@ -18,8 +18,5 @@
   },
   "peerDependencies": {
     "eslint": "^7.21.0"
-  },
-  "publishConfig": {
-    "registry": "http://localhost:4873"
   }
 }
