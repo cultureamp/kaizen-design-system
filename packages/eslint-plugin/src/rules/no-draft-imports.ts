@@ -4,7 +4,7 @@ module.exports = {
   meta: {
     type: "problem",
     docs: {
-      description: "disallow imports of draft components",
+      description: "Reports usages of draft components",
       category: "Possible Errors",
       recommended: true,
     },
@@ -43,7 +43,7 @@ module.exports = {
           node.source.value.includes("@kaizen/draft")
         ) {
           context.report({
-            message: "Unexpected draft import",
+            message: `Unexpected draft import ${node.source.value}`,
             node,
             fix(fixer) {
               if (typeof node.source.value === "string" && node.source.raw) {
