@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.3.0...@kaizen/component-library@10.3.1) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.3...@kaizen/component-library@10.3.0) (2021-08-24)
+
+
+### Features
+
+* add ability to have first line underneath the heading ([#1885](https://github.com/cultureamp/kaizen-design-system/issues/1885)) ([d05baee](https://github.com/cultureamp/kaizen-design-system/commit/d05baee3cefccad676add0ed5999817758d71de7))
+
+
+
+
+
 ## [10.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.2...@kaizen/component-library@10.2.3) (2021-08-20)
 
 **Note:** Version bump only for package @kaizen/component-library
