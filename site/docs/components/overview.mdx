@@ -12,9 +12,6 @@ needToKnow:
 
 These components accelerate our designers and front-end engineers and show how they behave interactively. Shared components let us reuse existing work and build upon what we have.
 
-
-
-
 ## Component design
 
 ### Naming things is hard!
@@ -31,6 +28,7 @@ Talk to someone in Design Systems team for help on names that work for designers
 Where possible, we build on the community of practice around design systems and open-source component libraries. There's no need to reinvent the wheel.
 
 Find 3 examples of someone who's done this before. For example, try [Shopify's Polaris Design System](https://polaris.shopify.com/components/get-started), [Atlassian's Design System](https://www.atlassian.design/), [Salesforce's Lightning Design System](https://www.lightningdesignsystem.com/guidelines/overview/), [Ant Design's System](https://ant.design/), or [Google's Material Design](https://material.io/design/). You might find inspiration for design guidelines, prop names, and implementation details. Look for a component library or framework that's already built what you're considering.
+
 
 #### Implementation considerations
 
@@ -61,9 +59,21 @@ It is common for components to come with default margins surrounding them and ye
 Use "Small", "Medium", "Large": in code, `sm`, `md`, `lg`. For more information, see [Sizing guidelines](https://cultureamp.design/guidelines/sizing).
 
 
-# See also
+## Component guidelines
 
-- [Component health](/component-health) for the statuses of all Kaizen components at a glance.
+### Quality
+
+We strive to achieve the following quality attributes on all of our components:
+
+- **Designed**: Designs for the component have been created and officially added to the UI kit.
+- **Documented**: Component has been documented and exists on the Kaizen site.
+- **Matches latest design**: Implementation component matches the current design in the UI kit.
+- **Has all variants**: Implementation contains all variants designed in UI kit.
+- **Responsive**: Contains support for responsiveness, or has responsiveness built-in.
+- **Internationalized**: Contains no hard-coded English text that is user facing, and supports usage with right-to-left (RTL) languages.
+- **Accessible**: To our best knowledge, the component complies with the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA.
+
+The status of these can be found on the documentation page for each component, or on the [Component health](/component-health) page, which shows the status of all components.
 
 ## Want to learn more about great components?
 
