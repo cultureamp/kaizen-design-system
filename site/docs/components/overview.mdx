@@ -3,63 +3,15 @@ title: Overview
 navTitle: Overview
 summaryParagraph: Explore our components to learn how to build cohesive and predictable products for Culture Amp using Kaizen.
 tags: ["Overview"]
-needToKnow:
-- Components are reusable code used to rapidly build pages. They are the source of truth for our shared User Interface elements.
-- These components are flexible, and we continuously develop and grow them to match our evolving product needs.
 ---
 
-## To keep in mind
-
-These components accelerate our designers and front-end engineers and show how they behave interactively. Shared components let us reuse existing work and build upon what we have.
-
-## Component design
-
-### Naming things is hard!
-
-Talk to someone in Design Systems team for help on names that work for designers and engineers, as well as respect industry guidelines like W3C specifications, popular frameworks, and so on. For example:
-
-- Name of a component
-- Name of props e.g. "mood"–ideally the possible values would be suggested by the prop name. Avoid "type" or "variant" where possible.
-- Name of prop values e.g. "affirmative", "destructive"
-- Name of sizing options e.g. small/medium/large
+## Component guidelines
 
 ### Stand on the shoulders of giants
 
-Where possible, we build on the community of practice around design systems and open-source component libraries. There's no need to reinvent the wheel.
+Where possible, we build on the community of practice around design systems and open-source component libraries.
 
 Find 3 examples of someone who's done this before. For example, try [Shopify's Polaris Design System](https://polaris.shopify.com/components/get-started), [Atlassian's Design System](https://www.atlassian.design/), [Salesforce's Lightning Design System](https://www.lightningdesignsystem.com/guidelines/overview/), [Ant Design's System](https://ant.design/), or [Google's Material Design](https://material.io/design/). You might find inspiration for design guidelines, prop names, and implementation details. Look for a component library or framework that's already built what you're considering.
-
-
-#### Implementation considerations
-
-You might need to consider:
-
-- **Nested HTML**: Will any HTML, such as a link be present? For example, a link in a checkbox label, or a button in a notification paragraph.
-- **Text wrapping**: Will there be any text wrapping, breaking, or truncating for user-generated content, such as URLs/emails?
-- **RTL**: Does there need to be right-to-left (RTL) options for localization and internationalization?
-- **Security**: Are there any possible data confidentiality or security concerns? Consider dummy text.
-- **Motion**: Does there need to be motion?
-- **Performance**: Consider latency, size, perceived performance, compilation/minification, caching, CDNs, and delivery.
-- **Inheritance**: Is there likely to be style inheritance problems with legacy styles, such as Bootstrap?
-- **Responsive**: How responsive is it?
-- **Accessibility**: How accessible is it? Culture Amp employees can check out [Web Accessibility (Current Compliance, Going Forward, Statement and Answers for Customers)](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/428572998/Web+Accessibility).
-
-#### API Design
-
-##### States
-
-There might be more than 1 dimension of state. In addition to default, hover, focus, active, and disabled states, a component might have other dimensions of states such as a checkbox being checked, unchecked or mixed, or an input being read-only. See the [Interaction states guidelines](/guidelines/interaction-states#disabled-state).
-
-##### Props: noMargin
-
-It is common for components to come with default margins surrounding them and yet these margins can cause problems in app, given surrounding content. For all components that come with default spacing, we provide a `noMargin` boolean prop to turn the default margins off as needed.
-
-##### Props: sizes
-
-Use "Small", "Medium", "Large": in code, `sm`, `md`, `lg`. For more information, see [Sizing guidelines](https://cultureamp.design/guidelines/sizing).
-
-
-## Component guidelines
 
 ### Quality
 
@@ -80,4 +32,3 @@ The status of these can be found on the documentation page for each component, o
 - [Documenting Components by Nathan Curtis](https://medium.com/eightshapes-llc/documenting-components-9fe59b80c015).
 - [Component Design Guidelines by Nathan Curtis](https://medium.com/eightshapes-llc/component-design-guidelines-eca706100e7c).
 - [Size in Design Systems by Nathan Curtis](https://medium.com/eightshapes-llc/size-in-design-systems-64f234aec519).
-
