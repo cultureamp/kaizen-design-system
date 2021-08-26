@@ -4,10 +4,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/responsive";
 
-// CSS Grid cannot contain calc() operations, so we do not consume the spacing tokens
-$base-unit: 1rem;
-$sidebar-width: $base-unit * 10;
-$tableOfContents-width: $base-unit * 10;
+$sidebar-width: calc(#{$spacing-md} * 10);
+$tableOfContents-width: calc(#{$spacing-md} * 10);
 
 .sidebarAndContent {
   display: grid;
@@ -17,8 +15,12 @@ $tableOfContents-width: $base-unit * 10;
   grid-gap: var(--sidebar-content-gap);
 
   @media (min-width: 768px) and (max-width: 1439px) {
+    // Using calc() within max() function is not valid. For this case we use rems
+    $sidebar-width-rem: 10rem;
+    $tableOfContents-width-rem: 10rem;
+
     grid-template-areas: "tableOfContents sidebar content";
-    grid-template-columns: max($tableOfContents-width, $sidebar-width) auto;
+    grid-template-columns: max($tableOfContents-width-rem, $sidebar-width-rem) auto;
     grid-template-rows: auto 1fr;
   }
 
@@ -144,7 +146,7 @@ $tableOfContents-width: $base-unit * 10;
 }
 
 .tableOfContentsList {
-  margin-left: -calc(#{$spacing-md} * 0.5);
+  margin-left: calc(#{$spacing-md} * -0.5);
   padding-left: 0;
   margin-bottom: var(--content-card-top-offset);
 

@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
@@ -13,9 +14,9 @@
 }
 
 .card {
-  margin-top: var(--spacing-md);
+  margin-top: $spacing-md;
   width: 48%;
-  padding: var(--spacing-md);
+  padding: $spacing-md;
   box-sizing: border-box;
   border: 1px solid $border-solid-border-color;
   box-shadow: $shadow-small-box-shadow;

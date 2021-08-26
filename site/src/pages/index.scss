@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/responsive";
 
@@ -8,7 +9,7 @@
     "guidelines-text language-text components-text";
   justify-content: space-evenly;
   align-content: center;
-  padding: calc(var(--spacing-md) * 4.5) 0;
+  padding: calc(#{$spacing-md} * 4.5) 0;
 
   @include ca-media-mobile() {
     grid-template-areas:
@@ -20,7 +21,7 @@
       "."
       "components-image"
       "components-text";
-    padding: calc(var(--spacing-md) * 4) 0 0 0;
+    padding: calc(#{$spacing-md} * 4) 0 0 0;
     grid-template-rows: auto auto 3rem auto auto 3rem;
   }
 }
@@ -79,7 +80,7 @@
 }
 
 .headingContainer {
-  margin-top: calc(var(--spacing-md) * 1.5);
+  margin-top: calc(#{$spacing-md} * 1.5);
 
   a {
     text-decoration: none;
@@ -92,7 +93,7 @@
 }
 
 .body {
-  margin-top: calc(var(--spacing-md) * 0.75);
+  margin-top: calc(#{$spacing-md} * 0.75);
   font-size: 1.25rem;
   line-height: 1.8;
   font-weight: 400;
@@ -101,8 +102,7 @@
 .footer {
   display: flex;
   justify-content: center;
-  padding: calc(var(--spacing-md) * 5) calc(var(--spacing-md) * 2)
-    calc(var(--spacing-md) * 4);
+  padding: calc(#{$spacing-md} * 5) calc($spacing-md * 2) calc($spacing-md * 4);
 }
 
 .footerInner {
@@ -122,12 +122,12 @@
 }
 
 .footerRecruitment {
-  max-width: calc(var(--spacing-md) * 13);
+  max-width: calc(#{$spacing-md} * 13);
   width: 100%;
-  margin-left: calc(var(--spacing-md) * 2);
+  margin-left: calc(#{$spacing-md} * 2);
 
   @include ca-media-mobile() {
-    margin: calc(var(--spacing-md) * 2) 0 0 0;
+    margin: calc(#{$spacing-md} * 2) 0 0 0;
   }
 }
 
@@ -141,5 +141,5 @@
 }
 
 .footerLinkButton {
-  margin-top: var(--spacing-md);
+  margin-top: $spacing-md;
 }

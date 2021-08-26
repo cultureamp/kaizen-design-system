@@ -44,7 +44,7 @@ $link-icon-margin: 12px;
   :global(.md-anchor-offset) {
     display: block;
     position: relative;
-    top: -$ca-navigation-bar__height - $spacing-md;
+    top: calc(-1 * ($ca-navigation-bar__height - #{$spacing-md}));
     visibility: hidden;
   }
 

@@ -5,11 +5,11 @@
 
 :root {
   --spacing-md: #{$spacing-md};
-  --content-card-top-offset: calc(var(--spacing-md) * 2);
-  --sidebar-content-gap: calc(var(--spacing-md));
-  --content-top-and-bottom-margin: calc(var(--spacing-md) * 3);
-  --content-side-margin: calc(var(--spacing-md) * 4);
-  --page-content-width: calc(var(--spacing-md) * 45);
+  --content-card-top-offset: calc(#{$spacing-md} * 2);
+  --sidebar-content-gap: calc($spacing-md);
+  --content-top-and-bottom-margin: calc(#{$spacing-md} * 3);
+  --content-side-margin: calc(#{$spacing-md} * 4);
+  --page-content-width: calc(#{$spacing-md} * 45);
   --card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
 }
 

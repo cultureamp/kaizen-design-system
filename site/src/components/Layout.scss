@@ -1,9 +1,10 @@
 @import "~@kaizen/component-library/components/NavigationBar/styles";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 :root {
-  --content-max-width: calc(var(--spacing-md) * 57);
+  --content-max-width: calc(#{$spacing-md} * 57);
 }
 
 .root {
