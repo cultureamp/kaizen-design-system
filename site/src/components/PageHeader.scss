@@ -8,7 +8,6 @@
   background: $color-purple-600;
   padding: $spacing-xxxxl $spacing-md;
   color: white;
-  // calc(#{$spacing-md}
 
   @include ca-media-mobile() {
     padding-bottom: $spacing-xxxxl;
@@ -19,7 +18,7 @@
 .pageHeaderInner {
   display: grid;
   grid-template-columns: [side] calc(#{$spacing-md} * 12) [main] 1fr;
-  width: calc(var(--content-max-width) - ($spacing-xl));
+  width: calc(var(--content-max-width) - #{$spacing-xl});
 
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 100%;

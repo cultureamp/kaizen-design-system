@@ -78,17 +78,17 @@ export default ({ location }) => {
           <div className={styles.content}>
             <div className={styles.guidelinesImageContainer}>
               <a href={withPrefix("/guidelines/overview")}>
-                <Strategy alt="View Guidelines"/>
+                <Strategy alt="View Guidelines" />
               </a>
             </div>
             <div className={styles.languageImageContainer}>
               <a href={withPrefix("/language/overview")}>
-                <OneOnOne alt="View Language"/>
+                <OneOnOne alt="View Language" />
               </a>
             </div>
             <div className={styles.componentsImageContainer}>
               <a href={withPrefix("/components/overview")}>
-                <ManagerLearning alt="View Components"/>
+                <ManagerLearning alt="View Components" />
               </a>
             </div>
             <div className={styles.guidelinesTextContainer}>
