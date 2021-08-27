@@ -5,6 +5,7 @@
         "./packages/component-library/stories",
         "./packages/hosted-assets",
         "./packages/design-tokens/elm",
+        "./packages/progress-bar/src",
         "./draft-packages/button",
         "./draft-packages/card",
         "./draft-packages/collapsible",
