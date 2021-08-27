@@ -102,7 +102,7 @@
 .footer {
   display: flex;
   justify-content: center;
-  padding: calc(#{$spacing-md} * 5) calc($spacing-md * 2) calc($spacing-md * 4);
+  padding: $spacing-xxxl $spacing-lg $spacing-xxxl;
 }
 
 .footerInner {
@@ -124,10 +124,10 @@
 .footerRecruitment {
   max-width: calc(#{$spacing-md} * 13);
   width: 100%;
-  margin-left: calc(#{$spacing-md} * 2);
+  margin-left: $spacing-lg;
 
   @include ca-media-mobile() {
-    margin: calc(#{$spacing-md} * 2) 0 0 0;
+    margin: $spacing-lg 0 0 0;
   }
 }
 

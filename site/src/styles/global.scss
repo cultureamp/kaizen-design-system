@@ -4,11 +4,10 @@
 @import "~@kaizen/component-library/styles/responsive";
 
 :root {
-  --spacing-md: #{$spacing-md};
-  --content-card-top-offset: calc(#{$spacing-md} * 2);
-  --sidebar-content-gap: calc($spacing-md);
-  --content-top-and-bottom-margin: calc(#{$spacing-md} * 3);
-  --content-side-margin: calc(#{$spacing-md} * 4);
+  --content-card-top-offset: $spacing-lg;
+  --sidebar-content-gap: $spacing-md;
+  --content-top-and-bottom-margin: $spacing-xl;
+  --content-side-margin: $spacing-xxl;
   --page-content-width: calc(#{$spacing-md} * 45);
   --card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
 }
