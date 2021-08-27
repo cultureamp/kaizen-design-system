@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-popover",
-  "version": "2.4.2",
+  "version": "2.4.4",
   "description": "The draft Popover component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.2.2",
+    "@kaizen/component-library": "^10.3.0",
     "@kaizen/deprecated-component-library-helpers": "^2.3.0",
     "@popperjs/core": "^2.6.0",
     "@types/classnames": "^2.2.10",

@@ -231,6 +231,10 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     // Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.
     transition: $ca-notification-fade-out;
   }
+
+  &%ca-notification---forceMultiline {
+    flex-direction: column;
+  }
 }
 
 %ca-notification__title {
