@@ -2,7 +2,7 @@
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
 import postcss from "postcss"
-import { defaultTheme } from "../../../design-tokens"
+import { defaultTheme } from "@kaizen/design-tokens"
 import { messages, preferColorTokens } from "./prefer-color-tokens"
 
 const tests = {
