@@ -77,3 +77,7 @@
 .noBottomMargin {
   @extend %ca-notification---noBottomMargin;
 }
+
+.forceMultiline {
+  @extend %ca-notification---forceMultiline;
+}
