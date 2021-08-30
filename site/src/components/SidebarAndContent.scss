@@ -1,13 +1,11 @@
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
 
-$sidebar-width: $ca-grid * 10;
-$tableOfContents-width: $ca-grid * 10;
+$sidebar-width: calc(#{$spacing-md} * 10);
+$tableOfContents-width: calc(#{$spacing-md} * 10);
 
 .sidebarAndContent {
   display: grid;
@@ -17,8 +15,12 @@ $tableOfContents-width: $ca-grid * 10;
   grid-gap: var(--sidebar-content-gap);
 
   @media (min-width: 768px) and (max-width: 1439px) {
+    // Using calc() within max() function is not valid. For this case we use rems
+    $sidebar-width-rem: 10rem;
+    $tableOfContents-width-rem: 10rem;
+
     grid-template-areas: "tableOfContents sidebar content";
-    grid-template-columns: max($tableOfContents-width, $sidebar-width) auto;
+    grid-template-columns: max($tableOfContents-width-rem, $sidebar-width-rem) auto;
     grid-template-rows: auto 1fr;
   }
 
@@ -59,7 +61,7 @@ $tableOfContents-width: $ca-grid * 10;
 .contentTopSection {
   margin-top: var(--content-top-and-bottom-margin);
   padding: 0 var(--content-side-margin) var(--content-top-and-bottom-margin);
-  border-bottom: 1px solid $ca-border-color;
+  border-bottom: 1px solid $border-solid-border-color;
 
   @include ca-media-mobile() {
     padding: 0 0 var(--content-top-and-bottom-margin);
@@ -79,7 +81,7 @@ $tableOfContents-width: $ca-grid * 10;
 
 .sidebar {
   grid-area: sidebar;
-  margin-top: $ca-grid * 1.5;
+  margin-top: calc(#{$spacing-md} * 1.5);
   max-width: $sidebar-width;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -113,7 +115,7 @@ $tableOfContents-width: $ca-grid * 10;
 
   a {
     border-radius: 7px;
-    padding: $ca-grid * 0.25 $ca-grid / 2;
+    padding: calc(#{$spacing-md} * 0.25) $spacing-sm;
     width: 100%;
     text-decoration: none;
     color: inherit;
@@ -131,8 +133,8 @@ $tableOfContents-width: $ca-grid * 10;
 
 .tableOfContents {
   grid-area: tableOfContents;
-  margin-top: $ca-grid * 1.5;
-  margin-left: $ca-grid * 0.5;
+  margin-top: calc(#{$spacing-md} * 1.5);
+  margin-left: calc(#{$spacing-md} * 0.5);
   max-width: $tableOfContents-width;
 }
 
@@ -144,7 +146,7 @@ $tableOfContents-width: $ca-grid * 10;
 }
 
 .tableOfContentsList {
-  margin-left: -$ca-grid * 0.5;
+  margin-left: calc(#{$spacing-md} * -0.5);
   padding-left: 0;
   margin-bottom: var(--content-card-top-offset);
 
@@ -161,7 +163,7 @@ $tableOfContents-width: $ca-grid * 10;
   a {
     color: inherit;
     display: inline-block;
-    padding: $ca-grid * 0.25 $ca-grid / 2;
+    padding: calc(#{$spacing-md} * 0.25) $spacing-sm;
     text-decoration: none;
     border-radius: 7px;
   }
@@ -170,6 +172,6 @@ $tableOfContents-width: $ca-grid * 10;
   }
   ol {
     list-style-type: none;
-    padding-inline-start: $ca-grid;
+    padding-inline-start: $spacing-md;
   }
 }
