@@ -1,7 +1,6 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/spacing";
 
-$cardPadding: $ca-grid / 2;
+$cardPadding: $spacing-sm;
 
 /* BASE */
 .droplet {

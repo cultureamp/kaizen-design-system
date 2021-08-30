@@ -1,16 +1,14 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .link,
 .htmlContent a[href] {
-  color: $ca-link-text-color;
+  color: $color-blue-500;
   text-decoration: none;
   &:hover,
   &:active,
   &:focus,
   &:visited {
-    color: $ca-link-hover-text-color;
+    color: $color-blue-500;
   }
   &:active,
   &:focus {
