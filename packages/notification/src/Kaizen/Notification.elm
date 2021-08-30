@@ -1,4 +1,4 @@
-module Notification.Notification exposing
+module Kaizen.Notification exposing
     ( Config
     , NotificationStage(..)
     , NotificationState(..)
@@ -287,7 +287,7 @@ viewCancelButton (Config { persistent, variant }) state onStateChange =
 
 
 styles =
-    css "@kaizen/component-library/components/Notification/components/GenericNotification.module.scss"
+    css "@kaizen/notification/src/components/GenericNotification.module.scss"
         { notification = "notification"
         , icon = "icon"
         , textContainer = "textContainer"
