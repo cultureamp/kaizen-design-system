@@ -1,11 +1,12 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "../styles/global.scss";
 
 .container {
   display: flex;
   min-height: 6rem;
-  padding: $spacing-lg var(--content-side-margin);
+  padding: $spacing-lg $content-side-margin;
   background-image: linear-gradient(45deg, #eeeeee 25%, transparent 25%),
     linear-gradient(-45deg, #eeeeee 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #eeeeee 75%),

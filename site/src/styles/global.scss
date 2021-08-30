@@ -3,14 +3,12 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/responsive";
 
-:root {
-  --content-card-top-offset: $spacing-lg;
-  --sidebar-content-gap: $spacing-md;
-  --content-top-and-bottom-margin: $spacing-xl;
-  --content-side-margin: $spacing-xxl;
-  --page-content-width: calc(#{$spacing-md} * 45);
-  --card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
-}
+$content-card-top-offset: 3rem;
+$sidebar-content-gap: 1.5rem;
+$content-top-and-bottom-margin: 4.5rem;
+$content-side-margin: 6rem;
+$page-content-width: 67.5rem;
+$card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
 
 html {
   font-size: 16px;

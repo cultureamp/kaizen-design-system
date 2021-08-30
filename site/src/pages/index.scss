@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../styles/global.scss";
 
 .content {
   display: grid;
@@ -36,7 +37,7 @@
 
   &:hover {
     transform: scale(1.025);
-    box-shadow: var(--card-box-shadow);
+    box-shadow: $card-box-shadow;
     cursor: pointer;
   }
 
@@ -106,7 +107,7 @@
 }
 
 .footerInner {
-  max-width: var(--page-content-width);
+  max-width: $page-content-width;
   display: flex;
   justify-content: space-between;
   width: 100%;

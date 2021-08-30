@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../styles/global.scss";
 
 $sidebar-width: calc(#{$spacing-md} * 10);
 $tableOfContents-width: calc(#{$spacing-md} * 10);
@@ -12,7 +13,7 @@ $tableOfContents-width: calc(#{$spacing-md} * 10);
   grid-template-areas: "sidebar content tableOfContents";
   grid-template-columns: $sidebar-width minmax(840px, 936px) $tableOfContents-width;
   grid-template-rows: 1fr;
-  grid-gap: var(--sidebar-content-gap);
+  grid-gap: $sidebar-content-gap;
 
   @media (min-width: 768px) and (max-width: 1439px) {
     // Using calc() within max() function is not valid. For this case we use rems
@@ -38,9 +39,9 @@ $tableOfContents-width: calc(#{$spacing-md} * 10);
   grid-area: content;
   background-color: white;
   border-radius: 7px;
-  box-shadow: var(--card-box-shadow);
+  box-shadow: $card-box-shadow;
   padding: 0;
-  margin-top: calc(-1 * var(--content-card-top-offset));
+  margin-top: -1 * $content-card-top-offset;
   max-width: 1080px;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -59,12 +60,12 @@ $tableOfContents-width: calc(#{$spacing-md} * 10);
 }
 
 .contentTopSection {
-  margin-top: var(--content-top-and-bottom-margin);
-  padding: 0 var(--content-side-margin) var(--content-top-and-bottom-margin);
+  margin-top: $content-top-and-bottom-margin;
+  padding: 0 $content-side-margin $content-top-and-bottom-margin;
   border-bottom: 1px solid $border-solid-border-color;
 
   @include ca-media-mobile() {
-    padding: 0 0 var(--content-top-and-bottom-margin);
+    padding: 0 0 $content-top-and-bottom-margin;
   }
 }
 
@@ -148,7 +149,7 @@ $tableOfContents-width: calc(#{$spacing-md} * 10);
 .tableOfContentsList {
   margin-left: calc(#{$spacing-md} * -0.5);
   padding-left: 0;
-  margin-bottom: var(--content-card-top-offset);
+  margin-bottom: $content-card-top-offset;
 
   @media (min-width: 768px) and (max-width: 1440px) {
     margin-left: 0;
