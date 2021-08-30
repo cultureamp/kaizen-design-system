@@ -1,11 +1,10 @@
 @import "~@kaizen/component-library/components/NavigationBar/styles";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 :root {
-  --content-max-width: calc(var(--ca-grid) * 57);
+  --content-max-width: calc(#{$spacing-md} * 57);
 }
 
 .root {
