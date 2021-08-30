@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-vertical-progress-step",
-  "version": "1.9.4",
-  "description": "The draft Vertical progress step component",
+  "name": "@kaizen/notification",
+  "version": "0.1.0",
+  "description": "Collection of notification components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/vertical-progress-step"
+    "directory": "packages/notification"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -32,16 +32,18 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.3.0",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@kaizen/component-library": "^11.0.0",
+    "@kaizen/react-deprecate-warning": "^1.1.5",
+    "classnames": "^2.3.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
+    "@kaizen/design-tokens": "^4.0.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }

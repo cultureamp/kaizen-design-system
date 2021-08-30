@@ -3,8 +3,8 @@ module ElmStories.InlineNotificationStories exposing (main)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, a, div, text)
 import Html.Attributes exposing (href, style)
+import Kaizen.Notification as Notification
 import KaizenDraft.Form.TextField.TextField as TextField
-import Notification.Notification as Notification
 import Text.Text as Text
 
 

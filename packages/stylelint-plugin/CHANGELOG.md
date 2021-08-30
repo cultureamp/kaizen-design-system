@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.1.1...@kaizen/stylelint-plugin@2.2.0) (2021-08-30)
+
+
+### Features
+
+* Prefer color tokens rule ([#1816](https://github.com/cultureamp/kaizen-design-system/issues/1816)) ([8fefc1f](https://github.com/cultureamp/kaizen-design-system/commit/8fefc1f28903e6d5bfa57457009a60842357db17))
+
+
+
+
+
 ## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.1.0...@kaizen/stylelint-plugin@2.1.1) (2021-08-30)
 
 

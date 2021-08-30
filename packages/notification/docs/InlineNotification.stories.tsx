@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { InlineNotification } from "@kaizen/component-library"
+import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -42,8 +42,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { InlineNotification } from "@kaizen/component-library";',
+        component: 'import { InlineNotification } from "@kaizen/notification";',
       },
     },
     ...figmaEmbed(
