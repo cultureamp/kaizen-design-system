@@ -7,10 +7,10 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
-@import "../../styles/border";
-@import "../../styles/layers";
-@import "../../styles/animation";
-@import "../../styles/responsive";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/responsive";
 
 $ca-notification-border-width: $border-solid-border-width;
 $ca-notification-vertical-padding: calc(
@@ -298,7 +298,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 
 %ca-notification__cancel {
   @include button-reset;
-  composes: interactiveIconWrapper from "../../Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   color: $color-purple-800;
   transform: none;
 

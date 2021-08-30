@@ -6,11 +6,11 @@ import {
   addToastNotification,
   removeToastNotification,
   clearToastNotifications,
-  Box,
   ToastNotification,
-} from "@kaizen/component-library"
+} from "@kaizen/notification"
+import { Box } from "@kaizen/component-library"
 import { Container, Content } from "@kaizen/draft-page-layout"
-import { ToastNotificationWithOptionals } from "@kaizen/component-library/components/Notification/types"
+import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -95,7 +95,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/component-library"',
+          'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/notification"',
       },
     },
     ...figmaEmbed(

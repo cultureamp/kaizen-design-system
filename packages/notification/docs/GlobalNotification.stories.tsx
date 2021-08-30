@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GlobalNotification } from "@kaizen/component-library"
+import { GlobalNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -11,8 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { GlobalNotification } from "@kaizen/component-library";',
+        component: 'import { GlobalNotification } from "@kaizen/notification";',
       },
     },
     ...figmaEmbed(

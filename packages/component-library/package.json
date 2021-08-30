@@ -28,8 +28,7 @@
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.3.0",

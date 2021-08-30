@@ -4,12 +4,12 @@
 
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
-import * as GlobalNotificationStories from "@kaizen/component-library/stories/GlobalNotification.stories"
+import * as GlobalNotificationStories from "@kaizen/notification/docs/GlobalNotification.stories"
 import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
 import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
-import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
+import * as InlineNotificationStories from "@kaizen/notification/docs/InlineNotification.stories"
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
-import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
+import * as ToastNotificationStories from "@kaizen/notification/docs/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
 import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"

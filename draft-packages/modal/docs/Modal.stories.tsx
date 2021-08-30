@@ -1,9 +1,5 @@
-import {
-  Box,
-  Heading,
-  InlineNotification,
-  Paragraph,
-} from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { InlineNotification } from "@kaizen/notification"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -693,7 +689,7 @@ export const InformationModalWithImage = () => (
               }}
             >
               <Negative alt="stock" />
-              <div style={{ flex: 1 }} />
+              <div style={{ flex: "1" }} />
               <Paragraph variant="small" color="dark-reduced-opacity">
                 Cool kids don't use IE11 just sayin
               </Paragraph>
