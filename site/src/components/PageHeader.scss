@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../styles/global.scss";
 
 .pageHeader {
   display: grid;
@@ -118,7 +119,7 @@
   font-size: 1.25rem;
   line-height: 1.5;
   font-weight: 400;
-  margin-bottom: calc(var(--content-card-top-offset) * 0.75);
+  margin-bottom: $content-card-top-offset * 0.75;
 
   .headingOnly & {
     max-width: 60rem;
