@@ -36,5 +36,5 @@ const ToastNotification = ({
 
 export default withDeprecatedComponent(ToastNotification, {
   warning:
-    "ToastNotification component API is deprecated. Use addToastNotification from @kaizen/component-library instead.",
+    "ToastNotification component API is deprecated. Use addToastNotification from @kaizen/notification instead.",
 })
