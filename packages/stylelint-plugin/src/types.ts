@@ -26,6 +26,8 @@ export type KaizenToken = {
   value: string
   moduleName: string
   cssVariable?: CSSVariable
+  /** If the variable is a color, this will contain a hex representation of it (which could have an alpha channel) */
+  color?: string
 }
 
 export type CSSVariable = {
