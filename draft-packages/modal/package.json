@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "5.8.6",
+  "version": "5.8.7",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -38,7 +38,7 @@
     "@kaizen/draft-button": "^4.2.5",
     "@kaizen/draft-divider": "^1.6.0",
     "@kaizen/draft-form": "^3.8.5",
-    "@kaizen/draft-illustration": "^2.5.0",
+    "@kaizen/draft-illustration": "^2.5.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",
