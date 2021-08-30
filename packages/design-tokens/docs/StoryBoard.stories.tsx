@@ -45,8 +45,6 @@ import * as TagStories from "@kaizen/draft-tag/docs/Tag.stories"
 import * as TileStories from "@kaizen/draft-tile/docs/Tile.stories"
 import * as TitleBlockZenStories from "@kaizen/draft-title-block-zen/docs/TitleBlockZen.stories"
 import * as TooltipStories from "@kaizen/draft-tooltip/docs/Tooltip.stories"
-import * as VerticalProgressIndicatorStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressIndicator.stories"
-import * as VerticalProgressStepStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressStep.stories"
 import * as WellStories from "@kaizen/draft-well/docs/Well.stories"
 import * as ZenNavigationBarStories from "@kaizen/draft-zen-navigation-bar/docs/ZenNavigationBar.stories"
 import { Meta, Story } from "@storybook/react"
@@ -458,8 +456,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={ToastNotificationStories} />
         <StoriesContainer storyModule={ToggleSwitchFieldStories} />
         <StoriesContainer storyModule={TooltipStories} />
-        <StoriesContainer storyModule={VerticalProgressIndicatorStories} />
-        <StoriesContainer storyModule={VerticalProgressStepStories} />
         <StoriesContainer storyModule={WellStories} />
         <StoriesContainer storyModule={ZenNavigationBarStories} />
       </Stack>
