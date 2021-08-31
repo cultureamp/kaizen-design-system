@@ -20,6 +20,9 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.0.3:
           run: release
+    notify:
+      - slack: "#prod_design_systems"
+        if: build.state == "failed"
 
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
