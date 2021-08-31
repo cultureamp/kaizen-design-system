@@ -38,7 +38,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^4.0.0",
+    "@kaizen/design-tokens": "^3.0.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
