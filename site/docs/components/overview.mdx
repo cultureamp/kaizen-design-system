@@ -27,6 +27,23 @@ We strive to achieve the following quality attributes on all of our components:
 
 The status of these can be found on the documentation page for each component, or on the [Component health](/component-health) page, which shows the status of all components.
 
+### API
+- **Avoid language overloading**: Avoid prop names that are used in HTML, such as `type`.
+- **Lean on existing mental models**: Things like input `onChange` should not stray from the default behavior that React has defined.
+- **Encapsulation:** Components should only be concerned about their own form and function and not about how they appear in relation to other components.
+- **Favor composition**: This allows us to have a more succinct API that encourages code reuse.
+- **RTL support**: Avoid using left/right props or values, instead use start/end and support RTL automatically.
+- **Allowing ReactNode**: Favor allowing ReactNode values over strings where possible, for greater flexibility.
+
+#### Common props
+| Name | Description | Example |
+| --- | --- | --- |
+| `tag` | Specifies which HTML element the component should render as. | `<Heading tag="h2">` |
+| `mood` | Dictates the tone of the component, usually affecting colors. | `<BrandMoment mood="positive">` |
+| `primary` / `secondary` / `destructive` | Used to enable these common variants. | `<Button primary>` |
+| `reversed` | Enables a version of the component to be used on a dark background. | `<Button reversed>` |
+| `variant` | Only used if none of the above props makes sense.  | `<TextAreaField variant="prominent">` |
+
 ## Want to learn more about great components?
 
 - [Documenting Components by Nathan Curtis](https://medium.com/eightshapes-llc/documenting-components-9fe59b80c015).
