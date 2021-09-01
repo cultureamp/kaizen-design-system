@@ -21,7 +21,7 @@ steps:
       - docker-compose#v3.0.3:
           run: release
     notify:
-      - slack: "#prod_design_systems"
+      - slack: "#team_front_end_foundations"
         if: build.state == "failed"
 
   - name: ":hatched_chick: Release (canary)"
