@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.0.0...@kaizen/draft-modal@6.0.1) (2021-08-31)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.8.7...@kaizen/draft-modal@6.0.0) (2021-08-30)
+
+
+### Features
+
+* Move notification components out of component-library ([#1901](https://github.com/cultureamp/kaizen-design-system/issues/1901)) ([849a5f9](https://github.com/cultureamp/kaizen-design-system/commit/849a5f910988c8dd7f55364d0edc1f97bdab8ce1))
+
+
+### BREAKING CHANGES
+
+* You will need update imports of the following components from @kaizen/component-library to @kaizen/notification:
+- InlineNotification
+- GlobalNotification
+- ToastNotification
+- addToastNotification/clearToastNotifications/removeToastNotification
+
+Elm imports will need to change from `import Notification.Notification` to `import Kaizen.Notification`
+
+
+
+
+
+## [5.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.8.6...@kaizen/draft-modal@5.8.7) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [5.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.8.5...@kaizen/draft-modal@5.8.6) (2021-08-24)
 
 **Note:** Version bump only for package @kaizen/draft-modal

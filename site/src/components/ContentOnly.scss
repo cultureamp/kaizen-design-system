@@ -1,11 +1,15 @@
 @import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../styles/global.scss";
 
 .contentOnly {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-gap: var(--sidebar-content-gap);
+  grid-gap: $sidebar-content-gap;
   justify-items: center;
+  margin-bottom: $spacing-md;
 
   @include ca-media-mobile() {
     grid-template-areas: "content";
@@ -17,10 +21,10 @@
 .content {
   background-color: white;
   border-radius: 7px;
-  box-shadow: var(--card-box-shadow);
+  box-shadow: $shadow-large-box-shadow;
   padding: 0;
-  margin-top: calc(-1 * var(--content-card-top-offset));
-  max-width: var(--page-content-width);
+  margin-top: -1 * $content-card-top-offset;
+  max-width: $page-content-width;
   width: 100%;
 
   @include ca-media-mobile() {
