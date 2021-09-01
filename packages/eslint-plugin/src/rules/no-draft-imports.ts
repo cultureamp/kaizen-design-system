@@ -15,6 +15,11 @@ module.exports = {
     return {
       VariableDeclarator(node) {
         if (!node.init || node.init.type !== "CallExpression") return
+
+        // Check the VariableDeclarator is invoking Node's require function
+        // without this, `const foo = myFunction("@kaizen/draft-bar") will
+        // throw a false positive.
+        if (node.init.callee.name !== "require") return
         if (node.init.arguments.length > 0) {
           node.init.arguments.forEach(arg => {
             if (arg.type !== "Literal" || typeof arg.value !== "string") return

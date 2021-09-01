@@ -29,6 +29,9 @@ ruleTester.run("no-draft-imports", rule, {
     {
       code: "import defaultExport, { foo } from 'fake-package';",
     },
+    {
+      code: "const foo = exampleFunction('@kaizen/draft-foo')",
+    },
   ],
   invalid: [
     {
