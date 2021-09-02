@@ -1,8 +1,8 @@
 ---
 title: Tile
 navTitle: Tile
-summaryParagraph: A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.
-tags: ["Card", "Grid item", "Featured item"]
+summaryParagraph: Tile guidelines describe the consistent visual treatment of content within a container. The layouts apply to various sizes of Tiles and cover content structure, spacing, hierarchy, positioning of action and interactions for content and data.
+tags: ["content layout", "card", "content card", "media card"]
 githubLabels: ["component:tile"]
 needToKnow:
 - Tiles draw attention to featured items.
@@ -18,75 +18,215 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D14489%253A69120" allowfullscreen></iframe>
 
+## Need to know
+
+* Tiles are a set of foundational guidelines to provide a consistent structure for how we display content or data. They are not an exhaustive list, but a clear set of common layout patterns.
+* They are designed with flexible modularity in mind. For example, in a 4-column layout at 1392px wide (our max width for a content area), a Large sized Tile (684px) occupies two columns and could sit alongside two Small sized Tiles (330px) with 1 Grid Unit (24px) separating each tile (684+24+330+24+330=1392)
+
+
 ## To keep in mind
 
-### SingleActionTile
-*   Entire tile is a single click zone for performing a single action.
+To help standardise the way we present information to users, we’ve created a set of visual examples to help provide foundational guidance for laying out content or data at various sizes.
 
-### MultiActionTile
-*   Similar in terms of content to SingleActionTile, but with multiple actions and click zones.
-*   Supports default action, secondary action and flip action (which shows additional context and optional secondary action).
+### Tiles are used to:
+Present information that provides short summaries of different types of content and/or as a linked entry point to additional content on a separate page.
 
-### InformationTile
-*   For display of hero data.
-*   Generally has either no action, or a single action to flip (which shows additional context and optional secondary action).
+### They must provide:
+* A clear heading that sets expectations of the Tile’s purpose
+* Or a standalone logo, for presenting integration partners.
 
-### Layout
-*   Max. 4 per row in 1392px area
-*   See [Tile Grid](/components/tile-grid)
+### They can provide:
+* Additional context; such as body copy, hero data and/or metadata
+* A supporting graphic or data visualization that provides a helpful visual representation of the Tile’s purpose
+* A link or call to action (CTA) for the user to do something (e.g. navigate to another page or take action)
+*  **Surface Action:** Surface Action Tiles are entirely clickable, and are recommended to help users navigate to other areas when a strong call-to-action is not required. Surface Action Tiles cannot contain separate internal CTAs. Their hover states will also function differently to a Tile with 1 or more actions.
+*  **1 Action:** A tile that has a single Default or Primary button 
+*  **2 Actions:** A tile that has 1x Secondary + 1x Default or Primary Button
+*  **3 Actions:** A tile that has 1x Secondary + 1x Default or Primary Button + 1x Tertiary Button (e.g. Information Icon Button)
+*  **No action:** A tile that is purely for display purposes. For example:
+*    **Data:** an engagement score summary
+*    **Content:** in an admin page when providing contextual information that does not require a link or action
+*  **Selectable:** A tile that acts as a giant radio button or a checkbox
+*    This tile type has not been defined in the visual guidelines (TBD)
+
+Although they are not exhaustive, Tile guidelines were developed to support two common types of information that we present to the user:
+
+
+### Content Tiles are:
+* For presenting information and supporting graphics that provides contextual information and guides a user to take action, e.g. previous examples include components such as the Guidance Block — an early iteration of what we now consider an X-Large / 1-column Tile
+* For presenting user information, e.g. a preview of a user’s profile with their name, job title/department and avatar.
+* For presenting a graphical representation of an integration partner, e.g. Workday / Bamboo HR logo.
+
+### Data Tiles are:
+* For presenting Hero Data, e.g. a summary of information at the top of a reporting or overview page
+* For presenting Data Visualisations, e.g. An engagement score trendline
+
+Tiles have a range of predefined sizes for desktop and mobile that align to various column grids:
+
+### Desktop
+* **X-Large:** 1-column layout: (1392px)
+* **Large:** 2-column layouts: (684px)
+* **Medium:** 3-column layouts (448px)
+* **Small:** 4-column layouts: (330px)
+
+### Mobile
+* **Mobile:** 1-column layout (375px)
+
+Note: Tiles need to have an element of responsiveness, to accommodate varying column widths that respect the user’s viewport size.
+
+
+
+## Visuals
+
+### Tile: Content
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D21815%253A82744" allowfullscreen></iframe>
+
+### Tile: Data
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D21815%253A82774" allowfullscreen></iframe>
+
+### Tile hover states
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D14489%253A69120" allowfullscreen></iframe>
+
+### Modular configuration examples
+Visual examples of modular Tile configurations — coming soon!
+
 
 ## Anatomy
 
-### MultiActionTile
-*   **Title (required)**
-    *   1-3 words
-*   **Metadata** (optional)
-    *   Key information to surface that helps people decide between items
-*   **Information** (optional)
-    *   Object with three parameters: text, primaryAction (optional), secondaryAction (optional)
-    *   Causes Information IconButton to appear in upper right corner. When clicked the backside of Tile is revealed.
-    *   Text params is rendered as a paragraph, primaryAction and secondaryAction action rendered as buttons.
-*   **Children** (optional)
-    *   Placed in middle of Tile between footer and title content.
-*   **Supplementary footer** (optional)
-    *   **Call to action default button (required):**
-        *   Consider if the label needs to be different across items, especially for people using screen readers. If the labels are the same, they might also need ARIA tags to indicate which card title the button is labeled by or description it’s described by.
-    *   **Secondary control action button** (optional):
-        *   Aim for 1 word only
+### Content Tiles can contain:
+* A [Container](/components/container) (previously Card); the Tile’s container
+* Title (Heading 3)
+* Supporting graphics, e.g. Spot Illustrations, Scene Illustrations, Avatars, Logos etc.
+* Contextual information (Body)
+* Metadata (Body Small)
+* Actions: 
+*   No action
+*   Surface action
+*   Primary, Secondary and/or Tertiary Buttons
 
-### InformationTile:
-*   **Title (required)**
-    *   1-3 words
-*   **Metadata**(optional)
-    *   Key information to surface that helps people decide between items
-*   **Information** (optional)
-    *   Object with three parameters: text, primaryAction (optional), secondaryAction (optional)
-    *   Causes Information IconButton to appear in upper right corner. When clicked the backside of Tile is revealed.
-    *   Text params is rendered as a paragraph, primaryAction and secondaryAction action rendered as buttons.
-*   **Children** (optional)
-    *   Placed in middle of Tile between footer and title content.
-*   **Supplementary footer** (optional)
-    *   Positioned at bottom of Tile.
 
-### Focus indicator:
-  *   See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
-  *   On keyboard navigation:
-      * On a single action tile show a focus indicator around the whole tile.
-      * On a multi-action tiles show a focus indicator on the individual interactive elements.
+### Data Tiles contain:
+* A [Container](/components/container) (previously Card); the Tile’s container
+* Title (Heading 3)
+* Hero data (Hero Data Small / Medium / Large), e.g. A single numeric data point or data visualization
+* Metadata (Body Small)
+* Actions: 
+*   No action
+*   Surface actions
+*   Primary, Secondary and/or Tertiary Buttons
+*   Interactive elements (e.g. Slider, Favorability score, Progress)
+
+
+### Universal layout guidance:
+
+**Layout:**
+* 1-4 Tiles per row in a 1392px content area
+* See [Tile Grid](/components/tile-grid)
+
+**Margins:** 
+* Use a minimum margin of 36px (1.5 [grid units](/guidelines/spacing/#grid-units)) for all Tiles
+
+**Text alignment:**
+* Left-aligned text where possible to support internationalization (RTL).
+* Centred text is an exception for certain content (e.g. Data Tiles, or Template Library Tiles that have minimal body copy)
+
+**Button alignment:**
+* If text is left aligned, actions must align to the bottom-right of the tile.
+* If text is center-aligned, actions must align to the bottom-center of the tile.
+* Center-aligned buttons appear more balanced on 4-column/ Small Tile, as opposed to aligning to the right-hand side of the container.
+
+**Illustrations must be relevant and meaningful to the content:**
+* First, consider whether the Tile needs an illustration. Does it help to convey or support an idea, or does it distract from the content?
+* Spot illustrations help to draw attention to and differentiate types of content on the page.
+* Scene illustrations are often more elaborate and assist the content by supporting a narrative.
+* Visual graphics are used for promoting visual representations of integration partners, i.e. their company logo.
+* Try to avoid repetition or reuse of an illustration that’s been used elsewhere.
+* Reach out to Design Systems Advocates to commission a new illustration that suits your needs.
+* For more information, see the guidelines for [illustrations](/components/illustration/)
+
+
+## Copy guidelines
+
+### Content Tile
+
+**Content Tile headings must be:**
+
+* Informative and descriptive:
+*    Highlight the most important concept or piece of information
+*    Help users understand what they’ll find in the section below
+
+*  Concise and scannable:
+*    Use simple, clear language
+*    Keep headings to a single sentence, ideally fewer than 5 words
+*    Avoid using punctuation such as periods, commas, or semicolons
+*    Write in sentence case (capitalize the first word and proper nouns only)
+
+**Tile body content must be:**
+
+* Concise and scannable:
+*    Use simple, clear language
+*    Write in sentence case (capitalize the first word and proper nouns only)
+*    Try for under 125 characters
+
+**Calls to action:**
+
+*  Default button:
+*    Consider if the label needs to be different across items, especially for people using screen readers. If the labels are the same, they might also need ARIA tags to indicate which card title the button is labeled by or description it’s described by.
+
+*  Secondary action button:
+*    Aim for 1 word only
+
+* Follow the content guidelines for [Buttons](/components/button/#copy-guidelines) 
+
+
+### Data Tile
+
+**Data Tile headings must be:**
+
+* Informative and descriptive:
+*   Highlight the most important concept or piece of information
+*   Help users understand what they’ll find in the section below
+
+* Concise and scannable:
+*   Use simple, clear language
+*   Keep headings to a single sentence, ideally fewer than 5 words
+*   Avoid using punctuation such as periods, commas, or semicolons
+*   Write in sentence case (capitalize the first word and proper nouns only)
+
+**Data tile subheadings must be:**
+
+* Concise and scannable:
+*   Use simple, clear language
+*   Ideally 3 words or fewer
+*   Avoid using punctuation such as periods, commas, or semicolons
+
+**Metadata must be:**
+* Concise and scannable:
+*   Use simple, clear language that helps people decide between items
+*   Ideally 3 words or fewer
+*   Avoid using punctuation such as periods, commas, or semicolons
+
+
+
 
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
 <WhenToUse>
 
-*   Use tiles for visually interesting items that we want to highlight or have featured.
-*   Use tiles to help people choose between items.
+### Tiles can be used to:
+* Provide short summaries of different kinds of content, and as a linked entry point to more information contained on a separate page.
+* Create flexible layouts when you have a variety of content types that you want to display at the same time.
+* Visually distinguish more important pieces of content on a page.
+* Create a grid or list view of content, e.g. multiple 1-column Tiles stacked together to create an index or list. More information on how to structure a Page Layout using Tiles (TBD)
 
 </WhenToUse>
 <WhenNotToUse>
 
-*   For a single item, use a [Guidance Block](/components/guidance-block) instead.
-*   For items without much visual interest, use a list instead.
+### Tiles must not be used to:
+* Contain a high density of content. Consider breaking your content up into easily digestible containers of content.
+* Mixed and matched, To establish a clear information hierarchy and reduce cognitive load, try to avoid mixing and matching various Tiles types (e.g. Surface Action Tiles with 1 and 2 Action Tiles).
+
 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
@@ -94,7 +234,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 ## See also
 *   [Tile Grid](/components/tile-grid)
 *   [Buttons](/components/button/)
-*   [Cards](/components/card/)
+*   [Container](/components/container/)
 
 ## External links
 
