@@ -24,3 +24,6 @@
 2. Then label with `bug`, `enhancement`/`feature`\* or `documentation`.
 
 **\* A feature is a new component or piece of functionality and an enhancement is an improvement to an existing component or piece of functionality.**
+
+## No Sensitive Information
+As this is a public repo, please do not include screenshots that may share sensitive information about our customers.
