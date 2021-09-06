@@ -49,7 +49,12 @@ const FieldMessage: FieldMessage = ({
   >
     {status === "error" && warningIcon}
     <div className={styles.message}>
-      <Paragraph variant="small">{message}</Paragraph>
+      <Paragraph
+        variant="small"
+        color={reversed ? "white-reduced-opacity" : "dark-reduced-opacity"}
+      >
+        {message}
+      </Paragraph>
     </div>
   </div>
 )
