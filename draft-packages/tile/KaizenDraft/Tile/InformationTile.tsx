@@ -10,6 +10,7 @@ type InformationTile = React.FunctionComponent<InformationTileProps>
 
 const InformationTile: InformationTile = ({
   title,
+  titleTag,
   metadata,
   children,
   information,
@@ -17,6 +18,7 @@ const InformationTile: InformationTile = ({
 }) => (
   <GenericTile
     title={title}
+    titleTag={titleTag}
     metadata={metadata}
     information={information}
     footer={footer}
