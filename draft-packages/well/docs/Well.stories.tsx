@@ -81,20 +81,46 @@ export const Positive = () => (
   </Well>
 )
 
+export const PositiveWithDashedBorder = () => (
+  <Well variant="positive" borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+PositiveWithDashedBorder.storyName = "Positive with dashed border"
+
+export const PositiveWithNoBorder = () => (
+  <Well variant="positive" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+PositiveWithNoBorder.storyName = "Positive with no border"
+
 export const Negative = () => (
   <Well variant="negative">
     <ExampleContent />
   </Well>
 )
 
-export const Informative = () => (
-  <Well variant="informative">
+export const NegativeWithDashedBorder = () => (
+  <Well variant="negative" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
 
-export const Cautionary = () => (
-  <Well variant="cautionary">
+NegativeWithDashedBorder.storyName = "Negative with dashed border"
+
+export const NegativeWithNoBorder = () => (
+  <Well variant="negative" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+NegativeWithNoBorder.storyName = "Negative with no border"
+
+export const Informative = () => (
+  <Well variant="informative">
     <ExampleContent />
   </Well>
 )
@@ -106,3 +132,77 @@ export const InformativeWithDashedBorder = () => (
 )
 
 InformativeWithDashedBorder.storyName = "Informative with dashed border"
+
+export const InformativeWithNoBorder = () => (
+  <Well variant="informative" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+InformativeWithNoBorder.storyName = "Informative with no border"
+
+export const Cautionary = () => (
+  <Well variant="cautionary">
+    <ExampleContent />
+  </Well>
+)
+
+export const CautionaryWithDashedBorder = () => (
+  <Well variant="cautionary" borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+CautionaryWithDashedBorder.storyName = "Cautionary with dashed border"
+
+export const CautionaryWithNoBorder = () => (
+  <Well variant="cautionary" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+CautionaryWithNoBorder.storyName = "Cautionary with no border"
+
+export const Assertive = () => (
+  <Well variant="assertive">
+    <ExampleContent />
+  </Well>
+)
+
+export const AssertiveWithDashedBorder = () => (
+  <Well variant="assertive" borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+AssertiveWithDashedBorder.storyName = "Assertive with dashed border"
+
+export const AssertiveWithNoBorder = () => (
+  <Well variant="assertive" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+AssertiveWithNoBorder.storyName = "Assertive with no border"
+
+export const Prominent = () => (
+  <Well variant="prominent">
+    <ExampleContent />
+  </Well>
+)
+
+export const ProminentWithDashedBorder = () => (
+  <Well variant="prominent" borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+ProminentWithDashedBorder.storyName = "Prominent with dashed border"
+
+export const ProminentWithNoBorder = () => (
+  <Well variant="prominent" borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+ProminentWithNoBorder.storyName = "Prominent with no border"
