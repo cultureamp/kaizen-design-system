@@ -9,6 +9,7 @@ export interface DividerProps {
 
 export const Divider = ({ isReversed = false, variant }: DividerProps) => (
   <hr
+    aria-hidden="true"
     className={classNames(styles.wrapper, {
       [styles.reversed]: isReversed,
       [styles.content]: variant === "content",

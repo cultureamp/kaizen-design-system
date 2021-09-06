@@ -34,6 +34,8 @@ These rules are included by default:
 
 Also available, but not enabled by default:
 
+- `kaizen/prefer-color-tokens` - Detects inlined color values (in any kind of form such as hex, rgba, hsl, hwb etc) and recommends and replaces Kaizen tokens for them if one is found with the same value. Only non-deprecated tokens will be recommended.
+
 - `kaizen/no-tokens-in-variables` - Prevent and fix the usage of Kaizen design tokens in Sass or Less variables. This does not include design tokens in variables that have been imported into the current stylesheet. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed and would be autofixed to `background-color: $kz-color-wisteria-800;`. 
 
   This rule is not recommended as a default as proxy variables can be useful - in the example above `$card-bg` is communicating the purpose of the colour, not just it's value. You may find this rule helpful if you have a large number of proxy variables, and they are preventing the other rules from auto-fixing. 

@@ -4,12 +4,12 @@
 
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
-import * as GlobalNotificationStories from "@kaizen/component-library/stories/GlobalNotification.stories"
+import * as GlobalNotificationStories from "@kaizen/notification/docs/GlobalNotification.stories"
 import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
 import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
-import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
+import * as InlineNotificationStories from "@kaizen/notification/docs/InlineNotification.stories"
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
-import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
+import * as ToastNotificationStories from "@kaizen/notification/docs/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
 import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
@@ -45,8 +45,6 @@ import * as TagStories from "@kaizen/draft-tag/docs/Tag.stories"
 import * as TileStories from "@kaizen/draft-tile/docs/Tile.stories"
 import * as TitleBlockZenStories from "@kaizen/draft-title-block-zen/docs/TitleBlockZen.stories"
 import * as TooltipStories from "@kaizen/draft-tooltip/docs/Tooltip.stories"
-import * as VerticalProgressIndicatorStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressIndicator.stories"
-import * as VerticalProgressStepStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressStep.stories"
 import * as WellStories from "@kaizen/draft-well/docs/Well.stories"
 import * as ZenNavigationBarStories from "@kaizen/draft-zen-navigation-bar/docs/ZenNavigationBar.stories"
 import { Meta, Story } from "@storybook/react"
@@ -458,8 +456,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={ToastNotificationStories} />
         <StoriesContainer storyModule={ToggleSwitchFieldStories} />
         <StoriesContainer storyModule={TooltipStories} />
-        <StoriesContainer storyModule={VerticalProgressIndicatorStories} />
-        <StoriesContainer storyModule={VerticalProgressStepStories} />
         <StoriesContainer storyModule={WellStories} />
         <StoriesContainer storyModule={ZenNavigationBarStories} />
       </Stack>

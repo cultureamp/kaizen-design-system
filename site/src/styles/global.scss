@@ -1,17 +1,14 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/responsive";
 
-:root {
-  --ca-grid: #{$ca-grid};
-  --content-card-top-offset: calc(var(--ca-grid) * 2);
-  --sidebar-content-gap: calc(var(--ca-grid));
-  --content-top-and-bottom-margin: calc(var(--ca-grid) * 3);
-  --content-side-margin: calc(var(--ca-grid) * 4);
-  --page-content-width: calc(var(--ca-grid) * 45);
-  --card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
-}
+$content-card-top-offset: 3rem;
+$sidebar-content-gap: 1.5rem;
+$content-top-and-bottom-margin: 4.5rem;
+$content-side-margin: 6rem;
+$page-content-width: 67.5rem;
+$card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
 
 html {
   font-size: 16px;
@@ -21,7 +18,7 @@ html {
 body {
   background-color: $color-gray-100;
   color: $color-purple-800;
-  font-family: $ca-inter-font-family;
+  font-family: $typography-paragraph-body-font-family;
 
   @include ca-media-mobile() {
     background-color: white;
@@ -36,7 +33,7 @@ a {
 pre {
   white-space: pre-wrap;
   word-break: break-word;
-  padding: $ca-grid;
+  padding: $spacing-md;
   line-height: 1.5;
 }
 

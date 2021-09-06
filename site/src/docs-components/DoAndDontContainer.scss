@@ -1,5 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
 
 .container {
@@ -12,7 +12,7 @@
 }
 
 .tagAndCard {
-  margin-bottom: var(--ca-grid);
+  margin-bottom: $spacing-md;
   width: 48%;
   box-sizing: border-box;
   display: flex;
@@ -30,8 +30,8 @@
   box-sizing: border-box;
   display: flex;
   height: 100%;
-  margin-top: calc(var(--ca-grid) / 2);
-  padding: var(--ca-grid);
+  margin-top: $spacing-sm;
+  padding: $spacing-md;
 
   :global(.md-li.md-li) {
     font-size: 0.875rem;
