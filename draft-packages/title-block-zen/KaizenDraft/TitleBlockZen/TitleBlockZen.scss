@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -234,38 +235,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .hamburger {
   display: none;
-  @include ca-margin($end: $ca-grid * 2/3);
-  color: $color-white;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  .educationVariant &,
-  .adminVariant & {
-    color: $color-purple-800;
-  }
+  @include ca-margin($end: $spacing-xs);
 
   @include title-block-medium-and-small {
     display: flex;
     align-items: center;
-    transform: translateY(-1px);
-  }
-
-  .hasSubtitle & {
-    @include title-block-under-1366 {
-      transform: translateY(-6px);
-    }
-
-    @include title-block-medium-and-small {
-      transform: translateY(-8px);
-    }
-  }
-
-  .hasPageSwitcherSelect & {
-    @include title-block-medium-and-small {
-      transform: translateY(-6px);
-    }
   }
 }
 

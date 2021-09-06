@@ -1,7 +1,7 @@
 import { Heading, Icon } from "@kaizen/component-library"
 import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
 import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
-import { ButtonProps } from "@kaizen/draft-button"
+import { IconButton, ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
@@ -542,14 +542,12 @@ const TitleBlockZen = ({
                   )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
-                    <div
-                      className={styles.hamburger}
-                      onClick={handleHamburgerClick}
-                    >
-                      <Icon
+                    <div className={styles.hamburger}>
+                      <IconButton
+                        onClick={handleHamburgerClick}
                         icon={hamburgerIcon}
-                        role="presentation"
-                        title="Open menu"
+                        label="Open menu"
+                        reversed={isReversed(variant)}
                       />
                     </div>
                   )}
