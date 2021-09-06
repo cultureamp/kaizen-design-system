@@ -15,37 +15,37 @@
 
 .positive {
   background: $color-green-100;
-  border-color: var(#{$color-green-300-id}, $color-green-300);
+  border-color: $color-green-300;
   color: $color-purple-800;
 }
 
 .negative {
   background: $color-red-100;
-  border-color: var(#{$color-red-300-id}, $color-red-300);
+  border-color: $color-red-300;
   color: $color-purple-800;
 }
 
 .informative {
   background: $color-blue-100;
-  border-color: var(#{$color-blue-300-id}, $color-blue-300);
+  border-color: $color-blue-300;
   color: $color-purple-800;
 }
 
 .cautionary {
   background: $color-yellow-100;
-  border-color: var(#{$color-yellow-400-id}, $color-yellow-400);
+  border-color: $color-yellow-400;
   color: $color-purple-800;
 }
 
 .assertive {
   background: $color-orange-100;
-  border-color: var(#{$color-orange-300-id}, $color-orange-300);
+  border-color: $color-orange-300;
   color: $color-purple-800;
 }
 
 .prominent {
   background: $color-purple-100;
-  border-color: var(#{$color-purple-300-id}, $color-purple-300);
+  border-color: $color-purple-300;
   color: $color-purple-800;
 }
 
