@@ -22,7 +22,13 @@ const renderSecondaryOverflowMenu = (
   return (
     <Menu
       align="right"
-      button={<IconButton label="" reversed={reversed} icon={meatballsIcon} />}
+      button={
+        <IconButton
+          label="Open secondary menu"
+          reversed={reversed}
+          icon={meatballsIcon}
+        />
+      }
     >
       <MenuContent>
         {secondaryOverflowMenuItems.map((menuItem, i) => (
