@@ -1,7 +1,7 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 
-$cardPadding: $ca-grid / 2;
+$cardPadding: $spacing-sm;
 
 @media screen and (min-width: 768px) {
   .cardWrapper {
@@ -9,28 +9,30 @@ $cardPadding: $ca-grid / 2;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-bottom: $ca-grid / 2;
+    padding-bottom: $spacing-sm;
   }
 }
 
 .iconExample {
-  @include ca-type-inter-labels-and-legends;
+  font-weight: $typography-heading-6-font-weight;
+  font-size: $typography-heading-6-font-size;
+  line-height: $typography-heading-6-line-height;
+  letter-spacing: $typography-heading-6-letter-spacing;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  min-width: $ca-grid * 4;
-  min-height: $ca-grid * 4.5;
-  padding: $cardPadding * 2 30px;
+  min-width: calc(#{$spacing-md} * 4);
+  min-height: calc(#{$spacing-md} * 4.5);
+  padding: $spacing-md 30px;
 
   @media screen and (min-width: 768px) {
     padding: $cardPadding 30px;
   }
 
   strong {
-    text-transform: uppercase;
-    font-weight: $ca-weight-book;
+    font-weight: $typography-heading-6-font-weight;
   }
 }
 
@@ -44,7 +46,7 @@ $cardPadding: $ca-grid / 2;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-bottom: $ca-grid / 2;
+    padding-bottom: $spacing-sm;
   }
 }
 
@@ -58,7 +60,7 @@ $cardPadding: $ca-grid / 2;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-bottom: $ca-grid / 2;
-    margin-top: $ca-grid * 2;
+    padding-bottom: $spacing-sm;
+    margin-top: $spacing-lg;
   }
 }

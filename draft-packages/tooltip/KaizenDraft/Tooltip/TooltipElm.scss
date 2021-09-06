@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
@@ -15,36 +15,18 @@
   left: 50%;
   position: absolute;
   pointer-events: none;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-wisteria-200;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+  box-shadow: $shadow-small-box-shadow;
   text-align: center;
-}
-
-.contentWrap {
-  display: block;
-  width: 400px;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
-  z-index: 2;
-}
-
-.contentWrap.above {
-  top: 0;
-}
-
-.contentWrap.below {
-  bottom: 0;
 }
 
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   top: 0;
 }
 
@@ -72,7 +54,32 @@
 .tooltipWrap {
   position: initial;
   display: inline-block;
+
+  .contentWrap {
+    display: block;
+    width: 400px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 2;
+
+    &.above {
+      top: 0;
+    }
+
+    &.below {
+      bottom: 0;
+    }
+  }
+
+  &.dontTakeUpSpaceWhenHiddenQuickFix .contentWrap {
+    display: none; //hide unless hovering the tooltipWrap. NOTE: this disables the animation as a compromise
+  }
+
   &:hover {
+    .contentWrap {
+      display: block;
+    }
     .above {
       opacity: 1;
       transform: translateX(-50%) translateY(calc(-100% + -6px));
@@ -113,7 +120,7 @@
 }
 
 .root::before {
-  border-top: 10px solid $kz-var-color-wisteria-200;
+  border-top: 10px solid $color-gray-300;
 }
 
 .root::after {
@@ -123,7 +130,7 @@
 }
 
 .shadow::before {
-  border-top: 0px solid $kz-var-color-wisteria-200;
+  border-top: 0px solid $color-gray-300;
 }
 
 // Triangle portion is a little darker to bring out shadow

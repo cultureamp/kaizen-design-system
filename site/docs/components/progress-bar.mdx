@@ -1,12 +1,23 @@
 ---
 title: Progress Bar
-navTitle: Progress Bar (not built)
+navTitle: Progress Bar
 summaryParagraph: Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains.
 tags: ["Progress", "Progress bar", "Progress indicator", "Progress tracker", "Loading bar", "Loader"]
+githubLabels: ["component:progress-bar"]
 needToKnow:
 - Give people feedback about progress.
 - A static progress bar shows current progress through a process that will not progress without user interaction.
 - A loading progress bar shows current progress through a loading process that the system will progress by itself without user interaction. We use animation to show that the system is operating.
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: true
+  allVariants: true
+  responsive: true
+  internationalized: false
+  accessible: false
+demoStoryId: components-progressbar--default-story
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -17,7 +28,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ### UI Kit
 
-<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D34915%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D1929%253A20890" allowfullscreen></iframe>
 
 ### Examples
 
@@ -28,11 +39,8 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 - Static process or loading progress:
     - **Static**: a static progress bar shows current progress through a process that will not progress without user interaction.
     - **Loading**: a loading progress bar shows current progress through a loading process that the system will progress by itself without user interaction. We use animation to show that the system is operating.
-- Props:
-    - Min
-    - Max
-    - Initial value
-    - Infinite/indeterminate
+- Percentage (33%) or fraction (1/10)
+- Infinite/indeterminate (not yet designed)
 - [Moods](/guidelines/moods): positive, informative, cautionary, negative
 
 ## To keep in mind

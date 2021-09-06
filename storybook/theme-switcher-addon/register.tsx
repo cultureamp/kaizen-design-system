@@ -1,7 +1,8 @@
 import React from "react"
 import { addons, types } from "@storybook/addons"
 import { AddonPanel } from "@storybook/components"
-import { App, ADDON_ID } from "./addon"
+import { App } from "./addon"
+import { ADDON_ID } from "./constants"
 
 const PANEL_ID = `${ADDON_ID}/panel`
 

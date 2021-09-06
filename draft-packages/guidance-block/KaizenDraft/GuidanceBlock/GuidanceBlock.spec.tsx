@@ -2,7 +2,16 @@ import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
+import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
+
+window.matchMedia = jest.fn().mockImplementation(() => ({
+  matches: false,
+  media: "",
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}))
 
 describe("GuidanceBlock", () => {
   afterEach(cleanup)
@@ -10,7 +19,7 @@ describe("GuidanceBlock", () => {
   test("starts visible", () => {
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:
@@ -30,7 +39,7 @@ describe("GuidanceBlock", () => {
     const onDismiss = jest.fn()
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:
@@ -58,7 +67,7 @@ describe("GuidanceBlock", () => {
     const onAction = jest.fn()
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:
@@ -77,7 +86,7 @@ describe("GuidanceBlock", () => {
   test("when animation ends the element is removed", () => {
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:
@@ -106,7 +115,7 @@ describe("GuidanceBlock", () => {
   test("when guidance block is persistent", () => {
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:
@@ -126,7 +135,7 @@ describe("GuidanceBlock", () => {
   test("when secondary action is supplied", () => {
     const { container } = render(
       <GuidanceBlock
-        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        illustration={<Informative alt="" />}
         text={{
           title: "This is the call to action title",
           description:

@@ -1,5 +1,6 @@
-import { Button, Heading } from "@kaizen/component-library"
-import { assetUrl } from "@kaizen/hosted-assets"
+import { Heading } from "@kaizen/component-library"
+import { Strategy, OneOnOne, ManagerLearning } from "@kaizen/draft-illustration"
+import { Button } from "@kaizen/draft-button"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
@@ -40,7 +41,6 @@ const FooterExtraContent = () => (
         </div>
         <div className={styles.footerLinkButton}>
           <Button
-            reversed
             label="Browse open roles"
             href="https://www.cultureamp.com/about/careers/"
           ></Button>
@@ -78,28 +78,17 @@ export default ({ location }) => {
           <div className={styles.content}>
             <div className={styles.guidelinesImageContainer}>
               <a href={withPrefix("/guidelines/overview")}>
-                <img
-                  src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
-                  alt="Guidelines"
-                />
+                <Strategy alt="View Guidelines" />
               </a>
             </div>
             <div className={styles.languageImageContainer}>
               <a href={withPrefix("/language/overview")}>
-                <img
-                  src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
-                  alt="Language"
-                />
+                <OneOnOne alt="View Language" />
               </a>
             </div>
             <div className={styles.componentsImageContainer}>
               <a href={withPrefix("/components/overview")}>
-                <img
-                  src={assetUrl(
-                    "illustrations/scene/kaizen-site-resources.svg"
-                  )}
-                  alt="Components"
-                />
+                <ManagerLearning alt="View Components" />
               </a>
             </div>
             <div className={styles.guidelinesTextContainer}>

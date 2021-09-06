@@ -1,16 +1,17 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/components/Button/styles";
-@import "~@kaizen/component-library/components/Icon/Icon.module.scss";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
-$heightConstraint: $ca-grid * 6;
-$ca-banner-fade-out: opacity $ca-duration-slow ease;
-$ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
-  $ca-duration-slow ease;
+$bannerPadding: $spacing-sm;
+$ca-banner-fade-out: opacity $animation-duration-slow ease;
+$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
+  $animation-duration-slow ease;
+$illustration-size: 155px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -19,56 +20,84 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 .banner {
   display: flex;
   flex-direction: column;
-  background: $kz-var-color-white;
+  background: $color-white;
   min-width: 320px;
-  max-width: $ca-layout-content-width;
-  border: $kz-var-border-borderless-border-width
-    $kz-var-border-borderless-border-style
-    $kz-var-border-borderless-border-color;
-  border-radius: $kz-var-border-solid-border-radius;
-  padding: $ca-grid / 2;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  max-width: $layout-breakpoints-large;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
+  border-radius: $border-solid-border-radius;
+  padding: $bannerPadding;
+  box-shadow: $shadow-small-box-shadow;
   position: relative;
   top: -1px;
   transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
 
   @include ca-media-desktop {
-    min-height: $heightConstraint;
+    min-height: calc(12rem - calc(#{$bannerPadding} * 2));
     flex-direction: row;
     width: auto;
     align-items: center;
 
     > * {
-      padding: $ca-grid / 2;
+      padding: $spacing-sm;
     }
+  }
+
+  @include ca-media-mobile {
+    min-width: unset;
   }
 }
 
-.iconWrapper {
-  display: none;
+.illustrationWrapper {
+  display: flex;
+  padding: 0 ($spacing-sm);
 
   @include ca-media-tablet {
-    display: block;
     text-align: center;
-    padding: $ca-grid / 2;
-    width: auto;
+    justify-content: center;
+    align-self: center;
+    padding: $spacing-sm;
   }
 
-  @include ca-media-desktop {
-    display: block;
-    padding: 0 ($ca-grid / 2);
+  @include ca-media-mobile {
+    display: none;
   }
+}
+
+.illustration {
+  width: $illustration-size;
+  height: $illustration-size;
 }
 
 .descriptionContainer {
-  flex: 0 1 auto;
-  margin: ($ca-grid / 2) 0;
+  flex: 1;
+  margin: $spacing-sm 0;
   text-align: center;
+  align-self: center;
+  max-width: 780px;
 
   @include ca-media-desktop {
-    padding-left: $ca-grid;
+    padding-left: $spacing-sm;
     text-align: left;
+  }
+
+  @include ca-media-mobile {
+    margin: $spacing-sm;
+    max-width: 100%;
+  }
+}
+
+.descriptionAndActions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: column;
+    width: 100%;
+    align-items: unset;
   }
 }
 
@@ -77,23 +106,18 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
-
-  width: 100%;
+  min-width: max-content;
 
   @include ca-media-tablet-and-up {
-    width: auto;
-    padding: ($ca-grid / 2) 0;
+    padding: ($spacing-sm) 0;
     text-align: center;
   }
 
-  @include ca-media-desktop {
-    padding: 0 ($ca-grid);
-    margin-top: 0;
+  @include ca-media-mobile {
+    flex-direction: column;
+    width: 100%;
+    margin-top: $spacing-xs;
   }
-}
-
-.secondaryAction {
-  margin-right: $ca-grid / 2;
 }
 
 .hidden {
@@ -102,18 +126,18 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 }
 
 .headingWrapper {
-  margin-bottom: $ca-grid / 4;
+  margin-bottom: $spacing-md;
 }
 
 .cancel {
   @include button-reset;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   position: absolute;
-  top: $ca-grid / 2;
-  right: $ca-grid / 2;
-  color: $kz-var-color-wisteria-800;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  color: $color-purple-800;
 }
 
 .prominent {
-  background: $kz-var-color-cluny-100;
+  background: $color-blue-100;
 }

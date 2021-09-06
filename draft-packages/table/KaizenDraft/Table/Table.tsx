@@ -10,7 +10,7 @@ import styles from "./styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
-  variant?: "compact" | "default"
+  variant?: "compact" | "default" | "data"
 }
 export const TableContainer: TableContainer = ({
   variant = "compact",
@@ -21,6 +21,7 @@ export const TableContainer: TableContainer = ({
     role="table"
     className={classNames(styles.container, {
       [styles.defaultSpacing]: variant === "default",
+      [styles.dataVariant]: variant === "data",
     })}
     {...otherProps}
   >
@@ -84,6 +85,7 @@ type TableHeaderRowCell = React.FunctionComponent<{
   checkable?: boolean
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  reversed?: boolean
   /**
    * This boolean would show a "sort by" icon in the table cell header.
    * The problem was that the arrow was pointing in the descending direction only.
@@ -111,6 +113,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   checkable,
   checkedStatus,
   onCheck,
+  reversed,
   active,
   sorting: sortingRaw,
   // I can't say for certain why "nowrap" was the default value. Normally you wouldn't
@@ -137,6 +140,11 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     if (sortingArrowsOnHover && hoverState != isHovered)
       setIsHovered(hoverState)
   }
+
+  const headerColor = !!reversed
+    ? "white-reduced-opacity"
+    : "dark-reduced-opacity"
+  const hoveredHeaderColor = !!reversed ? "white" : "dark"
 
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.
@@ -167,7 +175,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Heading
             tag="div"
             variant="heading-6"
-            color={sorting || isHovered ? "dark" : "dark-reduced-opacity"}
+            color={sorting || isHovered ? hoveredHeaderColor : headerColor}
           >
             {labelText}
           </Heading>
@@ -196,7 +204,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   cellContents = href ? (
     <a
       data-automation-id={automationId}
-      className={styles.headerRowCellButton}
+      className={classNames(styles.headerRowCellButton, {
+        [styles.headerRowCellButtonReversed]: !!reversed,
+      })}
       href={href}
       onClick={
         onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
@@ -211,7 +221,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   ) : onClick ? (
     <button
       data-automation-id={automationId}
-      className={styles.headerRowCellButton}
+      className={classNames(styles.headerRowCellButton, {
+        [styles.headerRowCellButtonReversed]: !!reversed,
+      })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={() => updateHoverState(true)}
       onFocus={() => updateHoverState(true)}

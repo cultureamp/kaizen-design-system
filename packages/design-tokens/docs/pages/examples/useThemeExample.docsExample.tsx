@@ -8,8 +8,8 @@ export const App = () => {
       style={{
         backgroundColor:
           theme.themeKey === "heart"
-            ? theme.color.yuzu["600"]
-            : theme.color.wisteria["800"],
+            ? theme.color.yellow["600"]
+            : theme.color.purple["800"],
         color: "white",
       }}
     >

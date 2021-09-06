@@ -1,13 +1,11 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
-$reverse-variant-color: $kz-var-color-wisteria-700;
+$reverse-variant-color: $color-blue-100;
 
 .footerExtraContent {
   .reverseVariant & {
     background-color: $reverse-variant-color;
-    color: white;
   }
 }
 
@@ -15,11 +13,11 @@ $reverse-variant-color: $kz-var-color-wisteria-700;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: $ca-grid * 3;
+  height: $spacing-xxxl;
 
   .reverseVariant & {
     background-color: $reverse-variant-color;
-    color: white;
+    color: $color-purple-800;
   }
 }
 
@@ -27,7 +25,7 @@ $reverse-variant-color: $kz-var-color-wisteria-700;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  max-width: $ca-grid * 16;
+  max-width: calc(#{$spacing-md} * 16);
   width: 100%;
 }
 

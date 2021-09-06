@@ -46,7 +46,7 @@ export const heartTheme: Theme = {
     },
   },
   color: {
-    wisteria: {
+    purple: {
       100: "#f4edf8",
       200: "#dfc9ea",
       300: "#c9a5dd",
@@ -56,7 +56,7 @@ export const heartTheme: Theme = {
       700: "#4a234d",
       800: "#2f2438",
     },
-    cluny: {
+    blue: {
       100: "#e6f6ff",
       200: "#bde2f5",
       300: "#73c0e8",
@@ -65,7 +65,7 @@ export const heartTheme: Theme = {
       600: "#004970",
       700: "#003157",
     },
-    seedling: {
+    green: {
       100: "#e8f8f4",
       200: "#c4ede2",
       300: "#8fdbc7",
@@ -74,7 +74,7 @@ export const heartTheme: Theme = {
       600: "#2c7d67",
       700: "#22594a",
     },
-    yuzu: {
+    yellow: {
       100: "#fff9e4",
       200: "#ffeeb3",
       300: "#ffe36e",
@@ -83,7 +83,7 @@ export const heartTheme: Theme = {
       600: "#c68600",
       700: "#876400",
     },
-    coral: {
+    red: {
       100: "#fdeaee",
       200: "#f9c2cb",
       300: "#f597a8",
@@ -92,7 +92,7 @@ export const heartTheme: Theme = {
       600: "#a82433",
       700: "#6c1e20",
     },
-    peach: {
+    orange: {
       100: "#fff0e8",
       200: "#ffd1b9",
       300: "#ffb08a",
@@ -101,23 +101,19 @@ export const heartTheme: Theme = {
       600: "#b74302",
       700: "#903c00",
     },
-    ash: "#e6e5e5",
-    stone: "#f9f9f9",
-    white: "#FFFFFF",
-    iron: "#8c8c97",
-    slate: "#524e56",
+    gray: {
+      100: "#f9f9f9",
+      200: "#f4f4f5",
+      300: "#eaeaec",
+      400: "#cdcdd0",
+      500: "#8c8c97",
+      600: "#524e56",
+    },
+    white: "#ffffff",
   },
   dataViz: {
     favorable: "#7dd5bd",
     unfavorable: "#e68d97",
-  },
-  DEPRECATED: {
-    color: {
-      lapis: "#253C64",
-      ocean: "#1B7688",
-      ink: "#3E4543",
-      paper: "#F2EDDE",
-    },
   },
   layout: {
     contentMaxWidth: "1392px",

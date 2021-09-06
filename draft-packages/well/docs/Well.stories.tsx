@@ -3,10 +3,11 @@ import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = () => (
-  <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
+  <Box p={1}>
     <Heading tag="h3" variant="heading-3">
       Heading
     </Heading>
@@ -22,17 +23,17 @@ const ExampleContent = () => (
       inputValue=""
       onChange={() => undefined}
     />
-  </div>
+  </Box>
 )
 
 export default {
-  title: "Well (React)",
+  title: `${CATEGORIES.components}/Well`,
   component: Well,
   parameters: {
-    info: {
-      text: `
-      import { Well } from "@kaizen/draft-well"
-      `,
+    docs: {
+      description: {
+        component: 'import { Well } from "@kaizen/draft-well"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14168"

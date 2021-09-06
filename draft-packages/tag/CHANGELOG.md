@@ -3,6 +3,272 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.4...@kaizen/draft-tag@1.11.5) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.3...@kaizen/draft-tag@1.11.4) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.2...@kaizen/draft-tag@1.11.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.1...@kaizen/draft-tag@1.11.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.0...@kaizen/draft-tag@1.11.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.10.0...@kaizen/draft-tag@1.11.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.12...@kaizen/draft-tag@1.10.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [1.9.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.11...@kaizen/draft-tag@1.9.12) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [1.9.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.10...@kaizen/draft-tag@1.9.11) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.9...@kaizen/draft-tag@1.9.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.8...@kaizen/draft-tag@1.9.9) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.7...@kaizen/draft-tag@1.9.8) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.6...@kaizen/draft-tag@1.9.7) (2021-07-29)
+
+
+### Bug Fixes
+
+* Tag dismiss button accessibility + uplift ([#1798](https://github.com/cultureamp/kaizen-design-system/issues/1798)) ([c489025](https://github.com/cultureamp/kaizen-design-system/commit/c489025cd5e3b1135f87e6c09ab593803bd27d8c))
+
+
+
+
+
+## [1.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.5...@kaizen/draft-tag@1.9.6) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.4...@kaizen/draft-tag@1.9.5) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.3...@kaizen/draft-tag@1.9.4) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.2...@kaizen/draft-tag@1.9.3) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.1...@kaizen/draft-tag@1.9.2) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.0...@kaizen/draft-tag@1.9.1) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.21...@kaizen/draft-tag@1.9.0) (2021-06-07)
+
+
+### Features
+
+* elm tag allow text wrapping option + dismiss button size fix ([#1671](https://github.com/cultureamp/kaizen-design-system/issues/1671)) ([9d42e38](https://github.com/cultureamp/kaizen-design-system/commit/9d42e3887bff7f4417fc56d1d9bba845877b89ec))
+
+
+
+
+
+## [1.8.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.20...@kaizen/draft-tag@1.8.21) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.19...@kaizen/draft-tag@1.8.20) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.18...@kaizen/draft-tag@1.8.19) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.17...@kaizen/draft-tag@1.8.18) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.16...@kaizen/draft-tag@1.8.17) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.15...@kaizen/draft-tag@1.8.16) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.14...@kaizen/draft-tag@1.8.15) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.13...@kaizen/draft-tag@1.8.14) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.12...@kaizen/draft-tag@1.8.13) (2021-05-04)
+
+
+### Bug Fixes
+
+* Use 100% height for dismissIcon on Tag to avoid global box-sizing css conflicts ([#1531](https://github.com/cultureamp/kaizen-design-system/issues/1531)) ([617764b](https://github.com/cultureamp/kaizen-design-system/commit/617764bc52e7fd3b18d5260ce11be90551c749a8))
+
+
+
+
+
+## [1.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.11...@kaizen/draft-tag@1.8.12) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.10...@kaizen/draft-tag@1.8.11) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.8.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.9...@kaizen/draft-tag@1.8.10) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-tag

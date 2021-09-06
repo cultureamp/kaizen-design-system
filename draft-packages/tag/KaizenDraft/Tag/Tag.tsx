@@ -116,15 +116,17 @@ const Tag = (props: TagProps) => {
         </span>
         {dismissible && (
           <>
-            <span
-              className={styles.dismissIcon}
+            <button
+              className={styles.dismissButton}
               onClick={onDismiss}
               onMouseDown={onMouseDown}
               onMouseLeave={onMouseLeave}
             >
               <span className={styles.background} />
-              <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
-            </span>
+              <div className={styles.iconWrapper}>
+                <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+              </div>
+            </button>
           </>
         )}
         {variant === "statusLive" && (

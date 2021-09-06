@@ -1,17 +1,16 @@
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
+@import "./dimensions";
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 330px);
-  grid-gap: $kz-var-spacing-md;
-  justify-content: start;
-  justify-items: start;
-  align-items: center;
+  // the more we shave off the width here,
+  // the less the tiles will grow when they lose one from the row
+  grid-template-columns: repeat(auto-fill, minmax($tileWidth - 40px, 1fr));
+  grid-gap: $spacing-md;
 
   @include ca-media-mobile {
-    grid-template-columns: repeat(2, minmax(226px, 370px));
+    grid-template-columns: repeat(2, minmax(226px, $tileHeight));
 
     > * {
       width: 100%;

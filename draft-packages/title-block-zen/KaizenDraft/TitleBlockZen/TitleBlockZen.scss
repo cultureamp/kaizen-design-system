@@ -1,6 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
@@ -10,8 +9,8 @@
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
-$breadcrumb-breakpoint-width: $kz-layout-content-max-width +
-  $kz-layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
+$breadcrumb-breakpoint-width: $layout-content-max-width +
+  $layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 0.1875rem;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
@@ -49,12 +48,12 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .adminVariant .titleRow {
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
 }
 
 %titleBlockInner {
-  max-width: $kz-var-layout-content-max-width;
-  margin: 0 $kz-var-layout-content-side-margin;
+  max-width: $layout-content-max-width;
+  margin: 0 $layout-content-side-margin;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -80,11 +79,10 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   align-items: center;
   height: $ca-grid * 3.5;
   justify-content: space-between;
-  border-bottom: $title-block-separator-height solid
-    rgba($kz-var-color-white-rgb-params, 0.1);
+  border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
   .educationVariant & {
-    border-bottom-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
+    border-bottom-color: rgba($color-purple-700-rgb, 0.2);
   }
 
   .adminVariant & {
@@ -173,37 +171,37 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   padding: 4px 0;
 
   @media (max-width: $breadcrumb-breakpoint-width) {
-    font-family: $kz-var-typography-heading-2-font-family;
-    font-weight: $kz-var-typography-heading-2-font-weight;
-    font-size: $kz-var-typography-heading-2-font-size;
-    line-height: $kz-var-typography-heading-2-line-height;
-    letter-spacing: $kz-var-typography-heading-2-letter-spacing;
+    font-family: $typography-heading-2-font-family;
+    font-weight: $typography-heading-2-font-weight;
+    font-size: $typography-heading-2-font-size;
+    line-height: $typography-heading-2-line-height;
+    letter-spacing: $typography-heading-2-letter-spacing;
   }
   @include title-block-under-1366 {
-    font-family: $kz-var-typography-heading-2-font-family;
-    font-weight: $kz-var-typography-heading-2-font-weight;
-    font-size: $kz-var-typography-heading-2-font-size;
-    line-height: $kz-var-typography-heading-2-line-height;
-    letter-spacing: $kz-var-typography-heading-2-letter-spacing;
+    font-family: $typography-heading-2-font-family;
+    font-weight: $typography-heading-2-font-weight;
+    font-size: $typography-heading-2-font-size;
+    line-height: $typography-heading-2-line-height;
+    letter-spacing: $typography-heading-2-letter-spacing;
     padding: 2px 0;
   }
   .hasLongTitle & {
     @include title-block-under-1366 {
-      font-family: $kz-var-typography-heading-3-font-family;
-      font-weight: $kz-var-typography-heading-3-font-weight;
-      font-size: $kz-var-typography-heading-3-font-size;
-      line-height: $kz-var-typography-heading-3-line-height;
-      letter-spacing: $kz-var-typography-heading-3-letter-spacing;
+      font-family: $typography-heading-3-font-family;
+      font-weight: $typography-heading-3-font-weight;
+      font-size: $typography-heading-3-font-size;
+      line-height: $typography-heading-3-line-height;
+      letter-spacing: $typography-heading-3-letter-spacing;
       padding: 2px 0;
     }
   }
 
   @include title-block-medium-and-small {
-    font-family: $kz-var-typography-heading-4-font-family;
-    font-weight: $kz-var-typography-heading-4-font-weight;
-    font-size: $kz-var-typography-heading-4-font-size;
-    line-height: $kz-var-typography-heading-4-line-height;
-    letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+    font-family: $typography-heading-4-font-family;
+    font-weight: $typography-heading-4-font-weight;
+    font-size: $typography-heading-4-font-size;
+    line-height: $typography-heading-4-line-height;
+    letter-spacing: $typography-heading-4-letter-spacing;
     padding: 0;
   }
 }
@@ -211,8 +209,6 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .avatar {
   display: none;
   box-sizing: border-box;
-  border: 3px solid $kz-var-color-white;
-  border-radius: 50%;
   overflow: hidden;
   height: $ca-grid * 2;
   width: $ca-grid * 2;
@@ -222,8 +218,13 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     max-width: 100%;
   }
 
-  @media (min-width: $kz-layout-breakpoints-large) {
+  @media (min-width: $layout-breakpoints-large) {
     display: block;
+  }
+
+  &.withBorder {
+    border: 3px solid $color-white;
+    border-radius: 50%;
   }
 
   .hasLongTitle & {
@@ -234,7 +235,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .hamburger {
   display: none;
   @include ca-margin($end: $ca-grid * 2/3);
-  color: $kz-var-color-white;
+  color: $color-white;
 
   &:hover {
     cursor: pointer;
@@ -242,7 +243,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   .educationVariant &,
   .adminVariant & {
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
   }
 
   @include title-block-medium-and-small {
@@ -271,16 +272,16 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .subtitle {
   display: flex;
   align-items: center;
-  color: $kz-var-color-white;
-  font-family: $kz-var-typography-paragraph-small-font-family;
-  font-weight: $kz-var-typography-paragraph-small-font-weight;
-  font-size: $kz-var-typography-paragraph-small-font-size;
-  line-height: $kz-var-typography-paragraph-small-line-height;
-  letter-spacing: $kz-var-typography-paragraph-small-letter-spacing;
+  color: $color-white;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
   max-width: 230px;
 
   .adminVariant & {
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
   }
 
   @include ca-margin($start: $ca-grid / 2);
@@ -323,25 +324,25 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   @include ca-margin($end: $ca-grid);
 
-  font-family: $kz-var-typography-heading-2-font-family;
-  font-weight: $kz-var-typography-heading-2-font-weight;
-  font-size: $kz-var-typography-heading-2-font-size;
-  line-height: $kz-var-typography-heading-2-line-height;
-  letter-spacing: $kz-var-typography-heading-2-letter-spacing;
+  font-family: $typography-heading-2-font-family;
+  font-weight: $typography-heading-2-font-weight;
+  font-size: $typography-heading-2-font-size;
+  line-height: $typography-heading-2-line-height;
+  letter-spacing: $typography-heading-2-letter-spacing;
 
   @include title-block-under-1645 {
-    font-family: $kz-var-typography-heading-3-font-family;
-    font-weight: $kz-var-typography-heading-3-font-weight;
-    font-size: $kz-var-typography-heading-3-font-size;
-    line-height: $kz-var-typography-heading-3-line-height;
-    letter-spacing: $kz-var-typography-heading-3-letter-spacing;
+    font-family: $typography-heading-3-font-family;
+    font-weight: $typography-heading-3-font-weight;
+    font-size: $typography-heading-3-font-size;
+    line-height: $typography-heading-3-line-height;
+    letter-spacing: $typography-heading-3-letter-spacing;
   }
   @include title-block-medium-and-small {
-    font-family: $kz-var-typography-heading-4-font-family;
-    font-weight: $kz-var-typography-heading-4-font-weight;
-    font-size: $kz-var-typography-heading-4-font-size;
-    line-height: $kz-var-typography-heading-4-line-height;
-    letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+    font-family: $typography-heading-4-font-family;
+    font-weight: $typography-heading-4-font-weight;
+    font-size: $typography-heading-4-font-size;
+    line-height: $typography-heading-4-line-height;
+    letter-spacing: $typography-heading-4-letter-spacing;
   }
 }
 
@@ -354,16 +355,16 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     margin-top: $ca-grid / 4;
   }
 
-  color: $kz-var-color-white;
+  color: $color-white;
   max-width: 780px;
-  font-family: $kz-var-typography-paragraph-small-font-family;
-  font-weight: $kz-var-typography-paragraph-small-font-weight;
-  font-size: $kz-var-typography-paragraph-small-font-size;
-  line-height: $kz-var-typography-paragraph-small-line-height;
-  letter-spacing: $kz-var-typography-paragraph-small-letter-spacing;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
 
   &.dark {
-    color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+    color: rgba($color-purple-800-rgb, 0.7);
   }
 }
 
@@ -461,8 +462,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     height: $tab-container-height-small;
     background: linear-gradient(
       0,
-      $kz-var-color-wisteria-700,
-      rgba($kz-var-color-wisteria-700-rgb-params, 0)
+      $color-purple-700,
+      rgba($color-purple-700-rgb, 0)
     );
     z-index: $ca-z-index-sticky;
   }
@@ -471,8 +472,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     @include title-block-small {
       background: linear-gradient(
         0,
-        $kz-var-color-stone,
-        rgba($kz-var-color-stone-rgb-params, 0)
+        $color-gray-100,
+        rgba($color-gray-100-rgb, 0)
       );
     }
   }
@@ -481,8 +482,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     @include title-block-small {
       background: linear-gradient(
         0,
-        $kz-var-color-cluny-200,
-        rgba($kz-var-color-cluny-200-rgb-params, 0)
+        $color-blue-200,
+        rgba($color-blue-200-rgb, 0)
       );
     }
   }
@@ -526,7 +527,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   // to be Cluny like the default secondary buttons
   .educationVariant &,
   .adminVariant & {
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
   }
 
   @include title-block-medium-and-small {
@@ -607,11 +608,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .breadcrumbText {
   @include ca-margin($start: $ca-grid * 2);
   white-space: nowrap;
-  font-family: $kz-var-typography-heading-5-font-family;
-  font-weight: $kz-var-typography-heading-5-font-weight;
-  font-size: $kz-var-typography-heading-5-font-size;
-  line-height: $kz-var-typography-heading-5-line-height;
-  letter-spacing: $kz-var-typography-heading-5-letter-spacing;
+  font-family: $typography-heading-5-font-family;
+  font-weight: $typography-heading-5-font-weight;
+  font-size: $typography-heading-5-font-size;
+  line-height: $typography-heading-5-line-height;
+  letter-spacing: $typography-heading-5-letter-spacing;
 
   &:hover {
     text-decoration: underline;
@@ -620,10 +621,10 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .breadcrumb,
 .breadcrumbText {
-  color: $kz-var-color-white;
+  color: $color-white;
   .educationVariant &,
   .adminVariant & {
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
   }
 }
 
@@ -633,8 +634,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   box-sizing: border-box;
   width: $breadcrumb-circle-width;
   height: $breadcrumb-circle-width;
-  color: $kz-var-color-white;
-  border-color: rgba($kz-var-color-white-rgb-params, 0.5);
+  color: $color-white;
+  border-color: rgba($color-white-rgb, 0.5);
   border-width: 2px;
   border-radius: 50%;
   border-style: solid;
@@ -646,15 +647,15 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     transform: scale(1.1);
-    border-color: $kz-var-color-white;
-    color: $kz-var-color-white;
-    background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+    border-color: $color-white;
+    color: $color-white;
+    background-color: rgba($color-white-rgb, 0.1);
   }
 
   .educationVariant &,
   .adminVariant & {
-    color: $kz-var-color-cluny-500;
-    border-color: $kz-var-color-cluny-300;
+    color: $color-blue-500;
+    border-color: $color-blue-300;
     border-width: $border-width;
   }
 
@@ -662,9 +663,9 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   .educationVariant .breadcrumb:focus &,
   .adminVariant .breadcrumb:hover &,
   .adminVariant .breadcrumb:focus & {
-    border-color: $kz-var-color-cluny-500;
-    color: $kz-var-color-cluny-500;
-    background-color: rgba($kz-var-color-cluny-500-rgb-params, 0.1);
+    border-color: $color-blue-500;
+    color: $color-blue-500;
+    background-color: rgba($color-blue-500-rgb, 0.1);
   }
 }
 

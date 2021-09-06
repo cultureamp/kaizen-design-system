@@ -1,8 +1,11 @@
 import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
+import { AnimatedBase, AnimatedBaseProps } from "./Players/LottiePlayer"
 
 export type SpotProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
+export type AnimatedSpotProps = SpotProps &
+  AnimatedBaseProps & { isAnimated?: boolean }
 
 const noZenIllustrationWarning = (illustrationName: string) => {
   // eslint-disable-next-line no-console
@@ -11,81 +14,192 @@ const noZenIllustrationWarning = (illustrationName: string) => {
   )
 }
 
+const noAnimationSupportWarning = (illustrationName: string) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    `Kaizen Illustration: Animations are not supported for ${illustrationName} in Zen."`
+  )
+}
+
 /**
  * Moods
  */
-export const Cautionary = (props: SpotProps) => {
-  const theme = useTheme()
+export const Cautionary = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
   const illustrationPath =
-    theme.themeKey === "zen"
+    themeKey === "zen"
       ? "illustrations/spot/moods-cautionary.svg"
       : "illustrations/heart/spot/moods-cautionary.svg"
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/spot/moods-cautionary.lottie"
+      fallback={illustrationPath}
+    />
+  )
 
-  return <Base {...props} name={illustrationPath} />
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
-export const Informative = (props: SpotProps) => {
-  const theme = useTheme()
+export const Informative = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
   const illustrationPath =
-    theme.themeKey === "zen"
+    themeKey === "zen"
       ? "illustrations/spot/moods-informative.svg"
       : "illustrations/heart/spot/moods-informative.svg"
-  return <Base {...props} name={illustrationPath} />
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/spot/moods-informative.lottie"
+      fallback={illustrationPath}
+    />
+  )
+
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
-export const Negative = (props: SpotProps) => {
-  const theme = useTheme()
+export const Negative = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
   const illustrationPath =
-    theme.themeKey === "zen"
+    themeKey === "zen"
       ? "illustrations/spot/moods-negative.svg"
       : "illustrations/heart/spot/moods-negative.svg"
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/spot/moods-negative.lottie"
+      fallback={illustrationPath}
+    />
+  )
 
-  return <Base {...props} name={illustrationPath} />
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveMale = (props: SpotProps) => {
+export const PositiveMale = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-male.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveFemale = (props: SpotProps) => {
-  const theme = useTheme()
+export const PositiveFemale = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
   const illustrationPath =
-    theme.themeKey === "zen"
+    themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/spot/moods-positive.lottie"
+      fallback={illustrationPath}
+    />
+  )
 
-  return <Base {...props} name={illustrationPath} />
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
-export const Positive = (props: SpotProps) => {
-  const theme = useTheme()
+export const Positive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
   const illustrationPath =
-    theme.themeKey === "zen"
+    themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/spot/moods-positive.lottie"
+      fallback={illustrationPath}
+    />
+  )
 
-  return <Base {...props} name={illustrationPath} />
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
-export const Assertive = (props: SpotProps) => {
-  const theme = useTheme()
-  if (theme.themeKey === "zen") {
+export const Assertive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+  const { themeKey } = useTheme()
+  if (themeKey === "zen") {
     noZenIllustrationWarning("Assertive")
   }
+  const illustrationPath = "illustrations/heart/spot/moods-assertive.svg"
+  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const AnimatedIllustration = (
+    <AnimatedBase
+      {...otherProps}
+      name="illustrations/heart/spot/moods-assertive.lottie"
+      fallback={illustrationPath}
+    />
+  )
 
-  return <Base {...props} name="illustrations/heart/spot/moods-assertive.svg" />
+  if (isAnimated) {
+    if (themeKey === "zen") {
+      noAnimationSupportWarning("Cautionary")
+      return StaticIllustration
+    }
+    return AnimatedIllustration
+  }
+  return StaticIllustration
 }
 
 /**
@@ -233,30 +347,22 @@ export const PerformanceDiagnostics = (props: SpotProps) => {
 
 export const LeadingThroughCrisis = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("LeadingThroughCrisis")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-leading-through-crisis.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-leading-through-crisis.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const EmergencyResponse = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("EmergencyResponse")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-emergency-response.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-emergency-response.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**
@@ -334,30 +440,22 @@ export const SinglePointOnboardSurvey = (props: SpotProps) => {
 
 export const GeneralOnboardSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("GeneralOnboardSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-general-onboard-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-general-onboard-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const RemoteOnboardSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("GeneralOnboardSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-remote-onboard-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-remote-onboard-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**
@@ -393,6 +491,36 @@ export const Manager360 = (props: SpotProps) => {
   return <Base {...props} name={illustrationPath} />
 }
 
+export const Individual180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-individual-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
+export const Leadership180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-leadership-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
+export const Manager180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-manager-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
 export const TeamEffectiveness1 = (props: SpotProps) => {
   const theme = useTheme()
   const illustrationPath =
@@ -419,72 +547,52 @@ export const TeamEffectiveness2 = (props: SpotProps) => {
 
 export const WellbeingSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("WellbeingSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-wellbeing-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-wellbeing-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const Response = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("Response")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-response.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-response.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const RemoteWorkQSet = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("RemoteWorkQSet")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-remote-work-q-set.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-remote-work-q-set.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const ReturnToWorkplace = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("ReturnToWorkplace")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-return-to-workplace.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-return-to-workplace.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const PulseSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("PulseSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-pulse-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-pulse-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**

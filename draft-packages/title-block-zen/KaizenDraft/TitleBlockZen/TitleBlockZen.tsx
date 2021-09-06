@@ -1,5 +1,6 @@
 import { Heading, Icon } from "@kaizen/component-library"
 import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
+import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
 import { ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
@@ -28,6 +29,8 @@ type DistributiveOmit<T, K extends keyof any> = T extends any
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+type AvatarProps = Omit<DraftAvatarProps, "size">
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -43,7 +46,7 @@ export interface TitleBlockProps {
   title: string
   variant?: Variant
   breadcrumb?: Breadcrumb
-  avatar?: JSX.Element
+  avatar?: JSX.Element | AvatarProps
   subtitle?: string
   sectionTitle?: string
   sectionTitleDescription?: string
@@ -164,7 +167,7 @@ type TextDirection = "ltr" | "rtl"
 
 type SurveyStatus = {
   text: string
-  status: "draft" | "live" | "default"
+  status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
 type Breadcrumb = {
@@ -178,8 +181,24 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   if (surveyStatus.status === "draft") {
     tagVariant = "statusDraft"
   }
+
+  /*
+    scheduled is actually a draft survey status that has a launch job scheduled
+    still, we want to differentiate on the UI and render a specific tag
+    the styles must be identical to the draft style
+
+    we have similar behaviour on programs index page's table
+  */
+  if (surveyStatus.status === "scheduled") {
+    tagVariant = "statusClosed"
+  }
+
   if (surveyStatus.status === "live") {
     tagVariant = "statusLive"
+  }
+
+  if (surveyStatus.status === "closed") {
+    tagVariant = "statusClosed"
   }
 
   if (surveyStatus.status === "default") {
@@ -187,7 +206,7 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   }
 
   return (
-    <div className={styles.tag}>
+    <div data-automation-id="survey-status-tag" className={styles.tag}>
       <Tag variant={tagVariant} size="small">
         {surveyStatus.text}
       </Tag>
@@ -195,11 +214,27 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
-const renderAvatar = (image: JSX.Element, avatarAutomationId: string) => (
-  <div data-automation-id={avatarAutomationId} className={styles.avatar}>
-    {image}
-  </div>
-)
+const isJSXElement = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): imageElementOrAvatarProps is JSX.Element =>
+  "props" in imageElementOrAvatarProps
+
+const renderAvatar = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
+  avatarAutomationId: string
+) =>
+  isJSXElement(imageElementOrAvatarProps) ? (
+    <div
+      data-automation-id={avatarAutomationId}
+      className={classNames(styles.avatar, styles.withBorder)}
+    >
+      {imageElementOrAvatarProps}
+    </div>
+  ) : (
+    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+      <Avatar {...imageElementOrAvatarProps} size="medium" />
+    </div>
+  )
 
 const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
   <div className={styles.subtitle}>
@@ -366,7 +401,7 @@ const createTabletOverflowMenuItems = (
 }
 
 const largeViewMinSizeInPixels = parseInt(
-  layoutTokens.kz.layout.breakpoints.large,
+  layoutTokens.layout.breakpoints.large,
   10
 )
 const smallAndMediumMediaQuery = window.matchMedia(

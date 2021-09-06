@@ -1,8 +1,9 @@
 import { loadElmStories } from "elm-storybook"
+import { CATEGORIES } from "../../../storybook/constants"
 const compiledElm = require("../ElmStories/WellStories.elm").Elm.ElmStories
   .WellStories
 
-loadElmStories("Well (Elm)", module, compiledElm, [
+loadElmStories(`${CATEGORIES.elm}/Well`, module, compiledElm, [
   "Default with solid border",
   "Default with dashed border",
   "Default without border",

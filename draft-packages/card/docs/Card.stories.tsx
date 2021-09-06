@@ -3,10 +3,17 @@ import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Card (React)",
+  title: `${CATEGORIES.components}/Card`,
+  component: Card,
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Card } from "@kaizen/component-library"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14085"
     ),
@@ -34,5 +41,5 @@ export const CardWithSpace = () => (
 CardWithSpace.storyName = "Card, custom spacing with Box"
 
 CardWithSpace.parameters = {
-  backgrounds: { default: "Stone" },
+  backgrounds: { default: "Gray 100" },
 }

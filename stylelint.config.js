@@ -1,15 +1,10 @@
 module.exports = {
+  extends: ["./packages/stylelint-plugin/dev-config.js"],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,
     "block-no-empty": true,
     "block-opening-brace-space-before": "always",
-    "color-named": [
-      "always-where-possible",
-      {
-        severity: "warning",
-      },
-    ],
     "declaration-bang-space-after": "never",
     "comment-no-empty": true,
     "no-duplicate-selectors": true,

@@ -5,7 +5,7 @@ import Media from "react-media"
 import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
-import { kz as layoutTokens } from "@kaizen/design-tokens/tokens/layout.json"
+import { layout } from "@kaizen/design-tokens/tokens/layout.json"
 import { Tag } from "@kaizen/draft-tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
@@ -56,6 +56,9 @@ const COMPACT_NAVIGATION_SCROLL_THRESHOLD = 5
 const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
+/**
+ * @deprecated TitleBlock is deprecated. Please use draft-title-block-zen instead.
+ */
 class TitleBlock extends React.Component<Props, State> {
   static defaultProps: Pick<Props, "textDirection"> = {
     textDirection: "ltr",
@@ -196,9 +199,7 @@ class TitleBlock extends React.Component<Props, State> {
                   {this.renderSubtitle()}
                 </div>
               </div>
-              <Media
-                query={{ minWidth: layoutTokens.layout.breakpoints.large }}
-              >
+              <Media query={{ minWidth: layout.breakpoints.large }}>
                 {(matches: boolean) =>
                   matches && (
                     <React.Fragment>{this.renderNavigation()}</React.Fragment>
@@ -214,7 +215,7 @@ class TitleBlock extends React.Component<Props, State> {
             </div>
           </div>
         </div>
-        <Media query={{ minWidth: layoutTokens.layout.breakpoints.large }}>
+        <Media query={{ minWidth: layout.breakpoints.large }}>
           {(matches: boolean) =>
             !matches && (
               <React.Fragment>{this.renderNavigation()}</React.Fragment>

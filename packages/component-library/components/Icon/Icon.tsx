@@ -56,12 +56,12 @@ const Icon: Icon = ({
 
   const labelledBy =
     // read out title and description together if both are present
-    isMeaningfulImg && desc ? `${titleId} ${descId}` : `${titleId}`
+    desc ? `${titleId} ${descId}` : `${titleId}`
 
   const accessibilityProps = {
     role,
     ["aria-hidden"]: !isMeaningfulImg,
-    ["aria-labelledby"]: labelledBy,
+    ["aria-labelledby"]: isMeaningfulImg && labelledBy ? labelledBy : undefined,
   }
 
   return (

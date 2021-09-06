@@ -1,13 +1,12 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // Sync with PopoverModern.tsx
 $arrow-width: 16px;
@@ -51,11 +50,11 @@ $large-width: 450px;
 
 %box {
   background: white;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
+  border: $border-solid-border-width $border-solid-border-style
+    var($color-gray-300-id, $color-purple-200);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
-  border-radius: $kz-var-border-solid-border-radius;
-  color: $kz-var-color-wisteria-800;
+  border-radius: $border-solid-border-radius;
+  color: $color-purple-800;
   text-align: left;
 }
 
@@ -64,62 +63,53 @@ $large-width: 450px;
 }
 
 .defaultArrow {
-  @include arrow(white, var($kz-var-id-color-ash, $kz-var-color-wisteria-200));
+  @include arrow(white, var($color-gray-300-id, $color-purple-200));
 }
 
-$informative-box-border-color: var(
-  $kz-var-id-color-cluny-300,
-  $kz-var-color-cluny-200
-);
+$informative-box-border-color: var($color-blue-300-id, $color-blue-200);
 
 .informativeBox {
   @extend %box;
-  background: $kz-var-color-cluny-100;
+  background: $color-blue-100;
   border-color: $informative-box-border-color;
 }
 
 .informativeArrow {
-  @include arrow($kz-var-color-cluny-100, $informative-box-border-color);
+  @include arrow($color-blue-100, $informative-box-border-color);
 }
 
-$positive-box-border-color: var(
-  $kz-var-id-color-seedling-300,
-  $kz-var-color-seedling-200
-);
+$positive-box-border-color: var($color-green-300-id, $color-green-200);
 
 .positiveBox {
   @extend %box;
-  background: $kz-var-color-seedling-100;
+  background: $color-green-100;
   border-color: $positive-box-border-color;
 }
 
 .positiveArrow {
-  @include arrow($kz-var-color-seedling-100, $positive-box-border-color);
+  @include arrow($color-green-100, $positive-box-border-color);
 }
 
-$negative-box-border-color: var(
-  $kz-var-id-color-coral-300,
-  $kz-var-color-coral-200
-);
+$negative-box-border-color: var($color-red-300-id, $color-red-200);
 
 .negativeBox {
   @extend %box;
-  background: $kz-var-color-coral-100;
+  background: $color-red-100;
   border-color: $negative-box-border-color;
 }
 
 .negativeArrow {
-  @include arrow($kz-var-color-coral-100, $negative-box-border-color);
+  @include arrow($color-red-100, $negative-box-border-color);
 }
 
 .cautionaryBox {
   @extend %box;
-  background: $kz-var-color-yuzu-100;
-  border-color: $kz-var-color-yuzu-400;
+  background: $color-yellow-100;
+  border-color: $color-yellow-400;
 }
 
 .cautionaryArrow {
-  @include arrow($kz-var-color-yuzu-100, $kz-var-color-yuzu-400);
+  @include arrow($color-yellow-100, $color-yellow-400);
 }
 
 .header {
@@ -145,26 +135,26 @@ $negative-box-border-color: var(
 }
 
 .informativeIcon {
-  color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
 }
 
 .positiveIcon {
-  color: $kz-var-color-seedling-400;
+  color: $color-green-400;
 }
 
 .negativeIcon {
-  color: $kz-var-color-coral-500;
+  color: $color-red-500;
 }
 
 .cautionaryIcon {
-  color: $kz-var-color-yuzu-500;
+  color: $color-yellow-500;
 }
 
 .close {
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+  color: rgba($color-purple-800-rgb, 0.7);
 }
 
 .arrowWrapper {

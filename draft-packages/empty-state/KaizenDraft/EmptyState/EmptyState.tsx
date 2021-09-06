@@ -1,12 +1,12 @@
 import classnames from "classnames"
 import * as React from "react"
-import { useTheme } from "@kaizen/design-tokens"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
+  AnimatedProps,
 } from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
@@ -30,7 +30,7 @@ type LayoutContextType = "sidebarAndContent" | "contentOnly"
 export type EmptyStateProps = {
   id?: string
   automationId?: string
-  headingText: string
+  headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   illustrationType?: IllustrationType
@@ -38,7 +38,7 @@ export type EmptyStateProps = {
   // TODO: Heart Rebrand Cleanup > Deprecate or completely remove this prop once Heart is released.
   useZenStyles?: boolean
   children?: React.ReactNode
-}
+} & Pick<AnimatedProps, "isAnimated" | "loop">
 
 type EmptyState = React.FunctionComponent<EmptyStateProps>
 
@@ -52,8 +52,10 @@ const EmptyState: EmptyState = ({
   children,
   straightCorners,
   useZenStyles,
+  isAnimated = true,
+  loop = false,
 }) => {
-  const theme = useTheme()
+  const animationProps = isAnimated ? { isAnimated, loop } : {}
   return (
     <div
       className={classnames([
@@ -70,6 +72,7 @@ const EmptyState: EmptyState = ({
         {React.createElement(illustrations[illustrationType], {
           alt: illustrationType,
           classNameAndIHaveSpokenToDST: styles.illustration,
+          ...animationProps,
         })}
       </div>
       <div

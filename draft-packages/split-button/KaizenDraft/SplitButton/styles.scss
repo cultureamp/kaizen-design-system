@@ -1,16 +1,14 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
 
-$base-border: $kz-var-border-solid-border-width
-  $kz-var-border-solid-border-style
-  var($kz-var-id-color-iron, $kz-var-color-wisteria-200);
+$base-border: $border-solid-border-width $border-solid-border-style
+  var($color-gray-500-id, $color-purple-200);
 $button-width: 124px;
 
 $side-padding: 3/4 * $ca-grid;
@@ -67,8 +65,8 @@ $side-padding: 3/4 * $ca-grid;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $kz-var-border-focus-ring-border-width
-          $kz-var-border-focus-ring-border-style $kz-var-color-cluny-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style
+          $color-blue-500;
       }
     }
   }
@@ -87,14 +85,8 @@ $side-padding: 3/4 * $ca-grid;
   height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
   position: relative;
 
-  --dt-heart-disabled-border-color: rgba(
-    var(#{$kz-var-id-color-iron-rgb-params}),
-    0.3
-  );
-  --dt-heart-disabled-color: rgba(
-    var(#{$kz-var-id-color-wisteria-800-rgb-params}),
-    0.3
-  );
+  --dt-heart-disabled-border-color: rgba(var(#{$color-gray-500-rgb-id}), 0.3);
+  --dt-heart-disabled-color: rgba(var(#{$color-purple-800-rgb-id}), 0.3);
 }
 
 .buttonReset {
@@ -111,38 +103,34 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonDefault {
   @include button-mixing(
-    // Use of variable fallbacks to switch between Heart and Zen themes (use Zen as default fallback)
-    $background: $kz-var-color-white,
-    $border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-200),
-    $color: $kz-var-color-wisteria-800,
-    $hover-background: $kz-var-color-stone,
-    $hover-border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400),
-    $active-background: var($kz-var-id-color-stone, $kz-var-color-ash),
-    $active-border-color:
-      var($kz-var-id-color-slate, $kz-var-color-wisteria-500),
-    $disabled-background: $kz-var-color-white,
+    $background: $color-white,
+    $border-color: var($color-gray-500-id, $color-purple-200),
+    $color: $color-purple-800,
+    $hover-background: $color-gray-100,
+    $hover-border-color: var($color-gray-600-id, $color-purple-400),
+    $active-background: var($color-gray-100-id, $color-gray-300),
+    $active-border-color: var($color-gray-600-id, $color-purple-500),
+    $disabled-background: $color-white,
     $disabled-border-color:
-      var(--dt-heart-disabled-border-color, $kz-var-color-wisteria-200),
-    $disabled-color: var(--dt-heart-disabled-color, $kz-var-color-wisteria-300)
+      var(--dt-heart-disabled-border-color, $color-purple-200),
+    $disabled-color: var(--dt-heart-disabled-color, $color-purple-300)
   );
 }
 
 .buttonPrimary {
   // #58b59a is equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen (Wisteria)
   @include button-mixing(
-    $background: var($kz-var-id-color-seedling-300, #58b59a),
-    $border-color: var($kz-var-id-color-seedling-300, #58b59a),
-    $color: var($kz-var-id-color-wisteria-800, $kz-var-color-white),
-    $hover-background:
-      var($kz-var-id-color-seedling-400, $kz-var-color-seedling-500),
-    $hover-border-color:
-      var($kz-var-id-color-seedling-400, $kz-var-color-seedling-500),
-    $active-background: $kz-var-color-seedling-500,
-    $active-border-color: $kz-var-color-seedling-500,
-    $disabled-background: $kz-var-color-white,
+    $background: var($color-green-300-id, #58b59a),
+    $border-color: var($color-green-300-id, #58b59a),
+    $color: var($color-purple-800-id, $color-white),
+    $hover-background: var($color-green-400-id, $color-green-500),
+    $hover-border-color: var($color-green-400-id, $color-green-500),
+    $active-background: $color-green-500,
+    $active-border-color: $color-green-500,
+    $disabled-background: $color-white,
     $disabled-border-color:
-      var(--dt-heart-disabled-border-color, $kz-var-color-wisteria-100),
-    $disabled-color: var(--dt-heart-disabled-color, $kz-var-color-wisteria-300)
+      var(--dt-heart-disabled-border-color, $color-purple-100),
+    $disabled-color: var(--dt-heart-disabled-color, $color-purple-300)
   );
 }
 
@@ -157,8 +145,7 @@ $side-padding: 3/4 * $ca-grid;
   padding: 0.5rem 1rem;
   border: $base-border;
   border-right: 0;
-  border-radius: $kz-var-border-solid-border-radius 0 0
-    $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   white-space: nowrap;
   min-width: $button-width;
   display: block;
@@ -167,8 +154,7 @@ $side-padding: 3/4 * $ca-grid;
   [dir="rtl"] & {
     border-right: $base-border;
     border-left: 0;
-    border-radius: 0 $kz-var-border-solid-border-radius
-      $kz-var-border-solid-border-radius 0;
+    border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
     text-align: right;
   }
 
@@ -178,13 +164,13 @@ $side-padding: 3/4 * $ca-grid;
     &:hover,
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-var-color-wisteria-400;
+        border-left: 1px solid $color-purple-400;
       }
     }
 
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-var-color-wisteria-500;
+        border-left: 1px solid $color-purple-500;
       }
     }
 
@@ -192,14 +178,14 @@ $side-padding: 3/4 * $ca-grid;
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-var-color-wisteria-400;
+        border-right: 1px solid $color-purple-400;
       }
     }
 
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-var-color-wisteria-500;
+        border-right: 1px solid $color-purple-500;
       }
     }
   }
@@ -215,7 +201,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonFullBorder {
   border-right: $base-border;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   min-width: 0;
 
   [dir="rtl"] & {
@@ -243,12 +229,10 @@ $side-padding: 3/4 * $ca-grid;
   justify-content: center;
   padding: 0 0.75rem;
   border: $base-border;
-  border-radius: 0 $kz-var-border-solid-border-radius
-    $kz-var-border-solid-border-radius 0;
+  border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
 
   [dir="rtl"] & {
-    border-radius: $kz-var-border-solid-border-radius 0 0
-      $kz-var-border-solid-border-radius;
+    border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   }
 }
 
@@ -259,24 +243,18 @@ $side-padding: 3/4 * $ca-grid;
 .dropdownButtonPrimary {
   composes: buttonReset buttonPrimary;
 
-  --dt-border-left-color-heart: rgba(
-    var(#{$kz-var-id-color-seedling-400-rgb-params}),
-    0.7
-  );
+  --dt-border-left-color-heart: rgba(var(#{$color-green-400-rgb-id}), 0.7);
 
   // Making the left | right border white to separate the button with dropdown button
   /* stylelint-disable declaration-no-important */
-  border-left-color: var(
-    --dt-border-left-color-heart,
-    $kz-var-color-white
-  ) !important;
+  border-left-color: var(--dt-border-left-color-heart, $color-white) !important;
 
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen
     border-left-color: #58b59a !important;
     border-left-color: var(
       --dt-border-left-color-heart,
-      $kz-var-color-white
+      $color-white
     ) !important;
   }
 
@@ -307,9 +285,9 @@ version since the React version relies on kaizen's MenuList
 
 .menuList {
   background: white;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-wisteria-200;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  border: $border-solid-border-width $border-solid-border-style
+    $color-purple-200;
+  box-shadow: $shadow-small-box-shadow;
   line-height: 40px;
 }
 
@@ -318,7 +296,7 @@ version since the React version relies on kaizen's MenuList
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   background: transparent;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   cursor: pointer;
   text-align: left;
 
@@ -337,13 +315,13 @@ version since the React version relies on kaizen's MenuList
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $kz-var-color-stone;
-    color: $kz-var-color-cluny-500;
+    background: $color-gray-100;
+    color: $color-blue-500;
     // override Murmur global styles :(
     text-decoration: none;
 
     .menuItem__Icon {
-      color: $kz-var-color-cluny-500;
+      color: $color-blue-500;
     }
   }
 }

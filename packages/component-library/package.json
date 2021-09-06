@@ -22,19 +22,19 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "9.5.4",
+  "version": "11.0.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.1.2",
-    "@kaizen/hosted-assets": "^1.1.0",
-    "@kaizen/react-deprecate-warning": "^1.1.4",
+    "@kaizen/deprecated-component-library-helpers": "^2.3.0",
+    "@kaizen/draft-button": "^4.2.6",
+    "@kaizen/hosted-assets": "^1.2.0",
+    "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
     "@types/uuid": "^3.3.2",
@@ -54,6 +54,6 @@
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
+    "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
   }
 }

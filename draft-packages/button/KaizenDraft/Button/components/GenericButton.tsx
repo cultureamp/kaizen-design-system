@@ -10,6 +10,7 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 
 import styles from "./GenericButton.module.scss"
 
@@ -32,6 +33,7 @@ export type GenericProps = {
   form?: boolean
   reversed?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
+  badge?: BadgeProps
   onClick?: (e: MouseEvent) => void
   onMouseDown?: (e: MouseEvent) => void
   href?: string
@@ -52,7 +54,6 @@ type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
-  reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
 type WorkingProps = {
@@ -74,6 +75,13 @@ export type ButtonProps = GenericProps & LabelProps
 type Props = ButtonProps & {
   iconButton?: boolean
 } & AdditionalContentProps
+
+type BadgeProps = {
+  text: string
+  animateChange?: boolean
+  variant?: "default" | "dark" | "active"
+  reversed?: boolean
+}
 
 export type ButtonRef = { focus: () => void }
 
@@ -238,11 +246,6 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.reverseColorCluny]: props.reverseColor === "cluny",
-    [styles.reverseColorPeach]: props.reverseColor === "peach",
-    [styles.reverseColorSeedling]: props.reverseColor === "seedling",
-    [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
-    [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
     [styles.working]: !props.iconButton && props.working,
   })
 }
@@ -293,9 +296,29 @@ const renderDefaultContent = (props: Props) => (
         {props.additionalContent}
       </span>
     )}
+    {renderBadge(props)}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
   </>
 )
+
+const renderBadge = (props: Props) => {
+  if (!props.badge) return null
+
+  const { text, animateChange, reversed, variant } = props.badge
+
+  if (animateChange) {
+    return (
+      <BadgeAnimated variant={variant} reversed={reversed}>
+        {text}
+      </BadgeAnimated>
+    )
+  }
+  return (
+    <Badge variant={variant} reversed={reversed}>
+      {text}
+    </Badge>
+  )
+}
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>

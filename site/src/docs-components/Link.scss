@@ -1,19 +1,18 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
 
 .link,
 .htmlContent a[href] {
-  color: $ca-link-text-color;
+  color: $color-blue-500;
   text-decoration: none;
   &:hover,
   &:active,
   &:focus,
   &:visited {
-    color: $ca-link-hover-text-color;
+    color: $color-blue-500;
   }
   &:active,
   &:focus {
-    outline-color: $kz-var-color-wisteria-700;
+    outline-color: $color-purple-700;
     outline-offset: 2px;
   }
   &:hover {

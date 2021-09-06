@@ -141,6 +141,7 @@ main =
                     [ SelectField.view
                         (SelectField.multi
                             { truncationWidth = Just 300
+                            , allowTextWrapping = False
                             , selectedItems = List.map buildMenuItem state.selectedItems
                             , toMsg = SelectMsg
                             , id = "multi-select-searchable-demo"

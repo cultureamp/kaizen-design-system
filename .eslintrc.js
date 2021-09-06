@@ -22,12 +22,7 @@ module.exports = {
   parserOptions: {
     sourceType: "module",
   },
-  plugins: [
-    "@typescript-eslint",
-    "import",
-    "sort-imports-es6-autofix",
-    "prefer-arrow",
-  ],
+  plugins: ["@typescript-eslint", "import", "sort-imports-es6-autofix"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
@@ -189,7 +184,6 @@ module.exports = {
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
-    "prefer-arrow/prefer-arrow-functions": "error",
     "prefer-const": "error",
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
