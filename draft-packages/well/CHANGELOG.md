@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.3.5...@kaizen/draft-well@3.4.0) (2021-09-06)
+
+
+### Features
+
+* add new variants of well ([#1939](https://github.com/cultureamp/kaizen-design-system/issues/1939)) ([487e857](https://github.com/cultureamp/kaizen-design-system/commit/487e8570c646d01ee4cc0e938eb16ab6c44fff27))
+
+
+
+
+
 ## [3.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.3.4...@kaizen/draft-well@3.3.5) (2021-08-30)
 
 **Note:** Version bump only for package @kaizen/draft-well
