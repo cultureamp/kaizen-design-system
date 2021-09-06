@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.9...@kaizen/draft-title-block-zen@3.5.10) (2021-09-06)
+
+
+### Bug Fixes
+
+* Add static label to TitleBlockZen meatball IconButton ([#1938](https://github.com/cultureamp/kaizen-design-system/issues/1938)) ([c442713](https://github.com/cultureamp/kaizen-design-system/commit/c442713b4efbede8bfec32dbd836a78225ffe8fd))
+
+
+
+
+
 ## [3.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.8...@kaizen/draft-title-block-zen@3.5.9) (2021-09-06)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
