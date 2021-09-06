@@ -45,6 +45,18 @@ export const InitialsOthers = () => (
   </>
 )
 
+export const UnicodeInitials = () => (
+  <>
+    <Avatar isCurrentUser={false} size="xlarge" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="large" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="medium" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="small" fullName="李存信" />
+  </>
+)
+
 export const DisabledInitials = () => (
   <>
     <Avatar
