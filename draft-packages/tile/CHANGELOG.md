@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.2.6...@kaizen/draft-tile@5.3.0) (2021-09-07)
+
+
+### Features
+
+* Create titleTag prop on Tile components ([#1936](https://github.com/cultureamp/kaizen-design-system/issues/1936)) ([a83abe7](https://github.com/cultureamp/kaizen-design-system/commit/a83abe72d9ed0ed9d81d9c4eb7f758c77687851a))
+
+
+
+
+
 ## [5.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.2.5...@kaizen/draft-tile@5.2.6) (2021-08-30)
 
 **Note:** Version bump only for package @kaizen/draft-tile
