@@ -98,6 +98,18 @@ export const MultiActionWithChildren = () => (
 
 MultiActionWithChildren.storyName = "Multi action tile with children"
 
+export const MultiActionWithCustomTitle = () => (
+  <MultiActionTile
+    title="Custom title"
+    primaryAction={primaryAction}
+    titleTag="div"
+  >
+    {children}
+  </MultiActionTile>
+)
+
+MultiActionWithCustomTitle.storyName = "Multi action tile with custom title tag"
+
 export const MultiActionWithInformation = () => (
   <MultiActionTile
     title="Tile heading"
@@ -151,6 +163,18 @@ export const InformationCustomInfoElement = () => (
 
 InformationCustomInfoElement.storyName =
   "Information tile (custom information element)"
+
+export const InformationCustomTitleTag = () => (
+  <InformationTile
+    title="Tile heading"
+    titleTag="div"
+    metadata="Metadata"
+    information={<Paragraph variant="body">Anything can go here</Paragraph>}
+    footer={<Tag variant="statusLive">Live</Tag>}
+  />
+)
+
+InformationCustomTitleTag.storyName = "Information tile (custom title tag)"
 
 export const TileGridWithTiles = () => (
   <TileGrid>
