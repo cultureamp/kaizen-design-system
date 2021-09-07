@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.6.0...@kaizen/draft-divider@1.6.1) (2021-09-06)
+
+
+### Bug Fixes
+
+* Add aria-hidden=true to Divider hr ([#1937](https://github.com/cultureamp/kaizen-design-system/issues/1937)) ([9033d6b](https://github.com/cultureamp/kaizen-design-system/commit/9033d6bf38786e92031dc59ffd7a9afafc67fecc))
+
+
+
+
+
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.5.0...@kaizen/draft-divider@1.6.0) (2021-08-13)
 
 
