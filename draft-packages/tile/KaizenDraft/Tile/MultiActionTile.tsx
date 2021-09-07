@@ -32,6 +32,7 @@ const renderActions = (
 
 const MultiActionTile: MultiActionTile = ({
   title,
+  titleTag,
   metadata,
   children,
   primaryAction,
@@ -40,6 +41,7 @@ const MultiActionTile: MultiActionTile = ({
 }) => (
   <GenericTile
     title={title}
+    titleTag={titleTag}
     metadata={metadata}
     information={information}
     footer={renderActions(primaryAction, secondaryAction)}
