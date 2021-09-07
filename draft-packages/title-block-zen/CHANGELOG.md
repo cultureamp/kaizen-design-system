@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.10...@kaizen/draft-title-block-zen@3.5.11) (2021-09-07)
+
+
+### Bug Fixes
+
+* Use IconButton for hamburger menu button instead of div ([#1942](https://github.com/cultureamp/kaizen-design-system/issues/1942)) ([120729a](https://github.com/cultureamp/kaizen-design-system/commit/120729ad460d76bfc954acfbe96408cd2fe57f1d))
+
+
+
+
+
 ## [3.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.9...@kaizen/draft-title-block-zen@3.5.10) (2021-09-06)
 
 
