@@ -52,6 +52,8 @@ import {
   SurveyOverviewClosed,
   SurveyGetStarted,
   BrandMomentCaptureIntro,
+  BrandMomentNewAccountOnboarding,
+  BrandMomentUploadEmployeeData,
   BrandMomentPositiveOutro,
   BrandMomentLogin,
   BrandMomentError,
@@ -94,7 +96,13 @@ export const BrandMoments = args => (
       <BrandMomentError {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <BrandMomentStarterKit alt="" />
+      <BrandMomentStarterKit {...args} />
+    </div>
+    <div style={{ width: "450px" }}>
+      <BrandMomentNewAccountOnboarding {...args} />
+    </div>
+    <div style={{ width: "450px" }}>
+      <BrandMomentUploadEmployeeData {...args} />
     </div>
   </>
 )
