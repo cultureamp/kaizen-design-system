@@ -72,6 +72,22 @@ describe("<InformationTile />", () => {
 
       expect(container.firstChild).toMatchSnapshot()
     })
+
+    it("renders InformationTile with a custom title tag", () => {
+      const { getByText } = render(
+        <InformationTile
+          title="custom title"
+          titleTag="div"
+          metadata="Metadata"
+          footer={<div>Hello world</div>}
+          information={information}
+        >
+          <div>Child content</div>
+        </InformationTile>
+      )
+
+      expect(getByText("custom title").tagName).toEqual("DIV")
+    })
   })
 })
 
@@ -100,6 +116,20 @@ describe("<MultiActionTile />", () => {
       )
 
       expect(container.firstChild).toMatchSnapshot()
+    })
+
+    it("renders MultiActionTile with a custom title tag", () => {
+      const { getByText } = render(
+        <MultiActionTile
+          title="custom title"
+          titleTag="h6"
+          metadata="Metadata"
+          primaryAction={primaryAction}
+          secondaryAction={secondaryAction}
+        />
+      )
+
+      expect(getByText("custom title").tagName).toEqual("H6")
     })
   })
 })

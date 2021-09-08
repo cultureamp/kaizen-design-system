@@ -5,6 +5,7 @@ import classNames from "classnames"
 
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import { AllowedTags } from "@kaizen/component-library/components/Heading"
 import Action from "./Action"
 import styles from "./GenericTile.scss"
 
@@ -24,7 +25,8 @@ export interface TileInformation {
 }
 
 export interface GenericTileProps {
-  readonly title: string
+  readonly title: React.ReactNode
+  readonly titleTag?: AllowedTags
   readonly metadata?: string
   readonly children?: React.ReactNode
   readonly information?: TileInformation | React.ReactNode
@@ -39,6 +41,7 @@ type GenericTile = React.FunctionComponent<Props>
 const GenericTile: GenericTile = ({
   children,
   title,
+  titleTag = "h3",
   metadata,
   information,
   footer,
@@ -47,7 +50,9 @@ const GenericTile: GenericTile = ({
 
   const renderTitle = () => (
     <div className={styles.title}>
-      <Heading variant="heading-3">{title}</Heading>
+      <Heading variant="heading-3" tag={titleTag}>
+        {title}
+      </Heading>
       {metadata && (
         <Box pt={0.25}>
           <Paragraph variant="small" color="dark-reduced-opacity">
