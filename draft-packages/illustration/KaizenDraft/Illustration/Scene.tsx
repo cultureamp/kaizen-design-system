@@ -88,6 +88,20 @@ export const BrandMomentError = ({
   )
 }
 
+export const BrandMomentNewAccountOnboarding = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/brand-moments-new-account-onboarding.svg"
+  />
+)
+
+export const BrandMomentUploadEmployeeData = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/brand-moments-upload-employee-data.svg"
+  />
+)
+
 export const BrandMomentStarterKit = (props: SceneProps) => (
   <Base
     {...props}

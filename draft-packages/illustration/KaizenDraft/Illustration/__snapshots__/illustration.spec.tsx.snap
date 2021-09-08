@@ -20,6 +20,16 @@ exports[`<Illustration /> Scene BrandMomentLogin should exist and render an alt 
 </div>
 `;
 
+exports[`<Illustration /> Scene BrandMomentNewAccountOnboarding should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-new-account-onboarding.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene BrandMomentPositiveOutro should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -36,6 +46,16 @@ exports[`<Illustration /> Scene BrandMomentStarterKit should exist and render an
     alt="My accessible title"
     class=" wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-starter-kit.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene BrandMomentUploadEmployeeData should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-upload-employee-data.svg"
   />
 </div>
 `;
