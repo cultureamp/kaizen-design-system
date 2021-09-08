@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.5.3...@kaizen/draft-illustration@2.6.0) (2021-09-08)
+
+
+### Features
+
+* Add missing Brand Moment Illustrations ([#1943](https://github.com/cultureamp/kaizen-design-system/issues/1943)) ([97c55e7](https://github.com/cultureamp/kaizen-design-system/commit/97c55e7ac0eb5f9839d58b75751d1d4e8771cc67))
+
+
+
+
+
 ## [2.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.5.2...@kaizen/draft-illustration@2.5.3) (2021-08-31)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
