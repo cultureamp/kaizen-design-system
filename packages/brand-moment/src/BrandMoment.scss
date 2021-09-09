@@ -9,8 +9,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 
 .body {
-  inline-size: 100%;
-  min-block-size: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 
 .container {
-  max-inline-size: $layout-content-max-width;
+  max-width: $layout-content-max-width;
   margin: 0 auto;
   padding: 0 $spacing-md;
 }
@@ -101,8 +101,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .leftInner {
-  inline-size: 100%;
-  max-inline-size: 525px;
+  width: 100%;
+  max-width: 525px;
 }
 
 .right {
@@ -113,7 +113,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .rightInner {
-  max-inline-size: 543px;
+  max-width: 543px;
 }
 
 .secondaryAction {
@@ -174,7 +174,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   margin-inline-start: $spacing-xs;
 
   > img {
-    max-inline-size: 133px;
+    max-width: 133px;
   }
 }
 
