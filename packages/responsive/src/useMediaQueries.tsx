@@ -28,6 +28,10 @@ export const useMediaQueries = (
 } => {
   const theme = useTheme()
 
+  // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
+  // so we disable the functionality of updating after page load.
+  const isLegacyEdge = navigator.userAgent.match(/Edge/)
+
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
@@ -76,6 +80,10 @@ export const useMediaQueries = (
   // Create an event listener based on the medium breakpoint and update state whenever it changes
   // ---------------------------------------
   useEffect(() => {
+    if (isLegacyEdge) {
+      return
+    }
+
     const updateMatches = () => {
       const isSmallAfterUpdate = smallMatchMedia.matches || false
       const isMediumAfterUpdate = mediumMatchMedia.matches || false
@@ -118,6 +126,10 @@ export const useMediaQueries = (
   // Create an event listener for each custom query
   // ---------------------------------------
   useEffect(() => {
+    if (isLegacyEdge) {
+      return
+    }
+
     const updateCustomMatches = (
       matchMedia: MediaQueryList,
       queryName: string
