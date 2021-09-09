@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.2.0...@kaizen/responsive@1.2.1) (2021-09-09)
+
+
+### Bug Fixes
+
+* Disable event listeners on legacy Edge ([#1945](https://github.com/cultureamp/kaizen-design-system/issues/1945)) ([726aaa8](https://github.com/cultureamp/kaizen-design-system/commit/726aaa8704e7fc0f80c0d8164f63158d4a8eeb24))
+
+
+
+
+
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.1.4...@kaizen/responsive@1.2.0) (2021-08-13)
 
 
