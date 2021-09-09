@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.4.10...@kaizen/brand-moment@1.4.11) (2021-09-09)
+
+
+### Bug Fixes
+
+* Use min-height:100vh on small viewport as well ([#1944](https://github.com/cultureamp/kaizen-design-system/issues/1944)) ([8ffb34c](https://github.com/cultureamp/kaizen-design-system/commit/8ffb34cc914f617a8c20aa66e41063fa7e317785))
+
+
+
+
+
 ## [1.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.4.9...@kaizen/brand-moment@1.4.10) (2021-09-08)
 
 **Note:** Version bump only for package @kaizen/brand-moment
