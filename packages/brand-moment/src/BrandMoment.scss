@@ -10,6 +10,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 
 .body {
   inline-size: 100%;
+  min-block-size: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,12 +25,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 
   &.negative {
     background: $color-red-100;
-  }
-}
-
-@media (min-width: $layout-breakpoints-large) {
-  .body {
-    min-block-size: 100vh;
   }
 }
 
