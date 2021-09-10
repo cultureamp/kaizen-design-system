@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
