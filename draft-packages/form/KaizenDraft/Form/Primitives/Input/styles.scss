@@ -221,7 +221,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.error:not(:focus) {
-    border-color: $ca-palette-input-validation-negative;
+    border-color: $color-red-500;
   }
 }
 

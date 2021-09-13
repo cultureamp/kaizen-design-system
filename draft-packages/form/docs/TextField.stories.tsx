@@ -184,12 +184,27 @@ export const DefaultError = () => (
       placeholder="Please enter your email"
       onChange={() => undefined}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996"
+      validationMessage="Your email address looks like it’s from 1996."
     />
   </ExampleContainer>
 )
-
 DefaultError.storyName = "Default, Error"
+
+export const DefaultErrorLong = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="super_cool999@hotmail.com"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      status="error"
+      validationMessage="Your email address looks like it’s from 1996. This is a long error message for testing purposes."
+    />
+  </ExampleContainer>
+)
+DefaultErrorLong.storyName = "Default, Error, long"
 
 export const DefaultErrorIcon = () => (
   <ExampleContainer>
@@ -409,6 +424,24 @@ export const ReversedError = () => (
 ReversedError.storyName = "Reversed, Error"
 ReversedError.parameters = { ...ReversedBg }
 
+export const ReversedDescription = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="hello@hello.hello"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      reversed={true}
+      description="Valid email addresses must have an @ and a suffix"
+    />
+  </ExampleContainer>
+)
+
+ReversedDescription.storyName = "Reversed, Description"
+ReversedDescription.parameters = { ...ReversedBg }
+
 export const ReversedErrorIcon = () => (
   <ExampleContainer>
     <TextField
@@ -572,3 +605,19 @@ export const DefaultWithHtmlDescription = () => {
 }
 
 DefaultWithHtmlDescription.storyName = "Default w HTML description"
+
+export const DefaultWithDescriptionAndErrorMessage = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      status="error"
+      inputValue="testing 1 2 3"
+      labelText="Label"
+      validationMessage="A cool validation message"
+      description="This is a description"
+    />
+  </ExampleContainer>
+)
+
+DefaultWithDescriptionAndErrorMessage.storyName =
+  "Default w description and error message"

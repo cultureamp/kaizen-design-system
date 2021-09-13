@@ -1,6 +1,8 @@
 import classnames from "classnames"
 import * as React from "react"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
+import { Icon, Paragraph } from "@kaizen/component-library"
 import styles from "./styles.scss"
 
 export type FieldMessageStatus = "default" | "success" | "error"
@@ -15,6 +17,17 @@ export type FieldMessageProps = {
 
 type FieldMessage = React.SFC<FieldMessageProps>
 
+const warningIcon = (
+  <span className={styles.warningIcon}>
+    <Icon
+      icon={exclamationIcon}
+      title="Error message"
+      role="img"
+      inheritSize={false}
+    />
+  </span>
+)
+
 const FieldMessage: FieldMessage = ({
   id,
   automationId,
@@ -22,20 +35,32 @@ const FieldMessage: FieldMessage = ({
   status = "default",
   reversed = false,
   position = "bottom",
-}) => (
-  <div
-    id={id}
-    data-automation-id={automationId}
-    className={classnames(styles.message, {
-      [styles.reversed]: reversed,
-      [styles.default]: status === "default",
-      [styles.error]: status === "error",
-      [styles.positionBottom]: position === "bottom",
-      [styles.positionTop]: position === "top",
-    })}
-  >
-    {message}
-  </div>
-)
+}) => {
+  const textColor = reversed
+    ? status === "error"
+      ? "dark-reduced-opacity"
+      : "white-reduced-opacity"
+    : "dark-reduced-opacity"
+  return (
+    <div
+      id={id}
+      data-automation-id={automationId}
+      className={classnames(styles.message, {
+        [styles.reversed]: reversed,
+        [styles.default]: status === "default",
+        [styles.error]: status === "error",
+        [styles.positionBottom]: position === "bottom",
+        [styles.positionTop]: position === "top",
+      })}
+    >
+      {status === "error" && warningIcon}
+      <div className={styles.message}>
+        <Paragraph variant="small" color={textColor}>
+          {message}
+        </Paragraph>
+      </div>
+    </div>
+  )
+}
 
 export default FieldMessage

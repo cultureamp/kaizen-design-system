@@ -109,16 +109,11 @@ const TextField: TextField = ({
           )
         }
         endIconAdornment={
-          (status === "success" && (
+          status === "success" && (
             <div className={styles.success}>
               <Icon icon={successIcon} role="presentation" />
             </div>
-          )) ||
-          (status === "error" && (
-            <div className={styles.error}>
-              <Icon icon={exclamationIcon} role="presentation" />
-            </div>
-          ))
+          )
         }
       />
 
