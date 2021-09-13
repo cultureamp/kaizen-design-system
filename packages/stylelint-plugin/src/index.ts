@@ -19,7 +19,7 @@ const kaizenStylelintRules = {
   ],
   "kaizen/use-deprecated-component-library-helpers-scss-imports": [
     true,
-    { severity: "error", disableFixing: false },
+    { severity: "warning", disableFixing: false },
   ],
 }
 
