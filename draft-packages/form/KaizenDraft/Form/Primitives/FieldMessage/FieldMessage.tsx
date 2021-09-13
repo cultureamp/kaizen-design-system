@@ -35,28 +35,32 @@ const FieldMessage: FieldMessage = ({
   status = "default",
   reversed = false,
   position = "bottom",
-}) => (
-  <div
-    id={id}
-    data-automation-id={automationId}
-    className={classnames(styles.message, {
-      [styles.reversed]: reversed,
-      [styles.default]: status === "default",
-      [styles.error]: status === "error",
-      [styles.positionBottom]: position === "bottom",
-      [styles.positionTop]: position === "top",
-    })}
-  >
-    {status === "error" && warningIcon}
-    <div className={styles.message}>
-      <Paragraph
-        variant="small"
-        color={reversed ? "white-reduced-opacity" : "dark-reduced-opacity"}
-      >
-        {message}
-      </Paragraph>
+}) => {
+  const textColor = reversed
+    ? status === "error"
+      ? "dark-reduced-opacity"
+      : "white-reduced-opacity"
+    : "dark-reduced-opacity"
+  return (
+    <div
+      id={id}
+      data-automation-id={automationId}
+      className={classnames(styles.message, {
+        [styles.reversed]: reversed,
+        [styles.default]: status === "default",
+        [styles.error]: status === "error",
+        [styles.positionBottom]: position === "bottom",
+        [styles.positionTop]: position === "top",
+      })}
+    >
+      {status === "error" && warningIcon}
+      <div className={styles.message}>
+        <Paragraph variant="small" color={textColor}>
+          {message}
+        </Paragraph>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default FieldMessage
