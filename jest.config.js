@@ -4,10 +4,11 @@ module.exports = {
   testMatch: ["**/*.spec.ts?(x)"],
   setupFilesAfterEnv: ["jest-canvas-mock"],
   moduleNameMapper: {
-    "\\.(jpe?g|png)$": "jest-static-stubs/$1",
+    "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
     "\\.s?css$": "identity-obj-proxy",
     "\\.svg$": require.resolve("@kaizen/component-library/mocks/svgMock"),
   },
+  transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
 }
 
 if (process.env.USE_REACT_17 === "true") {

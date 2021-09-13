@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["es2018", "dom"],
+    "lib": ["es2018", "dom", "esnext"],
     "module": "commonjs",
     "jsx": "react",
     "esModuleInterop": true,
