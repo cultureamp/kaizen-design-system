@@ -5,8 +5,9 @@
 @import "../../decision-tokens.scss";
 
 .message {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
+  display: flex;
+  align-items: center;
+  gap: $ca-grid * 0.25;
 }
 
 .default {
@@ -20,7 +21,11 @@
   padding: $ca-grid / 2;
   color: $dt-color-form-text-color;
   border-radius: $border-solid-border-radius;
-  background: $color-red-300;
+  background: $color-red-100;
+
+  &.reversed {
+    background: $color-red-300;
+  }
 }
 
 .positionBottom {
@@ -29,4 +34,14 @@
 
 .positionTop {
   margin-bottom: $spacing-xs;
+}
+
+.warningIcon {
+  display: flex;
+  align-items: center;
+  color: $color-red-500;
+
+  .reversed & {
+    color: $color-purple-800;
+  }
 }
