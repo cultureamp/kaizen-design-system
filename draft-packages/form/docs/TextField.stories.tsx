@@ -424,6 +424,24 @@ export const ReversedError = () => (
 ReversedError.storyName = "Reversed, Error"
 ReversedError.parameters = { ...ReversedBg }
 
+export const ReversedDescription = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="hello@hello.hello"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      reversed={true}
+      description="Valid email addresses must have an @ and a suffix"
+    />
+  </ExampleContainer>
+)
+
+ReversedDescription.storyName = "Reversed, Description"
+ReversedDescription.parameters = { ...ReversedBg }
+
 export const ReversedErrorIcon = () => (
   <ExampleContainer>
     <TextField
