@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.6...@kaizen/draft-form@3.8.7) (2021-09-13)
+
+
+### Bug Fixes
+
+* update text field error styles ([#1828](https://github.com/cultureamp/kaizen-design-system/issues/1828)) ([da72a4c](https://github.com/cultureamp/kaizen-design-system/commit/da72a4c24209006da5141eee6349a2fb45e61dc1))
+
+
+
+
+
 ## [3.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.5...@kaizen/draft-form@3.8.6) (2021-08-30)
 
 **Note:** Version bump only for package @kaizen/draft-form
