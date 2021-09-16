@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, ReactNode } from "react"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph, Box } from "@kaizen/component-library"
 import { FieldGroup, Label, InputRange } from ".."
+import styles from "./styles.scss"
 
 export interface SliderFieldProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -24,15 +25,23 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
 
   return (
     <FieldGroup inline={true}>
-      <Label htmlFor={genericInputProps.id} labelText={labelText} />
-      {labelDescription && (
-        <Paragraph variant="small">{labelDescription}</Paragraph>
-      )}
-      <InputRange
-        labelLow={labelLow}
-        labelHigh={labelHigh}
-        {...genericInputProps}
-      />
+      <div className={styles.wrapper}>
+        <div className={styles.labelWrapper}>
+          <Box mb={0.25}>
+            <Label htmlFor={genericInputProps.id} labelText={labelText} />
+          </Box>
+          {labelDescription && (
+            <Paragraph variant="small">{labelDescription}</Paragraph>
+          )}
+        </div>
+        <div className={styles.inputWrapper}>
+          <InputRange
+            labelLow={labelLow}
+            labelHigh={labelHigh}
+            {...genericInputProps}
+          />
+        </div>
+      </div>
     </FieldGroup>
   )
 }

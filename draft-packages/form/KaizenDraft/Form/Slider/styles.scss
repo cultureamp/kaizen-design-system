@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelWrapper {
+  margin-bottom: $spacing-md;
+}
+
+@media (min-width: $layout-breakpoints-medium) {
+  .wrapper {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .labelWrapper {
+    flex: 1;
+  }
+
+  .inputWrapper {
+    flex-basis: 450px;
+  }
+}
