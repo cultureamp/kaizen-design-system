@@ -34,26 +34,6 @@ steps:
       - docker-compose#v3.0.3:
           run: release
 
-  - name: ":nut_and_bolt: Compile"
-    command: ".buildkite/scripts/compile.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":mag: Lint"
-    command: ".buildkite/scripts/lint.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":pencil2: Test (React 16)"
-    command: ".buildkite/scripts/test-react-16.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":pencil2: Test (React 17)"
-    command: ".buildkite/scripts/test-react-17.sh"
-    branches: "!master"
-    <<: *defaults
-
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
