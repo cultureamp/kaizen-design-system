@@ -1,0 +1,149 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+
+// The draghandle
+$thumb-color: var($color-blue-500-id, $color-purple-600);
+$thumb-radius: 100%;
+$thumb-height: 26px;
+$thumb-width: 26px;
+$thumb-hover-shadow-color: var($color-blue-600-id, $color-purple-700);
+
+// The range
+$track-color: $color-gray-300;
+$track-radius: 4px;
+$track-width: auto;
+$track-height: 10px;
+
+$notches-number: 10;
+
+@mixin track {
+  width: auto;
+  height: $track-height;
+}
+
+@mixin thumb {
+  width: $thumb-width;
+  height: $thumb-height;
+  border: none;
+  border-radius: $thumb-radius;
+  background: $thumb-color;
+
+  .enabled & {
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 0 0 $thumb-hover-shadow-color;
+    &:hover {
+      box-shadow: 0 0 0 6px $thumb-hover-shadow-color;
+    }
+  }
+}
+
+.ratingScale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="range"].ratingScaleRange {
+  all: unset;
+  appearance: none;
+  width: 100%;
+  // $thumb-width/2 = 13px the notches's width is 2px, so from 12px to 14px
+  background: linear-gradient(
+      90deg,
+      transparent,
+      transparent 10px,
+      transparent 11.9px,
+      $track-color 12px,
+      $track-color 14px,
+      transparent 14.1px
+    )
+    repeat-x 0% 100%;
+  padding-bottom: $thumb-width/2;
+  background-size: calc(
+      100% / #{$notches-number - 1} - #{$thumb-width} / #{$notches-number - 1}
+    )
+    5px;
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    outline: 2px solid $color-blue-500;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+    border: none;
+    border-radius: $track-radius;
+    background: $track-color;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    -webkit-appearance: none;
+    margin-top: ($thumb-height - $track-height) / -2;
+  }
+
+  &::-moz-range-track {
+    @include track;
+    border: none;
+    border-radius: $track-radius;
+    background: $track-color;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+    color: transparent;
+    border-width: $thumb-width 0;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  &::-ms-fill-lower {
+    border: none;
+    border-radius: $track-radius * 2;
+    background: $track-color;
+  }
+
+  &::-ms-fill-upper {
+    border: none;
+    border-radius: $track-radius * 2;
+    background: $track-color;
+  }
+
+  &::-ms-thumb {
+    @include thumb;
+  }
+}
+
+.disabled.emptyValue {
+  opacity: 0.5;
+}
+
+.labelsContainer {
+  margin-top: $spacing-xs;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sliderLabels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  [dir="rtl"] & {
+    flex-direction: row-reverse;
+  }
+}
