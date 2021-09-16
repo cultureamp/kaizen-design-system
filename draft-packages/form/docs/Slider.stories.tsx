@@ -27,6 +27,8 @@ export const DefaultUncontrolled = () => (
     labelDescription="General feeling about work"
     defaultValue={10}
     id="make-me-unique-2"
+    labelLow="Awful"
+    labelHigh="Fantastic"
   />
 )
 
@@ -37,3 +39,16 @@ export const DefaultControlled = () => (
 )
 
 DefaultControlled.storyName = "Default, Controlled"
+
+export const DefaultWithLabelLowAndLabelHigh = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    defaultValue={10}
+    id="make-me-unique-4"
+    labelLow="Awful"
+    labelHigh="Fantastic"
+  />
+)
+
+DefaultWithLabelLowAndLabelHigh.storyName = "Default, Label low and high"

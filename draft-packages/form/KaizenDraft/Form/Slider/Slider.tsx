@@ -1,17 +1,26 @@
-import React, { InputHTMLAttributes } from "react"
+import React, { InputHTMLAttributes, ReactNode } from "react"
 import { Paragraph } from "@kaizen/component-library"
 import { FieldGroup, Label, InputRange } from ".."
 
 export interface SliderFieldProps
   extends InputHTMLAttributes<HTMLInputElement> {
-  labelText: React.ReactNode
-  labelDescription?: React.ReactNode
+  labelText: ReactNode
+  labelDescription?: ReactNode
   value?: number
   id: string
+  labelLow?: ReactNode
+  labelHigh?: ReactNode
 }
 
 const Slider: React.FunctionComponent<SliderFieldProps> = props => {
-  const { labelText, labelDescription, value, ...genericInputProps } = props
+  const {
+    labelText,
+    labelDescription,
+    value,
+    labelLow,
+    labelHigh,
+    ...genericInputProps
+  } = props
 
   return (
     <FieldGroup inline={true}>
@@ -19,7 +28,11 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
       {labelDescription && (
         <Paragraph variant="small">{labelDescription}</Paragraph>
       )}
-      <InputRange {...genericInputProps} />
+      <InputRange
+        labelLow={labelLow}
+        labelHigh={labelHigh}
+        {...genericInputProps}
+      />
     </FieldGroup>
   )
 }
