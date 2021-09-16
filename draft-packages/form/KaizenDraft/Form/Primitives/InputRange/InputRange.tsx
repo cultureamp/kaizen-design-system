@@ -8,11 +8,11 @@ export interface InputRangeProps extends InputHTMLAttributes<HTMLInputElement> {
 const InputRange: React.FunctionComponent<InputRangeProps> = (
   props: InputRangeProps
 ) => {
-  const { id, defaultValue = 1, value, ...genericInputProps } = props
+  const { defaultValue = 1, value, ...genericInputProps } = props
+  console.log(props)
   return (
     <div>
       <input
-        id={id}
         className={styles.ratingScaleRange}
         type="range"
         min="1"

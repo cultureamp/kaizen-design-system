@@ -15,7 +15,9 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo = () => <Slider labelText="Work overall" />
+export const DefaultKaizenSiteDemo = () => (
+  <Slider id="make-me-unique-1" labelText="Work overall" />
+)
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
@@ -24,13 +26,14 @@ export const DefaultUncontrolled = () => (
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={10}
+    id="make-me-unique-2"
   />
 )
 
 DefaultUncontrolled.storyName = "Default, Uncontrolled"
 
 export const DefaultControlled = () => (
-  <Slider labelText="Work overall" value={4} />
+  <Slider id="make-me-unique-3" labelText="Work overall" value={4} />
 )
 
 DefaultControlled.storyName = "Default, Controlled"
