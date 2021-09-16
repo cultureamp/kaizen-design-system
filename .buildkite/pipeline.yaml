@@ -38,6 +38,7 @@ steps:
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
     <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
 
   - name: ":package: Build (storybook)"
     command: ".buildkite/scripts/build-storybook.sh"
