@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { Slider } from "@kaizen/draft-form"
+import { useState } from "@storybook/addons"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
@@ -34,9 +35,18 @@ export const DefaultUncontrolled = () => (
 
 DefaultUncontrolled.storyName = "Default, Uncontrolled"
 
-export const DefaultControlled = () => (
-  <Slider id="make-me-unique-3" labelText="Work overall" value={4} />
-)
+export const DefaultControlled = () => {
+  const [value, setValue] = useState(5.5)
+
+  return (
+    <Slider
+      id="make-me-unique-3"
+      labelText="Work overall"
+      value={value}
+      onChange={e => setValue(Number(e.target.value))}
+    />
+  )
+}
 
 DefaultControlled.storyName = "Default, Controlled"
 
