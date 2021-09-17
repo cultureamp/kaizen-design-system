@@ -2,7 +2,8 @@ import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import { Paragraph } from "@kaizen/component-library"
 import styles from "./styles.scss"
 
-export interface InputRangeProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputRangeProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
   value?: number
   labelLow?: ReactNode
   labelHigh?: ReactNode
