@@ -2,7 +2,7 @@
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
 import postcss from "postcss"
-import { defaultTheme } from "@kaizen/design-tokens"
+import { zenTheme } from "@kaizen/design-tokens"
 import { messages, preferColorTokens } from "./prefer-color-tokens"
 
 const tests = {
@@ -21,17 +21,17 @@ const tests = {
   ],
   reject: [
     {
-      code: `.foo { background-color: ${defaultTheme.color.blue[500]}; }`,
+      code: `.foo { background-color: ${zenTheme.color.blue[500]}; }`,
       fixed: ".foo { background-color: $color-blue-500; }",
       warnings: [
-        messages.expected("$color-blue-500", defaultTheme.color.blue[500]),
+        messages.expected("$color-blue-500", zenTheme.color.blue[500]),
       ],
     },
     {
       code: `
       .foo {
-        background-color: ${defaultTheme.color.blue[500]};
-        border-color: ${defaultTheme.color.purple[600]};
+        background-color: ${zenTheme.color.blue[500]};
+        border-color: ${zenTheme.color.purple[600]};
       }`,
       fixed: `
       .foo {
@@ -39,8 +39,8 @@ const tests = {
         border-color: $color-purple-600;
       }`,
       warnings: [
-        messages.expected("$color-blue-500", defaultTheme.color.blue[500]),
-        messages.expected("$color-purple-600", defaultTheme.color.purple[600]),
+        messages.expected("$color-blue-500", zenTheme.color.blue[500]),
+        messages.expected("$color-purple-600", zenTheme.color.purple[600]),
       ],
     },
   ],
