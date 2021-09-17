@@ -17,7 +17,6 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
   const {
     labelText,
     labelDescription,
-    value,
     labelLow,
     labelHigh,
     ...genericInputProps
