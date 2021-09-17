@@ -43,6 +43,9 @@ steps:
     command: ".buildkite/scripts/lint.sh"
     branches: "!master"
     <<: *defaults
+    notify:
+      - slack: "#team_front_end_foundations"
+        if: build.state == "failed"
 
   - name: ":pencil2: Test (React 16)"
     command: ".buildkite/scripts/test-react-16.sh"
