@@ -4,13 +4,14 @@ import { FieldGroup, Label, InputRange } from ".."
 import styles from "./styles.scss"
 
 export interface SliderFieldProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
   labelText: ReactNode
   labelDescription?: ReactNode
   value?: number
   id: string
   labelLow?: ReactNode
   labelHigh?: ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 const Slider: React.FunctionComponent<SliderFieldProps> = props => {
