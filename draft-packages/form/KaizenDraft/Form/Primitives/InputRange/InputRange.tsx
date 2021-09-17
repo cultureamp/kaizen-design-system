@@ -22,26 +22,31 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   } = props
 
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
+  const min = 1
+  const max = 10
 
   return (
     <div>
       <input
         className={styles.ratingScaleRange}
         type="range"
-        min="1"
-        max="10"
+        min={min}
+        max={max}
         step={step}
         defaultValue={defaultValue}
         value={value}
         aria-valuenow={value}
-        aria-valuemin={1}
-        aria-valuemax={10}
+        aria-valuemin={min}
+        aria-valuemax={max}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange && onChange(e)
         }}
         {...genericInputProps}
       />
+      <div className={styles.visuallyHidden}>
+        {min} is {labelLow}, {max} is {labelHigh}
+      </div>
       <div className={styles.labelsContainer}>
         <div className={styles.sliderLabels}>
           <Paragraph
