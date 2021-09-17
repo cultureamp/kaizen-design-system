@@ -50,8 +50,7 @@ $large-width: 450px;
 
 %box {
   background: white;
-  border: $border-solid-border-width $border-solid-border-style
-    var($color-gray-300-id, $color-purple-200);
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
@@ -63,10 +62,10 @@ $large-width: 450px;
 }
 
 .defaultArrow {
-  @include arrow(white, var($color-gray-300-id, $color-purple-200));
+  @include arrow(white, $color-gray-300);
 }
 
-$informative-box-border-color: var($color-blue-300-id, $color-blue-200);
+$informative-box-border-color: $color-blue-300;
 
 .informativeBox {
   @extend %box;
@@ -78,7 +77,7 @@ $informative-box-border-color: var($color-blue-300-id, $color-blue-200);
   @include arrow($color-blue-100, $informative-box-border-color);
 }
 
-$positive-box-border-color: var($color-green-300-id, $color-green-200);
+$positive-box-border-color: $color-green-300;
 
 .positiveBox {
   @extend %box;
@@ -90,7 +89,7 @@ $positive-box-border-color: var($color-green-300-id, $color-green-200);
   @include arrow($color-green-100, $positive-box-border-color);
 }
 
-$negative-box-border-color: var($color-red-300-id, $color-red-200);
+$negative-box-border-color: $color-red-300;
 
 .negativeBox {
   @extend %box;
