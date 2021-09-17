@@ -1,4 +1,4 @@
-import { heartTheme } from "./heart"
+import { zenTheme } from "./zen"
 export { heartTheme } from "./heart"
 export { zenTheme } from "./zen"
-export const defaultTheme = heartTheme
+export const defaultTheme = zenTheme
