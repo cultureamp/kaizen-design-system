@@ -349,6 +349,31 @@ $caButton-verticalPaddingForm: calc(
       color: $color-white;
     }
   }
+
+  &%caButtonDestructive {
+    &:not(:disabled) {
+      background: $color-red-300;
+      border-color: $border-borderless-border-color;
+      color: $color-purple-800;
+
+      &:hover {
+        background: $color-red-400;
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $border-borderless-border-color;
+        background: $color-red-400;
+      }
+    }
+
+    &:disabled,
+    &.working {
+      @include working-state;
+      background: $color-red-300;
+      border-color: $border-borderless-border-color;
+      color: $color-purple-800;
+    }
+  }
 }
 
 %caButtonContent {
