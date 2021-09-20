@@ -1,17 +1,34 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Box } from "@kaizen/component-library"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Paragraph } from "../components/Paragraph"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
-  component: Paragraph,
+  component: Box,
   parameters: {
     docs: {
-      description: {
-        component: 'import { Paragraph } from "@kaizen/component-library"',
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Documentation />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 }
@@ -61,7 +78,6 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
 export const IntroLede = () => (
   <>
     <Paragraph variant="intro-lede">Paragraph Intro Lede</Paragraph>
-    <Documentation />
   </>
 )
 
@@ -70,7 +86,6 @@ export const Body = () => (
     <Paragraph data-automation-id="test" variant="body">
       Paragraph Body
     </Paragraph>
-    <Documentation />
   </>
 )
 
@@ -79,7 +94,6 @@ export const BodyBold = () => (
     <Paragraph data-automation-id="test" variant="body">
       <strong>Paragraph Body (bold)</strong>
     </Paragraph>
-    <Documentation />
   </>
 )
 
@@ -92,7 +106,6 @@ export const BodyDarkReducedOpacity = () => (
     >
       Paragraph Body
     </Paragraph>
-    <Documentation />
   </>
 )
 
@@ -116,7 +129,6 @@ export const BodyPositive = () => (
     <Paragraph variant="body" color="positive">
       Paragraph Body
     </Paragraph>
-    <Documentation />
   </>
 )
 
@@ -125,20 +137,17 @@ export const BodyNegative = () => (
     <Paragraph variant="body" color="negative">
       Paragraph Body
     </Paragraph>
-    <Documentation />
   </>
 )
 
 export const Small = () => (
   <>
     <Paragraph variant="small">Paragraph Small</Paragraph>
-    <Documentation />
   </>
 )
 
 export const ExtraSmall = () => (
   <>
     <Paragraph variant="extra-small">Paragraph Extra Small</Paragraph>
-    <Documentation />
   </>
 )

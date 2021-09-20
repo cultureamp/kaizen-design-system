@@ -1,5 +1,14 @@
 import * as React from "react"
 import { Paragraph, Box } from "@kaizen/component-library"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading } from "../components/Heading"
 
@@ -8,9 +17,17 @@ export default {
   component: Heading,
   parameters: {
     docs: {
-      description: {
-        component: 'import { Heading } from "@kaizen/component-library";',
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Documentation />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 }
@@ -66,7 +83,6 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
 export const Display0 = () => (
   <>
     <Heading variant="display-0">Display 0</Heading>
-    <Documentation />
   </>
 )
 
@@ -75,21 +91,18 @@ export const Heading1 = () => (
     <Heading data-automation-id="test" variant="heading-1">
       Heading 1
     </Heading>
-    <Documentation />
   </>
 )
 
 export const Heading2 = () => (
   <>
     <Heading variant="heading-2">Heading 2</Heading>
-    <Documentation />
   </>
 )
 
 export const Heading3 = () => (
   <>
     <Heading variant="heading-3">Heading 3</Heading>
-    <Documentation />
   </>
 )
 
@@ -97,21 +110,18 @@ export const Heading4 = () => (
   <>
     {" "}
     <Heading variant="heading-4">Heading 4</Heading>
-    <Documentation />
   </>
 )
 
 export const Heading5 = () => (
   <>
     <Heading variant="heading-5">Heading 5</Heading>
-    <Documentation />
   </>
 )
 
 export const Heading6 = () => (
   <>
     <Heading variant="heading-6">Heading 6</Heading>
-    <Documentation />
   </>
 )
 
@@ -120,7 +130,6 @@ const Heading1DarkReducedOpacity = () => (
     <Heading variant="heading-1" color="dark-reduced-opacity">
       Heading 1 (dark, reduced opacity)
     </Heading>
-    <Documentation />
   </>
 )
 
@@ -147,7 +156,6 @@ export const Heading1Positive = () => (
     <Heading variant="heading-1" color="positive">
       Heading 1 (positive)
     </Heading>
-    <Documentation />
   </>
 )
 
@@ -156,7 +164,6 @@ export const Heading1Negative = () => (
     <Heading variant="heading-1" color="negative">
       Heading 1 (negative)
     </Heading>
-    <Documentation />
   </>
 )
 
@@ -165,7 +172,6 @@ export const Heading3Positive = () => (
     <Heading variant="heading-3" color="positive">
       Heading 3 (positive)
     </Heading>
-    <Documentation />
   </>
 )
 
@@ -174,7 +180,6 @@ export const Heading3Negative = () => (
     <Heading variant="heading-3" color="negative">
       Heading 3 (negative)
     </Heading>
-    <Documentation />
   </>
 )
 

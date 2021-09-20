@@ -1,8 +1,17 @@
 import * as React from "react"
 import { Paragraph } from "@kaizen/component-library"
-import { CATEGORIES } from "../../../storybook/constants"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs"
 import { Box } from "../components/Box"
 
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Box.stories.scss"
 
 export default {
@@ -10,9 +19,17 @@ export default {
   component: Box,
   parameters: {
     docs: {
-      description: {
-        component: 'import { Box } from "@kaizen/component-library"',
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Documentation />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 }
@@ -43,72 +60,6 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
         </li>
       </ul>
     </Paragraph>
-
-    <table className={styles.boxStoriesTable}>
-      <thead>
-        <tr>
-          <th></th>
-          <th>margin</th>
-          <th>padding</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className={styles.tableLabel}>top</td>
-          <td>
-            <code>mt</code>
-          </td>
-          <td>
-            <code>pt</code>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableLabel}>right</td>
-          <td>
-            <code>mr</code>
-          </td>
-          <td>
-            <code>pr</code>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableLabel}>bottom</td>
-          <td>
-            <code>mb</code>
-          </td>
-          <td>
-            <code>pb</code>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableLabel}>left</td>
-          <td>
-            <code>ml</code>
-          </td>
-          <td>
-            <code>pl</code>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableLabel}>X-axis</td>
-          <td>
-            <code>mx</code>
-          </td>
-          <td>
-            <code>px</code>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableLabel}>Y-axis</td>
-          <td>
-            <code>py</code>
-          </td>
-          <td>
-            <code>py</code>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </Box>
 )
 
@@ -120,7 +71,6 @@ export const BoxDefault = () => (
         of box are also unstyled.
       </Box>
     </div>
-    <Documentation />
   </>
 )
 BoxDefault.storyName = "Default"
@@ -133,7 +83,6 @@ export const BoxWithMargin = () => (
         defined.
       </Box>
     </div>
-    <Documentation />
   </>
 )
 BoxWithMargin.storyName = "Box With Margin"
@@ -145,7 +94,6 @@ export const BoxWithPadding = () => (
         <span>Box with 4 units of padding</span>
       </Box>
     </div>
-    <Documentation />
   </>
 )
 BoxWithPadding.storyName = "Box With Padding"
@@ -157,7 +105,6 @@ export const BoxWithXAndYPadding = () => (
         <span>Box with 4 units of padding</span>
       </Box>
     </div>
-    <Documentation />
   </>
 )
 BoxWithXAndYPadding.storyName = "Box With X And Y Padding"
@@ -172,7 +119,6 @@ export const BoxWithRtlSupport = () => (
         </span>
       </Box>
     </div>
-    <Documentation />
   </>
 )
 BoxWithRtlSupport.storyName = "Box With Rtl Support"
