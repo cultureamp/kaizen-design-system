@@ -2,7 +2,9 @@ import * as React from "react"
 
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
+import { Paragraph } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { InputRange, Label } from "../KaizenDraft/Form"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Slider`,
@@ -62,3 +64,21 @@ export const DefaultWithLabelLowAndLabelHigh = () => (
 )
 
 DefaultWithLabelLowAndLabelHigh.storyName = "Default, Label low and high"
+
+export const SliderPrimitive = () => (
+  <>
+    <Label htmlFor="make-me-unique-5">Label</Label>
+    <Paragraph variant="small" id="description-text">
+      Helpful description text
+    </Paragraph>
+    <InputRange
+      defaultValue={10}
+      id="make-me-unique-5"
+      labelLow="Awful"
+      labelHigh="Fantastic"
+      aria-describedby="description-text"
+    />
+  </>
+)
+
+SliderPrimitive.storyName = "Slider primitive"
