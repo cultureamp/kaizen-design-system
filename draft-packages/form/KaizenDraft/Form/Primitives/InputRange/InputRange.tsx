@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import { Paragraph } from "@kaizen/component-library"
+import classnames from "classnames"
 import styles from "./styles.scss"
 
 export interface InputRangeProps
@@ -7,6 +8,7 @@ export interface InputRangeProps
   value?: number
   labelLow?: ReactNode
   labelHigh?: ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -19,6 +21,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     labelHigh = "Very",
     onChange,
     "aria-describedby": ariaDescribedby,
+    classNameAndIHaveSpokenToDST,
     ...genericInputProps
   } = props
 
@@ -29,7 +32,10 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   return (
     <div>
       <input
-        className={styles.ratingScaleRange}
+        className={classnames(
+          styles.ratingScaleRange,
+          classNameAndIHaveSpokenToDST
+        )}
         type="range"
         min={min}
         max={max}
