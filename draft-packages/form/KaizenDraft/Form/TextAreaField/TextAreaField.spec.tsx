@@ -18,3 +18,15 @@ it("renders a description when provided", () => {
 
   expect(screen.getByText("Your reply will only be seen by you")).toBeTruthy()
 })
+
+it("renders a validation message when provided", () => {
+  render(
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      validationMessage="Incorrect message"
+    />
+  )
+
+  expect(screen.getByText("Incorrect message")).toBeTruthy()
+})
