@@ -32,7 +32,9 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             <Label htmlFor={genericInputProps.id} labelText={labelText} />
           </Box>
           {labelDescription && (
-            <Paragraph variant="small">{labelDescription}</Paragraph>
+            <Paragraph variant="small" id={`${genericInputProps.id}-help-text`}>
+              {labelDescription}
+            </Paragraph>
           )}
         </div>
         <div className={styles.inputWrapper}>
@@ -40,6 +42,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             labelLow={labelLow}
             labelHigh={labelHigh}
             classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
+            aria-describedby={`${genericInputProps.id}-help-text`}
             {...genericInputProps}
           />
         </div>
