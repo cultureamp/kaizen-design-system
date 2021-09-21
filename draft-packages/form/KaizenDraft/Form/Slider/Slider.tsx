@@ -20,6 +20,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     labelDescription,
     labelLow,
     labelHigh,
+    classNameAndIHaveSpokenToDST,
     ...genericInputProps
   } = props
 
@@ -38,6 +39,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
           <InputRange
             labelLow={labelLow}
             labelHigh={labelHigh}
+            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
             {...genericInputProps}
           />
         </div>
