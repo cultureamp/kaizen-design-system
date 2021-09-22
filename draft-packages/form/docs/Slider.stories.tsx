@@ -82,3 +82,18 @@ export const SliderPrimitive = () => (
 )
 
 SliderPrimitive.storyName = "Slider primitive"
+
+export const SliderDisabled = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    defaultValue={10}
+    id="make-me-unique-4"
+    labelLow="Awful"
+    labelHigh="Fantastic"
+    disabled={true}
+    disabledLabel="Waiting for Doug"
+  />
+)
+
+SliderDisabled.storyName = "Slider disabled"
