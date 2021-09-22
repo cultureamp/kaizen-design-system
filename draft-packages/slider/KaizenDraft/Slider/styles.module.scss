@@ -3,11 +3,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 // The draghandle
-$thumb-color: var($color-blue-500-id, $color-purple-600);
+$thumb-color: $color-blue-500;
 $thumb-radius: 100%;
 $thumb-height: 26px;
 $thumb-width: 26px;
-$thumb-hover-shadow-color: var($color-blue-600-id, $color-purple-700);
+$thumb-hover-shadow-color: $color-blue-600;
 
 // The range
 $track-color: $color-gray-300;
