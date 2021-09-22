@@ -9,6 +9,8 @@ export interface InputRangeProps
   labelLow?: ReactNode
   labelHigh?: ReactNode
   classNameAndIHaveSpokenToDST?: string
+  showDisabledLabel?: boolean
+  disabledLabel?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -22,6 +24,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     onChange,
     "aria-describedby": ariaDescribedby,
     classNameAndIHaveSpokenToDST,
+    disabledLabel,
     ...genericInputProps
   } = props
 
@@ -29,12 +32,18 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   const min = 1
   const max = 10
 
+  const showDisabledLabel =
+    genericInputProps.disabled === true &&
+    disabledLabel !== undefined &&
+    disabledLabel !== ""
+
   return (
     <div>
       <input
         className={classnames(
           styles.ratingScaleRange,
-          classNameAndIHaveSpokenToDST
+          classNameAndIHaveSpokenToDST,
+          genericInputProps.disabled ? styles.disabled : null
         )}
         type="range"
         min={min}
@@ -61,22 +70,33 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         {min} is {labelLow}, {max} is {labelHigh}
       </div>
       <div className={styles.labelsContainer}>
-        <div className={styles.sliderLabels}>
+        {!showDisabledLabel && (
+          <div className={styles.sliderLabels}>
+            <Paragraph
+              variant="extra-small"
+              color="dark-reduced-opacity"
+              tag="span"
+            >
+              {labelLow}
+            </Paragraph>
+            <Paragraph
+              variant="extra-small"
+              color="dark-reduced-opacity"
+              tag="span"
+            >
+              {labelHigh}
+            </Paragraph>
+          </div>
+        )}
+        {showDisabledLabel && (
           <Paragraph
             variant="extra-small"
             color="dark-reduced-opacity"
-            tag="span"
+            tag="div"
           >
-            {labelLow}
+            {disabledLabel}
           </Paragraph>
-          <Paragraph
-            variant="extra-small"
-            color="dark-reduced-opacity"
-            tag="span"
-          >
-            {labelHigh}
-          </Paragraph>
-        </div>
+        )}
       </div>
     </div>
   )

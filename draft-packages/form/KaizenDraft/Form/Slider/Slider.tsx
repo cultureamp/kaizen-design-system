@@ -11,6 +11,7 @@ export interface SliderFieldProps
   id: string
   labelLow?: ReactNode
   labelHigh?: ReactNode
+  disabledLabel?: string
   classNameAndIHaveSpokenToDST?: string
 }
 
@@ -21,6 +22,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     labelLow,
     labelHigh,
     classNameAndIHaveSpokenToDST,
+    disabledLabel,
     ...genericInputProps
   } = props
 
@@ -43,6 +45,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             labelHigh={labelHigh}
             classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
             aria-describedby={`${genericInputProps.id}-help-text`}
+            disabledLabel={disabledLabel}
             {...genericInputProps}
           />
         </div>
