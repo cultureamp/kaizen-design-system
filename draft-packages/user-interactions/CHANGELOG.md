@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.3.6...@kaizen/draft-user-interactions@1.3.7) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
 ## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.3.5...@kaizen/draft-user-interactions@1.3.6) (2021-09-22)
 
 **Note:** Version bump only for package @kaizen/draft-user-interactions
