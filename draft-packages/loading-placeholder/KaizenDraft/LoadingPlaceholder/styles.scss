@@ -7,9 +7,6 @@
 @import "./decision-tokens";
 
 .base {
-  // We need to set some CSS Custom Properties on our container for theme switching to work.
-  @include loading-placeholder-theme-switching-tokens;
-
   background-color: $dt-color-background-default;
   border-radius: calc(#{$border-solid-border-radius} * 3);
   position: relative;
@@ -45,7 +42,7 @@
 }
 
 .reversedOcean {
-  background-color: var($color-blue-200-id, $color-blue-300);
+  background-color: $color-blue-200;
 }
 
 .normal {

@@ -8,7 +8,7 @@
 @import "~@kaizen/component-library/styles/animation";
 
 $base-border: $border-solid-border-width $border-solid-border-style
-  var($color-gray-500-id, $color-purple-200);
+  $color-gray-500;
 $button-width: 124px;
 
 $side-padding: 3/4 * $ca-grid;
@@ -85,8 +85,8 @@ $side-padding: 3/4 * $ca-grid;
   height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
   position: relative;
 
-  --dt-heart-disabled-border-color: rgba(var(#{$color-gray-500-rgb-id}), 0.3);
-  --dt-heart-disabled-color: rgba(var(#{$color-purple-800-rgb-id}), 0.3);
+  --dt-heart-disabled-border-color: rgba($color-gray-500-rgb, 0.3);
+  --dt-heart-disabled-color: rgba($color-purple-800-rgb, 0.3);
 }
 
 .buttonReset {
@@ -104,33 +104,30 @@ $side-padding: 3/4 * $ca-grid;
 .buttonDefault {
   @include button-mixing(
     $background: $color-white,
-    $border-color: var($color-gray-500-id, $color-purple-200),
+    $border-color: $color-gray-500,
     $color: $color-purple-800,
     $hover-background: $color-gray-100,
-    $hover-border-color: var($color-gray-600-id, $color-purple-400),
-    $active-background: var($color-gray-100-id, $color-gray-300),
-    $active-border-color: var($color-gray-600-id, $color-purple-500),
+    $hover-border-color: $color-gray-600,
+    $active-background: $color-gray-100,
+    $active-border-color: $color-gray-600,
     $disabled-background: $color-white,
-    $disabled-border-color:
-      var(--dt-heart-disabled-border-color, $color-purple-200),
-    $disabled-color: var(--dt-heart-disabled-color, $color-purple-300)
+    $disabled-border-color: var(--dt-heart-disabled-border-color),
+    $disabled-color: var(--dt-heart-disabled-color)
   );
 }
 
 .buttonPrimary {
-  // #58b59a is equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen (Wisteria)
   @include button-mixing(
-    $background: var($color-green-300-id, #58b59a),
-    $border-color: var($color-green-300-id, #58b59a),
-    $color: var($color-purple-800-id, $color-white),
-    $hover-background: var($color-green-400-id, $color-green-500),
-    $hover-border-color: var($color-green-400-id, $color-green-500),
+    $background: $color-green-300,
+    $border-color: $color-green-300,
+    $color: $color-purple-800,
+    $hover-background: $color-green-400,
+    $hover-border-color: $color-green-400,
     $active-background: $color-green-500,
     $active-border-color: $color-green-500,
     $disabled-background: $color-white,
-    $disabled-border-color:
-      var(--dt-heart-disabled-border-color, $color-purple-100),
-    $disabled-color: var(--dt-heart-disabled-color, $color-purple-300)
+    $disabled-border-color: var(--dt-heart-disabled-border-color),
+    $disabled-color: var(--dt-heart-disabled-color)
   );
 }
 
@@ -243,19 +240,12 @@ $side-padding: 3/4 * $ca-grid;
 .dropdownButtonPrimary {
   composes: buttonReset buttonPrimary;
 
-  --dt-border-left-color-heart: rgba(var(#{$color-green-400-rgb-id}), 0.7);
-
-  // Making the left | right border white to separate the button with dropdown button
+  --dt-border-left-color-heart: rgba($color-green-400-rgb, 0.7);
   /* stylelint-disable declaration-no-important */
-  border-left-color: var(--dt-border-left-color-heart, $color-white) !important;
+  border-left-color: var(--dt-border-left-color-heart) !important;
 
   [dir="rtl"] & {
-    // equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen
-    border-left-color: #58b59a !important;
-    border-left-color: var(
-      --dt-border-left-color-heart,
-      $color-white
-    ) !important;
+    border-left-color: var(--dt-border-left-color-heart) !important;
   }
 
   &:active,

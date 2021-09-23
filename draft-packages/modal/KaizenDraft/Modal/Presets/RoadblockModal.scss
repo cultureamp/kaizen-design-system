@@ -5,8 +5,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
-// Use Peach 100 for Heart theme, and Peach 500 for Zen (default fallback)
-$dt-roadblock-header-background: var($color-orange-100-id, $color-orange-500);
+$dt-roadblock-header-background: $color-orange-100;
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";

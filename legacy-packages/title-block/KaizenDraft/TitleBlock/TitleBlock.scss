@@ -391,12 +391,12 @@
 .reverseColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: var($color-purple-600-id, $color-purple-700);
+      background-color: $color-purple-600;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: var($color-purple-600-id, $color-purple-700);
+      background-color: $color-purple-600;
     }
   }
 }
@@ -517,12 +517,12 @@
 .stickyColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: var($color-purple-600-id, $color-purple-700);
+      background-color: $color-purple-600;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: var($color-purple-600-id, $color-purple-700);
+      background-color: $color-purple-600;
     }
   }
 }
