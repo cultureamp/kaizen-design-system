@@ -11,6 +11,7 @@ export interface InputRangeProps
   classNameAndIHaveSpokenToDST?: string
   showDisabledLabel?: boolean
   disabledLabel?: string
+  ariaDescribedby?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -22,9 +23,10 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     labelLow = "Not at all",
     labelHigh = "Very",
     onChange,
-    "aria-describedby": ariaDescribedby,
+    ariaDescribedby,
     classNameAndIHaveSpokenToDST,
     disabledLabel,
+    disabled,
     ...genericInputProps
   } = props
 
@@ -33,9 +35,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   const max = 10
 
   const showDisabledLabel =
-    genericInputProps.disabled === true &&
-    disabledLabel !== undefined &&
-    disabledLabel !== ""
+    disabled === true && disabledLabel !== undefined && disabledLabel !== ""
 
   return (
     <div>
@@ -43,8 +43,9 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         className={classnames(
           styles.ratingScaleRange,
           classNameAndIHaveSpokenToDST,
-          genericInputProps.disabled ? styles.disabled : null
+          disabled ? styles.disabled : null
         )}
+        disabled={disabled}
         type="range"
         min={min}
         max={max}
@@ -54,9 +55,9 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${genericInputProps.id}-helper ${
+        aria-describedby={`${genericInputProps.id}-helper-${
           ariaDescribedby ? ariaDescribedby : ""
-        } `}
+        }`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange && onChange(e)
