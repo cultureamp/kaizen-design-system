@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 // The draghandle
 $thumb-color: var($color-blue-500-id, $color-purple-600);
@@ -32,23 +31,17 @@ $notches-number: 10;
   border-radius: $thumb-radius;
   background: $thumb-color;
 
-  .enabled & {
-    cursor: pointer;
+  &:not(:disabled) {
     transition: box-shadow 0.2s;
     box-shadow: 0 0 0 0 $thumb-hover-shadow-color;
+
     &:hover {
       box-shadow: 0 0 0 6px $thumb-hover-shadow-color;
     }
   }
 }
 
-.ratingScale {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input[type="range"].ratingScaleRange {
+.ratingScaleRange {
   all: unset;
   appearance: none;
   width: 100%;
@@ -128,10 +121,6 @@ input[type="range"].ratingScaleRange {
   &::-ms-thumb {
     @include thumb;
   }
-}
-
-.disabled.emptyValue {
-  opacity: 0.5;
 }
 
 .labelsContainer {

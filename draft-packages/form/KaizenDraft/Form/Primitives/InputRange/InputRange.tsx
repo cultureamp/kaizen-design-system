@@ -38,7 +38,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     disabled === true && disabledLabel !== undefined && disabledLabel !== ""
 
   return (
-    <div>
+    <>
       <input
         className={classnames(
           styles.ratingScaleRange,
@@ -99,7 +99,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
           </Paragraph>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
