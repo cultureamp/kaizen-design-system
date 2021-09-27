@@ -85,7 +85,7 @@ SliderPrimitive.storyName = "Slider primitive"
 
 export const SliderPrimitiveHeadingLabel = () => (
   <>
-    <Heading variant="heading-4" id="make-me-unique-6">
+    <Heading tag="div" variant="heading-4" id="make-me-unique-6">
       Label
     </Heading>
     <Paragraph variant="small" id="description-text">
@@ -97,6 +97,7 @@ export const SliderPrimitiveHeadingLabel = () => (
       labelLow="Awful"
       labelHigh="Fantastic"
       aria-describedby="description-text"
+      id="make-me-unique-7"
     />
   </>
 )

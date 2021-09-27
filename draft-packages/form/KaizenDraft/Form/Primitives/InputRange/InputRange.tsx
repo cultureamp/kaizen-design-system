@@ -23,7 +23,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     labelLow = "Not at all",
     labelHigh = "Very",
     onChange,
-    ariaDescribedby,
+    "aria-describedby": ariaDescribedby,
     classNameAndIHaveSpokenToDST,
     disabledLabel,
     disabled,
@@ -55,7 +55,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${genericInputProps.id}-helper-${
+        aria-describedby={`${genericInputProps.id}-helper ${
           ariaDescribedby ? ariaDescribedby : ""
         }`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
