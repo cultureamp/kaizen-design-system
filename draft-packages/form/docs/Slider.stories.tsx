@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph, Heading } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { InputRange, Label } from "../KaizenDraft/Form"
 
@@ -82,6 +82,26 @@ export const SliderPrimitive = () => (
 )
 
 SliderPrimitive.storyName = "Slider primitive"
+
+export const SliderPrimitiveHeadingLabel = () => (
+  <>
+    <Heading variant="heading-4" id="make-me-unique-6">
+      Label
+    </Heading>
+    <Paragraph variant="small" id="description-text">
+      Helpful description text
+    </Paragraph>
+    <InputRange
+      defaultValue={10}
+      aria-labelledby="make-me-unique-6"
+      labelLow="Awful"
+      labelHigh="Fantastic"
+      aria-describedby="description-text"
+    />
+  </>
+)
+
+SliderPrimitiveHeadingLabel.storyName = "Slider primitive with Heading as label"
 
 export const SliderDisabled = () => (
   <Slider
