@@ -5,7 +5,9 @@
 // The draghandle
 $thumb-color: var($color-blue-500-id, $color-purple-600);
 $thumb-radius: 100%;
+$thumb-border-height: 2px;
 $thumb-height: 26px;
+$thumb-height-with-border: $thumb-height + ($thumb-border-height * 2);
 $thumb-width: 26px;
 $thumb-hover-shadow-color: var($color-blue-600-id, $color-purple-700);
 
@@ -20,12 +22,13 @@ $notches-number: 10;
 @mixin track {
   width: auto;
   height: $track-height;
+  box-sizing: border-box;
 }
 
 @mixin thumb {
   width: $thumb-width;
   height: $thumb-height;
-  border: none;
+  border: $thumb-border-height solid transparent;
   border-radius: $thumb-radius;
   background: $thumb-color;
 
@@ -80,7 +83,14 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-runnable-track {
     @include track;
-    border: none;
+    border: $thumb-border-height solid transparent;
+    border-radius: $track-radius;
+    background: $track-color;
+  }
+
+  &::-moz-range-track {
+    @include track;
+    border: $thumb-border-height solid transparent;
     border-radius: $track-radius;
     background: $track-color;
   }
@@ -88,14 +98,7 @@ input[type="range"].ratingScaleRange {
   &::-webkit-slider-thumb {
     @include thumb;
     -webkit-appearance: none;
-    margin-top: ($thumb-height - $track-height) / -2;
-  }
-
-  &::-moz-range-track {
-    @include track;
-    border: none;
-    border-radius: $track-radius;
-    background: $track-color;
+    margin-top: ($thumb-height-with-border - $track-height) / 2 * -1;
   }
 
   &::-moz-range-thumb {
