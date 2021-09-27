@@ -42,8 +42,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
       <input
         className={classnames(
           styles.ratingScaleRange,
-          classNameAndIHaveSpokenToDST,
-          disabled ? styles.disabled : null
+          classNameAndIHaveSpokenToDST
         )}
         disabled={disabled}
         type="range"

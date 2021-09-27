@@ -61,6 +61,10 @@ $notches-number: 10;
     )
     5px;
 
+  &:disabled {
+    opacity: 0.4;
+  }
+
   &::-moz-focus-outer {
     border: 0;
   }
