@@ -1,8 +1,8 @@
 import React, { InputHTMLAttributes, ReactNode } from "react"
 import { Paragraph, Box } from "@kaizen/component-library"
+import classnames from "classnames"
 import { FieldGroup, Label, InputRange } from ".."
 import styles from "./styles.scss"
-import classnames from "classnames"
 
 export interface SliderFieldProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
