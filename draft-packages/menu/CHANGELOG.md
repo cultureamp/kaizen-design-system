@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.12...@kaizen/draft-menu@3.4.13) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [3.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.11...@kaizen/draft-menu@3.4.12) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-menu
