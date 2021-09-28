@@ -85,19 +85,19 @@ SliderPrimitive.storyName = "Slider primitive"
 
 export const SliderPrimitiveHeadingLabel = () => (
   <>
-    <Heading tag="div" variant="heading-4" id="make-me-unique-6">
+    <Heading tag="label" variant="heading-4" id="make-me-unique-6">
       Label
     </Heading>
     <Paragraph variant="small" id="description-text">
       Helpful description text
     </Paragraph>
     <InputRange
+      id="make-me-unique-7"
       defaultValue={10}
-      aria-labelledby="make-me-unique-6"
       labelLow="Awful"
       labelHigh="Fantastic"
+      aria-labelledby="make-me-unique-6" // unfortunately Heading doesn't allow `htmlFor`, so we have to use aria-labelledby instead here
       aria-describedby="description-text"
-      id="make-me-unique-7"
     />
   </>
 )
