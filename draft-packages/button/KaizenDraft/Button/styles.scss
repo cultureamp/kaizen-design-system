@@ -506,17 +506,33 @@ $caButton-verticalPaddingForm: calc(
 
   &%caButtonDestructive {
     &:not(:disabled) {
-      &:hover,
+      color: $color-white;
+      background: $color-red-500;
+      border-color: $color-red-500;
+
+      &:hover {
+        background: $color-red-600;
+        border-color: $color-red-600;
+      }
+
       &:active {
-        color: $color-red-600;
-        background-color: $color-red-100;
+        background: $color-red-600;
+        border-color: $color-red-600;
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        color: $color-red-600;
-        background-color: $color-red-100;
-        border-color: $border-borderless-border-color;
+        background: $color-red-600;
+        border-color: $color-red-600;
+        color: $color-white;
       }
+    }
+
+    &:disabled,
+    &.working {
+      @include working-state;
+      color: $color-white;
+      background: $color-red-500;
+      border-color: $color-red-500;
     }
   }
 }

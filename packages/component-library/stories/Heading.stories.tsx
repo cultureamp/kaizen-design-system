@@ -17,7 +17,7 @@ export default {
 export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
 
 export const Heading1 = () => (
-  <Heading data-automation-id="test" variant="heading-1">
+  <Heading data-automation-id="test" variant="heading-1" id="make-me-unique">
     Heading 1
   </Heading>
 )

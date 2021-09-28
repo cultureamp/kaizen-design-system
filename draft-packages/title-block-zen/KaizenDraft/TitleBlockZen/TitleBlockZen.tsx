@@ -300,21 +300,16 @@ const renderBreadcrumb = (
         className={styles.breadcrumb}
         data-automation-id={breadcrumbAutomationId}
         onClick={handleClick}
-        aria-label="Back to previous page"
       >
         <div className={styles.circle}>
           <Icon icon={icon} role="presentation" />
         </div>
-      </TagName>
-      <TagName
-        {...(path && { href: path })}
-        className={styles.breadcrumbTextLink}
-        data-automation-id={breadcrumbTextAutomationId}
-        onClick={handleClick}
-        aria-label="Back to previous page"
-        tabIndex={-1}
-      >
-        <span className={styles.breadcrumbText}>{text}</span>
+        <span
+          className={styles.breadcrumbTextLink}
+          data-automation-id={breadcrumbTextAutomationId}
+        >
+          <span className={styles.breadcrumbText}>{text}</span>
+        </span>
       </TagName>
     </>
   )
