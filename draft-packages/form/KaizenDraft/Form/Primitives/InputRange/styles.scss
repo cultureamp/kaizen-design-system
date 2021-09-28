@@ -26,7 +26,7 @@ $notches-number: 10;
 @mixin thumb {
   width: $thumb-width;
   height: $thumb-height;
-  border: $thumb-border-height solid transparent;
+  border: $thumb-border-height solid transparent; // transparent border for Windows high contrast mode
   border-radius: $thumb-radius;
   background: $thumb-color;
 
@@ -79,14 +79,14 @@ $notches-number: 10;
 
   &::-webkit-slider-runnable-track {
     @include track;
-    border: $thumb-border-height solid transparent;
+    border: $thumb-border-height solid transparent; // transparent border for Windows high contrast mode
     border-radius: $track-radius;
     background: $track-color;
   }
 
   &::-moz-range-track {
     @include track;
-    border: $thumb-border-height solid transparent;
+    border: $thumb-border-height solid transparent; // transparent border for Windows high contrast mode
     border-radius: $track-radius;
     background: $track-color;
   }
