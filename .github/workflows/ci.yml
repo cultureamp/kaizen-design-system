@@ -6,8 +6,6 @@ jobs:
   typescript:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
-    env:
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -21,6 +19,8 @@ jobs:
         with:
           node-version: "14.15.1"
       - name: Install package dependencies
+        env:
+          PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
           yarn install --frozen-lockfile
@@ -29,8 +29,6 @@ jobs:
   eslint:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
-    env:
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -44,6 +42,8 @@ jobs:
         with:
           node-version: "14.15.1"
       - name: Install package dependencies
+        env:
+          PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
           yarn install --frozen-lockfile
@@ -52,8 +52,6 @@ jobs:
   prettier:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
-    env:
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -67,6 +65,8 @@ jobs:
         with:
           node-version: "14.15.x"
       - name: Install package dependencies
+        env:
+          PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
           yarn install --frozen-lockfile
@@ -75,8 +75,6 @@ jobs:
   jest-react-16:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
-    env:
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -90,6 +88,8 @@ jobs:
         with:
           node-version: "14.15.x"
       - name: Install package dependencies
+        env:
+          PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
           yarn install --frozen-lockfile
@@ -99,8 +99,6 @@ jobs:
   jest-react-17:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
-    env:
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -114,6 +112,8 @@ jobs:
         with:
           node-version: "14.15.x"
       - name: Install package dependencies
+        env:
+          PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
           yarn install --frozen-lockfile
