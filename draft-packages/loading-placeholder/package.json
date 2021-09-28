@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-loading-placeholder",
-  "version": "1.7.5",
+  "version": "1.8.1",
   "description": "The draft Loading placeholder component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^11.0.0",
+    "@kaizen/component-library": "^11.1.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

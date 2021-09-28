@@ -1,6 +1,3 @@
 @import "~@kaizen/design-tokens/sass/color";
-$dt-color-background-color-default: var(
-  $color-purple-600-id,
-  $color-purple-700
-);
-$dt-color-background-color-education: var($color-blue-100-id, $color-blue-200);
+$dt-color-background-color-default: $color-purple-600;
+$dt-color-background-color-education: $color-blue-100;

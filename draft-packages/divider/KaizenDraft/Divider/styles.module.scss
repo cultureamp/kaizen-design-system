@@ -3,10 +3,7 @@
 
 // Use different tokens with different opacities across the Zen and Heart themes, by assuming that when Zen is applied there won't be any CSS variables declared.
 
-$dt-content-border-color: rgba(
-  var($color-gray-600-rgb-id, $color-purple-700-rgb),
-  0.1
-);
+$dt-content-border-color: rgba($color-gray-600-rgb, 0.1);
 
 .wrapper {
   width: 100%;
@@ -28,16 +25,9 @@ $dt-content-border-color: rgba(
 }
 
 .canvas {
-  --dt-canvas-border-color-zen: rgba(#{$color-purple-700-rgb}, 0.2);
-  --dt-canvas-border-color-heart: rgba(var(#{$color-gray-600-rgb-id}), 0.1);
-  --dt-canvas-border-color: var(
-    --dt-canvas-border-color-heart,
-    var(--dt-canvas-border-color-zen)
-  );
-
   border-top: 1px solid;
   border-bottom: 1px solid;
-  border-color: var(--dt-canvas-border-color);
+  border-color: rgba($color-gray-600-rgb, 0.1);
 
   &.reversed {
     border-color: rgba($color-white-rgb, 0.1);

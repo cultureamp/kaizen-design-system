@@ -5,16 +5,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
-// Use different tokens for "Heart" theme with fallback values set to "Zen" theme.
-$dt-positive-header-background: var($color-green-100-id, $color-green-500);
-
-$dt-informative-header-background: var($color-blue-100-id, $color-blue-500);
-
-$dt-negative-header-background: var($color-red-100-id, $color-red-500);
-
-$dt-cautionary-header-background: var($color-yellow-100-id, $color-yellow-500);
-
-$dt-heading-text-color: var($color-purple-800-id, $color-white);
+$dt-positive-header-background: $color-green-100;
+$dt-informative-header-background: $color-blue-100;
+$dt-negative-header-background: $color-red-100;
+$dt-cautionary-header-background: $color-yellow-100;
+$dt-heading-text-color: $color-purple-800;
 $dt-cautionary-heading-text-color: $color-purple-800;
 
 .modal {
