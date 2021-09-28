@@ -21,7 +21,6 @@ export default {
 export const DefaultKaizenSiteDemo = () => (
   <Slider id="make-me-unique-1" labelText="Work overall" />
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultUncontrolled = () => (
@@ -34,7 +33,6 @@ export const DefaultUncontrolled = () => (
     labelHigh="Fantastic"
   />
 )
-
 DefaultUncontrolled.storyName = "Default, Uncontrolled"
 
 export const DefaultControlled = () => {
@@ -49,7 +47,6 @@ export const DefaultControlled = () => {
     />
   )
 }
-
 DefaultControlled.storyName = "Default, Controlled"
 
 export const DefaultWithLabelLowAndLabelHigh = () => (
@@ -62,8 +59,20 @@ export const DefaultWithLabelLowAndLabelHigh = () => (
     labelHigh="Fantastic"
   />
 )
+DefaultWithLabelLowAndLabelHigh.storyName = "Default, Custom low/high labels"
 
-DefaultWithLabelLowAndLabelHigh.storyName = "Default, Label low and high"
+export const DefaultLabelAboveSlider = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    labelPosition="block"
+    defaultValue={10}
+    id="make-me-unique-4"
+    labelLow="Awful"
+    labelHigh="Fantastic"
+  />
+)
+DefaultLabelAboveSlider.storyName = "Default, Label above Slider"
 
 export const SliderPrimitive = () => (
   <>
@@ -84,7 +93,6 @@ export const SliderPrimitive = () => (
     />
   </>
 )
-
 SliderPrimitive.storyName = "Slider primitive"
 
 export const SliderPrimitiveHeadingLabel = () => (
@@ -109,7 +117,6 @@ export const SliderPrimitiveHeadingLabel = () => (
     />
   </>
 )
-
 SliderPrimitiveHeadingLabel.storyName = "Slider primitive with Heading as label"
 
 export const SliderDisabled = () => (
@@ -124,5 +131,4 @@ export const SliderDisabled = () => (
     disabledLabel="Waiting for Doug"
   />
 )
-
 SliderDisabled.storyName = "Slider disabled"

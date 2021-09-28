@@ -2,6 +2,7 @@ import React, { InputHTMLAttributes, ReactNode } from "react"
 import { Paragraph, Box } from "@kaizen/component-library"
 import { FieldGroup, Label, InputRange } from ".."
 import styles from "./styles.scss"
+import classnames from "classnames"
 
 export interface SliderFieldProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
@@ -11,6 +12,7 @@ export interface SliderFieldProps
   id: string
   labelLow?: ReactNode
   labelHigh?: ReactNode
+  labelPosition?: "inline" | "block"
   disabledLabel?: string
   classNameAndIHaveSpokenToDST?: string
 }
@@ -21,6 +23,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     labelDescription,
     labelLow,
     labelHigh,
+    labelPosition = "inline",
     classNameAndIHaveSpokenToDST,
     disabledLabel,
     ...genericInputProps
@@ -28,7 +31,11 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
 
   return (
     <FieldGroup inline={true}>
-      <div className={styles.wrapper}>
+      <div
+        className={classnames(styles.wrapper, {
+          [styles.labelInline]: labelPosition === "inline",
+        })}
+      >
         <div className={styles.labelWrapper}>
           <Box mb={0.25}>
             <Label htmlFor={genericInputProps.id} labelText={labelText} />
