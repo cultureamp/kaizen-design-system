@@ -29,6 +29,7 @@ export type GenericProps = {
   id?: string
   label: string
   destructive?: boolean
+  secondary?: boolean
   disabled?: boolean
   form?: boolean
   reversed?: boolean
@@ -53,7 +54,6 @@ export type AdditionalContentProps = {
 type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
-  secondary?: boolean
 }
 
 type WorkingProps = {

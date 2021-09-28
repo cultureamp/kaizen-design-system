@@ -59,6 +59,29 @@ export const DestructiveDisabled = () => (
 
 DestructiveDisabled.storyName = "Destructive, Disabled"
 
+export const DestructiveSecondary = () => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    destructive={true}
+    secondary={true}
+  />
+)
+
+DestructiveSecondary.storyName = "Destructive, Secondary"
+
+export const DestructiveSecondaryDisabled = () => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    destructive={true}
+    secondary={true}
+    disabled={true}
+  />
+)
+
+DestructiveSecondaryDisabled.storyName = "Destructive, Secondary, Disabled"
+
 export const Reversed = () => (
   <IconButton icon={configureIcon} label="Label" reversed />
 )

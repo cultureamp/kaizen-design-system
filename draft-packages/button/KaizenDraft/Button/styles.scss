@@ -32,6 +32,40 @@ $caButton-verticalPaddingForm: calc(
   pointer-events: none;
 }
 
+@mixin secondary-destructive {
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+
+  &:not(:disabled) {
+    background: transparent;
+    border-color: $border-borderless-border-color;
+    color: $color-red-600;
+
+    %caButtonLabel {
+      color: $color-red-600;
+    }
+
+    &:hover,
+    &:active,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      color: $color-red-600;
+      background: $color-red-100;
+      border-color: $border-borderless-border-color;
+    }
+  }
+
+  &:disabled,
+  &.working {
+    @include working-state;
+    background: transparent;
+    border-color: $border-borderless-border-color;
+    color: $color-red-600;
+  }
+}
+
 %caButtonContainer {
   display: inline-block;
 }
@@ -232,37 +266,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonSecondaryDestructive {
-  font-family: $typography-button-secondary-font-family;
-  font-weight: $typography-button-secondary-font-weight;
-  font-size: $typography-button-secondary-font-size;
-  line-height: $typography-button-secondary-line-height;
-  letter-spacing: $typography-button-secondary-letter-spacing;
-
-  &:not(:disabled) {
-    background: transparent;
-    border-color: $border-borderless-border-color;
-    color: $color-red-600;
-
-    %caButtonLabel {
-      color: $color-red-600;
-    }
-
-    &:hover,
-    &:active,
-    :global(.js-focus-visible) &:global(.focus-visible) {
-      color: $color-red-600;
-      background: $color-red-100;
-      border-color: $border-borderless-border-color;
-    }
-  }
-
-  &:disabled,
-  &.working {
-    @include working-state;
-    background: transparent;
-    border-color: $border-borderless-border-color;
-    color: $color-red-600;
-  }
+  @include secondary-destructive;
 }
 
 %caButtonReversed {
@@ -559,6 +563,10 @@ $caButton-verticalPaddingForm: calc(
       background: $color-red-500;
       border-color: $color-red-500;
     }
+  }
+
+  &%caButtonSecondaryDestructive {
+    @include secondary-destructive;
   }
 }
 
