@@ -11,8 +11,6 @@ exports[`Dropdown renders control action dropdown 1`] = `
       class="dropdownIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -37,8 +35,6 @@ exports[`Dropdown renders control action dropdown 1`] = `
       class="chevronIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -68,8 +64,6 @@ exports[`Dropdown renders default view 1`] = `
       class="dropdownIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -99,8 +93,6 @@ exports[`Dropdown renders drop down with icon 1`] = `
       class="dropdownIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -131,8 +123,6 @@ exports[`Dropdown renders drop down with icon and label 1`] = `
       class="dropdownIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -184,8 +174,6 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
       class="dropdownIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
@@ -210,8 +198,6 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
       class="chevronIcon"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
         class="icon"
         focusable="false"
         role="img"
