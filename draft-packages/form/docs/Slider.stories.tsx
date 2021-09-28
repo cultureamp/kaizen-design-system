@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
-import { Paragraph, Heading } from "@kaizen/component-library"
+import { Paragraph, Heading, Box } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { InputRange, Label } from "../KaizenDraft/Form"
 
@@ -67,10 +67,14 @@ DefaultWithLabelLowAndLabelHigh.storyName = "Default, Label low and high"
 
 export const SliderPrimitive = () => (
   <>
-    <Label htmlFor="make-me-unique-5">Label</Label>
-    <Paragraph variant="small" id="description-text">
-      Helpful description text
-    </Paragraph>
+    <Box mb={0.25}>
+      <Label htmlFor="make-me-unique-5">Work overall</Label>
+    </Box>
+    <Box mb={0.5}>
+      <Paragraph variant="small" id="description-text">
+        General feeling about work
+      </Paragraph>
+    </Box>
     <InputRange
       defaultValue={10}
       id="make-me-unique-5"
@@ -85,12 +89,16 @@ SliderPrimitive.storyName = "Slider primitive"
 
 export const SliderPrimitiveHeadingLabel = () => (
   <>
-    <Heading tag="label" variant="heading-4" id="make-me-unique-6">
-      Label
-    </Heading>
-    <Paragraph variant="small" id="description-text">
-      Helpful description text
-    </Paragraph>
+    <Box mb={0.25}>
+      <Heading tag="label" variant="heading-4" id="make-me-unique-6">
+        Work overall
+      </Heading>
+    </Box>
+    <Box mb={0.5}>
+      <Paragraph variant="small" id="description-text">
+        General feeling about work
+      </Paragraph>
+    </Box>
     <InputRange
       id="make-me-unique-7"
       defaultValue={10}
