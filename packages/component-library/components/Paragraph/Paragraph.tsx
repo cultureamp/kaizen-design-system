@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { createElement } from "react"
 
@@ -25,7 +26,8 @@ export type AllowedColors =
   | "positive"
   | "negative"
 
-export interface ParagraphProps {
+export interface ParagraphProps
+  extends Omit<HTMLAttributes<HTMLElement>, "className"> {
   /**
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
