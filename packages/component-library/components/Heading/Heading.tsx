@@ -1,6 +1,5 @@
-import { HTMLAttributes } from "react"
 import classNames from "classnames"
-import { createElement } from "react"
+import { createElement, HTMLAttributes } from "react"
 
 import styles from "./Heading.module.scss"
 
@@ -26,6 +25,7 @@ export type AllowedTags =
   | "h4"
   | "h5"
   | "h6"
+  | "label"
 
 export type AllowedColors =
   | "dark"
