@@ -285,7 +285,7 @@ export const WithoutBottomMargin = () => (
 
 WithoutBottomMargin.storyName = "without bottom margin"
 
-export const ConditionallyChecked = () => {
+export const NestedCheckboxGroup = () => {
   const [selectedOptions, setSelectedOptions] = React.useState<number[]>([])
 
   const onCheckHandler = (state: string, value: number) => {
@@ -349,4 +349,4 @@ export const ConditionallyChecked = () => {
   )
 }
 
-ConditionallyChecked.storyName = "Conditionally checked"
+NestedCheckboxGroup.storyName = "Nested Checkbox Group"
