@@ -12,7 +12,7 @@ type Props = {
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
-  primaryAction: ButtonProps
+  primaryAction?: ButtonProps
   secondaryAction?: ButtonProps
   text: {
     title: ReactNode
@@ -66,11 +66,13 @@ export const BrandMoment = (props: Props) => {
                 )}
                 {props.body && <Box mb={1.5}>{props.body}</Box>}
                 <div className={styles.actions}>
-                  <Button
-                    primary
-                    fullWidth={queries.isSmall}
-                    {...props.primaryAction}
-                  />
+                  {props.primaryAction && (
+                    <Button
+                      primary
+                      fullWidth={queries.isSmall}
+                      {...props.primaryAction}
+                    />
+                  )}
                   {props.secondaryAction && (
                     <div className={styles.secondaryAction}>
                       <Button
