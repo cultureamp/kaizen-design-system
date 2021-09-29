@@ -21,12 +21,12 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
     value,
     defaultValue,
     validationMessage,
-    status,
+    status = "default",
     autogrow,
     description,
     inline,
     reversed,
-    variant,
+    variant = "default",
     maxLength,
     placeholder,
     textAreaRef,
@@ -37,6 +37,7 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
     ...genericTextAreaProps
   } = props
 
+  const renderDescriptionOnTop = variant === "prominent"
   const renderDescription = (position: "top" | "bottom") => {
     if (!description) return null
     return (
@@ -64,7 +65,7 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
         reversed={reversed}
         variant={variant}
       />
-      {variant === "prominent" && renderDescription("top")}
+      {renderDescriptionOnTop && renderDescription("top")}
       <TextArea
         id={`${id}-field-textarea`}
         automationId={`${id}-field-textarea`}
@@ -92,7 +93,7 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
           reversed={reversed}
         />
       )}
-      {variant === "default" && renderDescription("bottom")}
+      {!renderDescriptionOnTop && renderDescription("bottom")}
     </FieldGroup>
   )
 }

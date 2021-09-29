@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.21.4...@kaizen/draft-select@1.21.5) (2021-09-29)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.21.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.21.3...@kaizen/draft-select@1.21.4) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.21.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.21.2...@kaizen/draft-select@1.21.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.21.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.21.1...@kaizen/draft-select@1.21.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.21.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.21.0...@kaizen/draft-select@1.21.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.21.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.20.8...@kaizen/draft-select@1.21.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [1.20.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.20.7...@kaizen/draft-select@1.20.8) (2021-09-13)
 
 **Note:** Version bump only for package @kaizen/draft-select

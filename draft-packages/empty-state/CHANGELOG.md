@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.7.2...@kaizen/draft-empty-state@2.7.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.7.1...@kaizen/draft-empty-state@2.7.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.7.0...@kaizen/draft-empty-state@2.7.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.6.9...@kaizen/draft-empty-state@2.7.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [2.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.6.8...@kaizen/draft-empty-state@2.6.9) (2021-09-10)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

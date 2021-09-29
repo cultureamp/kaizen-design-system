@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import { createElement } from "react"
+import { createElement, HTMLAttributes } from "react"
 
 import styles from "./Heading.module.scss"
 
@@ -25,6 +25,7 @@ export type AllowedTags =
   | "h4"
   | "h5"
   | "h6"
+  | "label"
 
 export type AllowedColors =
   | "dark"
@@ -34,7 +35,8 @@ export type AllowedColors =
   | "positive"
   | "negative"
 
-export interface HeadingProps {
+export interface HeadingProps
+  extends Omit<HTMLAttributes<HTMLElement>, "className"> {
   /**
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.3...@kaizen/draft-form@3.9.4) (2021-09-29)
+
+
+### Bug Fixes
+
+* Wrong background-color for the checkbox after transition from mixed to off state ([#1818](https://github.com/cultureamp/kaizen-design-system/issues/1818)) ([babcad6](https://github.com/cultureamp/kaizen-design-system/commit/babcad63765474cc21210065099ba3c9b257a233))
+
+
+
+
+
+## [3.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.2...@kaizen/draft-form@3.9.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.1...@kaizen/draft-form@3.9.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.0...@kaizen/draft-form@3.9.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.7...@kaizen/draft-form@3.9.0) (2021-09-22)
+
+
+### Bug Fixes
+
+* Add default value to variant to ensure description displays ([#1963](https://github.com/cultureamp/kaizen-design-system/issues/1963)) ([012ccd4](https://github.com/cultureamp/kaizen-design-system/commit/012ccd425c2d8d8ba82b8b70e96e292aa4fedbc1))
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [3.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.6...@kaizen/draft-form@3.8.7) (2021-09-13)
 
 

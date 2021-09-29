@@ -1,7 +1,7 @@
 {
   "typography": {
     "dataLarge": {
-      "fontFamily": "var(--typography-data-large-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-large-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-large-font-family",
       "fontWeight": "var(--typography-data-large-font-weight, 700)",
       "fontWeight-id": "--typography-data-large-font-weight",
@@ -13,7 +13,7 @@
       "letterSpacing-id": "--typography-data-large-letter-spacing"
     },
     "dataLargeUnits": {
-      "fontFamily": "var(--typography-data-large-units-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-large-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-large-units-font-family",
       "fontWeight": "var(--typography-data-large-units-font-weight, 700)",
       "fontWeight-id": "--typography-data-large-units-font-weight",
@@ -25,7 +25,7 @@
       "letterSpacing-id": "--typography-data-large-units-letter-spacing"
     },
     "dataMedium": {
-      "fontFamily": "var(--typography-data-medium-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-medium-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-medium-font-family",
       "fontWeight": "var(--typography-data-medium-font-weight, 700)",
       "fontWeight-id": "--typography-data-medium-font-weight",
@@ -37,7 +37,7 @@
       "letterSpacing-id": "--typography-data-medium-letter-spacing"
     },
     "dataMediumUnits": {
-      "fontFamily": "var(--typography-data-medium-units-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-medium-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-medium-units-font-family",
       "fontWeight": "var(--typography-data-medium-units-font-weight, 700)",
       "fontWeight-id": "--typography-data-medium-units-font-weight",
@@ -73,43 +73,43 @@
       "letterSpacing-id": "--typography-data-small-units-letter-spacing"
     },
     "display0": {
-      "fontFamily": "var(--typography-display-0-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-display-0-font-family, \"Tiempos Headline\", Georgia, serif)",
       "fontFamily-id": "--typography-display-0-font-family",
-      "fontWeight": "var(--typography-display-0-font-weight, 700)",
+      "fontWeight": "var(--typography-display-0-font-weight, 800)",
       "fontWeight-id": "--typography-display-0-font-weight",
       "fontSize": "var(--typography-display-0-font-size, 4.5rem)",
       "fontSize-id": "--typography-display-0-font-size",
-      "lineHeight": "var(--typography-display-0-line-height, 4.5rem)",
+      "lineHeight": "var(--typography-display-0-line-height, 5.25rem)",
       "lineHeight-id": "--typography-display-0-line-height",
-      "letterSpacing": "var(--typography-display-0-letter-spacing, -0.03em)",
+      "letterSpacing": "var(--typography-display-0-letter-spacing, 0em)",
       "letterSpacing-id": "--typography-display-0-letter-spacing"
     },
     "heading1": {
-      "fontFamily": "var(--typography-heading-1-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-heading-1-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-1-font-family",
       "fontWeight": "var(--typography-heading-1-font-weight, 700)",
       "fontWeight-id": "--typography-heading-1-font-weight",
-      "fontSize": "var(--typography-heading-1-font-size, 2.25rem)",
+      "fontSize": "var(--typography-heading-1-font-size, 2.125rem)",
       "fontSize-id": "--typography-heading-1-font-size",
-      "lineHeight": "var(--typography-heading-1-line-height, 2.25rem)",
+      "lineHeight": "var(--typography-heading-1-line-height, 2.625rem)",
       "lineHeight-id": "--typography-heading-1-line-height",
-      "letterSpacing": "var(--typography-heading-1-letter-spacing, -0.03em)",
+      "letterSpacing": "var(--typography-heading-1-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-1-letter-spacing"
     },
     "heading2": {
-      "fontFamily": "var(--typography-heading-2-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-heading-2-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-2-font-family",
       "fontWeight": "var(--typography-heading-2-font-weight, 700)",
       "fontWeight-id": "--typography-heading-2-font-weight",
-      "fontSize": "var(--typography-heading-2-font-size, 1.875rem)",
+      "fontSize": "var(--typography-heading-2-font-size, 1.75rem)",
       "fontSize-id": "--typography-heading-2-font-size",
       "lineHeight": "var(--typography-heading-2-line-height, 2.25rem)",
       "lineHeight-id": "--typography-heading-2-line-height",
-      "letterSpacing": "var(--typography-heading-2-letter-spacing, -0.03em)",
+      "letterSpacing": "var(--typography-heading-2-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-2-letter-spacing"
     },
     "heading3": {
-      "fontFamily": "var(--typography-heading-3-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-heading-3-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-3-font-family",
       "fontWeight": "var(--typography-heading-3-font-weight, 700)",
       "fontWeight-id": "--typography-heading-3-font-weight",
@@ -117,7 +117,7 @@
       "fontSize-id": "--typography-heading-3-font-size",
       "lineHeight": "var(--typography-heading-3-line-height, 1.5rem)",
       "lineHeight-id": "--typography-heading-3-line-height",
-      "letterSpacing": "var(--typography-heading-3-letter-spacing, -0.03em)",
+      "letterSpacing": "var(--typography-heading-3-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-3-letter-spacing"
     },
     "heading4": {

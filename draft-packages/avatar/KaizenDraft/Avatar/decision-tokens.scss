@@ -1,16 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@mixin avatar-theme-switching-tokens() {
-  --avatar--color-icon-color: rgba(var(#{$color-purple-800-rgb-id}), 0.7);
-}
-$dt-color-background-color: var($color-gray-300-id, $color-gray-100);
-$dt-color-background-color-initials: var($color-gray-300-id, $color-purple-200);
-$dt-color-background-color-personal: var(
-  $color-orange-100-id,
-  $color-orange-200
-);
+$dt-color-background-color: $color-gray-300;
+$dt-color-background-color-initials: $color-gray-300;
+$dt-color-background-color-personal: $color-orange-100;
 $dt-color-text-color: $color-purple-800;
 $dt-color-border-color: $color-white;
-$dt-color-icon-color: var(
-  --avatar--color-icon-color,
-  rgba($color-purple-800-rgb, 0.3)
-);
+$dt-color-icon-color: rgba($color-purple-800-rgb, 0.7);

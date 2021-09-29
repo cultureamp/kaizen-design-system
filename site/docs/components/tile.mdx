@@ -8,6 +8,15 @@ needToKnow:
 - Tiles draw attention to featured items.
 - All tiles have a title.
 - There are three types of tiles - InformationTile, MultiActionTile, SingleActionTile
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: false
+  allVariants: false
+  responsive: true
+  internationalized: false
+  accessible: false
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -30,10 +39,6 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 ### InformationTile
 *   For display of hero data.
 *   Generally has either no action, or a single action to flip (which shows additional context and optional secondary action).
-
-### Layout
-*   Max. 4 per row in 1392px area
-*   See [Tile Grid](/components/tile-grid)
 
 ## Anatomy
 
@@ -68,6 +73,15 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 *   **Supplementary footer** (optional)
     *   Positioned at bottom of Tile.
 
+### TileGrid
+*   **Children (required)**
+        *   1 to many Tiles.
+*   **Layout**
+    *   Max. 4 Tiles per row in 1392px area
+    *   Tiles separated by 24px (1.5rem) both vertically and horizontally
+    *   Automatically wraps Tiles according to width of viewport
+    *   On mobile Tiles are stacked vertically and are full width of the content area
+
 ### Focus indicator:
   *   See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
   *   On keyboard navigation:
@@ -92,7 +106,6 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 </WhenToUseAndWhenNotToUse>
 
 ## See also
-*   [Tile Grid](/components/tile-grid)
 *   [Buttons](/components/button/)
 *   [Cards](/components/card/)
 
