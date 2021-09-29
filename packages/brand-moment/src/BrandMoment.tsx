@@ -7,7 +7,7 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
-type Props = {
+export interface BrandMomentProps {
   mood: "informative" | "positive" | "negative"
   illustration: ReactElement<SceneProps>
   header: ReactNode
@@ -22,7 +22,7 @@ type Props = {
   }
 }
 
-export const BrandMoment = (props: Props) => {
+export const BrandMoment = (props: BrandMomentProps) => {
   const { queries } = useMediaQueries()
 
   return (
