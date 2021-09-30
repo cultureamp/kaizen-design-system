@@ -34,6 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^11.1.1",
     "@kaizen/deprecated-component-library-helpers": "^2.3.0",
+    "@kaizen/draft-loading-spinner": "^2.3.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
