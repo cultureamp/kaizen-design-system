@@ -371,7 +371,7 @@ $border-solid-border-radius-curved: $input-height;
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
-    background: rgba($color-white-rgb, 0.1);
+    background: rgba($color-white-rgb, 0.2);
     border: none;
   }
 
