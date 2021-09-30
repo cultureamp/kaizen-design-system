@@ -56,8 +56,21 @@ export const DestructiveDisabled = () => (
     disabled={true}
   />
 )
-
 DestructiveDisabled.storyName = "Destructive, Disabled"
+
+export const Secondary = () => (
+  <IconButton icon={configureIcon} label="Label" secondary={true} />
+)
+
+export const SecondaryDisabled = () => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    secondary={true}
+    disabled={true}
+  />
+)
+DestructiveDisabled.storyName = "Secondary, Disabled"
 
 export const DestructiveSecondary = () => (
   <IconButton
@@ -67,7 +80,6 @@ export const DestructiveSecondary = () => (
     secondary={true}
   />
 )
-
 DestructiveSecondary.storyName = "Destructive, Secondary"
 
 export const DestructiveSecondaryDisabled = () => (
@@ -79,7 +91,6 @@ export const DestructiveSecondaryDisabled = () => (
     disabled={true}
   />
 )
-
 DestructiveSecondaryDisabled.storyName = "Destructive, Secondary, Disabled"
 
 export const Reversed = () => (
@@ -99,9 +110,34 @@ export const ReversedDisabled = () => (
     disabled={true}
   />
 )
-
 ReversedDisabled.storyName = "Reversed, Disabled"
 ReversedDisabled.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
+export const ReversedSecondary = () => (
+  <IconButton icon={configureIcon} label="Label" reversed secondary={true} />
+)
+ReversedSecondary.storyName = "Reversed, Secondary"
+ReversedSecondary.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
+export const ReversedSecondaryDisabled = () => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    reversed
+    secondary={true}
+    disabled={true}
+  />
+)
+ReversedSecondaryDisabled.storyName = "Reversed, Secondary Disabled"
+ReversedSecondaryDisabled.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
@@ -110,5 +146,4 @@ ReversedDisabled.parameters = {
 export const FormDiscouraged = () => (
   <IconButton icon={configureIcon} label="Label" form={true} />
 )
-
 FormDiscouraged.storyName = "Form (discouraged)"
