@@ -18,7 +18,6 @@ export interface InputSearchProps
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
-  ariaLabel?: string
 }
 
 const InputSearch: React.FunctionComponent<InputSearchProps> = (
@@ -35,7 +34,6 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
     reversed = false,
     loading,
     secondary,
-    ariaLabel,
     ...genericInputProps
   } = props
 
@@ -65,7 +63,6 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
       </div>
 
       <input
-        aria-label={ariaLabel}
         id={id}
         type="search"
         value={value}
