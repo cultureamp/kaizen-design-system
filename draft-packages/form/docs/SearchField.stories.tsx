@@ -72,6 +72,7 @@ export const SearchFieldSecondary = () => {
       <SearchField
         id="search-field"
         placeholder="Search…"
+        labelText="Label"
         secondary
         value={value}
         onChange={e => setValue(e.target.value)}
@@ -90,6 +91,7 @@ export const SearchFieldSecondaryLoading = () => {
       <SearchField
         id="search-field"
         placeholder="Search…"
+        labelText="Label"
         secondary
         loading
         value={value}
@@ -109,6 +111,7 @@ export const SearchFieldSecondaryDisabled = () => {
       <SearchField
         id="search-field"
         placeholder="Search…"
+        labelText="Label"
         secondary
         disabled
         value={value}
@@ -224,6 +227,7 @@ export const SearchFieldSecondaryReversed = () => {
         id="search-field"
         reversed
         placeholder="Search…"
+        labelText="Label"
         secondary
         value={value}
         onChange={e => setValue(e.target.value)}
@@ -248,6 +252,7 @@ export const SearchFieldSecondaryReversedLoading = () => {
         id="search-field"
         reversed
         placeholder="Search…"
+        labelText="Label"
         secondary
         loading
         value={value}
@@ -274,6 +279,7 @@ export const SearchFieldSecondaryReversedDisabled = () => {
         reversed
         disabled
         placeholder="Search…"
+        labelText="Label"
         secondary
         value={value}
         onChange={e => setValue(e.target.value)}
