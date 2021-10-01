@@ -30,7 +30,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
 
   return (
     <FieldGroup inline={false}>
-      {!secondary && (
+      {secondary && (
         <Label
           htmlFor={searchFieldId}
           labelText={labelText}
@@ -39,7 +39,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         />
       )}
       <InputSearch
-        aria-label={!secondary ? labelText : ""}
+        aria-label={secondary ? labelText : undefined}
         id={searchFieldId}
         placeholder={placeholder}
         disabled={disabled}
