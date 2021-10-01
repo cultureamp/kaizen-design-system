@@ -32,7 +32,7 @@ $caButton-verticalPaddingForm: calc(
   pointer-events: none;
 }
 
-@mixin secondary-destructive {
+@mixin secondary {
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
@@ -42,6 +42,34 @@ $caButton-verticalPaddingForm: calc(
   &:not(:disabled) {
     background: transparent;
     border-color: $border-borderless-border-color;
+    color: $color-blue-500;
+
+    %caButtonLabel {
+      color: $color-blue-500;
+    }
+
+    &:hover,
+    &:active,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      color: $color-blue-500;
+      background: $color-blue-100;
+      border-color: $border-borderless-border-color;
+    }
+  }
+
+  &:disabled,
+  &.working {
+    @include working-state;
+    background: transparent;
+    border-color: $border-borderless-border-color;
+    color: $color-blue-500;
+  }
+}
+
+@mixin secondary-destructive {
+  @include secondary;
+
+  &:not(:disabled) {
     color: $color-red-600;
 
     %caButtonLabel {
@@ -53,15 +81,12 @@ $caButton-verticalPaddingForm: calc(
     :global(.js-focus-visible) &:global(.focus-visible) {
       color: $color-red-600;
       background: $color-red-100;
-      border-color: $border-borderless-border-color;
     }
   }
 
   &:disabled,
   &.working {
     @include working-state;
-    background: transparent;
-    border-color: $border-borderless-border-color;
     color: $color-red-600;
   }
 }
@@ -232,37 +257,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonSecondary {
-  font-family: $typography-button-secondary-font-family;
-  font-weight: $typography-button-secondary-font-weight;
-  font-size: $typography-button-secondary-font-size;
-  line-height: $typography-button-secondary-line-height;
-  letter-spacing: $typography-button-secondary-letter-spacing;
-
-  &:not(:disabled) {
-    background: transparent;
-    border-color: $border-borderless-border-color;
-    color: $color-blue-500;
-
-    %caButtonLabel {
-      color: $color-blue-500;
-    }
-
-    &:hover,
-    &:active,
-    :global(.js-focus-visible) &:global(.focus-visible) {
-      color: $color-blue-500;
-      background: $color-blue-100;
-      border-color: $border-borderless-border-color;
-    }
-  }
-
-  &:disabled,
-  &.working {
-    @include working-state;
-    background: transparent;
-    border-color: $border-borderless-border-color;
-    color: $color-blue-500;
-  }
+  @include secondary;
 }
 
 %caButtonSecondaryDestructive {
@@ -467,8 +462,7 @@ $caButton-verticalPaddingForm: calc(
     &,
     &:hover,
     &:active,
-    &%caButtonPrimary,
-    &%caButtonSecondary {
+    &%caButtonPrimary {
       color: inherit;
       background: none;
       border-color: $border-borderless-border-color;
@@ -485,13 +479,16 @@ $caButton-verticalPaddingForm: calc(
     }
   }
 
+  &%caButtonSecondary {
+    @include secondary;
+  }
+
   &:not(:disabled) {
     cursor: pointer;
 
     &:hover,
     &:active,
     :global(.js-focus-visible) &:global(.focus-visible) {
-      color: $color-blue-500;
       background: $color-gray-200;
       border-color: $border-borderless-border-color;
     }
@@ -508,6 +505,14 @@ $caButton-verticalPaddingForm: calc(
         background: rgba($color-white-rgb, 0.1);
         border-color: $border-borderless-border-color;
       }
+    }
+
+    &:disabled,
+    &.working {
+      @include working-state;
+      opacity: 0.3;
+      color: $color-white;
+      background: transparent;
     }
   }
 
