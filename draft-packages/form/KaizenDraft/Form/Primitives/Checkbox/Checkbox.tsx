@@ -74,8 +74,8 @@ const Input: Input = ({
       disabled={disabled}
       value={value || checkedStatus}
       ref={node => {
-        if (node && checkedStatus === "mixed") {
-          node.indeterminate = true
+        if (node) {
+          node.indeterminate = checkedStatus === "mixed"
         }
       }}
     />

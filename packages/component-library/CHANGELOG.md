@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.0...@kaizen/component-library@11.2.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* a11Y change for aria label on hidden for undefined ([#1976](https://github.com/cultureamp/kaizen-design-system/issues/1976)) ([02ddae0](https://github.com/cultureamp/kaizen-design-system/commit/02ddae0645e87e544be366bc64c18ceec3b1f94a))
+
+
+
+
+
+# [11.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.2...@kaizen/component-library@11.2.0) (2021-09-28)
+
+
+### Features
+
+* Allow generic HTMLElement props on Heading and Paragraph ([#1974](https://github.com/cultureamp/kaizen-design-system/issues/1974)) ([0d98026](https://github.com/cultureamp/kaizen-design-system/commit/0d9802611f8afcb2d653d4d4cf99cbc0c5eff118))
+
+
+
+
+
+## [11.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.1...@kaizen/component-library@11.1.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [11.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.0...@kaizen/component-library@11.1.1) (2021-09-23)
 
 **Note:** Version bump only for package @kaizen/component-library
