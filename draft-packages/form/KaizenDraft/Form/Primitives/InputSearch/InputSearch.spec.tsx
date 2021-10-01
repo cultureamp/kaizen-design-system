@@ -28,7 +28,7 @@ describe("<InputSearch />", () => {
 
   it("should call the `onChange` event when text value is updated", () => {
     const placeholder = "someInputPlaceholder"
-    const utils = renderInput({ value: "", placeholder })
+    const utils = renderInput({ value: "", placeholder, id: "someInputId" })
     const input = utils.getByPlaceholderText(placeholder)
 
     fireEvent.change(input, {
@@ -39,12 +39,12 @@ describe("<InputSearch />", () => {
   })
 
   it("should render a disabled inside of input", () => {
-    const { container } = renderInput({ disabled: true })
+    const { container } = renderInput({ disabled: true, id: "someInputId" })
     expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render a reversed input", () => {
-    const { container } = renderInput({ reversed: true })
+    const { container } = renderInput({ reversed: true, id: "someInputId" })
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 })

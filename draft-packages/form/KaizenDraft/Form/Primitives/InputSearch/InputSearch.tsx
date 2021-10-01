@@ -12,6 +12,7 @@ export interface InputSearchProps
     React.InputHTMLAttributes<HTMLInputElement>,
     "className" | "defaultValue"
   > {
+  id: string
   classNameAndIHaveSpokenToDST?: string
   reversed?: boolean
   loading?: boolean
@@ -19,8 +20,11 @@ export interface InputSearchProps
   onClear?: () => void
 }
 
-const InputSearch: React.FunctionComponent = (props: InputSearchProps) => {
+const InputSearch: React.FunctionComponent<InputSearchProps> = (
+  props: InputSearchProps
+) => {
   const {
+    id,
     value,
     onChange,
     onClear,
@@ -59,6 +63,7 @@ const InputSearch: React.FunctionComponent = (props: InputSearchProps) => {
       </div>
 
       <input
+        id={id}
         type="search"
         value={value}
         placeholder={placeholder}
