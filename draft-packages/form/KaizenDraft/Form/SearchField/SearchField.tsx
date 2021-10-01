@@ -10,7 +10,7 @@ export interface SearchFieldProps
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
-  labelText?: React.ReactNode
+  labelText: string
   onClear?: () => void
 }
 
@@ -30,13 +30,16 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
 
   return (
     <FieldGroup inline={false}>
-      <Label
-        htmlFor={searchFieldId}
-        labelText={labelText}
-        reversed={reversed}
-        disabled={disabled}
-      />
+      {secondary && (
+        <Label
+          htmlFor={searchFieldId}
+          labelText={labelText}
+          reversed={reversed}
+          disabled={disabled}
+        />
+      )}
       <InputSearch
+        ariaLabel={secondary ? labelText : ""}
         id={searchFieldId}
         placeholder={placeholder}
         disabled={disabled}
