@@ -17,6 +17,7 @@ export interface SliderFieldProps
   labelPosition?: "inline" | "block"
   disabledLabel?: string
   classNameAndIHaveSpokenToDST?: string
+  variant?: "default" | "prominent"
 }
 
 const Slider: React.FunctionComponent<SliderFieldProps> = props => {
@@ -25,6 +26,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     labelText,
     labelDescription,
     labelPosition = "inline",
+    variant = "default",
     ...restProps
   } = props
   const helpTextId = `${id}-help-text`
@@ -38,7 +40,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
       >
         <div className={styles.labelWrapper}>
           <Box mb={0.25}>
-            <Label htmlFor={id} labelText={labelText} />
+            <Label htmlFor={id} labelText={labelText} variant={variant} />
           </Box>
           {labelDescription && (
             <Paragraph variant="small" id={helpTextId}>

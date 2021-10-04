@@ -1,8 +1,7 @@
 import * as React from "react"
-
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
-import { Paragraph, Heading, Box } from "@kaizen/component-library"
+import { Paragraph, Box } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { InputRange, Label } from "../KaizenDraft/Form"
 
@@ -23,7 +22,7 @@ export const DefaultKaizenSiteDemo = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const DefaultUncontrolled = () => (
+export const Uncontrolled = () => (
   <Slider
     labelText="Work overall"
     labelDescription="General feeling about work"
@@ -31,9 +30,9 @@ export const DefaultUncontrolled = () => (
     id="make-me-unique-2"
   />
 )
-DefaultUncontrolled.storyName = "Default, Uncontrolled"
+Uncontrolled.storyName = "Uncontrolled"
 
-export const DefaultControlled = () => {
+export const Controlled = () => {
   const [value, setValue] = useState(5.5)
   return (
     <Slider
@@ -44,9 +43,9 @@ export const DefaultControlled = () => {
     />
   )
 }
-DefaultControlled.storyName = "Default, Controlled"
+Controlled.storyName = "Controlled"
 
-export const DefaultLabelAboveSlider = () => (
+export const LabelAboveSlider = () => (
   <Slider
     labelText="Work overall"
     labelDescription="General feeling about work"
@@ -55,9 +54,9 @@ export const DefaultLabelAboveSlider = () => (
     id="make-me-unique-4"
   />
 )
-DefaultLabelAboveSlider.storyName = "Default, Label above Slider"
+LabelAboveSlider.storyName = "Label above input"
 
-export const DefaultCustomMinMaxLabels = () => (
+export const CustomMinMaxLabels = () => (
   <Slider
     labelText="Work overall"
     labelDescription="General feeling about work"
@@ -67,21 +66,43 @@ export const DefaultCustomMinMaxLabels = () => (
     maxLabel="Fantastic"
   />
 )
-DefaultCustomMinMaxLabels.storyName = "Default, Custom min/max labels"
+CustomMinMaxLabels.storyName = "Custom min/max labels"
 
-export const DefaultCustomMinMax = () => (
+export const CustomMinMax = () => (
   <Slider
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={4}
     min={1}
     max={7}
-    id="make-me-unique-5"
+    id="make-me-unique-6"
   />
 )
-DefaultCustomMinMax.storyName = "Default, Custom min/max"
+CustomMinMax.storyName = "Custom min/max"
 
-export const SliderPrimitive = () => (
+export const Prominent = () => (
+  <Slider
+    variant="prominent"
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    id="make-me-unique-7"
+  />
+)
+Prominent.storyName = "Prominent"
+
+export const Disabled = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    defaultValue={10}
+    id="make-me-unique-8"
+    disabled={true}
+    disabledLabel="Waiting for Doug"
+  />
+)
+Disabled.storyName = "Disabled"
+
+export const UsingPrimitive = () => (
   <>
     <Box mb={0.25}>
       <Label htmlFor="make-me-unique-5">Work overall</Label>
@@ -93,43 +114,9 @@ export const SliderPrimitive = () => (
     </Box>
     <InputRange
       defaultValue={10}
-      id="make-me-unique-6"
+      id="make-me-unique-9"
       aria-describedby="description-text"
     />
   </>
 )
-SliderPrimitive.storyName = "Slider primitive"
-
-export const SliderPrimitiveHeadingLabel = () => (
-  <>
-    <Box mb={0.25}>
-      <Heading tag="label" variant="heading-4" id="make-me-unique-6">
-        Work overall
-      </Heading>
-    </Box>
-    <Box mb={0.5}>
-      <Paragraph variant="small" id="description-text">
-        General feeling about work
-      </Paragraph>
-    </Box>
-    <InputRange
-      id="make-me-unique-7"
-      defaultValue={10}
-      aria-labelledby="make-me-unique-6" // unfortunately Heading doesn't allow `htmlFor`, so we have to use aria-labelledby instead here
-      aria-describedby="description-text"
-    />
-  </>
-)
-SliderPrimitiveHeadingLabel.storyName = "Slider primitive with Heading as label"
-
-export const SliderDisabled = () => (
-  <Slider
-    labelText="Work overall"
-    labelDescription="General feeling about work"
-    defaultValue={10}
-    id="make-me-unique-8"
-    disabled={true}
-    disabledLabel="Waiting for Doug"
-  />
-)
-SliderDisabled.storyName = "Slider disabled"
+UsingPrimitive.storyName = "Using InputRange primitive"
