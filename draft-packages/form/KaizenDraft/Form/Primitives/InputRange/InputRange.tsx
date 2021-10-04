@@ -20,7 +20,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   props: InputRangeProps
 ) => {
   const {
-    defaultValue = 5.5,
+    defaultValue = props.max ? (props.max + 1) / 2 : 5.5,
     value,
     minLabel = "Not at all",
     maxLabel = "Very",
