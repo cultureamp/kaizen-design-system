@@ -745,6 +745,7 @@ export const ReversedDestructiveIcon = args => (
 ReversedDestructiveIcon.story = {
   name: "Reversed, Destructive + Icon",
   parameters: {
+    ...reversedBg,
     design: {
       type: "figma",
       url:
