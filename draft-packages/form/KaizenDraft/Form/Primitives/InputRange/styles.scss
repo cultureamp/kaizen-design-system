@@ -15,14 +15,12 @@ $thumb-hover-shadow-color: $color-blue-600;
 // The range
 $track-color: $color-gray-500;
 $track-radius: 4px;
-$track-width: auto;
-$track-height: 3px;
 
 @mixin track {
   width: auto;
   height: 0;
   box-sizing: border-box;
-  border-top: 2px solid $track-color;
+  border-top: 1px solid $track-color;
   border-bottom: 2px solid $track-color;
   border-radius: $track-radius;
 }
