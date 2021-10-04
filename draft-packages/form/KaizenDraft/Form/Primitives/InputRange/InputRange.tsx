@@ -6,6 +6,8 @@ import styles from "./styles.scss"
 export interface InputRangeProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
   value?: number
+  min?: number
+  max?: number
   labelLow?: ReactNode
   labelHigh?: ReactNode
   classNameAndIHaveSpokenToDST?: string
@@ -27,12 +29,12 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     classNameAndIHaveSpokenToDST,
     disabledLabel,
     disabled,
+    min = 1,
+    max = 10,
     ...genericInputProps
   } = props
 
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
-  const min = 1
-  const max = 10
 
   const showDisabledLabel =
     disabled === true && disabledLabel !== undefined && disabledLabel !== ""

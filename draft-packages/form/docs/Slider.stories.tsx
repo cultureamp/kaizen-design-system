@@ -37,7 +37,6 @@ DefaultUncontrolled.storyName = "Default, Uncontrolled"
 
 export const DefaultControlled = () => {
   const [value, setValue] = useState(5.5)
-
   return (
     <Slider
       id="make-me-unique-3"
@@ -74,6 +73,18 @@ export const DefaultLabelAboveSlider = () => (
 )
 DefaultLabelAboveSlider.storyName = "Default, Label above Slider"
 
+export const DefaultCustomMinMax = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    defaultValue={4}
+    min={1}
+    max={7}
+    id="make-me-unique-5"
+  />
+)
+DefaultCustomMinMax.storyName = "Default, Custom min/max"
+
 export const SliderPrimitive = () => (
   <>
     <Box mb={0.25}>
@@ -86,7 +97,7 @@ export const SliderPrimitive = () => (
     </Box>
     <InputRange
       defaultValue={10}
-      id="make-me-unique-5"
+      id="make-me-unique-6"
       labelLow="Awful"
       labelHigh="Fantastic"
       aria-describedby="description-text"
@@ -124,7 +135,7 @@ export const SliderDisabled = () => (
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={10}
-    id="make-me-unique-4"
+    id="make-me-unique-8"
     labelLow="Awful"
     labelHigh="Fantastic"
     disabled={true}

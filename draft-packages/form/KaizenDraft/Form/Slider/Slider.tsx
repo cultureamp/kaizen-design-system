@@ -9,6 +9,8 @@ export interface SliderFieldProps
   labelText: ReactNode
   labelDescription?: ReactNode
   value?: number
+  min?: number
+  max?: number
   id: string
   labelLow?: ReactNode
   labelHigh?: ReactNode
