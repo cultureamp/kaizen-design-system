@@ -8,8 +8,9 @@ $thumb-radius: 100%;
 $thumb-border-width: 4px;
 $thumb-border-color: $color-white;
 $thumb-height: 26px;
-$thumb-height-with-border: $thumb-height + ($thumb-border-width * 2);
 $thumb-width: 26px;
+$thumb-height-with-border: $thumb-height + ($thumb-border-width * 2);
+$thumb-width-with-border: $thumb-width + ($thumb-border-width * 2);
 $thumb-hover-shadow-color: $color-blue-600;
 
 // The range
@@ -111,7 +112,7 @@ $track-radius: 4px;
 .spokes {
   display: flex;
   justify-content: space-between;
-  padding: 0 3.5% $spacing-sm;
+  padding: 0 $thumb-width-with-border/2 $spacing-sm;
 }
 
 .spokeContainer {
