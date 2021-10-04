@@ -48,24 +48,18 @@ const GenericModalContainer = (props: GenericModalContainerProps) => {
 class GenericModal extends React.Component<GenericModalProps> {
   scrollLayer: HTMLDivElement | null = null
   modalLayer: HTMLDivElement | null = null
-  accessibilityCheckTimeoutId: null | ReturnType<typeof setTimeout> = null
-
-  componentDidMount() {
-    if (this.props.isOpen) this.onOpen()
-  }
-
-  componentDidUpdate(prevProps: GenericModalProps) {
-    const hasJustOpened = !prevProps.isOpen && this.props.isOpen
-    const hasJustClosed = prevProps.isOpen && !this.props.isOpen
-    if (hasJustOpened) this.onOpen()
-    if (hasJustClosed) this.onClose()
-  }
 
   componentWillUnmount() {
-    this.onClose()
+    /*
+      Sometimes consumers control rendering modals without the
+      isOpen prop: e.g {isShowing && (<Modal />)}
+      So we need to cleanup after ourselves in onUnmount as well
+      as onAfterLeave (the callback from the Transition library).
+    */
+    this.onAfterLeave()
   }
 
-  onOpen() {
+  onAfterEnter() {
     this.addEventHandlers()
     this.preventBodyScroll()
     this.ensureAccessiblityIsMet()
@@ -76,14 +70,10 @@ class GenericModal extends React.Component<GenericModalProps> {
     }
   }
 
-  onClose() {
+  onAfterLeave() {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
-    if (this.accessibilityCheckTimeoutId) {
-      clearTimeout(this.accessibilityCheckTimeoutId)
-      this.accessibilityCheckTimeoutId = null
-    }
   }
 
   addEventHandlers() {
@@ -131,17 +121,15 @@ class GenericModal extends React.Component<GenericModalProps> {
   }
 
   ensureAccessiblityIsMet() {
-    this.accessibilityCheckTimeoutId = setTimeout(() => {
-      if (!this.modalLayer) return
-      // Ensure that consumers have provided an element that labels the modal
-      // to meet ARIA accessibility guidelines.
-      if (!document.getElementById(this.props.labelledByID)) {
-        warn(
-          `When using the Modal component, you must provide a label for the modal.
+    if (!this.modalLayer) return
+    // Ensure that consumers have provided an element that labels the modal
+    // to meet ARIA accessibility guidelines.
+    if (!document.getElementById(this.props.labelledByID)) {
+      warn(
+        `When using the Modal component, you must provide a label for the modal.
         Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
-        )
-      }
-    }, 0)
+      )
+    }
   }
 
   scrollModalToTop() {
@@ -179,6 +167,8 @@ class GenericModal extends React.Component<GenericModalProps> {
         show={isOpen}
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
+        afterEnter={() => this.onAfterEnter()}
+        afterLeave={() => this.onAfterLeave()}
         data-generic-modal-transition-wrapper
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
