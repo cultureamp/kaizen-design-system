@@ -63,6 +63,13 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         }}
         {...genericInputProps}
       />
+      <div className={styles.spokes}>
+        {[...Array(max)].map(() => (
+          <div className={styles.spokeContainer}>
+            <div className={styles.spoke} />
+          </div>
+        ))}
+      </div>
       <div
         className={styles.visuallyHidden}
         id={`${genericInputProps.id}-helper`}
