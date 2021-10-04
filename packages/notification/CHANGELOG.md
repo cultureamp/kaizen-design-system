@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.2...@kaizen/notification@0.2.3) (2021-09-28)
+
+
+### Bug Fixes
+
+* a11Y change for aria label on hidden for undefined ([#1976](https://github.com/cultureamp/kaizen-design-system/issues/1976)) ([02ddae0](https://github.com/cultureamp/kaizen-design-system/commit/02ddae0645e87e544be366bc64c18ceec3b1f94a))
+
+
+
+
+
 ## [0.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.1...@kaizen/notification@0.2.2) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/notification
