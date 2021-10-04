@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.5.0...@kaizen/brand-moment@1.5.1) (2021-10-01)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.4.19...@kaizen/brand-moment@1.5.0) (2021-09-29)
+
+
+### Features
+
+* Change the primaryAction to be an optional prop ([#1979](https://github.com/cultureamp/kaizen-design-system/issues/1979)) ([42bf6d3](https://github.com/cultureamp/kaizen-design-system/commit/42bf6d3c931583772b8717906d03356ff594dea4))
+
+
+
+
+
 ## [1.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.4.18...@kaizen/brand-moment@1.4.19) (2021-09-29)
 
 **Note:** Version bump only for package @kaizen/brand-moment
