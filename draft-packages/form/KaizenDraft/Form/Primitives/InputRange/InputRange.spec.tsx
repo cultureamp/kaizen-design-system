@@ -39,14 +39,14 @@ it("shows value correctly when provided", async () => {
 })
 
 it("custom low and high labels show when provided", async () => {
-  render(<InputRange labelLow="Sad face" labelHigh="Happy face" />)
+  render(<InputRange minLabel="Sad face" maxLabel="Happy face" />)
 
   await screen.findByText("Sad face")
   await screen.findByText("Happy face")
 })
 
 it("renders the screenreader help text", async () => {
-  render(<InputRange min={1} max={10} labelLow="bad" labelHigh="good" />)
+  render(<InputRange min={1} max={10} minLabel="bad" maxLabel="good" />)
 
   await screen.findAllByText(/1 is bad, 10 is good/i)
 })

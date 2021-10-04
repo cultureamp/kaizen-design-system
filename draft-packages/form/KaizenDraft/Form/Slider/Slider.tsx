@@ -6,14 +6,14 @@ import styles from "./styles.scss"
 
 export interface SliderFieldProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
-  labelText: ReactNode
-  labelDescription?: ReactNode
+  id: string
   value?: number
   min?: number
   max?: number
-  id: string
-  labelLow?: ReactNode
-  labelHigh?: ReactNode
+  minLabel?: ReactNode
+  maxLabel?: ReactNode
+  labelText: ReactNode
+  labelDescription?: ReactNode
   labelPosition?: "inline" | "block"
   disabledLabel?: string
   classNameAndIHaveSpokenToDST?: string
@@ -21,15 +21,13 @@ export interface SliderFieldProps
 
 const Slider: React.FunctionComponent<SliderFieldProps> = props => {
   const {
+    id,
     labelText,
     labelDescription,
-    labelLow,
-    labelHigh,
     labelPosition = "inline",
-    classNameAndIHaveSpokenToDST,
-    disabledLabel,
-    ...genericInputProps
+    ...restProps
   } = props
+  const helpTextId = `${id}-help-text`
 
   return (
     <FieldGroup inline={true}>
@@ -40,23 +38,16 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
       >
         <div className={styles.labelWrapper}>
           <Box mb={0.25}>
-            <Label htmlFor={genericInputProps.id} labelText={labelText} />
+            <Label htmlFor={id} labelText={labelText} />
           </Box>
           {labelDescription && (
-            <Paragraph variant="small" id={`${genericInputProps.id}-help-text`}>
+            <Paragraph variant="small" id={helpTextId}>
               {labelDescription}
             </Paragraph>
           )}
         </div>
         <div className={styles.inputWrapper}>
-          <InputRange
-            labelLow={labelLow}
-            labelHigh={labelHigh}
-            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
-            aria-describedby={`${genericInputProps.id}-help-text`}
-            disabledLabel={disabledLabel}
-            {...genericInputProps}
-          />
+          <InputRange id={id} aria-describedby={helpTextId} {...restProps} />
         </div>
       </div>
     </FieldGroup>

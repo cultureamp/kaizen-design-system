@@ -27,10 +27,8 @@ export const DefaultUncontrolled = () => (
   <Slider
     labelText="Work overall"
     labelDescription="General feeling about work"
-    defaultValue={10}
+    defaultValue={1}
     id="make-me-unique-2"
-    labelLow="Awful"
-    labelHigh="Fantastic"
   />
 )
 DefaultUncontrolled.storyName = "Default, Uncontrolled"
@@ -48,18 +46,6 @@ export const DefaultControlled = () => {
 }
 DefaultControlled.storyName = "Default, Controlled"
 
-export const DefaultWithLabelLowAndLabelHigh = () => (
-  <Slider
-    labelText="Work overall"
-    labelDescription="General feeling about work"
-    defaultValue={10}
-    id="make-me-unique-4"
-    labelLow="Awful"
-    labelHigh="Fantastic"
-  />
-)
-DefaultWithLabelLowAndLabelHigh.storyName = "Default, Custom low/high labels"
-
 export const DefaultLabelAboveSlider = () => (
   <Slider
     labelText="Work overall"
@@ -67,11 +53,21 @@ export const DefaultLabelAboveSlider = () => (
     labelPosition="block"
     defaultValue={10}
     id="make-me-unique-4"
-    labelLow="Awful"
-    labelHigh="Fantastic"
   />
 )
 DefaultLabelAboveSlider.storyName = "Default, Label above Slider"
+
+export const DefaultCustomMinMaxLabels = () => (
+  <Slider
+    labelText="Work overall"
+    labelDescription="General feeling about work"
+    defaultValue={10}
+    id="make-me-unique-5"
+    minLabel="Awful"
+    maxLabel="Fantastic"
+  />
+)
+DefaultCustomMinMaxLabels.storyName = "Default, Custom min/max labels"
 
 export const DefaultCustomMinMax = () => (
   <Slider
@@ -98,8 +94,6 @@ export const SliderPrimitive = () => (
     <InputRange
       defaultValue={10}
       id="make-me-unique-6"
-      labelLow="Awful"
-      labelHigh="Fantastic"
       aria-describedby="description-text"
     />
   </>
@@ -121,8 +115,6 @@ export const SliderPrimitiveHeadingLabel = () => (
     <InputRange
       id="make-me-unique-7"
       defaultValue={10}
-      labelLow="Awful"
-      labelHigh="Fantastic"
       aria-labelledby="make-me-unique-6" // unfortunately Heading doesn't allow `htmlFor`, so we have to use aria-labelledby instead here
       aria-describedby="description-text"
     />
@@ -136,8 +128,6 @@ export const SliderDisabled = () => (
     labelDescription="General feeling about work"
     defaultValue={10}
     id="make-me-unique-8"
-    labelLow="Awful"
-    labelHigh="Fantastic"
     disabled={true}
     disabledLabel="Waiting for Doug"
   />

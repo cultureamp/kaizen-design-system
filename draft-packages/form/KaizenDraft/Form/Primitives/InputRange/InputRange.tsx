@@ -8,8 +8,8 @@ export interface InputRangeProps
   value?: number
   min?: number
   max?: number
-  labelLow?: ReactNode
-  labelHigh?: ReactNode
+  minLabel?: ReactNode
+  maxLabel?: ReactNode
   classNameAndIHaveSpokenToDST?: string
   showDisabledLabel?: boolean
   disabledLabel?: string
@@ -22,8 +22,8 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   const {
     defaultValue = 5.5,
     value,
-    labelLow = "Not at all",
-    labelHigh = "Very",
+    minLabel = "Not at all",
+    maxLabel = "Very",
     onChange,
     "aria-describedby": ariaDescribedby,
     classNameAndIHaveSpokenToDST,
@@ -76,7 +76,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         className={styles.visuallyHidden}
         id={`${genericInputProps.id}-helper`}
       >
-        {min} is {labelLow}, {max} is {labelHigh}
+        {min} is {minLabel}, {max} is {maxLabel}
       </div>
       <div className={styles.labelsContainer}>
         {!showDisabledLabel && (
@@ -86,14 +86,14 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
               color="dark-reduced-opacity"
               tag="span"
             >
-              {labelLow}
+              {minLabel}
             </Paragraph>
             <Paragraph
               variant="extra-small"
               color="dark-reduced-opacity"
               tag="span"
             >
-              {labelHigh}
+              {maxLabel}
             </Paragraph>
           </div>
         )}
