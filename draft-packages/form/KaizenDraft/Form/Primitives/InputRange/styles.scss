@@ -3,14 +3,14 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 // The draghandle
-$thumb-color: var($color-blue-500-id, $color-purple-600);
+$thumb-color: $color-blue-500;
 $thumb-radius: 100%;
 $thumb-border-width: 4px;
 $thumb-border-color: $color-white;
 $thumb-height: 26px;
 $thumb-height-with-border: $thumb-height + ($thumb-border-width * 2);
 $thumb-width: 26px;
-$thumb-hover-shadow-color: var($color-blue-600-id, $color-purple-700);
+$thumb-hover-shadow-color: $color-blue-600;
 
 // The range
 $track-color: $color-gray-500;
