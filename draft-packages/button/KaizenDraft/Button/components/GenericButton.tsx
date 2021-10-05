@@ -237,7 +237,10 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
 
 const buttonClass = (props: Props) => {
   const variantClass =
-    (props.destructive && props.secondary && styles.secondaryDestructive) ||
+    (props.destructive &&
+      props.secondary &&
+      !props.reversed &&
+      styles.secondaryDestructive) ||
     (props.destructive && styles.destructive) ||
     (props.primary && styles.primary) ||
     (props.secondary && styles.secondary)
