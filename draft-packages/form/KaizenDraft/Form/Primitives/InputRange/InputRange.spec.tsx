@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import InputRange from "./InputRange"
 
 it("renders value as 5.5 when no default value provided", async () => {
-  render(<InputRange minLabel="Awful" maxLabel="Fantastic" />)
+  render(<InputRange id="unique-1" minLabel="Awful" maxLabel="Fantastic" />)
 
   screen.getByDisplayValue("5.5")
 })
@@ -15,7 +15,14 @@ it.todo(
 it.todo("moves value to 10 after clicking end of slider")
 
 it("shows default value correctly when provided", async () => {
-  render(<InputRange defaultValue={9} minLabel="Awful" maxLabel="Fantastic" />)
+  render(
+    <InputRange
+      id="unique-2"
+      defaultValue={9}
+      minLabel="Awful"
+      maxLabel="Fantastic"
+    />
+  )
 
   screen.getByDisplayValue("9")
 })
@@ -23,7 +30,12 @@ it("shows default value correctly when provided", async () => {
 it("fires onChange after interaction", async () => {
   const onChange = jest.fn()
   render(
-    <InputRange onChange={onChange} minLabel="Awful" maxLabel="Fantastic" />
+    <InputRange
+      id="unique-3"
+      onChange={onChange}
+      minLabel="Awful"
+      maxLabel="Fantastic"
+    />
   )
 
   const slider = await screen.findByRole("slider")
@@ -35,20 +47,24 @@ it("fires onChange after interaction", async () => {
 })
 
 it("shows value correctly when provided", async () => {
-  render(<InputRange value={2} minLabel="Awful" maxLabel="Fantastic" />)
+  render(
+    <InputRange id="unique-4" value={2} minLabel="Awful" maxLabel="Fantastic" />
+  )
 
   screen.getByDisplayValue("2")
 })
 
 it("custom low and high labels show when provided", async () => {
-  render(<InputRange minLabel="Sad face" maxLabel="Happy face" />)
+  render(<InputRange id="unique-5" minLabel="Sad face" maxLabel="Happy face" />)
 
   await screen.findByText("Sad face")
   await screen.findByText("Happy face")
 })
 
 it("renders the screenreader help text", async () => {
-  render(<InputRange min={1} max={10} minLabel="bad" maxLabel="good" />)
+  render(
+    <InputRange id="unique-6" min={1} max={10} minLabel="bad" maxLabel="good" />
+  )
 
   await screen.findAllByText(/1 is bad, 10 is good/i)
 })
@@ -58,6 +74,7 @@ it.todo("doesn't change value when disabled and clicked")
 it("renders disabled label when provided and disabled", async () => {
   render(
     <InputRange
+      id="unique-7"
       minLabel="Awful"
       maxLabel="Fantastic"
       disabled={true}

@@ -5,6 +5,7 @@ import styles from "./styles.scss"
 
 export interface InputRangeProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
+  id: string
   value?: number
   min?: number
   max?: number
@@ -19,6 +20,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   props: InputRangeProps
 ) => {
   const {
+    id,
     defaultValue = props.max ? (props.max + 1) / 2 : 5.5,
     value,
     minLabel,
@@ -34,7 +36,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   } = props
 
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
-
+  const visuallyHiddenHintId = `${id}-helper`
   const showDisabledLabel =
     disabled === true && disabledLabel !== undefined && disabledLabel !== ""
 
@@ -55,7 +57,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${genericInputProps.id}-helper ${
+        aria-describedby={`${visuallyHiddenHintId} ${
           ariaDescribedby ? ariaDescribedby : ""
         }`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,10 +73,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
           </div>
         ))}
       </div>
-      <div
-        className={styles.visuallyHidden}
-        id={`${genericInputProps.id}-helper`}
-      >
+      <div className={styles.visuallyHidden} id={visuallyHiddenHintId}>
         {min} is {minLabel}, {max} is {maxLabel}
       </div>
       <div className={styles.labelsContainer}>

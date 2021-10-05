@@ -29,7 +29,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     variant = "default",
     ...restProps
   } = props
-  const helpTextId = `${id}-help-text`
+  const labelDescriptionId = `${id}-help-text`
 
   return (
     <FieldGroup inline={true}>
@@ -43,13 +43,17 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             <Label htmlFor={id} labelText={labelText} variant={variant} />
           </Box>
           {labelDescription && (
-            <Paragraph variant="small" id={helpTextId}>
+            <Paragraph variant="small" id={labelDescriptionId}>
               {labelDescription}
             </Paragraph>
           )}
         </div>
         <div className={styles.inputWrapper}>
-          <InputRange id={id} aria-describedby={helpTextId} {...restProps} />
+          <InputRange
+            id={id}
+            aria-describedby={labelDescriptionId}
+            {...restProps}
+          />
         </div>
       </div>
     </FieldGroup>
