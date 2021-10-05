@@ -13,7 +13,7 @@ export interface SliderFieldProps
   minLabel: ReactNode
   maxLabel: ReactNode
   labelText: ReactNode
-  labelDescription?: ReactNode
+  description?: ReactNode
   labelPosition?: "inline" | "block"
   disabledLabel?: string
   classNameAndIHaveSpokenToDST?: string
@@ -24,12 +24,12 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
   const {
     id,
     labelText,
-    labelDescription,
+    description,
     labelPosition = "inline",
     variant = "default",
     ...restProps
   } = props
-  const labelDescriptionId = `${id}-help-text`
+  const descriptionId = `${id}-description`
 
   return (
     <FieldGroup inline={true}>
@@ -42,18 +42,14 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
           <Box mb={0.25}>
             <Label htmlFor={id} labelText={labelText} variant={variant} />
           </Box>
-          {labelDescription && (
-            <Paragraph variant="small" id={labelDescriptionId}>
-              {labelDescription}
+          {description && (
+            <Paragraph variant="small" id={descriptionId}>
+              {description}
             </Paragraph>
           )}
         </div>
         <div className={styles.inputWrapper}>
-          <InputRange
-            id={id}
-            aria-describedby={labelDescriptionId}
-            {...restProps}
-          />
+          <InputRange id={id} aria-describedby={descriptionId} {...restProps} />
         </div>
       </div>
     </FieldGroup>

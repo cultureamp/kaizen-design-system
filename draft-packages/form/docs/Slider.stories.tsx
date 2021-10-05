@@ -31,7 +31,7 @@ export const Uncontrolled = () => (
   <Slider
     id="make-me-unique-2"
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     defaultValue={1}
     minLabel="Awful"
     maxLabel="Fantastic"
@@ -58,7 +58,7 @@ export const LabelAboveSlider = () => (
   <Slider
     id="make-me-unique-4"
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     labelPosition="block"
     defaultValue={10}
     minLabel="Awful"
@@ -71,7 +71,7 @@ export const CustomMinMaxLabels = () => (
   <Slider
     id="make-me-unique-5"
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     defaultValue={10}
     minLabel="Awful"
     maxLabel="Fantastic"
@@ -83,7 +83,7 @@ export const CustomMinMax = () => (
   <Slider
     id="make-me-unique-6"
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     defaultValue={4}
     min={1}
     max={7}
@@ -98,7 +98,7 @@ export const Prominent = () => (
     id="make-me-unique-7"
     variant="prominent"
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     minLabel="Awful"
     maxLabel="Fantastic"
   />
@@ -108,7 +108,7 @@ Prominent.storyName = "Prominent"
 export const Disabled = () => (
   <Slider
     labelText="Work overall"
-    labelDescription="General feeling about work"
+    description="General feeling about work"
     defaultValue={10}
     id="make-me-unique-8"
     disabled={true}
