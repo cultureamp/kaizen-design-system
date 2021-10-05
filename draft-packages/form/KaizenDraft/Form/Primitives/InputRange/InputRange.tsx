@@ -13,7 +13,6 @@ export interface InputRangeProps
   classNameAndIHaveSpokenToDST?: string
   showDisabledLabel?: boolean
   disabledLabel?: string
-  ariaDescribedby?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
