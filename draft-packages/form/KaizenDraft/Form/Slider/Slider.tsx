@@ -10,8 +10,8 @@ export interface SliderFieldProps
   value?: number
   min?: number
   max?: number
-  minLabel?: ReactNode
-  maxLabel?: ReactNode
+  minLabel: ReactNode
+  maxLabel: ReactNode
   labelText: ReactNode
   labelDescription?: ReactNode
   labelPosition?: "inline" | "block"

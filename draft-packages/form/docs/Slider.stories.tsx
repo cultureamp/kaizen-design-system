@@ -18,16 +18,23 @@ export default {
 }
 
 export const DefaultKaizenSiteDemo = () => (
-  <Slider id="make-me-unique-1" labelText="Work overall" />
+  <Slider
+    id="make-me-unique-1"
+    labelText="Work overall"
+    minLabel="Awful"
+    maxLabel="Fantastic"
+  />
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Uncontrolled = () => (
   <Slider
+    id="make-me-unique-2"
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={1}
-    id="make-me-unique-2"
+    minLabel="Awful"
+    maxLabel="Fantastic"
   />
 )
 Uncontrolled.storyName = "Uncontrolled"
@@ -40,6 +47,8 @@ export const Controlled = () => {
       labelText="Work overall"
       value={value}
       onChange={e => setValue(Number(e.target.value))}
+      minLabel="Awful"
+      maxLabel="Fantastic"
     />
   )
 }
@@ -47,21 +56,23 @@ Controlled.storyName = "Controlled"
 
 export const LabelAboveSlider = () => (
   <Slider
+    id="make-me-unique-4"
     labelText="Work overall"
     labelDescription="General feeling about work"
     labelPosition="block"
     defaultValue={10}
-    id="make-me-unique-4"
+    minLabel="Awful"
+    maxLabel="Fantastic"
   />
 )
 LabelAboveSlider.storyName = "Label above input"
 
 export const CustomMinMaxLabels = () => (
   <Slider
+    id="make-me-unique-5"
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={10}
-    id="make-me-unique-5"
     minLabel="Awful"
     maxLabel="Fantastic"
   />
@@ -70,22 +81,26 @@ CustomMinMaxLabels.storyName = "Custom min/max labels"
 
 export const CustomMinMax = () => (
   <Slider
+    id="make-me-unique-6"
     labelText="Work overall"
     labelDescription="General feeling about work"
     defaultValue={4}
     min={1}
     max={7}
-    id="make-me-unique-6"
+    minLabel="Awful"
+    maxLabel="Fantastic"
   />
 )
 CustomMinMax.storyName = "Custom min/max"
 
 export const Prominent = () => (
   <Slider
+    id="make-me-unique-7"
     variant="prominent"
     labelText="Work overall"
     labelDescription="General feeling about work"
-    id="make-me-unique-7"
+    minLabel="Awful"
+    maxLabel="Fantastic"
   />
 )
 Prominent.storyName = "Prominent"
@@ -97,7 +112,9 @@ export const Disabled = () => (
     defaultValue={10}
     id="make-me-unique-8"
     disabled={true}
-    disabledLabel="Waiting for Doug"
+    disabledLabel="Waiting for Doug to respond"
+    minLabel="Awful"
+    maxLabel="Fantastic"
   />
 )
 Disabled.storyName = "Disabled"
@@ -113,9 +130,11 @@ export const UsingPrimitive = () => (
       </Paragraph>
     </Box>
     <InputRange
-      defaultValue={10}
       id="make-me-unique-9"
+      defaultValue={10}
       aria-describedby="description-text"
+      minLabel="Awful"
+      maxLabel="Fantastic"
     />
   </>
 )

@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import InputRange from "./InputRange"
 
 it("renders value as 5.5 when no default value provided", async () => {
-  render(<InputRange />)
+  render(<InputRange minLabel="Awful" maxLabel="Fantastic" />)
 
   screen.getByDisplayValue("5.5")
 })
@@ -15,14 +15,16 @@ it.todo(
 it.todo("moves value to 10 after clicking end of slider")
 
 it("shows default value correctly when provided", async () => {
-  render(<InputRange defaultValue={9} />)
+  render(<InputRange defaultValue={9} minLabel="Awful" maxLabel="Fantastic" />)
 
   screen.getByDisplayValue("9")
 })
 
 it("fires onChange after interaction", async () => {
   const onChange = jest.fn()
-  render(<InputRange onChange={onChange} />)
+  render(
+    <InputRange onChange={onChange} minLabel="Awful" maxLabel="Fantastic" />
+  )
 
   const slider = await screen.findByRole("slider")
 
@@ -33,7 +35,7 @@ it("fires onChange after interaction", async () => {
 })
 
 it("shows value correctly when provided", async () => {
-  render(<InputRange value={2} />)
+  render(<InputRange value={2} minLabel="Awful" maxLabel="Fantastic" />)
 
   screen.getByDisplayValue("2")
 })
@@ -55,7 +57,12 @@ it.todo("doesn't change value when disabled and clicked")
 
 it("renders disabled label when provided and disabled", async () => {
   render(
-    <InputRange disabled={true} disabledLabel="Waiting for Sally to respond" />
+    <InputRange
+      minLabel="Awful"
+      maxLabel="Fantastic"
+      disabled={true}
+      disabledLabel="Waiting for Sally to respond"
+    />
   )
   await screen.findByText(/Waiting for Sally to respond/i)
 })

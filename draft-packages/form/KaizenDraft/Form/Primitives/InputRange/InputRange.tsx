@@ -8,8 +8,8 @@ export interface InputRangeProps
   value?: number
   min?: number
   max?: number
-  minLabel?: ReactNode
-  maxLabel?: ReactNode
+  minLabel: ReactNode
+  maxLabel: ReactNode
   classNameAndIHaveSpokenToDST?: string
   showDisabledLabel?: boolean
   disabledLabel?: string
@@ -21,8 +21,8 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   const {
     defaultValue = props.max ? (props.max + 1) / 2 : 5.5,
     value,
-    minLabel = "Not at all",
-    maxLabel = "Very",
+    minLabel,
+    maxLabel,
     onChange,
     "aria-describedby": ariaDescribedby,
     classNameAndIHaveSpokenToDST,
