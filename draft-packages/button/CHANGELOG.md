@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.0...@kaizen/draft-button@5.1.1) (2021-10-05)
+
+
+### Bug Fixes
+
+* add secondary destructive variant to IconButton ([#1977](https://github.com/cultureamp/kaizen-design-system/issues/1977)) ([66abed5](https://github.com/cultureamp/kaizen-design-system/commit/66abed572d76fe195d3a832f1e66b139548d94b4))
+
+
+
+
+
 # [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.2...@kaizen/draft-button@5.1.0) (2021-10-04)
 
 
