@@ -79,28 +79,16 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
       <div className={styles.labelsContainer}>
         {!showDisabledLabel && (
           <div className={styles.sliderLabels}>
-            <Paragraph
-              variant="extra-small"
-              color="dark-reduced-opacity"
-              tag="span"
-            >
+            <Paragraph variant="small" color="dark-reduced-opacity" tag="span">
               {minLabel}
             </Paragraph>
-            <Paragraph
-              variant="extra-small"
-              color="dark-reduced-opacity"
-              tag="span"
-            >
+            <Paragraph variant="small" color="dark-reduced-opacity" tag="span">
               {maxLabel}
             </Paragraph>
           </div>
         )}
         {showDisabledLabel && (
-          <Paragraph
-            variant="extra-small"
-            color="dark-reduced-opacity"
-            tag="div"
-          >
+          <Paragraph variant="small" color="dark-reduced-opacity" tag="div">
             {disabledLabel}
           </Paragraph>
         )}
