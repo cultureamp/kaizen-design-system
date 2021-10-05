@@ -139,10 +139,6 @@ $track-radius: 4px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-
-  [dir="rtl"] & {
-    flex-direction: row-reverse;
-  }
 }
 
 // If the .visually-hidden class is applied to natively focusable elements
