@@ -70,16 +70,4 @@ it("renders the screenreader help text", async () => {
 })
 
 it.todo("doesn't change value when disabled and clicked")
-
-it("renders disabled label when provided and disabled", async () => {
-  render(
-    <InputRange
-      id="unique-7"
-      minLabel="Awful"
-      maxLabel="Fantastic"
-      disabled={true}
-      disabledLabel="Waiting for Sally to respond"
-    />
-  )
-  await screen.findByText(/Waiting for Sally to respond/i)
-})
+it.todo("doesn't change value when read only and clicked")
