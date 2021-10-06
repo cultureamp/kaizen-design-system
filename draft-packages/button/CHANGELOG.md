@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.1...@kaizen/draft-button@5.2.0) (2021-10-06)
+
+
+### Features
+
+* add primary and primary reversed to icon button ([#1985](https://github.com/cultureamp/kaizen-design-system/issues/1985)) ([27be676](https://github.com/cultureamp/kaizen-design-system/commit/27be6767a6523dd4bbedc1fa97423058d8dfbbbc))
+
+
+
+
+
 ## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.0...@kaizen/draft-button@5.1.1) (2021-10-05)
 
 
