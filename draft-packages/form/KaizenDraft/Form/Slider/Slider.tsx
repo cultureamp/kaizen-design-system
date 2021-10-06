@@ -15,7 +15,8 @@ export interface SliderFieldProps
   labelText: ReactNode
   description?: ReactNode
   labelPosition?: "inline" | "block"
-  disabledLabel?: string
+  readOnly?: boolean
+  readOnlyMessage?: ReactNode
   classNameAndIHaveSpokenToDST?: string
   variant?: "default" | "prominent"
 }
@@ -27,6 +28,8 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     description,
     labelPosition = "inline",
     variant = "default",
+    disabled,
+    readOnlyMessage,
     ...restProps
   } = props
   const descriptionId = `${id}-description`
@@ -40,16 +43,35 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
       >
         <div className={styles.labelWrapper}>
           <Box mb={0.25}>
-            <Label htmlFor={id} labelText={labelText} variant={variant} />
+            <Label
+              htmlFor={id}
+              labelText={labelText}
+              variant={variant}
+              disabled={disabled}
+            />
           </Box>
           {description && (
-            <Paragraph variant="small" id={descriptionId}>
+            <Paragraph
+              variant="small"
+              id={descriptionId}
+              classNameAndIHaveSpokenToDST={
+                disabled ? styles.descriptionDisabled : undefined
+              }
+            >
               {description}
             </Paragraph>
           )}
         </div>
         <div className={styles.inputWrapper}>
-          <InputRange id={id} aria-describedby={descriptionId} {...restProps} />
+          <InputRange
+            id={id}
+            aria-describedby={descriptionId}
+            disabled={disabled}
+            {...restProps}
+          />
+          {readOnlyMessage && (
+            <div className={styles.readOnlyMessage}>{readOnlyMessage}</div>
+          )}
         </div>
       </div>
     </FieldGroup>

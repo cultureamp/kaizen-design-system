@@ -11,9 +11,8 @@ export interface InputRangeProps
   max?: number
   minLabel: ReactNode
   maxLabel: ReactNode
+  readOnly?: boolean
   classNameAndIHaveSpokenToDST?: string
-  showDisabledLabel?: boolean
-  disabledLabel?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -21,15 +20,15 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
 ) => {
   const {
     id,
-    defaultValue = props.max ? (props.max + 1) / 2 : 5.5,
+    defaultValue,
     value,
     minLabel,
     maxLabel,
     onChange,
     "aria-describedby": ariaDescribedby,
     classNameAndIHaveSpokenToDST,
-    disabledLabel,
     disabled,
+    readOnly,
     min = 1,
     max = 10,
     ...genericInputProps
@@ -37,22 +36,29 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
 
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
   const visuallyHiddenHintId = `${id}-helper`
-  const showDisabledLabel =
-    disabled === true && disabledLabel !== undefined && disabledLabel !== ""
+  const readOnlyWithNoValue = readOnly && !value && !defaultValue
+
+  // This has been split out into a different variable to allow usage of defaultValue above^
+  // Plus it lets us use max from props with its default value
+  const defaultValueWithDefault = defaultValue || (max + 1) / 2
 
   return (
     <>
       <input
         className={classnames(
           styles.ratingScaleRange,
-          classNameAndIHaveSpokenToDST
+          classNameAndIHaveSpokenToDST,
+          {
+            [styles.hideThumb]: readOnlyWithNoValue,
+            [styles.disabled]: disabled,
+          }
         )}
-        disabled={disabled}
+        disabled={disabled || readOnly}
         type="range"
         min={min}
         max={max}
         step={step}
-        defaultValue={value ? undefined : defaultValue}
+        defaultValue={value ? undefined : defaultValueWithDefault}
         value={value}
         aria-valuenow={value}
         aria-valuemin={min}
@@ -66,7 +72,11 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         }}
         {...genericInputProps}
       />
-      <div className={styles.spokes}>
+      <div
+        className={classnames(styles.spokes, {
+          [styles.disabled]: disabled,
+        })}
+      >
         {[...Array(max)].map(() => (
           <div className={styles.spokeContainer}>
             <div className={styles.spoke} />
@@ -77,8 +87,12 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
         {min} is {minLabel}, {max} is {maxLabel}
       </div>
       <div className={styles.labelsContainer}>
-        {!showDisabledLabel && (
-          <div className={styles.sliderLabels}>
+        {!readOnlyWithNoValue && (
+          <div
+            className={classnames(styles.sliderLabels, {
+              [styles.disabled]: disabled,
+            })}
+          >
             <Paragraph variant="small" color="dark-reduced-opacity" tag="span">
               {minLabel}
             </Paragraph>
@@ -86,11 +100,6 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
               {maxLabel}
             </Paragraph>
           </div>
-        )}
-        {showDisabledLabel && (
-          <Paragraph variant="small" color="dark-reduced-opacity" tag="div">
-            {disabledLabel}
-          </Paragraph>
         )}
       </div>
     </>

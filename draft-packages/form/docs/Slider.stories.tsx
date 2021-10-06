@@ -112,17 +112,42 @@ export const Disabled = () => (
     defaultValue={10}
     id="make-me-unique-8"
     disabled={true}
-    disabledLabel="Waiting for Doug to respond"
     minLabel="Awful"
     maxLabel="Fantastic"
   />
 )
 Disabled.storyName = "Disabled"
 
+export const ReadOnly = () => (
+  <Slider
+    labelText="Work overall"
+    description="General feeling about work"
+    id="make-me-unique-9"
+    value={8}
+    readOnly={true}
+    minLabel="Awful"
+    maxLabel="Fantastic"
+  />
+)
+ReadOnly.storyName = "Read only"
+
+export const ReadOnlyNoValue = () => (
+  <Slider
+    labelText="Work overall"
+    description="General feeling about work"
+    id="make-me-unique-10"
+    readOnly={true}
+    readOnlyMessage="Waiting for Harper to respond"
+    minLabel="Awful"
+    maxLabel="Fantastic"
+  />
+)
+ReadOnlyNoValue.storyName = "Read only (no value)"
+
 export const UsingPrimitive = () => (
   <>
     <Box mb={0.25}>
-      <Label htmlFor="make-me-unique-5">Work overall</Label>
+      <Label htmlFor="make-me-unique-11">Work overall</Label>
     </Box>
     <Box mb={0.5}>
       <Paragraph variant="small" id="description-text">
@@ -130,7 +155,7 @@ export const UsingPrimitive = () => (
       </Paragraph>
     </Box>
     <InputRange
-      id="make-me-unique-9"
+      id="make-me-unique-11"
       defaultValue={10}
       aria-describedby="description-text"
       minLabel="Awful"
