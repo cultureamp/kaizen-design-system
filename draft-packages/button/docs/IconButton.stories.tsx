@@ -44,6 +44,36 @@ export const Disabled = () => (
   <IconButton icon={configureIcon} label="Label" disabled={true} />
 )
 
+export const Primary = () => (
+  <IconButton icon={configureIcon} label="Label" primary />
+)
+Primary.storyName = "Primary"
+
+export const PrimaryDisabled = () => (
+  <IconButton icon={configureIcon} label="Label" primary disabled />
+)
+PrimaryDisabled.storyName = "Primary, Disabled"
+
+export const PrimaryReversed = () => (
+  <IconButton icon={configureIcon} label="Label" primary reversed />
+)
+PrimaryReversed.storyName = "Primary, Reversed"
+PrimaryReversed.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
+export const PrimaryReversedDisabled = () => (
+  <IconButton icon={configureIcon} label="Label" primary reversed disabled />
+)
+PrimaryReversedDisabled.storyName = "Primary, Reversed, Disabled"
+PrimaryReversedDisabled.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 export const Destructive = () => (
   <IconButton icon={configureIcon} label="Label" destructive={true} />
 )

@@ -32,6 +32,62 @@ $caButton-verticalPaddingForm: calc(
   pointer-events: none;
 }
 
+@mixin primary {
+  &:not(:disabled) {
+    background: $color-blue-500;
+    border-color: $border-borderless-border-color;
+    color: $color-white;
+
+    &:hover {
+      background: $color-blue-600;
+      border-color: $color-blue-600;
+    }
+
+    &:active {
+      background: $color-blue-600;
+      border-color: $color-blue-600;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      background: $color-blue-600;
+      border-color: $color-blue-600;
+    }
+  }
+
+  &:disabled,
+  &.working {
+    @include working-state;
+    background: $color-blue-500;
+    color: $color-white;
+    border-color: $border-borderless-border-color;
+  }
+}
+
+@mixin primary-reversed {
+  &:not(:disabled) {
+    background: $color-green-300;
+    border-color: $border-borderless-border-color;
+    color: $color-purple-800;
+
+    &:hover {
+      background: $color-green-400;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      border-color: $border-borderless-border-color;
+      background: $color-green-400;
+    }
+  }
+
+  &:disabled,
+  &.working {
+    @include working-state;
+    background: $color-green-300;
+    border-color: $border-borderless-border-color;
+    color: $color-purple-800;
+  }
+}
+
 @mixin secondary {
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
@@ -195,34 +251,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonPrimary {
-  &:not(:disabled) {
-    background: $color-blue-500;
-    border-color: $border-borderless-border-color;
-    color: $color-white;
-
-    &:hover {
-      background: $color-blue-600;
-      border-color: $color-blue-600;
-    }
-
-    &:active {
-      background: $color-blue-600;
-      border-color: $color-blue-600;
-    }
-
-    :global(.js-focus-visible) &:global(.focus-visible) {
-      background: $color-blue-600;
-      border-color: $color-blue-600;
-    }
-  }
-
-  &:disabled,
-  &.working {
-    @include working-state;
-    background: $color-blue-500;
-    color: $color-white;
-    border-color: $border-borderless-border-color;
-  }
+  @include primary;
 }
 
 %caButtonDestructive {
@@ -293,31 +322,6 @@ $caButton-verticalPaddingForm: calc(
     border-color: rgba($color-white-rgb, 0.5);
     color: $color-white;
     background: transparent;
-  }
-
-  &%caButtonPrimary {
-    &:not(:disabled) {
-      background: $color-green-300;
-      border-color: $border-borderless-border-color;
-      color: $color-purple-800;
-
-      &:hover {
-        background: $color-green-400;
-      }
-
-      :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $border-borderless-border-color;
-        background: $color-green-400;
-      }
-    }
-
-    &:disabled,
-    &.working {
-      @include working-state;
-      background: $color-green-300;
-      border-color: $border-borderless-border-color;
-      color: $color-purple-800;
-    }
   }
 
   &%caButtonSecondary {
@@ -468,15 +472,19 @@ $caButton-verticalPaddingForm: calc(
       border-color: $border-borderless-border-color;
 
       &%caButtonReversed {
-        color: white;
+        color: $color-purple-800;
         &%caButtonPrimary {
           %caButtonContent {
-            color: white;
+            color: $color-purple-800;
             background: none;
           }
         }
       }
     }
+  }
+
+  &%caButtonPrimary {
+    @include primary;
   }
 
   &%caButtonSecondary {
@@ -513,6 +521,10 @@ $caButton-verticalPaddingForm: calc(
       opacity: 0.3;
       color: $color-white;
       background: transparent;
+    }
+
+    &%caButtonPrimary {
+      @include primary-reversed;
     }
   }
 

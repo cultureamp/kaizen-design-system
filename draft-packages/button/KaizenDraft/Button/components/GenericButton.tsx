@@ -28,6 +28,7 @@ export type CustomButtonProps = {
 export type GenericProps = {
   id?: string
   label: string
+  primary?: boolean
   destructive?: boolean
   secondary?: boolean
   disabled?: boolean
