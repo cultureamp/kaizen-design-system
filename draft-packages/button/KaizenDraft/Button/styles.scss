@@ -324,6 +324,31 @@ $caButton-verticalPaddingForm: calc(
     background: transparent;
   }
 
+  &%caButtonPrimary {
+    &:not(:disabled) {
+      background: $color-green-300;
+      border-color: $border-borderless-border-color;
+      color: $color-purple-800;
+
+      &:hover {
+        background: $color-green-400;
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $border-borderless-border-color;
+        background: $color-green-400;
+      }
+    }
+
+    &:disabled,
+    &.working {
+      @include working-state;
+      background: $color-green-300;
+      border-color: $border-borderless-border-color;
+      color: $color-purple-800;
+    }
+  }
+
   &%caButtonSecondary {
     &:not(:disabled) {
       background: transparent;
