@@ -156,7 +156,11 @@ const MainActions = ({
           <Menu
             align="right"
             button={
-              <IconButton label="" reversed={reversed} icon={meatballsIcon} />
+              <IconButton
+                label="Open secondary menu"
+                reversed={reversed}
+                icon={meatballsIcon}
+              />
             }
           >
             <MenuContent>
