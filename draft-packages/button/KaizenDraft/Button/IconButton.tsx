@@ -7,6 +7,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
 
 IconButton.defaultProps = {
   form: false,
+  primary: false,
   destructive: false,
   disabled: false,
   reversed: false,
