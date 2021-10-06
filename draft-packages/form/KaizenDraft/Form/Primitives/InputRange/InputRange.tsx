@@ -77,8 +77,8 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
           [styles.disabled]: disabled,
         })}
       >
-        {[...Array(max)].map(() => (
-          <div className={styles.spokeContainer}>
+        {[...Array(max)].map((_, index) => (
+          <div key={`${id}-spoke-${index}`} className={styles.spokeContainer}>
             <div className={styles.spoke} />
           </div>
         ))}
