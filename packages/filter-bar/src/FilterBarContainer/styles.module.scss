@@ -1,0 +1,32 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.containerWrapper {
+  display: flex;
+
+  &.showControls {
+    background-color: $color-white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.09);
+    border-radius: $border-solid-border-radius;
+    padding: $spacing-xs;
+    justify-content: space-between;
+  }
+}
+
+.filterWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.containerActions {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  width: 1px;
+  background: rgba(82, 78, 86, 0.1);
+  margin: 0 $spacing-xs;
+  height: 100%;
+}
