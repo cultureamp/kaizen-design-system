@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.10.0...@kaizen/draft-form@3.11.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
 # [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.4...@kaizen/draft-form@3.10.0) (2021-10-01)
 
 
