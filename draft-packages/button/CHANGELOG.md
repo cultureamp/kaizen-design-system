@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.1...@kaizen/draft-button@5.2.0) (2021-10-06)
+
+
+### Features
+
+* add primary and primary reversed to icon button ([#1985](https://github.com/cultureamp/kaizen-design-system/issues/1985)) ([27be676](https://github.com/cultureamp/kaizen-design-system/commit/27be6767a6523dd4bbedc1fa97423058d8dfbbbc))
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.0...@kaizen/draft-button@5.1.1) (2021-10-05)
+
+
+### Bug Fixes
+
+* add secondary destructive variant to IconButton ([#1977](https://github.com/cultureamp/kaizen-design-system/issues/1977)) ([66abed5](https://github.com/cultureamp/kaizen-design-system/commit/66abed572d76fe195d3a832f1e66b139548d94b4))
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.2...@kaizen/draft-button@5.1.0) (2021-10-04)
+
+
+### Features
+
+* Add reversed & destructive support for Button ([#1978](https://github.com/cultureamp/kaizen-design-system/issues/1978)) ([5aa1973](https://github.com/cultureamp/kaizen-design-system/commit/5aa19738eab6c47185671545bc7691bb1be05506))
+
+
+
+
+
 ## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.1...@kaizen/draft-button@5.0.2) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-button

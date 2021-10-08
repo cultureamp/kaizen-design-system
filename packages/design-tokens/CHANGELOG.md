@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.1.0...@kaizen/design-tokens@3.2.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
 # [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.0.2...@kaizen/design-tokens@3.1.0) (2021-09-22)
 
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.10.0...@kaizen/draft-form@3.11.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
+# [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.4...@kaizen/draft-form@3.10.0) (2021-10-01)
+
+
+### Features
+
+* add SearchField and InputSearch to Kaizen ([#1975](https://github.com/cultureamp/kaizen-design-system/issues/1975)) ([127aa1c](https://github.com/cultureamp/kaizen-design-system/commit/127aa1c26c7972c1ac2a089793ad67e53c8d42ac))
+
+
+
+
+
 ## [3.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.3...@kaizen/draft-form@3.9.4) (2021-09-29)
 
 

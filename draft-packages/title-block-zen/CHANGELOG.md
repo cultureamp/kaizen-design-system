@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.11...@kaizen/draft-title-block-zen@3.6.12) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.10...@kaizen/draft-title-block-zen@3.6.11) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.9...@kaizen/draft-title-block-zen@3.6.10) (2021-10-06)
+
+
+### Bug Fixes
+
+* Add label to TiltleBlockZen overflow meatball IconButton ([#1984](https://github.com/cultureamp/kaizen-design-system/issues/1984)) ([72feb74](https://github.com/cultureamp/kaizen-design-system/commit/72feb74dd7ced16976aa33ba0bfccc76f77c67e2))
+
+
+
+
+
+## [3.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.8...@kaizen/draft-title-block-zen@3.6.9) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.7...@kaizen/draft-title-block-zen@3.6.8) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.6...@kaizen/draft-title-block-zen@3.6.7) (2021-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.5...@kaizen/draft-title-block-zen@3.6.6) (2021-09-29)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
