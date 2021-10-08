@@ -1,4 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "ignoreDeps": []
+  "ignoreDeps": [
+    // React and React DOM are pinned for now until all consumers are on React 17+
+    "react",
+    "react-dom",
+    // Gatsby is pinned because upgrades working with our icons
+    "gatsby",
+    "gatsby-plugin-google-tagmanager",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-source-filesystem",
+    "gatsby-transformer-remark",
+  ]
 }
