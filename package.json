@@ -131,7 +131,7 @@
     "husky": "^4.2.5",
     "jscodeshift": "^0.8.0",
     "lint-staged": "^10.4.0",
-    "loader-utils": "^1.0.2",
+    "loader-utils": "^2.0.0",
     "node-elm-compiler": "^5.0.0",
     "yargs": "^16.2.0"
   },
