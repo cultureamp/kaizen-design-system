@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.4...@kaizen/component-library@11.2.5) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [11.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.3...@kaizen/component-library@11.2.4) (2021-10-06)
 
 **Note:** Version bump only for package @kaizen/component-library
