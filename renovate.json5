@@ -21,13 +21,6 @@
       "matchPaths": ["packages/**", "draft-packages/**"],
       "semanticCommitType": "fix",
       "matchDepTypes": ["peerDependencies", "dependencies"]
-    },
-    {
-      // devDependencies of publishable packages should not trigger 
-      // a new release 
-      "matchPaths": ["packages/**", "draft-packages/**"],
-      "extends": [":semanticCommitTypeAll(chore)"],
-      "matchDepTypes": ["devDependencies"]
     }
   ]
 }
