@@ -148,6 +148,6 @@
   },
   "resolutions": {
     "axios": "0.21.1",
-    "react-dev-utils": "11.0.3"
+    "react-dev-utils": "11.0.4"
   }
 }
