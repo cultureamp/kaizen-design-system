@@ -36,12 +36,26 @@
   }
 }
 
-@media (min-width: 769px) {
+// @media (min-width: 769px) {
+//   .gridWrapper {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+
+//   .column:nth-child(4) {
+//     display: flex;
+//   }
+// }
+
+@media (min-width: 1008px) {
   .gridWrapper {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .column:nth-child(4) {
-    display: flex;
+  .column:nth-child(3) {
+    display: block;
   }
+}
+
+@media (min-width: 1157px) {
+  padding: 0 72px;
 }

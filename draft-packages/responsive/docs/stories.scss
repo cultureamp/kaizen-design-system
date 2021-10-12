@@ -1,3 +1,9 @@
 .pageComponent {
   background: green;
 }
+
+@media (min-width: 1157px) {
+  .pageComponent {
+    padding: 0 72px;
+  }
+}

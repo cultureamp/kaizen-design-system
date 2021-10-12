@@ -1,4 +1,5 @@
 import React from "react"
+import { Small } from "@kaizen/component-library/stories/Paragraph.stories"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import Responsive from "../Responsive"
 import styles from "./stories.scss"
@@ -18,7 +19,7 @@ export default {
 export const DefaultKaizenSiteDemo = () => (
   <div style={{ width: "100%" }}>
     <div className={styles.pageComponent}>
-      <Responsive />
+      <Responsive small="1" medium="2" large="3" xlarge="4" />
     </div>
   </div>
 )
