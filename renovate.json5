@@ -15,12 +15,6 @@
   ],
   "packageRules": [
     {
-      // Site is a non-publishable package, annotate as chore so a release 
-      // isn't triggered
-      "matchPaths": ["site/**"],
-      "extends": [":semanticCommitTypeAll(chore)"]
-    },
-    {
       // Any peerDep or dep within the publishable packages triggers a 
       // patch release as a _sensible default_. Merger should use their
       // discretion to determine whether a major change is more appropriate
