@@ -19,7 +19,7 @@
       // patch release as a _sensible default_. Merger should use their
       // discretion to determine whether a major change is more appropriate
       "matchPaths": ["packages/**", "draft-packages/**"],
-      "extends": [":semanticCommitTypeAll(fix)"],
+      "semanticCommitType": "fix",
       "matchDepTypes": ["peerDependencies", "dependencies"]
     },
     {
