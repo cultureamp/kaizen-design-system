@@ -1,0 +1,76 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.tabList {
+  border-bottom: 1px solid rgba($color-gray-600-rgb, 0.1);
+  padding: 0 $spacing-md;
+}
+
+.tab {
+  border: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-top-left-radius: $border-borderless-border-radius;
+  border-top-right-radius: $border-borderless-border-radius;
+  background: $color-white;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: $spacing-md $spacing-md;
+  margin: 0;
+  font-family: $typography-heading-4-font-family;
+  font-size: $typography-heading-4-font-size;
+  font-weight: $typography-heading-4-font-weight;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+  color: $color-purple-800;
+
+  &:not(:disabled):hover {
+    background: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  &:focus {
+    outline: none;
+    background: $color-blue-100;
+    color: $color-blue-500;
+    border-color: $color-blue-500;
+  }
+}
+
+.tab.selected {
+  position: relative;
+  color: $color-blue-500;
+
+  &::before {
+    content: "";
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: currentColor;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.tab:disabled {
+  opacity: 0.3;
+}
+
+.tabPanel {
+  border: 2px solid transparent;
+
+  &:focus {
+    outline: none;
+  }
+  &:global(.focus-visible) {
+    border-color: $color-blue-500;
+    border-radius: $border-focus-ring-border-radius;
+  }
+}
