@@ -12,5 +12,28 @@
     "gatsby-plugin-sass",
     "gatsby-source-filesystem",
     "gatsby-transformer-remark",
+  ],
+  "packageRules": [
+    {
+      // Site is a non-publishable package, annotate as chore so a release 
+      // isn't triggered
+      "matchPaths": ["site/**"],
+      "extends": [":semanticCommitTypeAll(chore)"]
+    },
+    {
+      // Any peerDep or dep within the publishable packages triggers a 
+      // patch release as a _sensible default_. Merger should use their
+      // discretion to determine whether a major change is more appropriate
+      "matchPaths": ["packages/**", "draft-packages/**"],
+      "extends": [":semanticCommitTypeAll(fix)"],
+      "matchDepTypes": ["peerDependencies", "dependencies"]
+    },
+    {
+      // devDependencies of publishable packages should not trigger 
+      // a new release 
+      "matchPaths": ["packages/**", "draft-packages/**"],
+      "extends": [":semanticCommitTypeAll(chore)"],
+      "matchDepTypes": ["devDependencies"]
+    }
   ]
 }
