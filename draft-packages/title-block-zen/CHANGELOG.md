@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.13...@kaizen/draft-title-block-zen@3.6.14) (2021-10-13)
+
+
+### Bug Fixes
+
+* update breadcrumb text link to style next to back button on wide views ([#2068](https://github.com/cultureamp/kaizen-design-system/issues/2068)) ([9e5ad04](https://github.com/cultureamp/kaizen-design-system/commit/9e5ad04c62f70a83f739acec151c52778ed7e38c))
+
+
+
+
+
 ## [3.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.12...@kaizen/draft-title-block-zen@3.6.13) (2021-10-11)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
