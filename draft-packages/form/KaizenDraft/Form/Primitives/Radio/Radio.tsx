@@ -31,7 +31,7 @@ const Radio: Radio = ({
   onChange,
   disabled = false,
 }) => (
-  <div>
+  <span>
     <input
       type="radio"
       id={id}
@@ -45,8 +45,8 @@ const Radio: Radio = ({
       onChange={onChange}
       disabled={disabled}
     />
-    <div className={styles.box}>{renderSelected(selectedStatus)}</div>
-  </div>
+    <span className={styles.box}>{renderSelected(selectedStatus)}</span>
+  </span>
 )
 
 export default Radio

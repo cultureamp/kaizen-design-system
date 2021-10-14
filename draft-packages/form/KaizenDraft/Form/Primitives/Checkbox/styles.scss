@@ -34,6 +34,7 @@ $focus-ring-offset: 2px;
 }
 
 .box {
+  display: block;
   position: relative;
   pointer-events: none;
   background: $color-white;
