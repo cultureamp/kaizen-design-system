@@ -96,10 +96,6 @@ $focus-ring-offset: 2px;
         2
     );
   }
-
-  .checkbox:disabled + & {
-    opacity: 0.3;
-  }
 }
 
 .box.reversed {

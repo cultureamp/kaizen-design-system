@@ -35,10 +35,6 @@ $focus-ring-offset: 2px;
   box-sizing: border-box;
   border-radius: 50%;
 
-  .radioInput:disabled + & {
-    opacity: 0.3;
-  }
-
   .radioInput:focus:not([disabled]) + & {
     border-color: $dt-color-radio-border-color-focus;
   }
