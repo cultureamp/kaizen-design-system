@@ -45,7 +45,6 @@ const ToggleSwitch: ToggleSwitch = ({
       className={classnames({
         [styles.on]: isOn,
         [styles.off]: !isOn,
-        [styles.disabled]: disabled,
       })}
     >
       <input
