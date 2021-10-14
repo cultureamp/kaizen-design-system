@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.1...@kaizen/draft-form@3.11.2) (2021-10-14)
+
+
+### Bug Fixes
+
+* add override css in form/slider for performance ui ([#2077](https://github.com/cultureamp/kaizen-design-system/issues/2077)) ([217a3a2](https://github.com/cultureamp/kaizen-design-system/commit/217a3a2dfecb3481a1476a476c11b65f91c57eb8))
+
+
+
+
+
 ## [3.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.0...@kaizen/draft-form@3.11.1) (2021-10-14)
 
 **Note:** Version bump only for package @kaizen/draft-form
