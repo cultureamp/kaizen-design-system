@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.2...@kaizen/draft-form@3.11.3) (2021-10-14)
+
+
+### Bug Fixes
+
+* Use Label disabled styling for Checkbox, Radio & ToggleSwitch ([#2082](https://github.com/cultureamp/kaizen-design-system/issues/2082)) ([0ff0311](https://github.com/cultureamp/kaizen-design-system/commit/0ff0311caa73dcfe6578786cbead712ab9d9a493))
+
+
+
+
+
 ## [3.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.1...@kaizen/draft-form@3.11.2) (2021-10-14)
 
 
