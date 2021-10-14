@@ -50,7 +50,7 @@ $track-radius: 4px;
   border: none;
 }
 
-//need extra input[type="range"] to override materialize.css in performance-ui
+//extra input[type="range"] is required to override materialize.css in performance-ui
 input[type="range"].ratingScaleRange {
   all: unset;
   appearance: none;
