@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-menu",
-  "version": "3.4.17",
+  "version": "3.4.18",
   "description": "The draft Menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^11.2.5",
-    "@kaizen/draft-button": "^5.2.1",
+    "@kaizen/component-library": "^11.3.0",
+    "@kaizen/draft-button": "^5.2.2",
     "@kaizen/draft-divider": "^1.7.0",
     "@popperjs/core": "^2.6.0",
     "@types/classnames": "^2.2.10",
