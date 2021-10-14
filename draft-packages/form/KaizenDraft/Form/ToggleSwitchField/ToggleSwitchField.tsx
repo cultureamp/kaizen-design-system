@@ -41,7 +41,6 @@ const ToggleSwitchField: ToggleSwitchField = ({
     inline={inline}
     automationId={`${id}-field-group`}
     className={classnames(styles.container, {
-      [styles.disabled]: disabled,
       [styles.fullWidth]: fullWidth,
     })}
   >
@@ -53,6 +52,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
         labelText={labelText}
         labelType="toggle"
         labelPosition={labelPosition}
+        disabled={disabled}
       >
         <ToggleSwitch
           id={`${id}-field-toggle`}
