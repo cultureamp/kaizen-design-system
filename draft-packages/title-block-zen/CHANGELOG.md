@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.19...@kaizen/draft-title-block-zen@3.6.20) (2021-10-15)
+
+
+### Bug Fixes
+
+* Set MenuItem flex-basis (height) to auto instead of 100% ([#2086](https://github.com/cultureamp/kaizen-design-system/issues/2086)) ([89f8285](https://github.com/cultureamp/kaizen-design-system/commit/89f82853d519a1ee0bae966d2ac915ef6f944362))
+
+
+
+
+
+## [3.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.18...@kaizen/draft-title-block-zen@3.6.19) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.17...@kaizen/draft-title-block-zen@3.6.18) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.16...@kaizen/draft-title-block-zen@3.6.17) (2021-10-14)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
