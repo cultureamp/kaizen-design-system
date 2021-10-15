@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-table",
-  "version": "3.9.11",
+  "version": "3.9.12",
   "description": "The draft Table component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,9 +32,9 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^11.3.0",
-    "@kaizen/draft-form": "^3.11.5",
-    "@kaizen/draft-tooltip": "^2.11.4",
+    "@kaizen/component-library": "^11.4.0",
+    "@kaizen/draft-form": "^3.11.6",
+    "@kaizen/draft-tooltip": "^2.11.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
