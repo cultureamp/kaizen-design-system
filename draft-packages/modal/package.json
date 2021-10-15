@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "6.1.16",
+  "version": "6.1.17",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -37,7 +37,7 @@
     "@kaizen/deprecated-component-library-helpers": "^2.3.0",
     "@kaizen/draft-button": "^5.2.2",
     "@kaizen/draft-divider": "^1.7.0",
-    "@kaizen/draft-form": "^3.11.4",
+    "@kaizen/draft-form": "^3.11.5",
     "@kaizen/draft-illustration": "^2.7.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
