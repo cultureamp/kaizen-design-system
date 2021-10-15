@@ -3,7 +3,6 @@
 
 .icon {
   @extend %caIcon;
-  color: inherit;
 
   @media screen and (-ms-high-contrast: active) {
     color: black;
