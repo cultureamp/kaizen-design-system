@@ -3,6 +3,19 @@
 
 .icon {
   @extend %caIcon;
+  color: inherit;
+
+  @media screen and (-ms-high-contrast: active) {
+    color: black;
+  }
+
+  @media screen and (-ms-high-contrast: white-on-black) {
+    color: white;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    color: black;
+  }
 }
 
 .inheritSize {
