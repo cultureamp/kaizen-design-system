@@ -27,10 +27,11 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   ...genericInputProps
 }) => {
   const searchFieldId = `${id}-search-field-input`
+  const showVisibleLabel = !secondary
 
   return (
     <FieldGroup inline={false}>
-      {secondary && (
+      {showVisibleLabel && (
         <Label
           htmlFor={searchFieldId}
           labelText={labelText}
@@ -39,7 +40,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         />
       )}
       <InputSearch
-        aria-label={secondary ? labelText : undefined}
+        aria-label={!showVisibleLabel ? labelText : undefined}
         id={searchFieldId}
         placeholder={placeholder}
         disabled={disabled}

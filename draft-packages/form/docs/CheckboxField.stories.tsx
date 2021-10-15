@@ -34,16 +34,12 @@ class CheckboxFieldExample extends React.Component<Props> {
     const { render } = this.props
 
     return (
-      <div
-        style={{
-          paddingTop: 24,
-        }}
-      >
+      <>
         {render({
           checkedStatus: this.state.checkedStatus,
           onCheckHandler: this.onCheckHandler,
         })}
-      </div>
+      </>
     )
   }
 }
@@ -72,12 +68,12 @@ export const InteractiveKaizenSiteDemo = () => (
         id="checkbox-1"
         checkedStatus={checkedStatus as any}
         labelText={
-          <div>
+          <span>
             This is a label with a{" "}
             <a href="http://google.com" target="_blank">
               link
             </a>
-          </div>
+          </span>
         }
       />
     )}
