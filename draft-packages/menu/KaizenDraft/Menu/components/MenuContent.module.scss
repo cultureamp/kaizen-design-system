@@ -44,7 +44,7 @@ $padding: $spacing-xs;
 .menuItem {
   display: flex;
   align-items: center;
-  flex: 0 0 100%;
+  flex: 0 0 auto;
   box-sizing: border-box;
   background: none;
   border: 2px transparent solid;
