@@ -3,6 +3,22 @@
 
 .icon {
   @extend %caIcon;
+
+  // Set sensible defaults for icon colours when
+  // windows high-contrast mode is enabled. These
+  // should be overridden by the consumer when the
+  // icon colour conveys information, such as mood.
+  @media screen and (-ms-high-contrast: active) {
+    color: black;
+  }
+
+  @media screen and (-ms-high-contrast: white-on-black) {
+    color: white;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    color: black;
+  }
 }
 
 .inheritSize {
