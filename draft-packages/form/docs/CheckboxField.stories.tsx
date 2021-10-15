@@ -60,6 +60,12 @@ export default {
   decorators: [withDesign],
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 export const InteractiveKaizenSiteDemo = () => (
   <CheckboxFieldExample
     render={({ checkedStatus, onCheckHandler }) => (
@@ -181,3 +187,65 @@ export const WithoutBottomMargin = () => (
 )
 
 WithoutBottomMargin.storyName = "without bottom margin"
+
+export const ReversedOn = () => (
+  <CheckboxField
+    id="checkbox-2"
+    checkedStatus="on"
+    labelText="Label"
+    reversed
+  />
+)
+ReversedOn.story = {
+  name: "Reversed + on",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDisabledOn = () => (
+  <CheckboxField
+    id="checkbox-2"
+    checkedStatus="on"
+    labelText="Label"
+    reversed
+    disabled
+  />
+)
+ReversedDisabledOn.story = {
+  name: "Reversed Disabled + on",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedOff = () => (
+  <CheckboxField
+    id="checkbox-2"
+    checkedStatus="off"
+    labelText="Label"
+    reversed
+  />
+)
+ReversedOff.story = {
+  name: "Reversed + off",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDisabledOff = () => (
+  <CheckboxField
+    id="checkbox-2"
+    checkedStatus="off"
+    labelText="Label"
+    reversed
+    disabled
+  />
+)
+ReversedDisabledOff.story = {
+  name: "Reversed Disabled + off",
+  parameters: {
+    ...reversedBg,
+  },
+}

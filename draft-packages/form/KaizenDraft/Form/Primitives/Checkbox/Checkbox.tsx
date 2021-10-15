@@ -14,6 +14,7 @@ export type CheckboxProps = {
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   name?: string
   tabIndex?: number
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -23,10 +24,14 @@ export type CheckboxProps = {
 
 type Input = React.FunctionComponent<CheckboxProps>
 
-const renderCheckOrMixedIcon = (status: CheckedStatus) => {
+const renderCheckOrMixedIcon = (status: CheckedStatus, reversed) => {
   if (status === "on") {
     return (
-      <div className={styles.icon}>
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      >
         <Icon icon={checkIcon} role="presentation" inheritSize />
       </div>
     )
@@ -52,6 +57,7 @@ const Input: Input = ({
   onFocus,
   onBlur,
   disabled = false,
+  reversed = false,
   tabIndex,
   value,
 }) => (
@@ -66,7 +72,9 @@ const Input: Input = ({
       data-indeterminate={checkedStatus === "mixed"}
       // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
       // Remove when fastclick is removed from consuming repos
-      className={classnames(styles.checkbox, "needsclick")}
+      className={classnames(styles.checkbox, "needsclick", {
+        [styles.reversed]: reversed,
+      })}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
       onFocus={onFocus}
@@ -79,7 +87,13 @@ const Input: Input = ({
         }
       }}
     />
-    <span className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</span>
+    <span
+      className={classnames(styles.box, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      {renderCheckOrMixedIcon(checkedStatus, reversed)}
+    </span>
   </span>
 )
 
