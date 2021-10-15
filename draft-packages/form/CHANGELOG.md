@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.11.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.4...@kaizen/draft-form@3.11.5) (2021-10-15)
+
+
+### Bug Fixes
+
+* Show SearchField label on default, not on secondary ([#2085](https://github.com/cultureamp/kaizen-design-system/issues/2085)) ([0b7fb0a](https://github.com/cultureamp/kaizen-design-system/commit/0b7fb0aa9acd3f5ff0885908e66cc22141fd97aa))
+
+
+
+
+
+## [3.11.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.3...@kaizen/draft-form@3.11.4) (2021-10-15)
+
+
+### Bug Fixes
+
+* Avoid divs inside labels for valid HTML ([#2084](https://github.com/cultureamp/kaizen-design-system/issues/2084)) ([6c235a2](https://github.com/cultureamp/kaizen-design-system/commit/6c235a204bae362d68681e8b537a153afe8fc36c))
+
+
+
+
+
 ## [3.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.2...@kaizen/draft-form@3.11.3) (2021-10-14)
 
 
