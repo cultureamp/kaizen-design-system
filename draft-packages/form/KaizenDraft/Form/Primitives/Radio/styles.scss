@@ -25,6 +25,7 @@ $focus-ring-offset: 2px;
 }
 
 .box {
+  display: block;
   position: relative;
   background: $color-white;
   height: $radio-size;

@@ -55,7 +55,7 @@ const Input: Input = ({
   tabIndex,
   value,
 }) => (
-  <div className={styles.container}>
+  <span className={styles.container}>
     <input
       type="checkbox"
       id={id}
@@ -79,8 +79,8 @@ const Input: Input = ({
         }
       }}
     />
-    <div className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</div>
-  </div>
+    <span className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</span>
+  </span>
 )
 
 export default Input
