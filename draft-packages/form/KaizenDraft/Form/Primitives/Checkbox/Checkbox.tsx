@@ -37,7 +37,11 @@ const renderCheckOrMixedIcon = (status: CheckedStatus, reversed) => {
     )
   } else if (status === "mixed") {
     return (
-      <div className={styles.icon}>
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      >
         <Icon icon={minusIcon} role="presentation" inheritSize />
       </div>
     )
