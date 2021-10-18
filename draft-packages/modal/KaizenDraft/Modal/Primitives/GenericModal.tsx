@@ -59,11 +59,14 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.onAfterLeave()
   }
 
-  onAfterEnter() {
+  onBeforeEnter() {
     this.addEventHandlers()
     this.preventBodyScroll()
-    this.ensureAccessiblityIsMet()
+  }
+
+  onAfterEnter() {
     this.scrollModalToTop()
+    this.ensureAccessiblityIsMet()
     this.focusAccessibleLabel()
     if (this.modalLayer) {
       this.removeAriaHider = createAriaHider(this.modalLayer)
@@ -167,6 +170,7 @@ class GenericModal extends React.Component<GenericModalProps> {
         show={isOpen}
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
+        beforeEnter={() => this.onBeforeEnter()}
         afterEnter={() => this.onAfterEnter()}
         afterLeave={() => this.onAfterLeave()}
         data-generic-modal-transition-wrapper
