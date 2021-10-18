@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.3.0...@kaizen/component-library@11.4.0) (2021-10-15)
+
+
+### Features
+
+* Implement a sensible default colour for icons when -ms-high-contrast is active ([#2088](https://github.com/cultureamp/kaizen-design-system/issues/2088)) ([67c4faf](https://github.com/cultureamp/kaizen-design-system/commit/67c4fafb30183017a2c9bdabb171204a5d499494))
+
+
+
+
+
 # [11.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.5...@kaizen/component-library@11.3.0) (2021-10-14)
 
 
