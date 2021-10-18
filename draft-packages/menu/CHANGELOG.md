@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.19...@kaizen/draft-menu@3.4.20) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.18...@kaizen/draft-menu@3.4.19) (2021-10-15)
+
+
+### Bug Fixes
+
+* Set MenuItem flex-basis (height) to auto instead of 100% ([#2086](https://github.com/cultureamp/kaizen-design-system/issues/2086)) ([89f8285](https://github.com/cultureamp/kaizen-design-system/commit/89f82853d519a1ee0bae966d2ac915ef6f944362))
+
+
+
+
+
+## [3.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.17...@kaizen/draft-menu@3.4.18) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.16...@kaizen/draft-menu@3.4.17) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.15...@kaizen/draft-menu@3.4.16) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.14...@kaizen/draft-menu@3.4.15) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.13...@kaizen/draft-menu@3.4.14) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [3.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.12...@kaizen/draft-menu@3.4.13) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-menu

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "6.1.6",
+  "version": "6.1.18",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,12 +33,12 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^0.3.1",
-    "@kaizen/component-library": "^11.2.1",
+    "@kaizen/component-library": "^11.4.0",
     "@kaizen/deprecated-component-library-helpers": "^2.3.0",
-    "@kaizen/draft-button": "^5.0.2",
+    "@kaizen/draft-button": "^5.2.3",
     "@kaizen/draft-divider": "^1.7.0",
-    "@kaizen/draft-form": "^3.10.0",
-    "@kaizen/draft-illustration": "^2.7.0",
+    "@kaizen/draft-form": "^3.11.6",
+    "@kaizen/draft-illustration": "^2.7.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",

@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.9...@kaizen/draft-zen-navigation-bar@3.5.10) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [3.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.8...@kaizen/draft-zen-navigation-bar@3.5.9) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [3.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.7...@kaizen/draft-zen-navigation-bar@3.5.8) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [3.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.6...@kaizen/draft-zen-navigation-bar@3.5.7) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [3.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.5...@kaizen/draft-zen-navigation-bar@3.5.6) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [3.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.4...@kaizen/draft-zen-navigation-bar@3.5.5) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
 ## [3.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.5.3...@kaizen/draft-zen-navigation-bar@3.5.4) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar

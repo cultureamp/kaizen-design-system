@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.6...@kaizen/notification@0.2.7) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.5...@kaizen/notification@0.2.6) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.4...@kaizen/notification@0.2.5) (2021-10-12)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.3...@kaizen/notification@0.2.4) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.2.2...@kaizen/notification@0.2.3) (2021-09-28)
 
 

@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.3.0...@kaizen/component-library@11.4.0) (2021-10-15)
+
+
+### Features
+
+* Implement a sensible default colour for icons when -ms-high-contrast is active ([#2088](https://github.com/cultureamp/kaizen-design-system/issues/2088)) ([67c4faf](https://github.com/cultureamp/kaizen-design-system/commit/67c4fafb30183017a2c9bdabb171204a5d499494))
+
+
+
+
+
+# [11.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.5...@kaizen/component-library@11.3.0) (2021-10-14)
+
+
+### Features
+
+* adding percentage icon ([#2071](https://github.com/cultureamp/kaizen-design-system/issues/2071)) ([0d0ec06](https://github.com/cultureamp/kaizen-design-system/commit/0d0ec0657efb0df0f82124f624c02fc4b6d7783f))
+
+
+
+
+
+## [11.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.4...@kaizen/component-library@11.2.5) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.3...@kaizen/component-library@11.2.4) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.2...@kaizen/component-library@11.2.3) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.1...@kaizen/component-library@11.2.2) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [11.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.0...@kaizen/component-library@11.2.1) (2021-09-28)
 
 

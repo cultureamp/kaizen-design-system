@@ -48,14 +48,6 @@
       @include ca-inherit-baseline;
     }
   }
-
-  &.disabled {
-    label {
-      > span {
-        opacity: 0.3;
-      }
-    }
-  }
 }
 
 .description {

@@ -34,7 +34,6 @@ const RadioField: RadioField = ({
     data-automation-id={automationId}
     className={classnames(styles.container, {
       [styles.selected]: selectedStatus,
-      [styles.disabled]: disabled,
       [styles.inline]: inline,
     })}
   >
@@ -44,6 +43,7 @@ const RadioField: RadioField = ({
       automationId={`${id}-field-label`}
       labelText={labelText}
       labelType="radio"
+      disabled={disabled}
     >
       <RadioInput
         id={id}

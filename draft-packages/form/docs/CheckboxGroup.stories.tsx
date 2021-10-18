@@ -68,12 +68,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -85,12 +85,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -102,12 +102,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
