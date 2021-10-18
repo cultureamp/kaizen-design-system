@@ -14,6 +14,7 @@ export type LabelProps = {
   labelType?: LabelType
   reversed?: boolean
   variant?: "default" | "prominent"
+  disabled?: boolean
 }
 
 type Label = React.SFC<LabelProps>
@@ -28,6 +29,7 @@ const Label: Label = ({
   reversed = false,
   variant = "default",
   children,
+  disabled,
 }) => (
   <label
     id={id}
@@ -40,6 +42,7 @@ const Label: Label = ({
       [styles.toggle]: labelType === "toggle",
       [styles.radio]: labelType === "radio",
       [styles.prominent]: variant === "prominent",
+      [styles.disabled]: disabled,
     })}
   >
     {children}

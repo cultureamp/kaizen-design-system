@@ -1,27 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color";
-// Setting these variables on our container allows us to use rgba() while allowing cascading fallbacks.
-// If the `--kz-var-*` variables exist, then our `--loading-placeholder--*` variables will use these colours with alpha added.
-// If the `--kz-var-*` variables do not exist, then our `--loading-placeholder--*` variables will also be invalid.
-// Therefore when we use `--loading-placeholder--*` they will either correctly have alpha added, or trigger a fallback.
-@mixin loading-placeholder-theme-switching-tokens() {
-  --loading-placeholder--color-background-default: rgba(
-    var(#{$color-gray-600-rgb-id}),
-    0.1
-  );
-  --loading-placeholder--color-background-reversed: rgba(
-    var(#{$color-white-rgb-id}),
-    0.1
-  );
-}
 
-// Decision tokens for background colours based on presence of CSS variables.
-// If the `--kz-var-*` variable is missing, our `--loading-placeholder--*` variables will be invalid, and the Zen tokens are used as a fallback.
-$dt-color-background-default: var(
-  --loading-placeholder--color-background-default,
-  $color-purple-200
-);
-
-$dt-color-background-reversed: var(
-  --loading-placeholder--color-background-reversed,
-  rgba($color-white-rgb, 0.65)
-);
+$dt-color-background-default: rgba($color-gray-600-rgb, 0.1);
+$dt-color-background-reversed: rgba($color-white-rgb, 0.1);

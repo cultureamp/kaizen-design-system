@@ -535,8 +535,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   );
   align-self: normal;
 
-  &:hover {
-    text-decoration: none;
+  &:hover .breadcrumbTextLink {
+    text-decoration: underline;
   }
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
@@ -552,25 +552,26 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .breadcrumbTextLink {
-  composes: buttonReset;
   display: none;
-  position: absolute;
   z-index: $ca-z-index-sticky - 1;
-  height: $breadcrumb-circle-width;
   @include ca-position($start: -2 * $ca-grid);
-  top: $ca-grid * 3/4;
-  align-items: center;
-  text-decoration: none;
+  position: absolute;
 
   @include title-block-under-1645 {
     @include ca-position($start: $ca-grid);
   }
 
+  @media only screen and (min-width: $breadcrumb-breakpoint-width) {
+    @include ca-position(
+      $start: calc(#{$breadcrumb-circle-width} - #{$ca-grid})
+    );
+  }
+
   &:hover,
   &:focus,
-  .breadcrumb:hover + &,
-  .breadcrumb:focus + & {
-    display: flex;
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    display: block;
     animation: slide-fade 0.4s;
 
     [dir="rtl"] & {
@@ -580,17 +581,13 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .breadcrumbText {
-  @include ca-margin($start: $ca-grid * 2);
+  margin-inline-start: $spacing-xl;
   white-space: nowrap;
   font-family: $typography-heading-5-font-family;
   font-weight: $typography-heading-5-font-weight;
   font-size: $typography-heading-5-font-size;
   line-height: $typography-heading-5-line-height;
   letter-spacing: $typography-heading-5-letter-spacing;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .breadcrumb,

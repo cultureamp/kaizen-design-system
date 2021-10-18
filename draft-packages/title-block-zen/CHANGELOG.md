@@ -3,6 +3,197 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.20...@kaizen/draft-title-block-zen@3.6.21) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.19...@kaizen/draft-title-block-zen@3.6.20) (2021-10-15)
+
+
+### Bug Fixes
+
+* Set MenuItem flex-basis (height) to auto instead of 100% ([#2086](https://github.com/cultureamp/kaizen-design-system/issues/2086)) ([89f8285](https://github.com/cultureamp/kaizen-design-system/commit/89f82853d519a1ee0bae966d2ac915ef6f944362))
+
+
+
+
+
+## [3.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.18...@kaizen/draft-title-block-zen@3.6.19) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.17...@kaizen/draft-title-block-zen@3.6.18) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.16...@kaizen/draft-title-block-zen@3.6.17) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.15...@kaizen/draft-title-block-zen@3.6.16) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.14...@kaizen/draft-title-block-zen@3.6.15) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.13...@kaizen/draft-title-block-zen@3.6.14) (2021-10-13)
+
+
+### Bug Fixes
+
+* update breadcrumb text link to style next to back button on wide views ([#2068](https://github.com/cultureamp/kaizen-design-system/issues/2068)) ([9e5ad04](https://github.com/cultureamp/kaizen-design-system/commit/9e5ad04c62f70a83f739acec151c52778ed7e38c))
+
+
+
+
+
+## [3.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.12...@kaizen/draft-title-block-zen@3.6.13) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.11...@kaizen/draft-title-block-zen@3.6.12) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.10...@kaizen/draft-title-block-zen@3.6.11) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.9...@kaizen/draft-title-block-zen@3.6.10) (2021-10-06)
+
+
+### Bug Fixes
+
+* Add label to TiltleBlockZen overflow meatball IconButton ([#1984](https://github.com/cultureamp/kaizen-design-system/issues/1984)) ([72feb74](https://github.com/cultureamp/kaizen-design-system/commit/72feb74dd7ced16976aa33ba0bfccc76f77c67e2))
+
+
+
+
+
+## [3.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.8...@kaizen/draft-title-block-zen@3.6.9) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.7...@kaizen/draft-title-block-zen@3.6.8) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.6...@kaizen/draft-title-block-zen@3.6.7) (2021-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.5...@kaizen/draft-title-block-zen@3.6.6) (2021-09-29)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.4...@kaizen/draft-title-block-zen@3.6.5) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.3...@kaizen/draft-title-block-zen@3.6.4) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.2...@kaizen/draft-title-block-zen@3.6.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.1...@kaizen/draft-title-block-zen@3.6.2) (2021-09-23)
+
+
+### Bug Fixes
+
+* update title block back link and text to be one ([#1966](https://github.com/cultureamp/kaizen-design-system/issues/1966)) ([61a195f](https://github.com/cultureamp/kaizen-design-system/commit/61a195f2f7eb254d52547e32ec8ebdce6ea58e9f))
+
+
+
+
+
+## [3.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.0...@kaizen/draft-title-block-zen@3.6.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [3.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.13...@kaizen/draft-title-block-zen@3.6.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [3.5.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.5.12...@kaizen/draft-title-block-zen@3.5.13) (2021-09-13)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

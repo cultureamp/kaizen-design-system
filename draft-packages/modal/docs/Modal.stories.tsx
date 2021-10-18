@@ -1095,3 +1095,27 @@ export const Roadblock = () => (
 )
 
 Roadblock.storyName = "Roadblock"
+
+export const MountAndUnmountControlledByParentModal = () => (
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        {isOpen && (
+          <RoadblockModal
+            isOpen={isOpen}
+            title="Roadblock title"
+            onDismiss={close}
+          >
+            <div style={{ textAlign: "center" }}>
+              <Paragraph variant="body">
+                Tell users why they're unable to proceed and what needs to
+                happen first.
+              </Paragraph>
+            </div>
+          </RoadblockModal>
+        )}
+      </div>
+    )}
+  </ModalStateContainer>
+)
