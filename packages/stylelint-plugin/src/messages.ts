@@ -78,3 +78,12 @@ export const deprecatedTokenInVariableMessage = (
     oldTokenName,
     newTokenName
   )} It can't be automatically fixed because it is used within a variable.`
+
+export const deprecatedComponentLibraryColorImport =
+  "@kaizen/component-library/styles/color.scss has been deprecated"
+
+export const deprecatedComponentLibraryTypeImport =
+  "@kaizen/component-library/styles/type.scss has been deprecated"
+
+export const deprecatedComponentLibraryLayoutImport =
+  "@kaizen/component-library/styles/layout.scss has been deprecated"
