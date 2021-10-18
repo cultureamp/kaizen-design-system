@@ -116,7 +116,7 @@ const MenuDropdown = ({
       })}
       onClick={handleRootClick}
     >
-      {children}
+      <ul className={styles.menuList}>{children}</ul>
     </div>
   )
 }
