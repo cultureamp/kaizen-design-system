@@ -102,16 +102,17 @@ $focus-ring-offset: 2px;
 .box.reversed {
   border: $border-solid-border-width $border-solid-border-style
     rgba($color-white-rgb, 0.65);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
 
   .checkbox:not([checked]):focus + & {
     border-color: $color-white;
+    background: rgba(255, 255, 255, 0.1);
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):not([disabled]):hover + & {
       border-color: $color-white;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 
