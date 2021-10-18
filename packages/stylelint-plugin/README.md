@@ -31,15 +31,16 @@ These rules are included by default:
 - `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
 - `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
+- `kaizen/use-deprecated-component-library-helpers-scss-imports` - Reports and fixes any usages of `type.scss`, `color.scss` and `layout.scss` from `@kaizen/component-library/styles`, replacing them with equivalant vars and imports from `@kaizen/component-library/deprecated-component-library-helpers`.
 
 Also available, but not enabled by default:
 
 - `kaizen/prefer-color-tokens` - Detects inlined color values (in any kind of form such as hex, rgba, hsl, hwb etc) and recommends and replaces Kaizen tokens for them if one is found with the same value. Only non-deprecated tokens will be recommended.
 
-- `kaizen/no-tokens-in-variables` - Prevent and fix the usage of Kaizen design tokens in Sass or Less variables. This does not include design tokens in variables that have been imported into the current stylesheet. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed and would be autofixed to `background-color: $kz-color-wisteria-800;`. 
+- `kaizen/no-tokens-in-variables` - Prevent and fix the usage of Kaizen design tokens in Sass or Less variables. This does not include design tokens in variables that have been imported into the current stylesheet. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed and would be autofixed to `background-color: $kz-color-wisteria-800;`.
 
-  This rule is not recommended as a default as proxy variables can be useful - in the example above `$card-bg` is communicating the purpose of the colour, not just it's value. You may find this rule helpful if you have a large number of proxy variables, and they are preventing the other rules from auto-fixing. 
-  
+  This rule is not recommended as a default as proxy variables can be useful - in the example above `$card-bg` is communicating the purpose of the colour, not just it's value. You may find this rule helpful if you have a large number of proxy variables, and they are preventing the other rules from auto-fixing.
+
   Autofixing often can't be applied to variable values, e.g. we can't transform `$card-bg: $kz-color-wisteria-800;` -> `$card-bg: $kz-var-color-wisteria-800;` because we don't know how `$card-bg` is being used (it could be imported in other files, and used within a calc function which may silently fail). You can use the `kaizen/no-tokens-in-variables` to remove proxy variables and make it more likely that the other rules and autofixes will be applied.
 
 

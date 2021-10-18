@@ -5,6 +5,7 @@ import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-use
 import { noInvalidUseOfTokens } from "./rules/no-invalid-use-of-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
+import { useDeprecatedComponentLibraryHelpersScssImports } from "./rules/use-deprecated-component-library-helpers-scss-imports"
 import { Options } from "./types"
 import { preferColorTokens } from "./rules/prefer-color-tokens"
 
@@ -27,6 +28,7 @@ const rules: StyleLintRule[] = [
   noInvalidUseOfVarTokensInEquations,
   noInvalidUseOfTokens,
   preferColorTokens,
+  useDeprecatedComponentLibraryHelpersScssImports,
 ]
 
 export default rules.map(rule =>

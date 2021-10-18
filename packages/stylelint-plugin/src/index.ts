@@ -17,6 +17,10 @@ const kaizenStylelintRules = {
     true,
     { severity: "warning", disableFixing: false },
   ],
+  "kaizen/use-deprecated-component-library-helpers-scss-imports": [
+    true,
+    { severity: "warning", disableFixing: false },
+  ],
 }
 
 const kaizenStylelintConfig: Partial<Configuration> = {

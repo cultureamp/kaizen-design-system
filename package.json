@@ -16,6 +16,7 @@
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "test": "jest",
+    "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "compile": "tsc",
     "lint": "elm-format --validate packages && yarn eslint --max-warnings=0 && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
