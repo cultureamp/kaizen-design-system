@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.2...@kaizen/draft-slider@1.8.3) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.1...@kaizen/draft-slider@1.8.2) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.0...@kaizen/draft-slider@1.8.1) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.3...@kaizen/draft-slider@1.8.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.2...@kaizen/draft-slider@1.7.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.1...@kaizen/draft-slider@1.7.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
 ## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.0...@kaizen/draft-slider@1.7.1) (2021-09-23)
 
 **Note:** Version bump only for package @kaizen/draft-slider

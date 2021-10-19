@@ -561,6 +561,12 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     @include ca-position($start: $ca-grid);
   }
 
+  @media only screen and (min-width: $breadcrumb-breakpoint-width) {
+    @include ca-position(
+      $start: calc(#{$breadcrumb-circle-width} - #{$ca-grid})
+    );
+  }
+
   &:hover,
   &:focus,
   .breadcrumb:hover &,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.3.0...@kaizen/deprecated-component-library-helpers@2.4.0) (2021-10-18)
+
+
+### Features
+
+* stylelint plugin to switch from super legacy component-library styles to equivalent deprecated-component-library-helpers ones ([#1740](https://github.com/cultureamp/kaizen-design-system/issues/1740)) ([cacfc8b](https://github.com/cultureamp/kaizen-design-system/commit/cacfc8b6c364c62b4f53d5025e7eddeb26a35929))
+
+
+
+
+
 # [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.2.0...@kaizen/deprecated-component-library-helpers@2.3.0) (2021-08-13)
 
 

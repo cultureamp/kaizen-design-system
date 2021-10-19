@@ -37,16 +37,12 @@ class RadioFieldExample extends React.Component<Props> {
     const { render } = this.props
 
     return (
-      <div
-        style={{
-          paddingTop: 24,
-        }}
-      >
+      <>
         {render({
           selectedStatus: this.state.selectedStatus,
           onChangeHandler: this.onChangeHandler,
         })}
-      </div>
+      </>
     )
   }
 }
@@ -77,12 +73,12 @@ export const InteractiveKaizenSiteDemo = () => (
         selectedStatus={selectedStatus as any}
         value="radio-1"
         labelText={
-          <div>
+          <span>
             This is a label with a{" "}
             <a href="http://google.com" target="_blank">
               link
             </a>
-          </div>
+          </span>
         }
       />
     )}

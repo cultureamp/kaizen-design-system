@@ -7,7 +7,7 @@ env:
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
   plugins:
-    - docker-compose#v3.0.3:
+    - docker-compose#v3.8.0:
         run: build
 
 steps:
@@ -16,9 +16,9 @@ steps:
     branches: "master"
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.8.0:
           run: release
     notify:
       - slack: "#team_front_end_foundations"
@@ -29,9 +29,9 @@ steps:
     branches: "canary"
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.8.0:
           run: release
 
   - name: ":package: Build (site)"
@@ -57,9 +57,9 @@ steps:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.8.0:
           run: publish
 
   - block: ":rainbow: Build (chromatic)"
@@ -70,7 +70,7 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.8.0:
           run: release

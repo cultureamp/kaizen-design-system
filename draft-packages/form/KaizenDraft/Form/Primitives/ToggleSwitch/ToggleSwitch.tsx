@@ -41,11 +41,10 @@ const ToggleSwitch: ToggleSwitch = ({
   const isOn = toggledStatus === ToggledStatus.ON
 
   return (
-    <div
+    <span
       className={classnames({
         [styles.on]: isOn,
         [styles.off]: !isOn,
-        [styles.disabled]: disabled,
       })}
     >
       <input
@@ -60,14 +59,14 @@ const ToggleSwitch: ToggleSwitch = ({
         onBlur={onBlur}
         disabled={disabled}
       />
-      <div
+      <span
         className={classnames(styles.track, {
           [styles.freemium]: theme === ToggleTheme.FREEMIUM,
         })}
       >
-        <div className={styles.thumb} />
-      </div>
-    </div>
+        <span className={styles.thumb} />
+      </span>
+    </span>
   )
 }
 

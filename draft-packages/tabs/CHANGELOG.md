@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.11...@kaizen/draft-tabs@4.3.12) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.10...@kaizen/draft-tabs@4.3.11) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.9...@kaizen/draft-tabs@4.3.10) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.8...@kaizen/draft-tabs@4.3.9) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.7...@kaizen/draft-tabs@4.3.8) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [4.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.3.6...@kaizen/draft-tabs@4.3.7) (2021-09-23)
 
 **Note:** Version bump only for package @kaizen/draft-tabs

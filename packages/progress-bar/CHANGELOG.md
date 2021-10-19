@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.7...@kaizen/progress-bar@1.1.8) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.6...@kaizen/progress-bar@1.1.7) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.5...@kaizen/progress-bar@1.1.6) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.4...@kaizen/progress-bar@1.1.5) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.3...@kaizen/progress-bar@1.1.4) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
 ## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.2...@kaizen/progress-bar@1.1.3) (2021-09-23)
 
 **Note:** Version bump only for package @kaizen/progress-bar

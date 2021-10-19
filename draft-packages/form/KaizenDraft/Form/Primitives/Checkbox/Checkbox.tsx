@@ -55,7 +55,7 @@ const Input: Input = ({
   tabIndex,
   value,
 }) => (
-  <div className={styles.container}>
+  <span className={styles.container}>
     <input
       type="checkbox"
       id={id}
@@ -74,13 +74,13 @@ const Input: Input = ({
       disabled={disabled}
       value={value || checkedStatus}
       ref={node => {
-        if (node && checkedStatus === "mixed") {
-          node.indeterminate = true
+        if (node) {
+          node.indeterminate = checkedStatus === "mixed"
         }
       }}
     />
-    <div className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</div>
-  </div>
+    <span className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</span>
+  </span>
 )
 
 export default Input

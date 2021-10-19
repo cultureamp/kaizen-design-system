@@ -60,8 +60,7 @@ const Icon: Icon = ({
 
   const accessibilityProps = {
     role,
-    ["aria-hidden"]: !isMeaningfulImg,
-    ["aria-labelledby"]: isMeaningfulImg && labelledBy ? labelledBy : undefined,
+    ["aria-hidden"]: isMeaningfulImg ? undefined : true,
   }
 
   return (

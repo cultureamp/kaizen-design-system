@@ -43,12 +43,12 @@ export const DefaultKaizenSiteDemo = () => (
       inputType="email"
       inputValue=""
       labelText={
-        <div>
+        <span>
           This is a label with a{" "}
           <a href="http://google.com" target="_blank">
             link
           </a>
-        </div>
+        </span>
       }
       placeholder="Please enter your email"
       onChange={() => undefined}
@@ -529,12 +529,12 @@ export const DefaultFocusBlurEvents = () => (
       inputType="email"
       inputValue=""
       labelText={
-        <div>
+        <span>
           This is a label with a{" "}
           <a href="http://google.com" target="_blank">
             link
           </a>
-        </div>
+        </span>
       }
       placeholder="Please enter your email"
       onFocus={() => undefined}
