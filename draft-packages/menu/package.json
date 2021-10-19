@@ -35,6 +35,7 @@
     "@kaizen/component-library": "^11.4.1",
     "@kaizen/draft-button": "^5.2.4",
     "@kaizen/draft-divider": "^1.7.0",
+    "@kaizen/react-deprecate-warning": "^1.1.5",
     "@popperjs/core": "^2.6.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",

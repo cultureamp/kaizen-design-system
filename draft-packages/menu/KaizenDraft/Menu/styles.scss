@@ -1,3 +1,7 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/layers";
 
 $menu-container-width: 248px;
@@ -8,7 +12,26 @@ $menu-container-width: 248px;
 
 .menuContainer {
   z-index: $ca-z-index-dropdown;
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: $color-white;
+  color: $color-purple-800;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
+  padding: $spacing-xs 0;
+  text-align: left;
+  width: 100%;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}
+
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .defaultWidth {
