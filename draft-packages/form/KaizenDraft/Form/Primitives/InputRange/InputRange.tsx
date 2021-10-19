@@ -45,6 +45,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   return (
     <>
       <input
+        id={id}
         className={classnames(
           styles.ratingScaleRange,
           classNameAndIHaveSpokenToDST,

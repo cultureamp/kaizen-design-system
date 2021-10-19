@@ -30,25 +30,25 @@ $ca-palette-peach: #f3786d;
 $ca-palette-yuzu: #ffce1e;
 
 // Tertiary colours
-$ca-palette-stone: add-tint($ca-palette-ink, 97%);
-$ca-palette-ash: add-tint($ca-palette-ink, 94%);
-$ca-palette-positive: add-tint($ca-palette-seedling, 30%);
+$ca-palette-stone: #f9f9f9; // previously add-tint($ca-palette-ink, 97%);
+$ca-palette-ash: #f3f4f4; // previously add-tint($ca-palette-ink, 94%)
+$ca-palette-positive: #7dc6b1; // previously add-tint($ca-palette-seedling, 30%);
 $ca-palette-negative: $ca-palette-coral;
 // Delta colours are to be phased out. Please do not use.
 $ca-palette-positive-delta: #43e699;
 $ca-palette-negative-delta: #ff4757;
-$ca-palette-input-validation-negative: add-tint($ca-palette-coral, 70%);
+$ca-palette-input-validation-negative: #fbc9ce; // previously add-tint($ca-palette-coral, 70%);
 
 // Text colours
 $ca-base-text-color: $color-purple-800;
 $ca-link-text-color: $color-blue-500;
 $ca-link-hover-text-color: $color-blue-500;
-$ca-palette-positive-text: add-shade($ca-palette-seedling, 20%);
-$ca-palette-negative-text: add-shade($ca-palette-coral, 20%);
+$ca-palette-positive-text: #378a72; // previously add-shade($ca-palette-seedling, 20%);
+$ca-palette-negative-text: #c03d4a; // previously add-shade($ca-palette-coral, 20%);
 
 // Border colours
-$ca-border-color: add-tint($ca-palette-ink, 80%);
-$ca-border-between-rows-color: add-tint($ca-palette-ink, 90%);
+$ca-border-color: #d8dad9; // previously add-tint($ca-palette-ink, 80%);
+$ca-border-between-rows-color: #ececec; // previously add-tint($ca-palette-ink, 90%);
 
 // Freemium colors
 $ca-freemium-blue: #9cd1e2;

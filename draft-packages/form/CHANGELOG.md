@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.11.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.7...@kaizen/draft-form@3.11.8) (2021-10-18)
+
+
+### Bug Fixes
+
+* Put id on InputRange input ([#2092](https://github.com/cultureamp/kaizen-design-system/issues/2092)) ([d629f7a](https://github.com/cultureamp/kaizen-design-system/commit/d629f7a44fe6daebfab91b72cb93b9aa3147104b))
+
+
+
+
+
+## [3.11.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.6...@kaizen/draft-form@3.11.7) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [3.11.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.5...@kaizen/draft-form@3.11.6) (2021-10-15)
 
 **Note:** Version bump only for package @kaizen/draft-form
