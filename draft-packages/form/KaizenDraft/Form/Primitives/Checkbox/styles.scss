@@ -34,6 +34,7 @@ $focus-ring-offset: 2px;
 }
 
 .box {
+  display: block;
   position: relative;
   pointer-events: none;
   background: $color-white;
@@ -95,10 +96,6 @@ $focus-ring-offset: 2px;
       #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
         2
     );
-  }
-
-  .checkbox:disabled + & {
-    opacity: 0.3;
   }
 }
 
