@@ -9,6 +9,8 @@ $gutter: calc(#{$spacing-md} * 1 / 6);
 $padding: $spacing-xs;
 
 .menuSectionWrapper {
+  list-style: none;
+
   &:not(:last-of-type) {
     &::after {
       width: 100%;

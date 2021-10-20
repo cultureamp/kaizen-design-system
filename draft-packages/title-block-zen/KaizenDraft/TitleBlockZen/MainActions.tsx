@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
+import { Menu, MenuItem, MenuItemProps, MenuSection } from "@kaizen/draft-menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -30,7 +30,7 @@ const MainActions = ({
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = (
-      <MenuContent>
+      <MenuSection>
         {primaryAction.menuItems.map((item, idx) => (
           <MenuItem
             {...item}
@@ -38,7 +38,7 @@ const MainActions = ({
             automationId={`main-action-primary-menu-item-${idx}`}
           />
         ))}
-      </MenuContent>
+      </MenuSection>
     )
     items = [
       ...(defaultAction
@@ -163,14 +163,14 @@ const MainActions = ({
               />
             }
           >
-            <MenuContent>
+            <MenuSection>
               {overflowMenuItems.map((menuItem, idx) => (
                 <MenuItem
                   {...menuItem}
                   key={`main-action-overflow-item-menu-item-${idx}`}
                 />
               ))}
-            </MenuContent>
+            </MenuSection>
           </Menu>
         ),
       },

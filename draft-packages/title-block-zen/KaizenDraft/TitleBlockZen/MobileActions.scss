@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -122,6 +123,10 @@ $mobile-actions-split-select-square-width: 64px;
   height: 100%;
   position: absolute;
   @include ca-position($end: 20px);
+}
+
+.mobileMenuWrapper {
+  padding: $spacing-xs 0;
 }
 
 @keyframes slide-up {

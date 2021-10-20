@@ -46,6 +46,7 @@ export type StatelessMenuProps = {
     "aria-haspopup": boolean
     "aria-expanded": boolean
   }) => React.ReactElement
+  onClick?: (event) => void
 }
 
 export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({

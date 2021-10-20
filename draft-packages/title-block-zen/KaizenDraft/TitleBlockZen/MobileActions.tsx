@@ -1,11 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
-import {
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSeparator,
-} from "@kaizen/draft-menu"
+import { MenuItem, MenuSection } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -47,7 +42,6 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     primaryAction.menuItems.length > 0
   ) {
     return [
-      <MenuSeparator key="title-block-mobile-actions-primary-menu-separator" />,
       primaryAction.menuItems
         .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
@@ -141,15 +135,14 @@ const ConditionalOtherActionsHeading = ({
   secondaryActions,
   secondaryOverflowMenuItems,
 }: ConditionalOtherActionsHeadingProps) => (
-  <>
-    {(defaultAction ||
-      (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
-      <MenuSeparator />
-    )}
-    {((defaultAction && buttonIsAction(defaultAction)) ||
-      secondaryActions ||
-      secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
-  </>
+  <></>
+  //   {(defaultAction ||
+  //     (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
+  //     <MenuSeparator />
+  //   )}
+  //   {((defaultAction && buttonIsAction(defaultAction)) ||
+  //     secondaryActions ||
+  //     secondaryOverflowMenuItems) && <MenuSection title="Other actions" />}
 )
 
 const DrawerMenuContent = ({
@@ -158,21 +151,27 @@ const DrawerMenuContent = ({
   secondaryActions,
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps) => (
-  <>
-    {primaryAction && renderPrimaryLinks(primaryAction)}
+  <ul className={styles.mobileMenuWrapper}>
+    <MenuSection>
+      {primaryAction && renderPrimaryLinks(primaryAction)}
+    </MenuSection>
     {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-    {primaryAction && renderPrimaryActions(primaryAction)}
-    <ConditionalOtherActionsHeading
-      primaryAction={primaryAction}
-      defaultAction={defaultAction}
-      secondaryActions={secondaryActions}
-      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-    />
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
-    {secondaryActions && renderSecondaryActions(secondaryActions)}
-    {secondaryOverflowMenuItems &&
-      renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-  </>
+    <MenuSection>
+      {primaryAction && renderPrimaryActions(primaryAction)}
+    </MenuSection>
+    <MenuSection heading="Other actions">
+      <ConditionalOtherActionsHeading
+        primaryAction={primaryAction}
+        defaultAction={defaultAction}
+        secondaryActions={secondaryActions}
+        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+      />
+      {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+      {secondaryActions && renderSecondaryActions(secondaryActions)}
+      {secondaryOverflowMenuItems &&
+        renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+    </MenuSection>
+  </ul>
 )
 
 const renderDrawerHandleLabel = (
@@ -474,14 +473,14 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
-            <MenuContent>
+            <MenuSection>
               <DrawerMenuContent
                 primaryAction={primaryAction}
                 defaultAction={defaultAction}
                 secondaryActions={secondaryActions}
                 secondaryOverflowMenuItems={secondaryOverflowMenuItems}
               />
-            </MenuContent>
+            </MenuSection>
           </div>
         )}
       </div>

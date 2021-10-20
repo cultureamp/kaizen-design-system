@@ -228,10 +228,9 @@ const StatelessMenuExample = props => {
             {...buttonProps}
           />
         )}
+        onClick={e => e.stopPropagation()}
       >
-        <div onClick={e => e.stopPropagation()}>
-          <MenuInstance />
-        </div>
+        <MenuInstance />
       </StatelessMenu>
     </div>
   )
