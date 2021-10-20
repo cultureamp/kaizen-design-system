@@ -116,3 +116,35 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+const fetch = require("node-fetch")
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+  createNodeId,
+}) => {
+  const githubRepoURL =
+    "https://api.github.com/repos/cultureamp/kaizen-design-system/issues?per_page=1000"
+  try {
+    const response = await fetch(githubRepoURL)
+    const issues = await response.json()
+    issues.forEach(issue =>
+      createNode({
+        ...issue,
+        id: createNodeId(`ISSUE-${issue.id}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: "ISSUE",
+          content: JSON.stringify(issue),
+          contentDigest: createContentDigest(issue),
+        },
+      })
+    )
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+  }
+  return
+}

@@ -1,6 +1,5 @@
 module KaizenDraft.Button.Button exposing
-    ( BrandColor(..)
-    , ButtonType(..)
+    ( ButtonType(..)
     , Config
     , IconPosition(..)
     , automationId
@@ -24,7 +23,6 @@ module KaizenDraft.Button.Button exposing
     , onMouseDown
     , preventKeydownOn
     , primary
-    , reverseColor
     , reversed
     , secondary
     , view
@@ -64,11 +62,6 @@ view (Config config) label =
                 , ( .destructive, config.variant == Destructive )
                 , ( .form, config.form )
                 , ( .reversed, config.reversed )
-                , ( .reverseColorCluny, config.reverseColor == Just Cluny )
-                , ( .reverseColorPeach, config.reverseColor == Just Peach )
-                , ( .reverseColorSeedling, config.reverseColor == Just Seedling )
-                , ( .reverseColorWisteria, config.reverseColor == Just Wisteria )
-                , ( .reverseColorYuzu, config.reverseColor == Just Yuzu )
                 , ( .destructiveModifier, config.destructive == True )
                 ]
             ]
@@ -276,11 +269,6 @@ styles =
         , secondaryDestructive = "secondaryDestructive"
         , form = "form"
         , reversed = "reversed"
-        , reverseColorCluny = "reverseColorCluny"
-        , reverseColorPeach = "reverseColorPeach"
-        , reverseColorSeedling = "reverseColorSeedling"
-        , reverseColorWisteria = "reverseColorWisteria"
-        , reverseColorYuzu = "reverseColorYuzu"
         , content = "content"
         , label = "label"
         , fullWidth = "fullWidth"
@@ -305,7 +293,6 @@ type alias ConfigValue msg =
     , disabled : Bool
     , form : Bool
     , reversed : Bool
-    , reverseColor : Maybe BrandColor
     , onClick : Maybe msg
     , onFocus : Maybe msg
     , onBlur : Maybe msg
@@ -333,14 +320,6 @@ type IconPosition
     | End
 
 
-type BrandColor
-    = Cluny
-    | Peach
-    | Seedling
-    | Wisteria
-    | Yuzu
-
-
 default : Config msg
 default =
     Config defaults
@@ -355,7 +334,6 @@ defaults =
     , disabled = False
     , form = False
     , reversed = False
-    , reverseColor = Nothing
     , onClick = Nothing
     , onFocus = Nothing
     , onBlur = Nothing
@@ -428,11 +406,6 @@ reversed value (Config config) =
 fullWidth : Bool -> Config msg -> Config msg
 fullWidth value (Config config) =
     Config { config | fullWidth = value }
-
-
-reverseColor : BrandColor -> Config msg -> Config msg
-reverseColor value (Config config) =
-    Config { config | reverseColor = Just value }
 
 
 onClick : msg -> Config msg -> Config msg

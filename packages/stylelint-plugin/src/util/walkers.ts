@@ -1,7 +1,46 @@
 import { AtRule, Declaration, Root } from "postcss"
-import postcssValueParser from "postcss-value-parser"
+import postcssValueParser, { FunctionNode } from "postcss-value-parser"
 import { ParsedKaizenVariable, Variable } from "../types"
 import { parseVariable } from "./variableUtils"
+
+/**
+ * Works the same way as postcssValueParser.ParsedValue.walk except the visitor knows about it's parent (if one exists).
+ * Currently, value parser will only put children nodes in functions, and a function with no name is just an expression within ( .. )
+ * which won't be treated as a parent within our implementation.
+ */
+export const walkWithParent = (
+  _value: postcssValueParser.ParsedValue,
+  _visitor: (
+    node: postcssValueParser.Node,
+    parent?: postcssValueParser.FunctionNode
+  ) => void | false
+) => {
+  // We want an inner walker so that we can recurse without the context parameter (currentParent) in the parent function (users shouldn't know about it)
+  const innerWalker = (
+    nodes: postcssValueParser.Node[],
+    visitor: (
+      node: postcssValueParser.Node,
+      parent?: postcssValueParser.FunctionNode
+    ) => void | false,
+    currentParent?: postcssValueParser.FunctionNode
+  ): void | false => {
+    for (const node of nodes) {
+      const shouldContinue = visitor(node, currentParent)
+      if (shouldContinue === false) return false
+      // If there are children, and the node is a function, AND the function has a name (it's not just an expression wrapped in "( )" )
+      if ("nodes" in node) {
+        if (node.type === "function" && node.value.length) {
+          if (innerWalker(node.nodes, visitor, node) === false) return false
+        } else {
+          if (innerWalker(node.nodes, visitor, currentParent) === false)
+            return false
+        }
+      }
+    }
+  }
+
+  innerWalker(_value.nodes, _visitor)
+}
 
 /**
  * Given an AST of a value (from postcss-value-parser), visit any less or sass variables that show up
@@ -10,14 +49,15 @@ export const walkVariablesOnValue = (
   parsedValue: postcssValueParser.ParsedValue,
   visitor: (
     node: postcssValueParser.WordNode,
-    variable: Variable
+    variable: Variable,
+    parent?: FunctionNode
   ) => void | false
 ) => {
-  parsedValue.walk(node => {
+  walkWithParent(parsedValue, (node, parent) => {
     if (node.type === "word") {
       const variable = parseVariable(node)
       if (variable) {
-        return visitor(node, variable)
+        return visitor(node, variable, parent)
       }
     }
   })
@@ -152,43 +192,4 @@ export const walkKaizenTokens = (
         }
       )
   })
-}
-
-/**
- * Works the same way as postcssValueParser.ParsedValue.walk except the visitor knows about it's parent (if one exists).
- * Currently, value parser will only put children nodes in functions, and a function with no name is just an expression within ( .. )
- * which won't be treated as a parent within our implementation.
- */
-export const walkWithParent = (
-  _value: postcssValueParser.ParsedValue,
-  _visitor: (
-    node: postcssValueParser.Node,
-    parent?: postcssValueParser.FunctionNode
-  ) => void | false
-) => {
-  // We want an inner walker so that we can recurse without the context parameter (currentParent) in the parent function (users shouldn't know about it)
-  const innerWalker = (
-    nodes: postcssValueParser.Node[],
-    visitor: (
-      node: postcssValueParser.Node,
-      parent?: postcssValueParser.FunctionNode
-    ) => void | false,
-    currentParent?: postcssValueParser.FunctionNode
-  ): void | false => {
-    for (const node of nodes) {
-      const shouldContinue = visitor(node, currentParent)
-      if (shouldContinue === false) return false
-      // If there are children, and the node is a function, AND the function has a name (it's not just an expression wrapped in "( )" )
-      if ("nodes" in node) {
-        if (node.type === "function" && node.value.length) {
-          if (innerWalker(node.nodes, visitor, node) === false) return false
-        } else {
-          if (innerWalker(node.nodes, visitor, currentParent) === false)
-            return false
-        }
-      }
-    }
-  }
-
-  innerWalker(_value.nodes, _visitor)
 }

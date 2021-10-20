@@ -3,10 +3,17 @@ import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Avatar (React)",
+  title: `${CATEGORIES.components}/Avatar`,
+  component: Avatar,
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14306"
     ),
@@ -35,6 +42,18 @@ export const InitialsOthers = () => (
     <Avatar isCurrentUser={false} size="medium" fullName="Jane Doe" />
     <br />
     <Avatar isCurrentUser={false} size="small" fullName="Jane Doe" />
+  </>
+)
+
+export const UnicodeInitials = () => (
+  <>
+    <Avatar isCurrentUser={false} size="xlarge" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="large" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="medium" fullName="李存信" />
+    <br />
+    <Avatar isCurrentUser={false} size="small" fullName="李存信" />
   </>
 )
 
@@ -118,6 +137,18 @@ export const WithLongInitials = () => (
     <Avatar size="medium" fullName="Very Long Name Which Shows Initials" />
     <br />
     <Avatar size="small" fullName="Very Long Name Which Shows Initials" />
+  </>
+)
+
+export const WithoutNameOrAvatar = () => (
+  <>
+    <Avatar size="xlarge" />
+    <br />
+    <Avatar size="large" />
+    <br />
+    <Avatar size="medium" />
+    <br />
+    <Avatar size="small" />
   </>
 )
 

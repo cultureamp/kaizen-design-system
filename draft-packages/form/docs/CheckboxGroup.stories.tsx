@@ -2,7 +2,7 @@ import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./CheckboxGroup.stories.scss"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 interface RenderProps {
   checkedStatus: string
@@ -43,13 +43,13 @@ class CheckboxGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "CheckboxGroup (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Group`,
   component: CheckboxGroup,
   parameters: {
-    info: {
-      text: `
-        import { CheckboxGroup } from "@kaizen/draft-form";
-      `,
+    docs: {
+      description: {
+        component: 'import { CheckboxGroup } from "@kaizen/draft-form";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A69854"
@@ -68,12 +68,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -85,12 +85,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -102,12 +102,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -284,3 +284,69 @@ export const WithoutBottomMargin = () => (
 )
 
 WithoutBottomMargin.storyName = "without bottom margin"
+
+export const NestedCheckboxGroup = () => {
+  const [selectedOptions, setSelectedOptions] = React.useState<number[]>([])
+
+  const onCheckHandler = (state: string, value: number) => {
+    if (state === "off") {
+      setSelectedOptions(prev => [...prev, value])
+    } else {
+      setSelectedOptions(selectedOptions.filter(val => val !== value))
+    }
+  }
+
+  const checkAllCheckboxOnCheckHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const state = event.currentTarget.value
+    if (state === "off" || state === "mixed") {
+      setSelectedOptions([1, 2, 3])
+    } else {
+      setSelectedOptions([])
+    }
+  }
+
+  const allCheckboxState = React.useMemo(() => {
+    if (selectedOptions.length === 3) {
+      return "on"
+    }
+    if (selectedOptions.length === 0) {
+      return "off"
+    }
+    return "mixed"
+  }, [selectedOptions])
+
+  return (
+    <div>
+      <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
+        <CheckboxField
+          id="checkbox-all"
+          checkedStatus={allCheckboxState}
+          labelText="All"
+          onCheck={checkAllCheckboxOnCheckHandler}
+        />
+        <CheckboxField
+          id="checkbox-1"
+          checkedStatus={selectedOptions.includes(1) ? "on" : "off"}
+          labelText="Label"
+          onCheck={e => onCheckHandler(e.currentTarget.value, 1)}
+        />
+        <CheckboxField
+          id="checkbox-2"
+          checkedStatus={selectedOptions.includes(2) ? "on" : "off"}
+          labelText="Label"
+          onCheck={e => onCheckHandler(e.currentTarget.value, 2)}
+        />
+        <CheckboxField
+          id="checkbox-3"
+          checkedStatus={selectedOptions.includes(3) ? "on" : "off"}
+          labelText="Label"
+          onCheck={e => onCheckHandler(e.currentTarget.value, 3)}
+        />
+      </CheckboxGroup>
+    </div>
+  )
+}
+
+NestedCheckboxGroup.storyName = "Nested Checkbox Group"

@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -40,11 +40,11 @@
         transform: translate(-50%, -50%);
         height: 36px;
         width: 3px;
-        background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+        background-color: rgba($color-white-rgb, 0.1);
         border-radius: 3px;
 
         .admin & {
-          background-color: rgba($kz-var-color-slate-rgb-params, 0.1);
+          background-color: rgba($color-gray-600-rgb, 0.1);
         }
       }
     }
@@ -57,8 +57,7 @@
     .content & span::before {
       background-color: $dt-color-background-color-content-link;
       height: 5px;
-      border-radius: 0 0 $kz-var-border-solid-border-radius
-        $kz-var-border-solid-border-radius;
+      border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
     }
 
     @include navbar-tablet-up {

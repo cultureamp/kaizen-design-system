@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "2.9.2",
+  "version": "3.2.1",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -14,12 +14,12 @@
     "tokens",
     "sass",
     "less",
-    "css",
     "index.ts",
     "src",
     "react",
     "dist",
-    "elm"
+    "elm",
+    "!**/*.spec.*"
   ],
   "types": "dist/**/*.d.ts",
   "main": "dist/index.js",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "test": "yarn jest",
+    "test": "cd ../../ && yarn jest ./packages/design-tokens",
     "build": "yarn clean && yarn prepublish",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
@@ -42,8 +42,9 @@
     "@types/yargs": "^16.0.0",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
+    "postcss": "^8.3.6",
     "prettier": "*",
-    "react-highlight": "^0.13.0",
+    "react-highlight": "^0.14.0",
     "react-intersection-observer": "^8.31.0",
     "react-map-interaction": "^2.0.0",
     "ts-node": "^9.1.1",

@@ -3,6 +3,224 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.2...@kaizen/draft-slider@1.8.3) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.1...@kaizen/draft-slider@1.8.2) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.8.0...@kaizen/draft-slider@1.8.1) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.3...@kaizen/draft-slider@1.8.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.2...@kaizen/draft-slider@1.7.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.1...@kaizen/draft-slider@1.7.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.7.0...@kaizen/draft-slider@1.7.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.5...@kaizen/draft-slider@1.7.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.4...@kaizen/draft-slider@1.6.5) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.3...@kaizen/draft-slider@1.6.4) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.2...@kaizen/draft-slider@1.6.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.1...@kaizen/draft-slider@1.6.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.6.0...@kaizen/draft-slider@1.6.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.5.0...@kaizen/draft-slider@1.6.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.13...@kaizen/draft-slider@1.5.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [1.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.12...@kaizen/draft-slider@1.4.13) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [1.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.11...@kaizen/draft-slider@1.4.12) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.10...@kaizen/draft-slider@1.4.11) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.9...@kaizen/draft-slider@1.4.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.8...@kaizen/draft-slider@1.4.9) (2021-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.7...@kaizen/draft-slider@1.4.8) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.6...@kaizen/draft-slider@1.4.7) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.5...@kaizen/draft-slider@1.4.6) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.4...@kaizen/draft-slider@1.4.5) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.3...@kaizen/draft-slider@1.4.4) (2021-07-06)
+
+
+### Bug Fixes
+
+* Delete template Slider README ([#1744](https://github.com/cultureamp/kaizen-design-system/issues/1744)) ([82c66c1](https://github.com/cultureamp/kaizen-design-system/commit/82c66c15f90e52e1fa9d754857991da17db9aeed))
+
+
+
+
+
 ## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.2...@kaizen/draft-slider@1.4.3) (2021-07-02)
 
 **Note:** Version bump only for package @kaizen/draft-slider

@@ -2,6 +2,7 @@ import { RadioField } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
@@ -36,28 +37,24 @@ class RadioFieldExample extends React.Component<Props> {
     const { render } = this.props
 
     return (
-      <div
-        style={{
-          paddingTop: 24,
-        }}
-      >
+      <>
         {render({
           selectedStatus: this.state.selectedStatus,
           onChangeHandler: this.onChangeHandler,
         })}
-      </div>
+      </>
     )
   }
 }
 
 export default {
-  title: "RadioField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
   component: RadioField,
   parameters: {
-    info: {
-      text: `
-      import { RadioField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { RadioField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14354%3A68219"
@@ -76,12 +73,12 @@ export const InteractiveKaizenSiteDemo = () => (
         selectedStatus={selectedStatus as any}
         value="radio-1"
         labelText={
-          <div>
+          <span>
             This is a label with a{" "}
             <a href="http://google.com" target="_blank">
               link
             </a>
-          </div>
+          </span>
         }
       />
     )}

@@ -25,7 +25,7 @@ You can edit Kaizen Site documentation using GitHub's interface.
 2. **Edit**: Click the pencil icon to "Edit this file".
 3. **Preview**: Makes your changes to the content and click "Preview changes" to see how they look.
 4. **Commit**:
-    - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
+    - Under "Commit changes", write a commit message starting with `docs:`, such as `docs: update typography documentation`.
     - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
     - Click the "Commit changes" button. This will start a pull request.
 5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #prod_design_systems know.
@@ -37,18 +37,16 @@ You can edit Kaizen Site documentation using GitHub's interface.
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
 
-
-
 ## Contributing code
 
 ### Need to know
 
 Every contribution must be **design reviewed** and **communicated**.
 
-- **Kaizen Site** changes use `docs: ` at the start of the first commit message and PR title.
-- **New features** in components use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
-- **Fixes** in components use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
-- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE: ` in the body of a commit message.
+- **Kaizen Site** changes use `docs:` at the start of the first commit message and PR title.
+- **New features** in components use `feat:` at the start of PR titles. For 1 commit, use `feat:` in the commit message too.
+- **Fixes** in components use `fix:` at the start of PR titles. For 1 commit, use `fix:` in the commit message too.
+- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE:` in the body of a commit message.
 - **Design token** changes… let's talk about that.
 
 ### Quality and reviews
@@ -76,10 +74,6 @@ To update a component in code:
 
 See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
 
-### Building a new draft component
-
-See the [draft package generator](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
-
 ### Browser and device support
 
 To learn more about what browsers and devices we support in Kaizen Component Library, Culture Amp employees can see [the Browser Support wiki page](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/1572948/Browser+Support+and+Stats).
@@ -88,7 +82,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
-#### For core, non-draft components
+#### For core components
 
 **Step 1**: Make your local copy of `@kaizen/component-library` available.
 
@@ -125,43 +119,6 @@ You can also clean up generated files in your `@kaizen/component-library` repo:
 
 `yarn clean`
 
-#### For draft components
-
-**Step 1**: Make your local copy of the relevant `@kaizen/draft-*` module available (the code below uses the `@kaizen/draft-modal` component as an example).
-
-```sh
-# Navigate to code source
-$ cd ./draft-packages/modal
-
-# Register package for linking
-$ yarn link
-
-# Build in watch mode
-$ yarn build:watch
-```
-
-**Step 2**: Link `@kaizen/draft-modal` to your other front-end codebase.
-
-```sh
-# Navigate to code source
-$ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
-
-# Link repo to locally registered package
-$ yarn link @kaizen/draft-modal
-```
-
-Your local Kaizen changes will now show in your other front-end codebase.
-
-**Step 3**: Unlink
-
-When you are done, unlink the package from your front-end codebase:
-
-`yarn unlink @kaizen/draft-modal`
-
-You can also clean up generated files in your `@kaizen/draft-*` repo:
-
-`yarn clean`
-
 ### Elm components stories
 
 Besides creating your Elm story on an Elm file, there is an extra step in order to make it appear on the storybook.
@@ -174,7 +131,7 @@ import { loadElmStories } from "elm-storybook"
 
 // JS stories
 
-loadElmStories("MyComponent (Elm)", module, require("./MyComponent.elm"), [
+loadElmStories("Elm/MyComponent", module, require("./MyComponent.elm"), [
   "Your new story #1",
   "Your new story #2",
 ])

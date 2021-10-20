@@ -3,15 +3,23 @@ title: Search Field
 navTitle: Search Field
 summaryParagraph: Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
 tags: ["Search", "Searchbox", "Forms", "Text input", "Top bar", "Filters", "Autocomplete", "Autosuggest", "Live filter"]
+githubLabels: ["component:search", "component:form"]
 needToKnow:
 - "All form elements including search must have a label, whether it's visually displayed or hidden."
 - 'We separate Autocomplete into a separate component.'
 - 'Ensure the search input is wide enough to fit the majority of search queries informed by analytics or user research.'
 - 'Design for loading, empty, and zero states.'
 - '"Search" describes the general behavior and, informally, the search field. "Search field" describes the main search component (label and input).'
-
-demoStoryId:  searchbox-react--default-story
 demoStoryHeight: 300px
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: true
+  allVariants: true
+  responsive: true
+  internationalized: true
+  accessible: true
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -52,7 +60,6 @@ All form elements including search must have a label, whether it's visually disp
 ### Displaying results
 
 - Announce changes in results to people using screen reader and visually draw attention to changed results.
-- You might use a [Dropdown container](/components/dropdown) to present results.
 - Consider displaying rich results if it will help people choose between them, such as showing an [Avatar](/components/avatar) for employee searches.
 - Results content might be shown as:
     - Data table.

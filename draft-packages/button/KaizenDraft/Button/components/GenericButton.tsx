@@ -28,7 +28,9 @@ export type CustomButtonProps = {
 export type GenericProps = {
   id?: string
   label: string
+  primary?: boolean
   destructive?: boolean
+  secondary?: boolean
   disabled?: boolean
   form?: boolean
   reversed?: boolean
@@ -53,8 +55,6 @@ export type AdditionalContentProps = {
 type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
-  secondary?: boolean
-  reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
 type WorkingProps = {
@@ -238,7 +238,10 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
 
 const buttonClass = (props: Props) => {
   const variantClass =
-    (props.destructive && props.secondary && styles.secondaryDestructive) ||
+    (props.destructive &&
+      props.secondary &&
+      !props.reversed &&
+      styles.secondaryDestructive) ||
     (props.destructive && styles.destructive) ||
     (props.primary && styles.primary) ||
     (props.secondary && styles.secondary)
@@ -247,11 +250,6 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.reverseColorCluny]: props.reverseColor === "cluny",
-    [styles.reverseColorPeach]: props.reverseColor === "peach",
-    [styles.reverseColorSeedling]: props.reverseColor === "seedling",
-    [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
-    [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
     [styles.working]: !props.iconButton && props.working,
   })
 }

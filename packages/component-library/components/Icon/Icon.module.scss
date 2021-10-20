@@ -1,8 +1,24 @@
+@import "~@kaizen/design-tokens/sass/animation";
 @import "./styles";
-@import "~@kaizen/design-tokens/sass/animation-vars";
 
 .icon {
   @extend %caIcon;
+
+  // Set sensible defaults for icon colours when
+  // windows high-contrast mode is enabled. These
+  // should be overridden by the consumer when the
+  // icon colour conveys information, such as mood.
+  @media screen and (-ms-high-contrast: active) {
+    color: black;
+  }
+
+  @media screen and (-ms-high-contrast: white-on-black) {
+    color: white;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    color: black;
+  }
 }
 
 .inheritSize {
@@ -17,7 +33,7 @@
   cursor: pointer;
   .icon {
     opacity: 0.7;
-    transition: $kz-var-animation-duration-fast opacity;
+    transition: $animation-duration-fast opacity;
   }
   &:disabled,
   &.disabled {

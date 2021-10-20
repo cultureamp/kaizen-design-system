@@ -1021,7 +1021,7 @@ viewSelectInput viewSelectInputData =
             |> SelectInput.currentValue resolveInputValue
             |> SelectInput.onMousedown InputMousedowned
             |> resolveInputWidth
-            |> (SelectInput.preventKeydownOn <|
+            |> (SelectInput.onWithStopPropagationAndPreventDefault <|
                     (enterKeydownDecoder |> spaceKeydownDecoder)
                         ++ [ Events.isEscape CloseMenu
                            ]
@@ -1069,19 +1069,18 @@ viewDummyInput viewDummyInputData =
                , id ("dummy-input-" ++ viewDummyInputData.id)
                , onFocus (InputReceivedFocused Nothing)
                , onBlur (OnInputBlurred Nothing)
-               , preventDefaultOn "keydown" <|
-                    Decode.map
-                        (\msg -> ( msg, True ))
-                        (Decode.oneOf
-                            ([ Events.isSpace (ToggleMenuAtKey <| SelectId viewDummyInputData.id)
-                             , Events.isEscape CloseMenu
-                             , Events.isDownArrow (KeyboardDown (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
-                             , Events.isUpArrow (KeyboardUp (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
-                             ]
-                                ++ whenEnterEvent
-                                ++ whenArrowEvents
-                            )
+               , Html.Events.custom "keydown"
+                    (Decode.oneOf
+                        ([ Events.isSpace (ToggleMenuAtKey <| SelectId viewDummyInputData.id)
+                         , Events.isEscape CloseMenu
+                         , Events.isDownArrow (KeyboardDown (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
+                         , Events.isUpArrow (KeyboardUp (SelectId viewDummyInputData.id) viewDummyInputData.totalViewableMenuItems)
+                         ]
+                            ++ whenEnterEvent
+                            ++ whenArrowEvents
                         )
+                        |> Decode.map (\msg -> { message = msg, stopPropagation = True, preventDefault = True })
+                    )
                ]
         )
         []

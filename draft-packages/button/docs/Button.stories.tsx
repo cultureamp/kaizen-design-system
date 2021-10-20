@@ -6,9 +6,10 @@ import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { Button, CustomButtonProps, ButtonRef } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Button (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",
@@ -17,10 +18,10 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    info: {
-      text: `
-        import { Button } from "@kaizen/draft-button";
-      `,
+    docs: {
+      description: {
+        component: 'import { Button } from "@kaizen/draft-button";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
@@ -31,7 +32,7 @@ export default {
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
@@ -680,6 +681,75 @@ ReversedSecondaryWithBadge.story = {
       type: "figma",
       url:
         "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=17582%3A671",
+    },
+  },
+}
+
+export const ReversedDestructive = args => (
+  <Button label="Label" destructive={true} reversed={true} />
+)
+ReversedDestructive.story = {
+  name: "Reversed, Destructive",
+  parameters: {
+    ...reversedBg,
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/%F0%9F%9A%ABUI-Kit%3A-Zen?node-id=13555%3A0",
+    },
+  },
+}
+
+export const ReversedDestructiveDisabled = args => (
+  <Button
+    label="Label"
+    destructive={true}
+    reversed={true}
+    disabled={true}
+    {...args}
+  />
+)
+ReversedDestructiveDisabled.story = {
+  name: "Reversed, Destructive, Disabled",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17203"
+    ),
+  },
+}
+
+export const ReversedDestructiveWorking = () => (
+  <Button
+    label="Label"
+    destructive={true}
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
+)
+ReversedDestructiveWorking.story = {
+  name: "Reversed, Destructive, Working",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17215"
+    ),
+  },
+}
+
+export const ReversedDestructiveIcon = args => (
+  <Button label="Label" icon={trashIcon} destructive={true} reversed={true} />
+)
+ReversedDestructiveIcon.story = {
+  name: "Reversed, Destructive + Icon",
+  parameters: {
+    ...reversedBg,
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1542",
     },
   },
 }

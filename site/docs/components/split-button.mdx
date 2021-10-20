@@ -3,11 +3,21 @@ title: Split Button
 navTitle: Split Button
 summaryParagraph: Split buttons let you immediately perform an action or choose additional options from a dropdown.
 tags: ["Button with dropdown", "Dropdown", "Segmented button"]
+githubLabels: ["component:button", "component:split-button"]
 needToKnow:
 - Avoid split buttons where separated buttons and icon buttons will do.
 - Only include related actions in the dropdown.
 - Don’t use links in the dropdown.
-demoStoryId: splitbutton-react--default-kaizen-site-demo
+demoStoryId: components-split-button--default-kaizen-site-demo
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: false
+  allVariants: false
+  responsive: true
+  internationalized: false
+  accessible: false
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -23,7 +33,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 Sometimes there’s not enough space for a separate Button and Icon button, and they both control closely related actions.
 
 *   See [Button](/components/button) guidelines.
-*   See [dropdown](/components/dropdown) guidelines.
+*   See [Menu](/components/menu) guidelines.
 *   RTL: the segmented chevron appears on the left.
 *   Focus indicator
     *   See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).

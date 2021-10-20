@@ -39,7 +39,7 @@ describe("<VideoPlayer />", () => {
       <VideoPlayer
         autoplay
         fallback="illustrations/heart/spot/moods-cautionary.svg"
-        ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+        source="illustrations/heart/spot/moods-cautionary.webm"
       />
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
@@ -56,7 +56,7 @@ describe("<VideoPlayer />", () => {
         <VideoPlayer
           autoplay
           fallback="illustrations/heart/spot/moods-cautionary.svg"
-          ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+          source="illustrations/heart/spot/moods-cautionary.webm"
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
@@ -67,13 +67,13 @@ describe("<VideoPlayer />", () => {
           data-testid="kz-video-player"
           muted=""
           playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
+          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
           width="100%"
         >
           <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
-            type="video/webm"
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
+            type="video/mp4"
           />
         </video>
       `)
@@ -88,7 +88,7 @@ describe("<VideoPlayer />", () => {
         <VideoPlayer
           autoplay
           fallback="illustrations/heart/spot/moods-cautionary.svg"
-          ambientAnimation="illustrations/heart/spot/moods-cautionary.webm"
+          source="illustrations/heart/spot/moods-cautionary.webm"
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
@@ -100,13 +100,13 @@ describe("<VideoPlayer />", () => {
           data-testid="kz-video-player"
           muted=""
           playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
+          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
           width="100%"
         >
           <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
-            type="video/webm"
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
+            type="video/mp4"
           />
         </video>
       `)

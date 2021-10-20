@@ -1,12 +1,12 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/responsive";
 @import "../dimensions";
 
-$tilePaddingTop: $kz-var-spacing-xl;
+$tilePaddingTop: $spacing-xl;
 
 .root {
   perspective: 800px;
@@ -21,8 +21,8 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
   height: $tileHeight;
   position: relative;
-  box-shadow: $kz-var-shadow-small-box-shadow;
-  background-color: $kz-var-color-white;
+  box-shadow: $shadow-small-box-shadow;
+  background-color: $color-white;
   transition: transform $ca-duration-slow $ca-default;
   transform-style: preserve-3d;
   border-radius: 7px;
@@ -40,7 +40,7 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .face {
   position: absolute;
-  background-color: $kz-var-color-white;
+  background-color: $color-white;
   border-radius: 7px;
   box-sizing: border-box;
   display: flex;
@@ -57,12 +57,13 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .faceFront {
   justify-content: space-between;
-  padding: $tilePaddingTop $kz-var-spacing-md $kz-var-spacing-md;
+  padding: $tilePaddingTop $spacing-md $spacing-md;
 }
 
 .faceBack {
   padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
+  background-color: $color-blue-100;
 }
 
 .isFlipped {
@@ -71,8 +72,8 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .title {
   text-align: center;
-  padding-bottom: $kz-var-spacing-sm;
-  background-color: $kz-var-color-white;
+  padding-bottom: $spacing-sm;
+  background-color: $color-white;
   backface-visibility: hidden;
 }
 
@@ -83,26 +84,23 @@ $tilePaddingTop: $kz-var-spacing-xl;
 .informationBtn {
   @include ca-position($top: 0, $end: 0);
   position: absolute;
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
+  color: rgba($color-purple-800-rgb, 0.5);
 }
 
 .information {
   @include ca-padding(
-    $top: 18px,
-    $bottom: $kz-var-spacing-md,
-    $start: $kz-var-spacing-md,
-    $end: $kz-var-spacing-md
+    $bottom: $spacing-md,
+    $start: $spacing-md,
+    $end: $spacing-md
   );
-  margin-top: $kz-var-spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: $kz-var-color-cluny-100;
   width: 100%;
   height: 100%;
-  text-align: center;
+  text-align: left;
   border-radius: 0 0 7px 7px;
 }
 
@@ -110,6 +108,6 @@ $tilePaddingTop: $kz-var-spacing-xl;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: $kz-var-spacing-sm;
-  height: $kz-var-spacing-xl;
+  margin-top: $spacing-sm;
+  height: $spacing-xl;
 }

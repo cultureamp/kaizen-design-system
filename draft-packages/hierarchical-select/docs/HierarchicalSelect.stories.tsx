@@ -4,6 +4,7 @@ import { Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"
 import { Hierarchy, HierarchyNode } from "@kaizen/draft-hierarchical-menu"
+import { CATEGORIES } from "../../../storybook/constants"
 import {
   levelZero,
   levelOne,
@@ -64,7 +65,14 @@ const SelectionSummary = (props: {
 )
 
 export default {
-  title: "HierarchicalSelect (React)",
+  title: `${CATEGORIES.components}/Hierarchical Select`,
+  component: HierarchicalSelect,
+  docs: {
+    description: {
+      component:
+        'import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"',
+    },
+  },
 }
 
 export const DefaultStory = () => (

@@ -13,10 +13,24 @@ import { Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Tile (React)",
+  title: `${CATEGORIES.components}/Tile`,
+  component: MultiActionTile,
+  subcomponents: { InformationTile, TileGrid },
   parameters: {
+    docs: {
+      description: {
+        component: `import {
+                      MultiActionTile,
+                      TileInformation,
+                      TileAction,
+                      InformationTile,
+                      TileGrid
+                    } from "@kaizen/draft-tile"`,
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14489%3A69120"
     ),
@@ -84,6 +98,18 @@ export const MultiActionWithChildren = () => (
 
 MultiActionWithChildren.storyName = "Multi action tile with children"
 
+export const MultiActionWithCustomTitle = () => (
+  <MultiActionTile
+    title="Custom title"
+    primaryAction={primaryAction}
+    titleTag="div"
+  >
+    {children}
+  </MultiActionTile>
+)
+
+MultiActionWithCustomTitle.storyName = "Multi action tile with custom title tag"
+
 export const MultiActionWithInformation = () => (
   <MultiActionTile
     title="Tile heading"
@@ -137,6 +163,18 @@ export const InformationCustomInfoElement = () => (
 
 InformationCustomInfoElement.storyName =
   "Information tile (custom information element)"
+
+export const InformationCustomTitleTag = () => (
+  <InformationTile
+    title="Tile heading"
+    titleTag="div"
+    metadata="Metadata"
+    information={<Paragraph variant="body">Anything can go here</Paragraph>}
+    footer={<Tag variant="statusLive">Live</Tag>}
+  />
+)
+
+InformationCustomTitleTag.storyName = "Information tile (custom title tag)"
 
 export const TileGridWithTiles = () => (
   <TileGrid>

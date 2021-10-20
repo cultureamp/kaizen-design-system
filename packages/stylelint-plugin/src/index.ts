@@ -1,11 +1,7 @@
 import { Configuration } from "stylelint"
 
 const kaizenStylelintRules = {
-  "kaizen/prefer-var-tokens": [
-    true,
-    { severity: "warning", disableFixing: false },
-  ],
-  "kaizen/no-invalid-use-of-var-tokens-in-functions": [
+  "kaizen/no-invalid-use-of-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],
@@ -18,6 +14,10 @@ const kaizenStylelintRules = {
     { severity: "warning", disableFixing: false },
   ],
   "kaizen/all-used-tokens-must-be-imported": [
+    true,
+    { severity: "warning", disableFixing: false },
+  ],
+  "kaizen/use-deprecated-component-library-helpers-scss-imports": [
     true,
     { severity: "warning", disableFixing: false },
   ],

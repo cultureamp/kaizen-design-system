@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/layout";
 
 $small: 300px;
-$medium: $kz-layout-breakpoints-medium;
-$large: $kz-layout-breakpoints-large;
+$medium: $layout-breakpoints-medium;
+$large: $layout-breakpoints-large;
 
 $sidebarWidth: 240px;
 $sidebarWithPadding: $sidebarWidth + (2 * $ca-layout-side-padding);

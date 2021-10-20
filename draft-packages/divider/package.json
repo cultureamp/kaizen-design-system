@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-divider",
-  "version": "1.4.1",
+  "version": "1.7.0",
   "description": "The draft divider component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,7 +35,7 @@
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "react": "^16.9.0"
   }
 }

@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.3.0...@kaizen/deprecated-component-library-helpers@2.4.0) (2021-10-18)
+
+
+### Features
+
+* stylelint plugin to switch from super legacy component-library styles to equivalent deprecated-component-library-helpers ones ([#1740](https://github.com/cultureamp/kaizen-design-system/issues/1740)) ([cacfc8b](https://github.com/cultureamp/kaizen-design-system/commit/cacfc8b6c364c62b4f53d5025e7eddeb26a35929))
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.2.0...@kaizen/deprecated-component-library-helpers@2.3.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.1.3...@kaizen/deprecated-component-library-helpers@2.2.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.1.2...@kaizen/deprecated-component-library-helpers@2.1.3) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
 ## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.1.1...@kaizen/deprecated-component-library-helpers@2.1.2) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers

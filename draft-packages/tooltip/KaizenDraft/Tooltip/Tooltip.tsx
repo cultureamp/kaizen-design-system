@@ -36,6 +36,11 @@ export type TooltipProps = {
    * `overflow: scroll` or `overflow: hidden` element.
    */
   portalSelector?: string
+  /**
+   * Should the tooltip be visible on the first render. Useful for visual
+   * regression testing.
+   */
+  isInitiallyVisible?: boolean
 }
 
 // Sync with Tooltip.scss
@@ -119,8 +124,9 @@ const Tooltip = ({
   position = "above",
   classNameAndIHaveSpokenToDST,
   portalSelector,
+  isInitiallyVisible = false,
 }: TooltipProps) => {
-  const [isHover, setIsHover] = useState(false)
+  const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
   const [
     referenceElement,

@@ -65,16 +65,5 @@ describe("<Icon />", () => {
       )
       expect(queryByText(description)).toBeTruthy()
     })
-
-    it("should be visible to screen readers", () => {
-      const title = "My accessible title"
-      const description = "My accessible icon description"
-
-      const { container } = render(
-        <Icon title={title} desc={description} icon={svgIcon} role="img" />
-      )
-
-      expect(container.querySelector('[aria-hidden="false"]')).toBeTruthy()
-    })
   })
 })

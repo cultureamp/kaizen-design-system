@@ -3,6 +3,301 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.0...@kaizen/component-library@11.4.1) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [11.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.3.0...@kaizen/component-library@11.4.0) (2021-10-15)
+
+
+### Features
+
+* Implement a sensible default colour for icons when -ms-high-contrast is active ([#2088](https://github.com/cultureamp/kaizen-design-system/issues/2088)) ([67c4faf](https://github.com/cultureamp/kaizen-design-system/commit/67c4fafb30183017a2c9bdabb171204a5d499494))
+
+
+
+
+
+# [11.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.5...@kaizen/component-library@11.3.0) (2021-10-14)
+
+
+### Features
+
+* adding percentage icon ([#2071](https://github.com/cultureamp/kaizen-design-system/issues/2071)) ([0d0ec06](https://github.com/cultureamp/kaizen-design-system/commit/0d0ec0657efb0df0f82124f624c02fc4b6d7783f))
+
+
+
+
+
+## [11.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.4...@kaizen/component-library@11.2.5) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.3...@kaizen/component-library@11.2.4) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.2...@kaizen/component-library@11.2.3) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.1...@kaizen/component-library@11.2.2) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.0...@kaizen/component-library@11.2.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* a11Y change for aria label on hidden for undefined ([#1976](https://github.com/cultureamp/kaizen-design-system/issues/1976)) ([02ddae0](https://github.com/cultureamp/kaizen-design-system/commit/02ddae0645e87e544be366bc64c18ceec3b1f94a))
+
+
+
+
+
+# [11.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.2...@kaizen/component-library@11.2.0) (2021-09-28)
+
+
+### Features
+
+* Allow generic HTMLElement props on Heading and Paragraph ([#1974](https://github.com/cultureamp/kaizen-design-system/issues/1974)) ([0d98026](https://github.com/cultureamp/kaizen-design-system/commit/0d9802611f8afcb2d653d4d4cf99cbc0c5eff118))
+
+
+
+
+
+## [11.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.1...@kaizen/component-library@11.1.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.1.0...@kaizen/component-library@11.1.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [11.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.0.0...@kaizen/component-library@11.1.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
+# [11.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.3.1...@kaizen/component-library@11.0.0) (2021-08-30)
+
+
+### Features
+
+* Move notification components out of component-library ([#1901](https://github.com/cultureamp/kaizen-design-system/issues/1901)) ([849a5f9](https://github.com/cultureamp/kaizen-design-system/commit/849a5f910988c8dd7f55364d0edc1f97bdab8ce1))
+
+
+### BREAKING CHANGES
+
+* You will need update imports of the following components from @kaizen/component-library to @kaizen/notification:
+- InlineNotification
+- GlobalNotification
+- ToastNotification
+- addToastNotification/clearToastNotifications/removeToastNotification
+
+Elm imports will need to change from `import Notification.Notification` to `import Kaizen.Notification`
+
+
+
+
+
+## [10.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.3.0...@kaizen/component-library@10.3.1) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.3...@kaizen/component-library@10.3.0) (2021-08-24)
+
+
+### Features
+
+* add ability to have first line underneath the heading ([#1885](https://github.com/cultureamp/kaizen-design-system/issues/1885)) ([d05baee](https://github.com/cultureamp/kaizen-design-system/commit/d05baee3cefccad676add0ed5999817758d71de7))
+
+
+
+
+
+## [10.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.2...@kaizen/component-library@10.2.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.1...@kaizen/component-library@10.2.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.2.0...@kaizen/component-library@10.2.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.1.0...@kaizen/component-library@10.2.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.15...@kaizen/component-library@10.1.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [10.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.14...@kaizen/component-library@10.0.15) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [10.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.13...@kaizen/component-library@10.0.14) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.12...@kaizen/component-library@10.0.13) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.11...@kaizen/component-library@10.0.12) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.10...@kaizen/component-library@10.0.11) (2021-08-02)
+
+
+### Bug Fixes
+
+* Add deprecated jsdocs and wrap with withDeprecatedComponent ([#1787](https://github.com/cultureamp/kaizen-design-system/issues/1787)) ([626188e](https://github.com/cultureamp/kaizen-design-system/commit/626188e15f1b7ff7bf2046793c94e7b569fc3f1b))
+
+
+
+
+
+## [10.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.9...@kaizen/component-library@10.0.10) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [10.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.8...@kaizen/component-library@10.0.9) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.7...@kaizen/component-library@10.0.8) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.6...@kaizen/component-library@10.0.7) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.5...@kaizen/component-library@10.0.6) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [10.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.4...@kaizen/component-library@10.0.5) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [10.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.3...@kaizen/component-library@10.0.4) (2021-07-02)
 
 **Note:** Version bump only for package @kaizen/component-library

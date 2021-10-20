@@ -1,0 +1,82 @@
+import { objectPathToCssVarFunction } from "../cssVariables"
+import { mapLeafsOfObject } from "../mapLeafsOfObject"
+
+describe(mapLeafsOfObject.name, () => {
+  test.each([
+    [
+      {
+        test: {
+          one: {
+            two: {
+              three: 123,
+            },
+          },
+        },
+      },
+      objectPathToCssVarFunction,
+      {
+        test: {
+          one: {
+            two: {
+              three: "var(--test-one-two-three, 123)",
+            },
+          },
+        },
+      },
+    ],
+    [
+      {
+        rootValue: "Yep",
+        test: {
+          imACamel: "im-a-camel",
+          one: {
+            two: {
+              three: () => "i'm a function",
+            },
+          },
+        },
+      },
+      objectPathToCssVarFunction,
+      {
+        rootValue: "var(--root-value, Yep)",
+        test: {
+          imACamel: "var(--test-im-a-camel, im-a-camel)",
+          one: {
+            two: {
+              three: `var(--test-one-two-three, ${() => "i'm a function"})`,
+            },
+          },
+        },
+      },
+    ],
+    [
+      {
+        rootValue: "Yep",
+        test: {
+          imACamel: "im-a-camel",
+          one: {
+            two: {
+              three: () => "this shouldn't show",
+            },
+          },
+        },
+      },
+      (path: string[], value: unknown) =>
+        `${path[path.length - 1]}: ${
+          typeof value === "string" ? value : "not-a-string"
+        }`,
+      {
+        rootValue: "rootValue: Yep",
+        test: {
+          one: {
+            two: {
+              three: "three: not-a-string",
+            },
+          },
+        },
+      },
+    ],
+  ])("test case %#", (input, mapper, output) => {
+    expect(mapLeafsOfObject(input, mapper)).toMatchObject(output)
+  })
+})

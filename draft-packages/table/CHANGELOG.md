@@ -3,6 +3,301 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.13...@kaizen/draft-table@3.9.14) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.12...@kaizen/draft-table@3.9.13) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.11...@kaizen/draft-table@3.9.12) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.10...@kaizen/draft-table@3.9.11) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.9...@kaizen/draft-table@3.9.10) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.8...@kaizen/draft-table@3.9.9) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.7...@kaizen/draft-table@3.9.8) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.6...@kaizen/draft-table@3.9.7) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.5...@kaizen/draft-table@3.9.6) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.4...@kaizen/draft-table@3.9.5) (2021-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.3...@kaizen/draft-table@3.9.4) (2021-09-29)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.2...@kaizen/draft-table@3.9.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.1...@kaizen/draft-table@3.9.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.0...@kaizen/draft-table@3.9.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.7...@kaizen/draft-table@3.9.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
+## [3.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.6...@kaizen/draft-table@3.8.7) (2021-09-13)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.5...@kaizen/draft-table@3.8.6) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.4...@kaizen/draft-table@3.8.5) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.3...@kaizen/draft-table@3.8.4) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.2...@kaizen/draft-table@3.8.3) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.1...@kaizen/draft-table@3.8.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.8.0...@kaizen/draft-table@3.8.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [3.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.7.0...@kaizen/draft-table@3.8.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.19...@kaizen/draft-table@3.7.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [3.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.18...@kaizen/draft-table@3.6.19) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [3.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.17...@kaizen/draft-table@3.6.18) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.16...@kaizen/draft-table@3.6.17) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.15...@kaizen/draft-table@3.6.16) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.14...@kaizen/draft-table@3.6.15) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.13...@kaizen/draft-table@3.6.14) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [3.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.12...@kaizen/draft-table@3.6.13) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.11...@kaizen/draft-table@3.6.12) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.10...@kaizen/draft-table@3.6.11) (2021-07-19)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.9...@kaizen/draft-table@3.6.10) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.8...@kaizen/draft-table@3.6.9) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [3.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.6.7...@kaizen/draft-table@3.6.8) (2021-07-02)
 
 **Note:** Version bump only for package @kaizen/draft-table

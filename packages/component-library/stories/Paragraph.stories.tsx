@@ -1,21 +1,24 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Paragraph } from "../components/Paragraph"
 
 export default {
-  title: "Paragraph",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
   component: Paragraph,
   parameters: {
-    info: {
-      text: `
-        import { Paragraph } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component: 'import { Paragraph } from "@kaizen/component-library"',
+      },
     },
   },
 }
 
 export const IntroLede = () => (
-  <Paragraph variant="intro-lede">Paragraph Intro Lede</Paragraph>
+  <Paragraph variant="intro-lede" id="make-me-unique">
+    Paragraph Intro Lede
+  </Paragraph>
 )
 
 export const Body = () => (
@@ -56,7 +59,7 @@ export const BodyWhite = () => (
 BodyWhite.storyName = "Body White"
 
 BodyWhite.parameters = {
-  backgrounds: { default: "Wisteria 700" },
+  backgrounds: { default: "Purple 700" },
 }
 
 export const BodyPositive = () => (

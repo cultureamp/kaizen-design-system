@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand-moment",
-  "version": "1.2.6",
+  "version": "1.5.15",
   "description": "The brand moment component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,20 +32,21 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.4",
-    "@kaizen/draft-button": "^3.3.16",
-    "@kaizen/draft-illustration": "^2.1.2",
+    "@kaizen/component-library": "^11.4.1",
+    "@kaizen/draft-button": "^5.2.4",
+    "@kaizen/draft-illustration": "^2.7.2",
     "@kaizen/hosted-assets": "^1.2.0",
+    "@kaizen/responsive": "^1.2.1",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^2.9.2",
-    "@kaizen/draft-select": "^1.17.2",
+    "@kaizen/design-tokens": "^3.2.1",
+    "@kaizen/draft-select": "^1.21.19",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.8.2",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "react": "^16.9.0"
   }
 }

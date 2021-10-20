@@ -40,7 +40,6 @@ const CheckboxField: CheckboxField = ({
     className={classnames(styles.container, {
       [styles.checked]: checkedStatus === "on",
       [styles.mixed]: checkedStatus === "mixed",
-      [styles.disabled]: disabled,
       [styles.noBottomMargin]: noBottomMargin,
     })}
   >
@@ -50,6 +49,7 @@ const CheckboxField: CheckboxField = ({
       automationId={`${id}-field-label`}
       labelText={labelText}
       labelType="checkbox"
+      disabled={disabled}
     >
       <Checkbox
         id={`${id}-field-checkbox`}

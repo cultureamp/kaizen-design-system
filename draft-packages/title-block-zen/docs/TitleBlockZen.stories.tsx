@@ -12,11 +12,18 @@ import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./TitleBlockZen.stories.scss"
 
 export default {
-  title: "TitleBlockZen (React)",
+  title: `${CATEGORIES.components}/Title Block`,
   parameters: {
+    docs: {
+      description: {
+        component:
+          'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
     ),
@@ -482,6 +489,127 @@ export const Performance = () => (
 )
 
 Performance.storyName = "Performance"
+
+export const PerformanceWithAvatarProps = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Blanca Wheeler"
+      subtitle="Director of Stuff and Things"
+      avatar={{
+        avatarSrc: assetUrl("site/empty-state.png"),
+        fullName: "Blanca Wheeler",
+      }}
+      primaryAction={{
+        href: "#",
+        label: "Request feedback",
+      }}
+      defaultAction={{
+        href: "#",
+        label: "Give feedback",
+      }}
+      secondaryActions={[
+        {
+          onClick: () => {
+            alert("test")
+          },
+          label: "Quick comment",
+          icon: commentIcon,
+        },
+        {
+          onClick: () => {
+            alert("test")
+          },
+          label: "Review skills",
+          icon: starIcon,
+        },
+      ]}
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      navigationTabs={[
+        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab
+          text="Self-reflection"
+          href="#"
+          handleClick={event => {
+            alert("Self-reflection clicked!")
+          }}
+        />,
+        <NavigationTab text="Goal" href="#" />,
+        <NavigationTab text="Evaluations" href="#" />,
+        <NavigationTab text="Notes" href="#" />,
+      ]}
+    />
+  </OffsetPadding>
+)
+
+PerformanceWithAvatarProps.storyName = "Performance with AvatarProps"
+
+export const PerformanceWithEmptyAvatarProps = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Blanca Wheeler"
+      subtitle="Director of Stuff and Things"
+      avatar={{}}
+      primaryAction={{
+        href: "#",
+        label: "Request feedback",
+      }}
+      defaultAction={{
+        href: "#",
+        label: "Give feedback",
+      }}
+      secondaryActions={[
+        {
+          onClick: () => {
+            alert("test")
+          },
+          label: "Quick comment",
+          icon: commentIcon,
+        },
+        {
+          onClick: () => {
+            alert("test")
+          },
+          label: "Review skills",
+          icon: starIcon,
+        },
+      ]}
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      navigationTabs={[
+        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab
+          text="Self-reflection"
+          href="#"
+          handleClick={event => {
+            alert("Self-reflection clicked!")
+          }}
+        />,
+        <NavigationTab text="Goal" href="#" />,
+        <NavigationTab text="Evaluations" href="#" />,
+        <NavigationTab text="Notes" href="#" />,
+      ]}
+    />
+  </OffsetPadding>
+)
+
+PerformanceWithEmptyAvatarProps.storyName = "Performance with Empty AvatarProps"
 
 export const LongLabels = () => (
   <OffsetPadding>

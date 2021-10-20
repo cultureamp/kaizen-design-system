@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The basic notification renders correctly 1`] = `
+<div
+  class="notification affirmative global hidden"
+  data-automation-class="generic-notification affirmative global"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="text"
+    >
+      This is my positive notification
+    </div>
+  </div>
+  <button
+    class="cancel"
+    type="button"
+  >
+    <span
+      class="cancelInner"
+    >
+      <svg
+        class="icon"
+        focusable="false"
+        role="img"
+      >
+        <title
+          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
+        >
+          close notification
+        </title>
+        <use
+          xlink:href="#undefined"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`You can change the type 1`] = `
+<div
+  class="notification informative global hidden"
+  data-automation-class="generic-notification informative global"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="text"
+    >
+      This is my 
+      <em>
+        informational
+      </em>
+       notification
+    </div>
+  </div>
+  <button
+    class="cancel"
+    type="button"
+  >
+    <span
+      class="cancelInner"
+    >
+      <svg
+        class="icon"
+        focusable="false"
+        role="img"
+      >
+        <title
+          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
+        >
+          close notification
+        </title>
+        <use
+          xlink:href="#undefined"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;

@@ -8,6 +8,7 @@ import { TextField } from "@kaizen/draft-form"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
@@ -15,18 +16,18 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 const ReversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
 export default {
-  title: "TextField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Field`,
   component: TextField,
   parameters: {
-    info: {
-      text: `
-      import { TextField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { TextField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14363%3A67837"
@@ -42,12 +43,12 @@ export const DefaultKaizenSiteDemo = () => (
       inputType="email"
       inputValue=""
       labelText={
-        <div>
+        <span>
           This is a label with a{" "}
           <a href="http://google.com" target="_blank">
             link
           </a>
-        </div>
+        </span>
       }
       placeholder="Please enter your email"
       onChange={() => undefined}
@@ -183,12 +184,27 @@ export const DefaultError = () => (
       placeholder="Please enter your email"
       onChange={() => undefined}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996"
+      validationMessage="Your email address looks like it’s from 1996."
     />
   </ExampleContainer>
 )
-
 DefaultError.storyName = "Default, Error"
+
+export const DefaultErrorLong = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="super_cool999@hotmail.com"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      status="error"
+      validationMessage="Your email address looks like it’s from 1996. This is a long error message for testing purposes."
+    />
+  </ExampleContainer>
+)
+DefaultErrorLong.storyName = "Default, Error, long"
 
 export const DefaultErrorIcon = () => (
   <ExampleContainer>
@@ -408,6 +424,24 @@ export const ReversedError = () => (
 ReversedError.storyName = "Reversed, Error"
 ReversedError.parameters = { ...ReversedBg }
 
+export const ReversedDescription = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      inputType="email"
+      inputValue="hello@hello.hello"
+      labelText="Email"
+      placeholder="Please enter your email"
+      onChange={() => undefined}
+      reversed={true}
+      description="Valid email addresses must have an @ and a suffix"
+    />
+  </ExampleContainer>
+)
+
+ReversedDescription.storyName = "Reversed, Description"
+ReversedDescription.parameters = { ...ReversedBg }
+
 export const ReversedErrorIcon = () => (
   <ExampleContainer>
     <TextField
@@ -495,12 +529,12 @@ export const DefaultFocusBlurEvents = () => (
       inputType="email"
       inputValue=""
       labelText={
-        <div>
+        <span>
           This is a label with a{" "}
           <a href="http://google.com" target="_blank">
             link
           </a>
-        </div>
+        </span>
       }
       placeholder="Please enter your email"
       onFocus={() => undefined}
@@ -571,3 +605,19 @@ export const DefaultWithHtmlDescription = () => {
 }
 
 DefaultWithHtmlDescription.storyName = "Default w HTML description"
+
+export const DefaultWithDescriptionAndErrorMessage = () => (
+  <ExampleContainer>
+    <TextField
+      id="email"
+      status="error"
+      inputValue="testing 1 2 3"
+      labelText="Label"
+      validationMessage="A cool validation message"
+      description="This is a description"
+    />
+  </ExampleContainer>
+)
+
+DefaultWithDescriptionAndErrorMessage.storyName =
+  "Default w description and error message"

@@ -1,15 +1,14 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-
+@import "~@kaizen/design-tokens/sass/color";
 // Don't do this! This is an example of what NOT to do!
 .blinking {
   animation: blinkingAnimation 1.2s infinite;
 }
 @keyframes blinkingAnimation {
   0% {
-    color: $kz-var-color-coral-500;
+    color: $color-red-500;
   }
   49% {
-    color: $kz-var-color-coral-500;
+    color: $color-red-500;
   }
   60% {
     color: transparent;
@@ -18,6 +17,6 @@
     color: transparent;
   }
   100% {
-    color: $kz-var-color-coral-500;
+    color: $color-red-500;
   }
 }

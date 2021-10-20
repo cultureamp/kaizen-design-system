@@ -1,22 +1,22 @@
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
-$side-padding: $kz-var-spacing-sm;
-$gutter: calc(#{$kz-var-spacing-md} * 1 / 6);
-$padding: $kz-var-spacing-xs;
+$side-padding: $spacing-sm;
+$gutter: calc(#{$spacing-md} * 1 / 6);
+$padding: $spacing-xs;
 
 .menuContent {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background: $kz-var-color-white;
-  color: $kz-var-color-wisteria-800;
-  border-radius: $kz-var-border-solid-border-radius;
-  box-shadow: $kz-var-shadow-large-box-shadow;
+  background: $color-white;
+  color: $color-purple-800;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
   padding: $padding 0;
   text-align: left;
   width: 100%;
@@ -28,38 +28,38 @@ $padding: $kz-var-spacing-xs;
 
 .header {
   padding: 10px $side-padding 5px;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   margin: 0 $gutter;
 }
 
 .header__title {
-  font-family: $kz-var-typography-heading-6-font-family;
-  font-weight: $kz-var-typography-heading-6-font-weight;
-  font-size: $kz-var-typography-heading-6-font-size;
-  line-height: $kz-var-typography-heading-6-line-height;
-  letter-spacing: $kz-var-typography-heading-6-letter-spacing;
+  font-family: $typography-heading-6-font-family;
+  font-weight: $typography-heading-6-font-weight;
+  font-size: $typography-heading-6-font-size;
+  line-height: $typography-heading-6-line-height;
+  letter-spacing: $typography-heading-6-letter-spacing;
   display: block;
 }
 
 .menuItem {
   display: flex;
   align-items: center;
-  flex: 0 0 100%;
+  flex: 0 0 auto;
   box-sizing: border-box;
   background: none;
-  border: none;
+  border: 2px transparent solid;
   text-align: left;
-  padding: 8px $side-padding;
+  padding: 6px calc(#{$side-padding} - 2px);
   margin: 0 $padding;
-  min-height: calc(1.75 * #{$kz-var-spacing-md});
+  min-height: calc(1.75 * #{$spacing-md});
   border-radius: 4px;
-  font-family: $kz-var-typography-paragraph-body-font-family;
-  font-weight: $kz-var-typography-paragraph-body-font-weight;
-  font-size: $kz-var-typography-paragraph-body-font-size;
-  line-height: $kz-var-typography-paragraph-body-line-height;
-  letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
   text-decoration: none;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
 
   cursor: default;
 
@@ -73,21 +73,27 @@ $padding: $kz-var-spacing-xs;
 
   &:not(.menuItem--disabled):hover,
   &:focus {
-    background: $kz-var-color-cluny-100;
-    color: $kz-var-color-cluny-500;
+    background: $color-blue-100;
+    color: $color-blue-500;
 
     .menuItem__Icon {
-      color: $kz-var-color-cluny-500;
+      color: $color-blue-500;
     }
 
     &.menuItem--destructive {
-      background: $kz-var-color-coral-100;
-      color: $kz-var-color-coral-600;
+      background: $color-red-100;
+      color: $color-red-600;
 
       .menuItem__Icon {
-        color: $kz-var-color-coral-600;
+        color: $color-red-600;
       }
     }
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    border-color: $color-blue-500;
+    outline: none;
   }
 
   [dir="rtl"] & {
@@ -96,18 +102,28 @@ $padding: $kz-var-spacing-xs;
 }
 
 .menuItem--disabled {
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
+  color: rgba($color-purple-800-rgb, 0.3);
+  .menuItem__Icon {
+    color: rgba($color-purple-800-rgb, 0.3);
+  }
 }
 
 .menuItem--active {
-  color: $kz-var-color-cluny-500;
-  font-weight: $kz-var-typography-paragraph-bold-font-weight;
+  color: $color-blue-500;
+  font-weight: $typography-paragraph-bold-font-weight;
 }
 
 .menuItem--destructive {
-  color: $kz-var-color-coral-600;
+  color: $color-red-600;
   .menuItem__Icon {
-    color: $kz-var-color-coral-600;
+    color: $color-red-600;
+  }
+}
+
+.menuItem--destructive.menuItem--disabled {
+  color: rgba($color-red-600-rgb, 0.3);
+  .menuItem__Icon {
+    color: rgba($color-red-600-rgb, 0.3);
   }
 }
 
@@ -116,10 +132,10 @@ $padding: $kz-var-spacing-xs;
 }
 
 .menuItem__Icon {
-  @include ca-margin($end: calc(#{$kz-var-spacing-md} / 3));
+  @include ca-margin($end: calc(#{$spacing-md} / 3));
 
   display: flex;
   align-self: flex-start;
   transform: translateY(0.2em);
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.75);
+  color: rgba($color-purple-800-rgb, 0.75);
 }

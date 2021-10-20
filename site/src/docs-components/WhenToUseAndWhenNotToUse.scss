@@ -1,5 +1,7 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/responsive";
 
 .container {
@@ -12,15 +14,15 @@
 }
 
 .card {
-  margin-top: var(--ca-grid);
+  margin-top: $spacing-md;
   width: 48%;
-  padding: var(--ca-grid);
+  padding: $spacing-md;
   box-sizing: border-box;
-  border: 1px solid $ca-border-color;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.19);
-  border-radius: 3px;
-  border-top-width: 7px;
-  border-top-style: solid;
+  border: 1px solid $border-solid-border-color;
+  box-shadow: $shadow-small-box-shadow;
+  border-radius: $border-solid-border-radius;
+  border-top-width: $border-solid-border-radius;
+  border-top-style: $border-solid-border-style;
 
   @include ca-media-mobile() {
     width: 100%;
@@ -50,9 +52,9 @@
 }
 
 .whenToUse {
-  border-top-color: $kz-var-color-seedling-500;
+  border-top-color: $color-green-500;
 }
 
 .whenNotToUse {
-  border-top-color: $kz-var-color-coral-500;
+  border-top-color: $color-red-500;
 }

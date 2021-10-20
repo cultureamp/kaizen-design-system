@@ -1,7 +1,8 @@
 @import "~@kaizen/component-library/styles/responsive";
+@import "../styles/global.scss";
 
 .contentInner {
-  margin: var(--content-top-and-bottom-margin) var(--content-side-margin);
+  margin: $content-top-and-bottom-margin $content-side-margin;
 
   @include ca-media-mobile() {
     margin: 0;
