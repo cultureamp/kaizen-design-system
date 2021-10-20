@@ -37,6 +37,7 @@ const RadioField: RadioField = ({
     className={classnames(styles.container, {
       [styles.selected]: selectedStatus,
       [styles.inline]: inline,
+      [styles.reversed]: reversed,
     })}
   >
     <Label
