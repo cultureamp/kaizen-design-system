@@ -11,9 +11,7 @@ const MenuSection = (props: MenuSectionProps) => {
   return (
     <li className={styles.menuSectionWrapper}>
       {heading && <span className={styles.header}>{heading}</span>}
-      <ul className={styles.menuSection}>
-        <li className={styles.menuItemList}>{children}</li>
-      </ul>
+      <ul className={styles.menuSection}>{children}</ul>
     </li>
   )
 }

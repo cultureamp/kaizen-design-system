@@ -26,15 +26,11 @@ $padding: $spacing-xs;
   padding-left: 0;
   margin: 0;
 
-  .menuItemList {
+  li {
     list-style: none;
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    & > li {
-      display: inherit;
-    }
   }
 }
 
