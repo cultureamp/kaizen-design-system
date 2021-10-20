@@ -8,6 +8,7 @@ export type CheckboxGroupProps = {
   automationId?: string
   labelText: string | React.ReactNode
   noBottomMargin?: boolean
+  reversed?: boolean
 }
 
 type CheckboxGroup = React.FunctionComponent<CheckboxGroupProps>
@@ -17,11 +18,13 @@ const CheckboxGroup: CheckboxGroup = ({
   children,
   labelText,
   noBottomMargin = false,
+  reversed = false,
 }) => (
   <div
     data-automation-id={automationId && `${automationId}-field-checkbox-group`}
     className={classnames(styles.checkboxGroupContainer, {
       [styles.noBottomMargin]: noBottomMargin,
+      [styles.reversed]: reversed,
     })}
   >
     <div className={styles.checkboxGroupLabel}>
@@ -29,6 +32,7 @@ const CheckboxGroup: CheckboxGroup = ({
         automationId={`${automationId}-field-label`}
         labelText={labelText}
         labelType="text"
+        reversed={reversed}
       />
     </div>
     {children}
