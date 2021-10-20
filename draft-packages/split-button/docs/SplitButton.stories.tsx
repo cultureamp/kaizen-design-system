@@ -1,4 +1,4 @@
-import { MenuItem, MenuContent } from "@kaizen/draft-menu"
+import { MenuItem, MenuSection } from "@kaizen/draft-menu"
 import { SplitButton } from "@kaizen/draft-split-button"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
@@ -37,7 +37,7 @@ export const DefaultKaizenSiteDemo = () => (
     label="Edit"
     onClick={() => undefined}
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
@@ -48,7 +48,7 @@ export const DefaultKaizenSiteDemo = () => (
           icon={duplicateIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -62,13 +62,13 @@ export const Disabled = () => (
     onClick={() => undefined}
     disabled
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -81,7 +81,7 @@ export const EnabledWithDisabledItems = () => (
     label="Edit"
     onClick={() => undefined}
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           disabled
@@ -97,7 +97,7 @@ export const EnabledWithDisabledItems = () => (
           icon={editIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -111,7 +111,7 @@ export const Primary = () => (
     variant="primary"
     onClick={() => undefined}
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
@@ -122,7 +122,7 @@ export const Primary = () => (
           icon={duplicateIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -137,7 +137,7 @@ export const PrimaryDisabled = () => (
     onClick={() => undefined}
     disabled
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
@@ -148,7 +148,7 @@ export const PrimaryDisabled = () => (
           icon={duplicateIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -161,13 +161,13 @@ export const AnchorLink = () => (
     label="Edit"
     href="//example.com"
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dropdownAltText="Open menu"
   />
@@ -180,7 +180,7 @@ export const Rtl = () => (
     label="Edit"
     onClick={() => undefined}
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
@@ -191,7 +191,7 @@ export const Rtl = () => (
           icon={duplicateIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dir="rtl"
     dropdownAltText="Open menu"
@@ -206,7 +206,7 @@ export const PrimaryRtl = () => (
     variant="primary"
     onClick={() => undefined}
     dropdownContent={
-      <MenuContent>
+      <MenuSection>
         <MenuItem
           onClick={e => undefined}
           icon={editIcon}
@@ -219,7 +219,7 @@ export const PrimaryRtl = () => (
           icon={duplicateIcon}
           label="Menu Item 2"
         />
-      </MenuContent>
+      </MenuSection>
     }
     dir="rtl"
     dropdownAltText="Open menu"

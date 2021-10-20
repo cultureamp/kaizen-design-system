@@ -1,4 +1,4 @@
-import { MenuContent } from "@kaizen/draft-menu"
+import { MenuSection } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import * as React from "react"
 import styles from "./styles.module.scss"
@@ -81,10 +81,9 @@ export const FilterMenuButton = ({
         hideMenuDropdown={hideDropdown}
         dropdownWidth="contain"
         dropdownId={dropdownId}
+        onClick={e => e.stopPropagation()}
       >
-        <MenuContent>
-          <div onClick={e => e.stopPropagation()}>{children}</div>
-        </MenuContent>
+        <MenuSection>{children}</MenuSection>
       </StatelessMenu>
     </div>
   )

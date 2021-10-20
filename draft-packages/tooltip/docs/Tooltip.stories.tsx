@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { Paragraph } from "@kaizen/component-library"
-import { MenuItem, MenuContent } from "@kaizen/draft-menu"
+import { MenuItem, MenuSection } from "@kaizen/draft-menu"
 import { Tag } from "@kaizen/draft-tag"
 import { SplitButton } from "@kaizen/draft-split-button"
 import { withDesign } from "storybook-addon-designs"
@@ -118,7 +118,7 @@ Inline.storyName = "Inline"
 
 export const ArrowPositioning = props => (
   <div>
-    <div style={{ position: "absolute", top: 0, left: 0 }}>
+    <div style={{ position: "absolute", top: "0", left: "0" }}>
       <Tooltip
         {...props}
         position="above"
@@ -127,7 +127,7 @@ export const ArrowPositioning = props => (
         <Button label="Above" />
       </Tooltip>
     </div>
-    <div style={{ position: "absolute", bottom: 0, right: 0 }}>
+    <div style={{ position: "absolute", bottom: "0", right: "0" }}>
       <Tooltip
         {...props}
         position="below"
@@ -175,12 +175,12 @@ export const TooltipAboveDropdown = props => (
         label="Test"
         dropdownAltText="test"
         dropdownContent={
-          <MenuContent>
+          <MenuSection>
             <MenuItem
               onClick={e => undefined}
               label="Text to appear behind tooltip overlay"
             />
-          </MenuContent>
+          </MenuSection>
         }
       />
     </div>
