@@ -14,7 +14,7 @@ Make sure you have run `yarn install` (or simply `yarn`) from the root of the ka
 
 ## Making the changes
 
-- Most token reference a CSS variable. The value for these come from [src/themes](./src/themes).
+- Most tokens reference a CSS variable. The value for these come from [src/themes](./src/themes).
 - Our token are defined in JSON files in the [tokens](./tokens) directory.
 - You should update values in both the JSON token files, and the theme Typescript files.
 - You run then `yarn build` to update the [less](./less) and [sass](./sass) versions of the tokens.
