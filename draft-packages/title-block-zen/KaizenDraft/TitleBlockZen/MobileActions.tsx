@@ -122,29 +122,6 @@ type DrawerMenuContentProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
 }
 
-type ConditionalOtherActionsHeadingProps = {
-  primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
-  secondaryActions?: SecondaryActionsProps
-  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
-}
-
-const ConditionalOtherActionsHeading = ({
-  primaryAction,
-  defaultAction,
-  secondaryActions,
-  secondaryOverflowMenuItems,
-}: ConditionalOtherActionsHeadingProps) => (
-  <></>
-  //   {(defaultAction ||
-  //     (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
-  //     <MenuSeparator />
-  //   )}
-  //   {((defaultAction && buttonIsAction(defaultAction)) ||
-  //     secondaryActions ||
-  //     secondaryOverflowMenuItems) && <MenuSection title="Other actions" />}
-)
-
 const DrawerMenuContent = ({
   primaryAction,
   defaultAction,
@@ -160,12 +137,6 @@ const DrawerMenuContent = ({
       {primaryAction && renderPrimaryActions(primaryAction)}
     </MenuSection>
     <MenuSection heading="Other actions">
-      <ConditionalOtherActionsHeading
-        primaryAction={primaryAction}
-        defaultAction={defaultAction}
-        secondaryActions={secondaryActions}
-        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-      />
       {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
       {secondaryActions && renderSecondaryActions(secondaryActions)}
       {secondaryOverflowMenuItems &&
