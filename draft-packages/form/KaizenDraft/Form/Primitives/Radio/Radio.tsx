@@ -9,15 +9,22 @@ export type RadioProps = {
   selectedStatus?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   name: string
   value: string
 }
 
 type Radio = React.FunctionComponent<RadioProps>
 
-const renderSelected = (selectedStatus: boolean) => {
+const renderSelected = (selectedStatus: boolean, reversed) => {
   if (selectedStatus) {
-    return <div className={styles.icon} />
+    return (
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      />
+    )
   }
   return
 }
@@ -30,6 +37,7 @@ const Radio: Radio = ({
   selectedStatus = false,
   onChange,
   disabled = false,
+  reversed = false,
 }) => (
   <span>
     <input
@@ -45,7 +53,13 @@ const Radio: Radio = ({
       onChange={onChange}
       disabled={disabled}
     />
-    <span className={styles.box}>{renderSelected(selectedStatus)}</span>
+    <span
+      className={classnames(styles.box, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      {renderSelected(selectedStatus, reversed)}
+    </span>
   </span>
 )
 

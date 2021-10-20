@@ -14,6 +14,7 @@ export type RadioFieldProps = {
   selectedStatus?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   inline?: boolean
 }
 
@@ -29,6 +30,7 @@ const RadioField: RadioField = ({
   onChange,
   inline = false,
   disabled = false,
+  reversed = false,
 }) => (
   <div
     data-automation-id={automationId}
@@ -44,11 +46,13 @@ const RadioField: RadioField = ({
       labelText={labelText}
       labelType="radio"
       disabled={disabled}
+      reversed={reversed}
     >
       <RadioInput
         id={id}
         automationId={`${id}-radio-input`}
         disabled={disabled}
+        reversed={reversed}
         selectedStatus={selectedStatus}
         value={value}
         name={name}
