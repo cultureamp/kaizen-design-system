@@ -134,7 +134,7 @@ const Pagination = ({
   const nextPageDisabled = currentPage >= pageCount
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <button
         className={cx(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: previousPageDisabled,
@@ -161,7 +161,7 @@ const Pagination = ({
         <Icon icon={arrowForward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />
       </button>
-    </div>
+    </nav>
   )
 }
 
