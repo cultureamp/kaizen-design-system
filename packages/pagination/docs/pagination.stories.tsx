@@ -1,5 +1,5 @@
 import * as React from "react"
-import Pagination from "../KaizenDraft/index"
+import { Pagination } from "../src/index"
 
 export default {
   title: "Pagination (React)",

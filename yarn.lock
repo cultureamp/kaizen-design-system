@@ -16520,7 +16520,7 @@ moo-color@^1.0.2:
   dependencies:
     color-name "^1.1.4"
 
-motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
+motion-ui@cultureamp/motion-ui:
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
