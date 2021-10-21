@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.1...@kaizen/design-tokens@3.2.2) (2021-10-21)
+
+
+### Bug Fixes
+
+* Update typography-data-small tokens to use the correct font ([#2102](https://github.com/cultureamp/kaizen-design-system/issues/2102)) ([989b3b6](https://github.com/cultureamp/kaizen-design-system/commit/989b3b6ef000af0240c31126923b55f3def7e7ba))
+
+
+
+
+
 ## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.0...@kaizen/design-tokens@3.2.1) (2021-10-12)
 
 **Note:** Version bump only for package @kaizen/design-tokens
