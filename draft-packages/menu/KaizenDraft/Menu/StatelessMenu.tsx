@@ -1,4 +1,10 @@
-import { default as React, ElementType, useEffect, useState } from "react"
+import {
+  default as React,
+  ElementType,
+  useEffect,
+  useState,
+  SyntheticEvent,
+} from "react"
 import ReactDOM from "react-dom"
 import styles from "./styles.scss"
 import MenuDropdown from "./MenuDropdown"
@@ -46,7 +52,7 @@ export type StatelessMenuProps = {
     "aria-haspopup": boolean
     "aria-expanded": boolean
   }) => React.ReactElement
-  onClick?: (event) => void
+  onClick?: (event: SyntheticEvent) => void
   tag?: ElementType<any>
 }
 
@@ -63,6 +69,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   hideMenuDropdown,
   renderButton,
   tag = "ul",
+  onClick,
 }) => {
   const [
     referenceElement,
@@ -107,7 +114,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   ) : null
 
   return (
-    <div data-automation-id={automationId} onClick={e => e.stopPropagation()}>
+    <div data-automation-id={automationId} onClick={onClick}>
       <div className={styles.buttonWrapper} ref={setReferenceElement}>
         {menuButton}
       </div>
