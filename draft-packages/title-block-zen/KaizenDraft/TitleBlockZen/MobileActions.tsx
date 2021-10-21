@@ -127,32 +127,31 @@ const DrawerMenuContent = ({
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
-}: DrawerMenuContentProps) => (
-  <ul className={styles.mobileMenuWrapper}>
-    {primaryAction && (
-      <MenuSection>{renderPrimaryLinks(primaryAction)}</MenuSection>
-    )}
-
-    {defaultAction && defaultAction.href && (
+}: DrawerMenuContentProps) => {
+  const showOtherActionsHeading =
+    (defaultAction && buttonIsAction(defaultAction)) ||
+    secondaryActions ||
+    secondaryOverflowMenuItems
+  return (
+    <ul className={styles.mobileMenuWrapper}>
       <MenuSection>
-        {renderDefaultLinkOrAction(defaultAction, "link")}
+        {primaryAction && renderPrimaryLinks(primaryAction)}
+        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+        {primaryAction && renderPrimaryActions(primaryAction)}
       </MenuSection>
-    )}
-
-    {primaryAction && (
-      <MenuSection>{renderPrimaryActions(primaryAction)}</MenuSection>
-    )}
-
-    {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-      <MenuSection heading="Other actions">
-        {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
-        {secondaryActions && renderSecondaryActions(secondaryActions)}
-        {secondaryOverflowMenuItems &&
-          renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-      </MenuSection>
-    )}
-  </ul>
-)
+      {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
+        <MenuSection
+          heading={showOtherActionsHeading ? "Other actions" : undefined}
+        >
+          {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+          {secondaryActions && renderSecondaryActions(secondaryActions)}
+          {secondaryOverflowMenuItems &&
+            renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+        </MenuSection>
+      )}
+    </ul>
+  )
+}
 
 const renderDrawerHandleLabel = (
   label: string,
