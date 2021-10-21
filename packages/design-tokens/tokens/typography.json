@@ -49,7 +49,7 @@
       "letterSpacing-id": "--typography-data-medium-units-letter-spacing"
     },
     "dataSmall": {
-      "fontFamily": "var(--typography-data-small-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-small-font-family",
       "fontWeight": "var(--typography-data-small-font-weight, 700)",
       "fontWeight-id": "--typography-data-small-font-weight",
@@ -61,7 +61,7 @@
       "letterSpacing-id": "--typography-data-small-letter-spacing"
     },
     "dataSmallUnits": {
-      "fontFamily": "var(--typography-data-small-units-font-family, \"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-data-small-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-data-small-units-font-family",
       "fontWeight": "var(--typography-data-small-units-font-weight, 700)",
       "fontWeight-id": "--typography-data-small-units-font-weight",
