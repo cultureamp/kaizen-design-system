@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { Paragraph } from "@kaizen/component-library"
-import { MenuItem, MenuSection } from "@kaizen/draft-menu"
+import { MenuItem } from "@kaizen/draft-menu"
 import { Tag } from "@kaizen/draft-tag"
 import { SplitButton } from "@kaizen/draft-split-button"
 import { withDesign } from "storybook-addon-designs"
@@ -175,12 +175,10 @@ export const TooltipAboveDropdown = props => (
         label="Test"
         dropdownAltText="test"
         dropdownContent={
-          <MenuSection>
-            <MenuItem
-              onClick={e => undefined}
-              label="Text to appear behind tooltip overlay"
-            />
-          </MenuSection>
+          <MenuItem
+            onClick={e => undefined}
+            label="Text to appear behind tooltip overlay"
+          />
         }
       />
     </div>

@@ -27,12 +27,6 @@ $padding: $spacing-xs;
   list-style: none;
   padding: 0;
   margin: 0;
-
-  li {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
 }
 
 .header {
@@ -47,10 +41,14 @@ $padding: $spacing-xs;
   display: block;
 }
 
+.menuListItem {
+  display: flex;
+}
+
 .menuItem {
   display: flex;
   align-items: center;
-  flex: auto;
+  flex: 1 1 auto;
   box-sizing: border-box;
   background: none;
   border: 2px transparent solid;
@@ -66,12 +64,6 @@ $padding: $spacing-xs;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   text-decoration: none;
   color: $color-purple-800;
-
-  cursor: default;
-
-  &:not(.menuItem--disabled) {
-    cursor: pointer;
-  }
 
   &:hover {
     text-decoration: none;

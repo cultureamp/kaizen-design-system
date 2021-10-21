@@ -68,7 +68,7 @@ const MenuItem = (props: MenuItemProps) => {
 
   if (disabled) {
     return (
-      <li>
+      <li className={styles.menuListItem}>
         <button
           type="button"
           disabled={true}
@@ -84,7 +84,7 @@ const MenuItem = (props: MenuItemProps) => {
 
   if (hrefCombined) {
     return (
-      <li>
+      <li className={styles.menuListItem}>
         <a
           href={hrefCombined}
           onClick={
@@ -105,7 +105,7 @@ const MenuItem = (props: MenuItemProps) => {
   }
 
   return (
-    <li>
+    <li className={styles.menuListItem}>
       <button
         type="button"
         onClick={

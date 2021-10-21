@@ -16,11 +16,9 @@ import { CATEGORIES } from "../../../storybook/constants"
 
 const MenuInstance: React.FunctionComponent = () => (
   <>
-    <MenuSection>
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    </MenuSection>
+    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
     <MenuSection heading="Other actions">
       <MenuItem
         action={(e: any) => {
@@ -371,15 +369,13 @@ export const MenuWithActiveItem = () => (
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     >
-      <MenuSection>
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-        <MenuItem
-          action="https://www.cultureamp.com/"
-          label="Menu link"
-          isActive
-        />
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      </MenuSection>
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem
+        action="https://www.cultureamp.com/"
+        label="Menu link"
+        isActive
+      />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
     </Menu>
   </Box>
 )

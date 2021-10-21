@@ -134,11 +134,9 @@ const DrawerMenuContent = ({
     secondaryOverflowMenuItems
   return (
     <ul className={styles.mobileMenuWrapper}>
-      <MenuSection>
-        {primaryAction && renderPrimaryLinks(primaryAction)}
-        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-        {primaryAction && renderPrimaryActions(primaryAction)}
-      </MenuSection>
+      {primaryAction && renderPrimaryLinks(primaryAction)}
+      {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+      {primaryAction && renderPrimaryActions(primaryAction)}
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuSection
           heading={showOtherActionsHeading ? "Other actions" : undefined}

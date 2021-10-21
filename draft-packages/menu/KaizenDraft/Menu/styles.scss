@@ -12,8 +12,6 @@ $menu-container-width: 248px;
 
 .menuContainer {
   z-index: $ca-z-index-dropdown;
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
   background: $color-white;
   color: $color-purple-800;
