@@ -16,7 +16,6 @@ const PageIndicator = ({
   onPageClick,
 }: PageIndicatorProps) => (
   <button
-    key={`page-indicator-${page}`}
     className={cx(styles.pageIndicator, {
       [styles.pageIndicatorSelected]: selected,
     })}

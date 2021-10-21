@@ -50,6 +50,7 @@ const Pagination = ({
 
   const paginationIndicator = (page: number) => (
     <PageIndicator
+      key={page}
       page={page}
       selected={currentPage === page}
       ariaLabelPage={ariaLabelPage}
