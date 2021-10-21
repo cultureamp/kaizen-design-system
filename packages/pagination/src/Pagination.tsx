@@ -1,40 +1,30 @@
 import React from "react"
+import cx from "classnames"
 import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { Icon } from "@kaizen/component-library"
-import cx from "classnames"
-import PageIndicator from "./PageIndicator"
-import TruncateIndicator from "./TruncateIndicator"
-import styles from "./styles.scss"
+import { PageIndicator } from "./PageIndicator"
+import { TruncateIndicator } from "./TruncateIndicator"
+import styles from "./Pagination.scss"
+import { createRange } from "./utils"
 
-export const createRange = (start: number, end: number): number[] => {
-  const range: number[] = []
-  for (let i = start; i <= end; i++) {
-    range.push(i)
-  }
-  return range
-}
-
-type Props = {
+export interface PaginationProps {
   currentPage: number
   pageCount: number
-  ariaLabelNextPage?: string
-  ariaLabelPreviousPage?: string
-  ariaLabelPage?: string
+  ariaLabelNextPage: string
+  ariaLabelPreviousPage: string
+  ariaLabelPage: string
   onPageChange: (newPage: number) => void
 }
 
-const boundaryPagesRange = 1
-const siblingPagesRange = 1
-
-const Pagination = ({
+export const Pagination = ({
   currentPage = 1,
   pageCount,
   ariaLabelNextPage,
   ariaLabelPreviousPage,
   ariaLabelPage,
   onPageChange,
-}: Props) => {
+}: PaginationProps) => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | "prev" | "next") => {
     if (newPage === "prev") {
@@ -58,21 +48,22 @@ const Pagination = ({
     />
   )
 
-  const truncateIndicator = (page: number) => <TruncateIndicator key={page} />
-
   const pagination = () => {
     const items: JSX.Element[] = []
+
+    const boundaryPagesRange = 1
+    const siblingPagesRange = 1
 
     // truncateSize is 1 now but could be 0 if we add the ability to hide it.
     const truncateSize = 1
 
-    // Simplify generation of pages if number of available items is equal or greater than total pages to show
-    if (
+    const showAllPages =
       1 + 2 * truncateSize + 2 * siblingPagesRange + 2 * boundaryPagesRange >=
       pageCount
-    ) {
-      const allPages = createRange(1, pageCount).map(paginationIndicator)
-      items.push(...allPages)
+
+    // Simplify generation of pages if number of available items is equal or greater than total pages to show
+    if (showAllPages) {
+      return createRange(1, pageCount).map(paginationIndicator)
     } else {
       // Calculate group of first pages
       const firstPagesStart = 1
@@ -80,12 +71,14 @@ const Pagination = ({
       const firstPages = createRange(firstPagesStart, firstPagesEnd).map(
         paginationIndicator
       )
+
       // Calculate group of last pages
       const lastPagesStart = pageCount + 1 - boundaryPagesRange
       const lastPagesEnd = pageCount
       const lastPages = createRange(lastPagesStart, lastPagesEnd).map(
         paginationIndicator
       )
+
       // Calculate group of main pages
       const mainPagesStart = Math.min(
         Math.max(
@@ -107,9 +100,11 @@ const Pagination = ({
       const showPageInsteadOfFirstEllipsis =
         firstEllipsisPageNumber === firstPagesEnd + 1
       items.push(
-        showPageInsteadOfFirstEllipsis
-          ? paginationIndicator(firstEllipsisPageNumber)
-          : truncateIndicator(firstEllipsisPageNumber)
+        showPageInsteadOfFirstEllipsis ? (
+          paginationIndicator(firstEllipsisPageNumber)
+        ) : (
+          <TruncateIndicator key={firstEllipsisPageNumber} />
+        )
       )
 
       // Add group of main pages
@@ -120,9 +115,11 @@ const Pagination = ({
       const showPageInsteadOfSecondEllipsis =
         secondEllipsisPageNumber === lastPagesStart - 1
       items.push(
-        showPageInsteadOfSecondEllipsis
-          ? paginationIndicator(secondEllipsisPageNumber)
-          : truncateIndicator(secondEllipsisPageNumber)
+        showPageInsteadOfSecondEllipsis ? (
+          paginationIndicator(secondEllipsisPageNumber)
+        ) : (
+          <TruncateIndicator key={secondEllipsisPageNumber} />
+        )
       )
 
       // Add group of last pages
@@ -137,20 +134,15 @@ const Pagination = ({
   return (
     <nav className={styles.container}>
       <button
-        className={cx(styles.arrowIconWrapper, {
-          [styles.arrowIconWrapperDisabled]: previousPageDisabled,
-        })}
+        className={cx(styles.arrowIconWrapper)}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
         onClick={() => handleButtonClick("prev")}
       >
         <Icon icon={arrowBackward} role="presentation" />
-
         <div className={styles.pageIndicatorFocusRing} />
       </button>
-
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
-
       <button
         className={cx(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: nextPageDisabled,
@@ -165,5 +157,3 @@ const Pagination = ({
     </nav>
   )
 }
-
-export default Pagination

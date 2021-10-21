@@ -1,32 +1,43 @@
-import * as React from "react"
-import { Pagination } from "../src/index"
+import React, { useState } from "react"
+import { Pagination } from "@kaizen/pagination"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: "Pagination (React)",
+  title: `${CATEGORIES.components}/Pagination`,
   component: Pagination,
   parameters: {
-    info: {
-      text: `
-      import Pagination from "@kaizen/draft-pagination"
-      `,
+    docs: {
+      description: {
+        component: 'import { Pagination } from "@kaizen/pagination";',
+      },
     },
   },
-  argTypes: {
-    currentPage: { control: { type: null } },
-    onPageChange: { control: { type: null } },
-    pageCount: { defaultValue: 10 },
-  },
+  decorators: [
+    (story, { globals: { textDirection } }) => (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "1rem",
+        }}
+      >
+        {story({ isRTL: textDirection === "rtl" })}
+      </div>
+    ),
+  ],
 }
 
-export const basic = args => {
-  const [currentPage, setCurrentPage] = React.useState(1)
+export const Default = args => {
+  const [currentPage, setCurrentPage] = useState(1)
+
   return (
     <Pagination
       {...args}
       currentPage={currentPage}
-      onPageChange={(newPage: number) => {
-        setCurrentPage(newPage)
-      }}
+      ariaLabelNextPage="Next page"
+      ariaLabelPreviousPage="Previous page"
+      pageCount={10}
+      onPageChange={(newPage: number) => setCurrentPage(newPage)}
     />
   )
 }

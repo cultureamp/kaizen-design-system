@@ -1,15 +1,15 @@
 import React from "react"
 import cx from "classnames"
-import styles from "./styles.scss"
+import styles from "./Pagination.scss"
 
-type PageIndicatorProps = {
+interface PageIndicatorProps {
   page: number
   selected: boolean
   ariaLabelPage?: string
   onPageClick: (pageClicked: number) => void
 }
 
-const PageIndicator = ({
+export const PageIndicator = ({
   page,
   selected,
   ariaLabelPage,
@@ -26,5 +26,3 @@ const PageIndicator = ({
     {page}
   </button>
 )
-
-export default PageIndicator
