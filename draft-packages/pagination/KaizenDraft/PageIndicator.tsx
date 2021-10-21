@@ -20,7 +20,7 @@ const PageIndicator = ({
     className={cx(styles.pageIndicator, {
       [styles.pageIndicatorSelected]: selected,
     })}
-    aria-label={`${ariaLabelPage} ${page}`}
+    aria-label={`${ariaLabelPage || "Page"} ${page}`}
     onClick={() => onPageClick(page)}
   >
     <div className={styles.pageIndicatorFocusRing} />
