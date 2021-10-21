@@ -140,7 +140,7 @@ const Pagination = ({
           [styles.arrowIconWrapperDisabled]: previousPageDisabled,
         })}
         aria-label={ariaLabelPreviousPage}
-        aria-disabled={previousPageDisabled}
+        disabled={previousPageDisabled}
         onClick={() => handleButtonClick("prev")}
       >
         <Icon icon={arrowBackward} role="presentation" />
