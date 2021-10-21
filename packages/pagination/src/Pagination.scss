@@ -17,10 +17,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
+  border: $border-focus-ring-border-width solid $color-blue-200;
   margin: 0 5px;
   background-color: transparent;
-  // color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   cursor: pointer;
   box-sizing: border-box;
 
@@ -31,17 +31,16 @@
   }
 
   &:hover {
-    // background-color: $kz-var-color-cluny-200;
+    background-color: $color-blue-200;
   }
 
   &:focus {
-    // background-color: $kz-var-color-cluny-200;
+    background-color: $color-blue-200;
     &:focus-visible {
       outline: none;
     }
     .pageIndicatorFocusRing {
-      // border: $kz-var-border-focus-ring-border-width solid
-      //   $kz-var-color-cluny-500;
+      border: $border-focus-ring-border-width solid $color-blue-500;
     }
   }
 }
@@ -66,14 +65,14 @@
   height: 36px;
   width: 36px;
   border-radius: 18px;
-  // border: $kz-var-border-focus-ring-border-width solid transparent;
+  border: $border-focus-ring-border-width solid transparent;
   background-color: transparent;
-  // color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   margin: 0 5px;
   cursor: pointer;
-  // font-family: $kz-var-typography-paragraph-body-font-family;
-  // font-weight: $kz-var-typography-paragraph-body-font-weight;
-  // font-size: $kz-var-typography-paragraph-body-font-size;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
 }
 
 .pageIndicatorFocusRing {
@@ -86,29 +85,27 @@
 
 .pageIndicator {
   &:hover {
-    // border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
+    border: $border-focus-ring-border-width solid $color-blue-200;
   }
   &:focus-visible {
     outline: none;
   }
   &:focus {
     &:not(.pageIndicatorSelected) {
-      // background-color: $kz-var-color-cluny-200;
+      background-color: $color-blue-200;
       .pageIndicatorFocusRing {
-        // border: $kz-var-border-focus-ring-border-width solid
-        //   $kz-var-color-cluny-500;
+        border: $border-focus-ring-border-width solid $color-blue-500;
       }
     }
   }
 }
 
 .pageIndicatorSelected {
-  // background-color: $kz-var-color-cluny-500;
-  // color: $kz-var-color-white;
+  background-color: $color-blue-500;
+  color: $color-white;
   &:focus {
     .pageIndicatorFocusRing {
-      // border: $kz-var-border-focus-ring-border-width solid
-      // $kz-var-color-cluny-500;
+      border: $border-focus-ring-border-width solid $color-blue-500;
     }
   }
 }
@@ -120,6 +117,6 @@
   height: 36px;
   width: 36px;
   background-color: transparent;
-  // color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   margin: 0 5px;
 }
