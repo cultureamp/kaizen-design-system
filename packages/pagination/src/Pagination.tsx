@@ -17,6 +17,11 @@ export interface PaginationProps {
   onPageChange: (newPage: number) => void
 }
 
+export enum PageAction {
+  PREV = "prev",
+  NEXT = "next",
+}
+
 export const Pagination = ({
   currentPage = 1,
   pageCount,
@@ -26,12 +31,12 @@ export const Pagination = ({
   onPageChange,
 }: PaginationProps) => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
-  const handleButtonClick = (newPage: number | "prev" | "next") => {
-    if (newPage === "prev") {
+  const handleButtonClick = (newPage: number | PageAction) => {
+    if (newPage === PageAction.PREV) {
       onPageChange(currentPage - 1)
       return
     }
-    if (newPage === "next") {
+    if (newPage === PageAction.NEXT) {
       onPageChange(currentPage + 1)
       return
     }
@@ -137,7 +142,7 @@ export const Pagination = ({
         className={cx(styles.arrowIconWrapper)}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
-        onClick={() => handleButtonClick("prev")}
+        onClick={() => handleButtonClick(PageAction.PREV)}
       >
         <Icon icon={arrowBackward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />
@@ -148,8 +153,8 @@ export const Pagination = ({
           [styles.arrowIconWrapperDisabled]: nextPageDisabled,
         })}
         aria-label={ariaLabelNextPage}
-        aria-disabled={nextPageDisabled}
-        onClick={() => handleButtonClick("next")}
+        disabled={nextPageDisabled}
+        onClick={() => handleButtonClick(PageAction.NEXT)}
       >
         <Icon icon={arrowForward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />
