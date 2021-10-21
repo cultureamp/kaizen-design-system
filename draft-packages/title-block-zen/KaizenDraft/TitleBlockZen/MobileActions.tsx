@@ -453,14 +453,12 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
-            <MenuSection>
-              <DrawerMenuContent
-                primaryAction={primaryAction}
-                defaultAction={defaultAction}
-                secondaryActions={secondaryActions}
-                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-              />
-            </MenuSection>
+            <DrawerMenuContent
+              primaryAction={primaryAction}
+              defaultAction={defaultAction}
+              secondaryActions={secondaryActions}
+              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+            />
           </div>
         )}
       </div>
