@@ -82,8 +82,9 @@ export const FilterMenuButton = ({
         dropdownWidth="contain"
         dropdownId={dropdownId}
         onClick={e => e.stopPropagation()}
+        tag="div"
       >
-        <MenuSection>{children}</MenuSection>
+        {children}
       </StatelessMenu>
     </div>
   )

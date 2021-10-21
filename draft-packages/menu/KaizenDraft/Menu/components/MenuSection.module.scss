@@ -25,11 +25,10 @@ $padding: $spacing-xs;
 
 .menuSection {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
 
   li {
-    list-style: none;
     display: flex;
     flex-direction: column;
     width: 100%;

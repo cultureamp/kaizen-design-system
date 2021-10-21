@@ -129,19 +129,28 @@ const DrawerMenuContent = ({
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps) => (
   <ul className={styles.mobileMenuWrapper}>
-    <MenuSection>
-      {primaryAction && renderPrimaryLinks(primaryAction)}
-    </MenuSection>
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-    <MenuSection>
-      {primaryAction && renderPrimaryActions(primaryAction)}
-    </MenuSection>
-    <MenuSection heading="Other actions">
-      {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
-      {secondaryActions && renderSecondaryActions(secondaryActions)}
-      {secondaryOverflowMenuItems &&
-        renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-    </MenuSection>
+    {primaryAction && (
+      <MenuSection>{renderPrimaryLinks(primaryAction)}</MenuSection>
+    )}
+
+    {defaultAction && defaultAction.href && (
+      <MenuSection>
+        {renderDefaultLinkOrAction(defaultAction, "link")}
+      </MenuSection>
+    )}
+
+    {primaryAction && (
+      <MenuSection>{renderPrimaryActions(primaryAction)}</MenuSection>
+    )}
+
+    {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
+      <MenuSection heading="Other actions">
+        {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+        {secondaryActions && renderSecondaryActions(secondaryActions)}
+        {secondaryOverflowMenuItems &&
+          renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+      </MenuSection>
+    )}
   </ul>
 )
 
