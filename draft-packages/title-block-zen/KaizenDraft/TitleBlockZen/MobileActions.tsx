@@ -128,15 +128,39 @@ const DrawerMenuContent = ({
   secondaryActions,
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps) => {
+  // Warning: there are 2 conditionals here that make very little sense, but I
+  // am just trying to uphold existing behaviour after a refactor.
   const showOtherActionsHeading =
     (defaultAction && buttonIsAction(defaultAction)) ||
     secondaryActions ||
     secondaryOverflowMenuItems
+
+  const renderFirstSet = () => {
+    if (
+      defaultAction ||
+      (primaryAction && primaryAction.hasOwnProperty("menuItems"))
+    ) {
+      return (
+        <MenuSection>
+          {primaryAction && renderPrimaryLinks(primaryAction)}
+          {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+          {primaryAction && renderPrimaryActions(primaryAction)}
+        </MenuSection>
+      )
+    }
+
+    return (
+      <>
+        {primaryAction && renderPrimaryLinks(primaryAction)}
+        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+        {primaryAction && renderPrimaryActions(primaryAction)}
+      </>
+    )
+  }
+
   return (
     <ul className={styles.mobileMenuWrapper}>
-      {primaryAction && renderPrimaryLinks(primaryAction)}
-      {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-      {primaryAction && renderPrimaryActions(primaryAction)}
+      {renderFirstSet()}
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuSection
           heading={showOtherActionsHeading ? "Other actions" : undefined}
