@@ -32,13 +32,12 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.3",
-    "classnames": "^2.3.1",
-    "path-to-regexp": "^6.2.0"
+    "@kaizen/component-library": "^11.4.1",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {},
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "react": "^16.9.0"
   }
 }

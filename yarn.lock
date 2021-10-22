@@ -1987,36 +1987,6 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@kaizen/component-library@^10.0.3":
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-10.3.1.tgz#d07ad3a69b81f98a7e8dd20900136674a6c089cc"
-  integrity sha512-Bscw+UiX7xFWU77ZAciagBaJFzUqorw701rhZCJQXinTTFT1x/LJOZBsj54W5jftQTiXYQ6tDL/Q7Ay1rvHjgg==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^2.3.0"
-    "@kaizen/draft-button" "^4.2.5"
-    "@kaizen/hosted-assets" "^1.2.0"
-    "@kaizen/react-deprecate-warning" "^1.1.5"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/uuid" "^3.3.2"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    uuid "^3.3.2"
-
-"@kaizen/draft-button@^4.2.5":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-4.3.1.tgz#28b1afee063389d91423dda718da783043ec453f"
-  integrity sha512-5FAZ7y0ktR7gKI1IBj6RIX1SBKEZzNl4sftoZL7k8+90CZP5PljdoZ91z0In/SfDmkhQXbUPAQDCrnKFygjvfg==
-  dependencies:
-    "@kaizen/component-library" "^11.1.1"
-    "@kaizen/draft-badge" "^1.7.0"
-    "@kaizen/draft-loading-spinner" "^2.3.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -17909,11 +17879,6 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
-
-path-to-regexp@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.0.tgz#f7b3803336104c346889adece614669230645f38"
-  integrity sha512-f66KywYG6+43afgE/8j/GoiNyygk/bnoCbps++3ErRKsIYkGGupyv07R2Ok5m9i67Iqc+T2g1eAUGUPzWhYTyg==
 
 path-type@^1.0.0:
   version "1.1.0"
