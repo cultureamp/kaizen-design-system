@@ -17,7 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: $border-focus-ring-border-width solid $color-blue-200;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $color-blue-200;
   margin: 0 5px;
   background-color: transparent;
   color: $color-blue-500;
@@ -40,7 +41,8 @@
       outline: none;
     }
     .pageIndicatorFocusRing {
-      border: $border-focus-ring-border-width solid $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
     }
   }
 }
@@ -59,7 +61,8 @@
   height: 36px;
   width: 36px;
   border-radius: 18px;
-  border: $border-focus-ring-border-width solid transparent;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    transparent;
   background-color: transparent;
   color: $color-blue-500;
   margin: 0 5px;
@@ -79,7 +82,8 @@
 
 .pageIndicator {
   &:hover {
-    border: $border-focus-ring-border-width solid $color-blue-200;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style
+      $color-blue-200;
   }
   &:focus-visible {
     outline: none;
@@ -88,7 +92,8 @@
     &:not(.pageIndicatorSelected) {
       background-color: $color-blue-200;
       .pageIndicatorFocusRing {
-        border: $border-focus-ring-border-width solid $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style
+          $color-blue-500;
       }
     }
   }
@@ -99,7 +104,8 @@
   color: $color-white;
   &:focus {
     .pageIndicatorFocusRing {
-      border: $border-focus-ring-border-width solid $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
     }
   }
 }
