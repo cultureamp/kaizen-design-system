@@ -326,17 +326,22 @@ const DrawerHandle = ({
   toggleDisplay,
   isOpen,
 }: DrawerHandleProps) => {
+  const showDrawer =
+    defaultAction || secondaryActions || secondaryOverflowMenuItems
   if (primaryAction) {
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
       return (
         <div
-          className={styles.mobileActionsTopRow}
+          className={classnames(
+            styles.mobileActionsTopRow,
+            styles.mobileActionsTopRowSingleButton
+          )}
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           <button
             className={classnames(
-              styles.mobileActionsExpandButtonFullWidth,
+              styles.mobileActionsExpandButton,
               styles.mobileActionsPrimaryLabel
             )}
             onClick={toggleDisplay}
@@ -355,7 +360,9 @@ const DrawerHandle = ({
       // If the primary action is a button, or has no onClick/href/action
       return (
         <div
-          className={styles.mobileActionsTopRow}
+          className={classnames(styles.mobileActionsTopRow, {
+            [styles.mobileActionsTopRowSingleButton]: !showDrawer,
+          })}
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           {
@@ -369,9 +376,7 @@ const DrawerHandle = ({
           }
 
           {/* If there are no secondary etc. actions, just show the button without drawer */}
-          {(defaultAction ||
-            secondaryActions ||
-            secondaryOverflowMenuItems) && (
+          {showDrawer && (
             <button
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
@@ -387,15 +392,18 @@ const DrawerHandle = ({
     }
   }
   // if there are default/secondary actions but no primary action
-  if (defaultAction || secondaryActions || secondaryOverflowMenuItems) {
+  if (showDrawer) {
     return (
       <div
-        className={styles.mobileActionsTopRow}
+        className={classnames(
+          styles.mobileActionsTopRow,
+          styles.mobileActionsTopRowSingleButton
+        )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
       >
         <button
           className={classnames(
-            styles.mobileActionsExpandButtonFullWidth,
+            styles.mobileActionsExpandButton,
             styles.mobileActionsPrimaryLabel
           )}
           onClick={toggleDisplay}
