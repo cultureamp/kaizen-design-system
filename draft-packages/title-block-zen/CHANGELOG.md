@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.26...@kaizen/draft-title-block-zen@3.7.0) (2021-10-22)
+
+
+### Features
+
+* Add focus rings to TitleBlock mobile actions ([#2103](https://github.com/cultureamp/kaizen-design-system/issues/2103)) ([6e9e93e](https://github.com/cultureamp/kaizen-design-system/commit/6e9e93e8abe1016795a8e427f8a79a95ce1b6d5d))
+
+
+
+
+
 ## [3.6.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.6.25...@kaizen/draft-title-block-zen@3.6.26) (2021-10-22)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
