@@ -9,6 +9,9 @@
       padding-top: 0;
     }
   }
+  &.reversed {
+    color: white;
+  }
 }
 .radioGroupContainer {
   display: flex;
