@@ -326,6 +326,8 @@ const DrawerHandle = ({
   toggleDisplay,
   isOpen,
 }: DrawerHandleProps) => {
+  const showDrawer =
+    defaultAction || secondaryActions || secondaryOverflowMenuItems
   if (primaryAction) {
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
@@ -356,10 +358,6 @@ const DrawerHandle = ({
       )
     } else {
       // If the primary action is a button, or has no onClick/href/action
-
-      const showDrawer =
-        defaultAction || secondaryActions || secondaryOverflowMenuItems
-
       return (
         <div
           className={classnames(styles.mobileActionsTopRow, {
