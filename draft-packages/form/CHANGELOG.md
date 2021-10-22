@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.0...@kaizen/draft-form@3.13.1) (2021-10-22)
+
+
+### Bug Fixes
+
+* elm field description styles ([#2115](https://github.com/cultureamp/kaizen-design-system/issues/2115)) ([da43631](https://github.com/cultureamp/kaizen-design-system/commit/da436315ea21c17f4feaac870d525d416da9f64a))
+
+
+
+
+
 # [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.12.1...@kaizen/draft-form@3.13.0) (2021-10-22)
 
 
