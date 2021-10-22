@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.2...@kaizen/design-tokens@3.3.0) (2021-10-22)
+
+
+### Features
+
+* Update green-500 to [#44](https://github.com/cultureamp/kaizen-design-system/issues/44)A289 ([#2119](https://github.com/cultureamp/kaizen-design-system/issues/2119)) ([441a4ef](https://github.com/cultureamp/kaizen-design-system/commit/441a4efde52d4d3bed3a9da0ea06aab428445519)), closes [#44A289](https://github.com/cultureamp/kaizen-design-system/issues/44A289) [#44A289](https://github.com/cultureamp/kaizen-design-system/issues/44A289)
+
+
+
+
+
 ## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.1...@kaizen/design-tokens@3.2.2) (2021-10-21)
 
 
