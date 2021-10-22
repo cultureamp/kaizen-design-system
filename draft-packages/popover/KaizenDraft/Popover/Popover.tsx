@@ -122,7 +122,7 @@ export const Popover: PopoverModernType = ({
             )}
             <div className={styles.singleLine}>{heading}</div>
             {dismissible && (
-              <button className={styles.close} onClick={onClose}>
+              <button className={styles.close} onClick={onClose} type="button">
                 <Icon role="presentation" icon={closeIcon} />
               </button>
             )}
