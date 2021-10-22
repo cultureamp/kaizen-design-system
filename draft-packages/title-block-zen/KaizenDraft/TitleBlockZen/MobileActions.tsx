@@ -394,7 +394,7 @@ const DrawerHandle = ({
     }
   }
   // if there are default/secondary actions but no primary action
-  if (defaultAction || secondaryActions || secondaryOverflowMenuItems) {
+  if (showDrawer) {
     return (
       <div
         className={classnames(
