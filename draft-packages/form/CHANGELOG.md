@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.12.1...@kaizen/draft-form@3.13.0) (2021-10-22)
+
+
+### Features
+
+* Add reversed variants of RadioFields and RadioGroups ([#2101](https://github.com/cultureamp/kaizen-design-system/issues/2101)) ([14ca855](https://github.com/cultureamp/kaizen-design-system/commit/14ca855fd797ff186b83c5dce8328d5136763bb9))
+
+
+
+
+
 ## [3.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.12.0...@kaizen/draft-form@3.12.1) (2021-10-21)
 
 **Note:** Version bump only for package @kaizen/draft-form
