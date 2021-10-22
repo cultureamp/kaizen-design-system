@@ -24,7 +24,7 @@ $focus-ring-offset: 2px;
   position: absolute;
 
   &.reversed {
-    background: $color-white-rgb;
+    background: $color-white;
   }
 }
 
@@ -77,7 +77,7 @@ $focus-ring-offset: 2px;
     background: transparent;
 
     .radioInput:focus:not([disabled]) + & {
-      border-color: $color-white-rgb;
+      border-color: $color-white;
     }
     .radioInput:focus:not([disabled]) + &::after {
       border-color: $dt-color-radio-border-color-focus-reversed;
@@ -85,7 +85,7 @@ $focus-ring-offset: 2px;
 
     @media (hover: hover) and (pointer: fine) {
       .radioInput:not([disabled]) + &:hover {
-        border-color: $color-white-rgb;
+        border-color: $color-white;
         background-color: transparent;
       }
     }
