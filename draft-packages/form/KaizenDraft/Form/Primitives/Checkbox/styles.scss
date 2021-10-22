@@ -101,35 +101,35 @@ $focus-ring-offset: 2px;
 
 .box.reversed {
   border: $border-solid-border-width $border-solid-border-style
-    $color-purple-100;
-  background-color: $color-purple-700;
+    rgba($color-white-rgb, 0.65);
+  background: transparent;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $color-purple-100;
-    background-color: $color-purple-700;
+    border-color: $color-white;
+    background: rgba($color-white-rgb, 0.1);
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .checkbox:not([checked]):hover + & {
+    .checkbox:not([checked]):not([disabled]):hover + & {
       border-color: $color-white;
-      background-color: $color-purple-300;
+      background: rgba($color-white-rgb, 0.1);
     }
   }
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $color-purple-300;
+    background: rgba($color-white-rgb, 0.65);
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: rgba($color-purple-200-rgb, 0.65);
-    border-color: $color-purple-100;
+    background: $color-white;
+    border-color: $color-white;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .checkbox:indeterminate:hover + &,
-    .checkbox:checked:hover + & {
+    .checkbox:indeterminate:not([disabled]):hover + &,
+    .checkbox:checked:not([disabled]):hover + & {
       background: $color-white;
       border-color: $color-white;
     }

@@ -174,14 +174,14 @@ export const heartTheme: Theme = {
       letterSpacing: "normal",
     },
     dataSmall: {
-      fontFamily: '"Greycliff CF", "Noto Sans", Helvetica, Arial, sans-serif',
+      fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
       fontWeight: 700,
       fontSize: "1.5rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
     },
     dataSmallUnits: {
-      fontFamily: '"Greycliff CF", "Noto Sans", Helvetica, Arial, sans-serif',
+      fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
       fontWeight: 700,
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
