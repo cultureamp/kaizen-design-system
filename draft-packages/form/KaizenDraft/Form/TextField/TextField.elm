@@ -47,7 +47,6 @@ styles =
         , error = "error"
         , icon = "icon"
         , inline = "inline"
-        , description = "description"
         }
 
 
@@ -371,10 +370,7 @@ view (Config config) =
 
                 _ ->
                     div
-                        [ styles.classList
-                            [ ( .description, True )
-                            ]
-                        ]
+                        []
                         [ FieldMessage.view
                             (FieldMessage.default
                                 |> FieldMessage.id (idProp ++ "-field-description")
