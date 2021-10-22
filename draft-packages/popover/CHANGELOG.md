@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.6...@kaizen/draft-popover@2.5.7) (2021-10-22)
+
+
+### Bug Fixes
+
+* Add type='button' to Popover dismiss button ([#2111](https://github.com/cultureamp/kaizen-design-system/issues/2111)) ([759e9ab](https://github.com/cultureamp/kaizen-design-system/commit/759e9ab87c634357b31adce5e342a3887d15a1d0)), closes [#2110](https://github.com/cultureamp/kaizen-design-system/issues/2110)
+
+
+
+
+
 ## [2.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.5...@kaizen/draft-popover@2.5.6) (2021-10-18)
 
 **Note:** Version bump only for package @kaizen/draft-popover
