@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.7...@kaizen/draft-avatar@1.8.8) (2021-10-24)
+
+
+### Bug Fixes
+
+* Convert divs in Avatar to spans ([#2120](https://github.com/cultureamp/kaizen-design-system/issues/2120)) ([0a1d4c9](https://github.com/cultureamp/kaizen-design-system/commit/0a1d4c971ff5b4cb10294d9084c3d00e444eed30))
+
+
+
+
+
+## [1.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.6...@kaizen/draft-avatar@1.8.7) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [1.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.5...@kaizen/draft-avatar@1.8.6) (2021-10-18)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

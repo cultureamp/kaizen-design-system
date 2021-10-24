@@ -56,6 +56,8 @@ import { InteractionState, MapInteractionCSS } from "react-map-interaction"
 import { cssVarBackgrounds } from "../../../storybook/backgrounds"
 import { useTheme } from "../react"
 import colorString from "color-string"
+import styles from "./styles.scss"
+
 export default {
   title: "Design Tokens/Story Board",
   parameters: {
@@ -412,6 +414,8 @@ export const Everything: Story = () => {
             <Paragraph variant="body">Body</Paragraph>
             <Paragraph variant="small">Small</Paragraph>
             <Paragraph variant="extra-small">Extra Small</Paragraph>
+            <p className={styles.dataSmallExample}>Data Small</p>
+            <p className={styles.dataSmallUnitsExample}>Data Small Units</p>
           </Stack>
         </ComponentsSection>
 

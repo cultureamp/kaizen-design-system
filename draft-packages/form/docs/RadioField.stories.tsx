@@ -62,6 +62,11 @@ export default {
   },
   decorators: [withDesign],
 }
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
 
 export const InteractiveKaizenSiteDemo = () => (
   <RadioFieldExample
@@ -163,3 +168,79 @@ export const Rtl = () => (
 )
 
 Rtl.storyName = "RTL"
+
+export const ReversedDefaultUnselected = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    value="radio-1"
+    reversed
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultUnselected.story = {
+  name: "Reversed Default Unselected",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultUnselectedDisabled = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    value="radio-1"
+    reversed
+    disabled
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultUnselectedDisabled.story = {
+  name: "Reversed Default Unselected Disabled ",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultSelected = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus
+    value="radio-1"
+    reversed
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultSelected.story = {
+  name: "Reversed Default Selected",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultSelectedDisabled = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus
+    value="radio-1"
+    reversed
+    disabled
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultSelectedDisabled.story = {
+  name: "Reversed Default Selected Disabled",
+  parameters: {
+    ...reversedBg,
+  },
+}

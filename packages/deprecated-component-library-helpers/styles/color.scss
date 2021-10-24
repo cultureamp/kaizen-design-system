@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 $white: white;
 $black: black;
 
@@ -47,7 +48,7 @@ $ca-palette-positive-text: #378a72; // previously add-shade($ca-palette-seedling
 $ca-palette-negative-text: #c03d4a; // previously add-shade($ca-palette-coral, 20%);
 
 // Border colours
-$ca-border-color: #d8dad9; // previously add-tint($ca-palette-ink, 80%);
+$ca-border-color: $border-solid-border-color;
 $ca-border-between-rows-color: #ececec; // previously add-tint($ca-palette-ink, 90%);
 
 // Freemium colors
