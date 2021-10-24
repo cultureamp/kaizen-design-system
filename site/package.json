@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.0",
+  "version": "0.0.0-private.1",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.13.10",
@@ -10,11 +10,11 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
     "@kaizen/component-library": "^11.4.2",
-    "@kaizen/design-tokens": "*",
+    "@kaizen/design-tokens": "^3.3.0",
     "@kaizen/draft-button": "^5.2.5",
     "@kaizen/draft-card": "*",
     "@kaizen/draft-divider": "*",
-    "@kaizen/draft-illustration": "*",
+    "@kaizen/draft-illustration": "^2.7.4",
     "@kaizen/draft-tag": "^1.12.7",
     "@kaizen/hosted-assets": "^1.1.0",
     "@mdx-js/mdx": "^1.4.5",

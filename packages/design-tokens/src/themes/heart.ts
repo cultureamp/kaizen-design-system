@@ -70,7 +70,7 @@ export const heartTheme: Theme = {
       200: "#c4ede2",
       300: "#8fdbc7",
       400: "#5dcbad",
-      500: "#3caf90",
+      500: "#44a289",
       600: "#2c7d67",
       700: "#22594a",
     },
