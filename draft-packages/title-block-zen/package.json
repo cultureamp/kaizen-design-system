@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "3.7.3",
+  "version": "4.0.0",
   "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,7 +36,7 @@
     "@kaizen/draft-avatar": "^1.8.8",
     "@kaizen/draft-badge": "^1.7.0",
     "@kaizen/draft-button": "^5.2.5",
-    "@kaizen/draft-menu": "^3.4.22",
+    "@kaizen/draft-menu": "^4.0.0",
     "@kaizen/draft-select": "^1.21.24",
     "@kaizen/draft-tag": "^1.12.7",
     "@types/classnames": "^2.2.10",

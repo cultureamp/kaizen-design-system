@@ -93,7 +93,7 @@ class DropdownMenu extends React.Component<Props> {
         ref={this.menuRef}
         onClick={() => props.hideDropdownMenu()}
       >
-        {props.children}
+        <ul className={styles.menuListWrapper}>{props.children}</ul>
       </div>
     )
   }
