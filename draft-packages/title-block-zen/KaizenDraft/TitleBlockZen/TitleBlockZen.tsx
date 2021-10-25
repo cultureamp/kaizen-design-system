@@ -1,5 +1,4 @@
 import { Heading, Icon } from "@kaizen/component-library"
-import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
 import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
 import { IconButton, ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
@@ -10,6 +9,7 @@ import * as React from "react"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
+import { useMediaQueries } from "@kaizen/responsive"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
@@ -395,14 +395,6 @@ const createTabletOverflowMenuItems = (
   return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }
 
-const largeViewMinSizeInPixels = parseInt(
-  layoutTokens.layout.breakpoints.large,
-  10
-)
-const smallAndMediumMediaQuery = window.matchMedia(
-  `(max-width: ${largeViewMinSizeInPixels - 1}px)`
-)
-
 /**
  * ### primaryAction
  *
@@ -483,34 +475,16 @@ const TitleBlockZen = ({
   breadcrumbAutomationId = "TitleBlock__Breadcrumb",
   breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
 }: TitleBlockProps) => {
-  const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
-    false
-  )
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
     collapseNavigationAreaWhenPossible &&
     !hasNavigationTabs &&
     secondaryActions === undefined
 
-  const updateOnViewportChange = (
-    mediaQuery: MediaQueryList | MediaQueryListEvent
-  ) => {
-    if (mediaQuery.matches && !isSmallOrMediumViewport) {
-      setSmallOrMediumViewport(true)
-    }
-    if (!mediaQuery.matches && isSmallOrMediumViewport) {
-      setSmallOrMediumViewport(false)
-    }
-  }
-
-  React.useEffect(() => {
-    smallAndMediumMediaQuery.addListener(updateOnViewportChange)
-    return () => {
-      smallAndMediumMediaQuery.removeListener(updateOnViewportChange)
-    }
-  })
-  updateOnViewportChange(smallAndMediumMediaQuery)
-
+  const {
+    queries: { isSmall, isMedium },
+  } = useMediaQueries()
+  const isSmallOrMediumViewport = isMedium || isSmall
   return (
     <>
       <div
