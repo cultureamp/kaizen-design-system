@@ -25,7 +25,6 @@ type Placement =
 
 export type PopoverProps = {
   readonly automationId?: string
-  readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
   readonly variant?: Variant
   readonly placement?: Placement
