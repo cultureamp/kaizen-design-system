@@ -1,11 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
-import {
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSeparator,
-} from "@kaizen/draft-menu"
+import { MenuItem, MenuSection } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -47,7 +42,6 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     primaryAction.menuItems.length > 0
   ) {
     return [
-      <MenuSeparator key="title-block-mobile-actions-primary-menu-separator" />,
       primaryAction.menuItems
         .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
@@ -128,52 +122,58 @@ type DrawerMenuContentProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
 }
 
-type ConditionalOtherActionsHeadingProps = {
-  primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
-  secondaryActions?: SecondaryActionsProps
-  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
-}
-
-const ConditionalOtherActionsHeading = ({
-  primaryAction,
-  defaultAction,
-  secondaryActions,
-  secondaryOverflowMenuItems,
-}: ConditionalOtherActionsHeadingProps) => (
-  <>
-    {(defaultAction ||
-      (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
-      <MenuSeparator />
-    )}
-    {((defaultAction && buttonIsAction(defaultAction)) ||
-      secondaryActions ||
-      secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
-  </>
-)
-
 const DrawerMenuContent = ({
   primaryAction,
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
-}: DrawerMenuContentProps) => (
-  <>
-    {primaryAction && renderPrimaryLinks(primaryAction)}
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-    {primaryAction && renderPrimaryActions(primaryAction)}
-    <ConditionalOtherActionsHeading
-      primaryAction={primaryAction}
-      defaultAction={defaultAction}
-      secondaryActions={secondaryActions}
-      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-    />
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
-    {secondaryActions && renderSecondaryActions(secondaryActions)}
-    {secondaryOverflowMenuItems &&
-      renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-  </>
-)
+}: DrawerMenuContentProps) => {
+  // Warning: there are 2 conditionals here that make very little sense, but I
+  // am just trying to uphold existing behaviour after a refactor.
+  const showOtherActionsHeading =
+    (defaultAction && buttonIsAction(defaultAction)) ||
+    secondaryActions ||
+    secondaryOverflowMenuItems
+
+  const renderFirstSet = () => {
+    if (
+      defaultAction ||
+      (primaryAction && primaryAction.hasOwnProperty("menuItems"))
+    ) {
+      return (
+        <MenuSection>
+          {primaryAction && renderPrimaryLinks(primaryAction)}
+          {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+          {primaryAction && renderPrimaryActions(primaryAction)}
+        </MenuSection>
+      )
+    }
+
+    return (
+      <>
+        {primaryAction && renderPrimaryLinks(primaryAction)}
+        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+        {primaryAction && renderPrimaryActions(primaryAction)}
+      </>
+    )
+  }
+
+  return (
+    <ul className={styles.mobileMenuWrapper}>
+      {renderFirstSet()}
+      {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
+        <MenuSection
+          heading={showOtherActionsHeading ? "Other actions" : undefined}
+        >
+          {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+          {secondaryActions && renderSecondaryActions(secondaryActions)}
+          {secondaryOverflowMenuItems &&
+            renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+        </MenuSection>
+      )}
+    </ul>
+  )
+}
 
 const renderDrawerHandleLabel = (
   label: string,
@@ -482,14 +482,12 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
-            <MenuContent>
-              <DrawerMenuContent
-                primaryAction={primaryAction}
-                defaultAction={defaultAction}
-                secondaryActions={secondaryActions}
-                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-              />
-            </MenuContent>
+            <DrawerMenuContent
+              primaryAction={primaryAction}
+              defaultAction={defaultAction}
+              secondaryActions={secondaryActions}
+              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+            />
           </div>
         )}
       </div>

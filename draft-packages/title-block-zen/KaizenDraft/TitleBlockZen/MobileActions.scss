@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -181,6 +182,11 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   height: 100%;
   position: absolute;
   @include ca-position($end: 20px);
+}
+
+.mobileMenuWrapper {
+  padding: $spacing-xs 0;
+  margin: 0;
 }
 
 @keyframes slide-up {
