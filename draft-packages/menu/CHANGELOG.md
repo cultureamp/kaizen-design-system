@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.0...@kaizen/draft-menu@4.0.1) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.22...@kaizen/draft-menu@4.0.0) (2021-10-25)
+
+
+### Features
+
+* BREAKING CHANGE: complete restructure of component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
+
+
+### BREAKING CHANGES
+
+* Menu has been refactored to be marked up as an unordered list. MenuContent, MenuHeader and MenuSeparator have all been removed. Use MenuItem directly inside Menu/StatelessMenu, or wrap your MenuItem's inside a MenuSection for a heading and a divider.
+
+
+
+
+
+## [3.4.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.21...@kaizen/draft-menu@3.4.22) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [3.4.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.20...@kaizen/draft-menu@3.4.21) (2021-10-18)
 
 **Note:** Version bump only for package @kaizen/draft-menu

@@ -2,7 +2,7 @@ import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 
-import styles from "./MenuContent.module.scss"
+import styles from "./MenuSection.module.scss"
 
 export type MenuItemProps = {
   label: string
@@ -68,50 +68,56 @@ const MenuItem = (props: MenuItemProps) => {
 
   if (disabled) {
     return (
+      <li className={styles.menuListItem}>
+        <button
+          type="button"
+          disabled={true}
+          className={className}
+          data-automation-id={automationId}
+        >
+          {iconNode}
+          {wrappedLabel}
+        </button>
+      </li>
+    )
+  }
+
+  if (hrefCombined) {
+    return (
+      <li className={styles.menuListItem}>
+        <a
+          href={hrefCombined}
+          onClick={
+            onClickCombined as (e: React.MouseEvent<HTMLAnchorElement>) => void
+          }
+          className={className}
+          data-automation-id={automationId}
+          target={target}
+          // this tells screenreaders that this link represents the current page
+          // (only intended for use in things like a nav with dropdowns)
+          aria-current={isActive ? "page" : undefined}
+        >
+          {iconNode}
+          {wrappedLabel}
+        </a>
+      </li>
+    )
+  }
+
+  return (
+    <li className={styles.menuListItem}>
       <button
         type="button"
-        disabled={true}
+        onClick={
+          onClickCombined as (e: React.MouseEvent<HTMLButtonElement>) => void
+        }
         className={className}
         data-automation-id={automationId}
       >
         {iconNode}
         {wrappedLabel}
       </button>
-    )
-  }
-
-  if (hrefCombined) {
-    return (
-      <a
-        href={hrefCombined}
-        onClick={
-          onClickCombined as (e: React.MouseEvent<HTMLAnchorElement>) => void
-        }
-        className={className}
-        data-automation-id={automationId}
-        target={target}
-        // this tells screenreaders that this link represents the current page
-        // (only intended for use in things like a nav with dropdowns)
-        aria-current={isActive ? "page" : undefined}
-      >
-        {iconNode}
-        {wrappedLabel}
-      </a>
-    )
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={
-        onClickCombined as (e: React.MouseEvent<HTMLButtonElement>) => void
-      }
-      className={className}
-      data-automation-id={automationId}
-    >
-      {iconNode}
-      {wrappedLabel}
-    </button>
+    </li>
   )
 }
 

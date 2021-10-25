@@ -11,77 +11,70 @@ import { withDesign } from "storybook-addon-designs"
 import React, { useState } from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
 
-import {
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSeparator,
-  StatelessMenu,
-} from ".."
+import { Menu, MenuSection, MenuItem, StatelessMenu } from ".."
 import { CATEGORIES } from "../../../storybook/constants"
 
 const MenuInstance: React.FunctionComponent = () => (
-  <MenuContent>
+  <>
     <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
     <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
     <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    <MenuSeparator />
-    <MenuHeader title="Other actions" />
-    <MenuItem
-      action={(e: any) => {
-        alert("Hello")
-        e.preventDefault()
-      }}
-      icon={editIcon}
-      label="Menu button"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      icon={duplicateIcon}
-      label="Menu button but the label is too long"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      icon={trashIcon}
-      destructive
-      label="Destructive Menu button"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      icon={trashIcon}
-      disabled
-      label="Disabled Menu button"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      icon={trashIcon}
-      disabled
-      destructive
-      label="Disabled Destructive Menu button"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      label="Menu button no icon"
-    />
-    <MenuItem
-      action={(e: any) => {
-        e.preventDefault()
-      }}
-      disabled
-      label="Disabled button no icon"
-    />
-  </MenuContent>
+    <MenuSection heading="Other actions">
+      <MenuItem
+        action={(e: any) => {
+          alert("Hello")
+          e.preventDefault()
+        }}
+        icon={editIcon}
+        label="Menu button"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        icon={duplicateIcon}
+        label="Menu button but the label is too long"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        icon={trashIcon}
+        destructive
+        label="Destructive Menu button"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        icon={trashIcon}
+        disabled
+        label="Disabled Menu button"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        icon={trashIcon}
+        disabled
+        destructive
+        label="Disabled Destructive Menu button"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        label="Menu button no icon"
+      />
+      <MenuItem
+        action={(e: any) => {
+          e.preventDefault()
+        }}
+        disabled
+        label="Disabled button no icon"
+      />
+    </MenuSection>
+  </>
 )
 
 export default {
@@ -91,7 +84,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";',
+          'import { Menu, MenuItem, MenuSection } from "@kaizen/draft-menu";',
       },
     },
     ...figmaEmbed(
@@ -233,10 +226,9 @@ const StatelessMenuExample = props => {
             {...buttonProps}
           />
         )}
+        onClick={e => e.stopPropagation()}
       >
-        <div onClick={e => e.stopPropagation()}>
-          <MenuInstance />
-        </div>
+        <MenuInstance />
       </StatelessMenu>
     </div>
   )
@@ -276,11 +268,11 @@ export const DropdownWidthContain = () => (
     button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     dropdownWidth="contain"
   >
-    <MenuContent>
+    <MenuSection>
       <div style={{ width: "500px" }}>
         The dropdown is as wide as this 500px div
       </div>
-    </MenuContent>
+    </MenuSection>
   </Menu>
 )
 
@@ -377,15 +369,13 @@ export const MenuWithActiveItem = () => (
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     >
-      <MenuContent>
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-        <MenuItem
-          action="https://www.cultureamp.com/"
-          label="Menu link"
-          isActive
-        />
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      </MenuContent>
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem
+        action="https://www.cultureamp.com/"
+        label="Menu link"
+        isActive
+      />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
     </Menu>
   </Box>
 )

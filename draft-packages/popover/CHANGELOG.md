@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.9...@kaizen/draft-popover@3.0.0) (2021-10-25)
+
+
+### Bug Fixes
+
+* Remove visible prop from popover ([#2121](https://github.com/cultureamp/kaizen-design-system/issues/2121)) ([999a4a5](https://github.com/cultureamp/kaizen-design-system/commit/999a4a55a070313d9ab7b585a22aaae55fa6eae1))
+
+
+### BREAKING CHANGES
+
+* The visible prop doesn't do anything, but
+removing it requires a breaking change because users may be
+passing it.
+
+
+
+
+
+## [2.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.8...@kaizen/draft-popover@2.5.9) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.7...@kaizen/draft-popover@2.5.8) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.6...@kaizen/draft-popover@2.5.7) (2021-10-22)
+
+
+### Bug Fixes
+
+* Add type='button' to Popover dismiss button ([#2111](https://github.com/cultureamp/kaizen-design-system/issues/2111)) ([759e9ab](https://github.com/cultureamp/kaizen-design-system/commit/759e9ab87c634357b31adce5e342a3887d15a1d0)), closes [#2110](https://github.com/cultureamp/kaizen-design-system/issues/2110)
+
+
+
+
+
 ## [2.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.5.5...@kaizen/draft-popover@2.5.6) (2021-10-18)
 
 **Note:** Version bump only for package @kaizen/draft-popover

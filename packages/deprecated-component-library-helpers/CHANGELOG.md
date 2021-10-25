@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.4.0...@kaizen/deprecated-component-library-helpers@2.4.1) (2021-10-22)
+
+
+### Bug Fixes
+
+* update legacy $ca-border-color to use latest design token ([#2116](https://github.com/cultureamp/kaizen-design-system/issues/2116)) ([60df160](https://github.com/cultureamp/kaizen-design-system/commit/60df1601cca1893327c077d7ab6c7c21aaa8bc93))
+
+
+
+
+
 # [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.3.0...@kaizen/deprecated-component-library-helpers@2.4.0) (2021-10-18)
 
 
