@@ -1089,7 +1089,7 @@ DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 export const DefaultOnlyLongTitle = () => (
   <OffsetPadding>
     <TitleBlockZen
-      title='Page title that is over the "long title" character threshold and goes way longer than usual'
+      title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       subtitle="Subtitle goes here"
       handleHamburgerClick={() => {
         alert("Hamburger clicked")
