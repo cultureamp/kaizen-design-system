@@ -41,9 +41,7 @@ exports[`The basic notification renders correctly 1`] = `
         focusable="false"
         role="img"
       >
-        <title
-          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
-        >
+        <title>
           close notification
         </title>
         <use
@@ -100,9 +98,7 @@ exports[`You can change the type 1`] = `
         focusable="false"
         role="img"
       >
-        <title
-          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
-        >
+        <title>
           close notification
         </title>
         <use
