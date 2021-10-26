@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -7,7 +8,11 @@
 @import "~@kaizen/component-library/styles/layers";
 @import "./TitleBlockBreakpoints.scss";
 
-$mobile-actions-split-select-square-width: 64px;
+$expand-button-width: 3.75rem;
+$focus-spacing: 2px;
+$focus-ring-border-width: 2px;
+// ^should be $border-focus-ring-border-width but CSS vars makes this hard
+$space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
 .mobileActionsContainer {
   display: none;
@@ -17,8 +22,8 @@ $mobile-actions-split-select-square-width: 64px;
   bottom: 0;
   left: 0;
   right: 0;
-  border-top-left-radius: $border-solid-border-radius;
-  border-top-right-radius: $border-solid-border-radius;
+  border-start-start-radius: $border-solid-border-radius;
+  border-start-end-radius: $border-solid-border-radius;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
@@ -38,13 +43,16 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsTopRow {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: $layout-mobile-actions-drawer-height;
-  width: 100%;
-  background-color: $color-blue-500;
+}
+
+.mobileActionsTopRow.mobileActionsTopRowSingleButton {
+  justify-content: center;
 }
 
 .mobileActionsMenuContainer {
-  display: flex;
+  display: block;
   width: 100%;
   background: $color-white;
 }
@@ -76,19 +84,37 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsPrimaryButton,
 .mobileActionsExpandButton {
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
   height: 100%;
-  cursor: pointer;
-  border-radius: none;
   border: 0;
   box-sizing: border-box;
   color: $color-white;
+  background-color: $color-blue-500;
 
   &:focus {
     background-color: $color-blue-600;
     outline: none;
+  }
+
+  &:global(.focus-visible) {
+    height: $layout-mobile-actions-drawer-height - $space-for-focus-ring;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2));
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-width: $focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
+    }
   }
 
   &:hover {
@@ -96,23 +122,57 @@ $mobile-actions-split-select-square-width: 64px;
   }
 }
 
-.mobileActionsPrimaryButton {
-  flex-grow: 1;
+// Full width versions
+.mobileActionsPrimaryButton:only-child,
+.mobileActionsExpandButton:only-child {
+  flex-basis: 100%;
+  border-start-start-radius: $border-solid-border-radius;
+  border-start-end-radius: $border-solid-border-radius;
+
+  &:global(.focus-visible) {
+    flex-basis: calc(100% - #{$space-for-focus-ring});
+
+    &::after {
+      border-start-start-radius: $border-focus-ring-border-radius;
+      border-start-end-radius: $border-focus-ring-border-radius;
+    }
+  }
 }
 
-.mobileActionsExpandButton {
-  flex-basis: $ca-grid * 2.5;
+// Non full width versions
+.mobileActionsPrimaryButton:not(:only-child) {
+  flex: 0 0 calc(100% - #{$expand-button-width});
+
+  &:global(.focus-visible) {
+    flex-basis: calc(100% - #{$expand-button-width} - #{$space-for-focus-ring});
+    margin-left: $focus-ring-border-width * 2;
+    border-start-start-radius: $border-solid-border-radius;
+
+    & + .mobileActionsExpandButton {
+      border-color: $color-white;
+    }
+
+    &::after {
+      border-start-start-radius: $border-focus-ring-border-radius;
+    }
+  }
+}
+
+.mobileActionsExpandButton:not(:only-child) {
+  flex: 0 0 $expand-button-width;
   border-left: 2px solid $color-blue-200;
   justify-content: center;
-}
 
-.mobileActionsExpandButtonFullWidth {
-  @extend .mobileActionsExpandButton;
+  &:global(.focus-visible) {
+    border-color: $color-white;
+    flex-basis: calc(#{$expand-button-width} - #{$space-for-focus-ring});
+    margin-right: $focus-ring-border-width * 2;
+    border-start-end-radius: $border-solid-border-radius;
 
-  position: relative;
-  flex-basis: 100%;
-  border: none;
-  justify-content: flex-start;
+    &::after {
+      border-start-end-radius: $border-focus-ring-border-radius;
+    }
+  }
 }
 
 .mobileActionsChevronSquare {
@@ -122,6 +182,11 @@ $mobile-actions-split-select-square-width: 64px;
   height: 100%;
   position: absolute;
   @include ca-position($end: 20px);
+}
+
+.mobileMenuWrapper {
+  padding: $spacing-xs 0;
+  margin: 0;
 }
 
 @keyframes slide-up {

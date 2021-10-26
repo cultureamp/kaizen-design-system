@@ -1,5 +1,5 @@
 import classnames from "classnames"
-import React, { useCallback, useEffect, useState } from "react"
+import React, { ElementType, useCallback, useEffect, useState } from "react"
 import { usePopper } from "react-popper"
 import styles from "./styles.scss"
 
@@ -17,6 +17,7 @@ type MenuDropdownProps = {
   autoHide?: "on" | "outside-click-only" | "off"
   children: React.ReactNode
   referenceElement: HTMLElement | null
+  tag?: ElementType<any>
 }
 
 const MenuDropdown = ({
@@ -27,6 +28,7 @@ const MenuDropdown = ({
   autoHide = "on",
   align = "left",
   width = "default",
+  tag = "ul",
 }: MenuDropdownProps) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
@@ -116,7 +118,7 @@ const MenuDropdown = ({
       })}
       onClick={handleRootClick}
     >
-      {children}
+      {React.createElement(tag, { className: styles.menuList }, children)}
     </div>
   )
 }
