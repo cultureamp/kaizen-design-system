@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-`yarn add @kaizen/stylelint-plugin`
+`yarn add --dev @kaizen/stylelint-plugin`
 
 Then, add the plugin and the rules you want to your stylelint configuration (e.g. `stylelint.config.js` or `.stylelintrc.json`).
 For sane defaults, you can use this base configuration:
