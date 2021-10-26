@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.5.9...@kaizen/draft-well@3.5.10) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [3.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.5.8...@kaizen/draft-well@3.5.9) (2021-10-26)
 
 **Note:** Version bump only for package @kaizen/draft-well
