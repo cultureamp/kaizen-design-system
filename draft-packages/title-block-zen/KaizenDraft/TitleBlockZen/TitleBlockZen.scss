@@ -468,14 +468,22 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   composes: navigationTabEdgeShadow;
   transform: rotate(90deg);
   left: 0;
-  top: calc(100% - 60px);
+  top: calc(100% - #{$tab-container-height-default});
+
+  @include title-block-small {
+    top: calc(100% - #{$tab-container-height-small});
+  }
 }
 
 .navigationTabEdgeShadowRight {
   composes: navigationTabEdgeShadow;
   transform: rotate(-90deg);
   right: 0;
-  top: calc(100% - 60px);
+  top: calc(100% - #{$tab-container-height-default});
+
+  @include title-block-small {
+    top: calc(100% - #{$tab-container-height-small});
+  }
 }
 
 .mainActionsContainer {
