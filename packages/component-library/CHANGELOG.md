@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.4...@kaizen/component-library@11.4.5) (2021-10-26)
+
+
+### Bug Fixes
+
+* Update snapshots after removing IDs from Icon ([#2125](https://github.com/cultureamp/kaizen-design-system/issues/2125)) ([be4a5c8](https://github.com/cultureamp/kaizen-design-system/commit/be4a5c8ccb588bee660868f04bb5910547196121))
+
+
+
+
+
+## [11.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.3...@kaizen/component-library@11.4.4) (2021-10-26)
+
+
+### Bug Fixes
+
+* Remove IDs from Icon elements ([#2124](https://github.com/cultureamp/kaizen-design-system/issues/2124)) ([a326aa2](https://github.com/cultureamp/kaizen-design-system/commit/a326aa21c056c92b11b646757718dc661298a51d))
+
+
+
+
+
 ## [11.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.2...@kaizen/component-library@11.4.3) (2021-10-25)
 
 **Note:** Version bump only for package @kaizen/component-library
