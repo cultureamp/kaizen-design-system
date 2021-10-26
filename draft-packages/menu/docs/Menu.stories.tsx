@@ -11,15 +11,17 @@ import { withDesign } from "storybook-addon-designs"
 import React, { useState } from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
 
-import { Menu, MenuSection, MenuItem, StatelessMenu } from ".."
+import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
 import { CATEGORIES } from "../../../storybook/constants"
 
 const MenuInstance: React.FunctionComponent = () => (
   <>
-    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    <MenuSection heading="Other actions">
+    <MenuList>
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+    </MenuList>
+    <MenuList heading="Other actions">
       <MenuItem
         action={(e: any) => {
           alert("Hello")
@@ -73,7 +75,7 @@ const MenuInstance: React.FunctionComponent = () => (
         disabled
         label="Disabled button no icon"
       />
-    </MenuSection>
+    </MenuList>
   </>
 )
 
@@ -84,7 +86,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Menu, MenuItem, MenuSection } from "@kaizen/draft-menu";',
+          'import { Menu, MenuList, MenuItem, StatelessMenu } from "@kaizen/draft-menu";',
       },
     },
     ...figmaEmbed(
@@ -201,8 +203,6 @@ const StatelessMenuExample = props => {
     setIsMenuVisible(false)
   }
 
-  const label = `I'm ${isMenuVisible ? "open!" : "closed!"}`
-
   return (
     <div>
       <Button
@@ -268,11 +268,9 @@ export const DropdownWidthContain = () => (
     button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     dropdownWidth="contain"
   >
-    <MenuSection>
-      <div style={{ width: "500px" }}>
-        The dropdown is as wide as this 500px div
-      </div>
-    </MenuSection>
+    <div style={{ width: "500px" }}>
+      The dropdown is as wide as this 500px div
+    </div>
   </Menu>
 )
 
@@ -369,13 +367,15 @@ export const MenuWithActiveItem = () => (
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     >
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      <MenuItem
-        action="https://www.cultureamp.com/"
-        label="Menu link"
-        isActive
-      />
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuList>
+        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        <MenuItem
+          action="https://www.cultureamp.com/"
+          label="Menu link"
+          isActive
+        />
+        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      </MenuList>
     </Menu>
   </Box>
 )

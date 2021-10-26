@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
+import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -83,7 +83,7 @@ const MainActions = ({
                     />
                   }
                 >
-                  {menuContent}
+                  <MenuList>{menuContent}</MenuList>
                 </Menu>
               ),
             },
@@ -160,12 +160,14 @@ const MainActions = ({
               />
             }
           >
-            {overflowMenuItems.map((menuItem, idx) => (
-              <MenuItem
-                {...menuItem}
-                key={`main-action-overflow-item-menu-item-${idx}`}
-              />
-            ))}
+            <MenuList>
+              {overflowMenuItems.map((menuItem, idx) => (
+                <MenuItem
+                  {...menuItem}
+                  key={`main-action-overflow-item-menu-item-${idx}`}
+                />
+              ))}
+            </MenuList>
           </Menu>
         ),
       },

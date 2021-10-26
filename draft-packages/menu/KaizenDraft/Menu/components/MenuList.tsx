@@ -1,21 +1,21 @@
 import * as React from "react"
-import styles from "./MenuSection.module.scss"
+import styles from "../styles.scss"
 
-type MenuSectionProps = {
+type MenuListProps = {
   heading?: React.ReactNode
   children: React.ReactNode
 }
 
-const MenuSection = (props: MenuSectionProps) => {
+const MenuList = (props: MenuListProps) => {
   const { heading, children } = props
   return (
-    <li className={styles.menuSectionWrapper}>
+    <>
       {heading && <span className={styles.header}>{heading}</span>}
       <ul className={styles.menuSection}>{children}</ul>
-    </li>
+    </>
   )
 }
 
-MenuSection.displayName = "MenuSection"
+MenuList.displayName = "MenuList"
 
-export default MenuSection
+export default MenuList

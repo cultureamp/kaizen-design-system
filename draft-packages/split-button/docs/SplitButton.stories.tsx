@@ -22,7 +22,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: ' import { SplitButton } from "@kaizen/draft-split-button" ',
+        component: 'import { SplitButton } from "@kaizen/draft-split-button"',
       },
     },
     ...figmaEmbed(
@@ -62,13 +62,7 @@ export const Disabled = () => (
     onClick={() => undefined}
     disabled
     dropdownContent={
-      <>
-        <MenuItem
-          onClick={e => undefined}
-          icon={editIcon}
-          label="Menu Item 1"
-        />
-      </>
+      <MenuItem onClick={e => undefined} icon={editIcon} label="Menu Item 1" />
     }
     dropdownAltText="Open menu"
   />
@@ -161,13 +155,7 @@ export const AnchorLink = () => (
     label="Edit"
     href="//example.com"
     dropdownContent={
-      <>
-        <MenuItem
-          onClick={e => undefined}
-          icon={editIcon}
-          label="Menu Item 1"
-        />
-      </>
+      <MenuItem onClick={e => undefined} icon={editIcon} label="Menu Item 1" />
     }
     dropdownAltText="Open menu"
   />
