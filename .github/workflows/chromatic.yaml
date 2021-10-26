@@ -38,6 +38,7 @@ jobs:
       - run: echo "found run chromatic text in latest comment"
         if: ${{ env.runChromatic == 'true' }}
 
+      # use of cache for node_modules saves usually > 1min of build time
       - uses: actions/cache@v2
         if: ${{ env.runChromatic == 'true' }}
         with:
