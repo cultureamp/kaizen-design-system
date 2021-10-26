@@ -15,9 +15,12 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./TitleBlockZen.stories.scss"
 
+const TESTING_VIEWPORTS = [320, 768, 1200]
+
 export default {
   title: `${CATEGORIES.components}/Title Block`,
   parameters: {
+    chromatic: { viewports: TESTING_VIEWPORTS },
     docs: {
       description: {
         component:
@@ -970,7 +973,7 @@ DefaultOnlyPrimary.storyName = "Default (only primary action)"
 export const DefaultWithReportSwitcher = () => (
   <OffsetPadding>
     <TitleBlockZen
-      title="Baseline Engagement Survey"
+      title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       surveyStatus={{ text: "Live", status: "live" }}
       pageSwitcherSelect={{
         placeholder: "Placeholder",
