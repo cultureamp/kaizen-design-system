@@ -1,6 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
-import { MenuItem, MenuSection } from "@kaizen/draft-menu"
+import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -128,50 +128,29 @@ const DrawerMenuContent = ({
   secondaryActions,
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps) => {
-  // Warning: there are 2 conditionals here that make very little sense, but I
-  // am just trying to uphold existing behaviour after a refactor.
   const showOtherActionsHeading =
     (defaultAction && buttonIsAction(defaultAction)) ||
     secondaryActions ||
     secondaryOverflowMenuItems
 
-  const renderFirstSet = () => {
-    if (
-      defaultAction ||
-      (primaryAction && primaryAction.hasOwnProperty("menuItems"))
-    ) {
-      return (
-        <MenuSection>
-          {primaryAction && renderPrimaryLinks(primaryAction)}
-          {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-          {primaryAction && renderPrimaryActions(primaryAction)}
-        </MenuSection>
-      )
-    }
-
-    return (
-      <>
+  return (
+    <>
+      <MenuList>
         {primaryAction && renderPrimaryLinks(primaryAction)}
         {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
         {primaryAction && renderPrimaryActions(primaryAction)}
-      </>
-    )
-  }
-
-  return (
-    <ul className={styles.mobileMenuWrapper}>
-      {renderFirstSet()}
+      </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-        <MenuSection
+        <MenuList
           heading={showOtherActionsHeading ? "Other actions" : undefined}
         >
           {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
           {secondaryOverflowMenuItems &&
             renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-        </MenuSection>
+        </MenuList>
       )}
-    </ul>
+    </>
   )
 }
 
