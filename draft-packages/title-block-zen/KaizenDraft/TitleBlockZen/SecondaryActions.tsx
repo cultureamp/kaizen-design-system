@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuItem } from "@kaizen/draft-menu"
+import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -30,9 +30,11 @@ const renderSecondaryOverflowMenu = (
         />
       }
     >
-      {secondaryOverflowMenuItems.map((menuItem, i) => (
-        <MenuItem {...menuItem} key={i} /> // We shouldn't use an index here, see note below
-      ))}
+      <MenuList>
+        {secondaryOverflowMenuItems.map((menuItem, i) => (
+          <MenuItem {...menuItem} key={i} /> // We shouldn't use an index here, see note below
+        ))}
+      </MenuList>
     </Menu>
   )
 }
@@ -66,10 +68,12 @@ const SecondaryActions = ({
                   />
                 }
               >
-                {a.menuItems.map((menuItem, i2) => (
-                  // We shouldn't use an index here, see note above
-                  <MenuItem key={i2} {...menuItem} />
-                ))}
+                <MenuList>
+                  {a.menuItems.map((menuItem, i2) => (
+                    // We shouldn't use an index here, see note above
+                    <MenuItem key={i2} {...menuItem} />
+                  ))}
+                </MenuList>
               </Menu>
             ),
           }

@@ -32,12 +32,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* BREAKING CHANGE: complete restructure of component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
+* BREAKING CHANGE: complete restructure of Menu component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
 
 
 ### BREAKING CHANGES
 
-* Menu has been refactored to be marked up as an unordered list. MenuContent, MenuHeader and MenuSeparator have all been removed. Use MenuItem directly inside Menu/StatelessMenu, or wrap your MenuItem's inside a MenuSection for a heading and a divider.
+Ignore this and look at v3.1 for migration notes
 
 
 
