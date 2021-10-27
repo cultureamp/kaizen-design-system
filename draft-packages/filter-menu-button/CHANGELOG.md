@@ -48,7 +48,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-Ignore this and look at v2.1 for migration instructions
+No impact on consumptions of FilterMenuButton
 
 
 

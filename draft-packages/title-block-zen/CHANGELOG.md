@@ -48,7 +48,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-Ignore this and go to v4.1 for migration notes
+No impact on consumption of TitleBlockZen, internals have been updated after Menu refactor but should be a safe upgrade
 
 
 
