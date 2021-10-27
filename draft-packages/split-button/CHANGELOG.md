@@ -10,6 +10,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Adjust Menu structure again to allow content separate from the list of items ([#2126](https://github.com/cultureamp/kaizen-design-system/issues/2126)) ([b56864b](https://github.com/cultureamp/kaizen-design-system/commit/b56864b6982232d4360352bcfc724fa1cc6c37e8))
 
+Migration notes:
+Menu has been refactored to render unordered lists, as a result it now has a change of API.
+For SplitButtons - remove any usages of MenuContent inside the dropdownContent prop. MenuItems should be placed directly inside dropdownContent.
 
 
 
