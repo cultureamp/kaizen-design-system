@@ -406,3 +406,18 @@ export const OverflowScroll = () => (
 )
 
 OverflowScroll.storyName = "overflow: scroll"
+
+export const ContentAndList = () => (
+  <Menu
+    button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    dropdownId="dropdown"
+  >
+    <div>Custom content</div>
+    <MenuList>
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+    </MenuList>
+  </Menu>
+)
+ContentAndList.storyName = "Custom content and list"
