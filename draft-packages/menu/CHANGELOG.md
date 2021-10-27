@@ -37,7 +37,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-* Menu has been refactored to be marked up as an unordered list. MenuContent, MenuHeader and MenuSeparator have all been removed. Use MenuItem directly inside Menu/StatelessMenu, or wrap your MenuItem's inside a MenuSection for a heading and a divider.
+Ignore this and look at v4.1 for migration notes
 
 
 
