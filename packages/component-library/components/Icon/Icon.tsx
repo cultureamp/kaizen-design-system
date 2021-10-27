@@ -1,9 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
-
 import { warn } from "../../util/console"
-import { uuidFromString } from "../../util/uuidFromString"
-
 import styles from "./Icon.module.scss"
 
 type RolesType =
@@ -25,8 +22,6 @@ const Icon: Icon = ({
   title = "",
   desc = "",
 }) => {
-  const titleId = uuidFromString(title)
-  const descId = uuidFromString(desc)
   const isMeaningfulImg = role === "img"
 
   const classes = classnames(styles.icon, {
@@ -49,14 +44,10 @@ const Icon: Icon = ({
   }
 
   const renderTitle = (): JSX.Element | false =>
-    isMeaningfulImg && !!title && <title id={titleId}>{title}</title>
+    isMeaningfulImg && !!title && <title>{title}</title>
 
   const renderDesc = (): JSX.Element | false =>
-    isMeaningfulImg && !!desc && <desc id={descId}>{desc}</desc>
-
-  const labelledBy =
-    // read out title and description together if both are present
-    desc ? `${titleId} ${descId}` : `${titleId}`
+    isMeaningfulImg && !!desc && <desc>{desc}</desc>
 
   const accessibilityProps = {
     role,

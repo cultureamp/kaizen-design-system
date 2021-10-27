@@ -16,9 +16,7 @@ exports[`Dropdown renders control action dropdown 1`] = `
         role="img"
         viewBox="0 0 20 20"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -39,9 +37,7 @@ exports[`Dropdown renders control action dropdown 1`] = `
         focusable="false"
         role="img"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -68,9 +64,7 @@ exports[`Dropdown renders default view 1`] = `
         focusable="false"
         role="img"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -98,9 +92,7 @@ exports[`Dropdown renders drop down with icon 1`] = `
         role="img"
         viewBox="0 0 20 20"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -128,9 +120,7 @@ exports[`Dropdown renders drop down with icon and label 1`] = `
         role="img"
         viewBox="0 0 20 20"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -179,9 +169,7 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
         role="img"
         viewBox="0 0 20 20"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
@@ -202,9 +190,7 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
         focusable="false"
         role="img"
       >
-        <title
-          id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
-        >
+        <title>
           Open menu
         </title>
         <use
