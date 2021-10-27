@@ -437,8 +437,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     height: $tab-container-height-small;
     background: linear-gradient(
       0,
-      $color-purple-700,
-      rgba($color-purple-700-rgb, 0)
+      $color-purple-600,
+      rgba($color-purple-600-rgb, 0)
     );
     z-index: $ca-z-index-sticky;
   }
