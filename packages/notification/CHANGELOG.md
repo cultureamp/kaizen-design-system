@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.5...@kaizen/notification@0.3.6) (2021-10-26)
+
+
+### Bug Fixes
+
+* Update snapshots after removing IDs from Icon ([#2125](https://github.com/cultureamp/kaizen-design-system/issues/2125)) ([be4a5c8](https://github.com/cultureamp/kaizen-design-system/commit/be4a5c8ccb588bee660868f04bb5910547196121))
+
+
+
+
+
+## [0.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.4...@kaizen/notification@0.3.5) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.3...@kaizen/notification@0.3.4) (2021-10-25)
 
 **Note:** Version bump only for package @kaizen/notification
