@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.1.0...@kaizen/draft-split-button@3.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
 # [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.0.3...@kaizen/draft-split-button@3.1.0) (2021-10-27)
 
 
@@ -10,6 +18,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Adjust Menu structure again to allow content separate from the list of items ([#2126](https://github.com/cultureamp/kaizen-design-system/issues/2126)) ([b56864b](https://github.com/cultureamp/kaizen-design-system/commit/b56864b6982232d4360352bcfc724fa1cc6c37e8))
 
+Migration notes:
+Menu has been refactored to render unordered lists, as a result it now has a change of API.
+For SplitButtons - remove any usages of MenuContent inside the dropdownContent prop. MenuItems should be placed directly inside dropdownContent.
 
 
 

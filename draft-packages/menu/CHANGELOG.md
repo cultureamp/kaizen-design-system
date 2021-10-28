@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.0...@kaizen/draft-menu@4.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 # [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.3...@kaizen/draft-menu@4.1.0) (2021-10-27)
 
 
@@ -10,6 +18,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Adjust Menu structure again to allow content separate from the list of items ([#2126](https://github.com/cultureamp/kaizen-design-system/issues/2126)) ([b56864b](https://github.com/cultureamp/kaizen-design-system/commit/b56864b6982232d4360352bcfc724fa1cc6c37e8))
 
+Migration notes:
+Menu has been refactored to render unordered lists, as a result it now has a change of API.
+MenuContent is no longer required and MenuHeading and MenuDivider have been removed. Wrap your MenuItems inside the new MenuList component instead. You can use multiple MenuLists inside 1 Menu if you want a heading and a separator. If you have content that isn't MenuItems - put them directly into Menu (do not wrap it in MenuList).
 
 
 
