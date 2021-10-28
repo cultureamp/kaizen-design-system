@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.0...@kaizen/draft-title-block-zen@4.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.0.3...@kaizen/draft-title-block-zen@4.1.0) (2021-10-27)
+
+
+### Features
+
+* Adjust Menu structure again to allow content separate from the list of items ([#2126](https://github.com/cultureamp/kaizen-design-system/issues/2126)) ([b56864b](https://github.com/cultureamp/kaizen-design-system/commit/b56864b6982232d4360352bcfc724fa1cc6c37e8))
+
+
+
+
+
 ## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.0.2...@kaizen/draft-title-block-zen@4.0.3) (2021-10-26)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
@@ -32,12 +51,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* BREAKING CHANGE: complete restructure of component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
+* BREAKING CHANGE: complete restructure of Menu component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
 
 
 ### BREAKING CHANGES
 
-* Menu has been refactored to be marked up as an unordered list. MenuContent, MenuHeader and MenuSeparator have all been removed. Use MenuItem directly inside Menu/StatelessMenu, or wrap your MenuItem's inside a MenuSection for a heading and a divider.
+No impact on consumption of TitleBlockZen, internals have been updated after Menu refactor but should be a safe upgrade
 
 
 
