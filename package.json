@@ -7,7 +7,7 @@
     "site"
   ],
   "engines": {
-    "node": "^14.15.1"
+    "node": "^v16.13.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
@@ -66,7 +66,7 @@
     "@testing-library/react-hooks": "^4.0.0",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^24.0.18",
-    "@types/node": "^14.14.21",
+    "@types/node": "^16.11.6",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/storybook__react": "^5.2.1",
