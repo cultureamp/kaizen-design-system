@@ -109,7 +109,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           <button
             aria-label="Information"
             class="button iconButton"
-            title="Information"
             type="button"
           >
             <span
@@ -180,7 +179,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
             aria-label="Information"
             class="button iconButton"
             disabled=""
-            title="Information"
             type="button"
           >
             <span

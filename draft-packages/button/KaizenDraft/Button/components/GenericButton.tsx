@@ -157,6 +157,7 @@ const renderCustomComponent = (
     onClick={props.onClick}
     onFocus={props.onFocus}
     onBlur={props.onBlur}
+    aria-label={generateAriaLabel(props)}
   >
     {renderContent(props)}
   </CustomComponent>
@@ -175,7 +176,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     iconButton,
     ...rest
   } = props
-  const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
 
   return (
@@ -188,8 +188,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
-      title={label}
-      aria-label={(props.working && props.workingLabel) || label}
+      aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
@@ -229,6 +228,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
+      aria-label={generateAriaLabel(props)}
       {...customProps}
     >
       {renderContent(props)}
@@ -337,5 +337,20 @@ const renderIcon = (icon: React.SVGAttributes<SVGSymbolElement>) => (
     <Icon icon={icon} role="presentation" />
   </span>
 )
+
+// We only want an aria-label in the case that the button has just an icon and no text
+// This can happen when the button is working and workingLabelHidden is true,
+// or when this is an IconButton
+const generateAriaLabel = (props: Props) => {
+  if (props.working && props.workingLabelHidden) {
+    return props.workingLabel
+  }
+
+  if (props.iconButton) {
+    return props.label
+  }
+
+  return undefined
+}
 
 export default GenericButton
