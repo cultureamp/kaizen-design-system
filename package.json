@@ -110,7 +110,7 @@
     "react-gtm-module": "^2.0.10",
     "react-test-renderer": "^16.9.0",
     "sass-loader": "^8.0.0",
-    "storybook-addon-designs": "^5.4.3",
+    "storybook-addon-designs": "^6.2.0",
     "style-loader": "^1.0.0",
     "stylelint": "^13.13.1",
     "svg-sprite-loader": "^5.2.1",
