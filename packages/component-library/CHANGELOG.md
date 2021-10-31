@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.5...@kaizen/component-library@11.5.0) (2021-10-31)
+
+
+### Features
+
+* Update visibleMenus state in nav bar ([#2192](https://github.com/cultureamp/kaizen-design-system/issues/2192)) ([22068cc](https://github.com/cultureamp/kaizen-design-system/commit/22068cc9b7be6269d770fa7b88a2bfce3b766223))
+
+
+
+
+
 ## [11.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.4...@kaizen/component-library@11.4.5) (2021-10-26)
 
 
