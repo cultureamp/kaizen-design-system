@@ -75,7 +75,7 @@
     "@typescript-eslint/eslint-plugin-tslint": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "babel-elm-assets-plugin": "^1.2.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.2.3",
     "chalk": "^2.4.2",
     "css-loader": "^3.2.0",
     "elm": "0.19.1-3",
