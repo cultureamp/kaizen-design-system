@@ -3658,16 +3658,16 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@^6.3.4":
-  version "6.3.4"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.4.tgz#0c4361f1868fb64c57868939d478ef454d5269c5"
-  integrity sha512-zc99fxlYm/m7htkRCDUSerqvhZqEIfqxKrTokBOCfgyOAMiyQoewtvgAgDiu6CoTAhDjASJm5HCc+Qrn9/u8Rw==
+"@storybook/codemod@^6.3.12":
+  version "6.3.12"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.12.tgz#1aadf1ad96929759539b5b22547f497f8e945a1b"
+  integrity sha512-0Ln6y1lW7CktXbTxOr/rBIikWvsGPlVzSlfe2ln2i0pd3hmTTMv4Sp37yHpdRg/uoQVPBA689FE9UJjQjiq3SQ==
   dependencies:
     "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.4"
-    "@storybook/node-logger" "6.3.4"
+    "@storybook/csf-tools" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
