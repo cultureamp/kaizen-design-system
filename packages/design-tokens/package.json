@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.6",
     "@types/react-highlight": "^0.12.5",
-    "@types/yargs": "^16.0.0",
+    "@types/yargs": "^16.0.4",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "postcss": "^8.3.6",
