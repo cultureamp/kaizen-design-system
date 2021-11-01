@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.8.6...@kaizen/draft-empty-state@3.0.0) (2021-11-01)
+
+
+### Features
+
+* [BREAKING CHANGE] Removed Zen styling option from EmptyState component ([#2130](https://github.com/cultureamp/kaizen-design-system/issues/2130)) ([44bab08](https://github.com/cultureamp/kaizen-design-system/commit/44bab086edceb2490c724df43292ed786d554bd8))
+
+
+### BREAKING CHANGES
+
+* useZenStyles prop removed from EmptyState component
+
+
+
+
+
 ## [2.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.8.5...@kaizen/draft-empty-state@2.8.6) (2021-10-31)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state
