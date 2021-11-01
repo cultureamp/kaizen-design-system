@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.10...@kaizen/draft-tag@1.12.11) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.9...@kaizen/draft-tag@1.12.10) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.8...@kaizen/draft-tag@1.12.9) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.7...@kaizen/draft-tag@1.12.8) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.6...@kaizen/draft-tag@1.12.7) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.5...@kaizen/draft-tag@1.12.6) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.4...@kaizen/draft-tag@1.12.5) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.3...@kaizen/draft-tag@1.12.4) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.2...@kaizen/draft-tag@1.12.3) (2021-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-tag

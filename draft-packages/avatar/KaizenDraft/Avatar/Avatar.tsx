@@ -86,7 +86,7 @@ export const Avatar = ({
     </span>
   )
   return (
-    <div
+    <span
       className={cx(styles.wrapper, styles[size], {
         [styles.personal]:
           isCurrentUser && (avatarState === "none" || avatarState === "error"),
@@ -109,7 +109,7 @@ export const Avatar = ({
         (disableInitials || initials === "" ? (
           fallbackIcon
         ) : (
-          <div
+          <span
             className={cx(styles.initials, {
               [styles.longName]: isLongName,
             })}
@@ -122,8 +122,8 @@ export const Avatar = ({
             ) : (
               getInitials(fullName, size === "small")
             )}
-          </div>
+          </span>
         ))}
-    </div>
+    </span>
   )
 }

@@ -3,6 +3,7 @@ module KaizenDraft.Form.Primitives.FieldMessage.FieldMessage exposing (FieldMess
 import CssModules exposing (css)
 import Html exposing (..)
 import Html.Attributes
+import Paragraph.Paragraph as Paragraph exposing (TypeVariant(..))
 
 
 styles =
@@ -21,9 +22,12 @@ type FieldMessageStatus
     | Success
     | Error
 
+
 type FieldMessagePosition
     = Top
     | Bottom
+
+
 
 -- CONFIG
 
@@ -120,6 +124,11 @@ view (Config config) =
         attribs =
             idAttr
                 ++ automationIdAttr
+
+        descriptionParagraphConfig =
+            Paragraph.p
+                |> Paragraph.variant Small
+                |> Paragraph.color Paragraph.DarkReducedOpacity
     in
     div
         (attribs
@@ -139,8 +148,11 @@ view (Config config) =
                 -- we wanted to avoid a breaking change, so we need to deal with
                 -- nonsensical state where both are provided, so the html
                 -- aribitrarily wins out if both are supplied
-                html
+                [ Paragraph.view descriptionParagraphConfig html ]
 
             ( messageString, Nothing ) ->
-                [ text messageString ]
+                [ Paragraph.view
+                    descriptionParagraphConfig
+                    [ text messageString ]
+                ]
         )

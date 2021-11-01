@@ -105,7 +105,8 @@
   }
 }
 
-.illustration {
+.illustration,
+.illustrationSide > video {
   max-width: 100%;
   max-height: 366px;
   width: auto;
@@ -161,20 +162,6 @@
     }
   }
 }
-
-// ===================================================
-// This works with the temporary useZenStyles prop and
-// will enable Zen headings. This block can be removed
-// once these typography styles are the default.
-// TODO: Heart Rebrand Cleanup > We can remove the `useZenStyles` and this class variant once Heart is released. This means moving the following heading styles to the class above.
-.zen .heading {
-  font-family: $typography-heading-3-font-family;
-  font-size: $typography-heading-3-font-size;
-  font-weight: $typography-heading-3-font-weight;
-  line-height: $typography-heading-3-line-height;
-  letter-spacing: $typography-heading-3-letter-spacing;
-}
-// ===================================================
 
 .description {
   @include kz-typography-paragraph-body;

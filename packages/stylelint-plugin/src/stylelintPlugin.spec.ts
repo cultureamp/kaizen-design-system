@@ -224,8 +224,8 @@ const testExamples: TestExample[] = [
     language: "less",
     testName: "doesn't fix functions other than rgba, rgb, or add-alpha",
     input: `@import "~@kaizen/design-tokens/less/color";
-       @import "~@kaizen/design-tokens/less/color-vars"; 
-      .foo { 
+       @import "~@kaizen/design-tokens/less/color-vars";
+      .foo {
         color: rgba(@kz-color-wisteria-800, 0.4);
         background-color: darken(@kz-color-cluny-700, 0.8);
         test: something-else(@kz-color-yuzu-400);
@@ -958,7 +958,7 @@ const testExamples: TestExample[] = [
       @include ca-margin($start: $kz-var-spacing-sm);
     }`,
     expectedOutput: `
-    @import "~@kaizen/design-tokens/sass/spacing"; 
+    @import "~@kaizen/design-tokens/sass/spacing";
     .test {
       @include ca-margin($start: $spacing-sm);
     }`,
@@ -974,7 +974,7 @@ const testExamples: TestExample[] = [
       @include ca-margin($start: $spacing-sm);
     }`,
     expectedOutput: `
-    @import "~@kaizen/design-tokens/sass/spacing"; 
+    @import "~@kaizen/design-tokens/sass/spacing";
     .test {
       @include ca-margin($start: $spacing-sm);
     }`,
@@ -998,6 +998,78 @@ const testExamples: TestExample[] = [
         "kz-var-color-wisteria-100"
       ),
     ],
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: replaces styles/type",
+
+    input: `
+      @import "~@kaizen/some-other-import";
+      @import "~@kaizen/component-library/styles/type";
+      @import "~@kaizen/some-other-import-2";
+    `,
+
+    expectedOutput: `
+      @import "~@kaizen/some-other-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+      @import "~@kaizen/some-other-import-2";
+    `,
+    expectedWarnings: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: replaces styles/color",
+    input: '@import "~@kaizen/component-library/styles/color"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/color"',
+    expectedWarnings: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: replaces styles/layout",
+    input: '@import "~@kaizen/component-library/styles/layout"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/layout"',
+    expectedWarnings: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: preserves single quotes",
+    input: "@import '~@kaizen/component-library/styles/type'",
+    expectedOutput:
+      "@import '~@kaizen/deprecated-component-library-helpers/styles/type'",
+    expectedWarnings: 0,
+  },
+  {
+    language: "less",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: also works in less",
+    input: '@import "~@kaizen/component-library/styles/color"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/color"',
+    expectedWarnings: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: does not leave duplicates, and keeps the last import if there are duplicates",
+
+    input: `
+      @import "some-other-import";
+      @import "~@kaizen/component-library/styles/color";
+      @import "another-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+    `,
+    expectedOutput: `
+      @import "some-other-import";
+      @import "another-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+    `,
+    expectedWarnings: 0,
   },
 ]
 

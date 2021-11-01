@@ -58,6 +58,12 @@ export default {
   decorators: [withDesign],
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 export const InteractiveKaizenSiteDemo = () => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label">
@@ -68,12 +74,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -85,12 +91,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -102,12 +108,12 @@ export const InteractiveKaizenSiteDemo = () => (
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
             labelText={
-              <div>
+              <span>
                 This is a label with a{" "}
                 <a href="http://google.com" target="_blank">
                   link
                 </a>
-              </div>
+              </span>
             }
           />
         )}
@@ -350,3 +356,71 @@ export const NestedCheckboxGroup = () => {
 }
 
 NestedCheckboxGroup.storyName = "Nested Checkbox Group"
+
+export const ReversedCheckboxGroup = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label" reversed>
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-1"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <span>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </span>
+            }
+            reversed
+          />
+        )}
+      />
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-2"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <span>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </span>
+            }
+            reversed
+          />
+        )}
+      />
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-3"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <span>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </span>
+            }
+            reversed
+          />
+        )}
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+ReversedCheckboxGroup.story = {
+  name: "Reversed Checkbox Group",
+  parameters: {
+    ...reversedBg,
+  },
+}

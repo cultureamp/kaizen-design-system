@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.5...@kaizen/component-library@11.5.0) (2021-10-31)
+
+
+### Features
+
+* Update visibleMenus state in nav bar ([#2192](https://github.com/cultureamp/kaizen-design-system/issues/2192)) ([22068cc](https://github.com/cultureamp/kaizen-design-system/commit/22068cc9b7be6269d770fa7b88a2bfce3b766223))
+
+
+
+
+
+## [11.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.4...@kaizen/component-library@11.4.5) (2021-10-26)
+
+
+### Bug Fixes
+
+* Update snapshots after removing IDs from Icon ([#2125](https://github.com/cultureamp/kaizen-design-system/issues/2125)) ([be4a5c8](https://github.com/cultureamp/kaizen-design-system/commit/be4a5c8ccb588bee660868f04bb5910547196121))
+
+
+
+
+
+## [11.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.3...@kaizen/component-library@11.4.4) (2021-10-26)
+
+
+### Bug Fixes
+
+* Remove IDs from Icon elements ([#2124](https://github.com/cultureamp/kaizen-design-system/issues/2124)) ([a326aa2](https://github.com/cultureamp/kaizen-design-system/commit/a326aa21c056c92b11b646757718dc661298a51d))
+
+
+
+
+
+## [11.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.2...@kaizen/component-library@11.4.3) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.1...@kaizen/component-library@11.4.2) (2021-10-22)
+
+
+### Bug Fixes
+
+* update legacy $ca-border-color to use latest design token ([#2116](https://github.com/cultureamp/kaizen-design-system/issues/2116)) ([60df160](https://github.com/cultureamp/kaizen-design-system/commit/60df1601cca1893327c077d7ab6c7c21aaa8bc93))
+
+
+
+
+
+## [11.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.4.0...@kaizen/component-library@11.4.1) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [11.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.3.0...@kaizen/component-library@11.4.0) (2021-10-15)
+
+
+### Features
+
+* Implement a sensible default colour for icons when -ms-high-contrast is active ([#2088](https://github.com/cultureamp/kaizen-design-system/issues/2088)) ([67c4faf](https://github.com/cultureamp/kaizen-design-system/commit/67c4fafb30183017a2c9bdabb171204a5d499494))
+
+
+
+
+
+# [11.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.5...@kaizen/component-library@11.3.0) (2021-10-14)
+
+
+### Features
+
+* adding percentage icon ([#2071](https://github.com/cultureamp/kaizen-design-system/issues/2071)) ([0d0ec06](https://github.com/cultureamp/kaizen-design-system/commit/0d0ec0657efb0df0f82124f624c02fc4b6d7783f))
+
+
+
+
+
 ## [11.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.2.4...@kaizen/component-library@11.2.5) (2021-10-11)
 
 **Note:** Version bump only for package @kaizen/component-library
