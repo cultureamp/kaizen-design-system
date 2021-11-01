@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.2...@kaizen/draft-title-block-zen@4.1.3) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.1...@kaizen/draft-title-block-zen@4.1.2) (2021-10-28)
+
+
+### Bug Fixes
+
+* Allow titleblock title to take up to 2 lines of space before truncating ([#2117](https://github.com/cultureamp/kaizen-design-system/issues/2117)) ([b87464f](https://github.com/cultureamp/kaizen-design-system/commit/b87464fe7496b73c0948a00e83d32a01c2e2daea))
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.0...@kaizen/draft-title-block-zen@4.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 # [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.0.3...@kaizen/draft-title-block-zen@4.1.0) (2021-10-27)
 
 
@@ -48,7 +75,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-Ignore this and go to v4.1 for migration notes
+No impact on consumption of TitleBlockZen, internals have been updated after Menu refactor but should be a safe upgrade
 
 
 
