@@ -59,7 +59,7 @@
     "@storybook/api": "^6.3.12",
     "@storybook/components": "^6.3.12",
     "@storybook/core-events": "^6.3.12",
-    "@storybook/react": "^6.3.4",
+    "@storybook/react": "^6.3.12",
     "@storybook/theming": "^6.3.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.3",
