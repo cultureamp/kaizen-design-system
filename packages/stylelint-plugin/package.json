@@ -23,7 +23,7 @@
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
-    "stylelint": "^13.10.0",
+    "stylelint": "^14.0.1",
     "tinycolor2": "^1.4.2"
   },
   "peerDependencies": {
