@@ -124,7 +124,7 @@
   "devDependencies": {
     "@storybook/codemod": "^6.3.12",
     "@storybook/csf": "^0.0.1",
-    "@storybook/node-logger": "^6.3.4",
+    "@storybook/node-logger": "^6.3.12",
     "chromatic": "^5.9.2",
     "danger": "^10.6.2",
     "eslint-import-resolver-typescript": "^2.4.0",
