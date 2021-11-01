@@ -9565,17 +9565,17 @@ elm-format@^0.8.5:
   dependencies:
     binwrap "^0.2.3"
 
-elm-hot-webpack-loader@^1.1.2:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/elm-hot-webpack-loader/-/elm-hot-webpack-loader-1.1.7.tgz#8dd254586c015887f356a132d3dc929f6d95a5a6"
-  integrity sha512-FcRN8UlTl52EigvGjTaG9rnfdUJYh88eWRrruUmZLNVb/71maM92l3HNDAcyztOj4pEYGhoo9DEHEquZm6B08A==
+elm-hot-webpack-loader@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/elm-hot-webpack-loader/-/elm-hot-webpack-loader-1.1.8.tgz#6da8ad069a151c3c74f93b87af84b4ca3ccb49cc"
+  integrity sha512-QXggtyhzeg7ioV8Ujoc6elFY+QYr49hFEb5EDcZP7976w62vjfqFX8YTa73alA+ayLT00ZsIU6eFjAzvLUzF0g==
   dependencies:
-    elm-hot "^1.1.5"
+    elm-hot "^1.1.6"
 
-elm-hot@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/elm-hot/-/elm-hot-1.1.5.tgz#bba309b592d39b5c3195c3c6f608f36b96c23b89"
-  integrity sha512-HSMlAr6INTV82wkpPNG0zsHoJXo/04GwG7bnhFX8s4zyIbbzuJAovsdo27FAT6/NKx5IVTXGI+IFcK9Z7oN1Tw==
+elm-hot@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/elm-hot/-/elm-hot-1.1.6.tgz#93e3962b40670e65f0a3640951b3add2702bfd0e"
+  integrity sha512-zYZJlfs7Gt4BdjA+D+857K+XAWzwwySJmXCgFpHW1dIEfaHSZCIPYPf7/jinZBLfKRkOAlKzI32AA84DY50g7Q==
 
 elm-storybook@cultureamp/elm-storybook#0.3.0:
   version "0.2.1"
