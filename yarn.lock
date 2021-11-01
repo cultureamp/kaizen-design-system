@@ -9553,7 +9553,7 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-elm-css-modules-plugin@^1.0.1:
+elm-css-modules-plugin@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/elm-css-modules-plugin/-/elm-css-modules-plugin-1.0.2.tgz#9706ad33cfd3fa9de7a06e2fcdbfdeb2bc3ff59a"
   integrity sha512-idvntgJmGRqnF+ROmrHJDBla6TAvl1lQi+8VQ/jE30zcD47+zzJrPwcFCUyrMnRZLNSxetw1OeweOzq3GWMLFQ==
