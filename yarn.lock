@@ -6079,7 +6079,7 @@ babel-core@7.0.0-bridge.0, babel-core@^7.0.0-bridge.0:
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
   integrity sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==
 
-babel-elm-assets-plugin@^1.2.2:
+babel-elm-assets-plugin@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/babel-elm-assets-plugin/-/babel-elm-assets-plugin-1.2.3.tgz#f7f4d77a5a08e76fd9dff4c58c96ae6234076c81"
   integrity sha512-I1MzVZJ+zZSchYV31RrrF6pv8k9VNveTTLdtAR7vLBp5L6j8swkEwMIdomP3X6DAoiNLNCgDLnEOggnGljTfOw==
