@@ -132,7 +132,7 @@
     "jscodeshift": "^0.8.0",
     "loader-utils": "^1.0.2",
     "node-elm-compiler": "^5.0.0",
-    "yargs": "^16.2.0"
+    "yargs": "^17.2.1"
   },
   "resolutions": {
     "axios": "0.21.2",
