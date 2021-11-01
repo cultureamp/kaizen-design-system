@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.3...@kaizen/draft-title-block-zen@4.1.4) (2021-11-01)
+
+
+### Bug Fixes
+
+* **refactor:** Refactored discouraged usage of accessing design tokens directly in Typescript ([#2122](https://github.com/cultureamp/kaizen-design-system/issues/2122)) ([2f4abe2](https://github.com/cultureamp/kaizen-design-system/commit/2f4abe2c742400b2361629e6bec3d31af0727683))
+
+
+
+
+
 ## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.2...@kaizen/draft-title-block-zen@4.1.3) (2021-10-31)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
