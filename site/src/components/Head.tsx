@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import "normalize.css"
 import * as React from "react"
 import { Helmet } from "react-helmet"
-const favicon = require("../favicon/favicon.png")
+const favicon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
 
 type HeadProps = {
   pageTitle?: string
