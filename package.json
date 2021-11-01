@@ -122,7 +122,7 @@
     "webpack": "^4.40.2"
   },
   "devDependencies": {
-    "@storybook/codemod": "^6.3.4",
+    "@storybook/codemod": "^6.3.12",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^6.3.4",
     "chromatic": "^5.9.2",
