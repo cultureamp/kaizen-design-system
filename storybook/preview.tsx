@@ -24,6 +24,7 @@ require("focus-visible")
 require("normalize.css")
 
 require("@kaizen/component-library/styles/fonts.scss")
+require("./global.scss")
 
 addParameters({
   backgrounds: {

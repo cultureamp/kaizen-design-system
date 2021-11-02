@@ -1,5 +1,4 @@
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
-
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 
 import * as React from "react"
@@ -50,7 +49,6 @@ export const DefaultKaizenSiteDemo = () => (
     headingText="Empty state title"
     bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-    useZenStyles
   />
 )
 
@@ -62,7 +60,6 @@ export const Positive = () => (
     bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
     illustrationType="positive"
-    useZenStyles
   >
     <div className={styles.buttonContainer}>
       <Button label="Label" icon={chevronRight} iconPosition="end" />
@@ -76,7 +73,6 @@ export const Informative = () => (
     bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
     illustrationType="informative"
-    useZenStyles
   />
 )
 
@@ -99,7 +95,6 @@ export const Neutral = () => (
     bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
     illustrationType="neutral"
-    useZenStyles
   />
 )
 
@@ -109,7 +104,6 @@ export const Negative = () => (
     bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
     illustrationType="negative"
-    useZenStyles
   >
     <div className={styles.buttonContainer}>
       <Button label="Label" icon={chevronRight} iconPosition="end" />
@@ -124,7 +118,6 @@ export const RtlAction = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       illustrationType="action"
-      useZenStyles
     >
       <div className={styles.buttonContainer}>
         <Button label="Label" icon={chevronLeft} iconPosition="end" />
@@ -142,7 +135,6 @@ export const StraightCorners = () => (
           Default or Primary action."
     illustrationType="action"
     straightCorners
-    useZenStyles
   >
     <div className={styles.buttonContainer}>
       <Button label="Label" icon={chevronRight} iconPosition="end" />
