@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.9...@kaizen/draft-button@5.2.10) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 ## [5.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.8...@kaizen/draft-button@5.2.9) (2021-10-31)
 
 **Note:** Version bump only for package @kaizen/draft-button
