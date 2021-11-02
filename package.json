@@ -131,7 +131,7 @@
     "glob": "^7.1.1",
     "jscodeshift": "^0.8.0",
     "loader-utils": "^1.4.0",
-    "node-elm-compiler": "^5.0.0",
+    "node-elm-compiler": "^5.0.6",
     "yargs": "^16.2.0"
   },
   "resolutions": {
