@@ -37,9 +37,9 @@
     "@kaizen/draft-button": "^5.2.10",
     "@kaizen/draft-form": "^3.13.7",
     "@kaizen/draft-tag": "^1.12.12",
-    "@types/classnames": "^2.2.10",
+    "@types/classnames": "^2.3.0",
     "@types/react-select": "^4.0.17",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "react-select": "^4.3.1"
   },
   "devDependencies": {

@@ -40,8 +40,8 @@
     "@kaizen/draft-select": "^1.21.29",
     "@kaizen/draft-tag": "^1.12.12",
     "@kaizen/responsive": "^1.2.1",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@types/classnames": "^2.3.0",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

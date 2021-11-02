@@ -34,8 +34,8 @@
   "dependencies": {
     "@kaizen/component-library": "^11.5.1",
     "@kaizen/draft-illustration": "^2.7.4",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@types/classnames": "^2.3.0",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
