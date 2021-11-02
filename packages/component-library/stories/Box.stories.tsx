@@ -46,7 +46,7 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
           <strong>
             Do not use <code>Box</code> to handle page layout
           </strong>
-          .
+          . Use <code>PageLayout</code> instead.
         </li>
         <li>
           Below is a summary of the props that you can use to quickly achieve
