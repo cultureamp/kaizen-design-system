@@ -30,7 +30,7 @@
     "gatsby-plugin-svg-sprite": "2.0.1",
     "gatsby-source-filesystem": "2.11.1",
     "gatsby-transformer-remark": "2.6.24",
-    "mdast-util-to-string": "^1.0.6",
+    "mdast-util-to-string": "^1.1.0",
     "node-sass": "4.14.1",
     "normalize.css": "^8.0.1",
     "prism-react-renderer": "^1.1.1",
