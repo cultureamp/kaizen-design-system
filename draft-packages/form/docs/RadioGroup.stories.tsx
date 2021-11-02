@@ -53,6 +53,12 @@ export default {
   decorators: [withDesign],
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 export const DefaultKaizenSiteDemo = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }) => (
@@ -340,3 +346,45 @@ export const WithBottomMargin = () => (
 )
 
 WithBottomMargin.storyName = "With bottom margin"
+
+export const ReversedDefault = () => (
+  <RadioGroupExample
+    render={({ selectedOption, onChangeHandler }) => (
+      <RadioGroup reversed labelText="Radio group label">
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-1"
+          selectedStatus={selectedOption === "radio-1"}
+          onChange={onChangeHandler}
+          value="radio-1"
+          reversed
+        />
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-2"
+          selectedStatus={selectedOption === "radio-2"}
+          onChange={onChangeHandler}
+          value="radio-2"
+          reversed
+        />
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-3"
+          selectedStatus={selectedOption === "radio-3"}
+          onChange={onChangeHandler}
+          value="radio-3"
+          reversed
+        />
+      </RadioGroup>
+    )}
+  />
+)
+ReversedDefault.story = {
+  name: "Reversed Default",
+  parameters: {
+    ...reversedBg,
+  },
+}

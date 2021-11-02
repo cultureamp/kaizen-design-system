@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
+import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -29,17 +29,14 @@ const MainActions = ({
 }: MainActionsProps) => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
-    const menuContent = (
-      <MenuContent>
-        {primaryAction.menuItems.map((item, idx) => (
-          <MenuItem
-            {...item}
-            key={`main-action-primary-menu-item-${idx}`}
-            automationId={`main-action-primary-menu-item-${idx}`}
-          />
-        ))}
-      </MenuContent>
-    )
+    const menuContent = primaryAction.menuItems.map((item, idx) => (
+      <MenuItem
+        {...item}
+        key={`main-action-primary-menu-item-${idx}`}
+        automationId={`main-action-primary-menu-item-${idx}`}
+      />
+    ))
+
     items = [
       ...(defaultAction
         ? [
@@ -86,7 +83,7 @@ const MainActions = ({
                     />
                   }
                 >
-                  {menuContent}
+                  <MenuList>{menuContent}</MenuList>
                 </Menu>
               ),
             },
@@ -156,17 +153,21 @@ const MainActions = ({
           <Menu
             align="right"
             button={
-              <IconButton label="" reversed={reversed} icon={meatballsIcon} />
+              <IconButton
+                label="Open secondary menu"
+                reversed={reversed}
+                icon={meatballsIcon}
+              />
             }
           >
-            <MenuContent>
+            <MenuList>
               {overflowMenuItems.map((menuItem, idx) => (
                 <MenuItem
                   {...menuItem}
                   key={`main-action-overflow-item-menu-item-${idx}`}
                 />
               ))}
-            </MenuContent>
+            </MenuList>
           </Menu>
         ),
       },

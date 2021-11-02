@@ -35,8 +35,6 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
-  // TODO: Heart Rebrand Cleanup > Deprecate or completely remove this prop once Heart is released.
-  useZenStyles?: boolean
   children?: React.ReactNode
 } & Pick<AnimatedProps, "isAnimated" | "loop">
 
@@ -51,7 +49,6 @@ const EmptyState: EmptyState = ({
   bodyText,
   children,
   straightCorners,
-  useZenStyles,
   isAnimated = true,
   loop = false,
 }) => {
@@ -75,12 +72,7 @@ const EmptyState: EmptyState = ({
           ...animationProps,
         })}
       </div>
-      <div
-        className={classnames([
-          styles.textSide,
-          { [styles.zen]: useZenStyles },
-        ])}
-      >
+      <div className={styles.textSide}>
         <div className={styles.textSideInner}>
           <div className={styles.heading}>{headingText}</div>
           <div className={styles.description}>{bodyText}</div>

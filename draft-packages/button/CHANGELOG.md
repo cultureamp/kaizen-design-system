@@ -3,6 +3,162 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.8...@kaizen/draft-button@5.2.9) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.7...@kaizen/draft-button@5.2.8) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.6...@kaizen/draft-button@5.2.7) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.5...@kaizen/draft-button@5.2.6) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.4...@kaizen/draft-button@5.2.5) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.3...@kaizen/draft-button@5.2.4) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.2...@kaizen/draft-button@5.2.3) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.1...@kaizen/draft-button@5.2.2) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.0...@kaizen/draft-button@5.2.1) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.1...@kaizen/draft-button@5.2.0) (2021-10-06)
+
+
+### Features
+
+* add primary and primary reversed to icon button ([#1985](https://github.com/cultureamp/kaizen-design-system/issues/1985)) ([27be676](https://github.com/cultureamp/kaizen-design-system/commit/27be6767a6523dd4bbedc1fa97423058d8dfbbbc))
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.1.0...@kaizen/draft-button@5.1.1) (2021-10-05)
+
+
+### Bug Fixes
+
+* add secondary destructive variant to IconButton ([#1977](https://github.com/cultureamp/kaizen-design-system/issues/1977)) ([66abed5](https://github.com/cultureamp/kaizen-design-system/commit/66abed572d76fe195d3a832f1e66b139548d94b4))
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.2...@kaizen/draft-button@5.1.0) (2021-10-04)
+
+
+### Features
+
+* Add reversed & destructive support for Button ([#1978](https://github.com/cultureamp/kaizen-design-system/issues/1978)) ([5aa1973](https://github.com/cultureamp/kaizen-design-system/commit/5aa19738eab6c47185671545bc7691bb1be05506))
+
+
+
+
+
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.1...@kaizen/draft-button@5.0.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.0.0...@kaizen/draft-button@5.0.1) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@4.3.1...@kaizen/draft-button@5.0.0) (2021-09-28)
+
+
+### Features
+
+* change IconButton destructive colors to match design ([#1970](https://github.com/cultureamp/kaizen-design-system/issues/1970)) ([57e5072](https://github.com/cultureamp/kaizen-design-system/commit/57e507287f920abbb6d4ed408fc8b05476baf5b0))
+
+
+### BREAKING CHANGES
+
+* colors of destructive variant of IconButton (and destructive disabled) modified
+
+
+
+
+
+## [4.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@4.3.0...@kaizen/draft-button@4.3.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@4.2.6...@kaizen/draft-button@4.3.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [4.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@4.2.5...@kaizen/draft-button@4.2.6) (2021-08-30)
 
 **Note:** Version bump only for package @kaizen/draft-button

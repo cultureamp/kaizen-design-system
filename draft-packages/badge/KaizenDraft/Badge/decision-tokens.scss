@@ -1,4 +1,3 @@
 @import "~@kaizen/design-tokens/sass/color";
-// if $kz-var-id-color-ash fails, the CSS property does not exist so assume a Zen theme
-// and fall back to $kz-var-color-wisteria-200 (which has a Zen fallback value included)
-$dt-color-background-default: var($color-gray-300-id, $color-purple-200);
+
+$dt-color-background-default: $color-gray-300;

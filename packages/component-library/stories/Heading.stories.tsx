@@ -87,11 +87,9 @@ export const Display0 = () => (
 )
 
 export const Heading1 = () => (
-  <>
-    <Heading data-automation-id="test" variant="heading-1">
-      Heading 1
-    </Heading>
-  </>
+  <Heading data-automation-id="test" variant="heading-1" id="make-me-unique">
+    Heading 1
+  </Heading>
 )
 
 export const Heading2 = () => (

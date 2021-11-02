@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.3...@kaizen/draft-illustration@2.7.4) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.2...@kaizen/draft-illustration@2.7.3) (2021-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.1...@kaizen/draft-illustration@2.7.2) (2021-10-12)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.0...@kaizen/draft-illustration@2.7.1) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.6.0...@kaizen/draft-illustration@2.7.0) (2021-09-22)
+
+
+### Features
+
+* Change defaultTheme to Heart ([#1957](https://github.com/cultureamp/kaizen-design-system/issues/1957)) ([c45f639](https://github.com/cultureamp/kaizen-design-system/commit/c45f639872fa6d4d3c2b3c9c1256235760c0fadf))
+* Change defaultTheme to Heart (take 2) ([#1961](https://github.com/cultureamp/kaizen-design-system/issues/1961)) ([0b09507](https://github.com/cultureamp/kaizen-design-system/commit/0b0950789010e3c65da0b48bb1bf0bb31d5d2fa3))
+
+
+
+
+
 # [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.5.3...@kaizen/draft-illustration@2.6.0) (2021-09-08)
 
 

@@ -16,6 +16,7 @@
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "test": "jest",
+    "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "compile": "tsc",
     "lint": "elm-format --validate packages && yarn eslint --max-warnings=0 && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
@@ -128,26 +129,13 @@
     "danger": "^10.6.2",
     "eslint-import-resolver-typescript": "^2.4.0",
     "glob": "^7.1.1",
-    "husky": "^4.2.5",
     "jscodeshift": "^0.8.0",
-    "lint-staged": "^10.4.0",
     "loader-utils": "^1.0.2",
     "node-elm-compiler": "^5.0.0",
     "yargs": "^16.2.0"
   },
-  "lint-staged": {
-    "*": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn lint"
-    }
-  },
   "resolutions": {
-    "axios": "0.21.1",
-    "react-dev-utils": "11.0.3"
+    "axios": "0.21.2",
+    "react-dev-utils": "11.0.4"
   }
 }

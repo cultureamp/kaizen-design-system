@@ -7,12 +7,12 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
-type Props = {
+export interface BrandMomentProps {
   mood: "informative" | "positive" | "negative"
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
-  primaryAction: ButtonProps
+  primaryAction?: ButtonProps
   secondaryAction?: ButtonProps
   text: {
     title: ReactNode
@@ -22,7 +22,7 @@ type Props = {
   }
 }
 
-export const BrandMoment = (props: Props) => {
+export const BrandMoment = (props: BrandMomentProps) => {
   const { queries } = useMediaQueries()
 
   return (
@@ -66,11 +66,13 @@ export const BrandMoment = (props: Props) => {
                 )}
                 {props.body && <Box mb={1.5}>{props.body}</Box>}
                 <div className={styles.actions}>
-                  <Button
-                    primary
-                    fullWidth={queries.isSmall}
-                    {...props.primaryAction}
-                  />
+                  {props.primaryAction && (
+                    <Button
+                      primary
+                      fullWidth={queries.isSmall}
+                      {...props.primaryAction}
+                    />
+                  )}
                   {props.secondaryAction && (
                     <div className={styles.secondaryAction}>
                       <Button

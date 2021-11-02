@@ -78,7 +78,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   display: flex;
   width: 100%;
   align-items: center;
-  height: $ca-grid * 3.5;
+  min-height: $ca-grid * 3.5;
   justify-content: space-between;
   border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -166,8 +166,9 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .titleTextOverride.titleTextOverride {
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   padding: 4px 0;
 
@@ -436,8 +437,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     height: $tab-container-height-small;
     background: linear-gradient(
       0,
-      $color-purple-700,
-      rgba($color-purple-700-rgb, 0)
+      $color-purple-600,
+      rgba($color-purple-600-rgb, 0)
     );
     z-index: $ca-z-index-sticky;
   }
@@ -467,12 +468,22 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   composes: navigationTabEdgeShadow;
   transform: rotate(90deg);
   left: 0;
+  top: calc(100% - #{$tab-container-height-default});
+
+  @include title-block-small {
+    top: calc(100% - #{$tab-container-height-small});
+  }
 }
 
 .navigationTabEdgeShadowRight {
   composes: navigationTabEdgeShadow;
   transform: rotate(-90deg);
   right: 0;
+  top: calc(100% - #{$tab-container-height-default});
+
+  @include title-block-small {
+    top: calc(100% - #{$tab-container-height-small});
+  }
 }
 
 .mainActionsContainer {
@@ -535,8 +546,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   );
   align-self: normal;
 
-  &:hover {
-    text-decoration: none;
+  &:hover .breadcrumbTextLink {
+    text-decoration: underline;
   }
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
@@ -552,25 +563,26 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .breadcrumbTextLink {
-  composes: buttonReset;
   display: none;
-  position: absolute;
   z-index: $ca-z-index-sticky - 1;
-  height: $breadcrumb-circle-width;
   @include ca-position($start: -2 * $ca-grid);
-  top: $ca-grid * 3/4;
-  align-items: center;
-  text-decoration: none;
+  position: absolute;
 
   @include title-block-under-1645 {
     @include ca-position($start: $ca-grid);
   }
 
+  @media only screen and (min-width: $breadcrumb-breakpoint-width) {
+    @include ca-position(
+      $start: calc(#{$breadcrumb-circle-width} - #{$ca-grid})
+    );
+  }
+
   &:hover,
   &:focus,
-  .breadcrumb:hover + &,
-  .breadcrumb:focus + & {
-    display: flex;
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    display: block;
     animation: slide-fade 0.4s;
 
     [dir="rtl"] & {
@@ -580,17 +592,13 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .breadcrumbText {
-  @include ca-margin($start: $ca-grid * 2);
+  margin-inline-start: $spacing-xl;
   white-space: nowrap;
   font-family: $typography-heading-5-font-family;
   font-weight: $typography-heading-5-font-weight;
   font-size: $typography-heading-5-font-size;
   line-height: $typography-heading-5-line-height;
   letter-spacing: $typography-heading-5-letter-spacing;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .breadcrumb,

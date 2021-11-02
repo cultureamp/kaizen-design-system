@@ -76,9 +76,9 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
 )
 
 export const IntroLede = () => (
-  <>
-    <Paragraph variant="intro-lede">Paragraph Intro Lede</Paragraph>
-  </>
+  <Paragraph variant="intro-lede" id="make-me-unique">
+    Paragraph Intro Lede
+  </Paragraph>
 )
 
 export const Body = () => (

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.2.2...@kaizen/stylelint-plugin@2.3.0) (2021-10-18)
+
+
+### Features
+
+* Change defaultTheme to Heart ([#1957](https://github.com/cultureamp/kaizen-design-system/issues/1957)) ([c45f639](https://github.com/cultureamp/kaizen-design-system/commit/c45f639872fa6d4d3c2b3c9c1256235760c0fadf))
+* stylelint plugin to switch from super legacy component-library styles to equivalent deprecated-component-library-helpers ones ([#1740](https://github.com/cultureamp/kaizen-design-system/issues/1740)) ([cacfc8b](https://github.com/cultureamp/kaizen-design-system/commit/cacfc8b6c364c62b4f53d5025e7eddeb26a35929))
+
+
+
+
+
 ## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.2.1...@kaizen/stylelint-plugin@2.2.2) (2021-08-31)
 
 **Note:** Version bump only for package @kaizen/stylelint-plugin

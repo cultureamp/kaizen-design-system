@@ -47,14 +47,12 @@ $focus-border-color: $color-blue-500;
     }
     min-height: $input-height;
     border: $border-solid-border-width $border-solid-border-style
-      var($color-gray-500-id, $color-purple-500);
+      $color-gray-500;
     border-radius: $border-solid-border-radius;
 
     &:hover {
-      // Slate on Heart theme, Wisteria700 on Zen. Switching not needed when Zen is removed.
-      border-color: var($color-gray-600-id, $color-purple-700);
-      // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed.
-      background-color: var($color-gray-100-id, $color-purple-100);
+      border-color: $color-gray-600;
+      background-color: $color-gray-100;
       cursor: pointer;
     }
   }

@@ -7,11 +7,6 @@
 @import "./responsive";
 
 .container {
-  --dt-border-zen: #{$border-solid-border-width} #{$border-solid-border-style} #{$color-purple-200};
-  --dt-border-heart: var(#{$border-solid-border-width-id})
-    var(#{$border-solid-border-style-id})
-    var(#{$border-borderless-border-color-id});
-
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -20,7 +15,8 @@
   padding-left: $spacing-md;
   padding-right: $spacing-md;
   color: $color-purple-800;
-  border: var(--dt-border-heart, var(--dt-border-zen));
+  border: $border-solid-border-width $border-solid-border-style
+    $border-borderless-border-color-id;
   border-radius: $border-solid-border-radius;
 
   @include small {
@@ -50,19 +46,19 @@
   }
 
   &.positive {
-    background-color: var($color-green-100-id, $color-gray-300);
+    background-color: $color-green-100;
   }
   &.negative {
-    background-color: var($color-red-100-id, $color-gray-300);
+    background-color: $color-red-100;
   }
   &.action {
-    background-color: var($color-orange-100-id, $color-gray-300);
+    background-color: $color-orange-100;
   }
   &.neutral {
-    background-color: var($color-purple-100-id, $color-gray-300);
+    background-color: $color-purple-100;
   }
   &.informative {
-    background-color: var($color-blue-100-id, $color-gray-300);
+    background-color: $color-blue-100;
   }
 }
 
@@ -109,7 +105,8 @@
   }
 }
 
-.illustration {
+.illustration,
+.illustrationSide > video {
   max-width: 100%;
   max-height: 366px;
   width: auto;
@@ -165,20 +162,6 @@
     }
   }
 }
-
-// ===================================================
-// This works with the temporary useZenStyles prop and
-// will enable Zen headings. This block can be removed
-// once these typography styles are the default.
-// TODO: Heart Rebrand Cleanup > We can remove the `useZenStyles` and this class variant once Heart is released. This means moving the following heading styles to the class above.
-.zen .heading {
-  font-family: $typography-heading-3-font-family;
-  font-size: $typography-heading-3-font-size;
-  font-weight: $typography-heading-3-font-weight;
-  line-height: $typography-heading-3-line-height;
-  letter-spacing: $typography-heading-3-letter-spacing;
-}
-// ===================================================
 
 .description {
   @include kz-typography-paragraph-body;

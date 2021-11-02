@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.2...@kaizen/design-tokens@3.3.0) (2021-10-22)
+
+
+### Features
+
+* Update green-500 to [#44](https://github.com/cultureamp/kaizen-design-system/issues/44)A289 ([#2119](https://github.com/cultureamp/kaizen-design-system/issues/2119)) ([441a4ef](https://github.com/cultureamp/kaizen-design-system/commit/441a4efde52d4d3bed3a9da0ea06aab428445519)), closes [#44A289](https://github.com/cultureamp/kaizen-design-system/issues/44A289) [#44A289](https://github.com/cultureamp/kaizen-design-system/issues/44A289)
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.1...@kaizen/design-tokens@3.2.2) (2021-10-21)
+
+
+### Bug Fixes
+
+* Update typography-data-small tokens to use the correct font ([#2102](https://github.com/cultureamp/kaizen-design-system/issues/2102)) ([989b3b6](https://github.com/cultureamp/kaizen-design-system/commit/989b3b6ef000af0240c31126923b55f3def7e7ba))
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.0...@kaizen/design-tokens@3.2.1) (2021-10-12)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.1.0...@kaizen/design-tokens@3.2.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.0.2...@kaizen/design-tokens@3.1.0) (2021-09-22)
+
+
+### Features
+
+* Change defaultTheme to Heart ([#1957](https://github.com/cultureamp/kaizen-design-system/issues/1957)) ([c45f639](https://github.com/cultureamp/kaizen-design-system/commit/c45f639872fa6d4d3c2b3c9c1256235760c0fadf))
+* Change defaultTheme to Heart (take 2) ([#1961](https://github.com/cultureamp/kaizen-design-system/issues/1961)) ([0b09507](https://github.com/cultureamp/kaizen-design-system/commit/0b0950789010e3c65da0b48bb1bf0bb31d5d2fa3))
+
+
+
+
+
 ## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@4.0.0...@kaizen/design-tokens@3.0.2) (2021-08-31)
 
 **Note:** Version bump only for package @kaizen/design-tokens

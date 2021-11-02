@@ -37,15 +37,11 @@ exports[`The basic notification renders correctly 1`] = `
       class="cancelInner"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
         class="icon"
         focusable="false"
         role="img"
       >
-        <title
-          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
-        >
+        <title>
           close notification
         </title>
         <use
@@ -98,15 +94,11 @@ exports[`You can change the type 1`] = `
       class="cancelInner"
     >
       <svg
-        aria-hidden="false"
-        aria-labelledby="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
         class="icon"
         focusable="false"
         role="img"
       >
-        <title
-          id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
-        >
+        <title>
           close notification
         </title>
         <use
