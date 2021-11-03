@@ -38,12 +38,12 @@ describe("<InputEditModal />", () => {
   it("supports a dismiss action when dismiss button is pressed", () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
-    const { getByTitle } = render(
+    const { getByLabelText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByTitle(/Dismiss/i))
+    fireEvent.click(getByLabelText(/Dismiss/i))
     expect(handleSubmit).toHaveBeenCalledTimes(0)
     expect(handleDismiss).toHaveBeenCalledTimes(1)
   })

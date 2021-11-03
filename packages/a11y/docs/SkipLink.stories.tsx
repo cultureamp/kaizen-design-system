@@ -13,12 +13,12 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { SkipLink } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/SkipLink`,
+  title: `${CATEGORIES.components}/Skip Link`,
   component: SkipLink,
   parameters: {
     docs: {
       description: {
-        component: 'import { SkipLink } from "@kaizen/component-library"',
+        component: 'import { SkipLink } from "@kaizen/a11y"',
       },
       page: () => (
         <>

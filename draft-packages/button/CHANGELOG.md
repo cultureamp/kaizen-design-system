@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.10...@kaizen/draft-button@5.2.11) (2021-11-02)
+
+
+### Bug Fixes
+
+* Apply aria-label to link version of IconButton ([#2176](https://github.com/cultureamp/kaizen-design-system/issues/2176)) ([9d9462a](https://github.com/cultureamp/kaizen-design-system/commit/9d9462a29d80b2147f2e119f8f05b14aa9a299b7))
+
+
+
+
+
 ## [5.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.9...@kaizen/draft-button@5.2.10) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-button
