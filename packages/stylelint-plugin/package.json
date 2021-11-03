@@ -19,7 +19,7 @@
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",
-    "postcss": "^8.2.15",
+    "postcss": "^8.3.11",
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
