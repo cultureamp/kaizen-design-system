@@ -39,7 +39,7 @@
     "@types/tinycolor2": "^1.4.3",
     "lodash.merge": "^4.6.2",
     "node-fetch": "^2.6.6",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.1",
     "ts-node": "^9.1.1"
   }
 }
