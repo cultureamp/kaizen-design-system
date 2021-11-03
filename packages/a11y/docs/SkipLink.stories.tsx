@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { SkipLink } from "@kaizen/component-library"',
+        component: 'import { SkipLink } from "@kaizen/a11y"',
       },
       page: () => (
         <>
