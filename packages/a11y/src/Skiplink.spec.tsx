@@ -1,15 +1,16 @@
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import * as React from "react"
+import userEvent from "@testing-library/user-event"
 import { SkipLink } from "./SkipLink"
-
-afterEach(cleanup)
+import "@testing-library/jest-dom"
 
 describe("<SkipLink />", () => {
-  it("renders a SkipLink link as an anchor tag", () => {
-    const { getByText, container } = render(
+  it("SkipLink is focusable", () => {
+    const { getByText } = render(
       <SkipLink label="Skip to main content" skipTo="mainContent" />
     )
-    expect(getByText("Skip to main content")).toBeTruthy()
-    expect(container.firstChild?.nodeName).toEqual("A")
+    expect(document.body).toHaveFocus()
+    userEvent.tab()
+    expect(getByText("Skip to main content").closest("a")).toHaveFocus()
   })
 })
