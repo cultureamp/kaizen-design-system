@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/a11y",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A collection of accessibility utils",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
