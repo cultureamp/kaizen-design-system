@@ -128,7 +128,7 @@
     "chromatic": "^5.10.2",
     "danger": "^10.7.0",
     "eslint-import-resolver-typescript": "^2.5.0",
-    "glob": "^7.1.1",
+    "glob": "^7.2.0",
     "jscodeshift": "^0.8.0",
     "loader-utils": "^1.4.0",
     "node-elm-compiler": "^5.0.6",
