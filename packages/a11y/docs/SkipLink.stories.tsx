@@ -13,7 +13,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { SkipLink } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/SkipLink`,
+  title: `${CATEGORIES.components}/Skip Link`,
   component: SkipLink,
   parameters: {
     docs: {
