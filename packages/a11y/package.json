@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "packages/brand"
+    "directory": "packages/a11y"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
