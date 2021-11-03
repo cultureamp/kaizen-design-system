@@ -1,18 +1,17 @@
 import React from "react"
 
-import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 import { VisuallyHidden } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/Visually Hidden`,
-  component: InlineNotification,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.a11y}/Visually Hidden`,
+  component: VisuallyHidden,
   parameters: {
     docs: {
       description: {
-        component: 'import { InlineNotification } from "@kaizen/notification";',
+        component: 'import { VisuallyHidden } from "@kaizen/a11y";',
       },
     },
   },
