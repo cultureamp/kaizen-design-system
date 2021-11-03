@@ -1,1 +1,1 @@
-FROM node:14.18.0-buster
+FROM node:14.18.1-buster
