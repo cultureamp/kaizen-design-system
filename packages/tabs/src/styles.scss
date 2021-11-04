@@ -27,6 +27,10 @@
   letter-spacing: $typography-heading-4-letter-spacing;
   color: $color-purple-800;
 
+  &:not(:first-child) {
+    margin-inline-start: $spacing-xs;
+  }
+
   &:not(:disabled):hover {
     background: $color-blue-100;
     color: $color-blue-500;
