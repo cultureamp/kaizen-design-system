@@ -7,6 +7,9 @@ export type AllowedTags = "div" | "span"
 interface VisuallyHiddenProps
   extends Omit<HTMLAttributes<HTMLElement>, "className"> {
   children: ReactNode
+  /**
+   * The HTML tag rendered by this component
+   */
   tag?: AllowedTags
 }
 

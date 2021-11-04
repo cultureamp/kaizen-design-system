@@ -1,8 +1,6 @@
 import React from "react"
 
-import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
 import { VisuallyHidden } from ".."
 
 export default {
@@ -15,13 +13,12 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 }
 
 export const TextWithVisuallyHidden = () => (
   <div>
-    There is visually hidden text between the two brackes (see DevTools or
-    screen reader): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
+    There is visually hidden text between the two brackets (click "Show code" to
+    see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
   </div>
 )
 
