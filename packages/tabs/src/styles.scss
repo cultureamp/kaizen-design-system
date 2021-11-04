@@ -77,3 +77,20 @@
     border-radius: $border-focus-ring-border-radius;
   }
 }
+
+@media (-ms-high-contrast: active) {
+  .tab,
+  .tabPanel {
+    // All of the transparent borders set above are all seen in high contrast mode which we don't want
+    border: 0;
+
+    &:global(.focus-visible) {
+      border: 2px solid transparent;
+    }
+  }
+
+  .tab.selected {
+    // High contrast also doesn't see the pseudo element created to show the active tab.
+    border-bottom: 4px solid transparent;
+  }
+}
