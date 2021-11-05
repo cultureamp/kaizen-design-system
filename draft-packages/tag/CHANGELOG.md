@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.12...@kaizen/draft-tag@1.12.13) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.11...@kaizen/draft-tag@1.12.12) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-tag
