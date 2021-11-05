@@ -17,9 +17,9 @@
     "@kaizen/draft-illustration": "^2.7.4",
     "@kaizen/draft-tag": "^1.12.12",
     "@kaizen/hosted-assets": "^1.1.0",
-    "@mdx-js/mdx": "^1.4.5",
-    "@mdx-js/react": "^1.4.5",
-    "classnames": "^2.2.6",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "classnames": "^2.3.1",
     "color": "^3.1.2",
     "gatsby": "2.24.74",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
@@ -30,7 +30,7 @@
     "gatsby-plugin-svg-sprite": "2.0.1",
     "gatsby-source-filesystem": "2.11.1",
     "gatsby-transformer-remark": "2.6.24",
-    "mdast-util-to-string": "^1.0.6",
+    "mdast-util-to-string": "^1.1.0",
     "node-sass": "4.14.1",
     "normalize.css": "^8.0.1",
     "prism-react-renderer": "^1.1.1",
@@ -42,6 +42,6 @@
     "svgo-loader": "2.2.2",
     "unist-util-visit": "^2.0.3",
     "wcag-contrast-verifier": "^1.1.0",
-    "webpack": "^4.40.2"
+    "webpack": "^4.46.0"
   }
 }

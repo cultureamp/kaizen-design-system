@@ -36,9 +36,9 @@
     "@kaizen/draft-button": "^5.2.11",
     "@kaizen/draft-divider": "^1.7.0",
     "@popperjs/core": "^2.6.0",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6",
-    "react-popper": "^2.2.4",
+    "@types/classnames": "^2.3.0",
+    "classnames": "^2.3.1",
+    "react-popper": "^2.2.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -35,8 +35,8 @@
     "@kaizen/component-library": "^11.5.2",
     "@kaizen/draft-badge": "^1.7.0",
     "@kaizen/draft-loading-spinner": "^2.3.0",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@types/classnames": "^2.3.0",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
