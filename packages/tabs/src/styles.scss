@@ -70,6 +70,10 @@
   opacity: 0.3;
 }
 
+.badge {
+  margin-inline-start: $spacing-sm;
+}
+
 .tabPanel {
   border: 2px solid transparent;
 

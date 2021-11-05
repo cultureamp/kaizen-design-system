@@ -28,7 +28,7 @@ export const Uncontrolled = () => (
     <TabList aria-label="Tabs">
       <Tab>Tab 1</Tab>
       <Tab>Tab 2</Tab>
-      <Tab>Tab 3</Tab>
+      <Tab badge="3">Tab 3</Tab>
       <Tab disabled>Disabled Tab</Tab>
     </TabList>
     <TabPanels>
