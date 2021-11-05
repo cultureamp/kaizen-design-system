@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/generator-create",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Quickly scaffolds new components in Kaizen",
   "main": "index.js",
   "license": "MIT",
