@@ -43,6 +43,92 @@ exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
 </div>
 `;
 
+exports[`<InformationTile /> snapshots renders InformationTile with assertive mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodAssertive"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with cautionary mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodCautionary"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<InformationTile /> snapshots renders InformationTile with children 1`] = `
 <div
   class="root"
@@ -244,6 +330,178 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
 </div>
 `;
 
+exports[`<InformationTile /> snapshots renders InformationTile with informative mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodInformative"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with negative mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodNegative"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with positive mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodPositive"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with prominent mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodProminent"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
 <div
   class="root"
@@ -281,6 +539,522 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
         <div
           class="actions"
         >
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with assertive mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodAssertive"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with cautionary mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodCautionary"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with informative mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodInformative"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with negative mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodNegative"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with positive mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodPositive"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with prominent mood 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront faceMoodProminent"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <div
+            class="p-0 mr-0-point-5"
+          >
+            <span
+              class="container"
+            >
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
           <span
             class="container"
           >

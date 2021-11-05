@@ -7,6 +7,7 @@ import {
   TileInformation,
 } from "@kaizen/draft-tile"
 import { cleanup, render } from "@testing-library/react"
+import { GenericTileProps } from "./components/GenericTile"
 
 const primaryAction: TileAction = {
   label: "View",
@@ -17,6 +18,14 @@ const secondaryAction: TileAction = {
   label: "Preview",
   href: "href2",
 }
+const moods: Array<GenericTileProps["mood"]> = [
+  "positive",
+  "informative",
+  "cautionary",
+  "assertive",
+  "negative",
+  "prominent",
+]
 
 const information: TileInformation = {
   text:
@@ -88,6 +97,19 @@ describe("<InformationTile />", () => {
 
       expect(getByText("custom title").tagName).toEqual("DIV")
     })
+    moods.map(mood => {
+      it(`renders InformationTile with ${mood} mood`, () => {
+        const { container } = render(
+          <InformationTile
+            title="Title"
+            metadata="Metadata"
+            footer={<div>Hello world</div>}
+            mood={mood}
+          />
+        )
+        expect(container.firstChild).toMatchSnapshot()
+      })
+    })
   })
 })
 
@@ -130,6 +152,20 @@ describe("<MultiActionTile />", () => {
       )
 
       expect(getByText("custom title").tagName).toEqual("H6")
+    })
+    moods.map(mood => {
+      it(`renders MultiActionTile with ${mood} mood`, () => {
+        const { container } = render(
+          <MultiActionTile
+            title="Title"
+            metadata="Metadata"
+            primaryAction={primaryAction}
+            secondaryAction={secondaryAction}
+            mood={mood}
+          />
+        )
+        expect(container.firstChild).toMatchSnapshot()
+      })
     })
   })
 })
