@@ -7,6 +7,7 @@ export const CATEGORIES = {
 }
 
 export const SUB_CATEGORIES = {
+  a11y: "Accessibility",
   button: "Button",
   form: "Form",
   illustration: "Illustration",
