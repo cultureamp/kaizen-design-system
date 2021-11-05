@@ -66,6 +66,30 @@ $tilePaddingTop: $spacing-xl;
   background-color: $color-blue-100;
 }
 
+.faceMoodPositive {
+  background-color: $color-green-100;
+}
+
+.faceMoodInformative {
+  background-color: $color-blue-100;
+}
+
+.faceMoodCautionary {
+  background-color: $color-yellow-100;
+}
+
+.faceMoodAssertive {
+  background-color: $color-orange-100;
+}
+
+.faceMoodNegative {
+  background-color: $color-red-100;
+}
+
+.faceMoodProminent {
+  background-color: $color-purple-100;
+}
+
 .isFlipped {
   transform: rotateY(179deg);
 }
@@ -73,7 +97,6 @@ $tilePaddingTop: $spacing-xl;
 .title {
   text-align: center;
   padding-bottom: $spacing-sm;
-  background-color: $color-white;
   backface-visibility: hidden;
 }
 

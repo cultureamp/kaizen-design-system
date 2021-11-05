@@ -15,6 +15,7 @@ const InformationTile: InformationTile = ({
   children,
   information,
   footer,
+  mood,
 }) => (
   <GenericTile
     title={title}
@@ -22,6 +23,7 @@ const InformationTile: InformationTile = ({
     metadata={metadata}
     information={information}
     footer={footer}
+    mood={mood}
   >
     {children}
   </GenericTile>
