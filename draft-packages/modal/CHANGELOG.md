@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.1.34...@kaizen/draft-modal@6.1.35) (2021-11-03)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [6.1.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.1.33...@kaizen/draft-modal@6.1.34) (2021-11-02)
+
+
+### Bug Fixes
+
+* Apply aria-label to link version of IconButton ([#2176](https://github.com/cultureamp/kaizen-design-system/issues/2176)) ([9d9462a](https://github.com/cultureamp/kaizen-design-system/commit/9d9462a29d80b2147f2e119f8f05b14aa9a299b7))
+
+
+
+
+
 ## [6.1.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.1.32...@kaizen/draft-modal@6.1.33) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-modal
