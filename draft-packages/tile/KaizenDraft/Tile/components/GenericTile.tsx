@@ -30,6 +30,13 @@ export interface GenericTileProps {
   readonly metadata?: string
   readonly children?: React.ReactNode
   readonly information?: TileInformation | React.ReactNode
+  readonly mood?:
+    | "positive"
+    | "informative"
+    | "cautionary"
+    | "assertive"
+    | "negative"
+    | "prominent"
 }
 
 interface Props extends GenericTileProps {
@@ -45,6 +52,7 @@ const GenericTile: GenericTile = ({
   metadata,
   information,
   footer,
+  mood,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
@@ -77,7 +85,16 @@ const GenericTile: GenericTile = ({
   )
 
   const renderFront = () => (
-    <div className={classNames(styles.face, styles.faceFront)}>
+    <div
+      className={classNames(styles.face, styles.faceFront, {
+        [styles.faceMoodPositive]: mood === "positive",
+        [styles.faceMoodInformative]: mood === "informative",
+        [styles.faceMoodCautionary]: mood === "cautionary",
+        [styles.faceMoodAssertive]: mood === "assertive",
+        [styles.faceMoodNegative]: mood === "negative",
+        [styles.faceMoodProminent]: mood === "prominent",
+      })}
+    >
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
