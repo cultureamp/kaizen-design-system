@@ -4,7 +4,7 @@ import styles from "./VisuallyHidden.module.scss"
 
 export type AllowedTags = "div" | "span"
 
-interface VisuallyHiddenProps
+export interface VisuallyHiddenProps
   extends Omit<HTMLAttributes<HTMLElement>, "className"> {
   children: ReactNode
   /**
