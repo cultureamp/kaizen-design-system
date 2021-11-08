@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,9 +33,9 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/draft-badge": "^1.7.0",
+    "@reach/tabs": "^0.16.1",
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.1",
-    "@reach/tabs": "^0.16.1"
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^3.1.0",
