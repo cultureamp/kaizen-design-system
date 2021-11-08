@@ -19,7 +19,7 @@ export default {
 export const DefaultKaizenSiteDemo = () => (
   <div style={{ width: "100%" }}>
     <div className={styles.pageComponent}>
-      <Responsive small="1" medium="2" large="3" xlarge="4" />
+      <Responsive small="2" medium="2" large="3" xlarge="4" />
     </div>
   </div>
 )
