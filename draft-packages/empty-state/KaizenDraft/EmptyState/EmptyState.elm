@@ -10,7 +10,6 @@ module KaizenDraft.EmptyState.EmptyState exposing
     , id
     , illustrationType
     , layoutContext
-    , theme
     , view
     )
 
@@ -18,7 +17,6 @@ import CssModules exposing (css)
 import Html exposing (Html, div, img, text)
 import Html.Attributes exposing (id, src)
 import Kaizen.HostedAssets.Image as Image exposing (Role(..), image)
-import Kaizen.Theme as Theme exposing (Theme(..), defaultTheme)
 
 
 
@@ -55,7 +53,6 @@ type alias ConfigValue msg =
     , illustrationType : Illustration
     , layoutContext : LayoutContext
     , children : List (Html msg)
-    , theme : Theme
     }
 
 
@@ -68,52 +65,21 @@ defaults =
     , illustrationType = Informative
     , layoutContext = SidebarAndContent
     , children = []
-    , theme = defaultTheme
     }
 
 
 illustrationPath : ConfigValue msg -> String
 illustrationPath config =
     case config.illustrationType of
-        Action ->
-            case config.theme of
-                Heart ->
-                    "illustrations/heart/scene/empty-states-action.svg"
+        Action ->  "illustrations/heart/scene/empty-states-action.svg"
 
-                Zen ->
-                    "illustrations/scene/empty-states-action.svg"
+        Neutral -> "illustrations/heart/scene/empty-states-neutral.svg"
 
-        Neutral ->
-            case config.theme of
-                Heart ->
-                    "illustrations/heart/scene/empty-states-neutral.svg"
+        Positive -> "illustrations/heart/scene/empty-states-positive.svg"
 
-                Zen ->
-                    "illustrations/scene/empty-states-neutral.svg"
+        Informative -> "illustrations/heart/scene/empty-states-informative.svg"
 
-        Positive ->
-            case config.theme of
-                Heart ->
-                    "illustrations/heart/scene/empty-states-positive.svg"
-
-                Zen ->
-                    "illustrations/scene/empty-states-positive.svg"
-
-        Informative ->
-            case config.theme of
-                Heart ->
-                    "illustrations/heart/scene/empty-states-informative.svg"
-
-                Zen ->
-                    "illustrations/scene/empty-states-informative.svg"
-
-        Negative ->
-            case config.theme of
-                Heart ->
-                    "illustrations/heart/scene/empty-states-negative.svg"
-
-                Zen ->
-                    "illustrations/scene/empty-states-negative.svg"
+        Negative -> "illustrations/heart/scene/empty-states-negative.svg"
 
 
 
@@ -157,11 +123,6 @@ illustrationType value (Config config) =
 layoutContext : LayoutContext -> Config msg -> Config msg
 layoutContext value (Config config) =
     Config { config | layoutContext = value }
-
-
-theme : Theme -> Config msg -> Config msg
-theme theme_ (Config config) =
-    Config { config | theme = theme_ }
 
 
 children : List (Html msg) -> Config msg -> Config msg
