@@ -434,7 +434,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={HierarchicalMenuStories} />
         <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
-        <StoriesContainer storyModule={IconButtonStories} />
         <StoriesContainer storyModule={IllustrationSceneStories} />
         <StoriesContainer storyModule={IllustrationSpotStories} />
         <StoriesContainer storyModule={InlineNotificationStories} />
