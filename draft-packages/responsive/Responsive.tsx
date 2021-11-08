@@ -1,7 +1,6 @@
 import React from "react"
 import cx from "classnames"
 import styles from "./Responsive.scss"
-// import { useMediaQueries } from "@kaizen/responsive"
 
 export type GridSizes = {
   small?: "1" | "2"
@@ -9,15 +8,15 @@ export type GridSizes = {
   large?: "2" | "3"
   xl?: "3" | "4"
 }
-// "small-1 medium-3 large-4"
+
 export default function Responsive({ small, medium, large, xlarge }) {
   return (
     <div
       className={cx(styles.gridWrapper, {
-        [`small-${small}`]: small,
-        [`medium-${medium}`]: medium,
-        [`large-${large}`]: large,
-        [`xlarge-${xlarge}`]: xlarge,
+        [styles[`small-${small}`]]: small,
+        [styles[`medium-${medium}`]]: medium,
+        [styles[`large-${large}`]]: large,
+        [styles[`xlarge-${xlarge}`]]: xlarge,
       })}
     >
       <div className={styles.column}>1</div>

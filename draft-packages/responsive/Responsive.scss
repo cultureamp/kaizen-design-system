@@ -13,20 +13,6 @@
   grid-template-columns: 1fr;
   gap: 24px;
   border: 1px solid #eaeaec;
-
-  @media (min-width: 664px) {
-    &.small-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    &.small-3 {
-      @include three-column;
-    }
-
-    &.small-4 {
-      @include four-column;
-    }
-  }
 }
 
 .column {
@@ -39,62 +25,72 @@
   background: #eaeaec;
 }
 
-// .gridWrapper {
-//   grid-template-columns: 1fr;
-// }
+@media (min-width: 664px) {
+  .small-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-// @media (min-width: 1008px) {
-//   .medium-2 {
-//     @include two-column;
-//   }
+  .small-3 {
+    @include three-column;
+  }
 
-//   .medium-3 {
-//     @include three-column;
-//   }
+  .small-4 {
+    @include four-column;
+  }
+}
 
-//   .medium-4 {
-//     @include four-column;
-//   }
-// }
+@media (min-width: 1008px) {
+  .medium-2 {
+    @include two-column;
+  }
 
-// @media (min-width: 1080px) {
-//   .large-2 {
-//     @include two-column;
-//   }
+  .medium-3 {
+    @include three-column;
+  }
 
-//   .large-3 {
-//     @include three-column;
-//   }
+  .medium-4 {
+    @include four-column;
+  }
+}
 
-//   .large-4 {
-//     @include four-column;
-//   }
-// }
+@media (min-width: 1080px) {
+  .large-2 {
+    @include two-column;
+  }
 
-// @media (min-width: 1157px) {
-//   .xlarge-2 {
-//     @include two-column;
-//   }
+  .large-3 {
+    @include three-column;
+  }
 
-//   .xlarge-3 {
-//     @include three-column;
-//   }
+  .large-4 {
+    @include four-column;
+  }
+}
 
-//   .xlarge-4 {
-//     @include four-column;
-//   }
-// }
+@media (min-width: 1157px) {
+  .xlarge-2 {
+    @include two-column;
+  }
 
-// @media (min-width: 1495px) {
-//   .xxlarge-2 {
-//     @include two-column;
-//   }
+  .xlarge-3 {
+    @include three-column;
+  }
 
-//   .xxlarge-3 {
-//     @include three-column;
-//   }
+  .xlarge-4 {
+    @include four-column;
+  }
+}
 
-//   .xxlarge-4 {
-//     @include four-column;
-//   }
-// }
+@media (min-width: 1495px) {
+  .xxlarge-2 {
+    @include two-column;
+  }
+
+  .xxlarge-3 {
+    @include three-column;
+  }
+
+  .xxlarge-4 {
+    @include four-column;
+  }
+}
