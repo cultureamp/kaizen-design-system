@@ -90,19 +90,37 @@
   }
 }
 
-@media (-ms-high-contrast: active) {
-  .tab,
-  .tabPanel {
-    // All of the transparent borders set above are all seen in high contrast mode which we don't want
-    border: 0;
+@media (forced-colors: active) {
+  .tab {
+    border: 2px solid transparent;
 
-    &:global(.focus-visible) {
-      border: 2px solid transparent;
+    &:global(.focus-visible)::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: transparent;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
     }
   }
 
-  .tab.selected {
+  .tab.selected::before {
     // High contrast also doesn't see the pseudo element created to show the active tab.
-    border-bottom: 4px solid transparent;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tabPanel {
+    border: 0;
   }
 }
