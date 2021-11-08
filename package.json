@@ -127,7 +127,7 @@
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^6.3.12",
     "chromatic": "^5.10.2",
-    "danger": "^10.7.0",
+    "danger": "^10.7.1",
     "eslint-import-resolver-typescript": "^2.5.0",
     "glob": "^7.2.0",
     "jscodeshift": "^0.8.0",
