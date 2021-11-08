@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.2.1...@kaizen/a11y@1.2.2) (2021-11-08)
+
+
+### Bug Fixes
+
+* export visiuallyHidden props to fix build ([#2209](https://github.com/cultureamp/kaizen-design-system/issues/2209)) ([9c4e110](https://github.com/cultureamp/kaizen-design-system/commit/9c4e1107cd0d4de7822b53228c92536c8d55761f))
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.2.0...@kaizen/a11y@1.2.1) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/a11y
