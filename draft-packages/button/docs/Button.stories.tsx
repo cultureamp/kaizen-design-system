@@ -2,6 +2,10 @@ import { Heading } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, IconButton } from ".."
@@ -44,26 +48,26 @@ export const LightButtons = () => (
           Base
         </Heading>
         <br />
-        <IconLeft />
+        <IconLeft icon={addIcon} />
         <br />
         <IconRight />
         <br />
         <Button label="Label" />
         <br />
-        <IconButton icon={configureIcon} label="Label" />
+        <IconButton icon={meatballsIcon} label="Label" />
       </div>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
           Disabled
         </Heading>
         <br />
-        <IconLeft disabled={true} />
+        <IconLeft disabled={true} icon={addIcon} />
         <br />
         <IconRight disabled={true} />
         <br />
         <Button label="Label" disabled={true} />
         <br />
-        <IconButton icon={configureIcon} label="Label" disabled={true} />
+        <IconButton icon={meatballsIcon} label="Label" disabled={true} />
       </div>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
@@ -87,7 +91,7 @@ export const LightButtons = () => (
           Base
         </Heading>
         <br />
-        <IconLeft primary={true} />
+        <IconLeft primary={true} icon={addIcon} />
         <br />
         <IconRight primary={true} />
         <br />
@@ -100,7 +104,7 @@ export const LightButtons = () => (
           Disabled
         </Heading>
         <br />
-        <IconLeft disabled={true} primary={true} />
+        <IconLeft disabled={true} primary={true} icon={addIcon} />
         <br />
         <IconRight disabled={true} primary={true} />
         <br />
@@ -144,7 +148,7 @@ export const LightButtons = () => (
         <br />
         <IconLeft destructive={true} icon={trashIcon} />
         <br />
-        <IconRight destructive={true} icon={trashIcon} />
+        <IconRight destructive={true} />
         <br />
         <Button label="Label" destructive={true} icon={trashIcon} />
         <br />
@@ -157,7 +161,7 @@ export const LightButtons = () => (
         <br />
         <IconLeft destructive={true} icon={trashIcon} disabled={true} />
         <br />
-        <IconRight destructive={true} icon={trashIcon} disabled={true} />
+        <IconRight destructive={true} disabled={true} />
         <br />
         <DestructiveDisabled />
         <br />
@@ -192,17 +196,17 @@ export const LightButtons = () => (
         <br />
         <IconLeft
           badge={{ text: "3", variant: "active" }}
-          icon={filterIcon}
+          icon={meatballsIcon}
           secondary={true}
         />
         <br />
-        <IconLeft secondary={true} icon={filterIcon} />
+        <IconLeft secondary={true} icon={addIcon} />
         <br />
-        <IconRight iconPosition="end" secondary={true} icon={filterIcon} />
+        <IconRight iconPosition="end" secondary={true} icon={chevronDown} />
         <br />
         <Secondary />
         <br />
-        <IconButton label="Label" icon={filterIcon} secondary={true} />
+        <IconButton label="Label" icon={meatballsIcon} secondary={true} />
       </div>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
@@ -216,15 +220,15 @@ export const LightButtons = () => (
           badge={{ text: "3", variant: "active" }}
         />
         <br />
-        <IconLeft secondary={true} disabled={true} icon={filterIcon} />
+        <IconLeft secondary={true} disabled={true} icon={addIcon} />
         <br />
-        <IconRight disabled={true} secondary={true} icon={filterIcon} />
+        <IconRight disabled={true} secondary={true} icon={chevronDown} />
         <br />
         <Secondary disabled={true} />
         <br />
         <IconButton
           label="Label"
-          icon={filterIcon}
+          icon={meatballsIcon}
           disabled={true}
           secondary={true}
         />
@@ -393,27 +397,27 @@ export const ReversedButtons = () => (
           Base
         </Heading>
         <br />
-        <IconLeft reversed={true} />
+        <IconLeft reversed={true} icon={addIcon} />
         <br />
         <IconRight reversed={true} />
         <br />
         <Button label="Label" reversed={true} />
         <br />
-        <IconButton icon={configureIcon} label="Label" reversed={true} />
+        <IconButton icon={meatballsIcon} label="Label" reversed={true} />
       </div>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2" color="white">
           Disabled
         </Heading>
         <br />
-        <IconLeft disabled={true} reversed={true} />
+        <IconLeft disabled={true} reversed={true} icon={addIcon} />
         <br />
         <IconRight disabled={true} reversed={true} />
         <br />
         <Button label="Label" disabled={true} reversed={true} />
         <br />
         <IconButton
-          icon={configureIcon}
+          icon={meatballsIcon}
           label="Label"
           disabled={true}
           reversed={true}
@@ -448,7 +452,7 @@ export const ReversedButtons = () => (
         <Button label="Label" primary={true} reversed={true} />
         <br />
         <IconButton
-          icon={configureIcon}
+          icon={addIcon}
           label="Label"
           primary={true}
           reversed={true}
@@ -466,7 +470,7 @@ export const ReversedButtons = () => (
         <Button label="Label" disabled={true} primary={true} reversed={true} />
         <br />
         <IconButton
-          icon={configureIcon}
+          icon={addIcon}
           label="Label"
           primary={true}
           disabled={true}
@@ -505,7 +509,7 @@ export const ReversedButtons = () => (
         <br />
         <IconLeft destructive={true} icon={trashIcon} reversed={true} />
         <br />
-        <IconRight destructive={true} icon={trashIcon} reversed={true} />
+        <IconRight destructive={true} reversed={true} />
         <br />
         <Button
           label="Label"
@@ -533,12 +537,7 @@ export const ReversedButtons = () => (
           reversed={true}
         />
         <br />
-        <IconRight
-          destructive={true}
-          icon={trashIcon}
-          disabled={true}
-          reversed={true}
-        />
+        <IconRight destructive={true} disabled={true} reversed={true} />
         <br />
         <DestructiveDisabled reversed={true} />
         <br />
@@ -579,20 +578,20 @@ export const ReversedButtons = () => (
           icon={filterIcon}
         />
         <br />
-        <IconLeft secondary={true} reversed={true} icon={filterIcon} />
+        <IconLeft secondary={true} reversed={true} icon={addIcon} />
         <br />
         <IconRight
           iconPosition="end"
           secondary={true}
           reversed={true}
-          icon={filterIcon}
+          icon={chevronDown}
         />
         <br />
         <Secondary reversed={true} />
         <br />
         <IconButton
           label="Label"
-          icon={filterIcon}
+          icon={meatballsIcon}
           secondary={true}
           reversed={true}
         />
@@ -614,21 +613,21 @@ export const ReversedButtons = () => (
           secondary={true}
           disabled={true}
           reversed={true}
-          icon={filterIcon}
+          icon={addIcon}
         />
         <br />
         <IconRight
           disabled={true}
+          icon={chevronDown}
           secondary={true}
           reversed={true}
-          icon={filterIcon}
         />
         <br />
         <Secondary disabled={true} reversed={true} />
         <br />
         <IconButton
           label="Label"
-          icon={filterIcon}
+          icon={meatballsIcon}
           disabled={true}
           secondary={true}
           reversed={true}
@@ -656,6 +655,13 @@ export const ReversedButtons = () => (
           workingLabel="Submitting"
           workingLabelHidden
           reversed={true}
+        />
+        <br />
+        <IconRightWorking
+          disabled={true}
+          secondary={true}
+          reversed={true}
+          working
         />
       </div>
     </div>
@@ -733,7 +739,7 @@ export const ReversedButtons = () => (
 )
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
+  name: "Default Butoon (Kaizen Site Demo)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65143"
@@ -758,17 +764,14 @@ ReversedButtons.parameters = {
 }
 
 // Default Button
-
-const IconLeft = args => (
-  <Button label="Configure" icon={configureIcon} {...args} />
-)
+const IconLeft = args => <Button label="Label" icon={configureIcon} {...args} />
 
 const IconRight = args => (
-  <Button label="Configure" icon={configureIcon} iconPosition="end" {...args} />
+  <Button label="Label" icon={arrowRight} iconPosition="end" {...args} />
 )
 const IconLeftWorking = args => (
   <Button
-    label="Configure"
+    label="Label"
     icon={configureIcon}
     {...args}
     working
@@ -779,7 +782,7 @@ const IconLeftWorking = args => (
 
 const IconRightWorking = args => (
   <Button
-    label="Configure"
+    label="Label"
     icon={configureIcon}
     iconPosition="end"
     {...args}
