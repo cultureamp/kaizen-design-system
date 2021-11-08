@@ -97,7 +97,7 @@ export const LightButtons = () => (
         <br />
         <Button label="Label" primary={true} />
         <br />
-        <IconButton icon={configureIcon} label="Label" primary={true} />
+        <IconButton icon={addIcon} label="Label" primary={true} />
       </div>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
@@ -111,7 +111,7 @@ export const LightButtons = () => (
         <Button label="Label" disabled={true} primary={true} />
         <br />
         <IconButton
-          icon={configureIcon}
+          icon={addIcon}
           label="Label"
           primary={true}
           disabled={true}
