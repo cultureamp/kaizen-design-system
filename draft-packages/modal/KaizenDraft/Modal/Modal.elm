@@ -17,7 +17,6 @@ module KaizenDraft.Modal.Modal exposing
     , onUpdate
     , setDefaultFocusableId
     , subscriptions
-    , theme
     , trigger
     , update
     , view
@@ -30,7 +29,6 @@ import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Html.Lazy exposing (lazy)
-import Kaizen.Theme exposing (Theme, defaultTheme)
 import KaizenDraft.Events.Events as KaizenEvents
 import KaizenDraft.Modal.Presets.ConfirmationModal as ConfirmationModal
 import KaizenDraft.Modal.Presets.InputEditModal as InputEditModal
@@ -77,7 +75,6 @@ type alias Configuration msg =
     { variant : Variant msg
     , onUpdate : Maybe (ModalMsg -> msg)
     , state : ModalState msg
-    , theme : Theme
     }
 
 
@@ -343,7 +340,6 @@ viewContent (Config modalConfig) =
                             |> ConfirmationModal.confirmLabel contract.confirmLabel
                             |> ConfirmationModal.dismissLabel contract.dismissLabel
                             |> ConfirmationModal.title contract.title
-                            |> ConfirmationModal.theme modalConfig.theme
                 in
                 case confirmationType of
                     Informative ->
@@ -473,7 +469,6 @@ defaults =
     { variant = Generic [ text "" ] ( 600, 456 )
     , onUpdate = Nothing
     , state = initialState
-    , theme = defaultTheme
     }
 
 
@@ -728,11 +723,6 @@ onUpdate msg (Config config) =
 modalState : ModalState msg -> Config msg -> Config msg
 modalState msg (Config config) =
     Config { config | state = msg }
-
-
-theme : Theme -> Config msg -> Config msg
-theme value (Config config) =
-    Config { config | theme = value }
 
 
 
