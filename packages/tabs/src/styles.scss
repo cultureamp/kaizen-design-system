@@ -9,6 +9,8 @@
 }
 
 .tab {
+  display: inline-flex;
+  align-items: center;
   border: 0;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
@@ -72,6 +74,8 @@
 
 .badge {
   margin-inline-start: $spacing-sm;
+  display: inline-flex;
+  align-items: center;
 }
 
 .tabPanel {
