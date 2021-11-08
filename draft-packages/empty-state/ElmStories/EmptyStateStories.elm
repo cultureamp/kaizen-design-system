@@ -38,7 +38,7 @@ contentOnlyLayout children =
 main =
     storybook
         [ statelessStoryOf "Default" <|
-            contentOnlyLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.id "example-empty-state-id"
