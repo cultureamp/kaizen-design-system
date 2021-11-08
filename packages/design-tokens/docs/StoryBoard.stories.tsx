@@ -13,7 +13,6 @@ import * as ToastNotificationStories from "@kaizen/notification/docs/ToastNotifi
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
 import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
-import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
 import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
 import * as CollapsibleStories from "@kaizen/draft-collapsible/docs/Collapsible.stories"
 import * as DividerStories from "@kaizen/draft-divider/docs/Divider.stories"
