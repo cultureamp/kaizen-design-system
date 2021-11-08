@@ -35,7 +35,7 @@
     "@kaizen/component-library": "^11.5.3",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
-    "react-textfit": "^1.1.0"
+    "react-textfit": "^1.1.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
