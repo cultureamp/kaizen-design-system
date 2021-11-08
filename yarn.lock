@@ -20384,7 +20384,7 @@ react-map-interaction@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-map-interaction/-/react-map-interaction-2.0.0.tgz#093b3843741669b1b306e8cc5ce6725eada24bbc"
   integrity sha512-9KeyPHd95INODNUsx77/345vxOfN1WOtcjWXdxT92Sw+Y1GldVfmb4HnzNVtWoJg3T0Q1Yt3Sthq9IPN9OYy5w==
 
-react-media@^1.10.0, react-media@^1.9.2:
+react-media@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.10.0.tgz#7b0c5fe8ac55a53ce31b5249db3aaf8a22ff7703"
   integrity sha512-FjgYmFoaPTImST06jqotuu0Mk8LOXiGYS/fIyiXuLnf20l3DPniBwtrxi604/HxxjqvmHS3oz5rAwnqdvosV4A==

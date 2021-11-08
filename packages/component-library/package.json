@@ -42,7 +42,7 @@
     "lodash": "^4.17.21",
     "motion-ui": "cultureamp/motion-ui",
     "react-focus-lock": "^1.19.1",
-    "react-media": "^1.9.2",
+    "react-media": "^1.10.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
