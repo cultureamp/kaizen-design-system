@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.1.36...@kaizen/draft-modal@6.2.0) (2021-11-08)
+
+
+### Features
+
+* Remove theme from Elm Modal and EmptyState components ([#2208](https://github.com/cultureamp/kaizen-design-system/issues/2208)) ([29a70f5](https://github.com/cultureamp/kaizen-design-system/commit/29a70f5f84c76c62b99c235d83b30e060983d30f))
+
+
+
+
+
 ## [6.1.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.1.35...@kaizen/draft-modal@6.1.36) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/draft-modal
