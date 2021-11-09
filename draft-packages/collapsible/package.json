@@ -35,7 +35,7 @@
     "@kaizen/component-library": "^11.5.3",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
-    "react-animate-height": "^2.0.15"
+    "react-animate-height": "^2.0.23"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
