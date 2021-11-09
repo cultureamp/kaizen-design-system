@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.28...@kaizen/draft-table@3.9.29) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [3.9.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.27...@kaizen/draft-table@3.9.28) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/draft-table
