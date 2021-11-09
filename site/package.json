@@ -20,7 +20,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "classnames": "^2.3.1",
-    "color": "^3.1.2",
+    "color": "^3.2.1",
     "gatsby": "2.24.74",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
     "gatsby-plugin-google-tagmanager": "2.2.1",
