@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.5...@kaizen/draft-illustration@2.7.6) (2021-11-09)
+
+
+### Bug Fixes
+
+* override global figure styles coming from material ui ([#2270](https://github.com/cultureamp/kaizen-design-system/issues/2270)) ([82e3740](https://github.com/cultureamp/kaizen-design-system/commit/82e3740a30fc8c27a03b6373cd7b1a8d2ef42112))
+
+
+
+
+
 ## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.4...@kaizen/draft-illustration@2.7.5) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
