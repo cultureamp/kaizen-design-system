@@ -1,5 +1,6 @@
 .wrapper {
   width: 100%;
+  margin: 0; // Override global Material UI styles
 }
 
 // If the .visually-hidden class is applied to natively focusable elements
