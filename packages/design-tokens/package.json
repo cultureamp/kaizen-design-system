@@ -46,7 +46,7 @@
     "prettier": "*",
     "react-highlight": "^0.14.0",
     "react-intersection-observer": "^8.32.2",
-    "react-map-interaction": "^2.0.0",
+    "react-map-interaction": "^2.1.0",
     "ts-node": "^9.1.1",
     "yargs": "^16.2.0"
   },
