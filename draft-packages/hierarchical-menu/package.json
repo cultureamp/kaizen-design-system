@@ -36,7 +36,7 @@
     "@kaizen/draft-button": "^5.2.12",
     "@kaizen/draft-loading-placeholder": "^1.8.13",
     "classnames": "^2.3.1",
-    "react-focus-lock": "^2.5.2",
+    "react-focus-lock": "^2.6.0",
     "react-transition-group": "^4.4.2"
   },
   "peerDependencies": {
