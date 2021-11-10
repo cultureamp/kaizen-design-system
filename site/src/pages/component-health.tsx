@@ -1,8 +1,10 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+
 import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
@@ -21,8 +23,7 @@ const ComponentPageHeader = (
 export default ({ data, location }) => {
   const componentsSorted = sortSidebarTabs(data.allMdx.edges)
   const componentsFiltered = componentsSorted.filter(
-    component =>
-      component.node && component.node.frontmatter.navTitle !== "Overview"
+    component => component.node?.frontmatter.navTitle !== "Overview"
   )
   const totals = calculateHealthTotals(
     componentsFiltered.map(component => component.node.frontmatter),
@@ -98,9 +99,18 @@ export default ({ data, location }) => {
             <tfoot>
               <tr>
                 <td>Total</td>
-                {healthAttributeMap.map(attribute => (
-                  <td key={attribute.id}>{totals[attribute.id]}</td>
-                ))}
+                {healthAttributeMap.map(attribute => {
+                  const count = totals[attribute.id]
+                  const percentage = (count / componentsFiltered.length) * 100
+                  return (
+                    <td key={attribute.id}>
+                      {count}
+                      <Paragraph as="span" variant="small">
+                        ({percentage.toFixed(0)}%)
+                      </Paragraph>
+                    </td>
+                  )
+                })}
               </tr>
             </tfoot>
           </table>
