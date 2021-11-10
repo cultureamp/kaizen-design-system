@@ -8,11 +8,6 @@
   border-radius: $border-solid-border-radius;
   overflow: hidden;
 
-  thead,
-  tfoot {
-    position: sticky;
-  }
-
   thead {
     inset-block-start: 60px;
   }
