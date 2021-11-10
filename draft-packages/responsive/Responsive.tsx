@@ -4,9 +4,9 @@ import styles from "./Responsive.scss"
 
 export type GridSizes = {
   small?: "1" | "2"
-  medium?: "2" | "3"
-  large?: "2" | "3"
-  xl?: "3" | "4"
+  medium?: "1" | "2" | "3"
+  large?: "1" | "2" | "3"
+  xl?: "1" | "2" | "3" | "4"
 }
 
 export default function Responsive({ small, medium, large, xlarge }) {
