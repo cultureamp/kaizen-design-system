@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/generator-create",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Quickly scaffolds new components in Kaizen",
   "main": "index.js",
   "license": "MIT",
@@ -15,6 +15,6 @@
   ],
   "dependencies": {
     "lodash": "^4.17.21",
-    "yeoman-generator": "^4.9.0"
+    "yeoman-generator": "^4.13.0"
   }
 }
