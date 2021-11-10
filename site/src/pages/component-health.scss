@@ -6,10 +6,18 @@
 .healthTable {
   border-spacing: 0;
   border-radius: $border-solid-border-radius;
-  overflow: hidden;
 
   thead {
     inset-block-start: 60px;
+  }
+
+  thead,
+  tfoot {
+    position: sticky;
+  }
+
+  tfoot {
+    bottom: 0;
   }
 
   th,
