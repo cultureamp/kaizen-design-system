@@ -11,7 +11,7 @@ import * as InlineNotificationStories from "@kaizen/notification/docs/InlineNoti
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
 import * as ToastNotificationStories from "@kaizen/notification/docs/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
-import { Button } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
 import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
 import * as CollapsibleStories from "@kaizen/draft-collapsible/docs/Collapsible.stories"
@@ -434,6 +434,7 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={HierarchicalMenuStories} />
         <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
+        <StoriesContainer storyModule={IconButtonStories} />
         <StoriesContainer storyModule={IllustrationSceneStories} />
         <StoriesContainer storyModule={IllustrationSpotStories} />
         <StoriesContainer storyModule={InlineNotificationStories} />

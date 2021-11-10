@@ -79,6 +79,14 @@ export const LightButtons = () => (
         <DefaultWorkingOnEnd />
         <br />
         <DefaultWorking />
+        <br />
+        <IconButton
+          label="Label"
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
       </div>
     </div>
     <br />
@@ -122,14 +130,24 @@ export const LightButtons = () => (
           Working
         </Heading>
         <br />
-        <IconLeftWorking disabled={true} primary={true} />
+        <IconLeftWorking primary={true} />
         <br />
-        <IconRightWorking disabled={true} primary={true} />
+        <IconRightWorking primary={true} />
         <br />
         <Button
           label="Label"
           disabled={true}
           primary={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          icon={addIcon}
+          label="Label"
+          primary={true}
+          disabled={true}
           working
           workingLabel="Submitting"
           workingLabelHidden
@@ -150,7 +168,7 @@ export const LightButtons = () => (
         <br />
         <IconRight destructive={true} />
         <br />
-        <Button label="Label" destructive={true} icon={trashIcon} />
+        <Button label="Label" destructive={true} />
         <br />
         <IconButton label="Label" icon={trashIcon} destructive={true} />
       </div>
@@ -177,11 +195,20 @@ export const LightButtons = () => (
           Working
         </Heading>
         <br />
-        <IconLeftWorking destructive={true} disabled={true} />
+        <IconLeftWorking destructive={true} />
         <br />
-        <IconRightWorking destructive={true} disabled={true} />
+        <IconRightWorking destructive={true} />
         <br />
         <DestructiveWorking />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
       </div>
     </div>
     <br />
@@ -196,7 +223,7 @@ export const LightButtons = () => (
         <br />
         <IconLeft
           badge={{ text: "3", variant: "active" }}
-          icon={meatballsIcon}
+          icon={filterIcon}
           secondary={true}
         />
         <br />
@@ -239,16 +266,24 @@ export const LightButtons = () => (
         </Heading>
         <br />
         <IconLeftWorking
-          disabled={true}
           badge={{ text: "3", variant: "active" }}
           secondary={true}
         />
         <br />
-        <IconLeftWorking disabled={true} secondary={true} />
+        <IconLeftWorking secondary={true} />
         <br />
-        <IconRightWorking disabled={true} secondary={true} />
+        <IconRightWorking secondary={true} />
         <br />
         <Secondary
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          label="Label"
+          secondary={true}
           disabled={true}
           working
           workingLabel="Submitting"
@@ -304,13 +339,23 @@ export const LightButtons = () => (
           Working
         </Heading>
         <br />
-        <IconLeftWorking destructive={true} disabled={true} secondary={true} />
+        <IconLeftWorking destructive={true} secondary={true} />
         <br />
         <Button
           label="Label"
           destructive={true}
           disabled={true}
           secondary={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          secondary={true}
+          disabled={true}
           working
           workingLabel="Submitting"
           workingLabelHidden
@@ -433,6 +478,15 @@ export const ReversedButtons = () => (
         <DefaultWorkingOnEnd reversed={true} />
         <br />
         <DefaultWorking reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          reversed={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
       </div>
     </div>
     <br />
@@ -482,9 +536,9 @@ export const ReversedButtons = () => (
           Working
         </Heading>
         <br />
-        <IconLeftWorking disabled={true} primary={true} reversed={true} />
+        <IconLeftWorking primary={true} reversed={true} />
         <br />
-        <IconRightWorking disabled={true} primary={true} reversed={true} />
+        <IconRightWorking primary={true} reversed={true} />
         <br />
         <Button
           label="Label"
@@ -494,6 +548,16 @@ export const ReversedButtons = () => (
           workingLabel="Submitting"
           workingLabelHidden
           reversed={true}
+        />
+        <br />
+        <IconButton
+          label="Label"
+          reversed={true}
+          primary={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
         />
       </div>
     </div>
@@ -511,12 +575,7 @@ export const ReversedButtons = () => (
         <br />
         <IconRight destructive={true} reversed={true} />
         <br />
-        <Button
-          label="Label"
-          destructive={true}
-          icon={trashIcon}
-          reversed={true}
-        />
+        <Button label="Label" destructive={true} reversed={true} />
         <br />
         <IconButton
           label="Label"
@@ -554,11 +613,22 @@ export const ReversedButtons = () => (
           Working
         </Heading>
         <br />
-        <IconLeftWorking destructive={true} disabled={true} reversed={true} />
+        <IconLeftWorking destructive={true} reversed={true} />
         <br />
-        <IconRightWorking destructive={true} disabled={true} reversed={true} />
+        <IconRightWorking destructive={true} reversed={true} />
         <br />
         <DestructiveWorking reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          primary={true}
+          disabled={true}
+          reversed={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
       </div>
     </div>
     <br />
@@ -639,15 +709,14 @@ export const ReversedButtons = () => (
         </Heading>
         <br />
         <IconLeftWorking
-          disabled={true}
           badge={{ text: "3", variant: "active", reversed: true }}
           secondary={true}
           reversed={true}
         />
         <br />
-        <IconLeftWorking disabled={true} secondary={true} reversed={true} />
+        <IconLeftWorking secondary={true} reversed={true} />
         <br />
-        <IconRightWorking disabled={true} secondary={true} reversed={true} />
+        <IconRightWorking secondary={true} reversed={true} />
         <br />
         <Secondary
           disabled={true}
@@ -739,23 +808,13 @@ export const ReversedButtons = () => (
 )
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
-  name: "Default Butoon (Kaizen Site Demo)",
+  name: "Default Button (Kaizen Site Demo)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65143"
     ),
   },
 }
-
-export const DefaultKaizenSiteDemoIcon = () => (
-  <IconButton
-    icon={configureIcon}
-    label="Label"
-    data-automation-id="demo-button"
-  />
-)
-
-DefaultKaizenSiteDemoIcon.storyName = "Default Icon (Kaizen Site Demo)"
 
 ReversedButtons.parameters = {
   backgrounds: {
@@ -773,6 +832,7 @@ const IconLeftWorking = args => (
   <Button
     label="Label"
     icon={configureIcon}
+    disabled={true}
     {...args}
     working
     workingLabel="Submitting"
@@ -784,10 +844,10 @@ const IconRightWorking = args => (
   <Button
     label="Label"
     icon={configureIcon}
+    disabled={true}
     iconPosition="end"
     {...args}
     working
-    workingLabel="Submitting"
     workingLabelHidden
   />
 )
@@ -806,8 +866,8 @@ const DefaultWorking = args => {
         <Button
           label="Label"
           onClick={clickAction}
+          disabled={true}
           working={working}
-          workingLabel="Submitting"
           workingLabelHidden
           {...args}
         />
@@ -820,8 +880,8 @@ const DefaultWorkingWithWorkingLabelVisible = args => (
   <Button
     label="Label"
     onClick={clickAction}
+    disabled={true}
     working
-    workingLabel="Submitting"
     {...args}
   />
 )
@@ -830,8 +890,8 @@ const DefaultWorkingOnEnd = args => (
   <Button
     label="Label"
     onClick={clickAction}
+    disabled={true}
     working
-    workingLabel="Submitting"
     iconPosition="end" // Loading spinner sits in same spot as icon
     {...args}
   />
@@ -856,6 +916,7 @@ const DestructiveWorking = args => (
   <Button
     label="Label"
     destructive={true}
+    disabled={true}
     working
     workingLabel="Submitting"
     workingLabelHidden
@@ -877,6 +938,7 @@ const FullWidthWorking = args => (
   <Button
     label="Label"
     fullWidth={true}
+    disabled={true}
     working
     workingLabel="Submitting"
     workingLabelHidden
