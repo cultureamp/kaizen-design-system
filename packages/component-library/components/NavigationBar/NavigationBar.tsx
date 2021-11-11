@@ -15,6 +15,7 @@ import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
 import { Navigation, NavigationItem } from "./types"
+import { Brand } from "@kaizen/brand"
 
 import styles from "./NavigationBar.module.scss"
 
@@ -59,7 +60,9 @@ class NavigationBar extends React.Component<Props, unknown> {
             <header
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
-              {this.renderBadge()}
+              <span className={styles.caLogoContainer}>
+                <Brand reversed variant="logo-horizontal" alt="Culture Amp" />
+              </span>
               {this.renderNav(children)}
             </header>
           )
@@ -117,7 +120,7 @@ class NavigationBar extends React.Component<Props, unknown> {
 
   renderBadge() {
     const {
-      environment = "production",
+      environment = "test",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
