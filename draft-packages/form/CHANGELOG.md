@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.10...@kaizen/draft-form@3.13.11) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.9...@kaizen/draft-form@3.13.10) (2021-11-09)
+
+
+### Bug Fixes
+
+* Add type=search specificity to override perf-ui materialize ([#2271](https://github.com/cultureamp/kaizen-design-system/issues/2271)) ([279c02d](https://github.com/cultureamp/kaizen-design-system/commit/279c02d202316f2fee5b42ebe4eff069c2822934))
+
+
+
+
+
 ## [3.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.8...@kaizen/draft-form@3.13.9) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/draft-form
