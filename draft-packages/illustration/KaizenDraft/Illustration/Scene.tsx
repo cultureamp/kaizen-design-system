@@ -171,7 +171,7 @@ export const EmptyStatesNegative = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name="illustrations/scene/empty-states-negative.svg"
+      name="illustrations/heart/scene/empty-states-negative.svg"
     />
   )
 }
@@ -194,7 +194,7 @@ export const EmptyStatesPositive = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name="illustrations/scene/empty-states-positive.svg"
+      name="illustrations/heart/scene/empty-states-positive.svg"
     />
   )
 }
@@ -217,7 +217,7 @@ export const EmptyStatesNeutral = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name="illustrations/scene/empty-states-neutral.svg"
+      name="illustrations/heart/scene/empty-states-neutral.svg"
     />
   )
 }

@@ -33,7 +33,7 @@ export const Informative = ({
   isAnimated,
   ...otherProps
 }: AnimatedSpotProps) => {
-  const illustrationPath = "illustrations/spot/moods-informative.svg"
+  const illustrationPath = "illustrations/heart/spot/moods-informative.svg"
   const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
   const AnimatedIllustration = (
     <AnimatedBase
@@ -73,7 +73,7 @@ export const PositiveMale = ({
   isAnimated,
   ...otherProps
 }: AnimatedSpotProps) => (
-  <Base {...otherProps} name="illustrations/spot/moods-positive-male.svg" />
+  <Base {...otherProps} name="illustrations/heart/spot/moods-positive.svg" />
 )
 
 /**
