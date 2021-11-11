@@ -3,6 +3,7 @@ import * as React from "react"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
 import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
+import { Brand } from "@kaizen/brand"
 import { ControlledOffCanvas } from "../OffCanvas"
 import {
   LocalBadge,
@@ -15,7 +16,6 @@ import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
 import { Navigation, NavigationItem } from "./types"
-import { Brand } from "@kaizen/brand"
 
 import styles from "./NavigationBar.module.scss"
 
