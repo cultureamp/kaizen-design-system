@@ -1,13 +1,18 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Heading } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 import {
+  Assertive,
   Cautionary,
   Informative,
   Negative,
   PositiveFemale,
 } from "@kaizen/draft-illustration"
+
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
 import { ButtonProps } from "@kaizen/draft-button"
 import {
@@ -23,6 +28,7 @@ import styles from "./ConfirmationModal.scss"
 
 export interface ConfirmationModalProps {
   readonly isOpen: boolean
+  readonly isProminent?: boolean
   readonly type: ModalType
   readonly title: string
   readonly onConfirm?: () => void
@@ -35,23 +41,51 @@ export interface ConfirmationModalProps {
 }
 
 type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
-type ModalType = "positive" | "informative" | "negative" | "cautionary"
+type ModalType =
+  | "positive"
+  | "informative"
+  | "negative"
+  | "cautionary"
+  | "assertive"
 
-const getIcon = (type: ModalType) => {
+const getIcon = (type: ModalType, isProminent: boolean) => {
   switch (type) {
     case "cautionary":
-      return <Cautionary alt="" />
+      return isProminent ? (
+        <Cautionary alt="" isAnimated loop />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
     case "informative":
-      return <Informative alt="" />
+      return isProminent ? (
+        <Informative alt="" isAnimated loop />
+      ) : (
+        <Icon icon={informationIcon} inheritSize role="presentation" />
+      )
     case "negative":
-      return <Negative alt="" />
+      return isProminent ? (
+        <Negative alt="" isAnimated loop />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
     case "positive":
-      return <PositiveFemale alt="" />
+      return isProminent ? (
+        <PositiveFemale alt="" isAnimated loop />
+      ) : (
+        <Icon icon={successIcon} inheritSize role="presentation" />
+      )
+    case "assertive":
+      return isProminent ? (
+        <Assertive alt="" isAnimated loop />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
   }
 }
 
 const ConfirmationModal = ({
   isOpen,
+  isProminent = false,
   type,
   title,
   onConfirm,
@@ -99,20 +133,32 @@ const ConfirmationModal = ({
               [styles.informativeHeader]: type === "informative",
               [styles.negativeHeader]: type === "negative",
               [styles.positiveHeader]: type === "positive",
+              [styles.assertiveHeader]: type === "assertive",
+              [styles.prominent]: isProminent,
             })}
           >
-            <div className={styles.iconContainer}>
-              <div className={styles.spotIcon}>{getIcon(type)}</div>
+            <div
+              className={classnames(styles.iconContainer, {
+                [styles.prominent]: isProminent,
+              })}
+            >
+              <div className={styles.spotIcon}>
+                {getIcon(type, isProminent)}
+              </div>
             </div>
-            <ModalAccessibleLabel>
-              <Heading tag="h1" variant="heading-1">
+            <ModalAccessibleLabel isProminent={isProminent}>
+              <Heading tag="h2" variant="heading-2">
                 {title}
               </Heading>
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
         <ModalBody unpadded>
-          <div className={styles.body}>
+          <div
+            className={classnames(styles.body, {
+              [styles.prominent]: isProminent,
+            })}
+          >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalBody>

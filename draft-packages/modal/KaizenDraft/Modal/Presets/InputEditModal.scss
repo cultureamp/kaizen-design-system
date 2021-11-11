@@ -12,12 +12,10 @@
 .header {
   color: $color-purple-800;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
-  text-align: center;
-  border-bottom: 1px solid $ca-border-color;
+  text-align: left;
 }
 
 .body {
-  background: $color-gray-100;
+  background: $color-gray-200;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
-  border-bottom: 1px solid $ca-border-color;
 }

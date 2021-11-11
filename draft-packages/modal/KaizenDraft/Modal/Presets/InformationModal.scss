@@ -16,8 +16,8 @@
 
 .header {
   color: $color-purple-800;
-  padding: $ca-grid * 0.5 $ca-grid * 1.5;
-  text-align: center;
+  padding: 2rem;
+  text-align: left;
 }
 
 .footer {
@@ -44,16 +44,43 @@
   }
 }
 
-.contentLayout {
+.portraitContentlayout {
   display: flex;
-  padding: $ca-grid;
+  padding: 2rem;
   @include ca-media-tablet-and-up {
     padding: $ca-grid 2 * $ca-grid 1.5 * $ca-grid 2 * $ca-grid;
   }
 }
 
+.landscapeContentlayout {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  @include ca-media-tablet-and-up {
+    padding: $ca-grid 2 * $ca-grid 1.5 * $ca-grid 2 * $ca-grid;
+  }
+  .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 200px;
+      width: auto;
+    }
+  }
+
+  .content {
+    padding-left: 0rem;
+    @include ca-media-tablet-and-up {
+      max-width: 100%;
+    }
+  }
+}
+
 .content {
   flex: 1 0 100%;
+  padding-left: $ca-grid * 2;
   @include ca-media-tablet-and-up {
     max-width: $ca-grid * 16;
   }
@@ -61,7 +88,6 @@
 
 .image {
   flex: 1;
-  padding-left: $ca-grid * 2;
   @include ca-media-mobile {
     display: none;
   }

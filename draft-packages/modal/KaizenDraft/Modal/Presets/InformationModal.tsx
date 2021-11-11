@@ -1,6 +1,7 @@
 import { Box, Heading } from "@kaizen/component-library"
 import { Divider } from "@kaizen/draft-divider"
 import { ButtonProps } from "@kaizen/draft-button"
+import classnames from "classnames"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
 import ModalHeader from "../Primitives/ModalHeader"
@@ -28,6 +29,7 @@ export type InformationModalProps = Readonly<
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
+    orientation: "portrait" | "landscape"
   } & InformationModalSecondaryActionProps
 >
 
@@ -44,6 +46,7 @@ const InformationModal = ({
   children,
   contentHeader,
   image,
+  orientation = "portrait",
   ...props
 }: InformationModalProps) => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
@@ -89,11 +92,16 @@ const InformationModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <Divider variant="content" />
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <div className={styles.contentLayout}>
+        <div
+          className={classnames(styles.contentLayout, {
+            [styles.portraitContentlayout]: orientation === "portrait",
+            [styles.landscapeContentlayout]: orientation === "landscape",
+          })}
+        >
+          <div className={styles.image}>{image}</div>
           <div className={styles.content}>
             {children}
             {onConfirm != null && (
@@ -106,7 +114,6 @@ const InformationModal = ({
               >
                 <ModalFooter
                   unpadded
-                  alignStart
                   variant={image ? "information" : undefined}
                   actions={footerActions}
                   appearance={"primary"}
@@ -115,7 +122,6 @@ const InformationModal = ({
               </div>
             )}
           </div>
-          <div className={styles.image}>{image}</div>
         </div>
       </div>
     </GenericModal>

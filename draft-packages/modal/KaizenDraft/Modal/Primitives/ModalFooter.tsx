@@ -4,7 +4,7 @@ import * as React from "react"
 import GenericModalSection from "./GenericModalSection"
 import styles from "./ModalFooter.scss"
 
-type ActionsVarianProps = "information"
+type ActionsVarianProps = "information" | "input"
 
 export type ModalFooterProps = Readonly<{
   /**
@@ -34,7 +34,7 @@ const ModalFooter: ModalFooter = props => {
   } = props
 
   return (
-    <GenericModalSection unpadded={unpadded}>
+    <GenericModalSection unpadded={unpadded} inputEdit={variant === "input"}>
       <div
         className={classNames(
           styles.actions,

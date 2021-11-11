@@ -67,7 +67,7 @@ const InputEditModal = ({
         <ModalHeader unpadded onDismiss={onDismiss}>
           <div className={styles.header}>
             <ModalAccessibleLabel>
-              <Text tag="h1" style="zen-heading-3" inline>
+              <Text tag="h2" style="default-style" inline>
                 {title}
               </Text>
             </ModalAccessibleLabel>
@@ -82,6 +82,7 @@ const InputEditModal = ({
           actions={footerActions}
           appearance={type === "negative" ? "destructive" : "primary"}
           automationId={automationId}
+          variant={"input"}
         />
       </div>
     </GenericModal>

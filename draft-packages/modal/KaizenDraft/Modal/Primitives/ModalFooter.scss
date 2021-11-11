@@ -5,7 +5,7 @@
 .actions {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .actionsAlignStart {
@@ -14,16 +14,16 @@
 }
 
 .informationAlign {
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: flex-start;
 
   .actionButton + .actionButton {
-    @include ca-margin($start: $ca-grid * 0.5);
+    @include ca-margin($end: $ca-grid * 0.5);
   }
 }
 
 .actionButton + .actionButton {
-  @include ca-margin($end: $ca-grid * 0.5);
+  @include ca-margin($start: $ca-grid * 0.5);
 }
 
 // to avoid the row-reverse styles

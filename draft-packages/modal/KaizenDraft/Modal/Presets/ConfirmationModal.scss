@@ -11,6 +11,7 @@ $dt-negative-header-background: $color-red-100;
 $dt-cautionary-header-background: $color-yellow-100;
 $dt-heading-text-color: $color-purple-800;
 $dt-cautionary-heading-text-color: $color-purple-800;
+$dt-assertive-header-background: $color-orange-100;
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -20,8 +21,8 @@ $dt-cautionary-heading-text-color: $color-purple-800;
 
 .header {
   color: $color-white;
-  padding: $spacing-lg $spacing-md $spacing-lg;
-  text-align: center;
+  padding: 2rem $spacing-md 2rem;
+  text-align: left;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
 
   // override Murmur global styles :(
@@ -29,40 +30,90 @@ $dt-cautionary-heading-text-color: $color-purple-800;
     color: $dt-heading-text-color;
   }
 }
-
+.positiveHeader,
+.informativeHeader,
+.negativeHeader,
+.cautionaryHeader,
+.assertiveHeader {
+  display: grid;
+  grid-template-columns: 0.25fr 2fr;
+  align-items: center;
+  &.prominent {
+    grid-template-columns: 1fr 2fr;
+    .iconContainer {
+      position: absolute;
+      top: 8%;
+    }
+    .spotIcon,
+    .svgIcon > svg {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto;
+      color: $color-purple-800;
+    }
+  }
+  .iconContainer {
+    align-self: center;
+    margin: 0 auto;
+  }
+  .spotIcon,
+  .svgIcon > svg {
+    width: 30px;
+    height: 30px;
+  }
+}
 .positiveHeader {
   background-color: $dt-positive-header-background;
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-green-500;
+  }
+}
+.assertiveHeader {
+  background-color: $dt-assertive-header-background;
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-orange-500;
+  }
 }
 
 .informativeHeader {
   background-color: $dt-informative-header-background;
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-blue-500;
+  }
 }
 
 .negativeHeader {
   background-color: $dt-negative-header-background;
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-red-500;
+  }
 }
 
 .cautionaryHeader {
   background-color: $dt-cautionary-header-background;
-
-  &.header h1 {
-    color: $color-purple-800;
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-yellow-500;
   }
 }
 
 .body {
-  padding: $spacing-md $spacing-xxxxl $spacing-sm;
+  padding: $spacing-md $spacing-md $spacing-md;
+  display: grid;
+  grid-template-columns: 0.25fr 2fr;
+  align-items: center;
+  &.prominent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
 }
 
 .iconContainer {
   position: relative;
   margin-bottom: $spacing-sm;
-}
-
-.spotIcon,
-.svgIcon > svg {
-  width: 155px;
-  height: 155px;
-  margin: 0 auto;
-  color: $color-purple-800;
 }
