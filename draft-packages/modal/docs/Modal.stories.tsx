@@ -594,7 +594,6 @@ export const ConfirmationModals = () => (
             title="Negative modal title"
             onConfirm={close}
             onDismiss={close}
-            secondaryLabel="cancel"
           >
             <Paragraph variant="body">
               Confirmation modals contain smaller pieces of content and can
