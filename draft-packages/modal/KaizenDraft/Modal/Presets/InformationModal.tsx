@@ -29,7 +29,7 @@ export type InformationModalProps = Readonly<
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-    orientation: "portrait" | "landscape"
+    isLandscape?: boolean
   } & InformationModalSecondaryActionProps
 >
 
@@ -46,7 +46,7 @@ const InformationModal = ({
   children,
   contentHeader,
   image,
-  orientation = "portrait",
+  isLandscape = false,
   ...props
 }: InformationModalProps) => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
@@ -97,8 +97,8 @@ const InformationModal = ({
         )}
         <div
           className={classnames(styles.contentLayout, {
-            [styles.portraitContentlayout]: orientation === "portrait",
-            [styles.landscapeContentlayout]: orientation === "landscape",
+            [styles.portraitContentlayout]: !isLandscape,
+            [styles.landscapeContentlayout]: isLandscape,
           })}
         >
           <div className={styles.image}>{image}</div>

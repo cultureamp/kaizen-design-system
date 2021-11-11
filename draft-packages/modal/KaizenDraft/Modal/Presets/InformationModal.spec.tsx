@@ -1,6 +1,6 @@
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
-import InformationModal, { InformationModalProps } from "./ContextModal"
+import InformationModal, { InformationModalProps } from "./InformationModal"
 
 afterEach(cleanup)
 
