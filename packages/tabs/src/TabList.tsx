@@ -1,6 +1,5 @@
 import { TabList as ReachTabList } from "@reach/tabs"
 import React, { ReactNode } from "react"
-import styles from "./styles.scss"
 
 export interface TabListProps {
   /**
@@ -15,9 +14,5 @@ export interface TabListProps {
  */
 export const TabList = (props: TabListProps) => {
   const { "aria-label": ariaLabel, children } = props
-  return (
-    <ReachTabList className={styles.tabList} aria-label={ariaLabel}>
-      {children}
-    </ReachTabList>
-  )
+  return <ReachTabList aria-label={ariaLabel}>{children}</ReachTabList>
 }
