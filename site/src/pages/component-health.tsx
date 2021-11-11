@@ -98,13 +98,20 @@ export default ({ data, location }) => {
             </tbody>
             <tfoot>
               <tr>
-                <td>Total</td>
+                <td>
+                  <Heading tag="span" variant="heading-4">
+                    Total ({componentsFiltered.length})
+                  </Heading>
+                </td>
                 {healthAttributeMap.map(attribute => {
                   const count = totals[attribute.id]
                   const percentage = (count / componentsFiltered.length) * 100
                   return (
                     <td key={attribute.id}>
-                      {count}
+                      <Heading tag="span" variant="heading-4">
+                        {count}
+                      </Heading>
+
                       <Paragraph as="span" variant="small">
                         ({percentage.toFixed(0)}%)
                       </Paragraph>

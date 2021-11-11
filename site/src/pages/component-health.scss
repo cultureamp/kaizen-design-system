@@ -6,6 +6,7 @@
 .healthTable {
   border-spacing: 0;
   border-radius: $border-solid-border-radius;
+  border-collapse: collapse;
 
   thead {
     inset-block-start: 60px;
@@ -23,7 +24,10 @@
   th,
   td {
     padding: $spacing-sm;
-    border: 1px solid $color-gray-200;
+  }
+
+  td {
+    border-top: 1px solid $color-white;
   }
 
   th {
@@ -34,6 +38,24 @@
 
     > span {
       font-weight: $typography-paragraph-bold-font-weight;
+    }
+
+    &:first-child {
+      border-radius: $border-solid-border-radius 0 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-solid-border-radius 0 0;
+    }
+  }
+
+  tfoot td {
+    &:first-child {
+      border-radius: 0 0 0 $border-solid-border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $border-solid-border-radius 0;
     }
   }
 
@@ -52,10 +74,12 @@
   }
 
   .positive {
-    background: $color-green-300;
+    background: $color-green-100;
+    color: $color-green-600;
   }
 
   .negative {
-    background: $color-red-200;
+    background: $color-red-100;
+    color: $color-red-600;
   }
 }
