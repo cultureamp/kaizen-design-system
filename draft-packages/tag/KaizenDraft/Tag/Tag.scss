@@ -51,6 +51,7 @@ $small: $spacing-md;
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
   margin-top: -1px;
+  white-space: nowrap;
 }
 
 .dismissButton {

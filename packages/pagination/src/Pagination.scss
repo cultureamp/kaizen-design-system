@@ -23,13 +23,11 @@
   margin: 0 5px;
   background-color: transparent;
   color: $color-blue-500;
-  cursor: pointer;
   box-sizing: border-box;
 
   &:disabled {
     opacity: 0.35;
     pointer-events: none;
-    cursor: default;
   }
 
   &:hover {
@@ -68,7 +66,6 @@
   background-color: transparent;
   color: $color-blue-500;
   margin: 0 5px;
-  cursor: pointer;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
