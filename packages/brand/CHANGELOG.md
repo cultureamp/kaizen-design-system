@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.1.5...@kaizen/brand@1.1.6) (2021-11-11)
+
+
+### Bug Fixes
+
+* Center Brand img vertically ([#2279](https://github.com/cultureamp/kaizen-design-system/issues/2279)) ([64c2c79](https://github.com/cultureamp/kaizen-design-system/commit/64c2c7952cd162b474268e3284f67433be1aa7f9))
+
+
+
+
+
 ## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.1.4...@kaizen/brand@1.1.5) (2021-11-07)
 
 
