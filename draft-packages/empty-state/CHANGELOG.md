@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.1.2...@kaizen/draft-empty-state@3.1.3) (2021-11-11)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.1.1...@kaizen/draft-empty-state@3.1.2) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.1.0...@kaizen/draft-empty-state@3.1.1) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.0.2...@kaizen/draft-empty-state@3.1.0) (2021-11-08)
+
+
+### Features
+
+* Remove theme from Elm Modal and EmptyState components ([#2208](https://github.com/cultureamp/kaizen-design-system/issues/2208)) ([29a70f5](https://github.com/cultureamp/kaizen-design-system/commit/29a70f5f84c76c62b99c235d83b30e060983d30f))
+
+
+
+
+
 ## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.0.1...@kaizen/draft-empty-state@3.0.2) (2021-11-05)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

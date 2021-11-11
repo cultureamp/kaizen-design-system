@@ -35,7 +35,8 @@ $border-solid-border-radius-curved: $input-height;
   margin-top: -2px;
 }
 
-.input {
+// [type="search"] is required to override performance-ui global materialize CSS >:|
+.input[type="search"] {
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
@@ -72,7 +73,7 @@ $border-solid-border-radius-curved: $input-height;
   }
 }
 
-.input:focus + .focusRing {
+.input[type="search"]:focus + .focusRing {
   $focus-ring-offset: 3px;
   position: absolute;
   background: transparent;
@@ -111,7 +112,7 @@ $border-solid-border-radius-curved: $input-height;
     }
   }
 
-  .input {
+  .input[type="search"] {
     @include ca-padding(
       $start: $ca-grid + $input-icon-size,
       $end: $input-base-padding-horizontal
@@ -131,7 +132,7 @@ $border-solid-border-radius-curved: $input-height;
     }
   }
 
-  .input {
+  .input[type="search"] {
     @include ca-padding(
       $start: $input-base-padding-horizontal,
       $end: $ca-grid + $input-icon-size
@@ -140,7 +141,7 @@ $border-solid-border-radius-curved: $input-height;
 }
 
 .withStartIconAdornment.withEndIconAdornment {
-  .input {
+  .input[type="search"] {
     @include ca-padding(
       $start: $ca-grid + $input-icon-size,
       $end: $ca-grid + $input-icon-size
@@ -239,7 +240,7 @@ $border-solid-border-radius-curved: $input-height;
 ///////////////////////////////////////////////////
 
 // Default
-.input.default {
+.input[type="search"].default {
   background-color: $color-white;
   color: $color-purple-800;
   border-color: $color-gray-500;
@@ -281,7 +282,7 @@ $border-solid-border-radius-curved: $input-height;
 }
 
 // Secondary default
-.input.secondary.default {
+.input[type="search"].secondary.default {
   background-color: $color-gray-200;
   color: $color-purple-800;
   border: transparent;
@@ -314,7 +315,7 @@ $border-solid-border-radius-curved: $input-height;
 }
 
 // Reversed (Dark Backgrounds)
-.input.reversed {
+.input[type="search"].reversed {
   color: $color-white;
   border-color: rgba($color-white-rgb, 0.65);
   background: rgba($color-white-rgb, 0.1);
@@ -359,7 +360,7 @@ $border-solid-border-radius-curved: $input-height;
 }
 
 // Reversed Secondary (Dark Backgrounds)
-.input.reversed.secondary {
+.input[type="search"].reversed.secondary {
   color: $color-white;
   border: none;
   background-color: rgba(255, 255, 255, 0.1);
