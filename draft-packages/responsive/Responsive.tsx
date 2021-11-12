@@ -7,9 +7,10 @@ export type GridSizes = {
   medium?: "1" | "2" | "3"
   large?: "1" | "2" | "3"
   xl?: "1" | "2" | "3" | "4"
+  children?: React.ReactChild
 }
 
-export default function Responsive({ small, medium, large, xlarge }) {
+export default function Responsive({ small, medium, large, xlarge, children }) {
   return (
     <div
       className={cx(styles.gridWrapper, {
@@ -19,10 +20,7 @@ export default function Responsive({ small, medium, large, xlarge }) {
         [styles[`xlarge-${xlarge}`]]: xlarge,
       })}
     >
-      <div className={styles.column}>1</div>
-      <div className={styles.column}>2</div>
-      <div className={styles.column}>3</div>
-      <div className={styles.column}>4</div>
+      {children}
     </div>
   )
 }
