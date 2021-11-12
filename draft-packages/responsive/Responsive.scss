@@ -19,7 +19,7 @@
 
 @media (min-width: 664px) {
   .small-2 {
-    grid-template-columns: repeat(2, 1fr);
+    @include two-column;
   }
 
   .small-3 {
