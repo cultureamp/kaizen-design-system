@@ -13,6 +13,8 @@
   grid-template-columns: 1fr;
   gap: 24px;
   border: 1px solid #eaeaec;
+  max-width: 1352px;
+  margin: 0 auto;
 }
 
 @media (min-width: 664px) {
