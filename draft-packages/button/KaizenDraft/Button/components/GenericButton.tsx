@@ -70,7 +70,8 @@ type WorkingUndefinedProps = {
 export type LabelProps = LabelPropsGeneric &
   (WorkingProps | WorkingUndefinedProps)
 
-export type IconButtonProps = GenericProps
+export type IconButtonProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps)
 export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
@@ -250,7 +251,7 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.working]: !props.iconButton && props.working,
+    [styles.working]: props.working,
   })
 }
 
@@ -326,9 +327,7 @@ const renderBadge = (props: Props) => {
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {props.working && !props.iconButton
-      ? renderWorkingContent(props)
-      : renderDefaultContent(props)}
+    {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
   </span>
 )
 
