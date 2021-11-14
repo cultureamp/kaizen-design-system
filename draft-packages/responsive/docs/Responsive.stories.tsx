@@ -14,10 +14,13 @@ export default {
         component: 'import { Responsive } from "@kaizen/draft-responsive"',
       },
     },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
   },
 }
 
-export const DefaultKaizenSiteDemo = () => {
+export const DefaultKaizenSiteDemo = args => {
   const [browserWidth, setBrowserWidth] = useState(window.innerWidth)
 
   const handleWindowResize = useCallback(event => {
@@ -39,7 +42,7 @@ export const DefaultKaizenSiteDemo = () => {
           <Heading variant="heading-3">Browser width: {browserWidth}</Heading>
         </Box>
         <Box pb={1}>
-          <Responsive small="1" medium="2" large="3" xlarge="4">
+          <Responsive {...args}>
             <Card>
               <Box p={2}>
                 <Heading variant="heading-4">Test</Heading>
@@ -92,3 +95,10 @@ export const DefaultKaizenSiteDemo = () => {
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+
+DefaultKaizenSiteDemo.args = {
+  small: 2,
+  medium: 2,
+  large: 3,
+  xlarge: 4,
+}
