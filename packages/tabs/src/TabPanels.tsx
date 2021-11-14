@@ -1,6 +1,6 @@
 import { TabPanels as ReachTabPanels } from "@reach/tabs"
 import React, { ReactNode } from "react"
-
+import styles from "./styles.scss"
 export interface TabPanelsProps {
   children: ReactNode
 }
@@ -10,5 +10,7 @@ export interface TabPanelsProps {
  */
 export const TabPanels = (props: TabPanelsProps) => {
   const { children } = props
-  return <ReachTabPanels>{children}</ReachTabPanels>
+  return (
+    <ReachTabPanels className={styles.tabPanels}>{children}</ReachTabPanels>
+  )
 }

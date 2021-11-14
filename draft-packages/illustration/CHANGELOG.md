@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.7...@kaizen/draft-illustration@2.8.0) (2021-11-11)
+
+
+### Features
+
+* Removing Zen theme from Spot and Scene illustrations ([#2280](https://github.com/cultureamp/kaizen-design-system/issues/2280)) ([2f70133](https://github.com/cultureamp/kaizen-design-system/commit/2f701336b7d6c97243d8a1e74723b9b7b033f41b))
+
+
+
+
+
 ## [2.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.6...@kaizen/draft-illustration@2.7.7) (2021-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

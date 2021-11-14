@@ -3,11 +3,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
-.tabList {
-  border-bottom: 1px solid rgba($color-gray-600-rgb, 0.1);
-  padding: 0 $spacing-md;
-}
-
 .tab {
   display: inline-flex;
   align-items: center;
@@ -76,6 +71,10 @@
   margin-inline-start: $spacing-sm;
   display: inline-flex;
   align-items: center;
+}
+
+.tabPanels {
+  border-top: 1px solid rgba($color-gray-600-rgb, 0.1);
 }
 
 .tabPanel {
