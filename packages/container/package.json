@@ -29,7 +29,7 @@
     "!tsconfig.dist.json"
   ],
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^3.0.0",
     "@types/react": "^16.9.0",
     "react": "^16.9.0"
   },
