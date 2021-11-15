@@ -3,6 +3,7 @@ import * as React from "react"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
 import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
+import { Brand } from "@kaizen/brand"
 import { ControlledOffCanvas } from "../OffCanvas"
 import {
   LocalBadge,
@@ -59,7 +60,9 @@ class NavigationBar extends React.Component<Props, unknown> {
             <header
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
-              {this.renderBadge()}
+              <span className={styles.caLogoContainer}>
+                <Brand reversed variant="logo-horizontal" alt="Culture Amp" />
+              </span>
               {this.renderNav(children)}
             </header>
           )
@@ -117,7 +120,7 @@ class NavigationBar extends React.Component<Props, unknown> {
 
   renderBadge() {
     const {
-      environment = "production",
+      environment = "test",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
