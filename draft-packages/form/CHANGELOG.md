@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.11...@kaizen/draft-form@3.13.12) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.10...@kaizen/draft-form@3.13.11) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.9...@kaizen/draft-form@3.13.10) (2021-11-09)
+
+
+### Bug Fixes
+
+* Add type=search specificity to override perf-ui materialize ([#2271](https://github.com/cultureamp/kaizen-design-system/issues/2271)) ([279c02d](https://github.com/cultureamp/kaizen-design-system/commit/279c02d202316f2fee5b42ebe4eff069c2822934))
+
+
+
+
+
+## [3.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.8...@kaizen/draft-form@3.13.9) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.7...@kaizen/draft-form@3.13.8) (2021-11-03)
+
+
+### Bug Fixes
+
+* Add type=button to SearchField clear button ([#2199](https://github.com/cultureamp/kaizen-design-system/issues/2199)) ([526003f](https://github.com/cultureamp/kaizen-design-system/commit/526003f6286bac058649e9a9e0bfd72ef887c13f))
+
+
+
+
+
 ## [3.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.6...@kaizen/draft-form@3.13.7) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-form

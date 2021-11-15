@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.7...@kaizen/draft-menu@4.1.8) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.6...@kaizen/draft-menu@4.1.7) (2021-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.5...@kaizen/draft-menu@4.1.6) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.4...@kaizen/draft-menu@4.1.5) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.3...@kaizen/draft-menu@4.1.4) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.2...@kaizen/draft-menu@4.1.3) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-menu

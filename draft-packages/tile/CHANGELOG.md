@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.4.2...@kaizen/draft-tile@5.4.3) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.4.1...@kaizen/draft-tile@5.4.2) (2021-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.4.0...@kaizen/draft-tile@5.4.1) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.3.20...@kaizen/draft-tile@5.4.0) (2021-11-05)
+
+
+### Features
+
+* added mood prop to InformationTile and MultiActionTile ([#2202](https://github.com/cultureamp/kaizen-design-system/issues/2202)) ([12890a4](https://github.com/cultureamp/kaizen-design-system/commit/12890a4ef36ca4143c5f33976d29ada94ad5bd1d))
+
+
+
+
+
+## [5.3.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.3.19...@kaizen/draft-tile@5.3.20) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.3.18...@kaizen/draft-tile@5.3.19) (2021-11-02)
+
+
+### Bug Fixes
+
+* Apply aria-label to link version of IconButton ([#2176](https://github.com/cultureamp/kaizen-design-system/issues/2176)) ([9d9462a](https://github.com/cultureamp/kaizen-design-system/commit/9d9462a29d80b2147f2e119f8f05b14aa9a299b7))
+
+
+
+
+
 ## [5.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.3.17...@kaizen/draft-tile@5.3.18) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-tile

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.15...@kaizen/draft-tag@1.12.16) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.14...@kaizen/draft-tag@1.12.15) (2021-11-11)
+
+
+### Bug Fixes
+
+* apply nowrap to tag contents ([#2278](https://github.com/cultureamp/kaizen-design-system/issues/2278)) ([66baa3a](https://github.com/cultureamp/kaizen-design-system/commit/66baa3a37178ea21073bbf21f75cefcbf8312a3d))
+
+
+
+
+
+## [1.12.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.13...@kaizen/draft-tag@1.12.14) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.12...@kaizen/draft-tag@1.12.13) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.11...@kaizen/draft-tag@1.12.12) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-tag

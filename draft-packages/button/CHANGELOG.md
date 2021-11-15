@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.3.0...@kaizen/draft-button@5.3.1) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.13...@kaizen/draft-button@5.3.0) (2021-11-12)
+
+
+### Features
+
+* Merge button and icon button stories and add reversed-destructive Button variant, and "working" state on IconButton  ([#2265](https://github.com/cultureamp/kaizen-design-system/issues/2265)) ([2b57b45](https://github.com/cultureamp/kaizen-design-system/commit/2b57b45edabd5e5b6a0d21c51974dcb115d525e3))
+
+
+
+
+
+## [5.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.12...@kaizen/draft-button@5.2.13) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.11...@kaizen/draft-button@5.2.12) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [5.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.10...@kaizen/draft-button@5.2.11) (2021-11-02)
+
+
+### Bug Fixes
+
+* Apply aria-label to link version of IconButton ([#2176](https://github.com/cultureamp/kaizen-design-system/issues/2176)) ([9d9462a](https://github.com/cultureamp/kaizen-design-system/commit/9d9462a29d80b2147f2e119f8f05b14aa9a299b7))
+
+
+
+
+
 ## [5.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@5.2.9...@kaizen/draft-button@5.2.10) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-button

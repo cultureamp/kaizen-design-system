@@ -16,10 +16,20 @@ export const Brand = (props: BrandProps) => {
   const brandTheme = props.reversed ? "-reversed" : "-default"
 
   return (
-    <img
-      src={assetUrl(`brand/${props.variant}${brandTheme}.svg`)}
-      alt={props.alt}
-      className={styles.img}
-    />
+    <picture>
+      <source
+        srcSet={assetUrl(`brand/${props.variant}-reversed.svg`)}
+        media="(forced-colors: active) and (prefers-color-scheme: dark)"
+      />
+      <source
+        srcSet={assetUrl(`brand/${props.variant}-default.svg`)}
+        media="(forced-colors: active) and (prefers-color-scheme: light)"
+      />
+      <img
+        src={assetUrl(`brand/${props.variant}${brandTheme}.svg`)}
+        alt={props.alt}
+        className={styles.img}
+      />
+    </picture>
   )
 }

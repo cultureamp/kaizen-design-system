@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.5...@kaizen/component-library@11.5.6) (2021-11-15)
+
+
+### Bug Fixes
+
+* change CA logo for the kaizen website ([#2282](https://github.com/cultureamp/kaizen-design-system/issues/2282)) ([196f402](https://github.com/cultureamp/kaizen-design-system/commit/196f40265a66d7a612e5502e02dd99224783b4bd))
+
+
+
+
+
+## [11.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.4...@kaizen/component-library@11.5.5) (2021-11-12)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.3...@kaizen/component-library@11.5.4) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.2...@kaizen/component-library@11.5.3) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [11.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.1...@kaizen/component-library@11.5.2) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [11.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.0...@kaizen/component-library@11.5.1) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/component-library

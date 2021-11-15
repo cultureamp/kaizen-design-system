@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.13...@kaizen/draft-title-block-zen@4.1.14) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.12...@kaizen/draft-title-block-zen@4.1.13) (2021-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.11...@kaizen/draft-title-block-zen@4.1.12) (2021-11-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.10...@kaizen/draft-title-block-zen@4.1.11) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.9...@kaizen/draft-title-block-zen@4.1.10) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.8...@kaizen/draft-title-block-zen@4.1.9) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.7...@kaizen/draft-title-block-zen@4.1.8) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.6...@kaizen/draft-title-block-zen@4.1.7) (2021-11-03)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.5...@kaizen/draft-title-block-zen@4.1.6) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.4...@kaizen/draft-title-block-zen@4.1.5) (2021-11-02)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
