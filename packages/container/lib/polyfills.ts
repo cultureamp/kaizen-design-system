@@ -5,4 +5,3 @@ import "focus-visible"
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
-
