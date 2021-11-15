@@ -25,14 +25,12 @@ export const Uncontrolled = () => (
     // eslint-disable-next-line no-console
     onChange={index => console.log("Tab changed to ", index)}
   >
-    <Box pt={0.25} pl={1} pr={1}>
-      <TabList aria-label="Tabs">
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab badge="3">Tab 3</Tab>
-        <Tab disabled>Disabled Tab</Tab>
-      </TabList>
-    </Box>
+    <TabList aria-label="Tabs">
+      <Tab>Tab 1</Tab>
+      <Tab>Tab 2</Tab>
+      <Tab badge="3">Tab 3</Tab>
+      <Tab disabled>Disabled Tab</Tab>
+    </TabList>
     <TabPanels>
       <TabPanel>
         <Box p={1}>
@@ -65,13 +63,11 @@ export const Controlled = () => {
         selectedIndex={selectedIndex}
         onChange={index => setSelectedIndex(index)}
       >
-        <Box pt={0.25} pl={1} pr={1}>
-          <TabList aria-label="Tabs">
-            <Tab>Tab 1</Tab>
-            <Tab>Tab 2</Tab>
-            <Tab>Tab 3</Tab>
-          </TabList>
-        </Box>
+        <TabList aria-label="Tabs">
+          <Tab>Tab 1</Tab>
+          <Tab>Tab 2</Tab>
+          <Tab>Tab 3</Tab>
+        </TabList>
         <TabPanels>
           <TabPanel>
             <Box p={1}>
@@ -102,13 +98,11 @@ export const Controlled = () => {
 
 export const ManualKeyboardActivation = () => (
   <Tabs keyboardActivation="manual">
-    <Box pt={0.25} pl={1} pr={1}>
-      <TabList aria-label="Tabs">
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-    </Box>
+    <TabList aria-label="Tabs">
+      <Tab>Tab 1</Tab>
+      <Tab>Tab 2</Tab>
+      <Tab>Tab 3</Tab>
+    </TabList>
     <TabPanels>
       <TabPanel>
         <Box p={1}>
@@ -145,7 +139,7 @@ export const UsageInCard = () => (
       // eslint-disable-next-line no-console
       onChange={index => console.log("Tab changed to ", index)}
     >
-      <Box pt={0.25} pl={1} pr={1}>
+      <Box pt={0.25}>
         <TabList aria-label="Tabs">
           <Tab>Tab 1</Tab>
           <Tab>Tab 2</Tab>
