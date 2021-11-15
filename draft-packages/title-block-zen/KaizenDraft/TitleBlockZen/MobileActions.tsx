@@ -326,12 +326,12 @@ const DrawerHandle = ({
             onClick={toggleDisplay}
           >
             {primaryAction.label}
-            <div className={styles.mobileActionsChevronSquare}>
+            <span className={styles.mobileActionsChevronSquare}>
               <Icon
                 icon={isOpen ? chevronDownIcon : chevronUpIcon}
                 role="presentation"
               />
-            </div>
+            </span>
           </button>
         </div>
       )
@@ -388,12 +388,12 @@ const DrawerHandle = ({
           onClick={toggleDisplay}
         >
           {renderDrawerHandleLabel("Other actions")}
-          <div className={styles.mobileActionsChevronSquare}>
+          <span className={styles.mobileActionsChevronSquare}>
             <Icon
               icon={isOpen ? chevronDownIcon : chevronUpIcon}
               role="presentation"
             />
-          </div>
+          </span>
         </button>
       </div>
     )
