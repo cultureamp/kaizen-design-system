@@ -2,7 +2,7 @@
 import React from "react"
 import { addParameters } from "@storybook/react"
 import { addons } from "@storybook/addons"
-import KaizenContainer, { themeManager } from "@kaizen/container"
+import { Container, themeManager } from "@kaizen/container"
 import { backgrounds } from "./backgrounds"
 import { themeOfKey } from "./theme-switcher-addon/themeManager"
 import {
@@ -79,9 +79,9 @@ export const globalTypes = {
 
 export const decorators = [
   (Story: React.ComponentType) => (
-    <KaizenContainer>
+    <Container>
       <Story />
-    </KaizenContainer>
+    </Container>
   ),
   (Story, props) => {
     const dir = props.args.textDirection ?? props.globals.textDirection

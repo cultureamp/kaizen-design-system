@@ -1,5 +1,9 @@
 import * as React from "react"
-import { ThemeManager, ThemeProvider, heartTheme, defaultTheme } from "@kaizen/design-tokens"
+import {
+  ThemeManager,
+  ThemeProvider,
+  defaultTheme,
+} from "@kaizen/design-tokens"
 import "./polyfills"
 
 /**

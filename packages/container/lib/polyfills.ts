@@ -6,9 +6,5 @@ import "focus-visible"
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
 
-// Global styles
-import { } from "./globals.module.scss"
-
 // Supported / active face declarations
-import { } from "./fonts.module.scss"
-
+import {} from "./fonts.module.scss"

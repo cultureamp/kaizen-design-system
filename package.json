@@ -85,7 +85,6 @@
     "elm-hot-webpack-loader": "^1.1.8",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "elm-webpack-loader": "^7.0.1",
-    "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
