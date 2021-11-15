@@ -9,9 +9,9 @@ export interface TabListProps {
    */
   "aria-label": string
   /**
-   * Removes the built in margins on the sides
+   * Removes the built in padding
    */
-  unpadded?: boolean
+  noPadding?: boolean
   children: ReactNode
 }
 
@@ -19,12 +19,12 @@ export interface TabListProps {
  * Wrapper for the tabs themselves
  */
 export const TabList = (props: TabListProps) => {
-  const { "aria-label": ariaLabel, unpadded = false, children } = props
+  const { "aria-label": ariaLabel, noPadding = false, children } = props
   return (
     <ReachTabList
       aria-label={ariaLabel}
       className={classnames(styles.tabList, {
-        [styles.unpadded]: unpadded,
+        [styles.noPadding]: noPadding,
       })}
     >
       {children}
