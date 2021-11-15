@@ -58,6 +58,16 @@ import {
   BrandMomentLogin,
   BrandMomentError,
   BrandMomentStarterKit,
+  SkillsCoach1On1Meetings,
+  SkillsCoachCoaching,
+  SkillsCoachEmployeeDevelopment,
+  SkillsCoachEssentialFeedback,
+  SkillsCoachFeedback,
+  SkillsCoachManagerHub,
+  SkillsCoachProductivity,
+  SkillsCoachRemoteManager,
+  SkillsCoachResilience,
+  SkillsCoachStrategy,
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -354,3 +364,52 @@ SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"
 
 export const SurveyGetStartedStory = () => <SurveyGetStarted alt="" />
 SurveyGetStartedStory.storyName = "Survey Overview: Get Started"
+
+export const SkillCoachStory = args => (
+  <>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach 1 on 1 Meetings</h1>
+      <SkillsCoach1On1Meetings alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Coaching</h1>
+      <SkillsCoachCoaching alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Employee Development</h1>
+      <SkillsCoachEmployeeDevelopment alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skill Coach Essential Feedback</h1>
+      <SkillsCoachEssentialFeedback alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Feedback</h1>
+      <SkillsCoachFeedback alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Manager Hub</h1>
+      <SkillsCoachManagerHub alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Productivity</h1>
+      <SkillsCoachProductivity alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Remote Manager</h1>
+      <SkillsCoachRemoteManager alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Resilience</h1>
+      <SkillsCoachResilience alt="" />
+    </div>
+    <div style={{ width: "450px" }}>
+      <h1>Skills Coach Strategy</h1>
+      <SkillsCoachStrategy alt="" />
+    </div>
+  </>
+)
+BrandMoments.args = {
+  isAnimated: true,
+  loop: true,
+}
