@@ -2,8 +2,8 @@ import { graphql } from "gatsby"
 import * as React from "react"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
 
-import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
+import subtractIcon from "@kaizen/component-library/icons/subtract-white.icon.svg"
 
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
@@ -79,13 +79,13 @@ export default ({ data, location }) => {
                       >
                         {mdx.node.frontmatter.health[attribute.id] ? (
                           <Icon
-                            icon={checkIcon}
+                            icon={successIcon}
                             title={attribute.positive}
                             role="img"
                           />
                         ) : (
                           <Icon
-                            icon={closeIcon}
+                            icon={subtractIcon}
                             title={attribute.negative}
                             role="img"
                           />
