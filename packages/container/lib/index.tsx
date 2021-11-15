@@ -5,6 +5,7 @@ import {
   defaultTheme,
 } from "@kaizen/design-tokens"
 import "./polyfills"
+import "./fonts.module.scss"
 
 /**
  * Initialise the themeManager with the default theme. This is a singleton so this should not
