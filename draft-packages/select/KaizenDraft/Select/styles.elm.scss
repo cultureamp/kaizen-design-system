@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
@@ -12,6 +11,8 @@
   // box-shadow: 0 0 0 1px $color;
 }
 
+$control-height: $ca-grid * 2;
+
 .basePlaceholder {
   @include kz-typography-paragraph-body;
   margin-left: 2px;
@@ -20,6 +21,12 @@
   position: absolute;
   transform: translateY(-50%);
   box-sizing: border-box;
+
+  .controlHasUnconstrainedHeight & {
+    position: relative;
+    top: 0;
+    transform: none;
+  }
 }
 .container {
   position: relative;
@@ -37,25 +44,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 48px;
+  min-height: $control-height;
   position: relative;
   box-sizing: border-box;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    // Iron for Heart theme and Wisteria500 for Zen. Switching not needed when Zen is removed.
-    var($kz-var-id-color-iron, $kz-var-color-wisteria-500);
-  border-radius: $kz-var-border-solid-border-radius;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  border-radius: $border-solid-border-radius;
   /* Tech debt - this !important existed before Stylelint rules */
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:not(.disabled):hover {
-    // Slate on Heart theme, Wisteria700 on Zen. Switching not needed when Zen is removed.
-    border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-700);
-    // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed
-    background-color: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
+    border-color: $color-gray-600;
+    background-color: $color-gray-100;
   }
 
   &.isFocused {
-    @include select-border($color: $kz-var-color-cluny-500);
+    @include select-border($color: $color-blue-500);
   }
 }
 
@@ -70,7 +73,11 @@
   overflow: hidden;
 
   .disabled & {
-    position: static;
+    position: static; // TODO calc based on border width
+  }
+
+  .controlHasUnconstrainedHeight & {
+    min-height: calc(#{$control-height} - (#{$border-solid-border-width} * 2));
   }
 }
 
@@ -80,6 +87,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
+  .controlHasUnconstrainedHeight & {
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+  }
 }
 
 .placeholder {
@@ -88,16 +101,16 @@
 }
 
 .faded {
-  color: $kz-var-color-wisteria-300;
+  color: $color-purple-800;
 }
 
 .bold {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   font-weight: $ca-weight-book;
 }
 
 .fadedBold {
-  color: $kz-var-color-wisteria-300;
+  color: $color-purple-800;
   font-weight: $ca-weight-book;
 }
 
@@ -132,9 +145,9 @@
   width: 100%;
   box-sizing: border-box;
   // Temporary 6px until we redesign this component with Inter
-  border: 6px $kz-var-border-solid-border-style transparent;
-  border-radius: $kz-var-border-solid-border-radius;
-  box-shadow: $kz-var-shadow-large-box-shadow;
+  border: 6px $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
   z-index: 1;
 }
 
@@ -162,24 +175,24 @@
   outline: none;
 
   &.isTarget:not(.isSelected) {
-    color: $kz-var-color-cluny-500;
-    background-color: $kz-var-color-cluny-100;
+    color: $color-blue-500;
+    background-color: $color-blue-100;
   }
 
   &:focus:not(.isSelected) {
-    background-color: $kz-var-color-cluny-100;
+    background-color: $color-blue-100;
   }
 
   &.isFocused:not(.isSelected) {
-    background-color: $kz-var-color-cluny-100;
+    background-color: $color-blue-100;
   }
 }
 
 .isSelected {
-  background-color: $kz-var-color-cluny-100;
+  background-color: $color-blue-100;
 
   &:hover {
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
   }
 }
 
@@ -189,7 +202,7 @@
 }
 
 .cautionary {
-  @include select-border($color: $kz-var-color-yuzu-300);
+  @include select-border($color: $color-yellow-300);
 
   &:hover {
     box-shadow: none;
@@ -197,7 +210,7 @@
 }
 
 .error {
-  @include select-border($color: $kz-var-color-coral-200);
+  @include select-border($color: $color-red-200);
 
   &:hover {
     box-shadow: none;
@@ -209,7 +222,7 @@
 }
 
 .clearButtonWrapper {
-  color: $kz-var-color-wisteria-700;
+  color: rgba($color-purple-800-rgb, 70%);
   height: 20px;
   position: relative;
   top: -14px;
@@ -217,5 +230,19 @@
   button:not(:disabled):hover {
     // not(:disabled) is required for extra specificity to override the default button background
     background-color: transparent;
+  }
+}
+
+.autosizeInputContainer {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  box-sizing: border-box;
+  margin: 2px;
+
+  .controlHasUnconstrainedHeight & {
+    position: absolute;
+    top: 6px;
   }
 }

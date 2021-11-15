@@ -1,10 +1,9 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
 
 .container {
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   margin-bottom: $ca-grid;
 }
 
@@ -15,53 +14,60 @@
 // Background Style Variations
 
 .positive {
-  background: $kz-var-color-seedling-100;
-  border-color: var(
-    #{$kz-var-id-color-seedling-300},
-    $kz-var-color-seedling-200
-  );
-  color: $kz-var-color-wisteria-800;
+  background: $color-green-100;
+  border-color: $color-green-300;
+  color: $color-purple-800;
 }
 
 .negative {
-  background: $kz-var-color-coral-100;
-  border-color: var(#{$kz-var-id-color-coral-300}, $kz-var-color-coral-200);
-  color: $kz-var-color-wisteria-800;
+  background: $color-red-100;
+  border-color: $color-red-300;
+  color: $color-purple-800;
 }
 
 .informative {
-  background: $kz-var-color-cluny-100;
-  border-color: var(#{$kz-var-id-color-cluny-300}, $kz-var-color-cluny-200);
-  color: $kz-var-color-wisteria-800;
+  background: $color-blue-100;
+  border-color: $color-blue-300;
+  color: $color-purple-800;
 }
 
 .cautionary {
-  background: $kz-var-color-yuzu-100;
-  border-color: var(#{$kz-var-id-color-yuzu-400}, $kz-var-color-yuzu-300);
-  color: $kz-var-color-wisteria-800;
+  background: $color-yellow-100;
+  border-color: $color-yellow-400;
+  color: $color-purple-800;
+}
+
+.assertive {
+  background: $color-orange-100;
+  border-color: $color-orange-300;
+  color: $color-purple-800;
+}
+
+.prominent {
+  background: $color-purple-100;
+  border-color: $color-purple-300;
+  color: $color-purple-800;
 }
 
 .default {
-  // Slate 700 10% for Heart theme, Wisteria 300 for Zen theme (use Zen fallback when CSS variables aren't available).
-  --slate-700-10: rgba(var(#{$kz-var-id-color-slate-rgb-params}), 0.1);
-  background-color: $kz-var-color-ash;
-  border-color: var(--slate-700-10, $kz-var-color-wisteria-300);
+  background-color: $color-gray-300;
+  border-color: rgba($color-gray-600-rgb, 0.1);
 }
 
 // Border Style Variations
 
 .solid {
-  border-style: $kz-var-border-solid-border-style;
-  border-width: $kz-var-border-solid-border-width;
+  border-style: $border-solid-border-style;
+  border-width: $border-solid-border-width;
 }
 
 .dashed {
-  border-style: $kz-var-border-dashed-border-style;
-  border-width: $kz-var-border-dashed-border-width;
+  border-style: $border-dashed-border-style;
+  border-width: $border-dashed-border-width;
 }
 
 .none {
-  border-color: $kz-var-border-borderless-border-color;
-  border-style: $kz-var-border-borderless-border-style;
-  border-width: $kz-var-border-borderless-border-width;
+  border-color: $border-borderless-border-color;
+  border-style: $border-borderless-border-style;
+  border-width: $border-borderless-border-width;
 }

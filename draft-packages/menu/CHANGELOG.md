@@ -3,6 +3,446 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.7...@kaizen/draft-menu@4.1.8) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.6...@kaizen/draft-menu@4.1.7) (2021-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.5...@kaizen/draft-menu@4.1.6) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.4...@kaizen/draft-menu@4.1.5) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.3...@kaizen/draft-menu@4.1.4) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.2...@kaizen/draft-menu@4.1.3) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.1...@kaizen/draft-menu@4.1.2) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.0...@kaizen/draft-menu@4.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.3...@kaizen/draft-menu@4.1.0) (2021-10-27)
+
+
+### Features
+
+* Adjust Menu structure again to allow content separate from the list of items ([#2126](https://github.com/cultureamp/kaizen-design-system/issues/2126)) ([b56864b](https://github.com/cultureamp/kaizen-design-system/commit/b56864b6982232d4360352bcfc724fa1cc6c37e8))
+
+Migration notes:
+Menu has been refactored to render unordered lists, as a result it now has a change of API.
+MenuContent is no longer required and MenuHeading and MenuDivider have been removed. Wrap your MenuItems inside the new MenuList component instead. You can use multiple MenuLists inside 1 Menu if you want a heading and a separator. If you have content that isn't MenuItems - put them directly into Menu (do not wrap it in MenuList).
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.2...@kaizen/draft-menu@4.0.3) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.1...@kaizen/draft-menu@4.0.2) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.0.0...@kaizen/draft-menu@4.0.1) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.22...@kaizen/draft-menu@4.0.0) (2021-10-25)
+
+
+### Features
+
+* BREAKING CHANGE: complete restructure of component for accessibility audit ([#2093](https://github.com/cultureamp/kaizen-design-system/issues/2093)) ([2a4f5a4](https://github.com/cultureamp/kaizen-design-system/commit/2a4f5a4ad1e5a947a064e70f840cadbaece45dbf))
+
+
+### BREAKING CHANGES
+
+Ignore this and look at v4.1 for migration notes
+
+
+
+
+
+## [3.4.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.21...@kaizen/draft-menu@3.4.22) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.20...@kaizen/draft-menu@3.4.21) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.19...@kaizen/draft-menu@3.4.20) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.18...@kaizen/draft-menu@3.4.19) (2021-10-15)
+
+
+### Bug Fixes
+
+* Set MenuItem flex-basis (height) to auto instead of 100% ([#2086](https://github.com/cultureamp/kaizen-design-system/issues/2086)) ([89f8285](https://github.com/cultureamp/kaizen-design-system/commit/89f82853d519a1ee0bae966d2ac915ef6f944362))
+
+
+
+
+
+## [3.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.17...@kaizen/draft-menu@3.4.18) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.16...@kaizen/draft-menu@3.4.17) (2021-10-11)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.15...@kaizen/draft-menu@3.4.16) (2021-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.14...@kaizen/draft-menu@3.4.15) (2021-10-05)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.13...@kaizen/draft-menu@3.4.14) (2021-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.12...@kaizen/draft-menu@3.4.13) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.11...@kaizen/draft-menu@3.4.12) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.10...@kaizen/draft-menu@3.4.11) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.9...@kaizen/draft-menu@3.4.10) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.8...@kaizen/draft-menu@3.4.9) (2021-09-22)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.7...@kaizen/draft-menu@3.4.8) (2021-09-10)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.6...@kaizen/draft-menu@3.4.7) (2021-09-06)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.5...@kaizen/draft-menu@3.4.6) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.4...@kaizen/draft-menu@3.4.5) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.3...@kaizen/draft-menu@3.4.4) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.2...@kaizen/draft-menu@3.4.3) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.1...@kaizen/draft-menu@3.4.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.4.0...@kaizen/draft-menu@3.4.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.3.0...@kaizen/draft-menu@3.4.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.43...@kaizen/draft-menu@3.3.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [3.2.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.42...@kaizen/draft-menu@3.2.43) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [3.2.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.41...@kaizen/draft-menu@3.2.42) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.40...@kaizen/draft-menu@3.2.41) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.39...@kaizen/draft-menu@3.2.40) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.38...@kaizen/draft-menu@3.2.39) (2021-08-02)
+
+
+### Bug Fixes
+
+* make disabled colours on MenuItem match the designs in UI Kit ([#1781](https://github.com/cultureamp/kaizen-design-system/issues/1781)) ([deef763](https://github.com/cultureamp/kaizen-design-system/commit/deef7635aec30a86398e5aad2179a693ea92c72a))
+
+
+
+
+
+## [3.2.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.37...@kaizen/draft-menu@3.2.38) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.36...@kaizen/draft-menu@3.2.37) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [3.2.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.35...@kaizen/draft-menu@3.2.36) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.34...@kaizen/draft-menu@3.2.35) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.33...@kaizen/draft-menu@3.2.34) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.32...@kaizen/draft-menu@3.2.33) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.31...@kaizen/draft-menu@3.2.32) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.30...@kaizen/draft-menu@3.2.31) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.2.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.29...@kaizen/draft-menu@3.2.30) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [3.2.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.28...@kaizen/draft-menu@3.2.29) (2021-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-menu

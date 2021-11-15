@@ -4,23 +4,26 @@ import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { Informative } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../storybook/constants"
 const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
   .default
 
 export default {
-  title: "GuidanceBlock (React)",
+  title: `${CATEGORIES.components}/Guidance Block`,
   component: GuidanceBlock,
   parameters: {
-    info: {
-      text: `
-        import { GuidanceBlock } from "@kaizen/draft-guidance-block";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
+      },
     },
+    backgrounds: { default: "Gray 100" },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
   },
-  decorators: [withDesign, story => <div>{story()}</div>],
+  decorators: [withDesign],
 }
 
 const guidanceBlockText = {
@@ -30,7 +33,7 @@ const guidanceBlockText = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-const Default = () => (
+export const Default = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -48,14 +51,18 @@ const Default = () => (
   />
 )
 
-const DefaultWithoutActions = () => (
+Default.storyName = "Default"
+
+export const DefaultWithoutActions = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
   />
 )
 
-const WithoutActionArrowButton = () => (
+DefaultWithoutActions.storyName = "Default Without Actions"
+
+export const WithoutActionArrowButton = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -74,7 +81,9 @@ const WithoutActionArrowButton = () => (
   />
 )
 
-const WithoutMaxWidth = () => (
+WithoutActionArrowButton.storyName = "Without Action Arrow Button"
+
+export const WithoutMaxWidth = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -94,7 +103,9 @@ const WithoutMaxWidth = () => (
   />
 )
 
-const Persistent = () => (
+WithoutMaxWidth.storyName = "Without Max Width"
+
+export const Persistent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -110,7 +121,9 @@ const Persistent = () => (
   />
 )
 
-const SecondaryAction = () => (
+Persistent.storyName = "Persistent"
+
+export const SecondaryAction = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -131,7 +144,9 @@ const SecondaryAction = () => (
   />
 )
 
-const Prominent = () => (
+SecondaryAction.storyName = "Secondary Action"
+
+export const Prominent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -147,7 +162,9 @@ const Prominent = () => (
   />
 )
 
-const WithCustomDescription = () => (
+Prominent.storyName = "Prominent"
+
+export const WithCustomDescription = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={{
@@ -174,8 +191,9 @@ const WithCustomDescription = () => (
     persistent
   />
 )
+WithCustomDescription.storyName = "With custom description"
 
-const WithTooltip = () => (
+export const WithTooltip = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={{
@@ -202,63 +220,3 @@ const WithTooltip = () => (
     }}
   />
 )
-
-Default.storyName = "Default"
-
-Default.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-DefaultWithoutActions.storyName = "Default Without Actions"
-
-DefaultWithoutActions.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Persistent.storyName = "Persistent"
-
-Persistent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutActionArrowButton.storyName = "Without Action Arrow Button"
-
-WithoutActionArrowButton.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithoutMaxWidth.storyName = "Without Max Width"
-
-WithoutMaxWidth.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-SecondaryAction.storyName = "Secondary Action"
-
-SecondaryAction.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-Prominent.storyName = "Prominent"
-
-Prominent.parameters = {
-  backgrounds: { default: "Stone" },
-}
-
-WithCustomDescription.storyName = "With custom description"
-
-WithCustomDescription.paramters = {
-  backgrounds: { default: "Stone" },
-}
-
-export {
-  Default,
-  DefaultWithoutActions,
-  WithoutMaxWidth,
-  WithoutActionArrowButton,
-  Persistent,
-  SecondaryAction,
-  Prominent,
-  WithCustomDescription,
-  WithTooltip,
-}

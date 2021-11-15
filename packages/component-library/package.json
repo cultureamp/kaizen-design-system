@@ -22,39 +22,39 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "10.0.2",
+  "version": "11.5.6",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.1.2",
-    "@kaizen/draft-button": "^3.3.14",
-    "@kaizen/hosted-assets": "^1.1.1",
+    "@kaizen/brand": "^1.1.5",
+    "@kaizen/deprecated-component-library-helpers": "^2.4.1",
+    "@kaizen/draft-button": "^5.3.1",
+    "@kaizen/hosted-assets": "^1.2.0",
     "@kaizen/react-deprecate-warning": "^1.1.5",
-    "@types/classnames": "^2.2.6",
-    "@types/lodash": "^4.14.132",
-    "@types/uuid": "^3.3.2",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
+    "@types/classnames": "^2.3.0",
+    "@types/lodash": "^4.14.176",
+    "@types/uuid": "^3.4.10",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "motion-ui": "cultureamp/motion-ui",
     "react-focus-lock": "^1.19.1",
-    "react-media": "^1.9.2",
-    "uuid": "^3.3.2"
+    "react-media": "^1.10.0",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@testing-library/dom": "^7.30.0",
+    "@testing-library/dom": "^7.31.2",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.7.1"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
+    "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
   }
 }

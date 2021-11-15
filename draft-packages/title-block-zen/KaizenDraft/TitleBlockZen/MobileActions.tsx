@@ -1,11 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
-import {
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuSeparator,
-} from "@kaizen/draft-menu"
+import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -47,7 +42,6 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     primaryAction.menuItems.length > 0
   ) {
     return [
-      <MenuSeparator key="title-block-mobile-actions-primary-menu-separator" />,
       primaryAction.menuItems
         .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
@@ -128,52 +122,37 @@ type DrawerMenuContentProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
 }
 
-type ConditionalOtherActionsHeadingProps = {
-  primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
-  secondaryActions?: SecondaryActionsProps
-  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
-}
-
-const ConditionalOtherActionsHeading = ({
-  primaryAction,
-  defaultAction,
-  secondaryActions,
-  secondaryOverflowMenuItems,
-}: ConditionalOtherActionsHeadingProps) => (
-  <>
-    {(defaultAction ||
-      (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
-      <MenuSeparator />
-    )}
-    {((defaultAction && buttonIsAction(defaultAction)) ||
-      secondaryActions ||
-      secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
-  </>
-)
-
 const DrawerMenuContent = ({
   primaryAction,
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
-}: DrawerMenuContentProps) => (
-  <>
-    {primaryAction && renderPrimaryLinks(primaryAction)}
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-    {primaryAction && renderPrimaryActions(primaryAction)}
-    <ConditionalOtherActionsHeading
-      primaryAction={primaryAction}
-      defaultAction={defaultAction}
-      secondaryActions={secondaryActions}
-      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-    />
-    {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
-    {secondaryActions && renderSecondaryActions(secondaryActions)}
-    {secondaryOverflowMenuItems &&
-      renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-  </>
-)
+}: DrawerMenuContentProps) => {
+  const showOtherActionsHeading =
+    (defaultAction && buttonIsAction(defaultAction)) ||
+    secondaryActions ||
+    secondaryOverflowMenuItems
+
+  return (
+    <>
+      <MenuList>
+        {primaryAction && renderPrimaryLinks(primaryAction)}
+        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
+        {primaryAction && renderPrimaryActions(primaryAction)}
+      </MenuList>
+      {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
+        <MenuList
+          heading={showOtherActionsHeading ? "Other actions" : undefined}
+        >
+          {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+          {secondaryActions && renderSecondaryActions(secondaryActions)}
+          {secondaryOverflowMenuItems &&
+            renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+        </MenuList>
+      )}
+    </>
+  )
+}
 
 const renderDrawerHandleLabel = (
   label: string,
@@ -326,28 +305,33 @@ const DrawerHandle = ({
   toggleDisplay,
   isOpen,
 }: DrawerHandleProps) => {
+  const showDrawer =
+    defaultAction || secondaryActions || secondaryOverflowMenuItems
   if (primaryAction) {
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
       return (
         <div
-          className={styles.mobileActionsTopRow}
+          className={classnames(
+            styles.mobileActionsTopRow,
+            styles.mobileActionsTopRowSingleButton
+          )}
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           <button
             className={classnames(
-              styles.mobileActionsExpandButtonFullWidth,
+              styles.mobileActionsExpandButton,
               styles.mobileActionsPrimaryLabel
             )}
             onClick={toggleDisplay}
           >
             {primaryAction.label}
-            <div className={styles.mobileActionsChevronSquare}>
+            <span className={styles.mobileActionsChevronSquare}>
               <Icon
                 icon={isOpen ? chevronDownIcon : chevronUpIcon}
                 role="presentation"
               />
-            </div>
+            </span>
           </button>
         </div>
       )
@@ -355,7 +339,9 @@ const DrawerHandle = ({
       // If the primary action is a button, or has no onClick/href/action
       return (
         <div
-          className={styles.mobileActionsTopRow}
+          className={classnames(styles.mobileActionsTopRow, {
+            [styles.mobileActionsTopRowSingleButton]: !showDrawer,
+          })}
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           {
@@ -369,9 +355,7 @@ const DrawerHandle = ({
           }
 
           {/* If there are no secondary etc. actions, just show the button without drawer */}
-          {(defaultAction ||
-            secondaryActions ||
-            secondaryOverflowMenuItems) && (
+          {showDrawer && (
             <button
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
@@ -387,26 +371,29 @@ const DrawerHandle = ({
     }
   }
   // if there are default/secondary actions but no primary action
-  if (defaultAction || secondaryActions || secondaryOverflowMenuItems) {
+  if (showDrawer) {
     return (
       <div
-        className={styles.mobileActionsTopRow}
+        className={classnames(
+          styles.mobileActionsTopRow,
+          styles.mobileActionsTopRowSingleButton
+        )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
       >
         <button
           className={classnames(
-            styles.mobileActionsExpandButtonFullWidth,
+            styles.mobileActionsExpandButton,
             styles.mobileActionsPrimaryLabel
           )}
           onClick={toggleDisplay}
         >
           {renderDrawerHandleLabel("Other actions")}
-          <div className={styles.mobileActionsChevronSquare}>
+          <span className={styles.mobileActionsChevronSquare}>
             <Icon
               icon={isOpen ? chevronDownIcon : chevronUpIcon}
               role="presentation"
             />
-          </div>
+          </span>
         </button>
       </div>
     )
@@ -474,14 +461,12 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
-            <MenuContent>
-              <DrawerMenuContent
-                primaryAction={primaryAction}
-                defaultAction={defaultAction}
-                secondaryActions={secondaryActions}
-                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-              />
-            </MenuContent>
+            <DrawerMenuContent
+              primaryAction={primaryAction}
+              defaultAction={defaultAction}
+              secondaryActions={secondaryActions}
+              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+            />
           </div>
         )}
       </div>

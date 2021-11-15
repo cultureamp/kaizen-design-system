@@ -1,10 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/shadow-vars";
-
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 .wrapper {
-  color: $kz-var-color-wisteria-800;
-  background-color: $kz-var-color-white;
-  border-radius: $kz-var-border-borderless-border-radius;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  color: $color-purple-800;
+  background-color: $color-white;
+  border-radius: $border-borderless-border-radius;
+  box-shadow: $shadow-small-box-shadow;
 }

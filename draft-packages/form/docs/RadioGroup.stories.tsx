@@ -2,7 +2,7 @@ import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./RadioGroup.stories.scss"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 type RenderProps = {
   selectedOption: string
@@ -38,19 +38,25 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "RadioGroup (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Group`,
   component: RadioGroup,
   parameters: {
-    info: {
-      text: `
-      import { RadioGroup } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { RadioGroup } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A481"
     ),
   },
   decorators: [withDesign],
+}
+
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (
@@ -340,3 +346,45 @@ export const WithBottomMargin = () => (
 )
 
 WithBottomMargin.storyName = "With bottom margin"
+
+export const ReversedDefault = () => (
+  <RadioGroupExample
+    render={({ selectedOption, onChangeHandler }) => (
+      <RadioGroup reversed labelText="Radio group label">
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-1"
+          selectedStatus={selectedOption === "radio-1"}
+          onChange={onChangeHandler}
+          value="radio-1"
+          reversed
+        />
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-2"
+          selectedStatus={selectedOption === "radio-2"}
+          onChange={onChangeHandler}
+          value="radio-2"
+          reversed
+        />
+        <RadioField
+          labelText="Label"
+          name="radio"
+          id="radio-3"
+          selectedStatus={selectedOption === "radio-3"}
+          onChange={onChangeHandler}
+          value="radio-3"
+          reversed
+        />
+      </RadioGroup>
+    )}
+  />
+)
+ReversedDefault.story = {
+  name: "Reversed Default",
+  parameters: {
+    ...reversedBg,
+  },
+}

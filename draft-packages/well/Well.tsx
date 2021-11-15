@@ -9,6 +9,8 @@ export type VariantType =
   | "informative"
   | "cautionary"
   | "default"
+  | "assertive"
+  | "prominent"
 
 export type BorderStyleType = "solid" | "dashed" | "none"
 

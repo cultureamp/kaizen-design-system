@@ -1,12 +1,12 @@
 import classnames from "classnames"
 import * as React from "react"
-import { useTheme } from "@kaizen/design-tokens"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
+  AnimatedProps,
 } from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
@@ -35,10 +35,8 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
-  // TODO: Heart Rebrand Cleanup > Deprecate or completely remove this prop once Heart is released.
-  useZenStyles?: boolean
   children?: React.ReactNode
-}
+} & Pick<AnimatedProps, "isAnimated" | "loop">
 
 type EmptyState = React.FunctionComponent<EmptyStateProps>
 
@@ -51,9 +49,10 @@ const EmptyState: EmptyState = ({
   bodyText,
   children,
   straightCorners,
-  useZenStyles,
+  isAnimated = true,
+  loop = false,
 }) => {
-  const theme = useTheme()
+  const animationProps = isAnimated ? { isAnimated, loop } : {}
   return (
     <div
       className={classnames([
@@ -70,14 +69,10 @@ const EmptyState: EmptyState = ({
         {React.createElement(illustrations[illustrationType], {
           alt: illustrationType,
           classNameAndIHaveSpokenToDST: styles.illustration,
+          ...animationProps,
         })}
       </div>
-      <div
-        className={classnames([
-          styles.textSide,
-          { [styles.zen]: useZenStyles },
-        ])}
-      >
+      <div className={styles.textSide}>
         <div className={styles.textSideInner}>
           <div className={styles.heading}>{headingText}</div>
           <div className={styles.description}>{bodyText}</div>

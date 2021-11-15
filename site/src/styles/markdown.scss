@@ -1,8 +1,7 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/NavigationBar/styles";
@@ -12,8 +11,8 @@ $link-icon-margin: 12px;
 
 .markdownContainer {
   :global(.md-p) {
-    font-weight: $kz-var-typography-paragraph-body-font-weight;
-    margin: $ca-grid 0;
+    font-weight: $typography-paragraph-body-font-weight;
+    margin: $spacing-md 0;
   }
 
   :global(.md-p),
@@ -30,22 +29,22 @@ $link-icon-margin: 12px;
   :global(.md-li) {
     margin: 0;
     margin-bottom: 0.5em;
-    font-weight: $kz-var-typography-paragraph-body-font-weight;
+    font-weight: $typography-paragraph-body-font-weight;
 
     :global(.md-p) {
-      margin: $ca-grid / 2 0;
+      margin: $spacing-sm 0;
     }
   }
 
   :global(.md-ol) > :global(.md-li) {
-    margin-top: $ca-grid;
+    margin-top: $spacing-md;
   }
 
   /* Adds a negative top margin to counter for the fixed header + add a bit of padding */
   :global(.md-anchor-offset) {
     display: block;
     position: relative;
-    top: -$ca-navigation-bar__height - $ca-grid;
+    top: calc(-1 * #{$ca-navigation-bar__height} - #{$spacing-md});
     visibility: hidden;
   }
 
@@ -53,7 +52,7 @@ $link-icon-margin: 12px;
     float: left;
     margin-left: -$ca-icon-width - ($link-icon-margin * 2);
     padding: 0 $link-icon-margin;
-    color: rgba($kz-var-color-wisteria-700-rgb-params, 0.8);
+    color: rgba($color-purple-700-rgb, 0.8);
     &:not(:focus) {
       svg {
         visibility: hidden;
@@ -68,7 +67,7 @@ $link-icon-margin: 12px;
   :global(.md-h5),
   :global(.md-h6) {
     font-weight: $ca-weight-book;
-    margin: ($ca-grid * 2) 0 ($ca-grid / 2);
+    margin: $spacing-lg 0 $spacing-sm;
 
     &:hover :global(.md-heading-link) svg {
       visibility: visible;
@@ -88,45 +87,45 @@ $link-icon-margin: 12px;
 
   :global(.md-h2) {
     @include kz-typography-heading-2;
-    margin-top: $ca-grid * 3.25;
+    margin-top: calc(#{$spacing-md} * 3.25);
     margin-bottom: 0;
 
     @include ca-media-mobile() {
-      margin-top: $ca-grid * 2;
+      margin-top: $spacing-lg;
     }
   }
 
   :global(.md-h2) + :global(.md-p),
   :global(.md-h2) + :global(.md-ul),
   :global(.md-h2) + :global(.md-ol) {
-    margin-top: $ca-grid * 1.5;
+    margin-top: calc(#{$spacing-md} * 1.5);
 
     @include ca-media-mobile() {
-      margin-top: $ca-grid;
+      margin-top: $spacing-md;
     }
   }
 
   :global(.md-h3) {
     @include kz-typography-heading-3;
-    margin-top: $ca-grid * 2;
-    margin-bottom: $ca-grid;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-md;
 
     @include ca-media-mobile() {
-      margin-top: $ca-grid;
+      margin-top: $spacing-md;
     }
   }
 
   :global(.md-h2) + :global(.md-h3) {
-    margin-top: $ca-grid;
+    margin-top: $spacing-md;
   }
 
   :global(.md-h4) {
     @include kz-typography-heading-4;
-    margin-top: $ca-grid * 2;
-    margin-bottom: $ca-grid;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-md;
 
     @include ca-media-mobile() {
-      margin-top: $ca-grid;
+      margin-top: $spacing-md;
     }
   }
 
@@ -141,7 +140,7 @@ $link-icon-margin: 12px;
   :global(.md-em),
   :global(.md-i) {
     font-style: normal;
-    font-weight: $kz-var-typography-paragraph-bold-font-weight;
+    font-weight: $typography-paragraph-bold-font-weight;
   }
 
   :global(.md-strong) {
@@ -152,12 +151,12 @@ $link-icon-margin: 12px;
   :global(.md-hr) {
     height: 1px;
     border: 0;
-    background-color: $ca-border-color;
+    background-color: $border-solid-border-color;
   }
 
   :global(.md-a) {
     text-decoration: underline;
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
     word-break: break-word;
 
     &:hover {
@@ -166,40 +165,40 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-table) {
-    margin-bottom: $ca-grid * 2;
+    margin-bottom: $spacing-lg;
     border-collapse: collapse;
   }
 
   tbody > :global(.md-tr):first-of-type > :global(.md-td) {
-    padding-top: $ca-grid / 2;
+    padding-top: $spacing-sm;
   }
 
   :global(.md-th),
   :global(.md-td) {
-    $cell-padding: $ca-grid / 2;
-    padding: $cell-padding $ca-grid $cell-padding 0;
+    $cell-padding: $spacing-sm;
+    padding: $cell-padding $spacing-md $cell-padding 0;
   }
 
   :global(.md-th) {
     text-align: left;
-    border-bottom: 1px solid $ca-border-color;
-    font-weight: $kz-var-typography-paragraph-bold-font-weight;
+    border-bottom: 1px solid $border-solid-border-color;
+    font-weight: $typography-paragraph-bold-font-weight;
   }
 
   :global(.md-td) {
-    font-weight: $kz-var-typography-paragraph-body-font-weight;
+    font-weight: $typography-paragraph-body-font-weight;
     vertical-align: text-top;
   }
 
   :global(.md-tr) {
-    border-bottom: 1px solid $ca-border-color;
+    border-bottom: 1px solid $border-solid-border-color;
     &:last-of-type {
       border-bottom: 0;
     }
   }
 
   :global(.md-pre) {
-    background-color: $kz-var-color-stone;
+    background-color: $color-gray-100;
 
     & :global(.md-code) {
       padding: 0;
@@ -227,7 +226,7 @@ $link-icon-margin: 12px;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.05em;
-    margin-bottom: $ca-grid / 2;
+    margin-bottom: $spacing-sm;
   }
 
   :global(.md-button) {
@@ -240,15 +239,15 @@ $link-icon-margin: 12px;
   }
 
   :global(iframe) {
-    background-color: $kz-var-color-ash;
+    background-color: $color-gray-300;
     border-radius: 3px;
     margin-top: 1.5rem;
     width: 100%;
   }
 
   :global(blockquote) {
-    background-color: $kz-var-color-stone;
-    border-left: 4px solid $kz-var-color-wisteria-600;
+    background-color: $color-gray-100;
+    border-left: 4px solid $color-purple-600;
     margin: 0;
     padding: 0.5rem 1.5rem;
   }

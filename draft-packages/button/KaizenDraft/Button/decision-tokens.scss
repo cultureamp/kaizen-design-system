@@ -1,34 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-
-$dt-color-background-active: var(
-  --kz-var-color-stone,
-  $kz-var-color-wisteria-100
-);
-$dt-color-background-focus: var(
-  --kz-var-color-stone,
-  $kz-var-color-wisteria-100
-);
-$dt-color-background-hover: var(
-  --kz-var-color-stone,
-  $kz-var-color-wisteria-100
-);
-$dt-color-border-color-base: var(
-  --kz-var-color-iron,
-  $kz-var-color-wisteria-500
-);
-$dt-color-border-color-hover: var(
-  --kz-var-color-slate,
-  $kz-var-color-wisteria-700
-);
-$dt-color-border-color-focus: var(
-  --kz-var-color-slate,
-  $kz-var-color-wisteria-700
-);
-$dt-color-border-color-disabled: var(
-  --kz-var-color-iron,
-  $kz-var-color-wisteria-500
-);
-$dt-color-color-disabled: var(
-  --kz-var-color-wisteria-800,
-  $kz-var-color-wisteria-800
-);
+@import "~@kaizen/design-tokens/sass/color";
+$dt-color-background-active: $color-gray-100;
+$dt-color-background-focus: $color-gray-100;
+$dt-color-background-hover: $color-gray-100;
+$dt-color-border-color-base: $color-gray-500;
+$dt-color-border-color-hover: $color-gray-600;
+$dt-color-border-color-focus: $color-gray-600;
+$dt-color-border-color-disabled: $color-gray-500;
+$dt-color-color-disabled: $color-purple-800;

@@ -9,6 +9,7 @@ export type RadioGroupProps = {
   automationId?: string
   labelText: string | React.ReactNode
   noBottomMargin?: boolean
+  reversed?: boolean
 }
 
 type RadioGroup = React.FunctionComponent<RadioGroupProps>
@@ -18,11 +19,13 @@ const RadioGroup: RadioGroup = ({
   children,
   labelText = "",
   noBottomMargin = false,
+  reversed = false,
 }) => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.radioGroupContainer, {
       [styles.noBottomMargin]: noBottomMargin,
+      [styles.reversed]: reversed,
     })}
   >
     <div className={styles.radioGroupLabel}>
@@ -30,6 +33,7 @@ const RadioGroup: RadioGroup = ({
         automationId={`${automationId}-field-label`}
         labelText={labelText}
         labelType="text"
+        reversed={reversed}
       />
     </div>
     {children}

@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
 @import "./decision-tokens.scss";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -59,8 +59,7 @@
     .content & span::before {
       background-color: $dt-color-background-color-content-link;
       height: 5px;
-      border-radius: 0 0 $kz-var-border-solid-border-radius
-        $kz-var-border-solid-border-radius;
+      border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
     }
 
     @include ca-media-tablet {
@@ -83,4 +82,12 @@
 
 .kaizen .active {
   background-color: $dt-color-background-color-default;
+}
+
+.caLogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(#{$spacing-md} * 5);
+  margin: 0 $spacing-md;
 }

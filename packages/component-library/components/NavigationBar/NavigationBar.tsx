@@ -2,6 +2,8 @@ import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
+import { Brand } from "@kaizen/brand"
 import { ControlledOffCanvas } from "../OffCanvas"
 import {
   LocalBadge,
@@ -26,11 +28,14 @@ type Props = {
   children?: Navigation
 }
 
+/**
+ * @deprecated NavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead
+ */
 class NavigationBar extends React.Component<Props, unknown> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
-  static defaultProps = {
+  static defaultProps: Props = {
     environment: "production",
     loading: false,
     colorScheme: "cultureamp",
@@ -55,7 +60,9 @@ class NavigationBar extends React.Component<Props, unknown> {
             <header
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
-              {this.renderBadge()}
+              <span className={styles.caLogoContainer}>
+                <Brand reversed variant="logo-horizontal" alt="Culture Amp" />
+              </span>
               {this.renderNav(children)}
             </header>
           )
@@ -113,7 +120,7 @@ class NavigationBar extends React.Component<Props, unknown> {
 
   renderBadge() {
     const {
-      environment = "production",
+      environment = "test",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
@@ -134,4 +141,7 @@ class NavigationBar extends React.Component<Props, unknown> {
   }
 }
 
-export default NavigationBar
+export default withDeprecatedComponent(NavigationBar, {
+  warning:
+    "NavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead",
+})

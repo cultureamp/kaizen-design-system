@@ -1,3 +1,5 @@
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
@@ -5,12 +7,12 @@
 
 .badge {
   background-color: $dt-color-badge-background-color;
-  color: $kz-var-color-white;
+  color: $color-white;
   font-weight: $ca-weight-medium;
   text-decoration: none;
   text-transform: uppercase;
-  max-height: $kz-var-layout-navigation-bar-height;
-  width: $kz-var-layout-navigation-bar-height;
+  max-height: $layout-navigation-bar-height;
+  width: $layout-navigation-bar-height;
   position: relative;
   &::after {
     display: block;

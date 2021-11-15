@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
 
 .container {
@@ -12,7 +12,7 @@
 }
 
 .tagAndCard {
-  margin-bottom: var(--ca-grid);
+  margin-bottom: $spacing-md;
   width: 48%;
   box-sizing: border-box;
   display: flex;
@@ -30,8 +30,8 @@
   box-sizing: border-box;
   display: flex;
   height: 100%;
-  margin-top: calc(var(--ca-grid) / 2);
-  padding: var(--ca-grid);
+  margin-top: $spacing-sm;
+  padding: $spacing-md;
 
   :global(.md-li.md-li) {
     font-size: 0.875rem;
@@ -73,27 +73,27 @@
 
     // Visibly highlight extraneous items to content contributors
     &:nth-child(n + 4) {
-      color: $kz-var-color-coral-500;
+      color: $color-red-500;
     }
   }
 }
 
 .doCard {
-  border-top-color: $kz-var-color-seedling-500;
-  background-color: $kz-var-color-seedling-100;
+  border-top-color: $color-green-500;
+  background-color: $color-green-100;
 }
 
 .dontCard {
-  border-top-color: $kz-var-color-coral-500;
-  background-color: $kz-var-color-coral-100;
+  border-top-color: $color-red-500;
+  background-color: $color-red-100;
 }
 
 .doText {
-  color: $kz-var-color-seedling-600;
+  color: $color-green-600;
   font-weight: 500;
 }
 
 .dontText {
-  color: $kz-var-color-coral-600;
+  color: $color-red-600;
   font-weight: 500;
 }

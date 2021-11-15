@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "ignoreDeps": [
+    // React and React DOM are pinned for now until all consumers are on React 17+
+    "react",
+    "react-dom",
+    // Gatsby is pinned because upgrades working with our icons
+    "gatsby",
+    "gatsby-plugin-google-tagmanager",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-source-filesystem",
+    "gatsby-transformer-remark",
+  ],
+  "packageRules": [
+    {
+      // Any peerDep or dep within the publishable packages triggers a 
+      // patch release as a _sensible default_. Merger should use their
+      // discretion to determine whether a major change is more appropriate
+      "matchPaths": ["packages/**", "draft-packages/**"],
+      "semanticCommitType": "fix",
+      "matchDepTypes": ["peerDependencies", "dependencies"]
+    }
+  ]
+}

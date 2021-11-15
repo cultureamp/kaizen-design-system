@@ -3,6 +3,7 @@ import * as React from "react"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import { ZenControlledOffCanvas } from "./helpers"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
@@ -22,7 +23,7 @@ type Props = {
   loading?: boolean
   colorScheme?: ColorScheme
   badgeHref?: string
-  onNavigationChange: NavigationChange
+  onNavigationChange?: NavigationChange
   headerComponent?: {
     desktop: React.ReactElement
     mobile: React.ReactElement
@@ -35,11 +36,14 @@ type State = {
   mobileKey: number
 }
 
+/**
+ * @deprecated ZenNavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead
+ */
 class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
-  static defaultProps = {
+  static defaultProps: Props = {
     environment: "production",
     loading: false,
     colorScheme: "cultureamp",
@@ -69,7 +73,7 @@ class NavigationBar extends React.Component<Props, State> {
               this.setState({
                 mobileKey: this.state.mobileKey + 1,
               })
-              onNavigationChange(event)
+              onNavigationChange && onNavigationChange(event)
             }
           },
           hasExtendedNavigation: !!children?.secondary?.length,
@@ -179,4 +183,7 @@ class NavigationBar extends React.Component<Props, State> {
     )
   }
 }
-export default NavigationBar
+export default withDeprecatedComponent(NavigationBar, {
+  warning:
+    "ZenNavigationBar is deprecated. See https://github.com/cultureamp/unified-navigation instead",
+})

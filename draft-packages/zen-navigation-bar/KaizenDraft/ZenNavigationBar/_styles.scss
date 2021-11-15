@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
@@ -27,18 +26,18 @@ $navbar-breakpoint-extended-large-up: 1350px;
 $navbar-breakpoint-condensed-large-up: 1150px;
 
 :export {
-  caBreakpointMobileMax: #{$kz-layout-breakpoints-large - 1};
+  caBreakpointMobileMax: #{$layout-breakpoints-large - 1};
   navbarBreakpointExtendedMin: $navbar-breakpoint-extended-large-up;
 }
 
 @mixin navbar-mobile-only {
-  @media (max-width: #{$kz-layout-breakpoints-large - 1px}) {
+  @media (max-width: #{$layout-breakpoints-large - 1px}) {
     @content;
   }
 }
 
 @mixin navbar-tablet-up {
-  @media (min-width: $kz-layout-breakpoints-large) {
+  @media (min-width: $layout-breakpoints-large) {
     @content;
   }
 }
@@ -89,8 +88,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   @include ca-type-reverse;
 
   align-items: center;
-  border-radius: $kz-var-border-solid-border-radius;
-  color: rgba($kz-var-color-white-rgb-params, 0.8);
+  border-radius: $border-solid-border-radius;
+  color: rgba($color-white-rgb, 0.8);
   display: flex;
   height: 100%;
   justify-content: center;
@@ -102,7 +101,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   // active indicator
   @include navbar-tablet-up {
     margin-top: -$ca-navigation-bar__spacer;
-    height: $kz-var-layout-navigation-bar-height;
+    height: $layout-navigation-bar-height;
     &::before {
       content: "";
       display: block;
@@ -111,18 +110,18 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       position: absolute;
       top: -100%;
       left: 0;
-      background-color: $kz-var-color-white;
+      background-color: $color-white;
       transition: top $ca-navigation-bar__animation-ease
         $ca-navigation-bar__animation-timing;
-      border-radius: 0 0 $kz-var-border-borderless-border-radius
-        $kz-var-border-borderless-border-radius;
+      border-radius: 0 0 $border-borderless-border-radius
+        $border-borderless-border-radius;
     }
   }
 
   &.active {
     outline: none; // override native focus styles
     text-decoration: none;
-    color: $kz-var-color-white;
+    color: $color-white;
 
     &::before {
       top: 0;
@@ -134,7 +133,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     align-items: center;
     height: $ca-navigation-bar__child-height;
     padding: 0 ($ca-grid / 2);
-    border-radius: $kz-var-border-borderless-border-radius;
+    border-radius: $border-borderless-border-radius;
     width: 100%;
     justify-content: center;
     @include navbar-mobile-only {
@@ -153,10 +152,10 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   &.menuOpen,
   &:focus {
     text-decoration: none;
-    color: $kz-var-color-white; // override hyperlink hover color
+    color: $color-white; // override hyperlink hover color
 
     .hoverArea {
-      background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+      background-color: rgba($color-white-rgb, 0.1);
     }
 
     .linkText::before {
@@ -193,7 +192,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     justify-content: center;
     height: 48px;
     @include navbar-mobile-only {
-      font-weight: $kz-var-typography-paragraph-body-font-weight;
+      font-weight: $typography-paragraph-body-font-weight;
     }
   }
 
@@ -209,20 +208,20 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     }
     &.badgeNotification {
       @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
-      background-color: $kz-var-color-white;
+      background-color: $color-white;
       color: $dt-color-text;
 
       @include navbar-mobile-only {
         background-color: $dt-color-badge-background-color;
-        color: $kz-var-color-white;
+        color: $color-white;
       }
     }
   }
 
   &.admin .badge {
     &.badgeNotification {
-      background-color: $kz-var-color-wisteria-800;
-      color: $kz-var-color-white;
+      background-color: $color-purple-800;
+      color: $color-white;
     }
   }
 
@@ -231,14 +230,14 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       .linkText {
         @include font-heading-5;
         @include ca-inherit-baseline;
-        font-weight: $kz-var-typography-button-secondary-font-weight;
+        font-weight: $typography-button-secondary-font-weight;
         display: none;
       }
     }
   }
 
   &.opaque {
-    color: $kz-var-color-white;
+    color: $color-white;
 
     @include navbar-tablet-up {
       .linkIcon {
@@ -258,13 +257,13 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       &:hover,
       &:focus {
         .hoverArea {
-          background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+          background-color: rgba($color-white-rgb, 0.1);
         }
       }
 
       &:active {
         .hoverArea {
-          background-color: rgba($kz-var-color-white-rgb-params, 0.2);
+          background-color: rgba($color-white-rgb, 0.2);
         }
       }
     }
@@ -303,36 +302,36 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   @include navbar-tablet-up {
     &.admin,
     &.content {
-      color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+      color: rgba($color-purple-800-rgb, 0.7);
 
       &.opaque,
       &.menuOpen {
-        color: $kz-var-color-wisteria-800;
+        color: $color-purple-800;
       }
 
       &.small {
-        color: $kz-var-color-cluny-500;
+        color: $color-blue-500;
 
         &.opaque {
-          color: $kz-var-color-cluny-500;
+          color: $color-blue-500;
         }
       }
 
       &.active {
-        color: $kz-var-color-cluny-500;
+        color: $color-blue-500;
       }
 
       &:hover,
       &:focus,
       &.menuOpen {
-        color: $kz-var-color-cluny-500;
+        color: $color-blue-500;
         .hoverArea {
-          background-color: rgba($kz-var-color-white-rgb-params, 0.5);
+          background-color: rgba($color-white-rgb, 0.5);
         }
       }
 
       &::before {
-        background-color: $kz-var-color-cluny-500;
+        background-color: $color-blue-500;
       }
     }
   }
@@ -348,8 +347,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     &:hover,
     &:focus {
       .hoverArea {
-        color: $kz-var-color-cluny-500;
-        background-color: $kz-var-color-cluny-100;
+        color: $color-blue-500;
+        background-color: $color-blue-100;
 
         .menuIcon {
           opacity: 1;
@@ -370,8 +369,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   flex-direction: row;
   align-items: center;
   background-color: $dt-color-background-color-default;
-  height: $kz-var-layout-navigation-bar-height;
-  max-height: $kz-var-layout-navigation-bar-height;
+  height: $layout-navigation-bar-height;
+  max-height: $layout-navigation-bar-height;
   width: 100%;
   position: fixed;
 
@@ -386,7 +385,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   &.admin {
-    background-color: $kz-var-color-white;
+    background-color: $color-white;
   }
 }
 
@@ -400,7 +399,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       color: white;
-      outline: 2px solid $kz-var-color-cluny-500;
+      outline: 2px solid $color-blue-500;
     }
   }
 }
@@ -414,54 +413,54 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
 @mixin font-heading-3 {
   @include anti-aliasing;
-  font-family: $kz-var-typography-heading-3-font-family;
-  font-weight: $kz-var-typography-heading-3-font-weight;
-  font-size: $kz-var-typography-heading-3-font-size;
-  line-height: $kz-var-typography-heading-3-line-height;
-  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
+  font-family: $typography-heading-3-font-family;
+  font-weight: $typography-heading-3-font-weight;
+  font-size: $typography-heading-3-font-size;
+  line-height: $typography-heading-3-line-height;
+  letter-spacing: $typography-heading-3-letter-spacing;
 }
 
 @mixin font-heading-4 {
   @include anti-aliasing;
-  font-family: $kz-var-typography-heading-4-font-family;
-  font-weight: $kz-var-typography-heading-4-font-weight;
-  font-size: $kz-var-typography-heading-4-font-size;
-  line-height: $kz-var-typography-heading-4-line-height;
-  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+  font-family: $typography-heading-4-font-family;
+  font-weight: $typography-heading-4-font-weight;
+  font-size: $typography-heading-4-font-size;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
 }
 
 @mixin font-heading-5 {
   @include anti-aliasing;
-  font-family: $kz-var-typography-heading-5-font-family;
-  font-weight: $kz-var-typography-heading-5-font-weight;
-  font-size: $kz-var-typography-heading-5-font-size;
-  line-height: $kz-var-typography-heading-5-line-height;
-  letter-spacing: $kz-var-typography-heading-5-letter-spacing;
+  font-family: $typography-heading-5-font-family;
+  font-weight: $typography-heading-5-font-weight;
+  font-size: $typography-heading-5-font-size;
+  line-height: $typography-heading-5-line-height;
+  letter-spacing: $typography-heading-5-letter-spacing;
 }
 
 @mixin font-heading-6 {
   @include anti-aliasing;
-  font-family: $kz-var-typography-heading-6-font-family;
-  font-weight: $kz-var-typography-heading-6-font-weight;
-  font-size: $kz-var-typography-heading-6-font-size;
-  line-height: $kz-var-typography-heading-6-line-height;
-  letter-spacing: $kz-var-typography-heading-6-letter-spacing;
+  font-family: $typography-heading-6-font-family;
+  font-weight: $typography-heading-6-font-weight;
+  font-size: $typography-heading-6-font-size;
+  line-height: $typography-heading-6-line-height;
+  letter-spacing: $typography-heading-6-letter-spacing;
 }
 
 @mixin font-body {
   @include anti-aliasing;
-  font-family: $kz-var-typography-paragraph-body-font-family;
-  font-weight: $kz-var-typography-paragraph-body-font-weight;
-  font-size: $kz-var-typography-paragraph-body-font-size;
-  line-height: $kz-var-typography-paragraph-body-line-height;
-  letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
 }
 
 @mixin font-extra-small {
   @include anti-aliasing;
-  font-family: $kz-var-typography-paragraph-extra-small-font-family;
-  font-weight: $kz-var-typography-paragraph-extra-small-font-weight;
-  font-size: $kz-var-typography-paragraph-extra-small-font-size;
-  line-height: $kz-var-typography-paragraph-extra-small-line-height;
-  letter-spacing: $kz-var-typography-paragraph-extra-small-letter-spacing;
+  font-family: $typography-paragraph-extra-small-font-family;
+  font-weight: $typography-paragraph-extra-small-font-weight;
+  font-size: $typography-paragraph-extra-small-font-size;
+  line-height: $typography-paragraph-extra-small-line-height;
+  letter-spacing: $typography-paragraph-extra-small-letter-spacing;
 }

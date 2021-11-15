@@ -16,6 +16,10 @@ import type { CSSProperties as ReactCSSProperties } from "react"
  * */
 type KaizenCSSProperties = ReactCSSProperties
 
+type Hex = string
+// Once TypeScript is upgraded in the repo, you can use Lowercase<>
+// type Hex = Lowercase<string>
+
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties["fontFamily"]
   fontWeight: KaizenCSSProperties["fontWeight"]
@@ -72,81 +76,74 @@ export type Theme = {
     }
   }
   color: {
-    wisteria: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-      "800": string
+    purple: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
+      "800": Hex
     }
-    cluny: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+    blue: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
-    seedling: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+    green: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
-    yuzu: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+    yellow: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
-    coral: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+    red: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
-    peach: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
+    orange: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+      "700": Hex
     }
-    ash: string
-    stone: string
-    white: string
-    iron: string
-    slate: string
+    gray: {
+      "100": Hex
+      "200": Hex
+      "300": Hex
+      "400": Hex
+      "500": Hex
+      "600": Hex
+    }
+    white: Hex
   }
   dataViz: {
-    favorable: string
-    unfavorable: string
-  }
-  /**
-   * @deprecated
-   */
-  DEPRECATED: {
-    color: {
-      lapis: string
-      ocean: string
-      ink: string
-      paper: string
-    }
+    favorable: Hex
+    unfavorable: Hex
   }
   layout: {
     contentMaxWidth: string
@@ -223,6 +220,6 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
 /**
  * Apologies for the complex types.
  * This type represents the Theme type but with every leaf value in the tree mapped strictly to a string, rather than a number or a more complex type such as a string union.
- * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--kz-color-wisteria-800)`.
+ * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--color-purple-800)`.
  */
 export type CSSVariableTheme = DeepMapObjectLeafs<Theme, string>

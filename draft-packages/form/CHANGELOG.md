@@ -3,6 +3,498 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.11...@kaizen/draft-form@3.13.12) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.10...@kaizen/draft-form@3.13.11) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.9...@kaizen/draft-form@3.13.10) (2021-11-09)
+
+
+### Bug Fixes
+
+* Add type=search specificity to override perf-ui materialize ([#2271](https://github.com/cultureamp/kaizen-design-system/issues/2271)) ([279c02d](https://github.com/cultureamp/kaizen-design-system/commit/279c02d202316f2fee5b42ebe4eff069c2822934))
+
+
+
+
+
+## [3.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.8...@kaizen/draft-form@3.13.9) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.7...@kaizen/draft-form@3.13.8) (2021-11-03)
+
+
+### Bug Fixes
+
+* Add type=button to SearchField clear button ([#2199](https://github.com/cultureamp/kaizen-design-system/issues/2199)) ([526003f](https://github.com/cultureamp/kaizen-design-system/commit/526003f6286bac058649e9a9e0bfd72ef887c13f))
+
+
+
+
+
+## [3.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.6...@kaizen/draft-form@3.13.7) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.5...@kaizen/draft-form@3.13.6) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.4...@kaizen/draft-form@3.13.5) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.3...@kaizen/draft-form@3.13.4) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.2...@kaizen/draft-form@3.13.3) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.1...@kaizen/draft-form@3.13.2) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.13.0...@kaizen/draft-form@3.13.1) (2021-10-22)
+
+
+### Bug Fixes
+
+* elm field description styles ([#2115](https://github.com/cultureamp/kaizen-design-system/issues/2115)) ([da43631](https://github.com/cultureamp/kaizen-design-system/commit/da436315ea21c17f4feaac870d525d416da9f64a))
+
+
+
+
+
+# [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.12.1...@kaizen/draft-form@3.13.0) (2021-10-22)
+
+
+### Features
+
+* Add reversed variants of RadioFields and RadioGroups ([#2101](https://github.com/cultureamp/kaizen-design-system/issues/2101)) ([14ca855](https://github.com/cultureamp/kaizen-design-system/commit/14ca855fd797ff186b83c5dce8328d5136763bb9))
+
+
+
+
+
+## [3.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.12.0...@kaizen/draft-form@3.12.1) (2021-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.8...@kaizen/draft-form@3.12.0) (2021-10-20)
+
+
+### Features
+
+* Add reversed variants of checkbox fields ([#2087](https://github.com/cultureamp/kaizen-design-system/issues/2087)) ([e262dd5](https://github.com/cultureamp/kaizen-design-system/commit/e262dd5fb339b4487840c28167d27d521bce468a))
+
+
+
+
+
+## [3.11.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.7...@kaizen/draft-form@3.11.8) (2021-10-18)
+
+
+### Bug Fixes
+
+* Put id on InputRange input ([#2092](https://github.com/cultureamp/kaizen-design-system/issues/2092)) ([d629f7a](https://github.com/cultureamp/kaizen-design-system/commit/d629f7a44fe6daebfab91b72cb93b9aa3147104b))
+
+
+
+
+
+## [3.11.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.6...@kaizen/draft-form@3.11.7) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.11.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.5...@kaizen/draft-form@3.11.6) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.11.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.4...@kaizen/draft-form@3.11.5) (2021-10-15)
+
+
+### Bug Fixes
+
+* Show SearchField label on default, not on secondary ([#2085](https://github.com/cultureamp/kaizen-design-system/issues/2085)) ([0b7fb0a](https://github.com/cultureamp/kaizen-design-system/commit/0b7fb0aa9acd3f5ff0885908e66cc22141fd97aa))
+
+
+
+
+
+## [3.11.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.3...@kaizen/draft-form@3.11.4) (2021-10-15)
+
+
+### Bug Fixes
+
+* Avoid divs inside labels for valid HTML ([#2084](https://github.com/cultureamp/kaizen-design-system/issues/2084)) ([6c235a2](https://github.com/cultureamp/kaizen-design-system/commit/6c235a204bae362d68681e8b537a153afe8fc36c))
+
+
+
+
+
+## [3.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.2...@kaizen/draft-form@3.11.3) (2021-10-14)
+
+
+### Bug Fixes
+
+* Use Label disabled styling for Checkbox, Radio & ToggleSwitch ([#2082](https://github.com/cultureamp/kaizen-design-system/issues/2082)) ([0ff0311](https://github.com/cultureamp/kaizen-design-system/commit/0ff0311caa73dcfe6578786cbead712ab9d9a493))
+
+
+
+
+
+## [3.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.1...@kaizen/draft-form@3.11.2) (2021-10-14)
+
+
+### Bug Fixes
+
+* add override css in form/slider for performance ui ([#2077](https://github.com/cultureamp/kaizen-design-system/issues/2077)) ([217a3a2](https://github.com/cultureamp/kaizen-design-system/commit/217a3a2dfecb3481a1476a476c11b65f91c57eb8))
+
+
+
+
+
+## [3.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.11.0...@kaizen/draft-form@3.11.1) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.10.0...@kaizen/draft-form@3.11.0) (2021-10-07)
+
+
+### Features
+
+* Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
+
+
+
+
+
+# [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.4...@kaizen/draft-form@3.10.0) (2021-10-01)
+
+
+### Features
+
+* add SearchField and InputSearch to Kaizen ([#1975](https://github.com/cultureamp/kaizen-design-system/issues/1975)) ([127aa1c](https://github.com/cultureamp/kaizen-design-system/commit/127aa1c26c7972c1ac2a089793ad67e53c8d42ac))
+
+
+
+
+
+## [3.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.3...@kaizen/draft-form@3.9.4) (2021-09-29)
+
+
+### Bug Fixes
+
+* Wrong background-color for the checkbox after transition from mixed to off state ([#1818](https://github.com/cultureamp/kaizen-design-system/issues/1818)) ([babcad6](https://github.com/cultureamp/kaizen-design-system/commit/babcad63765474cc21210065099ba3c9b257a233))
+
+
+
+
+
+## [3.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.2...@kaizen/draft-form@3.9.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.1...@kaizen/draft-form@3.9.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.9.0...@kaizen/draft-form@3.9.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.7...@kaizen/draft-form@3.9.0) (2021-09-22)
+
+
+### Bug Fixes
+
+* Add default value to variant to ensure description displays ([#1963](https://github.com/cultureamp/kaizen-design-system/issues/1963)) ([012ccd4](https://github.com/cultureamp/kaizen-design-system/commit/012ccd425c2d8d8ba82b8b70e96e292aa4fedbc1))
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
+## [3.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.6...@kaizen/draft-form@3.8.7) (2021-09-13)
+
+
+### Bug Fixes
+
+* update text field error styles ([#1828](https://github.com/cultureamp/kaizen-design-system/issues/1828)) ([da72a4c](https://github.com/cultureamp/kaizen-design-system/commit/da72a4c24209006da5141eee6349a2fb45e61dc1))
+
+
+
+
+
+## [3.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.5...@kaizen/draft-form@3.8.6) (2021-08-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.4...@kaizen/draft-form@3.8.5) (2021-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.3...@kaizen/draft-form@3.8.4) (2021-08-20)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.2...@kaizen/draft-form@3.8.3) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.1...@kaizen/draft-form@3.8.2) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.8.0...@kaizen/draft-form@3.8.1) (2021-08-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.7.0...@kaizen/draft-form@3.8.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.12...@kaizen/draft-form@3.7.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.11...@kaizen/draft-form@3.6.12) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [3.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.10...@kaizen/draft-form@3.6.11) (2021-08-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.9...@kaizen/draft-form@3.6.10) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.8...@kaizen/draft-form@3.6.9) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.7...@kaizen/draft-form@3.6.8) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [3.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.6...@kaizen/draft-form@3.6.7) (2021-07-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.5...@kaizen/draft-form@3.6.6) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.4...@kaizen/draft-form@3.6.5) (2021-07-19)
+
+
+### Bug Fixes
+
+* Change checkbox inactive hover colour to stone ([#1775](https://github.com/cultureamp/kaizen-design-system/issues/1775)) ([21e59d7](https://github.com/cultureamp/kaizen-design-system/commit/21e59d7b999765db5fb88b5689bfb6597645fe67)), closes [#1696](https://github.com/cultureamp/kaizen-design-system/issues/1696)
+
+
+
+
+
+## [3.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.3...@kaizen/draft-form@3.6.4) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.2...@kaizen/draft-form@3.6.3) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.1...@kaizen/draft-form@3.6.2) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.6.0...@kaizen/draft-form@3.6.1) (2021-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.5.1...@kaizen/draft-form@3.6.0) (2021-06-24)
+
+
+### Features
+
+* controlHasUnconstrainedHeight option for Elm Select ([#1715](https://github.com/cultureamp/kaizen-design-system/issues/1715)) ([374edce](https://github.com/cultureamp/kaizen-design-system/commit/374edce3c130153ec90b86a55b8eb6f581382e8c))
+
+
+
+
+
+## [3.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.5.0...@kaizen/draft-form@3.5.1) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 # [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.11...@kaizen/draft-form@3.5.0) (2021-06-07)
 
 

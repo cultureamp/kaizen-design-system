@@ -1,23 +1,27 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../styles/global.scss";
 
-$sidebar-width: $ca-grid * 10;
-$tableOfContents-width: $ca-grid * 10;
+$sidebar-width: calc(#{$spacing-md} * 10);
+$tableOfContents-width: calc(#{$spacing-md} * 10);
 
 .sidebarAndContent {
   display: grid;
   grid-template-areas: "sidebar content tableOfContents";
   grid-template-columns: $sidebar-width minmax(840px, 936px) $tableOfContents-width;
   grid-template-rows: 1fr;
-  grid-gap: var(--sidebar-content-gap);
+  grid-gap: $sidebar-content-gap;
 
   @media (min-width: 768px) and (max-width: 1439px) {
+    // Using calc() within max() function is not valid. For this case we use rems
+    $sidebar-width-rem: 10rem;
+    $tableOfContents-width-rem: 10rem;
+
     grid-template-areas: "tableOfContents sidebar content";
-    grid-template-columns: max($tableOfContents-width, $sidebar-width) auto;
+    grid-template-columns: max($tableOfContents-width-rem, $sidebar-width-rem) auto;
     grid-template-rows: auto 1fr;
   }
 
@@ -35,9 +39,9 @@ $tableOfContents-width: $ca-grid * 10;
   grid-area: content;
   background-color: white;
   border-radius: 7px;
-  box-shadow: var(--card-box-shadow);
+  box-shadow: $card-box-shadow;
   padding: 0;
-  margin-top: calc(-1 * var(--content-card-top-offset));
+  margin-top: -1 * $content-card-top-offset;
   max-width: 1080px;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -55,13 +59,22 @@ $tableOfContents-width: $ca-grid * 10;
   }
 }
 
-.contentNeedToKnow {
-  margin-top: var(--content-top-and-bottom-margin);
-  padding: 0 var(--content-side-margin) var(--content-top-and-bottom-margin);
-  border-bottom: 1px solid $ca-border-color;
+.contentTopSection {
+  margin-top: $content-top-and-bottom-margin;
+  padding: 0 $content-side-margin $content-top-and-bottom-margin;
+  border-bottom: 1px solid $border-solid-border-color;
 
   @include ca-media-mobile() {
-    padding: 0 0 var(--content-top-and-bottom-margin);
+    padding: 0 0 $content-top-and-bottom-margin;
+  }
+}
+
+.healthContent {
+  margin-top: 2.25rem;
+
+  .healthTagContainer {
+    display: inline-block;
+    margin-bottom: $spacing-xs;
   }
 }
 
@@ -69,7 +82,7 @@ $tableOfContents-width: $ca-grid * 10;
 
 .sidebar {
   grid-area: sidebar;
-  margin-top: $ca-grid * 1.5;
+  margin-top: calc(#{$spacing-md} * 1.5);
   max-width: $sidebar-width;
 
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -84,7 +97,7 @@ $tableOfContents-width: $ca-grid * 10;
   font-weight: 500;
   margin: 1.5rem 0.75rem 0.75rem;
   letter-spacing: 0.03125em;
-  color: rgba($kz-var-color-wisteria-700-rgb-params, 0.8);
+  color: rgba($color-purple-700-rgb, 0.8);
 }
 
 .tabList {
@@ -103,40 +116,40 @@ $tableOfContents-width: $ca-grid * 10;
 
   a {
     border-radius: 7px;
-    padding: $ca-grid * 0.25 $ca-grid / 2;
+    padding: calc(#{$spacing-md} * 0.25) $spacing-sm;
     width: 100%;
     text-decoration: none;
     color: inherit;
 
     &:hover {
-      background-color: $kz-var-color-ash;
+      background-color: $color-gray-300;
     }
   }
 
   &.active {
-    background-color: $kz-var-color-ash;
-    color: $kz-var-color-cluny-500;
+    background-color: $color-gray-300;
+    color: $color-blue-500;
   }
 }
 
 .tableOfContents {
   grid-area: tableOfContents;
-  margin-top: $ca-grid * 1.5;
-  margin-left: $ca-grid * 0.5;
+  margin-top: calc(#{$spacing-md} * 1.5);
+  margin-left: calc(#{$spacing-md} * 0.5);
   max-width: $tableOfContents-width;
 }
 
 .tableOfContentsLabel {
-  font-size: $kz-var-typography-heading-5-font-size;
-  font-weight: $kz-var-typography-paragraph-bold-font-weight;
+  font-size: $typography-heading-5-font-size;
+  font-weight: $typography-paragraph-bold-font-weight;
   margin: 0.5rem 0;
   opacity: 0.75;
 }
 
 .tableOfContentsList {
-  margin-left: -$ca-grid * 0.5;
+  margin-left: calc(#{$spacing-md} * -0.5);
   padding-left: 0;
-  margin-bottom: var(--content-card-top-offset);
+  margin-bottom: $content-card-top-offset;
 
   @media (min-width: 768px) and (max-width: 1440px) {
     margin-left: 0;
@@ -151,15 +164,15 @@ $tableOfContents-width: $ca-grid * 10;
   a {
     color: inherit;
     display: inline-block;
-    padding: $ca-grid * 0.25 $ca-grid / 2;
+    padding: calc(#{$spacing-md} * 0.25) $spacing-sm;
     text-decoration: none;
     border-radius: 7px;
   }
   a:hover {
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
   }
   ol {
     list-style-type: none;
-    padding-inline-start: $ca-grid;
+    padding-inline-start: $spacing-md;
   }
 }

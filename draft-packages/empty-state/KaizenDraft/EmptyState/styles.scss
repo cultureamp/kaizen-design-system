@@ -1,35 +1,29 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
-@import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./responsive";
 
 .container {
-  --dt-border-zen: #{$kz-var-border-solid-border-width} #{$kz-var-border-solid-border-style}
-    #{$kz-var-color-wisteria-200};
-  --dt-border-heart: var(#{$kz-var-id-border-solid-border-width})
-    var(#{$kz-var-id-border-solid-border-style})
-    var(#{$kz-var-id-border-borderless-border-color});
-
   display: flex;
   justify-content: space-around;
   width: 100%;
   padding-top: 2%;
   padding-bottom: 2%;
-  padding-left: $kz-var-spacing-md;
-  padding-right: $kz-var-spacing-md;
-  color: $kz-var-color-wisteria-800;
-  border: var(--dt-border-heart, var(--dt-border-zen));
-  border-radius: $kz-var-border-solid-border-radius;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  color: $color-purple-800;
+  border: $border-solid-border-width $border-solid-border-style
+    $border-borderless-border-color-id;
+  border-radius: $border-solid-border-radius;
 
   @include small {
     flex-direction: column;
     align-items: center;
-    padding-top: $kz-var-spacing-md;
-    padding-bottom: $kz-var-spacing-md;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
   }
 
   &.straightCorners {
@@ -39,32 +33,32 @@
   // These class names must match the possible values of the component's layoutContext prop
   &.sidebarAndContent {
     @include large-sidebar-and-content {
-      padding-top: $kz-var-spacing-md;
-      padding-bottom: $kz-var-spacing-md;
+      padding-top: $spacing-md;
+      padding-bottom: $spacing-md;
     }
   }
 
   &.contentOnly {
     @include large-content-only {
-      padding-top: $kz-var-spacing-md;
-      padding-bottom: $kz-var-spacing-md;
+      padding-top: $spacing-md;
+      padding-bottom: $spacing-md;
     }
   }
 
   &.positive {
-    background-color: var($kz-var-id-color-seedling-100, $kz-var-color-ash);
+    background-color: $color-green-100;
   }
   &.negative {
-    background-color: var($kz-var-id-color-coral-100, $kz-var-color-ash);
+    background-color: $color-red-100;
   }
   &.action {
-    background-color: var($kz-var-id-color-peach-100, $kz-var-color-ash);
+    background-color: $color-orange-100;
   }
   &.neutral {
-    background-color: var($kz-var-id-color-wisteria-100, $kz-var-color-ash);
+    background-color: $color-purple-100;
   }
   &.informative {
-    background-color: var($kz-var-id-color-cluny-100, $kz-var-color-ash);
+    background-color: $color-blue-100;
   }
 }
 
@@ -77,7 +71,7 @@
   min-width: 224px;
   flex-grow: 0;
   flex-shrink: 1;
-  margin-bottom: $kz-var-spacing-md;
+  margin-bottom: $spacing-md;
 
   @include small {
     width: 224px;
@@ -93,7 +87,7 @@
     max-width: 50%;
     flex-grow: 1;
     box-sizing: border-box;
-    padding-right: $kz-var-spacing-md;
+    padding-right: $spacing-md;
   }
 
   .sidebarAndContent & {
@@ -111,7 +105,8 @@
   }
 }
 
-.illustration {
+.illustration,
+.illustrationSide > video {
   max-width: 100%;
   max-height: 366px;
   width: auto;
@@ -140,7 +135,7 @@
 .textSideInner {
   flex-grow: 0;
   height: auto;
-  margin: 0 $kz-var-spacing-sm;
+  margin: 0 $spacing-sm;
 
   @include small {
     margin-bottom: 0;
@@ -153,7 +148,7 @@
 
 .heading {
   @include ca-type-inter-display;
-  margin-bottom: $kz-var-spacing-md;
+  margin-bottom: $spacing-md;
 
   .sidebarAndContent & {
     @include large-sidebar-and-content {
@@ -168,23 +163,9 @@
   }
 }
 
-// ===================================================
-// This works with the temporary useZenStyles prop and
-// will enable Zen headings. This block can be removed
-// once these typography styles are the default.
-// TODO: Heart Rebrand Cleanup > We can remove the `useZenStyles` and this class variant once Heart is released. This means moving the following heading styles to the class above.
-.zen .heading {
-  font-family: $kz-var-typography-heading-3-font-family;
-  font-size: $kz-var-typography-heading-3-font-size;
-  font-weight: $kz-var-typography-heading-3-font-weight;
-  line-height: $kz-var-typography-heading-3-line-height;
-  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
-}
-// ===================================================
-
 .description {
   @include kz-typography-paragraph-body;
-  margin-bottom: $kz-var-spacing-md;
+  margin-bottom: $spacing-md;
 
   .sidebarAndContent & {
     @include small {

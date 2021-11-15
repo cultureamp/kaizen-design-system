@@ -14,6 +14,7 @@ export type CheckboxFieldProps = {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   noBottomMargin?: boolean
   tabIndex?: number
   value?: string
@@ -31,6 +32,7 @@ const CheckboxField: CheckboxField = ({
   onFocus,
   onBlur,
   disabled = false,
+  reversed = false,
   noBottomMargin = false,
   tabIndex,
   value,
@@ -40,7 +42,7 @@ const CheckboxField: CheckboxField = ({
     className={classnames(styles.container, {
       [styles.checked]: checkedStatus === "on",
       [styles.mixed]: checkedStatus === "mixed",
-      [styles.disabled]: disabled,
+      [styles.reversed]: reversed,
       [styles.noBottomMargin]: noBottomMargin,
     })}
   >
@@ -49,12 +51,15 @@ const CheckboxField: CheckboxField = ({
       htmlFor={`${id}-field-checkbox`}
       automationId={`${id}-field-label`}
       labelText={labelText}
+      reversed={reversed}
       labelType="checkbox"
+      disabled={disabled}
     >
       <Checkbox
         id={`${id}-field-checkbox`}
         automationId={`${id}-field-checkbox`}
         disabled={disabled}
+        reversed={reversed}
         checkedStatus={checkedStatus}
         name={name}
         onCheck={onCheck}

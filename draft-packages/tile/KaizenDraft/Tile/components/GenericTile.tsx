@@ -5,6 +5,7 @@ import classNames from "classnames"
 
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import { AllowedTags } from "@kaizen/component-library/components/Heading"
 import Action from "./Action"
 import styles from "./GenericTile.scss"
 
@@ -24,10 +25,18 @@ export interface TileInformation {
 }
 
 export interface GenericTileProps {
-  readonly title: string
+  readonly title: React.ReactNode
+  readonly titleTag?: AllowedTags
   readonly metadata?: string
   readonly children?: React.ReactNode
   readonly information?: TileInformation | React.ReactNode
+  readonly mood?:
+    | "positive"
+    | "informative"
+    | "cautionary"
+    | "assertive"
+    | "negative"
+    | "prominent"
 }
 
 interface Props extends GenericTileProps {
@@ -39,15 +48,19 @@ type GenericTile = React.FunctionComponent<Props>
 const GenericTile: GenericTile = ({
   children,
   title,
+  titleTag = "h3",
   metadata,
   information,
   footer,
+  mood,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   const renderTitle = () => (
     <div className={styles.title}>
-      <Heading variant="heading-3">{title}</Heading>
+      <Heading variant="heading-3" tag={titleTag}>
+        {title}
+      </Heading>
       {metadata && (
         <Box pt={0.25}>
           <Paragraph variant="small" color="dark-reduced-opacity">
@@ -72,7 +85,16 @@ const GenericTile: GenericTile = ({
   )
 
   const renderFront = () => (
-    <div className={classNames(styles.face, styles.faceFront)}>
+    <div
+      className={classNames(styles.face, styles.faceFront, {
+        [styles.faceMoodPositive]: mood === "positive",
+        [styles.faceMoodInformative]: mood === "informative",
+        [styles.faceMoodCautionary]: mood === "cautionary",
+        [styles.faceMoodAssertive]: mood === "assertive",
+        [styles.faceMoodNegative]: mood === "negative",
+        [styles.faceMoodProminent]: mood === "prominent",
+      })}
+    >
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
@@ -124,7 +146,6 @@ const GenericTile: GenericTile = ({
             disabled={!isFlipped}
           />
         </div>
-        {renderTitle()}
         <div className={styles.information}>
           {renderInformation(information)}
         </div>

@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color-vars.scss";
-@import "~@kaizen/design-tokens/sass/typography-vars.scss";
-
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 .myClass {
-  background-color: $kz-var-color-stone;
-  font-family: $kz-var-typography-data-large-font-family;
+  background-color: $color-gray-100;
+  font-family: $typography-data-large-font-family;
 }

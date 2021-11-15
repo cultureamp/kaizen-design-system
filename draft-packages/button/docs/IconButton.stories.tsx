@@ -1,106 +1,34 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
-
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
 import { IconButton } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "IconButton (React)",
-}
-
-const StoryWrapper = ({ children }) => (
-  <div style={{ color: colorTokens.kz.color.wisteria[800] }}>{children}</div>
-)
-
-export const DefaultKaizenSiteDemo = () => (
-  <StoryWrapper>
-    <IconButton
-      icon={configureIcon}
-      label="Label"
-      data-automation-id="demo-button"
-    />
-  </StoryWrapper>
-)
-
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-
-export const Hyperlink = () => (
-  <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" href="//example.com" />
-  </StoryWrapper>
-)
-
-export const HyperlinkWOnClick = () => (
-  <StoryWrapper>
-    <IconButton
-      icon={configureIcon}
-      label="Label"
-      href="//example.com"
-      onClick={() => undefined}
-    />
-  </StoryWrapper>
-)
-
-HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
-
-export const Disabled = () => (
-  <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" disabled={true} />
-  </StoryWrapper>
-)
-
-export const Destructive = () => (
-  <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" destructive={true} />
-  </StoryWrapper>
-)
-
-export const DestructiveDisabled = () => (
-  <StoryWrapper>
-    <IconButton
-      icon={configureIcon}
-      label="Label"
-      destructive={true}
-      disabled={true}
-    />
-  </StoryWrapper>
-)
-
-DestructiveDisabled.storyName = "Destructive, Disabled"
-
-export const Reversed = () => (
-  <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" reversed />
-  </StoryWrapper>
-)
-Reversed.parameters = {
-  backgrounds: {
-    default: "Wisteria 700",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button`,
+  component: IconButton,
+  args: {
+    label: "Label",
   },
-}
-
-export const ReversedDisabled = () => (
-  <StoryWrapper>
-    <IconButton
-      icon={configureIcon}
-      label="Label"
-      reversed={true}
-      disabled={true}
-    />
-  </StoryWrapper>
-)
-
-ReversedDisabled.storyName = "Reversed, Disabled"
-ReversedDisabled.parameters = {
-  backgrounds: {
-    default: "Wisteria 700",
+  parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
+    docs: {
+      description: {
+        component: 'import { IconButton } from "@kaizen/draft-button";',
+      },
+    },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
+    ),
   },
+  decorators: [withDesign],
 }
 
-export const FormDiscouraged = () => (
-  <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" form={true} />
-  </StoryWrapper>
+export const DefaultKaizenSiteDemoIcon = args => (
+  <IconButton {...args} icon={configureIcon} />
 )
 
-FormDiscouraged.storyName = "Form (discouraged)"
+DefaultKaizenSiteDemoIcon.storyName = "Default Icon (Kaizen Site Demo)"

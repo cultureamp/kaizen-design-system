@@ -1,0 +1,120 @@
+---
+title: Likert Scale Legacy
+navTitle: Likert Scale Legacy
+summaryParagraph: Likert scale radio buttons let people select one option in a Likert scale ranging from strongly disagree to strongly agree.
+tags: ["Likert", "Rating scale", "Scale"]
+githubLabels: ["component:likert-scale"]
+needToKnow:
+- This was copied over from murmur's RatingScale component under `ca-capture`.
+- When in doubt, talk to a people scientist.
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: true
+  allVariants: true
+  responsive: true
+  internationalized: false
+  accessible: false
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D14473%253A61902" allowfullscreen></iframe>
+
+## To keep in mind
+
+We typically use a 5-point Likert scale for employees to answer survey questions:
+
+- Strongly disagree
+- Disagree
+- Neither agree or disagree
+- Agree
+- Strongly agree
+
+Our people scientists can provide case-by-case guidance for when and if a scale with more than 5 options may be appropriate.
+
+### Focus indicator
+- See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
+- On keyboard navigation show focus indicator on each section of likert scale.
+
+### Anatomy
+
+- **Likert scale group label:** a visible statement or question that the user must respond to.
+- **Rating option:** the general term for each specific option.
+    - **Rating label:** the label showing the selected rating.
+    - **Rating radio button:** the input element for the rating option.
+
+### Rating scale types
+
+There are a variety of rating scale types using the Likert Scale radio buttons component, which change the available rating option labels:
+
+- Agreement scale
+- Quality scale
+- Focus scale
+- Rating scale
+- Satisfaction scale
+- Importance scale
+- Performance scale
+- Frequency scale
+
+### Interaction
+
+There are several states for the overall Likert scale radio group:
+
+- Standard interaction states with radio buttons:
+    - Default
+    - Hover
+    - Focus
+    - Active (clicked)
+- Overall Likert scale interaction states:
+    - Not rated
+    - Rated
+
+Generally we avoid pre-selecting a value to avoid leading the user.
+
+A rating cannot be cleared once selected. We don't use "half" rating options.
+
+We may present non-interactive versions of the Likert scale in different contexts, such as the survey designer to show how it will look to users but without allowing the HR lead designing the survey to select and submit a response.
+
+## Related components
+
+We often use a single stacked bar to represent the **favorability** of collective results from the Likert scale data.
+
+A Likert scale response may be accompanied by a **free text comment**.
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+  <WhenToUse>
+
+    *  Use a Likert scale when gathering user input with 5 options.
+
+  </WhenToUse>
+  <WhenNotToUse>
+
+    *  Avoid using a Likert scale when gathering imprecise user input. Consider using a [slider](/components/slider) instead.
+
+  </WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+*   [Likert Scale](/components/likert-scale)
+*   [Radio Group](/components/radio-group)
+*   [Slider](/components/slider)
+
+## External links
+
+Here are some examples from external links:
+
+- [Wikipedia: Likert Scale](https://en.wikipedia.org/wiki/Likert_scale)
+- [Spectrum: Rating](https://spectrum.adobe.com/page/rating/)
+- [Ant Design: Rate](https://ant.design/components/rate/#When-To-Use)
+- [Seek: Rating](https://seek-oss.github.io/braid-design-system/components/Rating)

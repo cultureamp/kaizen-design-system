@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.7.0...@kaizen/draft-divider@1.7.1) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.6.1...@kaizen/draft-divider@1.7.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.6.0...@kaizen/draft-divider@1.6.1) (2021-09-06)
+
+
+### Bug Fixes
+
+* Add aria-hidden=true to Divider hr ([#1937](https://github.com/cultureamp/kaizen-design-system/issues/1937)) ([9033d6b](https://github.com/cultureamp/kaizen-design-system/commit/9033d6bf38786e92031dc59ffd7a9afafc67fecc))
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.5.0...@kaizen/draft-divider@1.6.0) (2021-08-13)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to v3 ([#1840](https://github.com/cultureamp/kaizen-design-system/issues/1840)) ([ca45bf4](https://github.com/cultureamp/kaizen-design-system/commit/ca45bf4707b5fbf907163653549e17682c46f636))
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.7...@kaizen/draft-divider@1.5.0) (2021-08-11)
+
+
+### Features
+
+* Migrate scss to use new design-tokens ([#1813](https://github.com/cultureamp/kaizen-design-system/issues/1813)) ([ec777a3](https://github.com/cultureamp/kaizen-design-system/commit/ec777a306cec1988894a9518b43f5247d500aa7d))
+
+
+
+
+
+## [1.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.6...@kaizen/draft-divider@1.4.7) (2021-08-09)
+
+
+### Bug Fixes
+
+* Bump peer versions of design-tokens everywhere ([#1823](https://github.com/cultureamp/kaizen-design-system/issues/1823)) ([65da761](https://github.com/cultureamp/kaizen-design-system/commit/65da761807b4d907a342b9bb4ed2bbbe40a06048))
+
+
+
+
+
+## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.5...@kaizen/draft-divider@1.4.6) (2021-08-02)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.4...@kaizen/draft-divider@1.4.5) (2021-07-30)
+
+
+### Bug Fixes
+
+* Update Storybook background colour references ([#1803](https://github.com/cultureamp/kaizen-design-system/issues/1803)) ([118f242](https://github.com/cultureamp/kaizen-design-system/commit/118f24201133aa5fd42839b67ad7cd74273d02e9))
+
+
+
+
+
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.3...@kaizen/draft-divider@1.4.4) (2021-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.2...@kaizen/draft-divider@1.4.3) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.1...@kaizen/draft-divider@1.4.2) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.0...@kaizen/draft-divider@1.4.1) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-divider

@@ -1,9 +1,5 @@
-import {
-  Box,
-  Heading,
-  InlineNotification,
-  Paragraph,
-} from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { InlineNotification } from "@kaizen/notification"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -24,13 +20,10 @@ import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import {
-  BenefitsSurvey,
-  Negative,
-  ExecutiveReportSharing,
-} from "@kaizen/draft-illustration"
+import { Negative, ExecutiveReportSharing } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Modal.stories.scss"
 
 // Add additional height to the stories when running in Chromatic only.
@@ -79,14 +72,16 @@ class ModalStateContainer extends React.Component<
 }
 
 export default {
-  title: "Modal (React)",
+  title: `${CATEGORIES.components}/Modal`,
   component: ConfirmationModal,
   parameters: {
-    info: {
-      text:
-        "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
-        "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
-        'ModalHeader } from "@kaizen/draft-modal"',
+    docs: {
+      description: {
+        component:
+          "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
+          "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
+          'ModalHeader } from "@kaizen/draft-modal"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
@@ -694,7 +689,7 @@ export const InformationModalWithImage = () => (
               }}
             >
               <Negative alt="stock" />
-              <div style={{ flex: 1 }} />
+              <div style={{ flex: "1" }} />
               <Paragraph variant="small" color="dark-reduced-opacity">
                 Cool kids don't use IE11 just sayin
               </Paragraph>
@@ -1100,3 +1095,27 @@ export const Roadblock = () => (
 )
 
 Roadblock.storyName = "Roadblock"
+
+export const MountAndUnmountControlledByParentModal = () => (
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        {isOpen && (
+          <RoadblockModal
+            isOpen={isOpen}
+            title="Roadblock title"
+            onDismiss={close}
+          >
+            <div style={{ textAlign: "center" }}>
+              <Paragraph variant="body">
+                Tell users why they're unable to proceed and what needs to
+                happen first.
+              </Paragraph>
+            </div>
+          </RoadblockModal>
+        )}
+      </div>
+    )}
+  </ModalStateContainer>
+)

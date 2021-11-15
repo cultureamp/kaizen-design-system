@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -10,15 +10,14 @@
 }
 
 .header {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   border-bottom: 1px solid $ca-border-color;
 }
 
 .body {
-  background: $kz-var-color-stone;
+  background: $color-gray-100;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   border-bottom: 1px solid $ca-border-color;
-  @include kz-typography-paragraph-body;
 }

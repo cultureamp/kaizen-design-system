@@ -1,6 +1,7 @@
 import { Tag } from "@kaizen/draft-tag"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -10,13 +11,13 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: "Tag (React)",
+  title: `${CATEGORIES.components}/Tag`,
   component: Tag,
   parameters: {
-    info: {
-      text: `
-      import { Tag } from "@kaizen/draft-tag"
-      `,
+    docs: {
+      description: {
+        component: 'import { Tag } from "@kaizen/draft-tag"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A90332"
@@ -215,13 +216,28 @@ export const Inline = () => (
 
 export const InlineDismissible = () => (
   <StoryContainer>
-    <Tag variant="default" inline dismissible>
+    <Tag
+      variant="default"
+      inline
+      dismissible
+      onDismiss={() => alert("dismissed action fired")}
+    >
       Inline
     </Tag>
-    <Tag variant="sentimentPositive" inline dismissible>
+    <Tag
+      variant="sentimentPositive"
+      inline
+      dismissible
+      onDismiss={() => alert("dismissed action fired")}
+    >
       Inline
     </Tag>
-    <Tag variant="validationPositive" inline dismissible>
+    <Tag
+      variant="validationPositive"
+      inline
+      dismissible
+      onDismiss={() => alert("dismissed action fired")}
+    >
       Inline
     </Tag>
   </StoryContainer>

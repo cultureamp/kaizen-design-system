@@ -1,25 +1,27 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/grid";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .header {
   font-size: 2rem;
   line-height: 1.125;
-  font-weight: $ca-weight-book;
-  margin-top: $ca-grid * 3.5;
+  font-weight: $typography-heading-6-font-weight;
+  font-size: $typography-heading-6-font-size;
+  line-height: $typography-heading-6-line-height;
+  letter-spacing: $typography-heading-6-letter-spacing;
+  margin-top: calc(#{$spacing-md} * 3.5);
   margin-bottom: 0;
 }
 
-$tileWidth: $ca-grid * 6;
-$tileHeight: $ca-grid * 6;
+$tileWidth: calc(#{$spacing-md} * 6);
+$tileHeight: calc(#{$spacing-md} * 6);
 
 .iconGrid {
-  padding-top: $ca-grid * 2;
+  padding-top: calc(#{$spacing-md} * 2);
   display: grid;
   grid-template-columns: repeat(auto-fill, $tileWidth);
-  grid-row-gap: $ca-grid;
+  grid-row-gap: $spacing-md;
   justify-content: space-between;
 }
 
@@ -34,12 +36,12 @@ $tileHeight: $ca-grid * 6;
   border: none;
   composes: interactiveIconWrapper from "@kaizen/component-library/components/Icon/Icon.module.scss";
   cursor: pointer;
-  border-radius: $ca-border-radius;
+  border-radius: $border-solid-border-radius;
 
   &:hover,
   &:active,
   &:focus {
-    background: $kz-var-color-stone;
+    background: $color-gray-100;
   }
 }
 
@@ -52,18 +54,17 @@ $tileHeight: $ca-grid * 6;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: $ca-grid / 2;
+  padding: $spacing-sm;
   position: relative;
 }
 
 .iconLabel {
   display: block;
   .iconLabelText {
-    font-size: 0.75rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-weight: $typography-heading-6-font-weight;
+    font-size: $typography-heading-6-font-size;
+    line-height: $typography-heading-6-line-height;
+    letter-spacing: $typography-heading-6-letter-spacing;
   }
 }
 
@@ -84,14 +85,15 @@ $tileHeight: $ca-grid * 6;
   opacity: 0;
 
   .copyLabelText {
-    @include ca-type-inter-small;
+    // @include ca-type-inter-small;
+    color: red;
     display: block;
     text-align: center;
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
     font-weight: 400;
 
     .clicked & {
-      color: $kz-var-color-seedling-500;
+      color: $color-green-500;
     }
   }
 
@@ -102,17 +104,17 @@ $tileHeight: $ca-grid * 6;
   }
   .clicked & {
     opacity: 1;
-    color: $kz-var-color-seedling-500;
+    color: $color-green-500;
     transition-duration: 0s;
   }
 }
 
 .tickIcon {
-  height: $ca-grid * 2/3;
+  height: calc(#{$spacing-md} * 2 / 3);
   position: absolute;
-  right: $ca-grid / 2;
-  bottom: $ca-grid / 2;
-  color: $kz-var-color-seedling-500;
+  right: $spacing-sm;
+  bottom: $spacing-sm;
+  color: $color-green-500;
 }
 
 .pathInput {

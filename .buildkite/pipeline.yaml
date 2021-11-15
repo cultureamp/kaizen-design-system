@@ -2,11 +2,12 @@ env:
   KAIZEN_ROLE_ARN: ${BRANCH_ROLE_ARN}
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
+  GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
   plugins:
-    - docker-compose#v3.0.3:
+    - docker-compose#v3.9.0:
         run: build
 
 steps:
@@ -15,45 +16,29 @@ steps:
     branches: "master"
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.9.0:
           run: release
+    notify:
+      - slack: "#team_front_end_foundations"
+        if: build.state == "failed"
 
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
     branches: "canary"
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.9.0:
           run: release
-
-  - name: ":nut_and_bolt: Compile"
-    command: ".buildkite/scripts/compile.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":mag: Lint"
-    command: ".buildkite/scripts/lint.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":pencil2: Test (React 16)"
-    command: ".buildkite/scripts/test-react-16.sh"
-    branches: "!master"
-    <<: *defaults
-
-  - name: ":pencil2: Test (React 17)"
-    command: ".buildkite/scripts/test-react-17.sh"
-    branches: "!master"
-    <<: *defaults
 
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
     <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
 
   - name: ":package: Build (storybook)"
     command: ".buildkite/scripts/build-storybook.sh"
@@ -72,9 +57,9 @@ steps:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.9.0:
           run: publish
 
   - block: ":rainbow: Build (chromatic)"
@@ -85,7 +70,7 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
+      - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.9.0:
           run: release

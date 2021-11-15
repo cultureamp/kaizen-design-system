@@ -1,6 +1,6 @@
 import { Heading, Icon } from "@kaizen/component-library"
-import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
-import { ButtonProps } from "@kaizen/draft-button"
+import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
+import { IconButton, ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
@@ -9,6 +9,7 @@ import * as React from "react"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
+import { useMediaQueries } from "@kaizen/responsive"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
@@ -28,6 +29,8 @@ type DistributiveOmit<T, K extends keyof any> = T extends any
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+type AvatarProps = Omit<DraftAvatarProps, "size">
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -43,7 +46,7 @@ export interface TitleBlockProps {
   title: string
   variant?: Variant
   breadcrumb?: Breadcrumb
-  avatar?: JSX.Element
+  avatar?: JSX.Element | AvatarProps
   subtitle?: string
   sectionTitle?: string
   sectionTitleDescription?: string
@@ -211,11 +214,27 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
-const renderAvatar = (image: JSX.Element, avatarAutomationId: string) => (
-  <div data-automation-id={avatarAutomationId} className={styles.avatar}>
-    {image}
-  </div>
-)
+const isJSXElement = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): imageElementOrAvatarProps is JSX.Element =>
+  "props" in imageElementOrAvatarProps
+
+const renderAvatar = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
+  avatarAutomationId: string
+) =>
+  isJSXElement(imageElementOrAvatarProps) ? (
+    <div
+      data-automation-id={avatarAutomationId}
+      className={classNames(styles.avatar, styles.withBorder)}
+    >
+      {imageElementOrAvatarProps}
+    </div>
+  ) : (
+    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+      <Avatar {...imageElementOrAvatarProps} size="medium" />
+    </div>
+  )
 
 const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
   <div className={styles.subtitle}>
@@ -281,21 +300,16 @@ const renderBreadcrumb = (
         className={styles.breadcrumb}
         data-automation-id={breadcrumbAutomationId}
         onClick={handleClick}
-        aria-label="Back to previous page"
       >
         <div className={styles.circle}>
           <Icon icon={icon} role="presentation" />
         </div>
-      </TagName>
-      <TagName
-        {...(path && { href: path })}
-        className={styles.breadcrumbTextLink}
-        data-automation-id={breadcrumbTextAutomationId}
-        onClick={handleClick}
-        aria-label="Back to previous page"
-        tabIndex={-1}
-      >
-        <span className={styles.breadcrumbText}>{text}</span>
+        <span
+          className={styles.breadcrumbTextLink}
+          data-automation-id={breadcrumbTextAutomationId}
+        >
+          <span className={styles.breadcrumbText}>{text}</span>
+        </span>
       </TagName>
     </>
   )
@@ -381,14 +395,6 @@ const createTabletOverflowMenuItems = (
   return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }
 
-const largeViewMinSizeInPixels = parseInt(
-  layoutTokens.kz.layout.breakpoints.large,
-  10
-)
-const smallAndMediumMediaQuery = window.matchMedia(
-  `(max-width: ${largeViewMinSizeInPixels - 1}px)`
-)
-
 /**
  * ### primaryAction
  *
@@ -469,34 +475,16 @@ const TitleBlockZen = ({
   breadcrumbAutomationId = "TitleBlock__Breadcrumb",
   breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
 }: TitleBlockProps) => {
-  const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
-    false
-  )
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
     collapseNavigationAreaWhenPossible &&
     !hasNavigationTabs &&
     secondaryActions === undefined
 
-  const updateOnViewportChange = (
-    mediaQuery: MediaQueryList | MediaQueryListEvent
-  ) => {
-    if (mediaQuery.matches && !isSmallOrMediumViewport) {
-      setSmallOrMediumViewport(true)
-    }
-    if (!mediaQuery.matches && isSmallOrMediumViewport) {
-      setSmallOrMediumViewport(false)
-    }
-  }
-
-  React.useEffect(() => {
-    smallAndMediumMediaQuery.addListener(updateOnViewportChange)
-    return () => {
-      smallAndMediumMediaQuery.removeListener(updateOnViewportChange)
-    }
-  })
-  updateOnViewportChange(smallAndMediumMediaQuery)
-
+  const {
+    queries: { isSmall, isMedium },
+  } = useMediaQueries()
+  const isSmallOrMediumViewport = isMedium || isSmall
   return (
     <>
       <div
@@ -523,14 +511,12 @@ const TitleBlockZen = ({
                   )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
-                    <div
-                      className={styles.hamburger}
-                      onClick={handleHamburgerClick}
-                    >
-                      <Icon
+                    <div className={styles.hamburger}>
+                      <IconButton
+                        onClick={handleHamburgerClick}
                         icon={hamburgerIcon}
-                        role="presentation"
-                        title="Open menu"
+                        label="Open menu"
+                        reversed={isReversed(variant)}
                       />
                     </div>
                   )}

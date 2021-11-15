@@ -3,25 +3,24 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import LinkTo from "@storybook/addon-links/react"
+import { LinkTo } from "@storybook/addon-links/react"
 import { Meta } from "@storybook/react"
 import classNames from "classnames"
 import "highlight.js/styles/monokai.css"
 import React from "react"
 import Highlight from "react-highlight"
 import { defaultTheme } from "../src/themes"
-import { makeCSSVariableTheme } from "../src/utils"
+import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 import styles from "./styles.scss"
 import zenThemeSrc from "!!raw-loader!../src/themes/zen"
 import heartThemeSrc from "!!raw-loader!../src/themes/heart"
-import variableIdentifiersSass from "!!raw-loader!../sass/variable-identifiers.scss"
-import typographySass from "!!raw-loader!../sass/typography-vars.scss"
-import colorsSass from "!!raw-loader!../sass/color-vars.scss"
-import spacingSass from "!!raw-loader!../sass/spacing-vars.scss"
-import shadowSass from "!!raw-loader!../sass/shadow-vars.scss"
-import layoutSass from "!!raw-loader!../sass/layout-vars.scss"
-import animationSass from "!!raw-loader!../sass/animation-vars.scss"
-import borderSass from "!!raw-loader!../sass/border-vars.scss"
+import typographySass from "!!raw-loader!../sass/typography.scss"
+import colorsSass from "!!raw-loader!../sass/color.scss"
+import spacingSass from "!!raw-loader!../sass/spacing.scss"
+import shadowSass from "!!raw-loader!../sass/shadow.scss"
+import layoutSass from "!!raw-loader!../sass/layout.scss"
+import animationSass from "!!raw-loader!../sass/animation.scss"
+import borderSass from "!!raw-loader!../sass/border.scss"
 
 export const CodeBlock = (props: {
   language: string
@@ -118,7 +117,7 @@ const themesBlocks: Array<
     caption: (
       <span>
         Generated using the default theme. Exported as JSON in
-        @kaizen/design-tokens/tokens/*-vars.json
+        @kaizen/design-tokens/tokens/*.json
       </span>
     ),
   },
@@ -132,65 +131,43 @@ const sassBlocks: Array<
     name: "Color",
     language: "scss",
     code: colorsSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/color-vars.scss"</code>,
+    caption: <code>@import "~@kaizen/design-tokens/sass/color.scss"</code>,
   },
   {
     name: "Typography",
     language: "scss",
     code: typographySass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/typography-vars.scss"</code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/typography.scss"</code>,
   },
   {
     name: "Spacing",
     language: "scss",
     code: spacingSass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/spacing-vars.scss"</code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/spacing.scss"</code>,
   },
   {
     name: "Border",
     language: "scss",
     code: borderSass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/border-vars.scss"</code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/border.scss"</code>,
   },
   {
     name: "Layout",
     language: "scss",
     code: layoutSass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/layout-vars.scss"</code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/layout.scss"</code>,
   },
   {
     name: "Shadow",
     language: "scss",
     code: shadowSass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/shadow-vars.scss"</code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/shadow.scss"</code>,
   },
   {
     name: "Animation",
     language: "scss",
     code: animationSass,
-    caption: (
-      <code>@import "~@kaizen/design-tokens/sass/animation-vars.scss"</code>
-    ),
-  },
-  {
-    name: "Variable Identifiers",
-    language: "scss",
-    code: variableIdentifiersSass,
-    caption: (
-      <code>
-        @import "~@kaizen/design-tokens/sass/variable-identifiers.scss"
-      </code>
-    ),
+    caption: <code>@import "~@kaizen/design-tokens/sass/animation.scss"</code>,
   },
 ]
 

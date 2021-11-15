@@ -1,0 +1,6 @@
+!/types/*.d.ts
+build/
+!stylelint.config.js
+!dev-plugin.js
+!test-config.js
+test.scss

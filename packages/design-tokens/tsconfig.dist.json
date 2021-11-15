@@ -10,5 +10,6 @@
     "target": "es5",
     "module": "CommonJS"
   },
-  "include": ["index.ts"]
+  "include": ["index.ts"],
+  "exclude": ["**/*.spec.ts"]
 }

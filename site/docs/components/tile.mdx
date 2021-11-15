@@ -3,10 +3,20 @@ title: Tile
 navTitle: Tile
 summaryParagraph: A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.
 tags: ["Card", "Grid item", "Featured item"]
+githubLabels: ["component:tile"]
 needToKnow:
 - Tiles draw attention to featured items.
 - All tiles have a title.
-- There are three types of tiles - InformationTile, MultiActionTile, SingleActionTile (not built)
+- There are three types of tiles - InformationTile, MultiActionTile, SingleActionTile
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: false
+  allVariants: false
+  responsive: true
+  internationalized: false
+  accessible: false
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -15,11 +25,23 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## UI Kit
 
+### Visuals
+
+#### Tile: Content
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart%3Fnode-id%3D21815%253A82744" allowfullscreen></iframe>
+
+#### Tile: Data
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart%3Fnode-id%3D21815%253A82774" allowfullscreen></iframe>
+
+#### Tile: Interaction States
+
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D14489%253A69120" allowfullscreen></iframe>
 
 ## To keep in mind
 
-### SingleActionTile (not built)
+### SingleActionTile
 *   Entire tile is a single click zone for performing a single action.
 
 ### MultiActionTile
@@ -29,10 +51,6 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 ### InformationTile
 *   For display of hero data.
 *   Generally has either no action, or a single action to flip (which shows additional context and optional secondary action).
-
-### Layout
-*   Max. 4 per row in 1392px area
-*   See [Tile Grid](/components/tile-grid)
 
 ## Anatomy
 
@@ -67,6 +85,15 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 *   **Supplementary footer** (optional)
     *   Positioned at bottom of Tile.
 
+### TileGrid
+*   **Children (required)**
+        *   1 to many Tiles.
+*   **Layout**
+    *   Max. 4 Tiles per row in 1392px area
+    *   Tiles separated by 24px (1.5rem) both vertically and horizontally
+    *   Automatically wraps Tiles according to width of viewport
+    *   On mobile Tiles are stacked vertically and are full width of the content area
+
 ### Focus indicator:
   *   See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
   *   On keyboard navigation:
@@ -91,7 +118,6 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 </WhenToUseAndWhenNotToUse>
 
 ## See also
-*   [Tile Grid](/components/tile-grid)
 *   [Buttons](/components/button/)
 *   [Cards](/components/card/)
 

@@ -1,19 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-
 .storyContainer {
-  margin: 1rem;
   max-width: 40rem;
-}
-
-.reversedDefault {
-  padding: 1rem;
-  color: white;
-  background: $kz-var-color-wisteria-700;
-}
-
-.reversedOcean {
-  padding: 1rem;
-  background: rgb(249, 249, 249);
 }
 
 .tooltip {

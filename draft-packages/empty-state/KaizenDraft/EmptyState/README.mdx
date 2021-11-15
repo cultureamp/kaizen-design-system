@@ -3,10 +3,20 @@ title: "Empty State"
 navTitle: "Empty State"
 summaryParagraph: Empty states tell users that there’s no content to display—and what they can do next.
 tags: ["Zero State", "Empty well", "Starter content", "Educational content"]
+githubLabels: ["component:empty-state"]
 needToKnow:
 - Empty states communicate the current state, allowing users to feel in control of the system, take appropriate actions to reach their goal, and ultimately trust the brand.
 - Without an empty state, people are confused about what to do next.
-demoStoryId: emptystate-react--default-kaizen-site-demo
+demoStoryId: components-empty-state--default-kaizen-site-demo
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: true
+  allVariants: true
+  responsive: true
+  internationalized: false
+  accessible: true
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -26,37 +36,35 @@ import Dont from "docs-components/Dont"
 ## Options
 
 *   Mood:
-    *   Default
     *   Positive
     *   Informative
-    *   Cautionary
+    *   Action
+    *   Neutral
     *   Negative
-*   Border style:
-    *   Solid
-    *   Dashed
-    *   None
 
 ## To keep in mind
 
 * There are different Empty States including:
     * **Positive empty state**: nothing is here because everything is working/you’ve completed all tasks.
-    * **Informative empty state**: things are happening and there are things to be done but no direct action required.
-    * **Action empty state**: we need the user to do something right now.
-    * **Neutral empty state**: nothing has happened/we have nothing to show.
-    * **Negative empty state**: something didn’t load/we couldn’t find anything.
+    * **Informative empty state**: things are happening and there are things to be done, but no direct action required.
+    * **Action empty state**: there is an action the user can take right now.
+    * **Neutral empty state**: there is nothing to show and no user action to take.
+    * **Negative empty state**: 
+        * when we couldn’t find anything, such as a search (or filter) that returns no results.
+        * to fill the space when a system error results in no page content and there is no other content on the page. If there is other content on the page consider using an [inline notification](/components/inline-notification) instead.
 
-* They also come in three different sizes for you to use (max, mid, min):
-    * For viewports or containers **larger than 1080px**: show an empty pattern that’s 1080px wide (e.g. using max-width: 1080px) using the “large” layout.
-    * For viewports or containers **smaller than 720px**: show a responsive, scaling empty pattern (e.g. using max-width: 100%).
-    * For viewports or containers **between 300px and 720px**: use the “medium” layout.
-    * For viewports or containers **smaller than 300px**: use the “small” layout.
+* They also come in three different sizes to accommodate responsive page layouts:
+    * Large: For viewports or containers larger than 1080px.
+    * Medium: For viewports or containers between 375px and 767px.
+    * Small: For viewports or containers up to 375px.
 
 * Call To Actions (CTAs):
     * We use Default Buttons unless it is the only action on the page, then we use Primary Action Buttons (label + icon).
     * If no action is appropriate, don’t show a button. Instead, you might include hyperlinks in the body copy as needed.
 
 * Illustrations:
-    * Each type of empty state comes with a standard illustration. Do not mix and match.
+    * Each type of empty state comes with a standard animated illustration. Do not mix and match.
+
 
 ## Copy guidelines
 
@@ -133,10 +141,10 @@ Your CTA button should compliment the title of the empty state. If a user scans 
 Based on the overall user flow and the nature of the empty state, make sure you adjust your tone accordingly. A positive empty state should contain encouraging language, while an action empty state should get to the point quickly. Here are some helpful tips for each type of empty state:
 
 *   **Positive empty state** - Include words of affirmation here. If a user has nothing left to do after this point, let them know that. Be careful though, as this type of language can sometimes come off as condescending.
-*   **Informative empty state** - Reassure the user that work is being done in the background and that we’ll notify them when there’s data on that page for them to see or action. This is an opportunity to educate.
+*   **Informative empty state** - Reassure the user that work is being done in the background and that we’ll notify them when there’s data on that page for them to see or action. This is not to be used to replace existing data that is in the process of being updated. This is an opportunity to inform.
 *   **Action empty state** - Let the user know that in order for them to see any data here, they’re going to need to perform certain actions. Guide them towards that action clearly and include a CTA button that takes them directly towards completing that action.
 *   **Neutral empty state** - Let the user know that nothing is required of them. Guide them back to where they were before they encountered this empty state.
-*   **Negative empty state** - Clearly let the user know what has happened and how they can fix it (if they want). If the empty state keeps showing up, give them an option to contact support. For example, if a user is trying to view a report they don’t have access to, your message could say, “You don’t have access to this report. If you’d like to view this report, contact your account administrator.” Remember to avoid jargon and tech speak.
+*   **Negative empty state** - Clearly let the user know what has happened and how they can fix it (if they want). If the empty state keeps showing up, give them an option to contact support. For example, if a filter returns no results, suggest the user try a different filter. If describing an error, remember to avoid jargon and tech speak.
 
 ### Write in sentence case with minimal punctuation
 
@@ -148,14 +156,15 @@ All empty state copy should be in sentence case i.e. the first letter of the fir
 <WhenToUseAndWhenNotToUse>
 <WhenToUse>
 
-* Use empty states when you don’t have anything else to show. It is the only content on the page. There might be navigation present in addition to the empty state.  
-* You might use a negative empty state for an intentionally negative state where the system is operating correctly and the user has provided accurate information.
+* Use empty states when you don’t have anything else to show within a section (defined by a Heading 2) of a page.
+* Inline notification can be used if there is other content on the page and you want something visually lighter or more ephemeral.
+* You might use a negative empty state for an intentionally negative state where the system is operating correctly and the user has provided accurate information (such as search/filter with no matching results).
 
 </WhenToUse>
 <WhenNotToUse>
 
 * Don’t use empty states to provide feedback about a change in state or context that the user needs to be notified about during a task.
-* Don’t use empty states when something negative has happened because the system failed or is a direct result of the user providing bad input.
+* When there are multiple sections on a page that can be empty, consider using inline notifications rather than having more than one empty state.
 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>

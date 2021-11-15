@@ -1,14 +1,20 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Heading } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
-import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
-import React, { useCallback, useRef, useState } from "react"
-import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
-import { Button, CustomButtonProps, ButtonRef } from ".."
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import React, { useState } from "react"
+import { withDesign } from "storybook-addon-designs"
+import { Button, CustomButtonProps, IconButton } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import styles from "./styles.module.scss"
 
 export default {
-  title: "Button (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",
@@ -17,10 +23,10 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    info: {
-      text: `
-        import { Button } from "@kaizen/draft-button";
-      `,
+    docs: {
+      description: {
+        component: 'import { Button, IconButton } from "@kaizen/draft-button";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
@@ -29,17 +35,780 @@ export default {
   decorators: [withDesign],
 }
 
-const reversedBg = {
-  backgrounds: {
-    default: "Wisteria 700",
-  },
-}
-
 const clickAction = () => alert("This shouldn't fire when button is working")
 
+export const LightButtons = () => (
+  <>
+    <Heading variant="heading-3" tag="h1">
+      Default
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <IconLeft icon={addIcon} />
+        <br />
+        <IconRight />
+        <br />
+        <Button label="Label" />
+        <br />
+        <IconButton icon={meatballsIcon} label="Label" />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft disabled={true} icon={addIcon} />
+        <br />
+        <IconRight disabled={true} />
+        <br />
+        <Button label="Label" disabled={true} />
+        <br />
+        <IconButton icon={meatballsIcon} label="Label" disabled={true} />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Working
+        </Heading>
+        <br />
+        <DefaultWorkingWithWorkingLabelVisible />
+        <br />
+        <DefaultWorkingOnEnd />
+        <br />
+        <DefaultWorking />
+        <br />
+        <IconButton
+          label="Label"
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1">
+      Primary
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <IconLeft primary={true} icon={addIcon} />
+        <br />
+        <IconRight primary={true} />
+        <br />
+        <Button label="Label" primary={true} />
+        <br />
+        <IconButton icon={addIcon} label="Label" primary={true} />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft disabled={true} primary={true} icon={addIcon} />
+        <br />
+        <IconRight disabled={true} primary={true} />
+        <br />
+        <Button label="Label" disabled={true} primary={true} />
+        <br />
+        <IconButton
+          icon={addIcon}
+          label="Label"
+          primary={true}
+          disabled={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking primary={true} />
+        <br />
+        <IconRightWorking primary={true} />
+        <br />
+        <Button
+          label="Label"
+          disabled={true}
+          primary={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          icon={addIcon}
+          label="Label"
+          primary={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1">
+      Destructive
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <IconLeft destructive={true} icon={trashIcon} />
+        <br />
+        <IconRight destructive={true} />
+        <br />
+        <Button label="Label" destructive={true} />
+        <br />
+        <IconButton label="Label" icon={trashIcon} destructive={true} />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft destructive={true} icon={trashIcon} disabled={true} />
+        <br />
+        <IconRight destructive={true} disabled={true} />
+        <br />
+        <DestructiveDisabled />
+        <br />
+        <IconButton
+          label="Label"
+          icon={trashIcon}
+          destructive={true}
+          disabled={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking destructive={true} />
+        <br />
+        <IconRightWorking destructive={true} />
+        <br />
+        <DestructiveWorking />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1">
+      Secondary
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <IconLeft
+          badge={{ text: "3", variant: "active" }}
+          icon={filterIcon}
+          secondary={true}
+        />
+        <br />
+        <IconLeft secondary={true} icon={addIcon} />
+        <br />
+        <IconRight iconPosition="end" secondary={true} icon={chevronDown} />
+        <br />
+        <Secondary />
+        <br />
+        <IconButton label="Label" icon={meatballsIcon} secondary={true} />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft
+          secondary={true}
+          disabled={true}
+          icon={filterIcon}
+          badge={{ text: "3", variant: "active" }}
+        />
+        <br />
+        <IconLeft secondary={true} disabled={true} icon={addIcon} />
+        <br />
+        <IconRight disabled={true} secondary={true} icon={chevronDown} />
+        <br />
+        <Secondary disabled={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={meatballsIcon}
+          disabled={true}
+          secondary={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking
+          badge={{ text: "3", variant: "active" }}
+          secondary={true}
+        />
+        <br />
+        <IconLeftWorking secondary={true} />
+        <br />
+        <IconRightWorking secondary={true} />
+        <br />
+        <Secondary
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          label="Label"
+          secondary={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1">
+      Secondary Destructive
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <SecondaryDestructiveIcon />
+        <br />
+        <Button label="Label" destructive={true} secondary={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={trashIcon}
+          secondary={true}
+          destructive={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <SecondaryDestructiveIcon disabled={true} />
+        <br />
+        <Button
+          label="Label"
+          destructive={true}
+          disabled={true}
+          secondary={true}
+        />
+        <br />
+        <IconButton
+          label="Label"
+          icon={trashIcon}
+          disabled={true}
+          secondary={true}
+          destructive={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking destructive={true} secondary={true} />
+        <br />
+        <Button
+          label="Label"
+          destructive={true}
+          disabled={true}
+          secondary={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          secondary={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1">
+      Miscellaneous
+    </Heading>
+    <br />
+    <Heading variant="heading-5" tag="h2">
+      Full Width
+    </Heading>
+    <FullWidth />
+    <FullWidthIcon />
+    <FullWidthWorking />
+    <Heading variant="heading-5" tag="h2">
+      Hyperlink
+    </Heading>
+    <br />
+    <Hyperlink />
+    <Heading variant="heading-5" tag="h2">
+      Hyperlink with onClick
+    </Heading>
+    <br />
+    <HyperlinkWOnClick />
+    <Heading variant="heading-5" tag="h2">
+      Submit
+    </Heading>
+    <br />
+    <TypeSubmit />
+    <Heading variant="heading-5" tag="h2">
+      Reset
+    </Heading>
+    <br />
+    <TypeReset />
+    <Heading variant="heading-5" tag="h2">
+      Overflowing Label Text
+    </Heading>
+    <br />
+    <OverflowingTextIconLabelTestCase />
+    <Heading variant="heading-5" tag="h2">
+      Overflowing Form Text
+    </Heading>
+    <br />
+    <OverflowingTextFormTestCase />
+    <Heading variant="heading-5" tag="h2">
+      Multiple Buttons
+    </Heading>
+    <br />
+    <MultipleButtons />
+    <Heading variant="heading-5" tag="h2">
+      Custom Component
+    </Heading>
+    <br />
+    <CustomComponent />
+    <Heading variant="heading-5" tag="h2">
+      Hyperlink Icon
+    </Heading>
+    <br />
+    <HyperlinkIcon />
+    <Heading variant="heading-5" tag="h2">
+      Hyperlink with onClick Icon
+    </Heading>
+    <br />
+    <HyperlinkIconWOnClick />
+    <Heading variant="heading-5" tag="h2">
+      Icon Form (Discouraged)
+    </Heading>
+    <br />
+    <IconFormDiscouraged />
+  </>
+)
+
+export const ReversedButtons = () => (
+  <>
+    <Heading variant="heading-3" tag="h1" color="white">
+      Default
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Base
+        </Heading>
+        <br />
+        <IconLeft reversed={true} icon={addIcon} />
+        <br />
+        <IconRight reversed={true} />
+        <br />
+        <Button label="Label" reversed={true} />
+        <br />
+        <IconButton icon={meatballsIcon} label="Label" reversed={true} />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft disabled={true} reversed={true} icon={addIcon} />
+        <br />
+        <IconRight disabled={true} reversed={true} />
+        <br />
+        <Button label="Label" disabled={true} reversed={true} />
+        <br />
+        <IconButton
+          icon={meatballsIcon}
+          label="Label"
+          disabled={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Working
+        </Heading>
+        <br />
+        <DefaultWorkingWithWorkingLabelVisible reversed={true} />
+        <br />
+        <DefaultWorkingOnEnd reversed={true} />
+        <br />
+        <DefaultWorking reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          reversed={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1" color="white">
+      Primary
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Base
+        </Heading>
+        <br />
+        <IconLeft primary={true} reversed={true} />
+        <br />
+        <IconRight primary={true} reversed={true} />
+        <br />
+        <Button label="Label" primary={true} reversed={true} />
+        <br />
+        <IconButton
+          icon={addIcon}
+          label="Label"
+          primary={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft disabled={true} primary={true} reversed={true} />
+        <br />
+        <IconRight disabled={true} primary={true} reversed={true} />
+        <br />
+        <Button label="Label" disabled={true} primary={true} reversed={true} />
+        <br />
+        <IconButton
+          icon={addIcon}
+          label="Label"
+          primary={true}
+          disabled={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking primary={true} reversed={true} />
+        <br />
+        <IconRightWorking primary={true} reversed={true} />
+        <br />
+        <Button
+          label="Label"
+          disabled={true}
+          primary={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+          reversed={true}
+        />
+        <br />
+        <IconButton
+          label="Label"
+          reversed={true}
+          primary={true}
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1" color="white">
+      Destructive
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Base
+        </Heading>
+        <br />
+        <IconLeft destructive={true} icon={trashIcon} reversed={true} />
+        <br />
+        <IconRight destructive={true} reversed={true} />
+        <br />
+        <Button label="Label" destructive={true} reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={trashIcon}
+          reversed={true}
+          destructive={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft
+          destructive={true}
+          icon={trashIcon}
+          disabled={true}
+          reversed={true}
+        />
+        <br />
+        <IconRight destructive={true} disabled={true} reversed={true} />
+        <br />
+        <DestructiveDisabled reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={trashIcon}
+          destructive={true}
+          disabled={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking destructive={true} reversed={true} />
+        <br />
+        <IconRightWorking destructive={true} reversed={true} />
+        <br />
+        <DestructiveWorking reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          destructive={true}
+          primary={true}
+          disabled={true}
+          reversed={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-3" tag="h1" color="white">
+      Secondary
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Base
+        </Heading>
+        <br />
+        <IconLeft
+          badge={{ text: "3", reversed: true }}
+          secondary={true}
+          reversed={true}
+          icon={filterIcon}
+        />
+        <br />
+        <IconLeft secondary={true} reversed={true} icon={addIcon} />
+        <br />
+        <IconRight
+          iconPosition="end"
+          secondary={true}
+          reversed={true}
+          icon={chevronDown}
+        />
+        <br />
+        <Secondary reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={meatballsIcon}
+          secondary={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <IconLeft
+          secondary={true}
+          disabled={true}
+          badge={{ text: "3", reversed: true }}
+          reversed={true}
+          icon={filterIcon}
+        />
+        <br />
+        <IconLeft
+          secondary={true}
+          disabled={true}
+          reversed={true}
+          icon={addIcon}
+        />
+        <br />
+        <IconRight
+          disabled={true}
+          icon={chevronDown}
+          secondary={true}
+          reversed={true}
+        />
+        <br />
+        <Secondary disabled={true} reversed={true} />
+        <br />
+        <IconButton
+          label="Label"
+          icon={meatballsIcon}
+          disabled={true}
+          secondary={true}
+          reversed={true}
+        />
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Working
+        </Heading>
+        <br />
+        <IconLeftWorking
+          badge={{ text: "3", variant: "active", reversed: true }}
+          secondary={true}
+          reversed={true}
+        />
+        <br />
+        <IconLeftWorking secondary={true} reversed={true} />
+        <br />
+        <IconRightWorking secondary={true} reversed={true} />
+        <br />
+        <Secondary
+          disabled={true}
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+          reversed={true}
+        />
+        <br />
+        <IconRightWorking
+          disabled={true}
+          secondary={true}
+          reversed={true}
+          working
+        />
+      </div>
+    </div>
+    <br />
+    <br />
+    <Heading variant="heading-3" tag="h1" color="white">
+      Miscellaneous
+    </Heading>
+    <br />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Full Width
+    </Heading>
+    <FullWidth reversed={true} />
+    <FullWidthIcon reversed={true} />
+    <FullWidthWorking reversed={true} />
+    <br />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Hyperlink
+    </Heading>
+    <br />
+    <Hyperlink reversed={true} />
+    <br />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Hyperlink with onClick
+    </Heading>
+    <br />
+    <HyperlinkWOnClick reversed={true} />
+    <br />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Submit
+    </Heading>
+    <br />
+    <TypeSubmit reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Reset
+    </Heading>
+    <br />
+    <TypeReset reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Overflowing Label Text
+    </Heading>
+    <br />
+    <OverflowingTextIconLabelTestCase reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Overflowing Form Text
+    </Heading>
+    <br />
+    <OverflowingTextFormTestCase reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Multiple Buttons
+    </Heading>
+    <br />
+    <MultipleButtons reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Custom Component
+    </Heading>
+    <br />
+    <CustomComponent reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Hyperlink Icon
+    </Heading>
+    <br />
+    <HyperlinkIcon reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Hyperlink with onClick Icon
+    </Heading>
+    <br />
+    <HyperlinkIconWOnClick reversed={true} />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Icon Form (Discouraged)
+    </Heading>
+    <br />
+    <IconFormDiscouraged reversed={true} />
+  </>
+)
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
+  name: "Default Button (Kaizen Site Demo)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65143"
@@ -47,414 +816,137 @@ DefaultKaizenSiteDemo.story = {
   },
 }
 
-export const DefaultDisabled = args => (
-  <Button label="Label" disabled={true} {...args} />
-)
-DefaultDisabled.story = {
-  name: "Default, Disabled",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A99"
-    ),
+ReversedButtons.parameters = {
+  backgrounds: {
+    default: "Purple 700",
   },
 }
 
-export const DefaultWorking = () => {
+// Default Button
+const IconLeft = args => <Button label="Label" icon={configureIcon} {...args} />
+
+const IconRight = args => (
+  <Button label="Label" icon={arrowRight} iconPosition="end" {...args} />
+)
+const IconLeftWorking = args => (
+  <Button
+    label="Label"
+    icon={configureIcon}
+    disabled={true}
+    {...args}
+    working
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
+)
+
+const IconRightWorking = args => (
+  <Button
+    label="Label"
+    icon={configureIcon}
+    disabled={true}
+    iconPosition="end"
+    {...args}
+    working
+    workingLabelHidden
+  />
+)
+
+const DefaultWorking = args => {
   const [working, setWorking] = useState(false)
   return (
     <>
       <Button
         label="Click here to test"
         onClick={() => setWorking(!working)}
+        {...args}
         primary
       />
       <div style={{ marginTop: "10px" }}>
         <Button
           label="Label"
           onClick={clickAction}
+          disabled={true}
           working={working}
-          workingLabel="Submitting"
           workingLabelHidden
+          {...args}
         />
       </div>
     </>
   )
 }
-DefaultWorking.story = {
-  name: "Default, Working",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A150"
-    ),
-  },
-}
 
-export const DefaultWorkingWithWorkingLabelVisible = () => (
+const DefaultWorkingWithWorkingLabelVisible = args => (
   <Button
     label="Label"
     onClick={clickAction}
-    working
-    workingLabel="Submitting"
-  />
-)
-DefaultWorkingWithWorkingLabelVisible.story = {
-  name: "Default, Working with working label visible",
-  parameters: {},
-}
-
-export const DefaultWorkingOnEnd = () => (
-  <Button
-    label="Label"
-    onClick={clickAction}
-    working
-    workingLabel="Submitting"
-    iconPosition="end" // Loading spinner sits in same spot as icon
-  />
-)
-DefaultWorkingOnEnd.story = {
-  name: "Default, Working with working label and spinner on right side",
-  parameters: {},
-}
-
-export const Primary = args => <Button label="Label" primary={true} {...args} />
-Primary.story = {
-  name: "Primary",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65609"
-    ),
-  },
-}
-
-export const PrimaryDisabled = args => (
-  <Button label="Label" primary={true} disabled={true} {...args} />
-)
-PrimaryDisabled.story = {
-  name: "Primary, Disabled",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A252"
-    ),
-  },
-}
-
-export const Destructive = args => (
-  <Button label="Label" destructive={true} {...args} />
-)
-Destructive.story = {
-  name: "Destructive",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A715",
-    },
-  },
-}
-
-export const SecondaryDestructive = args => (
-  <Button label="Label" destructive={true} secondary={true} {...args} />
-)
-SecondaryDestructive.story = {
-  name: "Secondary, Destructive",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1482",
-    },
-  },
-}
-
-export const SecondaryDestructiveIcon = args => (
-  <Button
-    label="Label"
-    icon={trashIcon}
-    destructive={true}
-    secondary={true}
-    {...args}
-  />
-)
-SecondaryDestructiveIcon.story = {
-  name: "Secondary, Destructive + Icon",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1542",
-    },
-  },
-}
-
-export const SecondaryDestructiveDisabled = args => (
-  <Button
-    label="Label"
-    icon={trashIcon}
-    destructive={true}
-    secondary={true}
     disabled={true}
+    working
     {...args}
   />
 )
-SecondaryDestructiveDisabled.story = {
-  name: "Secondary, Destructive + Icon, Disabled",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1554",
-    },
-  },
-}
 
-export const SecondaryDestructiveWorking = args => (
+const DefaultWorkingOnEnd = args => (
+  <Button
+    label="Label"
+    onClick={clickAction}
+    disabled={true}
+    working
+    iconPosition="end" // Loading spinner sits in same spot as icon
+    {...args}
+  />
+)
+const SecondaryDestructiveIcon = args => (
   <Button
     label="Label"
     icon={trashIcon}
     destructive={true}
     secondary={true}
-    working={true}
-    workingLabelHidden
     {...args}
   />
 )
-SecondaryDestructiveWorking.story = {
-  name: "Secondary, Destructive + Icon, Working",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1534",
-    },
-  },
-}
 
-export const SecondaryWithBadge = args => (
-  <Button
-    label="Label"
-    icon={filterIcon}
-    secondary={true}
-    badge={{ text: "3", variant: "active" }}
-    workingLabelHidden
-    {...args}
-  />
-)
-SecondaryWithBadge.story = {
-  name: "Secondary, w/ Badge",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=17582%3A671",
-    },
-  },
-}
-
-export const SecondaryWithBadgeDisabled = args => (
-  <Button
-    disabled
-    label="Label"
-    icon={filterIcon}
-    secondary={true}
-    badge={{ text: "3", variant: "active" }}
-    workingLabelHidden
-    {...args}
-  />
-)
-SecondaryWithBadgeDisabled.story = {
-  name: "Secondary, w/ Badge, Disabled",
-  parameters: {
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=17582%3A678",
-    },
-  },
-}
-
-export const DestructiveDisabled = args => (
+const DestructiveDisabled = args => (
   <Button label="Label" destructive={true} disabled={true} {...args} />
 )
-DestructiveDisabled.story = {
-  name: "Destructive, Disabled",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A707"
-    ),
-  },
-}
 
-export const PrimaryWorking = () => (
-  <Button
-    label="Label"
-    primary={true}
-    working
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
-PrimaryWorking.story = {
-  name: "Primary, Working",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A301"
-    ),
-  },
-}
+const Secondary = args => <Button label="Label" secondary={true} {...args} />
 
-export const Secondary = args => (
-  <Button label="Label" secondary={true} {...args} />
-)
-Secondary.story = {
-  name: "Secondary",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1014"
-    ),
-  },
-}
-
-export const DestructiveWorking = () => (
+const DestructiveWorking = args => (
   <Button
     label="Label"
     destructive={true}
+    disabled={true}
     working
     workingLabel="Submitting"
     workingLabelHidden
-  />
-)
-DestructiveWorking.story = {
-  name: "Destructive, Working",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A659"
-    ),
-  },
-}
-
-export const SecondaryDisabled = args => (
-  <Button label="Label" secondary={true} disabled={true} {...args} />
-)
-SecondaryDisabled.story = {
-  name: "Secondary, Disabled",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1058"
-    ),
-  },
-}
-
-export const SecondaryWorking = () => (
-  <Button
-    label="Label"
-    secondary={true}
-    working={true}
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
-SecondaryWorking.story = {
-  name: "Secondary, Working",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1050"
-    ),
-  },
-}
-
-export const SecondaryWIcon = args => (
-  <Button label="Configure" icon={configureIcon} secondary={true} {...args} />
-)
-SecondaryWIcon.story = {
-  name: "Secondary w/ Icon",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1074"
-    ),
-  },
-}
-
-export const SecondaryWIconDisabled = args => (
-  <Button
-    label="Configure"
-    icon={configureIcon}
-    secondary={true}
-    disabled={true}
     {...args}
   />
 )
-SecondaryWIconDisabled.story = {
-  story: "Secondary w/ Icon, Disabled",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1066"
-    ),
-  },
-}
 
-export const IconLabel = args => (
-  <Button label="Configure" icon={configureIcon} {...args} />
-)
-IconLabel.story = {
-  name: "Icon + Label",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65146"
-    ),
-  },
-}
+const FullWidth = args => <Button label="Label" fullWidth={true} {...args} />
 
-export const LabelIcon = args => (
-  <Button label="Configure" icon={configureIcon} iconPosition="end" {...args} />
-)
-LabelIcon.story = {
-  name: "Label + Icon",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65134"
-    ),
-  },
-}
-
-export const FullWidth = args => (
-  <Button label="Label" fullWidth={true} {...args} />
-)
-FullWidth.story = {
-  name: "Full Width",
-  parameters: {},
-}
-
-export const FullWidthIcon = args => (
+const FullWidthIcon = args => (
   <Button label="Label" fullWidth={true} icon={configureIcon} {...args} />
 )
-FullWidthIcon.story = {
-  name: "Full Width + Icon",
-  parameters: {},
-}
 
-export const Hyperlink = args => (
+const Hyperlink = args => (
   <Button label="Label" href="//example.com" {...args} />
 )
-Hyperlink.story = {
-  name: "Hyperlink",
-  parameters: {},
-}
 
-export const FullWidthWorking = () => (
+const FullWidthWorking = args => (
   <Button
     label="Label"
     fullWidth={true}
+    disabled={true}
     working
     workingLabel="Submitting"
     workingLabelHidden
+    {...args}
   />
 )
-FullWidthWorking.story = {
-  name: "Full Width Working",
-  parameters: {},
-}
 
-export const HyperlinkWOnClick = args => (
+const HyperlinkWOnClick = args => (
   <Button
     label="Label"
     href="//example.com"
@@ -462,243 +954,12 @@ export const HyperlinkWOnClick = args => (
     {...args}
   />
 )
-HyperlinkWOnClick.story = {
-  name: "Hyperlink w/ onClick",
-  parameters: {},
-}
 
-export const ReversedDefault = args => (
-  <Button label="Label" reversed={true} {...args} />
-)
-ReversedDefault.story = {
-  name: "Reversed, Default",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17179"
-    ),
-  },
-}
+const TypeSubmit = args => <Button label="Submit" type="submit" {...args} />
 
-export const ReversedDefaultDisabled = args => (
-  <Button label="Label" reversed={true} disabled={true} {...args} />
-)
-ReversedDefaultDisabled.story = {
-  name: "Reversed, Default, Disabled",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17183"
-    ),
-  },
-}
+const TypeReset = args => <Button label="Reset" type="reset" {...args} />
 
-export const ReversedDefaultWorking = () => (
-  <Button
-    label="Label"
-    reversed={true}
-    working={true}
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
-ReversedDefaultWorking.story = {
-  name: "Reversed, Default, Working",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17187"
-    ),
-  },
-}
-
-export const ReversedPrimary = args => (
-  <Button
-    label="Label"
-    primary={true}
-    disabled={false}
-    reversed={true}
-    {...args}
-  />
-)
-ReversedPrimary.story = {
-  name: "Reversed, Primary",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17191"
-    ),
-  },
-}
-
-export const ReversedPrimaryDisabled = args => (
-  <Button
-    label="Label"
-    primary={true}
-    reversed={true}
-    disabled={true}
-    {...args}
-  />
-)
-ReversedPrimaryDisabled.story = {
-  name: "Reversed, Primary, Disabled",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17203"
-    ),
-  },
-}
-
-export const ReversedPrimaryWorking = () => (
-  <Button
-    label="Label"
-    primary={true}
-    reversed={true}
-    working={true}
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
-ReversedPrimaryWorking.story = {
-  name: "Reversed, Primary, Working",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17215"
-    ),
-  },
-}
-
-export const ReversedSecondary = args => (
-  <Button label="Label" secondary={true} reversed={true} {...args} />
-)
-ReversedSecondary.story = {
-  name: "Reversed, Secondary",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17195"
-    ),
-  },
-}
-
-export const ReversedSecondaryDisabled = args => (
-  <Button
-    label="Label"
-    secondary={true}
-    reversed={true}
-    disabled={true}
-    {...args}
-  />
-)
-ReversedSecondaryDisabled.story = {
-  name: "Reversed, Secondary, Disabled",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17195"
-    ),
-  },
-}
-
-export const ReversedSecondaryWorking = () => (
-  <Button
-    label="Label"
-    secondary={true}
-    reversed={true}
-    working={true}
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
-ReversedSecondaryWorking.story = {
-  name: "Reversed, Secondary, Working",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17219"
-    ),
-  },
-}
-
-export const ReversedSecondaryWIcon = args => (
-  <Button
-    label="Configure"
-    secondary={true}
-    reversed={true}
-    icon={configureIcon}
-    {...args}
-  />
-)
-ReversedSecondaryWIcon.story = {
-  name: "Reversed, Secondary w/ Icon",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A16959"
-    ),
-  },
-}
-
-export const ReversedSecondaryWIconDisabled = args => (
-  <Button
-    label="Configure"
-    secondary={true}
-    reversed={true}
-    disabled={true}
-    icon={configureIcon}
-    {...args}
-  />
-)
-ReversedSecondaryWIconDisabled.story = {
-  name: "Reversed, Secondary w/ Icon, Disabled",
-  parameters: {
-    ...reversedBg,
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A16975"
-    ),
-  },
-}
-
-export const ReversedSecondaryWithBadge = args => (
-  <Button
-    reversed
-    label="Label"
-    icon={filterIcon}
-    secondary={true}
-    badge={{ text: "3", reversed: true, variant: "default" }}
-    workingLabelHidden
-    {...args}
-  />
-)
-ReversedSecondaryWithBadge.story = {
-  name: "Reversed, Secondary w/ Badge",
-  parameters: {
-    ...reversedBg,
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=17582%3A671",
-    },
-  },
-}
-
-export const TypeSubmit = args => (
-  <Button label="Label" type="submit" {...args} />
-)
-TypeSubmit.story = {
-  name: "Type, Submit",
-  parameters: {},
-}
-
-export const TypeReset = args => <Button label="Label" type="reset" {...args} />
-TypeReset.story = {
-  name: "Type, Reset",
-  parameters: {},
-}
-
-export const OverflowingTextIconLabelTestCase = args => (
+const OverflowingTextIconLabelTestCase = args => (
   <div style={{ width: 120 }}>
     <Button
       icon={configureIcon}
@@ -708,12 +969,8 @@ export const OverflowingTextIconLabelTestCase = args => (
     />
   </div>
 )
-OverflowingTextIconLabelTestCase.story = {
-  name: "Overflowing text, Icon + Label (test case)",
-  parameters: {},
-}
 
-export const OverflowingTextFormTestCase = args => (
+const OverflowingTextFormTestCase = args => (
   <div style={{ width: 120 }}>
     <Button
       form
@@ -724,51 +981,15 @@ export const OverflowingTextFormTestCase = args => (
     />
   </div>
 )
-OverflowingTextFormTestCase.story = {
-  name: "Overflowing text, Form (test case)",
-  parameters: {},
-}
 
-export const FocusExample = args => {
-  const ref = useRef<ButtonRef>()
-  const handleClick = useCallback(() => {
-    ref.current?.focus()
-  }, [])
-  return (
-    <>
-      <Button label="Label" ref={ref} {...args} />
-      <hr {...args} />
-      <p>
-        This story is to test the ability to imperatively call the `focus`
-        function.
-      </p>
-      <button onClick={handleClick}>
-        Click here to focus the button above
-      </button>
-    </>
-  )
-}
-FocusExample.story = {
-  name: "Focus example",
-  parameters: {},
-}
-
-export const MultipleButtons = args => (
+const MultipleButtons = args => (
   <div>
     <Button label="Save" primary data-automation-id="demo-button-1" {...args} />
     <Button label="Exit" data-automation-id="demo-button-2" {...args} />
   </div>
 )
-MultipleButtons.story = {
-  name: "Multiple Buttons",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14504%3A74951"
-    ),
-  },
-}
 
-export const CustomComponent = args => {
+const CustomComponent = args => {
   const CustomLink = (buttonProps: CustomButtonProps) => (
     <a href={buttonProps.href} {...buttonProps} {...args} />
   )
@@ -778,7 +999,26 @@ export const CustomComponent = args => {
     <Button label="Custom component button" component={CustomLink} {...args} />
   )
 }
-CustomComponent.story = {
-  name: "Custom Component",
-  parameters: {},
-}
+// Icon Button
+const HyperlinkIcon = args => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    href="//example.com"
+    {...args}
+  />
+)
+
+const HyperlinkIconWOnClick = args => (
+  <IconButton
+    icon={configureIcon}
+    label="Label"
+    href="//example.com"
+    onClick={() => undefined}
+    {...args}
+  />
+)
+
+const IconFormDiscouraged = args => (
+  <IconButton icon={configureIcon} label="Label" form={true} {...args} />
+)

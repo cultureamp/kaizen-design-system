@@ -2,6 +2,7 @@ import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import React from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 interface RenderProps {
   controlledValue: string
@@ -48,18 +49,18 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 const reversedBg = {
   backgrounds: {
-    default: "Wisteria 700",
+    default: "Purple 700",
   },
 }
 
 export default {
-  title: "TextAreaField (React)",
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
   component: TextAreaField,
   parameters: {
-    info: {
-      text: `
-      import { TextAreaField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { TextAreaField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14539%3A69482"

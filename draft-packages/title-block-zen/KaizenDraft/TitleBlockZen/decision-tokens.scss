@@ -1,22 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-
-$dt-color-background-color-admin: $kz-var-color-stone;
-$dt-color-background-color-eduction: var(
-  --kz-var-color-cluny-100,
-  $kz-var-color-cluny-200
-);
-$dt-color-background-color-default: var(
-  --kz-var-color-wisteria-600,
-  $kz-var-color-wisteria-700
-);
+@import "~@kaizen/design-tokens/sass/color";
+$dt-color-background-color-admin: $color-gray-100;
+$dt-color-background-color-eduction: $color-blue-100;
+$dt-color-background-color-default: $color-purple-600;
 $dt-color-background-gradient: linear-gradient(
   0,
-  var(--kz-var-color-wisteria-600, $kz-var-color-wisteria-700),
-  rgba(
-    var(
-      --kz-var-color-wisteria-600-rgb-params,
-      $kz-var-color-wisteria-700-rgb-params
-    ),
-    0
-  )
+  $color-purple-600,
+  rgba($color-purple-600-rgb, 0)
 );
