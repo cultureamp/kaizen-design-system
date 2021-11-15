@@ -139,14 +139,12 @@ export const UsageInCard = () => (
       // eslint-disable-next-line no-console
       onChange={index => console.log("Tab changed to ", index)}
     >
-      <Box pt={0.25}>
-        <TabList aria-label="Tabs">
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab>Tab 3</Tab>
-          <Tab disabled>Disabled Tab</Tab>
-        </TabList>
-      </Box>
+      <TabList aria-label="Tabs">
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+        <Tab disabled>Disabled Tab</Tab>
+      </TabList>
       <TabPanels>
         <TabPanel>
           <Box p={1}>
