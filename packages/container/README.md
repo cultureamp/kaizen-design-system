@@ -26,6 +26,11 @@ const YourApp = () => (
 );
 ```
 
+You can also use this on non-react pages to initialise the theme manager and get the required font definitions, polyfills etc:
+
+```
+import "@kaizen/container"; 
+```
 ### Theme management
 Out of the box, the Container initialises a theme manager with a default theme (currently `Heart`). The theme manager is a singleton and should not be redeclared. If you need to change the theme, you can do so with the `themeManager` export. 
 
