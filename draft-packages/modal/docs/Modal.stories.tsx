@@ -720,7 +720,7 @@ export const ContextModals = () => (
             onDismiss={close}
             secondaryLabel="Cancel"
             onSecondaryAction={close}
-            islandscape
+            isLandscape
             image={<AddImage alt="placeholder" />}
           >
             <ModalAccessibleDescription>
