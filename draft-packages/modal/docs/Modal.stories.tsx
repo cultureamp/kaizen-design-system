@@ -673,6 +673,7 @@ export const ContextModals = () => (
             onDismiss={close}
             secondaryLabel="Cancel"
             onSecondaryAction={close}
+            orientation="portrait"
             image={<AddImage alt="placeholder" />}
           >
             <ModalAccessibleDescription>
@@ -720,12 +721,8 @@ export const ContextModals = () => (
             onDismiss={close}
             secondaryLabel="Cancel"
             onSecondaryAction={close}
-            isLandscape
-            image={
-              <div>
-                <AddImage alt="placeholder" />
-              </div>
-            }
+            islandscape
+            image={<AddImage alt="placeholder" />}
           >
             <ModalAccessibleDescription>
               <Paragraph variant="body">
