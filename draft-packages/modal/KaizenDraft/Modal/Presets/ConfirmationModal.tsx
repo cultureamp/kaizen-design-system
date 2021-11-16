@@ -7,7 +7,7 @@ import {
   Cautionary,
   Informative,
   Negative,
-  PositiveFemale,
+  Positive,
 } from "@kaizen/draft-illustration"
 
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
@@ -71,7 +71,7 @@ const getIcon = (type: ModalType, isProminent: boolean) => {
       )
     case "positive":
       return isProminent ? (
-        <PositiveFemale alt="" isAnimated loop />
+        <Positive alt="" isAnimated loop />
       ) : (
         <Icon icon={successIcon} inheritSize role="presentation" />
       )

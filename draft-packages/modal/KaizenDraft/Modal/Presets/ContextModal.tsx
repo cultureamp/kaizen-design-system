@@ -1,4 +1,4 @@
-import { Box, Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
 import classnames from "classnames"
 import * as React from "react"
