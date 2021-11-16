@@ -40,10 +40,22 @@ $dt-assertive-header-background: $color-orange-100;
   grid-template-columns: 0.25fr 2fr;
   align-items: center;
   &.prominent {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.1fr 2fr;
+    @include ca-media-mobile {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
     .iconContainer {
       position: absolute;
       top: 8%;
+      @include ca-media-mobile {
+        position: relative;
+        top: 0;
+        margin-bottom: $spacing-sm;
+      }
     }
     .spotIcon,
     .svgIcon > svg {
@@ -61,6 +73,9 @@ $dt-assertive-header-background: $color-orange-100;
   .svgIcon > svg {
     width: 30px;
     height: 30px;
+    @include ca-media-mobile {
+      margin-right: 15px;
+    }
   }
 }
 .positiveHeader {
@@ -106,10 +121,16 @@ $dt-assertive-header-background: $color-orange-100;
   display: grid;
   grid-template-columns: 0.25fr 2fr;
   align-items: center;
+  @include ca-media-mobile {
+    grid-template-columns: 1fr;
+  }
   &.prominent {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.1fr 2fr;
     align-items: center;
+    @include ca-media-mobile {
+      grid-template-columns: 1fr;
+    }
   }
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;

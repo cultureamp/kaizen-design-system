@@ -1,18 +1,11 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { InlineNotification } from "@kaizen/notification"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
   ConfirmationModal,
-  GenericModal,
   ContextModal,
-  RoadblockModal,
   InputEditModal,
   ModalAccessibleDescription,
-  ModalAccessibleLabel,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
 } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
 
@@ -24,7 +17,6 @@ import { AddImage } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./Modal.stories.scss"
 
 // Add additional height to the stories when running in Chromatic only.
 // Modals have fixed position and would be cropped from snapshot tests.
@@ -38,16 +30,6 @@ const withMinHeight = Story => {
     </div>
   )
 }
-
-const Padding = ({
-  size = 1,
-}: {
-  size?: React.ComponentProps<typeof Box>["p"]
-}) => (
-  <Box pb={size} pr={size}>
-    {" "}
-  </Box>
-)
 class ModalStateContainer extends React.Component<
   {
     isInitiallyOpen: boolean
@@ -294,60 +276,6 @@ export const InputEditModals = () => (
     </ModalStateContainer>
   </>
 )
-
-// export const InputEditWorkingButton = () => (
-//   <ModalStateContainer isInitiallyOpen={isChromatic()}>
-//     {({ open, close, isOpen }) => (
-//       <div>
-//         <Button label="Open modal" onClick={open} />
-//         <InputEditModal
-//           isOpen={isOpen}
-//           type="positive"
-//           title="Input-edit modal title"
-//           onSubmit={close}
-//           onDismiss={close}
-//           submitWorking={{ label: "Submitting…" }}
-//         >
-//           <form>
-//             <div style={{ textAlign: "center" }}>
-//               <ModalAccessibleDescription>
-//                 <Paragraph variant="body">
-//                   Instructive text to drive user selection goes here.
-//                 </Paragraph>
-//               </ModalAccessibleDescription>
-//               <Paragraph variant="body">
-//                 Instructive text to drive user selection goes here.
-//               </Paragraph>
-//             </div>
-//             <div>
-//               <TextField
-//                 id="email"
-//                 inputType="email"
-//                 inputValue="mackenzie@example.com"
-//                 labelText="Email"
-//                 placeholder="Please enter your email"
-//                 onChange={() => undefined}
-//                 icon={userIcon}
-//               />
-//               <TextField
-//                 id="password"
-//                 inputType="password"
-//                 inputValue="123445555"
-//                 labelText="Password"
-//                 placeholder="Please enter your password"
-//                 onChange={() => undefined}
-//                 icon={lockIcon}
-//                 inline
-//               />
-//             </div>
-//           </form>
-//         </InputEditModal>
-//       </div>
-//     )}
-//   </ModalStateContainer>
-// )
-
-// InputEditWorkingButton.storyName = "Input-edit w/ working button"
 
 export const ConfirmationModals = () => (
   <>

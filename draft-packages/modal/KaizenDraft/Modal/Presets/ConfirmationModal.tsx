@@ -53,31 +53,31 @@ const getIcon = (type: ModalType, isProminent: boolean) => {
   switch (type) {
     case "cautionary":
       return isProminent ? (
-        <Cautionary alt="" isAnimated loop />
+        <Cautionary alt="" isAnimated />
       ) : (
         <Icon icon={exclamationIcon} inheritSize role="presentation" />
       )
     case "informative":
       return isProminent ? (
-        <Informative alt="" isAnimated loop />
+        <Informative alt="" isAnimated />
       ) : (
         <Icon icon={informationIcon} inheritSize role="presentation" />
       )
     case "negative":
       return isProminent ? (
-        <Negative alt="" isAnimated loop />
+        <Negative alt="" isAnimated />
       ) : (
         <Icon icon={exclamationIcon} inheritSize role="presentation" />
       )
     case "positive":
       return isProminent ? (
-        <Positive alt="" isAnimated loop />
+        <Positive alt="" isAnimated />
       ) : (
         <Icon icon={successIcon} inheritSize role="presentation" />
       )
     case "assertive":
       return isProminent ? (
-        <Assertive alt="" isAnimated loop />
+        <Assertive alt="" isAnimated />
       ) : (
         <Icon icon={exclamationIcon} inheritSize role="presentation" />
       )
