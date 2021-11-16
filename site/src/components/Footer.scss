@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
 
 $reverse-variant-color: $color-blue-100;
 
@@ -39,8 +40,10 @@ $reverse-variant-color: $color-blue-100;
 }
 
 .footerLink {
-  display: inline-flex;
   padding: 0 $spacing-sm;
+  @media (max-width: $layout-breakpoints-medium) {
+    padding: 0;
+  }
   @extend %link;
 }
 
@@ -53,7 +56,7 @@ $reverse-variant-color: $color-blue-100;
 .containerLinks {
   display: inline-flex;
   justify-content: space-evenly;
-  min-width: 20rem;
+  min-width: 18rem;
 }
 
 .containerCompanyName {
