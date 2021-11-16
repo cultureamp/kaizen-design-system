@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
-.padded {
-  padding: $ca-grid;
-}
+// .padded {
+//   padding: $spacing-lg;
+// }
 .inputEdit {
   background-color: $color-gray-200;
   border-radius: $border-solid-border-radius;

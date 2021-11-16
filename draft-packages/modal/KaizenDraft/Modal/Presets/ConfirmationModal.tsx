@@ -28,6 +28,7 @@ import styles from "./ConfirmationModal.scss"
 
 export interface ConfirmationModalProps {
   readonly isOpen: boolean
+  readonly unpadded?: boolean
   readonly isProminent?: boolean
   readonly type: ModalType
   readonly title: string
@@ -94,6 +95,7 @@ const ConfirmationModal = ({
   confirmWorking,
   automationId,
   children,
+  unpadded = false,
   ...props
 }: ConfirmationModalProps) => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
@@ -126,7 +128,7 @@ const ConfirmationModal = ({
       automationId={automationId}
     >
       <div className={styles.modal}>
-        <ModalHeader unpadded onDismiss={onDismiss}>
+        <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(styles.header, {
               [styles.cautionaryHeader]: type === "cautionary",
@@ -135,6 +137,7 @@ const ConfirmationModal = ({
               [styles.positiveHeader]: type === "positive",
               [styles.assertiveHeader]: type === "assertive",
               [styles.prominent]: isProminent,
+              [styles.padded]: !unpadded,
             })}
           >
             <div
@@ -153,10 +156,11 @@ const ConfirmationModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalBody unpadded>
+        <ModalBody>
           <div
             className={classnames(styles.body, {
               [styles.prominent]: isProminent,
+              [styles.padded]: !unpadded,
             })}
           >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>

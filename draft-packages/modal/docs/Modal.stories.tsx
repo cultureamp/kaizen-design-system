@@ -5,7 +5,7 @@ import { TextField } from "@kaizen/draft-form"
 import {
   ConfirmationModal,
   GenericModal,
-  InformationModal,
+  ContextModal,
   RoadblockModal,
   InputEditModal,
   ModalAccessibleDescription,
@@ -78,7 +78,7 @@ export default {
     docs: {
       description: {
         component:
-          "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
+          "import { ConfirmationModal, GenericModal, ContextModal, InputEditModal, " +
           "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
           'ModalHeader } from "@kaizen/draft-modal"',
       },
@@ -93,7 +93,7 @@ export default {
   },
   decorators: [withDesign, withMinHeight],
 }
-export const DefaultInputEditModal = () => (
+export const InputEditModals = () => (
   <>
     <Heading variant="heading-3" tag="h1">
       Input Edit Modal
@@ -119,9 +119,6 @@ export const DefaultInputEditModal = () => (
                     Instructive text to drive user selection goes here.
                   </Paragraph>
                 </ModalAccessibleDescription>
-                <Paragraph variant="body">
-                  Instructive text to drive user selection goes here.
-                </Paragraph>
               </div>
               <div>
                 <TextField
@@ -171,9 +168,6 @@ export const DefaultInputEditModal = () => (
                     Instructive text to drive user selection goes here.
                   </Paragraph>
                 </ModalAccessibleDescription>
-                <Paragraph variant="body">
-                  Instructive text to drive user selection goes here.
-                </Paragraph>
               </div>
               <div>
                 <TextField
@@ -222,9 +216,6 @@ export const DefaultInputEditModal = () => (
                     Instructive text to drive user selection goes here.
                   </Paragraph>
                 </ModalAccessibleDescription>
-                <Paragraph variant="body">
-                  Instructive text to drive user selection goes here.
-                </Paragraph>
               </div>
               <div>
                 <TextField
@@ -274,9 +265,6 @@ export const DefaultInputEditModal = () => (
                     Instructive text to drive user selection goes here.
                   </Paragraph>
                 </ModalAccessibleDescription>
-                <Paragraph variant="body">
-                  Instructive text to drive user selection goes here.
-                </Paragraph>
               </div>
               <div>
                 <TextField
@@ -678,7 +666,7 @@ export const ContextModals = () => (
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
-          <InformationModal
+          <ContextModal
             isOpen={isOpen}
             title="Context modal title (Portrait)"
             onConfirm={close}
@@ -714,7 +702,7 @@ export const ContextModals = () => (
               More information to conclude can go here. More information to
               conclude can go here. More information to conclude can go here.
             </Paragraph>
-          </InformationModal>
+          </ContextModal>
         </div>
       )}
     </ModalStateContainer>
@@ -725,7 +713,7 @@ export const ContextModals = () => (
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
-          <InformationModal
+          <ContextModal
             isOpen={isOpen}
             title="Context modal title (Landscape)"
             onConfirm={close}
@@ -733,7 +721,11 @@ export const ContextModals = () => (
             secondaryLabel="Cancel"
             onSecondaryAction={close}
             isLandscape
-            image={<AddImage alt="placeholder" />}
+            image={
+              <div>
+                <AddImage alt="placeholder" />
+              </div>
+            }
           >
             <ModalAccessibleDescription>
               <Paragraph variant="body">
@@ -762,7 +754,7 @@ export const ContextModals = () => (
               More information to conclude can go here. More information to
               conclude can go here. More information to conclude can go here.
             </Paragraph>
-          </InformationModal>
+          </ContextModal>
         </div>
       )}
     </ModalStateContainer>
@@ -771,14 +763,14 @@ export const ContextModals = () => (
 
 ContextModals.storyName = "Context Modals"
 
-// export const InformationWithoutAction = () => (
+// export const ContextWithoutAction = () => (
 //   <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //     {({ open, close, isOpen }) => (
 //       <div>
 //         <Button label="Open modal" onClick={open} />
-//         <InformationModal
+//         <ContextModal
 //           isOpen={isOpen}
-//           title="Information modal title"
+//           title="Context modal title"
 //           onDismiss={close}
 //         >
 //           <ModalAccessibleDescription>
@@ -807,22 +799,22 @@ ContextModals.storyName = "Context Modals"
 //             More information to conclude can go here. More information to
 //             conclude can go here. More information to conclude can go here.
 //           </Paragraph>
-//         </InformationModal>
+//         </ContextModal>
 //       </div>
 //     )}
 //   </ModalStateContainer>
 // )
 
-// InformationWithoutAction.storyName = "Information (without action)"
+// ContextWithoutAction.storyName = "Context (without action)"
 
-// export const InformationWithBackground = () => (
+// export const ContextWithBackground = () => (
 //   <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //     {({ open, close, isOpen }) => (
 //       <div>
 //         <Button label="Open modal" onClick={open} />
-//         <InformationModal
+//         <ContextModal
 //           isOpen={isOpen}
-//           title="Information modal title"
+//           title="Context modal title"
 //           onDismiss={close}
 //           renderBackground={() => (
 //             <div className={styles.background}>
@@ -856,26 +848,26 @@ ContextModals.storyName = "Context Modals"
 //             More information to conclude can go here. More information to
 //             conclude can go here. More information to conclude can go here.
 //           </Paragraph>
-//         </InformationModal>
+//         </ContextModal>
 //       </div>
 //     )}
 //   </ModalStateContainer>
 // )
 
-// InformationWithBackground.storyName = "Information (with background)"
+// ContextWithBackground.storyName = "Context (with background)"
 
-// export const InformationWithSecondaryAction = () => (
+// export const ContextWithSecondaryAction = () => (
 //   <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //     {({ open, close, isOpen }) => (
 //       <div>
 //         <Button label="Open modal" onClick={open} />
-//         <InformationModal
+//         <ContextModal
 //           secondaryLabel="Keep using Edge"
 //           onSecondaryAction={close}
 //           confirmLabel="Open in Edge"
 //           onConfirm={close}
 //           isOpen={isOpen}
-//           title="Information modal title"
+//           title="Context modal title"
 //           onDismiss={close}
 //           renderBackground={() => (
 //             <div className={styles.background}>
@@ -909,20 +901,20 @@ ContextModals.storyName = "Context Modals"
 //             More information to conclude can go here. More information to
 //             conclude can go here. More information to conclude can go here.
 //           </Paragraph>
-//         </InformationModal>
+//         </ContextModal>
 //       </div>
 //     )}
 //   </ModalStateContainer>
 // )
 
-// InformationWithSecondaryAction.storyName = "Information (with secondary action)"
+// ContextWithSecondaryAction.storyName = "Context (with secondary action)"
 
-// export const InformationModalWithImage = () => (
+// export const ContextModalWithImage = () => (
 //   <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //     {({ open, close, isOpen }) => (
 //       <div>
 //         <Button label="Open modal" onClick={open} />
-//         <InformationModal
+//         <ContextModal
 //           secondaryLabel="Continue with current browser"
 //           onSecondaryAction={close}
 //           confirmLabel="Launch in Edge"
@@ -964,14 +956,14 @@ ContextModals.storyName = "Context Modals"
 //             We've detected you already have Edge installed. Click the link below
 //             to continue your session in Edge.
 //           </Paragraph>
-//         </InformationModal>
+//         </ContextModal>
 //       </div>
 //     )}
 //   </ModalStateContainer>
 // )
 
-// InformationModalWithImage.story = {
-//   name: "Information (with image) - Outdated browser demo",
+// ContextModalWithImage.story = {
+//   name: "Context (with image) - Outdated browser demo",
 //   parameters: {
 //     ...figmaEmbed(
 //       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
@@ -979,7 +971,7 @@ ContextModals.storyName = "Context Modals"
 //   },
 // }
 
-// const InformationModalContent = () => (
+// const ContextModalContent = () => (
 //   <>
 //     <ModalAccessibleDescription>
 //       <Heading variant="heading-4">
@@ -1003,12 +995,12 @@ ContextModals.storyName = "Context Modals"
 //   </>
 // )
 
-// export const InformationModalWithNotification = () => (
+// export const ContextModalWithNotification = () => (
 //   <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //     {({ open, close, isOpen }) => (
 //       <div>
 //         <Button label="Open modal" onClick={open} />
-//         <InformationModal
+//         <ContextModal
 //           secondaryLabel="Cancel"
 //           onSecondaryAction={close}
 //           confirmLabel="Share"
@@ -1041,15 +1033,15 @@ ContextModals.storyName = "Context Modals"
 //             </div>
 //           }
 //         >
-//           <InformationModalContent />
-//         </InformationModal>
+//           <ContextModalContent />
+//         </ContextModal>
 //       </div>
 //     )}
 //   </ModalStateContainer>
 // )
 
-// InformationModalWithNotification.story = {
-//   name: "Information (with Inline Notification)",
+// ContextModalWithNotification.story = {
+//   name: "Context (with Inline Notification)",
 //   parameters: {
 //     ...figmaEmbed(
 //       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
@@ -1057,14 +1049,14 @@ ContextModals.storyName = "Context Modals"
 //   },
 // }
 
-// export const InformationModalWithWorkingButton = () => {
+// export const ContextModalWithWorkingButton = () => {
 //   const [isLoading, setIsLoading] = React.useState(false)
 //   return (
 //     <ModalStateContainer isInitiallyOpen={false}>
 //       {({ open, close, isOpen }) => (
 //         <div>
 //           <Button label="Open modal" onClick={open} />
-//           <InformationModal
+//           <ContextModal
 //             secondaryLabel="Cancel"
 //             onSecondaryAction={() => {
 //               setIsLoading(false)
@@ -1106,16 +1098,16 @@ ContextModals.storyName = "Context Modals"
 //               </div>
 //             }
 //           >
-//             <InformationModalContent />
-//           </InformationModal>
+//             <ContextModalContent />
+//           </ContextModal>
 //         </div>
 //       )}
 //     </ModalStateContainer>
 //   )
 // }
 
-// InformationModalWithWorkingButton.story = {
-//   name: "Information (with working button)",
+// ContextModalWithWorkingButton.story = {
+//   name: "Context (with working button)",
 //   parameters: {
 //     ...figmaEmbed(
 //       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
@@ -1164,9 +1156,9 @@ ContextModals.storyName = "Context Modals"
 //   </>
 // )
 
-// GenericModalPadded.storyName = "Generic modal (padded)"
+// GenericModalPadded.storyName = "Generic modal ()"
 
-// export const GenericModalUnpadded = () => (
+// export const GenericModalUn = () => (
 //   <>
 //     <ModalStateContainer isInitiallyOpen={isChromatic()}>
 //       {({ open, close, isOpen }) => (
@@ -1178,12 +1170,12 @@ ContextModals.storyName = "Context Modals"
 //             onOutsideModalClick={close}
 //           >
 //             <div className={styles.genericModal}>
-//               <ModalHeader onDismiss={close} unpadded>
+//               <ModalHeader onDismiss={close} un>
 //                 <ModalAccessibleLabel>
 //                   Modal label and header
 //                 </ModalAccessibleLabel>
 //               </ModalHeader>
-//               <ModalBody unpadded>
+//               <ModalBody un>
 //                 <ModalAccessibleDescription>
 //                   Modal description
 //                 </ModalAccessibleDescription>
@@ -1196,7 +1188,7 @@ ContextModals.storyName = "Context Modals"
 //                     onClick: () => close(),
 //                   },
 //                 ]}
-//                 unpadded
+//                 un
 //               >
 //                 Footer
 //               </ModalFooter>
@@ -1208,7 +1200,7 @@ ContextModals.storyName = "Context Modals"
 //   </>
 // )
 
-// GenericModalUnpadded.storyName = "Generic modal (unpadded)"
+// GenericModalUn.storyName = "Generic modal (un)"
 
 // export const GenericModalWithoutAction = () => (
 //   <>

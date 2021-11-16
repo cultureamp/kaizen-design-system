@@ -21,10 +21,11 @@ $dt-assertive-header-background: $color-orange-100;
 
 .header {
   color: $color-white;
-  padding: 2rem $spacing-md 2rem;
   text-align: left;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
-
+  &.padded {
+    padding: $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid;
+  }
   // override Murmur global styles :(
   h1 {
     color: $dt-heading-text-color;
@@ -102,7 +103,6 @@ $dt-assertive-header-background: $color-orange-100;
 }
 
 .body {
-  padding: $spacing-md $spacing-md $spacing-md;
   display: grid;
   grid-template-columns: 0.25fr 2fr;
   align-items: center;
@@ -110,6 +110,9 @@ $dt-assertive-header-background: $color-orange-100;
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
+  }
+  &.padded {
+    padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
   }
 }
 

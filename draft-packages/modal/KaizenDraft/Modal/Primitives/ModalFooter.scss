@@ -13,17 +13,15 @@
   justify-content: flex-end;
 }
 
-.informationAlign {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-
-  .actionButton + .actionButton {
-    @include ca-margin($end: $ca-grid * 0.5);
+.padded {
+  padding: 0 $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid * 1.5;
+  &.informationPadded {
+    padding: 1.25rem $ca-grid * 1.5 0 $ca-grid * 1.5;
   }
 }
 
 .actionButton + .actionButton {
-  @include ca-margin($start: $ca-grid * 0.5);
+  @include ca-margin($end: $ca-grid * 0.5);
 }
 
 // to avoid the row-reverse styles
@@ -63,8 +61,4 @@
 }
 .filler {
   visibility: hidden;
-}
-
-.padded {
-  padding: $ca-grid;
 }

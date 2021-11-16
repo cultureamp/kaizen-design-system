@@ -8,7 +8,7 @@ type ActionsVarianProps = "information" | "input"
 
 export type ModalFooterProps = Readonly<{
   /**
-   * We have a special case for the InformationModal when it has an image.
+   * We have a special case for the ContextModal when it has an image.
    * Since this modal may have an image on the right side the actions might look disconected from the content.
    * So for this instance we need to flip the order of the actions so that the primary
    * action is anchored to the left edge of the modal.
@@ -38,8 +38,9 @@ const ModalFooter: ModalFooter = props => {
       <div
         className={classNames(
           styles.actions,
-          props.alignStart && styles.actionsAlignStart,
-          variant === "information" && styles.informationAlign
+          !unpadded && styles.padded,
+          variant === "information" && styles.informationPadded,
+          props.alignStart && styles.actionsAlignStart
         )}
       >
         {actions.map((action, index) => (

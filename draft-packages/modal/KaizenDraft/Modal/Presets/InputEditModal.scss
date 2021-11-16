@@ -11,11 +11,18 @@
 
 .header {
   color: $color-purple-800;
-  padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: left;
+  &.textAlignRTL {
+    text-align: right;
+  }
+  &.padded {
+    padding: $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid;
+  }
 }
 
 .body {
   background: $color-gray-200;
-  padding: $ca-grid $ca-grid $ca-grid * 1.5;
+  &.padded {
+    padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
+  }
 }
