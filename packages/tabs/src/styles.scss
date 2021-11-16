@@ -5,7 +5,11 @@
 
 .tabList {
   border-bottom: 1px solid rgba($color-gray-600-rgb, 0.1);
-  padding: 0 $spacing-md;
+  padding: $spacing-xs $spacing-md 0;
+}
+
+.tabList.noPadding {
+  padding: 0;
 }
 
 .tab {
