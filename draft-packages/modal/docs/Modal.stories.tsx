@@ -673,7 +673,6 @@ export const ContextModals = () => (
             onDismiss={close}
             secondaryLabel="Cancel"
             onSecondaryAction={close}
-            orientation="portrait"
             image={<AddImage alt="placeholder" />}
           >
             <ModalAccessibleDescription>
