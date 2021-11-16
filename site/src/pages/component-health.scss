@@ -76,6 +76,10 @@
   .positive {
     background: $color-green-200;
     color: $color-green-600;
+
+    svg {
+      opacity: 0.5;
+    }
   }
 
   .negative {

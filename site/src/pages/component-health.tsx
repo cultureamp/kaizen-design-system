@@ -83,13 +83,7 @@ export default ({ data, location }) => {
                             title={attribute.positive}
                             role="img"
                           />
-                        ) : (
-                          <Icon
-                            icon={subtractIcon}
-                            title={attribute.negative}
-                            role="img"
-                          />
-                        )}
+                        ) : null}
                       </td>
                     )
                   })}
