@@ -1,3 +1,4 @@
+import { Heading, Box } from "@kaizen/component-library"
 import * as React from "react"
 import {
   EmptyStatesAction,
@@ -365,47 +366,108 @@ SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"
 export const SurveyGetStartedStory = () => <SurveyGetStarted alt="" />
 SurveyGetStartedStory.storyName = "Survey Overview: Get Started"
 
-export const SkillCoachStory = args => (
+export const SkillsCoachStory = args => (
   <>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach 1 on 1 Meetings</h1>
-      <SkillsCoach1On1Meetings alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Coaching</h1>
-      <SkillsCoachCoaching alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Employee Development</h1>
-      <SkillsCoachEmployeeDevelopment alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skill Coach Essential Feedback</h1>
-      <SkillsCoachEssentialFeedback alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Feedback</h1>
-      <SkillsCoachFeedback alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Manager Hub</h1>
-      <SkillsCoachManagerHub alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Productivity</h1>
-      <SkillsCoachProductivity alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Remote Manager</h1>
-      <SkillsCoachRemoteManager alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Resilience</h1>
-      <SkillsCoachResilience alt="" />
-    </div>
-    <div style={{ width: "450px" }}>
-      <h1>Skills Coach Strategy</h1>
-      <SkillsCoachStrategy alt="" />
-    </div>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            1-on-1 Meetings
+          </Heading>
+        </Box>
+        <SkillsCoach1On1Meetings alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Coaching
+          </Heading>
+        </Box>
+        <SkillsCoachCoaching alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Employee Development
+          </Heading>
+        </Box>
+        <SkillsCoachEmployeeDevelopment alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Essential Feedback
+          </Heading>
+        </Box>
+        <SkillsCoachEssentialFeedback alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Feedback
+          </Heading>
+        </Box>
+        <SkillsCoachFeedback alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Manager Hub
+          </Heading>
+        </Box>
+        <SkillsCoachManagerHub alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Productivity
+          </Heading>
+        </Box>
+        <SkillsCoachProductivity alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Remote Manager
+          </Heading>
+        </Box>
+        <SkillsCoachRemoteManager alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Resilience
+          </Heading>
+        </Box>
+        <SkillsCoachResilience alt="" />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Strategy
+          </Heading>
+        </Box>
+        <SkillsCoachStrategy alt="" />
+      </div>
+    </Box>
   </>
 )
+SkillsCoachStory.storyName = "Skills Coach"
