@@ -92,7 +92,6 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   @include title-block-medium-and-small {
     border-bottom: none;
-    height: $ca-grid * 2.5;
   }
 }
 
@@ -166,10 +165,6 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .titleTextOverride.titleTextOverride {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
   padding: 4px 0;
 
   @media (max-width: $breadcrumb-breakpoint-width) {
