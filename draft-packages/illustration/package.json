@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^3.3.2",
+    "@kaizen/component-library": "^11.5.6",
     "@types/jszip": "^3.4.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
