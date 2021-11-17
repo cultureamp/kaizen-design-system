@@ -409,7 +409,3 @@ export const SkillCoachStory = args => (
     </div>
   </>
 )
-BrandMoments.args = {
-  isAnimated: true,
-  loop: true,
-}
