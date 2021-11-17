@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.15...@kaizen/draft-title-block-zen@4.1.16) (2021-11-16)
+
+
+### Bug Fixes
+
+* Use visually hidden instead of display:none for breadcrumb link name ([#2291](https://github.com/cultureamp/kaizen-design-system/issues/2291)) ([8c31a3b](https://github.com/cultureamp/kaizen-design-system/commit/8c31a3bbb499beae3ef0af935875b685eeae12c6))
+
+
+
+
+
 ## [4.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.14...@kaizen/draft-title-block-zen@4.1.15) (2021-11-15)
 
 

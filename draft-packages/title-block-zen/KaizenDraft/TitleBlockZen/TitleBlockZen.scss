@@ -562,8 +562,30 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   }
 }
 
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@mixin visually-hidden-reset {
+  clip: initial;
+  clip-path: initial;
+  height: initial;
+  overflow: initial;
+  position: initial;
+  white-space: initial;
+  width: initial;
+}
+
 .breadcrumbTextLink {
-  display: none;
+  // We are using visually hidden here instead of display:none so that a screen reader
+  // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
+  @include visually-hidden;
   z-index: $ca-z-index-sticky - 1;
   @include ca-position($start: -2 * $ca-grid);
   position: absolute;
@@ -582,6 +604,10 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   &:focus,
   .breadcrumb:hover &,
   .breadcrumb:focus & {
+    @include visually-hidden-reset;
+    // ^be careful of this mixin unsetting values you need
+    // e.g. I needed to set position:absolute again below
+    position: absolute;
     display: block;
     animation: slide-fade 0.4s;
 

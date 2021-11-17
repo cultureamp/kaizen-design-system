@@ -1,8 +1,10 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
-import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
+import subtractIcon from "@kaizen/component-library/icons/subtract-white.icon.svg"
+
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
@@ -21,8 +23,7 @@ const ComponentPageHeader = (
 export default ({ data, location }) => {
   const componentsSorted = sortSidebarTabs(data.allMdx.edges)
   const componentsFiltered = componentsSorted.filter(
-    component =>
-      component.node && component.node.frontmatter.navTitle !== "Overview"
+    component => component.node?.frontmatter.navTitle !== "Overview"
   )
   const totals = calculateHealthTotals(
     componentsFiltered.map(component => component.node.frontmatter),
@@ -78,17 +79,11 @@ export default ({ data, location }) => {
                       >
                         {mdx.node.frontmatter.health[attribute.id] ? (
                           <Icon
-                            icon={checkIcon}
+                            icon={successIcon}
                             title={attribute.positive}
                             role="img"
                           />
-                        ) : (
-                          <Icon
-                            icon={closeIcon}
-                            title={attribute.negative}
-                            role="img"
-                          />
-                        )}
+                        ) : null}
                       </td>
                     )
                   })}
@@ -97,10 +92,26 @@ export default ({ data, location }) => {
             </tbody>
             <tfoot>
               <tr>
-                <td>Total</td>
-                {healthAttributeMap.map(attribute => (
-                  <td key={attribute.id}>{totals[attribute.id]}</td>
-                ))}
+                <td>
+                  <Heading tag="span" variant="heading-4">
+                    Total ({componentsFiltered.length})
+                  </Heading>
+                </td>
+                {healthAttributeMap.map(attribute => {
+                  const count = totals[attribute.id]
+                  const percentage = (count / componentsFiltered.length) * 100
+                  return (
+                    <td key={attribute.id}>
+                      <Heading tag="span" variant="heading-4">
+                        {count}
+                      </Heading>
+
+                      <Paragraph as="span" variant="small">
+                        ({percentage.toFixed(0)}%)
+                      </Paragraph>
+                    </td>
+                  )
+                })}
               </tr>
             </tfoot>
           </table>
