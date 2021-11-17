@@ -550,6 +550,106 @@ exports[`<Illustration /> Scene Programs should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Scene SkillsCoach1On1Meetings should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-1-on-1-meetings.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachCoaching should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-coaching.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachEmployeeDevelopment should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-employee-development.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachEssentialFeedback should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachFeedback should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachManagerHub should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-manager-hub.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachProductivity should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachRemoteManager should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-remote-manager.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachResilience should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-resilience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachStrategy should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-strategy.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene SurveyGetStarted should exist and render an alt tag 1`] = `
 <div>
   <img
