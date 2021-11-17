@@ -1,0 +1,73 @@
+@import "~@kaizen/component-library/styles/responsive";
+
+@mixin one-column {
+  grid-template-columns: 1fr;
+  grid-template-areas: "header";
+}
+@mixin two-column {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "header header";
+}
+@mixin three-column {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "header header header";
+}
+@mixin four-column {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "header header header header";
+}
+@mixin five-column {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "header header header header header";
+}
+@mixin six-column {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: "header header header header header header";
+}
+.storyContainer {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  justify-content: start;
+  align-items: start;
+  grid-template-columns: 1fr;
+  grid-template-areas: "header";
+  gap: 1rem;
+}
+h1 {
+  grid-area: header;
+}
+.cols-2 {
+  @include two-column;
+  @include ca-media-tablet-and-under {
+    @include one-column;
+  }
+}
+
+.cols-3 {
+  @include three-column;
+  @include ca-media-tablet-and-under {
+    @include one-column;
+  }
+}
+
+.cols-4 {
+  @include four-column;
+  @include ca-media-tablet-and-under {
+    @include one-column;
+  }
+}
+
+.cols-5 {
+  @include five-column;
+  @include ca-media-tablet-and-under {
+    @include one-column;
+  }
+}
+
+.cols-6 {
+  @include six-column;
+  @include ca-media-tablet-and-under {
+    @include one-column;
+  }
+}

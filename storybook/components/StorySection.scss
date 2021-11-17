@@ -1,0 +1,13 @@
+@import "~@kaizen/component-library/styles/responsive";
+
+.storySection {
+  display: grid;
+  justify-items: start;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  @include ca-media-mobile {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
