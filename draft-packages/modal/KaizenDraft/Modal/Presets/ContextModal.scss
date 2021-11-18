@@ -18,7 +18,10 @@
   color: $color-purple-800;
   text-align: left;
   &.padded {
-    padding: $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid;
+    padding: $ca-grid $ca-grid * 1.5;
+    @include ca-media-mobile {
+      padding: $ca-grid;
+    }
   }
 }
 
@@ -40,24 +43,25 @@
 
 .portraitContentlayout {
   display: flex;
-  padding: $ca-grid 1.5 * $ca-grid 1.5 * $ca-grid 1.5 * $ca-grid;
+  padding: $ca-grid 1.5 * $ca-grid;
   @include ca-media-mobile {
+    padding: $ca-grid;
     display: block;
   }
 }
 
 .landscapeContentlayout {
   display: flex;
-  padding: $ca-grid 1.5 * $ca-grid 1.5 * $ca-grid 1.5 * $ca-grid;
+  padding: $ca-grid 1.5 * $ca-grid;
   flex-direction: column;
+  @include ca-media-mobile {
+    padding: $ca-grid;
+  }
   .image {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    @include ca-media-mobile {
-      display: none;
-    }
   }
 
   .content {
@@ -81,7 +85,4 @@
 
 .image {
   flex: 1;
-  @include ca-media-mobile {
-    display: none;
-  }
 }

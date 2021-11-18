@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -24,7 +23,10 @@ $dt-assertive-header-background: $color-orange-100;
   text-align: left;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
   &.padded {
-    padding: $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid;
+    padding: $ca-grid $ca-grid * 1.5;
+    @include ca-media-mobile {
+      padding: $ca-grid;
+    }
   }
   // override Murmur global styles :(
   h1 {
@@ -37,16 +39,16 @@ $dt-assertive-header-background: $color-orange-100;
 .cautionaryHeader,
 .assertiveHeader {
   display: grid;
-  grid-template-columns: 0.25fr 2fr;
+  grid-template-columns: 0.2fr 2fr;
   align-items: center;
   &.prominent {
     grid-template-columns: 1.1fr 2fr;
     @include ca-media-mobile {
       display: flex;
       flex-direction: column;
-      align-content: center;
+      align-content: flex-start;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
     .iconContainer {
       position: absolute;
@@ -54,7 +56,7 @@ $dt-assertive-header-background: $color-orange-100;
       @include ca-media-mobile {
         position: relative;
         top: 0;
-        margin-bottom: $spacing-sm;
+        @include ca-margin($bottom: $ca-grid * 0.5);
       }
     }
     .spotIcon,
@@ -63,11 +65,14 @@ $dt-assertive-header-background: $color-orange-100;
       height: 155px;
       margin: 0 auto;
       color: $color-purple-800;
+      @include ca-media-mobile {
+        width: 86px;
+        height: 86px;
+      }
     }
   }
   .iconContainer {
-    align-self: center;
-    margin: 0 auto;
+    align-self: start;
   }
   .spotIcon,
   .svgIcon > svg {
@@ -119,7 +124,7 @@ $dt-assertive-header-background: $color-orange-100;
 
 .body {
   display: grid;
-  grid-template-columns: 0.25fr 2fr;
+  grid-template-columns: 0.2fr 2fr;
   align-items: center;
   @include ca-media-mobile {
     grid-template-columns: 1fr;
@@ -134,10 +139,12 @@ $dt-assertive-header-background: $color-orange-100;
   }
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
+    @include ca-media-mobile {
+      padding: $ca-grid;
+    }
   }
 }
 
 .iconContainer {
   position: relative;
-  margin-bottom: $spacing-sm;
 }

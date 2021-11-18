@@ -2,6 +2,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/responsive";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -16,7 +17,10 @@
     text-align: right;
   }
   &.padded {
-    padding: $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid;
+    padding: $ca-grid $ca-grid * 1.5;
+    @include ca-media-mobile {
+      padding: $ca-grid;
+    }
   }
 }
 
@@ -24,5 +28,8 @@
   background: $color-gray-200;
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
+    @include ca-media-mobile {
+      padding: $ca-grid;
+    }
   }
 }

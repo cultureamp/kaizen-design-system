@@ -1,7 +1,27 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/responsive";
+
+$ca-breakpoint-small-mobile: 375px;
+
+@mixin ca-media-small-mobile {
+  @media (max-width: #{$ca-breakpoint-small-mobile - 1px}) {
+    @content;
+  }
+}
+
 .modalLabel {
   position: relative;
+  h2 {
+    @include ca-media-mobile {
+      font-size: 1.625rem;
+      line-height: 32px;
+    }
+    @include ca-media-small-mobile {
+      font-size: 1.5rem;
+      line-height: 30px;
+    }
+  }
   &.prominent {
     grid-column-start: 2;
     text-align: left;

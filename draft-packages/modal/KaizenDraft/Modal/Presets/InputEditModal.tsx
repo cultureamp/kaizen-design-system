@@ -1,8 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
-
-import { Text } from "@kaizen/component-library"
-
+import { Heading } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
@@ -11,7 +9,6 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
 import styles from "./InputEditModal.scss"
 
 export interface InputEditModalProps {
@@ -75,9 +72,9 @@ const InputEditModal = ({
             })}
           >
             <ModalAccessibleLabel>
-              <Text tag="h2" style="default-style" inheritBaseline inline>
+              <Heading tag="h2" variant="heading-2">
                 {title}
-              </Text>
+              </Heading>
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
@@ -94,6 +91,7 @@ const InputEditModal = ({
           appearance={type === "negative" ? "destructive" : "primary"}
           automationId={automationId}
           variant={"input"}
+          unpadded={unpadded}
         />
       </div>
     </GenericModal>

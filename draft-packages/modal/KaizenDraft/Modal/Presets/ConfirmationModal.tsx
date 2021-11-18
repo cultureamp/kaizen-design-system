@@ -170,6 +170,7 @@ const ConfirmationModal = ({
           actions={footerActions}
           appearance={type === "negative" ? "destructive" : "primary"}
           automationId={automationId}
+          unpadded={unpadded}
         />
       </div>
     </GenericModal>

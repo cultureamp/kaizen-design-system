@@ -2,7 +2,7 @@ import { Heading } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
 import classnames from "classnames"
 import * as React from "react"
-import { GenericModal, ModalAccessibleLabel, ModalFooter } from ".."
+import { GenericModal, ModalAccessibleLabel, ModalBody, ModalFooter } from ".."
 import ModalHeader from "../Primitives/ModalHeader"
 import styles from "./ContextModal.scss"
 
@@ -19,6 +19,7 @@ export type ContextModalProps = Readonly<
   {
     isOpen: boolean
     unpadded?: boolean
+    isLandscape?: boolean
     title: string
     onConfirm?: () => void
     onDismiss: () => void
@@ -29,7 +30,6 @@ export type ContextModalProps = Readonly<
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-    isLandscape?: boolean
   } & ContextModalSecondaryActionProps
 >
 
@@ -38,6 +38,7 @@ type ContextModal = React.FunctionComponent<ContextModalProps>
 const ContextModal = ({
   isOpen,
   unpadded = false,
+  isLandscape = false,
   title,
   onConfirm,
   confirmLabel = "Confirm",
@@ -47,7 +48,6 @@ const ContextModal = ({
   children,
   contentHeader,
   image,
-  isLandscape = false,
   ...props
 }: ContextModalProps) => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
@@ -100,33 +100,35 @@ const ContextModal = ({
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <div
-          className={classnames(styles.contentLayout, {
-            [styles.portraitContentlayout]: !isLandscape,
-            [styles.landscapeContentlayout]: isLandscape,
-          })}
-        >
-          <div className={styles.image}>{image}</div>
-          <div className={styles.content}>
-            {children}
-            {onConfirm != null && (
-              <div
-                className={
-                  props.secondaryLabel
-                    ? styles.footerWithSecondaryAction
-                    : styles.footer
-                }
-              >
-                <ModalFooter
-                  variant={image ? "information" : undefined}
-                  actions={footerActions}
-                  appearance={"primary"}
-                  automationId={automationId}
-                />
-              </div>
-            )}
+        <ModalBody unpadded={unpadded}>
+          <div
+            className={classnames(styles.contentLayout, {
+              [styles.portraitContentlayout]: !isLandscape,
+              [styles.landscapeContentlayout]: isLandscape,
+            })}
+          >
+            <div className={styles.image}>{image}</div>
+            <div className={styles.content}>
+              {children}
+              {onConfirm != null && (
+                <div
+                  className={
+                    props.secondaryLabel
+                      ? styles.footerWithSecondaryAction
+                      : styles.footer
+                  }
+                ></div>
+              )}
+            </div>
           </div>
-        </div>
+        </ModalBody>
+        <ModalFooter
+          variant={image ? "context" : undefined}
+          actions={footerActions}
+          appearance={"primary"}
+          automationId={automationId}
+          unpadded={unpadded}
+        />
       </div>
     </GenericModal>
   )
