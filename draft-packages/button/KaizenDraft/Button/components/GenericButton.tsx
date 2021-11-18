@@ -198,6 +198,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       }
       ref={ref}
       {...customProps}
+      {...rest}
     >
       {renderContent(props)}
     </button>

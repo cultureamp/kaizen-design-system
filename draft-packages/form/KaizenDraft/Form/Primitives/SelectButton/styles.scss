@@ -1,0 +1,50 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.button {
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  color: $color-purple-800;
+  padding: $spacing-xs $spacing-sm;
+  background: $color-white;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  text-align: start;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.button.isOpen,
+.button:hover {
+  background: $color-gray-200;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:global(.focus-visible)::after {
+  $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+  content: "";
+  position: absolute;
+  background: transparent;
+  border-radius: $border-focus-ring-border-radius;
+  border-width: $border-focus-ring-border-width;
+  border-style: $border-focus-ring-border-style;
+  border-color: $color-blue-500;
+  top: calc(-1 * #{$focus-ring-offset});
+  left: calc(-1 * #{$focus-ring-offset});
+  right: calc(-1 * #{$focus-ring-offset});
+  bottom: calc(-1 * #{$focus-ring-offset});
+}
+
+.buttonText {
+  flex: 1 0 auto;
+}
