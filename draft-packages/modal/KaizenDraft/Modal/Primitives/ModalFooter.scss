@@ -1,11 +1,12 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
 
 .actions {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .actionsAlignStart {
@@ -13,17 +14,28 @@
   justify-content: flex-end;
 }
 
-.informationAlign {
-  flex-direction: row;
-  justify-content: flex-start;
-
-  .actionButton + .actionButton {
-    @include ca-margin($start: $ca-grid * 0.5);
+.padded {
+  padding: 0 $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid * 1.5;
+  @include ca-media-mobile {
+    padding: $ca-grid;
+    flex-direction: column;
   }
 }
-
+.actionButton {
+  @include ca-media-mobile {
+    width: 100%;
+    > *,
+    > * > * {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
 .actionButton + .actionButton {
   @include ca-margin($end: $ca-grid * 0.5);
+  @include ca-media-mobile {
+    @include ca-margin($top: $ca-grid * 0.5);
+  }
 }
 
 // to avoid the row-reverse styles
@@ -63,8 +75,4 @@
 }
 .filler {
   visibility: hidden;
-}
-
-.padded {
-  padding: $ca-grid;
 }
