@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.16...@kaizen/draft-title-block-zen@4.1.17) (2021-11-19)
+
+
+### Bug Fixes
+
+* Remove titleblock title truncation ([#2297](https://github.com/cultureamp/kaizen-design-system/issues/2297)) ([c015ea5](https://github.com/cultureamp/kaizen-design-system/commit/c015ea5b3fea61132e6c5191227f644afdb0e89e))
+
+
+
+
+
 ## [4.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.15...@kaizen/draft-title-block-zen@4.1.16) (2021-11-16)
 
 
