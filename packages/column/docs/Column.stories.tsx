@@ -2,16 +2,16 @@ import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import React, { useCallback, useEffect, useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
-import Responsive from "../Responsive"
+import Column from "../Column"
 import styles from "./stories.scss"
 
 export default {
-  title: `${CATEGORIES.components}/Responsive`,
-  component: Responsive,
+  title: `${CATEGORIES.components}/Column`,
+  component: Column,
   parameters: {
     docs: {
       description: {
-        component: 'import { Responsive } from "@kaizen/draft-responsive"',
+        component: 'import { Column } from "@kaizen/column"',
       },
     },
     actions: {
@@ -42,7 +42,7 @@ export const DefaultKaizenSiteDemo = args => {
           <Heading variant="heading-3">Browser width: {browserWidth}</Heading>
         </Box>
         <Box pb={1}>
-          <Responsive {...args}>
+          <Column {...args}>
             <Card>
               <Box p={2}>
                 <Heading variant="heading-4">Test</Heading>
@@ -87,7 +87,7 @@ export const DefaultKaizenSiteDemo = args => {
                 </Paragraph>
               </Box>
             </Card>
-          </Responsive>
+          </Column>
         </Box>
       </div>
     </div>

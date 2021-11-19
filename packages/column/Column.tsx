@@ -1,8 +1,8 @@
 import React from "react"
 import cx from "classnames"
-import styles from "./Responsive.scss"
+import styles from "./Column.scss"
 
-export type GridSizes = {
+export type ColumnProps = {
   small?: "1" | "2"
   medium?: "1" | "2" | "3"
   large?: "1" | "2" | "3"
@@ -10,10 +10,10 @@ export type GridSizes = {
   children?: React.ReactChild
 }
 
-export default function Responsive({ small, medium, large, xlarge, children }) {
+export default function Column({ small, medium, large, xlarge, children }) {
   return (
     <div
-      className={cx(styles.gridWrapper, {
+      className={cx(styles.columnWrapper, {
         [styles[`small-${small}`]]: small,
         [styles[`medium-${medium}`]]: medium,
         [styles[`large-${large}`]]: large,

@@ -1,3 +1,6 @@
+@mixin one-column {
+  grid-template-columns: 1fr;
+}
 @mixin two-column {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -8,7 +11,7 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.gridWrapper {
+.columnWrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -18,6 +21,10 @@
 }
 
 @media (min-width: 664px) {
+  .small-1 {
+    @include one-column;
+  }
+
   .small-2 {
     @include two-column;
   }
@@ -32,6 +39,10 @@
 }
 
 @media (min-width: 1008px) {
+  .medium-1 {
+    @include one-column;
+  }
+
   .medium-2 {
     @include two-column;
   }
@@ -46,6 +57,10 @@
 }
 
 @media (min-width: 1080px) {
+  .large-1 {
+    @include one-column;
+  }
+
   .large-2 {
     @include two-column;
   }
@@ -60,6 +75,10 @@
 }
 
 @media (min-width: 1157px) {
+  .xlarge-1 {
+    @include one-column;
+  }
+
   .xlarge-2 {
     @include two-column;
   }
@@ -74,6 +93,10 @@
 }
 
 @media (min-width: 1495px) {
+  .xxlarge-1 {
+    @include one-column;
+  }
+
   .xxlarge-2 {
     @include two-column;
   }
