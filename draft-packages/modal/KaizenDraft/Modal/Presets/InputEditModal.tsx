@@ -90,7 +90,7 @@ const InputEditModal = ({
           actions={footerActions}
           appearance={type === "negative" ? "destructive" : "primary"}
           automationId={automationId}
-          variant={"input"}
+          variant="inputEdit"
           unpadded={unpadded}
         />
       </div>

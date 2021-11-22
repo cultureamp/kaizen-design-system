@@ -24,11 +24,11 @@
 .actionButton {
   @include ca-media-mobile {
     width: 100%;
-    > *,
-    > * > * {
-      width: 100%;
-      justify-content: center;
-    }
+    //   > *,
+    //   > * > * {
+    //     width: 100%;
+    //     justify-content: center;
+    //   }
   }
 }
 .actionButton + .actionButton {

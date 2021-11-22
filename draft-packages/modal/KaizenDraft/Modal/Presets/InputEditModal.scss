@@ -13,9 +13,11 @@
 .header {
   color: $color-purple-800;
   text-align: left;
+
   &.textAlignRTL {
     text-align: right;
   }
+
   &.padded {
     padding: $ca-grid $ca-grid * 1.5;
     @include ca-media-mobile {
@@ -26,6 +28,7 @@
 
 .body {
   background: $color-gray-200;
+
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
     @include ca-media-mobile {

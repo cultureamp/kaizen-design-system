@@ -1,4 +1,6 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .modalDescription {
   grid-column-start: 2;
-  padding-bottom: 1.5rem;
+  padding-bottom: $spacing-md;
 }

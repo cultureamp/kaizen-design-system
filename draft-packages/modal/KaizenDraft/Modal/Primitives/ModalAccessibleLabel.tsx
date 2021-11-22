@@ -15,7 +15,7 @@ const ModalAccessibleLabel: ModalAccessibleLabel = ({ children }) => (
       <div
         id={labelledByID}
         tabIndex={-1}
-        className={classnames(styles.modalLabel, {})}
+        className={classnames(styles.modalLabel)}
       >
         {children}
       </div>
