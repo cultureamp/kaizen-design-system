@@ -22,13 +22,13 @@ export const healthAttributeMap = [
   },
   {
     id: "latestDesign",
-    positive: "Matches latest design",
-    negative: "Doesn’t match latest design",
+    positive: "UI Kit parity",
+    negative: "No UI Kit parity",
   },
   {
     id: "allVariants",
-    positive: "Has all variants",
-    negative: "Doesn’t have all variants",
+    positive: "All variants",
+    negative: "Only some variants",
   },
   {
     id: "responsive",

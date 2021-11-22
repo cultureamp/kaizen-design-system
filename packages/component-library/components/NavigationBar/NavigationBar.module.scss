@@ -83,3 +83,11 @@
 .kaizen .active {
   background-color: $dt-color-background-color-default;
 }
+
+.caLogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(#{$spacing-md} * 5);
+  margin: 0 $spacing-md;
+}

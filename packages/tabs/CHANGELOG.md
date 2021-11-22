@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.1.3...@kaizen/tabs@1.1.4) (2021-11-15)
+
+
+### Bug Fixes
+
+* Restore inbuilt padding on TabList and add 'noPadding' prop ([#2287](https://github.com/cultureamp/kaizen-design-system/issues/2287)) ([2e31e93](https://github.com/cultureamp/kaizen-design-system/commit/2e31e937dd9a6f0c432a1c4dcec33e09c2d0df87))
+
+
+
+
+
 ## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.1.2...@kaizen/tabs@1.1.3) (2021-11-12)
 
 **Note:** Version bump only for package @kaizen/tabs

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.21](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.20...site@0.0.0-private.21) (2021-11-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.20](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.19...site@0.0.0-private.20) (2021-11-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.19](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.18...site@0.0.0-private.19) (2021-11-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.18](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.17...site@0.0.0-private.18) (2021-11-16)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.17](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.16...site@0.0.0-private.17) (2021-11-16)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.16](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.15...site@0.0.0-private.16) (2021-11-15)
+
+
+### Bug Fixes
+
+* change CA logo for the kaizen website ([#2282](https://github.com/cultureamp/kaizen-design-system/issues/2282)) ([196f402](https://github.com/cultureamp/kaizen-design-system/commit/196f40265a66d7a612e5502e02dd99224783b4bd))
+
+
+
+
+
 # [0.0.0-private.15](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.14...site@0.0.0-private.15) (2021-11-12)
 
 **Note:** Version bump only for package site
