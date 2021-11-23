@@ -1,6 +1,7 @@
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
 import InputEditModal, { InputEditModalProps } from "./InputEditModal"
+import "./matchMedia.mock"
 
 afterEach(cleanup)
 

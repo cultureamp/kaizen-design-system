@@ -1,6 +1,7 @@
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
 import ConfirmationModal, { ConfirmationModalProps } from "./ConfirmationModal"
+import "./matchMedia.mock"
 
 afterEach(cleanup)
 

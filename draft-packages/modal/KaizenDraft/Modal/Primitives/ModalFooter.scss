@@ -1,7 +1,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/layout";
 
 .actions {
   display: flex;
@@ -16,13 +16,13 @@
 
 .padded {
   padding: 0 $ca-grid * 1.5 $ca-grid * 1.5 $ca-grid * 1.5;
-  @include ca-media-mobile {
+  @media (max-width: $layout-breakpoints-medium) {
     padding: $ca-grid;
     flex-direction: column;
   }
 }
 .actionButton {
-  @include ca-media-mobile {
+  @media (max-width: $layout-breakpoints-medium) {
     width: 100%;
     //   > *,
     //   > * > * {
@@ -33,7 +33,7 @@
 }
 .actionButton + .actionButton {
   @include ca-margin($end: $ca-grid * 0.5);
-  @include ca-media-mobile {
+  @media (max-width: $layout-breakpoints-medium) {
     @include ca-margin($top: $ca-grid * 0.5);
   }
 }

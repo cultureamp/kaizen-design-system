@@ -2,7 +2,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/layout";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -20,7 +20,7 @@
 
   &.padded {
     padding: $ca-grid $ca-grid * 1.5;
-    @include ca-media-mobile {
+    @media (max-width: $layout-breakpoints-medium) {
       padding: $ca-grid;
     }
   }
@@ -31,7 +31,7 @@
 
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
-    @include ca-media-mobile {
+    @media (max-width: $layout-breakpoints-medium) {
       padding: $ca-grid;
     }
   }

@@ -1,11 +1,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/layout";
 
+//TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
 $ca-breakpoint-small-mobile: 375px;
 
 @mixin ca-media-small-mobile {
-  @media (max-width: #{$ca-breakpoint-small-mobile - 1px}) {
+  @media (max-width: #{$ca-breakpoint-small-mobile}) {
     @content;
   }
 }
@@ -19,7 +20,7 @@ $ca-breakpoint-small-mobile: 375px;
       font-size: 1.625rem;
       line-height: 32px;
     }
-    @include ca-media-small-mobile {
+    @media (max-width: $layout-breakpoints-medium) {
       font-size: 1.5rem;
       line-height: 30px;
     }
