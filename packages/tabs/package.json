@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tabs",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
