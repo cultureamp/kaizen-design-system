@@ -7,70 +7,7 @@ exports[`<BrandMoment /> matches the snapshot 1`] = `
   >
     <header
       class="header"
-    >
-      <nav
-        class="container"
-        dir="ltr"
-      >
-        <div
-          class="headerLeft"
-        >
-          <a
-            aria-label="Home"
-            class="logoLink"
-            href="/app/home"
-          >
-            <img
-              alt="Culture Amp"
-              class="img"
-              src="https://d1e7r7b0lb8p4d.cloudfront.net/brand/logo-horizontal-default.svg"
-            />
-          </a>
-        </div>
-        <div
-          class="headerRight"
-        >
-          <div
-            class="utilityItem"
-          >
-            <div
-              class="root default medium"
-            >
-              <div
-                class="layoutContainer"
-              >
-                <span
-                  class="textContent"
-                >
-                  Local
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="buttonWrapper"
-            >
-              <button
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="avatarButton"
-              >
-                <div
-                  class="wrapper medium personal"
-                >
-                  <div
-                    class="initials"
-                  >
-                    L
-                  </div>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    />
     <main
       class="main"
     >

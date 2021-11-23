@@ -41,7 +41,6 @@
     "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@cultureamp/unified-navigation-ui": "^2.0.1",
     "@kaizen/design-tokens": "^3.3.2",
     "@kaizen/draft-select": "^1.21.37",
     "rimraf": "^3.0.2"

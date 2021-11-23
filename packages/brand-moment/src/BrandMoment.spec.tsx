@@ -1,7 +1,6 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import { MinimalNavigation } from "@cultureamp/unified-navigation-ui"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { BrandMoment } from "./BrandMoment"
 
@@ -37,7 +36,7 @@ describe("<BrandMoment />", () => {
             </Paragraph>
           </>
         }
-        header={<MinimalNavigation environment="development" />}
+        header={<></>}
         illustration={<BrandMomentError isAnimated loop />}
         mood="negative"
         primaryAction={{
