@@ -44,15 +44,18 @@ class CheckboxGroupExample extends React.Component<Props> {
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Group`,
-  component: CheckboxGroup,
+  component: CheckboxField,
   parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
     docs: {
       description: {
         component: 'import { CheckboxGroup } from "@kaizen/draft-form";',
       },
     },
     ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A69854"
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14533%3A69854"
     ),
   },
   decorators: [withDesign],
@@ -64,7 +67,7 @@ const reversedBg = {
   },
 }
 
-export const InteractiveKaizenSiteDemo = () => (
+export const InteractiveKaizenSiteDemo = args => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label">
       <CheckboxGroupExample
@@ -73,14 +76,8 @@ export const InteractiveKaizenSiteDemo = () => (
             onCheck={onCheckHandler}
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
+            {...args}
           />
         )}
       />
@@ -90,14 +87,8 @@ export const InteractiveKaizenSiteDemo = () => (
             onCheck={onCheckHandler}
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
+            {...args}
           />
         )}
       />
@@ -107,14 +98,8 @@ export const InteractiveKaizenSiteDemo = () => (
             onCheck={onCheckHandler}
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
+            {...args}
           />
         )}
       />
@@ -177,51 +162,6 @@ export const Rtl = () => (
 )
 
 Rtl.storyName = "RTL"
-
-export const WithLinks = () => (
-  <div>
-    <CheckboxGroup labelText="Checkbox Group Label">
-      <CheckboxField
-        id="checkbox-1"
-        checkedStatus="off"
-        disabled={false}
-        labelText={
-          <div>
-            <a href="http://google.com" target="_blank">
-              Option 1
-            </a>
-          </div>
-        }
-      />
-      <CheckboxField
-        id="checkbox-2"
-        checkedStatus="off"
-        disabled={false}
-        labelText={
-          <div>
-            <a href="http://google.com" target="_blank">
-              Option 2
-            </a>
-          </div>
-        }
-      />
-      <CheckboxField
-        id="checkbox-3"
-        checkedStatus="off"
-        disabled={false}
-        labelText={
-          <div>
-            <a href="http://google.com" target="_blank">
-              Option 3
-            </a>
-          </div>
-        }
-      />
-    </CheckboxGroup>
-  </div>
-)
-
-WithLinks.storyName = "with links"
 
 export const WithBottomMargin = () => (
   <div>
@@ -357,7 +297,7 @@ export const NestedCheckboxGroup = () => {
 
 NestedCheckboxGroup.storyName = "Nested Checkbox Group"
 
-export const ReversedCheckboxGroup = () => (
+export const ReversedCheckboxGroup = args => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label" reversed>
       <CheckboxGroupExample
@@ -366,15 +306,9 @@ export const ReversedCheckboxGroup = () => (
             onCheck={onCheckHandler}
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
             reversed
+            {...args}
           />
         )}
       />
@@ -384,15 +318,9 @@ export const ReversedCheckboxGroup = () => (
             onCheck={onCheckHandler}
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
             reversed
+            {...args}
           />
         )}
       />
@@ -402,15 +330,9 @@ export const ReversedCheckboxGroup = () => (
             onCheck={onCheckHandler}
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
-            labelText={
-              <span>
-                This is a label with a{" "}
-                <a href="http://google.com" target="_blank">
-                  link
-                </a>
-              </span>
-            }
+            labelText="Label"
             reversed
+            {...args}
           />
         )}
       />
