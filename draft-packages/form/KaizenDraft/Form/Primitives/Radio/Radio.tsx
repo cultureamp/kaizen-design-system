@@ -47,9 +47,7 @@ const Radio: Radio = ({
       value={value}
       checked={selectedStatus}
       data-automation-id={automationId}
-      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
-      // Remove when fastclick is removed from consuming repos
-      className={classnames(styles.radioInput, "needsclick", {
+      className={classnames(styles.radioInput, {
         [styles.reversed]: reversed,
       })}
       onChange={onChange}
