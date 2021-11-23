@@ -51,6 +51,7 @@ $small: $spacing-md;
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
   margin-top: -1px;
+  white-space: nowrap;
 }
 
 .dismissButton {
@@ -62,15 +63,11 @@ $small: $spacing-md;
   padding: 0 $spacing-xs;
   margin-right: -0.6625rem;
   margin-left: -0.225rem;
-
-  --dt-dismiss-icon-color-heart: rgba(var(#{$color-purple-800-rgb-id}), 0.7);
-  $dt-dismiss-icon-color: var(--dt-dismiss-icon-color-heart, $color-purple-600);
-
-  color: $dt-dismiss-icon-color;
+  color: rgba($color-purple-800-rgb, 0.7);
   cursor: pointer;
 
   &:hover {
-    color: var($color-purple-800-id, $color-purple-700);
+    color: $color-purple-800;
   }
 
   &:active {
@@ -86,7 +83,7 @@ $small: $spacing-md;
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) .iconWrapper {
-      color: var($color-purple-800-id, $color-purple-700);
+      color: $color-purple-800;
 
       &::after {
         $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
@@ -145,7 +142,7 @@ $small: $spacing-md;
 }
 
 .default {
-  background-color: var($color-gray-300-id, $color-purple-200);
+  background-color: $color-gray-300;
 }
 
 .sentimentPositive {
@@ -162,7 +159,7 @@ $small: $spacing-md;
 
 .sentimentNone {
   background-color: $color-white;
-  border-color: var($color-gray-300-id, $color-purple-200);
+  border-color: $color-gray-300;
 }
 
 .validationPositive {
@@ -203,12 +200,12 @@ $small: $spacing-md;
 }
 
 .statusDraft {
-  background-color: var($color-orange-100-id, $color-orange-200);
+  background-color: $color-orange-100;
   color: $color-purple-800;
 }
 
 .statusClosed {
-  background-color: var($color-red-100-id, $color-purple-200);
+  background-color: $color-red-100;
 }
 
 .statusAction {

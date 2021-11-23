@@ -3,7 +3,7 @@ set -u
 
 registry_user=$(npm whoami --registry "https://npm.pkg.github.com/")
 
-if [ $? -eq 0 ] || [ ! -z "$registry_user" ]; then
+if [ $? -eq 0 ] || [ ! -z "$registry_user" ] || [ -n "$CI" ]; then
   echo "Logged in to GitHub package registry as: ${registry_user}"
 else
   echo

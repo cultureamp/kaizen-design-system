@@ -9,7 +9,7 @@ type Theme
 
 
 defaultTheme =
-    Zen
+    Heart
 
 
 themeDecoder : Decoder Theme

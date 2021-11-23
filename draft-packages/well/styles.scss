@@ -50,10 +50,8 @@
 }
 
 .default {
-  // Slate 700 10% for Heart theme, Wisteria 300 for Zen theme (use Zen fallback when CSS variables aren't available).
-  --slate-700-10: rgba(var(#{$color-gray-600-rgb-id}), 0.1);
   background-color: $color-gray-300;
-  border-color: var(--slate-700-10, $color-purple-300);
+  border-color: rgba($color-gray-600-rgb, 0.1);
 }
 
 // Border Style Variations

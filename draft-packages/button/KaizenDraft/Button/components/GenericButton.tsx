@@ -28,7 +28,9 @@ export type CustomButtonProps = {
 export type GenericProps = {
   id?: string
   label: string
+  primary?: boolean
   destructive?: boolean
+  secondary?: boolean
   disabled?: boolean
   form?: boolean
   reversed?: boolean
@@ -53,7 +55,6 @@ export type AdditionalContentProps = {
 type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
-  secondary?: boolean
 }
 
 type WorkingProps = {
@@ -69,7 +70,8 @@ type WorkingUndefinedProps = {
 export type LabelProps = LabelPropsGeneric &
   (WorkingProps | WorkingUndefinedProps)
 
-export type IconButtonProps = GenericProps
+export type IconButtonProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps)
 export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
@@ -156,6 +158,7 @@ const renderCustomComponent = (
     onClick={props.onClick}
     onFocus={props.onFocus}
     onBlur={props.onBlur}
+    aria-label={generateAriaLabel(props)}
   >
     {renderContent(props)}
   </CustomComponent>
@@ -174,7 +177,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     iconButton,
     ...rest
   } = props
-  const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
 
   return (
@@ -187,8 +189,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
-      title={label}
-      aria-label={(props.working && props.workingLabel) || label}
+      aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
@@ -228,6 +229,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
+      aria-label={generateAriaLabel(props)}
       {...customProps}
     >
       {renderContent(props)}
@@ -237,7 +239,10 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
 
 const buttonClass = (props: Props) => {
   const variantClass =
-    (props.destructive && props.secondary && styles.secondaryDestructive) ||
+    (props.destructive &&
+      props.secondary &&
+      !props.reversed &&
+      styles.secondaryDestructive) ||
     (props.destructive && styles.destructive) ||
     (props.primary && styles.primary) ||
     (props.secondary && styles.secondary)
@@ -246,7 +251,7 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.working]: !props.iconButton && props.working,
+    [styles.working]: props.working,
   })
 }
 
@@ -322,9 +327,7 @@ const renderBadge = (props: Props) => {
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {props.working && !props.iconButton
-      ? renderWorkingContent(props)
-      : renderDefaultContent(props)}
+    {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
   </span>
 )
 
@@ -333,5 +336,20 @@ const renderIcon = (icon: React.SVGAttributes<SVGSymbolElement>) => (
     <Icon icon={icon} role="presentation" />
   </span>
 )
+
+// We only want an aria-label in the case that the button has just an icon and no text
+// This can happen when the button is working and workingLabelHidden is true,
+// or when this is an IconButton
+const generateAriaLabel = (props: Props) => {
+  if (props.working && props.workingLabelHidden) {
+    return props.workingLabel
+  }
+
+  if (props.iconButton) {
+    return props.label
+  }
+
+  return undefined
+}
 
 export default GenericButton

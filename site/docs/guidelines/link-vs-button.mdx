@@ -35,16 +35,19 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
             *   Use a button element styled as a link. This is likely to be more pain than it’s worth, due to baseline grid adjustments, button padding, and more.
 *   **Links that “open in a new tab” must use the “opens in new tab tooltip”**
 *   **Cursors:**
-    *   We settled on following the Operating System (OS) defaults:
-        *   Links use pointer cursors that look like a hand pointing (“cursor: pointer”)
-        *   Buttons have default cursors that look like an arrow (“cursor: default”)
-    *   When Secondary Action Buttons are used as links, this can lead to a slightly confusing experience because the cursor changes. This can prompt a conversation about why we’re using a Secondary Action Buttons as link.
-    *   One case for this approach:
-        *   [Cursor pointer](http://kizu.ru/en/issues/cursor-pointer/)
-    *   One case against this approach:
+    *   We choose to follow the Operating System (OS) defaults:
+        *   Links use the pointer cursor that looks like a hand pointing (“cursor: pointer”)
+        *   Buttons and other controls use the default cursor that looks like an arrow (“cursor: default”)
+    *   The cursor indicates the semantic meaning and behavior of the element, not its visual appearance:
+        *   Links styled as buttons (text on a solid background colour) still use the link cursor (“cursor: pointer”)
+        *   Buttons styled to look like links (underlined text) use the button cursor (“cursor: default”)
+        *   When a Secondary Action Button is used as a link, this can lead to a slightly confusing experience because the cursor changes over what looks like a button. Power users will recognise this as a signal that the button supports link interactions like opening in a new tab. This minor visual inconsistency can also prompt a conversation in the product team about whether the Secondary Action Button should be Link instead, which we believe is healthy.
+    *   Until we have strong user research evidence that this approach is problematic, we will stick with this.
+    *   A good article in support of this approach:
         *   [Buttons shouldn't have a hand cursor](https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/)
         *   [Buttons shouldn't have a hand cursor: part 2](https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor-part-2/)
-    *   Until we have strong user research evidence that this is a problem, we will stick with this.
+    *   A good article covering the contrary viewpoint, that all interactive elements should use “cursor: pointer”:
+        *   [Cursor pointer](http://kizu.ru/en/issues/cursor-pointer/)
 
 ## Opens in new tab tooltip
 

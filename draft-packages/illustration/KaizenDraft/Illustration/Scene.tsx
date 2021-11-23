@@ -1,4 +1,3 @@
-import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
@@ -69,7 +68,6 @@ export const BrandMomentError = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -114,7 +112,6 @@ export const EmptyStatesAction = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -128,11 +125,7 @@ export const EmptyStatesAction = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name={
-        themeKey === "zen"
-          ? "illustrations/scene/empty-states-action.svg"
-          : "illustrations/heart/scene/empty-states-action.svg"
-      }
+      name="illustrations/heart/scene/empty-states-action.svg"
     />
   )
 }
@@ -142,7 +135,6 @@ export const EmptyStatesInformative = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -156,11 +148,7 @@ export const EmptyStatesInformative = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name={
-        themeKey === "zen"
-          ? "illustrations/scene/empty-states-informative.svg"
-          : "illustrations/heart/scene/empty-states-informative.svg"
-      }
+      name="illustrations/heart/scene/empty-states-informative.svg"
     />
   )
 }
@@ -170,7 +158,6 @@ export const EmptyStatesNegative = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -184,11 +171,7 @@ export const EmptyStatesNegative = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name={
-        themeKey === "zen"
-          ? "illustrations/scene/empty-states-negative.svg"
-          : "illustrations/heart/scene/empty-states-negative.svg"
-      }
+      name="illustrations/heart/scene/empty-states-negative.svg"
     />
   )
 }
@@ -198,7 +181,6 @@ export const EmptyStatesPositive = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -212,11 +194,7 @@ export const EmptyStatesPositive = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name={
-        themeKey === "zen"
-          ? "illustrations/scene/empty-states-positive.svg"
-          : "illustrations/heart/scene/empty-states-positive.svg"
-      }
+      name="illustrations/heart/scene/empty-states-positive.svg"
     />
   )
 }
@@ -226,7 +204,6 @@ export const EmptyStatesNeutral = ({
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const { themeKey } = useTheme()
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -240,11 +217,7 @@ export const EmptyStatesNeutral = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name={
-        themeKey === "zen"
-          ? "illustrations/scene/empty-states-neutral.svg"
-          : "illustrations/heart/scene/empty-states-neutral.svg"
-      }
+      name="illustrations/heart/scene/empty-states-neutral.svg"
     />
   )
 }
@@ -470,4 +443,65 @@ export const SurveyOverviewClosed = (props: SceneProps) => (
 
 export const SurveyGetStarted = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/getting-started.svg" />
+)
+
+export const SkillsCoach1On1Meetings = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-1-on-1-meetings.svg"
+  />
+)
+
+export const SkillsCoachCoaching = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/skills-coach-coaching.svg" />
+)
+
+export const SkillsCoachEmployeeDevelopment = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-employee-development.svg"
+  />
+)
+
+export const SkillsCoachEssentialFeedback = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-essential-feedback.svg"
+  />
+)
+
+export const SkillsCoachFeedback = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/skills-coach-feedback.svg" />
+)
+
+export const SkillsCoachManagerHub = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-manager-hub.svg"
+  />
+)
+
+export const SkillsCoachProductivity = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-productivity.svg"
+  />
+)
+
+export const SkillsCoachRemoteManager = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-remote-manager.svg"
+  />
+)
+
+export const SkillsCoachResilience = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/skills-coach-resilience.svg"
+  />
+)
+
+export const SkillsCoachStrategy = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/skills-coach-strategy.svg" />
 )

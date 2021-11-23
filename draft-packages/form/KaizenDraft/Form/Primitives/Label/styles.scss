@@ -23,6 +23,16 @@ $label-start-margin: 10px;
 
 .reversed {
   color: $color-white;
+  a {
+    color: $color-white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.disabled {
+  opacity: 0.3;
 }
 
 ///////////////////////////////////////////////////

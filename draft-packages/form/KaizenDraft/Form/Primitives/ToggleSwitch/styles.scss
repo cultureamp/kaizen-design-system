@@ -27,10 +27,6 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   align-items: center;
   transition: background-color $animation-timing;
 
-  .checkbox:disabled + & {
-    opacity: 0.3;
-  }
-
   .checkbox:focus:not([disabled]) + &,
   .checkbox:hover:focus:not([disabled]) + & {
     border-color: $dt-color-form-border-color-focus;

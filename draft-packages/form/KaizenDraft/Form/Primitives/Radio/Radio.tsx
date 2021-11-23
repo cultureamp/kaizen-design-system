@@ -9,15 +9,22 @@ export type RadioProps = {
   selectedStatus?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   name: string
   value: string
 }
 
 type Radio = React.FunctionComponent<RadioProps>
 
-const renderSelected = (selectedStatus: boolean) => {
+const renderSelected = (selectedStatus: boolean, reversed) => {
   if (selectedStatus) {
-    return <div className={styles.icon} />
+    return (
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      />
+    )
   }
   return
 }
@@ -30,8 +37,9 @@ const Radio: Radio = ({
   selectedStatus = false,
   onChange,
   disabled = false,
+  reversed = false,
 }) => (
-  <div>
+  <span>
     <input
       type="radio"
       id={id}
@@ -41,12 +49,20 @@ const Radio: Radio = ({
       data-automation-id={automationId}
       // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
       // Remove when fastclick is removed from consuming repos
-      className={classnames(styles.radioInput, "needsclick")}
+      className={classnames(styles.radioInput, "needsclick", {
+        [styles.reversed]: reversed,
+      })}
       onChange={onChange}
       disabled={disabled}
     />
-    <div className={styles.box}>{renderSelected(selectedStatus)}</div>
-  </div>
+    <span
+      className={classnames(styles.box, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      {renderSelected(selectedStatus, reversed)}
+    </span>
+  </span>
 )
 
 export default Radio

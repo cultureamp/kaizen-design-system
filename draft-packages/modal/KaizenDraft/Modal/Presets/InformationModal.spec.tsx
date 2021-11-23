@@ -39,7 +39,7 @@ describe("<InformationModal />", () => {
   it("supports a dismiss action when dismiss button is pressed", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
-    const { getByTitle } = render(
+    const { getByLabelText } = render(
       <InformationModalWrapper
         onConfirm={handleConfirm}
         onDismiss={handleDismiss}
@@ -47,7 +47,7 @@ describe("<InformationModal />", () => {
         Example modal body
       </InformationModalWrapper>
     )
-    fireEvent.click(getByTitle(/Dismiss/i))
+    fireEvent.click(getByLabelText(/Dismiss/i))
     expect(handleConfirm).toHaveBeenCalledTimes(0)
     expect(handleDismiss).toHaveBeenCalledTimes(1)
   })

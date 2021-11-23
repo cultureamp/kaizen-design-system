@@ -4,7 +4,6 @@
 @import "./decision-tokens.scss";
 
 .wrapper {
-  @include avatar-theme-switching-tokens;
   background: $dt-color-background-color;
   border-radius: 100%;
   box-sizing: border-box;

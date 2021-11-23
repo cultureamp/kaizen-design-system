@@ -26,8 +26,10 @@ const Footer: React.SFC<FooterProps> = ({
 
     <div className={styles.footer}>
       <div className={styles.footerInner}>
-        <Paragraph variant="body">&copy; Culture Amp Pty Ltd</Paragraph>
-        <span className={styles.logo}>
+        <div className={styles.containerCompanyName}>
+          <Paragraph variant="body">&copy; Culture Amp Pty Ltd</Paragraph>
+        </div>
+        <span className={styles.footerLink}>
           <a href="https://cultureamp.com" className={styles.logoLink}>
             <Icon
               icon={companyLogo}
@@ -37,14 +39,34 @@ const Footer: React.SFC<FooterProps> = ({
             />
           </a>
         </span>
-        <Paragraph variant="body" classNameAndIHaveSpokenToDST={styles.privacy}>
-          <a href="https://www.cultureamp.com/privacy-policy/">Privacy</a>
-        </Paragraph>
-        <Paragraph variant="body" classNameAndIHaveSpokenToDST={styles.github}>
-          <a href="https://github.com/cultureamp/kaizen-design-system">
-            GitHub
-          </a>
-        </Paragraph>
+        <div className={styles.containerLinks}>
+          <Paragraph
+            variant="body"
+            classNameAndIHaveSpokenToDST={styles.footerLink}
+          >
+            <a href="https://www.cultureamp.com/privacy-policy/">Privacy</a>
+          </Paragraph>
+          <Paragraph
+            variant="body"
+            classNameAndIHaveSpokenToDST={styles.footerLink}
+          >
+            <a href="https://github.com/cultureamp/kaizen-design-system">
+              GitHub
+            </a>
+          </Paragraph>
+          <Paragraph
+            variant="body"
+            classNameAndIHaveSpokenToDST={styles.footerLink}
+          >
+            <a
+              className="ca-cookie-consent-open-preferences"
+              href="#"
+              role="button"
+            >
+              Cookie preferences
+            </a>
+          </Paragraph>
+        </div>
       </div>
     </div>
   </div>

@@ -37,16 +37,12 @@ class RadioFieldExample extends React.Component<Props> {
     const { render } = this.props
 
     return (
-      <div
-        style={{
-          paddingTop: 24,
-        }}
-      >
+      <>
         {render({
           selectedStatus: this.state.selectedStatus,
           onChangeHandler: this.onChangeHandler,
         })}
-      </div>
+      </>
     )
   }
 }
@@ -66,6 +62,11 @@ export default {
   },
   decorators: [withDesign],
 }
+const reversedBg = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
 
 export const InteractiveKaizenSiteDemo = () => (
   <RadioFieldExample
@@ -77,12 +78,12 @@ export const InteractiveKaizenSiteDemo = () => (
         selectedStatus={selectedStatus as any}
         value="radio-1"
         labelText={
-          <div>
+          <span>
             This is a label with a{" "}
             <a href="http://google.com" target="_blank">
               link
             </a>
-          </div>
+          </span>
         }
       />
     )}
@@ -167,3 +168,79 @@ export const Rtl = () => (
 )
 
 Rtl.storyName = "RTL"
+
+export const ReversedDefaultUnselected = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    value="radio-1"
+    reversed
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultUnselected.story = {
+  name: "Reversed Default Unselected",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultUnselectedDisabled = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    value="radio-1"
+    reversed
+    disabled
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultUnselectedDisabled.story = {
+  name: "Reversed Default Unselected Disabled ",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultSelected = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus
+    value="radio-1"
+    reversed
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultSelected.story = {
+  name: "Reversed Default Selected",
+  parameters: {
+    ...reversedBg,
+  },
+}
+
+export const ReversedDefaultSelectedDisabled = () => (
+  <RadioField
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus
+    value="radio-1"
+    reversed
+    disabled
+  >
+    <ExampleContent />
+  </RadioField>
+)
+ReversedDefaultSelectedDisabled.story = {
+  name: "Reversed Default Selected Disabled",
+  parameters: {
+    ...reversedBg,
+  },
+}

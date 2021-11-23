@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-table",
-  "version": "3.8.7",
+  "version": "3.9.31",
   "description": "The draft Table component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,11 +32,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^11.0.0",
-    "@kaizen/draft-form": "^3.8.7",
-    "@kaizen/draft-tooltip": "^2.10.5",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@kaizen/component-library": "^11.5.6",
+    "@kaizen/draft-form": "^3.13.12",
+    "@kaizen/draft-tooltip": "^3.1.5",
+    "@types/classnames": "^2.3.0",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

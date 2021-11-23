@@ -25,7 +25,6 @@ type Placement =
 
 export type PopoverProps = {
   readonly automationId?: string
-  readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
   readonly variant?: Variant
   readonly placement?: Placement
@@ -122,7 +121,7 @@ export const Popover: PopoverModernType = ({
             )}
             <div className={styles.singleLine}>{heading}</div>
             {dismissible && (
-              <button className={styles.close} onClick={onClose}>
+              <button className={styles.close} onClick={onClose} type="button">
                 <Icon role="presentation" icon={closeIcon} />
               </button>
             )}

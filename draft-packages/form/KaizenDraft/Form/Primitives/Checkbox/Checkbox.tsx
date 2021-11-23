@@ -14,6 +14,7 @@ export type CheckboxProps = {
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   name?: string
   tabIndex?: number
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -23,16 +24,24 @@ export type CheckboxProps = {
 
 type Input = React.FunctionComponent<CheckboxProps>
 
-const renderCheckOrMixedIcon = (status: CheckedStatus) => {
+const renderCheckOrMixedIcon = (status: CheckedStatus, reversed) => {
   if (status === "on") {
     return (
-      <div className={styles.icon}>
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      >
         <Icon icon={checkIcon} role="presentation" inheritSize />
       </div>
     )
   } else if (status === "mixed") {
     return (
-      <div className={styles.icon}>
+      <div
+        className={classnames(styles.icon, {
+          [styles.reversed]: reversed,
+        })}
+      >
         <Icon icon={minusIcon} role="presentation" inheritSize />
       </div>
     )
@@ -52,10 +61,11 @@ const Input: Input = ({
   onFocus,
   onBlur,
   disabled = false,
+  reversed = false,
   tabIndex,
   value,
 }) => (
-  <div className={styles.container}>
+  <span className={styles.container}>
     <input
       type="checkbox"
       id={id}
@@ -66,7 +76,9 @@ const Input: Input = ({
       data-indeterminate={checkedStatus === "mixed"}
       // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
       // Remove when fastclick is removed from consuming repos
-      className={classnames(styles.checkbox, "needsclick")}
+      className={classnames(styles.checkbox, "needsclick", {
+        [styles.reversed]: reversed,
+      })}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
       onFocus={onFocus}
@@ -74,13 +86,19 @@ const Input: Input = ({
       disabled={disabled}
       value={value || checkedStatus}
       ref={node => {
-        if (node && checkedStatus === "mixed") {
-          node.indeterminate = true
+        if (node) {
+          node.indeterminate = checkedStatus === "mixed"
         }
       }}
     />
-    <div className={styles.box}>{renderCheckOrMixedIcon(checkedStatus)}</div>
-  </div>
+    <span
+      className={classnames(styles.box, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      {renderCheckOrMixedIcon(checkedStatus, reversed)}
+    </span>
+  </span>
 )
 
 export default Input

@@ -3,6 +3,148 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.15...@kaizen/draft-tag@1.12.16) (2021-11-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.14...@kaizen/draft-tag@1.12.15) (2021-11-11)
+
+
+### Bug Fixes
+
+* apply nowrap to tag contents ([#2278](https://github.com/cultureamp/kaizen-design-system/issues/2278)) ([66baa3a](https://github.com/cultureamp/kaizen-design-system/commit/66baa3a37178ea21073bbf21f75cefcbf8312a3d))
+
+
+
+
+
+## [1.12.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.13...@kaizen/draft-tag@1.12.14) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.12...@kaizen/draft-tag@1.12.13) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.11...@kaizen/draft-tag@1.12.12) (2021-11-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.10...@kaizen/draft-tag@1.12.11) (2021-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.9...@kaizen/draft-tag@1.12.10) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.8...@kaizen/draft-tag@1.12.9) (2021-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.7...@kaizen/draft-tag@1.12.8) (2021-10-25)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.6...@kaizen/draft-tag@1.12.7) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.5...@kaizen/draft-tag@1.12.6) (2021-10-18)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.4...@kaizen/draft-tag@1.12.5) (2021-10-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.3...@kaizen/draft-tag@1.12.4) (2021-10-14)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.2...@kaizen/draft-tag@1.12.3) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.1...@kaizen/draft-tag@1.12.2) (2021-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.0...@kaizen/draft-tag@1.12.1) (2021-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.5...@kaizen/draft-tag@1.12.0) (2021-09-22)
+
+
+### Features
+
+* Remove all usages of var() in scss to provide Zen fallbacks ([#1960](https://github.com/cultureamp/kaizen-design-system/issues/1960)) ([49fcf67](https://github.com/cultureamp/kaizen-design-system/commit/49fcf67d58ea700c8b9b483a2b02b0a0777a3a1a))
+
+
+
+
+
 ## [1.11.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.11.4...@kaizen/draft-tag@1.11.5) (2021-08-30)
 
 **Note:** Version bump only for package @kaizen/draft-tag

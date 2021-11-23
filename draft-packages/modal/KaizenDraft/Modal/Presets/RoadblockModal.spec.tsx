@@ -35,12 +35,12 @@ describe("<RoadblockModal />", () => {
 
   it("supports a dismiss action when dismiss button is pressed", () => {
     const handleDismiss = jest.fn()
-    const { getByTitle } = render(
+    const { getByLabelText } = render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
       </RoadblockModalWrapper>
     )
-    fireEvent.click(getByTitle(/Dismiss/i))
+    fireEvent.click(getByLabelText(/Dismiss/i))
     expect(handleDismiss).toHaveBeenCalledTimes(1)
   })
 

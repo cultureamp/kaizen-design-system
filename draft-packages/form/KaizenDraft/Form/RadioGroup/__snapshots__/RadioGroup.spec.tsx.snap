@@ -94,7 +94,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
       for="radio-1"
       id="radio-1-field-label"
     >
-      <div>
+      <span>
         <input
           class="radioInput needsclick"
           data-automation-id="radio-1-radio-input"
@@ -103,10 +103,10 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
           type="radio"
           value="radio-1"
         />
-        <div
+        <span
           class="box"
         />
-      </div>
+      </span>
       <span
         class="appendedLabel"
       >
@@ -123,7 +123,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
       for="radio-2"
       id="radio-2-field-label"
     >
-      <div>
+      <span>
         <input
           class="radioInput needsclick"
           data-automation-id="radio-2-radio-input"
@@ -132,10 +132,10 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
           type="radio"
           value="radio-2"
         />
-        <div
+        <span
           class="box"
         />
-      </div>
+      </span>
       <span
         class="appendedLabel"
       >

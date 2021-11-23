@@ -22,6 +22,7 @@ import * as FilterMenuButtonStories from "@kaizen/draft-filter-menu-button/docs/
 import * as CheckboxFieldStories from "@kaizen/draft-form/docs/CheckboxField.stories"
 import * as CheckboxGroupStories from "@kaizen/draft-form/docs/CheckboxGroup.stories"
 import * as RadioFieldStories from "@kaizen/draft-form/docs/RadioField.stories"
+import * as SliderStories from "@kaizen/draft-form/docs/Slider.stories"
 import * as TextAreaFieldStories from "@kaizen/draft-form/docs/TextAreaField.stories"
 import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
@@ -52,10 +53,11 @@ import flatMap from "lodash.flatmap"
 import React from "react"
 import { useInView } from "react-intersection-observer"
 import { InteractionState, MapInteractionCSS } from "react-map-interaction"
-import * as SliderStories from "@kaizen/draft-slider/docs/Slider.stories"
 import { cssVarBackgrounds } from "../../../storybook/backgrounds"
 import { useTheme } from "../react"
 import colorString from "color-string"
+import styles from "./styles.scss"
+
 export default {
   title: "Design Tokens/Story Board",
   parameters: {
@@ -412,6 +414,8 @@ export const Everything: Story = () => {
             <Paragraph variant="body">Body</Paragraph>
             <Paragraph variant="small">Small</Paragraph>
             <Paragraph variant="extra-small">Extra Small</Paragraph>
+            <p className={styles.dataSmallExample}>Data Small</p>
+            <p className={styles.dataSmallUnitsExample}>Data Small Units</p>
           </Stack>
         </ComponentsSection>
 

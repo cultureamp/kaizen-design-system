@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.8.0...@kaizen/draft-illustration@2.9.0) (2021-11-17)
+
+
+### Features
+
+* Componentize skills coach illustrations ([#2290](https://github.com/cultureamp/kaizen-design-system/issues/2290)) ([1ca53ff](https://github.com/cultureamp/kaizen-design-system/commit/1ca53ffa44001616d10fe2c25ef1dd46649f27e1))
+
+
+
+
+
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.7...@kaizen/draft-illustration@2.8.0) (2021-11-11)
+
+
+### Features
+
+* Removing Zen theme from Spot and Scene illustrations ([#2280](https://github.com/cultureamp/kaizen-design-system/issues/2280)) ([2f70133](https://github.com/cultureamp/kaizen-design-system/commit/2f701336b7d6c97243d8a1e74723b9b7b033f41b))
+
+
+
+
+
+## [2.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.6...@kaizen/draft-illustration@2.7.7) (2021-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.5...@kaizen/draft-illustration@2.7.6) (2021-11-09)
+
+
+### Bug Fixes
+
+* override global figure styles coming from material ui ([#2270](https://github.com/cultureamp/kaizen-design-system/issues/2270)) ([82e3740](https://github.com/cultureamp/kaizen-design-system/commit/82e3740a30fc8c27a03b6373cd7b1a8d2ef42112))
+
+
+
+
+
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.4...@kaizen/draft-illustration@2.7.5) (2021-11-05)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.3...@kaizen/draft-illustration@2.7.4) (2021-10-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.2...@kaizen/draft-illustration@2.7.3) (2021-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.1...@kaizen/draft-illustration@2.7.2) (2021-10-12)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.0...@kaizen/draft-illustration@2.7.1) (2021-10-07)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.6.0...@kaizen/draft-illustration@2.7.0) (2021-09-22)
+
+
+### Features
+
+* Change defaultTheme to Heart ([#1957](https://github.com/cultureamp/kaizen-design-system/issues/1957)) ([c45f639](https://github.com/cultureamp/kaizen-design-system/commit/c45f639872fa6d4d3c2b3c9c1256235760c0fadf))
+* Change defaultTheme to Heart (take 2) ([#1961](https://github.com/cultureamp/kaizen-design-system/issues/1961)) ([0b09507](https://github.com/cultureamp/kaizen-design-system/commit/0b0950789010e3c65da0b48bb1bf0bb31d5d2fa3))
+
+
+
+
+
 # [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.5.3...@kaizen/draft-illustration@2.6.0) (2021-09-08)
 
 
