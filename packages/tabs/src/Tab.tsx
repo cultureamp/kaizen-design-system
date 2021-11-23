@@ -16,7 +16,6 @@ export interface TabProps {
   badge?: string
   disabled?: boolean
   children: ReactNode
-  onClick?: (e: SyntheticEvent) => void
   onBlur?: (e: SyntheticEvent) => void
   onFocus?: (e: SyntheticEvent) => void
 }
@@ -46,7 +45,6 @@ export const Tab = (props: TabProps) => {
       className={classnames(styles.tab, { [styles.selected]: isSelected })}
       onFocus={onFocus}
       onBlur={onBlur}
-      onClick={props.onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

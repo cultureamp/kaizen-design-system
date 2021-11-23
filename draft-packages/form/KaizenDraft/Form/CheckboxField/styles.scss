@@ -21,11 +21,6 @@
     // This is to override bootstrap styles. Remove when appropriate
     padding-top: 0;
     -webkit-tap-highlight-color: transparent;
-
-    // Disable pointer-events on the wrapper for the <Checkbox> primitive
-    > div:first-child {
-      pointer-events: none;
-    }
   }
 
   &.noBottomMargin {
