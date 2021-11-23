@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.1.4...@kaizen/tabs@1.1.5) (2021-11-23)
+
+
+### Bug Fixes
+
+* Remove Tab.onClick prop ([#2303](https://github.com/cultureamp/kaizen-design-system/issues/2303)) ([80f02bd](https://github.com/cultureamp/kaizen-design-system/commit/80f02bd8c3bb7a4578fb282badd4d049f02b5ac7))
+
+
+
+
+
 ## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.1.3...@kaizen/tabs@1.1.4) (2021-11-15)
 
 
