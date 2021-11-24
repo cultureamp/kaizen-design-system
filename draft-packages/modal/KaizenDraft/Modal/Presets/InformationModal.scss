@@ -2,6 +2,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modal {
@@ -23,7 +24,7 @@
 .footer {
   white-space: nowrap;
   padding: $ca-grid 0 0 0;
-  @include ca-media-mobile {
+  @media (max-width: $layout-breakpoints-medium) {
     white-space: initial;
   }
 }
@@ -62,7 +63,7 @@
 .image {
   flex: 1;
   padding-left: $ca-grid * 2;
-  @include ca-media-mobile {
+  @media (max-width: $layout-breakpoints-medium) {
     display: none;
   }
 }
