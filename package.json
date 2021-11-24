@@ -20,7 +20,7 @@
     "compile": "tsc",
     "lint": "elm-format --validate packages && yarn eslint --max-warnings=0 && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
-    "clean:storybook": "rimraf 'storybook/public'",
+    "clean:storybook": "rimraf 'storybook/public' && rimraf 'storybook/**/*.d.ts' && rimraf 'storybook/**/(?!(elm-webpack-loader-fix))*.js*' && rimraf 'storybook/**/*.js.map'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
