@@ -3,7 +3,7 @@ import React from "react"
 import {
   defaultTheme,
   ThemeProvider,
-  ThemeManager
+  ThemeManager,
 } from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
 import { backgrounds } from "./backgrounds"
@@ -47,7 +47,6 @@ addParameters({
   },
 })
 
-
 export const globalTypes = {
   textDirection: {
     name: "Text direction",
@@ -60,7 +59,7 @@ export const globalTypes = {
   },
 }
 
-export const themeManager = new ThemeManager(defaultTheme);
+export const themeManager = new ThemeManager(defaultTheme)
 
 export const decorators = [
   (Story: React.ComponentType) => (
