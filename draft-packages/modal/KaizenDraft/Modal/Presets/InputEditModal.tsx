@@ -1,7 +1,6 @@
+import classnames from "classnames"
 import * as React from "react"
-
-import { Text } from "@kaizen/component-library"
-
+import { Heading } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
@@ -10,11 +9,11 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
 import styles from "./InputEditModal.scss"
 
 export interface InputEditModalProps {
   readonly isOpen: boolean
+  readonly unpadded?: boolean
   readonly type: "positive" | "negative"
   readonly title: string
   readonly onSubmit: () => void
@@ -40,6 +39,7 @@ const InputEditModal = ({
   submitWorking,
   automationId,
   children,
+  unpadded = false,
   ...props
 }: InputEditModalProps) => {
   const onDismiss = submitWorking ? undefined : props.onDismiss
@@ -64,17 +64,25 @@ const InputEditModal = ({
       automationId={automationId}
     >
       <div className={styles.modal} dir={localeDirection}>
-        <ModalHeader unpadded onDismiss={onDismiss}>
-          <div className={styles.header}>
+        <ModalHeader onDismiss={onDismiss}>
+          <div
+            className={classnames(styles.header, {
+              [styles.textAlignRTL]: localeDirection === "rtl",
+              [styles.padded]: !unpadded,
+            })}
+          >
             <ModalAccessibleLabel>
-              <Text tag="h1" style="zen-heading-3" inline>
+              <Heading tag="h2" variant="heading-2">
                 {title}
-              </Text>
+              </Heading>
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalBody unpadded>
-          <div className={styles.body} dir={localeDirection}>
+        <ModalBody>
+          <div
+            className={classnames(styles.body, { [styles.padded]: !unpadded })}
+            dir={localeDirection}
+          >
             {children}
           </div>
         </ModalBody>
@@ -82,6 +90,8 @@ const InputEditModal = ({
           actions={footerActions}
           appearance={type === "negative" ? "destructive" : "primary"}
           automationId={automationId}
+          variant="inputEdit"
+          unpadded={unpadded}
         />
       </div>
     </GenericModal>

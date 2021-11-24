@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import * as React from "react"
 import { ModalAccessibleContext } from "./ModalAccessibleContext"
 import styles from "./ModalAccessibleLabel.scss"
@@ -11,7 +12,11 @@ type ModalAccessibleLabel = React.FunctionComponent<ModalAccessibleLabelProps>
 const ModalAccessibleLabel: ModalAccessibleLabel = ({ children }) => (
   <ModalAccessibleContext.Consumer>
     {({ labelledByID }) => (
-      <div id={labelledByID} tabIndex={-1} className={styles.label}>
+      <div
+        id={labelledByID}
+        tabIndex={-1}
+        className={classnames(styles.modalLabel)}
+      >
         {children}
       </div>
     )}
