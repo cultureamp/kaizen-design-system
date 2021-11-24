@@ -74,7 +74,7 @@ export const ConfirmationModals = args => (
         <ConfirmationModal
           isOpen={isOpen}
           type="cautionary"
-          title="Cautionary modal title"
+          title="Confirmation modal title"
           onConfirm={close}
           onDismiss={close}
           confirmLabel="Label"

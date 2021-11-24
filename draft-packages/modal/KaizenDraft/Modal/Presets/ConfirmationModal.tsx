@@ -10,9 +10,9 @@ import {
   Positive,
 } from "@kaizen/draft-illustration"
 
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
-import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 
 import { ButtonProps } from "@kaizen/draft-button"
 import {
