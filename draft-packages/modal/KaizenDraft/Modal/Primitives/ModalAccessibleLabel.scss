@@ -1,7 +1,30 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-.label {
+@import "~@kaizen/design-tokens/sass/layout";
+
+//TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
+$ca-breakpoint-small-mobile: 375px;
+
+@mixin ca-media-small-mobile {
+  @media (max-width: #{$ca-breakpoint-small-mobile}) {
+    @content;
+  }
+}
+
+.modalLabel {
   position: relative;
+
+  //TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
+  h2 {
+    @media (max-width: $layout-breakpoints-medium) {
+      font-size: 1.625rem;
+      line-height: 32px;
+    }
+    @include ca-media-small-mobile {
+      font-size: 1.5rem;
+      line-height: 30px;
+    }
+  }
 
   // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
