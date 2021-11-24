@@ -36,6 +36,7 @@ import * as LoadingPlaceholderStories from "@kaizen/draft-loading-placeholder/do
 import * as LoadingSpinnerStories from "@kaizen/draft-loading-spinner/docs/LoadingSpinner.stories"
 import * as MenuStories from "@kaizen/draft-menu/docs/Menu.stories"
 import * as ModalStories from "@kaizen/draft-modal/docs/Modal.stories"
+import * as InputEditModalStories from "@kaizen/draft-modal/docs/InputEditModal.stories"
 import * as PageLayoutStories from "@kaizen/draft-page-layout/docs/PageLayout.stories"
 import * as RadioGroupStories from "@kaizen/draft-form/docs/RadioGroup.stories"
 import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
@@ -443,6 +444,7 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={LoadingSpinnerStories} />
         <StoriesContainer storyModule={MenuStories} />
         <StoriesContainer storyModule={ModalStories} />
+        <StoriesContainer storyModule={InputEditModalStories} />
         <StoriesContainer storyModule={PageLayoutStories} />
         <StoriesContainer storyModule={ParagraphStories} />
         <StoriesContainer storyModule={PopoverStories} />
