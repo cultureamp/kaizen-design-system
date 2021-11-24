@@ -26,6 +26,11 @@ $ca-breakpoint-small-mobile: 375px;
     }
   }
 
+  &.prominent {
+    grid-column-start: 2;
+    text-align: left;
+  }
+
   // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
   :global(.js-focus-visible) & {
