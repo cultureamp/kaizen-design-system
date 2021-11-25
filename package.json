@@ -123,14 +123,11 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@storybook/codemod": "^6.3.12",
-    "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^6.3.12",
     "chromatic": "^5.10.2",
     "danger": "^10.7.1",
     "eslint-import-resolver-typescript": "^2.5.0",
     "glob": "^7.2.0",
-    "jscodeshift": "^0.13.0",
     "loader-utils": "^1.4.0",
     "node-elm-compiler": "^5.0.6",
     "yargs": "^16.2.0"
