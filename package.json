@@ -26,25 +26,6 @@
     "chromatic": "chromatic",
     "preinstall": "scripts/check-if-authenticated-to-github-registry.bash"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "ie": "11"
-          }
-        }
-      ],
-      "@babel/preset-typescript",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-numeric-separator",
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-object-rest-spread"
-    ]
-  },
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -127,9 +108,7 @@
     "chromatic": "^5.10.2",
     "danger": "^10.7.1",
     "eslint-import-resolver-typescript": "^2.5.0",
-    "glob": "^7.2.0",
     "loader-utils": "^1.4.0",
-    "node-elm-compiler": "^5.0.6",
-    "yargs": "^16.2.0"
+    "node-elm-compiler": "^5.0.6"
   }
 }
