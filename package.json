@@ -134,9 +134,5 @@
     "loader-utils": "^1.4.0",
     "node-elm-compiler": "^5.0.6",
     "yargs": "^16.2.0"
-  },
-  "resolutions": {
-    "axios": "0.24.0",
-    "react-dev-utils": "11.0.4"
   }
 }
