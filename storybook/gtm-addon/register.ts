@@ -1,5 +1,5 @@
 import { addons } from "@storybook/addons"
-import { isEmpty } from "lodash"
+import { isEmpty } from "lodash.isempty"
 import TagManager from "react-gtm-module"
 import { STORY_CHANGED } from "@storybook/core-events"
 
