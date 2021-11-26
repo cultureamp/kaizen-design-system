@@ -52,13 +52,13 @@ const BadgeStoryWrapper: React.FunctionComponent<{
   )
 }
 
-export const DefaultStory = () => (
+export const DefaultStory = args => (
   <BadgeStoryWrapper>
     {(badgeCount, useAnimation) =>
       useAnimation ? (
         <BadgeAnimated variant="default">{badgeCount}</BadgeAnimated>
       ) : (
-        <Badge variant="default">{badgeCount}</Badge>
+        <Badge {...args}>{badgeCount}</Badge>
       )
     }
   </BadgeStoryWrapper>
@@ -93,6 +93,20 @@ export const Dark = () => (
 )
 
 Dark.storyName = "Dark"
+
+export const Dot = () => (
+  <BadgeStoryWrapper>
+    {(badgeCount, useAnimation) =>
+      useAnimation ? (
+        <BadgeAnimated variant="dot"></BadgeAnimated>
+      ) : (
+        <Badge variant="dot">{badgeCount}</Badge>
+      )
+    }
+  </BadgeStoryWrapper>
+)
+
+Dot.storyName = "Dot"
 
 export const Reversed = () => (
   <BadgeStoryWrapper>

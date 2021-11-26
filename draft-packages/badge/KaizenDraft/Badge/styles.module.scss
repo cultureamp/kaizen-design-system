@@ -2,11 +2,9 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/animation";
 @import "./decision-tokens.scss";
 
-$small: $ca-grid;
+$small: $spacing-md;
 
 .badge {
   @include ca-inherit-baseline;
@@ -24,22 +22,47 @@ $small: $ca-grid;
   text-align: center;
 }
 
+.badge.large {
+  border-radius: $spacing-xl;
+  font-size: $typography-data-medium-font-size;
+  line-height: $typography-data-medium-line-height;
+  letter-spacing: $typography-data-medium-letter-spacing;
+  padding: 2px 1.875rem;
+  min-width: 24px;
+}
+
 .default {
   background-color: $dt-color-background-default;
   color: $color-purple-800;
 }
 
-.reversed.active,
 .active {
   background-color: $color-blue-500;
   color: $color-white;
 }
 
+.reversed.active {
+  background-color: $color-green-300;
+  color: $color-purple-800;
+}
+
+//TODO remove
 .dark {
   background-color: rgba($color-purple-700-rgb, 0.1);
   color: $color-purple-800;
 }
 
+.dot {
+  background-color: $color-green-300;
+  padding: $spacing-xs;
+  min-width: unset;
+}
+
+.reversed.dot {
+  background-color: $color-green-300;
+}
+
+//TODO remove
 .reversed.dark {
   background-color: $color-purple-700;
   color: $color-white;
