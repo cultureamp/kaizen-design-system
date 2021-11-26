@@ -7,7 +7,7 @@
 $small: $spacing-md;
 
 .badge {
-  @include ca-inherit-baseline;
+  position: static;
   border-radius: $spacing-sm;
   color: $color-purple-800;
   display: inline-block;
