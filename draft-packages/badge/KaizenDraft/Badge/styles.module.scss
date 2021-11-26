@@ -7,7 +7,6 @@
 $small: $spacing-md;
 
 .badge {
-  position: static;
   border-radius: $spacing-sm;
   color: $color-purple-800;
   display: inline-block;
@@ -23,12 +22,14 @@ $small: $spacing-md;
 }
 
 .badge.large {
+  display: inline-flex;
+  justify-content: center;
   border-radius: $spacing-xl;
   font-size: $typography-data-medium-font-size;
   line-height: $typography-data-medium-line-height;
   letter-spacing: $typography-data-medium-letter-spacing;
   padding: 2px 1.875rem;
-  min-width: 24px;
+  width: 24px;
 }
 
 .default {
@@ -56,6 +57,11 @@ $small: $spacing-md;
   background-color: $color-green-300;
   padding: $spacing-xs;
   min-width: unset;
+}
+.dot.large {
+  background-color: $color-green-300;
+  padding: 1.875rem;
+  width: unset;
 }
 
 .reversed.dot {
@@ -90,6 +96,13 @@ $badge-transition: transform $badge-duration-timing,
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
       background-color: rgba($color-purple-700-rgb, 0.2);
+    }
+    &.active {
+      background-color: $color-blue-500;
+      color: $color-white;
+    }
+    &.dot {
+      background-color: $color-green-300;
     }
   }
 }

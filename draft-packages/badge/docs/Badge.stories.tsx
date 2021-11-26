@@ -4,8 +4,11 @@ import { Button } from "@kaizen/draft-button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
+import { Heading } from "@kaizen/component-library"
+import { defaultStoryMapper } from "@storybook/api/dist/ts3.9/modules/refs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import styles from "./styles.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Badge`,
@@ -56,7 +59,7 @@ export const DefaultStory = args => (
   <BadgeStoryWrapper>
     {(badgeCount, useAnimation) =>
       useAnimation ? (
-        <BadgeAnimated variant="default">{badgeCount}</BadgeAnimated>
+        <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
       ) : (
         <Badge {...args}>{badgeCount}</Badge>
       )
@@ -66,94 +69,148 @@ export const DefaultStory = args => (
 
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
-export const Active = () => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated variant="active">{badgeCount}</BadgeAnimated>
-      ) : (
-        <Badge variant="active">{badgeCount}</Badge>
-      )
-    }
-  </BadgeStoryWrapper>
-)
-
-Active.storyName = "Active"
-
-export const Dark = () => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated variant="dark">{badgeCount}</BadgeAnimated>
-      ) : (
-        <Badge variant="dark">{badgeCount}</Badge>
-      )
-    }
-  </BadgeStoryWrapper>
-)
-
-Dark.storyName = "Dark"
-
-export const Dot = () => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated variant="dot"></BadgeAnimated>
-      ) : (
-        <Badge variant="dot">{badgeCount}</Badge>
-      )
-    }
-  </BadgeStoryWrapper>
-)
-
-Dot.storyName = "Dot"
-
-export const Reversed = () => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated variant="default" reversed>
-          {badgeCount}
-        </BadgeAnimated>
-      ) : (
-        <Badge variant="default" reversed>
-          {badgeCount}
+export const LightBadges = () => (
+  <>
+    <Heading style={{ marginBottom: "2rem" }} variant="heading-2" tag="h1">
+      Light Badges
+    </Heading>
+    <Heading variant="heading-3" tag="h2">
+      Default
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge variant="default">3</Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge isLarge variant="default">
+          3
         </Badge>
-      )
-    }
-  </BadgeStoryWrapper>
+      </div>
+    </div>
+    <Heading variant="heading-3" tag="h2">
+      Active
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge variant="active">3</Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge isLarge variant="active">
+          3
+        </Badge>
+      </div>
+    </div>
+    <Heading variant="heading-3" tag="h2">
+      Dot
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge variant="dot">3</Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge isLarge variant="dot">
+          3
+        </Badge>
+      </div>
+    </div>
+  </>
+)
+export const ReversedBadges = () => (
+  <>
+    <Heading
+      color="white"
+      style={{ marginBottom: "2rem" }}
+      variant="heading-2"
+      tag="h1"
+    >
+      Reversed Badges
+    </Heading>
+    <Heading color="white" variant="heading-3" tag="h2">
+      Default
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge reversed variant="default">
+          3
+        </Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge reversed isLarge variant="default">
+          3
+        </Badge>
+      </div>
+    </div>
+    <Heading color="white" variant="heading-3" tag="h2">
+      Active
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge reversed variant="active">
+          3
+        </Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge reversed isLarge variant="active">
+          3
+        </Badge>
+      </div>
+    </div>
+    <Heading color="white" variant="heading-3" tag="h2">
+      Dot
+    </Heading>
+    <div className={styles.badgeSection}>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Small
+        </Heading>
+        <Badge reversed variant="dot">
+          3
+        </Badge>
+      </div>
+      <div className={styles.badgeSize}>
+        <Heading color="white" variant="heading-5" tag="h3">
+          Large
+        </Heading>
+        <Badge reversed isLarge variant="dot">
+          3
+        </Badge>
+      </div>
+    </div>
+  </>
 )
 
-Reversed.storyName = "Reversed"
-Reversed.parameters = {
+ReversedBadges.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
 }
-
-export const ReversedActive = () => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated variant="active" reversed>
-          {badgeCount}
-        </BadgeAnimated>
-      ) : (
-        <Badge variant="active" reversed>
-          {badgeCount}
-        </Badge>
-      )
-    }
-  </BadgeStoryWrapper>
-)
-
-ReversedActive.storyName = "Reversed, Active"
-ReversedActive.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-export const LongerText = () => <Badge variant="default">2x</Badge>
-
-LongerText.storyName = "Longer text"
