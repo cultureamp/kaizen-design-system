@@ -5,17 +5,23 @@ import styles from "./ModalAccessibleLabel.scss"
 
 export interface ModalAccessibleLabelProps {
   readonly children: React.ReactNode
+  readonly isProminent?: boolean
 }
 
 type ModalAccessibleLabel = React.FunctionComponent<ModalAccessibleLabelProps>
 
-const ModalAccessibleLabel: ModalAccessibleLabel = ({ children }) => (
+const ModalAccessibleLabel: ModalAccessibleLabel = ({
+  children,
+  isProminent = false,
+}) => (
   <ModalAccessibleContext.Consumer>
     {({ labelledByID }) => (
       <div
         id={labelledByID}
         tabIndex={-1}
-        className={classnames(styles.modalLabel)}
+        className={classnames(styles.modalLabel, {
+          [styles.prominent]: isProminent,
+        })}
       >
         {children}
       </div>
