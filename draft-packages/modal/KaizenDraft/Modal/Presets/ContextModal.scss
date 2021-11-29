@@ -1,11 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/design-tokens/sass/spacing";
-
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -21,9 +16,9 @@
   color: $color-purple-800;
   text-align: left;
   &.padded {
-    padding: $ca-grid $ca-grid * 1.5;
+    padding: $spacing-md $spacing-lg;
     @media (max-width: $layout-breakpoints-medium - 1px) {
-      padding: $ca-grid;
+      padding: $spacing-md;
     }
   }
 }
@@ -37,28 +32,28 @@
 
 .footerWithSecondaryAction {
   composes: footer;
-  margin-left: -0.5 * $ca-grid;
+  margin-left: calc(-1 * #{$spacing-sm});
 }
 
 .emptyFooter {
-  height: $ca-grid * 0.5;
+  height: $spacing-sm;
 }
 
 .portraitContentlayout {
   display: flex;
-  padding: $ca-grid 1.5 * $ca-grid;
+  padding: $spacing-md $spacing-lg;
   @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding: $ca-grid;
+    padding: $spacing-md;
     display: block;
   }
 }
 
 .landscapeContentlayout {
   display: flex;
-  padding: $ca-grid 1.5 * $ca-grid;
+  padding: $spacing-md $spacing-lg;
   flex-direction: column;
   @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding: $ca-grid;
+    padding: $spacing-md;
   }
   .image {
     display: flex;
@@ -77,9 +72,9 @@
 
 .content {
   flex: 1 0 100%;
-  padding-left: $ca-grid * 2;
+  padding-left: $spacing-xl;
   @media (min-width: $layout-breakpoints-medium) {
-    max-width: $ca-grid * 16;
+    max-width: $spacing-md * 16;
   }
   @media (max-width: $layout-breakpoints-medium - 1px) {
     padding-left: 0;
