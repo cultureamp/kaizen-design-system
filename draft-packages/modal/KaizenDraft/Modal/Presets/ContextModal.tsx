@@ -1,12 +1,12 @@
-import { Box, Heading } from "@kaizen/component-library"
-import { Divider } from "@kaizen/draft-divider"
+import { Heading } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/draft-button"
+import classnames from "classnames"
 import * as React from "react"
-import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
+import { GenericModal, ModalAccessibleLabel, ModalBody, ModalFooter } from ".."
 import ModalHeader from "../Primitives/ModalHeader"
-import styles from "./InformationModal.scss"
+import styles from "./ContextModal.scss"
 
-export type InformationModalSecondaryActionProps =
+export type ContextModalSecondaryActionProps =
   | {
       secondaryLabel: string
       onSecondaryAction: () => void
@@ -15,9 +15,11 @@ export type InformationModalSecondaryActionProps =
       secondaryLabel?: undefined
     }
 
-export type InformationModalProps = Readonly<
+export type ContextModalProps = Readonly<
   {
     isOpen: boolean
+    unpadded?: boolean
+    isLandscape?: boolean
     title: string
     onConfirm?: () => void
     onDismiss: () => void
@@ -28,13 +30,15 @@ export type InformationModalProps = Readonly<
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-  } & InformationModalSecondaryActionProps
+  } & ContextModalSecondaryActionProps
 >
 
-type InformationModal = React.FunctionComponent<InformationModalProps>
+type ContextModal = React.FunctionComponent<ContextModalProps>
 
-const InformationModal = ({
+const ContextModal = ({
   isOpen,
+  unpadded = false,
+  isLandscape = false,
   title,
   onConfirm,
   confirmLabel = "Confirm",
@@ -45,7 +49,7 @@ const InformationModal = ({
   contentHeader,
   image,
   ...props
-}: InformationModalProps) => {
+}: ContextModalProps) => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
 
   const footerActions: ButtonProps[] = []
@@ -80,46 +84,54 @@ const InformationModal = ({
     >
       <div className={styles.modal}>
         {renderBackground && renderBackground()}
-        <ModalHeader unpadded onDismiss={onDismiss}>
-          <div className={styles.header}>
+        <ModalHeader onDismiss={onDismiss}>
+          <div
+            className={classnames(styles.header, {
+              [styles.padded]: !unpadded,
+            })}
+          >
             <ModalAccessibleLabel>
-              <Heading variant="heading-2" tag="h1">
-                <Box pb={0.5}>{title}</Box>
+              <Heading variant="heading-2" tag="h2">
+                {title}
               </Heading>
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <Divider variant="content" />
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <div className={styles.contentLayout}>
-          <div className={styles.content}>
-            {children}
-            {onConfirm != null && (
-              <div
-                className={
-                  props.secondaryLabel
-                    ? styles.footerWithSecondaryAction
-                    : styles.footer
-                }
-              >
-                <ModalFooter
-                  unpadded
-                  alignStart
-                  variant={image ? "information" : undefined}
-                  actions={footerActions}
-                  appearance={"primary"}
-                  automationId={automationId}
-                />
-              </div>
-            )}
+        <ModalBody unpadded={unpadded}>
+          <div
+            className={classnames(styles.contentLayout, {
+              [styles.portraitContentlayout]: !isLandscape,
+              [styles.landscapeContentlayout]: isLandscape,
+            })}
+          >
+            <div className={styles.image}>{image}</div>
+            <div className={styles.content}>
+              {children}
+              {onConfirm != null && (
+                <div
+                  className={
+                    props.secondaryLabel
+                      ? styles.footerWithSecondaryAction
+                      : styles.footer
+                  }
+                ></div>
+              )}
+            </div>
           </div>
-          <div className={styles.image}>{image}</div>
-        </div>
+        </ModalBody>
+        <ModalFooter
+          variant={image ? "context" : undefined}
+          actions={footerActions}
+          appearance={"primary"}
+          automationId={automationId}
+          unpadded={unpadded}
+        />
       </div>
     </GenericModal>
   )
 }
 
-export default InformationModal
+export default ContextModal

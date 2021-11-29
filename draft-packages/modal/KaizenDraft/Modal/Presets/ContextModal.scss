@@ -1,0 +1,91 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+
+.modal {
+  composes: genericModal from "../Primitives/GenericModal.scss";
+  min-width: 300px;
+  max-width: 840px;
+
+  @media (min-width: $layout-breakpoints-medium - 1px) {
+    width: 90%;
+  }
+}
+
+.header {
+  color: $color-purple-800;
+  text-align: left;
+  &.padded {
+    padding: $ca-grid $ca-grid * 1.5;
+    @media (max-width: $layout-breakpoints-medium - 1px) {
+      padding: $ca-grid;
+    }
+  }
+}
+
+.footer {
+  white-space: nowrap;
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    white-space: initial;
+  }
+}
+
+.footerWithSecondaryAction {
+  composes: footer;
+  margin-left: -0.5 * $ca-grid;
+}
+
+.emptyFooter {
+  height: $ca-grid * 0.5;
+}
+
+.portraitContentlayout {
+  display: flex;
+  padding: $ca-grid 1.5 * $ca-grid;
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    padding: $ca-grid;
+    display: block;
+  }
+}
+
+.landscapeContentlayout {
+  display: flex;
+  padding: $ca-grid 1.5 * $ca-grid;
+  flex-direction: column;
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    padding: $ca-grid;
+  }
+  .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    padding-left: 0rem;
+    @media (min-width: $layout-breakpoints-medium) {
+      max-width: 100%;
+    }
+  }
+}
+
+.content {
+  flex: 1 0 100%;
+  padding-left: $ca-grid * 2;
+  @media (min-width: $layout-breakpoints-medium) {
+    max-width: $ca-grid * 16;
+  }
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    padding-left: 0;
+  }
+}
+
+.image {
+  flex: 1;
+}

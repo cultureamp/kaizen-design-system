@@ -1,10 +1,6 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/design-tokens/sass/color";
 
 .actions {
   display: flex;
@@ -19,26 +15,26 @@
 
 .padded {
   padding: 0 $spacing-lg $spacing-lg $spacing-lg;
-  @media (max-width: $layout-breakpoints-medium) {
+  @media (max-width: $layout-breakpoints-medium - 1px) {
     padding: $spacing-md;
     flex-direction: column;
   }
 }
 .actionButton {
-  @media (max-width: $layout-breakpoints-medium) {
+  @media (max-width: $layout-breakpoints-medium - 1px) {
     width: 100%;
   }
 }
 .actionButton + .actionButton {
-  @include ca-margin($end: $ca-grid * 0.5);
-  @media (max-width: $layout-breakpoints-medium) {
-    @include ca-margin($top: $ca-grid * 0.5);
+  margin-right: $spacing-sm;
+  @media (max-width: $layout-breakpoints-medium - 1px) {
+    margin-top: $spacing-sm;
   }
 }
 
 // to avoid the row-reverse styles
 .elmActionButton + .elmActionButton {
-  @include ca-margin($start: $ca-grid * 0.5);
+  margin-left: $spacing-sm;
 }
 
 .footerWrap {
@@ -53,7 +49,7 @@
 }
 
 .border {
-  border-top: 1px solid $ca-border-color;
+  border-top: 1px solid $border-solid-border-color;
 }
 
 .start {
