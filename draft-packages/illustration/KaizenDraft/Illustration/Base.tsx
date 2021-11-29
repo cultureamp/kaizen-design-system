@@ -20,12 +20,18 @@ export type BaseProps = {
    * @default ""
    */
   classNameAndIHaveSpokenToDST?: string
+
+  /**
+   * TODO
+   */
+  aspectRatio?: "landscape" | "portrait" | "square"
 }
 
 export const Base = ({
   name,
   alt,
   classNameAndIHaveSpokenToDST,
+  aspectRatio,
   ...otherProps
 }: BaseProps) => {
   const className =
@@ -33,7 +39,17 @@ export const Base = ({
     " " +
     styles.wrapper
 
+  const aspectClassName =
+    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
+
   return (
-    <img {...otherProps} className={className} alt={alt} src={assetUrl(name)} />
+    <figure className={aspectClassName}>
+      <img
+        {...otherProps}
+        className={className}
+        alt={alt}
+        src={assetUrl(name)}
+      />
+    </figure>
   )
 }
