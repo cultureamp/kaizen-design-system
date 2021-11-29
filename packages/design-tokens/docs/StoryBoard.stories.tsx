@@ -250,7 +250,8 @@ const StoriesContainer = (props: {
       {shouldRender && (
         <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
-            if (typeof V !== "function") return null
+            // Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
+            if ("title" in V) return null
             const parameters = "story" in V ? V.story.parameters : V.parameters
             const storyElement = (
               <V {...meta.args} {...("story" in V ? V.story.args : {})} />
