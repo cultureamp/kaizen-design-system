@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
@@ -15,7 +16,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .container {
   -webkit-font-smoothing: antialiased;
-  border: $border-solid-border-width $border-solid-border-style $ca-border-color;
+  box-shadow: $shadow-large-box-shadow;
   border-radius: $border-solid-border-radius;
   display: flex;
   overflow: hidden;
@@ -24,6 +25,10 @@ $delay-before-showing-loading-placeholders: 500ms;
     ((2 + #{$max-visible-options}) * #{$option-height}) +
       (2 * #{$border-solid-border-width})
   );
+
+  @media (forced-colors: active) {
+    border: $border-solid-border-width $border-solid-border-style;
+  }
 
   &,
   & * {
