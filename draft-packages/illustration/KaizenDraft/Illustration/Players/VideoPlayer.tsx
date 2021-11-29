@@ -28,6 +28,12 @@ export type VideoPlayerProps = {
    */
   source: string
 
+  /**
+   * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
+   * component in a container, forcing the aspect ratio.
+   */
+  aspectRatio?: "landscape" | "portrait" | "square"
+
   onEnded?: () => void
 }
 
@@ -36,6 +42,7 @@ export const VideoPlayer = ({
   loop = false,
   fallback,
   source,
+  aspectRatio,
   onEnded,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -123,29 +130,62 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
+  const aspectClassName =
+    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
+
   return (
-    <video
-      muted={true}
-      aria-hidden={true}
-      preload="metadata"
-      ref={videoRef}
-      width="100%"
-      data-testid="kz-video-player"
-      className={styles.wrapper}
-      loop={loop}
-      poster={assetUrl(`${fallback}.png`)}
-      autoPlay={prefersReducedMotion ? false : autoplay}
-      playsInline={true}
-    >
-      {/**
-       * This seems counter-intuitive, but webm support is codec specific.
-       * Only offer webm if we are positive the browser supports it.
-       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-       */}
-      {canPlayWebm() && (
-        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+    <>
+      {aspectRatio ? (
+        <figure className={aspectClassName}>
+          <video
+            muted={true}
+            aria-hidden={true}
+            preload="metadata"
+            ref={videoRef}
+            width="100%"
+            data-testid="kz-video-player"
+            className={styles.wrapper}
+            loop={loop}
+            poster={assetUrl(`${fallback}.png`)}
+            autoPlay={prefersReducedMotion ? false : autoplay}
+            playsInline={true}
+          >
+            {/**
+             * This seems counter-intuitive, but webm support is codec specific.
+             * Only offer webm if we are positive the browser supports it.
+             * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+             */}
+            {canPlayWebm() && (
+              <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+            )}
+            <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
+          </video>
+        </figure>
+      ) : (
+        <video
+          muted={true}
+          aria-hidden={true}
+          preload="metadata"
+          ref={videoRef}
+          width="100%"
+          data-testid="kz-video-player"
+          className={styles.wrapper}
+          loop={loop}
+          poster={assetUrl(`${fallback}.png`)}
+          autoPlay={prefersReducedMotion ? false : autoplay}
+          playsInline={true}
+        >
+          {/**
+           * This seems counter-intuitive, but webm support is codec specific.
+           * Only offer webm if we are positive the browser supports it.
+           * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+           */}
+          {canPlayWebm() && (
+            <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+          )}
+          <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
+        </video>
       )}
-      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-    </video>
+    </>
   )
 }

@@ -11,23 +11,25 @@ export type AnimatedProps = { isAnimated?: true } & Pick<
   VideoPlayerProps,
   "loop" | "autoplay"
 > &
-  SubsetBecomesNever<SceneProps, "alt">
+  SubsetBecomesNever<SceneProps, "alt"> & { enableAspectRatio?: boolean }
 type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
   VideoPlayerProps,
   "autoplay" | "loop"
 > &
-  SceneProps
+  SceneProps & { enableAspectRatio?: boolean }
 
 export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
 export const BrandMomentPositiveOutro = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-positive-outro"
         source="illustrations/heart/scene/brand-moments-positive-outro"
@@ -36,6 +38,7 @@ export const BrandMomentPositiveOutro = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-positive-outro.png"
@@ -45,12 +48,14 @@ export const BrandMomentPositiveOutro = ({
 
 export const BrandMomentLogin = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-login"
         source="illustrations/heart/scene/brand-moments-login"
@@ -59,6 +64,7 @@ export const BrandMomentLogin = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-login.png"
@@ -68,12 +74,14 @@ export const BrandMomentLogin = ({
 
 export const BrandMomentError = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-error"
         source="illustrations/heart/scene/brand-moments-error"
@@ -82,6 +90,7 @@ export const BrandMomentError = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-error.png"
@@ -115,12 +124,14 @@ export const BrandMomentStarterKit = (props: SceneProps) => (
 
 export const EmptyStatesAction = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-action"
         source="illustrations/heart/scene/empty-states-action"
@@ -129,6 +140,7 @@ export const EmptyStatesAction = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-action.svg"
@@ -138,12 +150,14 @@ export const EmptyStatesAction = ({
 
 export const EmptyStatesInformative = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-informative"
         source="illustrations/heart/scene/empty-states-informative"
@@ -152,6 +166,7 @@ export const EmptyStatesInformative = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-informative.svg"
@@ -161,12 +176,14 @@ export const EmptyStatesInformative = ({
 
 export const EmptyStatesNegative = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-negative"
         source="illustrations/heart/scene/empty-states-negative"
@@ -175,6 +192,7 @@ export const EmptyStatesNegative = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-negative.svg"
@@ -184,12 +202,14 @@ export const EmptyStatesNegative = ({
 
 export const EmptyStatesPositive = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-positive"
         source="illustrations/heart/scene/empty-states-positive"
@@ -198,6 +218,7 @@ export const EmptyStatesPositive = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-positive.svg"
@@ -207,12 +228,14 @@ export const EmptyStatesPositive = ({
 
 export const EmptyStatesNeutral = ({
   isAnimated,
+  enableAspectRatio,
   alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   if (isAnimated) {
     return (
       <VideoPlayer
+        aspectRatio={enableAspectRatio ? "landscape" : undefined}
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-neutral"
         source="illustrations/heart/scene/empty-states-neutral"
@@ -221,6 +244,7 @@ export const EmptyStatesNeutral = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-neutral.svg"

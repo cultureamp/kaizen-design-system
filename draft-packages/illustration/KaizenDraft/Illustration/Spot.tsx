@@ -14,12 +14,20 @@ export type AnimatedSpotProps = SpotProps &
  */
 export const Cautionary = ({
   isAnimated,
+  enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-cautionary.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/spot/moods-cautionary.lottie"
       fallback={illustrationPath}
@@ -34,12 +42,20 @@ export const Cautionary = ({
 
 export const Informative = ({
   isAnimated,
+  enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-informative.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/spot/moods-informative.lottie"
       fallback={illustrationPath}
@@ -52,11 +68,22 @@ export const Informative = ({
   return StaticIllustration
 }
 
-export const Negative = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+export const Negative = ({
+  isAnimated,
+  enableAspectRatio,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-negative.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/spot/moods-negative.lottie"
       fallback={illustrationPath}
@@ -74,9 +101,14 @@ export const Negative = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
  */
 export const PositiveMale = ({
   isAnimated,
+  enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps) => (
-  <Base {...otherProps} name="illustrations/heart/spot/moods-positive.svg" />
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...otherProps}
+    name="illustrations/heart/spot/moods-positive.svg"
+  />
 )
 
 /**
@@ -84,12 +116,20 @@ export const PositiveMale = ({
  */
 export const PositiveFemale = ({
   isAnimated,
+  enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-positive.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/spot/moods-positive.lottie"
       fallback={illustrationPath}
@@ -102,11 +142,22 @@ export const PositiveFemale = ({
   return StaticIllustration
 }
 
-export const Positive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+export const Positive = ({
+  isAnimated,
+  enableAspectRatio,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-positive.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/spot/moods-positive.lottie"
       fallback={illustrationPath}
@@ -119,11 +170,22 @@ export const Positive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
   return StaticIllustration
 }
 
-export const Assertive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
+export const Assertive = ({
+  isAnimated,
+  enableAspectRatio,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const illustrationPath = "illustrations/heart/spot/moods-assertive.svg"
-  const StaticIllustration = <Base {...otherProps} name={illustrationPath} />
+  const StaticIllustration = (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...otherProps}
+      name={illustrationPath}
+    />
+  )
   const AnimatedIllustration = (
     <AnimatedBase
+      aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
       name="illustrations/heart/spot/moods-assertive.lottie"
       fallback={illustrationPath}
