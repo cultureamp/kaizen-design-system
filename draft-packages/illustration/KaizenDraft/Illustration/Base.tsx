@@ -22,7 +22,8 @@ export type BaseProps = {
   classNameAndIHaveSpokenToDST?: string
 
   /**
-   * TODO
+   * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
+   * component in a container, forcing the aspect ratio.
    */
   aspectRatio?: "landscape" | "portrait" | "square"
 }
