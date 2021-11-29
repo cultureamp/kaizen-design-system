@@ -31,16 +31,7 @@ export const useMediaQueries = (
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
   const isLegacyEdge = navigator.userAgent.match(/Edge/)
-
-  // To double check:
-  // Does Safari <13 consistently use addListener?
-  type windowAndDeprecatedEventListeners = {
-    addListener: any
-    removeListener: any
-  } & Window
-  const isUnsupportedSafari =
-    ((window as unknown) as windowAndDeprecatedEventListeners).addListener !==
-    undefined
+  const isUnsupportedSafari = (window.matchMedia('')).addEventListener !== undefined; 
 
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
