@@ -1,6 +1,6 @@
 import path from "path"
 import { NormalModuleReplacementPlugin } from "webpack"
-const webpackConfig = require("../rules")
+const webpackConfig = require("../webpack/rules")
 
 module.exports = {
   managerWebpack: (config, { configType }) => {
