@@ -4223,7 +4223,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/core-events@6.3.12", "@storybook/core-events@^6.3.12":
+"@storybook/core-events@6.3.12":
   version "6.3.12"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.3.12.tgz#73f6271d485ef2576234e578bb07705b92805290"
   integrity sha512-SXfD7xUUMazaeFkB92qOTUV8Y/RghE4SkEYe5slAdjeocSaH7Nz2WV0rqNEgChg0AQc+JUI66no8L9g0+lw4Gw==
@@ -4237,7 +4237,7 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-events@6.4.0":
+"@storybook/core-events@6.4.0", "@storybook/core-events@^6.4.0":
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.0.tgz#880aa674b12aa2fd5f284a5c9bdcc55a1f3d5432"
   integrity sha512-uOwLYt95J6U5BUgw/e9KGRw1jBq6vyoLUG4GZbPc7a9DLmES31zpqpKaFPAUoYel/TPUHgTLlKRIg8uyjv9vLg==
