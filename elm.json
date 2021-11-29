@@ -27,7 +27,6 @@
         "./draft-packages/tag",
         "./draft-packages/tooltip",
         "./draft-packages/user-interactions",
-        "./draft-packages/zen-navigation-bar",
         "./draft-packages/well",
         "./legacy-packages/title-block",
         "./node_modules/elm-storybook/src"
