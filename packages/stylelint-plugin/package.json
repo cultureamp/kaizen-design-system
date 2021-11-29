@@ -22,7 +22,7 @@
     "postcss": "^8.2.15",
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
-    "postcss-value-parser": "^4.1.0",
+    "postcss-value-parser": "^4.2.0",
     "stylelint": "^13.13.1",
     "tinycolor2": "^1.4.2"
   },
