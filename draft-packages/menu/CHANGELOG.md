@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.8...@kaizen/draft-menu@4.1.9) (2021-11-26)
+
+
+### Bug Fixes
+
+* Change uuid to use named import ([#2316](https://github.com/cultureamp/kaizen-design-system/issues/2316)) ([4b860ad](https://github.com/cultureamp/kaizen-design-system/commit/4b860ad90214058172de090521a0c53b044208d7))
+
+
+
+
+
 ## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.7...@kaizen/draft-menu@4.1.8) (2021-11-15)
 
 **Note:** Version bump only for package @kaizen/draft-menu
