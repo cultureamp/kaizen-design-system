@@ -41,7 +41,7 @@
     "@storybook/components": "^6.4.0",
     "@storybook/core-events": "^6.4.0",
     "@storybook/react": "^6.3.12",
-    "@storybook/theming": "^6.3.12",
+    "@storybook/theming": "^6.4.0",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^4.0.1",
