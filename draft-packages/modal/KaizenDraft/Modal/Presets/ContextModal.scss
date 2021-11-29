@@ -74,7 +74,7 @@
   flex: 1 0 100%;
   padding-left: $spacing-xl;
   @media (min-width: $layout-breakpoints-medium) {
-    max-width: $spacing-md * 16;
+    max-width: calc(16 * #{$spacing-md});
   }
   @media (max-width: $layout-breakpoints-medium - 1px) {
     padding-left: 0;
