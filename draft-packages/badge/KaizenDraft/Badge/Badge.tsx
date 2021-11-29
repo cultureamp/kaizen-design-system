@@ -4,16 +4,17 @@ import classNames from "classnames"
 import styles from "./styles.module.scss"
 
 type Variant = "default" | "active" | "dark" | "dot"
+type Size = "small" | "medium" | "large"
 
 export interface BadgeProps {
   readonly children?: string
   readonly variant?: Variant
   readonly reversed?: boolean
-  readonly isLarge?: boolean
+  readonly size?: Size
 }
 
 export const Badge = (props: BadgeProps) => {
-  const { children, variant = "default", reversed, isLarge = false } = props
+  const { children, variant = "default", reversed, size = "small" } = props
 
   return (
     <span
@@ -23,7 +24,7 @@ export const Badge = (props: BadgeProps) => {
         [styles.dark]: variant === "dark",
         [styles.dot]: variant === "dot",
         [styles.reversed]: reversed,
-        [styles.large]: isLarge,
+        [styles.large]: size === "large",
       })}
     >
       {props.variant === "dot" ? "" : children}

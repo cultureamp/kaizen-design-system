@@ -88,7 +88,7 @@ export const LightBadges = () => (
         <Heading variant="heading-5" tag="h3">
           Large
         </Heading>
-        <Badge isLarge variant="default">
+        <Badge size="large" variant="default">
           3
         </Badge>
       </div>
@@ -103,14 +103,6 @@ export const LightBadges = () => (
         </Heading>
         <Badge variant="active">3</Badge>
       </div>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge isLarge variant="active">
-          3
-        </Badge>
-      </div>
     </div>
     <Heading variant="heading-3" tag="h2">
       Dot
@@ -121,14 +113,6 @@ export const LightBadges = () => (
           Small
         </Heading>
         <Badge variant="dot">3</Badge>
-      </div>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge isLarge variant="dot">
-          3
-        </Badge>
       </div>
     </div>
   </>
@@ -159,7 +143,7 @@ export const ReversedBadges = () => (
         <Heading color="white" variant="heading-5" tag="h3">
           Large
         </Heading>
-        <Badge reversed isLarge variant="default">
+        <Badge reversed size="large" variant="default">
           3
         </Badge>
       </div>
@@ -176,14 +160,6 @@ export const ReversedBadges = () => (
           3
         </Badge>
       </div>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge reversed isLarge variant="active">
-          3
-        </Badge>
-      </div>
     </div>
     <Heading color="white" variant="heading-3" tag="h2">
       Dot
@@ -194,14 +170,6 @@ export const ReversedBadges = () => (
           Small
         </Heading>
         <Badge reversed variant="dot">
-          3
-        </Badge>
-      </div>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge reversed isLarge variant="dot">
           3
         </Badge>
       </div>
