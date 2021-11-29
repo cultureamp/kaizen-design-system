@@ -43,13 +43,24 @@ export const Base = ({
     (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
 
   return (
-    <figure className={aspectClassName}>
-      <img
-        {...otherProps}
-        className={className}
-        alt={alt}
-        src={assetUrl(name)}
-      />
-    </figure>
+    <>
+      {aspectRatio ? (
+        <figure className={aspectClassName}>
+          <img
+            {...otherProps}
+            className={className}
+            alt={alt}
+            src={assetUrl(name)}
+          />
+        </figure>
+      ) : (
+        <img
+          {...otherProps}
+          className={className}
+          alt={alt}
+          src={assetUrl(name)}
+        />
+      )}
+    </>
   )
 }
