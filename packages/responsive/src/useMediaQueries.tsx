@@ -32,6 +32,16 @@ export const useMediaQueries = (
   // so we disable the functionality of updating after page load.
   const isLegacyEdge = navigator.userAgent.match(/Edge/)
 
+  // To double check:
+  // Does Safari <13 consistently use addListener?
+  type windowAndDeprecatedEventListeners = {
+    addListener: any
+    removeListener: any
+  } & Window
+  const isUnsupportedSafari =
+    ((window as unknown) as windowAndDeprecatedEventListeners).addListener !==
+    undefined
+
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
@@ -80,7 +90,7 @@ export const useMediaQueries = (
   // Create an event listener based on the medium breakpoint and update state whenever it changes
   // ---------------------------------------
   useEffect(() => {
-    if (isLegacyEdge) {
+    if (isLegacyEdge || isUnsupportedSafari) {
       return
     }
 
@@ -126,7 +136,7 @@ export const useMediaQueries = (
   // Create an event listener for each custom query
   // ---------------------------------------
   useEffect(() => {
-    if (isLegacyEdge) {
+    if (isLegacyEdge || isUnsupportedSafari) {
       return
     }
 
