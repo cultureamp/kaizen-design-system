@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^11.5.6",
     "@kaizen/deprecated-component-library-helpers": "^2.4.1",
-    "@popperjs/core": "^2.10.2",
+    "@popperjs/core": "^2.11.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-popper": "^2.2.5"
