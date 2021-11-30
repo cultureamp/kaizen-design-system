@@ -13,6 +13,7 @@ x-defaults: &defaults
 steps:
   - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
+    timeout_in_minutes: 15
     branches: "master"
     <<: *defaults
     plugins:
@@ -26,6 +27,7 @@ steps:
 
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
+    timeout_in_minutes: 15
     branches: "canary"
     <<: *defaults
     plugins:
@@ -36,12 +38,14 @@ steps:
 
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
+    timeout_in_minutes: 15
     artifact_paths: "./site.tar.gz"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
   - name: ":package: Build (storybook)"
     command: ".buildkite/scripts/build-storybook.sh"
+    timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
@@ -51,6 +55,7 @@ steps:
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
+    timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
     branches: "!canary"
     env:
@@ -67,6 +72,7 @@ steps:
 
   - name: ":rainbow: Build (chromatic)"
     command: ".buildkite/scripts/run-chromatic-build.sh"
+    timeout_in_minutes: 15
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
