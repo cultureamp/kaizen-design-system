@@ -112,5 +112,36 @@ describe("<VideoPlayer />", () => {
       `)
       expect(mockPlay).toBeCalled()
     })
+
+    it("should have aspect ratio class", () => {
+      window.matchMedia = jest
+        .fn()
+        .mockImplementation(() => mockDoesNotPreferReducedMotion)
+      const { container } = render(
+        <VideoPlayer
+          aspectRatio="landscape"
+          autoplay
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+          source="illustrations/heart/spot/moods-cautionary.webm"
+        />
+      )
+      expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
+      expect(container.querySelector(".landscape")).toBeTruthy()
+    })
+
+    it("should not have aspect ratio class", () => {
+      window.matchMedia = jest
+        .fn()
+        .mockImplementation(() => mockDoesNotPreferReducedMotion)
+      const { container } = render(
+        <VideoPlayer
+          autoplay
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+          source="illustrations/heart/spot/moods-cautionary.webm"
+        />
+      )
+      expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
+      expect(container.querySelector(".landscape")).toBeFalsy()
+    })
   })
 })

@@ -201,129 +201,156 @@ export const Assertive = ({
 /**
  * Template Library / Engagement
  */
-export const BenefitsSurvey = (props: SpotProps) => (
+export const BenefitsSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-benefits-survey.svg"
   />
 )
 
-export const CustomSurvey = (props: SpotProps) => (
+export const CustomSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-custom-survey.svg"
   />
 )
 
-export const CustomUnattributedSurvey = (props: SpotProps) => (
+export const CustomUnattributedSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-custom-unattributed-survey.svg"
   />
 )
 
-export const EngagementSurvey = (props: SpotProps) => (
+export const EngagementSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-engagement-survey.svg"
   />
 )
 
-export const InclusionSurvey = (props: SpotProps) => (
+export const InclusionSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-inclusion-survey.svg"
   />
 )
 
-export const QuickEngagementSurvey = (props: SpotProps) => (
+export const QuickEngagementSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-quick-engagement-survey.svg"
   />
 )
 
-export const ValuesSurvey1 = (props: SpotProps) => (
+export const ValuesSurvey1 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-values-survey-1.svg"
   />
 )
 
-export const ValuesSurvey2 = (props: SpotProps) => (
+export const ValuesSurvey2 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-values-survey-2.svg"
   />
 )
 
-export const WellbeingSurvey1 = (props: SpotProps) => (
+export const WellbeingSurvey1 = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-wellbeing-survey-1.svg"
   />
 )
 
-export const WellbeingSurvey2 = (props: SpotProps) => (
+export const WellbeingSurvey2 = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-wellbeing-survey-2.svg"
   />
 )
 
-export const WellbeingSurvey3 = (props: SpotProps) => (
+export const WellbeingSurvey3 = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-wellbeing-survey-3.svg"
   />
 )
 
-export const ChangeReadiness = (props: SpotProps) => (
+export const ChangeReadiness = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-change-readiness.svg"
   />
 )
 
-export const ChangeSuccess = (props: SpotProps) => (
+export const ChangeSuccess = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-change-success.svg"
   />
 )
 
-export const PerformanceDiagnostics = (props: SpotProps) => (
+export const PerformanceDiagnostics = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-performance-diagnostics.svg"
   />
 )
 
-export const LeadingThroughCrisis = (props: SpotProps) => (
+export const LeadingThroughCrisis = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-leading-through-crisis.svg"
   />
 )
 
-export const EmergencyResponse = (props: SpotProps) => (
+export const EmergencyResponse = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-emergency-response.svg"
   />
@@ -332,73 +359,91 @@ export const EmergencyResponse = (props: SpotProps) => (
 /**
  * Template Library / Experience
  */
-export const CandidateSurvey = (props: SpotProps) => (
+export const CandidateSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-candidate-survey.svg"
   />
 )
 
-export const CustomOnboardSurvey = (props: SpotProps) => (
+export const CustomOnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-custom-onboard-survey.svg"
   />
 )
 
-export const ExitSurvey = (props: SpotProps) => (
+export const ExitSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-exit-survey.svg"
   />
 )
 
-export const InternSurvey = (props: SpotProps) => (
+export const InternSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-intern-survey.svg"
   />
 )
 
-export const PhasedWeek1OnboardSurvey = (props: SpotProps) => (
+export const PhasedWeek1OnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-phased-week-1-onboard-survey.svg"
   />
 )
 
-export const PhasedWeek5OnboardSurvey = (props: SpotProps) => (
+export const PhasedWeek5OnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-phased-week-5-onboard-survey.svg"
   />
 )
 
-export const SinglePointOnboardSurvey = (props: SpotProps) => (
+export const SinglePointOnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-single-point-onboard-survey.svg"
   />
 )
 
-export const GeneralOnboardSurvey = (props: SpotProps) => (
+export const GeneralOnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-general-onboard-survey.svg"
   />
 )
 
-export const RemoteOnboardSurvey = (props: SpotProps) => (
+export const RemoteOnboardSurvey = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-remote-onboard-survey.svg"
   />
@@ -407,65 +452,71 @@ export const RemoteOnboardSurvey = (props: SpotProps) => (
 /**
  * Template Library / Performance
  */
-export const Individual360 = (props: SpotProps) => (
+export const Individual360 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-individual-360.svg"
   />
 )
 
-export const Leadership360 = (props: SpotProps) => (
+export const Leadership360 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-leadership-360.svg"
   />
 )
 
-export const Manager360 = (props: SpotProps) => (
+export const Manager360 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-manager-360.svg"
   />
 )
 
-export const Individual180 = (props: SpotProps) => (
+export const Individual180 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-individual-180.svg"
   />
 )
 
-export const Leadership180 = (props: SpotProps) => (
+export const Leadership180 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-leadership-180.svg"
   />
 )
 
-export const Manager180 = (props: SpotProps) => (
+export const Manager180 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-manager-180.svg"
   />
 )
 
-export const TeamEffectiveness1 = (props: SpotProps) => (
+export const TeamEffectiveness1 = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-team-effectiveness-1.svg"
   />
 )
 
-export const TeamEffectiveness2 = (props: SpotProps) => (
+export const TeamEffectiveness2 = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-team-effectiveness-2.svg"
   />
@@ -475,41 +526,44 @@ export const TeamEffectiveness2 = (props: SpotProps) => (
  * Template Library / COVID-19
  */
 
-export const WellbeingSurvey = (props: SpotProps) => (
+export const WellbeingSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-wellbeing-survey.svg"
   />
 )
 
-export const Response = (props: SpotProps) => (
+export const Response = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-response.svg"
   />
 )
 
-export const RemoteWorkQSet = (props: SpotProps) => (
+export const RemoteWorkQSet = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-remote-work-q-set.svg"
   />
 )
 
-export const ReturnToWorkplace = (props: SpotProps) => (
+export const ReturnToWorkplace = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-return-to-workplace.svg"
   />
 )
 
-export const PulseSurvey = (props: SpotProps) => (
+export const PulseSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/template-library-pulse-survey.svg"
   />
@@ -518,49 +572,49 @@ export const PulseSurvey = (props: SpotProps) => (
 /**
  * New Account
  */
-export const AccountBasics = (props: SpotProps) => (
+export const AccountBasics = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-account-basics.svg"
   />
 )
 
-export const CompanyDetails = (props: SpotProps) => (
+export const CompanyDetails = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-company-details.svg"
   />
 )
 
-export const EmployeeData = (props: SpotProps) => (
+export const EmployeeData = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-employee-data.svg"
   />
 )
 
-export const Gdpr = (props: SpotProps) => (
+export const Gdpr = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-gdpr.svg"
   />
 )
 
-export const Timezone = (props: SpotProps) => (
+export const Timezone = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-timezone.svg"
   />
 )
 
-export const AddUser = (props: SpotProps) => (
+export const AddUser = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/new-account-add-user.svg"
   />
@@ -569,65 +623,65 @@ export const AddUser = (props: SpotProps) => (
 /**
  * Skills Coach (previously referred to as Manager Learning)
  */
-export const Strategy = (props: SpotProps) => (
+export const Strategy = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-strategy.svg"
   />
 )
 
-export const Resilience = (props: SpotProps) => (
+export const Resilience = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-resilience.svg"
   />
 )
 
-export const RemoteManager = (props: SpotProps) => (
+export const RemoteManager = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-remote-manager.svg"
   />
 )
 
-export const Productivity = (props: SpotProps) => (
+export const Productivity = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-productivity.svg"
   />
 )
 
-export const ManagerLearning = (props: SpotProps) => (
+export const ManagerLearning = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-manager-learning.svg"
   />
 )
 
-export const Feedback = (props: SpotProps) => (
+export const Feedback = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-feedback.svg"
   />
 )
 
-export const Coaching = (props: SpotProps) => (
+export const Coaching = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-coaching.svg"
   />
 )
 
-export const OneOnOne = (props: SpotProps) => (
+export const OneOnOne = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-1-on-1.svg"
   />
@@ -636,273 +690,288 @@ export const OneOnOne = (props: SpotProps) => (
 /**
  * Miscellaneous
  */
-export const ViewReports = (props: SpotProps) => (
+export const ViewReports = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-view-reports.svg"
   />
 )
 
-export const ReadArticle = (props: SpotProps) => (
+export const ReadArticle = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-read-article.svg"
   />
 )
 
-export const FastAction = (props: SpotProps) => (
+export const FastAction = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-fast-action.svg"
   />
 )
 
-export const BaselineSurvey = (props: SpotProps) => (
+export const BaselineSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-baseline-survey.svg"
   />
 )
 
-export const SpreadsheetTemplate = (props: SpotProps) => (
+export const SpreadsheetTemplate = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-spreadsheet-template.svg"
   />
 )
 
-export const AddImage = (props: SpotProps) => (
+export const AddImage = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-add-image.svg"
   />
 )
 
-export const MeetingVoices = (props: SpotProps) => (
+export const MeetingVoices = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-meeting-voices.svg"
   />
 )
 
-export const Workshop = (props: SpotProps) => (
+export const Workshop = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-workshop.svg"
   />
 )
 
-export const Video = (props: SpotProps) => (
+export const Video = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-video.svg"
   />
 )
 
-export const ReportSharing = (props: SpotProps) => (
+export const ReportSharing = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-report-sharing.svg"
   />
 )
 
-export const BlankSurvey = (props: SpotProps) => (
+export const BlankSurvey = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-blank-survey.svg"
   />
 )
 
-export const TakeAim = (props: SpotProps) => (
+export const TakeAim = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-take-aim.svg"
   />
 )
 
-export const Action = (props: SpotProps) => (
+export const Action = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-action.svg"
   />
 )
 
-export const Training1 = (props: SpotProps) => (
+export const Training1 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-training-1.svg"
   />
 )
 
-export const Training2 = (props: SpotProps) => (
+export const Training2 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-training-2.svg"
   />
 )
 
-export const Training3 = (props: SpotProps) => (
+export const Training3 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-training-3.svg"
   />
 )
 
-export const ShareReport = (props: SpotProps) => (
+export const ShareReport = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-share-report.svg"
   />
 )
 
-export const Team = (props: SpotProps) => (
+export const Team = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-team.svg"
   />
 )
 
-export const ExecutiveReportSharing = (props: SpotProps) => (
+export const ExecutiveReportSharing = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-executive-report-sharing.svg"
   />
 )
 
-export const ManagerReportSharing = (props: SpotProps) => (
+export const ManagerReportSharing = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-manager-report-sharing.svg"
   />
 )
 
-export const LeaderReportSharing = (props: SpotProps) => (
+export const LeaderReportSharing = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-leader-report-sharing.svg"
   />
 )
 
-export const Alarm = (props: SpotProps) => (
+export const Alarm = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-alarm.svg"
   />
 )
 
-export const Fire = (props: SpotProps) => (
+export const Fire = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-fire.svg"
   />
 )
 
-export const Fireworks = (props: SpotProps) => (
+export const Fireworks = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-fireworks.svg"
   />
 )
 
-export const FullImport = (props: SpotProps) => (
+export const FullImport = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-full-import.svg"
   />
 )
 
-export const HrisImport = (props: SpotProps) => (
+export const HrisImport = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-hris-import.svg"
   />
 )
 
-export const PartialImport = (props: SpotProps) => (
+export const PartialImport = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-partial-import.svg"
   />
 )
 
-export const Starburst = (props: SpotProps) => (
+export const Starburst = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-starburst.svg"
   />
 )
 
-export const Stop = (props: SpotProps) => (
+export const Stop = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-stop.svg"
   />
 )
 
-export const TrafficCone = (props: SpotProps) => (
+export const TrafficCone = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-traffic-cone.svg"
   />
 )
 
-export const Trophy = (props: SpotProps) => (
+export const Trophy = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-trophy.svg"
   />
 )
 
-export const UnderConstruction = (props: SpotProps) => (
+export const UnderConstruction = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-under-construction.svg"
   />
 )
 
-export const ValueAdd = (props: SpotProps) => (
+export const ValueAdd = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-value-add.svg"
   />
 )
 
-export const Recommendation = (props: SpotProps) => (
+export const Recommendation = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
-    aspectRatio={props.enableAspectRatio ? "square" : undefined}
+    aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-shield.svg"
   />

@@ -18,8 +18,6 @@ describe("<Illustration />", () => {
       const Component: (props: SpotIllustrations.SpotProps) => JSX.Element =
         SpotIllustrations[componentName]
 
-      const { enableAspectRatio } = props
-
       it(`${componentName} should exist and render an alt tag`, () => {
         const altTitle = "My accessible title"
         const wrapper = render(<Component alt={altTitle} />)
@@ -29,9 +27,7 @@ describe("<Illustration />", () => {
       })
 
       it(`${componentName} should has aspect ratio class`, () => {
-        const { container } = render(
-          <Component alt="" {...enableAspectRatio} />
-        )
+        const { container } = render(<Component alt="" enableAspectRatio />)
         expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
       })
 
