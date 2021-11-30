@@ -152,12 +152,11 @@ const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
 )
 
-// TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
   <div data-automation-id="Select__Option">
     <components.Option
       {...props}
-      className={classNames("needsclick", styles.option, {
+      className={classNames(styles.option, {
         [styles.focusedOption]: props.isFocused,
         [styles.selectedOption]: props.isSelected,
         [styles.disabledOption]: props.isDisabled,

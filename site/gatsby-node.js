@@ -35,7 +35,7 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
 }
 
 exports.onCreateBabelConfig = ({ actions }, options) => {
-  const { presets, plugins } = require("../package.json").babel
+  const { presets, plugins } = require("./.babelrc.json")
   presets.forEach(preset => {
     actions.setBabelPreset(
       Array.isArray(preset)

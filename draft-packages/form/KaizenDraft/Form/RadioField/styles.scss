@@ -13,11 +13,6 @@
   label {
     -webkit-tap-highlight-color: transparent;
 
-    // Disable pointer-events on the wrapper for the <RadioInput> primitive
-    > div:first-child {
-      pointer-events: none;
-    }
-
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
       font-size: $ca-inter-font-base-size;
