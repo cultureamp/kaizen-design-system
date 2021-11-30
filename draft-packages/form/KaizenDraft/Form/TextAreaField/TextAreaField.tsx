@@ -23,6 +23,7 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
     validationMessage,
     status = "default",
     autogrow,
+    name,
     description,
     inline,
     reversed,
