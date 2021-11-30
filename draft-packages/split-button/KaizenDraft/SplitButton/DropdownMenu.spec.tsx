@@ -1,23 +1,30 @@
 import { calculateMenuTop } from "./DropdownMenu"
 
 describe("calculateMenuTop", () => {
-  const newMenuRect = (): ClientRect => ({
+  // Note `new DOMRect()` doesn't work in Jest's node environment. So we're mocking it manually.
+  const newMenuRect = (): DOMRect => ({
+    x: 0,
+    left: 0,
+    y: 70,
+    top: 70,
     width: 170,
     height: 425,
-    top: 70,
     right: 170,
     bottom: 500,
-    left: 0,
+    toJSON: () => "",
   })
-  const newButtonsRect = (top: number): ClientRect => {
+  const newButtonsRect = (top: number): DOMRect => {
     const height = 42
     return {
+      x: 0,
+      left: 0,
+      y: top,
+      top,
       width: 170,
       height,
-      top,
       right: 170,
       bottom: top + height,
-      left: 0,
+      toJSON: () => "",
     }
   }
 
