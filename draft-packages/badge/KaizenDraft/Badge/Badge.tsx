@@ -4,12 +4,21 @@ import classNames from "classnames"
 import styles from "./styles.module.scss"
 
 type Variant = "default" | "active" | "dark" | "dot"
-type Size = "small" | "medium" | "large"
+type Size = "small" | "large"
 
 export interface BadgeProps {
   readonly children?: string
+  /**
+   * The "dark" variant is no longer in the UI kit
+   */
   readonly variant?: Variant
+  /**
+   * renders reversed colors. Use on purple background
+   */
   readonly reversed?: boolean
+  /**
+   * Supports "small" and "large" sizes - defaults to "small"
+   */
   readonly size?: Size
 }
 

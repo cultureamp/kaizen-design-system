@@ -5,7 +5,6 @@ import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
-import { defaultStoryMapper } from "@storybook/api/dist/ts3.9/modules/refs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./styles.module.scss"
@@ -18,6 +17,9 @@ export default {
       description: {
         component: 'import { Badge } from "@kaizen/draft-badge"',
       },
+    },
+    actions: {
+      argTypesRegex: "^on.*",
     },
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14398"
@@ -55,19 +57,30 @@ const BadgeStoryWrapper: React.FunctionComponent<{
   )
 }
 
-export const DefaultStory = args => (
-  <BadgeStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
-      ) : (
-        <Badge {...args}>{badgeCount}</Badge>
-      )
-    }
-  </BadgeStoryWrapper>
+export const DefaultStory = args => <Badge {...args}>3</Badge>
+
+DefaultStory.storyName = "Default (with args)"
+DefaultStory.args = {
+  variant: "default",
+  reversed: false,
+  size: "small",
+}
+
+export const AnimatedBadge = args => (
+  <>
+    <BadgeStoryWrapper>
+      {(badgeCount, useAnimation) =>
+        useAnimation ? (
+          <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
+        ) : (
+          <Badge {...args}>{badgeCount}</Badge>
+        )
+      }
+    </BadgeStoryWrapper>
+  </>
 )
 
-DefaultStory.storyName = "Default (Kaizen Site Demo)"
+AnimatedBadge.description = "skdjbnsdkjfnsdf lsndfksdjlfn skdjfn"
 
 export const LightBadges = () => (
   <>
