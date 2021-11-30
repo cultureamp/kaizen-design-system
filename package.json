@@ -36,7 +36,7 @@
     "@storybook/addon-a11y": "^6.4.1",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.4.1",
-    "@storybook/addons": "^6.4.0",
+    "@storybook/addons": "^6.4.1",
     "@storybook/api": "^6.4.0",
     "@storybook/components": "^6.4.0",
     "@storybook/core-events": "^6.4.0",
