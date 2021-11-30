@@ -4,14 +4,14 @@ import styles from "./styles.scss"
 
 type Props = {
   children: React.ReactNode
-  buttonsBoundingRect: ClientRect | null // get by calling getBoundingClientRect()
+  buttonsBoundingRect: DOMRect | null // get by calling getBoundingClientRect()
   hideDropdownMenu: () => void
   dir?: Dir
 }
 
 export const calculateMenuTop = (
-  buttonsBoundingRect: ClientRect,
-  menuBoundingRect: ClientRect,
+  buttonsBoundingRect: DOMRect,
+  menuBoundingRect: DOMRect,
   viewportHeight
 ): number => {
   // Add a small gap between the menu and the split button

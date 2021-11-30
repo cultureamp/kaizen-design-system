@@ -97,8 +97,8 @@ const parseAnimationData = async (
     await Promise.all(deserializeImages)
 
     return lottieJson
-  } catch (err) {
-    throw new Error(err)
+  } catch (err: unknown) {
+    throw new Error("" + err)
   }
 }
 
