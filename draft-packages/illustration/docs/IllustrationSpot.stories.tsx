@@ -108,9 +108,9 @@ export default {
   },
 }
 
-export const SpotStoryForKaizenSite = () => (
+export const SpotStoryForKaizenSite = args => (
   <div style={{ width: "150px" }}>
-    <AccountBasics alt="" />
+    <AccountBasics alt="" {...args} />
   </div>
 )
 SpotStoryForKaizenSite.storyName = "Spot (Kaizen Site Demo)"
@@ -565,13 +565,38 @@ export const AllSpotIllustrations = () => {
   )
 }
 
-export const AnimatedSpot = () => (
+export const AnimatedSpot = args => (
   <div style={{ width: "156px" }}>
-    <Cautionary alt="Add useful alt text for screen readers" isAnimated loop />
-    <Informative alt="Add useful alt text for screen readers" isAnimated loop />
-    <Negative alt="Add useful alt text for screen readers" isAnimated loop />
-    <Positive alt="Add useful alt text for screen readers" isAnimated loop />
-    <Assertive alt="Add useful alt text for screen readers" isAnimated loop />
+    <Cautionary
+      alt="Add useful alt text for screen readers"
+      isAnimated
+      loop
+      {...args}
+    />
+    <Informative
+      alt="Add useful alt text for screen readers"
+      isAnimated
+      loop
+      {...args}
+    />
+    <Negative
+      alt="Add useful alt text for screen readers"
+      isAnimated
+      loop
+      {...args}
+    />
+    <Positive
+      alt="Add useful alt text for screen readers"
+      isAnimated
+      loop
+      {...args}
+    />
+    <Assertive
+      alt="Add useful alt text for screen readers"
+      isAnimated
+      loop
+      {...args}
+    />
   </div>
 )
 AnimatedSpot.storyName = "Spot, animated"

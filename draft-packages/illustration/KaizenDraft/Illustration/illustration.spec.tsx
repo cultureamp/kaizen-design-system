@@ -18,12 +18,26 @@ describe("<Illustration />", () => {
       const Component: (props: SpotIllustrations.SpotProps) => JSX.Element =
         SpotIllustrations[componentName]
 
+      const { enableAspectRatio } = props
+
       it(`${componentName} should exist and render an alt tag`, () => {
         const altTitle = "My accessible title"
         const wrapper = render(<Component alt={altTitle} />)
 
         expect(wrapper.getByAltText(altTitle)).toBeTruthy()
         expect(wrapper.container).toMatchSnapshot()
+      })
+
+      it(`${componentName} should has aspect ratio class`, () => {
+        const { container } = render(
+          <Component alt="" {...enableAspectRatio} />
+        )
+        expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
+      })
+
+      it(`${componentName} doesn't have aspect ratio class`, () => {
+        const { container } = render(<Component alt="" />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
       })
     })
   })
@@ -45,6 +59,16 @@ describe("<Illustration />", () => {
 
         expect(wrapper.getByAltText(altTitle)).toBeTruthy()
         expect(wrapper.container).toMatchSnapshot()
+      })
+
+      it(`${componentName} should has aspect ratio class`, () => {
+        const { container } = render(<Component alt="" enableAspectRatio />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
+      })
+
+      it(`${componentName} doesn't have aspect ratio class`, () => {
+        const { container } = render(<Component alt="" />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
       })
     })
   })
