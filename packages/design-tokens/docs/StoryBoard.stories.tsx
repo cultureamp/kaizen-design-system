@@ -47,7 +47,6 @@ import * as TileStories from "@kaizen/draft-tile/docs/Tile.stories"
 import * as TitleBlockZenStories from "@kaizen/draft-title-block-zen/docs/TitleBlockZen.stories"
 import * as TooltipStories from "@kaizen/draft-tooltip/docs/Tooltip.stories"
 import * as WellStories from "@kaizen/draft-well/docs/Well.stories"
-import * as ZenNavigationBarStories from "@kaizen/draft-zen-navigation-bar/docs/ZenNavigationBar.stories"
 import { Meta, Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import React from "react"
@@ -462,7 +461,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={ToggleSwitchFieldStories} />
         <StoriesContainer storyModule={TooltipStories} />
         <StoriesContainer storyModule={WellStories} />
-        <StoriesContainer storyModule={ZenNavigationBarStories} />
       </Stack>
     ),
     [theme]

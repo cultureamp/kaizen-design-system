@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.9.0...@kaizen/draft-illustration@2.9.1) (2021-11-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.8.0...@kaizen/draft-illustration@2.9.0) (2021-11-17)
+
+
+### Features
+
+* Componentize skills coach illustrations ([#2290](https://github.com/cultureamp/kaizen-design-system/issues/2290)) ([1ca53ff](https://github.com/cultureamp/kaizen-design-system/commit/1ca53ffa44001616d10fe2c25ef1dd46649f27e1))
+
+
+
+
+
 # [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.7.7...@kaizen/draft-illustration@2.8.0) (2021-11-11)
 
 

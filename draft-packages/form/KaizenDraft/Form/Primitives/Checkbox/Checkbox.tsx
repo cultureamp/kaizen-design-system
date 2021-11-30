@@ -74,9 +74,7 @@ const Input: Input = ({
       data-automation-id={automationId}
       // This si only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
-      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
-      // Remove when fastclick is removed from consuming repos
-      className={classnames(styles.checkbox, "needsclick", {
+      className={classnames(styles.checkbox, {
         [styles.reversed]: reversed,
       })}
       checked={getCheckedFromStatus(checkedStatus)}
