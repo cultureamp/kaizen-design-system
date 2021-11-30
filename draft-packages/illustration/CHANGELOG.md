@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.9.2...@kaizen/draft-illustration@2.10.0) (2021-11-30)
+
+
+### Features
+
+* add aspect ratio container for illustrations for ease of replacing with new illustrations ([#2322](https://github.com/cultureamp/kaizen-design-system/issues/2322)) ([5b434ea](https://github.com/cultureamp/kaizen-design-system/commit/5b434ea879075d75f3126800979c590ceaf2fac5))
+
+
+
+
+
 ## [2.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.9.1...@kaizen/draft-illustration@2.9.2) (2021-11-30)
 
 
