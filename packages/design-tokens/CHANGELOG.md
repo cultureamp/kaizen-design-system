@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.3...@kaizen/design-tokens@3.3.4) (2021-11-30)
+
+
+### Bug Fixes
+
+* Upgrade to typescript 4 ([#2328](https://github.com/cultureamp/kaizen-design-system/issues/2328)) ([accf5df](https://github.com/cultureamp/kaizen-design-system/commit/accf5dfccaf086d5bd3de060bb2d1612d3a34fb0))
+
+
+
+
+
 ## [3.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.2...@kaizen/design-tokens@3.3.3) (2021-11-29)
 
 **Note:** Version bump only for package @kaizen/design-tokens
