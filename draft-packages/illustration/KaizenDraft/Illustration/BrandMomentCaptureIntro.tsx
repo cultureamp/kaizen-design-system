@@ -11,6 +11,7 @@ import { VideoPlayer } from "./Players/VideoPlayer"
 export const BrandMomentCaptureIntro = ({
   isAnimated,
   alt,
+  enableAspectRatio,
   ...otherProps
 }: AnimatedSceneProps) => {
   const [firstAnimationComplete, setFirstAnimationComplete] = React.useState(
@@ -23,6 +24,7 @@ export const BrandMomentCaptureIntro = ({
         <div style={{ display: firstAnimationComplete ? "none" : "" }}>
           <VideoPlayer
             {...otherProps}
+            aspectRatio={enableAspectRatio ? "landscape" : undefined}
             fallback="illustrations/heart/scene/brand-moments-capture-intro"
             source="illustrations/heart/scene/brand-moments-capture-intro"
             onEnded={() => setFirstAnimationComplete(true)}
@@ -32,6 +34,7 @@ export const BrandMomentCaptureIntro = ({
         <div style={{ display: firstAnimationComplete ? "" : "none" }}>
           <VideoPlayer
             {...otherProps}
+            aspectRatio={enableAspectRatio ? "landscape" : undefined}
             fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
             source="illustrations/heart/scene/brand-moments-capture-intro-loop"
             autoplay={firstAnimationComplete ? otherProps.autoplay : false}
@@ -42,6 +45,7 @@ export const BrandMomentCaptureIntro = ({
   }
   return (
     <Base
+      aspectRatio={enableAspectRatio ? "landscape" : undefined}
       alt={alt || ""}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-capture-intro-loop.png"

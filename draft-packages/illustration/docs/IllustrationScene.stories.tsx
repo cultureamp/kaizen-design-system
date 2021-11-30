@@ -146,224 +146,264 @@ AnimatedSceneIllustrations.args = {
   loop: true,
 }
 
-export const DefaultSiteDemo = () => <ManagerLearningResilience alt="" />
+export const DefaultSiteDemo = args => (
+  <ManagerLearningResilience alt="" {...args} />
+)
 DefaultSiteDemo.storyName = "Scene (Kaizen Site Demo)"
 
-export const EmptyStatesActionStory = () => <EmptyStatesAction alt="" />
+export const EmptyStatesActionStory = args => (
+  <EmptyStatesAction alt="" {...args} />
+)
 EmptyStatesActionStory.storyName = "Empty States: Action"
 
-export const EmptyStatesInformativeStory = () => (
-  <EmptyStatesInformative alt="" />
+export const EmptyStatesInformativeStory = args => (
+  <EmptyStatesInformative alt="" {...args} />
 )
 EmptyStatesInformativeStory.storyName = "Empty States: Informative"
 
-export const EmptyStatesNegativeStory = () => <EmptyStatesNegative alt="" />
+export const EmptyStatesNegativeStory = args => (
+  <EmptyStatesNegative alt="" {...args} />
+)
 EmptyStatesNegativeStory.storyName = "Empty States: Negative"
 
-export const EmptyStatesPositiveStory = () => <EmptyStatesPositive alt="" />
+export const EmptyStatesPositiveStory = args => (
+  <EmptyStatesPositive alt="" {...args} />
+)
 EmptyStatesPositiveStory.storyName = "Empty States: Positive"
 
-export const EmptyStatesNeutralStory = () => <EmptyStatesNeutral alt="" />
+export const EmptyStatesNeutralStory = args => (
+  <EmptyStatesNeutral alt="" {...args} />
+)
 EmptyStatesNeutralStory.storyName = "Empty States: Neutral"
 
-export const IntroductionsNewAccountStory = () => (
-  <IntroductionsNewAccount alt="" />
+export const IntroductionsNewAccountStory = args => (
+  <IntroductionsNewAccount alt="" {...args} />
 )
 IntroductionsNewAccountStory.storyName = "Introductions: New Account"
 
-export const IntroductionsCaptureIntroStory = () => (
-  <IntroductionsCaptureIntro alt="" />
+export const IntroductionsCaptureIntroStory = args => (
+  <IntroductionsCaptureIntro alt="" {...args} />
 )
 IntroductionsCaptureIntroStory.storyName = "Introductions: Capture Intro"
 
-export const IntroductionsPerformanceStory = () => (
-  <IntroductionsPerformance alt="" />
+export const IntroductionsPerformanceStory = args => (
+  <IntroductionsPerformance alt="" {...args} />
 )
 IntroductionsPerformanceStory.storyName = "Introductions: Performance"
 
-export const IntroductionsNewAdminStory = () => <IntroductionsNewAdmin alt="" />
+export const IntroductionsNewAdminStory = args => (
+  <IntroductionsNewAdmin alt="" {...args} />
+)
 IntroductionsNewAdminStory.storyName = "Introductions: New Admin"
 
-export const Information360UpgradeStory = () => <Information360Upgrade alt="" />
+export const Information360UpgradeStory = args => (
+  <Information360Upgrade alt="" {...args} />
+)
 Information360UpgradeStory.storyName = "Information Modals: 360 Upgrade"
 
-export const InformationDemographicFocusStory = () => (
-  <InformationDemographicFocus alt="" />
+export const InformationDemographicFocusStory = args => (
+  <InformationDemographicFocus alt="" {...args} />
 )
 InformationDemographicFocusStory.storyName =
   "Information Modals: Demographic Focus"
 
-export const InformationTurnoverCalculatorStory = () => (
-  <InformationTurnoverCalculator alt="" />
+export const InformationTurnoverCalculatorStory = args => (
+  <InformationTurnoverCalculator alt="" {...args} />
 )
 InformationTurnoverCalculatorStory.storyName =
   "Information Modals: Turnover Calculator"
 
-export const InformationTurnoverForecastStory = () => (
-  <InformationTurnoverForecast alt="" />
+export const InformationTurnoverForecastStory = args => (
+  <InformationTurnoverForecast alt="" {...args} />
 )
 InformationTurnoverForecastStory.storyName =
   "Information Modals: Turnover Forecast"
 
-export const InformationEmergingTrendsStory = () => (
-  <InformationEmergingTrends alt="" />
+export const InformationEmergingTrendsStory = args => (
+  <InformationEmergingTrends alt="" {...args} />
 )
 InformationEmergingTrendsStory.storyName = "Information Modals: Emerging Trends"
 
-export const InformationEmployeeLifecycleStory = () => (
-  <InformationEmployeeLifecycle alt="" />
+export const InformationEmployeeLifecycleStory = args => (
+  <InformationEmployeeLifecycle alt="" {...args} />
 )
 InformationEmployeeLifecycleStory.storyName =
   "Information Modals: Employee Lifecycle"
 
-export const InformationReportOwnerStory = () => (
-  <InformationReportOwner alt="" />
+export const InformationReportOwnerStory = args => (
+  <InformationReportOwner alt="" {...args} />
 )
 InformationReportOwnerStory.storyName = "Information Modals: ReportOwner"
 
-export const InformationReportOwnerByRuleStory = () => (
-  <InformationReportOwnerByRule alt="" />
+export const InformationReportOwnerByRuleStory = args => (
+  <InformationReportOwnerByRule alt="" {...args} />
 )
 InformationReportOwnerByRuleStory.storyName =
   "Information Modals: Report Owner By Rule"
 
-export const PerformanceEvaluationsStory = () => (
-  <PerformanceEvaluations alt="" />
+export const PerformanceEvaluationsStory = args => (
+  <PerformanceEvaluations alt="" {...args} />
 )
 PerformanceEvaluationsStory.storyName = "Performance: Evaluations"
 
-export const PerformanceCalibrationStory = () => (
-  <PerformanceCalibration alt="" />
+export const PerformanceCalibrationStory = args => (
+  <PerformanceCalibration alt="" {...args} />
 )
 PerformanceCalibrationStory.storyName = "Performance: Calibration"
 
-export const PerformanceFaqStory = () => <PerformanceFaq alt="" />
+export const PerformanceFaqStory = args => <PerformanceFaq alt="" {...args} />
 PerformanceFaqStory.storyName = "Performance: Faq"
 
-export const PerformancePerformanceFeedbackStory = () => (
-  <PerformancePerformanceFeedback alt="" />
+export const PerformancePerformanceFeedbackStory = args => (
+  <PerformancePerformanceFeedback alt="" {...args} />
 )
 PerformancePerformanceFeedbackStory.storyName =
   "Performance: Performance Feedback"
 
-export const PerformanceGoalStatsStory = () => <PerformanceGoalStats alt="" />
+export const PerformanceGoalStatsStory = args => (
+  <PerformanceGoalStats alt="" {...args} />
+)
 PerformanceGoalStatsStory.storyName = "Performance: Goal Stats"
 
-export const PerformanceGoalsStory = () => <PerformanceGoals alt="" />
+export const PerformanceGoalsStory = args => (
+  <PerformanceGoals alt="" {...args} />
+)
 PerformanceGoalsStory.storyName = "Performance: Goals"
 
-export const PerformancePeopleNetworkStory = () => (
-  <PerformancePeopleNetwork alt="" />
+export const PerformancePeopleNetworkStory = args => (
+  <PerformancePeopleNetwork alt="" {...args} />
 )
 PerformancePeopleNetworkStory.storyName = "Performance: People Network"
 
-export const PerformanceSelfReflectionsStory = () => (
-  <PerformanceSelfReflections alt="" />
+export const PerformanceSelfReflectionsStory = args => (
+  <PerformanceSelfReflections alt="" {...args} />
 )
 PerformanceSelfReflectionsStory.storyName = "Performance: Self Reflections"
 
-export const PerformanceSupportStory = () => <PerformanceSupport alt="" />
+export const PerformanceSupportStory = args => (
+  <PerformanceSupport alt="" {...args} />
+)
 PerformanceSupportStory.storyName = "Performance: Support"
 
-export const PerformanceTeamSummaryStory = () => (
-  <PerformanceTeamSummary alt="" />
+export const PerformanceTeamSummaryStory = args => (
+  <PerformanceTeamSummary alt="" {...args} />
 )
 PerformanceTeamSummaryStory.storyName = "Performance: Team Summary"
 
-export const PerformanceCompanySettingsStory = () => (
-  <PerformanceCompanySettings alt="" />
+export const PerformanceCompanySettingsStory = args => (
+  <PerformanceCompanySettings alt="" {...args} />
 )
 PerformanceCompanySettingsStory.storyName = "Performance: Company Settings"
 
-export const ManagerLabFourWeekCycleStory = () => (
-  <ManagerLabFourWeekCycle alt="" />
+export const ManagerLabFourWeekCycleStory = args => (
+  <ManagerLabFourWeekCycle alt="" {...args} />
 )
 ManagerLabFourWeekCycleStory.storyName = "Manager Lab: 4 week cycle"
 
-export const ManagerLabSchedulingStory = () => <ManagerLabScheduling alt="" />
+export const ManagerLabSchedulingStory = args => (
+  <ManagerLabScheduling alt="" {...args} />
+)
 ManagerLabSchedulingStory.storyName = "Manager Lab: Scheduling"
 
-export const ManagerLearningManagerHubStory = () => (
-  <ManagerLearningManagerHub alt="" />
+export const ManagerLearningManagerHubStory = args => (
+  <ManagerLearningManagerHub alt="" {...args} />
 )
 ManagerLearningManagerHubStory.storyName = "Manager Learning: Manager Hub"
 
-export const ManagerLearningCoachingStory = () => (
-  <ManagerLearningCoaching alt="" />
+export const ManagerLearningCoachingStory = args => (
+  <ManagerLearningCoaching alt="" {...args} />
 )
 ManagerLearningCoachingStory.storyName = "Manager Learning: Coaching"
 
-export const ManagerLearningFeedbackStory = () => (
-  <ManagerLearningFeedback alt="" />
+export const ManagerLearningFeedbackStory = args => (
+  <ManagerLearningFeedback alt="" {...args} />
 )
 ManagerLearningFeedbackStory.storyName = "Manager Learning: Feedback"
 
-export const ManagerLearningProductivityStory = () => (
-  <ManagerLearningProductivity alt="" />
+export const ManagerLearningProductivityStory = args => (
+  <ManagerLearningProductivity alt="" {...args} />
 )
 ManagerLearningProductivityStory.storyName = "Manager Learning: Productivity"
 
-export const ManagerLearningResilienceStory = () => (
-  <ManagerLearningResilience alt="" />
+export const ManagerLearningResilienceStory = args => (
+  <ManagerLearningResilience alt="" {...args} />
 )
 ManagerLearningResilienceStory.storyName = "Manager Learning: Resilience"
 
-export const ManagerLearningOneOnOneMeetingsStory = () => (
-  <ManagerLearningOneOnOneMeetings alt="" />
+export const ManagerLearningOneOnOneMeetingsStory = args => (
+  <ManagerLearningOneOnOneMeetings alt="" {...args} />
 )
 ManagerLearningOneOnOneMeetingsStory.storyName =
   "Manager Learning: 1 On 1 Meetings"
 
-export const ManagerLearningStrategyStory = () => (
-  <ManagerLearningStrategy alt="" />
+export const ManagerLearningStrategyStory = args => (
+  <ManagerLearningStrategy alt="" {...args} />
 )
 ManagerLearningStrategyStory.storyName = "Manager Learning: Strategy"
 
-export const ManagerLearningRemoteManagerStory = () => (
-  <ManagerLearningRemoteManager alt="" />
+export const ManagerLearningRemoteManagerStory = args => (
+  <ManagerLearningRemoteManager alt="" {...args} />
 )
 ManagerLearningRemoteManagerStory.storyName = "Manager Learning: Remote Manager"
 
-export const ProgramsStory = () => <Programs alt="" />
+export const ProgramsStory = args => <Programs alt="" {...args} />
 ProgramsStory.storyName = "Programs"
 
-export const KaizenSiteBrandAltStory = () => <KaizenSiteBrandAlt alt="" />
+export const KaizenSiteBrandAltStory = args => (
+  <KaizenSiteBrandAlt alt="" {...args} />
+)
 KaizenSiteBrandAltStory.storyName = "Kaizen Site: Brand Alt"
 
-export const KaizenSiteBrandStory = () => <KaizenSiteBrand alt="" />
+export const KaizenSiteBrandStory = args => <KaizenSiteBrand alt="" {...args} />
 KaizenSiteBrandStory.storyName = "Kaizen Site: Brand"
 
-export const KaizenSiteLanguageAltStory = () => <KaizenSiteLanguageAlt alt="" />
+export const KaizenSiteLanguageAltStory = args => (
+  <KaizenSiteLanguageAlt alt="" {...args} />
+)
 KaizenSiteLanguageAltStory.storyName = "Kaizen Site: Language Alt"
 
-export const KaizenSiteLanguageStory = () => <KaizenSiteLanguage alt="" />
+export const KaizenSiteLanguageStory = args => (
+  <KaizenSiteLanguage alt="" {...args} />
+)
 KaizenSiteLanguageStory.storyName = "Kaizen Site: Language"
 
-export const KaizenSitePrinciplesStory = () => <KaizenSitePrinciples alt="" />
+export const KaizenSitePrinciplesStory = args => (
+  <KaizenSitePrinciples alt="" {...args} />
+)
 KaizenSitePrinciplesStory.storyName = "Kaizen Site: Principles"
 
-export const KaizenSitePrinciplesAltStory = () => (
-  <KaizenSitePrinciplesAlt alt="" />
+export const KaizenSitePrinciplesAltStory = args => (
+  <KaizenSitePrinciplesAlt alt="" {...args} />
 )
 KaizenSitePrinciplesAltStory.storyName = "Kaizen Site: Principles Alt"
-export const KaizenSiteProductStory = () => <KaizenSiteProduct alt="" />
+export const KaizenSiteProductStory = args => (
+  <KaizenSiteProduct alt="" {...args} />
+)
 KaizenSiteProductStory.storyName = "Kaizen Site: Product"
 
-export const KaizenSiteProductAltStory = () => <KaizenSiteProductAlt alt="" />
+export const KaizenSiteProductAltStory = args => (
+  <KaizenSiteProductAlt alt="" {...args} />
+)
 KaizenSiteProductAltStory.storyName = "Kaizen Site: Product Alt"
 
-export const KaizenSiteResourcesStory = () => <KaizenSiteResources alt="" />
+export const KaizenSiteResourcesStory = args => (
+  <KaizenSiteResources alt="" {...args} />
+)
 KaizenSiteResourcesStory.storyName = "Kaizen Site: Resources"
 
-export const KaizenSiteResourcesAltStory = () => (
-  <KaizenSiteResourcesAlt alt="" />
+export const KaizenSiteResourcesAltStory = args => (
+  <KaizenSiteResourcesAlt alt="" {...args} />
 )
 KaizenSiteResourcesAltStory.storyName = "Kaizen Site: Resources Alt"
 
-export const SurveyOverviewClosedStory = () => <SurveyOverviewClosed alt="" />
+export const SurveyOverviewClosedStory = args => (
+  <SurveyOverviewClosed alt="" {...args} />
+)
 SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"
 
-export const SurveyGetStartedStory = () => <SurveyGetStarted alt="" />
+export const SurveyGetStartedStory = args => (
+  <SurveyGetStarted alt="" {...args} />
+)
 SurveyGetStartedStory.storyName = "Survey Overview: Get Started"
 
 export const SkillsCoachStory = args => (
@@ -375,7 +415,7 @@ export const SkillsCoachStory = args => (
             1-on-1 Meetings
           </Heading>
         </Box>
-        <SkillsCoach1On1Meetings alt="" />
+        <SkillsCoach1On1Meetings alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -385,7 +425,7 @@ export const SkillsCoachStory = args => (
             Coaching
           </Heading>
         </Box>
-        <SkillsCoachCoaching alt="" />
+        <SkillsCoachCoaching alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -395,7 +435,7 @@ export const SkillsCoachStory = args => (
             Employee Development
           </Heading>
         </Box>
-        <SkillsCoachEmployeeDevelopment alt="" />
+        <SkillsCoachEmployeeDevelopment alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -405,7 +445,7 @@ export const SkillsCoachStory = args => (
             Essential Feedback
           </Heading>
         </Box>
-        <SkillsCoachEssentialFeedback alt="" />
+        <SkillsCoachEssentialFeedback alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -415,7 +455,7 @@ export const SkillsCoachStory = args => (
             Feedback
           </Heading>
         </Box>
-        <SkillsCoachFeedback alt="" />
+        <SkillsCoachFeedback alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -425,7 +465,7 @@ export const SkillsCoachStory = args => (
             Manager Hub
           </Heading>
         </Box>
-        <SkillsCoachManagerHub alt="" />
+        <SkillsCoachManagerHub alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -435,7 +475,7 @@ export const SkillsCoachStory = args => (
             Productivity
           </Heading>
         </Box>
-        <SkillsCoachProductivity alt="" />
+        <SkillsCoachProductivity alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -445,7 +485,7 @@ export const SkillsCoachStory = args => (
             Remote Manager
           </Heading>
         </Box>
-        <SkillsCoachRemoteManager alt="" />
+        <SkillsCoachRemoteManager alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -455,7 +495,7 @@ export const SkillsCoachStory = args => (
             Resilience
           </Heading>
         </Box>
-        <SkillsCoachResilience alt="" />
+        <SkillsCoachResilience alt="" {...args} />
       </div>
     </Box>
     <Box mb={3}>
@@ -465,7 +505,7 @@ export const SkillsCoachStory = args => (
             Strategy
           </Heading>
         </Box>
-        <SkillsCoachStrategy alt="" />
+        <SkillsCoachStrategy alt="" {...args} />
       </div>
     </Box>
   </>
