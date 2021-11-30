@@ -2,6 +2,7 @@ import { Tag } from "@kaizen/draft-tag"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
