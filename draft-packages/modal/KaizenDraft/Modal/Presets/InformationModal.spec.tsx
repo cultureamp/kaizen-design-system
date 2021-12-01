@@ -1,12 +1,11 @@
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
-import ContextModal, { ContextModalProps } from "./ContextModal"
-import "./matchMedia.mock"
+import InformationModal, { InformationModalProps } from "./InformationModal"
 
 afterEach(cleanup)
 
-const ContextModalWrapper = (props: Partial<ContextModalProps>) => (
-  <ContextModal
+const InformationModalWrapper = (props: Partial<InformationModalProps>) => (
+  <InformationModal
     isOpen={true}
     title="Example modal title"
     onConfirm={() => undefined}
@@ -18,10 +17,10 @@ const ContextModalWrapper = (props: Partial<ContextModalProps>) => (
   />
 )
 
-describe("<ContextModal />", () => {
+describe("<InformationModal />", () => {
   it("renders an open modal with the provided content", () => {
     const { getByText } = render(
-      <ContextModalWrapper>Example modal body</ContextModalWrapper>
+      <InformationModalWrapper>Example modal body</InformationModalWrapper>
     )
     expect(getByText("Example modal body")).toBeTruthy()
   })
@@ -29,9 +28,9 @@ describe("<ContextModal />", () => {
   it("supports a dismiss action when escape key is pressed", () => {
     const handleDismiss = jest.fn()
     const document = render(
-      <ContextModalWrapper onDismiss={handleDismiss}>
+      <InformationModalWrapper onDismiss={handleDismiss}>
         Example modal body
-      </ContextModalWrapper>
+      </InformationModalWrapper>
     )
     fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
     expect(handleDismiss).toHaveBeenCalledTimes(1)
@@ -41,9 +40,12 @@ describe("<ContextModal />", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByLabelText } = render(
-      <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
+      <InformationModalWrapper
+        onConfirm={handleConfirm}
+        onDismiss={handleDismiss}
+      >
         Example modal body
-      </ContextModalWrapper>
+      </InformationModalWrapper>
     )
     fireEvent.click(getByLabelText(/Dismiss/i))
     expect(handleConfirm).toHaveBeenCalledTimes(0)
@@ -54,9 +56,12 @@ describe("<ContextModal />", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
-      <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
+      <InformationModalWrapper
+        onConfirm={handleConfirm}
+        onDismiss={handleDismiss}
+      >
         Example modal body
-      </ContextModalWrapper>
+      </InformationModalWrapper>
     )
     fireEvent.click(getByText(/Confirm/i))
     expect(handleConfirm).toHaveBeenCalledTimes(1)
@@ -68,13 +73,13 @@ describe("<ContextModal />", () => {
     const handleSecondary = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
-      <ContextModalWrapper
+      <InformationModalWrapper
         onConfirm={handleConfirm}
         onDismiss={handleDismiss}
         onSecondaryAction={handleSecondary}
       >
         Example modal body
-      </ContextModalWrapper>
+      </InformationModalWrapper>
     )
     fireEvent.click(getByText(/Example secondary/i))
     expect(handleSecondary).toHaveBeenCalledTimes(1)
