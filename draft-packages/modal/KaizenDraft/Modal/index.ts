@@ -28,9 +28,9 @@ export {
   InputEditModalProps,
 } from "./Presets/InputEditModal"
 export {
-  default as ContextModal,
-  ContextModalProps,
-} from "./Presets/ContextModal"
+  default as InformationModal,
+  InformationModalProps,
+} from "./Presets/InformationModal"
 export {
   default as RoadblockModal,
   RoadblockModalProps,
