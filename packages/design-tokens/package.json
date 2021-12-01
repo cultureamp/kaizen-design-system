@@ -51,9 +51,9 @@
     "yargs": "^16.2.0"
   },
   "dependencies": {
-    "@types/color-string": "^1.5.1",
+    "@types/color-string": "^1.5.2",
     "@types/lodash.kebabcase": "^4.1.6",
-    "color-string": "^1.7.4",
+    "color-string": "^1.8.2",
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
