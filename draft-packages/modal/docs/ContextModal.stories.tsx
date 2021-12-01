@@ -82,10 +82,11 @@ export const ContextModals = args => (
           secondaryLabel="Cancel"
           onSecondaryAction={close}
           confirmLabel="Label"
+          layout="portrait"
           image={
             <AddImage
               classNameAndIHaveSpokenToDST={
-                args.isLandscape ? styles.landscape : ""
+                args.layout === "landscape" ? styles.landscape : ""
               }
               alt="placeholder"
             />

@@ -19,7 +19,7 @@ export type ContextModalProps = Readonly<
   {
     isOpen: boolean
     unpadded?: boolean
-    isLandscape?: boolean
+    layout?: "portrait" | "landscape"
     title: string
     onConfirm?: () => void
     onDismiss: () => void
@@ -38,7 +38,7 @@ type ContextModal = React.FunctionComponent<ContextModalProps>
 const ContextModal = ({
   isOpen,
   unpadded = false,
-  isLandscape = false,
+  layout = "portrait",
   title,
   onConfirm,
   confirmLabel = "Confirm",
@@ -103,8 +103,8 @@ const ContextModal = ({
         <ModalBody unpadded={unpadded}>
           <div
             className={classnames(styles.contentLayout, {
-              [styles.portraitContentlayout]: !isLandscape,
-              [styles.landscapeContentlayout]: isLandscape,
+              [styles.portraitContentlayout]: layout === "portrait",
+              [styles.landscapeContentlayout]: layout === "landscape",
             })}
           >
             <div className={styles.image}>{image}</div>

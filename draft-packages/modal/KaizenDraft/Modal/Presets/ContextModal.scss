@@ -7,7 +7,7 @@
   min-width: 300px;
   max-width: 840px;
 
-  @media (min-width: $layout-breakpoints-medium - 1px) {
+  @media (min-width: $layout-breakpoints-medium) {
     width: 90%;
   }
 }
@@ -16,17 +16,17 @@
   color: $color-purple-800;
   text-align: left;
   &.padded {
-    padding: $spacing-md $spacing-lg;
-    @media (max-width: $layout-breakpoints-medium - 1px) {
-      padding: $spacing-md;
+    padding: $spacing-md;
+    @media (min-width: $layout-breakpoints-medium) {
+      padding: $spacing-md $spacing-lg;
     }
   }
 }
 
 .footer {
-  white-space: nowrap;
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    white-space: initial;
+  white-space: initial;
+  @media (min-width: $layout-breakpoints-medium) {
+    white-space: nowrap;
   }
 }
 
@@ -40,20 +40,20 @@
 }
 
 .portraitContentlayout {
-  display: flex;
-  padding: $spacing-md $spacing-lg;
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding: $spacing-md;
-    display: block;
+  padding: $spacing-md;
+  display: block;
+  @media (min-width: $layout-breakpoints-medium) {
+    display: flex;
+    padding: $spacing-md $spacing-lg;
   }
 }
 
 .landscapeContentlayout {
   display: flex;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-md;
   flex-direction: column;
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding: $spacing-md;
+  @media (min-width: $layout-breakpoints-medium) {
+    padding: $spacing-md $spacing-lg;
   }
   .image {
     display: flex;
@@ -73,11 +73,10 @@
 .content {
   flex: 1 0 100%;
   padding-left: $spacing-xl;
+  padding-left: 0;
   @media (min-width: $layout-breakpoints-medium) {
     max-width: calc(16 * #{$spacing-md});
-  }
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding-left: 0;
+    padding-left: $spacing-xl;
   }
 }
 

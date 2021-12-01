@@ -14,15 +14,17 @@
 }
 
 .padded {
-  padding: 0 $spacing-lg $spacing-lg $spacing-lg;
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    padding: $spacing-md;
-    flex-direction: column;
+  padding: $spacing-md;
+  flex-direction: column;
+  @media (min-width: $layout-breakpoints-medium) {
+    padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+    flex-direction: row-reverse;
   }
 }
 .actionButton {
-  @media (max-width: $layout-breakpoints-medium - 1px) {
-    width: 100%;
+  width: 100%;
+  @media (min-width: $layout-breakpoints-medium) {
+    width: inherit;
   }
 }
 .actionButton + .actionButton {
