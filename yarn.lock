@@ -3589,16 +3589,16 @@
     storybook-addon-outline "^1.4.1"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-links@^6.4.1":
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.4.1.tgz#cfa9d1abd78142534b3996511067a68dc196a480"
-  integrity sha512-nDvfykgptOMVcuREM9AQDRJftV7Zv/OnU2jjkaDC/uo3huiLTKqdKjXI+ubVaBp38gXjAq3B8pBEju5JLi2nzg==
+"@storybook/addon-links@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.4.2.tgz#c2976cb32ff580d1ad8f32fdc5f5eab9b16c3c18"
+  integrity sha512-V8n+h85ftfhoKk0SxAy4a+DSImgB+T+hquBlKBSvOAcenPpwVYaITWJNdDgXF57muDFIA+1ww0x1I3UZGMMSEA==
   dependencies:
-    "@storybook/addons" "6.4.1"
-    "@storybook/client-logger" "6.4.1"
-    "@storybook/core-events" "6.4.1"
+    "@storybook/addons" "6.4.2"
+    "@storybook/client-logger" "6.4.2"
+    "@storybook/core-events" "6.4.2"
     "@storybook/csf" "0.0.2--canary.87bc651.0"
-    "@storybook/router" "6.4.1"
+    "@storybook/router" "6.4.2"
     "@types/qs" "^6.9.5"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -3672,23 +3672,6 @@
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.4.1", "@storybook/addons@^6.4.1":
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.1.tgz#841ed6f0daae7333f85c25a9399213fcb58f521a"
-  integrity sha512-gTCOuQnkqh0Wr39G4jZ79lqDc/U6cQX2wNKOfOsQN4hMKKn0lzn14GQ03jwie1+3Y1Fe/Q2P348Y9o0zms/z+w==
-  dependencies:
-    "@storybook/api" "6.4.1"
-    "@storybook/channels" "6.4.1"
-    "@storybook/client-logger" "6.4.1"
-    "@storybook/core-events" "6.4.1"
-    "@storybook/csf" "0.0.2--canary.87bc651.0"
-    "@storybook/router" "6.4.1"
-    "@storybook/theming" "6.4.1"
-    "@types/webpack-env" "^1.16.0"
-    core-js "^3.8.2"
-    global "^4.4.0"
-    regenerator-runtime "^0.13.7"
-
 "@storybook/addons@6.4.2":
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.2.tgz#3f0a8105e7e32c5c08746e08506a21d33add1cf7"
@@ -3717,6 +3700,23 @@
     "@storybook/core-events" "6.3.4"
     "@storybook/router" "6.3.4"
     "@storybook/theming" "6.3.4"
+    core-js "^3.8.2"
+    global "^4.4.0"
+    regenerator-runtime "^0.13.7"
+
+"@storybook/addons@^6.4.1":
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.1.tgz#841ed6f0daae7333f85c25a9399213fcb58f521a"
+  integrity sha512-gTCOuQnkqh0Wr39G4jZ79lqDc/U6cQX2wNKOfOsQN4hMKKn0lzn14GQ03jwie1+3Y1Fe/Q2P348Y9o0zms/z+w==
+  dependencies:
+    "@storybook/api" "6.4.1"
+    "@storybook/channels" "6.4.1"
+    "@storybook/client-logger" "6.4.1"
+    "@storybook/core-events" "6.4.1"
+    "@storybook/csf" "0.0.2--canary.87bc651.0"
+    "@storybook/router" "6.4.1"
+    "@storybook/theming" "6.4.1"
+    "@types/webpack-env" "^1.16.0"
     core-js "^3.8.2"
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
