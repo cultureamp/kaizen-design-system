@@ -25,6 +25,16 @@ describe("<Illustration />", () => {
         expect(wrapper.getByAltText(altTitle)).toBeTruthy()
         expect(wrapper.container).toMatchSnapshot()
       })
+
+      it(`${componentName} should has aspect ratio class`, () => {
+        const { container } = render(<Component alt="" enableAspectRatio />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
+      })
+
+      it(`${componentName} doesn't have aspect ratio class`, () => {
+        const { container } = render(<Component alt="" />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
+      })
     })
   })
 
@@ -45,6 +55,16 @@ describe("<Illustration />", () => {
 
         expect(wrapper.getByAltText(altTitle)).toBeTruthy()
         expect(wrapper.container).toMatchSnapshot()
+      })
+
+      it(`${componentName} should has aspect ratio class`, () => {
+        const { container } = render(<Component alt="" enableAspectRatio />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
+      })
+
+      it(`${componentName} doesn't have aspect ratio class`, () => {
+        const { container } = render(<Component alt="" />)
+        expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
       })
     })
   })

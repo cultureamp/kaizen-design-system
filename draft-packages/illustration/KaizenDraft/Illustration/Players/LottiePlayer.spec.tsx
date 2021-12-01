@@ -100,4 +100,43 @@ describe("<AnimatedBase />", () => {
       expect(items).toHaveLength(1)
     })
   })
+
+  describe("when the aspect ratio is set as a prop", () => {
+    beforeEach(() => {
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
+    })
+
+    it("should have aspect ratio class", () => {
+      const { container } = render(
+        <AnimatedBase
+          name=""
+          aspectRatio="landscape"
+          alt="Screen reader text"
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+        />
+      )
+      expect(container.querySelector(".landscape")).toBeTruthy()
+    })
+
+    describe("when the aspect ratio is NOT set as a prop", () => {
+      beforeEach(() => {
+        mockedGetAnimationData.getAnimationData.mockResolvedValue(
+          {} as LottieAnimation
+        )
+      })
+
+      it("should not have aspect ratio class", () => {
+        const { container } = render(
+          <AnimatedBase
+            name=""
+            alt="Screen reader text"
+            fallback="illustrations/heart/spot/moods-cautionary.svg"
+          />
+        )
+        expect(container.querySelector(".landscape")).toBeFalsy()
+      })
+    })
+  })
 })
