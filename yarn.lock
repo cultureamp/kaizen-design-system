@@ -4993,10 +4993,10 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/color-string@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.1.tgz#a4ae252447cc53f0a50f6cd095427855117b757b"
-  integrity sha512-liBJRGGkM+Oei1TcmeSj+jS02jrWy0+Iy2VaCovNdtyFP/AGSHGXSi43EK7p9MQH/CsfWpT0lXcCTKuW0o5fEw==
+"@types/color-string@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.2.tgz#cdb9879b6feca2aa27846adfc3988ef2413ee138"
+  integrity sha512-hAhTmfFYVdzgsKwpC9Flc6h9Do64PhKoNxy3YxE0ze+0LIh3a7TrDQAxiujmANQbDRDgGduEz+9sMS+Zd+J7hA==
 
 "@types/common-tags@^1.8.0":
   version "1.8.0"
@@ -8391,10 +8391,10 @@ color-string@^1.6.0:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color-string@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.7.4.tgz#79a7bf242610a8aa1b5e2681f3bf6bcfa666245f"
-  integrity sha512-nVdUvPVgZMpRQad5dcsCMOSB5BXLljklTiaxS6ehhKxDsAI5sD7k5VmFuBt1y3Rlym8uulc/ANUN/bMWtBu6Sg==
+color-string@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.8.2.tgz#08bd49fa5f3889c27b0c670052ed746dd7a671de"
+  integrity sha512-w5ZkKRdLsc5NOYsmnpS2DpyRW71npwZGwbRpLrJTuqjfTs2Bhrba7UiV59IX9siBlCPl2pne5NtiwnVWUzvYFA==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
