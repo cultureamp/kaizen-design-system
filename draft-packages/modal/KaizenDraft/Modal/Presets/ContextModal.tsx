@@ -19,6 +19,9 @@ export type ContextModalProps = Readonly<
   {
     isOpen: boolean
     unpadded?: boolean
+    /**
+     * Defines the orientation layout of the image and content
+     */
     layout?: "portrait" | "landscape"
     title: string
     onConfirm?: () => void
