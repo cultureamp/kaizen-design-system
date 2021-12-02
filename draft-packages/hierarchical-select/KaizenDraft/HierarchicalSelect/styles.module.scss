@@ -88,7 +88,7 @@
 }
 
 .indicators {
-  color: $color-purple-300;
+  color: rgba($color-purple-800-rgb, 0.7);
   display: flex;
 }
 
@@ -99,7 +99,7 @@
 
 .clear {
   &:hover:not([aria-disabled="true"]) {
-    color: $color-purple-500;
+    color: $color-purple-800;
   }
 
   :global(.js-focus-visible) & {
