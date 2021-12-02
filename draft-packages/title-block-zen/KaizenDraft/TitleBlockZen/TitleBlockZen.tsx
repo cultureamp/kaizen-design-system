@@ -209,14 +209,16 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   if (surveyStatus.status === "default") {
     tagVariant = "default"
   }
-
-  return (
-    <div data-automation-id="survey-status-tag" className={styles.tag}>
-      <Tag variant={tagVariant} size="small">
-        {surveyStatus.text}
-      </Tag>
-    </div>
-  )
+  // TODO: explicitly omit/exclude profile as a variant type value
+  if (tagVariant != "profile") {
+    return (
+      <div data-automation-id="survey-status-tag" className={styles.tag}>
+        <Tag variant={tagVariant} size="small">
+          {surveyStatus.text}
+        </Tag>
+      </div>
+    )
+  }
 }
 
 const isJSXElement = (
