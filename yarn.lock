@@ -4245,17 +4245,10 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-events@6.4.4":
+"@storybook/core-events@6.4.4", "@storybook/core-events@^6.4.4":
   version "6.4.4"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.4.tgz#37673982e484ee97ce45b4329a29d6dedc25bf3e"
   integrity sha512-qXkbWmGkSydFcmKRn8ox7tLhPvZ8VXlRcoCiyjkTrmAHALvToEjdvKlvHTvUAkRGU2G2J+8VomqDZWxACUQRGg==
-  dependencies:
-    core-js "^3.8.2"
-
-"@storybook/core-events@^6.4.3":
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.3.tgz#5fb3281a7cacba7fbf0d51a7a782cf751b27f6d7"
-  integrity sha512-UnXDO57U0jJYxXT4hVYQ7ze2wnCp3jrkRSyUPmMcyqpuLAWFhj+QYyna/7+geNID80MbVkkNLE+AEeSY+PPglQ==
   dependencies:
     core-js "^3.8.2"
 
