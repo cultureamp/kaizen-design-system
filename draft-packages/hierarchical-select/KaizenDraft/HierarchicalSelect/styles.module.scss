@@ -29,23 +29,42 @@
   justify-content: space-between;
   width: 100%;
   height: $input-height;
-  border: $border-solid-border-width $border-solid-border-style $ca-border-color;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   border-radius: $border-solid-border-radius;
+
+  .chevron {
+    color: rgba($color-purple-800-rgb, 0.7);
+  }
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     .chevron {
-      color: $color-purple-500;
+      color: $color-purple-800;
     }
   }
 
   &:hover:not(:disabled) {
-    border-color: $ca-border-color-hover;
+    border-color: $color-gray-600;
   }
 
   &:focus:not(:disabled) {
-    border-color: $ca-border-color-focus;
+    border-color: $color-gray-600;
     outline: none;
+  }
+
+  &:global(.focus-visible)::after {
+    $focus-ring-offset: 3px;
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    top: calc(-1 * #{$focus-ring-offset});
+    left: calc(-1 * #{$focus-ring-offset});
+    right: calc(-1 * #{$focus-ring-offset});
+    bottom: calc(-1 * #{$focus-ring-offset});
   }
 
   &:disabled {
@@ -65,11 +84,11 @@
 
 .placeholder {
   composes: value;
-  opacity: $input-placeholder-opacity;
+  color: rgba($color-purple-800-rgb, 0.7);
 }
 
 .indicators {
-  color: $color-purple-300;
+  color: rgba($color-purple-800-rgb, 0.7);
   display: flex;
 }
 
@@ -80,7 +99,7 @@
 
 .clear {
   &:hover:not([aria-disabled="true"]) {
-    color: $color-purple-500;
+    color: $color-purple-800;
   }
 
   :global(.js-focus-visible) & {
