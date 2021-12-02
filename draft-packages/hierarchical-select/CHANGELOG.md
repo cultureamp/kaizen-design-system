@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.7.48...@kaizen/draft-hierarchical-select@1.7.49) (2021-12-02)
+
+
+### Bug Fixes
+
+* Update purple borders on Hierarchical Select ([#2325](https://github.com/cultureamp/kaizen-design-system/issues/2325)) ([09c535b](https://github.com/cultureamp/kaizen-design-system/commit/09c535bdb1e92f2e4a373c7b223769001544861b))
+
+
+
+
+
 ## [1.7.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.7.47...@kaizen/draft-hierarchical-select@1.7.48) (2021-11-30)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-select
