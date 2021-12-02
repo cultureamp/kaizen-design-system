@@ -5,6 +5,10 @@
   overflow-x: hidden;
 }
 
+.padded {
+  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
+}
+
 .modalBody.scrollable {
   overflow-y: scroll;
 }

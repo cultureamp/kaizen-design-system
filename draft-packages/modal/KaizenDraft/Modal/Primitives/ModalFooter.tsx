@@ -1,11 +1,10 @@
 import { Button, ButtonProps } from "@kaizen/draft-button"
-import { useMediaQueries } from "@kaizen/responsive"
 import classNames from "classnames"
 import * as React from "react"
 import GenericModalSection from "./GenericModalSection"
 import styles from "./ModalFooter.scss"
 
-type ActionsVariantProps = "context" | "inputEdit"
+type ActionsVarianProps = "information"
 
 export type ModalFooterProps = Readonly<{
   /**
@@ -15,7 +14,7 @@ export type ModalFooterProps = Readonly<{
    * action is anchored to the left edge of the modal.
    * For this rare instance added the variant prop as optional to update the order of action buttons.
    */
-  variant?: ActionsVariantProps
+  variant?: ActionsVarianProps
   unpadded?: boolean
   actions: ButtonProps[]
   appearance?: "primary" | "destructive"
@@ -33,19 +32,14 @@ const ModalFooter: ModalFooter = props => {
     automationId,
     variant,
   } = props
-  const { queries } = useMediaQueries()
 
   return (
-    <GenericModalSection
-      unpadded={unpadded}
-      inputEdit={variant === "inputEdit"}
-    >
+    <GenericModalSection unpadded={unpadded}>
       <div
         className={classNames(
           styles.actions,
-          !unpadded && styles.padded,
-          variant === "context" && styles.informationPadded,
-          props.alignStart && styles.actionsAlignStart
+          props.alignStart && styles.actionsAlignStart,
+          variant === "information" && styles.informationAlign
         )}
       >
         {actions.map((action, index) => (
@@ -56,7 +50,6 @@ const ModalFooter: ModalFooter = props => {
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
               data-automation-id={`${automationId}-action-${index}`}
-              fullWidth={queries.isSmall}
               {...action}
             />
           </div>
