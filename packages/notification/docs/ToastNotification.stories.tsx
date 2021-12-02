@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Button } from "@kaizen/draft-button"
-import { Link, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
 import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import {
   addToastNotification,
@@ -20,29 +19,6 @@ import styles from "./ToastNotification.stories.scss"
 const withNavigation = (Story: React.FunctionComponent) => (
   <>
     <div style={{ margin: "-1rem", minHeight: "150px" }}>
-      <div className={styles.navigationBarContainer}>
-        <ZenNavigationBar>
-          {{
-            primary: [
-              <Link text="Home" href="/" active />,
-              <Link text="Surveys" href="/" />,
-              <Link
-                text="Performance"
-                href="/"
-                badge={{ kind: "new", text: "New" }}
-              />,
-            ],
-            final: [
-              <Link text="Support" href="http://academy.cultureamp.com/" />,
-              <Link
-                tooltip="Opens in new tab"
-                text="Academy"
-                href="http://academy.cultureamp.com/"
-              />,
-            ],
-          }}
-        </ZenNavigationBar>
-      </div>
       <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
       <Story />
     </div>

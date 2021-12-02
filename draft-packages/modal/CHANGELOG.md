@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.12...@kaizen/draft-modal@7.0.0) (2021-12-02)
+
+
+### Features
+
+* New InputModal, ConfirmationModal and ContextModal updates ([#2333](https://github.com/cultureamp/kaizen-design-system/issues/2333)) ([a3d09d5](https://github.com/cultureamp/kaizen-design-system/commit/a3d09d52bde448b972e87d40ef92e6214a4db7f7))
+
+
+### BREAKING CHANGES
+
+* Refactor of modals to reflect UI Kit design updates.
+
+* New styles for all modals - InputEditModal, ConfirmationModal, ContextModal (previously InformationModal).
+* InformationModal renamed to ContextModal - You will need to update any imports.
+* Deprecated RoadblockModal - use ConfirmationModal instead.
+
+
+
+
+
+## [6.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.11...@kaizen/draft-modal@6.2.12) (2021-11-30)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [6.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.10...@kaizen/draft-modal@6.2.11) (2021-11-30)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [6.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.9...@kaizen/draft-modal@6.2.10) (2021-11-29)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [6.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.8...@kaizen/draft-modal@6.2.9) (2021-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [6.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@6.2.7...@kaizen/draft-modal@6.2.8) (2021-11-23)
 
 **Note:** Version bump only for package @kaizen/draft-modal

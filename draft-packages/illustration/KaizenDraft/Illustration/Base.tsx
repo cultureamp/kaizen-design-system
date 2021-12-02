@@ -20,12 +20,19 @@ export type BaseProps = {
    * @default ""
    */
   classNameAndIHaveSpokenToDST?: string
+
+  /**
+   * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
+   * component in a container, forcing the aspect ratio.
+   */
+  aspectRatio?: "landscape" | "portrait" | "square"
 }
 
 export const Base = ({
   name,
   alt,
   classNameAndIHaveSpokenToDST,
+  aspectRatio,
   ...otherProps
 }: BaseProps) => {
   const className =
@@ -33,7 +40,28 @@ export const Base = ({
     " " +
     styles.wrapper
 
+  const aspectClassName =
+    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
+
   return (
-    <img {...otherProps} className={className} alt={alt} src={assetUrl(name)} />
+    <>
+      {aspectRatio ? (
+        <figure className={aspectClassName}>
+          <img
+            {...otherProps}
+            className={className}
+            alt={alt}
+            src={assetUrl(name)}
+          />
+        </figure>
+      ) : (
+        <img
+          {...otherProps}
+          className={className}
+          alt={alt}
+          src={assetUrl(name)}
+        />
+      )}
+    </>
   )
 }

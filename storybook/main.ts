@@ -41,7 +41,6 @@ module.exports = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
     path.resolve("./storybook/gtm-addon/register"),
-    path.resolve("./storybook/theme-switcher-addon/register"),
     {
       name: "@storybook/addon-docs",
       options: {

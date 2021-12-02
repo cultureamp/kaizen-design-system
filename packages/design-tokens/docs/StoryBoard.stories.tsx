@@ -47,7 +47,6 @@ import * as TileStories from "@kaizen/draft-tile/docs/Tile.stories"
 import * as TitleBlockZenStories from "@kaizen/draft-title-block-zen/docs/TitleBlockZen.stories"
 import * as TooltipStories from "@kaizen/draft-tooltip/docs/Tooltip.stories"
 import * as WellStories from "@kaizen/draft-well/docs/Well.stories"
-import * as ZenNavigationBarStories from "@kaizen/draft-zen-navigation-bar/docs/ZenNavigationBar.stories"
 import { Meta, Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import React from "react"
@@ -250,7 +249,8 @@ const StoriesContainer = (props: {
       {shouldRender && (
         <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
-            if (typeof V !== "function") return null
+            // Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
+            if ("title" in V) return null
             const parameters = "story" in V ? V.story.parameters : V.parameters
             const storyElement = (
               <V {...meta.args} {...("story" in V ? V.story.args : {})} />
@@ -461,7 +461,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={ToggleSwitchFieldStories} />
         <StoriesContainer storyModule={TooltipStories} />
         <StoriesContainer storyModule={WellStories} />
-        <StoriesContainer storyModule={ZenNavigationBarStories} />
       </Stack>
     ),
     [theme]

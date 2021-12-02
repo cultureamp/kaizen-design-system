@@ -2,19 +2,13 @@
 import React from "react"
 import {
   defaultTheme,
-  heartTheme,
   ThemeProvider,
-  zenTheme,
+  ThemeManager,
 } from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
-import { addons } from "@storybook/addons"
 import { backgrounds } from "./backgrounds"
-import { themeManager, themeOfKey } from "./theme-switcher-addon/themeManager"
-import {
-  THEME_CHANGE_EVENT_TYPE,
-  THEME_KEY_STORE_KEY,
-} from "./theme-switcher-addon/constants"
 import { CATEGORIES } from "./constants"
+
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -53,23 +47,6 @@ addParameters({
   },
 })
 
-// Get notified when them theme has changed (perhaps from the addon panel, or from localStorage changes)
-addons.getChannel().addListener(THEME_CHANGE_EVENT_TYPE, (theme: unknown) => {
-  if (typeof theme === "string") {
-    // Update localStorage if needed. This is important because updating localStorage will notify other tabs of the change, and could potentially fire listeners recursively/infinitely.
-    if (localStorage.getItem(THEME_KEY_STORE_KEY) !== theme)
-      localStorage.setItem(THEME_KEY_STORE_KEY, theme)
-    themeManager.setAndApplyTheme(themeOfKey(theme))
-  }
-})
-
-// Get notified when themes get changed in localStorage from other tabs/windows, and ONLY others (not the current one).
-window.addEventListener("storage", () => {
-  addons
-    .getChannel()
-    .emit(THEME_CHANGE_EVENT_TYPE, localStorage.getItem(THEME_KEY_STORE_KEY))
-})
-
 export const globalTypes = {
   textDirection: {
     name: "Text direction",
@@ -81,6 +58,8 @@ export const globalTypes = {
     },
   },
 }
+
+export const themeManager = new ThemeManager(defaultTheme)
 
 export const decorators = [
   (Story: React.ComponentType) => (

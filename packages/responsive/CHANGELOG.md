@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.2.1...@kaizen/responsive@1.3.0) (2021-11-29)
+
+
+### Features
+
+* Add feature detection for safari version < 13 to avoid addEvent… ([#2327](https://github.com/cultureamp/kaizen-design-system/issues/2327)) ([ad98766](https://github.com/cultureamp/kaizen-design-system/commit/ad98766c75358670ea9575f5b05c58836607c24c))
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.2.0...@kaizen/responsive@1.2.1) (2021-09-09)
 
 

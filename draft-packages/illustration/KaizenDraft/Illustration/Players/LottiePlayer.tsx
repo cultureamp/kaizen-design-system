@@ -15,6 +15,11 @@ export type AnimatedBaseProps = {
    * Replay from start when active animation reaches the end of the animation
    */
   loop?: boolean
+  /**
+   * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
+   * component in a container, forcing the aspect ratio.
+   */
+  aspectRatio?: "landscape" | "portrait" | "square"
 }
 
 enum AssetStatus {
@@ -29,6 +34,7 @@ export const AnimatedBase = ({
   autoplay = true,
   loop = false,
   alt,
+  aspectRatio,
   classNameAndIHaveSpokenToDST,
 }: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
@@ -75,6 +81,7 @@ export const AnimatedBase = ({
 
   const wrapper =
     (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
+    (aspectRatio ? aspectRatio : "") +
     " " +
     styles.wrapper
 

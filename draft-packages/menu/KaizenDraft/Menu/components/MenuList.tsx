@@ -1,5 +1,5 @@
 import * as React from "react"
-import uuid from "uuid/v4"
+import { v4 } from "uuid"
 import styles from "../styles.scss"
 
 type MenuListProps = {
@@ -9,7 +9,7 @@ type MenuListProps = {
 
 const MenuList = (props: MenuListProps) => {
   const { heading, children } = props
-  const listHeadingID = uuid()
+  const listHeadingID = v4()
   return (
     <>
       {heading && (

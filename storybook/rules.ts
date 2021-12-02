@@ -8,7 +8,7 @@ const isEnabled = require("./isEnabled")
 export const babel: Rule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
-  options: require("../package.json").babel,
+  options: require("../.babelrc.json"),
 }
 
 export const stylePreprocessors: Loader[] = [
