@@ -29,7 +29,13 @@ import styles from "./ConfirmationModal.scss"
 export interface ConfirmationModalProps {
   readonly isOpen: boolean
   readonly unpadded?: boolean
+  /**
+   * To display the Prominent variation of the modal types
+   */
   readonly isProminent?: boolean
+  /**
+   * Defines the modal type or mood
+   */
   readonly type: ModalType
   readonly title: string
   readonly onConfirm?: () => void

@@ -65,6 +65,9 @@ export default {
       delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
       pauseAnimationAtEnd: true,
     },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
   },
   decorators: [withDesign, withMinHeight],
 }
