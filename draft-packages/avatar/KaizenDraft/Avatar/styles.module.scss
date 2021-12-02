@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "./decision-tokens.scss";
+@import "~@kaizen/design-tokens/sass/border";
 
 .wrapper {
   background: $dt-color-background-color;
@@ -18,13 +19,17 @@
   }
 
   // Themes
-
   &.personal {
     background: $dt-color-background-color-personal;
   }
 
   &.otherUser {
     background: $dt-color-background-color-initials;
+  }
+
+  &.company {
+    background: $color-white;
+    border-radius: $border-solid-border-radius;
   }
 
   // Sizes
@@ -59,6 +64,12 @@
   object-fit: cover;
 }
 
+.companyAvatarImage {
+  object-fit: contain;
+  box-sizing: border-box;
+  padding: 0.25rem;
+}
+
 .fallbackIcon {
   color: $dt-color-icon-color;
   width: 28px;
@@ -87,7 +98,6 @@
   letter-spacing: $typography-heading-3-letter-spacing;
 
   // Whitespace cropping
-
   &:not(.longName)::before {
     content: "";
     display: block;

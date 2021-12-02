@@ -1,9 +1,13 @@
 import * as React from "react"
-
 import { withDesign } from "storybook-addon-designs"
-import { Avatar } from "@kaizen/draft-avatar"
+import { Heading } from "@kaizen/component-library"
+import { assetUrl } from "@kaizen/hosted-assets"
+import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+
+// Data
+import avatarStoryData from "./avatarData.json"
 
 export default {
   title: `${CATEGORIES.components}/Avatar`,
@@ -15,10 +19,103 @@ export default {
       },
     },
     ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14306"
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14305"
     ),
   },
   decorators: [withDesign],
+}
+
+export const DefaultStory = args => <Avatar {...args} />
+
+DefaultStory.storyName = "Default (Kaizen Demo)"
+
+DefaultStory.args = {
+  size: "xlarge",
+  isCurrentUser: false,
+  DisabledInitials: false,
+  avatarSrc: "",
+  fullName: "",
+}
+
+export const DesignSheetDefaukt = () => (
+  /**
+   * This displays a list of all main variants on a default background.
+   */
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
+      gap: "2.5rem",
+    }}
+  >
+    {avatarStoryData.map(story => (
+      <div>
+        <Heading tag="h2" variant="heading-2">
+          {story.title}
+        </Heading>
+        <br />
+        {story.stories.map(storyData => {
+          const avatarData = storyData as AvatarProps
+          return (
+            <>
+              <Avatar {...avatarData} />
+              <br />
+            </>
+          )
+        })}
+      </div>
+    ))}
+  </div>
+)
+
+DesignSheetDefaukt.storyName = "Design Sheet (default)"
+
+export const DesignSheetReversed = () => (
+  /**
+   * This displays a list of all main variants on a reversed background
+   */
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
+      gap: "2.5rem",
+    }}
+  >
+    {avatarStoryData.map(story => (
+      <div>
+        <Heading tag="h2" variant="heading-2" color="white">
+          {story.title}
+        </Heading>
+        <br />
+        {story.stories.map(storyData => {
+          const {
+            fullName,
+            disableInitials,
+            avatarSrc,
+            isCurrentUser,
+            size,
+          } = storyData as AvatarProps
+          return (
+            <>
+              <Avatar
+                fullName={fullName}
+                disableInitials={disableInitials}
+                avatarSrc={avatarSrc}
+                isCurrentUser={isCurrentUser}
+                size={size}
+              />
+              <br />
+            </>
+          )
+        })}
+      </div>
+    ))}
+  </div>
+)
+
+DesignSheetReversed.storyName = "Design Sheet (reversed)"
+DesignSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
 }
 
 export const InitialsPersonal = () => (
@@ -33,7 +130,7 @@ export const InitialsPersonal = () => (
   </>
 )
 
-export const InitialsOthers = () => (
+export const InitialsGeneric = () => (
   <>
     <Avatar isCurrentUser={false} size="xlarge" fullName="Jane Doe" />
     <br />
@@ -45,7 +142,7 @@ export const InitialsOthers = () => (
   </>
 )
 
-export const UnicodeInitials = () => (
+export const InitialsUnicode = () => (
   <>
     <Avatar isCurrentUser={false} size="xlarge" fullName="李存信" />
     <br />
@@ -56,6 +153,32 @@ export const UnicodeInitials = () => (
     <Avatar isCurrentUser={false} size="small" fullName="李存信" />
   </>
 )
+
+export const InitialsLong = () => (
+  <>
+    <Avatar size="xlarge" fullName="Very Long Name Which Shows Initials" />
+    <br />
+    <Avatar size="large" fullName="Very Long Name Which Shows Initials" />
+    <br />
+    <Avatar size="medium" fullName="Very Long Name Which Shows Initials" />
+    <br />
+    <Avatar size="small" fullName="Very Long Name Which Shows Initials" />
+  </>
+)
+
+export const Fallback = () => (
+  <>
+    <Avatar size="xlarge" avatarSrc="broken" fullName="Jane Doe" />
+    <br />
+    <Avatar size="large" avatarSrc="broken" fullName="Jane Doe" />
+    <br />
+    <Avatar size="medium" avatarSrc="broken" fullName="Jane Doe" />
+    <br />
+    <Avatar size="small" avatarSrc="broken" fullName="Jane Doe" />
+  </>
+)
+
+Fallback.storyName = "Initials Fallback (on broken src)"
 
 export const DisabledInitials = () => (
   <>
@@ -89,67 +212,72 @@ export const DisabledInitials = () => (
   </>
 )
 
-export const PhotoPersonal = () => (
-  <>
-    <Avatar
-      size="xlarge"
-      avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-      fullName="Jane Doe"
-    />
-    <br />
-    <Avatar
-      size="large"
-      avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-      fullName="Jane Doe"
-    />
-    <br />
-    <Avatar
-      size="medium"
-      avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-      fullName="Jane Doe"
-    />
-    <br />
-    <Avatar
-      size="small"
-      avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-      fullName="Jane Doe"
-    />
-  </>
-)
-export const DefaultUser = () => (
-  <>
-    <Avatar size="xlarge" avatarSrc="broken" fullName="Jane Doe" />
-    <br />
-    <Avatar size="large" avatarSrc="broken" fullName="Jane Doe" />
-    <br />
-    <Avatar size="medium" avatarSrc="broken" fullName="Jane Doe" />
-    <br />
-    <Avatar size="small" avatarSrc="broken" fullName="Jane Doe" />
-  </>
-)
-
-export const WithLongInitials = () => (
-  <>
-    <Avatar size="xlarge" fullName="Very Long Name Which Shows Initials" />
-    <br />
-    <Avatar size="large" fullName="Very Long Name Which Shows Initials" />
-    <br />
-    <Avatar size="medium" fullName="Very Long Name Which Shows Initials" />
-    <br />
-    <Avatar size="small" fullName="Very Long Name Which Shows Initials" />
-  </>
-)
-
 export const WithoutNameOrAvatar = () => (
   <>
-    <Avatar size="xlarge" />
+    <Avatar isCurrentUser={false} size="xlarge" />
     <br />
-    <Avatar size="large" />
+    <Avatar isCurrentUser={false} size="large" />
     <br />
-    <Avatar size="medium" />
+    <Avatar isCurrentUser={false} size="medium" />
     <br />
-    <Avatar size="small" />
+    <Avatar isCurrentUser={false} size="small" />
   </>
 )
 
-DefaultUser.storyName = "Default User (Shows when image fails to load)"
+export const CompanyAccount = () => (
+  <>
+    <Avatar
+      isCompany
+      fullName="Hooli"
+      avatarSrc={assetUrl("third-party-logos/msteam.svg")}
+      size="xlarge"
+    />
+    <br />
+    <Avatar
+      isCompany
+      fullName="Hooli"
+      avatarSrc={assetUrl("third-party-logos/msteam.svg")}
+      size="large"
+    />
+    <br />
+    <Avatar
+      isCompany
+      fullName="Hooli"
+      avatarSrc={assetUrl("third-party-logos/msteam.svg")}
+      size="medium"
+    />
+    <br />
+    <Avatar
+      isCompany
+      fullName="Hooli"
+      avatarSrc={assetUrl("third-party-logos/msteam.svg")}
+      size="small"
+    />
+  </>
+)
+
+export const CompanyFallback = () => (
+  <>
+    <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="xlarge" />
+    <br />
+    <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="large" />
+    <br />
+    <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="medium" />
+    <br />
+    <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="small" />
+  </>
+)
+
+CompanyFallback.storyName = "Company Fallback (on broken src)"
+
+export const CompanyAnonymous = () => (
+  <>
+    <Avatar isCompany size="xlarge" />
+    <br />
+    <Avatar isCompany size="large" />
+    <br />
+    <Avatar isCompany size="medium" />
+    <br />
+    <Avatar isCompany size="small" />
+  </>
+)

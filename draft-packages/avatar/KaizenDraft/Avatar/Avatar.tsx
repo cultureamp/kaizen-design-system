@@ -51,6 +51,11 @@ export interface AvatarProps {
    * @default "medium"
    */
   size?: AvatarSizes
+  /**
+   * This toggles the avatar style between user and business avatars
+   * @default "false"
+   */
+  isCompany?: boolean
 }
 
 export const Avatar = ({
@@ -59,6 +64,7 @@ export const Avatar = ({
   disableInitials,
   size = "medium",
   isCurrentUser = true,
+  isCompany = false,
 }: AvatarProps) => {
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
@@ -82,12 +88,19 @@ export const Avatar = ({
 
   const fallbackIcon = (
     <span className={styles.fallbackIcon}>
-      <Icon inheritSize role="presentation" icon={userIcon} />
+      <Icon
+        inheritSize
+        role={fullName ? "img" : "presentation"}
+        title={fullName || ""}
+        icon={userIcon}
+      />
     </span>
   )
+
   return (
     <span
       className={cx(styles.wrapper, styles[size], {
+        [styles.company]: isCompany,
         [styles.personal]:
           isCurrentUser && (avatarState === "none" || avatarState === "error"),
         [styles.otherUser]:
@@ -98,11 +111,14 @@ export const Avatar = ({
       {avatarState !== "none" && (
         <img
           ref={image}
-          className={styles.avatarImage}
+          className={cx(styles.avatarImage, {
+            [styles.companyAvatarImage]: isCompany,
+          })}
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}
           alt={fullName}
+          title={fullName}
         />
       )}
       {(avatarState === "none" || avatarState === "error") &&
@@ -113,10 +129,16 @@ export const Avatar = ({
             className={cx(styles.initials, {
               [styles.longName]: isLongName,
             })}
+            title={fullName}
           >
             {isLongName ? (
               // Only called if 3 or more initials, fits text width for long names
-              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+              <Textfit
+                mode="single"
+                max={getMaxFontSizePixels(size)}
+                alt={fullName}
+                title={fullName}
+              >
                 {initials}
               </Textfit>
             ) : (
