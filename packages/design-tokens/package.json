@@ -19,7 +19,8 @@
     "react",
     "dist",
     "elm",
-    "!**/*.spec.*"
+    "!**/*.spec.*",
+    "!docs"
   ],
   "types": "dist/**/*.d.ts",
   "main": "dist/index.js",
