@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@5.0.0) (2021-12-02)
+
+
+### Bug Fixes
+
+* Roll forward for ci ([#2339](https://github.com/cultureamp/kaizen-design-system/issues/2339)) ([d65c589](https://github.com/cultureamp/kaizen-design-system/commit/d65c5893352f851179a1c276b4e73534f1442796))
+
+
+### Features
+
+* New InputModal, ConfirmationModal and ContextModal updates ([#2333](https://github.com/cultureamp/kaizen-design-system/issues/2333)) ([a3d09d5](https://github.com/cultureamp/kaizen-design-system/commit/a3d09d52bde448b972e87d40ef92e6214a4db7f7))
+
+
+### BREAKING CHANGES
+
+* Refactor of modals to reflect UI Kit design updates.
+
+* New styles for all modals - InputEditModal, ConfirmationModal, ContextModal (previously InformationModal).
+* InformationModal renamed to ContextModal - You will need to update any imports.
+* Deprecated RoadblockModal - use ConfirmationModal instead.
+
+
+
+
+
 # [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@4.0.0) (2021-12-02)
 
 
