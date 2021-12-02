@@ -9,6 +9,8 @@ import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import { useTheme } from "../../../../packages/design-tokens"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
 import styles from "./styles.module.scss"
@@ -264,7 +266,7 @@ const Menu = (props: MenuProps) => {
             >
               <div className={styles.parentButtonIcon}>
                 <Icon
-                  icon={dir === "ltr" ? chevronLeft : chevronRight}
+                  icon={dir === "ltr" ? arrowLeft : arrowRight}
                   role="presentation"
                   inheritSize
                 />
@@ -359,7 +361,7 @@ const DrilldownChevron = ({
 }) => (
   <div className={styles.childDrilldownButtonIcon}>
     <Icon
-      icon={dir === "ltr" ? chevronRight : chevronLeft}
+      icon={dir === "ltr" ? arrowRight : arrowLeft}
       role="img"
       title={`Drill down on ${label}`}
       inheritSize
@@ -392,7 +394,7 @@ const LoadingMenu = (props: LoadingMenuProps) => {
           <button className={styles.parentButton} disabled>
             <div className={styles.parentButtonIcon}>
               <Icon
-                icon={dir === "ltr" ? chevronLeft : chevronRight}
+                icon={dir === "ltr" ? arrowLeft : arrowRight}
                 role="presentation"
                 inheritSize
               />
