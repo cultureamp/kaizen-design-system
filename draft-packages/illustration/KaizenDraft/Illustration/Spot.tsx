@@ -449,10 +449,7 @@ export const RemoteOnboardSurvey = ({
   />
 )
 
-export const HealthAndSafety = ({
-  enableAspectRatio,
-  ...props
-}: SpotProps) => (
+export const HealthAndSafety = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
@@ -460,10 +457,7 @@ export const HealthAndSafety = ({
   />
 )
 
-export const EndOfProbation = ({
-  enableAspectRatio,
-  ...props
-}: SpotProps) => (
+export const EndOfProbation = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
@@ -482,10 +476,7 @@ export const NewWaysOfWorking = ({
   />
 )
 
-export const ReOnboarding = ({
-  enableAspectRatio,
-  ...props
-}: SpotProps) => (
+export const ReOnboarding = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
