@@ -875,7 +875,7 @@ exports[`<Illustration /> Spot EndOfProbation should exist and render an alt tag
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/end-of-probation.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-end-of-probation.svg"
   />
 </div>
 `;
@@ -985,7 +985,7 @@ exports[`<Illustration /> Spot HealthAndSafety should exist and render an alt ta
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/health-and-safety.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-health-and-safety.svg"
   />
 </div>
 `;
@@ -1155,7 +1155,7 @@ exports[`<Illustration /> Spot NewWaysOfWorking should exist and render an alt t
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-ways-of-working.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-new-ways-of-working.svg"
   />
 </div>
 `;
@@ -1275,7 +1275,7 @@ exports[`<Illustration /> Spot ReOnboarding should exist and render an alt tag 1
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/re-onboarding.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-re-onboarding.svg"
   />
 </div>
 `;
