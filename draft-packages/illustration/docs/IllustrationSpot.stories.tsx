@@ -513,7 +513,7 @@ export const AllSpotIllustrations = () => {
     {
       Component: Objective,
       name: "Objective",
-    }
+    },
   ]
 
   return (
