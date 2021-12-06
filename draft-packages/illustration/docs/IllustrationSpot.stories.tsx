@@ -20,6 +20,7 @@ import {
   CustomUnattributedSurvey,
   EmergencyResponse,
   EmployeeData,
+  EndOfProbation,
   EngagementSurvey,
   ExecutiveReportSharing,
   ExitSurvey,
@@ -27,6 +28,7 @@ import {
   Feedback,
   Gdpr,
   GeneralOnboardSurvey,
+  HealthAndSafety,
   InclusionSurvey,
   Individual180,
   Individual360,
@@ -42,6 +44,7 @@ import {
   ManagerReportSharing,
   MeetingVoices,
   Negative,
+  NewWaysOfWorking,
   OneOnOne,
   PerformanceDiagnostics,
   PhasedWeek1OnboardSurvey,
@@ -52,6 +55,7 @@ import {
   ReadArticle,
   RemoteManager,
   RemoteOnboardSurvey,
+  ReOnboarding,
   ReportSharing,
   Resilience,
   ShareReport,
@@ -227,6 +231,22 @@ export const AllSpotIllustrations = () => {
     {
       Component: SinglePointOnboardSurvey,
       name: "Single Point Onboard Survey",
+    },
+    {
+      Component: HealthAndSafety,
+      name: "Health & Safety",
+    },
+    {
+      Component: EndOfProbation,
+      name: "End of Probation",
+    },
+    {
+      Component: NewWaysOfWorking,
+      name: "New Ways of Working",
+    },
+    {
+      Component: ReOnboarding,
+      name: "Re-onboarding",
     },
   ]
 

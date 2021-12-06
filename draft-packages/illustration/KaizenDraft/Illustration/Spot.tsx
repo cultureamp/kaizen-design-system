@@ -449,6 +449,41 @@ export const RemoteOnboardSurvey = ({
   />
 )
 
+export const HealthAndSafety = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-health-and-safety.svg"
+  />
+)
+
+export const EndOfProbation = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-end-of-probation.svg"
+  />
+)
+
+export const NewWaysOfWorking = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-new-ways-of-working.svg"
+  />
+)
+
+export const ReOnboarding = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-re-onboarding.svg"
+  />
+)
+
 /**
  * Template Library / Performance
  */
