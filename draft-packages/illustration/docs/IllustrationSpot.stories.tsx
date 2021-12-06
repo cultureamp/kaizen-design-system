@@ -92,6 +92,7 @@ import {
   UnderConstruction,
   ValueAdd,
   Recommendation,
+  Objective,
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -509,6 +510,10 @@ export const AllSpotIllustrations = () => {
       Component: Fireworks,
       name: "Fireworks",
     },
+    {
+      Component: Objective,
+      name: "Objective",
+    }
   ]
 
   return (
