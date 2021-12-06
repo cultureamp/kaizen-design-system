@@ -53,6 +53,11 @@
     width: 7.75rem;
     height: 7.75rem;
   }
+
+  abbr {
+    text-decoration: none;
+    speak-as: spell-out;
+  }
 }
 
 .avatarImage {
@@ -91,7 +96,6 @@
   padding-right: 5px;
   text-align: center;
   width: 100%;
-
   font-size: 22px;
   font-family: $typography-heading-1-font-family;
   font-weight: $typography-heading-1-font-weight;

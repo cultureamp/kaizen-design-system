@@ -91,7 +91,7 @@ export const Avatar = ({
       <Icon
         inheritSize
         role={fullName ? "img" : "presentation"}
-        title={fullName || ""}
+        title={fullName || " "}
         icon={userIcon}
       />
     </span>
@@ -117,34 +117,28 @@ export const Avatar = ({
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}
-          alt={fullName}
-          title={fullName}
+          alt={fullName || " "}
         />
       )}
       {(avatarState === "none" || avatarState === "error") &&
         (disableInitials || initials === "" ? (
           fallbackIcon
         ) : (
-          <span
+          <abbr
             className={cx(styles.initials, {
               [styles.longName]: isLongName,
             })}
-            title={fullName}
+            title={fullName || " "}
           >
             {isLongName ? (
               // Only called if 3 or more initials, fits text width for long names
-              <Textfit
-                mode="single"
-                max={getMaxFontSizePixels(size)}
-                alt={fullName}
-                title={fullName}
-              >
+              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
                 {initials}
               </Textfit>
             ) : (
               getInitials(fullName, size === "small")
             )}
-          </span>
+          </abbr>
         ))}
     </span>
   )
