@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-import { create } from "@storybook/theming/create"
 import { defaultTheme } from "@kaizen/design-tokens"
+import { create } from "@storybook/theming/create"
 
 export default create({
   base: "light",

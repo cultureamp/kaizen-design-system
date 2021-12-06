@@ -1,5 +1,5 @@
-import * as React from "react"
 import { render } from "react-dom"
+import * as React from "react"
 import Footer from "../../site/src/components/Footer"
 import SiteHeader from "./header"
 
