@@ -7,7 +7,7 @@
     "site"
   ],
   "engines": {
-    "node": "^v14.18.2"
+    "node": "^v14.18.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
