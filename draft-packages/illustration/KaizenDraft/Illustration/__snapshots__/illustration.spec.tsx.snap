@@ -1130,6 +1130,16 @@ exports[`<Illustration /> Spot Negative should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot Objective should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-objective.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot OneOnOne should exist and render an alt tag 1`] = `
 <div>
   <img
