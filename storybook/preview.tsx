@@ -1,11 +1,11 @@
 /* eslint import/no-extraneous-dependencies: 0 */
+import { addParameters } from "@storybook/react"
 import React from "react"
 import {
   defaultTheme,
   ThemeProvider,
   ThemeManager,
 } from "@kaizen/design-tokens"
-import { addParameters } from "@storybook/react"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
 
