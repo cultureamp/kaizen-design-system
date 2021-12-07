@@ -125,7 +125,7 @@ export const LightBadges = () => (
         <Heading variant="heading-5" tag="h3">
           Small
         </Heading>
-        <Badge variant="dot">3</Badge>
+        <Badge variant="dot"></Badge>
       </div>
     </div>
   </>
@@ -182,9 +182,7 @@ export const ReversedBadges = () => (
         <Heading color="white" variant="heading-5" tag="h3">
           Small
         </Heading>
-        <Badge reversed variant="dot">
-          3
-        </Badge>
+        <Badge reversed variant="dot"></Badge>
       </div>
     </div>
   </>

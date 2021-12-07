@@ -3,15 +3,12 @@ import classNames from "classnames"
 
 import styles from "./styles.module.scss"
 
-type Variant = "default" | "active" | "dark" | "dot"
-type Size = "small" | "large"
-
-export interface BadgeProps {
+interface CommonProps {
   readonly children?: string
   /**
    * The "dark" variant is no longer in the UI kit
    */
-  readonly variant?: Variant
+  readonly variant?: "default" | "active" | "dark"
   /**
    * renders reversed colors. Use on purple background
    */
@@ -19,8 +16,15 @@ export interface BadgeProps {
   /**
    * Supports "small" and "large" sizes - defaults to "small"
    */
-  readonly size?: Size
+  readonly size?: "small" | "large"
 }
+
+interface DotProps extends Omit<CommonProps, "children" | "variant"> {
+  readonly variant: "dot"
+  readonly children?: ""
+}
+
+export type BadgeProps = CommonProps | DotProps
 
 export const Badge = (props: BadgeProps) => {
   const { children, variant = "default", reversed, size = "small" } = props
@@ -36,7 +40,7 @@ export const Badge = (props: BadgeProps) => {
         [styles.large]: size === "large",
       })}
     >
-      {props.variant === "dot" ? "" : children}
+      {children}
     </span>
   )
 }
