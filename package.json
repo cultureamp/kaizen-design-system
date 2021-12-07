@@ -7,7 +7,7 @@
     "site"
   ],
   "engines": {
-    "node": "^14.15.1"
+    "node": ">=14.15.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
@@ -78,7 +78,7 @@
     "lerna": "^3.22.1",
     "lodash.isempty": "^4.4.0",
     "node-fetch": "^2.6.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
@@ -90,7 +90,7 @@
     "react-dom-17": "npm:react-dom@^17.0.2",
     "react-gtm-module": "^2.0.11",
     "react-test-renderer": "^16.14.0",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^10.1.1",
     "storybook-addon-designs": "^5.4.6",
     "style-loader": "^1.3.0",
     "stylelint": "^13.13.1",
