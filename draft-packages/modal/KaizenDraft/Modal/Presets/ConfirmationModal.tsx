@@ -36,7 +36,7 @@ export interface ConfirmationModalProps {
   /**
    * Defines the modal type or mood
    */
-  readonly type: ModalType
+  readonly variant: Variant
   readonly title: string
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
@@ -49,15 +49,15 @@ export interface ConfirmationModalProps {
 
 type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
 
-type ModalType =
+type Variant =
   | "positive"
   | "informative"
   | "negative"
   | "cautionary"
   | "assertive"
 
-const getIcon = (type: ModalType, isProminent: boolean) => {
-  switch (type) {
+const getIcon = (variant: Variant, isProminent: boolean) => {
+  switch (variant) {
     case "cautionary":
       return isProminent ? (
         <Cautionary alt="" isAnimated />
@@ -95,7 +95,7 @@ const ConfirmationModal = ({
   isOpen,
   isProminent = false,
   unpadded = false,
-  type,
+  variant,
   title,
   onConfirm,
   confirmLabel = "Confirm",
@@ -138,11 +138,11 @@ const ConfirmationModal = ({
         <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(styles.header, {
-              [styles.cautionaryHeader]: type === "cautionary",
-              [styles.informativeHeader]: type === "informative",
-              [styles.negativeHeader]: type === "negative",
-              [styles.positiveHeader]: type === "positive",
-              [styles.assertiveHeader]: type === "assertive",
+              [styles.cautionaryHeader]: variant === "cautionary",
+              [styles.informativeHeader]: variant === "informative",
+              [styles.negativeHeader]: variant === "negative",
+              [styles.positiveHeader]: variant === "positive",
+              [styles.assertiveHeader]: variant === "assertive",
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}
@@ -153,7 +153,7 @@ const ConfirmationModal = ({
               })}
             >
               <div className={styles.spotIcon}>
-                {getIcon(type, isProminent)}
+                {getIcon(variant, isProminent)}
               </div>
             </div>
             <ModalAccessibleLabel isProminent={isProminent}>
@@ -175,7 +175,7 @@ const ConfirmationModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={type === "negative" ? "destructive" : "primary"}
+          appearance={variant === "negative" ? "destructive" : "primary"}
           automationId={automationId}
           unpadded={unpadded}
         />

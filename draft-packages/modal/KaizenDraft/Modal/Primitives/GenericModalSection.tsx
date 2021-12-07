@@ -17,10 +17,10 @@ const GenericModalSection: GenericModalSection = ({
   children,
 }) => (
   <div
-    className={classNames(
-      unpadded ? undefined : styles.padded,
-      inputEdit && styles.inputEdit
-    )}
+    className={classNames({
+      [styles.padded]: !unpadded,
+      [styles.inputEdit]: inputEdit,
+    })}
   >
     {children}
   </div>

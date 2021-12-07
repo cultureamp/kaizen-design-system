@@ -18,11 +18,11 @@ $ca-breakpoint-small-mobile: 375px;
   h2 {
     @media (max-width: $layout-breakpoints-medium) {
       font-size: 1.625rem;
-      line-height: 32px;
+      line-height: 2rem;
     }
     @include ca-media-small-mobile {
       font-size: 1.5rem;
-      line-height: 30px;
+      line-height: 1.875rem;
     }
   }
 
