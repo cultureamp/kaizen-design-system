@@ -870,6 +870,16 @@ exports[`<Illustration /> Spot EmployeeData should exist and render an alt tag 1
 </div>
 `;
 
+exports[`<Illustration /> Spot EndOfProbation should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-end-of-probation.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot EngagementSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -966,6 +976,16 @@ exports[`<Illustration /> Spot GeneralOnboardSurvey should exist and render an a
     alt="My accessible title"
     class=" wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-general-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot HealthAndSafety should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-health-and-safety.svg"
   />
 </div>
 `;
@@ -1130,6 +1150,26 @@ exports[`<Illustration /> Spot Negative should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot NewWaysOfWorking should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-new-ways-of-working.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Objective should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-objective.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot OneOnOne should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -1236,6 +1276,16 @@ exports[`<Illustration /> Spot QuickEngagementSurvey should exist and render an 
     alt="My accessible title"
     class=" wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-quick-engagement-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ReOnboarding should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-re-onboarding.svg"
   />
 </div>
 `;

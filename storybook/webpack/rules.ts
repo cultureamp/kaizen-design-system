@@ -1,14 +1,14 @@
 // Call the pre-build script -- used for validation, setup, etc.
-import "./pre-build"
-
+import "../pre-build"
 import { resolve } from "path"
 import { Loader, RuleSetRule as Rule } from "webpack"
+
 const isEnabled = require("./isEnabled")
 
 export const babel: Rule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
-  options: require("../.babelrc.json"),
+  options: require("../../.babelrc.json"),
 }
 
 export const stylePreprocessors: Loader[] = [
@@ -115,8 +115,8 @@ export const elm: Rule = {
       loader: resolve(__dirname, "elm-webpack-loader-fix.js"),
       options: {
         debug: isEnabled("ELM_DEBUG", process.env.ELM_DEBUG, false),
-        cwd: resolve(__dirname, ".."),
-        pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
+        cwd: resolve(__dirname, "../.."),
+        pathToElm: resolve(__dirname, "../../node_modules/.bin/elm"),
         forceWatch: true,
       },
     },

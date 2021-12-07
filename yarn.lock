@@ -17245,7 +17245,7 @@ moo-color@^1.0.2:
 
 motion-ui@cultureamp/motion-ui:
   version "2.0.3"
-  resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
+  resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/d73f199d0ab2626a334ba6100604b3d14e6dabf1"
 
 move-concurrently@^1.0.1:
   version "1.0.1"

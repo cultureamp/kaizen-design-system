@@ -1,16 +1,6 @@
 import path from "path"
 import fs from "fs"
 
-import {
-  elm,
-  excludeExternalModules,
-  babel,
-  styles,
-  svgs,
-  svgIcons,
-  removeSvgFromTest,
-} from "./rules"
-
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
  * Use `STORIES=path/to/specific/story.stories.tsx` to load a specific story only.
@@ -32,7 +22,6 @@ const getStoryPathsFromEnv = (): string[] | false => {
 
 const defaultStoryPaths = [
   "../packages/**/*.stories.tsx",
-  "../packages/**/*.stories.mdx",
   "../draft-packages/**/*.stories.tsx",
   "../legacy-packages/**/*.stories.tsx",
 ]
@@ -52,20 +41,4 @@ module.exports = {
     "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
-  webpackFinal: (config, { configType }) => {
-    // eslint-disable-next-line no-console
-    console.log(`Using configuration for: ${configType}`)
-
-    // Storybook's base config applies file-loader to svgs
-    config.module.rules = config.module.rules.map(removeSvgFromTest)
-
-    config.module.rules.push(
-      ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
-    )
-
-    config.resolve.extensions.push(".ts", ".tsx")
-
-    // Return the altered config
-    return config
-  },
 }
