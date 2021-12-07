@@ -37,7 +37,7 @@ DefaultStory.args = {
   fullName: "",
 }
 
-export const DesignSheetDefaukt = () => (
+export const DesignSheetDefault = () => (
   /**
    * This displays a list of all main variants on a default background.
    */
@@ -68,7 +68,7 @@ export const DesignSheetDefaukt = () => (
   </div>
 )
 
-DesignSheetDefaukt.storyName = "Design Sheet (default)"
+DesignSheetDefault.storyName = "Design Sheet (default)"
 
 export const DesignSheetReversed = () => (
   /**
@@ -88,22 +88,10 @@ export const DesignSheetReversed = () => (
         </Heading>
         <br />
         {story.stories.map(storyData => {
-          const {
-            fullName,
-            disableInitials,
-            avatarSrc,
-            isCurrentUser,
-            size,
-          } = storyData as AvatarProps
+          const avatarData = storyData as AvatarProps
           return (
             <>
-              <Avatar
-                fullName={fullName}
-                disableInitials={disableInitials}
-                avatarSrc={avatarSrc}
-                isCurrentUser={isCurrentUser}
-                size={size}
-              />
+              <Avatar {...avatarData} />
               <br />
             </>
           )
@@ -120,6 +108,8 @@ DesignSheetReversed.parameters = {
 
 export const InitialsPersonal = () => (
   <>
+    <Avatar size="xxlarge" fullName="John Smith" />
+    <br />
     <Avatar size="xlarge" fullName="John Smith" />
     <br />
     <Avatar size="large" fullName="John Smith" />
@@ -132,6 +122,8 @@ export const InitialsPersonal = () => (
 
 export const InitialsGeneric = () => (
   <>
+    <Avatar isCurrentUser={false} size="xxlarge" fullName="Jane Doe" />
+    <br />
     <Avatar isCurrentUser={false} size="xlarge" fullName="Jane Doe" />
     <br />
     <Avatar isCurrentUser={false} size="large" fullName="Jane Doe" />
@@ -144,6 +136,8 @@ export const InitialsGeneric = () => (
 
 export const InitialsUnicode = () => (
   <>
+    <Avatar isCurrentUser={false} size="xxlarge" fullName="李存信" />
+    <br />
     <Avatar isCurrentUser={false} size="xlarge" fullName="李存信" />
     <br />
     <Avatar isCurrentUser={false} size="large" fullName="李存信" />
@@ -156,6 +150,8 @@ export const InitialsUnicode = () => (
 
 export const InitialsLong = () => (
   <>
+    <Avatar size="xxlarge" fullName="Very Long Name Which Shows Initials" />
+    <br />
     <Avatar size="xlarge" fullName="Very Long Name Which Shows Initials" />
     <br />
     <Avatar size="large" fullName="Very Long Name Which Shows Initials" />
@@ -168,6 +164,8 @@ export const InitialsLong = () => (
 
 export const Fallback = () => (
   <>
+    <Avatar size="xxlarge" avatarSrc="broken" fullName="Jane Doe" />
+    <br />
     <Avatar size="xlarge" avatarSrc="broken" fullName="Jane Doe" />
     <br />
     <Avatar size="large" avatarSrc="broken" fullName="Jane Doe" />
@@ -182,6 +180,13 @@ Fallback.storyName = "Initials Fallback (on broken src)"
 
 export const DisabledInitials = () => (
   <>
+    <Avatar
+      isCurrentUser={false}
+      size="xxlarge"
+      fullName="213146147"
+      disableInitials
+    />
+    <br />
     <Avatar
       isCurrentUser={false}
       size="xlarge"
@@ -214,6 +219,8 @@ export const DisabledInitials = () => (
 
 export const WithoutNameOrAvatar = () => (
   <>
+    <Avatar isCurrentUser={false} size="xxlarge" />
+    <br />
     <Avatar isCurrentUser={false} size="xlarge" />
     <br />
     <Avatar isCurrentUser={false} size="large" />
@@ -226,6 +233,13 @@ export const WithoutNameOrAvatar = () => (
 
 export const CompanyAccount = () => (
   <>
+    <Avatar
+      isCompany
+      fullName="Hooli"
+      avatarSrc={assetUrl("third-party-logos/msteam.svg")}
+      size="xxlarge"
+    />
+    <br />
     <Avatar
       isCompany
       fullName="Hooli"
@@ -258,6 +272,8 @@ export const CompanyAccount = () => (
 
 export const CompanyFallback = () => (
   <>
+    <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="xxlarge" />
+    <br />
     <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="xlarge" />
     <br />
     <Avatar isCompany fullName="Hooli" avatarSrc={"blank"} size="large" />
@@ -272,6 +288,8 @@ CompanyFallback.storyName = "Company Fallback (on broken src)"
 
 export const CompanyAnonymous = () => (
   <>
+    <Avatar isCompany size="xxlarge" />
+    <br />
     <Avatar isCompany size="xlarge" />
     <br />
     <Avatar isCompany size="large" />

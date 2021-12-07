@@ -35,23 +35,28 @@
   // Sizes
 
   &.small {
-    width: $spacing-md;
-    height: $spacing-md;
+    width: $dt-avatar-sm;
+    height: $dt-avatar-sm;
   }
 
   &.medium {
-    width: $spacing-xl;
-    height: $spacing-xl;
+    width: $dt-avatar-md;
+    height: $dt-avatar-md;
   }
 
   &.large {
-    width: $spacing-xxl;
-    height: $spacing-xxl;
+    width: $dt-avatar-lg;
+    height: $dt-avatar-lg;
   }
 
   &.xlarge {
-    width: 7.75rem;
-    height: 7.75rem;
+    width: $dt-avatar-xl;
+    height: $dt-avatar-xl;
+  }
+
+  &.xxlarge {
+    width: $dt-avatar-xxl;
+    height: $dt-avatar-xxl;
   }
 
   abbr {
@@ -78,14 +83,21 @@
 .fallbackIcon {
   color: $dt-color-icon-color;
   width: 28px;
+
+  .xxlarge & {
+    width: 75px;
+  }
   .xlarge & {
-    width: 62px;
+    width: 60px;
+  }
+  .large & {
+    width: 35px;
   }
   .medium & {
-    width: 20px;
+    width: 25px;
   }
   .small & {
-    width: 8px;
+    width: 10px;
   }
 }
 
@@ -108,7 +120,8 @@
     margin-top: -0.001em;
   }
 
-  .xlarge & {
+  .xlarge &,
+  .xxlarge & {
     font-size: 34px;
     letter-spacing: $typography-heading-1-letter-spacing;
   }
