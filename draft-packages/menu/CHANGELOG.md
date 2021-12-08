@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.9...@kaizen/draft-menu@4.1.10) (2021-12-07)
+
+
+### Bug Fixes
+
+* Move uuid generation out of component to avoid new id on each render ([#2347](https://github.com/cultureamp/kaizen-design-system/issues/2347)) ([c937426](https://github.com/cultureamp/kaizen-design-system/commit/c937426cf07bc5f253fd89bde4405efe7056de44))
+
+
+
+
+
 ## [4.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.1.8...@kaizen/draft-menu@4.1.9) (2021-11-26)
 
 
