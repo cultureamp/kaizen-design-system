@@ -8,10 +8,14 @@ type Props = {
   children: React.ReactNode
   onHide?: () => void
   automationId?: string
+  persistent?: boolean
 }
 
 const GlobalNotification = (props: Props) => (
-  <GenericNotification style="global" persistent={false} {...props} />
+  <GenericNotification style="global" {...props} />
 )
+GlobalNotification.defaultProps = {
+  persistent: false,
+}
 
 export default GlobalNotification
