@@ -87,7 +87,7 @@ export const InputEditModals = args => (
         <Button label="Open modal" onClick={open} />
         <InputEditModal
           isOpen={isOpen}
-          type="positive"
+          mood="positive"
           title="Input-edit modal title"
           onSubmit={close}
           onDismiss={close}

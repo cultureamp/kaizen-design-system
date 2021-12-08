@@ -14,7 +14,7 @@ import styles from "./InputEditModal.scss"
 export interface InputEditModalProps {
   readonly isOpen: boolean
   readonly unpadded?: boolean
-  readonly type: "positive" | "destructive"
+  readonly mood: "positive" | "destructive"
   readonly title: string
   readonly onSubmit: () => void
   readonly onDismiss: () => void
@@ -30,7 +30,7 @@ type InputEditModal = React.FunctionComponent<InputEditModalProps>
 
 const InputEditModal = ({
   isOpen,
-  type,
+  mood,
   title,
   onSubmit,
   localeDirection = "ltr",
@@ -88,7 +88,7 @@ const InputEditModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={type === "destructive" ? "destructive" : "primary"}
+          appearance={mood === "destructive" ? "destructive" : "primary"}
           automationId={automationId}
           variant="inputEdit"
           unpadded={unpadded}

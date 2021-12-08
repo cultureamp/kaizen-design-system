@@ -7,7 +7,7 @@ afterEach(cleanup)
 
 const ConfirmationModalWrapper = (props: Partial<ConfirmationModalProps>) => (
   <ConfirmationModal
-    variant="informative"
+    mood="informative"
     isOpen={true}
     title="Example Modal Title"
     onDismiss={() => undefined}
