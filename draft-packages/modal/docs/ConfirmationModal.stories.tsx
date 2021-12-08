@@ -47,7 +47,7 @@ export default {
   title: `${CATEGORIES.components}/Modal/Confirmation Modal`,
   component: ConfirmationModal,
   args: {
-    type: "cautionary",
+    mood: "cautionary",
   },
   parameters: {
     docs: {
@@ -76,7 +76,7 @@ export const ConfirmationModals = args => (
         <Button label="Open modal" onClick={open} />
         <ConfirmationModal
           isOpen={isOpen}
-          type="cautionary"
+          mood="cautionary"
           title="Confirmation modal title"
           onConfirm={close}
           onDismiss={close}

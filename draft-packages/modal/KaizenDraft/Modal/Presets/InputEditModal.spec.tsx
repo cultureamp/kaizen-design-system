@@ -8,7 +8,7 @@ afterEach(cleanup)
 const InputEditModalWrapper = (props: Partial<InputEditModalProps>) => (
   <InputEditModal
     isOpen={true}
-    type="positive"
+    mood="positive"
     title="Example modal title"
     onSubmit={() => undefined}
     onDismiss={() => undefined}
