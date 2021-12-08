@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.4.23...@kaizen/draft-collapsible@2.4.24) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [2.4.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.4.22...@kaizen/draft-collapsible@2.4.23) (2021-11-15)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible
