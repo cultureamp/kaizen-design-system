@@ -18,10 +18,9 @@ interface CommonProps {
    */
   readonly size?: "small" | "large"
 }
-
 interface DotProps extends Omit<CommonProps, "children" | "variant"> {
   readonly variant: "dot"
-  readonly children?: ""
+  readonly children?: undefined
 }
 
 export type BadgeProps = CommonProps | DotProps
@@ -40,7 +39,7 @@ export const Badge = (props: BadgeProps) => {
         [styles.large]: size === "large",
       })}
     >
-      {children}
+      {variant != "dot" && children}
     </span>
   )
 }
@@ -65,3 +64,4 @@ export const BadgeAnimated: React.FunctionComponent<BadgeProps> = props => {
     </span>
   )
 }
+export default Badge
