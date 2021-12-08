@@ -17,6 +17,9 @@ export default {
           'import { Container, Content } from "@kaizen/draft-page-layout"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6243%3A4094"
+    ),
   },
   decorators: [withDesign],
 }
@@ -142,14 +145,7 @@ export const SkirtStory = () => (
   </>
 )
 
-SkirtStory.story = {
-  name: "Skirt (default)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
-    ),
-  },
-}
+SkirtStory.story = "Skirt (default)"
 
 export const SkirtEducationVariant = () => (
   <>
@@ -180,14 +176,7 @@ export const SkirtEducationVariant = () => (
   </>
 )
 
-SkirtEducationVariant.story = {
-  name: "Skirt (Education variant)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
-    ),
-  },
-}
+SkirtEducationVariant.story = "Skirt (Education variant)"
 
 export const SkirtWithoutTitleBlockNavigation = () => (
   <>
@@ -256,14 +245,8 @@ export const SkirtWithoutTitleBlockNavigation = () => (
   </>
 )
 
-SkirtWithoutTitleBlockNavigation.story = {
-  name: "Skirt (Title Block without navigation)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
-    ),
-  },
-}
+SkirtWithoutTitleBlockNavigation.story =
+  "Skirt (Title Block without navigation)"
 
 export const WithoutSkirtCard = () => (
   <>
@@ -304,11 +287,4 @@ export const WithoutSkirtCard = () => (
   </>
 )
 
-WithoutSkirtCard.story = {
-  name: "Skirt (without SkirtCard)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
-    ),
-  },
-}
+WithoutSkirtCard.story = "Skirt (without SkirtCard)"

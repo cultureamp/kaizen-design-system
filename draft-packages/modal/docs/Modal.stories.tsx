@@ -84,7 +84,7 @@ export default {
       },
     },
     ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A35440"
     ),
     chromatic: {
       delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
@@ -118,14 +118,8 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
   </ModalStateContainer>
 )
 
-ConfirmationPositiveKaizenSiteDemo.story = {
-  name: "Confirmation (positive) (Kaizen Site Demo)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18307"
-    ),
-  },
-}
+ConfirmationPositiveKaizenSiteDemo.story =
+  "Confirmation (positive) (Kaizen Site Demo)"
 
 export const ConfirmationInformative = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
@@ -151,14 +145,7 @@ export const ConfirmationInformative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationInformative.story = {
-  name: "Confirmation (informative)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1700%3A65"
-    ),
-  },
-}
+ConfirmationInformative.story = "Confirmation (informative)"
 
 export const ConfirmationCautionary = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
@@ -184,14 +171,7 @@ export const ConfirmationCautionary = () => (
   </ModalStateContainer>
 )
 
-ConfirmationCautionary.story = {
-  name: "Confirmation (cautionary)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18381"
-    ),
-  },
-}
+ConfirmationCautionary.story = "Confirmation (cautionary)"
 
 export const ConfirmationNegative = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
@@ -217,14 +197,7 @@ export const ConfirmationNegative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationNegative.story = {
-  name: "Confirmation (negative)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18460"
-    ),
-  },
-}
+ConfirmationNegative.story = "Confirmation (negative)"
 
 export const ConfirmationWorkingButton = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
@@ -304,14 +277,7 @@ export const InputEditPositive = () => (
   </ModalStateContainer>
 )
 
-InputEditPositive.story = {
-  name: "Input-edit (positive)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A121"
-    ),
-  },
-}
+InputEditPositive.story = "Input-edit (positive)"
 
 export const InputEditPositiveRtlLocale = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
@@ -718,14 +684,8 @@ export const InformationModalWithImage = () => (
   </ModalStateContainer>
 )
 
-InformationModalWithImage.story = {
-  name: "Information (with image) - Outdated browser demo",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
-    ),
-  },
-}
+InformationModalWithImage.story =
+  "Information (with image) - Outdated browser demo"
 
 const InformationModalContent = () => (
   <>
@@ -796,14 +756,8 @@ export const InformationModalWithNotification = () => (
   </ModalStateContainer>
 )
 
-InformationModalWithNotification.story = {
-  name: "Information (with Inline Notification)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
-    ),
-  },
-}
+InformationModalWithNotification.story =
+  "Information (with Inline Notification)"
 
 export const InformationModalWithWorkingButton = () => {
   const [isLoading, setIsLoading] = React.useState(false)
@@ -862,14 +816,7 @@ export const InformationModalWithWorkingButton = () => {
   )
 }
 
-InformationModalWithWorkingButton.story = {
-  name: "Information (with working button)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
-    ),
-  },
-}
+InformationModalWithWorkingButton.story = "Information (with working button)"
 
 export const GenericModalPadded = () => (
   <>

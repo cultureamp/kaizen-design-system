@@ -4,7 +4,7 @@ import styles from "./style.module.scss"
 
 export type BaseProps = {
   /**
-   *  Refer to the Base Illustration Sticker Sheet in Zen UI Kit
+   *  Refer to the Base Illustration Sticker Sheet in Heart UI Kit
    */
   name: string
 
