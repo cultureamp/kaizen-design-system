@@ -91,7 +91,7 @@ export const Avatar = ({
       <Icon
         inheritSize
         role={fullName ? "img" : "presentation"}
-        title={fullName || " "}
+        title={fullName}
         icon={userIcon}
       />
     </span>

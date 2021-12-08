@@ -54,11 +54,11 @@ export const DesignSheetDefault = () => (
           {story.title}
         </Heading>
         <br />
-        {story.stories.map(storyData => {
-          const avatarData = storyData as AvatarProps
+        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
+          const avatarProps = storyData as AvatarProps
           return (
             <>
-              <Avatar {...avatarData} />
+              <Avatar {...avatarProps} />
               <br />
             </>
           )
@@ -87,11 +87,11 @@ export const DesignSheetReversed = () => (
           {story.title}
         </Heading>
         <br />
-        {story.stories.map(storyData => {
-          const avatarData = storyData as AvatarProps
+        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
+          const avatarProps = storyData as AvatarProps
           return (
             <>
-              <Avatar {...avatarData} />
+              <Avatar {...avatarProps} />
               <br />
             </>
           )
