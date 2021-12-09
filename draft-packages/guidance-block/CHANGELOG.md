@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.3.50...@kaizen/draft-guidance-block@3.3.51) (2021-12-09)
+
+
+### Bug Fixes
+
+* Add padding-right to GuidanceBlock description container ([#2352](https://github.com/cultureamp/kaizen-design-system/issues/2352)) ([cd85a67](https://github.com/cultureamp/kaizen-design-system/commit/cd85a674f93491650d2ab0afee2ab9ff50a47d4a))
+
+
+
+
+
 ## [3.3.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.3.49...@kaizen/draft-guidance-block@3.3.50) (2021-12-09)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
