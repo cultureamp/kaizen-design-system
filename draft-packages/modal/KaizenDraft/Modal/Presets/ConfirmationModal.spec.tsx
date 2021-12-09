@@ -1,12 +1,13 @@
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
 import ConfirmationModal, { ConfirmationModalProps } from "./ConfirmationModal"
+import "./matchMedia.mock"
 
 afterEach(cleanup)
 
 const ConfirmationModalWrapper = (props: Partial<ConfirmationModalProps>) => (
   <ConfirmationModal
-    type="informative"
+    mood="informative"
     isOpen={true}
     title="Example Modal Title"
     onDismiss={() => undefined}

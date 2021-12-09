@@ -427,7 +427,7 @@ confirmId id_ (Config config) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/ElmConfirmationModal.scss"
         { header = "header"
         , cautionaryHeader = "cautionaryHeader"
         , informativeHeader = "informativeHeader"

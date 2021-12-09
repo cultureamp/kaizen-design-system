@@ -1,5 +1,7 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 
-.padded {
-  padding: $ca-grid;
+.inputEdit {
+  background-color: $color-gray-200;
+  border-radius: $border-solid-border-radius;
 }
