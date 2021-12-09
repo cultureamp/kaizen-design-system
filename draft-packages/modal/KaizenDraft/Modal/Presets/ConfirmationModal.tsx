@@ -1,13 +1,18 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Heading } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 import {
+  Assertive,
   Cautionary,
   Informative,
   Negative,
-  PositiveFemale,
+  Positive,
 } from "@kaizen/draft-illustration"
+
+import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 
 import { ButtonProps } from "@kaizen/draft-button"
 import {
@@ -23,7 +28,15 @@ import styles from "./ConfirmationModal.scss"
 
 export interface ConfirmationModalProps {
   readonly isOpen: boolean
-  readonly type: ModalType
+  readonly unpadded?: boolean
+  /**
+   * To display the Prominent variation of the modal types
+   */
+  readonly isProminent?: boolean
+  /**
+   * Defines the modal type or mood
+   */
+  readonly mood: Mood
   readonly title: string
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
@@ -35,24 +48,49 @@ export interface ConfirmationModalProps {
 }
 
 type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
-type ModalType = "positive" | "informative" | "negative" | "cautionary"
 
-const getIcon = (type: ModalType) => {
-  switch (type) {
+type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
+
+const getIcon = (mood: Mood, isProminent: boolean) => {
+  switch (mood) {
     case "cautionary":
-      return <Cautionary alt="" />
+      return isProminent ? (
+        <Cautionary alt="" isAnimated />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
     case "informative":
-      return <Informative alt="" />
+      return isProminent ? (
+        <Informative alt="" isAnimated />
+      ) : (
+        <Icon icon={informationIcon} inheritSize role="presentation" />
+      )
     case "negative":
-      return <Negative alt="" />
+      return isProminent ? (
+        <Negative alt="" isAnimated />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
     case "positive":
-      return <PositiveFemale alt="" />
+      return isProminent ? (
+        <Positive alt="" isAnimated />
+      ) : (
+        <Icon icon={successIcon} inheritSize role="presentation" />
+      )
+    case "assertive":
+      return isProminent ? (
+        <Assertive alt="" isAnimated />
+      ) : (
+        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+      )
   }
 }
 
 const ConfirmationModal = ({
   isOpen,
-  type,
+  isProminent = false,
+  unpadded = false,
+  mood,
   title,
   onConfirm,
   confirmLabel = "Confirm",
@@ -92,34 +130,49 @@ const ConfirmationModal = ({
       automationId={automationId}
     >
       <div className={styles.modal}>
-        <ModalHeader unpadded onDismiss={onDismiss}>
+        <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(styles.header, {
-              [styles.cautionaryHeader]: type === "cautionary",
-              [styles.informativeHeader]: type === "informative",
-              [styles.negativeHeader]: type === "negative",
-              [styles.positiveHeader]: type === "positive",
+              [styles.cautionaryHeader]: mood === "cautionary",
+              [styles.informativeHeader]: mood === "informative",
+              [styles.negativeHeader]: mood === "negative",
+              [styles.positiveHeader]: mood === "positive",
+              [styles.assertiveHeader]: mood === "assertive",
+              [styles.prominent]: isProminent,
+              [styles.padded]: !unpadded,
             })}
           >
-            <div className={styles.iconContainer}>
-              <div className={styles.spotIcon}>{getIcon(type)}</div>
+            <div
+              className={classnames(styles.iconContainer, {
+                [styles.prominent]: isProminent,
+              })}
+            >
+              <div className={styles.spotIcon}>
+                {getIcon(mood, isProminent)}
+              </div>
             </div>
-            <ModalAccessibleLabel>
-              <Heading tag="h1" variant="heading-1">
+            <ModalAccessibleLabel isProminent={isProminent}>
+              <Heading tag="h2" variant="heading-2">
                 {title}
               </Heading>
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalBody unpadded>
-          <div className={styles.body}>
+        <ModalBody>
+          <div
+            className={classnames(styles.body, {
+              [styles.prominent]: isProminent,
+              [styles.padded]: !unpadded,
+            })}
+          >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={type === "negative" ? "destructive" : "primary"}
+          appearance={mood === "negative" ? "destructive" : "primary"}
           automationId={automationId}
+          unpadded={unpadded}
         />
       </div>
     </GenericModal>
