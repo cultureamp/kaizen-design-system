@@ -72,6 +72,7 @@ const Tag = (props: TagProps) => {
     <div
       className={classNames(styles.root, {
         [styles.default]: variant === "default" || variant === "profile",
+        [styles.profile]: variant === "profile",
         [styles.sentimentPositive]: variant === "sentimentPositive",
         [styles.sentimentNeutral]: variant === "sentimentNeutral",
         [styles.sentimentNegative]: variant === "sentimentNegative",
@@ -120,7 +121,7 @@ const Tag = (props: TagProps) => {
                 )
               case "profile":
                 return (
-                  <span className={styles.validationIcon}>
+                  <span className={styles.profile}>
                     {props.avatar && renderAvatar(props.avatar)}
                   </span>
                 )
