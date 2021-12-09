@@ -49,6 +49,7 @@ describe("<Badge />", () => {
       renderBadge({
         variant: "dot",
         // @ts-expect-error
+        // Used to ignore the TS error when adding children to dot variant.
         children: "test",
       })
 
