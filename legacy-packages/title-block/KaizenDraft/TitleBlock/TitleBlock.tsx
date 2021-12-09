@@ -111,14 +111,11 @@ class TitleBlock extends React.Component<Props, State> {
       variant = "statusLive"
     }
 
-    // TODO: explicitly omit/exclude profile as a variant type value
-    if (variant !== "profile") {
-      return (
-        <div className={styles.tag}>
-          <Tag variant={variant}>{surveyStatus.text}</Tag>
-        </div>
-      )
-    }
+    return (
+      <div className={styles.tag}>
+        <Tag variant={variant}>{surveyStatus.text}</Tag>
+      </div>
+    )
   }
 
   renderSubtitle = () => {
