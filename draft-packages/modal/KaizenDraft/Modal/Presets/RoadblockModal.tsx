@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { Heading } from "@kaizen/component-library"
 import { Negative } from "@kaizen/draft-illustration"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import {
   GenericModal,
@@ -25,6 +26,9 @@ export interface RoadblockModalProps {
 
 type RoadblockModal = React.FunctionComponent<RoadblockModalProps>
 
+/**
+ * @deprecated RoadblockModal is deprecated. Please use Confirmation Modal instead.
+ */
 const RoadblockModal = ({
   isOpen,
   title,
@@ -69,4 +73,7 @@ const RoadblockModal = ({
   </GenericModal>
 )
 
-export default RoadblockModal
+export default withDeprecatedComponent(RoadblockModal, {
+  warning:
+    "RoadblockModal is deprecated. Please use Confirmation Modal instead.",
+})

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.17...@kaizen/draft-tag@2.0.0) (2021-12-09)
+
+
+### Features
+
+* New InputModal, ConfirmationModal and ContextModal updates ([#2337](https://github.com/cultureamp/kaizen-design-system/issues/2337)) ([01dc545](https://github.com/cultureamp/kaizen-design-system/commit/01dc545bef5427e593d153039a1245045a068e4e))
+
+
+### BREAKING CHANGES
+
+* Refactor of modals to reflect UI Kit design updates.
+
+* New styles for all modals - InputEditModal, ConfirmationModal, ContextModal (previously InformationModal).
+* InformationModal renamed to ContextModal - You will need to update any imports.
+* Deprecated RoadblockModal - use ConfirmationModal instead.
+
+
+
+
+
 ## [1.12.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.16...@kaizen/draft-tag@1.12.17) (2021-12-08)
 
 **Note:** Version bump only for package @kaizen/draft-tag
