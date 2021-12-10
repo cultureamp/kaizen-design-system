@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.0...@kaizen/draft-modal@8.0.1) (2021-12-10)
+
+
+### Bug Fixes
+
+* remove previous padded styling on GenericModal ([#2354](https://github.com/cultureamp/kaizen-design-system/issues/2354)) ([4919e08](https://github.com/cultureamp/kaizen-design-system/commit/4919e080707920294afcfa7ada5eada66ef8e3b2))
+
+
+
+
+
 # [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@7.0.4...@kaizen/draft-modal@8.0.0) (2021-12-09)
 
 
