@@ -59,7 +59,7 @@ const RoadblockModal = ({
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
-      <ModalBody unpadded>
+      <ModalBody>
         <div className={styles.body}>
           <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
         </div>
