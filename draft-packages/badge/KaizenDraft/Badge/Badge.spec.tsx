@@ -5,11 +5,7 @@ import { Badge, BadgeProps } from "./Badge"
 
 afterEach(cleanup)
 
-const renderBadge = (props?: BadgeProps) => {
-  const mergedBadgeProps = { ...props }
-
-  return render(<Badge {...mergedBadgeProps} />)
-}
+const renderBadge = (props?: BadgeProps) => render(<Badge {...props} />)
 
 describe("<Badge />", () => {
   describe("default", () => {
