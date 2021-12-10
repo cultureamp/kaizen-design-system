@@ -28,9 +28,18 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
 
 export interface AvatarProps {
   /**
+   * Src for the avatar <image> to load, if not passed we will derive initials from the full name. Note that the fullname prop will be used as the alt tag for this.
+   */
+  avatarSrc?: string
+  /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
   fullName?: string
+  /**
+   * There are 5 fixed avatar sizes. "small" will remove border and box shadow to save space.
+   * @default "medium"
+   */
+  size?: AvatarSizes
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
    * This disables this feature and shows the generic avatar.
@@ -38,19 +47,10 @@ export interface AvatarProps {
    */
   disableInitials?: boolean
   /**
-   * Src for the avatar image to load, if not passed we will derive initials from the full name.
-   */
-  avatarSrc?: string
-  /**
    * Shows a different background colour if the avatar is the current user.
    * @default "true"
    */
   isCurrentUser?: boolean
-  /**
-   * There are 3 fixed avatar sizes. "small" will remove border and box shadow to save space.
-   * @default "medium"
-   */
-  size?: AvatarSizes
   /**
    * This toggles the avatar style between user and business avatars
    * @default "false"
@@ -117,7 +117,7 @@ export const Avatar = ({
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}
-          alt={fullName || " "}
+          alt={fullName || ""}
         />
       )}
       {(avatarState === "none" || avatarState === "error") &&
@@ -128,7 +128,7 @@ export const Avatar = ({
             className={cx(styles.initials, {
               [styles.longName]: isLongName,
             })}
-            title={fullName || " "}
+            title={fullName || ""}
           >
             {isLongName ? (
               // Only called if 3 or more initials, fits text width for long names

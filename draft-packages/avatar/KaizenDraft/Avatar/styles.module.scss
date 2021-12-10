@@ -1,11 +1,16 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/color";
-@import "./decision-tokens.scss";
 @import "~@kaizen/design-tokens/sass/border";
 
+$avatar-sm: 1.25rem;
+$avatar-md: 3rem;
+$avatar-lg: 4.5rem;
+$avatar-xl: 6rem;
+$avatar-xxl: 7.75rem;
+
 .wrapper {
-  background: $dt-color-background-color;
+  background: $color-gray-300;
   border-radius: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -15,51 +20,67 @@
 
   &:not(.small) {
     box-shadow: $shadow-small-box-shadow;
-    border: 3px solid $dt-color-border-color;
+    border: 3px solid $color-white;
   }
 
   // Themes
   &.personal {
-    background: $dt-color-background-color-personal;
+    background: $color-orange-100;
   }
 
   &.otherUser {
-    background: $dt-color-background-color-initials;
+    background: $color-gray-300;
   }
 
   &.company {
+    border: 0px;
     background: $color-white;
+    padding: 6px;
     border-radius: $border-solid-border-radius;
   }
 
   // Sizes
 
   &.small {
-    width: $dt-avatar-sm;
-    height: $dt-avatar-sm;
+    width: $avatar-sm;
+    height: $avatar-sm;
+
+    .initials {
+      // TODO: confirm mb
+      margin-bottom: -1px;
+    }
+
+    &.company {
+      padding: 0;
+    }
   }
 
   &.medium {
-    width: $dt-avatar-md;
-    height: $dt-avatar-md;
+    width: $avatar-md;
+    height: $avatar-md;
+
+    .initials {
+      // TODO: confirm mb
+      margin-bottom: -1px;
+    }
   }
 
   &.large {
-    width: $dt-avatar-lg;
-    height: $dt-avatar-lg;
+    width: $avatar-lg;
+    height: $avatar-lg;
   }
 
   &.xlarge {
-    width: $dt-avatar-xl;
-    height: $dt-avatar-xl;
+    width: $avatar-xl;
+    height: $avatar-xl;
   }
 
   &.xxlarge {
-    width: $dt-avatar-xxl;
-    height: $dt-avatar-xxl;
+    width: $avatar-xxl;
+    height: $avatar-xxl;
   }
 
-  abbr {
+  & .initials {
     text-decoration: none;
     speak-as: spell-out;
   }
@@ -77,11 +98,11 @@
 .companyAvatarImage {
   object-fit: contain;
   box-sizing: border-box;
-  padding: 0.25rem;
+  border-radius: 4px;
 }
 
 .fallbackIcon {
-  color: $dt-color-icon-color;
+  color: rgba($color-purple-800-rgb, 0.7);
   width: 28px;
 
   .xxlarge & {
@@ -95,15 +116,19 @@
   }
   .medium & {
     width: 25px;
+    // TODO: confirm mb
+    margin-bottom: -1px;
   }
   .small & {
     width: 10px;
+    // TODO: confirm mb
+    margin-bottom: -1px;
   }
 }
 
 .initials {
   box-sizing: border-box;
-  color: $dt-color-text-color;
+  color: $color-purple-800;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;

@@ -1,10 +1,8 @@
 import React from "react"
-import { render, cleanup, fireEvent, screen } from "@testing-library/react"
+import { render, fireEvent, screen } from "@testing-library/react"
 import { Avatar } from "./Avatar"
 
 describe("<Avatar />", () => {
-  afterEach(cleanup)
-
   it("renders user initials if the image link is broken", () => {
     render(<Avatar fullName="John Doe" avatarSrc="broken" />)
     fireEvent.error(screen.getByRole("img"))
