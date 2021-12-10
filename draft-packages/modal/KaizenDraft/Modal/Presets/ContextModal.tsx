@@ -103,7 +103,7 @@ const ContextModal = ({
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <ModalBody unpadded={unpadded}>
+        <ModalBody>
           <div
             className={classnames(styles.contentLayout, {
               [styles.portraitContentlayout]: layout === "portrait",
