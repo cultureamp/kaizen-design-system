@@ -15,10 +15,10 @@ export interface ModalHeaderProps {
 
 class ModalHeader extends React.Component<ModalHeaderProps> {
   render() {
-    const { unpadded, reversed, onDismiss, children } = this.props
+    const { reversed, onDismiss, children } = this.props
 
     return (
-      <GenericModalSection unpadded={unpadded}>
+      <GenericModalSection>
         <div className={styles.dismissButton}>
           <IconButton
             label="Dismiss"

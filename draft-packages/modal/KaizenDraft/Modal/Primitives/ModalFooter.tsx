@@ -36,10 +36,7 @@ const ModalFooter: ModalFooter = props => {
   const { queries } = useMediaQueries()
 
   return (
-    <GenericModalSection
-      unpadded={unpadded}
-      inputEdit={variant === "inputEdit"}
-    >
+    <GenericModalSection inputEdit={variant === "inputEdit"}>
       <div
         className={classNames(
           styles.actions,
