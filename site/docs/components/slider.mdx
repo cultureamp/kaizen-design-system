@@ -28,6 +28,13 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D16080%253A4049" allowfullscreen></iframe>
 
+## Options
+
+- **Default:**
+    - In a default slider, the user can make an imprecise selection from a range of values, where there is no implication of progression from one side to the other.
+- **Progress:**
+    - In a progress slider, the user can make an precise selection from a range of values, aided by an exact indication of value. A sense of progress is implied, from one side to the other.
+
 ## To keep in mind
 
 Sliders are helpful for choosing subjective values.
@@ -35,7 +42,7 @@ Sliders are helpful for choosing subjective values.
 - Always indicate the current, selected value. Ideally with visible text associated with the handle, but at a minimum provide a text alternative for screen readers.
 - Provide a visible label describing what the slider changes, such as "Brightness".
 - Show the minimum value on the left and maximum value on the right, where these are reversed in Right-To-Left (RTL) languages.
-- We generally use sliders with no fill. You might use a fill when it's useful to give the impression of building towards the maximum value.
+- Default sliders have no full. The progress slider uses a fill to give the impression of building towards the maximum value.
 
 ## Anatomy
 
@@ -51,6 +58,9 @@ Steps are selectable values along a slider range and can be visually indicated b
 
 Where the range of values is not obvious, sliders should be labeled with minimum and maximum values. An optional center label can also be used to denote a middle value or as a description.
 
+### Progress track
+
+A filled progress track is used in the progress slider. It follows the path of the regular track to indicate where the handle has been dragged from.
 
 ## Behavior
 
@@ -84,6 +94,7 @@ Keep descriptive labels short (1-2 words max)
 
 - Use a slider when an imprecise selection makes sense. For example, you might use a slider to ask someone to rate how they're feeling or adjust settings, such as brightness or volume.
 - Use a slider when changing the value has an immediate effect. If applying the setting requires pressing a confirmation button, consider using a [Radio Group](/components/radio-group) instead.
+- Use a progress slider when user input is required to provide the amount of progress. If progress updates automatically, consider using a [Progress Bar](/components/progress-bar) instead.
 
 </WhenToUse>
 <WhenNotToUse>
