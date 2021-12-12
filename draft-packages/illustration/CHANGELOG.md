@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.2...@kaizen/draft-illustration@2.12.3) (2021-12-12)
+
+
+### Bug Fixes
+
+* add fallback for aspect ratio styles in safari 14 ([#2356](https://github.com/cultureamp/kaizen-design-system/issues/2356)) ([90d7d73](https://github.com/cultureamp/kaizen-design-system/commit/90d7d7388737f2ea80307620f0fbbe3a8725c865))
+
+
+
+
+
 ## [2.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.1...@kaizen/draft-illustration@2.12.2) (2021-12-09)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
