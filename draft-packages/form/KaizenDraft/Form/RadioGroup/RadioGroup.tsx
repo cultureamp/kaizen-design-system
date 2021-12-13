@@ -13,9 +13,7 @@ export type RadioGroupProps = {
   reversed?: boolean
 }
 
-type RadioGroup = React.FunctionComponent<RadioGroupProps>
-
-const RadioGroup: RadioGroup = ({
+const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   automationId = "",
   children,
   labelText = "",

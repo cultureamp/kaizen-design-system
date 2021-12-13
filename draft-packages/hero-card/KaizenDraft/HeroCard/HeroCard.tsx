@@ -20,9 +20,7 @@ export interface HeroCardProps {
   readonly leftBackgroundColor?: BackgroundColors
 }
 
-type HeroCard = React.FunctionComponent<HeroCardProps>
-
-const HeroCard: HeroCard = ({
+const HeroCard: React.FunctionComponent<HeroCardProps> = ({
   leftContent,
   children,
   title,

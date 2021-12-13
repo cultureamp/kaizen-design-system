@@ -18,9 +18,7 @@ export interface LoadingPlaceholderProps {
   readonly width?: number
 }
 
-type LoadingPlaceholder = React.FunctionComponent<LoadingPlaceholderProps>
-
-const LoadingPlaceholder: LoadingPlaceholder = ({
+const LoadingPlaceholder: React.FunctionComponent<LoadingPlaceholderProps> = ({
   animated = true,
   centred,
   reversedDefault,

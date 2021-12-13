@@ -19,9 +19,7 @@ export interface ToggleSwitchProps {
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-type ToggleSwitch = React.FunctionComponent<ToggleSwitchProps>
-
-const ToggleSwitch: ToggleSwitch = ({
+const ToggleSwitch: React.FunctionComponent<ToggleSwitchProps> = ({
   id,
   automationId,
   name,

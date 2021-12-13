@@ -27,9 +27,7 @@ export interface InputProps
   endIconAdornment?: React.ReactNode
 }
 
-type Input = React.FunctionComponent<InputProps>
-
-const Input: Input = ({
+const Input: React.FunctionComponent<InputProps> = ({
   id,
   name,
   automationId,

@@ -20,9 +20,7 @@ export type CheckboxFieldProps = {
   value?: string
 }
 
-type CheckboxField = React.FunctionComponent<CheckboxFieldProps>
-
-const CheckboxField: CheckboxField = ({
+const CheckboxField: React.FunctionComponent<CheckboxFieldProps> = ({
   id = "",
   automationId,
   name = "",

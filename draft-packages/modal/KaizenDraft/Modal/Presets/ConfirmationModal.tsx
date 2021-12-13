@@ -99,7 +99,7 @@ const ConfirmationModal = ({
   automationId,
   children,
   ...props
-}: ConfirmationModalProps) => {
+}): React.FunctionComponent<ConfirmationModalProps> => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
 
   const footerActions: ButtonProps[] = []

@@ -14,8 +14,6 @@ export type RadioProps = {
   value: string
 }
 
-type Radio = React.FunctionComponent<RadioProps>
-
 const renderSelected = (selectedStatus: boolean, reversed) => {
   if (selectedStatus) {
     return (
@@ -29,7 +27,7 @@ const renderSelected = (selectedStatus: boolean, reversed) => {
   return
 }
 
-const Radio: Radio = ({
+const Radio: React.FunctionComponent<RadioProps> = ({
   id,
   automationId,
   name,

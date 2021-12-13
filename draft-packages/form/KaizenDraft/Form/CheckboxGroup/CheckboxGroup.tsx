@@ -11,9 +11,7 @@ export type CheckboxGroupProps = {
   reversed?: boolean
 }
 
-type CheckboxGroup = React.FunctionComponent<CheckboxGroupProps>
-
-const CheckboxGroup: CheckboxGroup = ({
+const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   automationId,
   children,
   labelText,
