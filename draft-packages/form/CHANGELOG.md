@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.14.3...@kaizen/draft-form@4.0.0) (2021-12-13)
+
+
+### Bug Fixes
+
+* 🐛  Update ID prop on SearchField to be required and update name. ([#2359](https://github.com/cultureamp/kaizen-design-system/issues/2359)) ([3654cac](https://github.com/cultureamp/kaizen-design-system/commit/3654cacfd1fc31a6be26dd42e6453409c61bd3ec)), closes [#2329](https://github.com/cultureamp/kaizen-design-system/issues/2329)
+
+
+### BREAKING CHANGES
+
+* 🧨  Fixed SearchField to have a required ID prop to avoid any undefined errors. Also updates the ID itself to remove '-search-field-input' suffix.
+
+
+
+
+
 ## [3.14.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.14.2...@kaizen/draft-form@3.14.3) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/draft-form
