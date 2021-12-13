@@ -43,9 +43,7 @@ interface Props extends GenericTileProps {
   readonly footer: React.ReactNode
 }
 
-type GenericTile = React.FunctionComponent<Props>
-
-const GenericTile: GenericTile = ({
+const GenericTile: React.FunctionComponent<Props> = ({
   children,
   title,
   titleTag = "h3",

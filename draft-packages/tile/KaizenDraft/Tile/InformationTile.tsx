@@ -6,9 +6,7 @@ export interface InformationTileProps extends GenericTileProps {
   readonly footer?: React.ReactNode
 }
 
-type InformationTile = React.FunctionComponent<InformationTileProps>
-
-const InformationTile: InformationTile = ({
+const InformationTile: React.FunctionComponent<InformationTileProps> = ({
   title,
   titleTag,
   metadata,

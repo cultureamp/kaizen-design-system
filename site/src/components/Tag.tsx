@@ -5,8 +5,8 @@ type TagProps = {
   text: string
 }
 
-type Tag = React.FunctionComponent<TagProps>
-
-const Tag: Tag = ({ text }) => <span className={styles.tag}>{text}</span>
+const Tag: React.FunctionComponent<TagProps> = ({ text }) => (
+  <span className={styles.tag}>{text}</span>
+)
 
 export default Tag

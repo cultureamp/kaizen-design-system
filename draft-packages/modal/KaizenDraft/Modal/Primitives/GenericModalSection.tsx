@@ -8,9 +8,7 @@ export interface GenericModalSectionProps {
   readonly children: React.ReactNode
 }
 
-type GenericModalSection = React.FunctionComponent<GenericModalSectionProps>
-
-const GenericModalSection: GenericModalSection = ({
+const GenericModalSection: React.FunctionComponent<GenericModalSectionProps> = ({
   inputEdit = false,
   children,
 }) => (

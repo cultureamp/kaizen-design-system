@@ -6,12 +6,9 @@ export interface ModalAccessibleDescriptionProps {
   readonly children: React.ReactNode
 }
 
-type ModalAccessibleDescription =
-  React.FunctionComponent<ModalAccessibleDescriptionProps>
-
-const ModalAccessibleDescription: ModalAccessibleDescription = ({
-  children,
-}) => (
+const ModalAccessibleDescription: React.FunctionComponent<
+  ModalAccessibleDescriptionProps
+> = ({ children }) => (
   <ModalAccessibleContext.Consumer>
     {({ describedByID }) => (
       <div id={describedByID} className={styles.modalDescription}>

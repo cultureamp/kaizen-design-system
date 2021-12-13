@@ -8,11 +8,10 @@ import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.sv
 import { Tooltip } from "@kaizen/draft-tooltip"
 import styles from "./styles.scss"
 
-type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   variant?: "compact" | "default" | "data"
 }
-export const TableContainer: TableContainer = ({
+export const TableContainer: React.FunctionComponent<TableContainerProps> = ({
   variant = "compact",
   children,
   ...otherProps
@@ -34,10 +33,10 @@ export const TableContainer: TableContainer = ({
  */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
-type TableHeader = React.FunctionComponent<{
+type TableHeader = {
   backgroundColor?: AllowedTableHeaderBackgroundColors
-}>
-export const TableHeader: TableHeader = ({
+}
+export const TableHeader: React.FunctionComponent<TableHeader> = ({
   backgroundColor,
   children,
   ...otherProps
@@ -56,8 +55,10 @@ export const TableHeader: TableHeader = ({
   )
 }
 
-type TableHeaderRow = React.FunctionComponent
-export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
+export const TableHeaderRow: React.FunctionComponent = ({
+  children,
+  ...otherProps
+}) => (
   <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
@@ -72,7 +73,7 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = React.FunctionComponent<{
+type TableHeaderRowCellProps = {
   labelText: string
   automationId?: string
   onClick?:
@@ -101,8 +102,8 @@ type TableHeaderRowCell = React.FunctionComponent<{
   align?: "start" | "center" | "end"
   tooltipInfo?: string
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
-}>
-export const TableHeaderRowCell: TableHeaderRowCell = ({
+}
+export const TableHeaderRowCell: React.FunctionComponent<TableHeaderRowCellProps> = ({
   labelText,
   automationId,
   onClick,
@@ -291,7 +292,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
-type TableCard = React.FunctionComponent<{
+type TableCardProps = {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
@@ -300,8 +301,8 @@ type TableCard = React.FunctionComponent<{
   // rows. An example use case is when you might want to handle click events
   // at a cell level, instead of the full row level.
   forceHoverState?: boolean
-}>
-export const TableCard: TableCard = ({
+}
+export const TableCard: React.FunctionComponent<TableCardProps> = ({
   children,
   expanded,
   expandedStyle = "well",
@@ -345,8 +346,10 @@ export const TableCard: TableCard = ({
  *
  * @param {*} { children, ...otherProps }
  */
-type TableRow = React.FunctionComponent
-export const TableRow: TableRow = ({ children, ...otherProps }) => (
+export const TableRow: React.FunctionComponent = ({
+  children,
+  ...otherProps
+}) => (
   <div className={styles.row} role="row" {...otherProps}>
     {children}
   </div>
@@ -358,12 +361,12 @@ export const TableRow: TableRow = ({ children, ...otherProps }) => (
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCell = React.FunctionComponent<{
+type TableRowCellProps = {
   width?: number
   flex?: string
   href?: string
-}>
-export const TableRowCell: TableRowCell = ({
+}
+export const TableRowCell: React.FunctionComponent<TableRowCellProps> = ({
   children,
   width,
   flex,

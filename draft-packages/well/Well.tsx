@@ -22,9 +22,7 @@ export type WellProps = {
   noMargin?: boolean
 }
 
-type Well = React.FunctionComponent<WellProps>
-
-const Well: Well = ({
+const Well: React.FunctionComponent<WellProps> = ({
   id,
   automationId,
   children,

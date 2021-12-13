@@ -7,15 +7,15 @@ type RolesType =
   | "img" // meaningful, title should be read aloud to users who can't see it
   | "presentation" // decorative, should be silent to users who can't see it
 
-type Icon = React.FunctionComponent<{
+type IconProps = {
   icon: React.SVGAttributes<SVGSymbolElement>
   inheritSize?: boolean
   role?: RolesType
   title?: string
   desc?: string
-}>
+}
 
-const Icon: Icon = ({
+const Icon: React.FunctionComponent<IconProps> = ({
   icon,
   inheritSize = false,
   role = "img",

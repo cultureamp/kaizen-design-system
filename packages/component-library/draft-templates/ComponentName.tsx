@@ -12,10 +12,10 @@ export type ComponentNameProps = {
   //   disabled?: boolean
 }
 
-type ComponentName = React.FunctionComponent<ComponentNameProps>
-
-const ComponentName: ComponentName = ({ id, automationId, children }) => (
-  <div className={styles.container}>{children}</div>
-)
+const ComponentName: React.FunctionComponent<ComponentNameProps> = ({
+  id,
+  automationId,
+  children,
+}) => <div className={styles.container}>{children}</div>
 
 export default ComponentName

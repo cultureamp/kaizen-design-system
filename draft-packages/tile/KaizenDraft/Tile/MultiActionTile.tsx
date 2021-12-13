@@ -14,8 +14,6 @@ export interface MultiActionTileProps extends GenericTileProps {
   readonly secondaryAction?: TileAction
 }
 
-type MultiActionTile = React.FunctionComponent<MultiActionTileProps>
-
 const renderActions = (
   primaryAction: TileAction,
   secondaryAction?: TileAction
@@ -30,7 +28,7 @@ const renderActions = (
   </div>
 )
 
-const MultiActionTile: MultiActionTile = ({
+const MultiActionTile: React.FunctionComponent<MultiActionTileProps> = ({
   title,
   titleTag,
   metadata,
