@@ -1,5 +1,5 @@
 import { Heading, Icon } from "@kaizen/component-library"
-import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
+import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import { IconButton, ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
@@ -29,7 +29,7 @@ type DistributiveOmit<T, K extends keyof any> = T extends any
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
-type AvatarProps = Omit<DraftAvatarProps, "size">
+// type AvatarProps = Omit<DraftAvatarProps, "size">
 
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
