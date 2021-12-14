@@ -1,7 +1,8 @@
 import { Icon } from "@kaizen/component-library"
+import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import classNames from "classnames"
 import * as React from "react"
-import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
@@ -21,25 +22,36 @@ type Variant =
   | "statusDraft"
   | "statusClosed"
   | "statusAction"
-
-export interface TagProps {
-  readonly children: React.ReactNode
-  readonly variant?: Variant
-  readonly size?: "medium" | "small"
-  readonly inline?: boolean
-  readonly dismissible?: boolean
-  readonly onDismiss?: React.MouseEventHandler<HTMLSpanElement>
-  readonly onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
-  readonly onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
-  readonly truncateWidth?: number
+interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
+  variant: "profile"
+  avatar: JSX.Element | AvatarProps
 }
 
-const successIconVariants: Variant[] = ["validationPositive"]
+interface DefaultTagProps {
+  variant?: Variant
+  children: React.ReactNode
+  size?: "medium" | "small"
+  inline?: boolean
+  dismissible?: boolean
+  onDismiss?: React.MouseEventHandler<HTMLSpanElement>
+  onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
+  onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
+  truncateWidth?: number
+}
 
-const exclamationIconVariants: Variant[] = [
-  "validationNegative",
-  "validationCautionary",
-]
+export type TagProps = DefaultTagProps | TagWithAvatarProps
+
+const isJSXElement = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): imageElementOrAvatarProps is JSX.Element =>
+  "props" in imageElementOrAvatarProps
+
+const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps) =>
+  isJSXElement(imageElementOrAvatarProps) ? (
+    <>{imageElementOrAvatarProps}</>
+  ) : (
+    <Avatar {...imageElementOrAvatarProps} size="small" />
+  )
 
 const Tag = (props: TagProps) => {
   const {
@@ -56,11 +68,11 @@ const Tag = (props: TagProps) => {
 
   const isTruncated = truncateWidth && truncateWidth > 0
   const canShowIcon = size === "medium"
-
   return (
     <div
       className={classNames(styles.root, {
-        [styles.default]: variant === "default",
+        [styles.default]: variant === "default" || variant === "profile",
+        [styles.profile]: variant === "profile",
         [styles.sentimentPositive]: variant === "sentimentPositive",
         [styles.sentimentNeutral]: variant === "sentimentNeutral",
         [styles.sentimentNegative]: variant === "sentimentNegative",
@@ -82,26 +94,39 @@ const Tag = (props: TagProps) => {
       <div className={styles.layoutContainer}>
         {canShowIcon &&
           (() => {
-            if (successIconVariants.includes(variant)) {
-              return (
-                <span className={styles.validationIcon}>
-                  <Icon icon={successIcon} role="presentation" />
-                </span>
-              )
-            }
-            if (exclamationIconVariants.includes(variant)) {
-              return (
-                <span className={styles.validationIcon}>
-                  <Icon icon={exclamationIcon} role="presentation" />
-                </span>
-              )
-            }
-            if (variant === "validationInformative") {
-              return (
-                <span className={styles.validationIcon}>
-                  <Icon icon={informationIcon} role="presentation" />
-                </span>
-              )
+            switch (props.variant) {
+              case "validationPositive":
+                return (
+                  <span className={styles.validationIcon}>
+                    <Icon icon={successIcon} role="presentation" />
+                  </span>
+                )
+              case "validationNegative":
+                return (
+                  <span className={styles.validationIcon}>
+                    <Icon icon={exclamationIcon} role="presentation" />
+                  </span>
+                )
+              case "validationCautionary":
+                return (
+                  <span className={styles.validationIcon}>
+                    <Icon icon={exclamationIcon} role="presentation" />
+                  </span>
+                )
+              case "validationInformative":
+                return (
+                  <span className={styles.validationIcon}>
+                    <Icon icon={informationIcon} role="presentation" />
+                  </span>
+                )
+              case "profile":
+                return (
+                  <span className={styles.profile}>
+                    {props.avatar && renderAvatar(props.avatar)}
+                  </span>
+                )
+              default:
+                return
             }
           })()}
         <span
@@ -122,7 +147,6 @@ const Tag = (props: TagProps) => {
               onMouseDown={onMouseDown}
               onMouseLeave={onMouseLeave}
             >
-              <span className={styles.background} />
               <div className={styles.iconWrapper}>
                 <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
               </div>

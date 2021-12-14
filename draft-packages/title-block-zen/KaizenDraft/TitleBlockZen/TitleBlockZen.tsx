@@ -178,6 +178,11 @@ type Breadcrumb = {
 
 const renderTag = (surveyStatus: SurveyStatus) => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
+
+  if (tagVariant === "profile") {
+    return
+  }
+
   if (surveyStatus.status === "draft") {
     tagVariant = "statusDraft"
   }
