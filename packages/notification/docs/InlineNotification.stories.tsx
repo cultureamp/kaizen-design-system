@@ -54,7 +54,7 @@ export default {
 
 export const DismissiblePositiveKaizenSiteDemo = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     automationId="notification1"
   >
@@ -68,7 +68,7 @@ DismissiblePositiveKaizenSiteDemo.storyName =
 
 export const DismissiblePositiveAutohide = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     autohide
     automationId="notification1"
@@ -82,7 +82,7 @@ DismissiblePositiveAutohide.storyName = "Dismissible, Positive, Autohide"
 
 export const DismissiblePositiveAutohideHideCloseIcon = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     autohide
     hideCloseIcon
@@ -161,7 +161,7 @@ DismissibleForcedMultiline.storyName = "Dismissible, Forced Multiline"
 
 export const DismissibleSlim = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     automationId="notification1"
   >
@@ -173,7 +173,7 @@ DismissibleSlim.storyName = "Dismissible, Slim"
 
 export const PersistentPositive = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     persistent
     automationId="notification1"
@@ -254,7 +254,7 @@ PersistentForcedMultiline.storyName = "Persistent, Forced Multiline"
 
 export const PersistentSlim = () => (
   <InlineNotification
-    type="affirmative"
+    type="positive"
     title="Success"
     persistent
     automationId="notification1"
@@ -268,7 +268,7 @@ PersistentSlim.storyName = "Persistent, Slim"
 export const MultipleNotification = () => (
   <React.Fragment>
     <InlineNotification
-      type="affirmative"
+      type="positive"
       title="Success"
       automationId="notification1"
     >
@@ -302,5 +302,5 @@ export const MultipleNotification = () => (
 )
 
 export const NoChildren = () => (
-  <InlineNotification title="No children" type="affirmative" persistent />
+  <InlineNotification title="No children" type="positive" persistent />
 )

@@ -15,7 +15,7 @@ beforeEach(() => {
 
 test('Begins "hidden" but transitions out of it immediately', async () => {
   const { container } = render(
-    <GenericNotification type="affirmative" style="inline" title="Success">
+    <GenericNotification type="positive" style="inline" title="Success">
       This is my positive notification
     </GenericNotification>
   )
@@ -29,7 +29,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
   const onHide = jest.fn()
   const { container, getByTitle } = render(
     <GenericNotification
-      type="affirmative"
+      type="positive"
       style="inline"
       title="Success"
       onHide={onHide}
@@ -67,12 +67,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
 
 test("If autohide is specified, we should start hiding after 5s", async () => {
   const { container } = render(
-    <GenericNotification
-      type="affirmative"
-      style="toast"
-      title="Success"
-      autohide
-    >
+    <GenericNotification type="positive" style="toast" title="Success" autohide>
       This is my positive notification
     </GenericNotification>
   )

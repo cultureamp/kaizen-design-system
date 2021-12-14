@@ -38,15 +38,15 @@ export const GlobalNotificationVariants = () => (
     <div>
       <Heading variant="heading-3">Persistent</Heading>
 
-      <ExampleHeading>Affirmative</ExampleHeading>
+      <ExampleHeading>Positive</ExampleHeading>
 
       <GlobalNotification
-        type="affirmative"
+        type="positive"
         automationId="notification1"
         persistent={true}
       >
-        New user data, imported by mackenzie@hooli.com has successfully
-        uploaded. <a href="/">Manage users is now available</a>
+        Emails will be sent notifying coaches and inviting reviewers to give
+        their feedback. <a href="/">View all</a>
       </GlobalNotification>
 
       <ExampleHeading>Informative</ExampleHeading>
@@ -55,8 +55,8 @@ export const GlobalNotificationVariants = () => (
         automationId="notification2"
         persistent={true}
       >
-        New user data is currently being processed. We'll let you know when the
-        process is completed. <a href="/">Manage users</a>
+        [Survey name]'s status has been changed to 'Archived'.{" "}
+        <a href="/">View all</a>
       </GlobalNotification>
 
       <ExampleHeading>Cautionary</ExampleHeading>
@@ -65,8 +65,8 @@ export const GlobalNotificationVariants = () => (
         automationId="notification3"
         persistent={true}
       >
-        New user data, imported by mackenzie@hooli.com has uploaded with some
-        minor issues. <a href="/">View issues</a>
+        The syncing process can take some time to complete. Keep this window
+        open until complete. <a href="/">View all</a>
       </GlobalNotification>
 
       <ExampleHeading>Negative</ExampleHeading>
@@ -75,8 +75,8 @@ export const GlobalNotificationVariants = () => (
         automationId="notification4"
         persistent={true}
       >
-        No network connection. Check your connection and try again.{" "}
-        <a href="/">Refresh</a>.
+        Something went wrong while validating and analyzing user data.
+        <a href="/">View all</a>.
       </GlobalNotification>
     </div>
 
@@ -87,8 +87,8 @@ export const GlobalNotificationVariants = () => (
     <div>
       <Heading variant="heading-3">Dismissible</Heading>
 
-      <ExampleHeading>Affirmative</ExampleHeading>
-      <GlobalNotification type="affirmative" automationId="notification1">
+      <ExampleHeading>Positive</ExampleHeading>
+      <GlobalNotification type="positive" automationId="notification1">
         New user data, imported by mackenzie@hooli.com has successfully
         uploaded. <a href="/">Manage users is now available</a>
       </GlobalNotification>
