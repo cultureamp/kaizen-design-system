@@ -7,6 +7,52 @@ import styles from "./styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
+export interface CommonProps {
+  /**
+   * Src for the avatar img tag - if not passed we will derive initials from the full name.
+   * Note that the fullName prop will be used as the alt text.
+   */
+  avatarSrc?: string
+  /**
+   * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
+   */
+  fullName?: string
+  /**
+   * There are 5 fixed avatar sizes. `"small"` will remove border and box shadow to save space.
+   * @default "medium"
+   */
+  size?: AvatarSizes
+  /**
+   * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
+   * This disables this feature and shows the generic avatar.
+   * Enable this prop when there is no specific individual or group identified.
+   */
+  disableInitials?: boolean
+  /**
+   * Shows a different background colour if the avatar is the current user and does not have a avatar img.
+   * @default "true"
+   */
+  isCurrentUser?: boolean
+  /**
+   * Renders Company Avatar variant - If true `fullName` and `avatarSrc` will be strictly typed.
+   */
+  isCompany?: false
+}
+
+interface CompanyAvatarProps
+  extends Omit<
+    CommonProps,
+    "isCompany" | "isCurrentUser" | "disableInitials" | "avatarSrc" | "fullName"
+  > {
+  isCurrentUser?: undefined
+  disableInitials?: undefined
+  avatarSrc: string
+  fullName: string
+  isCompany: true
+}
+
+export type AvatarProps = CommonProps | CompanyAvatarProps
+
 const getInitials: (fullName?: string, max2Characters?: boolean) => string = (
   fullName,
   max2Characters = false
@@ -26,46 +72,15 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
-export interface AvatarProps {
-  /**
-   * Src for the avatar <image> to load, if not passed we will derive initials from the full name. Note that the fullname prop will be used as the alt tag for this.
-   */
-  avatarSrc?: string
-  /**
-   * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
-   */
-  fullName?: string
-  /**
-   * There are 5 fixed avatar sizes. "small" will remove border and box shadow to save space.
-   * @default "medium"
-   */
-  size?: AvatarSizes
-  /**
-   * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
-   * This disables this feature and shows the generic avatar.
-   * Enable this prop when there is no specific individual or group identified.
-   */
-  disableInitials?: boolean
-  /**
-   * Shows a different background colour if the avatar is the current user.
-   * @default "true"
-   */
-  isCurrentUser?: boolean
-  /**
-   * This toggles the avatar style between user and business avatars
-   * @default "false"
-   */
-  isCompany?: boolean
-}
-
-export const Avatar = ({
-  fullName,
-  avatarSrc,
-  disableInitials,
-  size = "medium",
-  isCurrentUser = true,
-  isCompany = false,
-}: AvatarProps) => {
+export const Avatar = (props: AvatarProps) => {
+  const {
+    fullName,
+    avatarSrc,
+    disableInitials,
+    size = "medium",
+    isCurrentUser = true,
+    isCompany = false,
+  } = props
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
@@ -120,26 +135,28 @@ export const Avatar = ({
           alt={fullName || ""}
         />
       )}
-      {(avatarState === "none" || avatarState === "error") &&
-        (disableInitials || initials === "" ? (
-          fallbackIcon
-        ) : (
-          <abbr
-            className={cx(styles.initials, {
-              [styles.longName]: isLongName,
-            })}
-            title={fullName || ""}
-          >
-            {isLongName ? (
-              // Only called if 3 or more initials, fits text width for long names
-              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-                {initials}
-              </Textfit>
-            ) : (
-              getInitials(fullName, size === "small")
-            )}
-          </abbr>
-        ))}
+      {!isCompany
+        ? (avatarState === "none" || avatarState === "error") &&
+          (disableInitials || initials === "" ? (
+            fallbackIcon
+          ) : (
+            <abbr
+              className={cx(styles.initials, {
+                [styles.longName]: isLongName,
+              })}
+              title={fullName || ""}
+            >
+              {isLongName ? (
+                // Only called if 3 or more initials, fits text width for long names
+                <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+                  {initials}
+                </Textfit>
+              ) : (
+                getInitials(fullName, size === "small")
+              )}
+            </abbr>
+          ))
+        : null}
     </span>
   )
 }
