@@ -7,10 +7,11 @@ export interface SearchFieldProps
     React.InputHTMLAttributes<HTMLInputElement>,
     "className" | "defaultValue"
   > {
+  id: string
+  labelText: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
-  labelText: string
   onClear?: () => void
 }
 
@@ -26,14 +27,13 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   onClear,
   ...genericInputProps
 }) => {
-  const searchFieldId = `${id}-search-field-input`
   const showVisibleLabel = !secondary
 
   return (
     <FieldGroup inline={false}>
       {showVisibleLabel && (
         <Label
-          htmlFor={searchFieldId}
+          htmlFor={id}
           labelText={labelText}
           reversed={reversed}
           disabled={disabled}
@@ -41,7 +41,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
       )}
       <InputSearch
         aria-label={!showVisibleLabel ? labelText : undefined}
-        id={searchFieldId}
+        id={id}
         placeholder={placeholder}
         disabled={disabled}
         value={value}

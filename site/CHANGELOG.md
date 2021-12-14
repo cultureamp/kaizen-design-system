@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.34](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.33...site@0.0.0-private.34) (2021-12-13)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.33](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.32...site@0.0.0-private.33) (2021-12-13)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.32](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.31...site@0.0.0-private.32) (2021-12-12)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.31](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.30...site@0.0.0-private.31) (2021-12-09)
 
 **Note:** Version bump only for package site
