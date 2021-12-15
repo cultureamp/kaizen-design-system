@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.27...@kaizen/draft-title-block-zen@4.2.0) (2021-12-15)
+
+
+### Features
+
+* Add Profile varient to Tag ([#2330](https://github.com/cultureamp/kaizen-design-system/issues/2330)) ([b2778e8](https://github.com/cultureamp/kaizen-design-system/commit/b2778e854f24ba72dd63023a0539f20bbf86adc6))
+
+
+
+
+
 ## [4.1.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.26...@kaizen/draft-title-block-zen@4.1.27) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

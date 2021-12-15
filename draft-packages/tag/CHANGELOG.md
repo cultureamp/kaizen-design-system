@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.0.1...@kaizen/draft-tag@2.1.0) (2021-12-15)
+
+
+### Features
+
+* Add Profile varient to Tag ([#2330](https://github.com/cultureamp/kaizen-design-system/issues/2330)) ([b2778e8](https://github.com/cultureamp/kaizen-design-system/commit/b2778e854f24ba72dd63023a0539f20bbf86adc6))
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.0.0...@kaizen/draft-tag@2.0.1) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/draft-tag
