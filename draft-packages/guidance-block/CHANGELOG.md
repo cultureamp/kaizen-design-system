@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.3.54...@kaizen/draft-guidance-block@3.3.55) (2021-12-15)
+
+
+### Bug Fixes
+
+* Update prominent background from blue to purple on GuidanceBlock ([#2367](https://github.com/cultureamp/kaizen-design-system/issues/2367)) ([a226b91](https://github.com/cultureamp/kaizen-design-system/commit/a226b9167880e24851120ca3d8e60797ed408c19))
+
+
+
+
+
 ## [3.3.54](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.3.53...@kaizen/draft-guidance-block@3.3.54) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
