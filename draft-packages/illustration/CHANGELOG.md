@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.4...@kaizen/draft-illustration@2.12.5) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.3...@kaizen/draft-illustration@2.12.4) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.2...@kaizen/draft-illustration@2.12.3) (2021-12-12)
+
+
+### Bug Fixes
+
+* add fallback for aspect ratio styles in safari 14 ([#2356](https://github.com/cultureamp/kaizen-design-system/issues/2356)) ([90d7d73](https://github.com/cultureamp/kaizen-design-system/commit/90d7d7388737f2ea80307620f0fbbe3a8725c865))
+
+
+
+
+
+## [2.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.1...@kaizen/draft-illustration@2.12.2) (2021-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [2.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.0...@kaizen/draft-illustration@2.12.1) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.11.0...@kaizen/draft-illustration@2.12.0) (2021-12-06)
+
+
+### Features
+
+* Add objective spot illustration to Spot.tsx and stories ([#2342](https://github.com/cultureamp/kaizen-design-system/issues/2342)) ([d7f0a59](https://github.com/cultureamp/kaizen-design-system/commit/d7f0a59354251ac6d3acdbfc1ae125de39c86295))
+
+
+
+
+
+# [2.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.10.2...@kaizen/draft-illustration@2.11.0) (2021-12-06)
+
+
+### Features
+
+* add survey template icons to stories & spot.tsx ([#2343](https://github.com/cultureamp/kaizen-design-system/issues/2343)) ([b23a875](https://github.com/cultureamp/kaizen-design-system/commit/b23a8750dbc51fd64021c92e3dcdb4d8a41217c7))
+
+
+
+
+
+## [2.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.10.1...@kaizen/draft-illustration@2.10.2) (2021-12-02)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.10.0...@kaizen/draft-illustration@2.10.1) (2021-12-02)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

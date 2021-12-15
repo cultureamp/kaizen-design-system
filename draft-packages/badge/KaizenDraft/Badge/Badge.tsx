@@ -3,16 +3,30 @@ import classNames from "classnames"
 
 import styles from "./styles.module.scss"
 
-type Variant = "default" | "active" | "dark"
-
-export interface BadgeProps {
-  readonly children: string
-  readonly variant?: Variant
+interface CommonProps {
+  readonly children?: string
+  /**
+   * The "dark" variant is no longer in the UI kit
+   */
+  readonly variant?: "default" | "active" | "dark"
+  /**
+   * renders reversed colors. Use on purple background
+   */
   readonly reversed?: boolean
+  /**
+   * Supports "small" and "large" sizes - defaults to "small"
+   */
+  readonly size?: "small" | "large"
+}
+interface DotProps extends Omit<CommonProps, "children" | "variant"> {
+  readonly variant: "dot"
+  readonly children?: undefined
 }
 
+export type BadgeProps = CommonProps | DotProps
+
 export const Badge = (props: BadgeProps) => {
-  const { children, variant = "default", reversed } = props
+  const { children, variant = "default", reversed, size = "small" } = props
 
   return (
     <span
@@ -20,10 +34,12 @@ export const Badge = (props: BadgeProps) => {
         [styles.default]: variant === "default",
         [styles.active]: variant === "active",
         [styles.dark]: variant === "dark",
+        [styles.dot]: variant === "dot",
         [styles.reversed]: reversed,
+        [styles.large]: size === "large",
       })}
     >
-      {children}
+      {variant != "dot" && children}
     </span>
   )
 }
@@ -48,3 +64,4 @@ export const BadgeAnimated: React.FunctionComponent<BadgeProps> = props => {
     </span>
   )
 }
+export default Badge
