@@ -29,8 +29,6 @@ type DistributiveOmit<T, K extends keyof any> = T extends any
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
-// type AvatarProps = Omit<DraftAvatarProps, "size">
-
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario

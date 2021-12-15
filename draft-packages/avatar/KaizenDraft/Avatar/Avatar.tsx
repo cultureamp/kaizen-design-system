@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
-export interface CommonProps {
+export interface GenericAvatarProps {
   /**
    * Src for the avatar img tag - if not passed we will derive initials from the full name.
    * Note that the fullName prop will be used as the alt text.
@@ -39,9 +39,9 @@ export interface CommonProps {
   isCompany?: false
 }
 
-interface CompanyAvatarProps
+export interface CompanyAvatarProps
   extends Omit<
-    CommonProps,
+    GenericAvatarProps,
     "isCompany" | "isCurrentUser" | "disableInitials" | "avatarSrc" | "fullName"
   > {
   isCurrentUser?: undefined
@@ -51,7 +51,7 @@ interface CompanyAvatarProps
   isCompany: true
 }
 
-export type AvatarProps = CommonProps | CompanyAvatarProps
+export type AvatarProps = GenericAvatarProps | CompanyAvatarProps
 
 const getInitials: (fullName?: string, max2Characters?: boolean) => string = (
   fullName,
@@ -72,6 +72,47 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
+const fallbackIcon = (fullName: string) => (
+  <span className={styles.fallbackIcon}>
+    <Icon
+      inheritSize
+      role={fullName ? "img" : "presentation"}
+      title={fullName}
+      icon={userIcon}
+    />
+  </span>
+)
+
+const renderInitials = (
+  fullName = "",
+  size: AvatarSizes,
+  disableInitials = false
+) => {
+  const initials = getInitials(fullName)
+  const isLongName = initials.length > 2 && size !== "small"
+  const renderFallback = disableInitials || initials === ""
+
+  return renderFallback ? (
+    fallbackIcon(fullName)
+  ) : (
+    <abbr
+      className={cx(styles.initials, {
+        [styles.longName]: isLongName,
+      })}
+      title={fullName || ""}
+    >
+      {isLongName ? (
+        // Only called if 3 or more initials, fits text width for long names
+        <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+          {initials}
+        </Textfit>
+      ) : (
+        getInitials(fullName, size === "small")
+      )}
+    </abbr>
+  )
+}
+
 export const Avatar = (props: AvatarProps) => {
   const {
     fullName,
@@ -85,13 +126,12 @@ export const Avatar = (props: AvatarProps) => {
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
   const image = useRef<HTMLImageElement>(null)
+  const renderInitialAvatar =
+    !isCompany && (avatarState === "none" || avatarState === "error")
 
   useEffect(() => {
     setAvatarState(avatarSrc ? "loading" : "none")
   }, [avatarSrc])
-
-  const initials = getInitials(fullName)
-  const isLongName = initials.length > 2 && size !== "small"
 
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
@@ -100,17 +140,6 @@ export const Avatar = (props: AvatarProps) => {
   useEffect(() => {
     if (image?.current?.complete) onImageSuccess()
   }, [image])
-
-  const fallbackIcon = (
-    <span className={styles.fallbackIcon}>
-      <Icon
-        inheritSize
-        role={fullName ? "img" : "presentation"}
-        title={fullName}
-        icon={userIcon}
-      />
-    </span>
-  )
 
   return (
     <span
@@ -135,28 +164,7 @@ export const Avatar = (props: AvatarProps) => {
           alt={fullName || ""}
         />
       )}
-      {!isCompany
-        ? (avatarState === "none" || avatarState === "error") &&
-          (disableInitials || initials === "" ? (
-            fallbackIcon
-          ) : (
-            <abbr
-              className={cx(styles.initials, {
-                [styles.longName]: isLongName,
-              })}
-              title={fullName || ""}
-            >
-              {isLongName ? (
-                // Only called if 3 or more initials, fits text width for long names
-                <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-                  {initials}
-                </Textfit>
-              ) : (
-                getInitials(fullName, size === "small")
-              )}
-            </abbr>
-          ))
-        : null}
+      {renderInitialAvatar && renderInitials(fullName, size, disableInitials)}
     </span>
   )
 }
