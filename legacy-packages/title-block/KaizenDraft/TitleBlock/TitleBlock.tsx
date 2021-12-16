@@ -99,6 +99,11 @@ class TitleBlock extends React.Component<Props, State> {
     if (surveyStatus == undefined) return
 
     let variant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
+
+    if (variant === "profile") {
+      return
+    }
+
     if (surveyStatus.status === "draft") {
       variant = "statusDraft"
     }

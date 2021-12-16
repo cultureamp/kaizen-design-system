@@ -7,9 +7,9 @@ type MenuListProps = {
   children: React.ReactNode
 }
 
+const listHeadingID = v4()
 const MenuList = (props: MenuListProps) => {
   const { heading, children } = props
-  const listHeadingID = v4()
   return (
     <>
       {heading && (

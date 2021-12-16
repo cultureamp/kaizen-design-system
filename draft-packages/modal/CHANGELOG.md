@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.4...@kaizen/draft-modal@8.0.5) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.3...@kaizen/draft-modal@8.0.4) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.2...@kaizen/draft-modal@8.0.3) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.1...@kaizen/draft-modal@8.0.2) (2021-12-12)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.0...@kaizen/draft-modal@8.0.1) (2021-12-10)
+
+
+### Bug Fixes
+
+* remove previous padded styling on GenericModal ([#2354](https://github.com/cultureamp/kaizen-design-system/issues/2354)) ([4919e08](https://github.com/cultureamp/kaizen-design-system/commit/4919e080707920294afcfa7ada5eada66ef8e3b2))
+
+
+
+
+
+# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@7.0.4...@kaizen/draft-modal@8.0.0) (2021-12-09)
+
+
+### Features
+
+* New InputModal, ConfirmationModal and ContextModal updates ([#2337](https://github.com/cultureamp/kaizen-design-system/issues/2337)) ([01dc545](https://github.com/cultureamp/kaizen-design-system/commit/01dc545bef5427e593d153039a1245045a068e4e))
+
+
+### BREAKING CHANGES
+
+* Refactor of modals to reflect UI Kit design updates.
+
+* New styles for all modals - InputEditModal, ConfirmationModal, ContextModal (previously InformationModal).
+* InformationModal renamed to ContextModal - You will need to update any imports.
+* Deprecated RoadblockModal - use ConfirmationModal instead.
+
+
+
+
+
+## [7.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@7.0.3...@kaizen/draft-modal@7.0.4) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [7.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@7.0.2...@kaizen/draft-modal@7.0.3) (2021-12-06)
 
 **Note:** Version bump only for package @kaizen/draft-modal

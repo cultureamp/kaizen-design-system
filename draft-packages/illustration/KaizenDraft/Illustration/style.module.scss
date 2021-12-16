@@ -11,14 +11,56 @@
 
 .landscape {
   aspect-ratio: 4/3;
+
+  @supports not (aspect-ratio: auto) {
+    &::before {
+      float: left;
+      padding-top: 75%;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
 }
 
 .portrait {
   aspect-ratio: 3/4;
+
+  @supports not (aspect-ratio: auto) {
+    &::before {
+      float: left;
+      padding-top: 133.33%;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
 }
 
 .square {
   aspect-ratio: auto 1/1;
+
+  @supports not (aspect-ratio: auto) {
+    &::before {
+      float: left;
+      padding-top: 100%;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
 }
 
 // If the .visually-hidden class is applied to natively focusable elements
