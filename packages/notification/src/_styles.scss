@@ -75,7 +75,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 
   // Types
 
-  &%ca-notification---affirmative {
+  &%ca-notification---positive {
     background: $color-green-100;
     border-color: $color-green-300;
     color: $color-purple-800;
@@ -157,7 +157,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   align-items: flex-start;
   box-sizing: content-box;
 
-  %ca-notification---affirmative & {
+  %ca-notification---positive & {
     color: $color-green-500;
   }
 
@@ -193,7 +193,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     color: $color-white;
   }
 
-  %ca-notification---global%ca-notification---affirmative & {
+  %ca-notification---global%ca-notification---positive & {
     background-color: $color-green-500;
   }
   %ca-notification---global%ca-notification---informative & {

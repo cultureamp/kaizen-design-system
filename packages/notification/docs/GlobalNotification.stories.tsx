@@ -1,7 +1,9 @@
 import * as React from "react"
 
 import { GlobalNotification } from "@kaizen/notification"
+import { Heading, Box } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
+import { Divider } from "@kaizen/draft-divider"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -21,59 +23,95 @@ export default {
   decorators: [withDesign],
 }
 
-export const PositiveKaizenSiteDemo = () => (
-  <GlobalNotification type="affirmative" automationId="notification1">
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </GlobalNotification>
+const ExampleHeading = ({ children }) => (
+  <Box mt={1} mb={0.25}>
+    <Heading variant="heading-4">{children}</Heading>
+  </Box>
 )
 
-PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
-
-export const Informative = () => (
-  <GlobalNotification type="informative" automationId="notification1">
-    New user data is currently being processed. We'll let you know when the
-    process is completed. <a href="/">Manage users</a>
-  </GlobalNotification>
-)
-
-export const Cautionary = () => (
-  <GlobalNotification type="cautionary" automationId="notification1">
-    New user data, imported by mackenzie@hooli.com has uploaded with some minor
-    issues. <a href="/">View issues</a>
-  </GlobalNotification>
-)
-
-export const Negative = () => (
-  <GlobalNotification type="negative" automationId="notification1">
-    No network connection. Check your connection and try again.{" "}
-    <a href="/">Refresh</a>.
-  </GlobalNotification>
-)
-
-export const MultipleNotifications = () => (
+export const GlobalNotificationVariants = () => (
   <div
     style={{
       width: "100%",
     }}
   >
-    <GlobalNotification type="affirmative" automationId="notification1">
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-      <a href="/">Manage users is now available</a>
-    </GlobalNotification>
-    <GlobalNotification type="informative" automationId="notification2">
-      New user data is currently being processed. We'll let you know when the
-      process is completed. <a href="/">Manage users</a>
-    </GlobalNotification>
-    <GlobalNotification type="cautionary" automationId="notification3">
-      New user data, imported by mackenzie@hooli.com has uploaded with some
-      minor issues. <a href="/">View issues</a>
-    </GlobalNotification>
-    <GlobalNotification type="negative" automationId="notification4">
-      No network connection. Check your connection and try again.{" "}
-      <a href="/">Refresh</a>.
-    </GlobalNotification>
+    <div>
+      <Heading variant="heading-3">Persistent</Heading>
+
+      <ExampleHeading>Positive</ExampleHeading>
+
+      <GlobalNotification
+        type="positive"
+        automationId="notification1"
+        persistent={true}
+      >
+        Emails will be sent notifying coaches and inviting reviewers to give
+        their feedback. <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Informative</ExampleHeading>
+      <GlobalNotification
+        type="informative"
+        automationId="notification2"
+        persistent={true}
+      >
+        [Survey name]'s status has been changed to 'Archived'.{" "}
+        <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Cautionary</ExampleHeading>
+      <GlobalNotification
+        type="cautionary"
+        automationId="notification3"
+        persistent={true}
+      >
+        The syncing process can take some time to complete. Keep this window
+        open until complete. <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Negative</ExampleHeading>
+      <GlobalNotification
+        type="negative"
+        automationId="notification4"
+        persistent={true}
+      >
+        Something went wrong while validating and analyzing user data.{" "}
+        <a href="/">View all</a>.
+      </GlobalNotification>
+    </div>
+
+    <Box my={3}>
+      <Divider variant="canvas" />
+    </Box>
+
+    <div>
+      <Heading variant="heading-3">Dismissible</Heading>
+
+      <ExampleHeading>Positive</ExampleHeading>
+      <GlobalNotification type="positive" automationId="notification1">
+        Emails will be sent notifying coaches and inviting reviewers to give
+        their feedback. <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Informative</ExampleHeading>
+      <GlobalNotification type="informative" automationId="notification2">
+        [Survey name]'s status has been changed to 'Archived'.{" "}
+        <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Cautionary</ExampleHeading>
+      <GlobalNotification type="cautionary" automationId="notification3">
+        The syncing process can take some time to complete. Keep this window
+        open until complete. <a href="/">View all</a>
+      </GlobalNotification>
+
+      <ExampleHeading>Negative</ExampleHeading>
+      <GlobalNotification type="negative" automationId="notification4">
+        Something went wrong while validating and analyzing user data.{" "}
+        <a href="/">View all</a>.
+      </GlobalNotification>
+    </div>
   </div>
 )
 
-MultipleNotifications.storyName = "Multiple notifications"
+GlobalNotificationVariants.storyName = "Global notification variants"
