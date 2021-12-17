@@ -11,6 +11,10 @@ import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, IconButton } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import {
+  StorybookGridWrapper,
+  StorybookColWrapper,
+} from "../../../storybook/components/storybook-wrapper"
 import styles from "./styles.module.scss"
 
 export default {
@@ -36,6 +40,32 @@ export default {
 }
 
 const clickAction = () => alert("This shouldn't fire when button is working")
+
+export const testButtons = () => (
+  <StorybookGridWrapper numCols="3">
+    <StorybookColWrapper numRows="4" isSideHeader>
+      <Heading variant="heading-5" tag="h2">
+        Base
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Disabled
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Working
+      </Heading>
+    </StorybookColWrapper>
+    <StorybookColWrapper title="Default" numRows="3">
+      <IconLeft icon={addIcon} />
+      <IconRight />
+      <Button label="Label" />
+    </StorybookColWrapper>
+    <StorybookColWrapper title="Primary" numRows="3">
+      <IconLeft icon={addIcon} />
+      <IconRight />
+      <Button label="Label" />
+    </StorybookColWrapper>
+  </StorybookGridWrapper>
+)
 
 export const LightButtons = () => (
   <>
