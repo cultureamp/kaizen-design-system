@@ -7,7 +7,10 @@ import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { StorybookWrapper } from "../../../storybook/components/storybook-wrapper"
 import styles from "./styles.module.scss"
+
+import storyData from "./badge-data.json"
 
 export default {
   title: `${CATEGORIES.components}/Badge`,
@@ -193,3 +196,11 @@ ReversedBadges.parameters = {
     default: "Purple 700",
   },
 }
+
+export const TestIterativeBadge = () => (
+  <StorybookWrapper
+    rowTitles={storyData.rowTitles}
+    colData={storyData.colData}
+    Component={Badge}
+  />
+)
