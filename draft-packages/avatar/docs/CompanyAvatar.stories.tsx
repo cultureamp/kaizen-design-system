@@ -33,7 +33,6 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc: assetUrl("third-party-logos/hooli-logo.svg"),
   fullName: "Hooli",
-  size: "xlarge",
   isCompany: true,
 }
 
