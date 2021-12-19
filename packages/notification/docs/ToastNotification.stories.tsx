@@ -84,7 +84,7 @@ export default {
 export const PositiveKaizenSiteDemo = () => {
   React.useEffect(() => {
     addToastNotification({
-      type: "affirmative",
+      type: "positive",
       title: "Success",
       automationId: "notification1",
       message: (
@@ -104,7 +104,7 @@ export const PositiveAutohide = () => (
   <Triggers
     notifications={[
       {
-        type: "affirmative",
+        type: "positive",
         title: "Success",
         automationId: "notification1",
         message: (
@@ -125,7 +125,7 @@ export const PositiveAutohideHideCloseIcon = () => (
     notifications={[
       {
         automationId: "notification1",
-        type: "affirmative",
+        type: "positive",
         title: "Success",
         message: (
           <>
@@ -199,7 +199,7 @@ export const MultipleNotifications = () => (
     notifications={[
       {
         automationId: "notification1",
-        type: "affirmative",
+        type: "positive",
         title: "Success",
         message: (
           <>
@@ -253,7 +253,7 @@ export const OverflowNotifications = () => {
     <Triggers
       notifications={[...Array(15)].map((_, i) => ({
         automationId: `notification-${i}-${seed}`,
-        type: Math.random() > 0.5 ? "affirmative" : "cautionary",
+        type: Math.random() > 0.5 ? "positive" : "cautionary",
         title: "Success",
         autohide: false,
         message: (
@@ -279,7 +279,7 @@ export const UpdatedNotification = () => (
               addToastNotification({
                 id: "consistent-id",
                 automationId: "notification1",
-                type: "affirmative",
+                type: "positive",
                 title: "Initial notification title",
                 message: (
                   <>

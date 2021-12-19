@@ -6,7 +6,7 @@ afterEach(cleanup)
 
 test("The basic notification renders correctly", () => {
   const { container } = render(
-    <GlobalNotification type="affirmative">
+    <GlobalNotification type="positive">
       This is my positive notification
     </GlobalNotification>
   )
