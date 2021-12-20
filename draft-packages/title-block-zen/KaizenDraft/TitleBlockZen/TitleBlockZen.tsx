@@ -1,5 +1,9 @@
 import { Heading, Icon } from "@kaizen/component-library"
-import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
+import {
+  Avatar,
+  GenericAvatarProps,
+  CompanyAvatarProps,
+} from "@kaizen/draft-avatar"
 import { IconButton, ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
@@ -26,6 +30,10 @@ import styles from "./TitleBlockZen.scss"
 type DistributiveOmit<T, K extends keyof any> = T extends any
   ? Omit<T, K>
   : never
+
+type AvatarProps =
+  | Omit<GenericAvatarProps, "size">
+  | Omit<CompanyAvatarProps, "size">
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
