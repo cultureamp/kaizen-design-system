@@ -27,7 +27,7 @@ test('Begins "hidden" but transitions out of it immediately', async () => {
 
 test("The cancel button hides the notification and triggers the onHide callback", async () => {
   const onHide = jest.fn()
-  const { container, getByTitle } = render(
+  const { container, getByTestId } = render(
     <GenericNotification
       type="positive"
       style="inline"
@@ -42,7 +42,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
   expect(container.querySelector(".hidden")).toBeTruthy()
 
   // After clicking, the element should fade out, but the onHide not trigger yet.
-  const cancelButton = getByTitle("close notification")
+  const cancelButton = getByTestId("close-button")
 
   fireEvent.click(cancelButton)
 
