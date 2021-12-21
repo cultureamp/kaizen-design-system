@@ -40,10 +40,7 @@ const avatarGroupData = [
 describe("<AvatarGroup />", () => {
   it("renders a list of avatars up to the maxVisible value", () => {
     render(<AvatarGroup avatars={avatarGroupData} maxVisible={4} />)
-    const test = screen.getAllByRole("img")
-    console.log(test)
-
-    expect(test).toHaveLength(4)
+    expect(screen.getAllByRole("img")).toHaveLength(4)
   })
   it("renders a token with a counter of the remaining avatars is maxVisible is exceeded", () => {
     // render(<AvatarGroup avatars={avatarGroupData} maxVisible={3} />)
