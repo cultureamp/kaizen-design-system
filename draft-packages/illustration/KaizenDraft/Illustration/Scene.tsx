@@ -48,32 +48,6 @@ export const BrandMomentPositiveOutro = ({
   )
 }
 
-export const BrandMomentCaptureIntro = ({
-  isAnimated,
-  enableAspectRatio,
-  alt,
-  ...otherProps
-}: AnimatedSceneProps) => {
-  if (isAnimated) {
-    return (
-      <VideoPlayer
-        aspectRatio={enableAspectRatio ? "landscape" : undefined}
-        {...otherProps}
-        fallback="illustrations/heart/scene/brand-moments-capture-intro"
-        source="illustrations/heart/scene/brand-moments-capture-intro"
-      />
-    )
-  }
-  return (
-    <Base
-      aspectRatio={enableAspectRatio ? "landscape" : undefined}
-      alt={alt || ""}
-      {...otherProps}
-      name="illustrations/heart/scene/brand-moments-capture-intro.png"
-    />
-  )
-}
-
 export const BrandMomentLogin = ({
   isAnimated,
   enableAspectRatio,
