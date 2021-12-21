@@ -1,0 +1,103 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$avatar-sm: 1.25rem;
+$avatar-md: 3rem;
+$avatar-lg: 4.5rem;
+$avatar-xl: 6rem;
+$avatar-xxl: 7.75rem;
+
+.AvatarGroup {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.AvatarGroupItem,
+.AvatarCounter {
+  .small & {
+    margin-left: calc(#{$avatar-sm} / -2);
+  }
+
+  .medium & {
+    margin-left: calc(#{$avatar-md} / -2);
+  }
+
+  .large & {
+    margin-left: calc(#{$avatar-lg} / -2);
+  }
+
+  .xlarge & {
+    margin-left: calc(#{$avatar-xl} / -2);
+  }
+
+  .xxlarge & {
+    margin-left: calc(#{$avatar-xxl} / -2);
+  }
+}
+
+.AvatarGroupItem {
+  &:first-of-type {
+    margin-left: 0;
+  }
+}
+
+.AvatarCounter {
+  align-items: center;
+  background: $color-gray-300;
+  border-radius: 100%;
+  box-sizing: border-box;
+  display: flex;
+  font-family: $typography-heading-1-font-family;
+  justify-content: center;
+  overflow: hidden;
+
+  &:not(.small) {
+    box-shadow: $shadow-small-box-shadow;
+    border: 3px solid $color-white;
+  }
+
+  .small & {
+    width: $avatar-sm;
+    height: $avatar-sm;
+    font-size: 8px;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  .medium & {
+    width: $avatar-md;
+    height: $avatar-md;
+    font-size: 16px;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  .large & {
+    width: $avatar-lg;
+    height: $avatar-lg;
+    font-size: 22px;
+    font-weight: $typography-heading-1-font-weight;
+    letter-spacing: $typography-heading-3-letter-spacing;
+  }
+
+  .xlarge & {
+    width: $avatar-xl;
+    height: $avatar-xl;
+  }
+
+  .xxlarge & {
+    width: $avatar-xxl;
+    height: $avatar-xxl;
+  }
+
+  .xlarge &,
+  .xxlarge & {
+    font-size: 34px;
+    letter-spacing: $typography-heading-1-letter-spacing;
+    font-weight: $typography-heading-1-font-weight;
+  }
+}
