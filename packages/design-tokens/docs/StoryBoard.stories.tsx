@@ -253,14 +253,15 @@ const StoriesContainer = (props: {
           {Object.entries(props.storyModule).map(([k, V]) => {
             // Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
             if ("title" in V) return null
-            const parameters = "story" in V ? V.story.parameters : V.parameters
+            const parameters = "story" in V ? V.story!.parameters : V.parameters
             const storyElement = (
-              <V {...meta.args} {...("story" in V ? V.story.args : {})} />
+              // @ts-ignore
+              <V {...meta.args} {...("story" in V ? V.story!.args : {})} />
             )
             return (
               <div key={k}>
                 <Heading variant="heading-3">
-                  {"story" in V && "name" in V.story
+                  {"story" in V && "name" in V.story!
                     ? V.story.name
                     : "storyName" in V
                     ? V.storyName
@@ -447,7 +448,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={InputEditModalStories} />
         <StoriesContainer storyModule={ConfirmationModalStories} />
         <StoriesContainer storyModule={ContextModalStories} />
-        <StoriesContainer storyModule={PageLayoutStories} />
         <StoriesContainer storyModule={ParagraphStories} />
         <StoriesContainer storyModule={PopoverStories} />
         <StoriesContainer storyModule={RadioFieldStories} />

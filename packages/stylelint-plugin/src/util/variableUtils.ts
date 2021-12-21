@@ -107,7 +107,7 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
     if (leafNode.parent) {
       return getLexicallyClosestVariablesRecursive(
         stylesheetNode,
-        leafNode.parent,
+        leafNode.parent as ChildNode,
         nextVariables
       )
     } else {

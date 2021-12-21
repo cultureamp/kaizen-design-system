@@ -190,7 +190,7 @@ export const LinkToStory = ({
 }) => (
   // @ts-ignore
   <LinkTo kind={storyModule.title}>
-    {children || getStoryLinkName(storyModule.title)}
+    {children || getStoryLinkName(storyModule.title!)}
   </LinkTo>
 )
 
