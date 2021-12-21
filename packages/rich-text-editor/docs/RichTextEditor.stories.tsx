@@ -30,11 +30,11 @@ export const Default = () => {
 
   return (
     <RichTextEditor
-      // toolbar={[
-      //   ["bold", "italic", "underline"],
-      //   ["unorderedList", "orderedList"],
-      //   ["link"],
-      // ]}
+      toolbar={[
+        ["bold", "italic", "underline"],
+        ["unorderedList", "orderedList"],
+        ["link"],
+      ]}
       value={rteData}
       onChange={data => setRTEData(data)}
     />

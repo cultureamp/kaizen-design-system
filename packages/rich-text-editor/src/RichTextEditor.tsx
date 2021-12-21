@@ -13,22 +13,52 @@ export type EditorContentArray = Array<{ [key: string]: any }>
 type Props = {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
+  toolbar: ToolbarOption[][]
+}
+
+type ToolbarOption =
+  | "bold"
+  | "italic"
+  | "underline"
+  | "unorderedList"
+  | "orderedList"
+  | "link"
+
+const toolbarObject = new Map([
+  ["bold", { shortcut: "Mod-b", shortcutCmd: strong }],
+])
+
+const addShortcuts = (options: ToolbarOption[], schema: any) => {
+  const defaultKeys = {
+    "Shift-Enter": hardBreak,
+  }
+  const customKeys = options.reduce((accumulatedOptions, currentOption) => {
+    const optionProp = toolbarObject.get(currentOption)
+    if (!optionProp) return accumulatedOptions
+    return {
+      ...accumulatedOptions,
+      [optionProp["shortcut"]]: optionProp["shortcutCmd"],
+    }
+  }, {})
+
+  return keymap(
+    customKeymap({
+      ...defaultKeys,
+      ...customKeys,
+    })
+  )
 }
 
 export const RichTextEditor = (props: Props) => {
-  const { onChange, value } = props
+  const { onChange, value, toolbar } = props
   const [editorRef, editorState] = useRichTextEditor(
     createInitialState(
       value ? createDocFromContent(schema, value) : null,
       schema,
       [
         history(),
-        keymap(
-          customKeymap({
-            "Shift-Enter": hardBreak,
-            "Mod-b": strong(schema),
-          })
-        ),
+        addShortcuts(toolbar.flat(), schema),
+        // addKeymap(toolbar)
       ]
     )
   )
