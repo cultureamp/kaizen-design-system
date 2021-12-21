@@ -5,9 +5,8 @@ export type ModalAccessibleContextType = {
   describedByID: string
 }
 
-export const ModalAccessibleContext = React.createContext<ModalAccessibleContextType>(
-  {
+export const ModalAccessibleContext =
+  React.createContext<ModalAccessibleContextType>({
     labelledByID: "modal-labelledby",
     describedByID: "modal-describedby",
-  }
-)
+  })

@@ -298,10 +298,8 @@ const initialInteractionState = {
 }
 export const Everything: Story = () => {
   const theme = useTheme()
-  const [
-    interactionState,
-    setInteractionState,
-  ] = React.useState<InteractionState>(initialInteractionState)
+  const [interactionState, setInteractionState] =
+    React.useState<InteractionState>(initialInteractionState)
 
   const resetInteraction = React.useCallback(() => {
     setInteractionState(initialInteractionState)
