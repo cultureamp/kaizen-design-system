@@ -44,18 +44,34 @@ export const marks = {
       // tags with a font-weight normal.
       {
         tag: "b",
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        getAttrs: (node: any) => node.style.fontWeight !== "normal" && null,
+        getAttrs: (node: CSSStyleRule) =>
+          node.style.fontWeight !== "normal" && null,
       },
       {
         style: "font-weight",
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        getAttrs: (value: any) =>
+        getAttrs: (value: string) =>
           /^(bold(er)?|[5-9]\d{2,})$/.test(value) && null,
       },
     ],
     toDOM() {
       return ["strong", 0]
+    },
+  },
+  // An emphasis mark. Rendered as an `<em>` element. Has parse rules that also
+  // match `<i>` and `font-style: italic`.
+  em: {
+    parseDOM: [{ tag: "i" }, { tag: "em" }, { style: "font-style=italic" }],
+    toDOM() {
+      return ["em", 0]
+    },
+  },
+
+  // An underline mark. Rendered as a `<u>` element. Has parse rules that also
+  // matches `font-style: underline`.
+  underline: {
+    parseDOM: [{ tag: "u" }, { style: "font-style=underline" }],
+    toDOM() {
+      return ["u", 0]
     },
   },
 }

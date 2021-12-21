@@ -5,7 +5,7 @@ import { keymap } from "prosemirror-keymap"
 import { useRichTextEditor } from "../"
 import schema from "./schema"
 import { createInitialState, customKeymap, createDocFromContent } from "./state"
-import { hardBreak, strong } from "./commands"
+import { hardBreak, strong, em, underline } from "./commands"
 import styles from "./RichTextEditor.scss"
 
 export type EditorContentArray = Array<{ [key: string]: any }>
@@ -18,7 +18,7 @@ type Props = {
 
 type ToolbarOption =
   | "bold"
-  | "italic"
+  | "em"
   | "underline"
   | "unorderedList"
   | "orderedList"
@@ -26,6 +26,8 @@ type ToolbarOption =
 
 const toolbarObject = new Map([
   ["bold", { shortcut: "Mod-b", shortcutCmd: strong }],
+  ["em", { shortcut: "Mod-i", shortcutCmd: em }],
+  ["underline", { shortcut: "Mod-u", shortcutCmd: underline }],
 ])
 
 const addShortcuts = (options: ToolbarOption[], schema: any) => {

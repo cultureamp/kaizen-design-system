@@ -31,7 +31,7 @@ export const Default = () => {
   return (
     <RichTextEditor
       toolbar={[
-        ["bold", "italic", "underline"],
+        ["bold", "em", "underline"],
         ["unorderedList", "orderedList"],
         ["link"],
       ]}

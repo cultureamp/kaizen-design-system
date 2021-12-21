@@ -13,6 +13,8 @@ export const hardBreak = chainCommands(
 )
 
 export const strong = (schema: any) => toggleMark(schema.marks.strong)
+export const em = (schema: any) => toggleMark(schema.marks.em)
+export const underline = (schema: any) => toggleMark(schema.marks.underline)
 
 // This is a type-compatible version of
 // https://github.com/ProseMirror/prosemirror-commands/blob/master/src/commands.js#L551
