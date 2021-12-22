@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
-import { toggleMark } from "prosemirror-commands"
 // import { EditorContentArray } from "ca-ui/RichTextEditor/types.d"
 import { useRichTextEditor } from "../"
 import schema from "./schema"
+import { toolbarObject, ToolbarTypes } from "./constants"
 import { createInitialState, customKeymap, createDocFromContent } from "./state"
 import { hardBreak } from "./commands"
 import styles from "./RichTextEditor.scss"
@@ -14,27 +14,10 @@ export type EditorContentArray = Array<{ [key: string]: any }>
 type Props = {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
-  toolbar: ToolbarOption[][]
+  toolbar: ToolbarTypes[][]
 }
 
-type ToolbarOption =
-  | "bold"
-  | "em"
-  | "underline"
-  | "unorderedList"
-  | "orderedList"
-  | "link"
-
-const toolbarObject = new Map([
-  ["bold", { shortcut: "Mod-b", shortcutCmd: toggleMark(schema.marks.strong) }],
-  ["em", { shortcut: "Mod-i", shortcutCmd: toggleMark(schema.marks.em) }],
-  [
-    "underline",
-    { shortcut: "Mod-u", shortcutCmd: toggleMark(schema.marks.underline) },
-  ],
-])
-
-const addShortcuts = (options: ToolbarOption[]) => {
+const addShortcuts = (options: ToolbarTypes[]) => {
   const defaultKeys = {
     "Shift-Enter": hardBreak,
   }
