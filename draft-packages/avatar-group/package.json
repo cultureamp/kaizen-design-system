@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-avatar-group",
-  "version": "1",
+  "version": "1.0.0",
   "description": "The draft avatar group component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,7 +36,6 @@
     "@kaizen/draft-avatar": "^2.0.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
-    "react-textfit": "^1.1.1",
     "uuid": "^3.4.0"
   },
   "peerDependencies": {
