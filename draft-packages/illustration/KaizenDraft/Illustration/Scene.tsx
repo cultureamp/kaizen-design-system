@@ -609,7 +609,7 @@ export const EngagementSurveySummaryMale = ({
   />
 )
 
-// TODO Update and Remove
+// TODO Update and Remove - survey-configuration HeroCard.tsx
 export const SurveyOverviewClosed = ({
   enableAspectRatio,
   ...props
@@ -621,7 +621,7 @@ export const SurveyOverviewClosed = ({
   />
 )
 
-// TODO Update and Remove
+// TODO Update and Remove  - survey-configuration HeroCard.tsx
 export const SurveyGetStarted = ({
   enableAspectRatio,
   ...props
@@ -633,7 +633,7 @@ export const SurveyGetStarted = ({
   />
 )
 
-// TODO Update and Remove
+// TODO Update and Remove - msteams-integration/teams_bot Cards.ts
 export const PerformanceCompanySettings = ({
   enableAspectRatio,
   ...props
@@ -645,7 +645,7 @@ export const PerformanceCompanySettings = ({
   />
 )
 
-// TODO Update and Remove
+// TODO Update and Remove - manager-lab FocusBlock.tsx
 export const ManagerLabFourWeekCycle = ({
   enableAspectRatio,
   ...props
@@ -657,7 +657,7 @@ export const ManagerLabFourWeekCycle = ({
   />
 )
 
-// TODO Remove and Update - survey-configuration repo
+// TODO Remove and Update - survey-configuration HeroCard.tsx
 export const IntroductionsCaptureIntro = ({
   enableAspectRatio,
   ...props
