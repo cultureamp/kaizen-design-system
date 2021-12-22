@@ -1,9 +1,10 @@
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box, Paragraph, Heading } from "@kaizen/component-library"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Card } from ".."
+import { Card, CardProps } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import cardStoriesData from "./card-stories-data.json"
 
 export default {
   title: `${CATEGORIES.components}/Card`,
@@ -33,14 +34,59 @@ DefaultStory.args = {
 }
 
 export const DesignSheetDefault = () => (
-  
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(100px, max-content))",
+      gap: "2.5rem",
+    }}
+  >
+    {cardStoriesData?.map(story => (
+      <div>
+        <Heading tag="h4" variant="heading-4">
+          {story.title}
+        </Heading>
+        <br />
+        {(story.stories as CardProps[]).map(cardProps => (
+          <>
+            <Card {...cardProps}>
+              <Box p={1}>{/* child content here */}</Box>
+            </Card>
+            <br />
+          </>
+        ))}
+      </div>
+    ))}
+  </div>
 )
 
 DesignSheetDefault.storyName = "Design Sheet (default)"
 
-
 export const DesignSheetReversed = () => (
-
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(100px, max-content))",
+      gap: "2.5rem",
+    }}
+  >
+    {cardStoriesData?.map(story => (
+      <div>
+        <Heading tag="h4" variant="heading-4" color="white">
+          {story.title}
+        </Heading>
+        <br />
+        {(story.stories as CardProps[]).map(cardProps => (
+          <>
+            <Card {...cardProps}>
+              <Box p={1}>{/* child content here */}</Box>
+            </Card>
+            <br />
+          </>
+        ))}
+      </div>
+    ))}
+  </div>
 )
 
 DesignSheetReversed.storyName = "Design Sheet (reversed)"

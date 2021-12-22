@@ -10,28 +10,29 @@ export type CardVariants =
   | "destructive"
   | "assertive"
   | "highlight"
+
 export interface CardProps {
-  /**
-   * The children will
-   */
   children?: React.ReactNode
   /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
+   * Not recommended. A short-circuit for overriding styles in a pinch.
    * @default ""
    */
   classNameAndIHaveSpokenToDST?: string
-
   /**
    * HTML elements that are allowed on Card.
    * @default "div"
    */
   tag?: "div" | "article" | "header" | "main" | "section" | "li"
-
   /**
-   * HTML elements that are allowed on Card.
+   * determines the card background colour on the card. It should match to the type of content being conveyed.
    * @default "default"
    */
   variant?: CardVariants
+  /**
+   * Adds a larger box shadow to to the card container.
+   * @default "false"
+   */
+  isElevated?: boolean
 }
 
 export const Card = ({
@@ -39,6 +40,7 @@ export const Card = ({
   tag = "div",
   classNameAndIHaveSpokenToDST,
   variant = "default",
+  isElevated = false,
   ...otherProps
 }: CardProps) => {
   const Tag = tag
@@ -46,6 +48,7 @@ export const Card = ({
     <Tag
       className={cx(styles.wrapper, styles[variant], {
         classNameAndIHaveSpokenToDST,
+        [styles.elevated]: isElevated,
       })}
       {...otherProps}
     >
