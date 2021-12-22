@@ -9,7 +9,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "@kaizen/component-library": "^11.5.8",
+    "@kaizen/component-library": "11.5.8",
     "@kaizen/design-tokens": "^6.0.1",
     "@kaizen/draft-button": "^5.3.3",
     "@kaizen/draft-card": "^1.4.1",
