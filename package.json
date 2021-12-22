@@ -112,6 +112,7 @@
     "node-elm-compiler": "^5.0.6"
   },
   "resolutions": {
-    "danger/jsonpointer": "5.0.0"
+    "danger/jsonpointer": "5.0.0",
+    "axios": "0.21.2"
   }
 }
