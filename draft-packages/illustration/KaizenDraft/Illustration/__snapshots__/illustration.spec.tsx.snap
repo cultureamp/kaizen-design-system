@@ -1455,7 +1455,7 @@ exports[`<Illustration /> Spot Team should exist and render an alt tag 1`] = `
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-1.svg"
   />
 </div>
 `;
