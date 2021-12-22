@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.5...@kaizen/draft-illustration@2.12.6) (2021-12-22)
+
+
+### Bug Fixes
+
+* Update Team component image url to use team-1 ([#2378](https://github.com/cultureamp/kaizen-design-system/issues/2378)) ([690a46a](https://github.com/cultureamp/kaizen-design-system/commit/690a46a2f7418807be795bb05719461671814cfc))
+
+
+
+
+
 ## [2.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.4...@kaizen/draft-illustration@2.12.5) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
