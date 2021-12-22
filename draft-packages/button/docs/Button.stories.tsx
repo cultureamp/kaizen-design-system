@@ -1,4 +1,4 @@
-import { Heading } from "@kaizen/component-library"
+import { Heading, Box } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
@@ -41,423 +41,264 @@ export default {
 
 const clickAction = () => alert("This shouldn't fire when button is working")
 
-export const testButtons = () => (
-  <StorybookGridWrapper numCols="3">
-    <StorybookColWrapper numRows="4" isSideHeader>
-      <Heading variant="heading-5" tag="h2">
-        Base
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Disabled
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Working
-      </Heading>
-    </StorybookColWrapper>
-    <StorybookColWrapper title="Default" numRows="3">
-      <IconLeft icon={addIcon} />
-      <IconRight />
-      <Button label="Label" />
-    </StorybookColWrapper>
-    <StorybookColWrapper title="Primary" numRows="3">
-      <IconLeft icon={addIcon} />
-      <IconRight />
-      <Button label="Label" />
-    </StorybookColWrapper>
-  </StorybookGridWrapper>
-)
-
 export const LightButtons = () => (
   <>
-    <Heading variant="heading-3" tag="h1">
-      Default
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <IconLeft icon={addIcon} />
-        <br />
-        <IconRight />
-        <br />
-        <Button label="Label" />
-        <br />
-        <IconButton icon={meatballsIcon} label="Label" />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Disabled
-        </Heading>
-        <br />
-        <IconLeft disabled={true} icon={addIcon} />
-        <br />
-        <IconRight disabled={true} />
-        <br />
-        <Button label="Label" disabled={true} />
-        <br />
-        <IconButton icon={meatballsIcon} label="Label" disabled={true} />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Working
-        </Heading>
-        <br />
-        <DefaultWorkingWithWorkingLabelVisible />
-        <br />
-        <DefaultWorkingOnEnd />
-        <br />
-        <DefaultWorking />
-        <br />
-        <IconButton
-          label="Label"
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-      </div>
-    </div>
-    <br />
-    <Heading variant="heading-3" tag="h1">
-      Primary
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <IconLeft primary={true} icon={addIcon} />
-        <br />
-        <IconRight primary={true} />
-        <br />
-        <Button label="Label" primary={true} />
-        <br />
-        <IconButton icon={addIcon} label="Label" primary={true} />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Disabled
-        </Heading>
-        <br />
-        <IconLeft disabled={true} primary={true} icon={addIcon} />
-        <br />
-        <IconRight disabled={true} primary={true} />
-        <br />
-        <Button label="Label" disabled={true} primary={true} />
-        <br />
-        <IconButton
-          icon={addIcon}
-          label="Label"
-          primary={true}
-          disabled={true}
-        />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Working
-        </Heading>
-        <br />
-        <IconLeftWorking primary={true} />
-        <br />
-        <IconRightWorking primary={true} />
-        <br />
-        <Button
-          label="Label"
-          disabled={true}
-          primary={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-        <br />
-        <IconButton
-          icon={addIcon}
-          label="Label"
-          primary={true}
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-      </div>
-    </div>
-    <br />
-    <Heading variant="heading-3" tag="h1">
-      Destructive
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <IconLeft destructive={true} icon={trashIcon} />
-        <br />
-        <IconRight destructive={true} />
-        <br />
-        <Button label="Label" destructive={true} />
-        <br />
-        <IconButton label="Label" icon={trashIcon} destructive={true} />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Disabled
-        </Heading>
-        <br />
-        <IconLeft destructive={true} icon={trashIcon} disabled={true} />
-        <br />
-        <IconRight destructive={true} disabled={true} />
-        <br />
-        <DestructiveDisabled />
-        <br />
-        <IconButton
-          label="Label"
-          icon={trashIcon}
-          destructive={true}
-          disabled={true}
-        />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Working
-        </Heading>
-        <br />
-        <IconLeftWorking destructive={true} />
-        <br />
-        <IconRightWorking destructive={true} />
-        <br />
-        <DestructiveWorking />
-        <br />
-        <IconButton
-          label="Label"
-          destructive={true}
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-      </div>
-    </div>
-    <br />
-    <Heading variant="heading-3" tag="h1">
-      Secondary
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <IconLeft
-          badge={{ text: "3", variant: "active" }}
-          icon={filterIcon}
-          secondary={true}
-        />
-        <br />
-        <IconLeft secondary={true} icon={addIcon} />
-        <br />
-        <IconRight iconPosition="end" secondary={true} icon={chevronDown} />
-        <br />
-        <Secondary />
-        <br />
-        <IconButton label="Label" icon={meatballsIcon} secondary={true} />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Disabled
-        </Heading>
-        <br />
-        <IconLeft
-          secondary={true}
-          disabled={true}
-          icon={filterIcon}
-          badge={{ text: "3", variant: "active" }}
-        />
-        <br />
-        <IconLeft secondary={true} disabled={true} icon={addIcon} />
-        <br />
-        <IconRight disabled={true} secondary={true} icon={chevronDown} />
-        <br />
-        <Secondary disabled={true} />
-        <br />
-        <IconButton
-          label="Label"
-          icon={meatballsIcon}
-          disabled={true}
-          secondary={true}
-        />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Working
-        </Heading>
-        <br />
-        <IconLeftWorking
-          badge={{ text: "3", variant: "active" }}
-          secondary={true}
-        />
-        <br />
-        <IconLeftWorking secondary={true} />
-        <br />
-        <IconRightWorking secondary={true} />
-        <br />
-        <Secondary
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-        <br />
-        <IconButton
-          label="Label"
-          secondary={true}
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-      </div>
-    </div>
-    <br />
-    <Heading variant="heading-3" tag="h1">
-      Secondary Destructive
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <SecondaryDestructiveIcon />
-        <br />
-        <Button label="Label" destructive={true} secondary={true} />
-        <br />
-        <IconButton
-          label="Label"
-          icon={trashIcon}
-          secondary={true}
-          destructive={true}
-        />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Disabled
-        </Heading>
-        <br />
-        <SecondaryDestructiveIcon disabled={true} />
-        <br />
-        <Button
-          label="Label"
-          destructive={true}
-          disabled={true}
-          secondary={true}
-        />
-        <br />
-        <IconButton
-          label="Label"
-          icon={trashIcon}
-          disabled={true}
-          secondary={true}
-          destructive={true}
-        />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Working
-        </Heading>
-        <br />
-        <IconLeftWorking destructive={true} secondary={true} />
-        <br />
-        <Button
-          label="Label"
-          destructive={true}
-          disabled={true}
-          secondary={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-        <br />
-        <IconButton
-          label="Label"
-          destructive={true}
-          secondary={true}
-          disabled={true}
-          working
-          workingLabel="Submitting"
-          workingLabelHidden
-        />
-      </div>
-    </div>
-    <br />
-    <Heading variant="heading-3" tag="h1">
-      Miscellaneous
-    </Heading>
-    <br />
-    <Heading variant="heading-5" tag="h2">
-      Full Width
-    </Heading>
-    <FullWidth />
-    <FullWidthIcon />
-    <FullWidthWorking />
-    <Heading variant="heading-5" tag="h2">
-      Hyperlink
-    </Heading>
-    <br />
-    <Hyperlink />
-    <Heading variant="heading-5" tag="h2">
-      Hyperlink with onClick
-    </Heading>
-    <br />
-    <HyperlinkWOnClick />
-    <Heading variant="heading-5" tag="h2">
-      Submit
-    </Heading>
-    <br />
-    <TypeSubmit />
-    <Heading variant="heading-5" tag="h2">
-      Reset
-    </Heading>
-    <br />
-    <TypeReset />
-    <Heading variant="heading-5" tag="h2">
-      Overflowing Label Text
-    </Heading>
-    <br />
-    <OverflowingTextIconLabelTestCase />
-    <Heading variant="heading-5" tag="h2">
-      Overflowing Form Text
-    </Heading>
-    <br />
-    <OverflowingTextFormTestCase />
-    <Heading variant="heading-5" tag="h2">
-      Multiple Buttons
-    </Heading>
-    <br />
-    <MultipleButtons />
-    <Heading variant="heading-5" tag="h2">
-      Custom Component
-    </Heading>
-    <br />
-    <CustomComponent />
-    <Heading variant="heading-5" tag="h2">
-      Hyperlink Icon
-    </Heading>
-    <br />
-    <HyperlinkIcon />
-    <Heading variant="heading-5" tag="h2">
-      Hyperlink with onClick Icon
-    </Heading>
-    <br />
-    <HyperlinkIconWOnClick />
-    <Heading variant="heading-5" tag="h2">
-      Icon Form (Discouraged)
-    </Heading>
-    <br />
-    <IconFormDiscouraged />
+    <Box mb={3}>
+      <Heading variant="heading-3" tag="h1">
+        Default
+      </Heading>
+      <StorybookGridWrapper numCols="5">
+        <StorybookColWrapper numRows="4" isSideHeader>
+          <Heading variant="heading-5" tag="h2">
+            Icon Left
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Right
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            No Icon
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Only
+          </Heading>
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Base" numRows="4">
+          <IconLeft icon={addIcon} />
+          <IconRight />
+          <Button label="Label" />
+          <IconButton icon={meatballsIcon} label="Label" />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Disabled" numRows="4">
+          <IconLeft disabled={true} icon={addIcon} />
+          <IconRight disabled={true} />
+          <Button label="Label" disabled={true} />
+          <IconButton icon={meatballsIcon} label="Label" disabled={true} />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Working" numRows="4">
+          <DefaultWorkingWithWorkingLabelVisible />
+          <DefaultWorkingOnEnd />
+          <DefaultWorkingOnEnd />
+          <IconButton
+            label="Label"
+            disabled={true}
+            working
+            workingLabel="Submitting"
+            workingLabelHidden
+          />
+        </StorybookColWrapper>
+      </StorybookGridWrapper>
+    </Box>
+    <Box mb={3}>
+      <Heading variant="heading-3" tag="h1">
+        Primary
+      </Heading>
+      <StorybookGridWrapper numCols="5">
+        <StorybookColWrapper numRows="4" isSideHeader>
+          <Heading variant="heading-5" tag="h2">
+            Icon Left
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Right
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            No Icon
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Only
+          </Heading>
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Base" numRows="4">
+          <IconLeft icon={addIcon} primary />
+          <IconRight primary />
+          <Button label="Label" primary />
+          <IconButton icon={meatballsIcon} label="Label" primary />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Disabled" numRows="4">
+          <IconLeft disabled={true} icon={addIcon} primary />
+          <IconRight disabled={true} primary />
+          <Button label="Label" disabled={true} primary />
+          <IconButton
+            icon={meatballsIcon}
+            label="Label"
+            disabled={true}
+            primary
+          />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Working" numRows="4">
+          <DefaultWorkingWithWorkingLabelVisible primary />
+          <DefaultWorkingOnEnd primary />
+          <DefaultWorkingOnEnd primary />
+          <IconButton
+            label="Label"
+            disabled={true}
+            working
+            workingLabel="Submitting"
+            workingLabelHidden
+            primary
+          />
+        </StorybookColWrapper>
+      </StorybookGridWrapper>
+    </Box>
+    <Box mb={3}>
+      <Heading variant="heading-3" tag="h1">
+        Destructive
+      </Heading>
+      <StorybookGridWrapper numCols="5">
+        <StorybookColWrapper numRows="4" isSideHeader>
+          <Heading variant="heading-5" tag="h2">
+            Icon Left
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Right
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            No Icon
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Only
+          </Heading>
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Base" numRows="4">
+          <IconLeft icon={addIcon} destructive />
+          <IconRight destructive />
+          <Button label="Label" destructive />
+          <IconButton icon={meatballsIcon} label="Label" destructive />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Disabled" numRows="4">
+          <IconLeft disabled={true} icon={addIcon} destructive />
+          <IconRight disabled={true} destructive />
+          <Button label="Label" disabled={true} destructive />
+          <IconButton
+            icon={meatballsIcon}
+            label="Label"
+            disabled={true}
+            destructive
+          />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Working" numRows="4">
+          <DefaultWorkingWithWorkingLabelVisible destructive />
+          <DefaultWorkingOnEnd destructive />
+          <DefaultWorkingOnEnd destructive />
+          <IconButton
+            label="Label"
+            disabled={true}
+            working
+            workingLabel="Submitting"
+            workingLabelHidden
+            destructive
+          />
+        </StorybookColWrapper>
+      </StorybookGridWrapper>
+    </Box>
+    <Box mb={3}>
+      <Heading variant="heading-3" tag="h1">
+        Secondary
+      </Heading>
+      <StorybookGridWrapper numCols="5">
+        <StorybookColWrapper numRows="4" isSideHeader>
+          <Heading variant="heading-5" tag="h2">
+            Icon Left
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Right
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            No Icon
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Only
+          </Heading>
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Base" numRows="4">
+          <IconLeft icon={addIcon} secondary />
+          <IconRight secondary />
+          <Button label="Label" secondary />
+          <IconButton icon={meatballsIcon} label="Label" secondary />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Disabled" numRows="4">
+          <IconLeft disabled={true} icon={addIcon} secondary />
+          <IconRight disabled={true} secondary />
+          <Button label="Label" disabled={true} secondary />
+          <IconButton
+            icon={meatballsIcon}
+            label="Label"
+            disabled={true}
+            secondary
+          />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Working" numRows="4">
+          <DefaultWorkingWithWorkingLabelVisible secondary />
+          <DefaultWorkingOnEnd secondary />
+          <DefaultWorkingOnEnd secondary />
+          <IconButton
+            label="Label"
+            disabled={true}
+            working
+            workingLabel="Submitting"
+            workingLabelHidden
+            secondary
+          />
+        </StorybookColWrapper>
+      </StorybookGridWrapper>
+    </Box>
+    <Box mb={3}>
+      <Heading variant="heading-3" tag="h1">
+        Secondary Destructive
+      </Heading>
+      <StorybookGridWrapper numCols="5">
+        <StorybookColWrapper numRows="4" isSideHeader>
+          <Heading variant="heading-5" tag="h2">
+            Icon Left
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Right
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            No Icon
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Icon Only
+          </Heading>
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Base" numRows="4">
+          <IconLeft icon={addIcon} secondary destructive />
+          <IconRight secondary destructive />
+          <Button label="Label" secondary destructive />
+          <IconButton
+            icon={meatballsIcon}
+            label="Label"
+            secondary
+            destructive
+          />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Disabled" numRows="4">
+          <IconLeft disabled={true} icon={addIcon} secondary destructive />
+          <IconRight disabled={true} secondary destructive />
+          <Button label="Label" disabled={true} secondary destructive />
+          <IconButton
+            icon={meatballsIcon}
+            label="Label"
+            disabled={true}
+            secondary
+            destructive
+          />
+        </StorybookColWrapper>
+        <StorybookColWrapper title="Working" numRows="4">
+          <DefaultWorkingWithWorkingLabelVisible secondary destructive />
+          <DefaultWorkingOnEnd secondary destructive />
+          <DefaultWorkingOnEnd secondary destructive />
+          <IconButton
+            label="Label"
+            disabled={true}
+            working
+            workingLabel="Submitting"
+            workingLabelHidden
+            secondary
+            destructive
+          />
+        </StorybookColWrapper>
+      </StorybookGridWrapper>
+    </Box>
   </>
 )
 
