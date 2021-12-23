@@ -255,7 +255,7 @@ const StoriesContainer = (props: {
             if ("title" in V) return null
             const parameters = "story" in V ? V.story!.parameters : V.parameters
             const storyElement = (
-              // @ts-ignore
+              // @ts-expect-error
               <V {...meta.args} {...("story" in V ? V.story!.args : {})} />
             )
             return (
