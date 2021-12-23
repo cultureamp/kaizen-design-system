@@ -62,7 +62,7 @@ $avatar-xxl: 7.75rem;
   .small & {
     width: $avatar-sm;
     height: $avatar-sm;
-    font-size: 8px;
+    font-size: 0.5rem;
     font-weight: $typography-heading-5-font-weight;
     letter-spacing: $typography-heading-5-letter-spacing;
   }
@@ -70,7 +70,7 @@ $avatar-xxl: 7.75rem;
   .medium & {
     width: $avatar-md;
     height: $avatar-md;
-    font-size: 16px;
+    font-size: $typography-heading-5-font-size;
     font-weight: $typography-heading-5-font-weight;
     letter-spacing: $typography-heading-5-letter-spacing;
   }
@@ -78,7 +78,7 @@ $avatar-xxl: 7.75rem;
   .large & {
     width: $avatar-lg;
     height: $avatar-lg;
-    font-size: 22px;
+    font-size: $typography-heading-3-font-size;
     font-weight: $typography-heading-1-font-weight;
     letter-spacing: $typography-heading-3-letter-spacing;
   }
@@ -95,7 +95,7 @@ $avatar-xxl: 7.75rem;
 
   .xlarge &,
   .xxlarge & {
-    font-size: 34px;
+    font-size: $typography-heading-1-font-size;
     letter-spacing: $typography-heading-1-letter-spacing;
     font-weight: $typography-heading-1-font-weight;
   }

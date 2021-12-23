@@ -8,7 +8,7 @@ import {
 } from "@kaizen/draft-avatar"
 import styles from "./styles.module.scss"
 
-type AvatarProps =
+export type AvatarProps =
   | Omit<GenericAvatarProps, "size">
   | Omit<CompanyAvatarProps, "size">
 
@@ -25,53 +25,62 @@ export interface AvatarGroupProps {
    */
   maxVisible: 2 | 3 | 4 | 5 | 6
   /**
-   * Takes a array of Avatars. Defaults to an empty array
-   * @default []
-   */
-  avatars: AvatarProps[]
+   * Takes a array of `AvatarProps` that must have at least item.
+   * In this component 'size' is ommited from the avatarProps type.
+   * */
+  avatars: [AvatarProps, ...AvatarProps[]]
 }
 
-const renderAvatars = (
-  avatars: AvatarProps[],
-  size: AvatarGroupSize,
-  maxVisible: number
-) =>
-  avatars?.map(
-    (avatarProps, index) =>
-      index < maxVisible && (
-        <li
-          key={`avatar-${v4()}`}
-          className={styles.AvatarGroupItem}
-          role="presentation"
-        >
-          <Avatar {...avatarProps} size={size} />
-        </li>
-      )
-  )
-
-const renderCounter = (totalAvatars: number, maxVisible: number) =>
-  totalAvatars > maxVisible && (
+const renderCounter = (remainingAvatars: number) => {
+  if (remainingAvatars <= 0) return
+  return (
     <li
-      aria-label={`There are ${
-        totalAvatars - maxVisible
-      } other memebers of this group`}
+      aria-label={`There is ${remainingAvatars} other memeber${
+        remainingAvatars > 1 && "s"
+      } of this group`}
     >
-      <span className={styles.AvatarCounter} aria-hidden="true">
-        +{totalAvatars - maxVisible}
+      <span
+        className={styles.AvatarCounter}
+        aria-hidden={true}
+        role="presentation"
+      >
+        +{remainingAvatars}
       </span>
     </li>
   )
+}
+
+const renderAvatars = (
+  avatars: [AvatarProps, ...AvatarProps[]],
+  size: AvatarGroupSize,
+  maxVisible: number
+) => (
+  <>
+    {avatars?.map(
+      (avatarProps, index) =>
+        index < maxVisible && (
+          <li
+            key={`avatar-${v4()}`}
+            className={styles.AvatarGroupItem}
+            role="presentation"
+          >
+            <Avatar {...avatarProps} size={size} />
+          </li>
+        )
+    )}
+    {renderCounter(avatars?.length - maxVisible)}
+  </>
+)
 
 export const AvatarGroup = ({
   size = "medium",
   maxVisible = 2,
-  avatars = [],
+  avatars,
 }: AvatarGroupProps) => (
   <ul
     className={cx(styles.AvatarGroup, styles[size])}
     aria-label="Avatar Group"
   >
     {renderAvatars(avatars, size, maxVisible)}
-    {renderCounter(avatars.length, maxVisible)}
   </ul>
 )
