@@ -621,7 +621,7 @@ export const SurveyOverviewClosed = ({
   />
 )
 
-// TODO Update and Remove  - survey-configuration HeroCard.tsx
+// TODO Update and Remove - survey-configuration HeroCard.tsx
 export const SurveyGetStarted = ({
   enableAspectRatio,
   ...props
@@ -642,29 +642,5 @@ export const PerformanceCompanySettings = ({
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/scene/performance-company-settings.svg"
-  />
-)
-
-// TODO Update and Remove - manager-lab FocusBlock.tsx
-export const ManagerLabFourWeekCycle = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/heart/scene/skills-coach-leading-change.svg"
-  />
-)
-
-// TODO Remove and Update - survey-configuration HeroCard.tsx
-export const IntroductionsCaptureIntro = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "portrait" : undefined}
-    {...props}
-    name="illustrations/heart/scene/brand-moments-capture-intro.svg"
   />
 )
