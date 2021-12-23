@@ -280,26 +280,6 @@ exports[`<Illustration /> Scene InformationTurnoverForecast should exist and ren
 </div>
 `;
 
-exports[`<Illustration /> Scene IntroductionsCaptureIntro should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-capture-intro.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLabFourWeekCycle should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-leading-change.svg"
-  />
-</div>
-`;
-
 exports[`<Illustration /> Scene PerformanceCompanySettings should exist and render an alt tag 1`] = `
 <div>
   <img
