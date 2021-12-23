@@ -868,7 +868,7 @@ export const Team = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
-    name="illustrations/heart/spot/miscellaneous-team.svg"
+    name="illustrations/heart/spot/miscellaneous-team-1.svg"
   />
 )
 
