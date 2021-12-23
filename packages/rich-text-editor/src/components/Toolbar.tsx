@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Fragment } from "react"
 import { EditorState } from "prosemirror-state"
 // import { MaybeCommand } from "../types"
 // import {
@@ -28,7 +28,7 @@ export function Toolbar({
   const [currentFocusIndex, setCurrentFocusIndex] = useState(0)
 
   const getNextFocusableControl = (index: number) => {
-    for (let i = index + 1; i < controls.length; i++) {
+    for (let i = index + 1; i < controls.flat().length; i++) {
       return i
     }
     return 0
@@ -38,7 +38,7 @@ export function Toolbar({
     for (let i = index - 1; i > -1; i--) {
       return i
     }
-    return 0
+    return controls.flat().length - 1
   }
 
   const onFocus = (e: React.KeyboardEvent, index: number) => {
@@ -76,13 +76,30 @@ export function Toolbar({
     }
   })
 
+  const renderControlGroups = (controlGroups: ToolbarControls[][]) => {
+    let counter = 0
+    return controlGroups.map((controlGroup: ToolbarControls[], index) =>
+      controlGroup.map(control => {
+        const controlMarkup = (
+          <Fragment key={control}>
+            {index > 0 && (
+              <span className={styles.dividerElement} aria-hidden={true} />
+            )}
+            {renderControl(control, counter)}
+          </Fragment>
+        )
+        counter += 1
+        return controlMarkup
+      })
+    )
+  }
+
   const renderControl = (control: ToolbarControls, index: number) => {
     const controlProperties = toolbarControls.get(control)
     if (!controlProperties) return
 
     return (
       <ToggleButton
-        key={control}
         icon={controlProperties.icon}
         label={controlProperties.label}
         dispatchTransaction={dispatchTransaction}
@@ -93,10 +110,5 @@ export function Toolbar({
     )
   }
 
-  return (
-    <>
-      {renderControl("bold", 0)}
-      {renderControl("em", 1)}
-    </>
-  )
+  return <>{renderControlGroups(controls)}</>
 }

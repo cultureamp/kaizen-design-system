@@ -30,11 +30,7 @@ export const Default = () => {
 
   return (
     <RichTextEditor
-      controls={[
-        ["bold", "em", "underline"],
-        ["unorderedList", "orderedList"],
-        ["link"],
-      ]}
+      controls={[["bold", "em"], ["underline"]]}
       value={rteData}
       onChange={data => setRTEData(data)}
     />

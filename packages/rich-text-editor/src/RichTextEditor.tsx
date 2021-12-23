@@ -59,7 +59,7 @@ export const RichTextEditor = (props: Props) => {
   }, [editorState])
 
   return (
-    <div ref={componentRef}>
+    <div className={styles.editorComponent} ref={componentRef}>
       <div className={styles.toolbar}>
         <Toolbar
           controls={controls}

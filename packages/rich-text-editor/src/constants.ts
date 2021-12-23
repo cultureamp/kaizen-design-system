@@ -8,9 +8,6 @@ export type ToolbarControls =
   | "bold"
   | "em"
   | "underline"
-  | "unorderedList"
-  | "orderedList"
-  | "link"
 
 export const toolbarControls = new Map<
   ToolbarControls,
