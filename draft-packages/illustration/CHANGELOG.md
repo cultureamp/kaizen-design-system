@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.6...@kaizen/draft-illustration@3.0.0) (2021-12-24)
+
+
+### Features
+
+* Update Scene illustrations to remove old Zen and new assets ([#2375](https://github.com/cultureamp/kaizen-design-system/issues/2375)) ([0bd4c33](https://github.com/cultureamp/kaizen-design-system/commit/0bd4c330e0039bbba9d53d2386f802fcf3af3252))
+
+
+### BREAKING CHANGES
+
+* Update Scene Illustrations to include new asset urls and remove all old illustrations.
+
+* Removed all old Zen illustrations
+* Updated asset urls to link to heart folder from Kaizen-Design-system-assets
+
+
+
+
+
 ## [2.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.12.5...@kaizen/draft-illustration@2.12.6) (2021-12-22)
 
 
