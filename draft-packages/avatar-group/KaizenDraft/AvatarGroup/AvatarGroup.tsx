@@ -13,22 +13,24 @@ export type AvatarProps =
   | Omit<CompanyAvatarProps, "size">
 
 export type AvatarGroupSize = "small" | "medium" | "large"
+export type AvatarList = [AvatarProps, ...AvatarProps[]]
+
 export interface AvatarGroupProps {
   /**
-   * There are 3 fixed sizes available for the AvatarGroup. `"small"` will remove border and box shadow to save space.
+   * There are 3 fixed sizes available. `"small"` will remove border and box shadow to save space.
    * @default "medium"
    */
   size?: AvatarGroupSize
   /**
-   * Limits the number of avatars shown within a group. If the number of avatars exceeds the `maxVisible` a counter token will display the remaining avatars not visible.
+   * If the length of Avatars exceeds the `maxVisible` a counter token will render
    * @default 2
    */
   maxVisible: 2 | 3 | 4 | 5 | 6
   /**
    * Takes a array of `AvatarProps` that must have at least item.
-   * In this component 'size' is ommited from the avatarProps type.
+   * Note that 'size' is ommited from the `AvatarProps` type so it will throw a type error if size is provided.
    * */
-  avatars: [AvatarProps, ...AvatarProps[]]
+  avatars: AvatarList
 }
 
 const renderCounter = (remainingAvatars: number) => {
@@ -51,9 +53,9 @@ const renderCounter = (remainingAvatars: number) => {
 }
 
 const renderAvatars = (
-  avatars: [AvatarProps, ...AvatarProps[]],
-  size: AvatarGroupSize,
-  maxVisible: number
+  avatars: AvatarList,
+  maxVisible: number,
+  size: AvatarGroupSize
 ) => (
   <>
     {avatars?.map(
@@ -81,6 +83,6 @@ export const AvatarGroup = ({
     className={cx(styles.AvatarGroup, styles[size])}
     aria-label="Avatar Group"
   >
-    {renderAvatars(avatars, size, maxVisible)}
+    {renderAvatars(avatars, maxVisible, size)}
   </ul>
 )
