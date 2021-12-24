@@ -5,8 +5,6 @@
 $avatar-sm: 1.25rem;
 $avatar-md: 3rem;
 $avatar-lg: 4.5rem;
-$avatar-xl: 6rem;
-$avatar-xxl: 7.75rem;
 
 .AvatarGroup {
   display: inline-flex;
@@ -28,19 +26,44 @@ $avatar-xxl: 7.75rem;
   .large & {
     margin-left: calc(#{$avatar-lg} / -2);
   }
+}
 
-  .xlarge & {
-    margin-left: calc(#{$avatar-xl} / -2);
+.AvatarGroupItem,
+.AvatarCounter {
+  .small & [dir="rtl"] & {
+    margin-left: calc(#{$avatar-sm} / -2);
   }
 
-  .xxlarge & {
-    margin-left: calc(#{$avatar-xxl} / -2);
+  .medium & [dir="rtl"] & {
+    margin-left: calc(#{$avatar-md} / -2);
+  }
+
+  .large & [dir="rtl"] & {
+    margin-left: calc(#{$avatar-lg} / -2);
   }
 }
 
 .AvatarGroupItem {
   &:first-of-type {
     margin-left: 0;
+
+    .small & {
+      [dir="rtl"] & {
+        margin-left: calc(#{$avatar-sm} / -2);
+      }
+    }
+
+    .medium & {
+      [dir="rtl"] & {
+        margin-left: calc(#{$avatar-md} / -2);
+      }
+    }
+
+    .large & {
+      [dir="rtl"] & {
+        margin-left: calc(#{$avatar-lg} / -2);
+      }
+    }
   }
 }
 
@@ -83,20 +106,9 @@ $avatar-xxl: 7.75rem;
     letter-spacing: $typography-heading-3-letter-spacing;
   }
 
-  .xlarge & {
-    width: $avatar-xl;
-    height: $avatar-xl;
-  }
-
-  .xxlarge & {
-    width: $avatar-xxl;
-    height: $avatar-xxl;
-  }
-
-  .xlarge &,
-  .xxlarge & {
-    font-size: $typography-heading-1-font-size;
-    letter-spacing: $typography-heading-1-letter-spacing;
-    font-weight: $typography-heading-1-font-weight;
+  [dir="rtl"] & {
+    margin-left: 0;
+    display: inline-flex;
+    flex-direction: row-reverse;
   }
 }

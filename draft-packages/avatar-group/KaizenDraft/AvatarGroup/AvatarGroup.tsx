@@ -44,7 +44,7 @@ const renderCounter = (remainingAvatars: number) => {
         aria-hidden={true}
         role="presentation"
       >
-        +{remainingAvatars}
+        +<span>{remainingAvatars}</span>
       </span>
     </li>
   )
