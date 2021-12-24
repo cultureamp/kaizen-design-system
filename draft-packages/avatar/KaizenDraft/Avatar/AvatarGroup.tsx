@@ -1,12 +1,8 @@
 import * as React from "react"
 import cx from "classnames"
 import { v4 } from "uuid"
-import {
-  Avatar,
-  GenericAvatarProps,
-  CompanyAvatarProps,
-} from "@kaizen/draft-avatar"
-import styles from "./styles.module.scss"
+import { Avatar, GenericAvatarProps, CompanyAvatarProps } from "./Avatar"
+import styles from "./AvatarGroup.module.scss"
 
 export type AvatarProps =
   | Omit<GenericAvatarProps, "size">

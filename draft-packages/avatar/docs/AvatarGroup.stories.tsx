@@ -1,21 +1,20 @@
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
-import { AvatarGroup, AvatarList } from "../"
+import { AvatarGroup, AvatarList } from "../KaizenDraft/Avatar/AvatarGroup"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
-import defaultAvatarData from "./defaultAvatarData.json"
-import companyAvatarData from "./companyAvatarData.json"
+import avatarGroupData from "./avatarGroupData.json"
 
 export default {
-  title: `${CATEGORIES.components}/AvatarGroup`,
+  title: `${CATEGORIES.components}/Avatar/Avatar Group`,
   component: AvatarGroup,
   parameters: {
     docs: {
       description: {
         component:
-          'import { AvatarGroup } from "@kaizen/draft-avatar-group" and pass in an array of `AvatarProps` to render a list. `size` is omitted from the avatars props and is set on the component level.',
+          'import { AvatarGroup } from "@kaizen/draft-avatar" and pass in an array of `AvatarProps` to render a list. `size` is omitted from the avatars props and is set on the component level.',
       },
     },
     ...figmaEmbed(
@@ -32,11 +31,11 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
-  avatars: defaultAvatarData,
+  avatars: avatarGroupData["users"],
 }
 
 export const DesignSheetDefault = () => {
-  const data = defaultAvatarData as AvatarList
+  const data = avatarGroupData["users"] as AvatarList
   return (
     <div
       style={{
@@ -75,7 +74,7 @@ export const DesignSheetDefault = () => {
 DesignSheetDefault.storyName = "Design Sheet (default)"
 
 export const DesignSheetReversed = () => {
-  const data = companyAvatarData as AvatarList
+  const data = avatarGroupData["company"] as AvatarList
 
   return (
     <div
