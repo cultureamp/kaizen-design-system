@@ -67,19 +67,18 @@ $avatar-lg: 4.5rem;
 .AvatarCounter {
   align-items: center;
   background: $color-gray-300;
+  border: 3px solid $color-white;
   border-radius: 100%;
   box-sizing: border-box;
+  box-shadow: $shadow-small-box-shadow;
   display: flex;
   font-family: $typography-heading-1-font-family;
   justify-content: center;
   overflow: hidden;
 
-  &:not(.small) {
-    box-shadow: $shadow-small-box-shadow;
-    border: 3px solid $color-white;
-  }
-
   .small & {
+    box-shadow: none;
+    border: none;
     width: $avatar-sm;
     height: $avatar-sm;
     font-size: 0.5rem;
