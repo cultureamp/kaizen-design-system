@@ -60,6 +60,66 @@ exports[`<Illustration /> Scene BrandMomentUploadEmployeeData should exist and r
 </div>
 `;
 
+exports[`<Illustration /> Scene Collaboration should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-collaboration.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene Communication should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-communications.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene CompanyValues should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-company-values.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene ConnectTheDots should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-connect-the-dots.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene CultureLab should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-culture-lab.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene DataCatching should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-data-catching.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene EmptyStatesAction should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -110,12 +170,42 @@ exports[`<Illustration /> Scene EmptyStatesPositive should exist and render an a
 </div>
 `;
 
+exports[`<Illustration /> Scene EngagementSurveySummaryFemale should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-survey-summary-female.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene EngagementSurveySummaryMale should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-survey-summary-male.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene HumanityAtWork should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-humanity-at-work.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene Information360Upgrade should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-360-upgrade.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-360-upgrade.svg"
   />
 </div>
 `;
@@ -125,7 +215,7 @@ exports[`<Illustration /> Scene InformationDemographicFocus should exist and ren
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-demographic-focus.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-demographic-focus.svg"
   />
 </div>
 `;
@@ -135,7 +225,7 @@ exports[`<Illustration /> Scene InformationEmergingTrends should exist and rende
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-emerging-trends.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-emerging-trends.svg"
   />
 </div>
 `;
@@ -145,7 +235,7 @@ exports[`<Illustration /> Scene InformationEmployeeLifecycle should exist and re
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-employee-lifecycle.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-employee-lifecycle.svg"
   />
 </div>
 `;
@@ -155,7 +245,7 @@ exports[`<Illustration /> Scene InformationReportOwner should exist and render a
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-report-owner.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-report-owner.svg"
   />
 </div>
 `;
@@ -165,7 +255,7 @@ exports[`<Illustration /> Scene InformationReportOwnerByRule should exist and re
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-report-owner-by-rule.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-report-owner-by-rule.svg"
   />
 </div>
 `;
@@ -175,7 +265,7 @@ exports[`<Illustration /> Scene InformationTurnoverCalculator should exist and r
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-turnover-calculator.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-turnover-calculator.svg"
   />
 </div>
 `;
@@ -185,257 +275,7 @@ exports[`<Illustration /> Scene InformationTurnoverForecast should exist and ren
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/information-modals-turnover-forecast.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene IntroductionsCaptureIntro should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/introductions-capture-intro.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene IntroductionsNewAccount should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/introductions-new-account.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene IntroductionsNewAdmin should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/introductions-new-admin.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene IntroductionsPerformance should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/introductions-performance.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteBrand should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-brand.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteBrandAlt should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-brand-alt.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteLanguage should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-language.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteLanguageAlt should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-language-alt.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSitePrinciples should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-principles.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSitePrinciplesAlt should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-principles-alt.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteProduct should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-product.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteProductAlt should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-product-alt.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteResources should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-resources.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene KaizenSiteResourcesAlt should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/kaizen-site-resources-alt.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLabFourWeekCycle should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-lab-4-week-cycle.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLabScheduling should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-lab-scheduling.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningCoaching should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-coaching.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningFeedback should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-feedback.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningManagerHub should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-manager-hub.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningOneOnOneMeetings should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-1-on-1.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningProductivity should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-productivity.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningRemoteManager should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-remote-manager.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningResilience should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-resilience.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene ManagerLearningStrategy should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/manager-learning-strategy.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceCalibration should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-calibration.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-turnover-forecast.svg"
   />
 </div>
 `;
@@ -450,102 +290,12 @@ exports[`<Illustration /> Scene PerformanceCompanySettings should exist and rend
 </div>
 `;
 
-exports[`<Illustration /> Scene PerformanceEvaluations should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-evaluations.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceFaq should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-faq.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceGoalStats should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-goal-stats.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceGoals should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-goals.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformancePeopleNetwork should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-people-network.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformancePerformanceFeedback should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-feedback.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceSelfReflections should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-self-reflections.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceSupport should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-support.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene PerformanceTeamSummary should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-team-summary.svg"
-  />
-</div>
-`;
-
 exports[`<Illustration /> Scene Programs should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/programs.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-programs.svg"
   />
 </div>
 `;
@@ -590,12 +340,52 @@ exports[`<Illustration /> Scene SkillsCoachEssentialFeedback should exist and re
 </div>
 `;
 
+exports[`<Illustration /> Scene SkillsCoachEssentialProductivity should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachEssentialResilience should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-resilience.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene SkillsCoachFeedback should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class=" wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachInfluentialCommunication should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-influential-communication.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene SkillsCoachLeadingChange should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-leading-change.svg"
   />
 </div>
 `;
@@ -666,6 +456,16 @@ exports[`<Illustration /> Scene SurveyOverviewClosed should exist and render an 
     alt="My accessible title"
     class=" wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/survey-overview-closed.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene TermsAgreement should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-terms-agreement.svg"
   />
 </div>
 `;
