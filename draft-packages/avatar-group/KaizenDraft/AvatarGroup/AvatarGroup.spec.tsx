@@ -1,48 +1,42 @@
 import * as React from "react"
 import { render, screen } from "@testing-library/react"
-import { AvatarGroup } from "./AvatarGroup"
+import { AvatarGroup, AvatarList } from "./AvatarGroup"
 
 const imgAvatars = [
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "medium",
   },
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "medium",
   },
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "medium",
   },
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "medium",
   },
-]
+] as AvatarList
 
 const largeAvatars = [
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "large",
   },
   {
     fullName: "Adirana Aniseed",
     avatarSrc:
       "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    size: "large",
   },
-]
+] as AvatarList
 
 describe("<AvatarGroup />", () => {
   it("renders a list of avatars up to the maxVisible value", () => {

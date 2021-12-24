@@ -1,7 +1,7 @@
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
-import { AvatarGroup, AvatarProps } from "../"
+import { AvatarGroup, AvatarList } from "../"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -36,7 +36,7 @@ DefaultStory.args = {
 }
 
 export const DesignSheetDefault = () => {
-  const data = defaultAvatarData as [AvatarProps, ...AvatarProps[]]
+  const data = defaultAvatarData as AvatarList
   return (
     <div
       style={{
@@ -75,7 +75,7 @@ export const DesignSheetDefault = () => {
 DesignSheetDefault.storyName = "Design Sheet (default)"
 
 export const DesignSheetReversed = () => {
-  const data = companyAvatarData as [AvatarProps, ...AvatarProps[]]
+  const data = companyAvatarData as AvatarList
 
   return (
     <div

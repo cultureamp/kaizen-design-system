@@ -26,10 +26,7 @@ $avatar-lg: 4.5rem;
   .large & {
     margin-left: calc(#{$avatar-lg} / -2);
   }
-}
 
-.AvatarGroupItem,
-.AvatarCounter {
   .small & [dir="rtl"] & {
     margin-left: calc(#{$avatar-sm} / -2);
   }
@@ -108,7 +105,6 @@ $avatar-lg: 4.5rem;
 
   [dir="rtl"] & {
     margin-left: 0;
-    display: inline-flex;
-    flex-direction: row-reverse;
+    direction: ltr;
   }
 }
