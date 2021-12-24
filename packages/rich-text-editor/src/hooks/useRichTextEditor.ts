@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { createRichTextEditor } from "../create"
 
 export function useRichTextEditor(
-  initialEditorState: EditorState
+  initialEditorState: EditorState,
+  attributes: { [name: string]: string }
 ): [any, EditorState, (maybeCommand: any) => void] {
   const [editorState, setEditorState] = useState<EditorState>(
     initialEditorState
@@ -21,6 +22,7 @@ export function useRichTextEditor(
           node,
           initialEditorState: editorState,
           onChange: setEditorState,
+          attributes,
         })
         // We need to set these lazily to ensure useState retains the functions
         // as values (otherwise they get evaluated immediately)

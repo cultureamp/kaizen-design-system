@@ -11,12 +11,14 @@ type EditorArgs = {
   initialEditorState: EditorState
   node: HTMLElement
   onChange: (editorState: EditorState) => void
+  attributes: { [name: string]: string }
 }
 
 export function createRichTextEditor({
   initialEditorState,
   node,
   onChange = () => undefined,
+  attributes,
 }: EditorArgs): EditorAPI {
   // editorView is reassigned below ¯\_(ツ)_/¯
   // eslint-disable-next-line prefer-const
@@ -42,6 +44,7 @@ export function createRichTextEditor({
   editorView = new EditorView(node, {
     state: initialEditorState,
     dispatchTransaction,
+    attributes,
   })
 
   return {
