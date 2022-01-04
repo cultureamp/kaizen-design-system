@@ -974,14 +974,6 @@ export const Resources = ({ enableAspectRatio, ...props }: SpotProps) => (
   />
 )
 
-// TODO: Compare with Covid-19 Response spot
-export const TempResponse = ({ enableAspectRatio, ...props }: SpotProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "square" : undefined}
-    {...props}
-    name="illustrations/heart/spot/miscellaneous-response.svg"
-  />
-)
 export const ScienceBackedTools = ({
   enableAspectRatio,
   ...props
