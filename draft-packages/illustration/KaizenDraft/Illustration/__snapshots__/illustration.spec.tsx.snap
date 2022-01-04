@@ -1375,7 +1375,7 @@ exports[`<Illustration /> Spot Recommendation should exist and render an alt tag
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-shield.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-recommendation.svg"
   />
 </div>
 `;
