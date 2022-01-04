@@ -1,5 +1,12 @@
 import nanomemoize from "nano-memoize"
-import { AtRule, ChildNode, Container, Declaration, Root } from "postcss"
+import {
+  AtRule,
+  ChildNode,
+  Container,
+  Declaration,
+  Root,
+  Document,
+} from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
@@ -74,8 +81,9 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: Container) =>
-  block.nodes
+const getVariablesInBlock = (block: ChildNode | Container | Document) => {
+  if (!("nodes" in block) || "toResult" in block) return {}
+  return block.nodes
     .filter(
       (node): node is Declaration => node.type === "decl" && isVariable(node)
     )
@@ -83,6 +91,7 @@ const getVariablesInBlock = (block: Container) =>
       (acc, next) => ({ ...acc, [next.prop]: next.value }),
       {} as Record<string, string | undefined>
     )
+}
 
 /**
  * See the function below for the description. It does the same thing, but accepts another accumulator parameter, and is recursive.
@@ -92,17 +101,14 @@ const getVariablesInBlock = (block: Container) =>
 const getLexicallyClosestVariablesRecursive = nanomemoize(
   (
     stylesheetNode: Root,
-    leafNode: ChildNode | Container,
+    leafNode: ChildNode | Container | Document,
     currentVariables: Record<string, string | undefined>
   ): Record<string, string | undefined> => {
-    const nextVariables =
-      "nodes" in leafNode
-        ? {
-            ...getVariablesInBlock(leafNode),
-            // Here is the key part of scoping: we prioritise variables that are closer (currentVariables) over ones that are defined higher in the tree.
-            ...currentVariables,
-          }
-        : currentVariables
+    const nextVariables = {
+      ...getVariablesInBlock(leafNode),
+      // Here is the key part of scoping: we prioritise variables that are closer (currentVariables) over ones that are defined higher in the tree.
+      ...currentVariables,
+    }
 
     if (leafNode.parent) {
       return getLexicallyClosestVariablesRecursive(
