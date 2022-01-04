@@ -61,35 +61,3 @@ export const DesignSheetDefault = () => (
 )
 
 DesignSheetDefault.storyName = "Design Sheet (default)"
-
-export const DesignSheetReversed = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(100px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {cardStoriesData?.map(story => (
-      <div>
-        <Heading tag="h4" variant="heading-4" color="white">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as CardProps[]).map(cardProps => (
-          <>
-            <Card {...cardProps}>
-              <Box p={1}>{/* child content here */}</Box>
-            </Card>
-            <br />
-          </>
-        ))}
-      </div>
-    ))}
-  </div>
-)
-
-DesignSheetReversed.storyName = "Design Sheet (reversed)"
-DesignSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-}
