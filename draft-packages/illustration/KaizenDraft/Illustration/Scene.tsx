@@ -20,6 +20,8 @@ type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
 
 export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
+// Brand Moments
+
 export const BrandMomentPositiveOutro = ({
   isAnimated,
   enableAspectRatio,
@@ -130,6 +132,8 @@ export const BrandMomentStarterKit = ({
     name="illustrations/heart/scene/brand-moments-starter-kit.svg"
   />
 )
+
+// Empty States
 
 export const EmptyStatesAction = ({
   isAnimated,
@@ -261,49 +265,7 @@ export const EmptyStatesNeutral = ({
   )
 }
 
-export const IntroductionsNewAccount = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "portrait" : undefined}
-    {...props}
-    name="illustrations/scene/introductions-new-account.svg"
-  />
-)
-
-export const IntroductionsCaptureIntro = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "portrait" : undefined}
-    {...props}
-    name="illustrations/scene/introductions-capture-intro.svg"
-  />
-)
-
-export const IntroductionsPerformance = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/introductions-performance.svg"
-  />
-)
-
-export const IntroductionsNewAdmin = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/introductions-new-admin.svg"
-  />
-)
+// Information Modals
 
 export const Information360Upgrade = ({
   enableAspectRatio,
@@ -312,7 +274,7 @@ export const Information360Upgrade = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-360-upgrade.svg"
+    name="illustrations/heart/scene/information-modals-360-upgrade.svg"
   />
 )
 
@@ -323,7 +285,7 @@ export const InformationDemographicFocus = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-demographic-focus.svg"
+    name="illustrations/heart/scene/information-modals-demographic-focus.svg"
   />
 )
 
@@ -334,7 +296,7 @@ export const InformationTurnoverCalculator = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-turnover-calculator.svg"
+    name="illustrations/heart/scene/information-modals-turnover-calculator.svg"
   />
 )
 
@@ -345,7 +307,7 @@ export const InformationTurnoverForecast = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-turnover-forecast.svg"
+    name="illustrations/heart/scene/information-modals-turnover-forecast.svg"
   />
 )
 
@@ -356,7 +318,7 @@ export const InformationEmergingTrends = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-emerging-trends.svg"
+    name="illustrations/heart/scene/information-modals-emerging-trends.svg"
   />
 )
 
@@ -367,7 +329,7 @@ export const InformationEmployeeLifecycle = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-employee-lifecycle.svg"
+    name="illustrations/heart/scene/information-modals-employee-lifecycle.svg"
   />
 )
 
@@ -378,7 +340,7 @@ export const InformationReportOwner = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-report-owner.svg"
+    name="illustrations/heart/scene/information-modals-report-owner.svg"
   />
 )
 
@@ -389,377 +351,77 @@ export const InformationReportOwnerByRule = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/information-modals-report-owner-by-rule.svg"
+    name="illustrations/heart/scene/information-modals-report-owner-by-rule.svg"
   />
 )
 
-export const PerformanceEvaluations = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+// Miscellaneous
+
+export const Collaboration = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-evaluations.svg"
+    name="illustrations/heart/scene/miscellaneous-collaboration.svg"
   />
 )
 
-export const PerformanceCalibration = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const Communication = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-calibration.svg"
+    name="illustrations/heart/scene/miscellaneous-communications.svg"
   />
 )
 
-export const PerformanceFaq = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const CompanyValues = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-faq.svg"
+    name="illustrations/heart/scene/miscellaneous-company-values.svg"
   />
 )
 
-export const PerformancePerformanceFeedback = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const ConnectTheDots = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-feedback.svg"
+    name="illustrations/heart/scene/miscellaneous-connect-the-dots.svg"
   />
 )
 
-export const PerformanceGoalStats = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const CultureLab = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-goal-stats.svg"
+    name="illustrations/heart/scene/miscellaneous-culture-lab.svg"
   />
 )
 
-export const PerformanceGoals = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const DataCatching = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-goals.svg"
+    name="illustrations/heart/scene/miscellaneous-data-catching.svg"
   />
 )
 
-export const PerformancePeopleNetwork = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const HumanityAtWork = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-people-network.svg"
+    name="illustrations/heart/scene/miscellaneous-humanity-at-work.svg"
   />
 )
 
-export const PerformanceSelfReflections = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
+export const TermsAgreement = ({ enableAspectRatio, ...props }: SceneProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-self-reflections.svg"
+    name="illustrations/heart/scene/miscellaneous-terms-agreement.svg"
   />
 )
 
-export const PerformanceSupport = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/performance-support.svg"
-  />
-)
-
-export const PerformanceTeamSummary = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/performance-team-summary.svg"
-  />
-)
-
-export const PerformanceCompanySettings = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/performance-company-settings.svg"
-  />
-)
-
-export const ManagerLabFourWeekCycle = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-lab-4-week-cycle.svg"
-  />
-)
-
-export const ManagerLabScheduling = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-lab-scheduling.svg"
-  />
-)
-
-export const ManagerLearningManagerHub = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-manager-hub.svg"
-  />
-)
-
-export const ManagerLearningCoaching = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-coaching.svg"
-  />
-)
-
-export const ManagerLearningFeedback = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-feedback.svg"
-  />
-)
-
-export const ManagerLearningProductivity = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-productivity.svg"
-  />
-)
-
-export const ManagerLearningResilience = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-resilience.svg"
-  />
-)
-
-export const ManagerLearningOneOnOneMeetings = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-1-on-1.svg"
-  />
-)
-
-export const ManagerLearningStrategy = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-strategy.svg"
-  />
-)
-
-export const ManagerLearningRemoteManager = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/manager-learning-remote-manager.svg"
-  />
-)
-
-export const Programs = ({ enableAspectRatio, ...props }: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/programs.svg"
-  />
-)
-
-export const KaizenSiteBrandAlt = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-brand-alt.svg"
-  />
-)
-
-export const KaizenSiteBrand = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-brand.svg"
-  />
-)
-
-export const KaizenSiteLanguageAlt = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-language-alt.svg"
-  />
-)
-
-export const KaizenSiteLanguage = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-language.svg"
-  />
-)
-
-export const KaizenSitePrinciples = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-principles.svg"
-  />
-)
-
-export const KaizenSitePrinciplesAlt = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-principles-alt.svg"
-  />
-)
-
-export const KaizenSiteProduct = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-product.svg"
-  />
-)
-
-export const KaizenSiteProductAlt = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-product-alt.svg"
-  />
-)
-
-export const KaizenSiteResources = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-resources.svg"
-  />
-)
-
-export const KaizenSiteResourcesAlt = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/scene/kaizen-site-resources-alt.svg"
-  />
-)
-
-export const SurveyOverviewClosed = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "portrait" : undefined}
-    {...props}
-    name="illustrations/scene/survey-overview-closed.svg"
-  />
-)
-
-export const SurveyGetStarted = ({
-  enableAspectRatio,
-  ...props
-}: SceneProps) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "portrait" : undefined}
-    {...props}
-    name="illustrations/scene/getting-started.svg"
-  />
-)
+// Skills Coach
 
 export const SkillsCoach1On1Meetings = ({
   enableAspectRatio,
@@ -802,6 +464,50 @@ export const SkillsCoachEssentialFeedback = ({
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-essential-feedback.svg"
+  />
+)
+
+export const SkillsCoachEssentialProductivity = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/heart/scene/skills-coach-essential-productivity.svg"
+  />
+)
+
+export const SkillsCoachEssentialResilience = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/heart/scene/skills-coach-essential-resilience.svg"
+  />
+)
+
+export const SkillsCoachInfluentialCommunication = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/heart/scene/skills-coach-influential-communication.svg"
+  />
+)
+
+export const SkillsCoachLeadingChange = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/heart/scene/skills-coach-leading-change.svg"
   />
 )
 
@@ -868,5 +574,73 @@ export const SkillsCoachStrategy = ({
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-strategy.svg"
+  />
+)
+
+// Engagement
+
+export const Programs = ({ enableAspectRatio, ...props }: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "landscape" : undefined}
+    {...props}
+    name="illustrations/heart/scene/engagement-programs.svg"
+  />
+)
+
+export const EngagementSurveySummaryFemale = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "landscape" : undefined}
+    {...props}
+    name="illustrations/heart/scene/engagement-survey-summary-female.svg"
+  />
+)
+
+export const EngagementSurveySummaryMale = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "landscape" : undefined}
+    {...props}
+    name="illustrations/heart/scene/engagement-survey-summary-male.svg"
+  />
+)
+
+// TODO Update and Remove - survey-configuration HeroCard.tsx
+export const SurveyOverviewClosed = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/scene/survey-overview-closed.svg"
+  />
+)
+
+// TODO Update and Remove - survey-configuration HeroCard.tsx
+export const SurveyGetStarted = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "portrait" : undefined}
+    {...props}
+    name="illustrations/scene/getting-started.svg"
+  />
+)
+
+// TODO Update and Remove - msteams-integration/teams_bot Cards.ts
+export const PerformanceCompanySettings = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "landscape" : undefined}
+    {...props}
+    name="illustrations/scene/performance-company-settings.svg"
   />
 )
