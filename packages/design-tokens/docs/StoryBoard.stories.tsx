@@ -251,20 +251,20 @@ const StoriesContainer = (props: {
       {shouldRender && (
         <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
-            // Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
-            if ("title" in V) return null
-            const parameters = "story" in V ? V.story.parameters : V.parameters
+            // !This is now irrelevant as "title" prop is now string | undefined
+            // (outdated) Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
+            if (!("story" in V) && !("storyName" in V) && !("name" in V))
+              return null
+            const parameters = V.story?.parameters
+            // We should not render a Meta story according to the types declared for storyModule
+            // Object key check story indicates Story type is rendered only, as Meta is not a correct React component
             const storyElement = (
-              <V {...meta.args} {...("story" in V ? V.story.args : {})} />
+              <V {...meta.args} {...("story" in V ? V?.story?.args : {})} />
             )
             return (
               <div key={k}>
                 <Heading variant="heading-3">
-                  {"story" in V && "name" in V.story
-                    ? V.story.name
-                    : "storyName" in V
-                    ? V.storyName
-                    : k}
+                  {V.story?.name || ("storyName" in V && V?.storyName) || k}
                 </Heading>
                 <Padding size={0.5} />
                 {parameters &&
