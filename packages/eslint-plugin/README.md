@@ -19,6 +19,7 @@ Enable the rules you want to use within rules property of your .eslintrc:
 {
   rules: {
     "@kaizen/no-draft-imports": "error",
+    "@kaizen/no-inline-notification-imports-from-component-library": "error"
   }
 }
 ```
@@ -26,4 +27,5 @@ Enable the rules you want to use within rules property of your .eslintrc:
 | Rule Name  | Description | Autofixable? |
 |---|---|---| 
 | `kaizen/no-draft-imports` | Reports usages of draft components | yes |
+| `kaizen/no-inline-notification-imports-from-component-library` | Fix breaking changes from @kaizen >=11.0.0 | yes |
 
