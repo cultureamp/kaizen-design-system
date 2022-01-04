@@ -449,6 +449,41 @@ export const RemoteOnboardSurvey = ({
   />
 )
 
+export const HealthAndSafety = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-health-and-safety.svg"
+  />
+)
+
+export const EndOfProbation = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-end-of-probation.svg"
+  />
+)
+
+export const NewWaysOfWorking = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-new-ways-of-working.svg"
+  />
+)
+
+export const ReOnboarding = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/template-library-re-onboarding.svg"
+  />
+)
+
 /**
  * Template Library / Performance
  */
@@ -833,7 +868,7 @@ export const Team = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
-    name="illustrations/heart/spot/miscellaneous-team.svg"
+    name="illustrations/heart/spot/miscellaneous-team-1.svg"
   />
 )
 
@@ -974,5 +1009,13 @@ export const Recommendation = ({ enableAspectRatio, ...props }: SpotProps) => (
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-shield.svg"
+  />
+)
+
+export const Objective = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-objective.svg"
   />
 )

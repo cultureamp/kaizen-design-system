@@ -10,7 +10,7 @@ import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
-  | "affirmative"
+  | "positive"
   | "informative"
   | "cautionary"
   | "negative"
@@ -157,7 +157,7 @@ class GenericNotification extends React.Component<Props, State> {
 
   iconType() {
     switch (this.props.type) {
-      case "affirmative":
+      case "positive":
         return successIcon
       case "negative":
         return exclamationIcon

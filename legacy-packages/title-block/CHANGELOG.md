@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.3.1...@kaizen/draft-title-block@4.3.2) (2021-12-20)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [4.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.3.0...@kaizen/draft-title-block@4.3.1) (2021-12-20)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.2.19...@kaizen/draft-title-block@4.3.0) (2021-12-15)
+
+
+### Features
+
+* Add Profile varient to Tag ([#2330](https://github.com/cultureamp/kaizen-design-system/issues/2330)) ([b2778e8](https://github.com/cultureamp/kaizen-design-system/commit/b2778e854f24ba72dd63023a0539f20bbf86adc6))
+
+
+
+
+
+## [4.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.2.18...@kaizen/draft-title-block@4.2.19) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [4.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.2.17...@kaizen/draft-title-block@4.2.18) (2021-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [4.2.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.2.16...@kaizen/draft-title-block@4.2.17) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [4.2.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.2.15...@kaizen/draft-title-block@4.2.16) (2021-11-15)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

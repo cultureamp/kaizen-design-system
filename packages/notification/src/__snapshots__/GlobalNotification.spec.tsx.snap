@@ -2,8 +2,8 @@
 
 exports[`The basic notification renders correctly 1`] = `
 <div
-  class="notification affirmative global hidden"
-  data-automation-class="generic-notification affirmative global"
+  class="notification positive global hidden"
+  data-automation-class="generic-notification positive global"
   style="margin-top: 0px;"
 >
   <div

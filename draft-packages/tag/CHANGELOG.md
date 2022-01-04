@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.1.1...@kaizen/draft-tag@2.1.2) (2021-12-20)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.1.0...@kaizen/draft-tag@2.1.1) (2021-12-20)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.0.1...@kaizen/draft-tag@2.1.0) (2021-12-15)
+
+
+### Features
+
+* Add Profile varient to Tag ([#2330](https://github.com/cultureamp/kaizen-design-system/issues/2330)) ([b2778e8](https://github.com/cultureamp/kaizen-design-system/commit/b2778e854f24ba72dd63023a0539f20bbf86adc6))
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.0.0...@kaizen/draft-tag@2.0.1) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.17...@kaizen/draft-tag@2.0.0) (2021-12-09)
+
+
+### Features
+
+* New InputModal, ConfirmationModal and ContextModal updates ([#2337](https://github.com/cultureamp/kaizen-design-system/issues/2337)) ([01dc545](https://github.com/cultureamp/kaizen-design-system/commit/01dc545bef5427e593d153039a1245045a068e4e))
+
+
+### BREAKING CHANGES
+
+* Refactor of modals to reflect UI Kit design updates.
+
+* New styles for all modals - InputEditModal, ConfirmationModal, ContextModal (previously InformationModal).
+* InformationModal renamed to ContextModal - You will need to update any imports.
+* Deprecated RoadblockModal - use ConfirmationModal instead.
+
+
+
+
+
+## [1.12.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.16...@kaizen/draft-tag@1.12.17) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.12.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.12.15...@kaizen/draft-tag@1.12.16) (2021-11-15)
 
 **Note:** Version bump only for package @kaizen/draft-tag

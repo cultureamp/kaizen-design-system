@@ -30,6 +30,10 @@ $small: $spacing-md;
   border-radius: calc(#{$spacing-md} * 0.75);
   padding: 0 calc(#{$spacing-md} * 0.4);
   box-sizing: border-box;
+
+  &.profile {
+    padding-left: calc(#{$spacing-md} * 0.2);
+  }
 }
 
 .layoutContainer {
@@ -39,10 +43,13 @@ $small: $spacing-md;
 }
 
 .validationIcon {
-  @include ca-margin(
-    $start: calc(#{$spacing-md} * -0.15),
-    $end: calc(#{$spacing-md} * 0.125)
-  );
+  @include ca-margin($start: calc(#{$spacing-md} * -0.15), $end: $spacing-xs);
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  @include ca-margin($start: calc(#{$spacing-md} * -0.15), $end: $spacing-xs);
   display: flex;
   align-items: center;
 }
@@ -65,6 +72,10 @@ $small: $spacing-md;
   margin-left: -0.225rem;
   color: rgba($color-purple-800-rgb, 0.7);
   cursor: pointer;
+  [dir="rtl"] & {
+    margin-left: -0.6625rem;
+    margin-right: -0.225rem;
+  }
 
   &:hover {
     color: $color-purple-800;

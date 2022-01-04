@@ -78,7 +78,7 @@ $illustration-size: 155px;
   max-width: 780px;
 
   @include ca-media-desktop {
-    padding-left: $spacing-sm;
+    padding: 0 $spacing-sm;
     text-align: left;
   }
 
@@ -139,5 +139,5 @@ $illustration-size: 155px;
 }
 
 .prominent {
-  background: $color-blue-100;
+  background: $color-purple-100;
 }

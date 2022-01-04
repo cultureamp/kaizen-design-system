@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.19...@kaizen/notification@0.4.0) (2021-12-16)
+
+
+### Features
+
+* Add new variants to Global Notification [KDS-49] ([#2349](https://github.com/cultureamp/kaizen-design-system/issues/2349)) ([5fe2650](https://github.com/cultureamp/kaizen-design-system/commit/5fe2650ff6d34e36906f83d706fad75f507f4872))
+
+
+### BREAKING CHANGES
+
+* The `affirmative` variant is now called `positive`
+
+
+
+
+
+## [0.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.18...@kaizen/notification@0.3.19) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.17...@kaizen/notification@0.3.18) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.3.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.16...@kaizen/notification@0.3.17) (2021-12-09)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.15...@kaizen/notification@0.3.16) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.3.14...@kaizen/notification@0.3.15) (2021-12-02)
 
 **Note:** Version bump only for package @kaizen/notification

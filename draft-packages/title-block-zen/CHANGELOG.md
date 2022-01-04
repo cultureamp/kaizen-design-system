@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@5.0.0...@kaizen/draft-title-block-zen@5.0.1) (2021-12-20)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.2.0...@kaizen/draft-title-block-zen@5.0.0) (2021-12-20)
+
+
+### Features
+
+* add company variants to Avatar, update storybook format and add test coverage  ([6b70827](https://github.com/cultureamp/kaizen-design-system/commit/6b708275e12109498444ef443b7abfd734ec79d9)), closes [#1778](https://github.com/cultureamp/kaizen-design-system/issues/1778)
+
+
+### BREAKING CHANGES
+
+* New variants added and sizes updated
+size updates for large (now 72px), xlarge (now 96px) and the new xxlarge (124px). This will likely cause shifts in layouts.
+
+This update will also include the following changes:
+- Updated to the semantic structure
+- Addition of the isCompany prop for rendering company avatars (strictly typed)
+- Added unit tests to Avatar component
+- A11y improvements
+- storybook clean up
+
+Commits:
+* feat: add new stories and a11y update
+- add new stories for company avatar
+- add design sheet story, wrapper and data
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.27...@kaizen/draft-title-block-zen@4.2.0) (2021-12-15)
+
+
+### Features
+
+* Add Profile varient to Tag ([#2330](https://github.com/cultureamp/kaizen-design-system/issues/2330)) ([b2778e8](https://github.com/cultureamp/kaizen-design-system/commit/b2778e854f24ba72dd63023a0539f20bbf86adc6))
+
+
+
+
+
+## [4.1.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.26...@kaizen/draft-title-block-zen@4.1.27) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.25...@kaizen/draft-title-block-zen@4.1.26) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.24...@kaizen/draft-title-block-zen@4.1.25) (2021-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.23...@kaizen/draft-title-block-zen@4.1.24) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [4.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.22...@kaizen/draft-title-block-zen@4.1.23) (2021-12-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [4.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@4.1.21...@kaizen/draft-title-block-zen@4.1.22) (2021-11-30)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

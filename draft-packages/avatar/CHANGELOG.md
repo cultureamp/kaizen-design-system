@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.18...@kaizen/draft-avatar@2.0.0) (2021-12-20)
+
+
+### Features
+
+* add company variants to Avatar, update storybook format and add test coverage  ([6b70827](https://github.com/cultureamp/kaizen-design-system/commit/6b708275e12109498444ef443b7abfd734ec79d9)), closes [#1778](https://github.com/cultureamp/kaizen-design-system/issues/1778)
+
+
+### BREAKING CHANGES
+
+* New variants added and sizes updated
+size updates for large (now 72px), xlarge (now 96px) and the new xxlarge (124px). This will likely cause shifts in layouts.
+
+This update will also include the following changes:
+- Updated to the semantic structure
+- Addition of the isCompany prop for rendering company avatars (strictly typed)
+- Added unit tests to Avatar component
+- A11y improvements
+- storybook clean up
+
+Commits:
+* feat: add new stories and a11y update
+- add new stories for company avatar
+- add design sheet story, wrapper and data
+
+
+
+
+
+## [1.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.17...@kaizen/draft-avatar@1.8.18) (2021-12-13)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.16...@kaizen/draft-avatar@1.8.17) (2021-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [1.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.8.15...@kaizen/draft-avatar@1.8.16) (2021-11-15)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

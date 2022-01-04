@@ -13,7 +13,7 @@ afterEach(() => {
 })
 test("The basic notification renders correctly", () => {
   const { getByRole } = render(
-    <ToastNotification type="affirmative" title="Success">
+    <ToastNotification type="positive" title="Success">
       It worked!
     </ToastNotification>
   )

@@ -29,7 +29,7 @@ export default {
       },
     },
     ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
     ),
   },
   decorators: [withDesign],
@@ -809,11 +809,6 @@ export const ReversedButtons = () => (
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
   name: "Default Button (Kaizen Site Demo)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65143"
-    ),
-  },
 }
 
 ReversedButtons.parameters = {

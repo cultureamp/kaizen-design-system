@@ -3,7 +3,7 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import { LinkTo } from "@storybook/addon-links/react"
+import LinkTo from "@storybook/addon-links/react"
 import { Meta } from "@storybook/react"
 import classNames from "classnames"
 import "highlight.js/styles/monokai.css"
@@ -188,7 +188,10 @@ export const LinkToStory = ({
   /* Children can be used to override the Link text */
   children?: React.ReactNode
 }) => (
+  // @ts-ignore
   <LinkTo kind={storyModule.title}>
     {children || getStoryLinkName(storyModule.title)}
   </LinkTo>
 )
+
+export default {}
