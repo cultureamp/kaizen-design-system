@@ -1,4 +1,4 @@
-import { AtRule, Declaration, Root } from "postcss"
+import { AtRule, Declaration, Root, Document } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { deprecatedTokenReplacements } from "../../deprecatedTokens"
 import {
@@ -345,7 +345,7 @@ function detectAndFixInvalidTokens(
  */
 export const noInvalidUseOfTokens: RuleDefinition = {
   name: "no-invalid-use-of-tokens",
-  ruleFunction: (styleSheetNode: Root, options: Options) => {
+  ruleFunction: (styleSheetNode: Root | Document, options: Options) => {
     styleSheetNode.walkAtRules(postcssNode => {
       const newValue = detectAndFixInvalidTokens(
         postcssNode.params,

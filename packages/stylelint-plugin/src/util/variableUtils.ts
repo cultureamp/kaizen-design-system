@@ -100,7 +100,7 @@ const getVariablesInBlock = (block: ChildNode | Container | Document) => {
  */
 const getLexicallyClosestVariablesRecursive = nanomemoize(
   (
-    stylesheetNode: Root,
+    stylesheetNode: Root | Document,
     leafNode: ChildNode | Container | Document,
     currentVariables: Record<string, string | undefined>
   ): Record<string, string | undefined> => {
@@ -129,7 +129,7 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
  *
  */
 const getLexicallyClosestVariables = (
-  stylesheetNode: Root,
+  stylesheetNode: Root | Document,
   leafNode: ChildNode | Container
 ): Record<string, string | undefined> =>
   getLexicallyClosestVariablesRecursive(stylesheetNode, leafNode, {})
@@ -142,7 +142,7 @@ const getLexicallyClosestVariables = (
  *
  */
 export const getLexicalTransitiveKaizenVariables = (
-  stylesheetNode: Root,
+  stylesheetNode: Root | Document,
   leafNode: ChildNode | Container
 ) => {
   const stylesheetVariables = getLexicallyClosestVariables(

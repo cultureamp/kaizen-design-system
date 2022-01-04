@@ -1,4 +1,4 @@
-import { Root, AtRule } from "postcss"
+import { Root, AtRule, Document } from "postcss"
 import {
   deprecatedComponentLibraryColorImport,
   deprecatedComponentLibraryTypeImport,
@@ -32,7 +32,7 @@ const importsToReplace: ImportToReplace[] = [
 
 export const useDeprecatedComponentLibraryHelpersScssImports: RuleDefinition = {
   name: "use-deprecated-component-library-helpers-scss-imports",
-  ruleFunction: (styleSheetNode: Root, options: Options) => {
+  ruleFunction: (styleSheetNode: Root | Document, options: Options) => {
     for (const importToReplace of importsToReplace) {
       replaceImport(styleSheetNode, options, importToReplace)
     }
@@ -43,7 +43,7 @@ const addQuotes = (newImport: string, quoteCharacter: string) =>
   `${quoteCharacter}${newImport}${quoteCharacter}`
 
 const replaceImport = (
-  styleSheetNode: Root,
+  styleSheetNode: Root | Document,
   options: Options,
   { oldImport, newImport, message }: ImportToReplace
 ) => {

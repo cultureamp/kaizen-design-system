@@ -1,4 +1,4 @@
-import { Root } from "postcss"
+import { Root, Document } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { transitiveKaizenTokenUsage } from "../messages"
 import { Options, RuleDefinition } from "../types"
@@ -21,7 +21,7 @@ import { walkVariables } from "../util/walkers"
  */
 export const noTokensInVariables: RuleDefinition = {
   name: "no-tokens-in-variables",
-  ruleFunction: (stylesheetNode: Root, options: Options) => {
+  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
     walkVariables(
       stylesheetNode,
       ({ variable, variableNode, parsedValue, postcssNode }) => {

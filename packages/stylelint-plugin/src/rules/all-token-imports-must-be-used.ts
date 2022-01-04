@@ -1,4 +1,4 @@
-import { Root } from "postcss"
+import { Root, Document } from "postcss"
 import { unnecessaryKaizenImport } from "../messages"
 import { KaizenToken, Options, RuleDefinition } from "../types"
 import { getCurrentImports, removeImport } from "../util/importUtils"
@@ -6,7 +6,7 @@ import { walkKaizenTokens } from "../util/walkers"
 
 export const allTokenImportsMustBeUsed: RuleDefinition = {
   name: "all-token-imports-must-be-used",
-  ruleFunction: (stylesheetNode: Root, options: Options) => {
+  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
     // Get a map of all distinct kaizen tokens within the stylesheet
     const foundKaizenTokens = new Map<string, KaizenToken>()
     walkKaizenTokens(stylesheetNode, ({ variable }) => {

@@ -1,7 +1,7 @@
 // Migrated from https://github.com/cultureamp/node-packages/tree/0407d85/packages/stylelint-kaizen/lib
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
-import { Root } from "postcss"
+import { Root, Document } from "postcss"
 import stylelint from "stylelint"
 import postcssValueParser from "postcss-value-parser"
 import { kaizenTokensByValue } from "../util/kaizenTokens"
@@ -71,7 +71,7 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
  */
 export const preferColorTokens: RuleDefinition = {
   name: ruleName,
-  ruleFunction: (root: Root, options: Options) => {
+  ruleFunction: (root: Root | Document, options: Options) => {
     root.walkDecls(decl => {
       const parsedValue = postcssValueParser(decl.value)
       parsedValue.walk(node => {

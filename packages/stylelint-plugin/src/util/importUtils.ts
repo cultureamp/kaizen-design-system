@@ -1,7 +1,7 @@
-import { Root, atRule } from "postcss"
+import { Root, atRule, Document } from "postcss"
 import { quotesPattern } from "./patterns"
 
-export const getCurrentImports = (stylesheet: Root) => {
+export const getCurrentImports = (stylesheet: Root | Document) => {
   const imports = new Set<string>()
   stylesheet.walkAtRules("import", rule => {
     imports.add(rule.params.replace(quotesPattern, "").replace(/^~/, ""))
@@ -9,7 +9,7 @@ export const getCurrentImports = (stylesheet: Root) => {
   return imports
 }
 
-export const addImport = (stylesheetNode: Root, path: string) => {
+export const addImport = (stylesheetNode: Root | Document, path: string) => {
   stylesheetNode.prepend(
     atRule({
       name: "import",
@@ -18,7 +18,7 @@ export const addImport = (stylesheetNode: Root, path: string) => {
   )
 }
 export const removeImport = (
-  stylesheetNode: Root,
+  stylesheetNode: Root | Document,
   importPathToRemove: string
 ) => {
   stylesheetNode.walkAtRules("import", atrule => {
