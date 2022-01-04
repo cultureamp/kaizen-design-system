@@ -29,7 +29,7 @@ export const Cautionary = ({
     <AnimatedBase
       aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
-      name="illustrations/spot/moods-cautionary.lottie"
+      name="illustrations/heart/spot/moods-cautionary.lottie"
       fallback={illustrationPath}
     />
   )
@@ -57,7 +57,7 @@ export const Informative = ({
     <AnimatedBase
       aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
-      name="illustrations/spot/moods-informative.lottie"
+      name="illustrations/heart/spot/moods-informative.lottie"
       fallback={illustrationPath}
     />
   )
@@ -85,7 +85,7 @@ export const Negative = ({
     <AnimatedBase
       aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
-      name="illustrations/spot/moods-negative.lottie"
+      name="illustrations/heart/spot/moods-negative.lottie"
       fallback={illustrationPath}
     />
   )
@@ -131,7 +131,7 @@ export const PositiveFemale = ({
     <AnimatedBase
       aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
-      name="illustrations/spot/moods-positive.lottie"
+      name="illustrations/heart/spot/moods-positive.lottie"
       fallback={illustrationPath}
     />
   )
@@ -155,11 +155,13 @@ export const Positive = ({
       name={illustrationPath}
     />
   )
+  // TODO Update url to use heart version.
+
   const AnimatedIllustration = (
     <AnimatedBase
       aspectRatio={enableAspectRatio ? "square" : undefined}
       {...otherProps}
-      name="illustrations/spot/moods-positive.lottie"
+      name="illustrations/heart/spot/moods-positive.lottie"
       fallback={illustrationPath}
     />
   )
@@ -558,6 +560,81 @@ export const TeamEffectiveness2 = ({
 )
 
 /**
+ * Offices
+ */
+
+export const London = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/offices-london.svg"
+  />
+)
+export const Melbourne = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/offices-melbourne.svg"
+  />
+)
+export const NewYork = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/offices-new-york.svg"
+  />
+)
+export const SanFrancisco = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/offices-san-francisco.svg"
+  />
+)
+
+/**
+ * Values
+ */
+
+export const AmplifyOthers = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/values-amplify-others.svg"
+  />
+)
+export const HaveTheCourageToBeVulnerable = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/values-have-the-courage-to-be-vulnerable.svg"
+  />
+)
+export const LearnFasterThroughFeedback = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/values-learn-faster-through-feedback.svg"
+  />
+)
+export const TrustOthersToMakeDecisions = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/values-trust-others-to-make-decisions.svg"
+  />
+)
+
+/**
  * Template Library / COVID-19
  */
 
@@ -673,6 +750,16 @@ export const Resilience = ({ enableAspectRatio, ...props }: SpotProps) => (
     name="illustrations/heart/spot/skills-coach-resilience.svg"
   />
 )
+export const EssentialResilience = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/skills-coach-essential-resillience.svg"
+  />
+)
 
 export const RemoteManager = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
@@ -687,6 +774,35 @@ export const Productivity = ({ enableAspectRatio, ...props }: SpotProps) => (
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/skills-coach-productivity.svg"
+  />
+)
+export const EssentialProductivity = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/skills-coach-essential-productivity.svg"
+  />
+)
+
+export const InfluentialCommunication = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/skills-coach-influential-communication.svg"
+  />
+)
+
+export const LeadingChange = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/skills-coach-leading-change.svg"
   />
 )
 
@@ -725,6 +841,167 @@ export const OneOnOne = ({ enableAspectRatio, ...props }: SpotProps) => (
 /**
  * Miscellaneous
  */
+export const ActionPlans = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-action-plans.svg"
+  />
+)
+export const BCorp = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-b-corp.svg"
+  />
+)
+export const Behaviour = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-behavior.svg"
+  />
+)
+export const ChangeAgents = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-change-agents.svg"
+  />
+)
+export const Communications = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-communications.svg"
+  />
+)
+export const Community = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-community.svg"
+  />
+)
+export const Company = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-company.svg"
+  />
+)
+export const Conversations = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-conversations.svg"
+  />
+)
+export const DataVisualization = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-data-visualization.svg"
+  />
+)
+export const Goals = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-goals.svg"
+  />
+)
+export const Insights = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-insights.svg"
+  />
+)
+export const Learn = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-learn.svg"
+  />
+)
+export const Microphone = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-microphone.svg"
+  />
+)
+export const PaperPen = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-paper-pen.svg"
+  />
+)
+export const PowerfulInsights = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-powerful-insights.svg"
+  />
+)
+export const Privacy = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-privacy.svg"
+  />
+)
+export const Process = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-process.svg"
+  />
+)
+export const Resources = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-resources.svg"
+  />
+)
+
+// TODO: Compare with Covid-19 Response spot
+export const TempResponse = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-response.svg"
+  />
+)
+export const ScienceBackedTools = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-science-backed-tools.svg"
+  />
+)
+export const SkillsDevelopment = ({
+  enableAspectRatio,
+  ...props
+}: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-skills-development.svg"
+  />
+)
 export const ViewReports = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
@@ -864,11 +1141,26 @@ export const ShareReport = ({ enableAspectRatio, ...props }: SpotProps) => (
   />
 )
 
-export const Team = ({ enableAspectRatio, ...props }: SpotProps) => (
+// TODO: Component Name change
+export const Team1 = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
     name="illustrations/heart/spot/miscellaneous-team-1.svg"
+  />
+)
+export const Team2 = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-team-2.svg"
+  />
+)
+export const Templates = ({ enableAspectRatio, ...props }: SpotProps) => (
+  <Base
+    aspectRatio={enableAspectRatio ? "square" : undefined}
+    {...props}
+    name="illustrations/heart/spot/miscellaneous-templates.svg"
   />
 )
 
