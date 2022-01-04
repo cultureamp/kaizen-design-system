@@ -118,7 +118,7 @@ export default ({ data, location }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     allMdx(filter: { fields: { slug: { regex: "/^/components//" } } }) {
       edges {
         node {

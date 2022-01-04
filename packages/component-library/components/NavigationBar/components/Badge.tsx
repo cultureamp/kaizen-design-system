@@ -63,15 +63,16 @@ export const LocalBadge = (props: BadgeProps) => (
 
 LocalBadge.displayName = "LocalBadge"
 
-export const namedBadge = (environment: string) => (props: BadgeProps) => (
-  <MonogramBadge
-    envClass={styles.named}
-    monogram={environment}
-    loading={props.loading}
-    href={props.href}
-    colorScheme={props.colorScheme}
-  />
-)
+export const namedBadge = (environment: string) => (props: BadgeProps) =>
+  (
+    <MonogramBadge
+      envClass={styles.named}
+      monogram={environment}
+      loading={props.loading}
+      href={props.href}
+      colorScheme={props.colorScheme}
+    />
+  )
 
 namedBadge.displayName = "namedBadge"
 

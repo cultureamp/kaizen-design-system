@@ -89,8 +89,7 @@ export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
     text={{
       subtitle: "A survey for Hooli",
       title: "Manager Effectiveness Survey",
-      body:
-        "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
+      body: "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
       footer: (
         <>
           Your responses and information are securely collected and kept by
