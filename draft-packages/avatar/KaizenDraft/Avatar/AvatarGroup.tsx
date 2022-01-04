@@ -1,6 +1,5 @@
 import * as React from "react"
 import cx from "classnames"
-import { v4 } from "uuid"
 import { Avatar, GenericAvatarProps, CompanyAvatarProps } from "./Avatar"
 import styles from "./AvatarGroup.module.scss"
 
@@ -33,15 +32,14 @@ const renderCounter = (remainingAvatars: number) => {
   if (remainingAvatars <= 0) return
   return (
     <li
-      aria-label={`There is ${remainingAvatars} other memeber${
-        remainingAvatars > 1 && "s"
+      aria-label={`There ${
+        remainingAvatars > 1
+          ? `are ${remainingAvatars} other members`
+          : `is ${remainingAvatars} other member`
       } of this group`}
+      className={styles.AvatarGroupItemCounter}
     >
-      <span
-        className={styles.AvatarCounter}
-        aria-hidden={true}
-        role="presentation"
-      >
+      <span className={styles.AvatarCounter} aria-hidden={true}>
         {`+${remainingAvatars}`}
       </span>
     </li>
@@ -57,11 +55,7 @@ const renderAvatars = (
     {avatars?.map(
       (avatarProps, index) =>
         index < maxVisible && (
-          <li
-            key={`avatar-${v4()}`}
-            className={styles.AvatarGroupItem}
-            role="presentation"
-          >
+          <li key={`avatar-${index}`} className={styles.AvatarGroupItem}>
             <Avatar {...avatarProps} size={size} />
           </li>
         )

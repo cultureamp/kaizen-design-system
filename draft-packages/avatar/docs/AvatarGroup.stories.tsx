@@ -13,8 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { AvatarGroup } from "@kaizen/draft-avatar" and pass in an array of `AvatarProps` to render a list. `size` is omitted from the avatars props and is set on the component level.',
+        component: 'import { AvatarGroup } from "@kaizen/draft-avatar"',
       },
     },
     ...figmaEmbed(

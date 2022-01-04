@@ -26,24 +26,11 @@ $avatar-lg: 4.5rem;
   .large & {
     margin-left: calc(#{$avatar-lg} / -2);
   }
-
-  .small & [dir="rtl"] & {
-    margin-left: calc(#{$avatar-sm} / -2);
-  }
-
-  .medium & [dir="rtl"] & {
-    margin-left: calc(#{$avatar-md} / -2);
-  }
-
-  .large & [dir="rtl"] & {
-    margin-left: calc(#{$avatar-lg} / -2);
-  }
 }
 
 .AvatarGroupItem {
   &:first-of-type {
     margin-left: 0;
-
     .small & {
       [dir="rtl"] & {
         margin-left: calc(#{$avatar-sm} / -2);
@@ -72,7 +59,6 @@ $avatar-lg: 4.5rem;
   box-sizing: border-box;
   box-shadow: $shadow-small-box-shadow;
   display: flex;
-  font-family: $typography-heading-1-font-family;
   justify-content: center;
   overflow: hidden;
 
@@ -81,6 +67,7 @@ $avatar-lg: 4.5rem;
     border: none;
     width: $avatar-sm;
     height: $avatar-sm;
+    font-family: $typography-heading-5-font-family;
     font-size: 0.5rem;
     font-weight: $typography-heading-5-font-weight;
     letter-spacing: $typography-heading-5-letter-spacing;
@@ -89,6 +76,7 @@ $avatar-lg: 4.5rem;
   .medium & {
     width: $avatar-md;
     height: $avatar-md;
+    font-family: $typography-heading-5-font-family;
     font-size: $typography-heading-5-font-size;
     font-weight: $typography-heading-5-font-weight;
     letter-spacing: $typography-heading-5-letter-spacing;
@@ -97,8 +85,9 @@ $avatar-lg: 4.5rem;
   .large & {
     width: $avatar-lg;
     height: $avatar-lg;
+    font-family: $typography-heading-3-font-family;
     font-size: $typography-heading-3-font-size;
-    font-weight: $typography-heading-1-font-weight;
+    font-weight: $typography-heading-3-font-weight;
     letter-spacing: $typography-heading-3-letter-spacing;
   }
 
