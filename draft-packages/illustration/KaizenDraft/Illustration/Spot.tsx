@@ -1300,7 +1300,7 @@ export const Recommendation = ({ enableAspectRatio, ...props }: SpotProps) => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...props}
-    name="illustrations/heart/spot/miscellaneous-shield.svg"
+    name="illustrations/heart/spot/miscellaneous-recommendation.svg"
   />
 )
 
