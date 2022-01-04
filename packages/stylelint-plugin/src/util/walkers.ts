@@ -1,4 +1,4 @@
-import { AtRule, Declaration, Root } from "postcss"
+import { AtRule, Declaration, Root, Document } from "postcss"
 import postcssValueParser, { FunctionNode } from "postcss-value-parser"
 import { ParsedKaizenVariable, Variable } from "../types"
 import { parseVariable } from "./variableUtils"
@@ -102,7 +102,7 @@ export const walkVariables = (
  * You could use the functions above to walk through variables again within your visitor function.
  */
 export const walkDeclsWithKaizenTokens = (
-  stylesheetNode: Root,
+  stylesheetNode: Root | Document,
   visitor: (params: {
     postcssNode: Declaration
     /* The AST of the value part of the declaration */
@@ -116,6 +116,7 @@ export const walkDeclsWithKaizenTokens = (
     value: string
   }) => void | false
 ) => {
+  if (!("walk" in stylesheetNode)) return
   stylesheetNode.walk(postcssNode => {
     if (postcssNode.type !== "decl") return
 

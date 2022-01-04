@@ -1,4 +1,4 @@
-import { AtRule, Declaration, Root } from "postcss"
+import { AtRule, Declaration, Root, Document } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import {
   kaizenVariableUsedNextToOperatorMessage,
@@ -154,7 +154,7 @@ const noInvalidEquations = (
 
 export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
   name: "no-invalid-use-of-var-tokens-in-equations",
-  ruleFunction: (stylesheetNode: Root, options: Options) => {
+  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
     walkDeclsWithKaizenTokens(
       stylesheetNode,
       ({ postcssNode, parsedValue }) => {
