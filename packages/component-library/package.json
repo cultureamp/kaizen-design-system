@@ -37,7 +37,7 @@
     "@kaizen/hosted-assets": "^1.2.0",
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.3.0",
-    "@types/lodash": "^4.14.176",
+    "@types/lodash": "^4.14.177",
     "@types/uuid": "^3.4.10",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
