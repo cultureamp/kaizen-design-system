@@ -32,7 +32,7 @@ export const Default = () => {
     <RichTextEditor
       id="rich-text-editor-id"
       labelText="THIS IS AWESOME"
-      controls={[["bold", "em"], ["underline"]]}
+      controls={[["em"], ["underline"]]}
       value={rteData}
       onChange={data => setRTEData(data)}
     />

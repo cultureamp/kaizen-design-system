@@ -4,7 +4,8 @@ import { keymap } from "prosemirror-keymap"
 // import { EditorContentArray } from "ca-ui/RichTextEditor/types.d"
 import { Label } from "@kaizen/draft-form"
 import { useRichTextEditor } from "@cultureamp/rich-text-editor"
-import schema from "./schema"
+import { toggleMark } from "prosemirror-commands"
+import { createSchemaFromControls } from "./schema"
 import { toolbarControls, ToolbarControls } from "./constants"
 import { createInitialState, customKeymap, createDocFromContent } from "./state"
 import { hardBreak } from "./commands"
@@ -21,16 +22,17 @@ type Props = {
   id: string
 }
 
-const addShortcuts = (options: ToolbarControls[]) => {
+const addShortcuts = (options: ToolbarControls[], schema) => {
   const defaultKeys = {
     "Shift-Enter": hardBreak,
   }
   const customKeys = options.reduce((accumulatedOptions, currentOption) => {
     const optionProp = toolbarControls.get(currentOption)
     if (!optionProp) return accumulatedOptions
+    const shortcutCmd = schema.marks[currentOption]
     return {
       ...accumulatedOptions,
-      [optionProp["shortcut"]]: optionProp["shortcutCmd"],
+      [optionProp["shortcut"]]: toggleMark(shortcutCmd),
     }
   }, {})
 
@@ -46,11 +48,13 @@ export const RichTextEditor = (props: Props) => {
   const { onChange, value, controls } = props
   const componentRef = useRef<HTMLDivElement>(null)
 
+  const schema = createSchemaFromControls(controls.flat())
+
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
     createInitialState(
       value ? createDocFromContent(schema, value) : null,
       schema,
-      [history(), addShortcuts(controls.flat())]
+      [history(), addShortcuts(controls.flat(), schema)]
     )
     // {
     //   "aria-labelledby": props.id,
@@ -70,6 +74,7 @@ export const RichTextEditor = (props: Props) => {
         <div className={styles.toolbar}>
           <Toolbar
             controls={controls}
+            schema={schema}
             dispatchTransaction={dispatchTransaction}
             editorState={editorState}
             componentRef={componentRef}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react"
 import { EditorState } from "prosemirror-state"
+import { Schema } from "prosemirror-model"
 // import { MaybeCommand } from "../types"
 // import {
 //   ToolbarControlLabels,
@@ -12,6 +13,7 @@ import styles from "./Toolbar.scss"
 
 export type ToolbarProps = {
   controls: ToolbarControls[][]
+  schema: Schema<string, string>
   editorState: EditorState
   dispatchTransaction: (command: MaybeCommand) => void
   componentRef: React.RefObject<HTMLDivElement>
@@ -20,6 +22,7 @@ export type ToolbarProps = {
 export function Toolbar({
   controls,
   editorState,
+  schema,
   dispatchTransaction,
   componentRef,
 }: ToolbarProps) {
@@ -97,6 +100,9 @@ export function Toolbar({
   const renderControl = (control: ToolbarControls, index: number) => {
     const controlProperties = toolbarControls.get(control)
     if (!controlProperties) return
+    const markType = schema.marks[control]
+    // eslint-disable-next-line no-console
+    console.log(markType)
 
     return (
       <ToggleButton
@@ -104,7 +110,7 @@ export function Toolbar({
         label={controlProperties.label}
         dispatchTransaction={dispatchTransaction}
         editorState={editorState}
-        markType={controlProperties.markType}
+        markType={markType}
         {...commonToolbarProps(index)}
       />
     )

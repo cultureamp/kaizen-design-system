@@ -1,4 +1,4 @@
-import { NodeSpec, Schema } from "prosemirror-model"
+import { MarkSpec, NodeSpec, Schema } from "prosemirror-model"
 
 export const nodes: NodeSpec = {
   // The top level document node.
@@ -33,7 +33,7 @@ export const nodes: NodeSpec = {
   },
 }
 
-export const marks = {
+export const marks: MarkSpec = {
   // A strong mark. Rendered as `<strong>`, parse rules also match `<b>` and
   // `font-weight: bold`.
   strong: {
@@ -76,5 +76,13 @@ export const marks = {
   },
 }
 
-const schema = new Schema({ nodes, marks })
-export default schema
+export const createSchemaFromControls = controls => {
+  const newMarks: MarkSpec = controls.reduce(
+    (previousValue, currentValue) => ({
+      ...previousValue,
+      [currentValue]: marks[currentValue],
+    }),
+    {}
+  )
+  return new Schema({ nodes, marks: newMarks })
+}
