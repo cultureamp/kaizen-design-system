@@ -15,6 +15,7 @@ import {
   ChangeReadiness,
   ChangeSuccess,
   Coaching,
+  Company,
   CustomOnboardSurvey,
   CustomSurvey,
   CustomUnattributedSurvey,
@@ -24,6 +25,9 @@ import {
   EngagementSurvey,
   ExecutiveReportSharing,
   ExitSurvey,
+  EssentialResilience,
+  EssentialProductivity,
+  InfluentialCommunication,
   FastAction,
   Feedback,
   Gdpr,
@@ -33,11 +37,13 @@ import {
   Individual180,
   Individual360,
   Informative,
+  Insights,
   InternSurvey,
   LeaderReportSharing,
   Leadership180,
   Leadership360,
   LeadingThroughCrisis,
+  LeadingChange,
   Manager180,
   Manager360,
   ManagerLearning,
@@ -63,7 +69,8 @@ import {
   SpreadsheetTemplate,
   Strategy,
   TakeAim,
-  Team,
+  Team1,
+  Team2,
   TeamEffectiveness1,
   TeamEffectiveness2,
   Timezone,
@@ -83,6 +90,21 @@ import {
   RemoteWorkQSet,
   ReturnToWorkplace,
   PulseSurvey,
+  PaperPen,
+  DataVisualization,
+  Community,
+  BCorp,
+  Resources,
+  Goals,
+  Communications,
+  ScienceBackedTools,
+  Microphone,
+  PowerfulInsights,
+  ActionPlans,
+  Conversations,
+  Process,
+  SkillsDevelopment,
+  ChangeAgents,
   Alarm,
   Fire,
   Fireworks,
@@ -97,6 +119,13 @@ import {
   ValueAdd,
   Recommendation,
   Objective,
+  London,
+  Melbourne,
+  NewYork,
+  SanFrancisco,
+  Behaviour,
+  Learn,
+  Templates,
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -335,6 +364,24 @@ export const AllSpotIllustrations = () => {
     },
   ]
 
+  const officeSpots = [
+    {
+      Component: London,
+      name: "London",
+    },
+    {
+      Component: Melbourne,
+      name: "Melbourne",
+    },
+    {
+      Component: NewYork,
+      name: "New York",
+    },
+    {
+      Component: SanFrancisco,
+      name: "San Francisco",
+    },
+  ]
   const moodSpots = [
     {
       Component: Cautionary,
@@ -391,6 +438,22 @@ export const AllSpotIllustrations = () => {
       Component: ManagerLearning,
       name: "Manager Learning",
     },
+    {
+      Component: EssentialProductivity,
+      name: "Essential Productivity",
+    },
+    {
+      Component: EssentialResilience,
+      name: "Essential Resilience",
+    },
+    {
+      Component: LeadingChange,
+      name: "Leading Change",
+    },
+    {
+      Component: InfluentialCommunication,
+      name: "Influential Communication",
+    },
   ]
 
   const miscellaneousSpots = [
@@ -411,8 +474,12 @@ export const AllSpotIllustrations = () => {
       name: "Baseline Survey",
     },
     {
-      Component: Team,
-      name: "Team",
+      Component: Team1,
+      name: "Team1",
+    },
+    {
+      Component: Team2,
+      name: "Team2",
     },
     {
       Component: Recommendation,
@@ -534,6 +601,86 @@ export const AllSpotIllustrations = () => {
       Component: Objective,
       name: "Objective",
     },
+    {
+      Component: PaperPen,
+      name: "PaperPen",
+    },
+    {
+      Component: DataVisualization,
+      name: "Data Visualization",
+    },
+    {
+      Component: Community,
+      name: "Community",
+    },
+    {
+      Component: BCorp,
+      name: "B Corp",
+    },
+    {
+      Component: Resources,
+      name: "Resources",
+    },
+    {
+      Component: Goals,
+      name: "Goals",
+    },
+    {
+      Component: Communications,
+      name: "Communications",
+    },
+    {
+      Component: ScienceBackedTools,
+      name: "Science Backed Tools",
+    },
+    {
+      Component: Microphone,
+      name: "Microphone",
+    },
+    {
+      Component: Company,
+      name: "Company",
+    },
+    {
+      Component: Insights,
+      name: "Insights",
+    },
+    {
+      Component: Behaviour,
+      name: "Behaviour",
+    },
+    {
+      Component: Learn,
+      name: "Learn",
+    },
+    {
+      Component: Templates,
+      name: "Templates",
+    },
+    {
+      Component: PowerfulInsights,
+      name: "Powerful Insights",
+    },
+    {
+      Component: ActionPlans,
+      name: "Action Plans",
+    },
+    {
+      Component: Conversations,
+      name: "Conversations",
+    },
+    {
+      Component: Process,
+      name: "Process",
+    },
+    {
+      Component: SkillsDevelopment,
+      name: "Skills Development",
+    },
+    {
+      Component: ChangeAgents,
+      name: "Change Agents",
+    },
   ]
 
   return (
@@ -578,6 +725,12 @@ export const AllSpotIllustrations = () => {
         <Heading variant="heading-3">Skills Coach</Heading>
         {managerLearningSpots.map((props, i) => (
           <IllustrationExampleTile key={`skills-coach-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Offices</Heading>
+        {officeSpots.map((props, i) => (
+          <IllustrationExampleTile key={`offices-${i}`} {...props} />
         ))}
       </div>
       <div>

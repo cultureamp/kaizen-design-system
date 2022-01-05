@@ -4,8 +4,11 @@
  * This file is the Storybook-specific header. The Gatsby header is
  * located site/src/components/MainNav
  */
-import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 import React from "react"
+import {
+  Link as NavLink,
+  NavigationBar,
+} from "../../site/src/components/NavigationBar"
 import styles from "./header.module.scss"
 
 const SiteHeader = () => {

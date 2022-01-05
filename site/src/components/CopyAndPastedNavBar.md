@@ -1,0 +1,2 @@
+05/01/2022 - Chris Chan
+We would love to remove NavBar from Kaizen, the NavigationBar and OffCanvas components should be refactored and deal with when possible. It's currently being copied to both /site and /storybook
