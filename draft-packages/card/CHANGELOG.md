@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.4.1...@kaizen/draft-card@1.5.0) (2022-01-05)
+
+
+### Features
+
+* add isElevated prop to Card component wrapper and support for new variants backgrounds ([#2380](https://github.com/cultureamp/kaizen-design-system/issues/2380)) ([f20bec2](https://github.com/cultureamp/kaizen-design-system/commit/f20bec2ae2bc21f94072186b68f9ba5a8a584117))
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.4.0...@kaizen/draft-card@1.4.1) (2021-12-08)
 
 **Note:** Version bump only for package @kaizen/draft-card
