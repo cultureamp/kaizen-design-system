@@ -2244,6 +2244,19 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@cultureamp/rich-text-editor@^0.3.4":
+  version "0.3.4"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-editor/0.3.4/451ae3d6499bbc276330154f7f5639b04a274a55157f7395ac0f943265265b0e#eaef6e8a6492ebd056c698e01a5c19dd475fc756"
+  integrity sha512-GVld5s04hQkIOuWrnTRtv0LFWBYFHnHa9YehjoKqrmd58xGPcFf0KpBfQ0QewWjGqmnYBtcYQ5U68majLYRymg==
+  dependencies:
+    prosemirror-commands "^1.1.12"
+    prosemirror-history "^1.2.0"
+    prosemirror-keymap "^1.1.5"
+    prosemirror-model "^1.14.3"
+    prosemirror-state "^1.3.4"
+    prosemirror-transform "^1.3.3"
+    prosemirror-view "^1.23.3"
+
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"

@@ -3,7 +3,7 @@ import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 // import { EditorContentArray } from "ca-ui/RichTextEditor/types.d"
 import { Label } from "@kaizen/draft-form"
-import { useRichTextEditor } from "../"
+import { useRichTextEditor } from "@cultureamp/rich-text-editor"
 import schema from "./schema"
 import { toolbarControls, ToolbarControls } from "./constants"
 import { createInitialState, customKeymap, createDocFromContent } from "./state"
@@ -51,17 +51,16 @@ export const RichTextEditor = (props: Props) => {
       value ? createDocFromContent(schema, value) : null,
       schema,
       [history(), addShortcuts(controls.flat())]
-    ),
-    {
-      "aria-labelledby": props.id,
-    }
+    )
+    // {
+    //   "aria-labelledby": props.id,
+    // }
   )
 
   useEffect(() => {
     onChange(editorState.toJSON().doc.content)
 
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
   return (
