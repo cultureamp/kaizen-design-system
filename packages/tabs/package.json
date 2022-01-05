@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tabs",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,13 +33,13 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/draft-badge": "^1.8.0",
-    "@reach/tabs": "^0.16.1",
+    "@reach/tabs": "^0.16.4",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^6.0.1",
-    "@kaizen/draft-button": "^5.3.3",
+    "@kaizen/design-tokens": "^6.0.2",
+    "@kaizen/draft-button": "^5.3.4",
     "@kaizen/draft-card": "^1.4.1"
   },
   "peerDependencies": {
