@@ -24,6 +24,15 @@ type GuidanceBlockActions = {
   }
 }
 
+type VariantType =
+  | "default"
+  | "positive"
+  | "negative"
+  | "informative"
+  | "cautionary"
+  | "assertive"
+  | "prominent"
+
 export type GuidanceBlockProps = {
   illustration: React.ReactElement<SpotProps>
   text: {
@@ -32,7 +41,7 @@ export type GuidanceBlockProps = {
   }
   actions?: GuidanceBlockActions
   persistent?: boolean
-  variant?: "default" | "prominent"
+  variant?: VariantType
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
 }
@@ -180,6 +189,11 @@ class GuidanceBlock extends React.Component<
   bannerClassName(noMaxWidth): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
+      [styles.positive]: this.props.variant === "positive",
+      [styles.negative]: this.props.variant === "negative",
+      [styles.informative]: this.props.variant === "informative",
+      [styles.cautionary]: this.props.variant === "cautionary",
+      [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
     })

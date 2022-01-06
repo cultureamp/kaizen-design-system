@@ -146,7 +146,97 @@ export const SecondaryAction = () => (
 
 SecondaryAction.storyName = "Secondary Action"
 
-export const Prominent = () => (
+export const PositiveMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="positive"
+  />
+)
+
+PositiveMood.storyName = "Positive"
+
+export const NegativeMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="negative"
+  />
+)
+
+NegativeMood.storyName = "Negative"
+
+export const InformativeMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="informative"
+  />
+)
+
+InformativeMood.storyName = "Informative"
+
+export const CautionaryMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="cautionary"
+  />
+)
+
+CautionaryMood.storyName = "Cautionary"
+
+export const AssertiveMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="assertive"
+  />
+)
+
+AssertiveMood.storyName = "Assertive"
+
+export const ProminentMood = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -162,7 +252,7 @@ export const Prominent = () => (
   />
 )
 
-Prominent.storyName = "Prominent"
+ProminentMood.storyName = "Prominent"
 
 export const WithCustomDescription = () => (
   <GuidanceBlock
