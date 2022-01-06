@@ -44,9 +44,7 @@
     "svgo-loader": "2.2.2",
     "unist-util-visit": "^2.0.3",
     "wcag-contrast-verifier": "^1.1.0",
-    "webpack": "^4.46.0",
-    "react-media": "^1.10.0",
-    "@kaizen/brand": "^1.1.5"
+    "webpack": "^4.46.0"
   },
   "resolutions": {
     "axios": "0.24.0",
