@@ -21,19 +21,41 @@ $dt-tooltip-content-border: $color-gray-300;
   border-radius: $border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
-  border: $border-solid-border-width $border-solid-border-style
-    $dt-tooltip-content-border;
   box-shadow: $shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
+  color: $color-purple-800;
   // I'm having a problem getting the tooltip width to match the size of the text content.
   // As a workaround, I'm just going to set a min width of 200px. It should be enough
   // in most cases.
-  min-width: 200px;
+  // min-width: fit-content;
   @include kz-typography-paragraph-body($size: 14);
   top: initial; // Overrides the `top` value of kz-typography-paragraph-body
-  color: $color-purple-800;
-  background-color: white;
+
+  &.default {
+    background-color: $color-white;
+    border: $border-solid-border-width $border-solid-border-style
+      $dt-tooltip-content-border;
+  }
+  &.informative {
+    background-color: $color-blue-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-blue-300;
+  }
+  &.positive {
+    background-color: $color-green-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-green-300;
+  }
+  &.negative {
+    background-color: $color-red-100;
+    border: $border-solid-border-width $border-solid-border-style $color-red-300;
+  }
+  &.cautionary {
+    background-color: $color-yellow-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-yellow-300;
+  }
 }
 
 .arrow {
@@ -60,8 +82,8 @@ $dt-tooltip-content-border: $color-gray-300;
   }
 }
 
-.arrowWhite::before,
-.arrowWhite::after {
+.arrowMain::before,
+.arrowMain::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -70,13 +92,44 @@ $dt-tooltip-content-border: $color-gray-300;
   margin-left: -($arrow-width / 2);
 }
 
-.arrowWhite::before {
-  border-top: $arrow-height solid $dt-tooltip-content-border;
+.arrowMain {
+  &.default::before {
+    border-top: $arrow-height solid $dt-tooltip-content-border;
+  }
+  &.informative::before {
+    border-top: $arrow-height solid $color-blue-300;
+  }
+  &.positive::before {
+    border-top: $arrow-height solid $color-green-300;
+  }
+  &.negative::before {
+    border-top: $arrow-height solid $color-red-300;
+  }
+  &.cautionary::before {
+    border-top: $arrow-height solid $color-yellow-300;
+  }
 }
 
-.arrowWhite::after {
-  border-top: $arrow-height solid white;
+.arrowMain::after {
   margin-top: -2px;
+}
+
+.arrowMain {
+  &.default::after {
+    border-top: $arrow-height solid white;
+  }
+  &.informative::after {
+    border-top: $arrow-height solid $color-blue-100;
+  }
+  &.positive::after {
+    border-top: $arrow-height solid $color-green-100;
+  }
+  &.negative::after {
+    border-top: $arrow-height solid $color-red-100;
+  }
+  &.cautionary::after {
+    border-top: $arrow-height solid $color-yellow-100;
+  }
 }
 
 .arrowShadow::before {

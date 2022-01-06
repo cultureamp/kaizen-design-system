@@ -37,18 +37,20 @@ export default {
   decorators: [withDesign, openTooltipInChromatic],
 }
 
-export const DefaultBelowKaizenSiteDemo = props => (
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <Tooltip {...props} position="below" text="This is below the tooltip">
+export const DefaultKaizenSiteDemo = props => (
+  <div
+    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
+  >
+    <Tooltip {...props} text="This is below the tooltip">
       {/* Using buttons, as so we can test the focus state.
          ie. the tooltip should show when any child is focused. */}
-      <Button label="Below" />
+      <Button label="Default" />
     </Tooltip>
   </div>
 )
 
-DefaultBelowKaizenSiteDemo.storyName = "Default - Below (Kaizen Site Demo)"
-DefaultBelowKaizenSiteDemo.parameters = {
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.parameters = {
   info: {
     text: `
     import { Tooltip } from "@kaizen/draft-tooltip"
@@ -56,20 +58,101 @@ DefaultBelowKaizenSiteDemo.parameters = {
   },
 }
 
-export const DefaultAbove = props => (
+export const DesignSheet = props => (
   <div
-    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
+    style={{
+      marginTop: "100px",
+      display: "grid",
+      justifyContent: "center",
+      rowGap: "5rem",
+    }}
   >
-    <div style={{ display: "inline-block", position: "relative" }}>
-      <Tooltip {...props} position="above" text="This is above the tooltip">
-        {/* Using buttons, as so we can test the focus state.
-         ie. the tooltip should show when any child is focused. */}
-        <Button label="Above" />
-      </Tooltip>
+    <div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="above"
+          text="Tooltip"
+          mood="default"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="above"
+          text="Tooltip"
+          mood="informative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          {...props}
+          position="above"
+          text="Tooltip"
+          mood="positive"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="above"
+          text="Tooltip"
+          mood="negative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="above"
+          text="Tooltip"
+          mood="cautionary"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
     </div>
   </div>
 )
-DefaultAbove.storyName = "Default - Above"
+DesignSheet.storyName = "Design Sheet"
 
 export const Inline = props => (
   <div
@@ -105,7 +188,7 @@ export const Inline = props => (
           {...props}
           display="inline-block"
           text="This is below the tooltip"
-          position="below"
+          position="bottom"
         >
           <Tag>veniam sapiente ad</Tag>
         </Tooltip>{" "}
@@ -121,7 +204,7 @@ export const ArrowPositioning = props => (
     <div style={{ position: "absolute", top: "0", left: "0" }}>
       <Tooltip
         {...props}
-        position="above"
+        position="top"
         text="This is below the tooltip, despite it being set to position=above. This is because there is not enough room. Also note that the arrow is correctly positioned."
       >
         <Button label="Above" />
@@ -130,7 +213,7 @@ export const ArrowPositioning = props => (
     <div style={{ position: "absolute", bottom: "0", right: "0" }}>
       <Tooltip
         {...props}
-        position="below"
+        position="bottom"
         text="This is above the tooltip, despite it being set to position=below. This is because there is not enough room. Also note that the arrow is correctly positioned."
       >
         <Button label="Bottom" />

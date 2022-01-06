@@ -9,6 +9,8 @@ import { useUuid } from "./useUuid"
 
 type Position = "above" | "below"
 
+type Mood = "default" | "informative" | "positive" | "negative" | "cautionary"
+
 export type TooltipProps = {
   /**
    * Use `display="inline"` instead
@@ -30,6 +32,7 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  mood?: Mood
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
    * This is typically used for instances where the menu is a descendant of an
@@ -47,7 +50,13 @@ export type TooltipProps = {
 const arrowHeight = 10
 const arrowWidth = 20
 
-const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
+const TooltipContent = ({
+  position,
+  text,
+  referenceElement,
+  tooltipId,
+  mood = "default",
+}) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -99,7 +108,17 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
       role="tooltip"
       id={tooltipId}
     >
-      <div className={classnames(tooltipStyles.tooltipContent)}>{text}</div>
+      <div
+        className={classnames(tooltipStyles.tooltipContent, {
+          [tooltipStyles.default]: mood === "default",
+          [tooltipStyles.informative]: mood === "informative",
+          [tooltipStyles.positive]: mood === "positive",
+          [tooltipStyles.negative]: mood === "negative",
+          [tooltipStyles.cautionary]: mood === "cautionary",
+        })}
+      >
+        {text}
+      </div>
       <div
         ref={setArrowElement}
         className={classnames({
@@ -108,7 +127,15 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
         style={popperStyles.arrow}
       >
         <div className={tooltipStyles.arrowInner}>
-          <div className={tooltipStyles.arrowWhite} />
+          <div
+            className={classnames(tooltipStyles.arrowMain, {
+              [tooltipStyles.default]: mood === "default",
+              [tooltipStyles.informative]: mood === "informative",
+              [tooltipStyles.positive]: mood === "positive",
+              [tooltipStyles.negative]: mood === "negative",
+              [tooltipStyles.cautionary]: mood === "cautionary",
+            })}
+          />
           <div className={tooltipStyles.arrowShadow} />
         </div>
       </div>
@@ -125,6 +152,7 @@ const Tooltip = ({
   classNameAndIHaveSpokenToDST,
   portalSelector,
   isInitiallyVisible = false,
+  mood = "default",
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
@@ -143,6 +171,7 @@ const Tooltip = ({
       position={position}
       referenceElement={referenceElement}
       tooltipId={tooltipId}
+      mood={mood}
     />
   )
 
