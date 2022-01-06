@@ -28,7 +28,7 @@ $arrow-width: 20px;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-heading-6-font-size;
   font-weight: $typography-paragraph-body-font-weight;
-  $letter-spacing: $typography-paragraph-body-letter-spacing;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
   line-height: $typography-paragraph-body-line-height;
 
   &.default {
