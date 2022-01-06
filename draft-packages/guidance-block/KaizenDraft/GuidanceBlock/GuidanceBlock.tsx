@@ -8,13 +8,15 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import Media from "react-media"
-import { SpotProps } from "@kaizen/draft-illustration"
+import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
 
 const styles = require("./GuidanceBlock.scss")
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
 }
+
+type IllustrationType = "spot" | "scene"
 
 type GuidanceBlockActions = {
   primary: ActionProps
@@ -34,7 +36,8 @@ type VariantType =
   | "prominent"
 
 export type GuidanceBlockProps = {
-  illustration: React.ReactElement<SpotProps>
+  illustration: React.ReactElement<SpotProps | SceneProps>
+  illustrationType?: IllustrationType
   text: {
     title: string
     description: string | React.ReactNode
@@ -74,6 +77,7 @@ class GuidanceBlock extends React.Component<
     variant: "default",
     withActionButtonArrow: true,
     noMaxWidth: false,
+    illustrationType: "spot",
   }
 
   state = {
@@ -164,7 +168,7 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>{illustration}</div>
+          <div className={this.illustrationClassName()}>{illustration}</div>
         </div>
 
         <div className={styles.descriptionAndActions}>
@@ -196,6 +200,12 @@ class GuidanceBlock extends React.Component<
       [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
+    })
+  }
+
+  illustrationClassName(): string {
+    return classnames(styles.illustration, {
+      [styles.sceneIllustration]: this.props.illustrationType === "scene",
     })
   }
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { Informative } from "@kaizen/draft-illustration"
+import { Informative, HumanityAtWork } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -145,6 +145,24 @@ export const SecondaryAction = () => (
 )
 
 SecondaryAction.storyName = "Secondary Action"
+
+export const SceneIllustration = () => (
+  <GuidanceBlock
+    illustration={<HumanityAtWork alt="" />}
+    illustrationType="scene"
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+  />
+)
+
+SceneIllustration.storyName = "Scene Illustration"
 
 export const PositiveMood = () => (
   <GuidanceBlock

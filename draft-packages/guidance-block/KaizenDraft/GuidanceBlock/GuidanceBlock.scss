@@ -7,11 +7,12 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
-$bannerPadding: $spacing-sm;
+$bannerPadding: $spacing-lg;
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
   $animation-duration-slow ease;
 $illustration-size: 155px;
+$scene-illustration-size: 300px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -36,11 +37,12 @@ $illustration-size: 155px;
   @include ca-media-desktop {
     min-height: calc(12rem - calc(#{$bannerPadding} * 2));
     flex-direction: row;
+    gap: $spacing-md;
     width: auto;
     align-items: center;
 
     > * {
-      padding: $spacing-sm;
+      padding: $spacing-sm 0;
     }
   }
 
@@ -51,7 +53,6 @@ $illustration-size: 155px;
 
 .illustrationWrapper {
   display: flex;
-  padding: 0 ($spacing-sm);
 
   @include ca-media-tablet {
     text-align: center;
@@ -68,6 +69,11 @@ $illustration-size: 155px;
 .illustration {
   width: $illustration-size;
   height: $illustration-size;
+}
+
+.sceneIllustration {
+  width: $scene-illustration-size;
+  height: auto;
 }
 
 .descriptionContainer {
