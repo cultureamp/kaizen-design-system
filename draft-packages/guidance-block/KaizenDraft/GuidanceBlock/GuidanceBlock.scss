@@ -112,6 +112,7 @@ $scene-illustration-size: 300px;
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
+  gap: $spacing-sm;
   min-width: max-content;
 
   @include ca-media-tablet-and-up {
