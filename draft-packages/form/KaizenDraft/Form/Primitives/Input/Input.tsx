@@ -4,7 +4,7 @@ import * as React from "react"
 import styles from "./styles.scss"
 
 export type InputType = "text" | "email" | "password"
-export type InputStatus = "default" | "success" | "error"
+export type InputStatus = "default" | "success" | "error" | "caution"
 
 export type InputProps = {
   id?: string
@@ -80,9 +80,8 @@ const Input: Input = ({
       disabled={disabled}
       className={classnames(
         styles.input,
+        styles[status],
         {
-          [styles.error]: status === "error",
-          [styles.success]: status === "success",
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.disabled]: disabled,

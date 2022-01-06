@@ -5,7 +5,7 @@ import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.sv
 import { Icon, Paragraph } from "@kaizen/component-library"
 import styles from "./styles.scss"
 
-export type FieldMessageStatus = "default" | "success" | "error"
+export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 export type FieldMessageProps = {
   id?: string
   automationId?: string
@@ -36,24 +36,18 @@ const FieldMessage: FieldMessage = ({
   reversed = false,
   position = "bottom",
 }) => {
-  const textColor = reversed
-    ? status === "error"
-      ? "dark-reduced-opacity"
-      : "white-reduced-opacity"
-    : "dark-reduced-opacity"
+  const textColor = reversed ? "white" : "dark"
   return (
     <div
       id={id}
       data-automation-id={automationId}
-      className={classnames(styles.message, {
+      className={classnames(styles.message, styles[status], {
         [styles.reversed]: reversed,
-        [styles.default]: status === "default",
-        [styles.error]: status === "error",
         [styles.positionBottom]: position === "bottom",
         [styles.positionTop]: position === "top",
       })}
     >
-      {status === "error" && warningIcon}
+      {(status === "error" || status === "caution") && warningIcon}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}

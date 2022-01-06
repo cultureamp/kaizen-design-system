@@ -193,7 +193,7 @@ $input-disabled-border-alpha: 50%;
 .input.default {
   background-color: $color-white;
   color: $dt-color-form-text-color;
-  border-color: $dt-color-form-border-color;
+  border-color: $color-gray-500;
   display: flex;
   align-items: center;
 
@@ -205,14 +205,17 @@ $input-disabled-border-alpha: 50%;
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]),
   &:hover:not([disabled]) {
-    border-color: $dt-color-form-border-color-hover;
+    border-color: $color-gray-600;
+    background-color: $color-gray-200;
   }
 
   &:focus + .focusRing {
-    border-color: $dt-color-form-border-color-focus;
+    border-color: $color-gray-600;
   }
 
   &.disabled {
+    background-color: $color-white;
+    border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
     color: rgba($color-purple-800-rgb, $input-disabled-opacity);
 
     @include form-input-placeholder {
@@ -220,8 +223,18 @@ $input-disabled-border-alpha: 50%;
     }
   }
 
-  &.error:not(:focus) {
+  &.error {
     border-color: $color-red-500;
+    &.disabled {
+      border-color: rgba($color-red-500-rgb, $input-disabled-opacity);
+    }
+  }
+
+  &.caution {
+    border-color: $color-yellow-500;
+    &.disabled {
+      border-color: rgba($color-yellow-500-rgb, $input-disabled-opacity);
+    }
   }
 }
 

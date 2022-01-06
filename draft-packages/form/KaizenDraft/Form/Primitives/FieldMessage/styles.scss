@@ -19,12 +19,25 @@
 
 .error {
   padding: $ca-grid / 2;
-  color: $dt-color-form-text-color;
+  color: $color-purple-800;
   border-radius: $border-solid-border-radius;
   background: $color-red-100;
+  opacity: 1;
 
   &.reversed {
     background: $color-red-300;
+  }
+}
+
+.caution {
+  padding: $ca-grid / 2;
+  color: $color-purple-800;
+  border-radius: $border-solid-border-radius;
+  background: $color-yellow-200;
+  opacity: 1;
+
+  &.reversed {
+    background: $color-yellow-400;
   }
 }
 
@@ -40,6 +53,23 @@
   display: flex;
   align-items: center;
   color: $color-red-500;
+
+  .reversed & {
+    color: $color-purple-800;
+  }
+}
+.warningIcon {
+  display: flex;
+  align-items: center;
+  color: $color-red-500;
+
+  .error & {
+    color: $color-red-500;
+  }
+
+  .caution & {
+    color: $color-yellow-500;
+  }
 
   .reversed & {
     color: $color-purple-800;
