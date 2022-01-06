@@ -1,15 +1,14 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layers";
 
 // Sync with Tooltip.tsx
 $arrow-height: 10px;
 $arrow-width: 20px;
-
-$dt-tooltip-content-border: $color-gray-300;
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -19,23 +18,23 @@ $dt-tooltip-content-border: $color-gray-300;
 
 .tooltipContent {
   border-radius: $border-solid-border-radius;
-  transition: opacity $ca-duration-fast, transform $ca-duration-fast;
-  padding: $ca-grid / 2 $ca-grid / 2;
+  transition: opacity $animation-duration-fast,
+    transform $animation-duration-fast;
+  padding: $spacing-sm $spacing-sm;
   box-shadow: $shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
   color: $color-purple-800;
-  // I'm having a problem getting the tooltip width to match the size of the text content.
-  // As a workaround, I'm just going to set a min width of 200px. It should be enough
-  // in most cases.
-  // min-width: fit-content;
-  @include kz-typography-paragraph-body($size: 14);
-  top: initial; // Overrides the `top` value of kz-typography-paragraph-body
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-paragraph-body-font-weight;
+  $letter-spacing: $typography-paragraph-body-letter-spacing;
+  line-height: $typography-paragraph-body-line-height;
 
   &.default {
     background-color: $color-white;
     border: $border-solid-border-width $border-solid-border-style
-      $dt-tooltip-content-border;
+      $color-gray-300;
   }
   &.informative {
     background-color: $color-blue-100;
@@ -94,7 +93,7 @@ $dt-tooltip-content-border: $color-gray-300;
 
 .arrowMain {
   &.default::before {
-    border-top: $arrow-height solid $dt-tooltip-content-border;
+    border-top: $arrow-height solid $color-gray-300;
   }
   &.informative::before {
     border-top: $arrow-height solid $color-blue-300;
@@ -133,7 +132,7 @@ $dt-tooltip-content-border: $color-gray-300;
 }
 
 .arrowShadow::before {
-  border-top: 0px solid $dt-tooltip-content-border;
+  border-top: 0px solid $color-gray-300;
 }
 
 // Triangle portion is a little darker to bring out shadow
