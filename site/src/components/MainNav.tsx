@@ -20,7 +20,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
         <NavLink
           text="Home"
           href={withPrefix("/")}
-          active={withPrefix(currentPath) == withPrefix("/")}
+          active={currentPath === withPrefix("/")}
         />,
         <NavLink
           text="Guidelines"
