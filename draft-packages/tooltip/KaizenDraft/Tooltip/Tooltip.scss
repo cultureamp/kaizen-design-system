@@ -36,20 +36,24 @@ $arrow-width: 20px;
     border: $border-solid-border-width $border-solid-border-style
       $color-gray-300;
   }
+
   &.informative {
     background-color: $color-blue-100;
     border: $border-solid-border-width $border-solid-border-style
       $color-blue-300;
   }
+
   &.positive {
     background-color: $color-green-100;
     border: $border-solid-border-width $border-solid-border-style
       $color-green-300;
   }
+
   &.negative {
     background-color: $color-red-100;
     border: $border-solid-border-width $border-solid-border-style $color-red-300;
   }
+
   &.cautionary {
     background-color: $color-yellow-100;
     border: $border-solid-border-width $border-solid-border-style
@@ -95,37 +99,45 @@ $arrow-width: 20px;
   &.default::before {
     border-top: $arrow-height solid $color-gray-300;
   }
+
   &.informative::before {
     border-top: $arrow-height solid $color-blue-300;
   }
+
   &.positive::before {
     border-top: $arrow-height solid $color-green-300;
   }
+
   &.negative::before {
     border-top: $arrow-height solid $color-red-300;
   }
+
   &.cautionary::before {
     border-top: $arrow-height solid $color-yellow-300;
   }
 }
 
-.arrowMain::after {
-  margin-top: -2px;
-}
-
 .arrowMain {
+  &:after {
+    margin-top: -2px;
+  }
+
   &.default::after {
     border-top: $arrow-height solid white;
   }
+
   &.informative::after {
     border-top: $arrow-height solid $color-blue-100;
   }
+
   &.positive::after {
     border-top: $arrow-height solid $color-green-100;
   }
+
   &.negative::after {
     border-top: $arrow-height solid $color-red-100;
   }
+
   &.cautionary::after {
     border-top: $arrow-height solid $color-yellow-100;
   }
