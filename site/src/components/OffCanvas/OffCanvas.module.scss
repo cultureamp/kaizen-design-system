@@ -69,7 +69,7 @@ $menu-footer-height: 100px;
 
 .links {
   max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
   margin-left: 0;

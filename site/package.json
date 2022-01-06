@@ -44,10 +44,7 @@
     "wcag-contrast-verifier": "^1.1.0",
     "webpack": "^4.46.0",
     "react-media": "^1.10.0",
-    "uuid": "^3.4.0",
-    "@types/uuid": "^3.4.10",
-    "@kaizen/brand": "^1.1.5",
-    "@kaizen/react-deprecate-warning": "^1.1.5"
+    "@kaizen/brand": "^1.1.5"
   },
   "resolutions": {
     "axios": "0.24.0",

@@ -33,27 +33,25 @@ const SiteHeader = () => {
 
   return (
     <div className={styles.wrapper}>
-      <NavigationBar>
-        {{
-          primary: [
-            <NavLink text="Home" href={`${baseUrl}`} />,
-            <NavLink
-              text="Guidelines"
-              href={`${baseUrl}/guidelines/overview/`}
-            />,
-            <NavLink text="Language" href={`${baseUrl}/language/overview/`} />,
-            <NavLink
-              text="Components"
-              href={`${baseUrl}/components/overview/`}
-            />,
-            <NavLink
-              text="Storybook"
-              href={`${baseUrl}/storybook`}
-              active={true}
-            />,
-          ],
-        }}
-      </NavigationBar>
+      <NavigationBar
+        links={[
+          <NavLink text="Home" href={`${baseUrl}`} />,
+          <NavLink
+            text="Guidelines"
+            href={`${baseUrl}/guidelines/overview/`}
+          />,
+          <NavLink text="Language" href={`${baseUrl}/language/overview/`} />,
+          <NavLink
+            text="Components"
+            href={`${baseUrl}/components/overview/`}
+          />,
+          <NavLink
+            text="Storybook"
+            href={`${baseUrl}/storybook`}
+            active={true}
+          />,
+        ]}
+      />
     </div>
   )
 }
