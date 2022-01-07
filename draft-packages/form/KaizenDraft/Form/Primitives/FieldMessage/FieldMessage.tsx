@@ -36,7 +36,12 @@ const FieldMessage: FieldMessage = ({
   reversed = false,
   position = "bottom",
 }) => {
-  const textColor = reversed ? "white" : "dark"
+  const textColor =
+    status === "default"
+      ? reversed
+        ? "white-reduced-opacity"
+        : "dark-reduced-opacity"
+      : "dark"
   return (
     <div
       id={id}

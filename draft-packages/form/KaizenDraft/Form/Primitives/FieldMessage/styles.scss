@@ -12,6 +12,7 @@
 
 .default {
   color: $dt-color-form-text-color-label;
+
   &.reversed {
     color: $dt-color-form-text-color-label-reversed;
   }
@@ -52,16 +53,6 @@
 .warningIcon {
   display: flex;
   align-items: center;
-  color: $color-red-500;
-
-  .reversed & {
-    color: $color-purple-800;
-  }
-}
-.warningIcon {
-  display: flex;
-  align-items: center;
-  color: $color-red-500;
 
   .error & {
     color: $color-red-500;
