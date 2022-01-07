@@ -83,8 +83,8 @@ const TextField: TextField = ({
         htmlFor={`${id}-field-input`}
         labelText={labelText}
         reversed={reversed}
+        disabled={disabled}
       />
-
       <Input
         id={`${id}-field-input`}
         name={name}
@@ -118,7 +118,11 @@ const TextField: TextField = ({
       />
 
       {validationMessage && (
-        <div className={styles.message}>
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
           <FieldMessage
             id={`${id}-field-message`}
             automationId={`${id}-field-validation-message`}
@@ -130,7 +134,11 @@ const TextField: TextField = ({
       )}
 
       {description && (
-        <div className={styles.message}>
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
           <FieldMessage
             id={`${id}-field-message`}
             automationId={`${id}-field-description`}
