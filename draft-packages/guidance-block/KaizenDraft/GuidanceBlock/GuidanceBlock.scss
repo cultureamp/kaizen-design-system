@@ -187,6 +187,12 @@ $scene-illustration-size-mobile: 200px;
     }
   }
 
+  .illustration {
+    @include ca-media-mobile-sm {
+      margin: 0 auto;
+    }
+  }
+
   .sceneIllustration {
     @include ca-media-mobile {
       margin: 0 auto;
