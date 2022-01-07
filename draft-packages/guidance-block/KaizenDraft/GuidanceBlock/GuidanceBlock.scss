@@ -85,13 +85,20 @@ $scene-illustration-size-mobile: 200px;
   max-width: 780px;
 
   @include ca-media-desktop {
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-lg 0 $spacing-sm;
     text-align: left;
   }
 
   @include ca-media-mobile {
     margin: $spacing-sm;
     max-width: 100%;
+  }
+
+  [dir="rtl"] & {
+    @include ca-media-desktop {
+      padding: 0 $spacing-sm 0 $spacing-lg;
+      text-align: right;
+    }
   }
 }
 
@@ -214,6 +221,18 @@ $scene-illustration-size-mobile: 200px;
     @include ca-media-mobile {
       margin: $spacing-sm 0;
     }
+
+    @include ca-media-mobile-sm {
+      text-align: center;
+    }
+
+    [dir="rtl"] & {
+      text-align: right;
+
+      @include ca-media-mobile-sm {
+        text-align: center;
+      }
+    }
   }
 
   .buttonContainer {
@@ -241,8 +260,11 @@ $scene-illustration-size-mobile: 200px;
     }
 
     button span {
-      @include ca-media-mobile-sm {
-        margin: 0;
+      &,
+      [dir="rtl"] & {
+        @include ca-media-mobile-sm {
+          margin: 0;
+        }
       }
     }
   }
@@ -253,18 +275,18 @@ $scene-illustration-size-mobile: 200px;
     flex-direction: column;
     align-items: unset;
   }
+
+  .descriptionContainer {
+    @include ca-media-desktop {
+      padding: 0 $spacing-sm;
+    }
+  }
 }
 
 .inline {
   .illustrationWrapper {
     @include ca-media-mobile-sm {
       justify-content: center;
-    }
-  }
-
-  .descriptionContainer {
-    @include ca-media-mobile-sm {
-      text-align: center;
     }
   }
 }
