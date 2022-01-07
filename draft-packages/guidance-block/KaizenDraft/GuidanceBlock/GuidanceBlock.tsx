@@ -6,7 +6,6 @@ import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.sv
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
-import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
 
@@ -114,7 +113,7 @@ class GuidanceBlock extends React.Component<
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
   ) => (
-    <Media query={MOBILE_QUERY}>
+    <Media query="(max-width: 767px)">
       {isMobile => (
         <Box mr={isMobile ? 0 : 0.5}>
           <div

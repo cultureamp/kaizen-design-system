@@ -1,6 +1,7 @@
-@import "~@kaizen/component-library/components/NavigationBar/styles";
+@import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/design-tokens/sass/spacing";
 
 :root {
@@ -15,12 +16,12 @@
     "page"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: [navigationBarContainer] $ca-navigation-bar__height [page] 1fr [footer];
+  grid-template-rows: [navigationBarContainer] $layout-navigation-bar-height [page] 1fr [footer];
 }
 
 .navigationBarContainer {
   grid-area: navbar;
-  height: $ca-navigation-bar__height;
+  height: $layout-navigation-bar-height;
   z-index: $ca-z-index-fixed;
 }
 
