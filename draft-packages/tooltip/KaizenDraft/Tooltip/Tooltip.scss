@@ -83,6 +83,18 @@ $arrow-width: 20px;
       transform: rotate(180deg);
     }
   }
+  [data-popper-placement^="left"] & {
+    right: 0;
+    .arrowInner {
+      transform: rotate(270deg);
+    }
+  }
+  [data-popper-placement^="right"] & {
+    left: 0;
+    .arrowInner {
+      transform: rotate(90deg);
+    }
+  }
 }
 
 .arrowMain::before,
@@ -172,4 +184,13 @@ $arrow-width: 20px;
 
 .displayInlineFlex {
   display: inline-flex;
+}
+
+//Story Styles
+#portalSelectorStory::before,
+#portalSelectorStory::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 600px;
 }

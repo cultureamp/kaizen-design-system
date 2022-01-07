@@ -7,7 +7,7 @@ import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
 
-type Position = "above" | "below"
+type Position = "above" | "below" | "left" | "right"
 
 type Mood = "default" | "informative" | "positive" | "negative" | "cautionary"
 
@@ -46,6 +46,16 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
+const getPlacement = position => {
+  if (position === "above") {
+    return "top"
+  } else if (position === "below") {
+    return "bottom"
+  } else {
+    return position
+  }
+}
+
 // Sync with Tooltip.scss
 const arrowHeight = 10
 const arrowWidth = 20
@@ -72,7 +82,7 @@ const TooltipContent = ({
             element: arrowElement,
             // Ensures that the arrow doesn't go too far to the left or right
             // of the tooltip.
-            padding: arrowWidth / 2 + 10,
+            padding: arrowWidth / 2 + 20,
           },
         },
         {
@@ -86,11 +96,20 @@ const TooltipContent = ({
           options: {
             // Makes sure that the tooltip isn't flush up against the end of the
             // viewport
-            padding: 4,
+            padding: 8,
+            altAxis: true,
+            altBoundary: true,
+            tetherOffset: 50,
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            padding: 8,
           },
         },
       ],
-      placement: position === "below" ? "bottom" : "top",
+      placement: getPlacement(position),
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()

@@ -150,130 +150,314 @@ export const DesignSheet = props => (
         </Tooltip>
       </div>
     </div>
+    <div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="below"
+          text="Tooltip"
+          mood="default"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="below"
+          text="Tooltip"
+          mood="informative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          {...props}
+          position="below"
+          text="Tooltip"
+          mood="positive"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="below"
+          text="Tooltip"
+          mood="negative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "2rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="below"
+          text="Tooltip"
+          mood="cautionary"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+    </div>
+    <div
+      style={{
+        marginTop: "4rem",
+      }}
+    >
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="left"
+          text="Tooltip"
+          mood="default"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="left"
+          text="Tooltip"
+          mood="informative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          {...props}
+          position="left"
+          text="Tooltip"
+          mood="positive"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="left"
+          text="Tooltip"
+          mood="negative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="left"
+          text="Tooltip"
+          mood="cautionary"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+    </div>
+    <div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="right"
+          text="Tooltip"
+          mood="default"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="right"
+          text="Tooltip"
+          mood="informative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          {...props}
+          position="right"
+          text="Tooltip"
+          mood="positive"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="right"
+          text="Tooltip"
+          mood="negative"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          marginRight: "7rem",
+          position: "relative",
+        }}
+      >
+        <Tooltip
+          position="right"
+          text="Tooltip"
+          mood="cautionary"
+          isInitiallyVisible
+        >
+          <Button label="Default" />
+        </Tooltip>
+      </div>
+    </div>
   </div>
 )
 DesignSheet.storyName = "Design Sheet"
 
-export const Inline = props => (
+export const OverflowScroll = props => (
   <div
+    id="portalSelectorStory"
     style={{
-      margin: "100px",
+      width: "300px",
+      height: "800px",
+      overflow: "scroll",
+      textAlign: "center",
+      position: "relative",
+      overscrollBehavior: "contain",
       display: "flex",
       justifyContent: "center",
-      width: "400px",
+      flexDirection: "column",
     }}
   >
-    <div style={{ display: "inline-block", position: "relative" }}>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla
-        quas corporis? Perspiciatis, ratione voluptas{" "}
-        <Tooltip
-          {...props}
-          display="inline-block"
-          text="This is above the tooltip"
-        >
-          <Tag>ad veniam sapiente</Tag>
-        </Tooltip>{" "}
-        Maxime harum, ducimus maiores itaque pariatur quod vel porro mollitia.
-        Lorem ipsum dolor sit{" "}
-        <Tooltip {...props} display="inline" text="Open in new tab">
-          <a href="#">
-            amet consectetur adipisicing elit Itaque obcaecati maxime molestiae
-            blanditiis pariatur
-          </a>
-        </Tooltip>
-        . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore,
-        tempore provident animi{" "}
-        <Tooltip
-          {...props}
-          display="inline-block"
-          text="This is below the tooltip"
-          position="bottom"
-        >
-          <Tag>veniam sapiente ad</Tag>
-        </Tooltip>{" "}
-      </Paragraph>
-    </div>
-  </div>
-)
-
-Inline.storyName = "Inline"
-
-export const ArrowPositioning = props => (
-  <div>
-    <div style={{ position: "absolute", top: "0", left: "0" }}>
+    <div
+      style={{
+        width: "300px",
+        height: "300px",
+        textAlign: "center",
+        position: "relative",
+        paddingTop: "100px",
+        paddingLeft: "200px",
+      }}
+    >
       <Tooltip
         {...props}
-        position="top"
-        text="This is below the tooltip, despite it being set to position=above. This is because there is not enough room. Also note that the arrow is correctly positioned."
-      >
-        <Button label="Above" />
-      </Tooltip>
-    </div>
-    <div style={{ position: "absolute", bottom: "0", right: "0" }}>
-      <Tooltip
-        {...props}
-        position="bottom"
-        text="This is above the tooltip, despite it being set to position=below. This is because there is not enough room. Also note that the arrow is correctly positioned."
+        display="inline-block"
+        text="This should not get cropped"
+        isInitiallyVisible
       >
         <Button label="Bottom" />
       </Tooltip>
     </div>
-  </div>
-)
-
-ArrowPositioning.storyName = "Arrow positioning"
-
-export const OverflowScroll = props => (
-  <div>
-    <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
-      <div style={{ width: "500px", textAlign: "center" }}>
-        <Tooltip
-          {...props}
-          position="below"
-          display="inline-block"
-          text="This should not get cropped"
-          // Normally, you'd specify a div by ID, but since this is only in storybook,
-          // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
-          portalSelector="body"
-        >
-          <Button label="Bottom" />
-        </Tooltip>
-      </div>
+    <div
+      style={{
+        width: "1000px",
+        height: "1000px",
+      }}
+    >
+      <p>
+        Scroll the panel above, and hover over the button. Notice that the
+        tooltip does not get cropped. Also notice that the tooltip arrow follows
+        the button appropriately.
+      </p>
     </div>
-    <p>
-      Scroll the panel above, and hover over the button. Notice that the tooltip
-      does not get cropped. Also notice that the tooltip arrow follows the
-      button appropriately.
-    </p>
   </div>
 )
+
+const portalSelectorElement = document.querySelector("#portalSelectorStory")
+
+if (portalSelectorElement) portalSelectorElement.scrollTop = 820
 
 OverflowScroll.storyName = "overflow: scroll"
-
-export const TooltipAboveDropdown = props => (
-  <>
-    <div>
-      <SplitButton
-        label="Test"
-        dropdownAltText="test"
-        dropdownContent={
-          <MenuItem
-            onClick={e => undefined}
-            label="Text to appear behind tooltip overlay"
-          />
-        }
-      />
-    </div>
-    <div style={{ paddingTop: "50px" }}>
-      <Tooltip
-        {...props}
-        position="above"
-        display="inline-block"
-        text="Text to appear above the button dropdown text"
-      >
-        <Button label="Above" />
-      </Tooltip>
-    </div>
-  </>
-)
