@@ -101,8 +101,6 @@ export function Toolbar({
     const controlProperties = toolbarControls.get(control)
     if (!controlProperties) return
     const markType = schema.marks[control]
-    // eslint-disable-next-line no-console
-    console.log(markType)
 
     return (
       <ToggleButton

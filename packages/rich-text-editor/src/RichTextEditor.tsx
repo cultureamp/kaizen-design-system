@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 // import { EditorContentArray } from "ca-ui/RichTextEditor/types.d"
@@ -47,8 +47,7 @@ const addShortcuts = (options: ToolbarControls[], schema) => {
 export const RichTextEditor = (props: Props) => {
   const { onChange, value, controls } = props
   const componentRef = useRef<HTMLDivElement>(null)
-
-  const schema = createSchemaFromControls(controls.flat())
+  const [schema] = useState(createSchemaFromControls(controls.flat()))
 
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
     createInitialState(
