@@ -164,6 +164,76 @@ export const SceneIllustration = () => (
 
 SceneIllustration.storyName = "Scene Illustration"
 
+export const InlineLayout = () => (
+  <GuidanceBlock
+    layout="inline"
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+InlineLayout.storyName = "Inline Content Layout"
+
+export const StackedLayout = () => (
+  <GuidanceBlock
+    layout="stacked"
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+StackedLayout.storyName = "Stacked Content Layout"
+
+export const StackedLayoutWithScene = () => (
+  <GuidanceBlock
+    layout="stacked"
+    illustration={<HumanityAtWork alt="" />}
+    illustrationType="scene"
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+StackedLayoutWithScene.storyName = "Stacked Layout With Scene Illustration"
+
 export const PositiveMood = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}

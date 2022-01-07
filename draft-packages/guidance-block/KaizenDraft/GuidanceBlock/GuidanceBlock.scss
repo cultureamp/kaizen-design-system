@@ -13,6 +13,7 @@ $ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
   $animation-duration-slow ease;
 $illustration-size: 155px;
 $scene-illustration-size: 300px;
+$scene-illustration-size-mobile: 200px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -167,4 +168,97 @@ $scene-illustration-size: 300px;
 
 .prominent {
   background: $color-purple-100;
+}
+
+.inline,
+.stacked {
+  flex-direction: row;
+  gap: $spacing-md;
+
+  @include ca-media-mobile {
+    flex-direction: column;
+  }
+
+  .illustrationWrapper {
+    padding: 0;
+
+    @include ca-media-mobile {
+      display: flex;
+    }
+  }
+
+  .sceneIllustration {
+    @include ca-media-mobile {
+      margin: 0 auto;
+    }
+
+    @include ca-media-mobile-sm {
+      width: $scene-illustration-size-mobile;
+    }
+  }
+
+  .descriptionContainer {
+    margin: $spacing-sm;
+    text-align: left;
+
+    @include ca-media-desktop {
+      margin: $spacing-sm 0;
+    }
+
+    @include ca-media-mobile {
+      margin: $spacing-sm 0;
+    }
+  }
+
+  .buttonContainer {
+    justify-content: end;
+    width: unset;
+
+    @include ca-media-mobile {
+      flex-direction: row-reverse;
+    }
+
+    @include ca-media-mobile-sm {
+      flex-wrap: wrap;
+      min-width: unset;
+      justify-content: center;
+    }
+
+    > * {
+      width: unset;
+    }
+
+    svg {
+      @include ca-media-mobile-sm {
+        display: none;
+      }
+    }
+
+    button span {
+      @include ca-media-mobile-sm {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.stacked {
+  .descriptionAndActions {
+    flex-direction: column;
+    align-items: unset;
+  }
+}
+
+.inline {
+  .illustrationWrapper {
+    @include ca-media-mobile-sm {
+      justify-content: center;
+    }
+  }
+
+  .descriptionContainer {
+    @include ca-media-mobile-sm {
+      text-align: center;
+    }
+  }
 }

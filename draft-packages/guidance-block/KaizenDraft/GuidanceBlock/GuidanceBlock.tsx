@@ -16,6 +16,8 @@ export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
 }
 
+type LayoutType = "default" | "inline" | "stacked"
+
 type IllustrationType = "spot" | "scene"
 
 type GuidanceBlockActions = {
@@ -36,6 +38,7 @@ type VariantType =
   | "prominent"
 
 export type GuidanceBlockProps = {
+  layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
   illustrationType?: IllustrationType
   text: {
@@ -74,6 +77,7 @@ class GuidanceBlock extends React.Component<
   GuidanceBlockState
 > {
   static defaultProps = {
+    layout: "default",
     variant: "default",
     withActionButtonArrow: true,
     noMaxWidth: false,
@@ -200,6 +204,8 @@ class GuidanceBlock extends React.Component<
       [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
+      [styles.inline]: this.props.layout === "inline",
+      [styles.stacked]: this.props.layout === "stacked",
     })
   }
 
