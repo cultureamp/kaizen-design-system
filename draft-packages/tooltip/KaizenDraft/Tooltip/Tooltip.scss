@@ -1,15 +1,14 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layers";
 
 // Sync with Tooltip.tsx
 $arrow-height: 10px;
 $arrow-width: 20px;
-
-$dt-tooltip-content-border: $color-gray-300;
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -19,21 +18,47 @@ $dt-tooltip-content-border: $color-gray-300;
 
 .tooltipContent {
   border-radius: $border-solid-border-radius;
-  transition: opacity $ca-duration-fast, transform $ca-duration-fast;
-  padding: $ca-grid / 2 $ca-grid / 2;
-  border: $border-solid-border-width $border-solid-border-style
-    $dt-tooltip-content-border;
+  transition: opacity $animation-duration-fast,
+    transform $animation-duration-fast;
+  padding: $spacing-sm $spacing-sm;
   box-shadow: $shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
-  // I'm having a problem getting the tooltip width to match the size of the text content.
-  // As a workaround, I'm just going to set a min width of 200px. It should be enough
-  // in most cases.
-  min-width: 200px;
-  @include kz-typography-paragraph-body($size: 14);
-  top: initial; // Overrides the `top` value of kz-typography-paragraph-body
   color: $color-purple-800;
-  background-color: white;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-paragraph-body-font-weight;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  line-height: $typography-paragraph-body-line-height;
+
+  &.default {
+    background-color: $color-white;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-gray-300;
+  }
+
+  &.informative {
+    background-color: $color-blue-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-blue-300;
+  }
+
+  &.positive {
+    background-color: $color-green-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-green-300;
+  }
+
+  &.negative {
+    background-color: $color-red-100;
+    border: $border-solid-border-width $border-solid-border-style $color-red-300;
+  }
+
+  &.cautionary {
+    background-color: $color-yellow-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-yellow-300;
+  }
 }
 
 .arrow {
@@ -60,8 +85,8 @@ $dt-tooltip-content-border: $color-gray-300;
   }
 }
 
-.arrowWhite::before,
-.arrowWhite::after {
+.arrowMain::before,
+.arrowMain::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -70,17 +95,56 @@ $dt-tooltip-content-border: $color-gray-300;
   margin-left: -($arrow-width / 2);
 }
 
-.arrowWhite::before {
-  border-top: $arrow-height solid $dt-tooltip-content-border;
+.arrowMain {
+  &.default::before {
+    border-top: $arrow-height solid $color-gray-300;
+  }
+
+  &.informative::before {
+    border-top: $arrow-height solid $color-blue-300;
+  }
+
+  &.positive::before {
+    border-top: $arrow-height solid $color-green-300;
+  }
+
+  &.negative::before {
+    border-top: $arrow-height solid $color-red-300;
+  }
+
+  &.cautionary::before {
+    border-top: $arrow-height solid $color-yellow-300;
+  }
 }
 
-.arrowWhite::after {
-  border-top: $arrow-height solid white;
-  margin-top: -2px;
+.arrowMain {
+  &:after {
+    margin-top: -2px;
+  }
+
+  &.default::after {
+    border-top: $arrow-height solid white;
+  }
+
+  &.informative::after {
+    border-top: $arrow-height solid $color-blue-100;
+  }
+
+  &.positive::after {
+    border-top: $arrow-height solid $color-green-100;
+  }
+
+  &.negative::after {
+    border-top: $arrow-height solid $color-red-100;
+  }
+
+  &.cautionary::after {
+    border-top: $arrow-height solid $color-yellow-100;
+  }
 }
 
 .arrowShadow::before {
-  border-top: 0px solid $dt-tooltip-content-border;
+  border-top: 0px solid $color-gray-300;
 }
 
 // Triangle portion is a little darker to bring out shadow
