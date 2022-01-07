@@ -1,81 +1,124 @@
-import React, { useEffect, useRef } from "react"
-import { defineCustomElements } from "@duetds/date-picker/dist/loader"
-import { DuetDateAdapter } from "@duetds/date-picker/dist/types/components/duet-date-picker/date-adapter"
-import styles from "./DatePicker.scss"
+import React, { useState } from "react"
+import Dayzed, { useDayzed } from "dayzed"
 
-defineCustomElements(window)
+const monthNamesShort = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+]
+const weekdayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      "duet-date-picker": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >
-    }
+function Calendar({ calendars, getBackProps, getForwardProps, getDateProps }) {
+  if (calendars.length) {
+    return (
+      <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+        <div>
+          <button {...getBackProps({ calendars })}>Back</button>
+          <button {...getForwardProps({ calendars })}>Next</button>
+        </div>
+        {calendars.map(calendar => (
+          <div
+            key={`${calendar.month}${calendar.year}`}
+            style={{
+              display: "inline-block",
+              width: "50%",
+              padding: "0 10px 30px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div>
+              {monthNamesShort[calendar.month]} {calendar.year}
+            </div>
+            {weekdayNamesShort.map(weekday => (
+              <div
+                key={`${calendar.month}${calendar.year}${weekday}`}
+                style={{
+                  display: "inline-block",
+                  width: "calc(100% / 7)",
+                  border: "none",
+                  background: "transparent",
+                }}
+              >
+                {weekday}
+              </div>
+            ))}
+            {calendar.weeks.map((week, weekIndex) =>
+              week.map((dateObj, index) => {
+                const key = `${calendar.month}${calendar.year}${weekIndex}${index}`
+                if (!dateObj) {
+                  return (
+                    <div
+                      key={key}
+                      style={{
+                        display: "inline-block",
+                        width: "calc(100% / 7)",
+                        border: "none",
+                        background: "transparent",
+                      }}
+                    />
+                  )
+                }
+                const { date, selected, selectable, today } = dateObj
+                let background = today ? "cornflowerblue" : ""
+                background = selected ? "purple" : background
+                background = !selectable ? "teal" : background
+                return (
+                  <button
+                    style={{
+                      display: "inline-block",
+                      width: "calc(100% / 7)",
+                      border: "none",
+                      background,
+                    }}
+                    key={key}
+                    {...getDateProps({ dateObj })}
+                  >
+                    {selectable ? date.getDate() : "X"}
+                  </button>
+                )
+              })
+            )}
+          </div>
+        ))}
+      </div>
+    )
   }
+  return null
 }
 
-export type DatePickerProps = {
-  onBlur: CustomEvent<{ component: "duet-date-picker" }>
-  onChange: CustomEvent<{
-    component: "duet-date-picker"
-    valueAsDate: Date
-    value: string
-  }>
-  onFocus: CustomEvent<{ component: "duet-date-picker" }>
-  onOpen: CustomEvent<{ component: "duet-date-picker" }>
-  onClose: CustomEvent<{ component: "duet-date-picker" }>
-  dateAdapter: DuetDateAdapter
-
-  // TODO: type this
-  localization: Record<string, unknown>
+function DatepickerWrapper(props) {
+  const dayzedData = useDayzed(props)
+  return <Calendar {...dayzedData} />
 }
 
-export const DatePickerWrapper = ({
-  onChange,
-  onFocus,
-  onBlur,
-  onOpen,
-  onClose,
-  dateAdapter,
-  localization,
-  ...props
-}: DatePickerProps) => {
-  function useListener(ref, eventName, handler) {
-    useEffect(() => {
-      if (ref.current) {
-        const element = ref.current
-        element.addEventListener(eventName, handler)
-        return () => element.removeEventListener(eventName, handler)
-      }
-    }, [eventName, handler, ref])
+export const DatePicker = () => {
+  const [selectedDate, useSelectedDate] = useState<Date | null>(null)
+
+  const handleOnDateSelected = ({ selected, selectable, date }) => {
+    useSelectedDate(date)
   }
 
-  const ref = useRef(null)
-
-  useListener(ref, "duetChange", onChange)
-  useListener(ref, "duetFocus", onFocus)
-  useListener(ref, "duetBlur", onBlur)
-  useListener(ref, "duetOpen", onOpen)
-  useListener(ref, "duetClose", onClose)
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.localization = localization
-      ref.current.dateAdapter = dateAdapter
-    }
-  }, [localization, dateAdapter])
-
-  return <duet-date-picker ref={ref} {...props}></duet-date-picker>
+  return (
+    <div>
+      <DatepickerWrapper
+        selected={selectedDate}
+        onDateSelected={handleOnDateSelected}
+      />
+      {selectedDate && (
+        <div style={{ paddingTop: 20, textAlign: "center" }}>
+          <p>Selected:</p>
+          <p>{`${selectedDate.toLocaleDateString()}`}</p>
+        </div>
+      )}
+    </div>
+  )
 }
-
-export const DatePicker = () => (
-  <div className={styles.wrapper}>
-    <DatePickerWrapper
-      value="2020-08-24"
-      onChange={e => console.log(e.detail)}
-    />
-  </div>
-)

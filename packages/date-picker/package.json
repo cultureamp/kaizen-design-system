@@ -32,7 +32,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@duetds/date-picker": "^1.4.0",
+    "dayzed": "^3.2.1",
+    "arrow-keys-react": "^1.0.6",
+    "@emotion/core": "^11.0.0",
+    "@emotion/styled": "^11.6.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1"
   },
