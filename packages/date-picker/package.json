@@ -32,12 +32,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "dayzed": "^3.2.1",
-    "arrow-keys-react": "^1.0.6",
-    "@emotion/core": "^11.0.0",
-    "@emotion/styled": "^11.6.0",
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "moment": "^2.29.1",
+    "react-dates": "^21.8.0",
+    "react-with-direction": "^1.4.0"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^6.0.2"

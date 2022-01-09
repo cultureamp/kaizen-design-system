@@ -1,7 +1,6 @@
 import React from "react"
+import { DatePicker, DateRangePicker } from ".."
 import { CATEGORIES } from "../../../storybook/constants"
-import { DatePicker } from "../index"
-import { DateRangePicker } from "../src/DateRangePicker"
 
 export default {
   title: `${CATEGORIES.components}/DatePicker`,
@@ -17,4 +16,4 @@ export default {
 
 export const KaizenDefault = () => <DatePicker />
 
-export const DateRangerPicker = () => <DateRangePicker />
+export const DateRangePick = () => <DateRangePicker />
