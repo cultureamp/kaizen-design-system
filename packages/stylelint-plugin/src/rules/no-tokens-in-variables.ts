@@ -21,7 +21,7 @@ import { walkVariables } from "../util/walkers"
  */
 export const noTokensInVariables: RuleDefinition = {
   name: "no-tokens-in-variables",
-  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
+  ruleFunction: (stylesheetNode: Root, options: Options) => {
     walkVariables(
       stylesheetNode,
       ({ variable, variableNode, parsedValue, postcssNode }) => {

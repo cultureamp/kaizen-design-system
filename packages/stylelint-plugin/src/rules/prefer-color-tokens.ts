@@ -71,7 +71,7 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
  */
 export const preferColorTokens: RuleDefinition = {
   name: ruleName,
-  ruleFunction: (root: Root | Document, options: Options) => {
+  ruleFunction: (root: Root, options: Options) => {
     root.walkDecls(decl => {
       const parsedValue = postcssValueParser(decl.value)
       parsedValue.walk(node => {

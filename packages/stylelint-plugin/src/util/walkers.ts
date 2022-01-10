@@ -67,7 +67,7 @@ export const walkVariablesOnValue = (
  * Visit any less or sass variables within an entire stylesheet
  */
 export const walkVariables = (
-  stylesheetNode: Root | Document,
+  stylesheetNode: Root,
   visitor: (params: {
     postcssNode: Declaration | AtRule
     parsedValue: postcssValueParser.ParsedValue
@@ -102,7 +102,7 @@ export const walkVariables = (
  * You could use the functions above to walk through variables again within your visitor function.
  */
 export const walkDeclsWithKaizenTokens = (
-  stylesheetNode: Root | Document,
+  stylesheetNode: Root,
   visitor: (params: {
     postcssNode: Declaration
     /* The AST of the value part of the declaration */
@@ -144,7 +144,7 @@ export const walkDeclsWithKaizenTokens = (
  * You could use the functions above to walk through variables again within your visitor function.
  */
 export const walkAtRulesWithKaizenTokens = (
-  stylesheetNode: Root | Document,
+  stylesheetNode: Root,
   visitor: (params: {
     postcssNode: AtRule
     parsedValue: postcssValueParser.ParsedValue
@@ -177,7 +177,7 @@ export const walkAtRulesWithKaizenTokens = (
   Visit all kaizen tokens within a stylesheet
 */
 export const walkKaizenTokens = (
-  stylesheetNode: Root | Document,
+  stylesheetNode: Root,
   visitor: (params: {
     postcssNode: Declaration | AtRule
     parsedValue: postcssValueParser.ParsedValue

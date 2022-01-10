@@ -3,7 +3,7 @@ import type { WordNode } from "postcss-value-parser"
 
 export type RuleDefinition = {
   name: string
-  ruleFunction: (stylesheetNode: Root | Document, options: Options) => void
+  ruleFunction: (stylesheetNode: Root, options: Options) => void
 }
 
 export type Reporter = (opts: {

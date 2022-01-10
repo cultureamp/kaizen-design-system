@@ -345,7 +345,7 @@ function detectAndFixInvalidTokens(
  */
 export const noInvalidUseOfTokens: RuleDefinition = {
   name: "no-invalid-use-of-tokens",
-  ruleFunction: (styleSheetNode: Root | Document, options: Options) => {
+  ruleFunction: (styleSheetNode: Root, options: Options) => {
     styleSheetNode.walkAtRules(postcssNode => {
       const newValue = detectAndFixInvalidTokens(
         postcssNode.params,

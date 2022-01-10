@@ -6,7 +6,7 @@ import { walkKaizenTokens } from "../util/walkers"
 
 export const allTokenImportsMustBeUsed: RuleDefinition = {
   name: "all-token-imports-must-be-used",
-  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
+  ruleFunction: (stylesheetNode: Root, options: Options) => {
     // Get a map of all distinct kaizen tokens within the stylesheet
     const foundKaizenTokens = new Map<string, KaizenToken>()
     walkKaizenTokens(stylesheetNode, ({ variable }) => {

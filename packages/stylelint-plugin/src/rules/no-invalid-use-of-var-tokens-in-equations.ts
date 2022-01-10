@@ -154,7 +154,7 @@ const noInvalidEquations = (
 
 export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
   name: "no-invalid-use-of-var-tokens-in-equations",
-  ruleFunction: (stylesheetNode: Root | Document, options: Options) => {
+  ruleFunction: (stylesheetNode: Root, options: Options) => {
     walkDeclsWithKaizenTokens(
       stylesheetNode,
       ({ postcssNode, parsedValue }) => {
