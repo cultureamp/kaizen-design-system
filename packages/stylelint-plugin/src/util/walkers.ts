@@ -116,7 +116,6 @@ export const walkDeclsWithKaizenTokens = (
     value: string
   }) => void | false
 ) => {
-  if (!("walk" in stylesheetNode)) return
   stylesheetNode.walk(postcssNode => {
     if (postcssNode.type !== "decl") return
 
