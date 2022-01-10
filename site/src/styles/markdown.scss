@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/components/NavigationBar/styles";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/components/Icon/styles";
 
 $link-icon-margin: 12px;
@@ -44,7 +45,7 @@ $link-icon-margin: 12px;
   :global(.md-anchor-offset) {
     display: block;
     position: relative;
-    top: calc(-1 * #{$ca-navigation-bar__height} - #{$spacing-md});
+    top: calc(-1 * #{$layout-navigation-bar-height} - #{$spacing-md});
     visibility: hidden;
   }
 

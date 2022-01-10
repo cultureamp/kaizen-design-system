@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.45](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.44...site@0.0.0-private.45) (2022-01-10)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.44](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.43...site@0.0.0-private.44) (2022-01-06)
+
+
+### Features
+
+* remove navbar from site and fix storybook, fix SCSS ([#2383](https://github.com/cultureamp/kaizen-design-system/issues/2383)) ([a29f7a3](https://github.com/cultureamp/kaizen-design-system/commit/a29f7a32f50b2583106b6ac711a0d770cf31989e))
+
+
+### BREAKING CHANGES
+
+* (to `@kaizen/component-library` only) There are a few places (mainly in Murmur) that are importing the NavigationBar stylesheet `~@kaizen/component-library/components/NavigationBar/styles` for a `$ca-navigation-bar__height` variable. Though it's not a reliable way of getting the nav height, these can be replaced by the `$layout-navigation-bar-height` from `~@kaizen/design-tokens/sass/layout`
+
+
+* Remove unused dependencies from component-library
+
+* Remove unused import of NavigationBar stylesheet
+
+* Replace site usages of -navigation-bar__height with -navigation-bar-height token
+
+* Pin site to component-library v11
+
+* feat: remove navbar from site and fix storybook, fix SCSS
+
+* refactor: remove unnessary navbar code
+
+* fix: uuid import
+
+* fix: home tab not active on preview branch
+
+Co-authored-by: Doug MacKenzie <doug.mackenzie@cultureamp.com>
+
+
+
+
+
+# [0.0.0-private.43](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.42...site@0.0.0-private.43) (2022-01-05)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.42](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.41...site@0.0.0-private.42) (2022-01-05)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.41](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.40...site@0.0.0-private.41) (2022-01-04)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.40](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.39...site@0.0.0-private.40) (2021-12-24)
 
 **Note:** Version bump only for package site

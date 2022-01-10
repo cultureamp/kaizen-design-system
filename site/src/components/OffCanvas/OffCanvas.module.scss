@@ -3,7 +3,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
-@import "../../styles/animation";
+@import "@kaizen/component-library/styles/animation";
 
 $hamburger-width: 18px;
 $hamburger-layer-height: 2px;
@@ -69,7 +69,7 @@ $menu-footer-height: 100px;
 
 .links {
   max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
   margin-left: 0;
