@@ -6,6 +6,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+@import "./GuidanceBlockBreakpoints.scss";
 
 $bannerPadding: $spacing-lg;
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
@@ -195,7 +196,7 @@ $scene-illustration-size-mobile: 200px;
   }
 
   .illustration {
-    @include ca-media-mobile-sm {
+    @include guidance-block-under-480 {
       margin: 0 auto;
     }
   }
@@ -205,7 +206,7 @@ $scene-illustration-size-mobile: 200px;
       margin: 0 auto;
     }
 
-    @include ca-media-mobile-sm {
+    @include guidance-block-under-480 {
       width: $scene-illustration-size-mobile;
     }
   }
@@ -222,14 +223,14 @@ $scene-illustration-size-mobile: 200px;
       margin: $spacing-sm 0;
     }
 
-    @include ca-media-mobile-sm {
+    @include guidance-block-under-480 {
       text-align: center;
     }
 
     [dir="rtl"] & {
       text-align: right;
 
-      @include ca-media-mobile-sm {
+      @include guidance-block-under-480 {
         text-align: center;
       }
     }
@@ -243,7 +244,7 @@ $scene-illustration-size-mobile: 200px;
       flex-direction: row-reverse;
     }
 
-    @include ca-media-mobile-sm {
+    @include guidance-block-under-480 {
       flex-wrap: wrap;
       min-width: unset;
       justify-content: center;
@@ -254,7 +255,7 @@ $scene-illustration-size-mobile: 200px;
     }
 
     svg {
-      @include ca-media-mobile-sm {
+      @include guidance-block-under-480 {
         display: none;
       }
     }
@@ -262,7 +263,7 @@ $scene-illustration-size-mobile: 200px;
     button span {
       &,
       [dir="rtl"] & {
-        @include ca-media-mobile-sm {
+        @include guidance-block-under-480 {
           margin: 0;
         }
       }
@@ -285,7 +286,7 @@ $scene-illustration-size-mobile: 200px;
 
 .inline {
   .illustrationWrapper {
-    @include ca-media-mobile-sm {
+    @include guidance-block-under-480 {
       justify-content: center;
     }
   }
