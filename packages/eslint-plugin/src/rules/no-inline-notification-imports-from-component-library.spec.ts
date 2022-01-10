@@ -11,58 +11,83 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("no-inline-notification-imports-from-component-library", rule, {
   valid: [
+    // Valid other targets
     {
-      code: "import foo from '@kaizen/foo';",
+      code: "import foo from '@kaizen/component-library';",
     },
     {
-      code: "import { bar } from '@kaizen/foo';",
+      code: "import { bar } from '@kaizen/component-library';",
     },
     {
-      code: "const foo = require('@kaizen/foo');",
+      code: "const foo = require('@kaizen/component-library');",
     },
     {
-      code: "const foo = '@kaizen/foo';",
+      code: "const foo = '@kaizen/component-library';",
     },
     {
-      code: "import * as FooBar from '@kaizen/foo'",
+      code: "import * as FooBar from '@kaizen/component-library'",
     },
     {
       code: "import defaultExport, { foo } from 'fake-package';",
     },
     {
-      code: "const foo = exampleFunction('@kaizen/draft-foo')",
+      code: "const foo = exampleFunction('@kaizen/component-library')",
+    },
+    // Valid targeted
+    {
+      code:
+        "import InlineNotification from '@kaizen/notification/InlineNotification';",
+    },
+    {
+      code: "import { InlineNotification } from '@kaizen/notification';",
+    },
+    {
+      code:
+        "const InlineNotification = require('@kaizen/notification/InlineNotification');",
+    },
+    {
+      code: "const { InlineNotification } = require('@kaizen/notification');",
     },
   ],
   invalid: [
     {
-      code: "const foo = require('@kaizen/draft-foo');",
-      output: "const foo = require('@kaizen/foo');",
-      errors: 1,
+      code:
+        "import InlineNotification from '@kaizen/component-library/InlineNotification';",
+      output:
+        "import InlineNotification from '@kaizen/notification/InlineNotification';",
+      errors: [{ message: /moved import/ }],
     },
     {
-      code: "import foo from '@kaizen/draft-foo';",
-      output: "import foo from '@kaizen/foo';",
-      errors: 1,
+      code:
+        "import { Icon, InlineNotification, Heading } from '@kaizen/component-library';",
+      output: `import { Icon, Heading } from '@kaizen/component-library';
+import { InlineNotification } from '@kaizen/notification';`,
+      errors: [{ message: /moved import/ }],
     },
     {
-      code: "import { foo, bar, baz } from '@kaizen/draft-foo';",
-      output: "import { foo, bar, baz } from '@kaizen/foo';",
-      errors: [{ message: /^Unexpected draft import/ }],
+      code: "import { InlineNotification } from '@kaizen/component-library';",
+      output: "import { InlineNotification } from '@kaizen/notification';",
+      errors: [{ message: /moved import/ }],
     },
     {
-      code: "const foo = require('@kaizen/draft-foo');",
-      output: "const foo = require('@kaizen/foo');",
-      errors: [{ message: /^Unexpected draft import/ }],
+      code:
+        "const InlineNotification = require('@kaizen/component-library/InlineNotification');",
+      output:
+        "const InlineNotification = require('@kaizen/notification/InlineNotification');",
+      errors: [{ message: /moved import/ }],
     },
     {
-      code: "import foo from '@kaizen/draft-foo/nested/imports';",
-      output: "import foo from '@kaizen/foo/nested/imports';",
-      errors: [{ message: /^Unexpected draft import/ }],
+      code:
+        "const { Icon, InlineNotification, Heading } = require('@kaizen/component-library');",
+      output: `const { Icon, Heading } = require('@kaizen/component-library');
+const { InlineNotification } = require('@kaizen/notification');`,
+      errors: [{ message: /moved import/ }],
     },
     {
-      code: "const foo = require('@kaizen/draft-foo/nested/imports');",
-      output: "const foo = require('@kaizen/foo/nested/imports');",
-      errors: [{ message: /^Unexpected draft import/ }],
+      code:
+        "const { InlineNotification } = require('@kaizen/component-library');",
+      output: "const { InlineNotification } = require('@kaizen/notification');",
+      errors: [{ message: /moved import/ }],
     },
   ],
 })

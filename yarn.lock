@@ -4876,10 +4876,10 @@
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
   integrity sha512-OCutwjDZ4aFS6PB1UZ988C4YgwlBHJd6wCeQqaLdmadZ/7e+w79+hbMUFC1QXDNCmdyoRfAFdm0RypzwR+Qpag==
 
-"@types/eslint@^7.28.2":
-  version "7.28.2"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.28.2.tgz#0ff2947cdd305897c52d5372294e8c76f351db68"
-  integrity sha512-KubbADPkfoU75KgKeKLsFHXnU4ipH7wYg0TRT33NK3N3yiu7jlFAAoygIWBV+KbuHx/G+AvuGX6DllnK35gfJA==
+"@types/eslint@^8.2.2":
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.2.2.tgz#b64dbdb64b1957cfc8a698c68297fcf8983e94c7"
+  integrity sha512-nQxgB8/Sg+QKhnV8e0WzPpxjIGT3tuJDDzybkDi8ItE/IgTlHo07U0shaIjzhcvQxlq9SDRE42lsJ23uvEgJ2A==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
