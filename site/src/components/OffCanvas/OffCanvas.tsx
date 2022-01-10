@@ -34,8 +34,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
  */
 export class OffCanvas extends React.Component<Props> {
   render() {
-    const { menuId, headerComponent, heading, links } =
-      this.props
+    const { menuId, headerComponent, heading, links } = this.props
 
     return (
       <OffCanvasContext.Consumer>

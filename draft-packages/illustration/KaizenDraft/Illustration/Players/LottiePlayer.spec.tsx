@@ -18,11 +18,11 @@ afterEach(cleanup)
 
 describe("<AnimatedBase />", () => {
   describe("Loading", () => {
-    beforeEach(() => {
-      mockedGetAnimationData.getAnimationData.mockResolvedValue(
-        {} as LottieAnimation
-      )
-    })
+    // beforeEach(() => {
+    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
+    //     {} as LottieAnimation
+    //   )
+    // })
 
     it("should render an initial loading indicator", async () => {
       render(
@@ -82,11 +82,11 @@ describe("<AnimatedBase />", () => {
   })
 
   describe("Success", () => {
-    beforeEach(() => {
-      mockedGetAnimationData.getAnimationData.mockResolvedValue(
-        {} as LottieAnimation
-      )
-    })
+    // beforeEach(() => {
+    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
+    //     {} as LottieAnimation
+    //   )
+    // })
 
     it("Renders a figcaption for screen readers", async () => {
       render(
@@ -102,11 +102,11 @@ describe("<AnimatedBase />", () => {
   })
 
   describe("when the aspect ratio is set as a prop", () => {
-    beforeEach(() => {
-      mockedGetAnimationData.getAnimationData.mockResolvedValue(
-        {} as LottieAnimation
-      )
-    })
+    // beforeEach(() => {
+    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
+    //     {} as LottieAnimation
+    //   )
+    // })
 
     it("should have aspect ratio class", () => {
       const { container } = render(
@@ -121,11 +121,11 @@ describe("<AnimatedBase />", () => {
     })
 
     describe("when the aspect ratio is NOT set as a prop", () => {
-      beforeEach(() => {
-        mockedGetAnimationData.getAnimationData.mockResolvedValue(
-          {} as LottieAnimation
-        )
-      })
+      // beforeEach(() => {
+      //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
+      //     {} as LottieAnimation
+      //   )
+      // })
 
       it("should not have aspect ratio class", () => {
         const { container } = render(
