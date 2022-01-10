@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/stylelint-plugin",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "postcss": "^8.2.15",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.2",
-    "postcss-value-parser": "^4.1.0",
+    "postcss-value-parser": "^4.2.0",
     "stylelint": "^13.13.1",
     "tinycolor2": "^1.4.2"
   },
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.merge": "^4.6.6",
-    "@types/node": "^14.14.37",
+    "@types/node": "^14.18.0",
     "@types/node-fetch": "^2.5.12",
     "@types/postcss-less": "^4.0.1",
     "@types/stylelint": "^9.10.1",

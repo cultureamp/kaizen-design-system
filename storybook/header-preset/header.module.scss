@@ -1,4 +1,6 @@
-$navHeight: 60px;
+@import "~@kaizen/design-tokens/sass/layout";
+
+$navHeight: $layout-navigation-bar-height;
 $footerHeight: 72px;
 
 :global(body) {

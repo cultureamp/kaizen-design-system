@@ -1,7 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import classNames from "classnames"
 import * as React from "react"
-import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
@@ -11,7 +10,6 @@ type Props = {
   links?: any
   heading: string
   headerComponent: React.ReactNode
-  footerComponent?: React.ReactNode
   menuId: string
 }
 
@@ -36,7 +34,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
  */
 export class OffCanvas extends React.Component<Props> {
   render() {
-    const { menuId, headerComponent, heading, links, footerComponent } =
+    const { menuId, headerComponent, heading, links } =
       this.props
 
     return (
@@ -58,7 +56,6 @@ export class OffCanvas extends React.Component<Props> {
                   <Menu section={section} links={links[section]} />
                 ))}
             </nav>
-            {footerComponent}
           </div>
         )}
       </OffCanvasContext.Consumer>
@@ -123,9 +120,4 @@ const withTrigger = (Component: React.ComponentType<any>) =>
     }
   }
 
-export default withDeprecatedComponent(
-  withContextProvider(withTrigger(OffCanvas)),
-  {
-    warning: "OffCanvas is deprecated.",
-  }
-)
+export default withContextProvider(withTrigger(OffCanvas))
