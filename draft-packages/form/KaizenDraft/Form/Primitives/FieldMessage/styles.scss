@@ -5,12 +5,12 @@
 @import "../../decision-tokens.scss";
 
 $message-icon-size: 1.25rem;
-$message-icon-padding: $ca-grid * 0.25;
 
 .message {
   display: flex;
   position: relative;
   align-items: center;
+  gap: $spacing-xs;
 }
 
 .default {
@@ -25,7 +25,7 @@ $message-icon-padding: $ca-grid * 0.25;
 .caution {
   border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
-  padding: 0.5rem $ca-grid / 2;
+  padding: $spacing-xs;
   color: $color-purple-800;
 }
 
@@ -58,7 +58,6 @@ $message-icon-padding: $ca-grid * 0.25;
 .warningIcon {
   display: inline-flex;
   width: $message-icon-size;
-  margin-right: $message-icon-padding;
 
   .error & {
     color: $color-red-500;
