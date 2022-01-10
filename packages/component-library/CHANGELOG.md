@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.0.0...@kaizen/component-library@12.0.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* Chris/node engine support v16 ([#2365](https://github.com/cultureamp/kaizen-design-system/issues/2365)) ([366fa6d](https://github.com/cultureamp/kaizen-design-system/commit/366fa6d156d2a4a2b35b1356bbcf18adf2189f2b))
+
+
+
+
+
 # [12.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.9...@kaizen/component-library@12.0.0) (2022-01-06)
 
 
