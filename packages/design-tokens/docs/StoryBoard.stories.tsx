@@ -1,7 +1,5 @@
 /* eslint-disable import/order */
 
-// TODO: This file could be refactored to be more readable and maintainable.
-
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
 import * as GlobalNotificationStories from "@kaizen/notification/docs/GlobalNotification.stories"
@@ -58,6 +56,18 @@ import { cssVarBackgrounds } from "../../../storybook/backgrounds"
 import { useTheme } from "../react"
 import colorString from "color-string"
 import styles from "./styles.scss"
+
+/**
+ * The type that represents a (subset of) possible exported values from story modules.
+ */
+type StoryModuleExport = Story | Meta
+
+function isStoryMeta(value: StoryModuleExport): value is Meta {
+  if (!("story" in value) && !("storyName" in value) && !("name" in value)) {
+    return true
+  }
+  return false
+}
 
 export default {
   title: "Design Tokens/Story Board",
@@ -220,12 +230,13 @@ const ComponentsSection = React.forwardRef(
  */
 const StoriesContainer = (props: {
   storyModule: { default: Meta } & {
-    [key: string]: Story | Meta | (React.ComponentType<any> & { story: Story })
+    [key: string]: StoryModuleExport
   }
   onRender?: () => void
 }) => {
   const theme = useTheme()
   const meta = props.storyModule.default
+  const parentArguments = meta.args ?? {}
   const [shouldRender, setShouldRender] = React.useState(false)
   const [ref, inView] = useInView()
   const [key, setKey] = React.useState(0)
@@ -251,21 +262,19 @@ const StoriesContainer = (props: {
       {shouldRender && (
         <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
-            // Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
-            if ("title" in V) return null
-            const parameters = "story" in V ? V.story!.parameters : V.parameters
+            if (isStoryMeta(V)) {
+              return null
+            }
+            const parameters = V.story?.parameters
+
+            // This is the actual story that was exported, the rest is wrapping.
             const storyElement = (
-              // @ts-expect-error
-              <V {...meta.args} {...("story" in V ? V.story!.args : {})} />
+              <V {...parentArguments} {...(V.story?.args ?? {})} />
             )
             return (
               <div key={k}>
                 <Heading variant="heading-3">
-                  {"story" in V && "name" in V.story!
-                    ? V.story.name
-                    : "storyName" in V
-                    ? V.storyName
-                    : k}
+                  {V.story?.name || ("storyName" in V && V?.storyName) || k}
                 </Heading>
                 <Padding size={0.5} />
                 {parameters &&
