@@ -1,4 +1,4 @@
-import { Root, AtRule, Document } from "postcss"
+import { Root, AtRule } from "postcss"
 import {
   deprecatedComponentLibraryColorImport,
   deprecatedComponentLibraryTypeImport,

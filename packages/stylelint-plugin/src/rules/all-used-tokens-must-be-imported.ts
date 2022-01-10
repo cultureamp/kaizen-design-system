@@ -1,4 +1,4 @@
-import { Root, Document } from "postcss"
+import { Root } from "postcss"
 import { missingRequiredKaizenImport } from "../messages"
 import { KaizenToken, Options, RuleDefinition } from "../types"
 import { addImport, getCurrentImports } from "../util/importUtils"

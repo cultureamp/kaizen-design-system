@@ -1,4 +1,4 @@
-import { AtRule, Declaration, Root, Document } from "postcss"
+import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import {
   kaizenVariableUsedNextToOperatorMessage,

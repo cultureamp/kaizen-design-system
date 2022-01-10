@@ -1,4 +1,4 @@
-import { AtRule, Declaration, Root, Document } from "postcss"
+import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser, { FunctionNode } from "postcss-value-parser"
 import { ParsedKaizenVariable, Variable } from "../types"
 import { parseVariable } from "./variableUtils"

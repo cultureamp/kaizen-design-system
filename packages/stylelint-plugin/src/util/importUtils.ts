@@ -1,4 +1,4 @@
-import { Root, atRule, Document } from "postcss"
+import { Root, atRule } from "postcss"
 import { quotesPattern } from "./patterns"
 
 export const getCurrentImports = (stylesheet: Root) => {

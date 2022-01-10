@@ -1,4 +1,4 @@
-import { Node, Root, Document } from "postcss"
+import { Node, Root } from "postcss"
 import type { WordNode } from "postcss-value-parser"
 
 export type RuleDefinition = {

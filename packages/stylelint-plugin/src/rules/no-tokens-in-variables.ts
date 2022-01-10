@@ -1,4 +1,4 @@
-import { Root, Document } from "postcss"
+import { Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { transitiveKaizenTokenUsage } from "../messages"
 import { Options, RuleDefinition } from "../types"

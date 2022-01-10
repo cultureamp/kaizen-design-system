@@ -1,12 +1,5 @@
 import nanomemoize from "nano-memoize"
-import {
-  AtRule,
-  ChildNode,
-  Container,
-  Declaration,
-  Root,
-  Document,
-} from "postcss"
+import { AtRule, ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
@@ -81,7 +74,7 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: ChildNode | Container | Document) => {
+const getVariablesInBlock = (block: ChildNode | Container) => {
   if (!("nodes" in block) || "toResult" in block) return {}
   return block.nodes
     .filter(
@@ -101,7 +94,7 @@ const getVariablesInBlock = (block: ChildNode | Container | Document) => {
 const getLexicallyClosestVariablesRecursive = nanomemoize(
   (
     stylesheetNode: Root,
-    leafNode: ChildNode | Container | Document,
+    leafNode: ChildNode | Container,
     currentVariables: Record<string, string | undefined>
   ): Record<string, string | undefined> => {
     const nextVariables = {
@@ -113,7 +106,7 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
     if (leafNode.parent) {
       return getLexicallyClosestVariablesRecursive(
         stylesheetNode,
-        leafNode.parent,
+        leafNode.parent as Container,
         nextVariables
       )
     } else {
