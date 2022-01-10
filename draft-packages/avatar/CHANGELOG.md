@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.0.2...@kaizen/draft-avatar@2.1.0) (2022-01-10)
+
+
+### Features
+
+* Add AvatarGroup component to Kaizen Library ([#2377](https://github.com/cultureamp/kaizen-design-system/issues/2377)) ([58a17d4](https://github.com/cultureamp/kaizen-design-system/commit/58a17d4544bef34ebb163315bd73bc41d81b41c9))
+
+
+
+
+
 ## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.0.1...@kaizen/draft-avatar@2.0.2) (2022-01-06)
 
 **Note:** Version bump only for package @kaizen/draft-avatar
