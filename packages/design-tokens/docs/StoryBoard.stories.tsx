@@ -1,7 +1,5 @@
 /* eslint-disable import/order */
 
-// TODO: This file could be refactored to be more readable and maintainable.
-
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
 import * as GlobalNotificationStories from "@kaizen/notification/docs/GlobalNotification.stories"
@@ -58,6 +56,18 @@ import { cssVarBackgrounds } from "../../../storybook/backgrounds"
 import { useTheme } from "../react"
 import colorString from "color-string"
 import styles from "./styles.scss"
+
+/**
+ * The type that represents a (subset of) possible exported values from story modules.
+ */
+type StoryModuleExport = Story | Meta
+
+function isStoryMeta(value: StoryModuleExport): value is Meta {
+  if (!("story" in value) && !("storyName" in value) && !("name" in value)) {
+    return true
+  }
+  return false
+}
 
 export default {
   title: "Design Tokens/Story Board",
@@ -220,12 +230,13 @@ const ComponentsSection = React.forwardRef(
  */
 const StoriesContainer = (props: {
   storyModule: { default: Meta } & {
-    [key: string]: Story | Meta | (React.ComponentType<any> & { story: Story })
+    [key: string]: StoryModuleExport
   }
   onRender?: () => void
 }) => {
   const theme = useTheme()
   const meta = props.storyModule.default
+  const parentArguments = meta.args ?? {}
   const [shouldRender, setShouldRender] = React.useState(false)
   const [ref, inView] = useInView()
   const [key, setKey] = React.useState(0)
@@ -251,15 +262,14 @@ const StoriesContainer = (props: {
       {shouldRender && (
         <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
-            // !This is now irrelevant as "title" prop is now string | undefined
-            // (outdated) Ignore exports that are Story Metadata (which we can detect by the presence of a "title" prop)
-            if (!("story" in V) && !("storyName" in V) && !("name" in V))
+            if (isStoryMeta(V)) {
               return null
+            }
             const parameters = V.story?.parameters
-            // We should not render a Meta story according to the types declared for storyModule
-            // Object key check story indicates Story type is rendered only, as Meta is not a correct React component
+
+            // This is the actual story that was exported, the rest is wrapping.
             const storyElement = (
-              <V {...meta.args} {...("story" in V ? V?.story?.args : {})} />
+              <V {...parentArguments} {...(V.story?.args ?? {})} />
             )
             return (
               <div key={k}>
