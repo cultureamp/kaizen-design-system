@@ -7,8 +7,8 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react"
 import * as React from "react"
-import * as utils from "../utils"
 import { LottieAnimation } from "../types"
+import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 
 jest.mock("../utils.ts")
@@ -18,13 +18,10 @@ afterEach(cleanup)
 
 describe("<AnimatedBase />", () => {
   describe("Loading", () => {
-    // beforeEach(() => {
-    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
-    //     {} as LottieAnimation
-    //   )
-    // })
-
     it("should render an initial loading indicator", async () => {
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
       render(
         <AnimatedBase
           name=""
@@ -34,7 +31,7 @@ describe("<AnimatedBase />", () => {
       )
 
       await waitFor(() => {
-        mockedGetAnimationData.getAnimationData
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
         const loadingIndicator = screen.getByTestId("loading")
         expect(loadingIndicator).toBeInTheDocument()
       })
@@ -42,11 +39,8 @@ describe("<AnimatedBase />", () => {
   })
 
   describe("Failed", () => {
-    beforeEach(() => {
-      mockedGetAnimationData.getAnimationData.mockRejectedValue("Error")
-    })
-
     it("logs a browser warning when asset fails to load", async () => {
+      mockedGetAnimationData.getAnimationData.mockRejectedValue("Error")
       const warningFunction = jest.fn()
       jest.spyOn(global.console, "warn").mockImplementation(warningFunction)
       render(
@@ -57,13 +51,14 @@ describe("<AnimatedBase />", () => {
         />
       )
       await waitFor(() => {
-        mockedGetAnimationData.getAnimationData
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
         expect(warningFunction).toHaveBeenCalledTimes(1)
         expect(warningFunction).toBeCalledWith("Error")
       })
     })
 
     it("defaults to a static asset when the lottie asset fails to load", async () => {
+      mockedGetAnimationData.getAnimationData.mockRejectedValue("Error")
       render(
         <AnimatedBase
           name=""
@@ -71,6 +66,7 @@ describe("<AnimatedBase />", () => {
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
+      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       expect(screen.getByTestId("lottie-player")).toBeInTheDocument()
       expect(document.getElementsByTagName("img")).toHaveLength(0)
       await waitForElementToBeRemoved(await screen.getByTestId("loading")).then(
@@ -82,13 +78,10 @@ describe("<AnimatedBase />", () => {
   })
 
   describe("Success", () => {
-    // beforeEach(() => {
-    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
-    //     {} as LottieAnimation
-    //   )
-    // })
-
     it("Renders a figcaption for screen readers", async () => {
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
       render(
         <AnimatedBase
           name=""
@@ -96,19 +89,17 @@ describe("<AnimatedBase />", () => {
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
+      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       const items = await screen.findAllByText(/Screen reader text/)
       expect(items).toHaveLength(1)
     })
   })
 
   describe("when the aspect ratio is set as a prop", () => {
-    // beforeEach(() => {
-    //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
-    //     {} as LottieAnimation
-    //   )
-    // })
-
     it("should have aspect ratio class", () => {
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
       const { container } = render(
         <AnimatedBase
           name=""
@@ -117,17 +108,15 @@ describe("<AnimatedBase />", () => {
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
+      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       expect(container.querySelector(".landscape")).toBeTruthy()
     })
 
     describe("when the aspect ratio is NOT set as a prop", () => {
-      // beforeEach(() => {
-      //   mockedGetAnimationData.getAnimationData.mockResolvedValue(
-      //     {} as LottieAnimation
-      //   )
-      // })
-
       it("should not have aspect ratio class", () => {
+        mockedGetAnimationData.getAnimationData.mockResolvedValue(
+          {} as LottieAnimation
+        )
         const { container } = render(
           <AnimatedBase
             name=""
@@ -135,6 +124,7 @@ describe("<AnimatedBase />", () => {
             fallback="illustrations/heart/spot/moods-cautionary.svg"
           />
         )
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
         expect(container.querySelector(".landscape")).toBeFalsy()
       })
     })
