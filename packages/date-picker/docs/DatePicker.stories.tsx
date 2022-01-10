@@ -1,7 +1,9 @@
 import React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
-import { DatePicker } from "../index"
-import { DateRangePicker } from "../src/DateRangePicker"
+import {
+  DatePickerWrapper as DatePicker,
+  DateRangePicker,
+} from "../src/DatePicker"
 
 export default {
   title: `${CATEGORIES.components}/DatePicker`,
