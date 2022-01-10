@@ -2,6 +2,7 @@ import { usePopper } from "react-popper"
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
+import { Placement } from "@popperjs/core"
 import tooltipStyles from "./Tooltip.scss"
 import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
@@ -46,13 +47,21 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
-const getPlacement = position => {
+const getPlacement = (position: Position) => {
   if (position === "above") {
     return "top"
   } else if (position === "below") {
     return "bottom"
   } else {
     return position
+  }
+}
+const getFallbackPlacements = (position: Position) => {
+  const placement = getPlacement(position)
+  if (placement === "left" || placement === "right") {
+    return ["left", "top", "bottom", "right"]
+  } else {
+    return ["top", "bottom"]
   }
 }
 
@@ -106,10 +115,12 @@ const TooltipContent = ({
           name: "flip",
           options: {
             padding: 8,
+            altBoundary: true,
+            fallbackPlacements: getFallbackPlacements(position) as Placement[],
           },
         },
       ],
-      placement: getPlacement(position),
+      placement: getPlacement(position) as Placement,
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()

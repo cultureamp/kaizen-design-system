@@ -185,12 +185,3 @@ $arrow-width: 20px;
 .displayInlineFlex {
   display: inline-flex;
 }
-
-//Story Styles
-#portalSelectorStory::before,
-#portalSelectorStory::after {
-  content: "";
-  display: block;
-  width: 1px;
-  height: 600px;
-}

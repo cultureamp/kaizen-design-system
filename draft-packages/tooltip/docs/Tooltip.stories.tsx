@@ -1,9 +1,7 @@
 import * as React from "react"
-
-import { Paragraph } from "@kaizen/component-library"
-import { MenuItem } from "@kaizen/draft-menu"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { SplitButton } from "@kaizen/draft-split-button"
+import { Icon, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
@@ -65,399 +63,320 @@ export const DesignSheet = props => (
       display: "grid",
       justifyContent: "center",
       rowGap: "5rem",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr",
     }}
   >
-    <div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        rowGap: "5rem",
+      }}
+    >
+      <Tooltip
+        position="above"
+        text="Tooltip"
+        mood="default"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="default"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="above"
+        text="Tooltip"
+        mood="informative"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="informative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="above"
+        text="Tooltip"
+        mood="positive"
+        isInitiallyVisible
       >
-        <Tooltip
-          {...props}
-          position="above"
-          text="Tooltip"
-          mood="positive"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="above"
+        text="Tooltip"
+        mood="negative"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="negative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="above"
+        text="Tooltip"
+        mood="cautionary"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="cautionary"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-    </div>
-    <div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="below"
-          text="Tooltip"
-          mood="default"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="below"
-          text="Tooltip"
-          mood="informative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          {...props}
-          position="below"
-          text="Tooltip"
-          mood="positive"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="below"
-          text="Tooltip"
-          mood="negative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="below"
-          text="Tooltip"
-          mood="cautionary"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
+        <Button label="Default" />
+      </Tooltip>
     </div>
     <div
       style={{
-        marginTop: "4rem",
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        rowGap: "5rem",
       }}
     >
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+      <Tooltip
+        position="below"
+        text="Tooltip"
+        mood="default"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="left"
-          text="Tooltip"
-          mood="default"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="below"
+        text="Tooltip"
+        mood="informative"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="left"
-          text="Tooltip"
-          mood="informative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="below"
+        text="Tooltip"
+        mood="positive"
+        isInitiallyVisible
       >
-        <Tooltip
-          {...props}
-          position="left"
-          text="Tooltip"
-          mood="positive"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="below"
+        text="Tooltip"
+        mood="negative"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="left"
-          text="Tooltip"
-          mood="negative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="below"
+        text="Tooltip"
+        mood="cautionary"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="left"
-          text="Tooltip"
-          mood="cautionary"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
+        <Button label="Default" />
+      </Tooltip>
     </div>
-    <div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        rowGap: "5rem",
+      }}
+    >
+      <Tooltip position="left" text="Tooltip" mood="default" isInitiallyVisible>
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="left"
+        text="Tooltip"
+        mood="informative"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="right"
-          text="Tooltip"
-          mood="default"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="left"
+        text="Tooltip"
+        mood="positive"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="right"
-          text="Tooltip"
-          mood="informative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="left"
+        text="Tooltip"
+        mood="negative"
+        isInitiallyVisible
       >
-        <Tooltip
-          {...props}
-          position="right"
-          text="Tooltip"
-          mood="positive"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="left"
+        text="Tooltip"
+        mood="cautionary"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="right"
-          text="Tooltip"
-          mood="negative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "7rem",
-          position: "relative",
-        }}
+        <Button label="Default" />
+      </Tooltip>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        rowGap: "5rem",
+      }}
+    >
+      <Tooltip
+        position="right"
+        text="Tooltip"
+        mood="default"
+        isInitiallyVisible
       >
-        <Tooltip
-          position="right"
-          text="Tooltip"
-          mood="cautionary"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="right"
+        text="Tooltip"
+        mood="informative"
+        isInitiallyVisible
+      >
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="right"
+        text="Tooltip"
+        mood="positive"
+        isInitiallyVisible
+      >
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="right"
+        text="Tooltip"
+        mood="negative"
+        isInitiallyVisible
+      >
+        <Button label="Default" />
+      </Tooltip>
+      <Tooltip
+        position="right"
+        text="Tooltip"
+        mood="cautionary"
+        isInitiallyVisible
+      >
+        <Button label="Default" />
+      </Tooltip>
     </div>
   </div>
 )
 DesignSheet.storyName = "Design Sheet"
 
 export const OverflowScroll = props => (
-  <div
-    id="portalSelectorStory"
-    style={{
-      width: "300px",
-      height: "800px",
-      overflow: "scroll",
-      textAlign: "center",
-      position: "relative",
-      overscrollBehavior: "contain",
-      display: "flex",
-      justifyContent: "center",
-      flexDirection: "column",
-    }}
-  >
+  <>
+    <p>
+      Default Placement is' above' and initially set to 'isInitiallyVisible' for
+      Storybook purposes. Scroll horizontally or vertically to view the popper
+      "flip" and move according to the space of the viewport. Ensuring the
+      popper does not get cut off.
+    </p>
+
     <div
       style={{
+        display: "flex",
         width: "300px",
-        height: "300px",
-        textAlign: "center",
-        position: "relative",
-        paddingTop: "100px",
-        paddingLeft: "200px",
+        maxHeight: "700px",
+        overflow: "scroll",
+        border: "solid black 2px",
+        flexDirection: "column",
       }}
     >
-      <Tooltip
-        {...props}
-        display="inline-block"
-        text="This should not get cropped"
-        isInitiallyVisible
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+          marginTop: "400px",
+        }}
       >
-        <Button label="Bottom" />
-      </Tooltip>
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Tooltip
+            {...props}
+            display="inline-block"
+            text="This should not get cropped"
+            isInitiallyVisible
+          >
+            <Button label="Bottom" />
+          </Tooltip>
+        </div>
+      </div>
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+        }}
+      >
+        <div
+          style={{
+            width: "300px",
+            height: "100px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Tooltip
+            {...props}
+            display="inline"
+            text="This should not get cropped"
+            isInitiallyVisible
+          >
+            <Icon icon={informationIcon} />
+          </Tooltip>
+        </div>
+      </div>
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+          marginBottom: "500px",
+        }}
+      >
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Paragraph variant="body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            nulla quas corporis? Perspiciatis, ratione voluptas{" "}
+            <Tooltip
+              display="inline-block"
+              isInitiallyVisible
+              text="This is above the tooltip"
+              {...props}
+            >
+              <Tag>ad veniam sapiente</Tag>
+            </Tooltip>{" "}
+            Maxime harum, ducimus maiores itaque pariatur quod vel porro
+            mollitia. Lorem ipsum dolor sit{" "}
+            <Tooltip
+              display="inline"
+              isInitiallyVisible
+              text="Open in new tab"
+              {...props}
+            >
+              <a href="#">
+                amet consectetur adipisicing elit Itaque obcaecati maxime
+                molestiae blanditiis pariatur
+              </a>
+            </Tooltip>
+            . Magni perspiciatis assumenda in adipisci, eaque commodi quidem
+            dolore, tempore provident animi{" "}
+          </Paragraph>
+        </div>
+      </div>
     </div>
-    <div
-      style={{
-        width: "1000px",
-        height: "1000px",
-      }}
-    >
-      <p>
-        Scroll the panel above, and hover over the button. Notice that the
-        tooltip does not get cropped. Also notice that the tooltip arrow follows
-        the button appropriately.
-      </p>
-    </div>
-  </div>
+  </>
 )
-
-const portalSelectorElement = document.querySelector("#portalSelectorStory")
-
-if (portalSelectorElement) portalSelectorElement.scrollTop = 820
-
-OverflowScroll.storyName = "overflow: scroll"
