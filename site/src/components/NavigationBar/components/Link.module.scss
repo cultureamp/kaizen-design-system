@@ -1,10 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
-@import "../../../styles/border";
+@import "@kaizen/component-library/styles/border";
 @import "@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "../../../styles/grid";
-@import "../../../styles/responsive";
+@import "@kaizen/component-library/styles/grid";
+@import "@kaizen/component-library/styles/responsive";
 @import "../decision-tokens.scss";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);

@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import * as React from "react"
-import { Icon } from "../../Icon"
-import chevronRightIcon from "../../../icons/chevron-right.icon.svg"
+import { Icon } from "@kaizen/component-library/components/Icon"
+import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon.svg"
 
 import { LinkProps } from "../types"
 import styles from "./Link.module.scss"
