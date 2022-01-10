@@ -1,5 +1,5 @@
 import nanomemoize from "nano-memoize"
-import { AtRule, ChildNode, Container, Declaration, Root } from "postcss"
+import { AtRule, ChildNode, Container, Declaration, Document, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
@@ -74,7 +74,7 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: ChildNode | Container) => {
+const getVariablesInBlock = (block: ChildNode | Container | Document) => {
   if (!("nodes" in block) || "toResult" in block) return {}
   return block.nodes
     .filter(
@@ -86,6 +86,8 @@ const getVariablesInBlock = (block: ChildNode | Container) => {
     )
 }
 
+type ChildOrCSSParent = (ChildNode | Container) & {parent?: Container}
+
 /**
  * See the function below for the description. It does the same thing, but accepts another accumulator parameter, and is recursive.
  * We did this because we didn't want the consumer to worry or know about the other accumulator parameter.
@@ -94,7 +96,7 @@ const getVariablesInBlock = (block: ChildNode | Container) => {
 const getLexicallyClosestVariablesRecursive = nanomemoize(
   (
     stylesheetNode: Root,
-    leafNode: ChildNode | Container,
+    leafNode: ChildNode | Container | Document,
     currentVariables: Record<string, string | undefined>
   ): Record<string, string | undefined> => {
     const nextVariables = {
@@ -106,7 +108,7 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
     if (leafNode.parent) {
       return getLexicallyClosestVariablesRecursive(
         stylesheetNode,
-        leafNode.parent as Container,
+        leafNode.parent,
         nextVariables
       )
     } else {
