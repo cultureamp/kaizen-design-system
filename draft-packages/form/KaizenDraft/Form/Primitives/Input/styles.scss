@@ -18,6 +18,7 @@ $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
+$input-with-icon-padding: $input-icon-size + $ca-grid * 0.75;
 
 // Helpers
 
@@ -114,7 +115,7 @@ $input-disabled-border-alpha: 50%;
 
   .input {
     @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
+      $start: $input-with-icon-padding,
       $end: $input-base-padding-horizontal
     );
   }
@@ -135,7 +136,7 @@ $input-disabled-border-alpha: 50%;
   .input {
     @include ca-padding(
       $start: $input-base-padding-horizontal,
-      $end: $ca-grid + $input-icon-size
+      $end: $input-with-icon-padding
     );
   }
 }
@@ -143,8 +144,8 @@ $input-disabled-border-alpha: 50%;
 .withStartIconAdornment.withEndIconAdornment {
   .input {
     @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
-      $end: $ca-grid + $input-icon-size
+      $start: $input-with-icon-padding,
+      $end: $input-with-icon-padding
     );
   }
 }

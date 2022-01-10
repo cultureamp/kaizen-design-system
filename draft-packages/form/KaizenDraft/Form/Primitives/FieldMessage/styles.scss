@@ -4,10 +4,13 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../decision-tokens.scss";
 
+$message-icon-size: 1.25rem;
+$message-icon-padding: $ca-grid * 0.25;
+
 .message {
   display: flex;
+  position: relative;
   align-items: center;
-  gap: $ca-grid * 0.25;
 }
 
 .default {
@@ -18,10 +21,15 @@
   }
 }
 
-.error {
-  padding: $ca-grid / 2;
-  color: $color-purple-800;
+.error,
+.caution {
+  border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
+  padding: 0.5rem $ca-grid / 2;
+  color: $color-purple-800;
+}
+
+.error {
   background: $color-red-100;
   opacity: 1;
 
@@ -31,9 +39,6 @@
 }
 
 .caution {
-  padding: $ca-grid / 2;
-  color: $color-purple-800;
-  border-radius: $border-solid-border-radius;
   background: $color-yellow-200;
   opacity: 1;
 
@@ -51,8 +56,9 @@
 }
 
 .warningIcon {
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  width: $message-icon-size;
+  margin-right: $message-icon-padding;
 
   .error & {
     color: $color-red-500;
