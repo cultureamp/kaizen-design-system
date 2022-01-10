@@ -1,5 +1,12 @@
 import nanomemoize from "nano-memoize"
-import { AtRule, ChildNode, Container, Declaration, Document, Root } from "postcss"
+import {
+  AtRule,
+  ChildNode,
+  Container,
+  Declaration,
+  Document,
+  Root,
+} from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
@@ -74,8 +81,9 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: ChildNode | Container | Document) => {
-  if (!("nodes" in block) || "toResult" in block) return {}
+const getVariablesInBlock = (block: ChildNode | Container) => {
+  if (!("nodes" in block)) return {}
+
   return block.nodes
     .filter(
       (node): node is Declaration => node.type === "decl" && isVariable(node)
@@ -86,8 +94,6 @@ const getVariablesInBlock = (block: ChildNode | Container | Document) => {
     )
 }
 
-type ChildOrCSSParent = (ChildNode | Container) & {parent?: Container}
-
 /**
  * See the function below for the description. It does the same thing, but accepts another accumulator parameter, and is recursive.
  * We did this because we didn't want the consumer to worry or know about the other accumulator parameter.
@@ -96,7 +102,7 @@ type ChildOrCSSParent = (ChildNode | Container) & {parent?: Container}
 const getLexicallyClosestVariablesRecursive = nanomemoize(
   (
     stylesheetNode: Root,
-    leafNode: ChildNode | Container | Document,
+    leafNode: ChildNode | Container,
     currentVariables: Record<string, string | undefined>
   ): Record<string, string | undefined> => {
     const nextVariables = {
@@ -105,7 +111,15 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
       ...currentVariables,
     }
 
-    if (leafNode.parent) {
+    /*
+      We don't want to try and extract top level variables from a postcss.Document type,
+      because the immediate children of Document instances will only ever be stylesheets (Root types),
+      and NOT declarations (which is what we care about in this function).
+      FYI, a postcss.Document type represents a parsed HTML file containing 0 or more stylesheet/Root instances (for example but not limited to, <style></style> tags)
+
+      Hence, if the parent of the current node (leafNode.parent) is a Document, take the blue pill and don't go down the rabbit hole.
+     */
+    if (leafNode.parent && !(leafNode.parent instanceof Document)) {
       return getLexicallyClosestVariablesRecursive(
         stylesheetNode,
         leafNode.parent,
