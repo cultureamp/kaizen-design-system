@@ -124,12 +124,8 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
   }
 
   render() {
-    const {
-      controlAction,
-      automationId,
-      iconPosition,
-      reversedColor,
-    } = this.props
+    const { controlAction, automationId, iconPosition, reversedColor } =
+      this.props
 
     const reverseIcon = iconPosition === "end"
     const btnClass = classNames(styles.dropdownButton, {

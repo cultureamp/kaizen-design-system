@@ -16,13 +16,8 @@ export default {
 
 export const Components = () => {
   const { components } = useMediaQueries()
-  const {
-    SmallOnly,
-    MediumOnly,
-    LargeOnly,
-    MediumOrSmaller,
-    MediumOrLarger,
-  } = components
+  const { SmallOnly, MediumOnly, LargeOnly, MediumOrSmaller, MediumOrLarger } =
+    components
 
   return (
     <>
@@ -47,13 +42,8 @@ export const Components = () => {
 
 export const Queries = () => {
   const { queries } = useMediaQueries()
-  const {
-    isSmall,
-    isMedium,
-    isLarge,
-    isMediumOrLarger,
-    isMediumOrSmaller,
-  } = queries
+  const { isSmall, isMedium, isLarge, isMediumOrLarger, isMediumOrSmaller } =
+    queries
 
   return (
     <>

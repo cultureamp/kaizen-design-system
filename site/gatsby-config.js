@@ -95,7 +95,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sass",
       options: {
-        precision: 9,
+        implementation: require("node-sass"), // TODO: Move to dart-sass once webpack has native plugin support
+        sassOptions: {
+          precision: 9,
+        },
         sassRuleModulesTest: /^(?!(.*normalize\.css$)).+\.s?css$/,
         cssLoaderOptions: {
           camelCase: false,

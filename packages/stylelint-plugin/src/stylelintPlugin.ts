@@ -34,28 +34,26 @@ const rules: StyleLintRule[] = [
 export default rules.map(rule =>
   stylelint.createPlugin(
     `kaizen/${rule.name}`,
-    (_, secondary: StylelintPluginOptions | undefined, context) => (
-      root,
-      result
-    ) => {
-      if (root?.source) {
-        const language = /\.less$/.test(root.source.input.from)
-          ? "less"
-          : "scss"
-        rule.ruleFunction(root, {
-          fix: Boolean(!secondary?.disableFixing && context?.fix),
-          language,
-          reporter: ({ message, node, autofixAvailable }) =>
-            stylelint.utils.report({
-              ruleName: `kaizen/${rule.name}`,
-              message: `${message}${
-                autofixAvailable ? " (autofix available)" : ""
-              }`,
-              node,
-              result,
-            }),
-        })
+    (_, secondary: StylelintPluginOptions | undefined, context) =>
+      (root, result) => {
+        if (root?.source) {
+          const language = /\.less$/.test(root.source.input.from)
+            ? "less"
+            : "scss"
+          rule.ruleFunction(root, {
+            fix: Boolean(!secondary?.disableFixing && context?.fix),
+            language,
+            reporter: ({ message, node, autofixAvailable }) =>
+              stylelint.utils.report({
+                ruleName: `kaizen/${rule.name}`,
+                message: `${message}${
+                  autofixAvailable ? " (autofix available)" : ""
+                }`,
+                node,
+                result,
+              }),
+          })
+        }
       }
-    }
   )
 )

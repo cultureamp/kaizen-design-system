@@ -17,9 +17,9 @@ import { KaizenToken } from "./src/types"
 const version = "2.9.3"
 
 const fetchDesignTokensJsonFile = (fileName: string) =>
-  fetch(
-    `https://unpkg.com/@kaizen/design-tokens@${version}/${fileName}`
-  ).then(r => r.json())
+  fetch(`https://unpkg.com/@kaizen/design-tokens@${version}/${fileName}`).then(
+    r => r.json()
+  )
 
 /**
  * The list of rules that will be applied to determine deprecation and potential replacements for tokens from design-tokens v2.
@@ -55,9 +55,10 @@ export const version2DeprecationRules: Array<[RegExp, string?, boolean?]> = [
  * Note: if there is no replacement, that doesn't necessarily mean a token isn't deprecated - however, if there IS a replacement, then it certainly is deprecated.
  * Use {@link isKaizenTokenDeprecated} for testing whether a token is deprecated.
  */
-function getReplacementForDeprecatedOrRemovedToken(
-  tokenName: string
-): { replacement: KaizenToken | undefined; deprecated: boolean } {
+function getReplacementForDeprecatedOrRemovedToken(tokenName: string): {
+  replacement: KaizenToken | undefined
+  deprecated: boolean
+} {
   let replacementToken = tokenName
   let matchedAny = false
   for (const renameRule of version2DeprecationRules) {

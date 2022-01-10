@@ -49,10 +49,8 @@ export const VideoPlayer = ({
   const reducedMotionQuery = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   )
-  const [
-    prefersReducedMotion,
-    setPrefersReducedMotion,
-  ] = React.useState<boolean>(reducedMotionQuery.matches || false)
+  const [prefersReducedMotion, setPrefersReducedMotion] =
+    React.useState<boolean>(reducedMotionQuery.matches || false)
 
   useEffect(() => {
     /**

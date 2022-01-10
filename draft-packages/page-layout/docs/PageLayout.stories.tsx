@@ -145,7 +145,7 @@ export const SkirtStory = () => (
   </>
 )
 
-SkirtStory.story = "Skirt (default)"
+SkirtStory.storyName = "Skirt (default)"
 
 export const SkirtEducationVariant = () => (
   <>
@@ -176,7 +176,7 @@ export const SkirtEducationVariant = () => (
   </>
 )
 
-SkirtEducationVariant.story = "Skirt (Education variant)"
+SkirtEducationVariant.storyName = "Skirt (Education variant)"
 
 export const SkirtWithoutTitleBlockNavigation = () => (
   <>
@@ -245,7 +245,7 @@ export const SkirtWithoutTitleBlockNavigation = () => (
   </>
 )
 
-SkirtWithoutTitleBlockNavigation.story =
+SkirtWithoutTitleBlockNavigation.storyName =
   "Skirt (Title Block without navigation)"
 
 export const WithoutSkirtCard = () => (
@@ -287,4 +287,4 @@ export const WithoutSkirtCard = () => (
   </>
 )
 
-WithoutSkirtCard.story = "Skirt (without SkirtCard)"
+WithoutSkirtCard.storyName = "Skirt (without SkirtCard)"

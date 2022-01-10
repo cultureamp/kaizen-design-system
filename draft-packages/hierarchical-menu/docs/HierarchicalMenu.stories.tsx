@@ -202,32 +202,31 @@ export const LoadingStateSlowStory = () => (
 
 LoadingStateSlowStory.storyName = "Loading state (slow)"
 
-const loadInitialHierarchy = (
-  simulatedResponseTime: ResponseTime
-) => (): Promise<Hierarchy> =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(levelOne)
-    }, simulatedResponseTime)
-  })
+const loadInitialHierarchy =
+  (simulatedResponseTime: ResponseTime) => (): Promise<Hierarchy> =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(levelOne)
+      }, simulatedResponseTime)
+    })
 
 const instantLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.INSTANT)
 const fastLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.FAST)
 const mediumLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.MEDIUM)
 const slowLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.SLOW)
 
-const loadHierarchy = (simulatedResponseTime: ResponseTime) => (
-  node: HierarchyNode
-): Promise<Hierarchy> =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      if (node.value === "id_didier") return resolve(levelZero)
-      if (node.value === "id_rod") return resolve(levelOne)
-      if (node.value === "id_virginia") return resolve(levelTwo)
-      if (node.value === "id_kavi") return resolve(levelThree)
-      resolve(levelZero)
-    }, simulatedResponseTime)
-  })
+const loadHierarchy =
+  (simulatedResponseTime: ResponseTime) =>
+  (node: HierarchyNode): Promise<Hierarchy> =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        if (node.value === "id_didier") return resolve(levelZero)
+        if (node.value === "id_rod") return resolve(levelOne)
+        if (node.value === "id_virginia") return resolve(levelTwo)
+        if (node.value === "id_kavi") return resolve(levelThree)
+        resolve(levelZero)
+      }, simulatedResponseTime)
+    })
 
 const instantLoadHierarchy = loadHierarchy(ResponseTime.INSTANT)
 const fastLoadHierarchy = loadHierarchy(ResponseTime.FAST)

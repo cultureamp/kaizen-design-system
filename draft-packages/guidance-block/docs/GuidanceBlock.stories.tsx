@@ -5,8 +5,8 @@ import { Informative } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
-  .default
+const externalLinkIcon =
+  require("@kaizen/component-library/icons/external-link.icon.svg").default
 
 export default {
   title: `${CATEGORIES.components}/Guidance Block`,
