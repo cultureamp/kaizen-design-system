@@ -23,6 +23,7 @@ $scene-illustration-size-mobile: 200px;
 .banner {
   display: flex;
   flex-direction: column;
+  gap: $spacing-sm;
   background: $color-white;
   min-width: 320px;
   max-width: $layout-breakpoints-large;
@@ -42,10 +43,6 @@ $scene-illustration-size-mobile: 200px;
     gap: $spacing-md;
     width: auto;
     align-items: center;
-
-    > * {
-      padding: $spacing-sm 0;
-    }
   }
 
   @include ca-media-mobile {
@@ -80,13 +77,12 @@ $scene-illustration-size-mobile: 200px;
 
 .descriptionContainer {
   flex: 1;
-  margin: $spacing-sm 0;
   text-align: center;
   align-self: center;
   max-width: 780px;
 
   @include ca-media-desktop {
-    padding: 0 $spacing-lg 0 $spacing-sm;
+    padding: 0 $spacing-sm;
     text-align: left;
   }
 
@@ -108,6 +104,7 @@ $scene-illustration-size-mobile: 200px;
   flex: 1;
   align-items: center;
   justify-content: space-between;
+  gap: $spacing-md;
 
   @include ca-media-tablet-and-under {
     flex-direction: column;
@@ -125,7 +122,6 @@ $scene-illustration-size-mobile: 200px;
   min-width: max-content;
 
   @include ca-media-tablet-and-up {
-    padding: ($spacing-sm) 0;
     text-align: center;
   }
 
@@ -212,15 +208,14 @@ $scene-illustration-size-mobile: 200px;
   }
 
   .descriptionContainer {
-    margin: $spacing-sm;
     text-align: left;
 
-    @include ca-media-desktop {
-      margin: $spacing-sm 0;
+    @include ca-media-tablet {
+      margin: 0 $spacing-sm;
     }
 
     @include ca-media-mobile {
-      margin: $spacing-sm 0;
+      margin: 0;
     }
 
     @include guidance-block-under-480 {
