@@ -86,7 +86,7 @@ const TooltipContent = ({
         {
           name: "offset",
           options: {
-            offset: [0, arrowHeight + 12],
+            offset: [0, arrowHeight + 6],
           },
         },
         {
