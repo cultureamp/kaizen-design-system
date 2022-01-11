@@ -262,10 +262,9 @@ export const StickerSheet = () => (
 export const OverflowScroll = props => (
   <>
     <p>
-      Default Placement is' above' and initially set to 'isInitiallyVisible' for
-      Storybook purposes. Scroll horizontally or vertically to view the popper
-      "flip" and move according to the space of the viewport. Ensuring the
-      popper does not get cut off.
+      Default Placement is' above'. Scroll horizontally or vertically to view
+      the popper "flip" and move according to the space of the viewport.
+      Ensuring the popper does not get cut off.
     </p>
 
     <div
