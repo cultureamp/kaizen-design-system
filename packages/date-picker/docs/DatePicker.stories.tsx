@@ -2,7 +2,7 @@ import React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
   DatePickerWrapper as DatePicker,
-  DateRangePicker,
+  // DateRangePicker,
 } from "../src/DatePicker"
 
 export default {
@@ -19,4 +19,4 @@ export default {
 
 export const KaizenDefault = () => <DatePicker />
 
-export const DateRangerPicker = () => <DateRangePicker />
+// export const DateRangerPicker = () => <DateRangePicker />

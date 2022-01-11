@@ -1,38 +1,32 @@
-import React, { useState } from "react"
-import DatePicker from "react-datepicker"
+import React from "react"
 
-import "react-datepicker/dist/react-datepicker.css"
+import DayPickerInput from "react-day-picker/DayPickerInput"
+import { DateUtils } from "react-day-picker"
+import "react-day-picker/lib/style.css"
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import dateFnsFormat from "date-fns/format"
+import dateFnsParse from "date-fns/parse"
 
-export const DatePickerWrapper = () => {
-  const [startDate, setStartDate] = useState(new Date())
-  return (
-    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-  )
+function parseDate(str, format, locale) {
+  const parsed = dateFnsParse(str, format, new Date(), { locale })
+  if (DateUtils.isDate(parsed)) {
+    return parsed
+  }
+  return undefined
 }
 
-export const DateRangePicker = () => {
-  const [startDate, setStartDate] = useState(new Date("2014/02/08"))
-  const [endDate, setEndDate] = useState(new Date("2014/02/10"))
+function formatDate(date, format, locale) {
+  return dateFnsFormat(date, format, { locale })
+}
+
+export const DatePickerWrapper = () => {
+  const FORMAT = "MM/dd/yyyy"
   return (
-    <>
-      <DatePicker
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-      />
-      <DatePicker
-        selected={endDate}
-        onChange={date => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-      />
-    </>
+    <DayPickerInput
+      formatDate={formatDate}
+      format={FORMAT}
+      parseDate={parseDate}
+      placeholder={`${dateFnsFormat(new Date(), FORMAT)}`}
+    />
   )
 }
