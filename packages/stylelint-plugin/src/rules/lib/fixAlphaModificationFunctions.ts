@@ -186,9 +186,8 @@ export const fixAlphaModificationFunctions = (
       case "rgba":
         return `rgba(${stringifiedReplacement}, ${secondParameter})`
       case "transparentize":
-        const normedTransparentizeAmount = parsePercentageOrDecimal(
-          secondParameter
-        )
+        const normedTransparentizeAmount =
+          parsePercentageOrDecimal(secondParameter)
 
         // This is a very unlikely edge case, so it's probably not worth reporting, and the consumer's compiler should complain about an issue like this.
         if (normedTransparentizeAmount === "NaN")
