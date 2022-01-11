@@ -47,15 +47,12 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
-const getPlacement = (position: Position): Placement => {
-  if (position === "above") {
-    return "top"
-  } else if (position === "below") {
-    return "bottom"
-  } else {
-    return position
-  }
-}
+const positionToPlacement = new Map<Position, Placement>([
+  ["above", "top"],
+  ["below", "bottom"],
+  ["left", "left"],
+  ["right", "right"],
+])
 
 // Sync with Tooltip.scss
 const arrowHeight = 10
@@ -112,7 +109,7 @@ const TooltipContent = ({
           },
         },
       ],
-      placement: getPlacement(position),
+      placement: positionToPlacement.get(position),
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()

@@ -56,7 +56,7 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const StickerSheet = props => (
+export const StickerSheet = () => (
   <div
     style={{
       marginTop: "100px",
@@ -90,7 +90,6 @@ export const StickerSheet = props => (
         <Button label="Default" />
       </Tooltip>
       <Tooltip
-        {...props}
         position="above"
         text="Tooltip"
         mood="positive"
@@ -140,7 +139,6 @@ export const StickerSheet = props => (
         <Button label="Default" />
       </Tooltip>
       <Tooltip
-        {...props}
         position="below"
         text="Tooltip"
         mood="positive"
@@ -185,7 +183,6 @@ export const StickerSheet = props => (
         <Button label="Default" />
       </Tooltip>
       <Tooltip
-        {...props}
         position="left"
         text="Tooltip"
         mood="positive"
@@ -235,7 +232,6 @@ export const StickerSheet = props => (
         <Button label="Default" />
       </Tooltip>
       <Tooltip
-        {...props}
         position="right"
         text="Tooltip"
         mood="positive"
@@ -302,7 +298,7 @@ export const OverflowScroll = props => (
             display="inline-block"
             text="This should not get cropped"
           >
-            <Button label="Bottom" />
+            <Button label="Default" />
           </Tooltip>
         </div>
       </div>
@@ -349,7 +345,7 @@ export const OverflowScroll = props => (
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
             <Tooltip
               display="inline-block"
-              text="This is above the tooltip"
+              text="This should not get cropped"
               {...props}
             >
               <Tag>ad veniam sapiente</Tag>
