@@ -7,13 +7,17 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import Media from "react-media"
-import { SpotProps } from "@kaizen/draft-illustration"
+import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
 
 const styles = require("./GuidanceBlock.scss")
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
 }
+
+type LayoutType = "default" | "inline" | "stacked"
+
+type IllustrationType = "spot" | "scene"
 
 type GuidanceBlockActions = {
   primary: ActionProps
@@ -23,15 +27,26 @@ type GuidanceBlockActions = {
   }
 }
 
+type VariantType =
+  | "default"
+  | "positive"
+  | "negative"
+  | "informative"
+  | "cautionary"
+  | "assertive"
+  | "prominent"
+
 export type GuidanceBlockProps = {
-  illustration: React.ReactElement<SpotProps>
+  layout?: LayoutType
+  illustration: React.ReactElement<SpotProps | SceneProps>
+  illustrationType?: IllustrationType
   text: {
     title: string
     description: string | React.ReactNode
   }
   actions?: GuidanceBlockActions
   persistent?: boolean
-  variant?: "default" | "prominent"
+  variant?: VariantType
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
 }
@@ -61,9 +76,11 @@ class GuidanceBlock extends React.Component<
   GuidanceBlockState
 > {
   static defaultProps = {
+    layout: "default",
     variant: "default",
     withActionButtonArrow: true,
     noMaxWidth: false,
+    illustrationType: "spot",
   }
 
   state = {
@@ -154,7 +171,7 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>{illustration}</div>
+          <div className={this.illustrationClassName()}>{illustration}</div>
         </div>
 
         <div className={styles.descriptionAndActions}>
@@ -179,8 +196,21 @@ class GuidanceBlock extends React.Component<
   bannerClassName(noMaxWidth): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
+      [styles.positive]: this.props.variant === "positive",
+      [styles.negative]: this.props.variant === "negative",
+      [styles.informative]: this.props.variant === "informative",
+      [styles.cautionary]: this.props.variant === "cautionary",
+      [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
+      [styles.inline]: this.props.layout === "inline",
+      [styles.stacked]: this.props.layout === "stacked",
+    })
+  }
+
+  illustrationClassName(): string {
+    return classnames(styles.illustration, {
+      [styles.sceneIllustration]: this.props.illustrationType === "scene",
     })
   }
 
