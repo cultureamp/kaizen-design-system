@@ -83,6 +83,7 @@ $arrow-width: 20px;
       transform: rotate(180deg);
     }
   }
+
   [data-popper-placement^="left"] & {
     right: 0;
     .arrowInner {

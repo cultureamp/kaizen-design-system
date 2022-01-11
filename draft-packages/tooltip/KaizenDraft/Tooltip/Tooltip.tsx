@@ -47,21 +47,13 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
-const getPlacement = (position: Position) => {
+const getPlacement = (position: Position): Placement => {
   if (position === "above") {
     return "top"
   } else if (position === "below") {
     return "bottom"
   } else {
     return position
-  }
-}
-const getFallbackPlacements = (position: Position) => {
-  const placement = getPlacement(position)
-  if (placement === "left" || placement === "right") {
-    return ["left", "top", "bottom", "right"]
-  } else {
-    return ["top", "bottom"]
   }
 }
 
@@ -91,13 +83,13 @@ const TooltipContent = ({
             element: arrowElement,
             // Ensures that the arrow doesn't go too far to the left or right
             // of the tooltip.
-            padding: arrowWidth / 2 + 20,
+            padding: arrowWidth / 2 + 10,
           },
         },
         {
           name: "offset",
           options: {
-            offset: [0, arrowHeight],
+            offset: [0, arrowHeight + 12],
           },
         },
         {
@@ -116,11 +108,11 @@ const TooltipContent = ({
           options: {
             padding: 8,
             altBoundary: true,
-            fallbackPlacements: getFallbackPlacements(position) as Placement[],
+            fallbackPlacements: ["left", "top", "bottom", "right"],
           },
         },
       ],
-      placement: getPlacement(position) as Placement,
+      placement: getPlacement(position),
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()

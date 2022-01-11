@@ -56,13 +56,12 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const DesignSheet = props => (
+export const StickerSheet = props => (
   <div
     style={{
       marginTop: "100px",
       display: "grid",
       justifyContent: "center",
-      rowGap: "5rem",
       gridTemplateColumns: "1fr 1fr 1fr 1fr",
     }}
   >
@@ -263,7 +262,6 @@ export const DesignSheet = props => (
     </div>
   </div>
 )
-DesignSheet.storyName = "Design Sheet"
 
 export const OverflowScroll = props => (
   <>
@@ -303,7 +301,6 @@ export const OverflowScroll = props => (
             {...props}
             display="inline-block"
             text="This should not get cropped"
-            isInitiallyVisible
           >
             <Button label="Bottom" />
           </Tooltip>
@@ -327,7 +324,6 @@ export const OverflowScroll = props => (
             {...props}
             display="inline"
             text="This should not get cropped"
-            isInitiallyVisible
           >
             <Icon icon={informationIcon} />
           </Tooltip>
@@ -353,7 +349,6 @@ export const OverflowScroll = props => (
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
             <Tooltip
               display="inline-block"
-              isInitiallyVisible
               text="This is above the tooltip"
               {...props}
             >
@@ -361,12 +356,7 @@ export const OverflowScroll = props => (
             </Tooltip>{" "}
             Maxime harum, ducimus maiores itaque pariatur quod vel porro
             mollitia. Lorem ipsum dolor sit{" "}
-            <Tooltip
-              display="inline"
-              isInitiallyVisible
-              text="Open in new tab"
-              {...props}
-            >
+            <Tooltip display="inline" text="Open in new tab" {...props}>
               <a href="#">
                 amet consectetur adipisicing elit Itaque obcaecati maxime
                 molestiae blanditiis pariatur
