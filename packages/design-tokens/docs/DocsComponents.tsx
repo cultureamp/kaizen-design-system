@@ -175,8 +175,8 @@ export const SassVariablesCodeBlocks = () => (
   <TabbedCodeBlocks blocks={sassBlocks} />
 )
 
-export const getStoryLinkName = (storyTitle: string) =>
-  storyTitle.replace(/.*\//, "")
+export const getStoryLinkName = (storyTitle: string | undefined) =>
+  storyTitle?.replace(/.*\//, "")
 
 export const LinkToStory = ({
   storyModule,

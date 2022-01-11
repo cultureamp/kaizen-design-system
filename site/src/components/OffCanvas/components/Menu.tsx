@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import * as React from "react"
-import uuidv4 from "uuid/v4"
 import { MenuProps } from "../../NavigationBar/types"
 import styles from "./Menu.module.scss"
 
@@ -10,9 +9,9 @@ type Props = {
 }
 
 const Menu = ({ links, section }: Props) => {
-  const renderNavItem = (link: MenuProps) => (
+  const renderNavItem = (link: MenuProps, index: number) => (
     <li
-      key={`${link.heading}-${uuidv4()}`}
+      key={index}
       className={classNames({
         [styles.active]: link.active,
       })}
@@ -27,7 +26,7 @@ const Menu = ({ links, section }: Props) => {
         [styles.primary]: section === "primary",
       })}
     >
-      {[links].map(link => renderNavItem(link))}
+      {[links].map((link, i) => renderNavItem(link, i))}
     </ul>
   )
 }

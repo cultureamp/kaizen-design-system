@@ -23,7 +23,7 @@ jobs:
       - name: Configure Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14.15.x
+          node-version: 16.13.x
 
       - uses: actions/cache@v2
         with:

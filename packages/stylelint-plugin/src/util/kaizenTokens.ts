@@ -167,49 +167,45 @@ export const kaizenTokensByName: Readonly<
  * }
  * ```
  */
-export const kaizenTokensByValue: Record<
-  string,
-  KaizenToken[] | undefined
-> = (() => {
-  const allKaizenTokens = Object.values(kaizenTokensByName).filter(
-    <T>(token: T): token is NonNullable<T> => token !== undefined
-  )
+export const kaizenTokensByValue: Record<string, KaizenToken[] | undefined> =
+  (() => {
+    const allKaizenTokens = Object.values(kaizenTokensByName).filter(
+      <T>(token: T): token is NonNullable<T> => token !== undefined
+    )
 
-  const kaizenTokensByValueResult: Record<
-    string,
-    KaizenToken[] | undefined
-  > = {}
+    const kaizenTokensByValueResult: Record<string, KaizenToken[] | undefined> =
+      {}
 
-  // For every Kaizen token, we'd like to add one more keys to the result base on their values.
-  // Each key will be a token value like "#524e56" or "1.5rem".
-  // We want the values of each key to be an array of Kaizen tokens that contain those values, allowing us to lookup and index Kaizen tokens by their values.
-  // The result might look something like `{ "1.5rem": [{name: "spacing-md", ...}] }`
-  for (const kaizenToken of allKaizenTokens) {
-    const tokenValue = (
-      kaizenToken.cssVariable?.fallback ?? kaizenToken.value
-    ).toLowerCase()
+    // For every Kaizen token, we'd like to add one more keys to the result base on their values.
+    // Each key will be a token value like "#524e56" or "1.5rem".
+    // We want the values of each key to be an array of Kaizen tokens that contain those values, allowing us to lookup and index Kaizen tokens by their values.
+    // The result might look something like `{ "1.5rem": [{name: "spacing-md", ...}] }`
+    for (const kaizenToken of allKaizenTokens) {
+      const tokenValue = (
+        kaizenToken.cssVariable?.fallback ?? kaizenToken.value
+      ).toLowerCase()
 
-    const existingTokens = kaizenTokensByValueResult[tokenValue]
+      const existingTokens = kaizenTokensByValueResult[tokenValue]
 
-    kaizenTokensByValueResult[tokenValue] = existingTokens
-      ? [...existingTokens, kaizenToken]
-      : [kaizenToken]
+      kaizenTokensByValueResult[tokenValue] = existingTokens
+        ? [...existingTokens, kaizenToken]
+        : [kaizenToken]
 
-    const colorKey = kaizenToken.color
-      ? normaliseColor(kaizenToken.color)
-      : undefined
-
-    // If the token is a color, lets add another key to the result for it's normalised value.
-    // We'd like the indices of the map to contain normalised colors so that they can be looked up in a consistent way.
-    if (colorKey) {
-      const existingValuesOfColorKey = colorKey
-        ? kaizenTokensByValueResult[colorKey]
+      const colorKey = kaizenToken.color
+        ? normaliseColor(kaizenToken.color)
         : undefined
 
-      kaizenTokensByValueResult[colorKey] = existingValuesOfColorKey
-        ? [...existingValuesOfColorKey, kaizenToken]
-        : [kaizenToken]
+      // If the token is a color, lets add another key to the result for it's normalised value.
+      // We'd like the indices of the map to contain normalised colors so that they can be looked up in a consistent way.
+      if (colorKey) {
+        const existingValuesOfColorKey = colorKey
+          ? kaizenTokensByValueResult[colorKey]
+          : undefined
+
+        kaizenTokensByValueResult[colorKey] = existingValuesOfColorKey
+          ? [...existingValuesOfColorKey, kaizenToken]
+          : [kaizenToken]
+      }
     }
-  }
-  return kaizenTokensByValueResult
-})()
+    return kaizenTokensByValueResult
+  })()

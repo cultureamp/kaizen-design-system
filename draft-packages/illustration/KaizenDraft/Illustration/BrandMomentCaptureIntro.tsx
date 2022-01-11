@@ -14,9 +14,8 @@ export const BrandMomentCaptureIntro = ({
   enableAspectRatio,
   ...otherProps
 }: AnimatedSceneProps) => {
-  const [firstAnimationComplete, setFirstAnimationComplete] = React.useState(
-    false
-  )
+  const [firstAnimationComplete, setFirstAnimationComplete] =
+    React.useState(false)
 
   if (isAnimated) {
     return (

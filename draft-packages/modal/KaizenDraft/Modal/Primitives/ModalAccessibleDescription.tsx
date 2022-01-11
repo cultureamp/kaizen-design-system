@@ -6,7 +6,8 @@ export interface ModalAccessibleDescriptionProps {
   readonly children: React.ReactNode
 }
 
-type ModalAccessibleDescription = React.FunctionComponent<ModalAccessibleDescriptionProps>
+type ModalAccessibleDescription =
+  React.FunctionComponent<ModalAccessibleDescriptionProps>
 
 const ModalAccessibleDescription: ModalAccessibleDescription = ({
   children,

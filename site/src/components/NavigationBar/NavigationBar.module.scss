@@ -3,7 +3,7 @@
 @import "./decision-tokens.scss";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "../../styles/responsive";
+@import "@kaizen/component-library/styles/responsive";
 
 .navigationBar {
   @extend %ca-navigation-bar;
@@ -43,17 +43,7 @@
     list-style-type: none;
     display: flex;
 
-    &.primary {
-      @include ca-margin($start: 0);
-    }
-
-    &.secondary {
-      @include ca-margin($start: auto, $end: 0);
-    }
-
-    &.final {
-      @include ca-margin($end: 0);
-    }
+    @include ca-margin($start: 0);
 
     // Bit of a hack selector, but because of module scoping this is the easiest way
     .content & span::before {

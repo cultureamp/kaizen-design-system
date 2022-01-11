@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.0.0...@kaizen/component-library@12.0.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* Chris/node engine support v16 ([#2365](https://github.com/cultureamp/kaizen-design-system/issues/2365)) ([366fa6d](https://github.com/cultureamp/kaizen-design-system/commit/366fa6d156d2a4a2b35b1356bbcf18adf2189f2b))
+
+
+
+
+
+# [12.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.9...@kaizen/component-library@12.0.0) (2022-01-06)
+
+
+### Features
+
+* remove navbar from site and fix storybook, fix SCSS ([#2383](https://github.com/cultureamp/kaizen-design-system/issues/2383)) ([a29f7a3](https://github.com/cultureamp/kaizen-design-system/commit/a29f7a32f50b2583106b6ac711a0d770cf31989e))
+
+
+### BREAKING CHANGES
+
+* (to `@kaizen/component-library` only) There are a few places (mainly in Murmur) that are importing the NavigationBar stylesheet `~@kaizen/component-library/components/NavigationBar/styles` for a `$ca-navigation-bar__height` variable. Though it's not a reliable way of getting the nav height, these can be replaced by the `$layout-navigation-bar-height` from `~@kaizen/design-tokens/sass/layout`
+
+
+* Remove unused dependencies from component-library
+
+* Remove unused import of NavigationBar stylesheet
+
+* Replace site usages of -navigation-bar__height with -navigation-bar-height token
+
+* Pin site to component-library v11
+
+* feat: remove navbar from site and fix storybook, fix SCSS
+
+* refactor: remove unnessary navbar code
+
+* fix: uuid import
+
+* fix: home tab not active on preview branch
+
+Co-authored-by: Doug MacKenzie <doug.mackenzie@cultureamp.com>
+
+
+
+
+
+## [11.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.8...@kaizen/component-library@11.5.9) (2022-01-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [11.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@11.5.7...@kaizen/component-library@11.5.8) (2021-12-13)
 
 **Note:** Version bump only for package @kaizen/component-library

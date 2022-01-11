@@ -6,7 +6,7 @@ import React from "react"
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
-import { Icon } from "../../Icon"
+import { Icon } from "@kaizen/component-library/components/Icon"
 
 import styles from "./Indicator.module.scss"
 
