@@ -1,6 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 
 import { Icon, Paragraph } from "@kaizen/component-library"
 import styles from "./styles.scss"
@@ -9,18 +10,18 @@ export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 export type FieldMessageProps = {
   id?: string
   automationId?: string
-  message?: React.ReactNode
+  message?: string | React.ReactNode
   status?: FieldMessageStatus
   reversed?: boolean
   position?: "top" | "bottom"
 }
 
-type FieldMessage = React.SFC<FieldMessageProps>
+type FieldMessage = React.FunctionComponent<FieldMessageProps>
 
-const warningIcon = (
+const warningIcon = (isReversed: boolean) => (
   <span className={styles.warningIcon}>
     <Icon
-      icon={exclamationIcon}
+      icon={isReversed ? exclamationIcon : exclamationWhiteIcon}
       title="Error message"
       role="img"
       inheritSize={false}
@@ -52,7 +53,7 @@ const FieldMessage: FieldMessage = ({
         [styles.positionTop]: position === "top",
       })}
     >
-      {(status === "error" || status === "caution") && warningIcon}
+      {(status === "error" || status === "caution") && warningIcon(reversed)}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}

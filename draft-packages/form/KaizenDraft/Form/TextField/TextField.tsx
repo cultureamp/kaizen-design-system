@@ -1,5 +1,4 @@
 import { Icon } from "@kaizen/component-library/components/Icon"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
@@ -18,6 +17,9 @@ export type TextFieldProps = {
   id: string
   inputType?: InputType
   required?: boolean
+  /**
+   * A short example of input text. For context or additional information use the `description` prop
+   */
   placeholder?: string
   labelText: string | React.ReactNode
   disabled?: boolean
@@ -28,8 +30,14 @@ export type TextFieldProps = {
   inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   status?: InputStatus
-  validationMessage?: React.ReactNode
-  description?: React.ReactNode
+  /**
+   * A descriptive message for `error` or `caution` states
+   */
+  validationMessage?: string | React.ReactNode
+  /**
+   * A description that provides context for the text field
+   */
+  description?: string | React.ReactNode
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any

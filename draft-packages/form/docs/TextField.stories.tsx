@@ -66,8 +66,21 @@ DefaultStory.args = {
   inputType: "text",
   defaultInputValue: "",
   labelText: "Label Text",
-  placeholder: "Placeholder Text",
+  placeholder: "",
   description: "Example / description text",
+  validationMessage: "",
+}
+
+DefaultStory.argTypes = {
+  inputRef: {
+    control: {
+      disable: true,
+    },
+  },
+  validationMessage: {
+    description:
+      "A message that describes `status` for error or caution states. The Storybook example uses a String but the component can also take HTML or React Nodes",
+  },
 }
 
 DefaultStory.storyName = "Default (Kaizen Demo)"
@@ -85,45 +98,55 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
-            defaultInputValue="Input Text"
+            inputType="email"
+            defaultInputValue=""
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder=""
+            description="Description text"
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
+            defaultInputValue=""
+            labelText="Placeholder Text Field"
+            placeholder="jane.doe@email.com"
+            description="Description text"
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            id="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
-            validationMessage="Error message"
+            description="Description text"
+            validationMessage={<span>Error message</span>}
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
           />
         </StoryContainer>
@@ -135,35 +158,46 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
-            defaultInputValue="Input Text"
+            inputType="email"
+            defaultInputValue=""
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder=""
+            description="Description text"
             disabled={true}
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
+            defaultInputValue="Input Text"
+            labelText="Placeholder Text Field"
+            placeholder="jane.doe@email.com"
+            description="Description text"
+            disabled={true}
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            id="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             disabled={true}
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             disabled={true}
           />
@@ -171,12 +205,12 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             disabled={true}
           />
@@ -194,35 +228,35 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder="jane.doe@email.com"
+            description="Description text"
             icon={dateIcon}
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             icon={dateIcon}
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
           />
@@ -230,12 +264,12 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
           />
@@ -248,11 +282,11 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder="jane.doe@email.com"
+            description="Description text"
             icon={dateIcon}
             disabled={true}
           />
@@ -260,12 +294,12 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             icon={dateIcon}
             disabled={true}
           />
@@ -273,12 +307,12 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
             disabled={true}
@@ -287,12 +321,12 @@ export const DesignSheetDefault = () => (
         <StoryContainer>
           <TextField
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
             disabled={true}
@@ -317,35 +351,46 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder=""
+            description="Description text"
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
+            defaultInputValue="Input Text"
+            labelText="Placeholder Text Field"
+            placeholder="jane.doe@email.com"
+            description="Description text"
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            reversed={true}
+            id="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
           />
         </StoryContainer>
         <StoryContainer>
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
           />
         </StoryContainer>
@@ -353,12 +398,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
           />
         </StoryContainer>
@@ -371,11 +416,11 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder=""
+            description="Description text"
             disabled={true}
           />
         </StoryContainer>
@@ -383,12 +428,24 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
+            defaultInputValue="Input Text"
+            labelText="Placeholder Text Field"
+            placeholder="jane.doe@email.com"
+            description="Description text"
+            disabled={true}
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            reversed={true}
+            id="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             disabled={true}
           />
         </StoryContainer>
@@ -396,12 +453,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             disabled={true}
           />
@@ -410,12 +467,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             disabled={true}
           />
@@ -434,11 +491,11 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder="jane.doe@email.com"
+            description="Description text"
             icon={dateIcon}
           />
         </StoryContainer>
@@ -446,12 +503,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             icon={dateIcon}
           />
         </StoryContainer>
@@ -459,12 +516,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
           />
@@ -473,12 +530,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
           />
@@ -492,11 +549,11 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Default Text Field"
-            placeholder="Input text"
-            description="Example/description text"
+            placeholder="jane.doe@email.com"
+            description="Description text"
             icon={dateIcon}
             disabled={true}
           />
@@ -505,12 +562,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Positive Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="success"
-            description="Example/description text"
+            description="Description text"
             icon={dateIcon}
             disabled={true}
           />
@@ -519,12 +576,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Negative Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="error"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
             disabled={true}
@@ -534,12 +591,12 @@ export const DesignSheetDefaultReversed = () => (
           <TextField
             reversed={true}
             id="text"
-            inputType="text"
+            inputType="email"
             defaultInputValue="Input Text"
             labelText="Cautionary Text Field"
-            placeholder="Input text"
+            placeholder="jane.doe@email.com"
             status="caution"
-            description="Example/description text"
+            description="Description text"
             validationMessage="Error message"
             icon={dateIcon}
             disabled={true}
