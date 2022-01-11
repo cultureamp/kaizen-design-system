@@ -44,7 +44,7 @@
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-dom": "^16.13.1",
-    "react-focus-lock": "^1.19.1",
+    "react-focus-lock": "^2.7.1",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
