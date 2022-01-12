@@ -1,11 +1,10 @@
 import * as React from "react"
-
-import { Paragraph } from "@kaizen/component-library"
-import { MenuItem } from "@kaizen/draft-menu"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { SplitButton } from "@kaizen/draft-split-button"
+import { Icon, Paragraph, Heading } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
-import { Button } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -41,7 +40,7 @@ export const DefaultKaizenSiteDemo = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
-    <Tooltip {...props} text="This is below the tooltip">
+    <Tooltip {...props} text="Tooltip label">
       {/* Using buttons, as so we can test the focus state.
          ie. the tooltip should show when any child is focused. */}
       <Button label="Default" />
@@ -58,222 +57,249 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const DesignSheet = props => (
+export const StickerSheet = () => (
   <div
     style={{
       marginTop: "100px",
       display: "grid",
       justifyContent: "center",
-      rowGap: "5rem",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
     }}
   >
-    <div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="default"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="informative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          {...props}
-          position="above"
-          text="Tooltip"
-          mood="positive"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="negative"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          marginRight: "2rem",
-          position: "relative",
-        }}
-      >
-        <Tooltip
-          position="above"
-          text="Tooltip"
-          mood="cautionary"
-          isInitiallyVisible
-        >
-          <Button label="Default" />
-        </Tooltip>
-      </div>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-5" tag="h2">
+        {" "}
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Default
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Informative
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Positive
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Negative
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Cautionary
+      </Heading>
     </div>
-  </div>
-)
-DesignSheet.storyName = "Design Sheet"
-
-export const Inline = props => (
-  <div
-    style={{
-      margin: "100px",
-      display: "flex",
-      justifyContent: "center",
-      width: "400px",
-    }}
-  >
-    <div style={{ display: "inline-block", position: "relative" }}>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla
-        quas corporis? Perspiciatis, ratione voluptas{" "}
-        <Tooltip
-          {...props}
-          display="inline-block"
-          text="This is above the tooltip"
-        >
-          <Tag>ad veniam sapiente</Tag>
-        </Tooltip>{" "}
-        Maxime harum, ducimus maiores itaque pariatur quod vel porro mollitia.
-        Lorem ipsum dolor sit{" "}
-        <Tooltip {...props} display="inline" text="Open in new tab">
-          <a href="#">
-            amet consectetur adipisicing elit Itaque obcaecati maxime molestiae
-            blanditiis pariatur
-          </a>
-        </Tooltip>
-        . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore,
-        tempore provident animi{" "}
-        <Tooltip
-          {...props}
-          display="inline-block"
-          text="This is below the tooltip"
-          position="bottom"
-        >
-          <Tag>veniam sapiente ad</Tag>
-        </Tooltip>{" "}
-      </Paragraph>
-    </div>
-  </div>
-)
-
-Inline.storyName = "Inline"
-
-export const ArrowPositioning = props => (
-  <div>
-    <div style={{ position: "absolute", top: "0", left: "0" }}>
-      <Tooltip
-        {...props}
-        position="top"
-        text="This is below the tooltip, despite it being set to position=above. This is because there is not enough room. Also note that the arrow is correctly positioned."
-      >
-        <Button label="Above" />
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-3" tag="h1">
+        Top
+      </Heading>
+      <Tooltip position="above" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="above" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="above" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="above" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="above" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
-    <div style={{ position: "absolute", bottom: "0", right: "0" }}>
-      <Tooltip
-        {...props}
-        position="bottom"
-        text="This is above the tooltip, despite it being set to position=below. This is because there is not enough room. Also note that the arrow is correctly positioned."
-      >
-        <Button label="Bottom" />
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-3" tag="h1">
+        Bottom
+      </Heading>
+      <Tooltip position="below" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="below" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="below" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="below" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="below" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-3" tag="h1">
+        Left
+      </Heading>
+      <Tooltip position="left" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="left" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="left" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="left" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="left" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-3" tag="h1">
+        Right
+      </Heading>
+      <Tooltip position="right" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="right" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="right" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="right" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="right" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
   </div>
 )
-
-ArrowPositioning.storyName = "Arrow positioning"
 
 export const OverflowScroll = props => (
-  <div>
-    <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
-      <div style={{ width: "500px", textAlign: "center" }}>
-        <Tooltip
-          {...props}
-          position="below"
-          display="inline-block"
-          text="This should not get cropped"
-          // Normally, you'd specify a div by ID, but since this is only in storybook,
-          // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
-          portalSelector="body"
-        >
-          <Button label="Bottom" />
-        </Tooltip>
-      </div>
-    </div>
-    <p>
-      Scroll the panel above, and hover over the button. Notice that the tooltip
-      does not get cropped. Also notice that the tooltip arrow follows the
-      button appropriately.
-    </p>
-  </div>
-)
-
-OverflowScroll.storyName = "overflow: scroll"
-
-export const TooltipAboveDropdown = props => (
   <>
-    <div>
-      <SplitButton
-        label="Test"
-        dropdownAltText="test"
-        dropdownContent={
-          <MenuItem
-            onClick={e => undefined}
-            label="Text to appear behind tooltip overlay"
-          />
-        }
-      />
-    </div>
-    <div style={{ paddingTop: "50px" }}>
-      <Tooltip
-        {...props}
-        position="above"
-        display="inline-block"
-        text="Text to appear above the button dropdown text"
+    <p>
+      Default Placement is 'above'. Scroll horizontally or vertically to view
+      the Tooltip "flip" and move according to the space of the viewport.
+      Ensuring the Tooltip does not get cut off.
+    </p>
+
+    <div
+      style={{
+        display: "flex",
+        width: "300px",
+        maxHeight: "700px",
+        overflow: "scroll",
+        border: "solid black 2px",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+          marginTop: "400px",
+        }}
       >
-        <Button label="Above" />
-      </Tooltip>
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Tooltip {...props} display="inline-block" text="Tooltip label">
+            <Button label="Default" />
+          </Tooltip>
+        </div>
+      </div>
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+        }}
+      >
+        <div
+          style={{
+            width: "300px",
+            height: "100px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Tooltip {...props} display="inline" text="Tooltip label">
+            <Icon icon={informationIcon} />
+          </Tooltip>
+        </div>
+      </div>
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+          marginBottom: "500px",
+        }}
+      >
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Paragraph variant="body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            nulla quas corporis? Perspiciatis, ratione voluptas{" "}
+            <Tooltip display="inline-block" text="Tooltip label" {...props}>
+              <Tag>ad veniam sapiente</Tag>
+            </Tooltip>{" "}
+            Maxime harum, ducimus maiores itaque pariatur quod vel porro
+            mollitia. Lorem ipsum dolor sit{" "}
+            <Tooltip display="inline" text="Open in new tab" {...props}>
+              <a href="#">
+                amet consectetur adipisicing elit Itaque obcaecati maxime
+                molestiae blanditiis pariatur
+              </a>
+            </Tooltip>
+            . Magni perspiciatis assumenda in adipisci, eaque commodi quidem
+            dolore, tempore provident animi{" "}
+          </Paragraph>
+        </div>
+      </div>
     </div>
   </>
 )

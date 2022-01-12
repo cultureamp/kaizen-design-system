@@ -2,12 +2,13 @@ import { usePopper } from "react-popper"
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
+import { Placement } from "@popperjs/core"
 import tooltipStyles from "./Tooltip.scss"
 import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
 
-type Position = "above" | "below"
+type Position = "above" | "below" | "left" | "right"
 
 type Mood = "default" | "informative" | "positive" | "negative" | "cautionary"
 
@@ -46,9 +47,16 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
+const positionToPlacement = new Map<Position, Placement>([
+  ["above", "top"],
+  ["below", "bottom"],
+  ["left", "left"],
+  ["right", "right"],
+])
+
 // Sync with Tooltip.scss
-const arrowHeight = 10
-const arrowWidth = 20
+const arrowHeight = 7
+const arrowWidth = 14
 
 const TooltipContent = ({
   position,
@@ -78,7 +86,7 @@ const TooltipContent = ({
         {
           name: "offset",
           options: {
-            offset: [0, arrowHeight],
+            offset: [0, arrowHeight + 6],
           },
         },
         {
@@ -86,11 +94,22 @@ const TooltipContent = ({
           options: {
             // Makes sure that the tooltip isn't flush up against the end of the
             // viewport
-            padding: 4,
+            padding: 8,
+            altAxis: true,
+            altBoundary: true,
+            tetherOffset: 50,
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            padding: 8,
+            altBoundary: true,
+            fallbackPlacements: ["left", "top", "bottom", "right"],
           },
         },
       ],
-      placement: position === "below" ? "bottom" : "top",
+      placement: positionToPlacement.get(position),
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
