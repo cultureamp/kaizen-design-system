@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.10...@kaizen/draft-modal@8.0.11) (2022-01-10)
+
+
+### Bug Fixes
+
+* Chris/node engine support v16 ([#2365](https://github.com/cultureamp/kaizen-design-system/issues/2365)) ([366fa6d](https://github.com/cultureamp/kaizen-design-system/commit/366fa6d156d2a4a2b35b1356bbcf18adf2189f2b))
+
+
+
+
+
 ## [8.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.0.9...@kaizen/draft-modal@8.0.10) (2022-01-06)
 
 **Note:** Version bump only for package @kaizen/draft-modal

@@ -29,30 +29,26 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
   const [prevIsOpen, setPrevIsOpen] = useState(false)
 
   // Keeps the modal visible while the css animation is completing
-  const [
-    trackAnimOutCompleted,
-    cancelTrackAnimOutCompleted,
-  ] = useDebouncedCallback(
-    () => {
-      setIsAnimOut(false)
-    },
-    ANIM_DURATION_MS + ANIM_BUFFER,
-    { leading: false }
-  )
+  const [trackAnimOutCompleted, cancelTrackAnimOutCompleted] =
+    useDebouncedCallback(
+      () => {
+        setIsAnimOut(false)
+      },
+      ANIM_DURATION_MS + ANIM_BUFFER,
+      { leading: false }
+    )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
   // Then set it to "visible". This allows us to make sure the css transition
   // actually works.
-  const [
-    trackAnimInCompleted,
-    cancelTrackAnimInCompleted,
-  ] = useDebouncedCallback(
-    () => {
-      setIsAnimIn(false)
-    },
-    0,
-    { leading: false }
-  )
+  const [trackAnimInCompleted, cancelTrackAnimInCompleted] =
+    useDebouncedCallback(
+      () => {
+        setIsAnimIn(false)
+      },
+      0,
+      { leading: false }
+    )
 
   if (isVisible !== prevIsOpen) {
     setPrevIsOpen(isVisible)

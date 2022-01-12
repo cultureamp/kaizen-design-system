@@ -63,10 +63,8 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   renderButton,
   onClick,
 }) => {
-  const [
-    referenceElement,
-    setReferenceElement,
-  ] = useState<HTMLSpanElement | null>(null)
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLSpanElement | null>(null)
   const portalSelectorElement: Element | null = portalSelector
     ? document.querySelector(portalSelector)
     : null

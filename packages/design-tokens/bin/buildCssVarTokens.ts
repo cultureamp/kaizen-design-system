@@ -54,9 +54,8 @@ const run = () => {
    * }
    * ```
    */
-  const augmentedThemeWithCSSVariableValuesVersion = makeCSSVariableTheme(
-    defaultTheme
-  )
+  const augmentedThemeWithCSSVariableValuesVersion =
+    makeCSSVariableTheme(defaultTheme)
 
   /* Write JSON tokens */
 

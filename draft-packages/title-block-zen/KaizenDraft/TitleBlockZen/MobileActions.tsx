@@ -91,9 +91,8 @@ const renderSecondaryActions = (
   secondaryActions: SecondaryActionsProps | undefined
 ) => {
   if (!secondaryActions) return null
-  const secondaryActionMenuItems: TitleBlockMenuItemProps[] = convertSecondaryActionsToMenuItems(
-    secondaryActions
-  )
+  const secondaryActionMenuItems: TitleBlockMenuItemProps[] =
+    convertSecondaryActionsToMenuItems(secondaryActions)
 
   return secondaryActionMenuItems.map((item, idx) => (
     <MenuItem

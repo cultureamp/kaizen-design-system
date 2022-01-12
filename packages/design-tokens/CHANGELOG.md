@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.2...@kaizen/design-tokens@6.0.3) (2022-01-10)
+
+
+### Bug Fixes
+
+* Chris/node engine support v16 ([#2365](https://github.com/cultureamp/kaizen-design-system/issues/2365)) ([366fa6d](https://github.com/cultureamp/kaizen-design-system/commit/366fa6d156d2a4a2b35b1356bbcf18adf2189f2b))
+
+
+
+
+
 ## [6.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.1...@kaizen/design-tokens@6.0.2) (2022-01-04)
 
 **Note:** Version bump only for package @kaizen/design-tokens
