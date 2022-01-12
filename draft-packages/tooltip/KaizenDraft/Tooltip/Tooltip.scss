@@ -7,8 +7,8 @@
 @import "~@kaizen/component-library/styles/layers";
 
 // Sync with Tooltip.tsx
-$arrow-height: 10px;
-$arrow-width: 20px;
+$arrow-height: 7px;
+$arrow-width: 14px;
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -20,7 +20,7 @@ $arrow-width: 20px;
   border-radius: $border-solid-border-radius;
   transition: opacity $animation-duration-fast,
     transform $animation-duration-fast;
-  padding: $spacing-sm $spacing-sm;
+  padding: 10px 10px;
   box-shadow: $shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
@@ -132,7 +132,7 @@ $arrow-width: 20px;
 
 .arrowMain {
   &:after {
-    margin-top: -2px;
+    margin-top: -3px;
   }
 
   &.default::after {

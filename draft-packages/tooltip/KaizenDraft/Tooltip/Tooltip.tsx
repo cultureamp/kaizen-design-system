@@ -55,8 +55,8 @@ const positionToPlacement = new Map<Position, Placement>([
 ])
 
 // Sync with Tooltip.scss
-const arrowHeight = 10
-const arrowWidth = 20
+const arrowHeight = 7
+const arrowWidth = 14
 
 const TooltipContent = ({
   position,

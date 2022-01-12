@@ -1,9 +1,10 @@
 import * as React from "react"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Icon, Paragraph } from "@kaizen/component-library"
+import { Icon, Paragraph, Heading } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
-import { Button } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -39,7 +40,7 @@ export const DefaultKaizenSiteDemo = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
-    <Tooltip {...props} text="This is below the tooltip">
+    <Tooltip {...props} text="Tooltip label">
       {/* Using buttons, as so we can test the focus state.
          ie. the tooltip should show when any child is focused. */}
       <Button label="Default" />
@@ -62,7 +63,7 @@ export const StickerSheet = () => (
       marginTop: "100px",
       display: "grid",
       justifyContent: "center",
-      gridTemplateColumns: "1fr 1fr 1fr 1fr",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
     }}
   >
     <div
@@ -70,48 +71,55 @@ export const StickerSheet = () => (
         display: "grid",
         justifyContent: "center",
         flexDirection: "column",
+        justifyItems: "center",
         rowGap: "5rem",
       }}
     >
-      <Tooltip
-        position="above"
-        text="Tooltip"
-        mood="default"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Heading variant="heading-5" tag="h2">
+        {" "}
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Default
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Informative
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Positive
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Negative
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
+        Cautionary
+      </Heading>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        justifyItems: "center",
+        rowGap: "5rem",
+      }}
+    >
+      <Heading variant="heading-3" tag="h1">
+        Top
+      </Heading>
+      <Tooltip position="above" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="above"
-        text="Tooltip"
-        mood="informative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="above" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="above"
-        text="Tooltip"
-        mood="positive"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="above" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="above"
-        text="Tooltip"
-        mood="negative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="above" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="above"
-        text="Tooltip"
-        mood="cautionary"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="above" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
     <div
@@ -119,48 +127,27 @@ export const StickerSheet = () => (
         display: "grid",
         justifyContent: "center",
         flexDirection: "column",
+        justifyItems: "center",
         rowGap: "5rem",
       }}
     >
-      <Tooltip
-        position="below"
-        text="Tooltip"
-        mood="default"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Heading variant="heading-3" tag="h1">
+        Bottom
+      </Heading>
+      <Tooltip position="below" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="below"
-        text="Tooltip"
-        mood="informative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="below" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="below"
-        text="Tooltip"
-        mood="positive"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="below" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="below"
-        text="Tooltip"
-        mood="negative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="below" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="below"
-        text="Tooltip"
-        mood="cautionary"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="below" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
     <div
@@ -168,43 +155,27 @@ export const StickerSheet = () => (
         display: "grid",
         justifyContent: "center",
         flexDirection: "column",
+        justifyItems: "center",
         rowGap: "5rem",
       }}
     >
-      <Tooltip position="left" text="Tooltip" mood="default" isInitiallyVisible>
-        <Button label="Default" />
+      <Heading variant="heading-3" tag="h1">
+        Left
+      </Heading>
+      <Tooltip position="left" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="left"
-        text="Tooltip"
-        mood="informative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="left" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="left"
-        text="Tooltip"
-        mood="positive"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="left" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="left"
-        text="Tooltip"
-        mood="negative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="left" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="left"
-        text="Tooltip"
-        mood="cautionary"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="left" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
     <div
@@ -212,48 +183,27 @@ export const StickerSheet = () => (
         display: "grid",
         justifyContent: "center",
         flexDirection: "column",
+        justifyItems: "center",
         rowGap: "5rem",
       }}
     >
-      <Tooltip
-        position="right"
-        text="Tooltip"
-        mood="default"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Heading variant="heading-3" tag="h1">
+        Right
+      </Heading>
+      <Tooltip position="right" text="Tooltip label" mood="default">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="right"
-        text="Tooltip"
-        mood="informative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="right" text="Tooltip label" mood="informative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="right"
-        text="Tooltip"
-        mood="positive"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="right" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="right"
-        text="Tooltip"
-        mood="negative"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="right" text="Tooltip label" mood="negative">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip
-        position="right"
-        text="Tooltip"
-        mood="cautionary"
-        isInitiallyVisible
-      >
-        <Button label="Default" />
+      <Tooltip position="right" text="Tooltip label" mood="cautionary">
+        <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
   </div>
@@ -262,9 +212,9 @@ export const StickerSheet = () => (
 export const OverflowScroll = props => (
   <>
     <p>
-      Default Placement is' above'. Scroll horizontally or vertically to view
-      the popper "flip" and move according to the space of the viewport.
-      Ensuring the popper does not get cut off.
+      Default Placement is 'above'. Scroll horizontally or vertically to view
+      the Tooltip "flip" and move according to the space of the viewport.
+      Ensuring the Tooltip does not get cut off.
     </p>
 
     <div
@@ -292,11 +242,7 @@ export const OverflowScroll = props => (
             position: "relative",
           }}
         >
-          <Tooltip
-            {...props}
-            display="inline-block"
-            text="This should not get cropped"
-          >
+          <Tooltip {...props} display="inline-block" text="Tooltip label">
             <Button label="Default" />
           </Tooltip>
         </div>
@@ -315,11 +261,7 @@ export const OverflowScroll = props => (
             position: "relative",
           }}
         >
-          <Tooltip
-            {...props}
-            display="inline"
-            text="This should not get cropped"
-          >
+          <Tooltip {...props} display="inline" text="Tooltip label">
             <Icon icon={informationIcon} />
           </Tooltip>
         </div>
@@ -342,11 +284,7 @@ export const OverflowScroll = props => (
           <Paragraph variant="body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
-            <Tooltip
-              display="inline-block"
-              text="This should not get cropped"
-              {...props}
-            >
+            <Tooltip display="inline-block" text="Tooltip label" {...props}>
               <Tag>ad veniam sapiente</Tag>
             </Tooltip>{" "}
             Maxime harum, ducimus maiores itaque pariatur quod vel porro
