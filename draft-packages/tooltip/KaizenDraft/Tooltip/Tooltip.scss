@@ -3,7 +3,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layers";
 
 // Sync with Tooltip.tsx
@@ -109,6 +108,7 @@ $arrow-width: 14px;
 }
 
 .arrowMain {
+  // before styles
   &.default::before {
     border-top: $arrow-height solid $color-gray-300;
   }
@@ -128,9 +128,7 @@ $arrow-width: 14px;
   &.cautionary::before {
     border-top: $arrow-height solid $color-yellow-300;
   }
-}
-
-.arrowMain {
+  // after styles
   &:after {
     margin-top: -3px;
   }
