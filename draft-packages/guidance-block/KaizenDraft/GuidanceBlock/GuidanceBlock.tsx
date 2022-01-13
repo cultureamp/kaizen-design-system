@@ -54,6 +54,7 @@ export type GuidanceBlockProps = {
 export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
+  mediaQueryLayout: string
 }
 
 type WithTooltipProps = {
@@ -86,6 +87,7 @@ class GuidanceBlock extends React.Component<
   state = {
     hidden: false,
     removed: false,
+    mediaQueryLayout: "",
   }
 
   containerRef = React.createRef<HTMLDivElement>()
@@ -95,6 +97,12 @@ class GuidanceBlock extends React.Component<
 
     this.dismissBanner = this.dismissBanner.bind(this)
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
+  }
+
+  componentDidMount() {
+    if (this.props.layout === "inline" || this.props.layout === "stacked") {
+      this.containerQuery()
+    }
   }
 
   dismissBanner(): void {
@@ -109,43 +117,78 @@ class GuidanceBlock extends React.Component<
     }
   }
 
+  containerQuery(): void {
+    const resizeObserver = new ResizeObserver(entries => {
+      if (entries.length === 1) {
+        this.setMediaQueryLayout(entries[0].contentRect.width)
+      }
+    })
+
+    resizeObserver.observe(this.containerRef.current as HTMLElement)
+  }
+
+  setMediaQueryLayout(width: number) {
+    // Note: 523 is when text occupies 320px width
+    if (width > 523 && width <= 850) {
+      this.setState({ mediaQueryLayout: "stackButton" })
+    } else if (width > 320 && width <= 523) {
+      this.setState({ mediaQueryLayout: "stackButton stackIllustration" })
+    } else if (width <= 320) {
+      this.setState({
+        mediaQueryLayout: "stackButton stackIllustration centerContent",
+      })
+    } else {
+      this.setState({ mediaQueryLayout: "" })
+    }
+
+    if (this.props.illustrationType === "scene" && width <= 668) {
+      this.setState({ mediaQueryLayout: "stackButton stackIllustration" })
+    }
+  }
+
   renderActions = (
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
-  ) => (
-    <Media query="(max-width: 767px)">
-      {isMobile => (
-        <Box mr={isMobile ? 0 : 0.5}>
-          <div
-            className={classnames(styles.buttonContainer, {
-              [styles.secondaryAction]: actions?.secondary,
-            })}
-          >
-            <WithTooltip tooltipProps={actions.primary.tooltip}>
-              <Button
-                icon={withActionButtonArrow ? configureIcon : undefined}
-                iconPosition="end"
-                {...actions.primary}
-                fullWidth={isMobile}
-              />
-            </WithTooltip>
+  ) => {
+    // Checks if container query is mobile configuration
+    const componentIsMobile =
+      this.state.mediaQueryLayout.includes("centerContent")
 
-            {actions?.secondary && (
-              <WithTooltip tooltipProps={actions.secondary.tooltip}>
-                <div className={styles.secondaryAction}>
-                  <Button
-                    secondary
-                    {...actions.secondary}
-                    fullWidth={isMobile}
-                  />
-                </div>
+    return (
+      <Media query="(max-width: 767px)">
+        {isMobile => (
+          <Box mr={isMobile && this.props.layout === "default" ? 0 : 0.5}>
+            <div
+              className={classnames(styles.buttonContainer, {
+                [styles.secondaryAction]: actions?.secondary,
+              })}
+            >
+              <WithTooltip tooltipProps={actions.primary.tooltip}>
+                <Button
+                  icon={withActionButtonArrow ? configureIcon : undefined}
+                  iconPosition="end"
+                  {...actions.primary}
+                  fullWidth={isMobile || componentIsMobile}
+                />
               </WithTooltip>
-            )}
-          </div>
-        </Box>
-      )}
-    </Media>
-  )
+
+              {actions?.secondary && (
+                <WithTooltip tooltipProps={actions.secondary.tooltip}>
+                  <div className={styles.secondaryAction}>
+                    <Button
+                      secondary
+                      {...actions.secondary}
+                      fullWidth={isMobile || componentIsMobile}
+                    />
+                  </div>
+                </WithTooltip>
+              )}
+            </div>
+          </Box>
+        )}
+      </Media>
+    )
+  }
 
   render(): JSX.Element | null {
     if (this.state.removed) {
@@ -205,6 +248,11 @@ class GuidanceBlock extends React.Component<
       [styles.noMaxWidth]: noMaxWidth,
       [styles.inline]: this.props.layout === "inline",
       [styles.stacked]: this.props.layout === "stacked",
+      [styles.stackButton]: this.state.mediaQueryLayout.includes("stackButton"),
+      [styles.stackIllustration]:
+        this.state.mediaQueryLayout.includes("stackIllustration"),
+      [styles.centerContent]:
+        this.state.mediaQueryLayout.includes("centerContent"),
     })
   }
 

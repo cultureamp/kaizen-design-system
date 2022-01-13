@@ -187,6 +187,49 @@ export const InlineLayout = () => (
 
 InlineLayout.storyName = "Inline Content Layout"
 
+export const TwoInlineLayout = () => (
+  <div style={{ display: "flex", gap: "36px" }}>
+    <GuidanceBlock
+      layout="inline"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <GuidanceBlock
+      layout="inline"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+  </div>
+)
+
+TwoInlineLayout.storyName = "Two Inline Content Layout"
+
 export const StackedLayout = () => (
   <GuidanceBlock
     layout="stacked"
