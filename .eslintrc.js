@@ -17,12 +17,17 @@ module.exports = {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
   },
-  extends: ["prettier"],
+  extends: ["prettier", "plugin:ssr-friendly/recommended"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "import", "sort-imports-es6-autofix"],
+  plugins: [
+    "@typescript-eslint",
+    "import",
+    "sort-imports-es6-autofix",
+    "ssr-friendly",
+  ],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
