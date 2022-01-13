@@ -8,8 +8,7 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
-
-const styles = require("./GuidanceBlock.scss")
+import styles from "./GuidanceBlock.scss"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
@@ -18,6 +17,8 @@ export type ActionProps = ButtonProps & {
 type LayoutType = "default" | "inline" | "stacked"
 
 type IllustrationType = "spot" | "scene"
+
+type TextAlignment = "center" | "left"
 
 type GuidanceBlockActions = {
   primary: ActionProps
@@ -44,6 +45,7 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
+  mobileTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   persistent?: boolean
   variant?: VariantType
@@ -82,6 +84,7 @@ class GuidanceBlock extends React.Component<
     withActionButtonArrow: true,
     noMaxWidth: false,
     illustrationType: "spot",
+    mobileTextAlignment: "center",
   }
 
   state = {
@@ -141,7 +144,11 @@ class GuidanceBlock extends React.Component<
       this.setState({ mediaQueryLayout: "" })
     }
 
-    if (this.props.illustrationType === "scene" && width <= 668) {
+    if (
+      this.props.illustrationType === "scene" &&
+      width > 320 &&
+      width <= 668
+    ) {
       this.setState({ mediaQueryLayout: "stackButton stackIllustration" })
     }
   }
@@ -157,7 +164,15 @@ class GuidanceBlock extends React.Component<
     return (
       <Media query="(max-width: 767px)">
         {isMobile => (
-          <Box mr={isMobile && this.props.layout === "default" ? 0 : 0.5}>
+          <Box
+            mr={
+              isMobile || componentIsMobile
+                ? 0
+                : this.props.layout === "default"
+                ? 0.5
+                : 0
+            }
+          >
             <div
               className={classnames(styles.buttonContainer, {
                 [styles.secondaryAction]: actions?.secondary,
@@ -253,6 +268,7 @@ class GuidanceBlock extends React.Component<
         this.state.mediaQueryLayout.includes("stackIllustration"),
       [styles.centerContent]:
         this.state.mediaQueryLayout.includes("centerContent"),
+      [styles.leftAlignTextMobile]: this.props.mobileTextAlignment === "left",
     })
   }
 

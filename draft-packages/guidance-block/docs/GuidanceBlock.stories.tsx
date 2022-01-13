@@ -187,10 +187,34 @@ export const InlineLayout = () => (
 
 InlineLayout.storyName = "Inline Content Layout"
 
-export const TwoInlineLayout = () => (
+export const StackedLayout = () => (
+  <GuidanceBlock
+    layout="stacked"
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+    noMaxWidth
+  />
+)
+
+StackedLayout.storyName = "Stacked Content Layout"
+
+export const TwoStackedLayout = () => (
   <div style={{ display: "flex", gap: "36px" }}>
     <GuidanceBlock
-      layout="inline"
+      layout="stacked"
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
       actions={{
@@ -208,7 +232,7 @@ export const TwoInlineLayout = () => (
       persistent
     />
     <GuidanceBlock
-      layout="inline"
+      layout="stacked"
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
       actions={{
@@ -228,30 +252,7 @@ export const TwoInlineLayout = () => (
   </div>
 )
 
-TwoInlineLayout.storyName = "Two Inline Content Layout"
-
-export const StackedLayout = () => (
-  <GuidanceBlock
-    layout="stacked"
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-    persistent
-  />
-)
-
-StackedLayout.storyName = "Stacked Content Layout"
+TwoStackedLayout.storyName = "Two Stacked Content Layout"
 
 export const StackedLayoutWithScene = () => (
   <GuidanceBlock
@@ -259,6 +260,7 @@ export const StackedLayoutWithScene = () => (
     illustration={<HumanityAtWork alt="" />}
     illustrationType="scene"
     text={guidanceBlockText}
+    mobileTextAlignment="left"
     actions={{
       primary: {
         label: "Action",

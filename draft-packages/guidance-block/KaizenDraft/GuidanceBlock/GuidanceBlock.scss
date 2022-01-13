@@ -93,7 +93,7 @@ $scene-illustration-size-mobile: 200px;
 
   [dir="rtl"] & {
     @include ca-media-desktop {
-      padding: 0 $spacing-sm 0 $spacing-lg;
+      padding: 0 $spacing-sm;
       text-align: right;
     }
   }
@@ -184,13 +184,21 @@ $scene-illustration-size-mobile: 200px;
   &.stackButton {
     .descriptionAndActions {
       flex-direction: column;
-      // width: 100%;
       align-items: unset;
     }
 
     .illustrationWrapper {
       display: flex;
-      align-items: center;
+    }
+
+    .descriptionContainer {
+      margin: 0 0 0 $spacing-sm;
+      padding: 0;
+
+      [dir="rtl"] & {
+        margin: 0 $spacing-sm 0 0;
+        padding: 0;
+      }
     }
 
     .buttonContainer {
@@ -221,6 +229,10 @@ $scene-illustration-size-mobile: 200px;
     .descriptionContainer {
       margin: 0;
       padding: 0;
+
+      [dir="rtl"] & {
+        margin: 0;
+      }
     }
 
     .buttonContainer {
@@ -268,6 +280,16 @@ $scene-illustration-size-mobile: 200px;
     }
   }
 
+  &.centerContent.leftAlignTextMobile {
+    .descriptionContainer {
+      text-align: left;
+
+      [dir="rtl"] & {
+        text-align: right;
+      }
+    }
+  }
+
   .illustrationWrapper {
     padding: 0;
 
@@ -278,18 +300,11 @@ $scene-illustration-size-mobile: 200px;
 
   .descriptionContainer {
     text-align: left;
-
-    @include ca-media-tablet {
-      margin: 0 $spacing-sm;
-    }
+    max-width: unset;
 
     [dir="rtl"] & {
       text-align: right;
     }
-  }
-
-  .descriptionContainer {
-    align-self: flex-start;
   }
 
   .buttonContainer {
@@ -309,8 +324,12 @@ $scene-illustration-size-mobile: 200px;
   }
 
   .descriptionContainer {
-    @include ca-media-desktop {
-      padding: 0 $spacing-sm;
+    align-self: flex-start;
+    padding-right: 0;
+
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $spacing-sm;
     }
   }
 }
