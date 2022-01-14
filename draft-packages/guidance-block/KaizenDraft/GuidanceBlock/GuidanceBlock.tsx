@@ -47,6 +47,7 @@ export type GuidanceBlockProps = {
   }
   mobileTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
+  secondaryDismiss?: boolean
   persistent?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
@@ -193,6 +194,11 @@ class GuidanceBlock extends React.Component<
                     <Button
                       secondary
                       {...actions.secondary}
+                      onClick={
+                        this.props?.secondaryDismiss
+                          ? () => this.dismissBanner()
+                          : this.props.actions?.secondary?.onClick
+                      }
                       fullWidth={isMobile || componentIsMobile}
                     />
                   </div>

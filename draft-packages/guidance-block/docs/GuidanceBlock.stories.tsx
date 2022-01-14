@@ -269,10 +269,10 @@ export const StackedLayoutWithScene = () => (
         },
       },
       secondary: {
-        label: "Secondary action",
-        href: "#",
+        label: "Dismiss action",
       },
     }}
+    secondaryDismiss
     persistent
   />
 )
