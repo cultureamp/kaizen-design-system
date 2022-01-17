@@ -1,13 +1,11 @@
-import {
-  PopoverLegacy,
-  usePopover,
-  Popover as PopoverRaw,
-} from "@kaizen/draft-popover"
+import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import * as React from "react"
-import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
+import { Heading } from "@kaizen/component-library"
+import { useState } from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 export default {
   title: `${CATEGORIES.components}/Popover`,
@@ -26,245 +24,378 @@ export default {
 }
 
 const Container = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ minHeight: "150px" }}>{children}</div>
+  <>
+    <p>
+      Default Placement is 'above'. Scroll horizontally or vertically to view
+      the Popover "flip" and move according to the space of the viewport.
+      Ensuring the Popover does not get cut off.
+    </p>
+    <div
+      style={{
+        display: "flex",
+        width: "300px",
+        maxHeight: "700px",
+        overflow: "scroll",
+        border: "solid black 2px",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          width: "500px",
+          marginLeft: "200px",
+          marginTop: "400px",
+        }}
+      >
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  </>
 )
 
 const InlineBlockTargetElement = ({
-  referenceElementRef,
+  ElementRef,
+  onClick,
 }: {
-  referenceElementRef: (element: HTMLElement | null) => void
+  onClick?: () => void
+  ElementRef: (element: HTMLElement | null) => void
 }) => (
   <div style={{ textAlign: "center" }}>
     <div
-      ref={referenceElementRef}
+      ref={ElementRef}
       style={{
         display: "inline-block",
         background: "#888",
         padding: "8px",
+        marginTop: "100px",
       }}
+      onClick={onClick}
     >
       Target element
     </div>
   </div>
 )
 
-export const DefaultKaizenSiteDemo = () => {
-  const [referenceElementRef, Popover] = usePopover()
+export const DefaultKaizenSiteDemo = props => {
+  const [ElementRef, Popover] = usePopover()
+  const [isOpen, setIsOpen] = useState(true)
+  const onClick = () => setIsOpen(true)
+
   return (
     <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Default">
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
+      <InlineBlockTargetElement onClick={onClick} ElementRef={ElementRef} />
+      <AppearanceAnim isVisible={isOpen}>
+        <Popover
+          heading="Clickable Popover"
+          {...props}
+          dismissible
+          onClose={() => {
+            setIsOpen(false)
+          }}
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </AppearanceAnim>
     </Container>
   )
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const DefaultWithoutHeading = () => {
-  const [referenceElementRef, Popover] = usePopover()
+export const HoverablePopover = props => {
+  const [ElementRef, Popover] = usePopover()
+  const [isHover, setIsHover] = useState(false)
+  const [isFocus, setIsFocus] = useState(false)
+
   return (
     <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover>
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-DefaultWithoutHeading.storyName = "Default without heading"
-
-export const Informative = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Informative" variant="informative">
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const InformativeWithSingleLine = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover
-        heading="Informative-default-with-single-line"
-        variant="informative"
-        singleLine
+      <div
+        onMouseEnter={() => {
+          setIsHover(true)
+        }}
+        onMouseLeave={() => {
+          setIsHover(false)
+        }}
+        onFocusCapture={() => {
+          setIsFocus(true)
+        }}
+        onBlurCapture={() => {
+          setIsFocus(false)
+        }}
       >
-        {"https://cultureamp.design/iamaverylongurl/" +
-          "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
-      </Popover>
-    </Container>
-  )
-}
-
-InformativeWithSingleLine.storyName = "Informative with singleLine"
-
-export const InformativeLarge = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover
-        heading="Informative-large-with-multi-line"
-        variant="informative"
-        size="large"
-      >
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const InformativeLargeWithSingleLine = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover
-        heading="Informative-large-with-single-line"
-        variant="informative"
-        size="large"
-        singleLine
-      >
-        {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
-          "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
-      </Popover>
-    </Container>
-  )
-}
-
-InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
-
-export const InformativeWithCustomIcon = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover
-        heading="Informative"
-        variant="informative"
-        customIcon={guidanceIcon}
-      >
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-InformativeWithCustomIcon.storyName = "Informative with a custom icon"
-
-export const Positive = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Positive" variant="positive">
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const Negative = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Negative" variant="negative">
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const Cautionary = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Cautionary" variant="cautionary">
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const Dismissible = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-      <Popover heading="Dismissible" dismissible>
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </Container>
-  )
-}
-
-export const PlacementTop = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <div style={{ marginTop: "200px" }}>
-        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-        <Popover heading="Placement top" placement="top">
+        <InlineBlockTargetElement ElementRef={ElementRef} />
+      </div>
+      <AppearanceAnim isVisible={isHover || isFocus}>
+        <Popover heading="Hoverable Popover" {...props}>
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
         </Popover>
-      </div>
+      </AppearanceAnim>
     </Container>
   )
 }
 
-PlacementTop.storyName = "Placement top"
+export const StickerSheet = () => {
+  const [ElementRefTopDefault, PopoverTopDefault] = usePopover()
+  const [ElementRefTopInformative, PopoverTopInformative] = usePopover()
+  const [ElementRefTopPositive, PopoverTopPositive] = usePopover()
+  const [ElementRefTopNegative, PopoverTopNegative] = usePopover()
+  const [ElementRefTopCautionary, PopoverTopCautionary] = usePopover()
 
-export const PlacementStart = () => {
-  const [referenceElementRef, Popover] = usePopover()
+  const [ElementRefBottomDefault, PopoverBottomDefault] = usePopover()
+  const [ElementRefBottomInformative, PopoverBottomInformative] = usePopover()
+  const [ElementRefBottomPositive, PopoverBottomPositive] = usePopover()
+  const [ElementRefBottomNegative, PopoverBottomNegative] = usePopover()
+  const [ElementRefBottomCautionary, PopoverBottomCautionary] = usePopover()
+
+  const [ElementRefLeftDefault, PopoverLeftDefault] = usePopover()
+  const [ElementRefLeftInformative, PopoverLeftInformative] = usePopover()
+  const [ElementRefLeftPositive, PopoverLeftPositive] = usePopover()
+  const [ElementRefLeftNegative, PopoverLeftNegative] = usePopover()
+  const [ElementRefLeftCautionary, PopoverLeftCautionary] = usePopover()
+
+  const [ElementRefRightDefault, PopoverRightDefault] = usePopover()
+  const [ElementRefRightInformative, PopoverRightInformative] = usePopover()
+  const [ElementRefRightPositive, PopoverRightPositive] = usePopover()
+  const [ElementRefRightNegative, PopoverRightNegative] = usePopover()
+  const [ElementRefRightCautionary, PopoverRightCautionary] = usePopover()
+
   return (
-    <Container>
-      <div style={{ marginTop: "1.5rem" }}>
-        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-        <Popover heading="Placement start" placement="bottom-start">
+    <div
+      style={{
+        marginTop: "50px",
+        marginBottom: "200px",
+        display: "grid",
+        justifyContent: "center",
+        gridTemplateColumns: "0.25fr 0.8fr 0.8fr 1fr 1fr",
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          flexDirection: "column",
+          justifyItems: "center",
+          rowGap: "5rem",
+        }}
+      >
+        <Heading variant="heading-5" tag="h2">
+          {" "}
+        </Heading>
+        <Heading variant="heading-5" tag="h2">
+          Default
+        </Heading>
+        <Heading variant="heading-5" tag="h2">
+          Informative
+        </Heading>
+        <Heading variant="heading-5" tag="h2">
+          Positive
+        </Heading>
+        <Heading variant="heading-5" tag="h2">
+          Negative
+        </Heading>
+        <Heading variant="heading-5" tag="h2">
+          Cautionary
+        </Heading>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          flexDirection: "column",
+          justifyItems: "center",
+          rowGap: "5rem",
+        }}
+      >
+        <Heading variant="heading-3" tag="h1">
+          Top
+        </Heading>
+        <InlineBlockTargetElement ElementRef={ElementRefTopDefault} />
+        <PopoverTopDefault placement="top" variant="default" dismissible>
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
-        </Popover>
-      </div>
-    </Container>
-  )
-}
-
-PlacementStart.storyName = "Placement start"
-
-export const PlacementEnd = () => {
-  const [referenceElementRef, Popover] = usePopover()
-  return (
-    <Container>
-      <div style={{ marginTop: "1.5rem" }}>
-        <InlineBlockTargetElement referenceElementRef={referenceElementRef} />
-        <Popover heading="Placement end" placement="bottom-end">
+        </PopoverTopDefault>
+        <InlineBlockTargetElement ElementRef={ElementRefTopPositive} />
+        <PopoverTopPositive placement="top" variant="positive" dismissible>
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
-        </Popover>
+        </PopoverTopPositive>
+        <InlineBlockTargetElement ElementRef={ElementRefTopInformative} />
+        <PopoverTopInformative
+          placement="top"
+          variant="informative"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverTopInformative>
+        <InlineBlockTargetElement ElementRef={ElementRefTopNegative} />
+        <PopoverTopNegative placement="top" variant="negative" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverTopNegative>
+        <InlineBlockTargetElement ElementRef={ElementRefTopCautionary} />
+        <PopoverTopCautionary placement="top" variant="cautionary" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverTopCautionary>
       </div>
-    </Container>
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          flexDirection: "column",
+          justifyItems: "center",
+          rowGap: "5rem",
+        }}
+      >
+        <Heading variant="heading-3" tag="h1">
+          Bottom
+        </Heading>
+        <InlineBlockTargetElement ElementRef={ElementRefBottomDefault} />
+        <PopoverBottomDefault placement="bottom" variant="default" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverBottomDefault>
+        <InlineBlockTargetElement ElementRef={ElementRefBottomPositive} />
+        <PopoverBottomPositive
+          placement="bottom"
+          variant="positive"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverBottomPositive>
+        <InlineBlockTargetElement ElementRef={ElementRefBottomInformative} />
+        <PopoverBottomInformative
+          placement="bottom"
+          variant="informative"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverBottomInformative>
+        <InlineBlockTargetElement ElementRef={ElementRefBottomNegative} />
+        <PopoverBottomNegative
+          placement="bottom"
+          variant="negative"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverBottomNegative>
+        <InlineBlockTargetElement ElementRef={ElementRefBottomCautionary} />
+        <PopoverBottomCautionary
+          placement="bottom"
+          variant="cautionary"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverBottomCautionary>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          flexDirection: "column",
+          justifyItems: "center",
+          rowGap: "5rem",
+        }}
+      >
+        <Heading variant="heading-3" tag="h1">
+          Left
+        </Heading>
+        <InlineBlockTargetElement ElementRef={ElementRefLeftDefault} />
+        <PopoverLeftDefault placement="left" variant="default" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverLeftDefault>
+        <InlineBlockTargetElement ElementRef={ElementRefLeftPositive} />
+        <PopoverLeftPositive placement="left" variant="positive" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverLeftPositive>
+        <InlineBlockTargetElement ElementRef={ElementRefLeftInformative} />
+        <PopoverLeftInformative
+          placement="left"
+          variant="informative"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverLeftInformative>
+        <InlineBlockTargetElement ElementRef={ElementRefLeftNegative} />
+        <PopoverLeftNegative placement="left" variant="negative" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverLeftNegative>
+        <InlineBlockTargetElement ElementRef={ElementRefLeftCautionary} />
+        <PopoverLeftCautionary
+          placement="left"
+          variant="cautionary"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverLeftCautionary>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+          flexDirection: "column",
+          justifyItems: "center",
+          rowGap: "5rem",
+        }}
+      >
+        <Heading variant="heading-3" tag="h1">
+          Right
+        </Heading>
+        <InlineBlockTargetElement ElementRef={ElementRefRightDefault} />
+        <PopoverRightDefault placement="right" variant="default" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverRightDefault>
+        <InlineBlockTargetElement ElementRef={ElementRefRightPositive} />
+        <PopoverRightPositive placement="right" variant="positive" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverRightPositive>
+        <InlineBlockTargetElement ElementRef={ElementRefRightInformative} />
+        <PopoverRightInformative
+          placement="right"
+          variant="informative"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverRightInformative>
+        <InlineBlockTargetElement ElementRef={ElementRefRightNegative} />
+        <PopoverRightNegative placement="right" variant="negative" dismissible>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverRightNegative>
+        <InlineBlockTargetElement ElementRef={ElementRefRightCautionary} />
+        <PopoverRightCautionary
+          placement="right"
+          variant="cautionary"
+          dismissible
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </PopoverRightCautionary>
+      </div>
+    </div>
   )
 }
-
-PlacementEnd.storyName = "Placement end"

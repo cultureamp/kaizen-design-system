@@ -3,7 +3,7 @@ import informativeIcon from "@kaizen/component-library/icons/information.icon.sv
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import styles from "./styles.scss"
-import { Size, Variant } from "./types"
+import { Size, Variant, Placement } from "./types"
 
 export const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
@@ -64,6 +64,21 @@ export const mapArrowVariantToClass = (variant: Variant): string => {
       return styles.cautionaryArrow
     default:
       return styles.defaultArrow
+  }
+}
+
+export const mapArrowPlacementToClass = (placement: Placement): string => {
+  switch (placement) {
+    case "top":
+      return styles.informativeArrow
+    case "bottom":
+      return styles.arrowBottom
+    case "left":
+      return styles.arrowLeft
+    case "right":
+      return styles.arrowRight
+    default:
+      return styles.arrow
   }
 }
 
