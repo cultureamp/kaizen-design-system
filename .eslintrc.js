@@ -17,19 +17,12 @@ module.exports = {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
   },
-  // extends: ["prettier", "plugin:ssr-friendly/recommended"],
   extends: ["prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
   },
-  plugins: [
-    "@typescript-eslint",
-    "import",
-    "sort-imports-es6-autofix",
-    // "ssr-friendly",
-    // "react-hooks",
-  ],
+  plugins: ["@typescript-eslint", "import", "sort-imports-es6-autofix"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
@@ -175,8 +168,6 @@ module.exports = {
     "no-new-wrappers": "error",
     "no-return-await": "error",
     "no-sequences": "error",
-    // "react-hooks/rules-of-hooks": "error",
-    // "react-hooks/exhaustive-deps": "error",
 
     // The base no-shadow rule reports incorrect errors in typescript
     "no-shadow": "off",
