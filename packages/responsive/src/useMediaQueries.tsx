@@ -26,6 +26,24 @@ export const useMediaQueries = (
     MediumOrLarger: FC
   }
 } => {
+  if (typeof window === "undefined") {
+    return {
+      queries: {
+        isSmall: false,
+        isMedium: false,
+        isLarge: false,
+        isMediumOrSmaller: false,
+        isMediumOrLarger: false,
+      },
+      components: {
+        SmallOnly: () => <></>,
+        MediumOnly: () => <></>,
+        LargeOnly: () => <></>,
+        MediumOrSmaller: () => <></>,
+        MediumOrLarger: () => <></>,
+      },
+    }
+  }
   const theme = useTheme()
 
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
