@@ -1,5 +1,6 @@
 import classnames from "classnames"
 import React, {
+  FunctionComponent,
   useState,
   useEffect,
   useRef,
@@ -17,33 +18,33 @@ export interface TextAreaProps
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
 }
 
-const TextArea = (props: TextAreaProps) => {
-  const {
-    value,
-    defaultValue,
-    reversed,
-    rows = 3,
-    status = "default",
-    autogrow,
-    automationId,
-    onChange: propsOnChange,
-    textAreaRef: propsTextAreaRef,
-    ...genericTextAreaProps
-  } = props
-
-  const [textAreaHeight, setTextAreaHeight] = useState("auto")
-  const [parentHeight, setParentHeight] = useState("auto")
-  const [internalValue, setInternalValue] = useState(
-    autogrow ? defaultValue : undefined
-  )
+export const TextArea: FunctionComponent<TextAreaProps> = ({
+  value,
+  defaultValue,
+  reversed = false,
+  rows = 3,
+  status = "default",
+  autogrow = false,
+  automationId,
+  onChange: propsOnChange,
+  textAreaRef: propsTextAreaRef,
+  ...genericTextAreaProps
+}) => {
+  const [textAreaHeight, setTextAreaHeight] = useState<string>("auto")
+  const [parentHeight, setParentHeight] = useState<string>("auto")
+  const [internalValue, setInternalValue] = useState<
+    string | number | readonly string[] | undefined
+  >(autogrow ? defaultValue : undefined)
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
   // essentially forces the textarea into an (interally) controlled mode if autogrow is true
   const textAreaRef = propsTextAreaRef || useRef(null)
 
   useEffect(() => {
     if (!autogrow) return
+
     const scrollHeight = textAreaRef.current!.scrollHeight
     if (scrollHeight < 1) return
+
     const borderWidth = textAreaRef.current
       ? parseInt(getComputedStyle(textAreaRef.current).borderTopWidth, 10)
       : 0
@@ -65,19 +66,11 @@ const TextArea = (props: TextAreaProps) => {
         }
       }
 
-  const getWrapperStyle = () => {
-    if (!autogrow) return undefined
-    return {
-      minHeight: parentHeight,
-    }
-  }
+  const getWrapperStyle = () =>
+    autogrow ? { minHeight: parentHeight } : undefined
 
-  const getTextAreaStyle = () => {
-    if (!autogrow) return undefined
-    return {
-      height: textAreaHeight,
-    }
-  }
+  const getTextAreaStyle = () =>
+    autogrow ? { height: textAreaHeight } : undefined
 
   const controlledValue = value || internalValue
 
@@ -106,5 +99,3 @@ const TextArea = (props: TextAreaProps) => {
     </div>
   )
 }
-
-export default TextArea

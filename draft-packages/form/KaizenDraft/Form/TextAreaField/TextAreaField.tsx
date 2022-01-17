@@ -1,43 +1,26 @@
-import React, { TextareaHTMLAttributes } from "react"
-import { FieldGroup, FieldMessage, InputStatus, Label, TextArea } from ".."
+import React from "react"
+import { FieldGroup, FieldMessage, Label, TextArea, TextAreaProps } from ".."
 
 export interface TextAreaFieldProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  extends Omit<TextAreaProps, "automationId"> {
   labelText: string | React.ReactNode
   inline?: boolean
-  reversed?: boolean
-  validationMessage?: React.ReactNode
-  status?: InputStatus
-  autogrow?: boolean
-  description?: React.ReactNode
-  textAreaRef?: React.RefObject<HTMLTextAreaElement>
+  validationMessage?: string | React.ReactNode
+  description?: string | React.ReactNode
   variant?: "default" | "prominent"
 }
 
-const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
-  const {
-    id,
-    labelText,
-    value,
-    defaultValue,
-    validationMessage,
-    status = "default",
-    autogrow,
-    name,
-    description,
-    inline,
-    reversed,
-    variant = "default",
-    maxLength,
-    placeholder,
-    textAreaRef,
-    onChange,
-    onBlur,
-    onFocus,
-    rows,
-    ...genericTextAreaProps
-  } = props
-
+export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
+  id,
+  labelText,
+  description,
+  variant = "default",
+  inline = false,
+  reversed = false,
+  status = "default",
+  validationMessage,
+  ...textAreaProps
+}) => {
   const renderDescriptionOnTop = variant === "prominent"
   const renderDescription = (position: "top" | "bottom") => {
     if (!description) return null
@@ -70,20 +53,9 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
       <TextArea
         id={`${id}-field-textarea`}
         automationId={`${id}-field-textarea`}
-        placeholder={placeholder}
-        name={name}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
-        value={value}
-        defaultValue={defaultValue}
-        rows={rows}
         reversed={reversed}
         status={status}
-        autogrow={autogrow}
-        textAreaRef={textAreaRef}
-        maxLength={maxLength}
-        {...genericTextAreaProps}
+        {...textAreaProps}
       />
       {validationMessage && (
         <FieldMessage
@@ -99,4 +71,4 @@ const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
   )
 }
 
-export default TextAreaField
+TextAreaField.displayName = "TextAreaField"
