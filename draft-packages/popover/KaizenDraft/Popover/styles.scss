@@ -1,11 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // Sync with PopoverModern.tsx
@@ -49,12 +45,13 @@ $large-width: 450px;
 }
 
 %box {
-  background: white;
+  background: $color-white;
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: left;
+  padding: $spacing-sm 1rem 1rem;
 }
 
 .defaultBox {
@@ -112,25 +109,32 @@ $negative-box-border-color: $color-red-300;
 }
 
 .header {
-  @include kz-typography-heading-6;
-  @include ca-inherit-baseline;
-  padding: ($ca-grid / 4) ($ca-grid / 2);
-  margin-bottom: $ca-grid / 4;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-heading-6-font-weight;
+  letter-spacing: $typography-heading-6-letter-spacing;
+  line-height: $typography-paragraph-small-line-height;
+  position: static;
+  margin-bottom: $spacing-xs;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  padding-right: $spacing-md;
 }
 
 .container {
-  @include ca-inherit-baseline;
-  @include kz-typography-paragraph-small;
-  padding: ($ca-grid / 6) ($ca-grid / 2) ($ca-grid);
+  position: static;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-paragraph-small-font-weight;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  line-height: $typography-paragraph-small-line-height;
   white-space: pre-line;
 }
 
 .icon {
   display: inherit;
-  margin-right: $ca-grid / 4;
+  margin-right: $spacing-xs;
 }
 
 .informativeIcon {
@@ -151,6 +155,9 @@ $negative-box-border-color: $color-red-300;
 
 .close {
   @include button-reset;
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
   margin-left: auto;
   display: inherit;
   color: rgba($color-purple-800-rgb, 0.7);
@@ -220,13 +227,13 @@ $negative-box-border-color: $color-red-300;
 
 // Legacy component only
 .arrowPositionStart {
-  left: $ca-grid;
+  left: $spacing-md;
   right: auto;
 }
 
 // Legacy component only
 .arrowPositionEnd {
-  right: $ca-grid;
+  right: $spacing-md;
   left: auto;
 }
 
