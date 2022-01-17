@@ -1,8 +1,11 @@
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
+import { Icon, Heading } from "@kaizen/component-library"
 import { useState } from "react"
+import { Button, IconButton } from "@kaizen/draft-button"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
@@ -69,19 +72,14 @@ const InlineBlockTargetElement = ({
   onClick?: () => void
   ElementRef: (element: HTMLElement | null) => void
 }) => (
-  <div style={{ textAlign: "center" }}>
-    <div
-      ref={ElementRef}
-      style={{
-        display: "inline-block",
-        background: "#888",
-        padding: "8px",
-        marginTop: "100px",
-      }}
-      onClick={onClick}
-    >
-      Target element
-    </div>
+  <div
+    ref={ElementRef}
+    style={{
+      display: "inline-block",
+      marginTop: "100px",
+    }}
+  >
+    <IconButton onClick={onClick} label="Label" icon={informationIcon} />
   </div>
 )
 
