@@ -33,14 +33,14 @@ export const useMediaQueries = (
         isMedium: false,
         isLarge: false,
         isMediumOrSmaller: false,
-        isMediumOrLarger: false,
+        isMediumOrLarger: true,
       },
       components: {
         SmallOnly: () => <></>,
         MediumOnly: () => <></>,
         LargeOnly: () => <></>,
         MediumOrSmaller: () => <></>,
-        MediumOrLarger: () => <></>,
+        MediumOrLarger: (props: HelperComponentProps) => <>{props.children}</>,
       },
     }
   }
