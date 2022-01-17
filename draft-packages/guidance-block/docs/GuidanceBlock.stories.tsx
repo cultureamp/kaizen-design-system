@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { Informative } from "@kaizen/draft-illustration"
+import { Informative, HumanityAtWork } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -146,7 +146,185 @@ export const SecondaryAction = () => (
 
 SecondaryAction.storyName = "Secondary Action"
 
-export const Prominent = () => (
+export const SceneIllustration = () => (
+  <GuidanceBlock
+    illustration={<HumanityAtWork alt="" />}
+    illustrationType="scene"
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+  />
+)
+
+SceneIllustration.storyName = "Scene Illustration"
+
+export const InlineLayout = () => (
+  <GuidanceBlock
+    layout="inline"
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+InlineLayout.storyName = "Inline Content Layout"
+
+export const StackedLayout = () => (
+  <GuidanceBlock
+    layout="stacked"
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+StackedLayout.storyName = "Stacked Content Layout"
+
+export const StackedLayoutWithScene = () => (
+  <GuidanceBlock
+    layout="stacked"
+    illustration={<HumanityAtWork alt="" />}
+    illustrationType="scene"
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+  />
+)
+
+StackedLayoutWithScene.storyName = "Stacked Layout With Scene Illustration"
+
+export const PositiveMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="positive"
+  />
+)
+
+PositiveMood.storyName = "Positive"
+
+export const NegativeMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="negative"
+  />
+)
+
+NegativeMood.storyName = "Negative"
+
+export const InformativeMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="informative"
+  />
+)
+
+InformativeMood.storyName = "Informative"
+
+export const CautionaryMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="cautionary"
+  />
+)
+
+CautionaryMood.storyName = "Cautionary"
+
+export const AssertiveMood = () => (
+  <GuidanceBlock
+    illustration={<Informative alt="" />}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+    }}
+    variant="assertive"
+  />
+)
+
+AssertiveMood.storyName = "Assertive"
+
+export const ProminentMood = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -162,7 +340,7 @@ export const Prominent = () => (
   />
 )
 
-Prominent.storyName = "Prominent"
+ProminentMood.storyName = "Prominent"
 
 export const WithCustomDescription = () => (
   <GuidanceBlock
