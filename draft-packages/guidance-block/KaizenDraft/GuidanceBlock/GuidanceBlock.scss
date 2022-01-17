@@ -180,17 +180,13 @@ $scene-illustration-size-mobile: 200px;
   align-items: unset;
   gap: $spacing-md;
   min-width: unset;
+  flex-wrap: wrap;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: unset;
+  }
 
   &.stackButton {
-    .descriptionAndActions {
-      flex-direction: column;
-      align-items: unset;
-    }
-
-    .illustrationWrapper {
-      display: flex;
-    }
-
     .descriptionContainer {
       margin: 0 0 0 $spacing-sm;
       padding: 0;
@@ -207,12 +203,6 @@ $scene-illustration-size-mobile: 200px;
   }
 
   &.stackIllustration {
-    flex-direction: column;
-
-    .illustrationWrapper {
-      align-self: unset;
-    }
-
     .illustration {
       margin-right: auto;
 
@@ -242,6 +232,8 @@ $scene-illustration-size-mobile: 200px;
   }
 
   &.centerContent {
+    flex-direction: column;
+
     .illustrationWrapper {
       align-self: center;
     }
@@ -256,6 +248,7 @@ $scene-illustration-size-mobile: 200px;
 
     .descriptionContainer {
       text-align: center;
+      min-width: unset;
 
       [dir="rtl"] & {
         text-align: center;
@@ -301,6 +294,7 @@ $scene-illustration-size-mobile: 200px;
   .descriptionContainer {
     text-align: left;
     max-width: unset;
+    min-width: 320px;
 
     [dir="rtl"] & {
       text-align: right;
@@ -310,6 +304,10 @@ $scene-illustration-size-mobile: 200px;
   .buttonContainer {
     justify-content: end;
     width: unset;
+
+    @include ca-media-mobile {
+      flex-direction: row-reverse;
+    }
 
     > * {
       width: unset;
