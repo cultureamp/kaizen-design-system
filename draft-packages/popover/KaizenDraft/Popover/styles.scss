@@ -9,8 +9,8 @@
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // Sync with PopoverModern.tsx
-$arrow-width: 16px;
-$arrow-height: 8px;
+$arrow-width: 14px;
+$arrow-height: 7px;
 
 $large-width: 450px;
 
@@ -181,10 +181,29 @@ $negative-box-border-color: $color-red-300;
 [data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
   left: 50%;
-  margin-top: -$arrow-height;
+  margin-top: -9px;
 
   .arrow {
     transform: rotate(180deg);
+  }
+}
+
+.arrowSideLeft,
+[data-popper-placement^="left"] .arrowWrapper {
+  right: 0;
+  margin-right: -10px;
+
+  .arrow {
+    transform: rotate(270deg);
+  }
+}
+.arrowSideRight,
+[data-popper-placement^="right"] .arrowWrapper {
+  left: 0;
+  margin-left: -10px;
+
+  .arrow {
+    transform: rotate(90deg);
   }
 }
 
