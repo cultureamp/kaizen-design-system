@@ -1,38 +1,38 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { Label } from "@kaizen/draft-form"
 import { useRichTextEditor } from "@cultureamp/rich-text-editor"
 import { toggleMark } from "prosemirror-commands"
+import { Schema } from "prosemirror-model"
 import { EditorContentArray } from "./types"
-import { createSchemaFromControls } from "./schema"
-import { toolbarControls, ToolbarControls } from "./constants"
 import { createInitialState, customKeymap, createDocFromContent } from "./state"
 import { hardBreak } from "./commands"
-import { Toolbar } from "./components/Toolbar"
+import { CustomToolbar } from "./components/CustomToolbar"
 import styles from "./RichTextEditor.scss"
 
 type Props = {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
-  controls: ToolbarControls[][]
+  schema: Schema<string, string>
   labelText: string
   id: string
 }
 
-const addShortcuts = (options: ToolbarControls[], schema) => {
+const addShortcuts = schema => {
   const defaultKeys = {
     "Shift-Enter": hardBreak,
   }
-  const customKeys = options.reduce((accumulatedOptions, currentOption) => {
-    const optionProp = toolbarControls.get(currentOption)
-    if (!optionProp) return accumulatedOptions
-    const shortcutCmd = schema.marks[currentOption]
-    return {
-      ...accumulatedOptions,
-      [optionProp["shortcut"]]: toggleMark(shortcutCmd),
-    }
-  }, {})
+  const customKeys = Object.keys(schema.marks).reduce(
+    (accumulatedOptions, currentOption) => {
+      const mark = schema.marks[currentOption]
+      return {
+        ...accumulatedOptions,
+        [mark.spec.control.shortcut]: toggleMark(mark),
+      }
+    },
+    {}
+  )
 
   return keymap(
     customKeymap({
@@ -42,20 +42,16 @@ const addShortcuts = (options: ToolbarControls[], schema) => {
   )
 }
 
-export const RichTextEditor = (props: Props) => {
-  const { onChange, value, controls } = props
+export const CustomRichTextEditor = (props: Props) => {
+  const { onChange, value, schema } = props
   const componentRef = useRef<HTMLDivElement>(null)
-  const [schema] = useState(createSchemaFromControls(controls.flat()))
 
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
     createInitialState(
       value ? createDocFromContent(schema, value) : null,
       schema,
-      [history(), addShortcuts(controls.flat(), schema)]
+      [history(), addShortcuts(schema)]
     )
-    // {
-    //   "aria-labelledby": props.id,
-    // }
   )
 
   useEffect(() => {
@@ -69,8 +65,7 @@ export const RichTextEditor = (props: Props) => {
       <Label id={props.id} labelText={props.labelText} />
       <div className={styles.editorComponent} ref={componentRef}>
         <div className={styles.toolbar}>
-          <Toolbar
-            controls={controls}
+          <CustomToolbar
             schema={schema}
             dispatchTransaction={dispatchTransaction}
             editorState={editorState}
