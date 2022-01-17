@@ -17,7 +17,8 @@ module.exports = {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
   },
-  extends: ["prettier", "plugin:ssr-friendly/recommended"],
+  // extends: ["prettier", "plugin:ssr-friendly/recommended"],
+  extends: ["prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
@@ -26,7 +27,8 @@ module.exports = {
     "@typescript-eslint",
     "import",
     "sort-imports-es6-autofix",
-    "ssr-friendly",
+    // "ssr-friendly",
+    // "react-hooks",
   ],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -173,6 +175,8 @@ module.exports = {
     "no-new-wrappers": "error",
     "no-return-await": "error",
     "no-sequences": "error",
+    // "react-hooks/rules-of-hooks": "error",
+    // "react-hooks/exhaustive-deps": "error",
 
     // The base no-shadow rule reports incorrect errors in typescript
     "no-shadow": "off",
