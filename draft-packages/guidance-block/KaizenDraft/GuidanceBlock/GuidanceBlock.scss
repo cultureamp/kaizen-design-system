@@ -316,6 +316,10 @@ $scene-illustration-size-mobile: 200px;
 }
 
 .stacked {
+  &.stackIllustration .illustrationWrapper {
+    margin: 0 auto;
+  }
+
   .descriptionAndActions {
     flex-direction: column;
     align-items: unset;
