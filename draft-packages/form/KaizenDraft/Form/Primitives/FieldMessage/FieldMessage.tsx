@@ -7,6 +7,7 @@ import { Icon, Paragraph } from "@kaizen/component-library"
 import styles from "./styles.scss"
 
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
+
 export type FieldMessageProps = {
   id?: string
   automationId?: string
@@ -18,7 +19,13 @@ export type FieldMessageProps = {
 
 type FieldMessage = React.FunctionComponent<FieldMessageProps>
 
-const warningIcon = (isReversed: boolean) => (
+type WarningIconProps = {
+  isReversed: boolean
+}
+
+const WarningIcon: React.FunctionComponent<WarningIconProps> = ({
+  isReversed,
+}) => (
   <span className={styles.warningIcon}>
     <Icon
       icon={isReversed ? exclamationIcon : exclamationWhiteIcon}
@@ -53,7 +60,9 @@ const FieldMessage: FieldMessage = ({
         [styles.positionTop]: position === "top",
       })}
     >
-      {(status === "error" || status === "caution") && warningIcon(reversed)}
+      {(status === "error" || status === "caution") && (
+        <WarningIcon isReversed={reversed} />
+      )}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}

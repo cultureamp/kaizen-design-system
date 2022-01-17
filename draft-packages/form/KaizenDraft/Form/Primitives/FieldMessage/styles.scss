@@ -5,6 +5,7 @@
 @import "../../decision-tokens.scss";
 
 $message-icon-size: 1.25rem;
+$validation-message-padding: 0.5625rem;
 
 .message {
   display: flex;
@@ -23,9 +24,8 @@ $message-icon-size: 1.25rem;
 
 .error,
 .caution {
-  border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
-  padding: $spacing-xs;
+  padding: $validation-message-padding;
   color: $color-purple-800;
 }
 

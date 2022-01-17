@@ -47,9 +47,9 @@ describe("<FieldMessage />", () => {
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 
-  it("should render an `error` field message", () => {
+  it("should render a `WarningIcon` with an error", () => {
     const { container } = renderFieldMessage({ status: "error" })
 
-    expect(container.querySelector(".error")).toBeTruthy()
+    expect(container.querySelector(".warningIcon")).toBeTruthy()
   })
 })
