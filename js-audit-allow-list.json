@@ -117,6 +117,15 @@
       "whenSubDependencyOf": ["@storybook/react"]
     }
   ],
+  "ansi-regex": [
+    {
+      "title": "Inefficient Regular Expression Complexity",
+      "cve": "CVE-2021-3807",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["@storybook/node-logger"]
+    }
+  ],
   "ws": [
     {
       "title": "A specially crafted value of the `Sec-Websocket-Protocol` header can be used to significantly slow down a ws server.",
