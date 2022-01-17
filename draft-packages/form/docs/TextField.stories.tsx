@@ -85,7 +85,7 @@ DefaultStory.argTypes = {
 
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const DesignSheetDefault = () => (
+export const StickerSheetDefault = () => (
   <>
     <Heading variant="heading-3" tag="h2">
       Default
@@ -337,7 +337,7 @@ export const DesignSheetDefault = () => (
   </>
 )
 
-export const DesignSheetDefaultReversed = () => (
+export const StickerSheetDefaultReversed = () => (
   <>
     <Heading color="white" variant="heading-3" tag="h2">
       Default
@@ -352,7 +352,7 @@ export const DesignSheetDefaultReversed = () => (
             reversed={true}
             id="text"
             inputType="email"
-            defaultInputValue="Input Text"
+            defaultInputValue=""
             labelText="Default Text Field"
             placeholder=""
             description="Description text"
@@ -363,7 +363,7 @@ export const DesignSheetDefaultReversed = () => (
             reversed={true}
             id="text"
             inputType="email"
-            defaultInputValue="Input Text"
+            defaultInputValue=""
             labelText="Placeholder Text Field"
             placeholder="jane.doe@email.com"
             description="Description text"
@@ -606,7 +606,7 @@ export const DesignSheetDefaultReversed = () => (
     </StoryGrid>
   </>
 )
-DesignSheetDefaultReversed.parameters = {
+StickerSheetDefaultReversed.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
