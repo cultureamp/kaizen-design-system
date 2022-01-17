@@ -9,6 +9,8 @@ export const nodes: NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
   text: coreNodes.text,
+  // eslint-disable-next-line camelcase
+  hard_break: coreNodes.hard_break,
 }
 
 export const marks: MarkSpec = {
@@ -46,5 +48,5 @@ export const createSchemaFromControls = controls => {
     }),
     {}
   )
-  return new Schema({ nodes, marks })
+  return new Schema({ nodes, marks: newMarks })
 }

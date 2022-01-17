@@ -1,17 +1,6 @@
-// import { EditorContentArray } from "ca-ui/RichTextEditor/types.d"
 import { EditorState, Plugin } from "prosemirror-state"
 import { Node, Schema } from "prosemirror-model"
-import { baseKeymap } from "prosemirror-commands"
-import { redo, undo } from "prosemirror-history"
-
-export function customKeymap(additions = {}) {
-  return {
-    ...baseKeymap,
-    "Mod-z": undo,
-    "Mod-Shift-z": redo,
-    ...additions,
-  }
-}
+import { EditorContentArray } from "./types"
 
 export function createInitialState(
   doc: Node | null,
@@ -31,8 +20,7 @@ function createDoc(schema: Schema, docObject: Record<string, any>) {
 
 export function createDocFromContent(
   schema: Schema,
-  // contentObject: EditorContentArray
-  contentObject: any
+  contentObject: EditorContentArray
 ) {
   return createDoc(schema, {
     type: "doc",
@@ -46,7 +34,6 @@ export function createDocFromContent(
  *
  * This could be improved by checking that the node content isn't just spaces (which will currently return true here).
  */
-// export function hasContent(content: EditorContentArray) {
-export function hasContent(content: any) {
+export function hasContent(content: EditorContentArray) {
   return !!content.find(node => node.content)
 }
