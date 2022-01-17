@@ -1,37 +1,28 @@
 import React, { useEffect, useState, Fragment } from "react"
 import { EditorState } from "prosemirror-state"
-import { Schema } from "prosemirror-model"
 // import { MaybeCommand } from "../types"
-// import {
-//   ToolbarControlLabels,
-//   ToolbarControls,
-// } from "../constants/toolbarControls"
-import { ToolbarControls, toolbarControls } from "../constants"
-
 import { ToggleButton } from "./ToggleButton"
 import styles from "./Toolbar.scss"
 
 export type ToolbarProps = {
-  controls: ToolbarControls[][]
-  schema: Schema<string, string>
+  marks: any
   editorState: EditorState
   dispatchTransaction: (command: MaybeCommand) => void
   componentRef: React.RefObject<HTMLDivElement>
 }
 
 export function Toolbar({
-  controls,
+  marks,
   editorState,
-  schema,
   dispatchTransaction,
   componentRef,
 }: ToolbarProps) {
-  const isToolbarEmpty = controls.length === 0
+  const isToolbarEmpty = marks.flat().length === 0
 
   const [currentFocusIndex, setCurrentFocusIndex] = useState(0)
 
   const getNextFocusableControl = (index: number) => {
-    for (let i = index + 1; i < controls.flat().length; i++) {
+    for (let i = index + 1; i < marks.flat().length; i++) {
       return i
     }
     return 0
@@ -41,7 +32,7 @@ export function Toolbar({
     for (let i = index - 1; i > -1; i--) {
       return i
     }
-    return controls.flat().length - 1
+    return marks.flat().length - 1
   }
 
   const onFocus = (e: React.KeyboardEvent, index: number) => {
@@ -79,9 +70,9 @@ export function Toolbar({
     }
   })
 
-  const renderControlGroups = (controlGroups: ToolbarControls[][]) => {
+  const renderControlGroups = (controlGroups: any) => {
     let counter = 0
-    return controlGroups.map((controlGroup: ToolbarControls[], index) =>
+    return controlGroups.map((controlGroup, index) =>
       controlGroup.map(control => {
         const controlMarkup = (
           <Fragment key={control}>
@@ -97,22 +88,16 @@ export function Toolbar({
     )
   }
 
-  const renderControl = (control: ToolbarControls, index: number) => {
-    const controlProperties = toolbarControls.get(control)
-    if (!controlProperties) return
-    const markType = schema.marks[control]
+  const renderControl = (mark: any, index: number) => (
+    <ToggleButton
+      icon={mark.spec.control.icon}
+      label={mark.spec.control.label}
+      dispatchTransaction={dispatchTransaction}
+      editorState={editorState}
+      markType={mark}
+      {...commonToolbarProps(index)}
+    />
+  )
 
-    return (
-      <ToggleButton
-        icon={controlProperties.icon}
-        label={controlProperties.label}
-        dispatchTransaction={dispatchTransaction}
-        editorState={editorState}
-        markType={markType}
-        {...commonToolbarProps(index)}
-      />
-    )
-  }
-
-  return <>{renderControlGroups(controls)}</>
+  return <>{renderControlGroups(marks)}</>
 }
