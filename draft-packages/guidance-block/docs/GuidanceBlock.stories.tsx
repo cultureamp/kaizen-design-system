@@ -260,7 +260,7 @@ export const StackedLayoutWithScene = () => (
     illustration={<HumanityAtWork alt="" />}
     illustrationType="scene"
     text={guidanceBlockText}
-    mobileTextAlignment="left"
+    smallScreenTextAlignment="left"
     actions={{
       primary: {
         label: "Action",

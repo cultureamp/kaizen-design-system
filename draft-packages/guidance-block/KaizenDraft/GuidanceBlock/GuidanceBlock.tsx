@@ -45,7 +45,7 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
-  mobileTextAlignment?: TextAlignment
+  smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   secondaryDismiss?: boolean
   persistent?: boolean
@@ -85,7 +85,7 @@ class GuidanceBlock extends React.Component<
     withActionButtonArrow: true,
     noMaxWidth: false,
     illustrationType: "spot",
-    mobileTextAlignment: "center",
+    smallScreenTextAlignment: "center",
   }
 
   state = {
@@ -258,7 +258,8 @@ class GuidanceBlock extends React.Component<
       [styles.inline]: this.props.layout === "inline",
       [styles.stacked]: this.props.layout === "stacked",
       [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-      [styles.leftAlignTextMobile]: this.props.mobileTextAlignment === "left",
+      [styles.smallScreenTextAlignment]:
+        this.props.smallScreenTextAlignment === "left",
     })
   }
 
