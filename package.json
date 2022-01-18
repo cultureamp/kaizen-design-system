@@ -103,7 +103,7 @@
   },
   "devDependencies": {
     "@storybook/node-logger": "^6.4.9",
-    "chromatic": "^5.10.2",
+    "chromatic": "^6.4.0",
     "danger": "^10.7.1",
     "eslint-import-resolver-typescript": "^2.5.0",
     "loader-utils": "^1.4.0",
