@@ -20,6 +20,7 @@ export interface ToggleSwitchProps {
   toggledStatus?: ToggledStatus
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   theme?: ToggleTheme
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -34,6 +35,7 @@ const ToggleSwitch: ToggleSwitch = ({
   toggledStatus,
   onToggle,
   disabled,
+  reversed,
   theme,
   onFocus,
   onBlur,
@@ -45,6 +47,7 @@ const ToggleSwitch: ToggleSwitch = ({
       className={classnames({
         [styles.on]: isOn,
         [styles.off]: !isOn,
+        [styles.reversed]: reversed,
       })}
     >
       <input

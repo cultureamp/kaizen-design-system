@@ -60,10 +60,11 @@ export default {
   decorators: [withDesign],
 }
 
-export const OnKaizenSiteDemo = () => (
+export const Default = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
     {({ toggledStatus, toggle }) => (
       <ToggleSwitchField
+        {...props}
         labelText="Label"
         toggledStatus={toggledStatus}
         onToggle={toggle}
@@ -71,8 +72,6 @@ export const OnKaizenSiteDemo = () => (
     )}
   </ToggleStateContainer>
 )
-
-OnKaizenSiteDemo.storyName = "On (Kaizen Site Demo)"
 
 export const Off = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
