@@ -6,6 +6,7 @@ tags: ["Callout", "Callout card", "Media card", "Promos", "Campaign", "Notice", 
 githubLabels: ["component:guidance-block"]
 needToKnow:
 - Use a Guidance Block to encourage action on another page.
+demoStoryId: components-guidance-block--default
 health:
   designed: true
   documented: true
@@ -33,7 +34,7 @@ import Dont from "docs-components/Dont"
 
 ## Options
 
-To ensure the Guidance Block is distinct from other page content, you can use the Prominent option for the card container.
+To ensure the Guidance Block is distinct from other page content, you can use the Positive, Negative, Informative, Cautionary, Assertive or Prominent option for the card container.
 
 ## To keep in mind
 
@@ -46,8 +47,9 @@ The Guidance Block is a modular design element with a consistent structure and a
 
 ### Anatomy
 
-* **Card container:** The Guidance Block content appears inside a card - choose between Default or Prominent.
-* **Spot illustration:** Provide an illustration that assist the user in the task the Guidance Block describes.
+* **Card container:** The Guidance Block content appears inside a card - choose between Default, Positive, Negative, Informative, Cautionary, Assertive or Prominent.
+* **Layout:** Choose between Default, Inline or Stacked layouts. Use Default if content needs to be center aligned for smaller screens. To stack description above buttons, use Stacked layout. Both Inline and Stacked layouts retain the illustration on smaller screens and left aligns content until small mobile is reached.
+* **Illustration:** Provide a Spot or Scene illustration that assist the user in the task the Guidance Block describes.
 * **Title and description:** Use the guidelines above to guide the user with appropriate copy.
 * **Action button:** Use a link styled as a primary action button (if there are no others on the page) or a default action button to navigate to the page with the action that the Guidance Block describes. For immediate actions, show a [confirmation modal](/components/modal) instead of navigating.
 * **Optional dismiss button:** If it's possible a user will never want to take this action, consider providing a secondary dismiss button to remove the Guidance Block.
