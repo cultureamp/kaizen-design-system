@@ -1,7 +1,7 @@
-import { TextAreaField } from "@kaizen/draft-form"
-import { withDesign } from "storybook-addon-designs"
 import React from "react"
 import { Heading } from "@kaizen/component-library"
+import { TextAreaField } from "@kaizen/draft-form"
+import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -90,7 +90,95 @@ export const StickerSheetDefault = () => (
       <Heading variant="heading-5" tag="h3">
         Base
       </Heading>
-      <StoryContainer></StoryContainer>
+      <StoryContainer>
+        <TextAreaField id="text-area-default" labelText="Default" />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+        />
+      </StoryContainer>
+    </StoryColumn>
+    <StoryColumn>
+      <Heading variant="heading-5" tag="h3">
+        Disabled
+      </Heading>
+      <StoryContainer>
+        <TextAreaField id="text-area-default" labelText="Default" disabled />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+          disabled
+        />
+      </StoryContainer>
     </StoryColumn>
   </StoryGrid>
 )

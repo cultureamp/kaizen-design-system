@@ -19,6 +19,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
   reversed = false,
   status = "default",
   validationMessage,
+  disabled = false,
   ...textAreaProps
 }) => {
   const renderDescriptionOnTop = variant === "prominent"
@@ -48,6 +49,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
         labelText={labelText}
         reversed={reversed}
         variant={variant}
+        disabled={disabled}
       />
       {renderDescriptionOnTop && renderDescription("top")}
       <TextArea
@@ -55,6 +57,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
         automationId={`${id}-field-textarea`}
         reversed={reversed}
         status={status}
+        disabled={disabled}
         {...textAreaProps}
       />
       {validationMessage && (
