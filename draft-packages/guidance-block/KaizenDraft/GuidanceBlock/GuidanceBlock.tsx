@@ -132,25 +132,12 @@ class GuidanceBlock extends React.Component<
   }
 
   setMediaQueryLayout(width: number) {
-    // Note: 523 is when text occupies 320px width
-    if (width > 523 && width <= 850) {
-      this.setState({ mediaQueryLayout: "stackButton" })
-    } else if (width > 320 && width <= 523) {
-      this.setState({ mediaQueryLayout: "stackButton stackIllustration" })
-    } else if (width <= 320) {
+    if (width <= 320) {
       this.setState({
-        mediaQueryLayout: "stackButton stackIllustration centerContent",
+        mediaQueryLayout: "centerContent",
       })
     } else {
       this.setState({ mediaQueryLayout: "" })
-    }
-
-    if (
-      this.props.illustrationType === "scene" &&
-      width > 320 &&
-      width <= 668
-    ) {
-      this.setState({ mediaQueryLayout: "stackButton stackIllustration" })
     }
   }
 
@@ -235,7 +222,7 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={this.illustrationClassName()}>{illustration}</div>
+          <div className={styles.illustration}>{illustration}</div>
         </div>
 
         <div className={styles.descriptionAndActions}>
@@ -267,20 +254,11 @@ class GuidanceBlock extends React.Component<
       [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
+      [styles.hasSceneIllustration]: this.props.illustrationType === "scene",
       [styles.inline]: this.props.layout === "inline",
       [styles.stacked]: this.props.layout === "stacked",
-      [styles.stackButton]: this.state.mediaQueryLayout.includes("stackButton"),
-      [styles.stackIllustration]:
-        this.state.mediaQueryLayout.includes("stackIllustration"),
-      [styles.centerContent]:
-        this.state.mediaQueryLayout.includes("centerContent"),
+      [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
       [styles.leftAlignTextMobile]: this.props.mobileTextAlignment === "left",
-    })
-  }
-
-  illustrationClassName(): string {
-    return classnames(styles.illustration, {
-      [styles.sceneIllustration]: this.props.illustrationType === "scene",
     })
   }
 

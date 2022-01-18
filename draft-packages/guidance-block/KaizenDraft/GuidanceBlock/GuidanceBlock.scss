@@ -14,7 +14,6 @@ $ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
   $animation-duration-slow ease;
 $illustration-size: 155px;
 $scene-illustration-size: 300px;
-$scene-illustration-size-mobile: 200px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -68,11 +67,11 @@ $scene-illustration-size-mobile: 200px;
 .illustration {
   width: $illustration-size;
   height: $illustration-size;
-}
 
-.sceneIllustration {
-  width: $scene-illustration-size;
-  height: auto;
+  .hasSceneIllustration & {
+    width: $scene-illustration-size;
+    height: auto;
+  }
 }
 
 .descriptionContainer {
@@ -186,64 +185,79 @@ $scene-illustration-size-mobile: 200px;
     flex-direction: unset;
   }
 
-  &.stackButton {
-    .descriptionContainer {
-      margin: 0 0 0 $spacing-sm;
-      padding: 0;
+  .illustrationWrapper {
+    margin-right: $spacing-sm;
 
-      [dir="rtl"] & {
-        margin: 0 $spacing-sm 0 0;
-        padding: 0;
-      }
+    [dir="rtl"] & {
+      margin-left: $spacing-sm;
+      margin-right: inherit;
     }
 
-    .buttonContainer {
-      flex-direction: row-reverse;
+    @include ca-media-tablet {
+      padding: 0;
+    }
+
+    @include ca-media-mobile {
+      display: flex;
     }
   }
 
-  &.stackIllustration {
-    .illustration {
-      margin-right: auto;
+  .descriptionContainer {
+    text-align: left;
+    max-width: unset;
+    min-width: 320px;
 
-      [dir="rtl"] & {
-        margin-right: 0;
-        margin-left: auto;
-      }
-    }
-
-    .sceneIllustration {
-      margin: 0 auto;
-    }
-
-    .descriptionContainer {
-      margin: 0;
+    @include ca-media-desktop {
       padding: 0;
+    }
 
-      [dir="rtl"] & {
-        margin: 0;
+    @include ca-media-mobile {
+      margin: 0;
+    }
+
+    [dir="rtl"] & {
+      text-align: right;
+
+      @include ca-media-desktop {
+        padding: 0;
       }
     }
+  }
 
-    .buttonContainer {
+  .buttonContainer {
+    padding-left: $spacing-sm;
+    justify-content: end;
+    width: unset;
+    min-width: unset;
+
+    @include ca-media-mobile {
       flex-direction: row-reverse;
-      min-width: unset;
     }
+
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $spacing-sm;
+    }
+
+    > * {
+      width: unset;
+    }
+  }
+
+  &.hasSceneIllustration {
+    justify-content: center;
   }
 
   &.centerContent {
     flex-direction: column;
 
+    &.hasSceneIllustration .illustration {
+      width: 100%;
+    }
+
     .illustrationWrapper {
-      align-self: center;
-    }
-
-    .illustration {
       margin: 0 auto;
-    }
-
-    .sceneIllustration {
-      width: $scene-illustration-size-mobile;
+      align-self: center;
     }
 
     .descriptionContainer {
@@ -256,6 +270,7 @@ $scene-illustration-size-mobile: 200px;
     }
 
     .buttonContainer {
+      padding: 0;
       flex-direction: column;
       min-width: unset;
       justify-content: center;
@@ -282,44 +297,9 @@ $scene-illustration-size-mobile: 200px;
       }
     }
   }
-
-  .illustrationWrapper {
-    padding: 0;
-
-    @include ca-media-mobile {
-      display: flex;
-    }
-  }
-
-  .descriptionContainer {
-    text-align: left;
-    max-width: unset;
-    min-width: 320px;
-
-    [dir="rtl"] & {
-      text-align: right;
-    }
-  }
-
-  .buttonContainer {
-    justify-content: end;
-    width: unset;
-
-    @include ca-media-mobile {
-      flex-direction: row-reverse;
-    }
-
-    > * {
-      width: unset;
-    }
-  }
 }
 
 .stacked {
-  &.stackIllustration .illustrationWrapper {
-    margin: 0 auto;
-  }
-
   .descriptionAndActions {
     flex-direction: column;
     align-items: unset;
@@ -327,11 +307,5 @@ $scene-illustration-size-mobile: 200px;
 
   .descriptionContainer {
     align-self: flex-start;
-    padding-right: 0;
-
-    [dir="rtl"] & {
-      padding-left: 0;
-      padding-right: $spacing-sm;
-    }
   }
 }
