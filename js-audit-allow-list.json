@@ -114,7 +114,10 @@
       "cve": "CVE-2021-23424",
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["@storybook/react"]
+      "whenSubDependencyOf": [
+        "@storybook/react",
+        "@pmmmwh/react-refresh-webpack-plugin"
+      ]
     }
   ],
   "ansi-regex": [
@@ -123,7 +126,11 @@
       "cve": "CVE-2021-3807",
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["@storybook/node-logger"]
+      "whenSubDependencyOf": [
+        "@storybook/node-logger",
+        "strip-ansi",
+        "pretty-format"
+      ]
     }
   ],
   "ws": [
@@ -133,6 +140,23 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["gatsby"]
+    }
+  ],
+  "shelljs": [
+    {
+      "title": "",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["yeoman-generator"]
+    }
+  ],
+  "follow-redirects": [
+    {
+      "title": "Still under investigation",
+      "cve": "CVE-2022-0155",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["axios", "http-proxy"]
     }
   ]
 }
