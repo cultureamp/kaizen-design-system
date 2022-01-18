@@ -5,13 +5,14 @@ summaryParagraph: Avatar Groups contains a list of companies, groups or users vi
 tags: ["Profile picture", "Display picture"]
 githubLabels: ["component:avatar-group"]
 needToKnow:
-- An Avatar Group must have at least one Avatar provided
+- An Avatar Group must have at least one Avatar provided.
 - The `size` set in Avatar Group will supersede any passed in at the Avatar component level.
 - Use an avatar to help a user in the platform efficiently identify another person or an organization.
 - Use a profile avatar to represent an individual and an account avatar for an organization.
 - Company Avatars will not display initials and should be accompanied by an avatarSrc.
-- Has RTL support could have internationalisation support for the aria response in the render counter.
-demoStoryId: components-avatar-avatar-group--default-story
+- Supports RTL layouts.
+- Internationalisation support required for counter Aria response.
+demoStoryId: components-avatar-avatar-group--default-story.
 headerImage: avatar
 health:
   designed: true
@@ -36,28 +37,9 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
-- Where possible, link the avatar to details about the individual, group or company it represents:
-  - Where appropriate, link the avatar to a context-specific view of that individual, group or company. Otherwise, link to their canonical "profile" page.
-  - Don't link the avatar while it's shown on the individual's canonical "profile" page.
-- When there is no personal photo to show, use initials:
-  - Because personal names differ around the world, consider avoiding using initials that may not represent an individual accurately. You might show their full name instead.
-  - We tend to use the first letter of each space-separated word for initials and capitalize them. You may need to resize the initials text for more than 4 names.
-  - When showing someone the avatar that represents them, show the personal avatar using the personal background color.
-  - When showing someone an avatar for another user, show the generic avatar using the generic background color.
-- When there is no specific individual, group or company identified, use the default user avatar.
-  - For example, if you were previewing a 360 survey template with no specific user assigned, you might show a default user avatar.
-- Use with name:
-  - Provide a text label showing the individual or group  name near the avatar when it's the only place the name is shown.
-  - Use an empty `alt=""`.
-- Use without name:
-  - This should not be used with company Avatars
-  - You might skip showing the individual or group name when the avatar is shown in a list and linked to a place where the name is shown.
-  - For `alt` text, use their name.
-- When using isCompany prop for company avatars:
-  - You should always provide fullName as the company name
-  - You should always provide the company logo as the avatarSrc
-- Loading:
-  - If an image fails to load, fall back to the default user avatar.
+- While a minimum of 1 Avatar is required, this component should ideally be used with multiple Avatars to make use of the counter and list functionality.
+- Unlike the Avatar component, there are only three sizes available for an AvatarGroup.
+- The counter will only appear if the number of Avatars exceed the maxVisible value.
 
 ## When to use and when not to use
 
