@@ -5,6 +5,7 @@ import * as ReactTestUtils from "react-dom/test-utils"
 import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
 
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
   matches: false,
   media: "",

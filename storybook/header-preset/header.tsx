@@ -1,4 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
+/* eslint-disable ssr-friendly/no-dom-globals-in-react-fc */
 
 /**
  * This file is the Storybook-specific header. The Gatsby header is

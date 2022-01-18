@@ -9371,6 +9371,12 @@ eslint-plugin-sort-imports-es6-autofix@^0.6.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-sort-imports-es6-autofix/-/eslint-plugin-sort-imports-es6-autofix-0.6.0.tgz#b8cd8639d7a54cefce6b17898b102fd5ec31e52b"
   integrity sha512-2NVaBGF9NN+727Fyq+jJYihdIeegjXeUUrZED9Q8FVB8MsV3YQEyXG96GVnXqWt0pmn7xfCZOZf3uKnIhBrfeQ==
 
+"eslint-plugin-ssr-friendly@https://github.com/cultureamp/eslint-plugin-ssr-friendly":
+  version "1.0.6"
+  resolved "https://github.com/cultureamp/eslint-plugin-ssr-friendly#6aa5638f911caf90bfaf8116d8db8a95a3e191ee"
+  dependencies:
+    globals "^13.8.0"
+
 eslint-scope@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-4.0.3.tgz#ca03833310f6889a3264781aa82e63eb9cfe7848"
@@ -11368,7 +11374,7 @@ globals@^12.1.0:
   dependencies:
     type-fest "^0.8.1"
 
-globals@^13.6.0, globals@^13.9.0:
+globals@^13.6.0, globals@^13.8.0, globals@^13.9.0:
   version "13.12.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-13.12.0.tgz#4d733760304230a0082ed96e21e5c565f898089e"
   integrity sha512-uS8X6lSKN2JumVoXrbUz+uG4BYG+eiawqm3qFcT7ammfbUHeCBoJMlHcec/S3krSk73/AE/f0szYFmgAA3kYZg==
