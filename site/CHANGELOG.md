@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.49](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.48...site@0.0.0-private.49) (2022-01-18)
+
+
+### Features
+
+* Update the demoStoryId to match new stories ([#2404](https://github.com/cultureamp/kaizen-design-system/issues/2404)) ([2cf96d9](https://github.com/cultureamp/kaizen-design-system/commit/2cf96d95bec818531127545a3fef8237e6d705c6))
+
+
+
+
+
 # [0.0.0-private.48](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.47...site@0.0.0-private.48) (2022-01-17)
 
 **Note:** Version bump only for package site
