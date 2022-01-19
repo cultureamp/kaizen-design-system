@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.3.0...@kaizen/draft-guidance-block@4.4.0) (2022-01-19)
+
+
+### Features
+
+* Make kaizen prerendering friendly (nextjs related) ([#2406](https://github.com/cultureamp/kaizen-design-system/issues/2406)) ([b53bb11](https://github.com/cultureamp/kaizen-design-system/commit/b53bb118157c98874554bd565853797beb72e590))
+
+
+
+
+
 # [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.2.1...@kaizen/draft-guidance-block@4.3.0) (2022-01-19)
 
 
