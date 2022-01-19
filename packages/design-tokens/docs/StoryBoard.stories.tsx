@@ -455,7 +455,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={InputEditModalStories} />
         <StoriesContainer storyModule={ConfirmationModalStories} />
         <StoriesContainer storyModule={ContextModalStories} />
-        <StoriesContainer storyModule={PageLayoutStories} />
         <StoriesContainer storyModule={ParagraphStories} />
         <StoriesContainer storyModule={PopoverStories} />
         <StoriesContainer storyModule={RadioFieldStories} />
