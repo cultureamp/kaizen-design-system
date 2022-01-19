@@ -4,6 +4,7 @@ import * as React from "react"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { BrandMoment } from "./BrandMoment"
 
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
   matches: false,
   media: "",
@@ -15,8 +16,10 @@ window.matchMedia = jest.fn().mockImplementation(() => ({
 }))
 
 // Stub video elements for JS-Dom to prevent console errors
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.HTMLMediaElement.prototype.load = () => jest.fn()
 // @ts-ignore-next-line
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.HTMLMediaElement.prototype.play = () => jest.fn()
 
 describe("<BrandMoment />", () => {
