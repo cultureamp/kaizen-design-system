@@ -81,6 +81,10 @@ $avatar-xxl: 7.75rem;
   & .initials {
     text-decoration: none;
     speak-as: spell-out;
+
+    // to override materialize.css global styling in performance-ui,
+    // which sets a border-bottom on abbr tags
+    border-bottom: none;
   }
 }
 
