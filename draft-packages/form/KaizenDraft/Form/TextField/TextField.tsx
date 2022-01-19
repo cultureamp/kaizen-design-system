@@ -1,35 +1,20 @@
+import React, { InputHTMLAttributes } from "react"
 import { Icon } from "@kaizen/component-library/components/Icon"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
-import * as React from "react"
-import {
-  FieldGroup,
-  FieldMessage,
-  Input,
-  InputStatus,
-  InputType,
-  Label,
-} from ".."
+
+import { FieldGroup, FieldMessage, Input, InputProps, Label } from ".."
 
 import styles from "./styles.scss"
 
-export type TextFieldProps = {
+export interface TextFieldProps extends InputProps {
   id: string
-  inputType?: InputType
-  required?: boolean
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
-  placeholder?: string
   labelText: string | React.ReactNode
-  disabled?: boolean
-  inputValue?: string
-  defaultInputValue?: string
-  inputRef?: React.RefObject<HTMLInputElement>
-  reversed?: boolean
   inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
-  status?: InputStatus
   /**
    * A descriptive message for `error` or `caution` states
    */
@@ -38,19 +23,14 @@ export type TextFieldProps = {
    * A description that provides context for the text field
    */
   description?: string | React.ReactNode
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
-  name?: string
 }
 
 type TextField = React.FunctionComponent<TextFieldProps>
 
-const TextField: TextField = ({
+export const TextField: TextField = ({
   id,
   inputType,
   disabled = false,
-  placeholder,
   labelText,
   inputValue,
   defaultInputValue,
@@ -61,10 +41,7 @@ const TextField: TextField = ({
   inline = false,
   status,
   icon,
-  onChange,
-  onBlur,
-  onFocus,
-  name,
+  ...inputProps
 }) => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
@@ -95,17 +72,12 @@ const TextField: TextField = ({
       />
       <Input
         id={`${id}-field-input`}
-        name={name}
         automationId={`${id}-field-input`}
         ariaDescribedBy={ariaDescribedBy}
         inputType={inputType}
         inputValue={inputValue}
         defaultInputValue={defaultInputValue}
         inputRef={inputRef}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
         disabled={disabled}
         reversed={reversed}
         status={status}
@@ -127,6 +99,7 @@ const TextField: TextField = ({
             </div>
           )
         }
+        {...inputProps}
       />
 
       {validationMessage && (
@@ -162,5 +135,3 @@ const TextField: TextField = ({
     </FieldGroup>
   )
 }
-
-export default TextField
