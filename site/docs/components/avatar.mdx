@@ -1,7 +1,7 @@
 ---
 title: Avatar
 navTitle: Avatar
-summaryParagraph: An avatar represents an individual or group visually.
+summaryParagraph: An avatar represents an individual or company visually.
 tags: ["Profile picture", "Display picture"]
 githubLabels: ["component:avatar"]
 needToKnow:
@@ -34,22 +34,22 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
-- Where possible, link the avatar to details about the individual, group or company it represents:
-  - Where appropriate, link the avatar to a context-specific view of that individual, group or company. Otherwise, link to their canonical "profile" page.
+- Where possible, link the avatar to details about the individual or company it represents:
+  - Where appropriate, link the avatar to a context-specific view of that individual or company. Otherwise, link to their canonical "profile" page.
   - Don't link the avatar while it's shown on the individual's canonical "profile" page.
 - When there is no personal photo to show, use initials:
   - Because personal names differ around the world, consider avoiding using initials that may not represent an individual accurately. You might show their full name instead.
   - We tend to use the first letter of each space-separated word for initials and capitalize them. You may need to resize the initials text for more than 4 names.
   - When showing someone the avatar that represents them, show the personal avatar using the personal background color.
   - When showing someone an avatar for another user, show the generic avatar using the generic background color.
-- When there is no specific individual, group or company identified, use the default user avatar.
+- When there is no specific individual identified, use the default user avatar.
   - For example, if you were previewing a 360 survey template with no specific user assigned, you might show a default user avatar.
 - Use with name:
-  - Provide a text label showing the individual or group  name near the avatar when it's the only place the name is shown.
+  - Provide a text label showing the individual or company name near the avatar when it's the only place the name is shown.
   - Use an empty `alt=""`.
 - Use without name:
   - This should not be used with company Avatars
-  - You might skip showing the individual or group name when the avatar is shown in a list and linked to a place where the name is shown.
+  - You might skip showing the individual name when the avatar is shown in a list and linked to a place where the name is shown.
   - For `alt` text, use their name.
 - When using isCompany prop for company avatars:
   - You should always provide fullName as the company name
@@ -68,7 +68,8 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 </WhenToUse>
 <WhenNotToUse>
 
-- Avoid an avatar when most people, groups or companies won't have an image to show.
+- Avoid an avatar when most people won't have an image to show.
+- Avoid an avatar when a company won't have an image to show.
 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
