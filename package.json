@@ -103,10 +103,13 @@
   },
   "devDependencies": {
     "@storybook/node-logger": "^6.4.9",
-    "chromatic": "^5.10.2",
-    "danger": "^10.7.1",
+    "chromatic": "^6.2.3",
+    "danger": "^10.8.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "loader-utils": "^1.4.0",
     "node-elm-compiler": "^5.0.6"
+  },
+  "resolutions": {
+    "axios": "0.21.2"
   }
 }
