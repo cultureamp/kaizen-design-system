@@ -17,11 +17,7 @@ export type FieldMessageProps = {
 
 type FieldMessage = React.FunctionComponent<FieldMessageProps>
 
-type WarningIconProps = {
-  isReversed: boolean
-}
-
-const WarningIcon: React.FunctionComponent<WarningIconProps> = () => (
+const WarningIcon: React.FunctionComponent = () => (
   <span className={styles.warningIcon}>
     <Icon
       icon={exclamationWhiteIcon}
