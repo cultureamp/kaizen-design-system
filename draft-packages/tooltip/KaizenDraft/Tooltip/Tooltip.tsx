@@ -166,10 +166,8 @@ const Tooltip = ({
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
-  const [
-    referenceElement,
-    setReferenceElement,
-  ] = useState<HTMLDivElement | null>(null)
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
 
   // Legacy support for the inline prop
