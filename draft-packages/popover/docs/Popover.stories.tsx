@@ -242,7 +242,7 @@ export const StickerSheet = () => {
               placement="top"
               variant="default"
               dismissible
-              heading="Heading"
+              heading="Default Top"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -254,7 +254,7 @@ export const StickerSheet = () => {
               placement="top"
               variant="positive"
               dismissible
-              heading="Heading"
+              heading="Positive Top"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -266,7 +266,7 @@ export const StickerSheet = () => {
               placement="top"
               variant="informative"
               dismissible
-              heading="Heading"
+              heading="Informative Top"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -278,7 +278,7 @@ export const StickerSheet = () => {
               placement="top"
               variant="negative"
               dismissible
-              heading="Heading"
+              heading="Negative Top"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -290,7 +290,7 @@ export const StickerSheet = () => {
               placement="top"
               variant="cautionary"
               dismissible
-              heading="Heading"
+              heading="Cautionary Top"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -315,7 +315,7 @@ export const StickerSheet = () => {
               placement="bottom"
               variant="default"
               dismissible
-              heading="Heading"
+              heading="Default Bottom"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -327,7 +327,7 @@ export const StickerSheet = () => {
               placement="bottom"
               variant="positive"
               dismissible
-              heading="Heading"
+              heading="Positive Bottom"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -339,7 +339,7 @@ export const StickerSheet = () => {
               placement="bottom"
               variant="informative"
               dismissible
-              heading="Heading"
+              heading="Informative Bottom"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -351,7 +351,7 @@ export const StickerSheet = () => {
               placement="bottom"
               variant="negative"
               dismissible
-              heading="Heading"
+              heading="Negative Bottom"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -363,7 +363,7 @@ export const StickerSheet = () => {
               placement="bottom"
               variant="cautionary"
               dismissible
-              heading="Heading"
+              heading="Cautionary Bottom"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -388,7 +388,7 @@ export const StickerSheet = () => {
               placement="left"
               variant="default"
               dismissible
-              heading="Heading"
+              heading="Default Left"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -400,7 +400,7 @@ export const StickerSheet = () => {
               placement="left"
               variant="positive"
               dismissible
-              heading="Heading"
+              heading="Positive Left"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -412,7 +412,7 @@ export const StickerSheet = () => {
               placement="left"
               variant="informative"
               dismissible
-              heading="Heading"
+              heading="Informative Left"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -424,7 +424,7 @@ export const StickerSheet = () => {
               placement="left"
               variant="negative"
               dismissible
-              heading="Heading"
+              heading="Negative Left"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -436,7 +436,7 @@ export const StickerSheet = () => {
               placement="left"
               variant="cautionary"
               dismissible
-              heading="Heading"
+              heading="Cautionary Left"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -461,7 +461,7 @@ export const StickerSheet = () => {
               placement="right"
               variant="default"
               dismissible
-              heading="Heading"
+              heading="Default Right"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -473,7 +473,7 @@ export const StickerSheet = () => {
               placement="right"
               variant="positive"
               dismissible
-              heading="Heading"
+              heading="Positve Right"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -485,7 +485,7 @@ export const StickerSheet = () => {
               placement="right"
               variant="informative"
               dismissible
-              heading="Heading"
+              heading="Informative Right"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -497,7 +497,7 @@ export const StickerSheet = () => {
               placement="right"
               variant="negative"
               dismissible
-              heading="Heading"
+              heading="Negative Right"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
@@ -509,7 +509,7 @@ export const StickerSheet = () => {
               placement="right"
               variant="cautionary"
               dismissible
-              heading="Heading"
+              heading="Cautionary Right"
             >
               Popover body that explains something useful, is optional, and not
               critical to completing a task.
