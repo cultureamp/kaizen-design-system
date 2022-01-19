@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
-
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
 $arrow-height: 7px;
@@ -109,12 +109,8 @@ $negative-box-border-color: $color-red-300;
 }
 
 .header {
-  font-family: $typography-paragraph-body-font-family;
-  font-size: $typography-heading-6-font-size;
-  font-weight: $typography-heading-6-font-weight;
-  letter-spacing: $typography-heading-6-letter-spacing;
-  line-height: $typography-paragraph-small-line-height;
   position: static;
+  @include kz-typography-heading-6;
   margin-bottom: $spacing-xs;
   display: flex;
   align-items: center;
@@ -124,11 +120,7 @@ $negative-box-border-color: $color-red-300;
 
 .container {
   position: static;
-  font-family: $typography-paragraph-body-font-family;
-  font-size: $typography-heading-6-font-size;
-  font-weight: $typography-paragraph-small-font-weight;
-  letter-spacing: $typography-paragraph-small-letter-spacing;
-  line-height: $typography-paragraph-small-line-height;
+  @include kz-typography-paragraph-small;
   white-space: pre-line;
 }
 
@@ -156,11 +148,22 @@ $negative-box-border-color: $color-red-300;
 .close {
   @include button-reset;
   position: absolute;
-  top: 0.875rem;
-  right: 0.875rem;
+  right: 0;
   margin-left: auto;
   display: inherit;
   color: rgba($color-purple-800-rgb, 0.7);
+
+  &:hover {
+    color: $color-purple-800;
+  }
+
+  &:focus {
+    color: $color-purple-800;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+    outline-offset: calc($border-focus-ring-border-width * -1);
+    border-radius: $border-borderless-border-radius;
+  }
 }
 
 .arrowWrapper {
