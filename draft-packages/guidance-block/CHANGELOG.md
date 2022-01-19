@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.2.1...@kaizen/draft-guidance-block@4.3.0) (2022-01-19)
+
+
+### Features
+
+* Guidance block container query ([#2401](https://github.com/cultureamp/kaizen-design-system/issues/2401)) ([a89d775](https://github.com/cultureamp/kaizen-design-system/commit/a89d7759dbadba4646d048d0acaa56b6e21dbb72))
+
+
+
+
+
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.2.0...@kaizen/draft-guidance-block@4.2.1) (2022-01-19)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.1.0...@kaizen/draft-guidance-block@4.2.0) (2022-01-18)
+
+
+### Features
+
+* Update the demoStoryId to match new stories ([#2404](https://github.com/cultureamp/kaizen-design-system/issues/2404)) ([2cf96d9](https://github.com/cultureamp/kaizen-design-system/commit/2cf96d95bec818531127545a3fef8237e6d705c6))
+
+
+
+
+
 # [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.0.1...@kaizen/draft-guidance-block@4.1.0) (2022-01-11)
 
 

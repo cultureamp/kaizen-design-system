@@ -5,6 +5,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
   const expectEquationIsValid = (value: string) => {
     let reported = 0
     noInvalidUseOfVarTokensInEquations.ruleFunction(
+      // @ts-ignore
       getParser("scss").parse(`.foo { padding: ${value}; }`),
       {
         language: "scss",
