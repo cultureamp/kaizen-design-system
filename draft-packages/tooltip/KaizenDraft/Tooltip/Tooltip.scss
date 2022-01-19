@@ -16,19 +16,19 @@ $arrow-width: 14px;
 }
 
 .tooltipContent {
-  border-radius: $border-solid-border-radius;
-  transition: opacity $animation-duration-fast,
-    transform $animation-duration-fast;
-  padding: 9px 9px;
-  box-shadow: $shadow-small-box-shadow;
-  text-align: center;
   max-width: 400px;
+  padding: 0.4375rem 0.53125rem;
   color: $color-purple-800;
+  text-align: center;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-heading-6-font-size;
   font-weight: $typography-paragraph-body-font-weight;
   letter-spacing: $typography-paragraph-body-letter-spacing;
-  line-height: 0.875rem;
+  line-height: $typography-paragraph-small-line-height;
+  border-radius: $border-solid-border-radius;
+  transition: opacity $animation-duration-fast,
+    transform $animation-duration-fast;
+  box-shadow: $shadow-small-box-shadow;
 
   &.default {
     background-color: $color-white;
@@ -102,9 +102,9 @@ $arrow-width: 14px;
   content: "";
   position: absolute;
   left: 50%;
-  border-left: ($arrow-width / 2) solid transparent;
-  border-right: ($arrow-width / 2) solid transparent;
-  margin-left: -($arrow-width / 2);
+  border-left: calc($arrow-width / 2) solid transparent;
+  border-right: calc($arrow-width / 2) solid transparent;
+  margin-left: calc($arrow-width / -2);
 }
 
 .arrowMain {

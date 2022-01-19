@@ -128,13 +128,10 @@ const TooltipContent = ({
       id={tooltipId}
     >
       <div
-        className={classnames(tooltipStyles.tooltipContent, {
-          [tooltipStyles.default]: mood === "default",
-          [tooltipStyles.informative]: mood === "informative",
-          [tooltipStyles.positive]: mood === "positive",
-          [tooltipStyles.negative]: mood === "negative",
-          [tooltipStyles.cautionary]: mood === "cautionary",
-        })}
+        className={classnames(
+          tooltipStyles.tooltipContent,
+          tooltipStyles[mood]
+        )}
       >
         {text}
       </div>
@@ -147,13 +144,7 @@ const TooltipContent = ({
       >
         <div className={tooltipStyles.arrowInner}>
           <div
-            className={classnames(tooltipStyles.arrowMain, {
-              [tooltipStyles.default]: mood === "default",
-              [tooltipStyles.informative]: mood === "informative",
-              [tooltipStyles.positive]: mood === "positive",
-              [tooltipStyles.negative]: mood === "negative",
-              [tooltipStyles.cautionary]: mood === "cautionary",
-            })}
+            className={classnames(tooltipStyles.arrowMain, tooltipStyles[mood])}
           />
           <div className={tooltipStyles.arrowShadow} />
         </div>
@@ -175,8 +166,10 @@ const Tooltip = ({
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
+  const [
+    referenceElement,
+    setReferenceElement,
+  ] = useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
 
   // Legacy support for the inline prop
