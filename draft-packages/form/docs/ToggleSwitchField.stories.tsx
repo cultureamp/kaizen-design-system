@@ -36,10 +36,6 @@ class ToggleStateContainer extends React.Component<
   }
 }
 
-const RtlContainer = ({ children }: { children: React.ReactNode }) => (
-  <div dir="rtl">{children}</div>
-)
-
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Toggle Switch Field`,
   component: ToggleSwitchField,
