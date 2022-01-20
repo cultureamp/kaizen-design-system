@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "3.1.2",
+  "version": "3.2.0",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@kaizen/component-library": "^12.0.1",
-    "@kaizen/design-tokens": "^6.0.3",
+    "@kaizen/design-tokens": "^6.1.0",
     "@types/jszip": "^3.4.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"

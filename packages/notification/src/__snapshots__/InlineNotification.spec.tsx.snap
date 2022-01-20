@@ -73,6 +73,7 @@ exports[`The basic notification renders correctly 1`] = `
   </div>
   <button
     class="cancel"
+    data-testid="close-button"
     type="button"
   >
     <span

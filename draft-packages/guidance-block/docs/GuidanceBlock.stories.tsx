@@ -205,10 +205,54 @@ export const StackedLayout = () => (
       },
     }}
     persistent
+    noMaxWidth
   />
 )
 
 StackedLayout.storyName = "Stacked Content Layout"
+
+export const TwoStackedLayout = () => (
+  <div style={{ display: "flex", gap: "36px" }}>
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+  </div>
+)
+
+TwoStackedLayout.storyName = "Two Stacked Content Layout"
 
 export const StackedLayoutWithScene = () => (
   <GuidanceBlock
@@ -216,6 +260,7 @@ export const StackedLayoutWithScene = () => (
     illustration={<HumanityAtWork alt="" />}
     illustrationType="scene"
     text={guidanceBlockText}
+    smallScreenTextAlignment="left"
     actions={{
       primary: {
         label: "Action",
@@ -224,10 +269,10 @@ export const StackedLayoutWithScene = () => (
         },
       },
       secondary: {
-        label: "Secondary action",
-        href: "#",
+        label: "Dismiss action",
       },
     }}
+    secondaryDismiss
     persistent
   />
 )

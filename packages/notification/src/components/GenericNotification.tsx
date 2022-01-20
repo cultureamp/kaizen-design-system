@@ -180,7 +180,12 @@ type CancelButtonProps = {
 }
 
 const CancelButton = ({ onClick }: CancelButtonProps) => (
-  <button className={styles.cancel} type="button" onClick={onClick}>
+  <button
+    className={styles.cancel}
+    type="button"
+    onClick={onClick}
+    data-testid="close-button"
+  >
     <span className={styles.cancelInner}>
       <Icon icon={closeIcon} role="img" title="close notification" />
     </span>
