@@ -63,6 +63,7 @@ $focus-ring-offset: 2px;
 
   .checkbox:focus:not([disabled]) + .track {
     border-color: transparent;
+    background-color: $color-green-500;
   }
 
   .thumb {
