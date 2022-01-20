@@ -15,8 +15,6 @@ export type FieldMessageProps = {
   position?: "top" | "bottom"
 }
 
-type FieldMessage = React.FunctionComponent<FieldMessageProps>
-
 const WarningIcon: React.FunctionComponent = () => (
   <span className={styles.warningIcon}>
     <Icon
@@ -28,7 +26,7 @@ const WarningIcon: React.FunctionComponent = () => (
   </span>
 )
 
-const FieldMessage: FieldMessage = ({
+const FieldMessage: React.FunctionComponent<FieldMessageProps> = ({
   id,
   automationId,
   message,
