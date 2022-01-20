@@ -17,7 +17,7 @@ $focus-ring-offset: 2px;
 
 .track {
   position: relative;
-  background-color: $color-green-300;
+  background-color: $color-gray-400;
   border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   border-radius: $ca-grid;
@@ -34,13 +34,14 @@ $focus-ring-offset: 2px;
     border-color: transparent;
     outline: 2px solid $color-blue-500;
     outline-offset: 2px;
+    background-color: $color-gray-500;
   }
 
   .checkbox:not([disabled]) + &:hover {
     // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
     // (the non-css variable token)
     background-color: $color-purple-500;
-    background-color: rgba($color-gray-500-rgb, 0.4);
+    background-color: $color-gray-500;
   }
 }
 
@@ -79,7 +80,7 @@ $focus-ring-offset: 2px;
 .off {
   .thumb {
     position: relative;
-    @include ca-position($start: 0);
+    @include ca-position($start: $ca-grid * -0.05);
   }
 }
 
