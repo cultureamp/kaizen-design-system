@@ -25,9 +25,7 @@ export interface TextFieldProps extends InputProps {
   description?: string | React.ReactNode
 }
 
-type TextField = React.FunctionComponent<TextFieldProps>
-
-export const TextField: TextField = ({
+export const TextField: React.FunctionComponent<TextFieldProps> = ({
   id,
   inputType,
   disabled = false,
