@@ -10,7 +10,7 @@ import { useUuid } from "./useUuid"
 
 type Position = "above" | "below" | "left" | "right"
 
-type Mood = "default" | "informative" | "positive" | "negative" | "cautionary"
+type Mood = "default" | "informative" | "positive" | "cautionary"
 
 export type TooltipProps = {
   /**

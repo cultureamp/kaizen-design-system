@@ -48,11 +48,6 @@ $arrow-width: 14px;
       $color-green-300;
   }
 
-  &.negative {
-    background-color: $color-red-100;
-    border: $border-solid-border-width $border-solid-border-style $color-red-300;
-  }
-
   &.cautionary {
     background-color: $color-yellow-100;
     border: $border-solid-border-width $border-solid-border-style
@@ -121,10 +116,6 @@ $arrow-width: 14px;
     border-top: $arrow-height solid $color-green-300;
   }
 
-  &.negative::before {
-    border-top: $arrow-height solid $color-red-300;
-  }
-
   &.cautionary::before {
     border-top: $arrow-height solid $color-yellow-300;
   }
@@ -143,10 +134,6 @@ $arrow-width: 14px;
 
   &.positive::after {
     border-top: $arrow-height solid $color-green-100;
-  }
-
-  &.negative::after {
-    border-top: $arrow-height solid $color-red-100;
   }
 
   &.cautionary::after {
