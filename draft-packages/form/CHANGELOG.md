@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.0.3...@kaizen/draft-form@4.1.0) (2022-01-21)
+
+
+### Features
+
+* Uplift TextField component and add variants to Kaizen ([#2391](https://github.com/cultureamp/kaizen-design-system/issues/2391)) ([950c543](https://github.com/cultureamp/kaizen-design-system/commit/950c543e2ce039f01c684cceb4bdd93d0947dbb7))
+
+
+
+
+
 ## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.0.2...@kaizen/draft-form@4.0.3) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/draft-form
