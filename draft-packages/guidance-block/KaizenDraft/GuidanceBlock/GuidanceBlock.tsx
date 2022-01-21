@@ -8,8 +8,7 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
-
-const styles = require("./GuidanceBlock.scss")
+import styles from "./GuidanceBlock.scss"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
@@ -18,6 +17,8 @@ export type ActionProps = ButtonProps & {
 type LayoutType = "default" | "inline" | "stacked"
 
 type IllustrationType = "spot" | "scene"
+
+type TextAlignment = "center" | "left"
 
 type GuidanceBlockActions = {
   primary: ActionProps
@@ -44,7 +45,9 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
+  smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
+  secondaryDismiss?: boolean
   persistent?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
@@ -54,6 +57,7 @@ export type GuidanceBlockProps = {
 export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
+  mediaQueryLayout: string
 }
 
 type WithTooltipProps = {
@@ -81,11 +85,13 @@ class GuidanceBlock extends React.Component<
     withActionButtonArrow: true,
     noMaxWidth: false,
     illustrationType: "spot",
+    smallScreenTextAlignment: "center",
   }
 
   state = {
     hidden: false,
     removed: false,
+    mediaQueryLayout: "",
   }
 
   containerRef = React.createRef<HTMLDivElement>()
@@ -95,6 +101,12 @@ class GuidanceBlock extends React.Component<
 
     this.dismissBanner = this.dismissBanner.bind(this)
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
+  }
+
+  componentDidMount() {
+    if (this.props.layout === "inline" || this.props.layout === "stacked") {
+      this.containerQuery()
+    }
   }
 
   dismissBanner(): void {
@@ -109,43 +121,82 @@ class GuidanceBlock extends React.Component<
     }
   }
 
+  containerQuery(): void {
+    const resizeObserver = new ResizeObserver(entries => {
+      if (entries.length === 1) {
+        this.setMediaQueryLayout(entries[0].contentRect.width)
+      }
+    })
+
+    resizeObserver.observe(this.containerRef.current as HTMLElement)
+  }
+
+  setMediaQueryLayout(width: number) {
+    if (width <= 320) {
+      this.setState({
+        mediaQueryLayout: "centerContent",
+      })
+    } else {
+      this.setState({ mediaQueryLayout: "" })
+    }
+  }
+
   renderActions = (
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
-  ) => (
-    <Media query="(max-width: 767px)">
-      {isMobile => (
-        <Box mr={isMobile ? 0 : 0.5}>
-          <div
-            className={classnames(styles.buttonContainer, {
-              [styles.secondaryAction]: actions?.secondary,
-            })}
-          >
-            <WithTooltip tooltipProps={actions.primary.tooltip}>
-              <Button
-                icon={withActionButtonArrow ? configureIcon : undefined}
-                iconPosition="end"
-                {...actions.primary}
-                fullWidth={isMobile}
-              />
-            </WithTooltip>
+  ) => {
+    // Checks if container query is mobile configuration
+    const componentIsMobile =
+      this.state.mediaQueryLayout.includes("centerContent")
 
-            {actions?.secondary && (
-              <WithTooltip tooltipProps={actions.secondary.tooltip}>
-                <div className={styles.secondaryAction}>
-                  <Button
-                    secondary
-                    {...actions.secondary}
-                    fullWidth={isMobile}
-                  />
-                </div>
+    return (
+      <Media query="(max-width: 767px)">
+        {isMobile => (
+          <Box
+            mr={
+              isMobile || componentIsMobile
+                ? 0
+                : this.props.layout === "default"
+                ? 0.5
+                : 0
+            }
+          >
+            <div
+              className={classnames(styles.buttonContainer, {
+                [styles.secondaryAction]: actions?.secondary,
+              })}
+            >
+              <WithTooltip tooltipProps={actions.primary.tooltip}>
+                <Button
+                  icon={withActionButtonArrow ? configureIcon : undefined}
+                  iconPosition="end"
+                  {...actions.primary}
+                  fullWidth={isMobile || componentIsMobile}
+                />
               </WithTooltip>
-            )}
-          </div>
-        </Box>
-      )}
-    </Media>
-  )
+
+              {actions?.secondary && (
+                <WithTooltip tooltipProps={actions.secondary.tooltip}>
+                  <div className={styles.secondaryAction}>
+                    <Button
+                      secondary
+                      {...actions.secondary}
+                      onClick={
+                        this.props?.secondaryDismiss
+                          ? () => this.dismissBanner()
+                          : this.props.actions?.secondary?.onClick
+                      }
+                      fullWidth={isMobile || componentIsMobile}
+                    />
+                  </div>
+                </WithTooltip>
+              )}
+            </div>
+          </Box>
+        )}
+      </Media>
+    )
+  }
 
   render(): JSX.Element | null {
     if (this.state.removed) {
@@ -171,7 +222,7 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={this.illustrationClassName()}>{illustration}</div>
+          <div className={styles.illustration}>{illustration}</div>
         </div>
 
         <div className={styles.descriptionAndActions}>
@@ -203,14 +254,12 @@ class GuidanceBlock extends React.Component<
       [styles.assertive]: this.props.variant === "assertive",
       [styles.prominent]: this.props.variant === "prominent",
       [styles.noMaxWidth]: noMaxWidth,
+      [styles.hasSceneIllustration]: this.props.illustrationType === "scene",
       [styles.inline]: this.props.layout === "inline",
       [styles.stacked]: this.props.layout === "stacked",
-    })
-  }
-
-  illustrationClassName(): string {
-    return classnames(styles.illustration, {
-      [styles.sceneIllustration]: this.props.illustrationType === "scene",
+      [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
+      [styles.smallScreenTextAlignment]:
+        this.props.smallScreenTextAlignment === "left",
     })
   }
 

@@ -10,6 +10,8 @@ const matchMedia = {
   onchange: null,
   addListener: jest.fn(),
   removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
 }
 const mockPrefersReducedMotion = {
   matches: true,

@@ -1,3 +1,4 @@
+/* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
 import { render } from "react-dom"
 import * as React from "react"
 import Footer from "../../site/src/components/Footer"

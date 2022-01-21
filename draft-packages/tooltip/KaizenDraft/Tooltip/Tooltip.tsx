@@ -1,5 +1,5 @@
 import { usePopper } from "react-popper"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
 import tooltipStyles from "./Tooltip.scss"
@@ -144,18 +144,22 @@ const Tooltip = ({
     />
   )
 
-  const portalSelectorElement: Element | null = portalSelector
-    ? document.querySelector(portalSelector)
-    : null
+  const portalSelectorElementRef = useRef<Element | null>(null)
 
   useEffect(() => {
-    if (portalSelector && !portalSelectorElement) {
+    portalSelectorElementRef.current = portalSelector
+      ? document.querySelector(portalSelector)
+      : null
+  }, [portalSelector])
+
+  useEffect(() => {
+    if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
       console.warn(
         "The portal could not be created using the selector: " + portalSelector
       )
     }
-  }, [portalSelectorElement, portalSelector])
+  }, [portalSelectorElementRef, portalSelector])
 
   return (
     <AnimationProvider isVisible={isHover || isFocus}>
@@ -186,8 +190,8 @@ const Tooltip = ({
           {children}
         </div>
 
-        {portalSelector && portalSelectorElement
-          ? ReactDOM.createPortal(tooltip, portalSelectorElement)
+        {portalSelector && portalSelectorElementRef.current
+          ? ReactDOM.createPortal(tooltip, portalSelectorElementRef.current)
           : tooltip}
       </>
     </AnimationProvider>
