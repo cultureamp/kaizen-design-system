@@ -1,48 +1,34 @@
+import React, { InputHTMLAttributes } from "react"
 import { Icon } from "@kaizen/component-library/components/Icon"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
-import * as React from "react"
-import {
-  FieldGroup,
-  FieldMessage,
-  Input,
-  InputStatus,
-  InputType,
-  Label,
-} from ".."
+
+import { FieldGroup, FieldMessage, Input, InputProps, Label } from ".."
 
 import styles from "./styles.scss"
 
-export type TextFieldProps = {
+export interface TextFieldProps extends InputProps {
   id: string
-  inputType?: InputType
-  required?: boolean
-  placeholder?: string
+  /**
+   * A short example of input text. For context or additional information use the `description` prop
+   */
   labelText: string | React.ReactNode
-  disabled?: boolean
-  inputValue?: string
-  defaultInputValue?: string
-  inputRef?: React.RefObject<HTMLInputElement>
-  reversed?: boolean
   inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
-  status?: InputStatus
-  validationMessage?: React.ReactNode
-  description?: React.ReactNode
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
-  name?: string
+  /**
+   * A descriptive message for `error` or `caution` states
+   */
+  validationMessage?: string | React.ReactNode
+  /**
+   * A description that provides context for the text field
+   */
+  description?: string | React.ReactNode
 }
 
-type TextField = React.FunctionComponent<TextFieldProps>
-
-const TextField: TextField = ({
+export const TextField: React.FunctionComponent<TextFieldProps> = ({
   id,
   inputType,
   disabled = false,
-  placeholder,
   labelText,
   inputValue,
   defaultInputValue,
@@ -53,10 +39,7 @@ const TextField: TextField = ({
   inline = false,
   status,
   icon,
-  onChange,
-  onBlur,
-  onFocus,
-  name,
+  ...inputProps
 }) => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
@@ -83,21 +66,16 @@ const TextField: TextField = ({
         htmlFor={`${id}-field-input`}
         labelText={labelText}
         reversed={reversed}
+        disabled={disabled}
       />
-
       <Input
         id={`${id}-field-input`}
-        name={name}
         automationId={`${id}-field-input`}
         ariaDescribedBy={ariaDescribedBy}
         inputType={inputType}
         inputValue={inputValue}
         defaultInputValue={defaultInputValue}
         inputRef={inputRef}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
         disabled={disabled}
         reversed={reversed}
         status={status}
@@ -110,15 +88,24 @@ const TextField: TextField = ({
         }
         endIconAdornment={
           status === "success" && (
-            <div className={styles.success}>
+            <div
+              className={classnames(styles.success, {
+                [styles.disabled]: disabled,
+              })}
+            >
               <Icon icon={successIcon} role="presentation" />
             </div>
           )
         }
+        {...inputProps}
       />
 
       {validationMessage && (
-        <div className={styles.message}>
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
           <FieldMessage
             id={`${id}-field-message`}
             automationId={`${id}-field-validation-message`}
@@ -130,7 +117,11 @@ const TextField: TextField = ({
       )}
 
       {description && (
-        <div className={styles.message}>
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
           <FieldMessage
             id={`${id}-field-message`}
             automationId={`${id}-field-description`}
@@ -142,5 +133,3 @@ const TextField: TextField = ({
     </FieldGroup>
   )
 }
-
-export default TextField
