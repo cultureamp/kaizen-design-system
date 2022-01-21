@@ -1,0 +1,77 @@
+---
+title: Avatar Group
+navTitle: Avatar Group
+summaryParagraph: Avatar Group contains a list of companies, groups or users visually through profile images or initials
+tags: ["Profile picture", "Display picture"]
+githubLabels: ["component:avatar-group"]
+needToKnow:
+- An Avatar Group must have at least one Avatar provided.
+- The `size` set in Avatar Group will supersede any passed in at the Avatar component level.
+- Use an avatar to help a user in the platform efficiently identify another person or an organization.
+- Use a profile avatar to represent an individual and an account avatar for an organization.
+- Company Avatars will not display initials and should be accompanied by an avatarSrc.
+- Supports RTL layouts.
+- internationalization support required for counter Aria response.
+demoStoryId: components-avatar-avatar-group--default-story
+headerImage: avatar
+health:
+  designed: true
+  documented: true
+  implemented: true
+  latestDesign: true
+  allVariants: true
+  responsive: true
+  internationalized: false
+  accessible: true
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D1929%253A14305" allowfullscreen></iframe>
+
+## To keep in mind
+
+- While a minimum of 1 Avatar is required, this component should ideally be used with multiple Avatars to make use of the counter and list functionality.
+- Unlike the Avatar component, there are only three sizes available for an Avatar Group.
+- The counter will only appear if the number of Avatars exceed the maxVisible value.
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use the Avatar Group to help people efficiently identify a group of individuals or companies in the platform visually.
+- Use the Avatar Group if you want a efficient way to change the maximum avatars visible, ie: on screen resize.
+- Use the Avatar Group to distinguish people or companies with the same names.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- Avoid an Avatar Group when most individuals or companies won't have an image to show.
+- Avoid an Avatar Group when you only have one individual or company.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Link vs button](/guidelines/link-vs-button/).
+
+## External links
+
+- [Atlassian Design: avatars](https://www.atlassian.design/guidelines/product/components/avatars).
+- [Hudl: avatars overview](http://uniform.hudl.com/components/avatars/design/).
+- [Polaris: avatar](https://polaris.shopify.com/components/images-and-icons/avatar#navigation).
+- [Pinterest: avatar](https://pinterest.github.io/gestalt/#/Avatar).
+- [Lightning Design System: avatar](https://www.lightningdesignsystem.com/components/avatar/#site-main-content).
+- [Ant Design: avatar](https://ant.design/components/avatar/#header).
+- [Spectrum: tag avatar](https://spectrum.adobe.com/page/tag/#Avatar).
+- [Redbubble: avatar](http://redbubble.design/components/Avatar/examples).
+- [W3C: Personal names around the world](https://www.w3.org/International/questions/qa-personal-names).
+
