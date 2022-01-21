@@ -2,12 +2,15 @@ import { usePopper } from "react-popper"
 import React, { useEffect, useRef, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
+import { Placement } from "@popperjs/core"
 import tooltipStyles from "./Tooltip.scss"
 import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
 
-type Position = "above" | "below"
+type Position = "above" | "below" | "left" | "right"
+
+type Mood = "default" | "informative" | "positive" | "cautionary"
 
 export type TooltipProps = {
   /**
@@ -30,6 +33,7 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  mood?: Mood
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
    * This is typically used for instances where the menu is a descendant of an
@@ -43,11 +47,24 @@ export type TooltipProps = {
   isInitiallyVisible?: boolean
 }
 
-// Sync with Tooltip.scss
-const arrowHeight = 10
-const arrowWidth = 20
+const positionToPlacement = new Map<Position, Placement>([
+  ["above", "top"],
+  ["below", "bottom"],
+  ["left", "left"],
+  ["right", "right"],
+])
 
-const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
+// Sync with Tooltip.scss
+const arrowHeight = 7
+const arrowWidth = 14
+
+const TooltipContent = ({
+  position,
+  text,
+  referenceElement,
+  tooltipId,
+  mood = "default",
+}) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -69,7 +86,7 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
         {
           name: "offset",
           options: {
-            offset: [0, arrowHeight],
+            offset: [0, arrowHeight + 6],
           },
         },
         {
@@ -77,11 +94,22 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
           options: {
             // Makes sure that the tooltip isn't flush up against the end of the
             // viewport
-            padding: 4,
+            padding: 8,
+            altAxis: true,
+            altBoundary: true,
+            tetherOffset: 50,
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            padding: 8,
+            altBoundary: true,
+            fallbackPlacements: ["left", "top", "bottom", "right"],
           },
         },
       ],
-      placement: position === "below" ? "bottom" : "top",
+      placement: positionToPlacement.get(position),
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
@@ -99,7 +127,14 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
       role="tooltip"
       id={tooltipId}
     >
-      <div className={classnames(tooltipStyles.tooltipContent)}>{text}</div>
+      <div
+        className={classnames(
+          tooltipStyles.tooltipContent,
+          tooltipStyles[mood]
+        )}
+      >
+        {text}
+      </div>
       <div
         ref={setArrowElement}
         className={classnames({
@@ -108,7 +143,9 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
         style={popperStyles.arrow}
       >
         <div className={tooltipStyles.arrowInner}>
-          <div className={tooltipStyles.arrowWhite} />
+          <div
+            className={classnames(tooltipStyles.arrowMain, tooltipStyles[mood])}
+          />
           <div className={tooltipStyles.arrowShadow} />
         </div>
       </div>
@@ -125,6 +162,7 @@ const Tooltip = ({
   classNameAndIHaveSpokenToDST,
   portalSelector,
   isInitiallyVisible = false,
+  mood = "default",
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
@@ -141,6 +179,7 @@ const Tooltip = ({
       position={position}
       referenceElement={referenceElement}
       tooltipId={tooltipId}
+      mood={mood}
     />
   )
 
