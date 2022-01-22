@@ -76,7 +76,7 @@
     "jest-static-stubs": "^0.0.1",
     "lerna": "^3.22.1",
     "lodash.isempty": "^4.4.0",
-    "node-fetch": "^2.6.6",
+    "node-fetch": "^3.0.0",
     "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "postcss-flexbugs-fixes": "^4.2.1",
