@@ -44,6 +44,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
     automationId={`${id}-field-group`}
     className={classnames(styles.container, {
       [styles.fullWidth]: fullWidth,
+      [styles.on]: toggledStatus === ToggledStatus.ON,
     })}
   >
     <div className={styles.inner}>
