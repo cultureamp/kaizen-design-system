@@ -59,7 +59,7 @@ $focus-ring-offset: 2px;
 .on {
   .checkbox:not([disabled]) + .track {
     border-color: $border-borderless-border-color;
-    background-color: $color-green-300;
+    background-color: $color-green-400;
   }
 
   .checkbox:focus:not([disabled]) + .track {
@@ -88,5 +88,17 @@ $focus-ring-offset: 2px;
   .checkbox:focus:not([disabled]) + .track,
   .checkbox:hover:focus:not([disabled]) + .track {
     outline-color: $color-blue-300;
+  }
+
+  &.off {
+    .track {
+      background-color: rgba($color-white-rgb, 0.2);
+    }
+
+    .checkbox:focus:not([disabled]) + .track,
+    .checkbox:hover:focus:not([disabled]) + .track,
+    .checkbox:not([disabled]) + .track:hover {
+      background-color: rgba($color-white-rgb, 0.65);
+    }
   }
 }
