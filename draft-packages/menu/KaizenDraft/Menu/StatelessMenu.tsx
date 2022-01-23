@@ -1,4 +1,10 @@
-import { default as React, useEffect, useState, SyntheticEvent } from "react"
+import {
+  default as React,
+  useEffect,
+  useState,
+  SyntheticEvent,
+  useRef,
+} from "react"
 import ReactDOM from "react-dom"
 import styles from "./styles.scss"
 import MenuDropdown from "./MenuDropdown"
@@ -65,9 +71,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
 }) => {
   const [referenceElement, setReferenceElement] =
     useState<HTMLSpanElement | null>(null)
-  const portalSelectorElement: Element | null = portalSelector
-    ? document.querySelector(portalSelector)
-    : null
+  const portalSelectorElementRef = useRef<Element | null>(null)
 
   const menuButton = renderButton({
     onClick: (e: any) => {
@@ -81,13 +85,19 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   })
 
   useEffect(() => {
-    if (portalSelector && !portalSelectorElement) {
+    portalSelectorElementRef.current = portalSelector
+      ? document.querySelector(portalSelector)
+      : null
+  }, [portalSelector])
+
+  useEffect(() => {
+    if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
       console.warn(
         "The portal could not be created using the selector: " + portalSelector
       )
     }
-  }, [portalSelectorElement, portalSelector])
+  }, [portalSelectorElementRef, portalSelector])
 
   const menu = isMenuVisible ? (
     <MenuDropdown
@@ -107,8 +117,8 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
       <div className={styles.buttonWrapper} ref={setReferenceElement}>
         {menuButton}
       </div>
-      {portalSelector && portalSelectorElement
-        ? ReactDOM.createPortal(menu, portalSelectorElement)
+      {portalSelector && portalSelectorElementRef.current
+        ? ReactDOM.createPortal(menu, portalSelectorElementRef.current)
         : menu}
     </div>
   )

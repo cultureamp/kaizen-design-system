@@ -4,27 +4,46 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../decision-tokens.scss";
 
+$message-icon-size: 1.25rem;
+$validation-message-padding: 0.5625rem;
+
 .message {
   display: flex;
+  position: relative;
   align-items: center;
-  gap: $ca-grid * 0.25;
+  gap: $spacing-xs;
 }
 
 .default {
   color: $dt-color-form-text-color-label;
+
   &.reversed {
     color: $dt-color-form-text-color-label-reversed;
   }
 }
 
-.error {
-  padding: $ca-grid / 2;
-  color: $dt-color-form-text-color;
+.error,
+.caution {
   border-radius: $border-solid-border-radius;
+  padding: $validation-message-padding;
+  color: $color-purple-800;
+}
+
+.error {
   background: $color-red-100;
+  opacity: 1;
 
   &.reversed {
     background: $color-red-300;
+  }
+}
+
+.caution {
+  background: $color-yellow-200;
+  opacity: 1;
+
+  &.reversed {
+    background: $color-yellow-400;
   }
 }
 
@@ -37,9 +56,16 @@
 }
 
 .warningIcon {
-  display: flex;
-  align-items: center;
-  color: $color-red-500;
+  display: inline-flex;
+  width: $message-icon-size;
+
+  .error & {
+    color: $color-red-500;
+  }
+
+  .caution & {
+    color: $color-yellow-500;
+  }
 
   .reversed & {
     color: $color-purple-800;

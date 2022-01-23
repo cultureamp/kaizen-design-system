@@ -1,26 +1,24 @@
-import classnames from "classnames"
 import * as React from "react"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-
 import { Icon, Paragraph } from "@kaizen/component-library"
+import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import classnames from "classnames"
 import styles from "./styles.scss"
 
-export type FieldMessageStatus = "default" | "success" | "error"
+export type FieldMessageStatus = "default" | "success" | "error" | "caution"
+
 export type FieldMessageProps = {
   id?: string
   automationId?: string
-  message?: React.ReactNode
+  message?: string | React.ReactNode
   status?: FieldMessageStatus
   reversed?: boolean
   position?: "top" | "bottom"
 }
 
-type FieldMessage = React.SFC<FieldMessageProps>
-
-const warningIcon = (
+const WarningIcon: React.FunctionComponent = () => (
   <span className={styles.warningIcon}>
     <Icon
-      icon={exclamationIcon}
+      icon={exclamationWhiteIcon}
       title="Error message"
       role="img"
       inheritSize={false}
@@ -28,7 +26,7 @@ const warningIcon = (
   </span>
 )
 
-const FieldMessage: FieldMessage = ({
+const FieldMessage: React.FunctionComponent<FieldMessageProps> = ({
   id,
   automationId,
   message,
@@ -36,24 +34,23 @@ const FieldMessage: FieldMessage = ({
   reversed = false,
   position = "bottom",
 }) => {
-  const textColor = reversed
-    ? status === "error"
-      ? "dark-reduced-opacity"
-      : "white-reduced-opacity"
-    : "dark-reduced-opacity"
+  const textColor =
+    status === "default"
+      ? reversed
+        ? "white-reduced-opacity"
+        : "dark-reduced-opacity"
+      : "dark"
   return (
     <div
       id={id}
       data-automation-id={automationId}
-      className={classnames(styles.message, {
+      className={classnames(styles.message, styles[status], {
         [styles.reversed]: reversed,
-        [styles.default]: status === "default",
-        [styles.error]: status === "error",
         [styles.positionBottom]: position === "bottom",
         [styles.positionTop]: position === "top",
       })}
     >
-      {status === "error" && warningIcon}
+      {(status === "error" || status === "caution") && <WarningIcon />}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}

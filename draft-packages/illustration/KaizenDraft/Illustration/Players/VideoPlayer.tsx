@@ -46,11 +46,8 @@ export const VideoPlayer = ({
   onEnded,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const reducedMotionQuery = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  )
   const [prefersReducedMotion, setPrefersReducedMotion] =
-    React.useState<boolean>(reducedMotionQuery.matches || false)
+    React.useState<boolean>(true)
 
   useEffect(() => {
     /**
@@ -78,7 +75,11 @@ export const VideoPlayer = ({
   }, [source])
 
   useEffect(() => {
-    if (!reducedMotionQuery.addEventListener || !window) return
+    if (!window) return
+    const reducedMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    )
+    setPrefersReducedMotion(reducedMotionQuery.matches)
     const updateMotionPreferences = () => {
       const { matches = false } = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
