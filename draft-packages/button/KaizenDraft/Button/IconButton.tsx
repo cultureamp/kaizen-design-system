@@ -1,9 +1,9 @@
 import * as React from "react"
 import GenericButton, { IconButtonProps } from "./components/GenericButton"
 
-const IconButton: React.FunctionComponent<IconButtonProps> = (
-  props: IconButtonProps
-) => <GenericButton iconButton {...props} />
+const IconButton = <S extends string>(props: IconButtonProps<S>) => (
+  <GenericButton iconButton {...props} />
+)
 
 IconButton.defaultProps = {
   form: false,

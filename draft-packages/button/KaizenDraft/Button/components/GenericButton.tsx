@@ -70,8 +70,17 @@ type WorkingUndefinedProps = {
 export type LabelProps = LabelPropsGeneric &
   (WorkingProps | WorkingUndefinedProps)
 
-export type IconButtonProps = GenericProps &
+type NonEmptyString<T extends string> = T extends "" ? never : T
+
+type IconOverrideProps<S extends string> = {
+  label: NonEmptyString<S>
+  icon: React.SVGAttributes<SVGSymbolElement>
+}
+
+export type IconButtonProps<S extends string> = GenericProps &
+  IconOverrideProps<S> &
   (WorkingProps | WorkingUndefinedProps)
+
 export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {

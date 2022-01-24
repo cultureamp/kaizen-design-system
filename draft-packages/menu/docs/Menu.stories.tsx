@@ -166,7 +166,10 @@ LabelAndIconReversed.parameters = {
 }
 
 export const DefaultMeatball = () => (
-  <Menu button={<IconButton label="" icon={meatballsIcon} />} align="right">
+  <Menu
+    button={<IconButton label="open menu" icon={meatballsIcon} />}
+    align="right"
+  >
     <MenuInstance />
   </Menu>
 )
@@ -174,7 +177,10 @@ export const DefaultMeatball = () => (
 DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
-  <Menu button={<IconButton label="" icon={kebabIcon} />} align="right">
+  <Menu
+    button={<IconButton label="open menu" icon={kebabIcon} />}
+    align="right"
+  >
     <MenuInstance />
   </Menu>
 )
