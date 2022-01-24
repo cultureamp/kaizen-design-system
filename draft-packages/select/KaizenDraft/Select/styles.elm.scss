@@ -171,7 +171,7 @@ $control-height: $ca-grid * 2;
   user-select: none;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 8px $ca-grid / 2;
+  padding: 8px calc($ca-grid / 2);
   outline: none;
 
   &.isTarget:not(.isSelected) {

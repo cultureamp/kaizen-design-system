@@ -23,8 +23,8 @@ $large-width: 450px;
   &::after {
     content: "";
     position: absolute;
-    border-left: ($arrow-width / 2) solid transparent;
-    border-right: ($arrow-width / 2) solid transparent;
+    border-left: calc($arrow-width / 2) solid transparent;
+    border-right: calc($arrow-width / 2) solid transparent;
     top: 0;
     left: 0;
   }
@@ -114,8 +114,8 @@ $negative-box-border-color: $color-red-300;
 .header {
   @include kz-typography-heading-6;
   @include ca-inherit-baseline;
-  padding: ($ca-grid / 4) ($ca-grid / 2);
-  margin-bottom: $ca-grid / 4;
+  padding: calc($ca-grid / 4) calc($ca-grid / 2);
+  margin-bottom: calc($ca-grid / 4);
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -124,13 +124,13 @@ $negative-box-border-color: $color-red-300;
 .container {
   @include ca-inherit-baseline;
   @include kz-typography-paragraph-small;
-  padding: ($ca-grid / 6) ($ca-grid / 2) ($ca-grid);
+  padding: calc($ca-grid / 6) calc($ca-grid / 2) calc($ca-grid);
   white-space: pre-line;
 }
 
 .icon {
   display: inherit;
-  margin-right: $ca-grid / 4;
+  margin-right: calc($ca-grid / 4);
 }
 
 .informativeIcon {

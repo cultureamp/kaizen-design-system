@@ -14,7 +14,7 @@
 
 $ca-notification-border-width: $border-solid-border-width;
 $ca-notification-vertical-padding: calc(
-  #{$ca-grid / 4} - #{$ca-notification-border-width}
+  #{calc($ca-grid / 4)} - #{$ca-notification-border-width}
 );
 $ca-notification-inline-horizontal-padding: $spacing-sm;
 $ca-notification-toast-horizontal-padding: 10px;
@@ -177,7 +177,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   %ca-notification---toast & {
     width: 22px;
     height: 22px;
-    margin-top: $ca-grid / 4;
+    margin-top: calc($ca-grid / 4);
   }
 
   %ca-notification---global & {
@@ -185,8 +185,8 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 
     width: $size;
     height: $size;
-    padding: (($ca-grid * 2) - $size) / 2;
-    margin: $ca-grid / 4;
+    padding: calc((($ca-grid * 2) - $size) / 2);
+    margin: calc($ca-grid / 4);
     border-radius: $border-solid-border-radius;
 
     // Override the type-specific color values set above
@@ -255,7 +255,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     @include kz-typography-paragraph-small;
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
-    margin-top: $ca-grid / 4;
+    margin-top: calc($ca-grid / 4);
     flex: 0 1 auto;
     padding-bottom: 0.75rem;
     top: 0.21em;
@@ -309,8 +309,8 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   %ca-notification---toast & {
     width: $ca-grid * 2;
     height: $ca-grid * 2;
-    margin-top: -$ca-grid / 4;
-    margin-bottom: -$ca-grid / 4;
+    margin-top: calc($ca-grid / -4);
+    margin-bottom: calc($ca-grid / -4);
   }
 
   %ca-notification---inline & {
@@ -322,12 +322,12 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   }
 
   %ca-notification---global & {
-    padding-right: (5 / 8) * $ca-grid;
+    padding-right: calc(5 / 8) * $ca-grid;
     width: $ca-grid * 2.5;
     height: $ca-grid * 2.5;
     margin-right: -15px;
-    margin-top: -$ca-grid / 2;
-    margin-bottom: -$ca-grid / 2;
+    margin-top: calc($ca-grid / -2);
+    margin-bottom: calc($ca-grid / -2);
   }
 }
 

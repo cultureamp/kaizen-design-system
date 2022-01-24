@@ -110,7 +110,7 @@
 
 .filterName {
   font-weight: $typography-button-primary-font-weight;
-  margin-right: $ca-grid / 3;
+  margin-right: calc($ca-grid / 3);
 }
 
 .metadata {

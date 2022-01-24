@@ -17,7 +17,7 @@ $deprecation-warning: "@kaizen/component-library/styles/color is completely depr
 
 @function add-alpha($color, $percentage) {
   @warn $deprecation-warning;
-  $decimal: $percentage / 100%;
+  $decimal: calc($percentage / 100%);
   $inverse: 1 - $decimal;
   @return transparentize($color, $inverse);
 }

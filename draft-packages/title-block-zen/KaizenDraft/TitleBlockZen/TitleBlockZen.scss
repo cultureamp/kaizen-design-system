@@ -139,7 +139,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
       align-items: normal;
       flex-direction: column;
       justify-content: space-between;
-      transform: translateY($ca-grid / 3);
+      transform: translateY(calc($ca-grid / 3));
     }
   }
 
@@ -151,7 +151,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
       align-items: normal;
       flex-direction: column;
       justify-content: space-between;
-      transform: translateY($ca-grid / 3);
+      transform: translateY(calc($ca-grid / 3));
 
       .hasLongTitle.hasLongSubtitle & {
         align-items: baseline;
@@ -159,7 +159,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     }
 
     @include title-block-medium-and-small {
-      transform: translateY($ca-grid / 2);
+      transform: translateY(calc($ca-grid / 2));
     }
   }
 }
@@ -209,7 +209,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   overflow: hidden;
   height: $ca-grid * 2;
   width: $ca-grid * 2;
-  @include ca-margin($end: $ca-grid / 2);
+  @include ca-margin($end: calc($ca-grid / 2));
 
   > * {
     max-width: 100%;
@@ -254,14 +254,14 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     color: $color-purple-800;
   }
 
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: calc($ca-grid / 2));
 
   @include title-block-under-1366 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: none;
-    margin: ($ca-grid / 5) 0;
+    margin: calc($ca-grid / 5) 0;
   }
 }
 
@@ -281,7 +281,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .sectionTitleContainer {
   display: flex;
   align-items: center;
-  padding: ($ca-grid * 3/4) 0;
+  padding: ($ca-grid * calc(3 / 4)) 0;
 }
 
 .sectionTitleInner {
@@ -322,7 +322,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .sectionTitleDescription {
   .sectionTitle + & {
-    margin-top: $ca-grid / 4;
+    margin-top: calc($ca-grid / 4);
   }
 
   color: $color-white;
@@ -365,7 +365,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .tag {
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: calc($ca-grid / 2));
   display: flex;
   align-items: center;
 
@@ -379,7 +379,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .pageSwitcherSelectNextToTitle {
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: calc($ca-grid / 2));
   flex-shrink: 0;
   width: 10 * $ca-grid;
 }
@@ -488,7 +488,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   flex-grow: 1;
   flex-shrink: 0;
 
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: calc($ca-grid / 2));
 
   @include title-block-small {
     display: none;
@@ -499,7 +499,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: ($ca-grid / 2) 0;
+  padding: calc($ca-grid / 2) 0;
   @include ca-margin($start: $ca-grid * 1.5);
 
   // To be removed eventually – the Dropdown does not
@@ -547,7 +547,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
-    @include ca-margin($end: $ca-grid / 2);
+    @include ca-margin($end: calc($ca-grid / 2));
     @include ca-position($start: 0);
     transform: translateY(0);
   }

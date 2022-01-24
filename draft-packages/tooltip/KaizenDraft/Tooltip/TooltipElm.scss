@@ -17,7 +17,7 @@
   pointer-events: none;
   border-radius: $border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
-  padding: $ca-grid / 2 $ca-grid / 2;
+  padding: calc($ca-grid / 2) calc($ca-grid / 2);
   z-index: 2;
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   box-shadow: $shadow-small-box-shadow;

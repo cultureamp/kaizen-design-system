@@ -14,8 +14,8 @@
 
 .close {
   position: absolute;
-  top: $ca-grid / 2;
-  right: $ca-grid / 2;
+  top: calc($ca-grid / 2);
+  right: calc($ca-grid / 2);
 }
 
 .heading {

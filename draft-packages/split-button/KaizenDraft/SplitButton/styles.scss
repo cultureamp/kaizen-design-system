@@ -12,7 +12,7 @@ $base-border: $border-solid-border-width $border-solid-border-style
   $color-gray-500;
 $button-width: 124px;
 
-$side-padding: 3/4 * $ca-grid;
+$side-padding: calc(3 / 4) * $ca-grid;
 
 @mixin input-icon($color, $reversed) {
   color: $color;
