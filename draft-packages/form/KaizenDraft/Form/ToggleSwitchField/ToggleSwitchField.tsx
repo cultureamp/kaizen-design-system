@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { FieldGroup, Label, ToggledStatus, ToggleSwitch, ToggleTheme } from ".."
+import { FieldGroup, Label, ToggledStatus, ToggleSwitch } from ".."
 
 import styles from "./styles.scss"
 
@@ -15,7 +15,6 @@ export interface ToggleSwitchFieldProps {
   disabled?: boolean
   inline?: boolean
   fullWidth?: boolean
-  theme?: ToggleTheme
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
@@ -32,7 +31,6 @@ const ToggleSwitchField: ToggleSwitchField = ({
   disabled = false,
   inline = false,
   fullWidth = false,
-  theme = ToggleTheme.DEFAULT,
   onFocus,
   onBlur,
 }) => (
@@ -63,7 +61,6 @@ const ToggleSwitchField: ToggleSwitchField = ({
           onToggle={onToggle}
           onFocus={onFocus}
           onBlur={onBlur}
-          theme={theme}
         />
       </Label>
     </div>
