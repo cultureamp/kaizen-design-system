@@ -86,6 +86,7 @@ export const LightButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -208,6 +209,7 @@ export const LightButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -288,6 +290,7 @@ export const LightButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -359,6 +362,7 @@ export const LightButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -486,6 +490,7 @@ export const ReversedButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -558,6 +563,7 @@ export const ReversedButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
@@ -628,6 +634,7 @@ export const ReversedButtons = () => (
           working
           workingLabel="Submitting"
           workingLabelHidden
+          icon={trashIcon}
         />
       </div>
     </div>
