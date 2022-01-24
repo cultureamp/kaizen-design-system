@@ -34,7 +34,7 @@ Clean code should read like prose, and we should not be able to look at a file w
 - Explicit return types
 - Type generics where possible (eg. `useState<string>()`) (unless they have a sensible default)
 - How to handle deprecation?
-- Declare `displayName`; this helps with debugging (otherwise you'll find the component tree will show any child components with just the name `Component`)
+- Declare `displayName`; this helps with debugging and possibly testing (otherwise you'll find the component tree will show any child components with just the name `Component`)
 
 ### Props
 
@@ -55,11 +55,42 @@ Clean code should read like prose, and we should not be able to look at a file w
 - Should we set a default value for `boolean` props or leave it undefined?
   - When passing the value into functions, without a default value you'll need to make the function also accept `undefined`
 
-## Linting (these should be autofixed)
+## Linting
+
+### Manual fixes
+
+- Disallow usage of `any` (`unknown` is fine if required)
+- Disallow/warn usage of `let` for immutability (use built in functions like `map` or `reduce` instead)
+- Early returns (may be able to autofix some instances)
+  - https://eslint.org/docs/rules/no-else-return
+  - Returning in an `else` is redundant
+  - Early returns make functions much easier to understand (no need to read until the end to see if the return value might continue to change or not)
+
+### Autofixed
 
 - Semicolons? (CT preference)
   - I find it a little more readable seeing where things "end"
 - Order of imports to be a little more strict
+- Require parentheses for arrow function params
+  - https://eslint.org/docs/rules/arrow-parens
+- Short hand for arrow functions with immediate returns
+    ```tsx
+    // No parentheses or braces 
+    const Component = () => <div />;
+
+    // Parentheses for multiline
+    const Component = () => (
+      <div>
+        <p />
+      </div>
+    )
+
+    // Braces when not immediate return
+    const Component = () => {
+      const doSomething = () => true;
+      return <SubComponent onSomething={doSomething} />;
+    }
+    ```
 
 ## Where do these docs live?
 
@@ -108,27 +139,40 @@ import styles from './styles.scss';
 export type PancakeStackProps = HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode; // declare `children` if you need it; don't rely on FC
   isBooleanProp: boolean; // prefix with `is` or `has`
-  onCustomFunction: () => void;
+  isOptionalBooleanProp?: boolean;
+  onCustomFunction: () => void; // prefix with `on`
 }
 
 // use `VFC` for better type safety
 export const PancakeStack: React.VFC<PancakeStackProps> = ({
   children, /* have children as first prop for clarity */
   isBooleanProp,
+  isOptionalBooleanProp = false, /* declare default value? */
+  onCustomFunction,
   className, /* destructure out of spread props as we want to manipulate it */
   ...props /* spread the rest of the props */
-}) => (
-  <div
-    // sorry if this is wrong; not familiar with syntax yet
-    className={classnames(styles.pancakeStack, className, {
-      [styles.someClass]: isBooleanProp,
-    })}
-    {...props}
-  >
-    {children}
-  </div>
-);
+}) => {
+  // prefix with `handle` within component when using a function prop
+  const handleCustomFunction = () => {
+    onCustomFunction();
+    return true;
+  }
 
+  return (
+    <div
+      // sorry if this is wrong; not familiar with syntax yet
+      className={classnames(styles.pancakeStack, className, {
+        [styles.someClass]: isBooleanProp,
+      })}
+      {...props}
+    >
+      {children}
+      {doSomething(isOptionalBooleanProp) && <SubComponent />}
+    </div>
+  );
+}
+
+// display name for debugging/testing
 PancakeStack.displayName = 'PancakeStack';
 ```
 
