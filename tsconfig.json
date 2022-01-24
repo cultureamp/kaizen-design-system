@@ -15,7 +15,8 @@
   "include": [
     "./packages/**/*",
     "./draft-packages/**/*",
-    "./legacy-packages/**/*"
+    "./legacy-packages/**/*",
+    "./docs/**/*"
   ],
   "exclude": ["**/node_modules"]
 }
