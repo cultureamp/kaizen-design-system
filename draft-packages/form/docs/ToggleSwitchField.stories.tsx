@@ -152,7 +152,7 @@ export const DesignSheetSheetReversed = () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (
         <ToggleSwitchField
-          id="1"
+          id="4"
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
@@ -163,7 +163,7 @@ export const DesignSheetSheetReversed = () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (
         <ToggleSwitchField
-          id="2"
+          id="5"
           labelText="Label"
           labelPosition="end"
           toggledStatus={toggledStatus}
@@ -175,7 +175,7 @@ export const DesignSheetSheetReversed = () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (
         <ToggleSwitchField
-          id="3"
+          id="6"
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
