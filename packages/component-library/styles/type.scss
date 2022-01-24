@@ -226,7 +226,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3/4,
+    $line-height-in-grid-units: calc(3 / 4),
     $args...
   );
 }
@@ -339,7 +339,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3/4,
+    $line-height-in-grid-units: calc(3 / 4),
     $args...
   );
 }

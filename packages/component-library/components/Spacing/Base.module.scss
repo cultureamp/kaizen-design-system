@@ -8,7 +8,7 @@ $spacing-list: (
   ("0-point-5", 0.5 * $ca-grid),
   ("0-point-75", 0.75 * $ca-grid),
   ("1", $ca-grid),
-  ("1-point-25", 1.25 * ($ca-grid/4)),
+  ("1-point-25", 1.25 * calc($ca-grid / 4)),
   ("1-point-5", 1.5 * $ca-grid),
   ("1-point-75", 1.75 * $ca-grid),
   ("2", $ca-grid * 2),
