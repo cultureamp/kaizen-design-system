@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.43...@kaizen/draft-table@3.10.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
 ## [3.9.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.9.42...@kaizen/draft-table@3.9.43) (2022-01-21)
 
 **Note:** Version bump only for package @kaizen/draft-table
