@@ -32,7 +32,7 @@ Clean code should read like prose, and we should not be able to look at a file w
 - Should we destructure `VFC` in the import?
   - CT preference is to keep it as `React.VFC` for clarity of Type origin (since it's short)
 - Explicit return types
-- Type hooks where possible (eg. `useState<string>()`)
+- Type generics where possible (eg. `useState<string>()`) (unless they have a sensible default)
 - How to handle deprecation?
 - Declare `displayName`; this helps with debugging (otherwise you'll find the component tree will show any child components with just the name `Component`)
 
@@ -52,6 +52,8 @@ Clean code should read like prose, and we should not be able to look at a file w
 - Allow access to `className`
 - Prefix boolean props with `is` or `has`
 - Prefix function props with `on`
+- Should we set a default value for `boolean` props or leave it undefined?
+  - When passing the value into functions, without a default value you'll need to make the function also accept `undefined`
 
 ## Linting (these should be autofixed)
 
