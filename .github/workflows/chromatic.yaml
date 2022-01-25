@@ -4,8 +4,10 @@
 name: "chromatic"
 
 on:
-  pull_request_review:
-    types: [submitted]
+  #  pull_request_review:
+  #    types: [submitted]
+  pull_request:
+    types: [opened, reopened, ready_for_review]
 
 # List of jobs
 jobs:
@@ -26,10 +28,10 @@ jobs:
           runChromatic: "true" ## TODO github.event.review.state == 'approved'
 
       - run: echo "PR has been approved, trigger Chromatic"
-        if: runChromatic == 'true'
+        if: ${{ env.runChromatic == 'true' }}
 
       - uses: actions/cache@v2 # use of cache for node_modules saves usually > 1min of build time
-        if: runChromatic == 'true'
+        if: ${{ env.runChromatic == 'true' }}
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/package.json') }}
@@ -38,18 +40,18 @@ jobs:
             ${{ runner.os }}-
 
       - uses: actions/setup-node@v1
-        if: runChromatic == 'true'
+        if: ${{ env.runChromatic == 'true' }}
         with:
           node-version: "16.13.x"
 
       - name: Install package dependencies
-        if: runChromatic == 'true'
+        if: ${{ env.runChromatic == 'true' }}
         run: |
           yarn install --frozen-lockfile
 
       # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        if: runChromatic == 'true'
+        if: ${{ env.runChromatic == 'true' }}
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
