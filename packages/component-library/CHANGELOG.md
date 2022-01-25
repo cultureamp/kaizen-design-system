@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.0.1...@kaizen/component-library@12.1.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
 ## [12.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.0.0...@kaizen/component-library@12.0.1) (2022-01-10)
 
 
