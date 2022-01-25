@@ -1,8 +1,4 @@
-import {
-  ToggledStatus,
-  ToggleSwitchField,
-  ToggleTheme,
-} from "@kaizen/draft-form"
+import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -50,7 +46,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+          'import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"',
       },
     },
     ...figmaEmbed(
@@ -213,21 +209,6 @@ export const FullWidthRtl = () => (
 )
 
 FullWidthRtl.storyName = "Full width (RTL)"
-
-export const FreemiumTheme = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <ToggleSwitchField
-        labelText="Label"
-        toggledStatus={toggledStatus}
-        onToggle={toggle}
-        theme={ToggleTheme.FREEMIUM}
-      />
-    )}
-  </ToggleStateContainer>
-)
-
-FreemiumTheme.storyName = "Freemium theme"
 
 export const LabelAtEnd = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
