@@ -43,7 +43,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+          'import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"',
       },
     },
     ...figmaEmbed(

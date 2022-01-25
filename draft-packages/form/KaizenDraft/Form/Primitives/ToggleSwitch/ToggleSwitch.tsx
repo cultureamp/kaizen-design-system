@@ -7,12 +7,6 @@ export enum ToggledStatus {
   ON = "on",
   OFF = "off",
 }
-
-export enum ToggleTheme {
-  DEFAULT = "default",
-  FREEMIUM = "freemium",
-}
-
 export interface ToggleSwitchProps {
   id?: string
   automationId?: string
@@ -21,7 +15,6 @@ export interface ToggleSwitchProps {
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   reversed?: boolean
-  theme?: ToggleTheme
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
@@ -36,7 +29,6 @@ const ToggleSwitch: ToggleSwitch = ({
   onToggle,
   disabled,
   reversed,
-  theme,
   onFocus,
   onBlur,
 }) => {
@@ -62,11 +54,7 @@ const ToggleSwitch: ToggleSwitch = ({
         onBlur={onBlur}
         disabled={disabled}
       />
-      <span
-        className={classnames(styles.track, {
-          [styles.freemium]: theme === ToggleTheme.FREEMIUM,
-        })}
-      >
+      <span className={styles.track}>
         <span className={styles.thumb} />
       </span>
     </span>

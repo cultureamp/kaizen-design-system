@@ -1,4 +1,4 @@
-module KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggleTheme(..), ToggledStatus(..), default, disabled, fullWidth, id, inline, labelPosition, labelText, name, onToggle, theme, toggledStatus, view)
+module KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggledStatus(..), default, disabled, fullWidth, id, inline, labelPosition, labelText, name, onToggle, toggledStatus, view)
 
 import CssModules exposing (css)
 import Html exposing (..)
@@ -21,18 +21,12 @@ type alias ConfigValue msg =
     , disabled : Maybe Bool
     , inline : Maybe Bool
     , fullWidth : Maybe Bool
-    , theme : Maybe ToggleTheme
     }
 
 
 type ToggledStatus
     = On
     | Off
-
-
-type ToggleTheme
-    = Default
-    | Freemium
 
 
 defaults : ConfigValue msg
@@ -46,7 +40,6 @@ defaults =
     , disabled = Just False
     , inline = Just False
     , fullWidth = Just False
-    , theme = Just Default
     }
 
 
@@ -108,11 +101,6 @@ fullWidth value (Config config) =
     Config { config | fullWidth = Just value }
 
 
-theme : ToggleTheme -> Config msg -> Config msg
-theme value (Config config) =
-    Config { config | theme = Just value }
-
-
 view : Config msg -> Html msg
 view (Config config) =
     let
@@ -146,17 +134,6 @@ view (Config config) =
                 Nothing ->
                     ToggleSwitch.On
 
-        themeProp =
-            case config.theme of
-                Just Default ->
-                    ToggleSwitch.Default
-
-                Just Freemium ->
-                    ToggleSwitch.Freemium
-
-                Nothing ->
-                    ToggleSwitch.Default
-
         toggleSwitch =
             case config.onToggle of
                 Just toggleMsg ->
@@ -167,7 +144,6 @@ view (Config config) =
                             |> ToggleSwitch.name (convertToString config.name)
                             |> ToggleSwitch.toggledStatus toggledStatusProp
                             |> ToggleSwitch.disabled (convertToBool config.disabled)
-                            |> ToggleSwitch.theme themeProp
                             |> ToggleSwitch.onToggle (\val -> toggleMsg val)
                         )
                     ]
@@ -180,7 +156,6 @@ view (Config config) =
                             |> ToggleSwitch.name (convertToString config.name)
                             |> ToggleSwitch.toggledStatus toggledStatusProp
                             |> ToggleSwitch.disabled (convertToBool config.disabled)
-                            |> ToggleSwitch.theme themeProp
                         )
                     ]
     in
