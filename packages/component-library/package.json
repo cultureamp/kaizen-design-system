@@ -42,7 +42,7 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
-    "@testing-library/dom": "^7.31.2",
+    "@testing-library/dom": "^8.11.3",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^2.7.1"
   },
