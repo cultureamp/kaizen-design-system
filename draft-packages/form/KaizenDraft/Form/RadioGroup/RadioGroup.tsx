@@ -8,6 +8,7 @@ import styles from "./styles.scss"
 export type RadioGroupProps = {
   automationId?: string
   labelText: string | React.ReactNode
+  labelId?: string
   noBottomMargin?: boolean
   reversed?: boolean
 }
@@ -18,6 +19,7 @@ const RadioGroup: RadioGroup = ({
   automationId = "",
   children,
   labelText = "",
+  labelId,
   noBottomMargin = false,
   reversed = false,
 }) => (
@@ -27,9 +29,12 @@ const RadioGroup: RadioGroup = ({
       [styles.noBottomMargin]: noBottomMargin,
       [styles.reversed]: reversed,
     })}
+    role="radiogroup"
+    aria-labelledby={labelId}
   >
     <div className={styles.radioGroupLabel}>
       <Label
+        id={labelId}
         automationId={`${automationId}-field-label`}
         labelText={labelText}
         labelType="text"
