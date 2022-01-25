@@ -1,7 +1,7 @@
 import { RadioField } from "@kaizen/draft-form"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import RadioGroup, { RadioGroupProps } from "./RadioGroup"
+import RadioGroup from "./RadioGroup"
 
 afterEach(cleanup)
 
@@ -63,6 +63,24 @@ describe("<RadioGroup /> ", () => {
         <RadioGroup labelText={title} children={null} />
       )
       expect(queryByText(title)).toBeTruthy()
+    })
+  })
+  describe("accessibilty", () => {
+    it("should markup aria label when supplied labelId", () => {
+      const labelId = "labelId"
+      const { getByText, getByRole } = render(
+        <RadioGroup
+          labelText="Label title"
+          labelId={labelId}
+          automationId="test"
+        />
+      )
+      expect(getByRole("radiogroup").getAttribute("aria-labelledby")).toEqual(
+        labelId
+      )
+      expect(
+        getByText("Label title").parentElement?.getAttribute("id")
+      ).toEqual(labelId)
     })
   })
 })
