@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.5.4...@kaizen/draft-page-layout@1.6.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
 ## [1.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.5.3...@kaizen/draft-page-layout@1.5.4) (2022-01-10)
 
 
