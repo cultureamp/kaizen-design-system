@@ -45,9 +45,4 @@ describe("type safety for icon button", () => {
     // @ts-expect-error
     const NoLabel = () => <IconButton label="" icon={configureIcon} />
   })
-
-  it("generates a typescript error when no icon is supplied", () => {
-    // @ts-expect-error
-    const NoIcon = () => <IconButton label="hi" icon={null} />
-  })
 })
