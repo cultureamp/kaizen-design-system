@@ -23,7 +23,7 @@ jobs:
       - run: |
           echo "runChromatic=${runChromatic}" >> $GITHUB_ENV
         env:
-          runChromatic: "true" ## TODO github.event.review.state == 'approved'
+          runChromatic: ${{ github.event.review.state == 'approved' }}
 
       - run: echo "PR has been approved, trigger Chromatic"
         if: ${{ env.runChromatic == 'true' }}
