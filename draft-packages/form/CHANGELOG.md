@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.1...@kaizen/draft-form@5.2.0) (2022-01-26)
+
+
+### Features
+
+* realign toggle switch with design with reverse option ([#2407](https://github.com/cultureamp/kaizen-design-system/issues/2407)) ([d2663ba](https://github.com/cultureamp/kaizen-design-system/commit/d2663ba796d97ff4697aee1866add95722f92e03))
+
+
+
+
+
 ## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.0...@kaizen/draft-form@5.1.1) (2022-01-26)
 
 
