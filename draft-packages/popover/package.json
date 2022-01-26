@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^12.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
-    "@kaizen/draft-button": "^5.3.6",
+    "@kaizen/draft-button": "^5.4.0",
     "@popperjs/core": "^2.11.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
@@ -47,7 +47,6 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   }
 }
