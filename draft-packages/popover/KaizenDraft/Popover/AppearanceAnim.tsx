@@ -1,7 +1,6 @@
-import * as React from "react"
 import { useDebouncedCallback } from "use-debounce"
 import cx from "classnames"
-import { useState } from "react"
+import React, { useState } from "react"
 import styles from "./AppearanceAnim.scss"
 
 type Props = {
