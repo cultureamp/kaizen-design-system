@@ -44,25 +44,13 @@ main =
             }
     in
     storybook
-        [ storyOf "Default theme" config <|
+        [ storyOf "Default" config <|
             \m ->
                 ToggleSwitchField.view
                     (ToggleSwitchField.default
                         |> ToggleSwitchField.labelText "Label"
                         |> ToggleSwitchField.id "hello"
                         |> ToggleSwitchField.toggledStatus m.toggledStatus
-                        |> ToggleSwitchField.theme ToggleSwitchField.Default
-                        |> ToggleSwitchField.onToggle
-                            (\val -> ToggleSwitchMsg val)
-                    )
-        , storyOf "Freemium theme" config <|
-            \m ->
-                ToggleSwitchField.view
-                    (ToggleSwitchField.default
-                        |> ToggleSwitchField.labelText "Label"
-                        |> ToggleSwitchField.id "hello"
-                        |> ToggleSwitchField.toggledStatus m.toggledStatus
-                        |> ToggleSwitchField.theme ToggleSwitchField.Freemium
                         |> ToggleSwitchField.onToggle
                             (\val -> ToggleSwitchMsg val)
                     )
@@ -72,7 +60,6 @@ main =
                     (ToggleSwitchField.default
                         |> ToggleSwitchField.labelText "Label"
                         |> ToggleSwitchField.toggledStatus ToggleSwitchField.Off
-                        |> ToggleSwitchField.theme ToggleSwitchField.Default
                         |> ToggleSwitchField.disabled True
                     )
         , storyOf "Disabled On" config <|
@@ -81,7 +68,6 @@ main =
                     (ToggleSwitchField.default
                         |> ToggleSwitchField.labelText "Label"
                         |> ToggleSwitchField.toggledStatus ToggleSwitchField.On
-                        |> ToggleSwitchField.theme ToggleSwitchField.Default
                         |> ToggleSwitchField.disabled True
                     )
         , storyOf "Label at end" config <|
