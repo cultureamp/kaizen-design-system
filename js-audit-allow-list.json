@@ -142,14 +142,6 @@
       "whenSubDependencyOf": ["gatsby"]
     }
   ],
-  "shelljs": [
-    {
-      "title": "",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["yeoman-generator"]
-    }
-  ],
   "follow-redirects": [
     {
       "title": "Still under investigation",
