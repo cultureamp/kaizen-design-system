@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.0.0...@kaizen/draft-form@5.1.0) (2022-01-25)
+
+
+### Features
+
+* improve RadioGroup accessibility ([b86ed79](https://github.com/cultureamp/kaizen-design-system/commit/b86ed794910cf93c10a2516c7b001d1324e54a6c))
+
+
+
+
+
 # [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.2.0...@kaizen/draft-form@5.0.0) (2022-01-25)
 
 

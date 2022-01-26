@@ -62,9 +62,9 @@ const reversedBg = {
 export const DefaultKaizenSiteDemo = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }) => (
-      <RadioGroup labelText="Radio group label">
+      <RadioGroup labelText="Radio group label" labelId="RadioGroupLabel">
         <RadioField
-          labelText="Label"
+          labelText="Option one"
           name="radio"
           id="radio-1"
           selectedStatus={selectedOption === "radio-1"}
@@ -72,7 +72,7 @@ export const DefaultKaizenSiteDemo = () => (
           value="radio-1"
         />
         <RadioField
-          labelText="Label"
+          labelText="Option two"
           name="radio"
           id="radio-2"
           selectedStatus={selectedOption === "radio-2"}
@@ -80,7 +80,7 @@ export const DefaultKaizenSiteDemo = () => (
           value="radio-2"
         />
         <RadioField
-          labelText="Label"
+          labelText="Option three"
           name="radio"
           id="radio-3"
           selectedStatus={selectedOption === "radio-3"}
