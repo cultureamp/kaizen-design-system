@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react"
+import React from "react"
 import { Icon } from "@kaizen/component-library/components/Icon"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
@@ -7,7 +7,14 @@ import { FieldGroup, FieldMessage, Input, InputProps, Label } from ".."
 
 import styles from "./styles.scss"
 
-export interface TextFieldProps extends InputProps {
+type OmittedInputProps =
+  | "startIconAdornment"
+  | "endIconAdornment"
+  | "ariaDescribedBy"
+  | "ariaLabel"
+  | "automationId"
+
+export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
   id: string
   /**
    * A short example of input text. For context or additional information use the `description` prop

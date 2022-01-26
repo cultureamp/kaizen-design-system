@@ -63,12 +63,16 @@ export const DefaultStory = args => (
 
 DefaultStory.args = {
   id: "kaizen-demo-text-field",
-  inputType: "text",
-  defaultInputValue: "",
   labelText: "Label Text",
+  inputType: "text",
+  defaultInputValue: "test",
   placeholder: "",
   description: "Example / description text",
   validationMessage: "",
+  inputValue: "",
+  status: "default",
+  inline: false,
+  reversed: false,
 }
 
 DefaultStory.argTypes = {
@@ -76,6 +80,15 @@ DefaultStory.argTypes = {
     control: {
       disable: true,
     },
+  },
+  icon: {
+    control: {
+      disabled: true,
+    },
+  },
+  placeholder: {
+    description:
+      "It is advised that this is only used to give an example response",
   },
   validationMessage: {
     description:
