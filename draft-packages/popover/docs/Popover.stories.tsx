@@ -4,8 +4,8 @@ import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { useState } from "react"
 import { Button, IconButton } from "@kaizen/draft-button"
-import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import isChromatic from "chromatic/isChromatic"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
@@ -88,9 +88,9 @@ const InlineBlockTargetElement = ({
 
 export const DefaultKaizenSiteDemo = props => {
   const [ElementRef, Popover] = usePopover()
-  const [isOpen, setIsOpen] = useState(false)
+  // set the popover open state to be true when testing on chromatic
+  const [isOpen, setIsOpen] = isChromatic() ? useState(true) : useState(false)
   const openPopover = () => setIsOpen(true)
-
   return (
     <div
       style={{
@@ -177,351 +177,347 @@ export const StickerSheet = () => {
   const [ElementRefRightNegative, PopoverRightNegative] = usePopover()
   const [ElementRefRightCautionary, PopoverRightCautionary] = usePopover()
 
-  if (!isChromatic()) {
-    return (
-      <>
-        <Button
-          onClick={() => setIsOpen(!isOpen)}
-          label="Open all Popovers"
-        ></Button>
-        <p>
-          Note: We recommend viewing on full screen as the 'flip' and 'fallback'
-          functionality for the Popover causes overlaying and random placement
-          when viewing all Popovers on a small screen.
-        </p>
+  return (
+    <>
+      <Button
+        onClick={() => setIsOpen(!isOpen)}
+        label="Open all Popovers"
+      ></Button>
+      <p>
+        Note: We recommend viewing on full screen as the 'flip' and 'fallback'
+        functionality for the Popover causes overlaying and random placement
+        when viewing all Popovers on a small screen.
+      </p>
+      <div
+        style={{
+          marginTop: "50px",
+          marginBottom: "200px",
+          display: "grid",
+          justifyContent: "center",
+          gridTemplateColumns: "0.25fr 0.8fr 0.8fr 1fr 1fr",
+        }}
+      >
         <div
           style={{
-            marginTop: "50px",
-            marginBottom: "200px",
             display: "grid",
             justifyContent: "center",
-            gridTemplateColumns: "0.25fr 0.8fr 0.8fr 1fr 1fr",
+            flexDirection: "column",
+            justifyItems: "center",
+            rowGap: "5rem",
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              justifyContent: "center",
-              flexDirection: "column",
-              justifyItems: "center",
-              rowGap: "5rem",
-            }}
-          >
-            <Heading variant="heading-5" tag="h2">
-              {" "}
-            </Heading>
-            <Heading variant="heading-5" tag="h2">
-              Default
-            </Heading>
-            <Heading variant="heading-5" tag="h2">
-              Informative
-            </Heading>
-            <Heading variant="heading-5" tag="h2">
-              Positive
-            </Heading>
-            <Heading variant="heading-5" tag="h2">
-              Negative
-            </Heading>
-            <Heading variant="heading-5" tag="h2">
-              Cautionary
-            </Heading>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              justifyContent: "center",
-              flexDirection: "column",
-              justifyItems: "center",
-              rowGap: "5rem",
-            }}
-          >
-            <Heading variant="heading-3" tag="h1">
-              Top
-            </Heading>
-            <InlineBlockTargetElement ElementRef={ElementRefTopDefault} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverTopDefault
-                placement="top"
-                variant="default"
-                dismissible
-                heading="Default Top"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverTopDefault>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefTopPositive} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverTopPositive
-                placement="top"
-                variant="positive"
-                dismissible
-                heading="Positive Top"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverTopPositive>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefTopInformative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverTopInformative
-                placement="top"
-                variant="informative"
-                dismissible
-                heading="Informative Top"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverTopInformative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefTopNegative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverTopNegative
-                placement="top"
-                variant="negative"
-                dismissible
-                heading="Negative Top"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverTopNegative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefTopCautionary} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverTopCautionary
-                placement="top"
-                variant="cautionary"
-                dismissible
-                heading="Cautionary Top"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverTopCautionary>
-            </AppearanceAnim>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              justifyContent: "center",
-              flexDirection: "column",
-              justifyItems: "center",
-              rowGap: "5rem",
-            }}
-          >
-            <Heading variant="heading-3" tag="h1">
-              Bottom
-            </Heading>
-            <InlineBlockTargetElement ElementRef={ElementRefBottomDefault} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverBottomDefault
-                placement="bottom"
-                variant="default"
-                dismissible
-                heading="Default Bottom"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverBottomDefault>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefBottomPositive} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverBottomPositive
-                placement="bottom"
-                variant="positive"
-                dismissible
-                heading="Positive Bottom"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverBottomPositive>
-            </AppearanceAnim>
-            <InlineBlockTargetElement
-              ElementRef={ElementRefBottomInformative}
-            />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverBottomInformative
-                placement="bottom"
-                variant="informative"
-                dismissible
-                heading="Informative Bottom"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverBottomInformative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefBottomNegative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverBottomNegative
-                placement="bottom"
-                variant="negative"
-                dismissible
-                heading="Negative Bottom"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverBottomNegative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefBottomCautionary} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverBottomCautionary
-                placement="bottom"
-                variant="cautionary"
-                dismissible
-                heading="Cautionary Bottom"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverBottomCautionary>
-            </AppearanceAnim>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              justifyContent: "center",
-              flexDirection: "column",
-              justifyItems: "center",
-              rowGap: "5rem",
-            }}
-          >
-            <Heading variant="heading-3" tag="h1">
-              Left
-            </Heading>
-            <InlineBlockTargetElement ElementRef={ElementRefLeftDefault} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverLeftDefault
-                placement="left"
-                variant="default"
-                dismissible
-                heading="Default Left"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverLeftDefault>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefLeftPositive} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverLeftPositive
-                placement="left"
-                variant="positive"
-                dismissible
-                heading="Positive Left"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverLeftPositive>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefLeftInformative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverLeftInformative
-                placement="left"
-                variant="informative"
-                dismissible
-                heading="Informative Left"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverLeftInformative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefLeftNegative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverLeftNegative
-                placement="left"
-                variant="negative"
-                dismissible
-                heading="Negative Left"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverLeftNegative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefLeftCautionary} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverLeftCautionary
-                placement="left"
-                variant="cautionary"
-                dismissible
-                heading="Cautionary Left"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverLeftCautionary>
-            </AppearanceAnim>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              justifyContent: "center",
-              flexDirection: "column",
-              justifyItems: "center",
-              rowGap: "5rem",
-            }}
-          >
-            <Heading variant="heading-3" tag="h1">
-              Right
-            </Heading>
-            <InlineBlockTargetElement ElementRef={ElementRefRightDefault} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverRightDefault
-                placement="right"
-                variant="default"
-                dismissible
-                heading="Default Right"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverRightDefault>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefRightPositive} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverRightPositive
-                placement="right"
-                variant="positive"
-                dismissible
-                heading="Positve Right"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverRightPositive>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefRightInformative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverRightInformative
-                placement="right"
-                variant="informative"
-                dismissible
-                heading="Informative Right"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverRightInformative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefRightNegative} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverRightNegative
-                placement="right"
-                variant="negative"
-                dismissible
-                heading="Negative Right"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverRightNegative>
-            </AppearanceAnim>
-            <InlineBlockTargetElement ElementRef={ElementRefRightCautionary} />
-            <AppearanceAnim isVisible={isOpen}>
-              <PopoverRightCautionary
-                placement="right"
-                variant="cautionary"
-                dismissible
-                heading="Cautionary Right"
-              >
-                Popover body that explains something useful, is optional, and
-                not critical to completing a task.
-              </PopoverRightCautionary>
-            </AppearanceAnim>
-          </div>
+          <Heading variant="heading-5" tag="h2">
+            {" "}
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Default
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Informative
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Positive
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Negative
+          </Heading>
+          <Heading variant="heading-5" tag="h2">
+            Cautionary
+          </Heading>
         </div>
-      </>
-    )
-  }
+        <div
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            flexDirection: "column",
+            justifyItems: "center",
+            rowGap: "5rem",
+          }}
+        >
+          <Heading variant="heading-3" tag="h1">
+            Top
+          </Heading>
+          <InlineBlockTargetElement ElementRef={ElementRefTopDefault} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverTopDefault
+              placement="top"
+              variant="default"
+              dismissible
+              heading="Default Top"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverTopDefault>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefTopPositive} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverTopPositive
+              placement="top"
+              variant="positive"
+              dismissible
+              heading="Positive Top"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverTopPositive>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefTopInformative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverTopInformative
+              placement="top"
+              variant="informative"
+              dismissible
+              heading="Informative Top"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverTopInformative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefTopNegative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverTopNegative
+              placement="top"
+              variant="negative"
+              dismissible
+              heading="Negative Top"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverTopNegative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefTopCautionary} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverTopCautionary
+              placement="top"
+              variant="cautionary"
+              dismissible
+              heading="Cautionary Top"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverTopCautionary>
+          </AppearanceAnim>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            flexDirection: "column",
+            justifyItems: "center",
+            rowGap: "5rem",
+          }}
+        >
+          <Heading variant="heading-3" tag="h1">
+            Bottom
+          </Heading>
+          <InlineBlockTargetElement ElementRef={ElementRefBottomDefault} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverBottomDefault
+              placement="bottom"
+              variant="default"
+              dismissible
+              heading="Default Bottom"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverBottomDefault>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefBottomPositive} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverBottomPositive
+              placement="bottom"
+              variant="positive"
+              dismissible
+              heading="Positive Bottom"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverBottomPositive>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefBottomInformative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverBottomInformative
+              placement="bottom"
+              variant="informative"
+              dismissible
+              heading="Informative Bottom"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverBottomInformative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefBottomNegative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverBottomNegative
+              placement="bottom"
+              variant="negative"
+              dismissible
+              heading="Negative Bottom"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverBottomNegative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefBottomCautionary} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverBottomCautionary
+              placement="bottom"
+              variant="cautionary"
+              dismissible
+              heading="Cautionary Bottom"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverBottomCautionary>
+          </AppearanceAnim>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            flexDirection: "column",
+            justifyItems: "center",
+            rowGap: "5rem",
+          }}
+        >
+          <Heading variant="heading-3" tag="h1">
+            Left
+          </Heading>
+          <InlineBlockTargetElement ElementRef={ElementRefLeftDefault} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverLeftDefault
+              placement="left"
+              variant="default"
+              dismissible
+              heading="Default Left"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverLeftDefault>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefLeftPositive} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverLeftPositive
+              placement="left"
+              variant="positive"
+              dismissible
+              heading="Positive Left"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverLeftPositive>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefLeftInformative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverLeftInformative
+              placement="left"
+              variant="informative"
+              dismissible
+              heading="Informative Left"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverLeftInformative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefLeftNegative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverLeftNegative
+              placement="left"
+              variant="negative"
+              dismissible
+              heading="Negative Left"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverLeftNegative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefLeftCautionary} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverLeftCautionary
+              placement="left"
+              variant="cautionary"
+              dismissible
+              heading="Cautionary Left"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverLeftCautionary>
+          </AppearanceAnim>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            flexDirection: "column",
+            justifyItems: "center",
+            rowGap: "5rem",
+          }}
+        >
+          <Heading variant="heading-3" tag="h1">
+            Right
+          </Heading>
+          <InlineBlockTargetElement ElementRef={ElementRefRightDefault} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverRightDefault
+              placement="right"
+              variant="default"
+              dismissible
+              heading="Default Right"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverRightDefault>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefRightPositive} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverRightPositive
+              placement="right"
+              variant="positive"
+              dismissible
+              heading="Positve Right"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverRightPositive>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefRightInformative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverRightInformative
+              placement="right"
+              variant="informative"
+              dismissible
+              heading="Informative Right"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverRightInformative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefRightNegative} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverRightNegative
+              placement="right"
+              variant="negative"
+              dismissible
+              heading="Negative Right"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverRightNegative>
+          </AppearanceAnim>
+          <InlineBlockTargetElement ElementRef={ElementRefRightCautionary} />
+          <AppearanceAnim isVisible={isOpen}>
+            <PopoverRightCautionary
+              placement="right"
+              variant="cautionary"
+              dismissible
+              heading="Cautionary Right"
+            >
+              Popover body that explains something useful, is optional, and not
+              critical to completing a task.
+            </PopoverRightCautionary>
+          </AppearanceAnim>
+        </div>
+      </div>
+    </>
+  )
 }
