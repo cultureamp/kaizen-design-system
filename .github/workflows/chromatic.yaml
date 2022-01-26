@@ -4,10 +4,8 @@
 name: "chromatic"
 
 on:
-  #  pull_request_review:
-  #    types: [submitted]
-  pull_request:
-    types: [opened, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
 
 # List of jobs
 jobs:
