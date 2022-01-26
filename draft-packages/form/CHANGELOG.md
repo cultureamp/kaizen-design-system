@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.0...@kaizen/draft-form@5.1.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* extended props availability ([#2436](https://github.com/cultureamp/kaizen-design-system/issues/2436)) ([6869687](https://github.com/cultureamp/kaizen-design-system/commit/6869687531c5984e7f8fb90822b04c5938daec31))
+
+
+
+
+
 # [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.0.0...@kaizen/draft-form@5.1.0) (2022-01-25)
 
 
