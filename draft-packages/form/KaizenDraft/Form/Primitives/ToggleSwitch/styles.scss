@@ -38,11 +38,14 @@ $focus-ring-offset: 2px;
     background-color: $color-gray-500;
   }
 
-  .checkbox:not([disabled]) + &:hover {
-    // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
-    // (the non-css variable token)
-    background-color: $color-purple-500;
-    background-color: $color-gray-500;
+  @media (hover: hover) and (pointer: fine) {
+    .checkbox:not([disabled]) + &:hover,
+    label:hover .checkbox:not([disabled]) + & {
+      // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
+      // (the non-css variable token)
+      background-color: $color-purple-500;
+      background-color: $color-gray-500;
+    }
   }
 }
 
@@ -73,8 +76,11 @@ $focus-ring-offset: 2px;
     @include ca-position($start: calc(#{$spacing-md} * 1.1));
   }
 
-  .checkbox:not([disabled]) + .track:hover {
-    background-color: $color-green-500;
+  @media (hover: hover) and (pointer: fine) {
+    .checkbox:not([disabled]) + .track:hover,
+    label:hover & .checkbox:not([disabled]) + .track {
+      background-color: $color-green-500;
+    }
   }
 }
 
@@ -97,9 +103,15 @@ $focus-ring-offset: 2px;
     }
 
     .checkbox:focus:not([disabled]) + .track,
-    .checkbox:hover:focus:not([disabled]) + .track,
-    .checkbox:not([disabled]) + .track:hover {
+    .checkbox:hover:focus:not([disabled]) + .track {
       background-color: rgba($color-white-rgb, 0.65);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .checkbox:not([disabled]) + .track:hover,
+      label:hover & .checkbox:not([disabled]) + .track {
+        background-color: rgba($color-white-rgb, 0.65);
+      }
     }
   }
 }
