@@ -1,4 +1,4 @@
-module KaizenDraft.Form.Primitives.ToggleSwitch.ToggleSwitch exposing (ToggleTheme(..), ToggledStatus(..), automationId, default, disabled, id, name, onToggle, theme, toggledStatus, view)
+module KaizenDraft.Form.Primitives.ToggleSwitch.ToggleSwitch exposing (ToggledStatus(..), automationId, default, disabled, id, name, onToggle, toggledStatus, view)
 
 import CssModules exposing (css)
 import Html exposing (..)
@@ -21,18 +21,12 @@ type alias ConfigValue msg =
     , toggledStatus : Maybe ToggledStatus
     , onToggle : Maybe (Bool -> msg)
     , disabled : Maybe Bool
-    , theme : Maybe ToggleTheme
     }
 
 
 type ToggledStatus
     = On
     | Off
-
-
-type ToggleTheme
-    = Default
-    | Freemium
 
 
 defaults : ConfigValue msg
@@ -43,7 +37,6 @@ defaults =
     , toggledStatus = Just On
     , onToggle = Nothing
     , disabled = Nothing
-    , theme = Nothing
     }
 
 
@@ -90,11 +83,6 @@ disabled value (Config config) =
     Config { config | disabled = Just value }
 
 
-theme : ToggleTheme -> Config msg -> Config msg
-theme value (Config config) =
-    Config { config | theme = Just value }
-
-
 view : Config msg -> Html msg
 view (Config config) =
     let
@@ -124,17 +112,6 @@ view (Config config) =
 
                 Just False ->
                     False
-
-                Nothing ->
-                    False
-
-        isFreemiumTheme =
-            case config.theme of
-                Just Default ->
-                    False
-
-                Just Freemium ->
-                    True
 
                 Nothing ->
                     False
@@ -170,7 +147,6 @@ view (Config config) =
         , div
             [ styles.classList
                 [ ( .track, True )
-                , ( .freemium, isFreemiumTheme )
                 ]
             ]
             [ div [ styles.class .thumb ] []
@@ -186,5 +162,4 @@ styles =
         , on = "on"
         , off = "off"
         , disabled = "disabled"
-        , freemium = "freemium"
         }
