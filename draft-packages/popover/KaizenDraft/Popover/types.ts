@@ -6,13 +6,3 @@ export type Variant =
   | "cautionary"
 
 export type Size = "small" | "large"
-
-export type Placement =
-  | "top"
-  | "bottom"
-  | "top-start"
-  | "top-end"
-  | "bottom-start"
-  | "bottom-end"
-  | "left"
-  | "right"

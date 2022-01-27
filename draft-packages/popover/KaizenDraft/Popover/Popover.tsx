@@ -5,7 +5,7 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classNames from "classnames"
 import React, { useMemo, useState } from "react"
 import styles from "./styles.scss"
-import { Size, Variant, Placement } from "./types"
+import { Size, Variant } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -14,6 +14,14 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+
+type Placement =
+  | "top"
+  | "bottom"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
 
 export type PopoverProps = {
   readonly automationId?: string
@@ -34,14 +42,14 @@ export type PopoverProps = {
 type PopoverModernType = React.FunctionComponent<PopoverProps>
 
 // Sync with styles.scss
-const arrowWidth = 14
-const arrowHeight = 7
+const arrowWidth = 16
+const arrowHeight = 8
 
 export const Popover: PopoverModernType = ({
   automationId,
   children,
   variant = "default",
-  placement = "top",
+  placement = "bottom",
   size = "small",
   heading,
   dismissible = false,
@@ -71,7 +79,7 @@ export const Popover: PopoverModernType = ({
         {
           name: "offset",
           options: {
-            offset: [0, arrowHeight + 6],
+            offset: [0, arrowHeight],
           },
         },
         {
@@ -79,18 +87,7 @@ export const Popover: PopoverModernType = ({
           options: {
             // Makes sure that the popover isn't flush up against the end of the
             // viewport
-            padding: 8,
-            altAxis: true,
-            altBoundary: true,
-            tetherOffset: 50,
-          },
-        },
-        {
-          name: "flip",
-          options: {
-            padding: 8,
-            altBoundary: true,
-            fallbackPlacements: ["left", "top", "bottom", "right"],
+            padding: 4,
           },
         },
       ],
