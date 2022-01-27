@@ -49,24 +49,24 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 For context, see [Moods](https://cultureamp.design/guidelines/moods).
 
-* When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary and Highlight). For example, when using a Blue information icon, show an informative tooltip.
+* When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary and Highlight). For example, when using a blue information icon, show an informative tooltip.
 * When applied without a mood-based trigger, use the Default tooltip (white).
 
 ### Visual details
 
-* Text within tooltips must be left aligned (with RTL support)
+* Text within tooltips must be left aligned (with RTL support).
 * Tooltip arrows are positioned to any side of the container, depending on available space within the browser chrome/viewport.
     * By default, the arrow is anchored to the bottom of the container.
-    * If space is limited, the position of the arrow will adapt to its environment
-    * Arrows can be positioned on all four sides of the container
+    * If space is limited, the position of the arrow will adapt to its environment.
+    * Arrows can be positioned on all four sides of the container.
 * Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
 * The proximity of tooltips is always paired to the element with which they are associated. 
-    * Apply 6px/0.25 Grid Unit spacing between trigger and the point of the arrow
+    * Apply 6px/0.25 Grid Unit spacing between trigger and the point of the arrow.
 
 ### Trigger
 
 - Needs to be discoverable:
-  - E.g. something like an icon to suggest there’s a tooltip
+  - E.g. something like an icon to suggest there’s a tooltip.
   - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
 - Needs to not be noisy (e.g. we don’t litter UI with icons all the time)
 - Only trigger tooltips from:
@@ -82,7 +82,7 @@ For context, see [Moods](https://cultureamp.design/guidelines/moods).
 
 ### Behavior
 
-* By default, the tooltip’s arrow centers to the trigger. The arrow may shift left, right, up, down depending on available space between trigger and viewport/browser chrome
+* By default, the tooltip’s arrow centers to the trigger. The arrow may shift left, right, up, down depending on available space between trigger and viewport/browser chrome.
 * The tooltip is also aware of its proximity to the edge of the viewport and will move to another available position of the trigger where it fits more comfortably.
     * I.e: If too close to the left, it will reposition to the right - so as to always be visible.
 
