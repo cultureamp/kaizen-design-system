@@ -73,11 +73,11 @@ export const StickerSheet = () => (
     style={{
       display: "grid",
       gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
-      rowGap: "12px",
+      rowGap: "20px",
     }}
   >
     <div>
-      <Heading variant="heading-5" tag="h2" style={{ marginBottom: "10px" }}>
+      <Heading variant="heading-5" tag="h2">
         Default
       </Heading>
     </div>
