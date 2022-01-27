@@ -1,16 +1,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
-
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 // Sync with PopoverModern.tsx
-$arrow-width: 16px;
-$arrow-height: 8px;
+$arrow-width: 14px;
+$arrow-height: 7px;
 
 $large-width: 450px;
 
@@ -49,12 +45,13 @@ $large-width: 450px;
 }
 
 %box {
-  background: white;
+  background: $color-white;
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: left;
+  padding: $spacing-sm 1rem 1rem;
 }
 
 .defaultBox {
@@ -112,25 +109,24 @@ $negative-box-border-color: $color-red-300;
 }
 
 .header {
+  position: static;
   @include kz-typography-heading-6;
-  @include ca-inherit-baseline;
-  padding: ($ca-grid / 4) ($ca-grid / 2);
-  margin-bottom: $ca-grid / 4;
+  margin-bottom: $spacing-xs;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  padding-right: $spacing-md;
 }
 
 .container {
-  @include ca-inherit-baseline;
+  position: static;
   @include kz-typography-paragraph-small;
-  padding: ($ca-grid / 6) ($ca-grid / 2) ($ca-grid);
   white-space: pre-line;
 }
 
 .icon {
   display: inherit;
-  margin-right: $ca-grid / 4;
+  margin-right: $spacing-xs;
 }
 
 .informativeIcon {
@@ -151,9 +147,23 @@ $negative-box-border-color: $color-red-300;
 
 .close {
   @include button-reset;
+  position: absolute;
+  right: 0;
   margin-left: auto;
   display: inherit;
   color: rgba($color-purple-800-rgb, 0.7);
+
+  &:hover {
+    color: $color-purple-800;
+  }
+
+  &:focus {
+    color: $color-purple-800;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+    outline-offset: calc(-1 * #{$border-focus-ring-border-width});
+    border-radius: $border-borderless-border-radius;
+  }
 }
 
 .arrowWrapper {
@@ -181,10 +191,29 @@ $negative-box-border-color: $color-red-300;
 [data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
   left: 50%;
-  margin-top: -$arrow-height;
+  margin-top: -9px;
 
   .arrow {
     transform: rotate(180deg);
+  }
+}
+
+.arrowSideLeft,
+[data-popper-placement^="left"] .arrowWrapper {
+  right: 0;
+  margin-right: -10px;
+
+  .arrow {
+    transform: rotate(270deg);
+  }
+}
+.arrowSideRight,
+[data-popper-placement^="right"] .arrowWrapper {
+  left: 0;
+  margin-left: -10px;
+
+  .arrow {
+    transform: rotate(90deg);
   }
 }
 
@@ -201,13 +230,13 @@ $negative-box-border-color: $color-red-300;
 
 // Legacy component only
 .arrowPositionStart {
-  left: $ca-grid;
+  left: $spacing-md;
   right: auto;
 }
 
 // Legacy component only
 .arrowPositionEnd {
-  right: $ca-grid;
+  right: $spacing-md;
   left: auto;
 }
 
