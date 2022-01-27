@@ -1,0 +1,232 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/mixins/forms";
+@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+
+// -----------------------------------------------
+// Form Input Primitive
+// -----------------------------------------------
+
+// Vars
+$input-height: 48px;
+$input-base-padding-horizontal: $ca-grid / 2;
+$input-icon-size: 1.25rem; // 20px
+$input-placeholder-opacity: 0.5;
+$input-disabled-background: $color-gray-300;
+$input-disabled-opacity: 0.3;
+$input-disabled-border-alpha: 50%;
+
+$search-input-placeholder-opacity: 0.7;
+$search-input-disabled-icon-opacity: 0.8;
+$border-solid-border-radius-curved: 7px;
+
+///////////////////////////////////////////////////
+// BASE STYLES
+///////////////////////////////////////////////////
+
+.wrapper {
+  position: relative;
+}
+
+.withLoading .startIconAdornment {
+  margin-top: -2px;
+}
+
+//  is required to override performance-ui global materialize CSS >:|
+input {
+  @include form-input-reset;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius-curved;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0 $input-base-padding-horizontal;
+  height: $input-height;
+  width: 100%;
+  margin-bottom: 2px;
+
+  &.disabled {
+    &:not(.reversed) {
+      background: $color-white;
+      opacity: $input-disabled-opacity;
+    }
+
+    @include form-input-placeholder {
+      color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
+    }
+  }
+
+  @include form-input-placeholder {
+    opacity: 1;
+  }
+
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]) {
+    @include form-input-placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+input:focus {
+  border-radius: $border-solid-border-radius-curved;
+  border-width: $border-focus-ring-border-width;
+  border-style: $border-focus-ring-border-style;
+  border-color: $color-blue-500;
+  outline-offset: 2px;
+  pointer-events: none;
+}
+
+///////////////////////////////////////////////////
+// ICON ADORNMENT STYLES
+///////////////////////////////////////////////////
+
+@mixin vertically-center-icon {
+  position: absolute;
+  height: $input-icon-size;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.withStartIconAdornment {
+  .startIconAdornment {
+    @include vertically-center-icon;
+    @include ca-position($start: $ca-grid / 2);
+  }
+
+  &.withDisabled {
+    .startIconAdornment {
+      opacity: $input-disabled-opacity;
+    }
+  }
+
+  input {
+    @include ca-padding(
+      $start: $ca-grid + $input-icon-size,
+      $end: $input-base-padding-horizontal
+    );
+  }
+}
+
+.withEndIconAdornment {
+  .endIconAdornment {
+    @include vertically-center-icon;
+    @include ca-position($end: $ca-grid / 2);
+  }
+
+  &.isDisabled {
+    .endIconAdornment {
+      opacity: $input-disabled-opacity;
+    }
+  }
+
+  input {
+    @include ca-padding(
+      $start: $input-base-padding-horizontal,
+      $end: $ca-grid + $input-icon-size
+    );
+  }
+}
+
+.withStartIconAdornment.withEndIconAdornment {
+  input {
+    @include ca-padding(
+      $start: $ca-grid + $input-icon-size,
+      $end: $ca-grid + $input-icon-size
+    );
+  }
+}
+
+// Default theme
+/* stylelint-disable-next-line no-duplicate-selectors */
+.withStartIconAdornment {
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  .startIconAdornment {
+    color: $color-purple-800;
+    opacity: $search-input-placeholder-opacity;
+  }
+
+  &:focus-within:not(.withDisabled),
+  &:hover:not(.withDisabled) {
+    .startIconAdornment {
+      opacity: 1;
+    }
+  }
+
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &.withDisabled {
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    .startIconAdornment {
+      opacity: $input-disabled-opacity;
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+.withEndIconAdornment {
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  .endIconAdornment {
+    color: $color-gray-600;
+    opacity: $search-input-placeholder-opacity;
+  }
+
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &.withDisabled {
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    .endIconAdornment {
+      opacity: $input-disabled-opacity;
+    }
+  }
+}
+
+///////////////////////////////////////////////////
+// THEMES
+///////////////////////////////////////////////////
+
+// Default
+input {
+  background-color: $color-white;
+  color: $color-purple-800;
+  border-color: $color-gray-500;
+  display: flex;
+  align-items: center;
+
+  @include form-input-placeholder {
+    color: $color-purple-800;
+    opacity: $search-input-placeholder-opacity;
+  }
+
+  // &:focus:not([disabled]),
+  // &:hover:focus:not([disabled]),
+  // &:hover:not([disabled]) {
+  //   background-color: $color-gray-200;
+  // }
+
+  &:hover:not([disabled]) {
+    @include form-input-placeholder {
+      opacity: 1;
+    }
+  }
+
+  &:focus + .focusRing {
+    border-color: $color-blue-500;
+  }
+
+  &.disabled {
+    color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
+
+    @include form-input-placeholder {
+      opacity: $search-input-placeholder-opacity;
+    }
+  }
+
+  &.error:not(:focus) {
+    border-color: $color-red-500;
+  }
+}
