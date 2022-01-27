@@ -44,7 +44,7 @@
   "devDependencies": {
     "@testing-library/dom": "^8.11.3",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
-    "rimraf": "^2.7.1"
+    "rimraf": "^3.0.2"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
