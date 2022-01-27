@@ -69,7 +69,6 @@ main =
                 Nothing ->
                     Nothing
             )
-                |> Debug.log "selected"
 
         storyConfig =
             { update = update

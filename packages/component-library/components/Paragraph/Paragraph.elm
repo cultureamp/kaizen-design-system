@@ -23,7 +23,6 @@ module Paragraph.Paragraph exposing
     )
 
 import CssModules exposing (css)
-import Debug exposing (log)
 import Html exposing (text)
 import Html.Attributes
 import List

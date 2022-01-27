@@ -7,24 +7,24 @@
 
 "use strict"
 
-var fs = require("fs")
-var path = require("path")
-var loaderUtils = require("loader-utils")
-var elmCompiler = require("node-elm-compiler")
-var yargs = require("yargs")
+const fs = require("fs")
+const path = require("path")
+const loaderUtils = require("loader-utils")
+const elmCompiler = require("node-elm-compiler")
+const yargs = require("yargs")
 
-var runningInstances = 0
-var alreadyCompiledFiles = []
+let runningInstances = 0
+const alreadyCompiledFiles = []
 
-var defaultOptions = {
+const defaultOptions = {
   cache: false,
   forceWatch: false,
-  optimize: false,
+  optimize: true,
 }
 
-var getFiles = function (options) {
-  var basepath = path.dirname(this.resourcePath)
-  var files = options && options.files
+const getFiles = function(options) {
+  const basepath = path.dirname(this.resourcePath)
+  const files = options && options.files
 
   if (files === undefined) return [this.resourcePath]
 
@@ -42,23 +42,23 @@ var getFiles = function (options) {
   return files
 }
 
-var getOptions = function () {
-  var globalOptions = this.options
+const getOptions = function() {
+  const globalOptions = this.options
     ? this.options.elm || {}
     : this.query.elm || {}
-  var loaderOptions = loaderUtils.getOptions(this) || {}
-  return Object.assign({}, defaultOptions, globalOptions, loaderOptions)
+  const loaderOptions = loaderUtils.getOptions(this) || {}
+  return { ...defaultOptions, ...globalOptions, ...loaderOptions}
 }
 
-var _addDependencies = function (dependency) {
+const _addDependencies = function(dependency) {
   this.addDependency(dependency)
 }
 
-var _addDirDependency = function (dirs) {
+const _addDirDependency = function(dirs) {
   dirs.forEach(this.addContextDependency.bind(this))
 }
 
-var isFlagSet = function (args, flag) {
+const isFlagSet = function(args, flag) {
   return typeof args[flag] !== "undefined" && args[flag]
 }
 
@@ -66,60 +66,60 @@ var isFlagSet = function (args, flag) {
     This currently means either that the `watch` command was used
     Or it was run via `webpack-dev-server`
 */
-var isInWatchMode = function () {
+const isInWatchMode = function() {
   // parse the argv given to run this webpack instance
-  var argv = yargs(process.argv)
+  const argv = yargs(process.argv)
     .alias("w", "watch")
     .alias("stdin", "watch-stdin").argv
 
-  var hasWatchArg = isFlagSet(argv, "watch")
-  var hasStdinArg = isFlagSet(argv, "watch-stdin")
+  const hasWatchArg = isFlagSet(argv, "watch")
+  const hasStdinArg = isFlagSet(argv, "watch-stdin")
 
-  var hasWebpackServe =
-    Array.prototype.filter.call(process.argv, function (arg) {
+  const hasWebpackServe =
+    Array.prototype.filter.call(process.argv, function(arg) {
       return arg.indexOf("webpack-serve") !== -1
     }).length > 0
 
-  var hasWebpackDevServer =
-    Array.prototype.filter.call(process.argv, function (arg) {
+  const hasWebpackDevServer =
+    Array.prototype.filter.call(process.argv, function(arg) {
       return arg.indexOf("webpack-dev-server") !== -1
     }).length > 0
 
   return hasWebpackServe || hasWebpackDevServer || hasWatchArg || hasStdinArg
 }
 
-var dependenciesFor = function (resourcePath, files) {
-  return findAllDependencies(files).then(function (dependencies) {
+const dependenciesFor = function(resourcePath, files) {
+  return findAllDependencies(files).then(function(dependencies) {
     return unique(dependencies.concat(remove(resourcePath, files)))
   })
 }
 
-var findAllDependencies = function (files) {
+var findAllDependencies = function(files) {
   return Promise.all(
-    files.map(function (f) {
+    files.map(function(f) {
       return elmCompiler.findAllDependencies(f)
     })
   ).then(flatten)
 }
 
-module.exports = function () {
+module.exports = function() {
   this.cacheable && this.cacheable()
 
-  var callback = this.async()
+  const callback = this.async()
   if (!callback) {
     throw "elm-webpack-loader currently only supports async mode."
   }
 
   // bind helper functions to `this`
-  var addDependencies = _addDependencies.bind(this)
-  var addDirDependency = _addDirDependency.bind(this)
-  var emitError = this.emitError.bind(this)
+  const addDependencies = _addDependencies.bind(this)
+  const addDirDependency = _addDirDependency.bind(this)
+  const emitError = this.emitError.bind(this)
 
-  var options = getOptions.call(this)
-  var files = getFiles.call(this, options)
-  var resourcePath = this.resourcePath
+  const options = getOptions.call(this)
+  const files = getFiles.call(this, options)
+  const resourcePath = this.resourcePath
 
-  var promises = []
+  const promises = []
 
   // we only need to track deps if we are in watch mode
   // otherwise, we trust elm to do it's job
@@ -127,19 +127,19 @@ module.exports = function () {
     // we can do a glob to track deps we care about if cwd is set
     if (typeof options.cwd !== "undefined" && options.cwd !== null) {
       // watch elm.json
-      var elmPackage = path.join(options.cwd, "elm.json")
+      const elmPackage = path.join(options.cwd, "elm.json")
       addDependencies(elmPackage)
     }
 
     // find all the deps, adding them to the watch list if we successfully parsed everything
     // otherwise return an error which is currently ignored
-    var dependencies = dependenciesFor(resourcePath, files)
-      .then(function (dependencies) {
+    const dependencies = dependenciesFor(resourcePath, files)
+      .then(function(dependencies) {
         // add each dependency to the tree
         dependencies.map(addDependencies)
         return { kind: "success", result: true }
       })
-      .catch(function (v) {
+      .catch(function(v) {
         emitError(v)
         return { kind: "error", error: v }
       })
@@ -149,7 +149,7 @@ module.exports = function () {
 
   delete options.forceWatch
 
-  var maxInstances = options.maxInstances
+  let maxInstances = options.maxInstances
 
   if (typeof maxInstances === "undefined") {
     maxInstances = 1
@@ -157,7 +157,7 @@ module.exports = function () {
     delete options.maxInstances
   }
 
-  var intervalId = setInterval(function () {
+  var intervalId = setInterval(function() {
     if (runningInstances >= maxInstances) return
     runningInstances += 1
     clearInterval(intervalId)
@@ -169,13 +169,13 @@ module.exports = function () {
       console.log("Started compiling Elm..")
     }
 
-    var compilation = elmCompiler
+    const compilation = elmCompiler
       .compileToString(files, options)
-      .then(function (v) {
+      .then(function(v) {
         runningInstances -= 1
         return { kind: "success", result: v }
       })
-      .catch(function (v) {
+      .catch(function(v) {
         runningInstances -= 1
         return { kind: "error", error: v }
       })
@@ -183,8 +183,8 @@ module.exports = function () {
     promises.push(compilation)
 
     Promise.all(promises)
-      .then(function (results) {
-        var output = results[results.length - 1] // compilation output is always last
+      .then(function(results) {
+        const output = results[results.length - 1] // compilation output is always last
 
         if (output.kind === "success") {
           alreadyCompiledFiles.push(resourcePath)
@@ -199,7 +199,7 @@ module.exports = function () {
           callback(output.error)
         }
       })
-      .catch(function (err) {
+      .catch(function(err) {
         callback(err)
       })
   }, 200)
@@ -208,19 +208,19 @@ module.exports = function () {
 // HELPERS
 
 function flatten(arrayOfArrays) {
-  return arrayOfArrays.reduce(function (flattened, array) {
+  return arrayOfArrays.reduce(function(flattened, array) {
     return flattened.concat(array)
   }, [])
 }
 
 function unique(items) {
-  return items.filter(function (item, index, array) {
+  return items.filter(function(item, index, array) {
     return array.indexOf(item) === index
   })
 }
 
 function remove(condemned, items) {
-  return items.filter(function (item) {
+  return items.filter(function(item) {
     return item !== condemned
   })
 }
