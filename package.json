@@ -74,7 +74,7 @@
     "svgo": "^1.3.2",
     "svgo-loader": "^2.2.2",
     "typescript": "^4.5.4",
-    "typescript-plugin-css-modules": "^2.8.0",
+    "typescript-plugin-css-modules": "^3.4.0",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
