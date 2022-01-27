@@ -179,10 +179,7 @@ export const StickerSheet = () => {
 
   return (
     <>
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        label="Open all Popovers"
-      ></Button>
+      <Button onClick={() => setIsOpen(!isOpen)} label="Open all Popovers" />
       <p>
         Note: We recommend viewing on full screen as the 'flip' and 'fallback'
         functionality for the Popover causes overlaying and random placement
