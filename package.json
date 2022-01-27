@@ -43,7 +43,7 @@
     "@storybook/theming": "^6.4.9",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/react-hooks": "^4.0.1",
+    "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
