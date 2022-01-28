@@ -31,7 +31,7 @@
     "@babel/plugin-proposal-numeric-separator": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
