@@ -7,14 +7,7 @@ import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import {
-  StorybookWrapper,
-  StorybookGridWrapper,
-  StorybookColWrapper,
-} from "../../../storybook/components/storybook-wrapper"
 import styles from "./styles.module.scss"
-
-import storyData from "./badge-data.json"
 
 export default {
   title: `${CATEGORIES.components}/Badge`,
@@ -200,32 +193,3 @@ ReversedBadges.parameters = {
     default: "Purple 700",
   },
 }
-
-export const StoryWrapperIterative = () => (
-  <StorybookWrapper
-    rowTitles={storyData.rowTitles}
-    colData={storyData.colData}
-    Component={Badge}
-  />
-)
-
-// export const StoryWrapperNonIterative = () => (
-//   <StorybookGridWrapper numCols="2">
-//     <StorybookColWrapper numRows="2" isSideHeader>
-//       <Heading variant="heading-5" tag="h2">
-//         Small
-//       </Heading>
-//       <Heading variant="heading-5" tag="h2">
-//         Large
-//       </Heading>
-//     </StorybookColWrapper>
-//     <StorybookColWrapper title="default" numRows="2">
-//       <Badge size="small" variant="default">
-//         3
-//       </Badge>
-//       <Badge size="large" variant="default">
-//         3
-//       </Badge>
-//     </StorybookColWrapper>
-//   </StorybookGridWrapper>
-// )
