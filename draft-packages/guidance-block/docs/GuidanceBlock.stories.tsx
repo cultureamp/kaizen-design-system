@@ -1,7 +1,11 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { Informative, HumanityAtWork } from "@kaizen/draft-illustration"
+import {
+  Informative,
+  HumanityAtWork,
+  SkillsCoachManagerHub,
+} from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -257,7 +261,7 @@ TwoStackedLayout.storyName = "Two Stacked Content Layout"
 export const StackedLayoutWithScene = () => (
   <GuidanceBlock
     layout="stacked"
-    illustration={<HumanityAtWork alt="" />}
+    illustration={<SkillsCoachManagerHub alt="" />}
     illustrationType="scene"
     text={guidanceBlockText}
     smallScreenTextAlignment="left"
