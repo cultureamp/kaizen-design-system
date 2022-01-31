@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.4.0...@kaizen/responsive@1.5.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.3.1...@kaizen/responsive@1.4.0) (2022-01-19)
+
+
+### Features
+
+* Make kaizen prerendering friendly (nextjs related) ([#2406](https://github.com/cultureamp/kaizen-design-system/issues/2406)) ([b53bb11](https://github.com/cultureamp/kaizen-design-system/commit/b53bb118157c98874554bd565853797beb72e590))
+
+
+
+
+
 ## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.3.0...@kaizen/responsive@1.3.1) (2022-01-10)
 
 

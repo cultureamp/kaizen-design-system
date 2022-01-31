@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.2.0...@kaizen/draft-avatar@2.2.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.1.2...@kaizen/draft-avatar@2.2.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.1.1...@kaizen/draft-avatar@2.1.2) (2022-01-17)
+
+
+### Bug Fixes
+
+* explicitly set border-bottom: none on Avatar component ([#2403](https://github.com/cultureamp/kaizen-design-system/issues/2403)) ([5b5cb8c](https://github.com/cultureamp/kaizen-design-system/commit/5b5cb8cd8e8c28c9ad997549a554259a543c9664))
+
+
+
+
+
 ## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.1.0...@kaizen/draft-avatar@2.1.1) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

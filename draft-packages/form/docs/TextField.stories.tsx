@@ -63,12 +63,16 @@ export const DefaultStory = args => (
 
 DefaultStory.args = {
   id: "kaizen-demo-text-field",
-  inputType: "text",
-  defaultInputValue: "",
   labelText: "Label Text",
+  inputType: "text",
+  defaultInputValue: "test",
   placeholder: "",
   description: "Example / description text",
   validationMessage: "",
+  inputValue: "",
+  status: "default",
+  inline: false,
+  reversed: false,
 }
 
 DefaultStory.argTypes = {
@@ -76,6 +80,15 @@ DefaultStory.argTypes = {
     control: {
       disable: true,
     },
+  },
+  icon: {
+    control: {
+      disabled: true,
+    },
+  },
+  placeholder: {
+    description:
+      "It is advised that this is only used to give an example response",
   },
   validationMessage: {
     description:
@@ -97,10 +110,19 @@ export const StickerSheetDefault = () => (
         </Heading>
         <StoryContainer>
           <TextField
+            id="text-default"
+            inputType="email"
+            defaultInputValue=""
+            labelText="Default"
+            placeholder=""
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
             id="text"
             inputType="email"
             defaultInputValue=""
-            labelText="Default Text Field"
+            labelText="Description"
             placeholder=""
             description="Description text"
           />
@@ -110,7 +132,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue=""
-            labelText="Placeholder Text Field"
+            labelText="Placeholder"
             placeholder="jane.doe@email.com"
             description="Description text"
           />
@@ -120,7 +142,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -131,7 +153,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -143,7 +165,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -160,7 +182,17 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue=""
-            labelText="Default Text Field"
+            labelText="Default"
+            placeholder=""
+            disabled={true}
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            id="text"
+            inputType="email"
+            defaultInputValue=""
+            labelText="Description"
             placeholder=""
             description="Description text"
             disabled={true}
@@ -171,7 +203,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Placeholder Text Field"
+            labelText="Placeholder"
             placeholder="jane.doe@email.com"
             description="Description text"
             disabled={true}
@@ -182,7 +214,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -194,7 +226,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -207,7 +239,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -230,7 +262,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Default Text Field"
+            labelText="Default"
             placeholder="jane.doe@email.com"
             description="Description text"
             icon={dateIcon}
@@ -241,7 +273,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -253,7 +285,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -266,7 +298,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -284,7 +316,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Default Text Field"
+            labelText="Default"
             placeholder="jane.doe@email.com"
             description="Description text"
             icon={dateIcon}
@@ -296,7 +328,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -309,7 +341,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -323,7 +355,7 @@ export const StickerSheetDefault = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -353,7 +385,17 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue=""
-            labelText="Default Text Field"
+            labelText="Default"
+            placeholder=""
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            reversed={true}
+            id="text"
+            inputType="email"
+            defaultInputValue=""
+            labelText="Description"
             placeholder=""
             description="Description text"
           />
@@ -364,7 +406,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue=""
-            labelText="Placeholder Text Field"
+            labelText="Placeholder"
             placeholder="jane.doe@email.com"
             description="Description text"
           />
@@ -375,7 +417,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -387,7 +429,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -400,7 +442,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -417,8 +459,17 @@ export const StickerSheetDefaultReversed = () => (
             reversed={true}
             id="text"
             inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Default Text Field"
+            labelText="Default"
+            placeholder=""
+            disabled={true}
+          />
+        </StoryContainer>
+        <StoryContainer>
+          <TextField
+            reversed={true}
+            id="text"
+            inputType="email"
+            labelText="Description"
             placeholder=""
             description="Description text"
             disabled={true}
@@ -430,7 +481,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Placeholder Text Field"
+            labelText="Placeholder"
             placeholder="jane.doe@email.com"
             description="Description text"
             disabled={true}
@@ -442,7 +493,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -455,7 +506,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -469,7 +520,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -493,7 +544,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Default Text Field"
+            labelText="Default"
             placeholder="jane.doe@email.com"
             description="Description text"
             icon={dateIcon}
@@ -505,7 +556,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -518,7 +569,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -532,7 +583,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"
@@ -551,7 +602,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Default Text Field"
+            labelText="Default"
             placeholder="jane.doe@email.com"
             description="Description text"
             icon={dateIcon}
@@ -564,7 +615,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Positive Text Field"
+            labelText="Positive"
             placeholder="jane.doe@email.com"
             status="success"
             description="Description text"
@@ -578,7 +629,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Negative Text Field"
+            labelText="Negative"
             placeholder="jane.doe@email.com"
             status="error"
             description="Description text"
@@ -593,7 +644,7 @@ export const StickerSheetDefaultReversed = () => (
             id="text"
             inputType="email"
             defaultInputValue="Input Text"
-            labelText="Cautionary Text Field"
+            labelText="Cautionary"
             placeholder="jane.doe@email.com"
             status="caution"
             description="Description text"

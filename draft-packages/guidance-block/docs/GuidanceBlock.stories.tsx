@@ -1,7 +1,11 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { Informative, HumanityAtWork } from "@kaizen/draft-illustration"
+import {
+  Informative,
+  HumanityAtWork,
+  SkillsCoachManagerHub,
+} from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -205,17 +209,62 @@ export const StackedLayout = () => (
       },
     }}
     persistent
+    noMaxWidth
   />
 )
 
 StackedLayout.storyName = "Stacked Content Layout"
 
+export const TwoStackedLayout = () => (
+  <div style={{ display: "flex", gap: "36px" }}>
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+  </div>
+)
+
+TwoStackedLayout.storyName = "Two Stacked Content Layout"
+
 export const StackedLayoutWithScene = () => (
   <GuidanceBlock
     layout="stacked"
-    illustration={<HumanityAtWork alt="" />}
+    illustration={<SkillsCoachManagerHub alt="" />}
     illustrationType="scene"
     text={guidanceBlockText}
+    smallScreenTextAlignment="left"
     actions={{
       primary: {
         label: "Action",
@@ -224,10 +273,10 @@ export const StackedLayoutWithScene = () => (
         },
       },
       secondary: {
-        label: "Secondary action",
-        href: "#",
+        label: "Dismiss action",
       },
     }}
+    secondaryDismiss
     persistent
   />
 )

@@ -4,6 +4,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
 <div
   class="radioGroupContainer"
   data-automation-id=""
+  role="radiogroup"
 >
   <div
     class="radioGroupLabel"
@@ -26,6 +27,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
 <div
   class="radioGroupContainer"
   data-automation-id=""
+  role="radiogroup"
 >
   <div
     class="radioGroupLabel"
@@ -48,6 +50,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a row and with a label 
 <div
   class="radioGroupContainer"
   data-automation-id=""
+  role="radiogroup"
 >
   <div
     class="radioGroupLabel"
@@ -70,6 +73,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
 <div
   class="radioGroupContainer"
   data-automation-id=""
+  role="radiogroup"
 >
   <div
     class="radioGroupLabel"

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.2.0...@kaizen/progress-bar@1.2.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.22...@kaizen/progress-bar@1.2.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
 ## [1.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.1.21...@kaizen/progress-bar@1.1.22) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/progress-bar

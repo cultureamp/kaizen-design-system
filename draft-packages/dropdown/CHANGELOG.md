@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.5.0...@kaizen/draft-dropdown@1.5.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.4.26...@kaizen/draft-dropdown@1.5.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
 ## [1.4.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.4.25...@kaizen/draft-dropdown@1.4.26) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.4...@kaizen/design-tokens@6.1.0) (2022-01-19)
+
+
+### Features
+
+* Make kaizen prerendering friendly (nextjs related) ([#2406](https://github.com/cultureamp/kaizen-design-system/issues/2406)) ([b53bb11](https://github.com/cultureamp/kaizen-design-system/commit/b53bb118157c98874554bd565853797beb72e590))
+
+
+
+
+
+## [6.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.3...@kaizen/design-tokens@6.0.4) (2022-01-19)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 ## [6.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.2...@kaizen/design-tokens@6.0.3) (2022-01-10)
 
 

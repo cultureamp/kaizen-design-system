@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.4.0...@kaizen/draft-title-block@4.4.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+# [4.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.3.7...@kaizen/draft-title-block@4.4.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+## [4.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.3.6...@kaizen/draft-title-block@4.3.7) (2022-01-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [4.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@4.3.5...@kaizen/draft-title-block@4.3.6) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

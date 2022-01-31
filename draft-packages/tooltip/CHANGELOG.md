@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.2...@kaizen/draft-tooltip@3.4.3) (2022-01-31)
+
+
+### Bug Fixes
+
+* calc function syntax error ([#2495](https://github.com/cultureamp/kaizen-design-system/issues/2495)) ([8e507d9](https://github.com/cultureamp/kaizen-design-system/commit/8e507d97e3d53c79c0ea1aedf303099cfa769f7f))
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.1...@kaizen/draft-tooltip@3.4.2) (2022-01-28)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.0...@kaizen/draft-tooltip@3.4.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.3.0...@kaizen/draft-tooltip@3.4.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.2.0...@kaizen/draft-tooltip@3.3.0) (2022-01-21)
+
+
+### Features
+
+* Tooltip component uplift ([#2399](https://github.com/cultureamp/kaizen-design-system/issues/2399)) ([5aa8919](https://github.com/cultureamp/kaizen-design-system/commit/5aa891959b0535a29d20d3654b7d2770ace43934)), closes [#2386](https://github.com/cultureamp/kaizen-design-system/issues/2386) [#2389](https://github.com/cultureamp/kaizen-design-system/issues/2389)
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.1.10...@kaizen/draft-tooltip@3.2.0) (2022-01-19)
+
+
+### Features
+
+* Make kaizen prerendering friendly (nextjs related) ([#2406](https://github.com/cultureamp/kaizen-design-system/issues/2406)) ([b53bb11](https://github.com/cultureamp/kaizen-design-system/commit/b53bb118157c98874554bd565853797beb72e590))
+
+
+
+
+
 ## [3.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.1.9...@kaizen/draft-tooltip@3.1.10) (2022-01-10)
 
 

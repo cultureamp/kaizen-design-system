@@ -3,6 +3,100 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.5...@kaizen/brand-moment@1.7.6) (2022-01-30)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.4...@kaizen/brand-moment@1.7.5) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.3...@kaizen/brand-moment@1.7.4) (2022-01-26)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.2...@kaizen/brand-moment@1.7.3) (2022-01-26)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.1...@kaizen/brand-moment@1.7.2) (2022-01-25)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.0...@kaizen/brand-moment@1.7.1) (2022-01-25)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.6.1...@kaizen/brand-moment@1.7.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.6.0...@kaizen/brand-moment@1.6.1) (2022-01-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.5.67...@kaizen/brand-moment@1.6.0) (2022-01-19)
+
+
+### Features
+
+* Make kaizen prerendering friendly (nextjs related) ([#2406](https://github.com/cultureamp/kaizen-design-system/issues/2406)) ([b53bb11](https://github.com/cultureamp/kaizen-design-system/commit/b53bb118157c98874554bd565853797beb72e590))
+
+
+
+
+
+## [1.5.67](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.5.66...@kaizen/brand-moment@1.5.67) (2022-01-19)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.5.66](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.5.65...@kaizen/brand-moment@1.5.66) (2022-01-17)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
 ## [1.5.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.5.64...@kaizen/brand-moment@1.5.65) (2022-01-10)
 
 

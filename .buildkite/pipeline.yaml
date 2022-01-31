@@ -50,8 +50,17 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
-  - wait: ~
-    continue_on_failure: true
+  - name: ":nodesecurity: Audit JS Dependencies"
+    command: .buildkite/scripts/audit-js.sh
+    agents:
+      queue: build-unrestricted
+    plugins:
+      - docker#v3.8.0:
+          image: node:14
+          environment:
+            - GITHUB_REGISTRY_TOKEN
+
+  - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
@@ -66,17 +75,3 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
           run: publish
-
-  - block: ":rainbow: Build (chromatic)"
-    prompt: "Check in Chromatic?"
-
-  - name: ":rainbow: Build (chromatic)"
-    command: ".buildkite/scripts/run-chromatic-build.sh"
-    timeout_in_minutes: 15
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-    plugins:
-      - cultureamp/aws-assume-role#v0.2.0:
-          role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: release

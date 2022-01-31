@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.1...@kaizen/draft-form@5.2.2) (2022-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.0...@kaizen/draft-form@5.2.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.1...@kaizen/draft-form@5.2.0) (2022-01-26)
+
+
+### Features
+
+* realign toggle switch with design with reverse option ([#2407](https://github.com/cultureamp/kaizen-design-system/issues/2407)) ([d2663ba](https://github.com/cultureamp/kaizen-design-system/commit/d2663ba796d97ff4697aee1866add95722f92e03))
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.0...@kaizen/draft-form@5.1.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* extended props availability ([#2436](https://github.com/cultureamp/kaizen-design-system/issues/2436)) ([6869687](https://github.com/cultureamp/kaizen-design-system/commit/6869687531c5984e7f8fb90822b04c5938daec31))
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.0.0...@kaizen/draft-form@5.1.0) (2022-01-25)
+
+
+### Features
+
+* improve RadioGroup accessibility ([b86ed79](https://github.com/cultureamp/kaizen-design-system/commit/b86ed794910cf93c10a2516c7b001d1324e54a6c))
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.2.0...@kaizen/draft-form@5.0.0) (2022-01-25)
+
+
+### Features
+
+* Remove freemium code from ToggleSwitch & ToggleSwitchField ([#2417](https://github.com/cultureamp/kaizen-design-system/issues/2417)) ([e6d2b96](https://github.com/cultureamp/kaizen-design-system/commit/e6d2b969c4407eb2eeb40e6ce8055239d0708df6))
+
+
+### BREAKING CHANGES
+
+* Remove theme prop from ToggleSwitchField and ToggleSwitch for both React & Elm components. Remove ToggleTheme references and any storybook stories.
+
+Co-authored-by: Harry Ta <harry.ta@cultureamp.com>
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.1.0...@kaizen/draft-form@4.2.0) (2022-01-24)
+
+
+### Features
+
+* Bump design-tokens in peer dependencies to include v6 ([#2412](https://github.com/cultureamp/kaizen-design-system/issues/2412)) ([fbbfa80](https://github.com/cultureamp/kaizen-design-system/commit/fbbfa80d334db9311b228568b5632cb2f8022136))
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.0.3...@kaizen/draft-form@4.1.0) (2022-01-21)
+
+
+### Features
+
+* Uplift TextField component and add variants to Kaizen ([#2391](https://github.com/cultureamp/kaizen-design-system/issues/2391)) ([950c543](https://github.com/cultureamp/kaizen-design-system/commit/950c543e2ce039f01c684cceb4bdd93d0947dbb7))
+
+
+
+
+
 ## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@4.0.2...@kaizen/draft-form@4.0.3) (2022-01-10)
 
 **Note:** Version bump only for package @kaizen/draft-form

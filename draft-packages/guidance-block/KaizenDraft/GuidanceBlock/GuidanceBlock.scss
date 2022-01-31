@@ -14,7 +14,6 @@ $ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
   $animation-duration-slow ease;
 $illustration-size: 155px;
 $scene-illustration-size: 300px;
-$scene-illustration-size-mobile: 200px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -68,11 +67,11 @@ $scene-illustration-size-mobile: 200px;
 .illustration {
   width: $illustration-size;
   height: $illustration-size;
-}
 
-.sceneIllustration {
-  width: $scene-illustration-size;
-  height: auto;
+  .hasSceneIllustration & {
+    width: $scene-illustration-size;
+    height: auto;
+  }
 }
 
 .descriptionContainer {
@@ -93,7 +92,7 @@ $scene-illustration-size-mobile: 200px;
 
   [dir="rtl"] & {
     @include ca-media-desktop {
-      padding: 0 $spacing-sm 0 $spacing-lg;
+      padding: 0 $spacing-sm;
       text-align: right;
     }
   }
@@ -129,6 +128,10 @@ $scene-illustration-size-mobile: 200px;
     flex-direction: column;
     width: 100%;
     margin-top: $spacing-xs;
+  }
+
+  [dir="rtl"] & svg {
+    transform: rotate(180deg);
   }
 }
 
@@ -177,90 +180,117 @@ $scene-illustration-size-mobile: 200px;
 .inline,
 .stacked {
   flex-direction: row;
+  align-items: unset;
   gap: $spacing-md;
+  min-width: unset;
+  flex-wrap: wrap;
 
-  @include ca-media-mobile {
-    flex-direction: column;
+  @include ca-media-tablet-and-under {
+    flex-direction: unset;
   }
 
   .illustrationWrapper {
-    padding: 0;
+    margin-right: $spacing-sm;
+
+    [dir="rtl"] & {
+      margin-left: $spacing-sm;
+      margin-right: inherit;
+    }
+
+    @include ca-media-tablet {
+      padding: 0;
+    }
 
     @include ca-media-mobile {
       display: flex;
     }
   }
 
-  .illustration {
-    @include guidance-block-under-480 {
-      margin: 0 auto;
-    }
-  }
-
-  .sceneIllustration {
-    @include ca-media-mobile {
-      margin: 0 auto;
-    }
-
-    @include guidance-block-under-480 {
-      width: $scene-illustration-size-mobile;
-    }
+  .descriptionAndActions {
+    margin: auto 0;
   }
 
   .descriptionContainer {
     text-align: left;
+    max-width: unset;
+    min-width: 320px;
 
-    @include ca-media-tablet {
-      margin: 0 $spacing-sm;
+    @include ca-media-desktop {
+      padding: 0;
     }
 
     @include ca-media-mobile {
       margin: 0;
     }
 
-    @include guidance-block-under-480 {
-      text-align: center;
-    }
-
     [dir="rtl"] & {
       text-align: right;
 
-      @include guidance-block-under-480 {
-        text-align: center;
+      @include ca-media-desktop {
+        padding: 0;
       }
     }
   }
 
   .buttonContainer {
+    padding-left: $spacing-sm;
     justify-content: end;
     width: unset;
+    min-width: unset;
 
     @include ca-media-mobile {
       flex-direction: row-reverse;
     }
 
-    @include guidance-block-under-480 {
-      flex-wrap: wrap;
-      min-width: unset;
-      justify-content: center;
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $spacing-sm;
     }
 
     > * {
       width: unset;
     }
+  }
 
-    svg {
-      @include guidance-block-under-480 {
-        display: none;
+  &.hasSceneIllustration {
+    justify-content: center;
+  }
+
+  &.centerContent {
+    flex-direction: column;
+
+    &.hasSceneIllustration .illustration {
+      width: 100%;
+    }
+
+    .illustrationWrapper {
+      margin: 0 auto;
+      align-self: center;
+    }
+
+    .descriptionContainer {
+      text-align: center;
+      min-width: unset;
+
+      [dir="rtl"] & {
+        text-align: center;
       }
     }
 
-    button span {
-      &,
+    .buttonContainer {
+      padding: 0;
+      flex-direction: column;
+      min-width: unset;
+      justify-content: center;
+    }
+  }
+
+  &.centerContent.smallScreenTextAlignment {
+    .descriptionContainer {
+      text-align: left;
+
       [dir="rtl"] & {
-        @include guidance-block-under-480 {
-          margin: 0;
-        }
+        text-align: right;
       }
     }
   }
@@ -273,16 +303,6 @@ $scene-illustration-size-mobile: 200px;
   }
 
   .descriptionContainer {
-    @include ca-media-desktop {
-      padding: 0 $spacing-sm;
-    }
-  }
-}
-
-.inline {
-  .illustrationWrapper {
-    @include guidance-block-under-480 {
-      justify-content: center;
-    }
+    align-self: flex-start;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.46",
+  "version": "0.0.0-private.54",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -10,13 +10,13 @@
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
     "@kaizen/brand": "^1.1.5",
-    "@kaizen/component-library": "^12.0.1",
-    "@kaizen/design-tokens": "^6.0.3",
-    "@kaizen/draft-button": "^5.3.6",
-    "@kaizen/draft-card": "^1.5.0",
-    "@kaizen/draft-divider": "^1.7.2",
-    "@kaizen/draft-illustration": "^3.1.2",
-    "@kaizen/draft-tag": "^2.1.6",
+    "@kaizen/component-library": "^12.2.0",
+    "@kaizen/design-tokens": "^6.1.0",
+    "@kaizen/draft-button": "^5.4.1",
+    "@kaizen/draft-card": "^1.6.0",
+    "@kaizen/draft-divider": "^1.8.0",
+    "@kaizen/draft-illustration": "^3.3.1",
+    "@kaizen/draft-tag": "^2.2.1",
     "@kaizen/hosted-assets": "^1.1.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
@@ -45,9 +45,5 @@
     "unist-util-visit": "^2.0.3",
     "wcag-contrast-verifier": "^1.1.0",
     "webpack": "^4.46.0"
-  },
-  "resolutions": {
-    "axios": "0.24.0",
-    "react-dev-utils": "11.0.4"
   }
 }
