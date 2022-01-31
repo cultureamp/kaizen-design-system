@@ -22,6 +22,60 @@ export const KaizenDefault = () => {
   }
 
   return (
-    <DatePicker selectedDate={selectedDate} handleDayChange={handleDayChange} />
+    <DatePicker
+      labelText="Label"
+      selectedDate={selectedDate}
+      handleDayChange={handleDayChange}
+    />
+  )
+}
+
+export const DefaultWithValue = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const handleDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={new Date()}
+      handleDayChange={handleDayChange}
+    />
+  )
+}
+
+export const Disabled = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const handleDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={selectedDate}
+      handleDayChange={handleDayChange}
+      isDisabled
+    />
+  )
+}
+
+export const DisabledWithValue = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const handleDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={new Date()}
+      handleDayChange={handleDayChange}
+      isDisabled
+    />
   )
 }

@@ -34,7 +34,9 @@
   "dependencies": {
     "react-day-picker": "^7.4.9",
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "@kaizen/draft-form": "^5.2.2",
+    "@kaizen/component-library": "12.2.0"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^6.0.2"

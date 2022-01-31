@@ -12,16 +12,10 @@
 
 // Vars
 $input-height: 48px;
-$input-base-padding-horizontal: $ca-grid / 2;
+$input-base-padding-horizontal: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
-$input-placeholder-opacity: 0.5;
-$input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
-$input-disabled-border-alpha: 50%;
-
-$search-input-placeholder-opacity: 0.7;
-$search-input-disabled-icon-opacity: 0.8;
-$border-solid-border-radius-curved: 7px;
+$input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
 
 ///////////////////////////////////////////////////
 // BASE STYLES
@@ -31,17 +25,13 @@ $border-solid-border-radius-curved: 7px;
   position: relative;
 }
 
-.withLoading .startIconAdornment {
-  margin-top: -2px;
-}
-
 //  is required to override performance-ui global materialize CSS >:|
-input {
+.input {
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style transparent;
-  border-radius: $border-solid-border-radius-curved;
+  border-radius: $border-solid-border-radius;
   display: block;
   font-size: 1rem;
   line-height: 1.5;
@@ -54,15 +44,12 @@ input {
     &:not(.reversed) {
       background: $color-white;
       opacity: $input-disabled-opacity;
-    }
+      color: $input-disabled-color-opacity;
 
-    @include form-input-placeholder {
-      color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
+      @include form-input-placeholder {
+        color: $input-disabled-color-opacity;
+      }
     }
-  }
-
-  @include form-input-placeholder {
-    opacity: 1;
   }
 
   &:focus:not([disabled]),
@@ -73,11 +60,9 @@ input {
   }
 }
 
-input:focus {
-  border-radius: $border-solid-border-radius-curved;
-  border-width: $border-focus-ring-border-width;
-  border-style: $border-focus-ring-border-style;
-  border-color: $color-blue-500;
+.input:focus {
+  outline: $border-focus-ring-border-width $border-focus-ring-border-style
+    $color-blue-500;
   outline-offset: 2px;
   pointer-events: none;
 }
@@ -92,6 +77,7 @@ input:focus {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  margin-top: -2px;
 }
 
 .withStartIconAdornment {
@@ -100,36 +86,10 @@ input:focus {
     @include ca-position($start: $ca-grid / 2);
   }
 
-  &.withDisabled {
-    .startIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  input {
+  .input {
     @include ca-padding(
       $start: $ca-grid + $input-icon-size,
       $end: $input-base-padding-horizontal
-    );
-  }
-}
-
-.withEndIconAdornment {
-  .endIconAdornment {
-    @include vertically-center-icon;
-    @include ca-position($end: $ca-grid / 2);
-  }
-
-  &.isDisabled {
-    .endIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  input {
-    @include ca-padding(
-      $start: $input-base-padding-horizontal,
-      $end: $ca-grid + $input-icon-size
     );
   }
 }
@@ -148,8 +108,7 @@ input:focus {
 .withStartIconAdornment {
   /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
-    color: $color-purple-800;
-    opacity: $search-input-placeholder-opacity;
+    color: $input-disabled-color-opacity;
   }
 
   &:focus-within:not(.withDisabled),
@@ -168,62 +127,23 @@ input:focus {
   }
 }
 
-/* stylelint-disable-next-line no-duplicate-selectors */
-.withEndIconAdornment {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .endIconAdornment {
-    color: $color-gray-600;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  &.withDisabled {
-    /* stylelint-disable-next-line no-duplicate-selectors */
-    .endIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-}
-
 ///////////////////////////////////////////////////
 // THEMES
 ///////////////////////////////////////////////////
 
 // Default
-input {
+.input {
   background-color: $color-white;
   color: $color-purple-800;
   border-color: $color-gray-500;
   display: flex;
   align-items: center;
 
-  @include form-input-placeholder {
-    color: $color-purple-800;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  // &:focus:not([disabled]),
-  // &:hover:focus:not([disabled]),
-  // &:hover:not([disabled]) {
-  //   background-color: $color-gray-200;
-  // }
-
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]),
   &:hover:not([disabled]) {
-    @include form-input-placeholder {
-      opacity: 1;
-    }
-  }
-
-  &:focus + .focusRing {
-    border-color: $color-blue-500;
-  }
-
-  &.disabled {
-    color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
-
-    @include form-input-placeholder {
-      opacity: $search-input-placeholder-opacity;
-    }
+    background-color: $color-gray-200;
+    border-color: $color-gray-600;
   }
 
   &.error:not(:focus) {
