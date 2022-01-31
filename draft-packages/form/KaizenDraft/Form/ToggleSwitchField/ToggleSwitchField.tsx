@@ -13,6 +13,7 @@ export interface ToggleSwitchFieldProps {
   toggledStatus?: ToggledStatus
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
+  reversed?: boolean
   inline?: boolean
   fullWidth?: boolean
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -28,9 +29,10 @@ const ToggleSwitchField: ToggleSwitchField = ({
   labelPosition = "start",
   toggledStatus,
   onToggle,
-  disabled = false,
-  inline = false,
-  fullWidth = false,
+  disabled,
+  reversed,
+  inline,
+  fullWidth,
   onFocus,
   onBlur,
 }) => (
@@ -40,6 +42,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
     automationId={`${id}-field-group`}
     className={classnames(styles.container, {
       [styles.fullWidth]: fullWidth,
+      [styles.on]: toggledStatus === ToggledStatus.ON,
     })}
   >
     <div className={styles.inner}>
@@ -51,11 +54,13 @@ const ToggleSwitchField: ToggleSwitchField = ({
         labelType="toggle"
         labelPosition={labelPosition}
         disabled={disabled}
+        reversed={reversed}
       >
         <ToggleSwitch
           id={`${id}-field-toggle`}
           automationId={`${id}-field-toggle`}
           disabled={disabled}
+          reversed={reversed}
           toggledStatus={toggledStatus}
           name={name}
           onToggle={onToggle}

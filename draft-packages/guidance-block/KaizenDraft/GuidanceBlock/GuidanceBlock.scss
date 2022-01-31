@@ -129,6 +129,10 @@ $scene-illustration-size: 300px;
     width: 100%;
     margin-top: $spacing-xs;
   }
+
+  [dir="rtl"] & svg {
+    transform: rotate(180deg);
+  }
 }
 
 .hidden {
@@ -200,6 +204,10 @@ $scene-illustration-size: 300px;
     @include ca-media-mobile {
       display: flex;
     }
+  }
+
+  .descriptionAndActions {
+    margin: auto 0;
   }
 
   .descriptionContainer {
@@ -274,17 +282,6 @@ $scene-illustration-size: 300px;
       flex-direction: column;
       min-width: unset;
       justify-content: center;
-
-      svg {
-        display: none;
-      }
-
-      button span {
-        &,
-        [dir="rtl"] & {
-          margin: 0;
-        }
-      }
     }
   }
 
