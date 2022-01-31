@@ -68,11 +68,12 @@ export const Default = props => (
 
 Default.storyName = "Default (Kaizen Demo)"
 
-export const DesignSheet = () => (
+export const StickerSheet = () => (
   <div
     style={{
       display: "grid",
       gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
+      rowGap: "20px",
     }}
   >
     <div>
@@ -125,13 +126,14 @@ export const DesignSheet = () => (
   </div>
 )
 
-DesignSheet.storyName = "Design Sheet (Default)"
+StickerSheet.storyName = "Sticker Sheet (Default)"
 
-export const DesignSheetSheetReversed = () => (
+export const StickerSheetReversed = () => (
   <div
     style={{
       display: "grid",
       gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
+      rowGap: "20px",
     }}
   >
     <div>
@@ -187,10 +189,10 @@ export const DesignSheetSheetReversed = () => (
   </div>
 )
 
-DesignSheetSheetReversed.parameters = {
+StickerSheetReversed.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
 }
 
-DesignSheetSheetReversed.storyName = "Design Sheet (Reversed)"
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
