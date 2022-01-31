@@ -25,6 +25,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
   rows = 3,
   status = "default",
   autogrow = false,
+  disabled = false,
   automationId,
   onChange: propsOnChange,
   textAreaRef: propsTextAreaRef,
@@ -77,10 +78,10 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
   return (
     <div className={styles.wrapper} style={getWrapperStyle()}>
       <textarea
-        className={classnames(styles.textarea, {
+        className={classnames(styles.textarea, styles[status], {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
-          [styles.error]: status === "error",
+          [styles.disabled]: disabled,
         })}
         rows={rows}
         onChange={onChange || propsOnChange}
@@ -90,6 +91,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         // ^ React throws a warning if you specify both a value and a defaultValue
         ref={textAreaRef}
         style={getTextAreaStyle()}
+        disabled={disabled}
         {...genericTextAreaProps}
       />
 

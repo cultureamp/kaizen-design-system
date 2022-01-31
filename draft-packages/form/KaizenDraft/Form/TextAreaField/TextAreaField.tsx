@@ -1,5 +1,7 @@
-import React from "react"
+import * as React from "react"
+import classnames from "classnames"
 import { FieldGroup, FieldMessage, Label, TextArea, TextAreaProps } from ".."
+import styles from "./styles.scss"
 
 export interface TextAreaFieldProps
   extends Omit<TextAreaProps, "automationId"> {
@@ -26,13 +28,19 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
   const renderDescription = (position: "top" | "bottom") => {
     if (!description) return null
     return (
-      <FieldMessage
-        id={`${id}-field-message`}
-        automationId={`${id}-field-description`}
-        message={description}
-        reversed={reversed}
-        position={position}
-      />
+      <div
+        className={classnames(styles.message, {
+          [styles.disabled]: disabled,
+        })}
+      >
+        <FieldMessage
+          id={`${id}-field-message`}
+          automationId={`${id}-field-description`}
+          message={description}
+          reversed={reversed}
+          position={position}
+        />
+      </div>
     )
   }
 
@@ -41,6 +49,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
       id={`${id}-field-group`}
       inline={inline}
       automationId={`${id}-field-group`}
+      className={disabled ? styles.disabled : undefined}
     >
       <Label
         id={`${id}-field-label`}
@@ -61,13 +70,19 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
         {...textAreaProps}
       />
       {validationMessage && (
-        <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-validation-message`}
-          message={validationMessage}
-          status={status}
-          reversed={reversed}
-        />
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
+          <FieldMessage
+            id={`${id}-field-message`}
+            automationId={`${id}-field-validation-message`}
+            message={validationMessage}
+            status={status}
+            reversed={reversed}
+          />
+        </div>
       )}
       {!renderDescriptionOnTop && renderDescription("bottom")}
     </FieldGroup>
