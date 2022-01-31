@@ -2152,6 +2152,17 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@kaizen/draft-form@^5.2.2":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-5.2.2.tgz#b2aeee5bc463be0eefc7bd96bcd21cd36ff3c631"
+  integrity sha512-nc+Az/gGk0uHzn4ahFOfwR9a9AMWe1kr0fD/N7DMIQoY6XxC3i5SzjR4sPH7UmBmzm9lH92D+IfDtfM6uVHIsw==
+  dependencies:
+    "@kaizen/component-library" "^12.2.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.0"
+    "@kaizen/draft-loading-spinner" "^2.4.0"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"

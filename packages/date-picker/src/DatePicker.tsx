@@ -1,5 +1,8 @@
 import { Label } from "@kaizen/draft-form"
+import { Icon } from "@kaizen/component-library"
 import React from "react"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import classnames from "classnames"
 import DayPickerInput from "react-day-picker/DayPickerInput"
 import "react-day-picker/lib/style.css"
 import styles from "./DatePicker.scss"
@@ -7,17 +10,31 @@ import styles from "./DatePicker.scss"
 type DatePickerProps = {
   selectedDate?: Date
   handleDayChange: (day: Date) => void
-  label?: string
+  labelText?: string
+  isDisabled?: boolean
 }
 
 export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   selectedDate,
   handleDayChange,
-  label,
+  labelText,
+  isDisabled = false,
 }) => (
   <>
-    {label && <Label>{label}</Label>}
-    <div className={styles.wrapper}>
+    {labelText && <Label disabled={isDisabled} labelText={labelText} />}
+    <div
+      className={classnames(
+        styles.wrapper,
+        styles.withStartIconAdornment,
+        styles.withSearch,
+        {
+          [styles.withDisabled]: isDisabled,
+        }
+      )}
+    >
+      <div className={styles.startIconAdornment}>
+        <Icon icon={dateStart} role="presentation" />
+      </div>
       <DayPickerInput
         value={selectedDate}
         onDayChange={handleDayChange}
@@ -27,11 +44,13 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
             daysOfWeek: [0, 6],
           },
         }}
+        inputProps={{
+          disabled: isDisabled,
+          className: classnames(styles.input, {
+            [styles.disabled]: isDisabled,
+          }),
+        }}
       />
-
-      {/* Inputs aren't able to have pseudo elements like ::after on them,
-          so we have to create an element ourselves for the focus ring */}
-      <div className={styles.focusRing} />
     </div>
   </>
 )
