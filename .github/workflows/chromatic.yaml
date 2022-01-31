@@ -28,7 +28,8 @@ jobs:
       - run: |
           echo "runChromatic=${runChromatic}" >> $GITHUB_ENV
         env:
-          runChromatic: ${{ github.event.review.state == 'approved' }}
+          # If action is running on master branch we would like to update baselines via autoAcceptChanges
+          runChromatic: ${{ github.event.review.state == 'approved' || github.ref == 'refs/heads/master' }}
 
       - run: echo "PR has been approved, trigger Chromatic"
         if: ${{ env.runChromatic == 'true' }}
