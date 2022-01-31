@@ -4,9 +4,13 @@
 name: "chromatic"
 
 on:
-  # despite the name, this is triggered on both isuse comments *and* PR comments. We're only interested in PR comments for this Action.
-  issue_comment:
-    types: [created]
+  pull_request_review:
+    types: [submitted]
+  push:
+    paths:
+      - packages/**
+      - draft-packages/**
+      - legacy-packages/**
 
 # List of jobs
 jobs:
@@ -21,21 +25,12 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
-      - name: Get most recent comment
-        if: ${{ github.event.issue.pull_request }} # despite the name "issue_comment", an "issue_comment" can either actually be an issue comment, or it might be a PR comment (even though issues and PRs are completely different things). This checks where this is a "PR comment" kind of "issue comment". You know like when sometimes a dog isn't a dog, but it's actually a cat so you need to check to make sure?
-        uses: peter-evans/find-comment@v1
-        id: latestComment
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body-includes: ""
-          direction: last
-
       - run: |
           echo "runChromatic=${runChromatic}" >> $GITHUB_ENV
         env:
-          runChromatic: ${{ contains(steps.latestComment.outputs.comment-body, 'run chromatic') }}
+          runChromatic: ${{ github.event.review.state == 'approved' }}
 
-      - run: echo "found run chromatic text in latest comment"
+      - run: echo "PR has been approved, trigger Chromatic"
         if: ${{ env.runChromatic == 'true' }}
 
       - uses: actions/cache@v2 # use of cache for node_modules saves usually > 1min of build time
