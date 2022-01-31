@@ -6,6 +6,11 @@ name: "chromatic"
 on:
   pull_request_review:
     types: [submitted]
+  push:
+    paths:
+      - packages/**
+      - draft-packages/**
+      - legacy-packages/**
 
 # List of jobs
 jobs:
