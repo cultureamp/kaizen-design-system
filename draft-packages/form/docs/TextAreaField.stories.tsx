@@ -13,11 +13,12 @@ const StoryContainer: React.FunctionComponent = ({ children }) => (
   </div>
 )
 
-const StoryColumn: React.FunctionComponent = ({ children }) => (
+const StoryRow: React.FunctionComponent = ({ children }) => (
   <div
     style={{
       display: "grid",
-      rowGap: "25px",
+      columnGap: "45px",
+      gridTemplateColumns: "repeat(2, minmax(10px, 195px)",
     }}
   >
     {children}
@@ -28,7 +29,7 @@ const StoryGrid: React.FunctionComponent = ({ children }) => (
   <div
     style={{
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(10px, 195px))",
+      gridTemplateColumns: "1fr",
       columnGap: "45px",
       rowGap: "12px",
     }}
@@ -86,14 +87,24 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 
 export const StickerSheetDefault = () => (
   <StoryGrid>
-    <StoryColumn>
+    <StoryRow>
       <Heading variant="heading-5" tag="h3">
         Base
       </Heading>
+      <Heading variant="heading-5" tag="h3">
+        Disabled
+      </Heading>
+    </StoryRow>
+    <StoryRow>
       <StoryContainer>
         <TextAreaField id="text-area-default" labelText="Default" />
       </StoryContainer>
       <StoryContainer>
+        <TextAreaField disabled id="text-area-default" labelText="Default" />
+      </StoryContainer>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
         <TextAreaField
           id="text-area-default"
           defaultValue="Filled input text"
@@ -103,24 +114,15 @@ export const StickerSheetDefault = () => (
       </StoryContainer>
       <StoryContainer>
         <TextAreaField
-          id="text-area-error"
-          labelText="Error"
-          description="Example/description text"
+          id="text-area-default"
           defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
+          labelText="With description"
+          description="Example/description text"
+          disabled
         />
       </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
+    </StoryRow>
+    <StoryRow>
       <StoryContainer>
         <TextAreaField
           id="text-area-prominent"
@@ -128,45 +130,6 @@ export const StickerSheetDefault = () => (
           description="Example/description text"
           defaultValue="Filled input text"
           variant="prominent"
-        />
-      </StoryContainer>
-    </StoryColumn>
-    <StoryColumn>
-      <Heading variant="heading-5" tag="h3">
-        Disabled
-      </Heading>
-      <StoryContainer>
-        <TextAreaField id="text-area-default" labelText="Default" disabled />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-          disabled
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-error"
-          labelText="Error"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
-          disabled
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-          disabled
         />
       </StoryContainer>
       <StoryContainer>
@@ -179,7 +142,31 @@ export const StickerSheetDefault = () => (
           disabled
         />
       </StoryContainer>
-    </StoryColumn>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StoryRow>
   </StoryGrid>
 )
 
@@ -187,74 +174,40 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 
 export const StickerSheetReversed = () => (
   <StoryGrid>
-    <StoryColumn>
+    <StoryRow>
       <Heading color="white" variant="heading-5" tag="h3">
         Base
       </Heading>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
-          id="text-area-default"
-          labelText="Default"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
-          id="text-area-error"
-          labelText="Error"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
-          id="text-area-prominent"
-          labelText="Prominent"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          variant="prominent"
-        />
-      </StoryContainer>
-    </StoryColumn>
-    <StoryColumn>
       <Heading color="white" variant="heading-5" tag="h3">
         Disabled
       </Heading>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField reversed id="text-area-default" labelText="Default" />
+      </StoryContainer>
       <StoryContainer>
         <TextAreaField
-          reversed={true}
+          reversed
+          disabled
           id="text-area-default"
           labelText="Default"
-          disabled
+        />
+      </StoryContainer>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField
+          reversed
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
         />
       </StoryContainer>
       <StoryContainer>
         <TextAreaField
-          reversed={true}
+          reversed
           id="text-area-default"
           defaultValue="Filled input text"
           labelText="With description"
@@ -262,33 +215,21 @@ export const StickerSheetReversed = () => (
           disabled
         />
       </StoryContainer>
+    </StoryRow>
+    <StoryRow>
       <StoryContainer>
         <TextAreaField
-          reversed={true}
-          id="text-area-error"
-          labelText="Error"
+          reversed
+          id="text-area-prominent"
+          labelText="Prominent"
           description="Example/description text"
           defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
-          disabled
+          variant="prominent"
         />
       </StoryContainer>
       <StoryContainer>
         <TextAreaField
-          reversed={true}
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-          disabled
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed={true}
+          reversed
           id="text-area-prominent"
           labelText="Prominent"
           description="Example/description text"
@@ -297,7 +238,33 @@ export const StickerSheetReversed = () => (
           disabled
         />
       </StoryContainer>
-    </StoryColumn>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField
+          reversed
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StoryRow>
+    <StoryRow>
+      <StoryContainer>
+        <TextAreaField
+          reversed
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StoryRow>
   </StoryGrid>
 )
 

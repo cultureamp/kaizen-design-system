@@ -9,8 +9,8 @@ $input-disabled-border-alpha: 50%;
 
 // Helpers
 @mixin form-input-focus-state {
-  &:focus:not([disabled]):not(.caution):not(.error),
-  &:hover:focus:not([disabled]):not(.caution):not(.error),
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]),
   &:hover:not([disabled]) {
     @content;
   }
@@ -29,14 +29,6 @@ $input-disabled-border-alpha: 50%;
   color: $color-purple-800-rgb;
   display: block;
   resize: vertical;
-
-  &:hover:not(.caution):not(.error) {
-    border-color: $color-gray-500;
-  }
-
-  @include form-input-focus-state {
-    border-color: $color-gray-600;
-  }
 
   @include form-input-placeholder {
     line-height: 1.5;
@@ -62,10 +54,33 @@ $input-disabled-border-alpha: 50%;
 .textarea.default {
   @include form-input-focus-state {
     background-color: $color-gray-200;
+    border-color: $color-gray-600;
   }
 
   &:focus + .focusRing {
     border-color: $color-blue-500;
+  }
+
+  &:not(.error):not(.caution) {
+    &:disabled {
+      border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
+    }
+  }
+
+  &.error {
+    border-color: $color-red-500;
+
+    @include form-input-focus-state {
+      border-color: $color-red-500;
+    }
+  }
+
+  &.caution {
+    border-color: $color-yellow-600;
+
+    @include form-input-focus-state {
+      border-color: $color-yellow-600;
+    }
   }
 
   &.disabled {
@@ -77,92 +92,51 @@ $input-disabled-border-alpha: 50%;
       opacity: $input-disabled-opacity;
     }
   }
-
-  &:not(.error):not(.caution) {
-    &:disabled {
-      border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
-    }
-
-    @include form-input-focus-state {
-      border-color: $color-gray-600;
-    }
-  }
-
-  &.error {
-    border-color: $color-red-500;
-
-    &.disabled {
-      border-color: rgba($color-red-500-rgb, $input-disabled-opacity);
-    }
-  }
-
-  &.caution {
-    border-color: $color-yellow-600;
-
-    &.disabled {
-      border-color: rgba($color-yellow-600-rgb, $input-disabled-opacity);
-    }
-  }
 }
 
 // Reversed (Dark Backgrounds)
 .textarea.reversed {
   @include form-input-focus-state {
     background: rgba($color-white-rgb, 0.1);
+    border-color: $color-white;
   }
 
-  color: $color-white;
   border-color: rgba($color-white-rgb, 0.65);
   background: transparent;
+  color: $color-white;
 
   @include form-input-placeholder {
     line-height: 1.5;
     color: $color-white;
   }
 
-  &:focus,
-  &:hover {
-    border-color: $color-white;
-  }
-
   &:focus + .focusRing {
     border-color: $color-blue-300;
-  }
-
-  &:not(.error):not(.caution) {
-    border-color: rgba($color-white-rgb, 0.65);
-
-    &:disabled {
-      border-color: rgba($color-white-rgb, $input-disabled-opacity);
-    }
-
-    @include form-input-focus-state {
-      border-color: $color-white;
-    }
-  }
-
-  &.disabled {
-    background: transparent;
-    color: rgba($color-white-rgb, $input-disabled-opacity);
-
-    @include form-input-placeholder {
-      opacity: $input-disabled-opacity;
-    }
   }
 
   &.error {
     border-color: $color-red-300;
 
-    &.disabled {
-      border-color: rgba($color-red-300-rgb, $input-disabled-opacity);
+    @include form-input-focus-state {
+      border-color: $color-red-300;
     }
   }
 
   &.caution {
     border-color: $color-yellow-400;
 
-    &.disabled {
-      border-color: rgba($color-yellow-400-rgb, $input-disabled-opacity);
+    @include form-input-focus-state {
+      border-color: $color-yellow-400;
+    }
+  }
+
+  &.disabled {
+    background: transparent;
+    border-color: rgba($color-white-rgb, $input-disabled-opacity);
+    color: rgba($color-white-rgb, $input-disabled-opacity);
+
+    @include form-input-placeholder {
+      opacity: $input-disabled-opacity;
     }
   }
 }

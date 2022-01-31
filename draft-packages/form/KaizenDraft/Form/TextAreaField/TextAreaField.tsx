@@ -69,20 +69,14 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
         disabled={disabled}
         {...textAreaProps}
       />
-      {validationMessage && (
-        <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
-        >
-          <FieldMessage
-            id={`${id}-field-message`}
-            automationId={`${id}-field-validation-message`}
-            message={validationMessage}
-            status={status}
-            reversed={reversed}
-          />
-        </div>
+      {!disabled && validationMessage && (
+        <FieldMessage
+          id={`${id}-field-message`}
+          automationId={`${id}-field-validation-message`}
+          message={validationMessage}
+          status={status}
+          reversed={reversed}
+        />
       )}
       {!renderDescriptionOnTop && renderDescription("bottom")}
     </FieldGroup>
