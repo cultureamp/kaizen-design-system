@@ -88,17 +88,8 @@ $input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
 
   .input {
     @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
+      $start: 1rem + $input-icon-size,
       $end: $input-base-padding-horizontal
-    );
-  }
-}
-
-.withStartIconAdornment.withEndIconAdornment {
-  input {
-    @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
-      $end: $ca-grid + $input-icon-size
     );
   }
 }
@@ -106,18 +97,6 @@ $input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
 // Default theme
 /* stylelint-disable-next-line no-duplicate-selectors */
 .withStartIconAdornment {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .startIconAdornment {
-    color: $input-disabled-color-opacity;
-  }
-
-  &:focus-within:not(.withDisabled),
-  &:hover:not(.withDisabled) {
-    .startIconAdornment {
-      opacity: 1;
-    }
-  }
-
   /* stylelint-disable-next-line no-duplicate-selectors */
   &.withDisabled {
     /* stylelint-disable-next-line no-duplicate-selectors */
