@@ -188,12 +188,123 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 export const StickerSheetReversed = () => (
   <StoryGrid>
     <StoryColumn>
-      <Heading variant="heading-5" color="white" tag="h3">
+      <Heading color="white" variant="heading-5" tag="h3">
         Base
       </Heading>
-      <StoryContainer></StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-default"
+          labelText="Default"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+        />
+      </StoryContainer>
+    </StoryColumn>
+    <StoryColumn>
+      <Heading color="white" variant="heading-5" tag="h3">
+        Disabled
+      </Heading>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-default"
+          labelText="Default"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+          disabled
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          reversed={true}
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+          disabled
+        />
+      </StoryContainer>
     </StoryColumn>
   </StoryGrid>
 )
 
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+
+StickerSheetReversed.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
