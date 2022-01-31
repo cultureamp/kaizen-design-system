@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+$input-disabled-background: $color-gray-300;
+$input-disabled-opacity: 0.3;
+$input-disabled-border-alpha: 50%;
+
+.message {
+  &.disabled {
+    opacity: $input-disabled-opacity;
+  }
+}

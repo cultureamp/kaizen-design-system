@@ -1,8 +1,20 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
 @import "../../decision-tokens.scss";
+
+// Vars
+$input-disabled-opacity: 0.3;
+$input-disabled-border-alpha: 50%;
+
+// Helpers
+@mixin form-input-focus-state {
+  &:focus:not([disabled]):not(.caution):not(.error),
+  &:hover:focus:not([disabled]):not(.caution):not(.error),
+  &:hover:not([disabled]) {
+    @content;
+  }
+}
 
 .wrapper {
   position: relative;
@@ -12,20 +24,18 @@
   @include form-input-reset;
   border-radius: $border-solid-border-radius;
   width: 100%;
-  border: $border-solid-border-width $border-solid-border-style
-    $dt-color-form-border-color;
-  padding: $ca-grid * 0.5;
-  color: $dt-color-form-text-color;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  padding: $spacing-sm;
+  color: $color-purple-800-rgb;
   display: block;
   resize: vertical;
 
-  &:focus,
-  &:hover {
-    border-color: $dt-color-form-border-color-hover;
+  &:hover:not(.caution):not(.error) {
+    border-color: $color-gray-500;
   }
 
-  &.error:not(:focus) {
-    border-color: $color-red-500;
+  @include form-input-focus-state {
+    border-color: $color-gray-600;
   }
 
   @include form-input-placeholder {
@@ -50,13 +60,57 @@
 }
 
 .textarea.default {
+  @include form-input-focus-state {
+    background-color: $color-gray-200;
+  }
+
   &:focus + .focusRing {
-    border-color: $dt-color-form-border-color-focus;
+    border-color: $color-blue-500;
+  }
+
+  &.disabled {
+    background-color: $color-white;
+    border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
+    color: rgba($color-purple-800-rgb, $input-disabled-opacity);
+
+    @include form-input-placeholder {
+      opacity: $input-disabled-opacity;
+    }
+  }
+
+  &:not(.error):not(.caution) {
+    &:disabled {
+      border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
+    }
+
+    @include form-input-focus-state {
+      border-color: $color-gray-600;
+    }
+  }
+
+  &.error {
+    border-color: $color-red-500;
+
+    &.disabled {
+      border-color: rgba($color-red-500-rgb, $input-disabled-opacity);
+    }
+  }
+
+  &.caution {
+    border-color: $color-yellow-600;
+
+    &.disabled {
+      border-color: rgba($color-yellow-600-rgb, $input-disabled-opacity);
+    }
   }
 }
 
 // Reversed (Dark Backgrounds)
 .textarea.reversed {
+  @include form-input-focus-state {
+    background: rgba($color-white-rgb, 0.1);
+  }
+
   color: $color-white;
   border-color: rgba($color-white-rgb, 0.65);
   background: transparent;
@@ -68,15 +122,47 @@
 
   &:focus,
   &:hover {
-    background: rgba($color-white-rgb, 0.1);
     border-color: $color-white;
+  }
+
+  &:focus + .focusRing {
+    border-color: $color-blue-300;
+  }
+
+  &:not(.error):not(.caution) {
+    border-color: rgba($color-white-rgb, 0.65);
+
+    &:disabled {
+      border-color: rgba($color-white-rgb, $input-disabled-opacity);
+    }
+
+    @include form-input-focus-state {
+      border-color: $color-white;
+    }
+  }
+
+  &.disabled {
+    background: transparent;
+    color: rgba($color-white-rgb, $input-disabled-opacity);
+
+    @include form-input-placeholder {
+      opacity: $input-disabled-opacity;
+    }
   }
 
   &.error {
     border-color: $color-red-300;
+
+    &.disabled {
+      border-color: rgba($color-red-300-rgb, $input-disabled-opacity);
+    }
   }
 
-  &:focus + .focusRing {
-    border-color: $dt-color-form-border-color-reversed-focus;
+  &.caution {
+    border-color: $color-yellow-400;
+
+    &.disabled {
+      border-color: rgba($color-yellow-400-rgb, $input-disabled-opacity);
+    }
   }
 }
