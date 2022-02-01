@@ -1,10 +1,8 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
-@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // -----------------------------------------------
 // Form Input Primitive
@@ -41,14 +39,12 @@ $input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
   margin-bottom: 2px;
 
   &.disabled {
-    &:not(.reversed) {
-      background: $color-white;
-      opacity: $input-disabled-opacity;
-      color: $input-disabled-color-opacity;
+    background: $color-white;
+    opacity: $input-disabled-opacity;
+    color: $input-disabled-color-opacity;
 
-      @include form-input-placeholder {
-        color: $input-disabled-color-opacity;
-      }
+    @include form-input-placeholder {
+      color: $input-disabled-color-opacity;
     }
   }
 
@@ -58,13 +54,12 @@ $input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
       opacity: 0;
     }
   }
-}
 
-.input:focus {
-  outline: $border-focus-ring-border-width $border-focus-ring-border-style
-    $color-blue-500;
-  outline-offset: 2px;
-  pointer-events: none;
+  &:focus:not([disabled]) {
+    outline: $border-focus-ring-border-width $border-focus-ring-border-style
+      $color-blue-500;
+    outline-offset: 2px;
+  }
 }
 
 ///////////////////////////////////////////////////
