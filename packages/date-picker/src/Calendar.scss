@@ -1,0 +1,61 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.calendar {
+  font-family: $typography-heading-4-font-family;
+
+  .navbar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 2.5rem);
+    margin: 0 1.25rem;
+    top: 1rem;
+    color: $color-purple-800;
+  }
+
+  .caption {
+    text-align: center;
+    font-size: $typography-heading-4-font-size;
+    font-weight: $typography-heading-4-font-weight;
+    line-height: $typography-heading-4-line-height;
+    letter-spacing: $typography-heading-4-letter-spacing;
+    color: $color-purple-800;
+  }
+  .weekday {
+    font-size: $typography-paragraph-body-font-size;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+    color: $color-purple-800;
+  }
+  .body {
+    font-size: $typography-paragraph-body-font-size;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+  }
+
+  .today {
+    color: $color-blue-500;
+  }
+
+  .day {
+    padding: calc(#{$spacing-md} / 3) 0.625rem;
+  }
+
+  .disabled {
+    color: rgba($color-purple-800-rgb, 0.3);
+  }
+
+  .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
+    border-radius: 4px;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  .selected:not(.disabled):not(.outside) {
+    border-radius: 4px;
+    background-color: $color-blue-500;
+    color: $color-white;
+  }
+}

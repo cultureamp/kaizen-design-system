@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
-import { DatePickerWrapper as DatePicker } from "../src/DatePicker"
+import { Calendar, DatePickerWrapper as DatePicker } from "../src/DatePicker"
 
 export default {
   title: `${CATEGORIES.components}/DatePicker`,
@@ -78,5 +78,16 @@ export const DisabledWithValue = () => {
       onDayChange={onDayChange}
       isDisabled
     />
+  )
+}
+
+export const DefaultCalendar = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const handleDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+  return (
+    <Calendar selectedDate={selectedDate} handleDayChange={handleDayChange} />
   )
 }
