@@ -8,13 +8,13 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { DatePicker } from "@kaizen/DatePicker"',
+        component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
     },
   },
 }
 
-export const KaizenDefault = () => {
+export const KaizenDefault = props => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
   const handleDayChange = (day: Date) => {
@@ -26,6 +26,7 @@ export const KaizenDefault = () => {
       labelText="Label"
       selectedDate={selectedDate}
       handleDayChange={handleDayChange}
+      {...props}
     />
   )
 }
