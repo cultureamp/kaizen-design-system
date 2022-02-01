@@ -30,3 +30,45 @@ it("renders a validation message when provided", () => {
 
   expect(screen.getByText("Incorrect message")).toBeTruthy()
 })
+
+it("renders a prominent label", () => {
+  const { container } = render(
+    <TextAreaField
+      id="reply"
+      labelText="Prominent label"
+      validationMessage="Incorrect message"
+      variant="prominent"
+    />
+  )
+
+  expect(container.getElementsByClassName("prominent").length).toBe(1)
+})
+
+it("renders descriptions as the first sibling of the prominent labels", () => {
+  const { container } = render(
+    <TextAreaField
+      id="reply"
+      labelText="Prominent label"
+      description="This should be the immediate sibling to the label"
+      variant="prominent"
+    />
+  )
+
+  const prominentLabel = container.getElementsByClassName("prominent")[0]
+  const siblingNode = prominentLabel?.nextElementSibling
+
+  expect(siblingNode?.className === "message").toBeTruthy()
+})
+
+it("Does not render a validation message if it is disabled", () => {
+  render(
+    <TextAreaField
+      id="reply"
+      labelText="Prominent label"
+      validationMessage="This should not render"
+      disabled
+    />
+  )
+
+  expect(screen.queryByText("This should not render")).toBeFalsy()
+})
