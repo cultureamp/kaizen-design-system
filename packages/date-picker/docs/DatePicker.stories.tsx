@@ -17,7 +17,7 @@ export default {
 export const KaizenDefault = props => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-  const handleDayChange = (day: Date) => {
+  const onDayChange = (day: Date) => {
     setSelectedDate(day)
   }
 
@@ -25,7 +25,7 @@ export const KaizenDefault = props => {
     <DatePicker
       labelText="Label"
       selectedDate={selectedDate}
-      handleDayChange={handleDayChange}
+      onDayChange={onDayChange}
       {...props}
     />
   )
@@ -34,7 +34,7 @@ export const KaizenDefault = props => {
 export const DefaultWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-  const handleDayChange = (day: Date) => {
+  const onDayChange = (day: Date) => {
     setSelectedDate(day)
   }
 
@@ -42,7 +42,7 @@ export const DefaultWithValue = () => {
     <DatePicker
       labelText="Label"
       selectedDate={new Date()}
-      handleDayChange={handleDayChange}
+      onDayChange={onDayChange}
     />
   )
 }
@@ -50,7 +50,7 @@ export const DefaultWithValue = () => {
 export const Disabled = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-  const handleDayChange = (day: Date) => {
+  const onDayChange = (day: Date) => {
     setSelectedDate(day)
   }
 
@@ -58,7 +58,7 @@ export const Disabled = () => {
     <DatePicker
       labelText="Label"
       selectedDate={selectedDate}
-      handleDayChange={handleDayChange}
+      onDayChange={onDayChange}
       isDisabled
     />
   )
@@ -67,7 +67,7 @@ export const Disabled = () => {
 export const DisabledWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-  const handleDayChange = (day: Date) => {
+  const onDayChange = (day: Date) => {
     setSelectedDate(day)
   }
 
@@ -75,7 +75,7 @@ export const DisabledWithValue = () => {
     <DatePicker
       labelText="Label"
       selectedDate={new Date()}
-      handleDayChange={handleDayChange}
+      onDayChange={onDayChange}
       isDisabled
     />
   )

@@ -9,14 +9,14 @@ import styles from "./DatePicker.scss"
 
 type DatePickerProps = {
   selectedDate?: Date
-  handleDayChange: (day: Date) => void
+  onDayChange: (day: Date) => void
   labelText?: string
   isDisabled?: boolean
 }
 
 export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   selectedDate,
-  handleDayChange,
+  onDayChange,
   labelText,
   isDisabled = false,
 }) => (
@@ -37,7 +37,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
       </div>
       <DayPickerInput
         value={selectedDate}
-        onDayChange={handleDayChange}
+        onDayChange={onDayChange}
         dayPickerProps={{
           selectedDays: selectedDate,
           disabledDays: {

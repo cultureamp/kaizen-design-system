@@ -35,14 +35,15 @@
     "react-day-picker": "^7.4.9",
     "classnames": "^2.3.1",
     "@kaizen/draft-form": "^5.2.2",
-    "@kaizen/component-library": "12.2.0"
+    "@kaizen/component-library": "12.2.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.0"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^6.0.2",
     "@types/classnames": "^2.3.1"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
     "react": "^16.9.0"
   }
 }
