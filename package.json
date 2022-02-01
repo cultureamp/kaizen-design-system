@@ -103,7 +103,7 @@
   "devDependencies": {
     "@storybook/node-logger": "^6.4.9",
     "chromatic": "^6.2.3",
-    "danger": "^10.8.0",
+    "danger": "^10.9.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-ssr-friendly": "https://github.com/cultureamp/eslint-plugin-ssr-friendly",
     "loader-utils": "^1.4.0",
