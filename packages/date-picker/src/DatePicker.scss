@@ -23,6 +23,11 @@ $input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
   position: relative;
 }
 
+.overlay {
+  background: none;
+  box-shadow: none;
+}
+
 //  is required to override performance-ui global materialize CSS >:|
 .input {
   @include form-input-reset;

@@ -4,11 +4,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
-.overlay {
-  background: none;
-  box-shadow: none;
-}
-
 .calendar {
   font-family: $typography-heading-4-font-family;
   margin-top: 10px;
