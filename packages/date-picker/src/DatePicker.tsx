@@ -48,7 +48,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           disabledDays: {
             daysOfWeek: [0, 6],
           },
-          navbarElement: <Navbar />,
+          navbarElement: ({ ...navbarProps }) => <Navbar {...navbarProps} />,
           classNames: defaultDatePickerClasses,
           className: calendarStyles.calendar,
           onDayClick: onDayChange,
@@ -100,26 +100,32 @@ function CustomOverlay({ classNames, selectedDay, children, ...props }) {
   )
 }
 
-function Navbar({ onPreviousClick, onNextClick, localeUtils }) {
-  return (
-    <div className={calendarStyles.navbar}>
-      <button
-        className={calendarStyles.arrows}
-        onClick={() => onPreviousClick()}
-        type="button"
-      >
-        <Icon icon={arrowLeft} role="presentation" />
-      </button>
-      <button
-        className={calendarStyles.arrows}
-        onClick={() => onNextClick()}
-        type="button"
-      >
-        <Icon icon={arrowRight} role="presentation" />
-      </button>
-    </div>
-  )
+type NavbarProps = {
+  onPreviousClick: () => void
+  onNextClick: () => void
 }
+
+const Navbar: React.FunctionComponent<NavbarProps> = ({
+  onPreviousClick,
+  onNextClick,
+}) => (
+  <div className={calendarStyles.navbar}>
+    <button
+      className={calendarStyles.arrows}
+      onClick={() => onPreviousClick()}
+      type="button"
+    >
+      <Icon icon={arrowLeft} role="presentation" />
+    </button>
+    <button
+      className={calendarStyles.arrows}
+      onClick={() => onNextClick()}
+      type="button"
+    >
+      <Icon icon={arrowRight} role="presentation" />
+    </button>
+  </div>
+)
 
 // type CalendarProps = {
 //   selectedDate?: Date
