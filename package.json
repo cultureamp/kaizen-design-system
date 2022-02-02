@@ -41,9 +41,6 @@
     "@storybook/core-events": "^6.4.9",
     "@storybook/react": "^6.4.9",
     "@storybook/theming": "^6.4.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "babel-elm-assets-plugin": "^1.2.3",
     "babel-loader": "^8.2.3",
     "chalk": "^2.4.2",
@@ -73,8 +70,6 @@
     "svg-sprite-loader": "^5.2.1",
     "svgo": "^1.3.2",
     "svgo-loader": "^2.2.2",
-    "typescript": "^4.5.4",
-    "typescript-plugin-css-modules": "^2.8.0",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
@@ -89,6 +84,9 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "chromatic": "^6.2.3",
     "danger": "^11.0.2",
     "elm": "0.19.1-5",
@@ -108,7 +106,9 @@
     "node-fetch": "^2.6.7",
     "react-test-renderer": "^17.0.2",
     "storybook-addon-designs": "^6.2.1",
-    "ts-jest": "^26.5.6"
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.5.4",
+    "typescript-plugin-css-modules": "^3.4.0"
   },
   "resolutions": {
     "axios": "0.21.2"
