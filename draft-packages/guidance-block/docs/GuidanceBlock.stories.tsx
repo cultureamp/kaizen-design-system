@@ -5,6 +5,9 @@ import {
   Informative,
   HumanityAtWork,
   SkillsCoachManagerHub,
+  SkillsCoachEssentialFeedback,
+  Resilience,
+  Communication,
 } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"

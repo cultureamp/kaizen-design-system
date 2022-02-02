@@ -224,7 +224,6 @@ class GuidanceBlock extends React.Component<
         <div className={styles.illustrationWrapper}>
           <div className={styles.illustration}>{illustration}</div>
         </div>
-
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
             <div className={styles.headingWrapper}>
