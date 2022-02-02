@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.55",
+  "version": "0.0.0-private.57",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -11,11 +11,11 @@
     "@babel/preset-typescript": "^7.16.7",
     "@kaizen/brand": "^1.1.5",
     "@kaizen/component-library": "^12.2.1",
-    "@kaizen/design-tokens": "^6.1.0",
+    "@kaizen/design-tokens": "^6.1.1",
     "@kaizen/draft-button": "^5.4.2",
     "@kaizen/draft-card": "^1.6.0",
     "@kaizen/draft-divider": "^1.8.0",
-    "@kaizen/draft-illustration": "^3.3.2",
+    "@kaizen/draft-illustration": "^3.3.3",
     "@kaizen/draft-tag": "^2.2.2",
     "@kaizen/hosted-assets": "^1.1.0",
     "@mdx-js/mdx": "^1.6.22",
@@ -35,7 +35,6 @@
     "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "prism-react-renderer": "^1.2.1",
-    "raw-loader": "^3.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "5.2.1",
@@ -45,5 +44,8 @@
     "unist-util-visit": "^2.0.3",
     "wcag-contrast-verifier": "^1.1.0",
     "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^4.0.2"
   }
 }
