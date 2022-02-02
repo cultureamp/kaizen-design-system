@@ -7,8 +7,7 @@ import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import classnames from "classnames"
 import DayPickerInput from "react-day-picker/DayPickerInput"
 import "react-day-picker/lib/style.css"
-import DayPicker from "react-day-picker/DayPicker"
-import { ReactElement } from "react-select/node_modules/@types/react"
+// import DayPicker from "react-day-picker/DayPicker"
 import styles from "./DatePicker.scss"
 import calendarStyles from "./Calendar.scss"
 
@@ -43,11 +42,16 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
       <DayPickerInput
         value={selectedDate}
         onDayChange={onDayChange}
+        overlayComponent={CustomOverlay}
         dayPickerProps={{
           selectedDays: selectedDate,
           disabledDays: {
             daysOfWeek: [0, 6],
           },
+          navbarElement: <Navbar />,
+          classNames: defaultDatePickerClasses,
+          className: calendarStyles.calendar,
+          onDayClick: onDayChange,
         }}
         inputProps={{
           disabled: isDisabled,
@@ -62,10 +66,10 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
 
 export const defaultDatePickerClasses = {
   container: "DayPicker",
-  wrapper: "DayPicker-wrapper",
+  wrapper: `${calendarStyles.wrapper} DayPicker-wrapper`,
   interactionDisabled: `${calendarStyles.interactionDisabled} DayPicker--interactionDisabled`,
-  months: "DayPicker-Months",
-  month: "DayPicker-Month",
+  months: `${calendarStyles.months} DayPicker-Months`,
+  month: `${calendarStyles.month} DayPicker-Month`,
   navBar: "DayPicker-NavBar",
   navButtonPrev: "DayPicker-NavButton DayPicker-NavButton--prev",
   navButtonNext: "DayPicker-NavButton DayPicker-NavButton--next",
@@ -86,34 +90,52 @@ export const defaultDatePickerClasses = {
   outside: `${calendarStyles.outside} DayPicker-Day--outside`,
 }
 
-function Navbar({ onPreviousClick, onNextClick, localeUtils }) {
+function CustomOverlay({ classNames, selectedDay, children, ...props }) {
   return (
-    <div className={calendarStyles.navbar}>
-      <span onClick={() => onPreviousClick()}>
-        <Icon icon={arrowLeft} role="presentation" />
-      </span>
-      <span onClick={() => onNextClick()}>
-        <Icon icon={arrowRight} role="presentation" />
-      </span>
+    <div className="DayPickerInput-OverlayWrapper" {...props}>
+      <div className={`${calendarStyles.overlay} DayPickerInput-Overlay`}>
+        {children}
+      </div>
     </div>
   )
 }
 
-type CalendarProps = {
-  selectedDate?: Date
-  handleDayChange: (day: Date) => void
+function Navbar({ onPreviousClick, onNextClick, localeUtils }) {
+  return (
+    <div className={calendarStyles.navbar}>
+      <button
+        className={calendarStyles.arrows}
+        onClick={() => onPreviousClick()}
+        type="button"
+      >
+        <Icon icon={arrowLeft} role="presentation" />
+      </button>
+      <button
+        className={calendarStyles.arrows}
+        onClick={() => onNextClick()}
+        type="button"
+      >
+        <Icon icon={arrowRight} role="presentation" />
+      </button>
+    </div>
+  )
 }
 
-export const Calendar: React.FunctionComponent<CalendarProps> = ({
-  selectedDate,
-  handleDayChange,
-}) => (
-  <DayPicker
-    navbarElement={<Navbar />}
-    classNames={defaultDatePickerClasses}
-    className={calendarStyles.calendar}
-    selectedDays={selectedDate}
-    onDayClick={handleDayChange}
-    disabledDays={[new Date(2022, 1, 16), { daysOfWeek: [0, 6] }]}
-  />
-)
+// type CalendarProps = {
+//   selectedDate?: Date
+//   handleDayChange: (day: Date) => void
+// }
+
+// export const Calendar: React.FunctionComponent<CalendarProps> = ({
+//   selectedDate,
+//   handleDayChange,
+// }) => (
+//   <DayPicker
+//     navbarElement={<Navbar />}
+//     classNames={defaultDatePickerClasses}
+//     className={calendarStyles.calendar}
+//     selectedDays={selectedDate}
+//     onDayClick={handleDayChange}
+//     disabledDays={[new Date(2022, 1, 16), { daysOfWeek: [0, 6] }]}
+//   />
+// )

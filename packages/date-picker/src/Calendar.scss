@@ -1,9 +1,21 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+
+.overlay {
+  background: none;
+  box-shadow: none;
+}
 
 .calendar {
   font-family: $typography-heading-4-font-family;
+  margin-top: 10px;
+
+  .wrapper {
+    padding-bottom: 0;
+  }
 
   .navbar {
     position: absolute;
@@ -13,6 +25,32 @@
     margin: 0 1.25rem;
     top: 1rem;
     color: $color-purple-800;
+    margin-top: 1rem;
+
+    .arrows {
+      @include button-reset;
+      display: inherit;
+      padding: 4px;
+      border: 2px solid transparent;
+      border-radius: 3px;
+
+      &:focus {
+        color: $color-purple-800;
+        border: $color-blue-500 $border-focus-ring-border-style
+          $border-focus-ring-border-width;
+        padding: 4px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .month {
+    margin: 1rem;
+  }
+
+  .months {
+    box-shadow: 0px 0px 7px rgb(0 0 0 / 9%);
+    border-radius: 7px;
   }
 
   .caption {
@@ -22,6 +60,7 @@
     line-height: $typography-heading-4-line-height;
     letter-spacing: $typography-heading-4-letter-spacing;
     color: $color-purple-800;
+    margin-top: 1rem;
   }
   .weekday {
     font-size: $typography-paragraph-body-font-size;
@@ -41,6 +80,11 @@
 
   .day {
     padding: calc(#{$spacing-md} / 3) 0.625rem;
+
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
   }
 
   .disabled {
