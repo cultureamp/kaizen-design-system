@@ -1,6 +1,6 @@
 import { Label } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
@@ -26,6 +26,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   const getNavbar = ({ ...navbarProps }: NavbarProps) => (
     <Navbar {...navbarProps} />
   )
+
   return (
     <>
       {labelText && <Label disabled={isDisabled} labelText={labelText} />}
