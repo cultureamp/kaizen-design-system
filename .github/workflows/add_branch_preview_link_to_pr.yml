@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.state == 'success' && github.event.context == 'Branch preview'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Find relevant PR
         if: github.event.state == 'success'

@@ -97,9 +97,9 @@ $arrow-width: 14px;
   content: "";
   position: absolute;
   left: 50%;
-  border-left: calc($arrow-width / 2) solid transparent;
-  border-right: calc($arrow-width / 2) solid transparent;
-  margin-left: calc($arrow-width / -2);
+  border-left: calc(#{$arrow-width} / 2) solid transparent;
+  border-right: calc(#{$arrow-width} / 2) solid transparent;
+  margin-left: calc(#{$arrow-width} / -2);
 }
 
 .arrowMain {
