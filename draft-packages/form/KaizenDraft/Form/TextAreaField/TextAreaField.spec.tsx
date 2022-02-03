@@ -54,7 +54,9 @@ it("renders descriptions as the first sibling of the prominent labels", () => {
     />
   )
 
-  const prominentLabel = container.getElementsByClassName("prominent")[0]
+  const prominentLabel = container.getElementsByClassName(
+    "textareaLabelProminent"
+  )[0]
   const siblingNode = prominentLabel?.nextElementSibling
 
   expect(siblingNode?.className === "message").toBeTruthy()
@@ -70,7 +72,7 @@ describe("Validation message", () => {
           validationMessage="This should render"
         />
       )
-      expect(screen.queryByText("This should render")).toBeTruthy()
+      screen.getByText("This should render")
     })
   })
   describe("When the textarea field is disabled", () => {
