@@ -1,12 +1,12 @@
-import { Label } from "@kaizen/draft-form"
+import { TextField } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import classnames from "classnames"
-import DayPickerInput from "react-day-picker/DayPickerInput"
 import "react-day-picker/lib/style.css"
+import DayPicker from "react-day-picker/DayPicker"
 import styles from "./DatePicker.scss"
 import calendarStyles from "./Calendar.scss"
 
@@ -27,52 +27,34 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     <Navbar {...navbarProps} />
   )
 
+  const [showPicker, setShowPicker] = useState(false)
+  const handleFocus = () => {
+    setShowPicker(true)
+  }
+
   return (
     <>
-      {labelText && <Label disabled={isDisabled} labelText={labelText} />}
-      <div
-        className={classnames(
-          styles.wrapper,
-          styles.withStartIconAdornment,
-          styles.withSearch,
-          {
-            [styles.withDisabled]: isDisabled,
-          }
-        )}
-      >
-        <div className={styles.startIconAdornment}>
-          <Icon icon={dateStart} role="presentation" />
-        </div>
-        <DayPickerInput
-          value={selectedDate}
-          onDayChange={onDayChange}
-          classNames={defaultDayPickerInputClasses}
-          dayPickerProps={{
-            selectedDays: selectedDate,
-            disabledDays: {
-              daysOfWeek: [0, 6],
-            },
-            navbarElement: getNavbar,
-            classNames: defaultDatePickerClasses,
-            className: calendarStyles.calendar,
-            onDayClick: onDayChange,
-          }}
-          inputProps={{
-            disabled: isDisabled,
-            className: classnames(styles.input, {
-              [styles.disabled]: isDisabled,
-            }),
-          }}
-        />
-      </div>
+      <TextField
+        id="date-picker"
+        labelText={labelText}
+        icon={dateStart}
+        onFocus={handleFocus}
+        inputValue={selectedDate}
+        disabled={isDisabled}
+      />
+
+      <DayPicker
+        selectedDays={selectedDate}
+        disabledDays={{
+          daysOfWeek: [6],
+        }}
+        onDayClick={onDayChange}
+        navbarElement={getNavbar}
+        classNames={defaultDatePickerClasses}
+        className={calendarStyles.calendar}
+      />
     </>
   )
-}
-
-export const defaultDayPickerInputClasses = {
-  container: "DayPickerInput-Container",
-  overlayWrapper: "DayPickerInput-OverlayWrapper",
-  overlay: `${styles.overlay} DayPickerInput-Overlay`,
 }
 
 export const defaultDatePickerClasses = {
