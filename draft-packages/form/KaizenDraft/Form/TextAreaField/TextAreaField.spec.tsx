@@ -60,15 +60,30 @@ it("renders descriptions as the first sibling of the prominent labels", () => {
   expect(siblingNode?.className === "message").toBeTruthy()
 })
 
-it("Does not render a validation message if it is disabled", () => {
-  render(
-    <TextAreaField
-      id="reply"
-      labelText="Prominent label"
-      validationMessage="This should not render"
-      disabled
-    />
-  )
-
-  expect(screen.queryByText("This should not render")).toBeFalsy()
+describe("Validation message", () => {
+  describe("When the textarea field is provided a validation message", () => {
+    it("renders the validation message", () => {
+      render(
+        <TextAreaField
+          id="reply"
+          labelText="Prominent label"
+          validationMessage="This should render"
+        />
+      )
+      expect(screen.queryByText("This should render")).toBeTruthy()
+    })
+  })
+  describe("When the textarea field is disabled", () => {
+    it("does not render a validation message", () => {
+      render(
+        <TextAreaField
+          id="reply"
+          labelText="Prominent label"
+          validationMessage="This should not render"
+          disabled
+        />
+      )
+      expect(screen.queryByText("This should not render")).toBeFalsy()
+    })
+  })
 })
