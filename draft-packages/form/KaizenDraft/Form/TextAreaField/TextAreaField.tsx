@@ -51,15 +51,21 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
       automationId={`${id}-field-group`}
       className={disabled ? styles.disabled : undefined}
     >
-      <Label
-        id={`${id}-field-label`}
-        automationId={`${id}-field-label`}
-        htmlFor={`${id}-field-textarea`}
-        labelText={labelText}
-        reversed={reversed}
-        variant={variant}
-        disabled={disabled}
-      />
+      <div
+        className={classnames(styles.textareaLabel, {
+          [styles.textareaLabelProminent]: variant === "prominent",
+        })}
+      >
+        <Label
+          id={`${id}-field-label`}
+          automationId={`${id}-field-label`}
+          htmlFor={`${id}-field-textarea`}
+          labelText={labelText}
+          reversed={reversed}
+          variant={variant}
+          disabled={disabled}
+        />
+      </div>
       {renderDescriptionOnTop && renderDescription("top")}
       <TextArea
         id={`${id}-field-textarea`}

@@ -34,6 +34,10 @@ $input-disabled-border-alpha: 50%;
     line-height: 1.5;
     color: $dt-color-form-text-color-placeholder;
   }
+
+  &:disabled {
+    resize: none;
+  }
 }
 
 .textarea:focus + .focusRing {

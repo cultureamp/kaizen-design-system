@@ -6,14 +6,13 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react"
-import { InputStatus } from ".."
 import styles from "./styles.scss"
 
 export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   automationId?: string
   reversed?: boolean
-  status?: InputStatus
+  status?: "default" | "error" | "caution"
   autogrow?: boolean
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
 }
