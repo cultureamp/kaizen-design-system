@@ -1,6 +1,6 @@
-import { useDebouncedCallback } from "use-debounce"
-import cx from "classnames"
 import React, { useState } from "react"
+import cx from "classnames"
+import { useDebouncedCallback } from "use-debounce"
 import styles from "./AppearanceAnim.scss"
 
 type Props = {
@@ -24,35 +24,33 @@ const AppearanceAnim = ({ children, isVisible, className, ...rest }: Props) => {
   const [prevIsOpen, setPrevIsOpen] = useState(isVisible)
 
   // Keeps the modal visible while the css animation is completing
-  const [trackAnimOutCompleted, cancelTrackAnimOutCompleted] =
-    useDebouncedCallback(
-      () => {
-        setIsAnimOut(false)
-      },
-      ANIM_DURATION_MS + ANIM_BUFFER,
-      { leading: false }
-    )
+  const trackAnimOutCompleted = useDebouncedCallback(
+    () => {
+      setIsAnimOut(false)
+    },
+    ANIM_DURATION_MS + ANIM_BUFFER,
+    { leading: false }
+  )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
   // Then set it to "visible". This allows us to make sure the css transition
   // actually works.
-  const [trackAnimInCompleted, cancelTrackAnimInCompleted] =
-    useDebouncedCallback(
-      () => {
-        setIsAnimIn(false)
-      },
-      0,
-      { leading: false }
-    )
+  const trackAnimInCompleted = useDebouncedCallback(
+    () => {
+      setIsAnimIn(false)
+    },
+    0,
+    { leading: false }
+  )
 
   if (isVisible !== prevIsOpen) {
     setPrevIsOpen(isVisible)
     if (!isVisible) {
-      cancelTrackAnimInCompleted()
+      trackAnimInCompleted.cancel()
       setIsAnimOut(true)
       trackAnimOutCompleted()
     } else {
-      cancelTrackAnimOutCompleted()
+      trackAnimOutCompleted.cancel()
       setIsAnimIn(true)
       trackAnimInCompleted()
     }

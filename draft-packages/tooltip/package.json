@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tooltip",
-  "version": "3.4.4",
+  "version": "3.4.6",
   "description": "The draft Tooltip component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,13 +32,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.2.1",
+    "@kaizen/component-library": "^12.2.2",
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
     "@popperjs/core": "^2.11.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-popper": "^2.2.5",
-    "use-debounce": "^3.4.3",
+    "use-debounce": "^7.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

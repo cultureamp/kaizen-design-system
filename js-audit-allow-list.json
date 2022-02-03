@@ -1,13 +1,4 @@
 {
-  "trim-newlines": [
-    {
-      "title": "Regex DOS",
-      "cve": "CVE-2021-33623",
-      "reason": "Regex DOS attacks aren't relevant in our devDependencies",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["lerna", "node-sass"]
-    }
-  ],
   "normalize-url": [
     {
       "title": "Regex DOS",
