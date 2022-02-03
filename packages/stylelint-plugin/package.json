@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/stylelint-plugin",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "@types/stylelint": "^13.13.3",
     "@types/tinycolor2": "^1.4.3",
     "lodash.merge": "^4.6.2",
-    "node-fetch": "^2.6.6",
+    "node-fetch": "^2.6.7",
     "prettier": "^2.3.2",
     "ts-node": "^9.1.1"
   }
