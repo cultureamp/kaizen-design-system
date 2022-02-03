@@ -52,6 +52,10 @@ export type GuidanceBlockProps = {
   variant?: VariantType
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
+  /*
+   ** Set aspect ratio to landscape to ensure consist spacing in scene illustrations
+   */
+  lockAspectRatio?: boolean
 }
 
 export type GuidanceBlockState = {
@@ -210,7 +214,12 @@ class GuidanceBlock extends React.Component<
       persistent,
       withActionButtonArrow,
       noMaxWidth,
+      lockAspectRatio,
     } = this.props
+
+    const illustrationElement = lockAspectRatio
+      ? React.cloneElement(illustration, { enableAspectRatio: true })
+      : illustration
 
     return (
       <div
@@ -222,7 +231,7 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>{illustration}</div>
+          <div className={styles.illustration}>{illustrationElement}</div>
         </div>
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
