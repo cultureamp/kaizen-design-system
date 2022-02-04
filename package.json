@@ -45,7 +45,7 @@
     "focus-visible": "^5.2.0",
     "identity-obj-proxy": "^3.0.0",
     "lodash.isempty": "^4.4.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
