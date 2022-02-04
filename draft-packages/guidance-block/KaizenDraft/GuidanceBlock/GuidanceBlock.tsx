@@ -253,21 +253,20 @@ class GuidanceBlock extends React.Component<
   }
 
   bannerClassName(noMaxWidth): string {
-    return classnames(styles.banner, {
+    const {
+      variant = "default",
+      layout = "default",
+      illustrationType,
+      smallScreenTextAlignment,
+      lockAspectRatio,
+    }: GuidanceBlockProps = this.props
+    return classnames(styles.banner, styles[variant], styles[layout], {
       [styles.hidden]: this.state.hidden,
-      [styles.positive]: this.props.variant === "positive",
-      [styles.negative]: this.props.variant === "negative",
-      [styles.informative]: this.props.variant === "informative",
-      [styles.cautionary]: this.props.variant === "cautionary",
-      [styles.assertive]: this.props.variant === "assertive",
-      [styles.prominent]: this.props.variant === "prominent",
-      [styles.noMaxWidth]: noMaxWidth,
-      [styles.hasSceneIllustration]: this.props.illustrationType === "scene",
-      [styles.inline]: this.props.layout === "inline",
-      [styles.stacked]: this.props.layout === "stacked",
       [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-      [styles.smallScreenTextAlignment]:
-        this.props.smallScreenTextAlignment === "left",
+      [styles.noMaxWidth]: noMaxWidth,
+      [styles.hasSceneIllustration]: illustrationType === "scene",
+      [styles.smallScreenTextAlignment]: smallScreenTextAlignment === "left",
+      [styles.lockAspectRatio]: lockAspectRatio,
     })
   }
 
