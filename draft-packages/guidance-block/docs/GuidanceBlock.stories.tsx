@@ -6,9 +6,9 @@ import {
   HumanityAtWork,
   SkillsCoachManagerHub,
   SkillsCoachEssentialFeedback,
-  Resilience,
   Communication,
 } from "@kaizen/draft-illustration"
+import { Heading } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -40,7 +40,7 @@ const guidanceBlockText = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-export const Default = () => (
+export const DefaultStory = args => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -55,173 +55,41 @@ export const Default = () => (
         onClick: () => alert("tada: 🎉"),
       },
     }}
+    {...args}
   />
 )
 
-Default.storyName = "Default"
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const DefaultWithoutActions = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-  />
-)
+DefaultStory.args = {
+  layout: "default",
+  illustrationType: "spot",
+  variant: "default",
+  withActionButtonArrow: true,
+  noMaxWidth: false,
+  smallScreenTextAlignment: "center",
+  text: guidanceBlockText,
+  secondaryDismiss: false,
+  persistent: false,
+  lockAspectRatio: false,
+}
 
-DefaultWithoutActions.storyName = "Default Without Actions"
+DefaultStory.argTypes = {
+  illustration: {
+    control: false,
+  },
+  actions: {
+    control: false,
+  },
+}
 
-export const WithoutActionArrowButton = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      dismiss: {
-        onClick: () => alert("tada: 🎉"),
-      },
-    }}
-    withActionButtonArrow={false}
-  />
-)
-
-WithoutActionArrowButton.storyName = "Without Action Arrow Button"
-
-export const WithoutMaxWidth = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    noMaxWidth
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-  />
-)
-
-WithoutMaxWidth.storyName = "Without Max Width"
-
-export const Persistent = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-    }}
-    persistent
-  />
-)
-
-Persistent.storyName = "Persistent"
-
-export const SecondaryAction = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-    persistent
-    withActionButtonArrow={false}
-  />
-)
-
-SecondaryAction.storyName = "Secondary Action"
-
-export const SceneIllustration = () => (
-  <GuidanceBlock
-    illustration={<HumanityAtWork alt="" />}
-    illustrationType="scene"
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-    }}
-  />
-)
-
-SceneIllustration.storyName = "Scene Illustration"
-
-export const InlineLayout = () => (
-  <GuidanceBlock
-    layout="inline"
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-    persistent
-  />
-)
-
-InlineLayout.storyName = "Inline Content Layout"
-
-export const StackedLayout = () => (
-  <GuidanceBlock
-    layout="stacked"
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-    persistent
-    noMaxWidth
-  />
-)
-
-StackedLayout.storyName = "Stacked Content Layout"
-
-export const TwoStackedLayout = () => (
-  <div style={{ display: "flex", gap: "36px" }}>
+export const Moods = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+    <Heading tag="h2" variant="heading-4">
+      Positive
+    </Heading>
     <GuidanceBlock
-      layout="stacked"
+      persistent
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
       actions={{
@@ -231,15 +99,14 @@ export const TwoStackedLayout = () => (
             alert("tada: 🎉")
           },
         },
-        secondary: {
-          label: "Secondary action",
-          href: "#",
-        },
       }}
-      persistent
+      variant="positive"
     />
+    <Heading tag="h2" variant="heading-4">
+      Negative
+    </Heading>
     <GuidanceBlock
-      layout="stacked"
+      persistent
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
       actions={{
@@ -249,204 +116,427 @@ export const TwoStackedLayout = () => (
             alert("tada: 🎉")
           },
         },
-        secondary: {
-          label: "Secondary action",
-          href: "#",
+      }}
+      variant="negative"
+    />
+    <Heading tag="h2" variant="heading-4">
+      Informative
+    </Heading>
+    <GuidanceBlock
+      persistent
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
       }}
+      variant="informative"
+    />
+    <Heading tag="h2" variant="heading-4">
+      Cautionary
+    </Heading>
+    <GuidanceBlock
       persistent
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+      variant="cautionary"
+    />
+    <Heading tag="h2" variant="heading-4">
+      Assertive
+    </Heading>
+    <GuidanceBlock
+      persistent
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+      variant="assertive"
+    />
+    <Heading tag="h2" variant="heading-4">
+      Prominent
+    </Heading>
+    <GuidanceBlock
+      persistent
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+      variant="prominent"
     />
   </div>
 )
 
-TwoStackedLayout.storyName = "Two Stacked Content Layout"
-
-export const StackedLayoutWithScene = () => (
-  <GuidanceBlock
-    layout="stacked"
-    illustration={<SkillsCoachManagerHub alt="" />}
-    illustrationType="scene"
-    text={guidanceBlockText}
-    smallScreenTextAlignment="left"
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+export const StickerSheet = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+    <Heading tag="h2" variant="heading-4">
+      Default
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+    />
+    <Heading tag="h2" variant="heading-4">
+      Persistent
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Actions
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
-      },
-      secondary: {
-        label: "Dismiss action",
-      },
-    }}
-    secondaryDismiss
-    persistent
-  />
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+    />
+    <Heading tag="h2" variant="heading-4">
+      No arrow
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      withActionButtonArrow={false}
+      actions={{
+        primary: {
+          label: "Learn more",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+    />
+    <Heading tag="h2" variant="heading-4">
+      Tooltip
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Learn more",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+          tooltip: {
+            text: "Opens in a new tab",
+          },
+          icon: externalLinkIcon,
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+    />
+    <Heading tag="h2" variant="heading-4">
+      Scene Illustration
+    </Heading>
+    <GuidanceBlock
+      illustration={<HumanityAtWork alt="" />}
+      illustrationType="scene"
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+    />
+    <Heading tag="h2" variant="heading-4">
+      No Max Width
+    </Heading>
+    <GuidanceBlock
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      noMaxWidth
+    />
+  </div>
 )
 
-StackedLayoutWithScene.storyName = "Stacked Layout With Scene Illustration"
-
-export const PositiveMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+export const Layouts = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+    <Heading tag="h2" variant="heading-4">
+      Inline
+    </Heading>
+    <GuidanceBlock
+      layout="inline"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
-      },
-    }}
-    variant="positive"
-  />
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Stacked
+    </Heading>
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Stacked with Scene Illustration
+    </Heading>
+    <GuidanceBlock
+      layout="stacked"
+      illustration={<SkillsCoachManagerHub alt="" />}
+      illustrationType="scene"
+      text={guidanceBlockText}
+      smallScreenTextAlignment="left"
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Dismiss action",
+        },
+      }}
+      secondaryDismiss
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Stacked side by side
+    </Heading>
+    <div style={{ display: "flex", gap: "36px" }}>
+      <GuidanceBlock
+        layout="stacked"
+        illustration={<Informative alt="" />}
+        text={guidanceBlockText}
+        actions={{
+          primary: {
+            label: "Action",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+      <GuidanceBlock
+        layout="stacked"
+        illustration={<Informative alt="" />}
+        text={guidanceBlockText}
+        actions={{
+          primary: {
+            label: "Action",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+    </div>
+  </div>
 )
 
-PositiveMood.storyName = "Positive"
-
-export const NegativeMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+export const AspectRatio = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+    <Heading tag="h2" variant="heading-4">
+      Aspect ratio enabled on illustration
+    </Heading>
+    <GuidanceBlock
+      illustration={
+        <SkillsCoachEssentialFeedback alt="" enableAspectRatio={true} />
+      }
+      illustrationType="scene"
+      text={guidanceBlockText}
+      layout="inline"
+      smallScreenTextAlignment="left"
+      actions={{
+        primary: {
+          label: "Action",
         },
-      },
-    }}
-    variant="negative"
-  />
-)
-
-NegativeMood.storyName = "Negative"
-
-export const InformativeMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+        secondary: {
+          label: "Dismiss action",
         },
-      },
-    }}
-    variant="informative"
-  />
-)
-
-InformativeMood.storyName = "Informative"
-
-export const CautionaryMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+      }}
+      secondaryDismiss
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Aspect ratio locked on component
+    </Heading>
+    <GuidanceBlock
+      illustration={
+        <SkillsCoachEssentialFeedback alt="" enableAspectRatio={true} />
+      }
+      illustrationType="scene"
+      text={guidanceBlockText}
+      layout="inline"
+      smallScreenTextAlignment="left"
+      actions={{
+        primary: {
+          label: "Action",
         },
-      },
-    }}
-    variant="cautionary"
-  />
-)
-
-CautionaryMood.storyName = "Cautionary"
-
-export const AssertiveMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+        secondary: {
+          label: "Dismiss action",
         },
-      },
-    }}
-    variant="assertive"
-  />
-)
-
-AssertiveMood.storyName = "Assertive"
-
-export const ProminentMood = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={guidanceBlockText}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-    }}
-    variant="prominent"
-  />
-)
-
-ProminentMood.storyName = "Prominent"
-
-export const WithCustomDescription = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={{
-      title: "Informative guidance block title",
-      description: (
-        <div style={{ color: "darkorchid" }}>
-          Providing further details to suggest a path forward or promote a
-          feature that allows the user to progress with confidence.
-        </div>
-      ),
-    }}
-    actions={{
-      primary: {
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-    persistent
-  />
-)
-WithCustomDescription.storyName = "With custom description"
-
-export const WithTooltip = () => (
-  <GuidanceBlock
-    illustration={<Informative alt="" />}
-    text={{
-      title: "Informative guidance block title",
-      description:
-        "Providing further details to suggest a path forward or promote a feature that allows the user" +
-        " to progress with confidence.",
-    }}
-    actions={{
-      primary: {
-        label: "Learn more",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
-        tooltip: {
-          text: "Opens in a new tab",
-        },
-        icon: externalLinkIcon,
-      },
-      secondary: {
-        label: "Secondary action",
-        href: "#",
-      },
-    }}
-  />
+      }}
+      secondaryDismiss
+      lockAspectRatio
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Aspect ratio stacked with scenes
+    </Heading>
+    <div style={{ display: "flex", gap: "36px" }}>
+      <GuidanceBlock
+        layout="stacked"
+        illustrationType="scene"
+        illustration={<HumanityAtWork alt="" />}
+        text={guidanceBlockText}
+        lockAspectRatio
+        actions={{
+          primary: {
+            label: "Action",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+      <GuidanceBlock
+        layout="stacked"
+        illustrationType="scene"
+        illustration={<Communication alt="" />}
+        text={guidanceBlockText}
+        lockAspectRatio
+        actions={{
+          primary: {
+            label: "Action",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+    </div>
+    <Heading tag="h2" variant="heading-4">
+      Aspect ratio stacked with mixed scenes
+    </Heading>
+    <div style={{ display: "flex", gap: "36px" }}>
+      <GuidanceBlock
+        layout="stacked"
+        illustrationType="scene"
+        illustration={<SkillsCoachEssentialFeedback alt="" />}
+        lockAspectRatio
+        text={guidanceBlockText}
+        actions={{
+          primary: {
+            label: "Action",
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+      <GuidanceBlock
+        layout="stacked"
+        illustrationType="scene"
+        illustration={<HumanityAtWork alt="" />}
+        lockAspectRatio
+        text={guidanceBlockText}
+        actions={{
+          primary: {
+            label: "Action",
+          },
+          secondary: {
+            label: "Secondary action",
+            href: "#",
+          },
+        }}
+        persistent
+      />
+    </div>
+  </div>
 )
