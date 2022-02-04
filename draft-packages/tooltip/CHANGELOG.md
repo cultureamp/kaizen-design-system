@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.5...@kaizen/draft-tooltip@3.4.6) (2022-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency use-debounce to v7 ([#2485](https://github.com/cultureamp/kaizen-design-system/issues/2485)) ([fa2557d](https://github.com/cultureamp/kaizen-design-system/commit/fa2557d7598c254e3a909ac56304b0cf369e81d4))
+
+
+
+
+
+## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.4...@kaizen/draft-tooltip@3.4.5) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.3...@kaizen/draft-tooltip@3.4.4) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.2...@kaizen/draft-tooltip@3.4.3) (2022-01-31)
+
+
+### Bug Fixes
+
+* calc function syntax error ([#2495](https://github.com/cultureamp/kaizen-design-system/issues/2495)) ([8e507d9](https://github.com/cultureamp/kaizen-design-system/commit/8e507d97e3d53c79c0ea1aedf303099cfa769f7f))
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.1...@kaizen/draft-tooltip@3.4.2) (2022-01-28)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.0...@kaizen/draft-tooltip@3.4.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 # [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.3.0...@kaizen/draft-tooltip@3.4.0) (2022-01-24)
 
 

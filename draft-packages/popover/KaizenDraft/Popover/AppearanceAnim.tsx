@@ -1,32 +1,27 @@
 import React, { useState } from "react"
+import cx from "classnames"
 import { useDebouncedCallback } from "use-debounce"
+import styles from "./AppearanceAnim.scss"
 
-type AnimationProps = {
-  isAnimIn?: boolean
-  isAnimOut?: boolean
-  prevIsOpen?: boolean
+type Props = {
+  children: React.ReactNode
   isVisible: boolean
+  className?: string | null
 }
 
 // Sync with ./AppearanceAnim.scss
 const ANIM_DURATION_MS = 200
 const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't had a chance to finish yet
 
-export const AnimationContext = React.createContext<AnimationProps>({
-  isVisible: false,
-  isAnimIn: false,
-  isAnimOut: false,
-})
-
 /**
  * Simply applies a css animation to transition a component in and out.
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-export const AnimationProvider = ({ isVisible, ...otherProps }) => {
+const AppearanceAnim = ({ children, isVisible, className, ...rest }: Props) => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
-  const [prevIsOpen, setPrevIsOpen] = useState(false)
+  const [prevIsOpen, setPrevIsOpen] = useState(isVisible)
 
   // Keeps the modal visible while the css animation is completing
   const trackAnimOutCompleted = useDebouncedCallback(
@@ -61,22 +56,20 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
     }
   }
 
-  return (
-    <AnimationContext.Provider
-      value={{
-        isVisible,
-        isAnimOut,
-        isAnimIn,
-      }}
-      {...otherProps}
-    />
-  )
+  return isVisible || isAnimOut || isAnimIn ? (
+    <div
+      className={cx([
+        {
+          [styles.defaultHiddenState]: true,
+          [styles.visibleState]: isVisible && !isAnimIn,
+        },
+        className,
+      ])}
+      {...rest}
+    >
+      {children}
+    </div>
+  ) : null
 }
 
-export const useAnimation = () => {
-  const context = React.useContext(AnimationContext)
-  if (!context) {
-    throw new Error("useAnimation must be used within a AnimationProvider")
-  }
-  return context
-}
+export default AppearanceAnim

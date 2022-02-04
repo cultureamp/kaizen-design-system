@@ -1,3 +1,4 @@
+import { Heading } from "@kaizen/component-library"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
@@ -35,10 +36,6 @@ class ToggleStateContainer extends React.Component<
   }
 }
 
-const RtlContainer = ({ children }: { children: React.ReactNode }) => (
-  <div dir="rtl">{children}</div>
-)
-
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Toggle Switch Field`,
   component: ToggleSwitchField,
@@ -56,10 +53,11 @@ export default {
   decorators: [withDesign],
 }
 
-export const OnKaizenSiteDemo = () => (
+export const Default = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
     {({ toggledStatus, toggle }) => (
       <ToggleSwitchField
+        {...props}
         labelText="Label"
         toggledStatus={toggledStatus}
         onToggle={toggle}
@@ -68,176 +66,133 @@ export const OnKaizenSiteDemo = () => (
   </ToggleStateContainer>
 )
 
-OnKaizenSiteDemo.storyName = "On (Kaizen Site Demo)"
+Default.storyName = "Default (Kaizen Demo)"
 
-export const Off = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-    {({ toggledStatus, toggle }) => (
-      <ToggleSwitchField
-        labelText="Label"
-        toggledStatus={toggledStatus}
-        onToggle={toggle}
-      />
-    )}
-  </ToggleStateContainer>
-)
-
-export const OnRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <RtlContainer>
+export const StickerSheet = () => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
+      rowGap: "20px",
+    }}
+  >
+    <div>
+      <Heading variant="heading-5" tag="h2">
+        Default
+      </Heading>
+    </div>
+    <div>
+      <Heading variant="heading-5" tag="h2">
+        Label Position End
+      </Heading>
+    </div>
+    <div>
+      <Heading variant="heading-5" tag="h2">
+        Disabled
+      </Heading>
+    </div>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
         <ToggleSwitchField
+          id="1"
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
         />
-      </RtlContainer>
-    )}
-  </ToggleStateContainer>
-)
-
-OnRtl.storyName = "On (RTL)"
-
-export const OffRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-    {({ toggledStatus, toggle }) => (
-      <RtlContainer>
+      )}
+    </ToggleStateContainer>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
         <ToggleSwitchField
+          id="2"
           labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-        />
-      </RtlContainer>
-    )}
-  </ToggleStateContainer>
-)
-
-OffRtl.storyName = "Off (RTL)"
-
-export const DisabledOn = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <ToggleSwitchField
-        labelText="Label"
-        toggledStatus={toggledStatus}
-        onToggle={toggle}
-        disabled
-      />
-    )}
-  </ToggleStateContainer>
-)
-
-export const DisabledOff = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-    {({ toggledStatus, toggle }) => (
-      <ToggleSwitchField
-        labelText="Label"
-        toggledStatus={toggledStatus}
-        onToggle={toggle}
-        disabled
-      />
-    )}
-  </ToggleStateContainer>
-)
-
-export const DisabledOnRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <RtlContainer>
-        <ToggleSwitchField
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          disabled
-        />
-      </RtlContainer>
-    )}
-  </ToggleStateContainer>
-)
-
-DisabledOnRtl.storyName = "Disabled On (RTL)"
-
-export const DisabledOffRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-    {({ toggledStatus, toggle }) => (
-      <RtlContainer>
-        <ToggleSwitchField
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          disabled
-        />
-      </RtlContainer>
-    )}
-  </ToggleStateContainer>
-)
-
-DisabledOffRtl.storyName = "Disabled Off (RTL)"
-
-export const FullWidth = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <div style={{ width: "100%" }}>
-        <ToggleSwitchField
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          fullWidth
-        />
-      </div>
-    )}
-  </ToggleStateContainer>
-)
-
-FullWidth.storyName = "Full width"
-
-export const FullWidthRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <div style={{ width: "100%" }}>
-        <RtlContainer>
-          <ToggleSwitchField
-            labelText="Label"
-            toggledStatus={toggledStatus}
-            onToggle={toggle}
-            fullWidth
-          />
-        </RtlContainer>
-      </div>
-    )}
-  </ToggleStateContainer>
-)
-
-FullWidthRtl.storyName = "Full width (RTL)"
-
-export const LabelAtEnd = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <ToggleSwitchField
-        labelText="Label"
-        toggledStatus={toggledStatus}
-        onToggle={toggle}
-        labelPosition="end"
-      />
-    )}
-  </ToggleStateContainer>
-)
-
-LabelAtEnd.storyName = "Label at end"
-
-export const LabelAtEndRtl = () => (
-  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
-      <RtlContainer>
-        <ToggleSwitchField
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
           labelPosition="end"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
         />
-      </RtlContainer>
-    )}
-  </ToggleStateContainer>
+      )}
+    </ToggleStateContainer>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
+        <ToggleSwitchField
+          id="3"
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          disabled
+        />
+      )}
+    </ToggleStateContainer>
+  </div>
 )
 
-LabelAtEndRtl.storyName = "Label at end (RTL)"
+StickerSheet.storyName = "Sticker Sheet (Default)"
+
+export const StickerSheetReversed = () => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
+      rowGap: "20px",
+    }}
+  >
+    <div>
+      <Heading variant="heading-5" tag="h2" color="white">
+        Default
+      </Heading>
+    </div>
+    <div>
+      <Heading variant="heading-5" tag="h2" color="white">
+        Label Position End
+      </Heading>
+    </div>
+    <div>
+      <Heading variant="heading-5" tag="h2" color="white">
+        Disabled
+      </Heading>
+    </div>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
+        <ToggleSwitchField
+          id="4"
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          reversed
+        />
+      )}
+    </ToggleStateContainer>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
+        <ToggleSwitchField
+          id="5"
+          labelText="Label"
+          labelPosition="end"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          reversed
+        />
+      )}
+    </ToggleStateContainer>
+    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+      {({ toggledStatus, toggle }) => (
+        <ToggleSwitchField
+          id="6"
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          disabled
+          reversed
+        />
+      )}
+    </ToggleStateContainer>
+  </div>
+)
+
+StickerSheetReversed.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"

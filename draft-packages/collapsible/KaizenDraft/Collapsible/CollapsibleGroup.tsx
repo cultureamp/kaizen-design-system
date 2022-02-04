@@ -1,23 +1,23 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { CollapsibleProps } from "./Collapsible"
 import styles from "./styles.scss"
 
-type Props = {
+export type Sticky = {
+  top: string
+}
+
+type CollapsibleGroupProps = {
+  children: Array<React.ReactElement<CollapsibleProps>>
   separated?: boolean
   sticky?: Sticky
   noSectionPadding?: boolean
   automationId?: string
   lazyLoad?: boolean
   onToggle?: (open: boolean, id: string) => void
-  children: Array<React.ReactElement<any>>
 }
 
-export type Sticky = {
-  top: string
-}
-
-export const CollapsibleGroup: React.FunctionComponent<Props> = ({
+export const CollapsibleGroup: React.VFC<CollapsibleGroupProps> = ({
   children,
   separated,
   sticky,
@@ -44,5 +44,3 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
     )}
   </div>
 )
-
-export default CollapsibleGroup

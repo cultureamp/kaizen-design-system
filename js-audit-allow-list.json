@@ -1,13 +1,4 @@
 {
-  "trim-newlines": [
-    {
-      "title": "Regex DOS",
-      "cve": "CVE-2021-33623",
-      "reason": "Regex DOS attacks aren't relevant in our devDependencies",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["lerna", "node-sass"]
-    }
-  ],
   "normalize-url": [
     {
       "title": "Regex DOS",
@@ -72,6 +63,13 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["eslint-plugin-graphql"]
+    },
+    {
+      "title": "node-fetch is vulnerable to Exposure of Sensitive Information to an Unauthorized Actor",
+      "cve": "CVE-2022-0235",
+      "reason": "As per Ops team: The Gatsby site is incredibly low risk (no customer data, static site only, separate domain, etc)",
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["gatsby"]
     }
   ],
   "is-svg": [
