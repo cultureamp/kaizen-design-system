@@ -11,7 +11,7 @@ import styles from "./styles.scss"
 
 type Variant = "default" | "clear"
 
-export type Props = {
+export type CollapsibleProps = {
   id: string
   children: JSX.Element | JSX.Element[] | string
   title: string
@@ -43,7 +43,7 @@ type State = {
   open: boolean
 }
 
-class Collapsible extends React.Component<Props, State> {
+class Collapsible extends React.Component<CollapsibleProps, State> {
   public state = {
     open: !!this.props.open,
   }
