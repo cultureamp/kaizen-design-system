@@ -1,131 +1,107 @@
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/mixins/forms";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
-
-// -----------------------------------------------
-// Form Input Primitive
-// -----------------------------------------------
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // Vars
-$input-height: 48px;
-$input-base-padding-horizontal: $spacing-sm;
-$input-icon-size: 1.25rem; // 20px
-$input-disabled-opacity: 0.3;
-$input-disabled-color-opacity: rgba($color-purple-800-rgb, 0.7);
+$border-radius: 3px;
 
-///////////////////////////////////////////////////
-// BASE STYLES
-///////////////////////////////////////////////////
+.calendar {
+  font-family: $typography-heading-4-font-family;
 
-.wrapper {
-  position: relative;
-}
+  .wrapper {
+    padding-bottom: 0;
+  }
 
-.overlay {
-  background: none;
-  box-shadow: none;
-}
+  .navbar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 3rem);
+    margin: 0 $spacing-md;
+    top: 1.25rem;
+    color: $color-purple-800;
+  }
 
-//  is required to override performance-ui global materialize CSS >:|
-.input {
-  @include form-input-reset;
-  background-color: transparent;
-  background-clip: padding-box;
-  border: $border-solid-border-width $border-solid-border-style transparent;
-  border-radius: $border-solid-border-radius;
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 0 $input-base-padding-horizontal;
-  height: $input-height;
-  width: 100%;
-  margin-bottom: 2px;
+  .arrows {
+    @include button-reset;
+    display: inherit;
+    padding: 0.25rem $spacing-xs;
+    border: $border-solid-border-width $border-solid-border-style transparent;
+    border-radius: $border-radius;
 
-  &.disabled {
-    background: $color-white;
-    opacity: $input-disabled-opacity;
-    color: $input-disabled-color-opacity;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-gray-100;
+    }
 
-    @include form-input-placeholder {
-      color: $input-disabled-color-opacity;
+    &:focus {
+      border: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
     }
   }
 
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    @include form-input-placeholder {
-      opacity: 0;
+  .month {
+    margin: $spacing-md;
+    border-collapse: separate;
+    border-spacing: 1px;
+  }
+
+  .months {
+    box-shadow: 0px 0px 7px rgb(0 0 0 / 9%);
+    border-radius: $border-solid-border-radius;
+  }
+
+  .caption {
+    text-align: center;
+    font-size: $typography-heading-4-font-size;
+    font-weight: $typography-heading-4-font-weight;
+    line-height: $typography-heading-4-line-height;
+    letter-spacing: $typography-heading-4-letter-spacing;
+    color: $color-purple-800;
+    margin: 0 0 $spacing-xs;
+  }
+
+  .weekday {
+    font-size: $typography-paragraph-body-font-size;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+    color: $color-purple-800;
+  }
+
+  .body {
+    font-size: $typography-paragraph-body-font-size;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+  }
+
+  .today {
+    color: $color-blue-500;
+  }
+
+  .day {
+    padding: calc(#{$spacing-md} / 3) 0.625rem;
+    border-radius: $border-radius;
+
+    &:focus-visible {
+      outline-offset: -1px;
     }
   }
 
-  &:focus:not([disabled]) {
-    outline: $border-focus-ring-border-width $border-focus-ring-border-style
-      $color-blue-500;
-    outline-offset: 2px;
-  }
-}
-
-///////////////////////////////////////////////////
-// ICON ADORNMENT STYLES
-///////////////////////////////////////////////////
-
-@mixin vertically-center-icon {
-  position: absolute;
-  height: $input-icon-size;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  margin-top: -2px;
-}
-
-.withStartIconAdornment {
-  .startIconAdornment {
-    @include vertically-center-icon;
-    @include ca-position($start: $ca-grid / 2);
+  .disabled {
+    color: rgba($color-purple-800-rgb, 0.3);
   }
 
-  .input {
-    @include ca-padding(
-      $start: 1rem + $input-icon-size,
-      $end: $input-base-padding-horizontal
-    );
-  }
-}
-
-// Default theme
-/* stylelint-disable-next-line no-duplicate-selectors */
-.withStartIconAdornment {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  &.withDisabled {
-    /* stylelint-disable-next-line no-duplicate-selectors */
-    .startIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-}
-
-///////////////////////////////////////////////////
-// THEMES
-///////////////////////////////////////////////////
-
-// Default
-.input {
-  background-color: $color-white;
-  color: $color-purple-800;
-  border-color: $color-gray-500;
-  display: flex;
-  align-items: center;
-
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    background-color: $color-gray-200;
-    border-color: $color-gray-600;
+  .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
+    border-radius: $border-radius;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
   }
 
-  &.error:not(:focus) {
-    border-color: $color-red-500;
+  .selected:not(.disabled):not(.outside) {
+    border-radius: $border-radius;
+    background-color: $color-blue-500;
+    color: $color-white;
   }
 }
