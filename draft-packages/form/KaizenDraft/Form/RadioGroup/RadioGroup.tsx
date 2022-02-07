@@ -1,6 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
-import { useUuid } from "@kaizen/draft-tooltip/KaizenDraft/Tooltip/useUuid"
+import v4 from "uuid/v4"
 
 import { Label } from "../index"
 
@@ -24,8 +24,7 @@ const RadioGroup: RadioGroup = ({
   noBottomMargin = false,
   reversed = false,
 }) => {
-  const uuid = useUuid()
-  const radioGroupId = labelId || uuid
+  const radioGroupId = React.useMemo(() => labelId || v4(), [])
   return (
     <div
       data-automation-id={automationId}

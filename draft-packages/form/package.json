@@ -36,7 +36,8 @@
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
     "@kaizen/draft-loading-spinner": "^2.4.0",
     "@types/classnames": "^2.3.0",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
