@@ -4,6 +4,14 @@ import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import {
+  StorybookGridWrapper as StorybookGridWrapperProposed,
+  StorybookRowWrapper as StorybookRowWrapperProposed,
+} from "../../../storybook/components/storybook-wrapper-proposed-update"
+import {
+  StorybookGridWrapper,
+  StorybookRowWrapper,
+} from "../../../storybook/components/storybook-wrapper"
 
 const StoryContainer: React.FunctionComponent = ({ children }) => (
   <div
@@ -86,24 +94,24 @@ DefaultStory.argTypes = {
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
 export const StickerSheetDefault = () => (
-  <StoryGrid>
-    <StoryRow>
+  <StorybookGridWrapper>
+    <StorybookRowWrapper>
       <Heading variant="heading-5" tag="h3">
         Base
       </Heading>
       <Heading variant="heading-5" tag="h3">
         Disabled
       </Heading>
-    </StoryRow>
-    <StoryRow>
+    </StorybookRowWrapper>
+    <StorybookRowWrapper hasTopHeader title="Default">
       <StoryContainer>
         <TextAreaField id="text-area-default" labelText="Default" />
       </StoryContainer>
       <StoryContainer>
         <TextAreaField disabled id="text-area-default" labelText="Default" />
       </StoryContainer>
-    </StoryRow>
-    <StoryRow>
+    </StorybookRowWrapper>
+    <StorybookRowWrapper title="Default">
       <StoryContainer>
         <TextAreaField
           id="text-area-default"
@@ -121,8 +129,8 @@ export const StickerSheetDefault = () => (
           disabled
         />
       </StoryContainer>
-    </StoryRow>
-    <StoryRow>
+    </StorybookRowWrapper>
+    <StorybookRowWrapper title="Prominent">
       <StoryContainer>
         <TextAreaField
           id="text-area-prominent"
@@ -142,8 +150,8 @@ export const StickerSheetDefault = () => (
           disabled
         />
       </StoryContainer>
-    </StoryRow>
-    <StoryRow>
+    </StorybookRowWrapper>
+    <StorybookRowWrapper title="Negative">
       <StoryContainer>
         <TextAreaField
           id="text-area-error"
@@ -154,8 +162,8 @@ export const StickerSheetDefault = () => (
           validationMessage="Error message"
         />
       </StoryContainer>
-    </StoryRow>
-    <StoryRow>
+    </StorybookRowWrapper>
+    <StorybookRowWrapper title="Cautionary">
       <StoryContainer>
         <TextAreaField
           id="text-area-caution"
@@ -166,11 +174,98 @@ export const StickerSheetDefault = () => (
           validationMessage="Error message"
         />
       </StoryContainer>
-    </StoryRow>
-  </StoryGrid>
+    </StorybookRowWrapper>
+  </StorybookGridWrapper>
 )
 
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Sticker Sheet (Default - original)"
+
+export const StickerSheetDefaultWithUpdate = () => (
+  <StorybookGridWrapperProposed>
+    <StorybookRowWrapperProposed isTopHeader>
+      <Heading variant="heading-5" tag="h3">
+        Base
+      </Heading>
+      <Heading variant="heading-5" tag="h3">
+        Disabled
+      </Heading>
+    </StorybookRowWrapperProposed>
+    <StorybookRowWrapperProposed rowTitle="Default">
+      <StoryContainer>
+        <TextAreaField id="text-area-default" labelText="Default" />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField disabled id="text-area-default" labelText="Default" />
+      </StoryContainer>
+    </StorybookRowWrapperProposed>
+    <StorybookRowWrapperProposed rowTitle="Default">
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-default"
+          defaultValue="Filled input text"
+          labelText="With description"
+          description="Example/description text"
+          disabled
+        />
+      </StoryContainer>
+    </StorybookRowWrapperProposed>
+    <StorybookRowWrapperProposed rowTitle="Prominent">
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+        />
+      </StoryContainer>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-prominent"
+          labelText="Prominent"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          variant="prominent"
+          disabled
+        />
+      </StoryContainer>
+    </StorybookRowWrapperProposed>
+    <StorybookRowWrapperProposed rowTitle="Negative" gridColumns={2}>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-error"
+          labelText="Error"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="error"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StorybookRowWrapperProposed>
+    <StorybookRowWrapperProposed rowTitle="Cautionary" gridColumns={2}>
+      <StoryContainer>
+        <TextAreaField
+          id="text-area-caution"
+          labelText="Caution"
+          description="Example/description text"
+          defaultValue="Filled input text"
+          status="caution"
+          validationMessage="Error message"
+        />
+      </StoryContainer>
+    </StorybookRowWrapperProposed>
+  </StorybookGridWrapperProposed>
+)
+
+StickerSheetDefaultWithUpdate.storyName = "Sticker Sheet (Default - proposed)"
 
 export const StickerSheetReversed = () => (
   <StoryGrid>
