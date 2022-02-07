@@ -9,7 +9,7 @@ export type CalendarNavProps = {
   onNextClick: () => void
 }
 
-export const CalendarNav: React.FunctionComponent<CalendarNavProps> = ({
+export const CalendarNav: React.VFC<CalendarNavProps> = ({
   onPreviousClick,
   onNextClick,
 }) => (
