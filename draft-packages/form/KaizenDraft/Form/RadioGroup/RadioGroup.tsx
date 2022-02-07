@@ -1,5 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
+import { useUuid } from "@kaizen/draft-tooltip/KaizenDraft/Tooltip/useUuid"
 
 import { Label } from "../index"
 
@@ -22,27 +23,31 @@ const RadioGroup: RadioGroup = ({
   labelId,
   noBottomMargin = false,
   reversed = false,
-}) => (
-  <div
-    data-automation-id={automationId}
-    className={classnames(styles.radioGroupContainer, {
-      [styles.noBottomMargin]: noBottomMargin,
-      [styles.reversed]: reversed,
-    })}
-    role="radiogroup"
-    aria-labelledby={labelId}
-  >
-    <div className={styles.radioGroupLabel}>
-      <Label
-        id={labelId}
-        automationId={`${automationId}-field-label`}
-        labelText={labelText}
-        labelType="text"
-        reversed={reversed}
-      />
+}) => {
+  const uuid = useUuid()
+  const radioGroupId = labelId || uuid
+  return (
+    <div
+      data-automation-id={automationId}
+      className={classnames(styles.radioGroupContainer, {
+        [styles.noBottomMargin]: noBottomMargin,
+        [styles.reversed]: reversed,
+      })}
+      role="radiogroup"
+      aria-labelledby={radioGroupId}
+    >
+      <div className={styles.radioGroupLabel}>
+        <Label
+          id={radioGroupId}
+          automationId={`${automationId}-field-label`}
+          labelText={labelText}
+          labelType="text"
+          reversed={reversed}
+        />
+      </div>
+      {children}
     </div>
-    {children}
-  </div>
-)
+  )
+}
 
 export default RadioGroup
