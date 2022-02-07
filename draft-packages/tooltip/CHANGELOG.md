@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.6...@kaizen/draft-tooltip@3.5.0) (2022-02-07)
+
+
+### Features
+
+* add highlight mood to tooltip ([#2512](https://github.com/cultureamp/kaizen-design-system/issues/2512)) ([fdaccca](https://github.com/cultureamp/kaizen-design-system/commit/fdacccae8fb9368a8509bc83a9558e0f219eacd3))
+
+
+
+
+
 ## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.4.5...@kaizen/draft-tooltip@3.4.6) (2022-02-03)
 
 
