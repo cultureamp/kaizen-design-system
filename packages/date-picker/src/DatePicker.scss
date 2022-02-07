@@ -38,7 +38,8 @@ $border-radius: 3px;
     }
 
     &:focus {
-      border: $color-blue-500 $border-focus-ring-border-style
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
     }
   }
@@ -86,8 +87,10 @@ $border-radius: 3px;
     border-radius: $border-radius;
     color: $color-purple-800;
 
-    &:focus-visible {
-      outline-offset: -1px;
+    &:focus {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
     }
   }
 
