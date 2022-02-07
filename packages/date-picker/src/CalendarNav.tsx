@@ -18,6 +18,7 @@ export const CalendarNav: React.FunctionComponent<CalendarNavProps> = ({
       className={styles.arrows}
       onClick={() => onPreviousClick()}
       type="button"
+      aria-label="Previous Month"
     >
       <Icon icon={arrowLeft} role="presentation" />
     </button>
@@ -25,6 +26,7 @@ export const CalendarNav: React.FunctionComponent<CalendarNavProps> = ({
       className={styles.arrows}
       onClick={() => onNextClick()}
       type="button"
+      aria-label="Next Month"
     >
       <Icon icon={arrowRight} role="presentation" />
     </button>

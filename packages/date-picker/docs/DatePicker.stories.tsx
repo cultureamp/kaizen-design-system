@@ -23,6 +23,7 @@ export const KaizenDefault = props => {
 
   return (
     <DatePicker
+      id="date-picker"
       labelText="Label"
       selectedDate={selectedDate}
       onDayChange={onDayChange}
@@ -40,6 +41,7 @@ export const DefaultWithValue = () => {
 
   return (
     <DatePicker
+      id="date-picker"
       labelText="Label"
       selectedDate={new Date()}
       onDayChange={onDayChange}
@@ -56,6 +58,7 @@ export const Disabled = () => {
 
   return (
     <DatePicker
+      id="date-picker"
       labelText="Label"
       selectedDate={selectedDate}
       onDayChange={onDayChange}
@@ -73,6 +76,7 @@ export const DisabledWithValue = () => {
 
   return (
     <DatePicker
+      id="date-picker"
       labelText="Label"
       selectedDate={new Date()}
       onDayChange={onDayChange}
