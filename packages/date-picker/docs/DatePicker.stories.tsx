@@ -31,63 +31,52 @@ export const KaizenDefault = props => {
   )
 }
 
-// export const DefaultWithValue = () => {
-//   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+export const DefaultWithValue = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-//   const onDayChange = (day: Date) => {
-//     setSelectedDate(day)
-//   }
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
 
-//   return (
-//     <DatePicker
-//       labelText="Label"
-//       selectedDate={new Date()}
-//       onDayChange={onDayChange}
-//     />
-//   )
-// }
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={new Date()}
+      onDayChange={onDayChange}
+    />
+  )
+}
 
-// export const Disabled = () => {
-//   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+export const Disabled = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-//   const onDayChange = (day: Date) => {
-//     setSelectedDate(day)
-//   }
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
 
-//   return (
-//     <DatePicker
-//       labelText="Label"
-//       selectedDate={selectedDate}
-//       onDayChange={onDayChange}
-//       isDisabled
-//     />
-//   )
-// }
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={selectedDate}
+      onDayChange={onDayChange}
+      isDisabled
+    />
+  )
+}
 
-// export const DisabledWithValue = () => {
-//   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+export const DisabledWithValue = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
-//   const onDayChange = (day: Date) => {
-//     setSelectedDate(day)
-//   }
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
 
-//   return (
-//     <DatePicker
-//       labelText="Label"
-//       selectedDate={new Date()}
-//       onDayChange={onDayChange}
-//       isDisabled
-//     />
-//   )
-// }
-
-// export const DefaultCalendar = () => {
-//   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-//   const handleDayChange = (day: Date) => {
-//     setSelectedDate(day)
-//   }
-//   return (
-//     <Calendar selectedDate={selectedDate} handleDayChange={handleDayChange} />
-//   )
-// }
+  return (
+    <DatePicker
+      labelText="Label"
+      selectedDate={new Date()}
+      onDayChange={onDayChange}
+      isDisabled
+    />
+  )
+}
