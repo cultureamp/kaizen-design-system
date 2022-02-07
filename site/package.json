@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.62",
+  "version": "0.0.0-private.63",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.1.5",
@@ -40,7 +40,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
+    "@babel/core": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-numeric-separator": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
