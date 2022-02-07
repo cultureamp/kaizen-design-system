@@ -72,73 +72,74 @@ const mapArrowSideToClass = (side: Side): string => {
  * Please use `usePopover` or `Popover` instead
  * @deprecated
  */
-export const PopoverLegacy: React.FunctionComponent<PopoverLegacyProps> = React.forwardRef<
-  HTMLDivElement,
-  PopoverLegacyProps
->(
-  (
-    {
-      automationId,
-      children,
-      variant = "default",
-      side = "bottom",
-      size = "small",
-      position = "center",
-      heading,
-      dismissible = false,
-      onClose,
-      singleLine = false,
-      customIcon,
-    },
-    ref
-  ) => (
-    <div
-      className={classNames(styles.root, mapSizeToClass(size))}
-      style={{ transform: "translateX(-50%)" }}
-      ref={ref}
-      data-automation-id={automationId}
-    >
-      <div className={mapVariantToBoxClass(variant)}>
-        {heading && (
-          <div className={styles.header}>
-            {variant !== "default" && (
-              <span
-                className={classNames(
-                  styles.icon,
-                  mapVariantToIconClass(variant)
-                )}
-              >
-                <Icon
-                  role="presentation"
-                  icon={customIcon ? customIcon : mapVariantToIcon(variant)}
-                />
-              </span>
-            )}
-            <div className={styles.singleLine}>{heading}</div>
-            {dismissible && (
-              <button className={styles.close} onClick={onClose}>
-                <Icon role="presentation" icon={closeIcon} />
-              </button>
-            )}
+export const PopoverLegacy: React.FunctionComponent<PopoverLegacyProps> =
+  React.forwardRef<HTMLDivElement, PopoverLegacyProps>(
+    (
+      {
+        automationId,
+        children,
+        variant = "default",
+        side = "bottom",
+        size = "small",
+        position = "center",
+        heading,
+        dismissible = false,
+        onClose,
+        singleLine = false,
+        customIcon,
+      },
+      ref
+    ) => (
+      <div
+        className={classNames(styles.root, mapSizeToClass(size))}
+        style={{ transform: "translateX(-50%)" }}
+        ref={ref}
+        data-automation-id={automationId}
+      >
+        <div className={mapVariantToBoxClass(variant)}>
+          {heading && (
+            <div className={styles.header}>
+              {variant !== "default" && (
+                <span
+                  className={classNames(
+                    styles.icon,
+                    mapVariantToIconClass(variant)
+                  )}
+                >
+                  <Icon
+                    role="presentation"
+                    icon={customIcon ? customIcon : mapVariantToIcon(variant)}
+                  />
+                </span>
+              )}
+              <div className={styles.singleLine}>{heading}</div>
+              {dismissible && (
+                <button className={styles.close} onClick={onClose}>
+                  <Icon role="presentation" icon={closeIcon} />
+                </button>
+              )}
+            </div>
+          )}
+          <div
+            className={classNames(styles.container, mapLineVariant(singleLine))}
+          >
+            {children}
           </div>
-        )}
+        </div>
         <div
-          className={classNames(styles.container, mapLineVariant(singleLine))}
+          className={classNames(
+            styles.arrowWrapper,
+            mapArrowSideToClass(side),
+            mapArrowPositionToClass(position)
+          )}
         >
-          {children}
+          <div
+            className={classNames(
+              styles.arrow,
+              mapArrowVariantToClass(variant)
+            )}
+          />
         </div>
       </div>
-      <div
-        className={classNames(
-          styles.arrowWrapper,
-          mapArrowSideToClass(side),
-          mapArrowPositionToClass(position)
-        )}
-      >
-        <div
-          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
-        />
-      </div>
-    </div>
+    )
   )
-)

@@ -103,7 +103,9 @@ type TableHeaderRowCellProps = {
   tooltipInfo?: string
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
-export const TableHeaderRowCell: React.FunctionComponent<TableHeaderRowCellProps> = ({
+export const TableHeaderRowCell: React.FunctionComponent<
+  TableHeaderRowCellProps
+> = ({
   labelText,
   automationId,
   onClick,

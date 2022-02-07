@@ -8,10 +8,9 @@ export interface ModalAccessibleLabelProps {
   readonly isProminent?: boolean
 }
 
-const ModalAccessibleLabel: React.FunctionComponent<ModalAccessibleLabelProps> = ({
-  children,
-  isProminent = false,
-}) => (
+const ModalAccessibleLabel: React.FunctionComponent<
+  ModalAccessibleLabelProps
+> = ({ children, isProminent = false }) => (
   <ModalAccessibleContext.Consumer>
     {({ labelledByID }) => (
       <div
