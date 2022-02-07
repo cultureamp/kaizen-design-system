@@ -53,6 +53,12 @@ $arrow-width: 14px;
     border: $border-solid-border-width $border-solid-border-style
       $color-yellow-300;
   }
+
+  &.highlight {
+    background-color: $color-purple-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-purple-300;
+  }
 }
 
 .arrow {
@@ -116,6 +122,10 @@ $arrow-width: 14px;
     border-top: $arrow-height solid $color-green-300;
   }
 
+  &.highlight::before {
+    border-top: $arrow-height solid $color-purple-300;
+  }
+
   &.cautionary::before {
     border-top: $arrow-height solid $color-yellow-300;
   }
@@ -134,6 +144,10 @@ $arrow-width: 14px;
 
   &.positive::after {
     border-top: $arrow-height solid $color-green-100;
+  }
+
+  &.highlight::after {
+    border-top: $arrow-height solid $color-purple-100;
   }
 
   &.cautionary::after {
