@@ -12,6 +12,7 @@ Clean code should read like prose, and we should not be able to look at a file w
 ## File Structure
 
 - Put stories in the same folder as the component as opposed to in a `docs` folder
+  - Note: that we have some package config to consider
 - Naming for `.scss` file (`styles.scss` or `Component.scss`)
 - Naming for test file (`.test.ts(x)` or `.spec.ts(x)`)
 - Death to snapshot tests
@@ -29,11 +30,13 @@ Clean code should read like prose, and we should not be able to look at a file w
   - Default exports actually add an extra line to the compiled code
 - Use `VFC` (VoidFunctionComponent) as opposed to `FC` (FunctionComponent)
   - Currently `FC` constantly includes `children` as a prop, which means it is less type strict. `VFC` removes this
+  - https://spin.atomicobject.com/2022/01/04/think-twice-react-fc/
 - Should we destructure `VFC` in the import?
   - CT preference is to keep it as `React.VFC` for clarity of Type origin (since it's short)
 - Explicit return types
 - Type generics where possible (eg. `useState<string>()`) (unless they have a sensible default)
 - How to handle deprecation?
+  - https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/1582563561/Deprecating+components
 - Declare `displayName`; this helps with debugging and possibly testing (otherwise you'll find the component tree will show any child components with just the name `Component`)
 
 ### Props
@@ -189,4 +192,7 @@ export const doSomething = (aString: string) => aString;
 // - Builds confidence for next engineer
 // - Better readability (no need to look through the fn to know what to expect)
 export const doSomething2 = (aString: string): boolean => aString;
+
+// Generic function
+export const doSomethingGeneric = <TOption>(option: TOption): boolean => typeof option === 'string';
 ```
