@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.4...@kaizen/draft-form@5.3.0) (2022-02-04)
+
+
+### Features
+
+* text area uplift - add stories and missing variant, disabled support ([aeccfec](https://github.com/cultureamp/kaizen-design-system/commit/aeccfecd9498e589b57b8213927733099a866b6a))
+
+
+
+
+
 ## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.3...@kaizen/draft-form@5.2.4) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/draft-form

@@ -1,1 +1,1 @@
-export { default as TextAreaField } from "./TextAreaField"
+export * from "./TextAreaField"
