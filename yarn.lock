@@ -4116,7 +4116,7 @@
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.4.18":
+"@storybook/addons@6.4.18", "@storybook/addons@^6.4.18":
   version "6.4.18"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.18.tgz#fc92a4a608680f2e182a5e896ed382792f6b774e"
   integrity sha512-fd3S79P4jJCYZNA2JxA1Xnkj0UlHGQ4Vg72aroWy4OQFlgGQor1LgPfM6RaJ9rh/4k4BXYPXsS7wzI0UWKG3Lw==
@@ -4133,7 +4133,7 @@
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.4.9", "@storybook/addons@^6.4.9":
+"@storybook/addons@6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.9.tgz#43b5dabf6781d863fcec0a0b293c236b4d5d4433"
   integrity sha512-y+oiN2zd+pbRWwkf6aQj4tPDFn+rQkrv7fiVoMxsYub+kKyZ3CNOuTSJH+A1A+eBL6DmzocChUyO6jvZFuh6Dg==
