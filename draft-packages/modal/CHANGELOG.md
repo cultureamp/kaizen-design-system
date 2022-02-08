@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.11...@kaizen/draft-modal@8.2.12) (2022-02-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.10...@kaizen/draft-modal@8.2.11) (2022-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @headlessui/react to v1 ([#2480](https://github.com/cultureamp/kaizen-design-system/issues/2480)) ([8e9118e](https://github.com/cultureamp/kaizen-design-system/commit/8e9118e366511dd5e8879c24b33a5f283c9dde56))
+
+
+
+
+
+## [8.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.9...@kaizen/draft-modal@8.2.10) (2022-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-focus-lock to v2 ([#2482](https://github.com/cultureamp/kaizen-design-system/issues/2482)) ([5a89609](https://github.com/cultureamp/kaizen-design-system/commit/5a8960962c573d4f4bdb23b13bcadd1188d4dd09))
+
+
+
+
+
+## [8.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.8...@kaizen/draft-modal@8.2.9) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.7...@kaizen/draft-modal@8.2.8) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [8.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.6...@kaizen/draft-modal@8.2.7) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/draft-modal
