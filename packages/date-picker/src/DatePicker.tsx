@@ -1,56 +1,56 @@
-import { Label } from "@kaizen/draft-form"
-import { Icon } from "@kaizen/component-library"
-import React from "react"
+import { TextField } from "@kaizen/draft-form"
+import React, { RefObject, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import classnames from "classnames"
-import DayPickerInput from "react-day-picker/DayPickerInput"
 import "react-day-picker/lib/style.css"
+import DayPicker from "react-day-picker/DayPicker"
 import styles from "./DatePicker.scss"
+import { CalendarNav, CalendarNavProps } from "./CalendarNav"
+import { defaultDatePickerClasses } from "./DatePickerClasses"
 
 type DatePickerProps = {
+  id: string
   selectedDate?: Date
   onDayChange: (day: Date) => void
   labelText?: string
   isDisabled?: boolean
+  inputRef?: RefObject<HTMLInputElement> | undefined
+  description?: string
 }
 
 export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
+  id,
   selectedDate,
   onDayChange,
   labelText,
   isDisabled = false,
+  inputRef,
+  description,
+  ...inputProps
 }) => (
   <>
-    {labelText && <Label disabled={isDisabled} labelText={labelText} />}
-    <div
-      className={classnames(
-        styles.wrapper,
-        styles.withStartIconAdornment,
-        styles.withSearch,
-        {
-          [styles.withDisabled]: isDisabled,
-        }
+    <TextField
+      id={id}
+      labelText={labelText}
+      icon={dateStart}
+      inputValue={selectedDate ? selectedDate.toLocaleDateString() : undefined}
+      disabled={isDisabled}
+      inputRef={inputRef}
+      description={description}
+      {...inputProps}
+    />
+
+    <DayPicker
+      selectedDays={selectedDate}
+      // TODO create disabledDays prop, this is to display disabled styling
+      disabledDays={{
+        daysOfWeek: [6],
+      }}
+      onDayClick={onDayChange}
+      navbarElement={({ ...navbarProps }: CalendarNavProps) => (
+        <CalendarNav {...navbarProps} />
       )}
-    >
-      <div className={styles.startIconAdornment}>
-        <Icon icon={dateStart} role="presentation" />
-      </div>
-      <DayPickerInput
-        value={selectedDate}
-        onDayChange={onDayChange}
-        dayPickerProps={{
-          selectedDays: selectedDate,
-          disabledDays: {
-            daysOfWeek: [0, 6],
-          },
-        }}
-        inputProps={{
-          disabled: isDisabled,
-          className: classnames(styles.input, {
-            [styles.disabled]: isDisabled,
-          }),
-        }}
-      />
-    </div>
+      classNames={defaultDatePickerClasses}
+      className={styles.calendar}
+    />
   </>
 )

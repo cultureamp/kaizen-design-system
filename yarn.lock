@@ -2781,12 +2781,20 @@
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-5.2.2.tgz#b2aeee5bc463be0eefc7bd96bcd21cd36ff3c631"
   integrity sha512-nc+Az/gGk0uHzn4ahFOfwR9a9AMWe1kr0fD/N7DMIQoY6XxC3i5SzjR4sPH7UmBmzm9lH92D+IfDtfM6uVHIsw==
+"@kaizen/component-library@12.2.0":
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-12.2.0.tgz#8851ad3501d2df767940d83e9e3d23128d2ceb05"
+  integrity sha512-fi1ijwGBTagtXX+XjMF5lqHJanxoenLP6Ao82wJ9tAX81okdOt0wgSakyOTPhCJLhKnFz7I7tKsp197CWPi0QQ==
   dependencies:
-    "@kaizen/component-library" "^12.2.0"
     "@kaizen/deprecated-component-library-helpers" "^2.5.0"
-    "@kaizen/draft-loading-spinner" "^2.4.0"
+    "@kaizen/draft-button" "^5.4.1"
+    "@kaizen/hosted-assets" "^1.2.0"
+    "@kaizen/react-deprecate-warning" "^1.1.6"
     "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.177"
+    "@types/uuid" "^3.4.10"
     classnames "^2.3.1"
+    motion-ui cultureamp/motion-ui
 
 "@lerna/add@3.21.0":
   version "3.21.0"
