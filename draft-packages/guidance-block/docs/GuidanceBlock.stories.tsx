@@ -251,7 +251,12 @@ export const StickerSheet = () => (
     </Heading>
     <GuidanceBlock
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={{
+        title: "Informative guidance block title",
+        description:
+          "Providing further details to suggest a path forward or promote a feature that allows the user" +
+          " to progress with confidence.",
+      }}
       actions={{
         primary: {
           label: "Learn more",
@@ -260,6 +265,7 @@ export const StickerSheet = () => (
           },
           tooltip: {
             text: "Opens in a new tab",
+            mood: "cautionary",
           },
           icon: externalLinkIcon,
         },
@@ -299,11 +305,54 @@ export const StickerSheet = () => (
 export const Layouts = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
+      Default
+    </Heading>
+    <GuidanceBlock
+      layout="default"
+      illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
       Inline
     </Heading>
     <GuidanceBlock
       layout="inline"
       illustration={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
+      persistent
+    />
+    <Heading tag="h2" variant="heading-4">
+      Inline with scene illustration
+    </Heading>
+    <GuidanceBlock
+      layout="inline"
+      illustration={<SkillsCoachManagerHub alt="" />}
+      illustrationType="scene"
       text={guidanceBlockText}
       actions={{
         primary: {
