@@ -25,7 +25,8 @@ export default {
     },
     docs: {
       description: {
-        component: 'import { Button, IconButton } from "@kaizen/draft-button";',
+        component:
+          'import { Button, IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
     ...figmaEmbed(
