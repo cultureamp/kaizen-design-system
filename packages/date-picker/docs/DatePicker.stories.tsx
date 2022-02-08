@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
-import { DatePickerWrapper as DatePicker } from "../src/DatePicker"
+import { DatePickerWrapper as DatePicker, daysOfWeek } from "../src/DatePicker"
 
 export default {
   title: `${CATEGORIES.components}/DatePicker`,
@@ -27,6 +27,7 @@ export const KaizenDefault = props => {
       labelText="Label"
       selectedDate={selectedDate}
       onDayChange={onDayChange}
+      disabledDaysOfWeek={[daysOfWeek.Mon, daysOfWeek.Tue]}
       {...props}
     />
   )

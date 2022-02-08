@@ -4,9 +4,20 @@ import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
 import DayPicker from "react-day-picker/DayPicker"
 import { usePopper } from "react-popper"
-import customStyles from "./DatePicker.scss"
+import cx from "classnames"
+import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
+
+export enum daysOfWeek {
+  Sun = 0,
+  Mon = 1,
+  Tue = 2,
+  Wed = 3,
+  Thu = 4,
+  Fri = 5,
+  Sat = 6,
+}
 
 type DatePickerProps = {
   id: string
@@ -16,6 +27,9 @@ type DatePickerProps = {
   isDisabled?: boolean
   inputRef?: RefObject<HTMLInputElement> | undefined
   description?: string
+  classNameAndIHaveSpokenToDST?: string
+  disabledDaysOfWeek?: daysOfWeek[]
+  firstDayOfWeek?: daysOfWeek
 }
 
 export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
@@ -26,8 +40,13 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   onDayChange,
   labelText,
   isDisabled = false,
+  classNameAndIHaveSpokenToDST,
+  disabledDaysOfWeek,
+  firstDayOfWeek = 1,
   ...inputProps
 }) => {
+  const daysToNumbers = days => Array.from(days).map(day => day)
+
   const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
     <CalendarNav {...navbarProps} />
   )
@@ -113,17 +132,20 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           ref={setPopperElement}
           style={styles.popper}
           {...attributes.popper}
+          className={cx(datePickerStyles.calendar, {
+            classNameAndIHaveSpokenToDST,
+          })}
         >
           <DayPicker
             selectedDays={selectedDate}
+            firstDayOfWeek={firstDayOfWeek}
             // TODO create disabledDays prop, this is to display disabled styling
             disabledDays={{
-              daysOfWeek: [6],
+              daysOfWeek: daysToNumbers(disabledDaysOfWeek),
             }}
             onDayClick={handleOnDayChange}
             navbarElement={getNavbar}
             classNames={defaultDatePickerClasses}
-            className={customStyles.calendar}
             onKeyDown={e => handleKeyDown(e)}
           />
         </div>
