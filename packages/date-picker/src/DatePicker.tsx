@@ -9,16 +9,6 @@ import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
 
-export enum daysOfWeek {
-  Sun = 0,
-  Mon = 1,
-  Tue = 2,
-  Wed = 3,
-  Thu = 4,
-  Fri = 5,
-  Sat = 6,
-}
-
 type DatePickerProps = {
   id: string
   selectedDate?: Date
@@ -30,6 +20,16 @@ type DatePickerProps = {
   classNameAndIHaveSpokenToDST?: string
   disabledDaysOfWeek?: daysOfWeek[]
   firstDayOfWeek?: daysOfWeek
+}
+
+export enum daysOfWeek {
+  Sun = 0,
+  Mon = 1,
+  Tue = 2,
+  Wed = 3,
+  Thu = 4,
+  Fri = 5,
+  Sat = 6,
 }
 
 export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
@@ -45,8 +45,6 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   firstDayOfWeek = 1,
   ...inputProps
 }) => {
-  const daysToNumbers = days => Array.from(days).map(day => day)
-
   const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
     <CalendarNav {...navbarProps} />
   )
@@ -71,6 +69,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     placement: "bottom-start",
   })
 
+  // Listens for clicks outside of ref and closes calendar.
   useEffect(() => {
     if (!isOpen) return undefined
 
@@ -94,6 +93,9 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
       document.removeEventListener("click", callback, false)
     }
   }, [isOpen, referenceElement])
+
+  const daysToNumbers = (days: daysOfWeek[]): number[] =>
+    Array.from(days).map(day => day)
 
   const handleKeyDown = e => {
     switch (e.keyCode) {
@@ -139,9 +141,10 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           <DayPicker
             selectedDays={selectedDate}
             firstDayOfWeek={firstDayOfWeek}
-            // TODO create disabledDays prop, this is to display disabled styling
             disabledDays={{
-              daysOfWeek: daysToNumbers(disabledDaysOfWeek),
+              daysOfWeek: disabledDaysOfWeek
+                ? daysToNumbers(disabledDaysOfWeek)
+                : [],
             }}
             onDayClick={handleOnDayChange}
             navbarElement={getNavbar}
