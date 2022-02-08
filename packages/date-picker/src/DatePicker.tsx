@@ -84,6 +84,11 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     }
   }
 
+  const handleOnDayChange = (day: Date) => {
+    onDayChange(day)
+    setIsOpen(false)
+  }
+
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -115,7 +120,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
             disabledDays={{
               daysOfWeek: [6],
             }}
-            onDayClick={onDayChange}
+            onDayClick={handleOnDayChange}
             navbarElement={getNavbar}
             classNames={defaultDatePickerClasses}
             className={customStyles.calendar}
