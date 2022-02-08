@@ -48,12 +48,13 @@ class AnimationExample extends React.PureComponent<AnimationExampleProps> {
           {this.presets.map(item => (
             <MenuItem
               key={item.preset}
-              action={() =>
+              action={e => {
                 this.setState(
                   { preset: item.preset, duration: item.duration },
                   this.playAnimation
                 )
-              }
+                e.preventDefault()
+              }}
               active={item.preset === preset}
             >
               {item.preset}
