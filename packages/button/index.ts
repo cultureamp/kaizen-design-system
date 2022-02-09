@@ -1,8 +1,8 @@
-export { default as Button } from "./KaizenDraft/Button/Button"
-export { default as IconButton } from "./KaizenDraft/Button/IconButton"
+export { default as Button } from "./Button/Button"
+export { default as IconButton } from "./Button/IconButton"
 export {
   ButtonProps,
   IconButtonProps,
   ButtonRef,
   CustomButtonProps,
-} from "./KaizenDraft/Button/components/GenericButton"
+} from "./Button/components/GenericButton"
