@@ -88,6 +88,9 @@ export const StickerSheet = () => (
         Positive
       </Heading>
       <Heading variant="heading-5" tag="h2">
+        Highlight
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
         Cautionary
       </Heading>
     </div>
@@ -110,6 +113,9 @@ export const StickerSheet = () => (
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
       <Tooltip position="above" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="above" text="Tooltip label" mood="highlight">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
       <Tooltip position="above" text="Tooltip label" mood="cautionary">
@@ -137,6 +143,9 @@ export const StickerSheet = () => (
       <Tooltip position="below" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
+      <Tooltip position="below" text="Tooltip label" mood="highlight">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
       <Tooltip position="below" text="Tooltip label" mood="cautionary">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
@@ -162,6 +171,9 @@ export const StickerSheet = () => (
       <Tooltip position="left" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
+      <Tooltip position="left" text="Tooltip label" mood="highlight">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
       <Tooltip position="left" text="Tooltip label" mood="cautionary">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
@@ -185,6 +197,9 @@ export const StickerSheet = () => (
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
       <Tooltip position="right" text="Tooltip label" mood="positive">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip position="right" text="Tooltip label" mood="highlight">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
       <Tooltip position="right" text="Tooltip label" mood="cautionary">

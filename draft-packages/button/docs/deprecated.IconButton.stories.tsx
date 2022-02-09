@@ -6,7 +6,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button (deprecated)`,
   component: IconButton,
   args: {
     label: "Label",
@@ -17,7 +17,8 @@ export default {
     },
     docs: {
       description: {
-        component: 'import { IconButton } from "@kaizen/draft-button";',
+        component:
+          'This component is now deprecated. Please use IconButton from "@kaizen/button" instead.',
       },
     },
     ...figmaEmbed(
