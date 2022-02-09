@@ -92,6 +92,11 @@ $border-radius: 3px;
       outline-offset: -2px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
+
+      &.disabled {
+        outline: $color-gray-300 $border-dashed-border-style
+          $border-focus-ring-border-width;
+      }
     }
   }
 

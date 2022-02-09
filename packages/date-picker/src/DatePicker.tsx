@@ -5,6 +5,7 @@ import "react-day-picker/lib/style.css"
 import DayPicker from "react-day-picker/DayPicker"
 import { usePopper } from "react-popper"
 import cx from "classnames"
+import { DayModifiers } from "react-day-picker/types/Modifiers"
 import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
@@ -105,7 +106,14 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     }
   }
 
-  const handleOnDayChange = (day: Date) => {
+  const handleOnDayChange = (day: Date, modifiers: DayModifiers) => {
+    /** react-day-picker will fire events for disabled days by default.
+     *  We're checking here if it includes the CSS Modules class for disabled
+     *  on the modifier to then return early.
+     * */
+    if (Object.keys(modifiers).includes(defaultDatePickerClasses.disabled)) {
+      return
+    }
     onDayChange(day)
     setIsOpen(false)
   }
