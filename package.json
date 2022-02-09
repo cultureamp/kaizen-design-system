@@ -71,7 +71,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.4.18",
-    "@storybook/node-logger": "^6.4.9",
+    "@storybook/node-logger": "^6.4.18",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^7.0.2",
