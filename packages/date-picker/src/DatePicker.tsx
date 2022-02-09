@@ -118,6 +118,12 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     setIsOpen(false)
   }
 
+  const dateFormatOptions: Intl.DateTimeFormatOptions = {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  }
+
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -126,7 +132,9 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           labelText={labelText}
           icon={dateStart}
           inputValue={
-            selectedDate ? selectedDate.toLocaleDateString() : undefined
+            selectedDate
+              ? selectedDate.toLocaleDateString("en-US", dateFormatOptions)
+              : undefined
           }
           disabled={isDisabled}
           inputRef={inputRef}
