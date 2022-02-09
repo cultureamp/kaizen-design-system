@@ -9,7 +9,7 @@ Clean code should read like prose, and we should not be able to look at a file w
   - Docs, enums, styles, tests, types, utils should remain within the same folder as the component
     - Avoid sharing with other components if possible, but otherwise they could sit within the same parents, or if it's more global, then it should be clear and generic
 
-## File Structure
+## Directory/File Structure
 
 - Put stories in the same folder as the component as opposed to in a `docs` folder
   - Note: that we have some package config to consider
@@ -17,11 +17,50 @@ Clean code should read like prose, and we should not be able to look at a file w
 - Naming for test file (`.test.ts(x)` or `.spec.ts(x)`)
 - Death to snapshot tests
   - Better to not have tests (indication that it needs to be backfilled; or if there's no logic then not required)
-- Are `.elm` files still needed?
+- Are `.elm` files still needed? (Probably not?)
 - Create subcomponents in their own files
   - Keeps the files small and clean
 - Separate utils into their own file?
   - Makes unit testing easier (especially if the fn is more complex) and keeps the files smaller
+- `src`
+
+Given the component `PancakeStack`, the folder structure will follow this:
+
+### Example
+
+```
+// Directory
+packages/
+  pancake-stack/
+    src/
+      ...see below
+    - CHANGELOG.md (auto-generated; not needed in template?)
+    - index.ts
+    - package.json
+    - tsconfig.dist.json
+```
+
+```
+src/
+  PancakeStack/
+    - index.ts
+    - Pancake/ (subcomponent)
+      - index.ts
+      - Pancake.tsx
+      - Pancake.spec.tsx
+      - ...
+    - PancakeStack.tsx
+    - PancakeStack.stories.tsx (OR .mdx)
+    - PancakeStack.spec.tsx (OR .test.tsx)
+    - styles.scss (OR PancakeStack.scss)
+
+    // naming TBD; could be the specific function
+    - utils.ts
+    - utils.spec.ts
+
+    // do we need these?
+    - PancakeStack.elm
+```
 
 ## Component patterns
 
