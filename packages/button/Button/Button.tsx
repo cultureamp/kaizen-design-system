@@ -1,18 +1,13 @@
 import React, { forwardRef, Ref } from "react"
-import { logComponent } from "@kaizen/react-deprecate-warning/src/util"
 import GenericButton, {
   ButtonProps,
   ButtonRef,
 } from "./components/GenericButton"
 
 const Button = forwardRef(
-  (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => {
-    logComponent(
-      "Button",
-      "@kaizen/draft-button is deprecated. Use @kaizen/button instead."
-    )
-    return <GenericButton {...props} ref={ref} />
-  }
+  (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
+    <GenericButton {...props} ref={ref} />
+  )
 )
 
 Button.defaultProps = {
