@@ -100,7 +100,8 @@ $border-radius: 3px;
     }
   }
 
-  .disabled {
+  .disabled,
+  .disabled.today {
     color: rgba($color-purple-800-rgb, 0.3);
   }
 
