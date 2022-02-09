@@ -5,7 +5,13 @@ import "react-day-picker/lib/style.css"
 import DayPicker from "react-day-picker/DayPicker"
 import { usePopper } from "react-popper"
 import cx from "classnames"
-import { DayModifiers } from "react-day-picker/types/Modifiers"
+import {
+  DayModifiers,
+  RangeModifier,
+  BeforeModifier,
+  BeforeAfterModifier,
+  AfterModifier,
+} from "react-day-picker/types/Modifiers"
 import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
@@ -19,8 +25,14 @@ type DatePickerProps = {
   inputRef?: RefObject<HTMLInputElement> | undefined
   description?: string
   classNameAndIHaveSpokenToDST?: string
-  disabledDaysOfWeek?: daysOfWeek[]
   firstDayOfWeek?: daysOfWeek
+  initialMonth?: Date
+  disabledDates?: Date[]
+  disabledRange?: RangeModifier
+  disabledBeforeAfter?: BeforeAfterModifier
+  disabledBefore?: Date
+  disabledAfter?: Date
+  disabledDaysOfWeek?: daysOfWeek[]
 }
 
 export enum daysOfWeek {
@@ -42,8 +54,14 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
   labelText,
   isDisabled = false,
   classNameAndIHaveSpokenToDST,
+  disabledDates,
   disabledDaysOfWeek,
+  disabledRange,
+  disabledBeforeAfter,
+  disabledBefore,
+  disabledAfter,
   firstDayOfWeek = 1,
+  initialMonth,
   ...inputProps
 }) => {
   const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
@@ -140,9 +158,9 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           inputRef={inputRef}
           description={description}
           onFocus={() => setIsOpen(true)}
-          {...inputProps}
           onKeyDown={e => handleKeyDown(e)}
           readOnly
+          {...inputProps}
         />
       </div>
       {isOpen && (
@@ -163,12 +181,30 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
         >
           <DayPicker
             selectedDays={selectedDate}
+            initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
-            disabledDays={{
-              daysOfWeek: disabledDaysOfWeek
-                ? daysToNumbers(disabledDaysOfWeek)
-                : [],
-            }}
+            disabledDays={[
+              ...(disabledDates ? disabledDates : []),
+              {
+                daysOfWeek: disabledDaysOfWeek
+                  ? daysToNumbers(disabledDaysOfWeek)
+                  : [],
+              },
+              disabledRange && {
+                from: disabledRange.from,
+                to: disabledRange.to,
+              },
+              disabledBefore && {
+                before: disabledBefore,
+              },
+              disabledAfter && {
+                after: disabledAfter,
+              },
+              disabledBeforeAfter && {
+                before: disabledBeforeAfter.before,
+                after: disabledBeforeAfter.after,
+              },
+            ]}
             onDayClick={handleOnDayChange}
             navbarElement={getNavbar}
             classNames={defaultDatePickerClasses}

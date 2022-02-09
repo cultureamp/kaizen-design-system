@@ -27,9 +27,19 @@ export const KaizenDefault = props => {
       labelText="Label"
       selectedDate={selectedDate}
       onDayChange={onDayChange}
-      disabledDaysOfWeek={[daysOfWeek.Mon, daysOfWeek.Tue]}
+      // disabledDaysOfWeek={[daysOfWeek.Mon, daysOfWeek.Tue]}
+      // disabledRange={{
+      //   from: new Date(2022, 1, 12),
+      //   to: new Date(2022, 1, 16),
+      // }}
+      // disabledBeforeAfter={{
+      //   before: new Date(2022, 1, 12),
+      //   after: new Date(2022, 1, 16),
+      // }}
+      // disabledBefore={new Date()}
+      // disabledAfter={new Date(2022, 1, 23)}
+      // disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
       description
-      {...props}
     />
   )
 }
