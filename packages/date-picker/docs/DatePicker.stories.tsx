@@ -28,6 +28,7 @@ export const KaizenDefault = props => {
       selectedDate={selectedDate}
       onDayChange={onDayChange}
       disabledDaysOfWeek={[daysOfWeek.Mon, daysOfWeek.Tue]}
+      description
       {...props}
     />
   )

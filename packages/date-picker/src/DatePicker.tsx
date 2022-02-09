@@ -145,6 +145,13 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           className={cx(datePickerStyles.calendar, {
             classNameAndIHaveSpokenToDST,
           })}
+          role="dialog"
+          aria-modal="true"
+          aria-label={
+            selectedDate
+              ? `Change Date, ${selectedDate.toLocaleDateString()}`
+              : "Choose Date"
+          }
         >
           <DayPicker
             selectedDays={selectedDate}
