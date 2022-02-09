@@ -13,6 +13,7 @@ Clean code should read like prose, and we should not be able to look at a file w
 
 - Put stories in the same folder as the component as opposed to in a `docs` folder
   - Note: that we have some package config to consider
+- `src` folder for the components
 - Naming for `.scss` file (`styles.scss` or `Component.scss`)
 - Naming for test file (`.test.ts(x)` or `.spec.ts(x)`)
 - Death to snapshot tests
@@ -22,14 +23,13 @@ Clean code should read like prose, and we should not be able to look at a file w
   - Keeps the files small and clean
 - Separate utils into their own file?
   - Makes unit testing easier (especially if the fn is more complex) and keeps the files smaller
-- `src`
 
 Given the component `PancakeStack`, the folder structure will follow this:
 
 ### Example
 
 ```
-// Directory
+/* Directory */
 packages/
   pancake-stack/
     src/
@@ -41,6 +41,7 @@ packages/
 ```
 
 ```
+/* File */
 src/
   PancakeStack/
     - index.ts
