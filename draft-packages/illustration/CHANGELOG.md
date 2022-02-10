@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.3.6...@kaizen/draft-illustration@3.4.0) (2022-02-10)
+
+
+### Features
+
+* add final scene illustrations ([#2524](https://github.com/cultureamp/kaizen-design-system/issues/2524)) ([3f79fa4](https://github.com/cultureamp/kaizen-design-system/commit/3f79fa4cd426c0be3b67cbe1200d7dd2f505f37b))
+
+
+
+
+
 ## [3.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.3.5...@kaizen/draft-illustration@3.3.6) (2022-02-09)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
