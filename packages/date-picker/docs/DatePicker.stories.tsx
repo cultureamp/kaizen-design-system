@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
-import { DatePickerWrapper as DatePicker } from "../src/DatePicker"
+import { DatePicker } from "../src/DatePicker"
 
 export default {
   title: `${CATEGORIES.components}/DatePicker`,

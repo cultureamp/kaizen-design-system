@@ -78,7 +78,7 @@ export enum DayOfWeek {
   Sat = 6,
 }
 
-export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
+export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   id,
   inputRef,
   description,
@@ -159,7 +159,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           value={
             selectedDate
               ? selectedDate.toLocaleDateString("en-US", dateFormatOptions)
-              : undefined
+              : ""
           }
           disabled={isDisabled}
           inputRef={inputRef}

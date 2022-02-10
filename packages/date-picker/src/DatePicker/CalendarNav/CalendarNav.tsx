@@ -3,7 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { NavbarElementProps } from "react-day-picker/types/Props"
-import styles from "./DatePicker.scss"
+import styles from "../DatePicker.scss"
 
 export type CalendarNavProps = Pick<
   NavbarElementProps,
