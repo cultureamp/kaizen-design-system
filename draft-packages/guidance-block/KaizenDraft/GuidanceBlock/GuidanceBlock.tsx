@@ -1,5 +1,4 @@
 import * as React from "react"
-
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -48,14 +47,14 @@ export type GuidanceBlockProps = {
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   secondaryDismiss?: boolean
+  /*
+   ** persistent should always return true and will soon be deprecated.
+   ** The X close icon has been superseded with the pattern "dismiss" or "cancel" using the secondary action.
+   */
   persistent?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
-  /*
-   ** Set aspect ratio to landscape to ensure consist spacing in scene illustrations
-   */
-  lockAspectRatio?: boolean
 }
 
 export type GuidanceBlockState = {
@@ -202,6 +201,11 @@ class GuidanceBlock extends React.Component<
     )
   }
 
+  renderIllustrationType = (illustration, illustrationType) =>
+    illustrationType === "scene"
+      ? React.cloneElement(illustration, { enableAspectRatio: true })
+      : illustration
+
   render(): JSX.Element | null {
     if (this.state.removed) {
       return null
@@ -214,12 +218,8 @@ class GuidanceBlock extends React.Component<
       persistent,
       withActionButtonArrow,
       noMaxWidth,
-      lockAspectRatio,
+      illustrationType,
     } = this.props
-
-    const illustrationElement = lockAspectRatio
-      ? React.cloneElement(illustration, { enableAspectRatio: true })
-      : illustration
 
     return (
       <div
@@ -231,7 +231,9 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>{illustrationElement}</div>
+          <div className={styles.illustration}>
+            {this.renderIllustrationType(illustration, illustrationType)}
+          </div>
         </div>
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
@@ -258,7 +260,6 @@ class GuidanceBlock extends React.Component<
       layout = "default",
       illustrationType,
       smallScreenTextAlignment,
-      lockAspectRatio,
     }: GuidanceBlockProps = this.props
     return classnames(styles.banner, styles[variant], styles[layout], {
       [styles.hidden]: this.state.hidden,
@@ -266,7 +267,6 @@ class GuidanceBlock extends React.Component<
       [styles.noMaxWidth]: noMaxWidth,
       [styles.hasSceneIllustration]: illustrationType === "scene",
       [styles.smallScreenTextAlignment]: smallScreenTextAlignment === "left",
-      [styles.lockAspectRatio]: lockAspectRatio,
     })
   }
 

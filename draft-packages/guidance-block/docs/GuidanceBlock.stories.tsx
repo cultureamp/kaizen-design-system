@@ -42,7 +42,7 @@ const guidanceBlockText = {
 
 export const DefaultStory = args => (
   <GuidanceBlock
-    illustration={<Informative alt="" />}
+    illustration={args.illustration}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -70,16 +70,28 @@ DefaultStory.args = {
   smallScreenTextAlignment: "center",
   text: guidanceBlockText,
   secondaryDismiss: false,
-  persistent: false,
-  lockAspectRatio: false,
+  persistent: true,
 }
 
 DefaultStory.argTypes = {
-  illustration: {
-    control: false,
-  },
   actions: {
     control: false,
+  },
+  persistent: {
+    description:
+      "This should always return true ()`persistent` will soon be deprecated). The X close icon has been superseded with the pattern 'dismiss' or 'cancel' using the secondary action.",
+    control: false,
+  },
+  illustration: {
+    control: { type: "radio" },
+    options: ["spot", "scene"],
+    defaultValue: "spot",
+    mapping: {
+      spot: <Informative alt="" />,
+      scene: <HumanityAtWork alt="" />,
+    },
+    description:
+      "This toggle represents passing in either a scene or spot illustration.",
   },
 }
 
@@ -198,13 +210,6 @@ export const StickerSheet = () => (
     <GuidanceBlock
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
-    />
-    <Heading tag="h2" variant="heading-4">
-      Persistent
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={guidanceBlockText}
       persistent
     />
     <Heading tag="h2" variant="heading-4">
@@ -221,10 +226,11 @@ export const StickerSheet = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
+      persistent
     />
     <Heading tag="h2" variant="heading-4">
       No arrow
@@ -241,10 +247,11 @@ export const StickerSheet = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
+      persistent
     />
     <Heading tag="h2" variant="heading-4">
       Tooltip
@@ -270,10 +277,11 @@ export const StickerSheet = () => (
           icon: externalLinkIcon,
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
+      persistent
     />
     <Heading tag="h2" variant="heading-4">
       Scene Illustration
@@ -290,6 +298,7 @@ export const StickerSheet = () => (
           },
         },
       }}
+      persistent
     />
     <Heading tag="h2" variant="heading-4">
       No Max Width
@@ -298,6 +307,7 @@ export const StickerSheet = () => (
       illustration={<Informative alt="" />}
       text={guidanceBlockText}
       noMaxWidth
+      persistent
     />
   </div>
 )
@@ -319,7 +329,7 @@ export const Layouts = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
@@ -340,7 +350,7 @@ export const Layouts = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
@@ -362,7 +372,7 @@ export const Layouts = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
@@ -383,7 +393,7 @@ export const Layouts = () => (
           },
         },
         secondary: {
-          label: "Secondary action",
+          label: "Dismiss",
           href: "#",
         },
       }}
@@ -428,7 +438,7 @@ export const Layouts = () => (
             },
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}
@@ -446,7 +456,7 @@ export const Layouts = () => (
             },
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}
@@ -500,7 +510,6 @@ export const AspectRatio = () => (
         },
       }}
       secondaryDismiss
-      lockAspectRatio
       persistent
     />
     <Heading tag="h2" variant="heading-4">
@@ -512,7 +521,6 @@ export const AspectRatio = () => (
         illustrationType="scene"
         illustration={<HumanityAtWork alt="" />}
         text={guidanceBlockText}
-        lockAspectRatio
         actions={{
           primary: {
             label: "Action",
@@ -521,7 +529,7 @@ export const AspectRatio = () => (
             },
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}
@@ -532,7 +540,6 @@ export const AspectRatio = () => (
         illustrationType="scene"
         illustration={<Communication alt="" />}
         text={guidanceBlockText}
-        lockAspectRatio
         actions={{
           primary: {
             label: "Action",
@@ -541,7 +548,7 @@ export const AspectRatio = () => (
             },
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}
@@ -556,14 +563,13 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<SkillsCoachEssentialFeedback alt="" />}
-        lockAspectRatio
         text={guidanceBlockText}
         actions={{
           primary: {
             label: "Action",
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}
@@ -573,14 +579,13 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<HumanityAtWork alt="" />}
-        lockAspectRatio
         text={guidanceBlockText}
         actions={{
           primary: {
             label: "Action",
           },
           secondary: {
-            label: "Secondary action",
+            label: "Dismiss",
             href: "#",
           },
         }}

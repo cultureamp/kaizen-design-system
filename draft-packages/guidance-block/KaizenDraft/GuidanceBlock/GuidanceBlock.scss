@@ -68,19 +68,14 @@ $scene-illustration-size: 300px;
   width: $illustration-size;
   height: $illustration-size;
 
-  .hasSceneIllustration & {
-    width: $scene-illustration-size;
-    height: auto;
-  }
-
   // This has been created to handle scene illustrations consistently until the tile component is created
-  .lockAspectRatio & {
+  .hasSceneIllustration & {
     display: flex;
     justify-content: center;
     max-width: $scene-illustration-size;
     max-height: $scene-illustration-size;
+    width: $scene-illustration-size;
     height: auto;
-    width: auto;
 
     figure {
       max-height: 100%;
