@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/storybook-wrapper"
+export * from "./StoryBookWrapper"

@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Heading } from "@kaizen/component-library"
 import classNames from "classnames"
-import styles from "./styles.module.scss"
+import styles from "./StoryBookWrapper.scss"
+
 export interface StorybookGridWrapperProps {
   hasNoRowTitles?: boolean
   children?: React.ReactNode
