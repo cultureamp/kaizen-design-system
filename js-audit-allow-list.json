@@ -157,5 +157,22 @@
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["axios", "http-proxy"]
     }
+  ],
+  "node-sass": [
+    {
+      "title": "Certificate validation in node-sass 2.0.0 to 4.14.1 is disabled when requesting binaries even if the user is not specifying an alternative download path.",
+      "cve": "CVE-2020-24025",
+      "reason": "Our builds fail",
+      "reviewer": "cassandra.tam"
+    }
+  ],
+  "engine.io": [
+    {
+      "title": "Engine.IO before 4.0.0 allows attackers to cause a denial of service (resource consumption) via a POST request to the long polling transport.",
+      "cve": "CVE-2020-36048",
+      "reason": "Our builds fail",
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["gatsby"]
+    }
   ]
 }
