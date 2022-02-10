@@ -14,7 +14,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./styles.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button (deprecated)`,
   component: Button,
   args: {
     label: "Label",
@@ -25,7 +25,8 @@ export default {
     },
     docs: {
       description: {
-        component: 'import { Button, IconButton } from "@kaizen/draft-button";',
+        component:
+          'This component is now deprecated. Please use Button from "@kaizen/button" instead.',
       },
     },
     ...figmaEmbed(
