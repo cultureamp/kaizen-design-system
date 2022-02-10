@@ -10,11 +10,11 @@ import {
   RangeModifier,
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
+import { daysToNumbers } from "../utils/daysToNumbers"
+import { useClickOutside } from "../hooks/useClickOutside"
 import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
-import { daysToNumbers } from "./utils"
-import { useClickOutside } from "./useClickOutside"
 
 interface DatePickerProps {
   id: string
@@ -23,9 +23,19 @@ interface DatePickerProps {
   isDisabled?: boolean
   inputRef?: RefObject<HTMLInputElement> | undefined
   description?: string
+
+  /** Accepts a DayOfWeek value to start the week as that date. By default,
+   * it's set to Monday.
+   */
   firstDayOfWeek?: DayOfWeek
+
+  // Accepts a date to display that month on first render.
   initialMonth?: Date
+
+  // The date passed in from the consumer that renders in the input and calendar.
   selectedDate?: Date
+
+  // Event passed from consumer to handle the date on change.
   onDayChange: (day: Date) => void
 
   /** Accepts an array of singluar dates and disables them.
