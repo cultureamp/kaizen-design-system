@@ -285,7 +285,7 @@ exports[`<Illustration /> Scene PerformanceCompanySettings should exist and rend
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/performance-company-settings.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/performance-company-settings.svg"
   />
 </div>
 `;
@@ -445,7 +445,7 @@ exports[`<Illustration /> Scene SurveyGetStarted should exist and render an alt 
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/getting-started.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/getting-started.svg"
   />
 </div>
 `;
@@ -455,7 +455,7 @@ exports[`<Illustration /> Scene SurveyOverviewClosed should exist and render an 
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/scene/survey-overview-closed.svg"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/survey-overview-closed.svg"
   />
 </div>
 `;
