@@ -4,10 +4,6 @@ import { Heading } from "@kaizen/component-library"
 import { Avatar, AvatarProps } from "../../avatar/KaizenDraft/Avatar/Avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import {
-  StorybookGridWrapper,
-  StorybookRowWrapper,
-} from "../../../storybook/components/storybook-wrapper/KaizenDraft/storybook-wrapper"
 
 // Data
 import avatarStoryData from "./avatarData.json"
