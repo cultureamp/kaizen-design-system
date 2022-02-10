@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.14...@kaizen/brand-moment@1.8.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 ## [1.7.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.7.13...@kaizen/brand-moment@1.7.14) (2022-02-10)
 
 **Note:** Version bump only for package @kaizen/brand-moment

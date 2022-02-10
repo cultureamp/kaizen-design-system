@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.10.3...@kaizen/draft-hero-card@1.11.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 ## [1.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.10.2...@kaizen/draft-hero-card@1.10.3) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card
