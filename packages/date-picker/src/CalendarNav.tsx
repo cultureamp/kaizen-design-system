@@ -2,12 +2,13 @@ import React from "react"
 import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import { NavbarElementProps } from "react-day-picker/types/Props"
 import styles from "./DatePicker.scss"
 
-export type CalendarNavProps = {
-  onPreviousClick: () => void
-  onNextClick: () => void
-}
+export type CalendarNavProps = Pick<
+  NavbarElementProps,
+  "onPreviousClick" | "onNextClick"
+>
 
 export const CalendarNav: React.VFC<CalendarNavProps> = ({
   onPreviousClick,

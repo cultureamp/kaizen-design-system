@@ -8,34 +8,57 @@ import cx from "classnames"
 import {
   DayModifiers,
   RangeModifier,
-  BeforeModifier,
   BeforeAfterModifier,
-  AfterModifier,
 } from "react-day-picker/types/Modifiers"
 import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
+import { daysToNumbers } from "./utils"
+import { useClickOutside } from "./useClickOutside"
 
-type DatePickerProps = {
+interface DatePickerProps {
   id: string
-  selectedDate?: Date
-  onDayChange: (day: Date) => void
+  classNameAndIHaveSpokenToDST?: string
   labelText?: string
   isDisabled?: boolean
   inputRef?: RefObject<HTMLInputElement> | undefined
   description?: string
-  classNameAndIHaveSpokenToDST?: string
-  firstDayOfWeek?: daysOfWeek
+  firstDayOfWeek?: DayOfWeek
   initialMonth?: Date
+  selectedDate?: Date
+  onDayChange: (day: Date) => void
+
+  /** Accepts an array of singluar dates and disables them.
+   * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
+   *  */
   disabledDates?: Date[]
+
+  /** Accepts an object with a from and to date. Disables any date
+   *  inside of that range.
+   *  disabledRange={ from: new Date(2022, 1, 12), to: new Date(2022, 1, 16) }
+   * */
   disabledRange?: RangeModifier
+
+  /** Accepts an object with a before and after date. Disables any date
+   *  outside of that range.
+   *  { before: new Date(2022, 1, 12), after: new Date(2022, 1, 16) }
+   */
   disabledBeforeAfter?: BeforeAfterModifier
+
+  // Accepts single date and disables all days before it.
   disabledBefore?: Date
+
+  // Accepts single date and disables all days after it.
   disabledAfter?: Date
-  disabledDaysOfWeek?: daysOfWeek[]
+
+  /** Accepts an array of DayOfWeek values and disables those days throughout
+   *  the calendar.
+   * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
+   */
+  disabledDaysOfWeek?: DayOfWeek[]
 }
 
-export enum daysOfWeek {
+export enum DayOfWeek {
   Sun = 0,
   Mon = 1,
   Tue = 2,
@@ -88,33 +111,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
     placement: "bottom-start",
   })
 
-  // Listens for clicks outside of ref and closes calendar.
-  useEffect(() => {
-    if (!isOpen) return undefined
-
-    const callback = (e: Event) => {
-      const elem = wrapperRef.current
-      if (!elem) return
-
-      const didClickOnPopover =
-        elem === e.target || elem.contains(e.target as Node)
-      const didClickOnReferenceElement =
-        referenceElement &&
-        (referenceElement === e.target ||
-          referenceElement.contains(e.target as Node))
-      if (!didClickOnPopover && !didClickOnReferenceElement) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener("click", callback, false)
-
-    return () => {
-      document.removeEventListener("click", callback, false)
-    }
-  }, [isOpen, referenceElement])
-
-  const daysToNumbers = (days: daysOfWeek[]): number[] =>
-    Array.from(days).map(day => day)
+  useClickOutside(isOpen, setIsOpen, referenceElement, wrapperRef)
 
   const handleKeyDown = e => {
     switch (e.keyCode) {
@@ -149,7 +146,7 @@ export const DatePickerWrapper: React.FunctionComponent<DatePickerProps> = ({
           id={id}
           labelText={labelText}
           icon={dateStart}
-          inputValue={
+          value={
             selectedDate
               ? selectedDate.toLocaleDateString("en-US", dateFormatOptions)
               : undefined
