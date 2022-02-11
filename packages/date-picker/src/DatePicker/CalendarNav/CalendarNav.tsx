@@ -19,7 +19,7 @@ export const CalendarNav: React.VFC<CalendarNavProps> = ({
       className={styles.arrows}
       onClick={() => onPreviousClick()}
       type="button"
-      aria-label="Previous Month"
+      aria-label="Previous month"
     >
       <Icon icon={arrowLeft} role="presentation" />
     </button>
@@ -27,7 +27,7 @@ export const CalendarNav: React.VFC<CalendarNavProps> = ({
       className={styles.arrows}
       onClick={() => onNextClick()}
       type="button"
-      aria-label="Next Month"
+      aria-label="Next month"
     >
       <Icon icon={arrowRight} role="presentation" />
     </button>
