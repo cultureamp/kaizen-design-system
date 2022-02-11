@@ -24,7 +24,7 @@ interface DatePickerProps {
   inputRef?: RefObject<HTMLInputElement> | undefined
   description?: string
 
-  /** Accepts a DayOfWeek value to start the week as that date. By default,
+  /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
   firstDayOfWeek?: DayOfWeek
