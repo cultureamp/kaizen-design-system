@@ -31,7 +31,26 @@ export const KaizenDefault = props => {
   )
 }
 
-export const DefaultWithValue = () => {
+export const DefaultWithDisabledDates = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <DatePicker
+      id="date-picker"
+      labelText="Label"
+      onDayChange={onDayChange}
+      disabledRange={{ from: new Date(2022, 1, 14), to: new Date(2022, 1, 16) }}
+      disabledDates={[new Date(2022, 1, 25)]}
+      disabledBefore={new Date()}
+    />
+  )
+}
+
+export const DefaultInputWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
   const onDayChange = (day: Date) => {
@@ -48,7 +67,7 @@ export const DefaultWithValue = () => {
   )
 }
 
-export const Disabled = () => {
+export const DisabledInput = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
   const onDayChange = (day: Date) => {
@@ -66,7 +85,7 @@ export const Disabled = () => {
   )
 }
 
-export const DisabledWithValue = () => {
+export const DisabledInputWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
   const onDayChange = (day: Date) => {
