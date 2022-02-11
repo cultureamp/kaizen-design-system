@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { withDesign } from "storybook-addon-designs"
@@ -84,11 +85,10 @@ const InlineBlockTargetElement = ({
       display: "inline-block",
       marginTop: "100px",
     }}
-    onClick={openPopover}
     onMouseEnter={openPopover}
     onFocusCapture={openPopover}
   >
-    <IconButton label="Label" icon={informationIcon} />
+    <IconButton label="Label" icon={informationIcon} onClick={openPopover} />
   </div>
 )
 

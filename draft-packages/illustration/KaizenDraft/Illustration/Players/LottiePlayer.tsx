@@ -97,7 +97,7 @@ export const AnimatedBase = ({
     </svg>
   )
 
-  const FailedState = <img src={assetUrl(fallback)} aria-hidden={true} />
+  const FailedState = <img src={assetUrl(fallback)} alt={alt} />
 
   return (
     <figure className={wrapper}>

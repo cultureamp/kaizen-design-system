@@ -987,6 +987,8 @@ const MultipleButtons = args => (
 
 const CustomComponent = args => {
   const CustomLink = (buttonProps: CustomButtonProps) => (
+    // Disabling because it's a false positive
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
     <a href={buttonProps.href} {...buttonProps} {...args} />
   )
   // ^ In actual usage - this would be a react-router <Link> component or similar
