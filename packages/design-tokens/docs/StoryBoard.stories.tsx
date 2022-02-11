@@ -26,8 +26,6 @@ import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as GuidanceBlockStories from "@kaizen/draft-guidance-block/docs/GuidanceBlock.stories"
 import * as HeroCardStories from "@kaizen/draft-hero-card/docs/HeroCard.stories"
-import * as HierarchicalMenuStories from "@kaizen/draft-hierarchical-menu/docs/HierarchicalMenu.stories"
-import * as HierarchicalSelectStories from "@kaizen/draft-hierarchical-select/docs/HierarchicalSelect.stories"
 import * as IllustrationSceneStories from "@kaizen/draft-illustration/docs/IllustrationScene.stories"
 import * as IllustrationSpotStories from "@kaizen/draft-illustration/docs/IllustrationSpot.stories"
 import * as LoadingPlaceholderStories from "@kaizen/draft-loading-placeholder/docs/LoadingPlaceholder.stories"
@@ -442,8 +440,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={GuidanceBlockStories} />
         <StoriesContainer storyModule={HeadingStories} />
         <StoriesContainer storyModule={HeroCardStories} />
-        <StoriesContainer storyModule={HierarchicalMenuStories} />
-        <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
         <StoriesContainer storyModule={IconButtonStories} />
         <StoriesContainer storyModule={IllustrationSceneStories} />
