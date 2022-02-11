@@ -32,7 +32,6 @@ describe("<DatePicker />", () => {
 
     const element = screen.getByDisplayValue("Mar 1, 2022")
 
-    // Focus input and test calendar popup is showing
     await act(async () => element.focus())
 
     // Focus on date and select
