@@ -97,10 +97,6 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   initialMonth,
   ...inputProps
 }) => {
-  const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
-    <CalendarNav {...navbarProps} />
-  )
-
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -108,6 +104,12 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     null
   )
   const wrapperRef = useRef<HTMLDivElement>(null)
+
+  const dateFormatOptions: Intl.DateTimeFormatOptions = {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  }
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -120,6 +122,10 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     ],
     placement: "bottom-start",
   })
+
+  const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
+    <CalendarNav {...navbarProps} />
+  )
 
   useClickOutside(isOpen, setIsOpen, referenceElement, wrapperRef)
 
@@ -141,12 +147,6 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     }
     onDayChange(day)
     setIsOpen(false)
-  }
-
-  const dateFormatOptions: Intl.DateTimeFormatOptions = {
-    month: "short",
-    year: "numeric",
-    day: "numeric",
   }
 
   return (
@@ -182,8 +182,8 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           aria-modal="true"
           aria-label={
             selectedDate
-              ? `Change Date, ${selectedDate.toLocaleDateString()}`
-              : "Choose Date"
+              ? `Change date, ${selectedDate.toLocaleDateString()}`
+              : "Choose date"
           }
         >
           <DayPicker
