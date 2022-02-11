@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hierarchical-select",
-  "version": "1.8.11",
+  "version": "1.9.0",
   "description": "The draft hierarchical-select component",
   "scripts": {
     "prepublish": "yarn tsc --project tsconfig.dist.json",
@@ -32,13 +32,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.2.3",
-    "@kaizen/draft-button": "^5.4.4",
-    "@kaizen/draft-form": "^5.3.1",
-    "@kaizen/draft-hierarchical-menu": "^2.3.4"
+    "@kaizen/component-library": "^12.3.0",
+    "@kaizen/draft-button": "^5.5.0",
+    "@kaizen/draft-form": "^5.4.0",
+    "@kaizen/draft-hierarchical-menu": "^2.4.0"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
-    "react": "^16.13.1"
+    "react": "^16.13.1 || ^17.0.0"
   }
 }
