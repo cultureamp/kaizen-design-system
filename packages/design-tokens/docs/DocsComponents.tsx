@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { Box, Paragraph } from "@kaizen/component-library"
@@ -66,6 +65,7 @@ const TabbedCodeBlocks = ({
               tabClassName,
               disabledTabClassName,
             }) => (
+              // eslint-disable-next-line jsx-a11y/anchor-is-valid
               <a
                 style={{ flexShrink: 0 }}
                 data-automation-id={tab.automationId}
