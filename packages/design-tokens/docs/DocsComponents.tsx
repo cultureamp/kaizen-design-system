@@ -65,6 +65,7 @@ const TabbedCodeBlocks = ({
               tabClassName,
               disabledTabClassName,
             }) => (
+              // eslint-disable-next-line jsx-a11y/anchor-is-valid
               <a
                 style={{ flexShrink: 0 }}
                 data-automation-id={tab.automationId}
