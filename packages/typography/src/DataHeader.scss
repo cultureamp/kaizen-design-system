@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/typography";
+
+.wrapper {
+  font-family: $typography-data-small-font-family;
+  font-size: $typography-data-small-font-size;
+  font-weight: $typography-data-small-font-weight;
+  line-height: $typography-data-small-line-height;
+  letter-spacing: $typography-data-small-letter-spacing;
+}
+
+.unit {
+  font-family: $typography-data-small-units-font-family;
+  font-size: $typography-data-small-units-font-size;
+  font-weight: $typography-data-small-units-font-weight;
+  line-height: $typography-data-small-units-line-height;
+  letter-spacing: $typography-data-small-units-letter-spacing;
+}
+.row {
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 5px;
+}
