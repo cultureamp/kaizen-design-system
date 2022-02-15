@@ -66,7 +66,7 @@ export const Image = () => (
     image={
       <img
         src={surveyIllustration}
-        alt="survey-preview-image"
+        alt=""
         style={{
           position: "absolute",
           bottom: "15px",

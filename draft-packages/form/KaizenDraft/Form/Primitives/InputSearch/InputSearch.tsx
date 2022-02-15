@@ -82,11 +82,12 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
       <div className={styles.focusRing} />
 
       {value && (
-        <div className={styles.endIconAdornment} onClick={onClear}>
+        <div className={styles.endIconAdornment}>
           <button
             type="button"
             className={styles.cancelButton}
             aria-label="clear"
+            onClick={onClear}
           >
             <Icon icon={clear} role="presentation" />
           </button>

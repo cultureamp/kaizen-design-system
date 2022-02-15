@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.4.0...@kaizen/draft-form@5.5.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
 # [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.3.1...@kaizen/draft-form@5.4.0) (2022-02-10)
 
 
