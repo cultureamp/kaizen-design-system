@@ -160,7 +160,7 @@ const Child = ({ locale }) => {
   const percent = useGetStuff(p)
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <div className={styles.row}>
         Currency: <h4 className="not-hit">{currency}</h4>
       </div>
@@ -170,6 +170,6 @@ const Child = ({ locale }) => {
       <div className={styles.row}>
         Percent: <h4 className="not-hit">{percent}</h4>
       </div>
-    </div>
+    </>
   )
 }

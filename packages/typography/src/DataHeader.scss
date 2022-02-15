@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
-.wrapper {
+.value {
   font-family: $typography-data-small-font-family;
   font-size: $typography-data-small-font-size;
   font-weight: $typography-data-small-font-weight;
@@ -15,6 +15,7 @@
   line-height: $typography-data-small-units-line-height;
   letter-spacing: $typography-data-small-units-letter-spacing;
 }
+
 .row {
   display: flex;
   align-items: baseline;

@@ -1,0 +1,12 @@
+.wrapper {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  padding: 5px;
+  min-width: 260px;
+  min-height: 180px;
+  border: solid 1px salmon;
+}

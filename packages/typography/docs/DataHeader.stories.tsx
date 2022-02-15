@@ -1,6 +1,7 @@
 import React from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { DataHeader } from "../src/DataHeader"
+import styles from "./DataHeader.stories.scss"
 
 export default {
   title: `${CATEGORIES.components}/DataHeader`,
@@ -17,9 +18,9 @@ export default {
 export const Uncontrolled = () => {
   const locales = ["ja-JP", "zh-CN", "en-US", "fr-FR", "he-IL", "ar-AE"]
   return (
-    <>
+    <div className={styles.wrapper}>
       {locales.map(locale => (
-        <>
+        <div className={styles.box}>
           <h4>{locale}</h4>
           <DataHeader
             locale={locale}
@@ -27,8 +28,8 @@ export const Uncontrolled = () => {
             value={200}
             variant="heading-1"
           />
-        </>
+        </div>
       ))}
-    </>
+    </div>
   )
 }
