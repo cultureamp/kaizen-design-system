@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.0...@kaizen/draft-collapsible@2.6.1) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.5.4...@kaizen/draft-collapsible@2.6.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 ## [2.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.5.3...@kaizen/draft-collapsible@2.5.4) (2022-02-03)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

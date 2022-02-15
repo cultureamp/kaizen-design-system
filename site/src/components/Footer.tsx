@@ -58,13 +58,11 @@ const Footer: React.SFC<FooterProps> = ({
             variant="body"
             classNameAndIHaveSpokenToDST={styles.footerLink}
           >
-            <a
-              className="ca-cookie-consent-open-preferences"
-              href="#"
-              role="button"
+            <button
+              className={`${styles.cookieButton} ca-cookie-consent-open-preferences`}
             >
               Cookie preferences
-            </a>
+            </button>
           </Paragraph>
         </div>
       </div>

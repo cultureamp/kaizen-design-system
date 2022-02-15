@@ -14,7 +14,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./styles.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button (deprecated)`,
   component: Button,
   args: {
     label: "Label",
@@ -25,7 +25,8 @@ export default {
     },
     docs: {
       description: {
-        component: 'import { Button, IconButton } from "@kaizen/draft-button";',
+        component:
+          'This component is now deprecated. Please use Button from "@kaizen/button" instead.',
       },
     },
     ...figmaEmbed(
@@ -986,6 +987,8 @@ const MultipleButtons = args => (
 
 const CustomComponent = args => {
   const CustomLink = (buttonProps: CustomButtonProps) => (
+    // Disabling because it's a false positive
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
     <a href={buttonProps.href} {...buttonProps} {...args} />
   )
   // ^ In actual usage - this would be a react-router <Link> component or similar

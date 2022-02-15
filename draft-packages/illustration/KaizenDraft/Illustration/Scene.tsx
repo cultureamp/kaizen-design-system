@@ -609,7 +609,6 @@ export const EngagementSurveySummaryMale = ({
   />
 )
 
-// TODO Update and Remove - survey-configuration HeroCard.tsx
 export const SurveyOverviewClosed = ({
   enableAspectRatio,
   ...props
@@ -617,11 +616,10 @@ export const SurveyOverviewClosed = ({
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
-    name="illustrations/scene/survey-overview-closed.svg"
+    name="illustrations/heart/scene/survey-overview-closed.svg"
   />
 )
 
-// TODO Update and Remove - survey-configuration HeroCard.tsx
 export const SurveyGetStarted = ({
   enableAspectRatio,
   ...props
@@ -629,11 +627,10 @@ export const SurveyGetStarted = ({
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
-    name="illustrations/scene/getting-started.svg"
+    name="illustrations/heart/scene/getting-started.svg"
   />
 )
 
-// TODO Update and Remove - msteams-integration/teams_bot Cards.ts
 export const PerformanceCompanySettings = ({
   enableAspectRatio,
   ...props
@@ -641,6 +638,6 @@ export const PerformanceCompanySettings = ({
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
-    name="illustrations/scene/performance-company-settings.svg"
+    name="illustrations/heart/scene/performance-company-settings.svg"
   />
 )

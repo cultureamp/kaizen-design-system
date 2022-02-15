@@ -9,9 +9,9 @@ import * as InlineNotificationStories from "@kaizen/notification/docs/InlineNoti
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
 import * as ToastNotificationStories from "@kaizen/notification/docs/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
-import { Button } from "@kaizen/draft-button"
-import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
-import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
+import { Button } from "@kaizen/button"
+import * as ButtonStories from "@kaizen/button/docs/Button.stories"
+import * as IconButtonStories from "@kaizen/button/docs/IconButton.stories"
 import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
 import * as CollapsibleStories from "@kaizen/draft-collapsible/docs/Collapsible.stories"
 import * as DividerStories from "@kaizen/draft-divider/docs/Divider.stories"
@@ -26,8 +26,6 @@ import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as GuidanceBlockStories from "@kaizen/draft-guidance-block/docs/GuidanceBlock.stories"
 import * as HeroCardStories from "@kaizen/draft-hero-card/docs/HeroCard.stories"
-import * as HierarchicalMenuStories from "@kaizen/draft-hierarchical-menu/docs/HierarchicalMenu.stories"
-import * as HierarchicalSelectStories from "@kaizen/draft-hierarchical-select/docs/HierarchicalSelect.stories"
 import * as IllustrationSceneStories from "@kaizen/draft-illustration/docs/IllustrationScene.stories"
 import * as IllustrationSpotStories from "@kaizen/draft-illustration/docs/IllustrationSpot.stories"
 import * as LoadingPlaceholderStories from "@kaizen/draft-loading-placeholder/docs/LoadingPlaceholder.stories"
@@ -442,8 +440,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={GuidanceBlockStories} />
         <StoriesContainer storyModule={HeadingStories} />
         <StoriesContainer storyModule={HeroCardStories} />
-        <StoriesContainer storyModule={HierarchicalMenuStories} />
-        <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
         <StoriesContainer storyModule={IconButtonStories} />
         <StoriesContainer storyModule={IllustrationSceneStories} />

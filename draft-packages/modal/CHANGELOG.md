@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.3.2...@kaizen/draft-modal@8.4.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+## [8.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.3.1...@kaizen/draft-modal@8.3.2) (2022-02-14)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.3.0...@kaizen/draft-modal@8.3.1) (2022-02-11)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [8.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.16...@kaizen/draft-modal@8.3.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [8.2.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.15...@kaizen/draft-modal@8.2.16) (2022-02-10)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.2.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.14...@kaizen/draft-modal@8.2.15) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.13...@kaizen/draft-modal@8.2.14) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [8.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.2.12...@kaizen/draft-modal@8.2.13) (2022-02-08)
 
 **Note:** Version bump only for package @kaizen/draft-modal

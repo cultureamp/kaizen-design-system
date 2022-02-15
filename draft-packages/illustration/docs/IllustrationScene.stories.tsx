@@ -23,6 +23,7 @@ import {
   HumanityAtWork,
   TermsAgreement,
   Programs,
+  PerformanceCompanySettings,
   EngagementSurveySummaryFemale,
   EngagementSurveySummaryMale,
   BrandMomentCaptureIntro,
@@ -46,6 +47,8 @@ import {
   SkillsCoachRemoteManager,
   SkillsCoachResilience,
   SkillsCoachStrategy,
+  SurveyGetStarted,
+  SurveyOverviewClosed,
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -374,6 +377,16 @@ export const Miscellaneous = args => (
         <TermsAgreement {...args} />
       </div>
     </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Performance Company Settings
+          </Heading>
+        </Box>
+        <PerformanceCompanySettings {...args} />
+      </div>
+    </Box>
   </>
 )
 
@@ -517,6 +530,31 @@ export const SkillsCoach = args => (
           </Heading>
         </Box>
         <SkillsCoachLeadingChange alt="" {...args} />
+      </div>
+    </Box>
+  </>
+)
+
+export const Survey = args => (
+  <>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Survey Get Started
+          </Heading>
+        </Box>
+        <SurveyGetStarted alt="" {...args} />
+      </div>
+    </Box>
+    <Box mb={3}>
+      <div style={{ width: "450px" }}>
+        <Box mb={1}>
+          <Heading variant="heading-4" tag="div">
+            Survey Overview Closed
+          </Heading>
+        </Box>
+        <SurveyOverviewClosed alt="" {...args} />
       </div>
     </Box>
   </>

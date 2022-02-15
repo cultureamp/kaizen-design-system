@@ -113,6 +113,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   ) : null
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div data-automation-id={automationId} onClick={onClick}>
       <div className={styles.buttonWrapper} ref={setReferenceElement}>
         {menuButton}

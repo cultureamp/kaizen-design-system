@@ -11,9 +11,9 @@ $cardPadding: $spacing-sm;
 }
 
 .container {
+  border: none;
   align-items: center;
   background: white;
-  border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   padding: $cardPadding;
   display: flex;
