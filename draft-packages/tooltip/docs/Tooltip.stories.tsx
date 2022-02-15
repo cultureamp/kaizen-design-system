@@ -24,7 +24,7 @@ export default {
      * To cater for false positives when the tooltip renders
      * with a different alignment (controlled by react-popper).
      */
-    chromatic: { diffThreshold: 0.7 },
+    chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
