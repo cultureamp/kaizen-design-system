@@ -469,7 +469,7 @@ export const Layouts = () => (
 export const AspectRatio = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
-      Aspect ratio enabled on illustration
+      Scene example
     </Heading>
     <GuidanceBlock
       illustration={
@@ -491,29 +491,7 @@ export const AspectRatio = () => (
       persistent
     />
     <Heading tag="h2" variant="heading-4">
-      Aspect ratio locked on component
-    </Heading>
-    <GuidanceBlock
-      illustration={
-        <SkillsCoachEssentialFeedback alt="" enableAspectRatio={true} />
-      }
-      illustrationType="scene"
-      text={guidanceBlockText}
-      layout="inline"
-      smallScreenTextAlignment="left"
-      actions={{
-        primary: {
-          label: "Action",
-        },
-        secondary: {
-          label: "Dismiss action",
-        },
-      }}
-      secondaryDismiss
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      Aspect ratio stacked with scenes
+      Stacked Scenes
     </Heading>
     <div style={{ display: "flex", gap: "36px" }}>
       <GuidanceBlock
@@ -556,7 +534,7 @@ export const AspectRatio = () => (
       />
     </div>
     <Heading tag="h2" variant="heading-4">
-      Aspect ratio stacked with mixed scenes
+      Stacked with landscape and portrait scenes
     </Heading>
     <div style={{ display: "flex", gap: "36px" }}>
       <GuidanceBlock
