@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.73](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.72...site@0.0.0-private.73) (2022-02-15)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.72](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.71...site@0.0.0-private.72) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+# [0.0.0-private.71](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.70...site@0.0.0-private.71) (2022-02-15)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.70](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.69...site@0.0.0-private.70) (2022-02-14)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.69](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.68...site@0.0.0-private.69) (2022-02-11)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.68](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.67...site@0.0.0-private.68) (2022-02-10)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.67](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.66...site@0.0.0-private.67) (2022-02-10)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.66](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.65...site@0.0.0-private.66) (2022-02-09)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.65](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.64...site@0.0.0-private.65) (2022-02-09)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.64](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.63...site@0.0.0-private.64) (2022-02-08)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.63](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.62...site@0.0.0-private.63) (2022-02-06)
 
 **Note:** Version bump only for package site

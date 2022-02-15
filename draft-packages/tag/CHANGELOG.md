@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.2...@kaizen/draft-tag@2.3.3) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.1...@kaizen/draft-tag@2.3.2) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.0...@kaizen/draft-tag@2.3.1) (2022-02-14)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.2.3...@kaizen/draft-tag@2.3.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 ## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.2.2...@kaizen/draft-tag@2.2.3) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/draft-tag

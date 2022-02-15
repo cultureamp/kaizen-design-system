@@ -30,6 +30,7 @@ export default class StorybookDemo extends React.Component<StorybookDemoProps> {
     return (
       <div className={styles.container}>
         <iframe
+          title="Component demo"
           src={withPrefix(`/storybook/iframe.html?id=${this.props.demoId}`)}
           onLoad={() => {
             setTimeout(() => {

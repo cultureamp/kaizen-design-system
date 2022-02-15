@@ -372,6 +372,7 @@ export const TableRowCell: TableRowCell = ({
 }) =>
   href != null ? (
     <a
+      // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
       role="cell"
       style={{
         width: ratioToPercent(width),

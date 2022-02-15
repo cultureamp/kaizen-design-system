@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.1...@kaizen/notification@0.6.2) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.0...@kaizen/notification@0.6.1) (2022-02-11)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [0.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.5.6...@kaizen/notification@0.6.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [0.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.5.5...@kaizen/notification@0.5.6) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.5.4...@kaizen/notification@0.5.5) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.5.3...@kaizen/notification@0.5.4) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/notification
