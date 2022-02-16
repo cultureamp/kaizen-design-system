@@ -7,7 +7,7 @@ import "@testing-library/jest-dom"
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
-  selectedDate: new Date(2022, 2, 1),
+  value: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
   onChange: () => jest.fn(),
 }

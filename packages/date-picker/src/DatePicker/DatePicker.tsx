@@ -33,7 +33,7 @@ interface DatePickerProps {
   initialMonth?: Date
 
   // The date passed in from the consumer that renders in the input and calendar.
-  selectedDate?: Date
+  value?: Date
 
   // Event passed from consumer to handle the date on change.
   onChange: (day: Date) => void
@@ -82,7 +82,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   id,
   inputRef,
   description,
-  selectedDate,
+  value,
   onChange,
   labelText,
   isDisabled = false,
@@ -157,9 +157,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           labelText={labelText}
           icon={dateStart}
           value={
-            selectedDate
-              ? selectedDate.toLocaleDateString("en-US", dateFormatOptions)
-              : ""
+            value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
           }
           disabled={isDisabled}
           inputRef={inputRef}
@@ -181,13 +179,11 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           role="dialog"
           aria-modal="true"
           aria-label={
-            selectedDate
-              ? `Change date, ${selectedDate.toLocaleDateString()}`
-              : "Choose date"
+            value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
           }
         >
           <DayPicker
-            selectedDays={selectedDate}
+            selectedDays={value}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={[

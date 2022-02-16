@@ -25,7 +25,7 @@ export const KaizenDefault = props => {
     <DatePicker
       id="make-me-unique-1"
       labelText="Label"
-      selectedDate={selectedDate}
+      value={selectedDate}
       onChange={onDayChange}
     />
   )
@@ -61,7 +61,7 @@ export const DefaultInputWithValue = () => {
     <DatePicker
       id="make-me-unique-3"
       labelText="Label"
-      selectedDate={new Date()}
+      value={new Date()}
       onChange={onDayChange}
     />
   )
@@ -78,7 +78,7 @@ export const DisabledInput = () => {
     <DatePicker
       id="make-me-unique-4"
       labelText="Label"
-      selectedDate={selectedDate}
+      value={selectedDate}
       onChange={onDayChange}
       isDisabled
     />
@@ -96,7 +96,7 @@ export const DisabledInputWithValue = () => {
     <DatePicker
       id="make-me-unique-5"
       labelText="Label"
-      selectedDate={new Date()}
+      value={new Date()}
       onChange={onDayChange}
       isDisabled
     />
