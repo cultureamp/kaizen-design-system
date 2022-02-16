@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { withDesign } from "storybook-addon-designs"
@@ -19,7 +20,7 @@ export default {
      * To cater for false positives when the popover renders
      * with a different alignment (controlled by react-popper).
      */
-    chromatic: { diffThreshold: 0.7 },
+    chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
@@ -84,11 +85,10 @@ const InlineBlockTargetElement = ({
       display: "inline-block",
       marginTop: "100px",
     }}
-    onClick={openPopover}
     onMouseEnter={openPopover}
     onFocusCapture={openPopover}
   >
-    <IconButton label="Label" icon={informationIcon} />
+    <IconButton label="Label" icon={informationIcon} onClick={openPopover} />
   </div>
 )
 

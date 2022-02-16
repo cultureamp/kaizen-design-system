@@ -439,7 +439,7 @@ export const Performance = () => (
     <TitleBlockZen
       title="Blanca Wheeler"
       subtitle="Director of Stuff and Things"
-      avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
+      avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       primaryAction={{
         href: "#",
         label: "Request feedback",
@@ -656,7 +656,7 @@ export const LongLabels = () => (
           alert("breadcrumb clicked!")
         },
       }}
-      avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
+      avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
       navigationTabs={[
         <NavigationTab text="Feedback" href="#" active />,

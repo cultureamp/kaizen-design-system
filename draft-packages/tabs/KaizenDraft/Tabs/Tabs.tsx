@@ -60,6 +60,8 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
           disabledTabClassName: styles.horizontalTabDisabled,
         })
       ) : (
+        // Disabling instead of addressing because this component is deprecated
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           data-automation-id={t.automationId}
           key={t.label}
@@ -89,6 +91,8 @@ const VerticalTab = ({ tabs, renderTab, textDirection }) => (
           disabledTabClassName: styles.verticalTabDisabled,
         })
       ) : (
+        // Disabling instead of addressing because this component is deprecated
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           data-automation-id={t.automationId}
           key={t.label}
