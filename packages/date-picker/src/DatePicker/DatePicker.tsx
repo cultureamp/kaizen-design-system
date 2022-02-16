@@ -36,7 +36,7 @@ interface DatePickerProps {
   selectedDate?: Date
 
   // Event passed from consumer to handle the date on change.
-  onDayChange: (day: Date) => void
+  onChange: (day: Date) => void
 
   /** Accepts an array of singluar dates and disables them.
    * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
@@ -83,7 +83,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   inputRef,
   description,
   selectedDate,
-  onDayChange,
+  onChange,
   labelText,
   isDisabled = false,
   classNameAndIHaveSpokenToDST,
@@ -145,7 +145,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     if (Object.keys(modifiers).includes(defaultDatePickerClasses.disabled)) {
       return
     }
-    onDayChange(day)
+    onChange(day)
     setIsOpen(false)
   }
 

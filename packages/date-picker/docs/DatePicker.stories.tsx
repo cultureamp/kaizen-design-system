@@ -3,7 +3,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 
 export default {
-  title: `${CATEGORIES.components}/DatePicker`,
+  title: `${CATEGORIES.components}/Date Picker`,
   component: DatePicker,
   parameters: {
     docs: {
@@ -23,10 +23,10 @@ export const KaizenDefault = props => {
 
   return (
     <DatePicker
-      id="date-picker"
+      id="make-me-unique-1"
       labelText="Label"
       selectedDate={selectedDate}
-      onDayChange={onDayChange}
+      onChange={onDayChange}
     />
   )
 }
@@ -40,9 +40,9 @@ export const DefaultWithDisabledDates = () => {
 
   return (
     <DatePicker
-      id="date-picker"
+      id="make-me-unique-2"
       labelText="Label"
-      onDayChange={onDayChange}
+      onChange={onDayChange}
       disabledRange={{ from: new Date(2022, 1, 14), to: new Date(2022, 1, 16) }}
       disabledDates={[new Date(2022, 1, 25)]}
       disabledBefore={new Date()}
@@ -59,10 +59,10 @@ export const DefaultInputWithValue = () => {
 
   return (
     <DatePicker
-      id="date-picker"
+      id="make-me-unique-3"
       labelText="Label"
       selectedDate={new Date()}
-      onDayChange={onDayChange}
+      onChange={onDayChange}
     />
   )
 }
@@ -76,10 +76,10 @@ export const DisabledInput = () => {
 
   return (
     <DatePicker
-      id="date-picker"
+      id="make-me-unique-4"
       labelText="Label"
       selectedDate={selectedDate}
-      onDayChange={onDayChange}
+      onChange={onDayChange}
       isDisabled
     />
   )
@@ -94,10 +94,10 @@ export const DisabledInputWithValue = () => {
 
   return (
     <DatePicker
-      id="date-picker"
+      id="make-me-unique-5"
       labelText="Label"
       selectedDate={new Date()}
-      onDayChange={onDayChange}
+      onChange={onDayChange}
       isDisabled
     />
   )
