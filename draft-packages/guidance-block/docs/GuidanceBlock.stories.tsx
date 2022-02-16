@@ -64,6 +64,7 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   layout: "default",
   illustrationType: "spot",
+  illustration: "spot",
   variant: "default",
   withActionButtonArrow: true,
   noMaxWidth: false,
@@ -82,6 +83,10 @@ DefaultStory.argTypes = {
       "This should always return true ()`persistent` will soon be deprecated). The X close icon has been superseded with the pattern 'dismiss' or 'cancel' using the secondary action.",
     control: false,
   },
+  illustrationType: {
+    description:
+      "Sets the how the width and aspect ratio will respond to the Illustration passed in.",
+  },
   illustration: {
     control: { type: "radio" },
     options: ["spot", "scene"],
@@ -91,7 +96,7 @@ DefaultStory.argTypes = {
       scene: <HumanityAtWork alt="" />,
     },
     description:
-      "This toggle represents passing in either a scene or spot illustration.",
+      "This takes a scene scene or spot element, ie: `<Informative />`. This radio button implementation is a storybook only representation to toggle between the two illustration styles.",
   },
 }
 

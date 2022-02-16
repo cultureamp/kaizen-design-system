@@ -39,6 +39,9 @@ type VariantType =
 export type GuidanceBlockProps = {
   layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
+  /*
+   ** Sets the how the width and aspect ratio will respond to the Illustration passed in.
+   */
   illustrationType?: IllustrationType
   text: {
     title: string
@@ -46,6 +49,9 @@ export type GuidanceBlockProps = {
   }
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
+  /*
+   ** This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
+   */
   secondaryDismiss?: boolean
   /*
    ** persistent should always return true and will soon be deprecated.
@@ -223,7 +229,7 @@ class GuidanceBlock extends React.Component<
 
     return (
       <div
-        className={this.bannerClassName(noMaxWidth)}
+        className={this.bannerClassName(this.props)}
         style={{
           marginTop: this.marginTop(),
         }}
@@ -254,20 +260,20 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  bannerClassName(noMaxWidth): string {
-    const {
-      variant = "default",
-      layout = "default",
-      illustrationType,
-      smallScreenTextAlignment,
-    }: GuidanceBlockProps = this.props
-    return classnames(styles.banner, styles[variant], styles[layout], {
-      [styles.hidden]: this.state.hidden,
-      [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-      [styles.noMaxWidth]: noMaxWidth,
-      [styles.hasSceneIllustration]: illustrationType === "scene",
-      [styles.smallScreenTextAlignment]: smallScreenTextAlignment === "left",
-    })
+  bannerClassName(props): string {
+    return classnames(
+      styles.banner,
+      styles[props.variant],
+      styles[props.layout],
+      {
+        [styles.hidden]: this.state.hidden,
+        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
+        [styles.noMaxWidth]: props.noMaxWidth,
+        [styles.hasSceneIllustration]: props.illustrationType === "scene",
+        [styles.smallScreenTextAlignment]:
+          props.smallScreenTextAlignment === "left",
+      }
+    )
   }
 
   marginTop(): string {
