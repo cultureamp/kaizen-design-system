@@ -16,7 +16,7 @@ import datePickerStyles from "./DatePicker.scss"
 import { CalendarNav, CalendarNavProps } from "./CalendarNav"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
 
-interface DatePickerProps {
+export interface DatePickerProps {
   id: string
   classNameAndIHaveSpokenToDST?: string
   labelText?: string

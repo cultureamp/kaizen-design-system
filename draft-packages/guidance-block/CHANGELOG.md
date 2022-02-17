@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.5...@kaizen/draft-guidance-block@4.6.6) (2022-02-17)
+
+
+### Bug Fixes
+
+* resolve aspect ratio issue in guidance block ([#2504](https://github.com/cultureamp/kaizen-design-system/issues/2504)) ([d751233](https://github.com/cultureamp/kaizen-design-system/commit/d751233b517dde6f03af42c10c3f41e36d61c6ca))
+
+
+
+
+
 ## [4.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.4...@kaizen/draft-guidance-block@4.6.5) (2022-02-15)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
