@@ -68,9 +68,26 @@ $scene-illustration-size: 300px;
   width: $illustration-size;
   height: $illustration-size;
 
+  // This has been created to handle scene illustrations consistently until the tile component is created
   .hasSceneIllustration & {
+    display: flex;
+    justify-content: center;
+    max-width: $scene-illustration-size;
+    max-height: $scene-illustration-size;
     width: $scene-illustration-size;
     height: auto;
+
+    figure {
+      max-height: 100%;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 }
 
