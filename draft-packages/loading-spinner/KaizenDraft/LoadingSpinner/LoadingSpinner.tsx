@@ -14,7 +14,7 @@ export interface LoadingSpinnerProps {
   children?: React.ReactNode
 }
 
-const LoadingSpinner = ({
+const LoadingSpinnerComponent = ({
   accessibilityLabel = "Loading",
   size = "md",
   children,
@@ -80,9 +80,9 @@ const LoadingSpinner = ({
 )
 
 /**
- * @deprecated draft-packages LoadingSpinner is deprecated. Please use Button from "@kaizen/loading-spinner" instead.
+ * @deprecated draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.
  */
-export default withDeprecatedComponent(LoadingSpinner, {
+export const LoadingSpinner = withDeprecatedComponent(LoadingSpinnerComponent, {
   warning:
     'draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.',
 })

@@ -1,1 +1,1 @@
-export { default as LoadingSpinner } from "./KaizenDraft/LoadingSpinner/LoadingSpinner"
+export * from "./KaizenDraft/LoadingSpinner/LoadingSpinner"
