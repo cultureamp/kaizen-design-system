@@ -84,5 +84,5 @@ const LoadingSpinner = ({
  */
 export default withDeprecatedComponent(LoadingSpinner, {
   warning:
-    'draft-packages LoadingSpinner is deprecated. Please use Button from "@kaizen/loading-spinner" instead.',
+    'draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.',
 })
