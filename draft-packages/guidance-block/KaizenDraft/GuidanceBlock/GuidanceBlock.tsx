@@ -40,7 +40,7 @@ export type GuidanceBlockProps = {
   layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
   /*
-   ** Sets the how the width and aspect ratio will respond to the Illustration passed in.
+   * Sets how the width and aspect ratio will respond to the Illustration passed in.
    */
   illustrationType?: IllustrationType
   text: {
@@ -50,12 +50,12 @@ export type GuidanceBlockProps = {
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   /*
-   ** This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
+   * This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
    */
   secondaryDismiss?: boolean
   /*
-   ** persistent should always return true and will soon be deprecated.
-   ** The X close icon has been superseded with the pattern "dismiss" or "cancel" using the secondary action.
+   * `persistent` should always return true and will soon be deprecated.
+   * The X close icon has been superseded with the pattern "dismiss" or "cancel" using the secondary action.
    */
   persistent?: boolean
   variant?: VariantType
