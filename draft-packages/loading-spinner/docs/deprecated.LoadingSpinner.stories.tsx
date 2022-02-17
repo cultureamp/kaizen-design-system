@@ -8,13 +8,13 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/Loading Spinner`,
+  title: `${CATEGORIES.components}/Loading Spinner (deprecated)`,
   component: LoadingSpinner,
   parameters: {
     docs: {
       description: {
         component:
-          'import { LoadingSpinner } from "@kaizen/draft-loading-spinner"',
+          'This component is now deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.',
       },
     },
     ...figmaEmbed(
