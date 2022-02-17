@@ -63,20 +63,14 @@ export const StickerSheet = () => (
         marginBottom: "40px",
       }}
     >
-      <LoadingSpinner
-        accessibilityLabel="Loading comments"
-        size="sm"
-      ></LoadingSpinner>
+      <LoadingSpinner accessibilityLabel="Loading comments" size="sm" />
     </div>
     <div
       style={{
         color: colorTokens.color.purple["800"],
       }}
     >
-      <LoadingSpinner
-        accessibilityLabel="Loading comments"
-        size="md"
-      ></LoadingSpinner>
+      <LoadingSpinner accessibilityLabel="Loading comments" size="md" />
     </div>
   </>
 )
