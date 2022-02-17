@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.76",
+  "version": "0.0.0-private.77",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.2.0",
