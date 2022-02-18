@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.3.0...@kaizen/design-tokens@6.3.1) (2022-02-17)
+
+
+### Bug Fixes
+
+* deprecate loading spinner draft-package ([#2540](https://github.com/cultureamp/kaizen-design-system/issues/2540)) ([417477b](https://github.com/cultureamp/kaizen-design-system/commit/417477bd160f80bb542299e189e2d8cd46f5cd62))
+
+
+
+
+
 # [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.2.1...@kaizen/design-tokens@6.3.0) (2022-02-15)
 
 
