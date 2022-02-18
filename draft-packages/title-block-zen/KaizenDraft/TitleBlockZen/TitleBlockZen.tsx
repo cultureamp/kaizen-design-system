@@ -4,7 +4,7 @@ import {
   GenericAvatarProps,
   CompanyAvatarProps,
 } from "@kaizen/draft-avatar"
-import { IconButton, ButtonProps } from "@kaizen/draft-button"
+import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"

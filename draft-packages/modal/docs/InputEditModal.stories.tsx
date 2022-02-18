@@ -1,5 +1,5 @@
 import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { Select } from "@kaizen/draft-select"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"

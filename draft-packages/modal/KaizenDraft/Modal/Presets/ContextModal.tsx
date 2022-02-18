@@ -1,5 +1,5 @@
 import { Heading } from "@kaizen/component-library"
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import classnames from "classnames"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalBody, ModalFooter } from ".."

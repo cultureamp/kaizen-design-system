@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"

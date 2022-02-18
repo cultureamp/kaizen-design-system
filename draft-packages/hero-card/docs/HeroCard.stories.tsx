@@ -1,4 +1,4 @@
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
