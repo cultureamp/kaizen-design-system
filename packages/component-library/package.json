@@ -31,6 +31,7 @@
     "react": "^16.9.0 || ^17.0.0"
   },
   "dependencies": {
+    "@cultureamp/rich-text-editor": "^0.3.5",
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
     "@kaizen/draft-button": "^5.6.2",
     "@kaizen/hosted-assets": "^1.2.0",
