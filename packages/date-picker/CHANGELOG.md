@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.1.3...@kaizen/date-picker@1.1.4) (2022-02-21)
+
+
+### Bug Fixes
+
+* give calendar popup a z-index and background-color ([#2548](https://github.com/cultureamp/kaizen-design-system/issues/2548)) ([14bb305](https://github.com/cultureamp/kaizen-design-system/commit/14bb3055e3f3ab5bb837cd5d8e725480971af0ab))
+
+
+
+
+
 ## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.1.2...@kaizen/date-picker@1.1.3) (2022-02-18)
 
 **Note:** Version bump only for package @kaizen/date-picker
