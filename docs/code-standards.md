@@ -10,15 +10,15 @@ General code standards.
 Following the naming conventions for [JavaScript](https://google.github.io/styleguide/javascriptguide.xml?showone=Naming#Naming) / [TypeScript](https://www.typescriptlang.org/docs/handbook/enums.html):
 
 - Constant values should be upper snake case (`CONSTANT_VALUES_LIKE_THIS`)
-- Enums should be named in singular PascalCase with values also in PascalCase
+- Enums should be named in singular PascalCase with keys also in PascalCase
 
 ```ts
-// Example enum
+// Example enum with string values
 enum Direction {
-  Up,
-  Down,
-  Left,
-  Right,
+  Up = "Up",
+  Down = "Down",
+  Left = "Left",
+  Right = "Right",
 }
 ```
 
