@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { AvatarGroup, AvatarList } from "../KaizenDraft/Avatar/AvatarGroup"
@@ -24,9 +24,7 @@ export default {
 }
 
 export const DefaultStory = args => <AvatarGroup {...args} />
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
-
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
@@ -69,8 +67,8 @@ export const DesignSheetDefault = () => {
     </div>
   )
 }
-
 DesignSheetDefault.storyName = "Design Sheet (default)"
+DesignSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const DesignSheetReversed = () => {
   const data = avatarGroupData["company"] as AvatarList
@@ -109,8 +107,8 @@ export const DesignSheetReversed = () => {
     </div>
   )
 }
-
 DesignSheetReversed.storyName = "Design Sheet (reversed)"
 DesignSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }

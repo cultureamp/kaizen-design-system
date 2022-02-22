@@ -49,6 +49,7 @@ export const DefaultWithDisabledDates = () => {
     />
   )
 }
+DefaultWithDisabledDates.parameters = { chromatic: { disable: false } }
 
 export const DefaultInputWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
@@ -66,6 +67,7 @@ export const DefaultInputWithValue = () => {
     />
   )
 }
+DefaultInputWithValue.parameters = { chromatic: { disable: false } }
 
 export const DisabledInput = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
@@ -84,6 +86,7 @@ export const DisabledInput = () => {
     />
   )
 }
+DisabledInput.parameters = { chromatic: { disable: false } }
 
 export const DisabledInputWithValue = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
@@ -102,3 +105,4 @@ export const DisabledInputWithValue = () => {
     />
   )
 }
+DisabledInputWithValue.parameters = { chromatic: { disable: false } }

@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React from "react"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
@@ -12,7 +11,8 @@ import { Heading } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-const externalLinkIcon =
+
+const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
 
 export default {
@@ -33,7 +33,7 @@ export default {
   decorators: [withDesign],
 }
 
-const guidanceBlockText = {
+const GUIDANCE_BLOCK_TEXT = {
   title: "This is the Guidance block title",
   description:
     "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
@@ -43,7 +43,7 @@ const guidanceBlockText = {
 export const DefaultStory = args => (
   <GuidanceBlock
     illustration={args.illustration}
-    text={guidanceBlockText}
+    text={GUIDANCE_BLOCK_TEXT}
     actions={{
       primary: {
         label: "Action",
@@ -58,9 +58,7 @@ export const DefaultStory = args => (
     {...args}
   />
 )
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
-
 DefaultStory.args = {
   layout: "default",
   illustrationType: "spot",
@@ -69,11 +67,10 @@ DefaultStory.args = {
   withActionButtonArrow: true,
   noMaxWidth: false,
   smallScreenTextAlignment: "center",
-  text: guidanceBlockText,
+  text: GUIDANCE_BLOCK_TEXT,
   secondaryDismiss: false,
   persistent: true,
 }
-
 DefaultStory.argTypes = {
   actions: {
     control: false,
@@ -108,7 +105,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -125,7 +122,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -142,7 +139,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -159,7 +156,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -176,7 +173,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -193,7 +190,7 @@ export const Moods = () => (
     <GuidanceBlock
       persistent
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -206,6 +203,7 @@ export const Moods = () => (
     />
   </div>
 )
+Moods.parameters = { chromatic: { disable: false } }
 
 export const StickerSheet = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
@@ -214,7 +212,7 @@ export const StickerSheet = () => (
     </Heading>
     <GuidanceBlock
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       persistent
     />
     <Heading tag="h2" variant="heading-4">
@@ -222,7 +220,7 @@ export const StickerSheet = () => (
     </Heading>
     <GuidanceBlock
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -242,7 +240,7 @@ export const StickerSheet = () => (
     </Heading>
     <GuidanceBlock
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       withActionButtonArrow={false}
       actions={{
         primary: {
@@ -279,7 +277,7 @@ export const StickerSheet = () => (
             text: "Opens in a new tab",
             mood: "cautionary",
           },
-          icon: externalLinkIcon,
+          icon: ICON_EXTERNAL_LINK,
         },
         secondary: {
           label: "Dismiss",
@@ -294,7 +292,7 @@ export const StickerSheet = () => (
     <GuidanceBlock
       illustration={<HumanityAtWork alt="" />}
       illustrationType="scene"
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -310,12 +308,13 @@ export const StickerSheet = () => (
     </Heading>
     <GuidanceBlock
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       noMaxWidth
       persistent
     />
   </div>
 )
+StickerSheet.parameters = { chromatic: { disable: false } }
 
 export const Layouts = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
@@ -325,7 +324,7 @@ export const Layouts = () => (
     <GuidanceBlock
       layout="default"
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -346,7 +345,7 @@ export const Layouts = () => (
     <GuidanceBlock
       layout="inline"
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -368,7 +367,7 @@ export const Layouts = () => (
       layout="inline"
       illustration={<SkillsCoachManagerHub alt="" />}
       illustrationType="scene"
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -389,7 +388,7 @@ export const Layouts = () => (
     <GuidanceBlock
       layout="stacked"
       illustration={<Informative alt="" />}
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       actions={{
         primary: {
           label: "Action",
@@ -411,7 +410,7 @@ export const Layouts = () => (
       layout="stacked"
       illustration={<SkillsCoachManagerHub alt="" />}
       illustrationType="scene"
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       smallScreenTextAlignment="left"
       actions={{
         primary: {
@@ -434,7 +433,7 @@ export const Layouts = () => (
       <GuidanceBlock
         layout="stacked"
         illustration={<Informative alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -452,7 +451,7 @@ export const Layouts = () => (
       <GuidanceBlock
         layout="stacked"
         illustration={<Informative alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -470,6 +469,7 @@ export const Layouts = () => (
     </div>
   </div>
 )
+Layouts.parameters = { chromatic: { disable: false } }
 
 export const AspectRatio = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
@@ -481,7 +481,7 @@ export const AspectRatio = () => (
         <SkillsCoachEssentialFeedback alt="" enableAspectRatio={true} />
       }
       illustrationType="scene"
-      text={guidanceBlockText}
+      text={GUIDANCE_BLOCK_TEXT}
       layout="inline"
       smallScreenTextAlignment="left"
       actions={{
@@ -503,7 +503,7 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<HumanityAtWork alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -522,7 +522,7 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<Communication alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -546,7 +546,7 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<SkillsCoachEssentialFeedback alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -562,7 +562,7 @@ export const AspectRatio = () => (
         layout="stacked"
         illustrationType="scene"
         illustration={<HumanityAtWork alt="" />}
-        text={guidanceBlockText}
+        text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
             label: "Action",
@@ -577,3 +577,4 @@ export const AspectRatio = () => (
     </div>
   </div>
 )
+AspectRatio.parameters = { chromatic: { disable: false } }

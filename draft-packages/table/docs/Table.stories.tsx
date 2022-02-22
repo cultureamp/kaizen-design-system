@@ -1,7 +1,7 @@
+import React from "react"
 import { Paragraph } from "@kaizen/component-library"
 import { IconButton, Button } from "@kaizen/draft-button"
 import { CheckboxField } from "@kaizen/draft-form"
-import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { withDesign } from "storybook-addon-designs"
@@ -156,7 +156,6 @@ export const DefaultKaizenSiteDemo = () => (
     </TableContainer>
   </Container>
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Multiline = () => (
@@ -177,6 +176,7 @@ export const Multiline = () => (
     </TableContainer>
   </Container>
 )
+Multiline.parameters = { chromatic: { disable: false } }
 
 export const Reversed = () => (
   <Container>
@@ -196,12 +196,10 @@ export const Reversed = () => (
     </TableContainer>
   </Container>
 )
-
 Reversed.storyName = "Reversed"
 Reversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 export const DataVariant = () => (
@@ -222,8 +220,8 @@ export const DataVariant = () => (
     </TableContainer>
   </Container>
 )
-
 DataVariant.storyName = "Data Variant"
+DataVariant.parameters = { chromatic: { disable: false } }
 
 export const Clickable = () => (
   <Container>
@@ -326,8 +324,8 @@ export const ExpandedPopout = () => {
     </Container>
   )
 }
-
 ExpandedPopout.storyName = "Expanded popout"
+ExpandedPopout.parameters = { chromatic: { disable: false } }
 
 export const NoHeader = () => (
   <Container>
@@ -344,8 +342,8 @@ export const NoHeader = () => (
     </TableContainer>
   </Container>
 )
-
 NoHeader.storyName = "No header"
+NoHeader.parameters = { chromatic: { disable: false } }
 
 export const ExtraSpacing = () => (
   <Container>
@@ -362,8 +360,8 @@ export const ExtraSpacing = () => (
     </TableContainer>
   </Container>
 )
-
 ExtraSpacing.storyName = "Default variant (extra spacing)"
+ExtraSpacing.parameters = { chromatic: { disable: false } }
 
 export const HeaderAlignmentAndWrapping = () => (
   <Container>
@@ -421,8 +419,8 @@ export const HeaderAlignmentAndWrapping = () => (
     </TableContainer>
   </Container>
 )
-
 HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
+HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
 export const Tooltip = () => (
   // Extra margin added, so we can see the tooltip above
@@ -480,12 +478,11 @@ export const Tooltip = () => (
     </TableContainer>
   </Container>
 )
-
 Tooltip.storyName = "Tooltip"
+Tooltip.parameters = { chromatic: { disable: false } }
 
 export const AnchorLink = () => (
-  // Extra margin added, so we can see the tooltip above
-  <Container style={{ marginTop: "200px" }}>
+  <Container>
     <TableContainer>
       <TableHeader>
         <TableHeaderRow>
@@ -528,7 +525,6 @@ export const AnchorLink = () => (
     </TableContainer>
   </Container>
 )
-
 AnchorLink.storyName = "Anchor Link"
 
 export const HoverHeaderCell = () => (
@@ -583,5 +579,4 @@ export const HoverHeaderCell = () => (
     </TableContainer>
   </Container>
 )
-
 HoverHeaderCell.storyName = "Header row hover"

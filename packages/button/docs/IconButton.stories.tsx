@@ -1,5 +1,5 @@
+import React from "react"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { IconButton } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -31,5 +31,5 @@ export default {
 export const DefaultKaizenSiteDemoIcon = args => (
   <IconButton {...args} icon={configureIcon} />
 )
-
 DefaultKaizenSiteDemoIcon.storyName = "Default Icon (Kaizen Site Demo)"
+DefaultKaizenSiteDemoIcon.parameters = { chromatic: { disable: false } }
