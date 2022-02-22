@@ -1,10 +1,9 @@
-/* eslint-disable import/order */
 import React from "react"
 import { Box, Heading } from "@kaizen/component-library"
-import { Meta, Story } from "@storybook/react"
+import { Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
-import { useTheme } from "../react"
 import colorString from "color-string"
+import { useTheme } from "../react"
 
 export default {
   title: "Design Tokens/Color Tokens",
@@ -13,11 +12,11 @@ export default {
     docs: {
       description: {
         component:
-          "This boarding is a representation of the design tokens available",
+          'Import the color tokens into your SCSS with `@import "~@kaizen/design-tokens/sass/color`.',
       },
     },
   },
-} as Meta
+}
 
 const Padding = ({
   size = 1,
@@ -98,28 +97,28 @@ const ColorDemo = (props: { color: string; name?: string }) => {
         }}
       >
         {parsedColor && (
-          <Heading variant="heading-5">
-            <span
-              style={{
-                color: props.color,
-                filter: "invert(1) grayscale(1) contrast(100)",
-              }}
-            >
-              {colorString.to.hex(parsedColor.value)}
-            </span>
-          </Heading>
-        )}
-        {parsedColor && (
-          <Heading variant="heading-5">
-            <span
-              style={{
-                color: props.color,
-                filter: "invert(1) grayscale(1) contrast(100)",
-              }}
-            >
-              {colorString.to.rgb(parsedColor.value)}
-            </span>
-          </Heading>
+          <>
+            <Heading variant="heading-5">
+              <span
+                style={{
+                  color: props.color,
+                  filter: "invert(1) grayscale(1) contrast(100)",
+                }}
+              >
+                {colorString.to.hex(parsedColor.value)}
+              </span>
+            </Heading>
+            <Heading variant="heading-5">
+              <span
+                style={{
+                  color: props.color,
+                  filter: "invert(1) grayscale(1) contrast(100)",
+                }}
+              >
+                {colorString.to.rgb(parsedColor.value)}
+              </span>
+            </Heading>
+          </>
         )}
       </div>
     </div>
@@ -255,7 +254,5 @@ export const ColorTokens: Story = () => {
     </div>
   )
 }
+
 ColorTokens.storyName = "Color Tokens"
-ColorTokens.parameters = {
-  chromatic: { disable: true },
-}
