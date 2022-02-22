@@ -9,7 +9,9 @@
 $border-radius: 3px;
 
 .calendar {
+  background-color: $color-white;
   font-family: $typography-heading-4-font-family;
+  z-index: 1;
 
   .wrapper {
     padding-bottom: 0;
