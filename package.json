@@ -88,7 +88,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
     "eslint-plugin-ssr-friendly": "https://github.com/cultureamp/eslint-plugin-ssr-friendly",
     "eslint-plugin-jsx-a11y": "^6.5.1",
