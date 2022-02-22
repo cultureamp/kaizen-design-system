@@ -119,7 +119,7 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
-  const handleCustomFunction = () => {
+  const handleCustomFunction = (): boolean => {
     onCustomFunction()
     setHasSyrup(!hasSyrup)
     return true
@@ -184,11 +184,22 @@ export const NewComponent: React.VFC<NewComponentProps> = ({ ...props }) => <Pan
 
 - Declare the `children` prop if you require it
   - Usually it is `React.ReactNode`, however you can customise it to your needs
+  - [ReactNode vs ReactElement vs JSX.Element](https://stackoverflow.com/questions/58123398/when-to-use-jsx-element-vs-reactnode-vs-reactelement)
 - Add `classNameOverride` to replace the omitted `className`
 - Prefix boolean props with `is` or `has`
 - Declare a default value for optional boolean props
   - Unless you specifically have a need to differentiate between `false` and `undefined`, this allows you to have the type safety of only needing to cater for a boolean value in any usages (eg. in a util)
-  - Aim to name the prop so that the default value is `false` which will allow the consumer to only need to include `isBoolean` as opposed to needing to negate it using `isBoolean={false}`
+  - Aim to name the prop so that the default value is `false`
+    - Consumer experience:
+      ```tsx
+      // Good - default `false`
+      <Component /> // isBoolean={false}
+      <Component isBoolean /> // isBoolean={true}
+
+      // Bad - default `true`
+      <Component /> // isBoolean={true}
+      <Component isBoolean={false} /> // isBoolean={false}
+      ```
 - Prefix function props with `on`
 
 ### The component
@@ -206,7 +217,7 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
-  const handleCustomFunction = () => {
+  const handleCustomFunction = (): boolean => {
     onCustomFunction()
     setHasSyrup(!hasSyrup)
     return true
@@ -228,7 +239,10 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 ```
 
 - Write and directly export a `React.VFC` (React VoidFunctionComponent)
-  - [Why we use VFC instead of FC](https://spin.atomicobject.com/2022/01/04/think-twice-react-fc/)
+  - **Do not** use `React.FC`
+    - This comes with `children?: React.ReactNode` as a default, and reduces type safety for your component as it will exist even if your component should not be taking `children`
+    - When you want your component to accept `children`, declare it yourself within your props (this also increases readability as there is no need to guess whether the component should or shouldn't accept `children`)
+    - There is also a plan for [React 18 to no longer include `children` in `React.FC`](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46643#issuecomment-801487166) (deprecating `React.VFC`), which would create more clean up work for those relying on the inferred `children` (as opposed to a simple find and replace for `VFC`)
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
 - Always be explicit and include the expected generic type (eg. `useState<string>()`)
