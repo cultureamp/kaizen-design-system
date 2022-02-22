@@ -148,6 +148,16 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     setIsOpen(!isOpen)
   }
 
+  const handleReturnFocus = () => {
+    if (wrapperRef && wrapperRef.current) {
+      const buttonElement = wrapperRef.current.getElementsByClassName(
+        datePickerStyles.button
+      )[0] as HTMLElement
+
+      buttonElement?.focus()
+    }
+  }
+
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -192,6 +202,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           disabledBeforeAfter={disabledBeforeAfter}
           handleOnDayChange={handleOnDayChange}
           handleKeyDown={handleKeyDown}
+          handleReturnFocus={handleReturnFocus}
         />
       )}
     </div>

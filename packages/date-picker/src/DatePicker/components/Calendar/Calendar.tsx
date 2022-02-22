@@ -36,6 +36,7 @@ export type CalendarProps = {
   disabledBeforeAfter?: BeforeAfterModifier
   handleOnDayChange: (day: Date, modifiers: DayModifiers) => void
   handleKeyDown: (e: any) => void
+  handleReturnFocus: any
 }
 
 export type CalendarNavProps = Pick<
@@ -59,6 +60,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   disabledBeforeAfter,
   handleOnDayChange,
   handleKeyDown,
+  handleReturnFocus,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -87,7 +89,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   }, [])
 
   return (
-    <FocusLock>
+    <FocusLock returnFocus={handleReturnFocus}>
       <div ref={calendarRef}>
         <div
           ref={setPopperElement}
