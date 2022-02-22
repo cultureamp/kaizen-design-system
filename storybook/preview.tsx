@@ -45,6 +45,7 @@ addParameters({
       return null
     },
   },
+  chromatic: { disable: true },
 })
 
 export const globalTypes = {
