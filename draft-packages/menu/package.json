@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^12.4.2",
-    "@kaizen/button": "^1.0.0",
+    "@kaizen/button": "^1.0.1",,
     "@kaizen/draft-divider": "^1.9.0",
     "@popperjs/core": "^2.11.0",
     "@types/classnames": "^2.3.0",
