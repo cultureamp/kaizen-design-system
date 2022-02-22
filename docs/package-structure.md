@@ -50,7 +50,7 @@ This file is used only as an entrypoint. Export your components from `src/` in h
 
 ```ts
 // index.ts
-export * from './src/PancakeStack'
+export * from "./src/PancakeStack"
 ```
 
 ### package.json

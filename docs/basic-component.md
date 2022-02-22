@@ -68,9 +68,9 @@ Anything relating to the component (eg. hooks, subcomponents) that are to be exp
 
 ```ts
 // index.ts
-export * from './PancakeStack';
-export * from './Pancake';
-export * from './hooks';
+export * from "./PancakeStack"
+export * from "./Pancake"
+export * from "./hooks"
 ```
 
 ### Component.tsx
@@ -136,7 +136,7 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
       {children}
       {doSomething(hasOptionalBooleanProp) && <SubComponent />}
     </div>
-  );
+  )
 }
 
 PancakeStack.displayName = "PancakeStack"
@@ -164,11 +164,11 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 
 ```tsx
 // Extending <section>
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes } from "react"
 export type SectionProps = Omit<HTMLAttributes<HTMLDivElement>, "className">
 
 // Extending <button>
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from "react"
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className">
 ```
 

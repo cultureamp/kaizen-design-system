@@ -29,14 +29,14 @@ Use arrow functions with explicit return types.
 ```ts
 // Don't do this!
 // Implicit return: string
-export const doSomething = (aString: string) => aString;
+export const doSomething = (aString: string) => aString
 
 // Explicit return: boolean
 // - Picks up type error to reduce bugs
 // - Builds confidence for next engineer
 // - Better readability (no need to look through the fn to know what to expect)
-export const doSomething2 = (aString: string): boolean => aString;
+export const doSomething2 = (aString: string): boolean => aString
 
 // Generic function
-export const doSomethingGeneric = <TOption>(option: TOption): boolean => typeof option === 'string';
+export const doSomethingGeneric = <TOption>(option: TOption): boolean => typeof option === "string"
 ```
