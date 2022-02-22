@@ -31,6 +31,13 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["gatsby"]
+    },
+    {
+      "title": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.6.",
+      "cve": "CVE-2022-0512",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["gatsby"]
     }
   ],
   "xmlhttprequest-ssl": [
@@ -156,6 +163,13 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["axios", "http-proxy"]
+    },
+    {
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor in NPM follow-redirects prior to 1.14.8.",
+      "cve": "CVE-2022-0536",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["gatsby"]
     }
   ],
   "node-sass": [
