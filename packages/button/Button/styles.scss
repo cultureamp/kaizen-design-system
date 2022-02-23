@@ -674,3 +674,100 @@ $caButton-verticalPaddingForm: calc(
     background: $color-red-100 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
+
+%caButtonLabel {
+  // This line height equates to 3/4 of a grid unit - so 18px. We set this
+  // here rather than in ca-type-inter-button because changing the type style
+  // changes the baseline grid alignment for all buttons. Changing it here keeps
+  // the baseline alignment correct for single line buttons.
+  line-height: 1;
+
+  &:only-child {
+    %caButtonSecondary & {
+      margin: 0;
+    }
+  }
+
+  &:not(:first-child) {
+    @include ca-margin($start: 0.5em, $end: null);
+  }
+
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
+
+%caButtonIconWrapper {
+  height: $caButtonIcon-height;
+  align-self: flex-start;
+}
+
+%caButtonAdditionalContentWrapper {
+  display: inherit;
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
+
+%caButtonBreadcrumb {
+  width: 40px;
+  height: 40px;
+  min-height: auto;
+
+  // Reset for various states and variants
+  &:not(:disabled),
+  &:disabled {
+    &,
+    &:hover,
+    &:active,
+    &%caButtonPrimary {
+      color: inherit;
+      background: none;
+      border: 3px solid #73c0e8;
+      border-radius: 50px;
+
+      &:hover,
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        background: #0168b3;
+        border-color: #0168b3;
+
+        svg {
+          color: white;
+        }
+      }
+
+      &:disabled,
+      &.working {
+        @include working-state;
+        background: $color-blue-500;
+        color: $color-white;
+        border-color: $border-borderless-border-color;
+      }
+
+      &%caButtonReversed {
+        color: $color-purple-800;
+        &%caButtonPrimary {
+          %caButtonContent {
+            color: $color-purple-800;
+            background: none;
+          }
+        }
+      }
+    }
+    &.working {
+      @include working-state;
+      height: $caButtonIcon-height;
+    }
+  }
+
+  %caButtonContent {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    // IE 10/11 workaround to fix vertical centering of icon
+    margin: calc(
+        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
+      )
+      0;
+  }
+}

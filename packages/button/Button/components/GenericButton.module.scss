@@ -88,3 +88,7 @@
 .hidden {
   visibility: hidden;
 }
+
+.breadcrumb {
+  @extend %caButtonBreadcrumb;
+}

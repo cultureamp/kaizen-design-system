@@ -46,6 +46,7 @@ export type GenericProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
+  breadcrumb?: boolean
 }
 
 export type AdditionalContentProps = {
@@ -252,6 +253,7 @@ const buttonClass = (props: Props) => {
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
     [styles.working]: props.working,
+    [styles.breadcrumb]: props.breadcrumb,
   })
 }
 
