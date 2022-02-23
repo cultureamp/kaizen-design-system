@@ -1,42 +1,9 @@
 import React from "react"
-import { Heading } from "@kaizen/component-library"
 import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const StoryContainer: React.FunctionComponent = ({ children }) => (
-  <div
-    style={{ display: "inline-flex", width: "100%", flexDirection: "column" }}
-  >
-    {children}
-  </div>
-)
-
-const StoryRow: React.FunctionComponent = ({ children }) => (
-  <div
-    style={{
-      display: "grid",
-      columnGap: "45px",
-      gridTemplateColumns: "repeat(2, minmax(10px, 195px)",
-    }}
-  >
-    {children}
-  </div>
-)
-
-const StoryGrid: React.FunctionComponent = ({ children }) => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      columnGap: "45px",
-      rowGap: "12px",
-    }}
-  >
-    {children}
-  </div>
-)
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
@@ -86,186 +53,178 @@ DefaultStory.argTypes = {
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
 export const StickerSheetDefault = () => (
-  <StoryGrid>
-    <StoryRow>
-      <Heading variant="heading-5" tag="h3">
-        Base
-      </Heading>
-      <Heading variant="heading-5" tag="h3">
-        Disabled
-      </Heading>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField id="text-area-default" labelText="Default" />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField disabled id="text-area-default" labelText="Default" />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-          disabled
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-prominent"
-          labelText="Prominent"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          variant="prominent"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-prominent"
-          labelText="Prominent"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          variant="prominent"
-          disabled
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-error"
-          labelText="Error"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-    </StoryRow>
-  </StoryGrid>
+  <StoryWrapper>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField id="text-area-default" labelText="Default" />
+      <TextAreaField disabled id="text-area-default" labelText="Default" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Description">
+      <TextAreaField
+        id="text-area-default"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+      />
+      <TextAreaField
+        id="text-area-default"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <TextAreaField
+        id="text-area-prominent"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+      />
+      <TextAreaField
+        id="text-area-prominent"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative">
+      <TextAreaField
+        id="text-area-error"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+      />
+      <TextAreaField
+        id="text-area-error"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
+      <TextAreaField
+        id="text-area-caution"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+      />
+      <TextAreaField
+        id="text-area-caution"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+        disabled
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 
 export const StickerSheetReversed = () => (
-  <StoryGrid>
-    <StoryRow>
-      <Heading color="white" variant="heading-5" tag="h3">
-        Base
-      </Heading>
-      <Heading color="white" variant="heading-5" tag="h3">
-        Disabled
-      </Heading>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField reversed id="text-area-default" labelText="Default" />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          disabled
-          id="text-area-default"
-          labelText="Default"
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-default"
-          defaultValue="Filled input text"
-          labelText="With description"
-          description="Example/description text"
-          disabled
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-prominent"
-          labelText="Prominent"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          variant="prominent"
-        />
-      </StoryContainer>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-prominent"
-          labelText="Prominent"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          variant="prominent"
-          disabled
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-error"
-          labelText="Error"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="error"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-    </StoryRow>
-    <StoryRow>
-      <StoryContainer>
-        <TextAreaField
-          reversed
-          id="text-area-caution"
-          labelText="Caution"
-          description="Example/description text"
-          defaultValue="Filled input text"
-          status="caution"
-          validationMessage="Error message"
-        />
-      </StoryContainer>
-    </StoryRow>
-  </StoryGrid>
+  <StoryWrapper isReversed>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField id="text-area-default" labelText="Default" reversed />
+      <TextAreaField
+        disabled
+        id="text-area-default"
+        labelText="Default"
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField
+        id="text-area-default"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-default"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <TextAreaField
+        id="text-area-prominent"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-prominent"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative">
+      <TextAreaField
+        id="text-area-error"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-error"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary">
+      <TextAreaField
+        id="text-area-caution"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-caution"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
