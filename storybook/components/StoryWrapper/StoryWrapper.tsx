@@ -3,8 +3,8 @@ import classNames from "classnames"
 import {
   StoryRowHeader,
   StoryRowHeaderProps,
-} from "../StoryWrapper/components/StoryRowHeader/StoryRowHeader"
-import { StoryRow, StoryRowProps } from "./components/StoryRow/StoryRow"
+} from "./components/StoryRowHeader"
+import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import styles from "./StoryWrapper.scss"
 
 export interface StoryWrapperProps {
