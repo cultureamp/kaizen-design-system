@@ -101,7 +101,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
       >
         <DayPicker
           selectedDays={value}
-          initialMonth={initialMonth ? initialMonth : value}
+          initialMonth={value ? value : initialMonth}
           firstDayOfWeek={firstDayOfWeek}
           disabledDays={[
             ...(disabledDates ? disabledDates : []),
