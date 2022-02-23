@@ -127,21 +127,21 @@ export const StickerSheetReversed = () => (
       <TextAreaField id="text-area-default-base" labelText="Default" reversed />
       <TextAreaField
         disabled
-        id="text-area-default-disabled"
+        id="text-area-default-disabled-reversed"
         labelText="Default"
         reversed
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Description">
       <TextAreaField
-        id="text-area-description-base"
+        id="text-area-description-base-reversed"
         defaultValue="Filled input text"
         labelText="With description"
         description="Example/description text"
         reversed
       />
       <TextAreaField
-        id="text-area-description-disabled"
+        id="text-area-description-disabled-reversed"
         defaultValue="Filled input text"
         labelText="With description"
         description="Example/description text"
@@ -151,7 +151,7 @@ export const StickerSheetReversed = () => (
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Prominent">
       <TextAreaField
-        id="text-area-prominent-base"
+        id="text-area-prominent-base-reversed"
         labelText="Prominent"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -159,7 +159,7 @@ export const StickerSheetReversed = () => (
         reversed
       />
       <TextAreaField
-        id="text-area-prominent-disabled"
+        id="text-area-prominent-disabled-reversed"
         labelText="Prominent-base"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -170,7 +170,7 @@ export const StickerSheetReversed = () => (
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Negative" gridColumns={2}>
       <TextAreaField
-        id="text-area-error-base"
+        id="text-area-error-base-reversed"
         labelText="Error"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -181,7 +181,7 @@ export const StickerSheetReversed = () => (
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
       <TextAreaField
-        id="text-area-caution-base"
+        id="text-area-caution-base-reversed"
         labelText="Caution"
         description="Example/description text"
         defaultValue="Filled input text"
