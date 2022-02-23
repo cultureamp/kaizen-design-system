@@ -80,7 +80,7 @@ export enum DayOfWeek {
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   id,
-  buttonRef,
+  buttonRef = useRef<HTMLButtonElement>(null),
   description,
   value,
   onChange,
@@ -150,12 +150,8 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   }
 
   const handleReturnFocus = () => {
-    if (wrapperRef && wrapperRef.current) {
-      const buttonElement = wrapperRef.current.getElementsByClassName(
-        datePickerStyles.button
-      )[0] as HTMLElement
-
-      buttonElement?.focus()
+    if (buttonRef && buttonRef.current) {
+      buttonRef.current.focus()
     }
   }
 
