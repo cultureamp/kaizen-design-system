@@ -43,6 +43,7 @@ src/
       - groupedFunctions.spec.ts
       - functionName.ts
       - functionName.spec.ts
+    - _variables.scss
     - index.ts
     - PancakeStack.tsx
     - PancakeStack.scss
@@ -84,6 +85,8 @@ See [template](#componenttsx-template) for component composition.
 Style files should named to match the component name (eg. the Pancake component will be named `Pancake.scss`) and live in the same directory.
 
 Keep these clean by separating styles for subcomponents in their own respective files.
+
+If you require scss variables to be shared between the parent and its children, add them to `_variables.scss` in the parent directory and import the file into the required stylesheets.
 
 ### Tests
 
