@@ -1,5 +1,6 @@
+import { Heading } from "@kaizen/component-library"
 import React from "react"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES } from "../../../../storybook/constants"
 import { DataHeader } from "../src/DataHeader"
 import styles from "./DataHeader.stories.scss"
 
@@ -21,10 +22,12 @@ export const Uncontrolled = () => {
     <div className={styles.wrapper}>
       {locales.map(locale => (
         <div className={styles.box}>
-          <h4>{locale}</h4>
+          <Heading variant="heading-4" tag="h4">
+            {locale}
+          </Heading>
           <DataHeader
             locale={locale}
-            unitType="liter"
+            unitType="percentage"
             value={200}
             variant="heading-1"
           />

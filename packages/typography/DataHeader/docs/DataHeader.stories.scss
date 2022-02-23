@@ -1,3 +1,5 @@
+@import "~@kaizen/design-tokens/sass/color";
+
 .wrapper {
   text-align: center;
   display: flex;
@@ -8,5 +10,5 @@
   padding: 5px;
   min-width: 260px;
   min-height: 180px;
-  border: solid 1px salmon;
+  border: solid 1px $color-blue-200;
 }

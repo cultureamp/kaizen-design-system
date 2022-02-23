@@ -1,3 +1,4 @@
+import { Heading } from "@kaizen/component-library"
 import classNames from "classnames"
 import React, { createElement, HTMLAttributes } from "react"
 
@@ -43,12 +44,12 @@ export interface HeadingProps
    */
   variant: HeadingVariants
   locale: string
-  unitType: UnitType
+  unitType: DataType
   value: number
   color?: AllowedColors
 }
 
-type UnitType = "currency" | "liter" | "percentage"
+type DataType = "currency" | "percentage"
 
 export const DataHeader = ({
   locale,
@@ -73,7 +74,7 @@ export const DataHeader = ({
   return createElement(
     inferredTag,
     { ...props, className },
-    <Child locale={locale} />
+    <Child locale={locale} value={value} />
   )
 }
 
@@ -95,7 +96,7 @@ const translateHeadingLevelToTag = (headingLevel: HeadingVariants) => {
 }
 
 function useCurrency(locale, currencyCode) {
-  const c = React.useCallback(
+  const currencyObject = React.useCallback(
     num =>
       Intl.NumberFormat(locale, {
         style: "currency",
@@ -103,24 +104,11 @@ function useCurrency(locale, currencyCode) {
       }).formatToParts(num),
     [locale, currencyCode]
   )
-  return { c }
-}
-
-function useUnit(locale, unit) {
-  const u = React.useCallback(
-    num =>
-      Intl.NumberFormat(locale, {
-        style: "unit",
-        unit,
-        unitDisplay: "short",
-      }).formatToParts(num),
-    [locale, unit]
-  )
-  return { u }
+  return { currencyObject }
 }
 
 function usePercent(locale) {
-  const p = React.useCallback(
+  const percentageObject = React.useCallback(
     num =>
       Intl.NumberFormat(locale, {
         style: "unit",
@@ -128,15 +116,15 @@ function usePercent(locale) {
       }).formatToParts(num),
     [locale]
   )
-  return { p }
+  return { percentageObject }
 }
 
-function useGetStuff(f) {
-  const str = React.useMemo(() => {
-    const item = f(2240)
+function useDataString(dataType, value: number) {
+  const dataString: string = React.useMemo(() => {
+    const item: Element = dataType(value)
     return renderer(item)
-  }, [f])
-  return str
+  }, [dataType])
+  return dataString
 }
 
 function renderer(groups) {
@@ -151,24 +139,25 @@ function renderer(groups) {
   })
 }
 
-const Child = ({ locale }) => {
-  const { c } = useCurrency(locale, "USD")
-  const { u } = useUnit(locale, "liter")
-  const { p } = usePercent(locale)
-  const currency = useGetStuff(c)
-  const liters = useGetStuff(u)
-  const percent = useGetStuff(p)
+const Child = ({ locale, value }) => {
+  const { currencyObject } = useCurrency(locale, "USD")
+  const { percentageObject } = usePercent(locale)
+  const currency = useDataString(currencyObject, value)
+  const percent = useDataString(percentageObject, value)
 
   return (
     <>
       <div className={styles.row}>
-        Currency: <h4 className="not-hit">{currency}</h4>
+        <Heading variant="heading-4" tag="h4">
+          Currency:
+        </Heading>
+        <h4 className={styles.value}>{currency}</h4>
       </div>
       <div className={styles.row}>
-        Liters: <h4 className="not-hit">{liters}</h4>
-      </div>
-      <div className={styles.row}>
-        Percent: <h4 className="not-hit">{percent}</h4>
+        <Heading variant="heading-4" tag="h4">
+          Percent:
+        </Heading>
+        <h4 className={styles.value}>{percent}</h4>
       </div>
     </>
   )
