@@ -150,7 +150,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   }
 
   const handleReturnFocus = () => {
-    if (buttonRef && buttonRef.current) {
+    if (buttonRef.current) {
       buttonRef.current.focus()
     }
   }
