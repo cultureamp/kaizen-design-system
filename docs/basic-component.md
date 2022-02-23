@@ -87,7 +87,7 @@ Keep these clean by separating styles for subcomponents in their own respective 
 
 ### Tests
 
-Test files should named to match the component/function name (eg. `Pancake.spec.tsx` and `functionName.ts`) and live in the same directory.
+Test files should be named to match the component/function name (eg. `Pancake.spec.tsx` and `functionName.ts`) and live in the same directory.
 
 Ideally we would want to avoid snapshot tests as they do not have meaningful assertions/expectations and are very fragile (they can break with insignificant changes). We should instead write unit and functional tests.
 
@@ -159,7 +159,9 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 - Create and export an `interface` for your props in the format of `{PascalComponentName}Props`
   - You can restrict a prop's type signature by redeclaring it (eg. changing a prop from `string | undefined` to `string`)
   - If you need to change the type signature of an extended prop, ensure you `Omit` it otherwise it will become `never` (eg. changing a prop from `string | undefined` to `number`)
-- `Omit` `"className"` as we re-add it with an alias (`classNameOverride`)
+- `Omit` `"className"` as we re-add it with the alias `classNameOverride`
+  - The alias allows us to easier track usage (as ideally teams should not need to use this) and allows us to not be a bottleneck if the component does not meet their needs in the interim
+  - Previously `classNameAndIHaveSpokenToDST`
 - Extend the native attributes of the closest HTML element of your component (eg. `<section>` will use `<div>` attributes)
 
 ```tsx
