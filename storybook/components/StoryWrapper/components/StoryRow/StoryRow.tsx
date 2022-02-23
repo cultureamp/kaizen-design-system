@@ -1,10 +1,10 @@
 import React from "react"
-import { Heading } from "../../../../packages/component-library"
-import styles from "./styles.scss"
+import { Heading } from "../../../../../packages/component-library"
+import styles from "./StoryRow.scss"
 
 export interface StoryRowProps {
   children: React.ReactNode
-  rowTitle?: string
+  rowTitle: string
   isReversed?: boolean
   gridColumns?: number
 }
@@ -18,17 +18,15 @@ export const StoryRow: React.VFC<StoryRowProps> = ({
   const childrenCount: number = React.Children.count(children)
   return (
     <div className={styles.storyRow}>
-      {rowTitle && (
-        <div className={styles.storyRowTitle}>
-          <Heading
-            variant="heading-5"
-            tag="h2"
-            color={isReversed ? "white" : "dark"}
-          >
-            {rowTitle}
-          </Heading>
-        </div>
-      )}
+      <div className={styles.storyRowTitle}>
+        <Heading
+          variant="heading-5"
+          tag="h2"
+          color={isReversed ? "white" : "dark"}
+        >
+          {rowTitle}
+        </Heading>
+      </div>
       <div
         className={styles.storyRowContainer}
         style={{
@@ -40,3 +38,5 @@ export const StoryRow: React.VFC<StoryRowProps> = ({
     </div>
   )
 }
+
+StoryRow.displayName = "StoryRow"

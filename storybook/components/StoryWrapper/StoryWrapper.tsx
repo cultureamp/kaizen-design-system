@@ -1,8 +1,11 @@
 import React from "react"
 import classNames from "classnames"
-import { StoryRow, StoryRowProps } from "./StoryRow"
-import { StoryRowHeader, StoryRowHeaderProps } from "./StoryRowHeader"
-import styles from "./styles.scss"
+import {
+  StoryRowHeader,
+  StoryRowHeaderProps,
+} from "../StoryWrapper/components/StoryRowHeader/StoryRowHeader"
+import { StoryRow, StoryRowProps } from "./components/StoryRow/StoryRow"
+import styles from "./StoryWrapper.scss"
 
 export interface StoryWrapperProps {
   hasNoRowTitles?: boolean
@@ -44,3 +47,5 @@ export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
 // Allows dot notation in the component
 StoryWrapper.Row = StoryRow
 StoryWrapper.RowHeader = StoryRowHeader
+
+StoryWrapper.displayName = "StoryWrapper"

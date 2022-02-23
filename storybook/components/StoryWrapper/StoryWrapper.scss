@@ -1,0 +1,13 @@
+// vars
+$grid-gap: 1.5rem;
+
+.noRowTitles {
+  grid-template-areas: "stories";
+  grid-template-columns: 1fr;
+}
+
+.storyRowContainer {
+  grid-area: stories;
+  display: grid;
+  gap: $grid-gap;
+}

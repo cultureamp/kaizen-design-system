@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
-import { Heading } from "../../../../packages/component-library"
-import styles from "./styles.scss"
+import { Heading } from "../../../../../packages/component-library"
+import styles from "./StoryRowHeader.scss"
 
 export interface StoryRowHeaderProps {
   gridColumns?: number
@@ -16,7 +16,7 @@ export const StoryRowHeader: React.VFC<StoryRowHeaderProps> = ({
 }) => (
   <div className={styles.storyRow}>
     <div
-      className={classNames(styles.storyRowContainer, styles.isTopHeader)}
+      className={classNames(styles.storyRowContainer, styles.topHeader)}
       style={{
         gridTemplateColumns: `repeat(${gridColumns || headings.length}, 1fr)`,
       }}
@@ -33,3 +33,5 @@ export const StoryRowHeader: React.VFC<StoryRowHeaderProps> = ({
     </div>
   </div>
 )
+
+StoryRowHeader.displayName = "StoryRowHeader"
