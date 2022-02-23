@@ -36,7 +36,6 @@ export type CalendarProps = {
   disabledBeforeAfter?: BeforeAfterModifier
   handleOnDayChange: (day: Date, modifiers: DayModifiers) => void
   handleKeyDown: (e: any) => void
-  handleReturnFocus: any
 }
 
 export type CalendarNavProps = Pick<
@@ -60,7 +59,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   disabledBeforeAfter,
   handleOnDayChange,
   handleKeyDown,
-  handleReturnFocus,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -69,74 +67,70 @@ export const Calendar: React.VFC<CalendarProps> = ({
   )
 
   useEffect(() => {
+    if (!calendarRef.current) return
+
     if (value) {
-      if (calendarRef && calendarRef.current) {
-        const selectedDay = calendarRef.current.getElementsByClassName(
-          "DayPicker-Day--selected"
-        )[0] as HTMLElement
+      const selectedDay = calendarRef.current.getElementsByClassName(
+        "DayPicker-Day--selected"
+      )[0] as HTMLElement
 
-        selectedDay?.focus()
-      }
+      selectedDay?.focus()
     } else {
-      if (calendarRef && calendarRef.current) {
-        const today = calendarRef.current.getElementsByClassName(
-          "DayPicker-Day--today"
-        )[0] as HTMLElement
+      const today = calendarRef.current.getElementsByClassName(
+        "DayPicker-Day--today"
+      )[0] as HTMLElement
 
-        today?.focus()
-      }
+      today?.focus()
     }
   }, [])
 
   return (
-    <FocusLock returnFocus={handleReturnFocus}>
-      <div ref={calendarRef}>
-        <div
-          ref={setPopperElement}
-          style={styles.popper}
-          {...attributes.popper}
-          className={cx(datePickerStyles.calendar, {
-            classNameAndIHaveSpokenToDST,
-          })}
-          role="dialog"
-          aria-modal="true"
-          aria-label={
-            value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
-          }
-        >
-          <DayPicker
-            selectedDays={value}
-            initialMonth={initialMonth ? initialMonth : value}
-            firstDayOfWeek={firstDayOfWeek}
-            disabledDays={[
-              ...(disabledDates ? disabledDates : []),
-              {
-                daysOfWeek: disabledDaysOfWeek
-                  ? daysToNumbers(disabledDaysOfWeek)
-                  : [],
-              },
-              disabledRange && {
-                from: disabledRange.from,
-                to: disabledRange.to,
-              },
-              disabledBefore && {
-                before: disabledBefore,
-              },
-              disabledAfter && {
-                after: disabledAfter,
-              },
-              disabledBeforeAfter && {
-                before: disabledBeforeAfter.before,
-                after: disabledBeforeAfter.after,
-              },
-            ]}
-            onDayClick={handleOnDayChange}
-            navbarElement={getNavbar}
-            classNames={defaultDatePickerClasses}
-            onKeyDown={e => handleKeyDown(e)}
-          />
-        </div>
+    <div ref={calendarRef}>
+      <div
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+        className={cx(datePickerStyles.calendar, {
+          classNameAndIHaveSpokenToDST,
+        })}
+        role="dialog"
+        aria-modal="true"
+        aria-label={
+          value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
+        }
+      >
+        <DayPicker
+          selectedDays={value}
+          initialMonth={initialMonth ? initialMonth : value}
+          firstDayOfWeek={firstDayOfWeek}
+          disabledDays={[
+            ...(disabledDates ? disabledDates : []),
+            {
+              daysOfWeek: disabledDaysOfWeek
+                ? daysToNumbers(disabledDaysOfWeek)
+                : [],
+            },
+            disabledRange && {
+              from: disabledRange.from,
+              to: disabledRange.to,
+            },
+            disabledBefore && {
+              before: disabledBefore,
+            },
+            disabledAfter && {
+              after: disabledAfter,
+            },
+            disabledBeforeAfter && {
+              before: disabledBeforeAfter.before,
+              after: disabledBeforeAfter.after,
+            },
+          ]}
+          onDayClick={handleOnDayChange}
+          navbarElement={getNavbar}
+          classNames={defaultDatePickerClasses}
+          onKeyDown={e => handleKeyDown(e)}
+        />
       </div>
-    </FocusLock>
+    </div>
   )
 }

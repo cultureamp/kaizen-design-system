@@ -10,6 +10,7 @@ import {
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { Icon } from "@kaizen/component-library"
+import FocusLock from "react-focus-lock"
 import { useClickOutside } from "../hooks/useClickOutside"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultDatePickerClasses } from "./DatePickerClasses"
@@ -186,24 +187,25 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
         </button>
       </div>
       {isOpen && (
-        <Calendar
-          setPopperElement={setPopperElement}
-          styles={styles}
-          attributes={attributes}
-          classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
-          value={value}
-          initialMonth={initialMonth}
-          firstDayOfWeek={firstDayOfWeek}
-          disabledDates={disabledDates}
-          disabledDaysOfWeek={disabledDaysOfWeek}
-          disabledRange={disabledRange}
-          disabledBefore={disabledBefore}
-          disabledAfter={disabledAfter}
-          disabledBeforeAfter={disabledBeforeAfter}
-          handleOnDayChange={handleOnDayChange}
-          handleKeyDown={handleKeyDown}
-          handleReturnFocus={handleReturnFocus}
-        />
+        <FocusLock onDeactivation={handleReturnFocus}>
+          <Calendar
+            setPopperElement={setPopperElement}
+            styles={styles}
+            attributes={attributes}
+            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
+            value={value}
+            initialMonth={initialMonth}
+            firstDayOfWeek={firstDayOfWeek}
+            disabledDates={disabledDates}
+            disabledDaysOfWeek={disabledDaysOfWeek}
+            disabledRange={disabledRange}
+            disabledBefore={disabledBefore}
+            disabledAfter={disabledAfter}
+            disabledBeforeAfter={disabledBeforeAfter}
+            handleOnDayChange={handleOnDayChange}
+            handleKeyDown={handleKeyDown}
+          />
+        </FocusLock>
       )}
     </div>
   )
