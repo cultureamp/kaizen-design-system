@@ -1,6 +1,6 @@
 import React from "react"
 import { Heading } from "../../../../../packages/component-library"
-import styles from "./StoryRow.scss"
+import styles from "../../StoryWrapper.scss"
 
 export interface StoryRowProps {
   children: React.ReactNode

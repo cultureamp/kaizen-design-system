@@ -1,11 +1,11 @@
 import React from "react"
 import classNames from "classnames"
+import styles from "../StoryWrapper/StoryWrapper.scss"
 import {
   StoryRowHeader,
   StoryRowHeaderProps,
 } from "./components/StoryRowHeader"
 import { StoryRow, StoryRowProps } from "./components/StoryRow"
-import styles from "./StoryWrapper.scss"
 
 export interface StoryWrapperProps {
   hasNoRowTitles?: boolean
