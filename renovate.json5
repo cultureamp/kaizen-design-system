@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "updatePinnedDependencies": false,
   "ignoreDeps": [
     // React and React DOM are pinned for now until all consumers are on React 17+
     "react",
