@@ -47,6 +47,7 @@ export type GenericProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
   breadcrumb?: boolean
+  pageButton?: boolean
 }
 
 export type AdditionalContentProps = {
@@ -73,6 +74,13 @@ export type LabelProps = LabelPropsGeneric &
 
 export type IconButtonProps = GenericProps &
   (WorkingProps | WorkingUndefinedProps)
+
+export type BreadcrumbProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps)
+
+export type PageButtonProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps)
+
 export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
@@ -254,7 +262,7 @@ const buttonClass = (props: Props) => {
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
     [styles.working]: props.working,
-    [styles.breadcrumb]: props.breadcrumb,
+    [styles.breadcrumb]: props.breadcrumb || props.pageButton,
   })
 }
 

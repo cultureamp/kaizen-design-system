@@ -1,9 +1,9 @@
 import * as React from "react"
-import GenericButton, { IconButtonProps } from "./components/GenericButton"
+import GenericButton, { BreadcrumbProps } from "./components/GenericButton"
 
-const Breadcrumb: React.FunctionComponent<any> = (props: any) => (
-  <GenericButton breadcrumb iconButton {...props} />
-)
+const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = (
+  props: BreadcrumbProps
+) => <GenericButton breadcrumb iconButton {...props} />
 
 Breadcrumb.defaultProps = {
   form: false,

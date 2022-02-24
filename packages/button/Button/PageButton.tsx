@@ -1,9 +1,9 @@
 import * as React from "react"
-import GenericButton, { IconButtonProps } from "./components/GenericButton"
+import GenericButton, { PageButtonProps } from "./components/GenericButton"
 
-const PageButton: React.FunctionComponent<any> = (props: any) => (
-  <GenericButton {...props} />
-)
+const PageButton: React.FunctionComponent<PageButtonProps> = (
+  props: PageButtonProps
+) => <GenericButton pageButton {...props} />
 
 PageButton.defaultProps = {
   form: false,

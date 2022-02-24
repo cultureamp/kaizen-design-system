@@ -1,7 +1,6 @@
 import { Heading } from "@kaizen/component-library"
 import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import { FlexBar } from "@storybook/components"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Breadcrumb } from ".."
@@ -29,6 +28,12 @@ export default {
   },
   decorators: [withDesign],
 }
+
+export const DefaultKaizenSiteDemoBreadcrumb = args => (
+  <>
+    <Breadcrumb icon={arrowBackward} {...args} />
+  </>
+)
 
 export const LightBreadcrumb = args => (
   <>
@@ -90,11 +95,11 @@ export const ReversedBreadcrumb = args => (
   </>
 )
 
-// DefaultKaizenSiteDemoBreadcrumb.storyName =
-//   "Default Breadcrumb (Kaizen Site Demo)"
-
 ReversedBreadcrumb.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
 }
+
+DefaultKaizenSiteDemoBreadcrumb.storyName =
+  "Default Breadcrumb (Kaizen Site Demo)"
