@@ -1,12 +1,9 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
-import { Avatar, AvatarProps } from "../../avatar/KaizenDraft/Avatar/Avatar"
+import { Avatar } from "../../avatar/KaizenDraft/Avatar/Avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-
-// Data
-import avatarStoryData from "./avatarData.json"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Avatar/Avatar`,
@@ -14,8 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { Avatar } from "@kaizen/draft-avatar". For the company variant, please refer Company Avatar Story for how to use the `isCompany` prop.',
+        component: 'import { Avatar } from "@kaizen/draft-avatar"',
       },
     },
     ...figmaEmbed(
@@ -37,123 +33,179 @@ DefaultStory.args = {
 }
 DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
-export const DesignSheetDefault = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["users"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
+export const StickerSheetDefault = () => (
+  <StoryWrapper>
+    <StoryWrapper.RowHeader
+      headings={[
+        "Intial Personal",
+        "Initals Generic",
+        "Initals Unicode",
+        "Initals Long",
+        "Default User",
+        "Company Avatar",
+      ]}
+    />
+    <StoryWrapper.Row rowTitle="XX-Large">
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="xxlarge"
+      />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser={false}
+        size="xxlarge"
+      />
+      <Avatar
+        fullName="李存信"
+        disableInitials={false}
+        isCurrentUser
+        size="xxlarge"
+      />
+      <Avatar
+        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+        disableInitials={false}
+        isCurrentUser
+        size="xxlarge"
+      />
+      <Avatar
+        fullName="Hooli"
+        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+        isCompany
+        size="xxlarge"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="X-Large">
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="xlarge"
+      />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser={false}
+        size="xlarge"
+      />
+      <Avatar
+        fullName="李存信"
+        disableInitials={false}
+        isCurrentUser
+        size="xlarge"
+      />
+      <Avatar
+        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+        disableInitials={false}
+        isCurrentUser
+        size="xlarge"
+      />
+      <Avatar
+        fullName="Hooli"
+        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+        isCompany
+        size="xlarge"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Large">
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="large"
+      />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser={false}
+        size="large"
+      />
+      <Avatar
+        fullName="李存信"
+        disableInitials={false}
+        isCurrentUser
+        size="large"
+      />
+      <Avatar
+        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+        disableInitials={false}
+        isCurrentUser
+        size="large"
+      />
+      <Avatar
+        fullName="Hooli"
+        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+        isCompany
+        size="large"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Medium">
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="medium"
+      />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser={false}
+        size="medium"
+      />
+      <Avatar
+        fullName="李存信"
+        disableInitials={false}
+        isCurrentUser
+        size="medium"
+      />
+      <Avatar
+        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+        disableInitials={false}
+        isCurrentUser
+        size="medium"
+      />
+      <Avatar
+        fullName="Hooli"
+        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+        isCompany
+        size="medium"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Small">
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="small"
+      />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser={false}
+        size="small"
+      />
+      <Avatar
+        fullName="李存信"
+        disableInitials={false}
+        isCurrentUser
+        size="small"
+      />
+      <Avatar
+        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+        disableInitials={false}
+        isCurrentUser
+        size="small"
+      />
+      <Avatar
+        fullName="Hooli"
+        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+        isCompany
+        size="small"
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-DesignSheetDefault.storyName = "Design Sheet (default)"
-DesignSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const DesignSheetReversed = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["users"].map(story => (
-      <div>
-        <Heading color="white" tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-DesignSheetReversed.storyName = "Design Sheet (reversed)"
-DesignSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-}
-
-export const InitialsLong = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["initials-long"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-InitialsLong.parameters = { chromatic: { disable: false } }
-
-export const InitialsUnicode = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["initials-unicode"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-InitialsUnicode.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"

@@ -1,9 +1,9 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
 import { AvatarGroup, AvatarList } from "../KaizenDraft/Avatar/AvatarGroup"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 import avatarGroupData from "./avatarGroupData.json"
 
@@ -31,84 +31,22 @@ DefaultStory.args = {
   avatars: avatarGroupData["users"],
 }
 
-export const DesignSheetDefault = () => {
+export const StickerSheetDefault = () => {
   const data = avatarGroupData["users"] as AvatarList
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-        gap: "2.5rem",
-        alignItems: "flex-start",
-        width: "auto",
-      }}
-    >
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Large
-        </Heading>
-        <br />
+    <StoryWrapper>
+      <StoryWrapper.RowHeader headings={["Deafult"]} />
+      <StoryWrapper.Row rowTitle="Large">
         <AvatarGroup maxVisible={2} avatars={data} size="large" />
-      </div>
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Medium
-        </Heading>
-        <br />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Medium">
         <AvatarGroup maxVisible={2} avatars={data} size="medium" />
-      </div>
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Small
-        </Heading>
-        <br />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Small">
         <AvatarGroup maxVisible={2} avatars={data} size="small" />
-      </div>
-    </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
   )
 }
-DesignSheetDefault.storyName = "Design Sheet (default)"
-DesignSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const DesignSheetReversed = () => {
-  const data = avatarGroupData["company"] as AvatarList
-
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-        gap: "2.5rem",
-        alignItems: "flex-start",
-        width: "auto",
-      }}
-    >
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Large
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="large" />
-      </div>
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Medium
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="medium" />
-      </div>
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Small
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="small" />
-      </div>
-    </div>
-  )
-}
-DesignSheetReversed.storyName = "Design Sheet (reversed)"
-DesignSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-}
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
