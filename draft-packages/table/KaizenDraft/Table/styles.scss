@@ -3,7 +3,9 @@
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/button/Button/styles";
+// @import "~@kaizen/button/Button/styles";
+// 🔥 Uncomment the above and remove the below when moving this package out of drafts
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component

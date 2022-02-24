@@ -14,7 +14,7 @@ import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.i
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 
-import { ButtonProps } from "@kaizen/button"
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
   ModalAccessibleDescription,

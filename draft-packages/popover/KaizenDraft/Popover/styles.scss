@@ -2,7 +2,9 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/button/Button/styles";
+// @import "~@kaizen/button/Button/styles";
+// 🔥 Uncomment the above and remove the below when moving this package out of drafts
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
