@@ -13,15 +13,15 @@ import { Icon } from "@kaizen/component-library"
 import FocusLock from "react-focus-lock"
 import { useClickOutside } from "../hooks/useClickOutside"
 import datePickerStyles from "./DatePicker.scss"
-import { defaultDatePickerClasses } from "./DatePickerClasses"
+import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 
 export interface DatePickerProps {
   id: string
   classNameAndIHaveSpokenToDST?: string
-  labelText?: string
+  labelText: string
   isDisabled?: boolean
-  buttonRef?: RefObject<HTMLButtonElement> | undefined
+  buttonRef?: RefObject<HTMLButtonElement>
   description?: string
 
   /** Accepts a DayOfWeek value to start the week on that day. By default,
@@ -138,7 +138,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-    if (Object.keys(modifiers).includes(defaultDatePickerClasses.disabled)) {
+    if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
     onChange(day)
@@ -175,7 +175,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           {...inputProps}
         >
           <div className={datePickerStyles.startIconAdornment}>
-            <Icon icon={dateStart} title="presentation" />
+            <Icon icon={dateStart} role="presentation" />
           </div>
           <span className={datePickerStyles.value}>
             {value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""}

@@ -13,7 +13,7 @@ const defaultProps = {
 }
 
 describe("<DatePicker />", () => {
-  it("renders DatePicker and shows/hides calendar on focus of button", async () => {
+  it("renders DatePicker and shows/hides calendar on button press", async () => {
     render(<DatePicker {...defaultProps} />)
 
     // Make sure date renders in the button

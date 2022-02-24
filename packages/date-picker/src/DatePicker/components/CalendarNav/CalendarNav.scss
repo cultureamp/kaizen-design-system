@@ -1,0 +1,37 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+
+// Vars
+$border-radius: 7px;
+
+.navbar {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 3rem);
+  margin: 0 $spacing-md;
+  top: 1.25rem;
+  color: $color-purple-800;
+}
+
+.arrows {
+  @include button-reset;
+  display: inherit;
+  padding: 0.25rem $spacing-xs;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $border-radius;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  &:focus {
+    outline-offset: -2px;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+  }
+}

@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
 import DayPicker from "react-day-picker/DayPicker"
-import FocusLock from "react-focus-lock"
 import cx from "classnames"
 import { NavbarElementProps } from "react-day-picker/types/Props"
 import {
@@ -9,10 +8,10 @@ import {
   RangeModifier,
 } from "react-day-picker/types/Modifiers"
 import { daysToNumbers } from "../../../utils/daysToNumbers"
-import { defaultDatePickerClasses } from "../../DatePickerClasses"
-import datePickerStyles from "../../DatePicker.scss"
 import { DayOfWeek } from "../../DatePicker"
-import { CalendarNav } from "../CalendarNav"
+import { CalendarNav } from "../CalendarNav/CalendarNav"
+import { defaultCalendarClasses } from "./CalendarClasses"
+import calendarStyles from "./Calendar.scss"
 
 export type CalendarProps = {
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
@@ -90,7 +89,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
-        className={cx(datePickerStyles.calendar, {
+        className={cx(calendarStyles.calendar, {
           classNameAndIHaveSpokenToDST,
         })}
         role="dialog"
@@ -127,7 +126,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           ]}
           onDayClick={handleOnDayChange}
           navbarElement={getNavbar}
-          classNames={defaultDatePickerClasses}
+          classNames={defaultCalendarClasses}
           onKeyDown={e => handleKeyDown(e)}
         />
       </div>
