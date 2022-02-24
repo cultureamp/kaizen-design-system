@@ -801,3 +801,96 @@ $caButton-verticalPaddingForm: calc(
       0;
   }
 }
+
+%caButtonIsActive {
+  background-color: $color-blue-500 !important;
+  color: white !important;
+}
+
+%caPageButton {
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+
+  width: 40px;
+  height: 40px;
+  min-height: auto;
+  // Reset for various states and variants
+
+  &:not(:disabled),
+  &:disabled {
+    &,
+    &:hover,
+    &:active,
+    &%caButtonPrimary {
+      color: $color-blue-500;
+      background: none;
+      border-radius: 50px;
+      border-color: transparent;
+
+      &:hover,
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        background: #0168b3;
+        border-color: #0168b3;
+        color: white;
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border: 2px solid white;
+        border-color: #0168b3;
+      }
+
+      &:disabled,
+      &.working {
+        @include working-state;
+        // background: $color-blue-500;
+        color: $color-white;
+        // border-color: $border-borderless-border-color;
+      }
+
+      &%caButtonReversed {
+        border: 2px solid rgba(255, 255, 255, 0.65);
+        color: $color-purple-800;
+
+        svg {
+          color: white;
+        }
+
+        &:hover,
+        :global(.js-focus-visible) &:global(.focus-visible) {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: white;
+
+          svg {
+            color: white;
+          }
+        }
+
+        &%caButtonPrimary {
+          %caButtonContent {
+            color: $color-purple-800;
+            background: none;
+          }
+        }
+      }
+    }
+    &.working {
+      @include working-state;
+      height: $caButtonIcon-height;
+    }
+  }
+
+  %caButtonContent {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    height: auto;
+    // IE 10/11 workaround to fix vertical centering of icon
+    margin: calc(
+        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
+      )
+      0;
+  }
+}

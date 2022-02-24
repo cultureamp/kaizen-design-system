@@ -96,3 +96,11 @@
 .testFocus {
   @extend %caButtonTestFocus;
 }
+
+.pageButton {
+  @extend %caPageButton;
+}
+
+.isActive {
+  @extend %caButtonIsActive;
+}
