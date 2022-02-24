@@ -19,7 +19,6 @@ export const marks: MarkSpec = {
     control: {
       label: "Bold",
       icon: boldIcon,
-      shortcut: "Mod-b",
     },
   },
   em: {
@@ -27,7 +26,6 @@ export const marks: MarkSpec = {
     control: {
       label: "Italic",
       icon: italicIcon,
-      shortcut: "Mod-i",
     },
   },
   underline: {
@@ -35,7 +33,6 @@ export const marks: MarkSpec = {
     control: {
       label: "Underline",
       icon: underlineIcon,
-      shortcut: "Mod-u",
     },
   },
 }

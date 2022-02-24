@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react"
-import { history, redo, undo } from "prosemirror-history"
+import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { Label } from "@kaizen/draft-form"
 import { useRichTextEditor } from "@cultureamp/rich-text-editor"
-import { toggleMark, baseKeymap } from "prosemirror-commands"
+import { baseKeymap } from "prosemirror-commands"
 import { EditorContentArray } from "./types"
 import { createSchemaFromControls } from "./schema"
 import { createInitialState, createDocFromContent } from "./state"
-import { hardBreak } from "./commands"
+import { buildKeymap } from "./buildKeymap"
 import { Toolbar } from "./components/Toolbar"
 import styles from "./RichTextEditor.scss"
 
@@ -33,7 +33,13 @@ export const RichTextEditor = (props: RichTextEditorProps) => {
     createInitialState(
       value ? createDocFromContent(schema, value) : null,
       schema,
-      [history(), addShortcuts(marksFromControls.flat())]
+      [
+        history(),
+        keymap({
+          ...baseKeymap,
+          ...buildKeymap(schema),
+        }),
+      ]
     )
     // {
     //   "aria-labelledby": props.id,
@@ -61,22 +67,4 @@ export const RichTextEditor = (props: RichTextEditorProps) => {
       </div>
     </>
   )
-}
-
-const addShortcuts = (marks: any) => {
-  const customKeys = marks.reduce(
-    (acc, currentMark) => ({
-      ...acc,
-      [currentMark.spec.control.shortcut]: toggleMark(currentMark),
-    }),
-    {}
-  )
-
-  return keymap({
-    ...baseKeymap,
-    "Mod-z": undo,
-    "Mod-Shift-z": redo,
-    "Shift-Enter": hardBreak,
-    ...customKeys,
-  })
 }
