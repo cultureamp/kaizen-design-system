@@ -34,178 +34,260 @@ DefaultStory.args = {
 DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
 export const StickerSheetDefault = () => (
-  <StoryWrapper>
-    <StoryWrapper.RowHeader
-      headings={[
-        "Intial Personal",
-        "Initals Generic",
-        "Initals Unicode",
-        "Initals Long",
-        "Default User",
-        "Company Avatar",
-      ]}
-    />
-    <StoryWrapper.Row rowTitle="XX-Large">
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="xxlarge"
+  <>
+    <StoryWrapper>
+      <StoryWrapper.RowHeader
+        headings={[
+          "Photo Personal",
+          "Intials Personal",
+          "Initals Generic",
+          "Default User",
+        ]}
       />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser={false}
-        size="xxlarge"
-      />
-      <Avatar
-        fullName="李存信"
-        disableInitials={false}
-        isCurrentUser
-        size="xxlarge"
-      />
-      <Avatar
-        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
-        disableInitials={false}
-        isCurrentUser
-        size="xxlarge"
-      />
-      <Avatar
-        fullName="Hooli"
-        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
-        isCompany
-        size="xxlarge"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="X-Large">
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="xlarge"
-      />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser={false}
-        size="xlarge"
-      />
-      <Avatar
-        fullName="李存信"
-        disableInitials={false}
-        isCurrentUser
-        size="xlarge"
-      />
-      <Avatar
-        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
-        disableInitials={false}
-        isCurrentUser
-        size="xlarge"
-      />
-      <Avatar
-        fullName="Hooli"
-        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
-        isCompany
-        size="xlarge"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Large">
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="large"
-      />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser={false}
-        size="large"
-      />
-      <Avatar
-        fullName="李存信"
-        disableInitials={false}
-        isCurrentUser
-        size="large"
-      />
-      <Avatar
-        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
-        disableInitials={false}
-        isCurrentUser
-        size="large"
-      />
-      <Avatar
-        fullName="Hooli"
-        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
-        isCompany
-        size="large"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Medium">
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="medium"
-      />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser={false}
-        size="medium"
-      />
-      <Avatar
-        fullName="李存信"
-        disableInitials={false}
-        isCurrentUser
-        size="medium"
-      />
-      <Avatar
-        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
-        disableInitials={false}
-        isCurrentUser
-        size="medium"
-      />
-      <Avatar
-        fullName="Hooli"
-        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
-        isCompany
-        size="medium"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Small">
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="small"
-      />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser={false}
-        size="small"
-      />
-      <Avatar
-        fullName="李存信"
-        disableInitials={false}
-        isCurrentUser
-        size="small"
-      />
-      <Avatar
-        fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
-        disableInitials={false}
-        isCurrentUser
-        size="small"
-      />
-      <Avatar
-        fullName="Hooli"
-        avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
-        isCompany
-        size="small"
-      />
-    </StoryWrapper.Row>
-  </StoryWrapper>
+      <StoryWrapper.Row rowTitle="XX-Large">
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="xxlarge"
+          avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="xxlarge"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser={false}
+          size="xxlarge"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials
+          isCurrentUser={false}
+          size="xxlarge"
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="X-Large">
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="xlarge"
+          avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="xlarge"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser={false}
+          size="xlarge"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials
+          isCurrentUser={false}
+          size="xlarge"
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Large">
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="large"
+          avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="large"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser={false}
+          size="large"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials
+          isCurrentUser={false}
+          size="large"
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Medium">
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="medium"
+          avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="medium"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser={false}
+          size="medium"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials
+          isCurrentUser={false}
+          size="medium"
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Small">
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="small"
+          avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser
+          size="small"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials={false}
+          isCurrentUser={false}
+          size="small"
+        />
+        <Avatar
+          fullName="Jane Doe"
+          disableInitials
+          isCurrentUser={false}
+          size="small"
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+    <div style={{ marginTop: "4rem" }}>
+      <StoryWrapper>
+        <StoryWrapper.RowHeader
+          headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
+        />
+        <StoryWrapper.Row rowTitle="XX-Large">
+          <Avatar
+            fullName="李存信"
+            disableInitials={false}
+            isCurrentUser
+            size="xxlarge"
+          />
+          <Avatar
+            fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+            disableInitials={false}
+            isCurrentUser
+            size="xxlarge"
+          />
+          <Avatar
+            fullName="Hooli"
+            avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+            isCompany
+            size="xxlarge"
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="X-Large">
+          <Avatar
+            fullName="李存信"
+            disableInitials={false}
+            isCurrentUser
+            size="xlarge"
+          />
+          <Avatar
+            fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+            disableInitials={false}
+            isCurrentUser
+            size="xlarge"
+          />
+          <Avatar
+            fullName="Hooli"
+            avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+            isCompany
+            size="xlarge"
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Large">
+          <Avatar
+            fullName="李存信"
+            disableInitials={false}
+            isCurrentUser
+            size="large"
+          />
+          <Avatar
+            fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+            disableInitials={false}
+            isCurrentUser
+            size="large"
+          />
+          <Avatar
+            fullName="Hooli"
+            avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+            isCompany
+            size="large"
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Medium">
+          <Avatar
+            fullName="李存信"
+            disableInitials={false}
+            isCurrentUser
+            size="medium"
+          />
+          <Avatar
+            fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+            disableInitials={false}
+            isCurrentUser
+            size="medium"
+          />
+          <Avatar
+            fullName="Hooli"
+            avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+            isCompany
+            size="medium"
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Small">
+          <Avatar
+            fullName="李存信"
+            disableInitials={false}
+            isCurrentUser
+            size="small"
+          />
+          <Avatar
+            fullName="Spicy Jalapeno Bacon Ipsum Dolor Amet Aute Elit Chicken Mollit"
+            disableInitials={false}
+            isCurrentUser
+            size="small"
+          />
+          <Avatar
+            fullName="Hooli"
+            avatarSrc="https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg"
+            isCompany
+            size="small"
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </div>
+  </>
 )
 
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
