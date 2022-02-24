@@ -1,11 +1,11 @@
 import * as React from "react"
 import GenericButton, { IconButtonProps } from "./components/GenericButton"
 
-const Breadcrumb: React.FunctionComponent<any> = (props: any) => (
-  <GenericButton breadcrumb iconButton {...props} />
+const PageButton: React.FunctionComponent<any> = (props: any) => (
+  <GenericButton {...props} />
 )
 
-Breadcrumb.defaultProps = {
+PageButton.defaultProps = {
   form: false,
   primary: false,
   destructive: false,
@@ -14,6 +14,6 @@ Breadcrumb.defaultProps = {
   secondary: false,
 }
 
-Breadcrumb.displayName = "Breadcrumb"
+PageButton.displayName = "PageButton"
 
-export default Breadcrumb
+export default PageButton

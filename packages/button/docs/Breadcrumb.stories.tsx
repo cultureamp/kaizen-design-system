@@ -1,9 +1,13 @@
-import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+import { Heading } from "@kaizen/component-library"
+import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import { FlexBar } from "@storybook/components"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Breadcrumb } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import styles from "./styles.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Breadcrumb`,
@@ -26,9 +30,71 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemoBreadcrumb = args => (
-  <Breadcrumb icon={configureIcon} {...args} />
+export const LightBreadcrumb = args => (
+  <>
+    <Heading variant="heading-3" tag="h1">
+      Default
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Base
+        </Heading>
+        <br />
+        <div className={styles.breadcrumbContainer}>
+          <Breadcrumb icon={arrowBackward} {...args} />{" "}
+          <Breadcrumb icon={arrowForward} {...args} />
+        </div>
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <div className={styles.breadcrumbContainer}>
+          <Breadcrumb icon={arrowBackward} disabled {...args} />{" "}
+          <Breadcrumb icon={arrowForward} disabled {...args} />
+        </div>
+      </div>
+    </div>
+  </>
 )
 
-DefaultKaizenSiteDemoBreadcrumb.storyName =
-  "Default Breadcrumb (Kaizen Site Demo)"
+export const ReversedBreadcrumb = args => (
+  <>
+    <Heading variant="heading-3" tag="h1" color="white">
+      Default
+    </Heading>
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Base
+        </Heading>
+        <br />
+        <div className={styles.breadcrumbContainer}>
+          <Breadcrumb icon={arrowBackward} reversed {...args} />{" "}
+          <Breadcrumb icon={arrowForward} reversed {...args} />
+        </div>
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <div className={styles.breadcrumbContainer}>
+          <Breadcrumb icon={arrowBackward} reversed disabled {...args} />{" "}
+          <Breadcrumb icon={arrowForward} reversed disabled {...args} />
+        </div>
+      </div>
+    </div>
+  </>
+)
+
+// DefaultKaizenSiteDemoBreadcrumb.storyName =
+//   "Default Breadcrumb (Kaizen Site Demo)"
+
+ReversedBreadcrumb.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}

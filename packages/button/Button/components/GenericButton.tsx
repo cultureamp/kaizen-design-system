@@ -127,6 +127,7 @@ const GenericButton = forwardRef(
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
+          [styles.testFocus]: true,
         })}
       >
         {determineButtonRenderer()}

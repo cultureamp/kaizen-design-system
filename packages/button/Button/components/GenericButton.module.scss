@@ -92,3 +92,7 @@
 .breadcrumb {
   @extend %caButtonBreadcrumb;
 }
+
+.testFocus {
+  @extend %caButtonTestFocus;
+}

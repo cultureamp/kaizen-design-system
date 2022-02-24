@@ -233,6 +233,11 @@ $caButton-verticalPaddingForm: calc(
         right: calc(-1 * #{$focus-ring-offset});
         bottom: calc(-1 * #{$focus-ring-offset});
       }
+
+      &:global(.focus-visible)::after,
+      %caButtonTestFocus {
+        border-radius: 50px;
+      }
     }
   }
 
@@ -713,7 +718,6 @@ $caButton-verticalPaddingForm: calc(
   width: 40px;
   height: 40px;
   min-height: auto;
-
   // Reset for various states and variants
   &:not(:disabled),
   &:disabled {
@@ -726,6 +730,10 @@ $caButton-verticalPaddingForm: calc(
       border: 3px solid #73c0e8;
       border-radius: 50px;
 
+      svg {
+        color: #0168b3;
+      }
+
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
         background: #0168b3;
@@ -736,16 +744,37 @@ $caButton-verticalPaddingForm: calc(
         }
       }
 
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border: 2px solid white;
+        border-color: #0168b3;
+      }
+
       &:disabled,
       &.working {
         @include working-state;
-        background: $color-blue-500;
+        // background: $color-blue-500;
         color: $color-white;
-        border-color: $border-borderless-border-color;
+        // border-color: $border-borderless-border-color;
       }
 
       &%caButtonReversed {
+        border: 2px solid rgba(255, 255, 255, 0.65);
         color: $color-purple-800;
+
+        svg {
+          color: white;
+        }
+
+        &:hover,
+        :global(.js-focus-visible) &:global(.focus-visible) {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: white;
+
+          svg {
+            color: white;
+          }
+        }
+
         &%caButtonPrimary {
           %caButtonContent {
             color: $color-purple-800;
@@ -764,6 +793,7 @@ $caButton-verticalPaddingForm: calc(
     justify-content: center;
     width: 100%;
     padding: 0;
+    height: auto;
     // IE 10/11 workaround to fix vertical centering of icon
     margin: calc(
         (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
