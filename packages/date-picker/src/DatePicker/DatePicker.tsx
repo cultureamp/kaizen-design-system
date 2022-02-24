@@ -12,6 +12,7 @@ import {
 import { Icon } from "@kaizen/component-library"
 import FocusLock from "react-focus-lock"
 import { useClickOutside } from "../hooks/useClickOutside"
+import { handleDisableDays } from "../utils/handleDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
@@ -192,12 +193,14 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
             value={value}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
-            disabledDates={disabledDates}
-            disabledDaysOfWeek={disabledDaysOfWeek}
-            disabledRange={disabledRange}
-            disabledBefore={disabledBefore}
-            disabledAfter={disabledAfter}
-            disabledBeforeAfter={disabledBeforeAfter}
+            disabledDays={handleDisableDays(
+              disabledDates,
+              disabledDaysOfWeek,
+              disabledRange,
+              disabledBeforeAfter,
+              disabledBefore,
+              disabledAfter
+            )}
             handleOnDayChange={handleOnDayChange}
             handleKeyDown={handleKeyDown}
           />

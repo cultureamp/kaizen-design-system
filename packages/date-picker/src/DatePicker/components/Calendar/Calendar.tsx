@@ -2,13 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
 import DayPicker from "react-day-picker/DayPicker"
 import cx from "classnames"
 import { NavbarElementProps } from "react-day-picker/types/Props"
-import {
-  BeforeAfterModifier,
-  DayModifiers,
-  RangeModifier,
-} from "react-day-picker/types/Modifiers"
-import { daysToNumbers } from "../../../utils/daysToNumbers"
-import { DayOfWeek } from "../../DatePicker"
+import { Modifier, DayModifiers } from "react-day-picker/types/Modifiers"
 import { CalendarNav } from "../CalendarNav/CalendarNav"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
@@ -27,12 +21,7 @@ export type CalendarProps = {
   value?: Date
   initialMonth?: Date
   firstDayOfWeek: number
-  disabledDates?: Date[]
-  disabledDaysOfWeek?: DayOfWeek[]
-  disabledRange?: RangeModifier
-  disabledBefore?: Date
-  disabledAfter?: Date
-  disabledBeforeAfter?: BeforeAfterModifier
+  disabledDays?: Modifier | Modifier[]
   handleOnDayChange: (day: Date, modifiers: DayModifiers) => void
   handleKeyDown: (e: any) => void
 }
@@ -50,12 +39,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   value,
   initialMonth,
   firstDayOfWeek,
-  disabledDates,
-  disabledDaysOfWeek,
-  disabledRange,
-  disabledBefore,
-  disabledAfter,
-  disabledBeforeAfter,
+  disabledDays,
   handleOnDayChange,
   handleKeyDown,
 }) => {
@@ -102,28 +86,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           selectedDays={value}
           initialMonth={value ? value : initialMonth}
           firstDayOfWeek={firstDayOfWeek}
-          disabledDays={[
-            ...(disabledDates ? disabledDates : []),
-            {
-              daysOfWeek: disabledDaysOfWeek
-                ? daysToNumbers(disabledDaysOfWeek)
-                : [],
-            },
-            disabledRange && {
-              from: disabledRange.from,
-              to: disabledRange.to,
-            },
-            disabledBefore && {
-              before: disabledBefore,
-            },
-            disabledAfter && {
-              after: disabledAfter,
-            },
-            disabledBeforeAfter && {
-              before: disabledBeforeAfter.before,
-              after: disabledBeforeAfter.after,
-            },
-          ]}
+          disabledDays={disabledDays}
           onDayClick={handleOnDayChange}
           navbarElement={getNavbar}
           classNames={defaultCalendarClasses}

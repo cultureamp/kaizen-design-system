@@ -44,7 +44,7 @@ export const DefaultWithDisabledDates = () => {
       labelText="Label"
       onChange={onDayChange}
       disabledRange={{ from: new Date(2022, 1, 14), to: new Date(2022, 1, 16) }}
-      disabledDates={[new Date(2022, 1, 25)]}
+      disabledDates={[new Date(2022, 2, 25)]}
       disabledBefore={new Date()}
     />
   )
