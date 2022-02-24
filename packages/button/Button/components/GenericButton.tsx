@@ -48,38 +48,28 @@ export type GenericProps = {
   component?: ComponentType<CustomButtonProps>
 }
 
-export type AdditionalContentProps = {
-  additionalContent?: React.ReactNode
-}
-
-type LabelPropsGeneric = {
-  iconPosition?: "start" | "end"
-  primary?: boolean
-}
-
-type WorkingProps = {
+export type WorkingProps = {
   working: true
   workingLabel: string
   workingLabelHidden?: boolean
 }
 
-type WorkingUndefinedProps = {
+export type WorkingUndefinedProps = {
   working?: false
 }
 
-export type LabelProps = LabelPropsGeneric &
-  (WorkingProps | WorkingUndefinedProps)
-
-export type IconButtonProps = GenericProps &
-  (WorkingProps | WorkingUndefinedProps)
-
-export type ButtonProps = GenericProps & LabelProps
+export type ButtonProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps) & {
+    iconPosition?: "start" | "end"
+    primary?: boolean
+  }
 
 type Props = ButtonProps & {
+  additionalContent?: React.ReactNode
   iconButton?: boolean
   breadcrumb?: boolean
   pageButton?: boolean
-} & AdditionalContentProps
+}
 
 type BadgeProps = {
   text: string
