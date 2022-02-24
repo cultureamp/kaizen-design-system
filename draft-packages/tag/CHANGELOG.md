@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.4...@kaizen/draft-tag@2.3.5) (2022-02-22)
+
+
+### Bug Fixes
+
+* Changed icon color for `validationPositive` variant of tag to darker green [KDS-220] ([#2547](https://github.com/cultureamp/kaizen-design-system/issues/2547)) ([02640cc](https://github.com/cultureamp/kaizen-design-system/commit/02640ccb9b899eda60818c9a66036bacbcc606db))
+
+
+
+
+
+## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.3...@kaizen/draft-tag@2.3.4) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.2...@kaizen/draft-tag@2.3.3) (2022-02-15)
 
 **Note:** Version bump only for package @kaizen/draft-tag

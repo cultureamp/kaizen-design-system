@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.5.1...@kaizen/draft-form@5.6.0) (2022-02-23)
+
+
+### Features
+
+* add StoryWrapper for storybook ([#2379](https://github.com/cultureamp/kaizen-design-system/issues/2379)) ([d44fe87](https://github.com/cultureamp/kaizen-design-system/commit/d44fe87093a39ec25efd013a5d246f821122cc14))
+
+
+
+
+
+## [5.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.5.0...@kaizen/draft-form@5.5.1) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 # [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.4.0...@kaizen/draft-form@5.5.0) (2022-02-15)
 
 

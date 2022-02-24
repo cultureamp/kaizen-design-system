@@ -1,6 +1,5 @@
 import * as React from "react"
-
-import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
@@ -13,8 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { LoadingSpinner } from "@kaizen/draft-loading-spinner"',
+        component: 'import { LoadingSpinner } from "@kaizen/loading-spinner"',
       },
     },
     ...figmaEmbed(
@@ -24,14 +22,14 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = () => (
+export const DefaultStory = args => (
   <div
     style={{
       color: colorTokens.color.green["400"],
     }}
   >
     <Box mb={2}>
-      <LoadingSpinner accessibilityLabel="Loading comments" size="md" />
+      <LoadingSpinner {...args} />
     </Box>
     <Paragraph variant="body">
       LoadingSpinner will inherit its color from the parent's <code>color</code>{" "}
@@ -48,17 +46,31 @@ export const DefaultStory = () => (
 
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
-export const SizeStory = () => (
-  <div
-    style={{
-      color: colorTokens.color.purple["800"],
-    }}
-  >
-    <LoadingSpinner
-      accessibilityLabel="Loading comments"
-      size="sm"
-    ></LoadingSpinner>
-  </div>
-)
+DefaultStory.argTypes = {
+  accessibilityLabel: {
+    defaultValue: "Loading comments",
+  },
+  size: {
+    defaultValue: "sm",
+  },
+}
 
-SizeStory.storyName = "Small"
+export const StickerSheet = () => (
+  <>
+    <div
+      style={{
+        color: colorTokens.color.purple["800"],
+        marginBottom: "40px",
+      }}
+    >
+      <LoadingSpinner accessibilityLabel="Loading comments" size="sm" />
+    </div>
+    <div
+      style={{
+        color: colorTokens.color.purple["800"],
+      }}
+    >
+      <LoadingSpinner accessibilityLabel="Loading comments" size="md" />
+    </div>
+  </>
+)
