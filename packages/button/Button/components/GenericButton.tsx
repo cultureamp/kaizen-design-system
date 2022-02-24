@@ -73,14 +73,6 @@ export type LabelProps = LabelPropsGeneric &
 export type IconButtonProps = GenericProps &
   (WorkingProps | WorkingUndefinedProps)
 
-export type BreadcrumbProps = GenericProps & {
-  direction: "prev" | "next"
-}
-
-export type PageButtonProps = GenericProps & {
-  isActive: boolean
-}
-
 export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {

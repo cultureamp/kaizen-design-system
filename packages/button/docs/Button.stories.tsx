@@ -8,7 +8,7 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Button, CustomButtonProps, IconButton } from ".."
+import { Button, CustomButtonProps, IconButton, DirectionalLink } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./styles.module.scss"
@@ -43,7 +43,7 @@ export const LightButtons = () => (
     <Heading variant="heading-3" tag="h1">
       Default
     </Heading>
-    <div className={styles.buttonSection}>
+    {/* <div className={styles.buttonSection}>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
           Base
@@ -429,6 +429,33 @@ export const LightButtons = () => (
     </Heading>
     <br />
     <IconFormDiscouraged />
+    <br /> */}
+    <Heading variant="heading-5" tag="h2">
+      Directional Link
+    </Heading>
+    <br />
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Default
+        </Heading>
+        <br />
+        <div className={styles.directionalLinkContainer}>
+          <DirectionalLink label="" direction="prev" />
+          <DirectionalLink label="" direction="next" />
+        </div>
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Disabled
+        </Heading>
+        <br />
+        <div className={styles.directionalLinkContainer}>
+          <DirectionalLink label="" direction="prev" disabled />
+          <DirectionalLink label="" direction="next" disabled />
+        </div>
+      </div>
+    </div>
   </>
 )
 
@@ -437,7 +464,7 @@ export const ReversedButtons = () => (
     <Heading variant="heading-3" tag="h1" color="white">
       Default
     </Heading>
-    <div className={styles.buttonSection}>
+    {/* <div className={styles.buttonSection}>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2" color="white">
           Base
@@ -804,7 +831,33 @@ export const ReversedButtons = () => (
       Icon Form (Discouraged)
     </Heading>
     <br />
-    <IconFormDiscouraged reversed={true} />
+    <IconFormDiscouraged reversed={true} /> */}
+    <Heading variant="heading-5" tag="h2" color="white">
+      Directional Link
+    </Heading>
+    <br />
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Default
+        </Heading>
+        <br />
+        <div className={styles.directionalLinkContainer}>
+          <DirectionalLink label="" direction="prev" reversed />
+          <DirectionalLink label="" direction="next" reversed />
+        </div>
+      </div>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Disabled
+        </Heading>
+        <br />
+        <div className={styles.directionalLinkContainer}>
+          <DirectionalLink label="" direction="prev" disabled reversed />
+          <DirectionalLink label="" direction="next" disabled reversed />
+        </div>
+      </div>
+    </div>
   </>
 )
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
