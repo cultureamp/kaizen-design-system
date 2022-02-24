@@ -35,7 +35,7 @@ export const StickerSheetDefault = () => {
   const data = avatarGroupData["users"] as AvatarList
   return (
     <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Deafult"]} />
+      <StoryWrapper.RowHeader headings={["Default"]} />
       <StoryWrapper.Row rowTitle="Large">
         <AvatarGroup maxVisible={2} avatars={data} size="large" />
       </StoryWrapper.Row>
