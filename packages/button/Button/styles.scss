@@ -719,6 +719,7 @@ $caButton-verticalPaddingForm: calc(
   height: 40px;
   min-height: auto;
   // Reset for various states and variants
+
   &:not(:disabled),
   &:disabled {
     &,
@@ -729,6 +730,10 @@ $caButton-verticalPaddingForm: calc(
       background: none;
       border: 3px solid #73c0e8;
       border-radius: 50px;
+
+      [dir="rtl"] & {
+        transform: rotate(180deg);
+      }
 
       svg {
         color: #0168b3;
