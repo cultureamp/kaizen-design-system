@@ -33,4 +33,8 @@ $grid-gap: 1.5rem;
   grid-area: stories;
   display: grid;
   gap: $grid-gap;
+
+  & + & {
+    margin-top: 4rem;
+  }
 }
