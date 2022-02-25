@@ -81,6 +81,7 @@
     "chromatic": "^6.2.3",
     "commitizen": "^4.2.4",
     "css-loader": "^3.6.0",
+    "cz-conventional-changelog": "3.3.0",
     "danger": "^11.0.2",
     "elm": "0.19.1-5",
     "elm-css-modules-plugin": "^1.0.2",
@@ -123,5 +124,10 @@
   },
   "resolutions": {
     "axios": "0.21.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
