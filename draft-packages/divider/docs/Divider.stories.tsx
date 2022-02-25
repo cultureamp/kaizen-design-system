@@ -5,6 +5,7 @@ import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const REVERSED_BG = {
   backgrounds: {
@@ -28,83 +29,74 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = () => (
+export const DefaultStory = args => (
   <Box m={1}>
-    <Divider variant="canvas" />
+    <Divider variant="canvas" {...args} />
   </Box>
 )
-DefaultStory.storyName = "Default (Kaizen Site Demo)"
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const CanvasDivider = () => (
-  <Box m={1}>
-    <Divider variant="canvas" />
-  </Box>
+export const StickerSheetDefault = () => (
+  <StoryWrapper>
+    <StoryWrapper.Row rowTitle="Content">
+      <Divider variant="content" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Canvas">
+      <Divider variant="canvas" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Example">
+      <Card>
+        <Box p={0.75}>
+          <Heading variant="heading-4" color="dark">
+            Understands people's agenda and perspectives
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" />
+        <Box p={0.75}>
+          <Heading variant="heading-4">Anticipates customers needs</Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Self management
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" />
+        <Box p={0.75}>
+          <Heading variant="heading-4">
+            Initiates and develops relationships
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+      </Card>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-CanvasDivider.storyName = "Canvas Divider"
-CanvasDivider.parameters = { chromatic: { disable: false } }
 
-export const ContentDivider = () => (
-  <Box m={1}>
-    <Divider variant="content" />
-  </Box>
-)
-ContentDivider.storyName = "Content Divider"
-ContentDivider.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 
-export const CanvasDividerReversed = () => (
-  <Box m={1}>
-    <Divider variant="canvas" isReversed />
-  </Box>
+export const StickerSheetReversed = () => (
+  <StoryWrapper isReversed>
+    <StoryWrapper.Row rowTitle="Content">
+      <Divider variant="content" isReversed />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Canvas">
+      <Divider variant="canvas" isReversed />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-CanvasDividerReversed.storyName = "Canvas Divider Reversed"
-CanvasDividerReversed.parameters = {
-  ...REVERSED_BG,
-  chromatic: { disable: false },
+
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
 }
-
-export const ContentDividerReversed = () => (
-  <Box m={1}>
-    <Divider variant="content" isReversed />
-  </Box>
-)
-ContentDividerReversed.storyName = "Content Divider Reversed"
-ContentDividerReversed.parameters = {
-  ...REVERSED_BG,
-  chromatic: { disable: false },
-}
-
-export const TabDivider = () => (
-  <Card>
-    <Box p={0.75}>
-      <Heading variant="heading-4" color="dark">
-        Understands people's agenda and perspectives
-      </Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Interpersonal
-        </Paragraph>
-      </Box>
-    </Box>
-    <Divider variant="content" />
-    <Box p={0.75}>
-      <Heading variant="heading-4">Anticipates customers needs</Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Self management
-        </Paragraph>
-      </Box>
-    </Box>
-    <Divider variant="content" />
-    <Box p={0.75}>
-      <Heading variant="heading-4">
-        Initiates and develops relationships
-      </Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Interpersonal
-        </Paragraph>
-      </Box>
-    </Box>
-  </Card>
-)
-TabDivider.storyName = "Composing divider, card, box, and typography"
