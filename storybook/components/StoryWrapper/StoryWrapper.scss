@@ -13,6 +13,14 @@ $grid-gap: 1.5rem;
   }
 }
 
+.marginTop {
+  margin-top: 4rem;
+}
+
+.marginBottom {
+  margin-bottom: 4rem;
+}
+
 .topHeader {
   grid-template-areas: ". stories";
   grid-template-columns: 100px 1fr;
