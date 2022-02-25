@@ -13,12 +13,8 @@ $grid-gap: 1.5rem;
   }
 }
 
-.marginTop {
+.storyRowContainer + .storyRowContainer {
   margin-top: 4rem;
-}
-
-.marginBottom {
-  margin-bottom: 4rem;
 }
 
 .topHeader {
