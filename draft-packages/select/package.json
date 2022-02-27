@@ -35,7 +35,6 @@
     "@kaizen/component-library": "^12.4.2",
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
     "@kaizen/button": "^1.0.1",
-    "//": "The draft dependency should remain here until this is moved out of draft packages",
     "@kaizen/draft-button": "^5.6.2",
     "@kaizen/draft-form": "^5.5.1",
     "@kaizen/draft-tag": "^2.3.5",
@@ -43,6 +42,9 @@
     "@types/react-select": "^4.0.18",
     "classnames": "^2.3.1",
     "react-select": "^4.3.1"
+  },
+  "dependenciesComments": {
+    "@kaizen/draft-button": "The draft dependency should remain here until this is moved out of draft packages"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

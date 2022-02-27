@@ -34,13 +34,15 @@
   "dependencies": {
     "@kaizen/component-library": "^12.4.2",
     "@kaizen/button": "^1.0.1",
-    "//": "The draft dependency should remain here until this is moved out of draft packages",
     "@kaizen/draft-button": "^5.6.2",
     "@kaizen/draft-illustration": "^3.6.3",
     "@kaizen/draft-tooltip": "^3.7.1",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1",
     "react-media": "^1.10.0"
+  },
+  "dependenciesComments": {
+    "@kaizen/draft-button": "The draft dependency should remain here until this is moved out of draft packages"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
