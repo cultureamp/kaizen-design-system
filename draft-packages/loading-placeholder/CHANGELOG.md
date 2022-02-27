@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.10.1...@kaizen/draft-loading-placeholder@1.10.2) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.10.0...@kaizen/draft-loading-placeholder@1.10.1) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.9.3...@kaizen/draft-loading-placeholder@1.10.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [1.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.9.2...@kaizen/draft-loading-placeholder@1.9.3) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.9.1...@kaizen/draft-loading-placeholder@1.9.2) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.9.0...@kaizen/draft-loading-placeholder@1.9.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
 # [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.8.20...@kaizen/draft-loading-placeholder@1.9.0) (2022-01-24)
 
 

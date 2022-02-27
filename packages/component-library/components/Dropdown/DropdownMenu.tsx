@@ -71,6 +71,8 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
     const { hideDropdownMenu, children } = this.props
 
     return (
+      // Disabling instead of addressing because this component is deprecated
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
         className={styles.menuContainer}
         ref={this.menu}

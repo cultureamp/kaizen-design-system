@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/react-deprecate-warning",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,6 +35,6 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1 || ^17.0.0"
   }
 }

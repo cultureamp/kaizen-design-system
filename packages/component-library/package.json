@@ -22,19 +22,19 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "12.1.0",
+  "version": "12.4.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0"
+    "react": "^16.9.0 || ^17.0.0"
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.5.0",
-    "@kaizen/draft-button": "^5.4.0",
+    "@kaizen/draft-button": "^5.6.2",
     "@kaizen/hosted-assets": "^1.2.0",
-    "@kaizen/react-deprecate-warning": "^1.1.6",
+    "@kaizen/react-deprecate-warning": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.177",
     "@types/uuid": "^3.4.10",
@@ -42,9 +42,9 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
-    "@testing-library/dom": "^7.31.2",
+    "@testing-library/dom": "^8.11.3",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
-    "rimraf": "^2.7.1"
+    "rimraf": "^3.0.2"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

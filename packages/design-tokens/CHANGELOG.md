@@ -3,6 +3,109 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.0.0...@kaizen/design-tokens@7.0.1) (2022-02-22)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.3.1...@kaizen/design-tokens@7.0.0) (2022-02-18)
+
+
+### Features
+
+* duplicate and move draft loading spinner to packages ([#2538](https://github.com/cultureamp/kaizen-design-system/issues/2538)) ([dabc5a9](https://github.com/cultureamp/kaizen-design-system/commit/dabc5a9511a555151f1640e8f89de046c064569e))
+
+
+### BREAKING CHANGES
+
+* * feat: move loading spinner to packages
+
+* feat: duplicate loading spinner
+
+* chore: rename duplicate
+
+* feat: restructure spinner to packages architecture
+
+* update file spinner file paths
+
+* remove draft-packages notations from spinner
+
+* update spinner json version and reset changelog
+
+* fix: remove empty changelog and clean up loading spinner stories
+
+
+
+
+
+## [6.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.3.0...@kaizen/design-tokens@6.3.1) (2022-02-17)
+
+
+### Bug Fixes
+
+* deprecate loading spinner draft-package ([#2540](https://github.com/cultureamp/kaizen-design-system/issues/2540)) ([417477b](https://github.com/cultureamp/kaizen-design-system/commit/417477bd160f80bb542299e189e2d8cd46f5cd62))
+
+
+
+
+
+# [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.2.1...@kaizen/design-tokens@6.3.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+## [6.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.2.0...@kaizen/design-tokens@6.2.1) (2022-02-11)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.3...@kaizen/design-tokens@6.2.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [6.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.2...@kaizen/design-tokens@6.1.3) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [6.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.1...@kaizen/design-tokens@6.1.2) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [6.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.0...@kaizen/design-tokens@6.1.1) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 # [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.4...@kaizen/design-tokens@6.1.0) (2022-01-19)
 
 

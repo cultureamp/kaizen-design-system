@@ -34,13 +34,13 @@ class Link extends React.PureComponent<LinkProps> {
     } = this.props
 
     return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <a
         className={classNames(styles.link, {
           [styles.active]: active,
           [styles.containsText]: text !== "",
           [styles.secondary]: section === "secondary",
         })}
-        tabIndex={0}
         {...{ href, id, onClick, target }}
       >
         {icon && (

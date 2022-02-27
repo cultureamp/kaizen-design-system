@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.5.1...@kaizen/draft-form@5.6.0) (2022-02-23)
+
+
+### Features
+
+* add StoryWrapper for storybook ([#2379](https://github.com/cultureamp/kaizen-design-system/issues/2379)) ([d44fe87](https://github.com/cultureamp/kaizen-design-system/commit/d44fe87093a39ec25efd013a5d246f821122cc14))
+
+
+
+
+
+## [5.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.5.0...@kaizen/draft-form@5.5.1) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.4.0...@kaizen/draft-form@5.5.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.3.1...@kaizen/draft-form@5.4.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.3.0...@kaizen/draft-form@5.3.1) (2022-02-08)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.4...@kaizen/draft-form@5.3.0) (2022-02-04)
+
+
+### Features
+
+* text area uplift - add stories and missing variant, disabled support ([aeccfec](https://github.com/cultureamp/kaizen-design-system/commit/aeccfecd9498e589b57b8213927733099a866b6a))
+
+
+
+
+
+## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.3...@kaizen/draft-form@5.2.4) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.2...@kaizen/draft-form@5.2.3) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.1...@kaizen/draft-form@5.2.2) (2022-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.2.0...@kaizen/draft-form@5.2.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 # [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.1.1...@kaizen/draft-form@5.2.0) (2022-01-26)
 
 

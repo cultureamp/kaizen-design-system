@@ -53,6 +53,12 @@ $arrow-width: 14px;
     border: $border-solid-border-width $border-solid-border-style
       $color-yellow-300;
   }
+
+  &.highlight {
+    background-color: $color-purple-100;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-purple-300;
+  }
 }
 
 .arrow {
@@ -97,9 +103,9 @@ $arrow-width: 14px;
   content: "";
   position: absolute;
   left: 50%;
-  border-left: calc($arrow-width / 2) solid transparent;
-  border-right: calc($arrow-width / 2) solid transparent;
-  margin-left: calc($arrow-width / -2);
+  border-left: calc(#{$arrow-width} / 2) solid transparent;
+  border-right: calc(#{$arrow-width} / 2) solid transparent;
+  margin-left: calc(#{$arrow-width} / -2);
 }
 
 .arrowMain {
@@ -114,6 +120,10 @@ $arrow-width: 14px;
 
   &.positive::before {
     border-top: $arrow-height solid $color-green-300;
+  }
+
+  &.highlight::before {
+    border-top: $arrow-height solid $color-purple-300;
   }
 
   &.cautionary::before {
@@ -134,6 +144,10 @@ $arrow-width: 14px;
 
   &.positive::after {
     border-top: $arrow-height solid $color-green-100;
+  }
+
+  &.highlight::after {
+    border-top: $arrow-height solid $color-purple-100;
   }
 
   &.cautionary::after {

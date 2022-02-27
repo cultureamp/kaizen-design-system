@@ -778,3 +778,6 @@ export const AnimatedSpot = args => (
   </div>
 )
 AnimatedSpot.storyName = "Spot, animated"
+AnimatedSpot.parameters = {
+  chromatic: { diffThreshold: 0.9 },
+}

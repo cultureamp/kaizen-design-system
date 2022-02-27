@@ -3,6 +3,191 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.8...@kaizen/draft-guidance-block@4.6.9) (2022-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.7...@kaizen/draft-guidance-block@4.6.8) (2022-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.6...@kaizen/draft-guidance-block@4.6.7) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.5...@kaizen/draft-guidance-block@4.6.6) (2022-02-17)
+
+
+### Bug Fixes
+
+* resolve aspect ratio issue in guidance block ([#2504](https://github.com/cultureamp/kaizen-design-system/issues/2504)) ([d751233](https://github.com/cultureamp/kaizen-design-system/commit/d751233b517dde6f03af42c10c3f41e36d61c6ca))
+
+
+
+
+
+## [4.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.4...@kaizen/draft-guidance-block@4.6.5) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.3...@kaizen/draft-guidance-block@4.6.4) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.2...@kaizen/draft-guidance-block@4.6.3) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.1...@kaizen/draft-guidance-block@4.6.2) (2022-02-14)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.0...@kaizen/draft-guidance-block@4.6.1) (2022-02-11)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+# [4.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.12...@kaizen/draft-guidance-block@4.6.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [4.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.11...@kaizen/draft-guidance-block@4.5.12) (2022-02-10)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.10...@kaizen/draft-guidance-block@4.5.11) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.9...@kaizen/draft-guidance-block@4.5.10) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.8...@kaizen/draft-guidance-block@4.5.9) (2022-02-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.7...@kaizen/draft-guidance-block@4.5.8) (2022-02-03)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.6...@kaizen/draft-guidance-block@4.5.7) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.5...@kaizen/draft-guidance-block@4.5.6) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.4...@kaizen/draft-guidance-block@4.5.5) (2022-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.3...@kaizen/draft-guidance-block@4.5.4) (2022-01-31)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.2...@kaizen/draft-guidance-block@4.5.3) (2022-01-30)
+
+
+### Bug Fixes
+
+* Guidance block content alignment and show arrow button ([#2408](https://github.com/cultureamp/kaizen-design-system/issues/2408)) ([4c423fb](https://github.com/cultureamp/kaizen-design-system/commit/4c423fb0c237146ddfd25bacfe76dcdc8552c3ed))
+
+
+
+
+
+## [4.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.1...@kaizen/draft-guidance-block@4.5.2) (2022-01-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.0...@kaizen/draft-guidance-block@4.5.1) (2022-01-27)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 # [4.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.4.1...@kaizen/draft-guidance-block@4.5.0) (2022-01-24)
 
 

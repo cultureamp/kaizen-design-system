@@ -68,9 +68,26 @@ $scene-illustration-size: 300px;
   width: $illustration-size;
   height: $illustration-size;
 
+  // This has been created to handle scene illustrations consistently until the tile component is created
   .hasSceneIllustration & {
+    display: flex;
+    justify-content: center;
+    max-width: $scene-illustration-size;
+    max-height: $scene-illustration-size;
     width: $scene-illustration-size;
     height: auto;
+
+    figure {
+      max-height: 100%;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 }
 
@@ -128,6 +145,10 @@ $scene-illustration-size: 300px;
     flex-direction: column;
     width: 100%;
     margin-top: $spacing-xs;
+  }
+
+  [dir="rtl"] & svg {
+    transform: rotate(180deg);
   }
 }
 
@@ -202,6 +223,10 @@ $scene-illustration-size: 300px;
     }
   }
 
+  .descriptionAndActions {
+    margin: auto 0;
+  }
+
   .descriptionContainer {
     text-align: left;
     max-width: unset;
@@ -274,17 +299,6 @@ $scene-illustration-size: 300px;
       flex-direction: column;
       min-width: unset;
       justify-content: center;
-
-      svg {
-        display: none;
-      }
-
-      button span {
-        &,
-        [dir="rtl"] & {
-          margin: 0;
-        }
-      }
     }
   }
 

@@ -1,57 +1,9 @@
+import React from "react"
 import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
-import React from "react"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-interface RenderProps {
-  controlledValue: string
-  updateValue: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
-}
-
-interface Props {
-  render: (props: RenderProps) => JSX.Element
-  defaultValue: string
-}
-
-class WithState extends React.Component<Props> {
-  public state = {
-    controlledValue: this.props.defaultValue,
-  }
-
-  constructor(props: Props) {
-    super(props)
-    this.updateValue = this.updateValue.bind(this)
-  }
-
-  public updateValue(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({
-      controlledValue: event.target.value,
-    })
-  }
-
-  public render() {
-    const { render } = this.props
-    return (
-      <div>
-        {render({
-          controlledValue: this.state.controlledValue,
-          updateValue: this.updateValue,
-        })}
-      </div>
-    )
-  }
-}
-
-const ExampleContainer: React.FunctionComponent = ({ children }) => (
-  <div style={{ width: "98%", margin: "1%" }}>{children}</div>
-)
-
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
@@ -69,226 +21,182 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-    />
-  </ExampleContainer>
-)
+export const DefaultStory = args => <TextAreaField {...args} />
 
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-
-export const DefaultLarge = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      rows={7}
-    />
-  </ExampleContainer>
-)
-
-DefaultLarge.storyName = "Default, Large"
-
-export const DefaultError = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      status="error"
-      validationMessage="Enter a reply"
-    />
-  </ExampleContainer>
-)
-
-DefaultError.storyName = "Default, Error"
-
-export const DefaultPrefilled = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      onChange={() => undefined}
-      defaultValue="A prefilled value in uncontrolled mode"
-    />
-  </ExampleContainer>
-)
-
-DefaultPrefilled.storyName = "Default, Prefilled & uncontrolled"
-
-export const DefaultControlled = () => (
-  <ExampleContainer>
-    <WithState
-      defaultValue="A controlled value"
-      render={({ controlledValue, updateValue }) => (
-        <TextAreaField
-          id="reply"
-          labelText="Your reply"
-          value={controlledValue}
-          onChange={updateValue}
-        />
-      )}
-    />
-  </ExampleContainer>
-)
-
-DefaultControlled.storyName = "Default, Controlled"
-
-export const DefaultWithDesc = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      description="Your reply will only be seen by you"
-    />
-  </ExampleContainer>
-)
-
-DefaultWithDesc.storyName = "Default, With description"
-
-export const DefaultInline = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      inline={true}
-    />
-  </ExampleContainer>
-)
-
-DefaultInline.storyName = "Default, Inline"
-
-export const DefaultErrorAndDesc = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      status="error"
-      validationMessage="Enter a reply"
-      description="Your reply will only be seen by you"
-    />
-  </ExampleContainer>
-)
-
-DefaultErrorAndDesc.storyName = "Default, Error & Description"
-
-export const DefaultAutogrowControlled = () => (
-  <ExampleContainer>
-    <WithState
-      defaultValue={"This\ntext\narea\nwill\ngrow\nand\nshrink\nwith\ncontent"}
-      render={({ controlledValue, updateValue }) => (
-        <TextAreaField
-          id="reply"
-          labelText="Your reply"
-          rows={1}
-          value={controlledValue}
-          onChange={updateValue}
-          autogrow
-        />
-      )}
-    ></WithState>
-  </ExampleContainer>
-)
-
-DefaultAutogrowControlled.story = {
-  name: "Default, Autogrow Controlled",
+DefaultStory.args = {
+  id: "reply",
+  labelText: "Your reply",
+  autogrow: false,
+  inline: false,
+  reversed: false,
+  validationMessage: "",
+  description: "",
 }
 
-export const DefaultAutogrow = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      rows={1}
-      defaultValue="A prefilled value in uncontrolled mode"
-      autogrow
-    />
-  </ExampleContainer>
-)
-
-DefaultAutogrow.story = {
-  name: "Default, Autogrow",
+DefaultStory.argTypes = {
+  textAreaRef: {
+    control: {
+      disable: true,
+    },
+  },
+  autogrow: {
+    defaultValue: { summary: "false" },
+  },
+  status: {
+    defaultValue: "default",
+  },
+  variant: {
+    defaultValue: "default",
+  },
 }
 
-export const Reversed = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      reversed
-    />
-  </ExampleContainer>
+DefaultStory.storyName = "Default (Kaizen Demo)"
+
+export const StickerSheetDefault = () => (
+  <StoryWrapper>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField id="text-area-default-base" labelText="Default" />
+      <TextAreaField
+        disabled
+        id="text-area-default-disabled"
+        labelText="Default"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Description">
+      <TextAreaField
+        id="text-area-default-description-base"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+      />
+      <TextAreaField
+        id="text-area-default-description-disabled"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <TextAreaField
+        id="text-area-prominent-base"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+      />
+      <TextAreaField
+        id="text-area-prominent-disabled"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative" gridColumns={2}>
+      <TextAreaField
+        id="text-area-error-base"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
+      <TextAreaField
+        id="text-area-caution-base"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-Reversed.storyName = "Reversed"
-Reversed.parameters = { ...reversedBg }
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 
-export const ReversedErrorAndDesc = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      placeholder="Write your reply..."
-      onChange={() => undefined}
-      status="error"
-      validationMessage="Enter a reply"
-      description="Your reply will only be seen by you"
-      reversed
-    />
-  </ExampleContainer>
+export const StickerSheetReversed = () => (
+  <StoryWrapper isReversed>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField id="text-area-default-base" labelText="Default" reversed />
+      <TextAreaField
+        disabled
+        id="text-area-default-disabled-reversed"
+        labelText="Default"
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Description">
+      <TextAreaField
+        id="text-area-description-base-reversed"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-description-disabled-reversed"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <TextAreaField
+        id="text-area-prominent-base-reversed"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        reversed
+      />
+      <TextAreaField
+        id="text-area-prominent-disabled-reversed"
+        labelText="Prominent-base"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative" gridColumns={2}>
+      <TextAreaField
+        id="text-area-error-base-reversed"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
+      <TextAreaField
+        id="text-area-caution-base-reversed"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+        reversed
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-ReversedErrorAndDesc.storyName = "Reversed, Error & Description"
-ReversedErrorAndDesc.parameters = { ...reversedBg }
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 
-export const DefaultProminent = () => (
-  <ExampleContainer>
-    <TextAreaField id="reply" labelText="Your reply" variant="prominent" />
-  </ExampleContainer>
-)
-
-DefaultProminent.storyName = "Default, Prominent"
-
-export const DefaultProminentDesc = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      variant="prominent"
-      description="Your reply will only be seen by you"
-    />
-  </ExampleContainer>
-)
-
-DefaultProminentDesc.storyName = "Default, Prominent with description"
-
-export const ReversedProminent = () => (
-  <ExampleContainer>
-    <TextAreaField
-      id="reply"
-      labelText="Your reply"
-      variant="prominent"
-      description="Your reply will only be seen by you"
-      reversed
-    />
-  </ExampleContainer>
-)
-
-ReversedProminent.storyName = "Reversed, Prominent"
-ReversedProminent.parameters = { ...reversedBg }
+StickerSheetReversed.parameters = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}

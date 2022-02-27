@@ -58,6 +58,8 @@ const MenuItem = (props: {
   }
 
   return (
+    // Disabling instead of addressing because this component is deprecated.
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <a
       href="#"
       onClick={action}
