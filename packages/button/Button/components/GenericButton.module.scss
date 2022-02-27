@@ -89,18 +89,18 @@
   visibility: hidden;
 }
 
-.breadcrumb {
-  @extend %caButtonBreadcrumb;
+.circleButtonFocus {
+  @extend %caCircleButtonFocus;
 }
 
-.testFocus {
-  @extend %caButtonTestFocus;
+.circleButton {
+  @extend %caCircleButton;
 }
 
-.pageButton {
-  @extend %caPageButton;
+.breadcrumbLink {
+  @extend %caBreadcrumbLink;
 }
 
-.isActive {
-  @extend %caButtonIsActive;
+.breadcrumbLinkIsActive {
+  @extend %caBreadcrumbLinkIsActive;
 }

@@ -3,7 +3,21 @@ import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.s
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-type DirectionalLinkProps = GenericProps & {
+type DirectionalLinkProps = Pick<
+  GenericProps,
+  | "id"
+  | "label"
+  | "disabled"
+  | "reversed"
+  | "icon"
+  | "onClick"
+  | "onMouseDown"
+  | "href"
+  | "newTabAndIUnderstandTheAccessibilityImplications"
+  | "disableTabFocusAndIUnderstandTheAccessibilityImplications"
+  | "onFocus"
+  | "onBlur"
+> & {
   direction: "prev" | "next"
 }
 
@@ -16,20 +30,17 @@ const DirectionalLink: React.FunctionComponent<DirectionalLinkProps> = (
   props: DirectionalLinkProps
 ) => (
   <GenericButton
-    breadcrumb
+    {...props}
+    directionalLink
     iconButton
     icon={iconMap[props.direction]}
-    {...props}
+    label={props.direction === "prev" ? "Previous page" : "Next page"}
   />
 )
 
 DirectionalLink.defaultProps = {
-  form: false,
-  primary: false,
-  destructive: false,
   disabled: false,
   reversed: false,
-  secondary: false,
 }
 
 DirectionalLink.displayName = "DirectionalLink"

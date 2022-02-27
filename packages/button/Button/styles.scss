@@ -16,6 +16,7 @@ $caButton-verticalPadding: calc(#{$spacing-sm} - #{$border-solid-border-width});
 $caButton-verticalPaddingForm: calc(
   #{$spacing-md / 3} - #{$border-solid-border-width}
 );
+$caButtonCircle-radius: 30px;
 
 // reset user agent styles for button element type
 @mixin button-reset {
@@ -235,8 +236,8 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:global(.focus-visible)::after,
-      %caButtonTestFocus {
-        border-radius: 50px;
+      %caCircleButtonFocus {
+        border-radius: $caButtonCircle-radius;
       }
     }
   }
@@ -431,6 +432,13 @@ $caButton-verticalPaddingForm: calc(
   :global(.js-focus-visible) %caButton:global(.focus-visible) & {
     padding: calc(#{$spacing-sm} - #{$border-focus-ring-border-width})
       calc(#{$spacing-md} - #{$border-focus-ring-border-width});
+  }
+
+  :global(.js-focus-visible) %caBreadcrumbLink:global(.focus-visible) &,
+  :global(.js-focus-visible)
+    %caButtonSecondaryDestructive:global(.focus-visible)
+    & {
+    padding: 0;
   }
 
   :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) &,
@@ -714,177 +722,86 @@ $caButton-verticalPaddingForm: calc(
   }
 }
 
-%caButtonBreadcrumb {
+@mixin white-icon {
+  svg {
+    color: $color-white;
+  }
+}
+
+%caCircleButton {
+  [dir="rtl"] & {
+    transform: rotate(180deg);
+  }
+
   width: 40px;
   height: 40px;
   min-height: auto;
-  // Reset for various states and variants
+
+  %caButtonContent {
+    height: auto;
+    border-radius: $caButtonCircle-radius;
+  }
 
   &:not(:disabled),
   &:disabled {
     &,
     &:hover,
-    &:active,
-    &%caButtonPrimary {
-      color: inherit;
-      background: none;
-      border: 3px solid #73c0e8;
-      border-radius: 50px;
-
-      [dir="rtl"] & {
-        transform: rotate(180deg);
-      }
+    &:active {
+      border: 3px solid $color-blue-300;
+      border-radius: $caButtonCircle-radius;
 
       svg {
-        color: #0168b3;
+        color: $color-blue-500;
       }
 
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
-        background: #0168b3;
-        border-color: #0168b3;
-
-        svg {
-          color: white;
-        }
+        @include white-icon;
+        background: $color-blue-500;
+        border-color: $color-blue-500;
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border: 2px solid white;
-        border-color: #0168b3;
-      }
-
-      &:disabled,
-      &.working {
-        @include working-state;
-        // background: $color-blue-500;
-        color: $color-white;
-        // border-color: $border-borderless-border-color;
+        border: $border-solid-border-width $border-solid-border-style
+          $color-white;
+        border-color: $color-blue-500;
       }
 
       &%caButtonReversed {
-        border: 2px solid rgba(255, 255, 255, 0.65);
+        @include white-icon;
+        border: $border-solid-border-width $border-solid-border-style
+          rgba(255, 255, 255, 0.65);
         color: $color-purple-800;
-
-        svg {
-          color: white;
-        }
 
         &:hover,
         :global(.js-focus-visible) &:global(.focus-visible) {
+          @include white-icon;
+
           background: rgba(255, 255, 255, 0.1);
-          border-color: white;
-
-          svg {
-            color: white;
-          }
-        }
-
-        &%caButtonPrimary {
-          %caButtonContent {
-            color: $color-purple-800;
-            background: none;
-          }
+          border-color: $color-white;
         }
       }
     }
-    &.working {
-      @include working-state;
-      height: $caButtonIcon-height;
-    }
-  }
-
-  %caButtonContent {
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    height: auto;
-    // IE 10/11 workaround to fix vertical centering of icon
-    margin: calc(
-        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
-      )
-      0;
   }
 }
 
-%caButtonIsActive {
+%caBreadcrumbLinkIsActive {
   background-color: $color-blue-500 !important;
   color: white !important;
 }
 
-%caPageButton {
+%caBreadcrumbLink {
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
 
-  width: 40px;
-  height: 40px;
-  min-height: auto;
-  // Reset for various states and variants
-
-  &:not(:disabled),
-  &:disabled {
-    &,
-    &:hover,
-    &:active,
-    &%caButtonPrimary {
-      color: $color-blue-500;
-      background: none;
-      border-radius: 50px;
-      border-color: transparent;
-
-      &:hover,
-      :global(.js-focus-visible) &:global(.focus-visible) {
-        background: #0168b3;
-        border-color: #0168b3;
-        color: white;
-      }
-
-      :global(.js-focus-visible) &:global(.focus-visible) {
-        border: 2px solid white;
-        border-color: #0168b3;
-      }
-
-      &:disabled,
-      &.working {
-        @include working-state;
-        // background: $color-blue-500;
-        color: $color-white;
-        // border-color: $border-borderless-border-color;
-      }
-
-      &%caButtonReversed {
-        border: 2px solid rgba(255, 255, 255, 0.65);
-        color: $color-purple-800;
-
-        svg {
-          color: white;
-        }
-
-        &:hover,
-        :global(.js-focus-visible) &:global(.focus-visible) {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: white;
-
-          svg {
-            color: white;
-          }
-        }
-
-        &%caButtonPrimary {
-          %caButtonContent {
-            color: $color-purple-800;
-            background: none;
-          }
-        }
-      }
-    }
-    &.working {
-      @include working-state;
-      height: $caButtonIcon-height;
-    }
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    padding: 0;
+    border: 2px solid white;
+    border-color: $color-blue-500;
+    background-color: red;
   }
 
   %caButtonContent {
@@ -897,5 +814,63 @@ $caButton-verticalPaddingForm: calc(
         (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
       )
       0;
+
+    :global(.js-focus-visible) %caButton:global(.focus-visible) & {
+      padding: 0px;
+    }
+  }
+
+  &:not(:disabled),
+  &:disabled {
+    color: $color-blue-500;
+    border-radius: $caButtonCircle-radius;
+    border-color: transparent;
+
+    &:hover,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      background: $color-blue-500;
+      border-color: $color-blue-500;
+      color: white;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      padding: 0;
+      border: 2px solid white;
+      border-color: $color-blue-500;
+    }
+
+    &:disabled,
+    &.working {
+      @include working-state;
+      // background: $color-blue-500;
+      color: $color-white;
+      // border-color: $border-borderless-border-color;
+    }
+
+    &%caButtonReversed {
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      color: $color-purple-800;
+
+      svg {
+        color: white;
+      }
+
+      &:hover,
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+
+        svg {
+          color: white;
+        }
+      }
+
+      &%caButtonPrimary {
+        %caButtonContent {
+          color: $color-purple-800;
+          background: none;
+        }
+      }
+    }
   }
 }

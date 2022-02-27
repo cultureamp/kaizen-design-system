@@ -67,8 +67,9 @@ export type ButtonProps = GenericProps &
 type Props = ButtonProps & {
   additionalContent?: React.ReactNode
   iconButton?: boolean
-  breadcrumb?: boolean
-  pageButton?: boolean
+  directionalLink?: boolean
+  breadcrumbLink?: boolean
+  isActive?: boolean
 }
 
 type BadgeProps = {
@@ -119,7 +120,8 @@ const GenericButton = forwardRef(
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
-          [styles.testFocus]: true,
+          [styles.circleButtonFocus]:
+            props.directionalLink || props.breadcrumbLink,
         })}
       >
         {determineButtonRenderer()}
@@ -246,9 +248,9 @@ const buttonClass = (props: Props) => {
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
     [styles.working]: props.working,
-    [styles.breadcrumb]: props.breadcrumb || props.pageButton,
-    [styles.pageButton]: props.pageButton,
-    [styles.isActive]: props.isActive,
+    [styles.circleButton]: props.directionalLink || props.breadcrumbLink,
+    [styles.breadcrumbLink]: props.breadcrumbLink,
+    [styles.breadcrumbLinkIsActive]: props.isActive,
   })
 }
 
