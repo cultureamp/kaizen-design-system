@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Heading, Paragraph } from "@kaizen/component-library"
 import {
   AccountBasics,
@@ -742,6 +742,7 @@ export const AllSpotIllustrations = () => {
     </>
   )
 }
+AllSpotIllustrations.parameters = { chromatic: { disable: false } }
 
 export const AnimatedSpot = args => (
   <div style={{ width: "156px" }}>
@@ -779,5 +780,8 @@ export const AnimatedSpot = args => (
 )
 AnimatedSpot.storyName = "Spot, animated"
 AnimatedSpot.parameters = {
-  chromatic: { diffThreshold: 0.9 },
+  chromatic: {
+    disable: false,
+    diffThreshold: 0.9,
+  },
 }

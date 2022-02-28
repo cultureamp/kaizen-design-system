@@ -1,7 +1,7 @@
+import React from "react"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -47,46 +47,48 @@ export const DefaultWithSolidBorderKaizenSiteDemo = () => (
     <ExampleContent />
   </Well>
 )
-
 DefaultWithSolidBorderKaizenSiteDemo.storyName =
   "Default with solid border (Kaizen Site Demo)"
+DefaultWithSolidBorderKaizenSiteDemo.parameters = {
+  chromatic: { disable: false },
+}
 
 export const DefaultWithDashedBorder = () => (
   <Well borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 DefaultWithDashedBorder.storyName = "Default with dashed border"
+DefaultWithDashedBorder.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithoutBorder = () => (
   <Well borderStyle="none">
     <ExampleContent />
   </Well>
 )
-
 DefaultWithoutBorder.storyName = "Default without border"
+DefaultWithoutBorder.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithNoMargin = () => (
   <Well noMargin>
     <ExampleContent />
   </Well>
 )
-
 DefaultWithNoMargin.storyName = "Default with no margin"
+DefaultWithNoMargin.parameters = { chromatic: { disable: false } }
 
 export const Positive = () => (
   <Well variant="positive">
     <ExampleContent />
   </Well>
 )
+Positive.parameters = { chromatic: { disable: false } }
 
 export const PositiveWithDashedBorder = () => (
   <Well variant="positive" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 PositiveWithDashedBorder.storyName = "Positive with dashed border"
 
 export const PositiveWithNoBorder = () => (
@@ -94,7 +96,6 @@ export const PositiveWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 PositiveWithNoBorder.storyName = "Positive with no border"
 
 export const Negative = () => (
@@ -102,13 +103,13 @@ export const Negative = () => (
     <ExampleContent />
   </Well>
 )
+Negative.parameters = { chromatic: { disable: false } }
 
 export const NegativeWithDashedBorder = () => (
   <Well variant="negative" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 NegativeWithDashedBorder.storyName = "Negative with dashed border"
 
 export const NegativeWithNoBorder = () => (
@@ -116,7 +117,6 @@ export const NegativeWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 NegativeWithNoBorder.storyName = "Negative with no border"
 
 export const Informative = () => (
@@ -124,13 +124,13 @@ export const Informative = () => (
     <ExampleContent />
   </Well>
 )
+Informative.parameters = { chromatic: { disable: false } }
 
 export const InformativeWithDashedBorder = () => (
   <Well variant="informative" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 InformativeWithDashedBorder.storyName = "Informative with dashed border"
 
 export const InformativeWithNoBorder = () => (
@@ -138,7 +138,6 @@ export const InformativeWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 InformativeWithNoBorder.storyName = "Informative with no border"
 
 export const Cautionary = () => (
@@ -146,13 +145,13 @@ export const Cautionary = () => (
     <ExampleContent />
   </Well>
 )
+Cautionary.parameters = { chromatic: { disable: false } }
 
 export const CautionaryWithDashedBorder = () => (
   <Well variant="cautionary" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 CautionaryWithDashedBorder.storyName = "Cautionary with dashed border"
 
 export const CautionaryWithNoBorder = () => (
@@ -160,7 +159,6 @@ export const CautionaryWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 CautionaryWithNoBorder.storyName = "Cautionary with no border"
 
 export const Assertive = () => (
@@ -168,13 +166,13 @@ export const Assertive = () => (
     <ExampleContent />
   </Well>
 )
+Assertive.parameters = { chromatic: { disable: false } }
 
 export const AssertiveWithDashedBorder = () => (
   <Well variant="assertive" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 AssertiveWithDashedBorder.storyName = "Assertive with dashed border"
 
 export const AssertiveWithNoBorder = () => (
@@ -182,7 +180,6 @@ export const AssertiveWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 AssertiveWithNoBorder.storyName = "Assertive with no border"
 
 export const Prominent = () => (
@@ -190,13 +187,13 @@ export const Prominent = () => (
     <ExampleContent />
   </Well>
 )
+Prominent.parameters = { chromatic: { disable: false } }
 
 export const ProminentWithDashedBorder = () => (
   <Well variant="prominent" borderStyle="dashed">
     <ExampleContent />
   </Well>
 )
-
 ProminentWithDashedBorder.storyName = "Prominent with dashed border"
 
 export const ProminentWithNoBorder = () => (
@@ -204,5 +201,4 @@ export const ProminentWithNoBorder = () => (
     <ExampleContent />
   </Well>
 )
-
 ProminentWithNoBorder.storyName = "Prominent with no border"

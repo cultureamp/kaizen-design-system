@@ -1,9 +1,9 @@
+import React, { useState } from "react"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
 import isChromatic from "chromatic/isChromatic"
-import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./FilterMenuButton.stories.scss"
 
@@ -30,11 +30,6 @@ export default {
     },
   },
   decorators: [withMinHeight],
-}
-
-type DropdownOption = {
-  id: number
-  label: string
 }
 
 export const DefaultStory = props => (
@@ -80,8 +75,14 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
+DefaultEmpty.parameters = { chromatic: { disable: false } }
 
-const dropdownOptions = [
+type DropdownOption = {
+  id: number
+  label: string
+}
+
+const dropdownOptions: DropdownOption[] = [
   { id: 1, label: "Furry" },
   { id: 2, label: "Aquatic" },
   { id: 3, label: "Venomous" },
@@ -163,6 +164,7 @@ export const DefaultWithChildrenSimpleFilter = () => {
 }
 DefaultWithChildrenSimpleFilter.storyName =
   "Default with children (Simple filter)"
+DefaultWithChildrenSimpleFilter.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithChildrenAdvancedFilter = () => {
   const isInitialDropdownVisible = isChromatic()
@@ -241,3 +243,4 @@ export const DefaultWithChildrenAdvancedFilter = () => {
 }
 DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
+DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }

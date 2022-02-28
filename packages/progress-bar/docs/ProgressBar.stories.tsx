@@ -15,7 +15,7 @@ export default {
   },
 }
 
-export const DefaultStory = _ => (
+export const DefaultStory = () => (
   <ProgressBar
     value={25}
     max={100}
@@ -33,7 +33,7 @@ DefaultStory.story = {
   },
 }
 
-export const PositiveSubtext = _ => (
+export const PositiveSubtext = () => (
   <ProgressBar
     isAnimating={false}
     value={25}
@@ -43,11 +43,10 @@ export const PositiveSubtext = _ => (
     subtext="Subtext"
   />
 )
-PositiveSubtext.story = {
-  name: "Positive (with subtext)",
-}
+PositiveSubtext.storyName = "Positive (with subtext)"
+PositiveSubtext.parameters = { chromatic: { disable: false } }
 
-export const PositiveAnimating = _ => (
+export const PositiveAnimating = () => (
   <ProgressBar
     isAnimating={true}
     value={25}
@@ -56,11 +55,9 @@ export const PositiveAnimating = _ => (
     mood="positive"
   />
 )
-PositiveAnimating.story = {
-  name: "Positive (isAnimating)",
-}
+PositiveAnimating.storyName = "Positive (isAnimating)"
 
-export const Informative = _ => (
+export const Informative = () => (
   <ProgressBar
     isAnimating={false}
     value={25}
@@ -69,8 +66,9 @@ export const Informative = _ => (
     label="Label"
   />
 )
+Informative.parameters = { chromatic: { disable: false } }
 
-export const Negative = _ => (
+export const Negative = () => (
   <ProgressBar
     isAnimating={false}
     value={25}
@@ -79,8 +77,9 @@ export const Negative = _ => (
     label="Label"
   />
 )
+Negative.parameters = { chromatic: { disable: false } }
 
-export const Cautionary = _ => (
+export const Cautionary = () => (
   <ProgressBar
     isAnimating={false}
     value={25}
@@ -89,7 +88,9 @@ export const Cautionary = _ => (
     label="Label"
   />
 )
+Cautionary.parameters = { chromatic: { disable: false } }
 
-export const NoLabel = _ => (
+export const NoLabel = () => (
   <ProgressBar isAnimating={true} value={25} max={100} mood="positive" />
 )
+NoLabel.parameters = { chromatic: { disable: false } }
