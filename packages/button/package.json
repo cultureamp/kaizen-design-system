@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^12.4.4",
     "@kaizen/draft-badge": "^1.10.1",
-    "@kaizen/draft-loading-spinner": "^2.5.1",
+    "@kaizen/loading-spinner": "^2.0.0",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
