@@ -4,12 +4,6 @@ import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
 export default {
   title: `${CATEGORIES.components}/Brand`,
   component: Brand,
