@@ -26,7 +26,6 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
-  avatars: avatarGroupData["users"],
 }
 
 export const StickerSheetDefault = () => {
