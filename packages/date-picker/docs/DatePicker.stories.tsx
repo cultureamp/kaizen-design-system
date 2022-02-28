@@ -45,7 +45,6 @@ export const DefaultWithDisabledDates = () => {
       onChange={onDayChange}
       disabledRange={{ from: new Date(2022, 1, 14), to: new Date(2022, 1, 16) }}
       disabledDates={[new Date(2022, 2, 25)]}
-      disabledBefore={new Date()}
     />
   )
 }
@@ -62,7 +61,7 @@ export const DefaultInputWithValue = () => {
     <DatePicker
       id="make-me-unique-3"
       labelText="Label"
-      value={new Date()}
+      value={new Date(2022, 1, 14)}
       onChange={onDayChange}
     />
   )
@@ -99,7 +98,7 @@ export const DisabledInputWithValue = () => {
     <DatePicker
       id="make-me-unique-5"
       labelText="Label"
-      value={new Date()}
+      value={new Date(2022, 1, 14)}
       onChange={onDayChange}
       isDisabled
     />

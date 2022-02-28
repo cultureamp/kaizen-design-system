@@ -1,7 +1,16 @@
 import { DayOfWeek } from "../DatePicker/DatePicker"
 import { handleDisabledDays } from "./handleDisabledDays"
 
-const disableDayMock = [
+beforeEach(() => {
+  // Temporarily allow us to alter timezone calculation for testing
+  Date.prototype.getTimezoneOffset = jest.fn(() => 0)
+})
+
+afterEach(() => {
+  jest.resetAllMocks()
+})
+
+const disabledDaysMock = [
   new Date("2022-04-23T14:00:00.000Z"),
   {
     daysOfWeek: [1, 5],
@@ -23,7 +32,7 @@ const disableDayMock = [
 ]
 
 describe("handleDisabledDays", () => {
-  it("returns correct object when passed disabledDay array", () => {
+  it("returns correct object when passed disabledDays array", () => {
     const disabledDates = [new Date(2022, 3, 24)]
     const disabledDaysOfWeek = [DayOfWeek.Mon, DayOfWeek.Fri]
     const disabledBeforeAfter = {
@@ -37,7 +46,7 @@ describe("handleDisabledDays", () => {
     const disabledBefore = new Date(2022, 1, 16)
     const disabledAfter = new Date(2022, 1, 17)
 
-    const disableDays = handleDisabledDays(
+    const disabledDays = handleDisabledDays(
       disabledDates,
       disabledDaysOfWeek,
       disabledRange,
@@ -46,6 +55,6 @@ describe("handleDisabledDays", () => {
       disabledAfter
     )
 
-    expect(disableDays).toEqual(disableDayMock)
+    expect(disabledDays).toEqual(disabledDaysMock)
   })
 })
