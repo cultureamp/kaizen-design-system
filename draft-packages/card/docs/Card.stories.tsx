@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -31,8 +32,10 @@ DefaultStory.args = {
   variant: "default",
 }
 
-export const StickerSheetDefault = () => (
-  <StoryWrapper>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader
       headings={[
         "Base",
@@ -65,4 +68,14 @@ export const StickerSheetDefault = () => (
   </StoryWrapper>
 )
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
