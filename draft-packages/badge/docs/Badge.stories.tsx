@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
@@ -72,66 +73,42 @@ export const DefaultStory = args => (
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const StickerSheetDefault = () => (
-  <StoryWrapper>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Default", "Active", "Dot"]} />
     <StoryWrapper.Row rowTitle="Small">
       <BadgeStoryWrapper>
-        <Badge size="small" variant="default">
+        <Badge size="small" variant="default" reversed={isReversed}>
           3
         </Badge>
       </BadgeStoryWrapper>
       <BadgeStoryWrapper>
-        <Badge size="small" variant="active">
+        <Badge size="small" variant="active" reversed={isReversed}>
           3
         </Badge>
       </BadgeStoryWrapper>
       <BadgeStoryWrapper>
-        <Badge size="small" variant="dot"></Badge>
+        <Badge size="small" variant="dot" reversed={isReversed}></Badge>
       </BadgeStoryWrapper>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Large">
-      <Badge size="large" variant="default">
+      <Badge size="large" variant="default" reversed={isReversed}>
         3
       </Badge>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const StickerSheetReversed = () => (
-  <StoryWrapper isReversed>
-    <StoryWrapper.RowHeader headings={["Default", "Active", "Dot"]} />
-    <StoryWrapper.Row rowTitle="Small">
-      <BadgeStoryWrapper>
-        <Badge size="small" variant="default" reversed>
-          3
-        </Badge>
-      </BadgeStoryWrapper>
-      <BadgeStoryWrapper>
-        <Badge size="small" variant="active" reversed>
-          3
-        </Badge>
-      </BadgeStoryWrapper>
-      <BadgeStoryWrapper>
-        <Badge size="small" variant="dot" reversed></Badge>
-      </BadgeStoryWrapper>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Large">
-      <Badge size="large" variant="default" reversed>
-        3
-      </Badge>
-    </StoryWrapper.Row>
-  </StoryWrapper>
-)
-
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-
+StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
