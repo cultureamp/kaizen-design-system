@@ -1,33 +1,24 @@
 import { DayOfWeek } from "../DatePicker/DatePicker"
 import { handleDisabledDays } from "./handleDisabledDays"
 
-beforeEach(() => {
-  // Temporarily allow us to alter timezone calculation for testing
-  Date.prototype.getTimezoneOffset = jest.fn(() => 0)
-})
-
-afterEach(() => {
-  jest.resetAllMocks()
-})
-
 const disabledDaysMock = [
-  new Date("2022-04-23T14:00:00.000Z"),
+  new Date("2022-04-24T00:00:00.000Z"),
   {
     daysOfWeek: [1, 5],
   },
   {
-    from: new Date("2022-03-13T13:00:00.000Z"),
-    to: new Date("2022-03-15T13:00:00.000Z"),
+    from: new Date("2022-03-14T00:00:00.000Z"),
+    to: new Date("2022-03-16T00:00:00.000Z"),
   },
   {
-    before: new Date("2022-02-15T13:00:00.000Z"),
+    before: new Date("2022-02-16T00:00:00.000Z"),
   },
   {
-    after: new Date("2022-02-16T13:00:00.000Z"),
+    after: new Date("2022-02-17T00:00:00.000Z"),
   },
   {
-    after: new Date("2022-05-15T14:00:00.000Z"),
-    before: new Date("2022-02-13T13:00:00.000Z"),
+    after: new Date("2022-05-16T00:00:00.000Z"),
+    before: new Date("2022-02-14T00:00:00.000Z"),
   },
 ]
 
@@ -55,6 +46,8 @@ describe("handleDisabledDays", () => {
       disabledAfter
     )
 
+    // Make sure our timezone offset is working and set to UTC
+    expect(new Date().getTimezoneOffset()).toBe(0)
     expect(disabledDays).toEqual(disabledDaysMock)
   })
 })
