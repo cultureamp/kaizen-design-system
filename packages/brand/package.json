@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The brand component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

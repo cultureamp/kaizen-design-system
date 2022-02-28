@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-
 import {
   LikertScaleLegacy,
   Scale,
@@ -13,6 +12,7 @@ export default {
   title: `${CATEGORIES.components}/Likert Scale`,
   component: LikertScaleLegacy,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component:
@@ -68,7 +68,6 @@ export const DefaultStory = () => {
     </div>
   )
 }
-
 DefaultStory.storyName = "Default"
 
 export const Reversed = () => {
@@ -92,6 +91,5 @@ export const Reversed = () => {
     </div>
   )
 }
-
 Reversed.storyName = "Reversed"
 Reversed.parameters = { backgrounds: { default: "Purple 700" } }

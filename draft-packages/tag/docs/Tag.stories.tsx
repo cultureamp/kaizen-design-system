@@ -1,5 +1,5 @@
+import React from "react"
 import { Tag } from "@kaizen/draft-tag"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -38,7 +38,6 @@ export const DefaultMediumKaizenSiteDemo = args => (
     </Tag>
   </StoryContainer>
 )
-
 DefaultMediumKaizenSiteDemo.storyName = "Default - Medium (Kaizen Site Demo)"
 
 export const Status = () => (
@@ -69,8 +68,8 @@ export const Status = () => (
     </StorySection>
   </StoryContainer>
 )
-
 Status.storyName = "Status"
+Status.parameters = { chromatic: { disable: false } }
 
 export const Sentiment = () => (
   <StoryContainer>
@@ -100,8 +99,8 @@ export const Sentiment = () => (
     </StorySection>
   </StoryContainer>
 )
-
 Sentiment.storyName = "Sentiment"
+Sentiment.parameters = { chromatic: { disable: false } }
 
 export const Validation = () => (
   <StoryContainer>
@@ -111,8 +110,8 @@ export const Validation = () => (
     <Tag variant="validationCautionary">Cautionary</Tag>
   </StoryContainer>
 )
-
 Validation.storyName = "Validation"
+Validation.parameters = { chromatic: { disable: false } }
 
 export const Profile = () => (
   <StoryContainer>
@@ -134,8 +133,8 @@ export const Profile = () => (
     </Tag>
   </StoryContainer>
 )
-
 Profile.storyName = "Profile"
+Profile.parameters = { chromatic: { disable: false } }
 
 export const Dismissible = () => (
   <StoryContainer>
@@ -144,5 +143,5 @@ export const Dismissible = () => (
     </Tag>
   </StoryContainer>
 )
-
 Dismissible.storyName = "Dismissible"
+Dismissible.parameters = { chromatic: { disable: false } }
