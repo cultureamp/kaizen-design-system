@@ -1,12 +1,12 @@
 import React from "react"
 import { Icon } from "@kaizen/component-library"
+import classnames from "classnames"
 import styles from "./ToggleIconButton.scss"
 
 export interface ToggleIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
-  // ref?: React.RefObject<HTMLButtonElement>
   /*
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
@@ -14,12 +14,20 @@ export interface ToggleIconButtonProps
 }
 
 export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
-  React.forwardRef((props, ref) => {
+  React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
     const { icon, label, pressed = false, ...nativeButtonProps } = props
     return (
-      <button aria-pressed={pressed} {...nativeButtonProps}>
-        <Icon icon={icon} role="presentation" />
-        <span>{label}</span>
+      <button
+        ref={ref}
+        aria-pressed={pressed}
+        className={classnames(styles.button, {
+          [styles.pressed]: pressed,
+        })}
+        {...nativeButtonProps}
+      >
+        <div className={styles.iconWrapper}>
+          <Icon icon={icon} role="presentation" inheritSize />
+        </div>
       </button>
     )
   })
