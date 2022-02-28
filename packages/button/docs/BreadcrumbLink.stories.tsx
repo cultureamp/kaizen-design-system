@@ -9,7 +9,7 @@ import styles from "./styles.module.scss"
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/BreadcrumbLink`,
   component: BreadcrumbLink,
-  args: { label: "1" },
+  args: { pageNumber: 1 },
   parameters: {
     actions: {
       argTypesRegex: "^on.*",

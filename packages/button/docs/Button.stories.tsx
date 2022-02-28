@@ -8,7 +8,13 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Button, CustomButtonProps, IconButton, DirectionalLink } from ".."
+import {
+  Button,
+  CustomButtonProps,
+  IconButton,
+  DirectionalLink,
+  BreadcrumbLink,
+} from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./styles.module.scss"
@@ -456,6 +462,26 @@ export const LightButtons = () => (
         </div>
       </div>
     </div>
+    <br />
+    <Heading variant="heading-5" tag="h2">
+      Breadcrumb Link
+    </Heading>
+    <br />
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2">
+          Default
+        </Heading>
+        <br />
+        <div style={{ display: "flex" }}>
+          <BreadcrumbLink pageNumber={1} isActive={true} />
+          <BreadcrumbLink pageNumber={2} isActive={false} />
+          <BreadcrumbLink pageNumber={3} isActive={false} />
+          <BreadcrumbLink pageNumber={4} isActive={false} />
+          <BreadcrumbLink pageNumber={5} isActive={false} />
+        </div>
+      </div>
+    </div>
   </>
 )
 
@@ -855,6 +881,26 @@ export const ReversedButtons = () => (
         <div className={styles.directionalLinkContainer}>
           <DirectionalLink label="" direction="prev" disabled reversed />
           <DirectionalLink label="" direction="next" disabled reversed />
+        </div>
+      </div>
+    </div>
+    <br />
+    <Heading variant="heading-5" tag="h2" color="white">
+      Breadcrumb Link
+    </Heading>
+    <br />
+    <div className={styles.buttonSection}>
+      <div className={styles.buttonState}>
+        <Heading variant="heading-5" tag="h2" color="white">
+          Default
+        </Heading>
+        <br />
+        <div style={{ display: "flex" }}>
+          <BreadcrumbLink pageNumber={1} isActive={true} reversed />
+          <BreadcrumbLink pageNumber={2} isActive={false} reversed />
+          <BreadcrumbLink pageNumber={3} isActive={false} reversed />
+          <BreadcrumbLink pageNumber={4} isActive={false} reversed />
+          <BreadcrumbLink pageNumber={5} isActive={false} reversed />
         </div>
       </div>
     </div>

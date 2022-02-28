@@ -1,21 +1,36 @@
 import * as React from "react"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-export type BreadcrumbLinkProps = GenericProps & {
+export type BreadcrumbLinkProps = Pick<
+  GenericProps,
+  | "id"
+  | "reversed"
+  | "onClick"
+  | "onMouseDown"
+  | "href"
+  | "newTabAndIUnderstandTheAccessibilityImplications"
+  | "disableTabFocusAndIUnderstandTheAccessibilityImplications"
+  | "onFocus"
+  | "onBlur"
+> & {
+  pageNumber: number
   isActive: boolean
+  label?: string
 }
 
 const BreadcrumbLink: React.FunctionComponent<BreadcrumbLinkProps> = (
   props: BreadcrumbLinkProps
-) => <GenericButton breadcrumbLink {...props} />
+) => (
+  <GenericButton
+    {...props}
+    breadcrumbLink
+    label={`${props.pageNumber}`}
+    aria-label={`Page ${props.pageNumber}`}
+  />
+)
 
 BreadcrumbLink.defaultProps = {
-  form: false,
-  primary: false,
-  destructive: false,
-  disabled: false,
   reversed: false,
-  secondary: false,
 }
 
 BreadcrumbLink.displayName = "BreadcrumbLink"

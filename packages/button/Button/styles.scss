@@ -785,11 +785,6 @@ $caButtonCircle-radius: 30px;
   }
 }
 
-%caBreadcrumbLinkIsActive {
-  background-color: $color-blue-500 !important;
-  color: white !important;
-}
-
 %caBreadcrumbLink {
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
@@ -797,12 +792,7 @@ $caButtonCircle-radius: 30px;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
 
-  :global(.js-focus-visible) &:global(.focus-visible) {
-    padding: 0;
-    border: 2px solid white;
-    border-color: $color-blue-500;
-    background-color: red;
-  }
+  margin: 0 2px;
 
   %caButtonContent {
     justify-content: center;
@@ -814,10 +804,6 @@ $caButtonCircle-radius: 30px;
         (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
       )
       0;
-
-    :global(.js-focus-visible) %caButton:global(.focus-visible) & {
-      padding: 0px;
-    }
   }
 
   &:not(:disabled),
@@ -828,48 +814,55 @@ $caButtonCircle-radius: 30px;
 
     &:hover,
     :global(.js-focus-visible) &:global(.focus-visible) {
-      background: $color-blue-500;
-      border-color: $color-blue-500;
-      color: white;
+      border-color: $color-blue-100;
+      background: $color-blue-100;
+      color: $color-blue-500;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
       padding: 0;
       border: 2px solid white;
-      border-color: $color-blue-500;
+      border-color: $color-blue-100;
     }
 
-    &:disabled,
-    &.working {
-      @include working-state;
-      // background: $color-blue-500;
+    &%caBreadcrumbLinkIsActive {
+      background-color: $color-blue-500;
       color: $color-white;
-      // border-color: $border-borderless-border-color;
+
+      &:hover {
+        border-color: $color-blue-500;
+      }
+
+      :global(.js-focus-visible) :global(.focus-visible) {
+        border-color: $color-blue-500;
+      }
     }
 
     &%caButtonReversed {
-      border: 2px solid rgba(255, 255, 255, 0.65);
-      color: $color-purple-800;
+      border-color: transparent;
+      color: $color-white;
 
-      svg {
-        color: white;
+      &%caBreadcrumbLinkIsActive {
+        background-color: $color-white;
+        color: $color-blue-500;
+        &:hover {
+          color: $color-white;
+        }
+
+        :global(.js-focus-visible) :global(.focus-visible) {
+          border-color: $color-blue-500;
+        }
       }
 
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
         background: rgba(255, 255, 255, 0.1);
-        border-color: white;
-
-        svg {
-          color: white;
-        }
+        border-color: transparent;
       }
 
-      &%caButtonPrimary {
-        %caButtonContent {
-          color: $color-purple-800;
-          background: none;
-        }
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        background: rgba(255, 255, 255, 0.1);
+        color: $color-white;
       }
     }
   }
