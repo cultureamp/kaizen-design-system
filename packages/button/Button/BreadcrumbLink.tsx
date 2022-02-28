@@ -1,7 +1,7 @@
 import * as React from "react"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-export type BreadcrumbLinkProps = Pick<
+type BreadcrumbLinkProps = Pick<
   GenericProps,
   | "id"
   | "reversed"

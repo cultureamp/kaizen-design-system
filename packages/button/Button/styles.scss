@@ -791,8 +791,7 @@ $caButtonCircle-radius: 30px;
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
-
-  margin: 0 2px;
+  margin: 0 $spacing-xs;
 
   %caButtonContent {
     justify-content: center;
@@ -821,19 +820,29 @@ $caButtonCircle-radius: 30px;
 
     :global(.js-focus-visible) &:global(.focus-visible) {
       padding: 0;
-      border: 2px solid white;
+      border: 2px solid $color-white;
       border-color: $color-blue-100;
     }
 
-    &%caBreadcrumbLinkIsActive {
+    &%caIsBreadcrumbLinkActive {
       background-color: $color-blue-500;
       color: $color-white;
+      border-color: $color-blue-500;
 
-      &:hover {
-        border-color: $color-blue-500;
+      &:global(.js-focus-visible),
+      &:global(.focus-visible) {
+        border-color: $color-blue-100;
+
+        &:hover {
+          border-color: $color-blue-100;
+        }
       }
 
       :global(.js-focus-visible) :global(.focus-visible) {
+        border-color: $color-blue-500;
+      }
+
+      &:hover {
         border-color: $color-blue-500;
       }
     }
@@ -842,9 +851,10 @@ $caButtonCircle-radius: 30px;
       border-color: transparent;
       color: $color-white;
 
-      &%caBreadcrumbLinkIsActive {
+      &%caIsBreadcrumbLinkActive {
         background-color: $color-white;
         color: $color-blue-500;
+
         &:hover {
           color: $color-white;
         }

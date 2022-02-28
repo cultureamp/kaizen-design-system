@@ -7,6 +7,7 @@ type DirectionalLinkProps = Pick<
   GenericProps,
   | "id"
   | "reversed"
+  | "disabled"
   | "icon"
   | "onClick"
   | "onMouseDown"
@@ -42,6 +43,7 @@ const DirectionalLink: React.FunctionComponent<DirectionalLinkProps> = (
 
 DirectionalLink.defaultProps = {
   reversed: false,
+  disabled: false,
 }
 
 DirectionalLink.displayName = "DirectionalLink"

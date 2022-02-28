@@ -1,10 +1,8 @@
-import { Heading } from "@kaizen/component-library"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { BreadcrumbLink } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./styles.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/BreadcrumbLink`,
@@ -26,29 +24,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemoBreadcrumb = args => (
-  <>
-    <Heading variant="heading-3" tag="h1">
-      Default
-    </Heading>
-    <div className={styles.buttonSection}>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Base
-        </Heading>
-        <br />
-        <BreadcrumbLink {...args} />
-      </div>
-      <div className={styles.buttonState}>
-        <Heading variant="heading-5" tag="h2">
-          Active
-        </Heading>
-        <br />
-        <BreadcrumbLink isActive {...args} />
-      </div>
-    </div>
-  </>
+export const DefaultKaizenSiteDemoBreadcrumbLink = args => (
+  <BreadcrumbLink {...args} />
 )
 
-DefaultKaizenSiteDemoBreadcrumb.storyName =
+DefaultKaizenSiteDemoBreadcrumbLink.storyName =
   "Default BreadcrumbLink (Kaizen Site Demo)"

@@ -8,6 +8,7 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
+import { styled } from "@storybook/theming"
 import {
   Button,
   CustomButtonProps,
@@ -49,7 +50,7 @@ export const LightButtons = () => (
     <Heading variant="heading-3" tag="h1">
       Default
     </Heading>
-    {/* <div className={styles.buttonSection}>
+    <div className={styles.buttonSection}>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2">
           Base
@@ -435,7 +436,7 @@ export const LightButtons = () => (
     </Heading>
     <br />
     <IconFormDiscouraged />
-    <br /> */}
+    <br />
     <Heading variant="heading-5" tag="h2">
       Directional Link
     </Heading>
@@ -463,6 +464,7 @@ export const LightButtons = () => (
       </div>
     </div>
     <br />
+    <br />
     <Heading variant="heading-5" tag="h2">
       Breadcrumb Link
     </Heading>
@@ -473,7 +475,7 @@ export const LightButtons = () => (
           Default
         </Heading>
         <br />
-        <div style={{ display: "flex" }}>
+        <div className={styles.breadcrumbLinkContainer}>
           <BreadcrumbLink pageNumber={1} isActive={true} />
           <BreadcrumbLink pageNumber={2} isActive={false} />
           <BreadcrumbLink pageNumber={3} isActive={false} />
@@ -490,7 +492,7 @@ export const ReversedButtons = () => (
     <Heading variant="heading-3" tag="h1" color="white">
       Default
     </Heading>
-    {/* <div className={styles.buttonSection}>
+    <div className={styles.buttonSection}>
       <div className={styles.buttonState}>
         <Heading variant="heading-5" tag="h2" color="white">
           Base
@@ -857,7 +859,7 @@ export const ReversedButtons = () => (
       Icon Form (Discouraged)
     </Heading>
     <br />
-    <IconFormDiscouraged reversed={true} /> */}
+    <IconFormDiscouraged reversed={true} />
     <Heading variant="heading-5" tag="h2" color="white">
       Directional Link
     </Heading>
@@ -885,6 +887,7 @@ export const ReversedButtons = () => (
       </div>
     </div>
     <br />
+    <br />
     <Heading variant="heading-5" tag="h2" color="white">
       Breadcrumb Link
     </Heading>
@@ -895,7 +898,7 @@ export const ReversedButtons = () => (
           Default
         </Heading>
         <br />
-        <div style={{ display: "flex" }}>
+        <div className={styles.breadcrumbLinkContainer}>
           <BreadcrumbLink pageNumber={1} isActive={true} reversed />
           <BreadcrumbLink pageNumber={2} isActive={false} reversed />
           <BreadcrumbLink pageNumber={3} isActive={false} reversed />

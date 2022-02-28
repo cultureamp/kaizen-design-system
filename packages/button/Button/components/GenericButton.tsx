@@ -250,7 +250,7 @@ const buttonClass = (props: Props) => {
     [styles.working]: props.working,
     [styles.circleButton]: props.directionalLink || props.breadcrumbLink,
     [styles.breadcrumbLink]: props.breadcrumbLink,
-    [styles.breadcrumbLinkIsActive]: props.isActive,
+    [styles.isBreadcrumbLinkActive]: props.isActive,
   })
 }
 
