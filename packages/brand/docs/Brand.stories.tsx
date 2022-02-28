@@ -15,24 +15,18 @@ export default {
         component: 'Import { Brand } from "@kaizen/brand"',
       },
     },
-  },
-}
-
-export const DefaultSiteDemo = args => (
-  <Brand
-    alt="Culture Amp"
-    variant="logo-horizontal"
-    reversed={false}
-    {...args}
-  />
-)
-DefaultSiteDemo.story = {
-  name: "Default (Kaizen Demo)",
-  parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),
   },
+}
+
+export const DefaultStory = args => <Brand {...args} />
+DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.args = {
+  alt: "Culture Amp",
+  variant: "logo-horizontal",
+  reversed: false,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
