@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { assetUrl } from "@kaizen/hosted-assets"
@@ -27,15 +27,12 @@ export default {
 }
 
 export const DefaultStory = args => <Avatar {...args} />
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
-
 DefaultStory.args = {
   avatarSrc: assetUrl("third-party-logos/hooli-logo.svg"),
   fullName: "Hooli",
   isCompany: true,
 }
-
 DefaultStory.parameters = {
   controls: { exclude: ["disableInitials", "isCurrentUser"] },
 }
@@ -67,8 +64,8 @@ export const DesignSheetDefault = () => (
     ))}
   </div>
 )
-
 DesignSheetDefault.storyName = "Design Sheet (default)"
+DesignSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const DesignSheetReversed = () => (
   <div
@@ -97,8 +94,8 @@ export const DesignSheetReversed = () => (
     ))}
   </div>
 )
-
 DesignSheetReversed.storyName = "Design Sheet (reversed)"
 DesignSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }

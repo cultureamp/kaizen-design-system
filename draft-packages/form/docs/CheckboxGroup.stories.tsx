@@ -1,8 +1,14 @@
+import React from "react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+
+const REVERSED_BG = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
 
 interface RenderProps {
   checkedStatus: string
@@ -61,12 +67,6 @@ export default {
   decorators: [withDesign],
 }
 
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
 export const InteractiveKaizenSiteDemo = args => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label">
@@ -106,7 +106,6 @@ export const InteractiveKaizenSiteDemo = args => (
     </CheckboxGroup>
   </div>
 )
-
 InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const WithDisabledCheckboxes = () => (
@@ -133,7 +132,6 @@ export const WithDisabledCheckboxes = () => (
     </CheckboxGroup>
   </div>
 )
-
 WithDisabledCheckboxes.storyName = "with disabled checkboxes"
 
 export const Rtl = () => (
@@ -160,8 +158,8 @@ export const Rtl = () => (
     </CheckboxGroup>
   </div>
 )
-
 Rtl.storyName = "RTL"
+Rtl.parameters = { chromatic: { disable: false } }
 
 export const WithBottomMargin = () => (
   <div>
@@ -194,8 +192,8 @@ export const WithBottomMargin = () => (
     />
   </div>
 )
-
 WithBottomMargin.storyName = "with bottom margin"
+WithBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const WithoutBottomMargin = () => (
   <div>
@@ -228,8 +226,8 @@ export const WithoutBottomMargin = () => (
     />
   </div>
 )
-
 WithoutBottomMargin.storyName = "without bottom margin"
+WithoutBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const NestedCheckboxGroup = () => {
   const [selectedOptions, setSelectedOptions] = React.useState<number[]>([])
@@ -294,7 +292,6 @@ export const NestedCheckboxGroup = () => {
     </div>
   )
 }
-
 NestedCheckboxGroup.storyName = "Nested Checkbox Group"
 
 export const ReversedCheckboxGroup = args => (
@@ -339,10 +336,10 @@ export const ReversedCheckboxGroup = args => (
     </CheckboxGroup>
   </div>
 )
-
 ReversedCheckboxGroup.story = {
   name: "Reversed Checkbox Group",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
+    chromatic: { disable: false },
   },
 }

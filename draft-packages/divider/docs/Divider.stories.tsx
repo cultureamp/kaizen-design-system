@@ -1,12 +1,12 @@
+import React from "react"
 import { Divider } from "@kaizen/draft-divider"
 import { Card } from "@kaizen/draft-card"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
-const reversedBg = {
+const REVERSED_BG = {
   backgrounds: {
     default: "Purple 700",
   },
@@ -35,12 +35,13 @@ export const DefaultStory = () => (
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
-export const CanvasStory = () => (
+export const CanvasDivider = () => (
   <Box m={1}>
     <Divider variant="canvas" />
   </Box>
 )
-CanvasStory.storyName = "Canvas Divider"
+CanvasDivider.storyName = "Canvas Divider"
+CanvasDivider.parameters = { chromatic: { disable: false } }
 
 export const ContentDivider = () => (
   <Box m={1}>
@@ -48,14 +49,7 @@ export const ContentDivider = () => (
   </Box>
 )
 ContentDivider.storyName = "Content Divider"
-
-export const ContentDividerReversed = () => (
-  <Box m={1}>
-    <Divider variant="content" isReversed />
-  </Box>
-)
-ContentDividerReversed.storyName = "Content Divider Reversed"
-ContentDividerReversed.parameters = { ...reversedBg }
+ContentDivider.parameters = { chromatic: { disable: false } }
 
 export const CanvasDividerReversed = () => (
   <Box m={1}>
@@ -63,7 +57,21 @@ export const CanvasDividerReversed = () => (
   </Box>
 )
 CanvasDividerReversed.storyName = "Canvas Divider Reversed"
-CanvasDividerReversed.parameters = { ...reversedBg }
+CanvasDividerReversed.parameters = {
+  ...REVERSED_BG,
+  chromatic: { disable: false },
+}
+
+export const ContentDividerReversed = () => (
+  <Box m={1}>
+    <Divider variant="content" isReversed />
+  </Box>
+)
+ContentDividerReversed.storyName = "Content Divider Reversed"
+ContentDividerReversed.parameters = {
+  ...REVERSED_BG,
+  chromatic: { disable: false },
+}
 
 export const TabDivider = () => (
   <Card>

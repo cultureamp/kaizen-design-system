@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { Heading } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
@@ -6,7 +7,6 @@ import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, IconButton } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -37,6 +37,11 @@ export default {
 }
 
 const clickAction = () => alert("This shouldn't fire when button is working")
+
+export const DefaultKaizenSiteDemo = args => <Button {...args} />
+DefaultKaizenSiteDemo.story = {
+  name: "Default Button (Kaizen Site Demo)",
+}
 
 export const LightButtons = () => (
   <>
@@ -431,6 +436,7 @@ export const LightButtons = () => (
     <IconFormDiscouraged />
   </>
 )
+LightButtons.parameters = { chromatic: { disable: false } }
 
 export const ReversedButtons = () => (
   <>
@@ -807,15 +813,9 @@ export const ReversedButtons = () => (
     <IconFormDiscouraged reversed={true} />
   </>
 )
-export const DefaultKaizenSiteDemo = args => <Button {...args} />
-DefaultKaizenSiteDemo.story = {
-  name: "Default Button (Kaizen Site Demo)",
-}
-
 ReversedButtons.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 // Default Button
