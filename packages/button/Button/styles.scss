@@ -770,14 +770,12 @@ $caButtonCircle-radius: 30px;
       &%caButtonReversed {
         @include white-icon;
         border: $border-solid-border-width $border-solid-border-style
-          rgba(255, 255, 255, 0.65);
+          rgba($color-white-rgb, 0.65);
         color: $color-purple-800;
 
         &:hover,
         :global(.js-focus-visible) &:global(.focus-visible) {
           @include white-icon;
-
-          background: rgba(255, 255, 255, 0.1);
           border-color: $color-white;
         }
       }
@@ -786,11 +784,8 @@ $caButtonCircle-radius: 30px;
 }
 
 %caBreadcrumbLink {
-  font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
-  line-height: $typography-button-secondary-line-height;
-  letter-spacing: $typography-button-secondary-letter-spacing;
   margin: 0 $spacing-xs;
 
   %caButtonContent {
@@ -866,12 +861,12 @@ $caButtonCircle-radius: 30px;
 
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba($color-white-rgb, 0.1);
         border-color: transparent;
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba($color-white-rgb, 0.1);
         color: $color-white;
       }
     }
