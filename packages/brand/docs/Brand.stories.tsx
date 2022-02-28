@@ -23,12 +23,6 @@ export default {
   },
 }
 
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
 export const DefaultSiteDemo = args => (
   <Brand
     alt="Culture Amp"
@@ -65,6 +59,7 @@ export const StickerSheetDefault = () => (
 )
 
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const StickerSheetReversed = () => (
   <StoryWrapper isReversed>
@@ -89,9 +84,9 @@ export const StickerSheetReversed = () => (
 )
 
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-
 StickerSheetReversed.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
+  chromatic: { disable: false },
 }
