@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import classnames from "classnames"
 import React from "react"
 import search from "@kaizen/component-library/icons/search.icon.svg"
