@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
@@ -34,53 +35,43 @@ DefaultSiteDemo.story = {
   },
 }
 
-export const StickerSheetDefault = () => (
-  <StoryWrapper>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Default"]} />
     <StoryWrapper.Row rowTitle="Logo Horizontal">
-      <Brand alt="Culture Amp" variant="logo-horizontal" />
+      <Brand
+        alt="Culture Amp"
+        variant="logo-horizontal"
+        reversed={isReversed}
+      />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Logo Vertical">
-      <Brand alt="Culture Amp" variant="logo-vertical" />
+      <Brand alt="Culture Amp" variant="logo-vertical" reversed={isReversed} />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Enso">
-      <Brand alt="Culture Amp" variant="enso" />
+      <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Collective Intelligence">
-      <Brand alt="Collective Intelligence" variant="collective-intelligence" />
+      <div style={{ width: "200px" }}>
+        <Brand
+          alt="Collective Intelligence"
+          variant="collective-intelligence"
+          reversed={isReversed}
+        />
+      </div>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
-
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const StickerSheetReversed = () => (
-  <StoryWrapper isReversed>
-    <StoryWrapper.RowHeader headings={["Default"]} />
-    <StoryWrapper.Row rowTitle="Logo Horizontal">
-      <Brand alt="Culture Amp" variant="logo-horizontal" reversed />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Logo Vertical">
-      <Brand alt="Culture Amp" variant="logo-vertical" reversed />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Enso">
-      <Brand alt="Culture Amp" variant="enso" reversed />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Collective Intelligence">
-      <Brand
-        alt="Collective Intelligence"
-        variant="collective-intelligence"
-        reversed
-      />
-    </StoryWrapper.Row>
-  </StoryWrapper>
-)
-
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
