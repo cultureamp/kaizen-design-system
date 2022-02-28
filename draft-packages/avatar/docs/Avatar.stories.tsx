@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "../../avatar/KaizenDraft/Avatar/Avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -33,7 +34,9 @@ DefaultStory.args = {
 }
 DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
-export const StickerSheetDefault = () => {
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
   const PROPS_PHOTO_PERSONAL = {
     fullName: "Jane Doe",
     disableInitials: false,
@@ -76,7 +79,7 @@ export const StickerSheetDefault = () => {
 
   return (
     <>
-      <StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={[
             "Photo Personal",
@@ -116,7 +119,7 @@ export const StickerSheetDefault = () => {
           <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="small" />
         </StoryWrapper.Row>
       </StoryWrapper>
-      <StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
         />
@@ -150,5 +153,14 @@ export const StickerSheetDefault = () => {
   )
 }
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}

@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { AvatarGroup, AvatarList } from "../KaizenDraft/Avatar/AvatarGroup"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -21,14 +22,64 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => <AvatarGroup {...args} />
+export const DefaultStory = args => {
+  const EXAMPLE_USER_1 = {
+    fullName: "Adirana Aniseed",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_2 = {
+    fullName: "Bethany Blueberry",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_3 = {
+    fullName: "Carey Cringle",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_4 = {
+    fullName: "Derrick Doolittle",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_5 = {
+    fullName: "Evan Eavesdrop",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_6 = {
+    fullName: "Fern Furlow",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+
+  const AVATARS = [
+    EXAMPLE_USER_1,
+    EXAMPLE_USER_2,
+    EXAMPLE_USER_3,
+    EXAMPLE_USER_4,
+    EXAMPLE_USER_5,
+    EXAMPLE_USER_6,
+  ] as AvatarList
+
+  return <AvatarGroup {...args} avatars={AVATARS} />
+}
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
 }
 
-export const StickerSheetDefault = () => {
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
   const EXAMPLE_USER_1 = {
     fullName: "Adirana Aniseed",
     disableInitials: false,
@@ -76,7 +127,7 @@ export const StickerSheetDefault = () => {
   ] as AvatarList
 
   return (
-    <StoryWrapper>
+    <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Default"]} />
       <StoryWrapper.Row rowTitle="Large">
         <AvatarGroup maxVisible={2} avatars={AVATARS} size="large" />
@@ -91,5 +142,14 @@ export const StickerSheetDefault = () => {
   )
 }
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
