@@ -15,7 +15,6 @@ export type BreadcrumbLinkProps = Pick<
 > & {
   pageNumber: number
   isActive: boolean
-  label?: string
 }
 
 const BreadcrumbLink: React.FunctionComponent<BreadcrumbLinkProps> = (

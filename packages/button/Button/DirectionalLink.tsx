@@ -6,8 +6,6 @@ import GenericButton, { GenericProps } from "./components/GenericButton"
 type DirectionalLinkProps = Pick<
   GenericProps,
   | "id"
-  | "label"
-  | "disabled"
   | "reversed"
   | "icon"
   | "onClick"
@@ -18,6 +16,7 @@ type DirectionalLinkProps = Pick<
   | "onFocus"
   | "onBlur"
 > & {
+  label?: string
   direction: "prev" | "next"
 }
 
@@ -34,12 +33,14 @@ const DirectionalLink: React.FunctionComponent<DirectionalLinkProps> = (
     directionalLink
     iconButton
     icon={iconMap[props.direction]}
-    label={props.direction === "prev" ? "Previous page" : "Next page"}
+    label={
+      props.label ||
+      (props.direction === "prev" ? "Previous page" : "Next page")
+    }
   />
 )
 
 DirectionalLink.defaultProps = {
-  disabled: false,
   reversed: false,
 }
 
