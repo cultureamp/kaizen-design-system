@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/hosted-assets": "^1.2.0",
     "jszip": "^3.7.1",
-    "lottie-web": "^5.7.14"
+    "lottie-web": "^5.8.1"
   },
   "devDependencies": {
     "@kaizen/component-library": "^12.4.4",
