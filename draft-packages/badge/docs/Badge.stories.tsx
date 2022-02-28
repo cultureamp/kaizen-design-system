@@ -101,6 +101,7 @@ export const StickerSheetDefault = () => (
 )
 
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const StickerSheetReversed = () => (
   <StoryWrapper isReversed>
@@ -134,4 +135,5 @@ StickerSheetReversed.parameters = {
   backgrounds: {
     default: "Purple 700",
   },
+  chromatic: { disable: false },
 }
