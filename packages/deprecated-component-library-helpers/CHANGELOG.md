@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.5.0...@kaizen/deprecated-component-library-helpers@2.5.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* add missing imports in deprecated-component-library-helpers/styles/type.scss ([#2437](https://github.com/cultureamp/kaizen-design-system/issues/2437)) ([72aa9b8](https://github.com/cultureamp/kaizen-design-system/commit/72aa9b882b862d07f9523325e8b47bb174e64dc7))
+
+
+
+
+
 # [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@2.4.1...@kaizen/deprecated-component-library-helpers@2.5.0) (2022-01-24)
 
 
