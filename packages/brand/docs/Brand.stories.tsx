@@ -3,21 +3,22 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 
+const REVERSED_BG = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 export default {
   title: `${CATEGORIES.components}/Brand`,
   component: Brand,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component: 'Import { Brand } from "@kaizen/brand"',
       },
     },
-  },
-}
-
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
   },
 }
 
@@ -39,7 +40,7 @@ export const LogoHorizontalReversed = () => (
 LogoHorizontalReversed.story = {
   name: "Logo horizontal (Reversed)",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),
@@ -64,7 +65,7 @@ export const LogoVerticalReversed = () => (
 LogoVerticalReversed.story = {
   name: "Logo Vertical (Reversed)",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),
@@ -89,7 +90,7 @@ export const EnsoReversed = () => (
 EnsoReversed.story = {
   name: "Enso (Reversed)",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),
@@ -122,7 +123,7 @@ export const CollectiveIntelligenceReversed = () => (
 CollectiveIntelligenceReversed.story = {
   name: "Collective Intelligence (Reversed)",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),

@@ -8,6 +8,7 @@ import { useTheme } from "../react"
 export default {
   title: "Design Tokens/Color Tokens",
   parameters: {
+    chromatic: { disable: false },
     layout: "fullscreen",
     docs: {
       description: {

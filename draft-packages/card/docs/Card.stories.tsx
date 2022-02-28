@@ -1,5 +1,5 @@
-import { Box, Paragraph, Heading } from "@kaizen/component-library"
-import * as React from "react"
+import React from "react"
+import { Box, Heading } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { Card, CardProps } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -26,7 +26,6 @@ export default {
 export const DefaultStory = args => (
   <Card {...args}>This is a default card</Card>
 )
-
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 DefaultStory.args = {
   tag: "div",
@@ -59,5 +58,5 @@ export const DesignSheetDefault = () => (
     ))}
   </div>
 )
-
 DesignSheetDefault.storyName = "Design Sheet (default)"
+DesignSheetDefault.parameters = { chromatic: { disable: false } }

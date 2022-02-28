@@ -41,3 +41,4 @@ export const Default = args => {
     />
   )
 }
+Default.parameters = { chromatic: { disable: false } }

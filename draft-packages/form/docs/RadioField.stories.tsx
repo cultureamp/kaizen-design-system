@@ -1,12 +1,19 @@
+import React from "react"
 import { RadioField } from "@kaizen/draft-form"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
+const REVERSED_BG = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
+
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
 )
+
 type RenderProps = {
   selectedStatus: boolean
   onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
@@ -51,6 +58,7 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
   component: RadioField,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { RadioField } from "@kaizen/draft-form"',
@@ -61,11 +69,6 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
 }
 
 export const InteractiveKaizenSiteDemo = () => (
@@ -89,7 +92,6 @@ export const InteractiveKaizenSiteDemo = () => (
     )}
   />
 )
-
 InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const UnselectedDisabled = () => (
@@ -104,7 +106,6 @@ export const UnselectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-
 UnselectedDisabled.storyName = "Unselected disabled"
 
 export const UnselectedDefault = () => (
@@ -119,7 +120,6 @@ export const UnselectedDefault = () => (
     <ExampleContent />
   </RadioField>
 )
-
 UnselectedDefault.storyName = "Unselected default"
 
 export const SelectedDefault = () => (
@@ -134,7 +134,6 @@ export const SelectedDefault = () => (
     <ExampleContent />
   </RadioField>
 )
-
 SelectedDefault.storyName = "Selected default"
 
 export const SelectedDisabled = () => (
@@ -149,7 +148,6 @@ export const SelectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-
 SelectedDisabled.storyName = "Selected disabled"
 
 export const Rtl = () => (
@@ -166,7 +164,6 @@ export const Rtl = () => (
     </RadioField>
   </div>
 )
-
 Rtl.storyName = "RTL"
 
 export const ReversedDefaultUnselected = () => (
@@ -182,9 +179,7 @@ export const ReversedDefaultUnselected = () => (
 )
 ReversedDefaultUnselected.story = {
   name: "Reversed Default Unselected",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedDefaultUnselectedDisabled = () => (
@@ -201,9 +196,7 @@ export const ReversedDefaultUnselectedDisabled = () => (
 )
 ReversedDefaultUnselectedDisabled.story = {
   name: "Reversed Default Unselected Disabled ",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedDefaultSelected = () => (
@@ -220,9 +213,7 @@ export const ReversedDefaultSelected = () => (
 )
 ReversedDefaultSelected.story = {
   name: "Reversed Default Selected",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedDefaultSelectedDisabled = () => (
@@ -240,7 +231,5 @@ export const ReversedDefaultSelectedDisabled = () => (
 )
 ReversedDefaultSelectedDisabled.story = {
   name: "Reversed Default Selected Disabled",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }

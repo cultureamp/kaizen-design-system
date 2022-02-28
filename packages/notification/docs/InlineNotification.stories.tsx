@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React from "react"
 import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -29,6 +28,7 @@ const forceMultilineText = (
     </ol>
   </>
 )
+
 const withContentBelow = (Story: React.FunctionComponent) => (
   <>
     <Story />
@@ -62,7 +62,6 @@ export const DismissiblePositiveKaizenSiteDemo = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 DismissiblePositiveKaizenSiteDemo.storyName =
   "Dismissible, Positive (Kaizen Site Demo)"
 
@@ -77,7 +76,6 @@ export const DismissiblePositiveAutohide = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 DismissiblePositiveAutohide.storyName = "Dismissible, Positive, Autohide"
 
 export const DismissiblePositiveAutohideHideCloseIcon = () => (
@@ -92,7 +90,6 @@ export const DismissiblePositiveAutohideHideCloseIcon = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 DismissiblePositiveAutohideHideCloseIcon.storyName =
   "Dismissible, Positive, Autohide, Hide Close Icon"
 
@@ -106,7 +103,6 @@ export const DismissibleInformative = () => (
     process is completed. <a href="/">Manage users</a>
   </InlineNotification>
 )
-
 DismissibleInformative.storyName = "Dismissible, Informative"
 
 export const DismissibleCautionary = () => (
@@ -119,7 +115,6 @@ export const DismissibleCautionary = () => (
     issues. <a href="/">View issues</a>
   </InlineNotification>
 )
-
 DismissibleCautionary.storyName = "Dismissible, Cautionary"
 
 export const DismissibleNegative = () => (
@@ -131,7 +126,6 @@ export const DismissibleNegative = () => (
     Check your connection and try again. <a href="/">Refresh</a>.
   </InlineNotification>
 )
-
 DismissibleNegative.storyName = "Dismissible, Negative"
 
 export const DismissibleMultiline = () => (
@@ -143,8 +137,8 @@ export const DismissibleMultiline = () => (
     {multilineText}
   </InlineNotification>
 )
-
 DismissibleMultiline.storyName = "Dismissible, Multiline"
+DismissibleMultiline.parameters = { chromatic: { disable: false } }
 
 export const DismissibleForcedMultiline = () => (
   <InlineNotification
@@ -156,7 +150,6 @@ export const DismissibleForcedMultiline = () => (
     {forceMultilineText}
   </InlineNotification>
 )
-
 DismissibleForcedMultiline.storyName = "Dismissible, Forced Multiline"
 
 export const DismissibleSlim = () => (
@@ -168,7 +161,6 @@ export const DismissibleSlim = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 DismissibleSlim.storyName = "Dismissible, Slim"
 
 export const PersistentPositive = () => (
@@ -182,7 +174,6 @@ export const PersistentPositive = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 PersistentPositive.storyName = "Persistent, Positive"
 
 export const PersistentInformative = () => (
@@ -196,7 +187,6 @@ export const PersistentInformative = () => (
     process is completed. <a href="/">Manage users</a>
   </InlineNotification>
 )
-
 PersistentInformative.storyName = "Persistent, Informative"
 
 export const PersistentCautionary = () => (
@@ -210,7 +200,6 @@ export const PersistentCautionary = () => (
     issues. <a href="/">View issues</a>
   </InlineNotification>
 )
-
 PersistentCautionary.storyName = "Persistent, Cautionary"
 
 export const PersistentNegative = () => (
@@ -222,7 +211,6 @@ export const PersistentNegative = () => (
     Check your connection and try again. <a href="/">Refresh</a>.
   </InlineNotification>
 )
-
 PersistentNegative.storyName = "Persistent, Negative"
 
 export const PersistentMultiline = () => (
@@ -235,7 +223,6 @@ export const PersistentMultiline = () => (
     {multilineText}
   </InlineNotification>
 )
-
 PersistentMultiline.storyName = "Persistent, Multiline"
 
 export const PersistentForcedMultiline = () => (
@@ -249,8 +236,8 @@ export const PersistentForcedMultiline = () => (
     {forceMultilineText}
   </InlineNotification>
 )
-
 PersistentForcedMultiline.storyName = "Persistent, Forced Multiline"
+PersistentForcedMultiline.parameters = { chromatic: { disable: false } }
 
 export const PersistentSlim = () => (
   <InlineNotification
@@ -262,11 +249,10 @@ export const PersistentSlim = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-
 PersistentSlim.storyName = "Persistent, Slim"
 
 export const MultipleNotification = () => (
-  <React.Fragment>
+  <>
     <InlineNotification
       type="positive"
       title="Success"
@@ -298,8 +284,9 @@ export const MultipleNotification = () => (
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
-  </React.Fragment>
+  </>
 )
+MultipleNotification.parameters = { chromatic: { disable: false } }
 
 export const NoChildren = () => (
   <InlineNotification title="No children" type="positive" persistent />
