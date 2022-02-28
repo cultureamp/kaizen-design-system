@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.5...@kaizen/stylelint-plugin@2.4.6) (2022-02-24)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
 ## [2.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.4...@kaizen/stylelint-plugin@2.4.5) (2022-02-22)
 
 **Note:** Version bump only for package @kaizen/stylelint-plugin
