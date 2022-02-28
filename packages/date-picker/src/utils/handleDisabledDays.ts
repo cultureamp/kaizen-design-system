@@ -7,13 +7,18 @@ import {
 import { DayOfWeek } from "../DatePicker/DatePicker"
 import { daysToNumbers } from "./daysToNumbers"
 
-export const handleDisableDays = (
-  disabledDates: Date[] | undefined,
-  disabledDaysOfWeek: DayOfWeek[] | undefined,
-  disabledRange: RangeModifier | undefined,
-  disabledBeforeAfter: BeforeAfterModifier | undefined,
-  disabledBefore: Date | undefined,
-  disabledAfter: Date | undefined
+/**
+ * To save the consumer from passing an array of disabledDay options (each being a different object).
+ * We have split the options out so the consumer can pass in an individual disabledDay option for ease of use.
+ */
+
+export const handleDisabledDays = (
+  disabledDates?: Date[],
+  disabledDaysOfWeek?: DayOfWeek[],
+  disabledRange?: RangeModifier,
+  disabledBeforeAfter?: BeforeAfterModifier,
+  disabledBefore?: Date,
+  disabledAfter?: Date
 ): Modifier | Modifier[] => [
   ...(disabledDates ? disabledDates : []),
   {
