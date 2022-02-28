@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React from "react"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -29,15 +28,16 @@ export const MeaningfulKaizenSiteDemo = () => (
     />
   </div>
 )
-
 MeaningfulKaizenSiteDemo.storyName = "Meaningful (Kaizen Site Demo)"
 
 export const Presentational = () => (
   <Icon icon={configureIcon} role="presentation" />
 )
+Presentational.parameters = { chromatic: { disable: false } }
 
 export const InheritSize = () => (
   <div style={{ width: "100%" }}>
     <Icon icon={configureIcon} role="presentation" inheritSize={true} />
   </div>
 )
+InheritSize.parameters = { chromatic: { disable: false } }

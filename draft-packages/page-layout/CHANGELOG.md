@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.1...@kaizen/draft-page-layout@1.7.2) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.0...@kaizen/draft-page-layout@1.7.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* Remove circular dependency from draft-page-layout ([#2550](https://github.com/cultureamp/kaizen-design-system/issues/2550)) ([10ae4dd](https://github.com/cultureamp/kaizen-design-system/commit/10ae4dd8bb97a83a97939f6894d1292b079e6ad4))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.6.0...@kaizen/draft-page-layout@1.7.0) (2022-02-10)
 
 

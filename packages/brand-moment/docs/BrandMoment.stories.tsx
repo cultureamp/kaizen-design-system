@@ -56,6 +56,7 @@ export const InformativeIntro = (_, { isRTL }) => (
   />
 )
 InformativeIntro.storyName = "Informative intro"
+InformativeIntro.parameters = { chromatic: { disable: false } }
 
 export const PositiveOutro = (_, { isRTL }) => (
   <BrandMoment
@@ -153,6 +154,7 @@ export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
   />
 )
 PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
+PositiveOutroCustomerFocused.parameters = { chromatic: { disable: false } }
 
 export const Error = (_, { isRTL }) => (
   <BrandMoment
@@ -187,3 +189,4 @@ export const Error = (_, { isRTL }) => (
     }}
   />
 )
+Error.parameters = { chromatic: { disable: false } }

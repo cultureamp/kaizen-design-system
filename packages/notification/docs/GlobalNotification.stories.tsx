@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React from "react"
 import { GlobalNotification } from "@kaizen/notification"
 import { Heading, Box } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
@@ -113,5 +112,5 @@ export const GlobalNotificationVariants = () => (
     </div>
   </div>
 )
-
 GlobalNotificationVariants.storyName = "Global notification variants"
+GlobalNotificationVariants.parameters = { chromatic: { disable: false } }

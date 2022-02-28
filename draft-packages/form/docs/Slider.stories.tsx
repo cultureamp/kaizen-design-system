@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
 import { Paragraph, Box } from "@kaizen/component-library"
@@ -38,6 +38,7 @@ export const Uncontrolled = () => (
   />
 )
 Uncontrolled.storyName = "Uncontrolled"
+Uncontrolled.parameters = { chromatic: { disable: false } }
 
 export const Controlled = () => {
   const [value, setValue] = useState(5.5)
@@ -66,6 +67,7 @@ export const LabelAboveSlider = () => (
   />
 )
 LabelAboveSlider.storyName = "Label above input"
+LabelAboveSlider.parameters = { chromatic: { disable: false } }
 
 export const CustomMinMaxLabels = () => (
   <Slider
@@ -92,6 +94,7 @@ export const CustomMinMax = () => (
   />
 )
 CustomMinMax.storyName = "Custom min/max"
+CustomMinMax.parameters = { chromatic: { disable: false } }
 
 export const Prominent = () => (
   <Slider
@@ -104,6 +107,7 @@ export const Prominent = () => (
   />
 )
 Prominent.storyName = "Prominent"
+Prominent.parameters = { chromatic: { disable: false } }
 
 export const Disabled = () => (
   <Slider
@@ -117,6 +121,7 @@ export const Disabled = () => (
   />
 )
 Disabled.storyName = "Disabled"
+Disabled.parameters = { chromatic: { disable: false } }
 
 export const ReadOnly = () => (
   <Slider
@@ -143,6 +148,7 @@ export const ReadOnlyNoValue = () => (
   />
 )
 ReadOnlyNoValue.storyName = "Read only (no value)"
+ReadOnlyNoValue.parameters = { chromatic: { disable: false } }
 
 export const UsingPrimitive = () => (
   <>
