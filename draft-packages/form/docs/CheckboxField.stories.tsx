@@ -3,6 +3,7 @@ import { CheckboxField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const REVERSED_BG = {
   backgrounds: {
@@ -21,7 +22,7 @@ type Props = {
 
 class CheckboxFieldExample extends React.Component<Props> {
   state = {
-    checkedStatus: "mixed",
+    checkedStatus: "off",
   }
 
   constructor(props: Props) {
@@ -74,165 +75,100 @@ export const InteractiveKaizenSiteDemo = () => (
         onCheck={onCheckHandler}
         id="checkbox-1"
         checkedStatus={checkedStatus as any}
-        labelText={
-          <span>
-            This is a label with a{" "}
-            <a href="http://google.com" target="_blank">
-              link
-            </a>
-          </span>
-        }
+        labelText="This is a label"
       />
     )}
   />
 )
 InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
-export const On = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    disabled={false}
-    labelText="Label"
-  />
+export const StickerSheetDefault = () => (
+  <StoryWrapper>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="On">
+      <CheckboxField id="checkbox-2" checkedStatus="on" labelText="Label" />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled
+        labelText="Label"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Off">
+      <CheckboxField id="checkbox-4" checkedStatus="off" labelText="Label" />
+      <CheckboxField
+        id="checkbox-4"
+        checkedStatus="off"
+        labelText="Label"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Mixed">
+      <CheckboxField id="checkbox-3" checkedStatus="mixed" labelText="Label" />
+      <CheckboxField
+        id="checkbox-4"
+        checkedStatus="mixed"
+        labelText="Label"
+        disabled
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-export const Mixed = () => (
-  <CheckboxField
-    id="checkbox-3"
-    checkedStatus="mixed"
-    disabled={false}
-    labelText="Label"
-  />
+export const StickerSheetReversed = () => (
+  <StoryWrapper isReversed>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="On">
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        labelText="Label"
+        reversed
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled
+        labelText="Label"
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Off">
+      <CheckboxField
+        id="checkbox-4"
+        checkedStatus="off"
+        labelText="Label"
+        reversed
+      />
+      <CheckboxField
+        id="checkbox-4"
+        checkedStatus="off"
+        labelText="Label"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Mixed">
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="mixed"
+        labelText="Label"
+        reversed
+      />
+      <CheckboxField
+        id="checkbox-4"
+        checkedStatus="mixed"
+        labelText="Label"
+        disabled
+        reversed
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-export const Off = () => (
-  <CheckboxField
-    id="checkbox-4"
-    checkedStatus="off"
-    disabled={false}
-    labelText="Label"
-  />
-)
-
-export const DisabledOn = () => (
-  <CheckboxField
-    id="checkbox-5"
-    checkedStatus="on"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledOn.storyName = "Disabled + on"
-
-export const DisabledMixed = () => (
-  <CheckboxField
-    id="checkbox-6"
-    checkedStatus="mixed"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledMixed.storyName = "Disabled + mixed"
-
-export const DisabledOff = () => (
-  <CheckboxField
-    id="checkbox-7"
-    checkedStatus="off"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledOff.storyName = "Disabled + off"
-
-export const WithBottomMargin = () => (
-  <div>
-    <CheckboxField
-      id="checkbox-1"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-    <CheckboxField
-      id="checkbox-2"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-  </div>
-)
-WithBottomMargin.storyName = "with bottom margin"
-
-export const WithoutBottomMargin = () => (
-  <div>
-    <CheckboxField
-      noBottomMargin
-      id="checkbox-1"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-    <CheckboxField
-      noBottomMargin
-      id="checkbox-2"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-  </div>
-)
-WithoutBottomMargin.storyName = "without bottom margin"
-
-export const ReversedOn = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    labelText="Label"
-    reversed
-  />
-)
-ReversedOn.story = {
-  name: "Reversed + on",
-  parameters: { ...REVERSED_BG },
-}
-
-export const ReversedDisabledOn = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    labelText="Label"
-    reversed
-    disabled
-  />
-)
-ReversedDisabledOn.story = {
-  name: "Reversed Disabled + on",
-  parameters: { ...REVERSED_BG },
-}
-
-export const ReversedOff = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="off"
-    labelText="Label"
-    reversed
-  />
-)
-ReversedOff.story = {
-  name: "Reversed + off",
-  parameters: { ...REVERSED_BG },
-}
-
-export const ReversedDisabledOff = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="off"
-    labelText="Label"
-    reversed
-    disabled
-  />
-)
-ReversedDisabledOff.story = {
-  name: "Reversed Disabled + off",
-  parameters: { ...REVERSED_BG },
+StickerSheetReversed.story = {
+  name: "Sticker Sheet (Reversed)",
+  parameters: {
+    ...REVERSED_BG,
+  },
 }
