@@ -5,8 +5,6 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
-import avatarGroupData from "./avatarGroupData.json"
-
 export default {
   title: `${CATEGORIES.components}/Avatar/Avatar Group`,
   component: AvatarGroup,
@@ -32,18 +30,63 @@ DefaultStory.args = {
 }
 
 export const StickerSheetDefault = () => {
-  const data = avatarGroupData["users"] as AvatarList
+  const EXAMPLE_USER_1 = {
+    fullName: "Adirana Aniseed",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_2 = {
+    fullName: "Bethany Blueberry",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_3 = {
+    fullName: "Carey Cringle",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_4 = {
+    fullName: "Derrick Doolittle",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_5 = {
+    fullName: "Evan Eavesdrop",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+  const EXAMPLE_USER_6 = {
+    fullName: "Fern Furlow",
+    disableInitials: false,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+    isCurrentUser: false,
+  }
+
+  const AVATARS = [
+    EXAMPLE_USER_1,
+    EXAMPLE_USER_2,
+    EXAMPLE_USER_3,
+    EXAMPLE_USER_4,
+    EXAMPLE_USER_5,
+    EXAMPLE_USER_6,
+  ] as AvatarList
+
   return (
     <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Deafult"]} />
+      <StoryWrapper.RowHeader headings={["Default"]} />
       <StoryWrapper.Row rowTitle="Large">
-        <AvatarGroup maxVisible={2} avatars={data} size="large" />
+        <AvatarGroup maxVisible={2} avatars={AVATARS} size="large" />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Medium">
-        <AvatarGroup maxVisible={2} avatars={data} size="medium" />
+        <AvatarGroup maxVisible={2} avatars={AVATARS} size="medium" />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Small">
-        <AvatarGroup maxVisible={2} avatars={data} size="small" />
+        <AvatarGroup maxVisible={2} avatars={AVATARS} size="small" />
       </StoryWrapper.Row>
     </StoryWrapper>
   )
