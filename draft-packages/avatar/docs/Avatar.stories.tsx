@@ -1,12 +1,10 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
-import { Avatar, AvatarProps } from "../../avatar/KaizenDraft/Avatar/Avatar"
+import { Avatar } from "../../avatar/KaizenDraft/Avatar/Avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-
-// Data
-import avatarStoryData from "./avatarData.json"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Avatar/Avatar`,
@@ -14,8 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { Avatar } from "@kaizen/draft-avatar". For the company variant, please refer Company Avatar Story for how to use the `isCompany` prop.',
+        component: 'import { Avatar } from "@kaizen/draft-avatar"',
       },
     },
     ...figmaEmbed(
@@ -37,123 +34,133 @@ DefaultStory.args = {
 }
 DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
-export const DesignSheetDefault = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["users"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-DesignSheetDefault.storyName = "Design Sheet (default)"
-DesignSheetDefault.parameters = { chromatic: { disable: false } }
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const PROPS_PHOTO_PERSONAL = {
+    fullName: "Jane Doe",
+    disableInitials: false,
+    isCurrentUser: true,
+    avatarSrc:
+      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  }
 
-export const DesignSheetReversed = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["users"].map(story => (
-      <div>
-        <Heading color="white" tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-DesignSheetReversed.storyName = "Design Sheet (reversed)"
-DesignSheetReversed.parameters = {
+  const PROPS_INITIALS_PERSONAL = {
+    fullName: "Jane Doe",
+    disableInitials: false,
+    isCurrentUser: true,
+  }
+
+  const PROPS_INITIALS_GENERIC = {
+    fullName: "Jane Doe",
+    disableInitials: false,
+    isCurrentUser: false,
+  }
+
+  const PROPS_INITIALS_INICODE = {
+    fullName: "李存信",
+    disableInitials: false,
+    isCurrentUser: true,
+  }
+
+  const PROPS_INITIALS_LONG = {
+    fullName:
+      "Spicy Jalapeno Taco Bacon Ipsum Pretzel Dolor Amet Nacho Elit Chicken",
+    disableInitials: false,
+    isCurrentUser: true,
+  }
+
+  const PROPS_COMPANY = {
+    fullName: "Hooli",
+    avatarSrc:
+      "https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg",
+    isCompany: true,
+  }
+
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={[
+            "Photo Personal",
+            "Intials Personal",
+            "Initals Generic",
+            "Default User",
+          ]}
+        />
+        <StoryWrapper.Row rowTitle="XX-Large">
+          <Avatar {...PROPS_PHOTO_PERSONAL} size="xxlarge" />
+          <Avatar {...PROPS_INITIALS_PERSONAL} size="xxlarge" />
+          <Avatar {...PROPS_INITIALS_GENERIC} size="xxlarge" />
+          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="xxlarge" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="X-Large">
+          <Avatar {...PROPS_PHOTO_PERSONAL} size="xlarge" />
+          <Avatar {...PROPS_INITIALS_PERSONAL} size="xlarge" />
+          <Avatar {...PROPS_INITIALS_GENERIC} size="xlarge" />
+          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="xlarge" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Large">
+          <Avatar {...PROPS_PHOTO_PERSONAL} size="large" />
+          <Avatar {...PROPS_INITIALS_PERSONAL} size="large" />
+          <Avatar {...PROPS_INITIALS_GENERIC} size="large" />
+          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="large" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Medium">
+          <Avatar {...PROPS_PHOTO_PERSONAL} size="medium" />
+          <Avatar {...PROPS_INITIALS_PERSONAL} size="medium" />
+          <Avatar {...PROPS_INITIALS_GENERIC} size="medium" />
+          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="medium" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Small">
+          <Avatar {...PROPS_PHOTO_PERSONAL} size="small" />
+          <Avatar {...PROPS_INITIALS_PERSONAL} size="small" />
+          <Avatar {...PROPS_INITIALS_GENERIC} size="small" />
+          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="small" />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
+        />
+        <StoryWrapper.Row rowTitle="XX-Large">
+          <Avatar {...PROPS_INITIALS_INICODE} size="xxlarge" />
+          <Avatar {...PROPS_INITIALS_LONG} size="xxlarge" />
+          <Avatar {...PROPS_COMPANY} size="xxlarge" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="X-Large">
+          <Avatar {...PROPS_INITIALS_INICODE} size="xlarge" />
+          <Avatar {...PROPS_INITIALS_LONG} size="xlarge" />
+          <Avatar {...PROPS_COMPANY} size="xlarge" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Large">
+          <Avatar {...PROPS_INITIALS_INICODE} size="large" />
+          <Avatar {...PROPS_INITIALS_LONG} size="large" />
+          <Avatar {...PROPS_COMPANY} size="large" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Medium">
+          <Avatar {...PROPS_INITIALS_INICODE} size="medium" />
+          <Avatar {...PROPS_INITIALS_LONG} size="medium" />
+          <Avatar {...PROPS_COMPANY} size="medium" />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Small">
+          <Avatar {...PROPS_INITIALS_INICODE} size="small" />
+          <Avatar {...PROPS_INITIALS_LONG} size="small" />
+          <Avatar {...PROPS_COMPANY} size="small" />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
-
-export const InitialsLong = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["initials-long"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-InitialsLong.parameters = { chromatic: { disable: false } }
-
-export const InitialsUnicode = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-      gap: "2.5rem",
-    }}
-  >
-    {avatarStoryData["initials-unicode"].map(story => (
-      <div>
-        <Heading tag="h2" variant="heading-2">
-          {story.title}
-        </Heading>
-        <br />
-        {(story.stories as AvatarProps[]).map((storyData: AvatarProps) => {
-          const avatarProps = storyData as AvatarProps
-          return (
-            <>
-              <Avatar {...avatarProps} />
-              <br />
-            </>
-          )
-        })}
-      </div>
-    ))}
-  </div>
-)
-InitialsUnicode.parameters = { chromatic: { disable: false } }
