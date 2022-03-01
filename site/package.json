@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.94",
+  "version": "0.0.0-private.95",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.2.2",
@@ -10,7 +10,7 @@
     "@kaizen/draft-card": "^1.7.3",
     "@kaizen/draft-divider": "^1.9.2",
     "@kaizen/draft-illustration": "^3.6.7",
-    "@kaizen/draft-tag": "^2.3.10",
+    "@kaizen/draft-tag": "^2.3.11",
     "@kaizen/hosted-assets": "^1.1.0",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
