@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { CheckboxField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -68,7 +69,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const InteractiveKaizenSiteDemo = () => (
+export const DefaultKaizenDemo = () => (
   <CheckboxFieldExample
     render={({ checkedStatus, onCheckHandler }) => (
       <CheckboxField
@@ -80,95 +81,69 @@ export const InteractiveKaizenSiteDemo = () => (
     )}
   />
 )
-InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
+DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
 
-export const StickerSheetDefault = () => (
-  <StoryWrapper>
-    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
-    <StoryWrapper.Row rowTitle="On">
-      <CheckboxField id="checkbox-2" checkedStatus="on" labelText="Label" />
-      <CheckboxField
-        id="checkbox-2"
-        checkedStatus="on"
-        disabled
-        labelText="Label"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Off">
-      <CheckboxField id="checkbox-4" checkedStatus="off" labelText="Label" />
-      <CheckboxField
-        id="checkbox-4"
-        checkedStatus="off"
-        labelText="Label"
-        disabled
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Mixed">
-      <CheckboxField id="checkbox-3" checkedStatus="mixed" labelText="Label" />
-      <CheckboxField
-        id="checkbox-4"
-        checkedStatus="mixed"
-        labelText="Label"
-        disabled
-      />
-    </StoryWrapper.Row>
-  </StoryWrapper>
-)
-
-export const StickerSheetReversed = () => (
-  <StoryWrapper isReversed>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
     <StoryWrapper.Row rowTitle="On">
       <CheckboxField
-        id="checkbox-2"
+        id="checkbox-1"
         checkedStatus="on"
         labelText="Label"
-        reversed
+        reversed={isReversed}
       />
       <CheckboxField
         id="checkbox-2"
         checkedStatus="on"
         disabled
         labelText="Label"
-        reversed
+        reversed={isReversed}
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Off">
-      <CheckboxField
-        id="checkbox-4"
-        checkedStatus="off"
-        labelText="Label"
-        reversed
-      />
-      <CheckboxField
-        id="checkbox-4"
-        checkedStatus="off"
-        labelText="Label"
-        disabled
-        reversed
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Mixed">
       <CheckboxField
         id="checkbox-3"
-        checkedStatus="mixed"
+        checkedStatus="off"
         labelText="Label"
-        reversed
+        reversed={isReversed}
       />
       <CheckboxField
         id="checkbox-4"
+        checkedStatus="off"
+        labelText="Label"
+        disabled
+        reversed={isReversed}
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Mixed">
+      <CheckboxField
+        id="checkbox-5"
+        checkedStatus="mixed"
+        labelText="Label"
+        reversed={isReversed}
+      />
+      <CheckboxField
+        id="checkbox-6"
         checkedStatus="mixed"
         labelText="Label"
         disabled
-        reversed
+        reversed={isReversed}
       />
     </StoryWrapper.Row>
   </StoryWrapper>
 )
 
-StickerSheetReversed.story = {
-  name: "Sticker Sheet (Reversed)",
-  parameters: {
-    ...REVERSED_BG,
-  },
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
