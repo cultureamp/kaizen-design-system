@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Button } from "@kaizen/button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
