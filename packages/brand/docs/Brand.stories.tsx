@@ -33,7 +33,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader headings={["Default"]} />
     <StoryWrapper.Row rowTitle="Logo Horizontal">
       <Brand
         alt="Culture Amp"
