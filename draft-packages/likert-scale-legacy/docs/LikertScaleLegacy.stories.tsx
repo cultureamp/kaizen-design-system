@@ -71,7 +71,7 @@ export const DefaultStory = () => {
     </>
   )
 }
-DefaultStory.storyName = "Default"
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
