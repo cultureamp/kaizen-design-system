@@ -1,9 +1,9 @@
 {
   "name": "site",
-  "version": "0.0.0-private.91",
+  "version": "0.0.0-private.92",
   "private": true,
   "dependencies": {
-    "@kaizen/brand": "^1.2.1",
+    "@kaizen/brand": "^1.2.2",
     "@kaizen/component-library": "^12.4.6",
     "@kaizen/design-tokens": "^7.0.2",
     "@kaizen/draft-button": "^5.6.6",
