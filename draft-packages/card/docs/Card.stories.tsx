@@ -7,7 +7,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/Container`,
+  title: `${CATEGORIES.components}/Card`,
   component: Card,
   parameters: {
     docs: {
