@@ -7,10 +7,18 @@ import {
 } from "./components/StoryRowHeader"
 import { StoryRow, StoryRowProps } from "./components/StoryRow"
 
+type ReversibleSubcomponents = StoryRowHeaderProps | StoryRowProps
+
+const isReversibleSubcomponent = (
+  child: React.ReactNode
+): child is React.ReactElement<ReversibleSubcomponents> =>
+  React.isValidElement<ReversibleSubcomponents>(child) &&
+  (child.type === StoryRowHeader || child.type === StoryRow)
+
 export interface StoryWrapperProps {
+  children: React.ReactNode
   hasNoRowTitles?: boolean
   isReversed?: boolean
-  children: Array<React.ReactElement<StoryRowHeaderProps | StoryRowProps>>
 }
 
 type Subcomponents = {
@@ -19,8 +27,8 @@ type Subcomponents = {
 }
 
 export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
-  hasNoRowTitles = false,
   children,
+  hasNoRowTitles = false,
   isReversed = false,
 }) => {
   const childrenCount: number = React.Children.count(children)
@@ -34,17 +42,20 @@ export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
         gridTemplateRows: `repeat(${childrenCount}, min-content)`,
       }}
     >
-      {React.Children.map(children, child =>
-        React.cloneElement(child, {
-          ...child.props,
-          isReversed,
-        })
-      )}
+      {React.Children.map(children, child => {
+        if (isReversibleSubcomponent(child)) {
+          return React.cloneElement(child, {
+            ...child.props,
+            isReversed,
+          })
+        }
+
+        return child
+      })}
     </div>
   )
 }
 
-// Allows dot notation in the component
 StoryWrapper.Row = StoryRow
 StoryWrapper.RowHeader = StoryRowHeader
 
