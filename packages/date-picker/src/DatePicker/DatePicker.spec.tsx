@@ -13,26 +13,28 @@ const defaultProps = {
 }
 
 describe("<DatePicker />", () => {
-  it("renders DatePicker and shows/hides calendar on focus of input", async () => {
+  it("renders DatePicker and shows/hides calendar on button press", async () => {
     render(<DatePicker {...defaultProps} />)
 
-    const element = screen.getByDisplayValue("Mar 1, 2022")
+    // Make sure date renders in the button
+    expect(screen.getByText("Mar 1, 2022")).toBeInTheDocument()
+
+    const element = screen.getByRole("button")
 
     // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    // Focus input and test calendar popup is showing
-    await act(async () => element.focus())
-    expect(element).toHaveFocus()
+    // Click button and test calendar popup is showing
+    await act(async () => element.click())
     expect(screen.getByRole("dialog")).toBeVisible()
   })
 
-  it("is able to select date and shows in input", async () => {
+  it("is able to select date and shows in button", async () => {
     render(<DatePicker {...defaultProps} />)
 
-    const element = screen.getByDisplayValue("Mar 1, 2022")
+    const element = screen.getByRole("button")
 
-    await act(async () => element.focus())
+    await act(async () => element.click())
 
     // Focus on date and select
     const selectedDate = screen.getByRole("gridcell", {
@@ -48,10 +50,10 @@ describe("<DatePicker />", () => {
     expect(element.innerText === "Mar 6, 2022")
   })
 
-  it("has disabled attribute on input", async () => {
+  it("has disabled attribute on button", async () => {
     render(<DatePicker {...defaultProps} isDisabled />)
 
-    const element = screen.getByDisplayValue("Mar 1, 2022")
+    const element = screen.getByRole("button")
 
     expect(element).toHaveAttribute("disabled")
   })
