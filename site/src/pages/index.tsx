@@ -1,6 +1,6 @@
 import { Heading } from "@kaizen/component-library"
 import { Strategy, OneOnOne, ManagerLearning } from "@kaizen/draft-illustration"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"

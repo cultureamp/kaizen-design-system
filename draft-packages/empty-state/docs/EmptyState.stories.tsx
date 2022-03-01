@@ -1,7 +1,7 @@
 import React from "react"
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { withDesign } from "storybook-addon-designs"
 import { EmptyState } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
