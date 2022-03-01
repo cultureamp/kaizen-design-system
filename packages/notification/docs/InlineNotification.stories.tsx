@@ -1,40 +1,11 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
+import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const multilineText = (
-  <>
-    There’s a problem connecting to your HRIS. Check your HRIS is working and
-    check your <a href="/">integration settings</a>, or if you require more
-    assistance please <a href="/">contact support</a>... or just don't do
-    anything and observe that this notification contains an absurd amount of
-    text that is purposely verbose in order to demonstrate that verbosity is, in
-    most cases, just in general really, i guess it's debatable, unnecessary and
-    to demonstrate that verbosity makes this notification's body text spit into
-    multiple lines because there is, surely, unequivocally, no way that all of
-    this can fit into one line of text on an average screen...
-  </>
-)
-
-const forceMultilineText = (
-  <>
-    This is a short line which we want to see underneath the notification
-    heading.
-    <ol>
-      <li>Contact support</li>
-      <li>Contact your admin</li>
-    </ol>
-  </>
-)
-
-const withContentBelow = (Story: React.FunctionComponent) => (
-  <>
-    <Story />
-    <p>Content below the notification</p>
-  </>
-)
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
@@ -49,10 +20,10 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13877%3A66008"
     ),
   },
-  decorators: [withDesign, withContentBelow],
+  decorators: [withDesign],
 }
 
-export const DismissiblePositiveKaizenSiteDemo = () => (
+export const KaizenDemo = () => (
   <InlineNotification
     type="positive"
     title="Success"
@@ -62,232 +33,117 @@ export const DismissiblePositiveKaizenSiteDemo = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-DismissiblePositiveKaizenSiteDemo.storyName =
-  "Dismissible, Positive (Kaizen Site Demo)"
-
-export const DismissiblePositiveAutohide = () => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    autohide
-    automationId="notification1"
-  >
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-DismissiblePositiveAutohide.storyName = "Dismissible, Positive, Autohide"
-
-export const DismissiblePositiveAutohideHideCloseIcon = () => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    autohide
-    hideCloseIcon
-    automationId="notification1"
-  >
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-DismissiblePositiveAutohideHideCloseIcon.storyName =
-  "Dismissible, Positive, Autohide, Hide Close Icon"
-
-export const DismissibleInformative = () => (
-  <InlineNotification
-    type="informative"
-    title="Informative"
-    automationId="notification1"
-  >
-    New user data is currently being processed. We'll let you know when the
-    process is completed. <a href="/">Manage users</a>
-  </InlineNotification>
-)
-DismissibleInformative.storyName = "Dismissible, Informative"
-
-export const DismissibleCautionary = () => (
-  <InlineNotification
-    type="cautionary"
-    title="Warning"
-    automationId="notification1"
-  >
-    New user data, imported by mackenzie@hooli.com has uploaded with some minor
-    issues. <a href="/">View issues</a>
-  </InlineNotification>
-)
-DismissibleCautionary.storyName = "Dismissible, Cautionary"
-
-export const DismissibleNegative = () => (
-  <InlineNotification
-    type="negative"
-    title="No network connection"
-    automationId="notification1"
-  >
-    Check your connection and try again. <a href="/">Refresh</a>.
-  </InlineNotification>
-)
-DismissibleNegative.storyName = "Dismissible, Negative"
-
-export const DismissibleMultiline = () => (
-  <InlineNotification
-    type="negative"
-    title="Negative"
-    automationId="notification1"
-  >
-    {multilineText}
-  </InlineNotification>
-)
-DismissibleMultiline.storyName = "Dismissible, Multiline"
-DismissibleMultiline.parameters = { chromatic: { disable: false } }
-
-export const DismissibleForcedMultiline = () => (
-  <InlineNotification
-    type="negative"
-    title="Negative"
-    automationId="notification1"
-    forceMultiline
-  >
-    {forceMultilineText}
-  </InlineNotification>
-)
-DismissibleForcedMultiline.storyName = "Dismissible, Forced Multiline"
-
-export const DismissibleSlim = () => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    automationId="notification1"
-  >
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-DismissibleSlim.storyName = "Dismissible, Slim"
-
-export const PersistentPositive = () => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    persistent
-    automationId="notification1"
-  >
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-PersistentPositive.storyName = "Persistent, Positive"
-
-export const PersistentInformative = () => (
-  <InlineNotification
-    type="informative"
-    title="Informative"
-    persistent
-    automationId="notification1"
-  >
-    New user data is currently being processed. We'll let you know when the
-    process is completed. <a href="/">Manage users</a>
-  </InlineNotification>
-)
-PersistentInformative.storyName = "Persistent, Informative"
-
-export const PersistentCautionary = () => (
-  <InlineNotification
-    type="cautionary"
-    title="Warning"
-    persistent
-    automationId="notification1"
-  >
-    New user data, imported by mackenzie@hooli.com has uploaded with some minor
-    issues. <a href="/">View issues</a>
-  </InlineNotification>
-)
-PersistentCautionary.storyName = "Persistent, Cautionary"
-
-export const PersistentNegative = () => (
-  <InlineNotification
-    type="negative"
-    title="No network connection"
-    automationId="notification1"
-  >
-    Check your connection and try again. <a href="/">Refresh</a>.
-  </InlineNotification>
-)
-PersistentNegative.storyName = "Persistent, Negative"
-
-export const PersistentMultiline = () => (
-  <InlineNotification
-    type="negative"
-    title="Negative"
-    persistent
-    automationId="notification1"
-  >
-    {multilineText}
-  </InlineNotification>
-)
-PersistentMultiline.storyName = "Persistent, Multiline"
-
-export const PersistentForcedMultiline = () => (
-  <InlineNotification
-    type="negative"
-    title="Negative"
-    persistent
-    automationId="notification1"
-    forceMultiline
-  >
-    {forceMultilineText}
-  </InlineNotification>
-)
-PersistentForcedMultiline.storyName = "Persistent, Forced Multiline"
-PersistentForcedMultiline.parameters = { chromatic: { disable: false } }
-
-export const PersistentSlim = () => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    persistent
-    automationId="notification1"
-  >
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-PersistentSlim.storyName = "Persistent, Slim"
-
-export const MultipleNotification = () => (
+KaizenDemo.storyName = "Default (Kaizen Demo)"
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <>
-    <InlineNotification
-      type="positive"
-      title="Success"
-      automationId="notification1"
-    >
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-      <a href="/">Manage users is now available</a>
-    </InlineNotification>
-    <InlineNotification
-      type="informative"
-      title="Informative"
-      automationId="notification2"
-    >
-      New user data is currently being processed. We'll let you know when the
-      process is completed. <a href="/">Manage users</a>
-    </InlineNotification>
-    <InlineNotification
-      type="cautionary"
-      title="Warning"
-      automationId="notification3"
-    >
-      New user data, imported by mackenzie@hooli.com has uploaded with some
-      minor issues. <a href="/">View issues</a>
-    </InlineNotification>
-    <InlineNotification
-      type="negative"
-      title="No network connection"
-      automationId="notification4"
-    >
-      Check your connection and try again. <a href="/">Refresh</a>.
-    </InlineNotification>
+    <StoryWrapper isReversed={isReversed}>
+      <Heading
+        variant="heading-3"
+        tag="h1"
+        color={isReversed ? "white" : "dark"}
+      >
+        Prominent
+      </Heading>
+      <Heading
+        variant="heading-5"
+        tag="h2"
+        color={isReversed ? "white" : "dark"}
+      >
+        Single Line
+      </Heading>
+      <StoryWrapper.RowHeader headings={["Dismissible", "Persistant"]} />
+      <StoryWrapper.Row rowTitle="Informative">
+        <InlineNotification
+          type="informative"
+          title="Informative title"
+          automationId="notification1"
+        >
+          "All Employees - North America" status has been changed to 'Archived'.
+          <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="informative"
+          title="Informative title"
+          automationId="notification1"
+          persistent
+        >
+          "All Employees - North America" status has been changed to 'Archived'.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Positive">
+        <InlineNotification
+          type="positive"
+          title="Positive title"
+          automationId="notification1"
+        >
+          Emails will be sent notifying coaches and inviting reviewers to give
+          their feedback. <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="positive"
+          title="Positive title"
+          automationId="notification1"
+          persistent
+        >
+          Emails will be sent notifying coaches and inviting reviewers to give
+          their feedback.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Negative">
+        <InlineNotification
+          type="negative"
+          title="Negative title"
+          automationId="notification1"
+        >
+          Something went wrong while validating and analyzing user data.{" "}
+          <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="negative"
+          title="Negative title"
+          automationId="notification1"
+          persistent
+        >
+          Something went wrong while validating and analyzing user data.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Cautionary">
+        <InlineNotification
+          type="cautionary"
+          title="Cautionary title"
+          automationId="notification1"
+        >
+          The syncing process can take some time to complete. Keep this window
+          open until complete. <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="cautionary"
+          title="Cautionary title"
+          automationId="notification1"
+          persistent
+        >
+          The syncing process can take some time to complete. Keep this window
+          open until complete.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+    </StoryWrapper>
   </>
 )
-MultipleNotification.parameters = { chromatic: { disable: false } }
 
-export const NoChildren = () => (
-  <InlineNotification title="No children" type="positive" persistent />
-)
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
