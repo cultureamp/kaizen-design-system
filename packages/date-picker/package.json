@@ -37,7 +37,8 @@
     "@popperjs/core": "^2.11.0",
     "classnames": "^2.3.1",
     "react-day-picker": "^7.4.9",
-    "react-popper": "^2.2.5"
+    "react-popper": "^2.2.5",
+    "react-focus-lock": "^2.8.1"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^7.0.2",
