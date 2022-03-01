@@ -41,6 +41,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="Canvas">
       <Divider variant="canvas" isReversed={isReversed} />
     </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Menu Separator">
+      <Divider variant="menuSeparator" isReversed={isReversed} />
+    </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Example">
       <Card variant={isReversed ? "highlight" : "default"}>
         <Box p={0.75}>
