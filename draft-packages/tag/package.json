@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tag",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "description": "The draft Tag component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,9 +32,9 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.4.4",
-    "@kaizen/deprecated-component-library-helpers": "^2.5.1",
-    "@kaizen/draft-avatar": "^2.3.7",
+    "@kaizen/component-library": "^12.4.6",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.2",
+    "@kaizen/draft-avatar": "^2.3.8",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },
@@ -43,7 +43,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
     "react": "^16.9.0 || ^17.0.0"
   }
 }

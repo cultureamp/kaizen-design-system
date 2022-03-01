@@ -1,13 +1,9 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Brand`,
@@ -19,113 +15,56 @@ export default {
         component: 'Import { Brand } from "@kaizen/brand"',
       },
     },
-  },
-}
-
-export const DefaultSiteDemo = _ => (
-  <Brand alt="Culture Amp" variant="logo-horizontal" reversed={false} />
-)
-DefaultSiteDemo.story = {
-  name: "Logo horizontal",
-  parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
     ),
   },
 }
 
-export const LogoHorizontalReversed = () => (
-  <Brand alt="Culture Amp" variant="logo-horizontal" reversed={true} />
-)
-LogoHorizontalReversed.story = {
-  name: "Logo horizontal (Reversed)",
-  parameters: {
-    ...REVERSED_BG,
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
+export const DefaultStory = args => <Brand {...args} />
+DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.args = {
+  alt: "Culture Amp",
+  variant: "logo-horizontal",
+  reversed: false,
 }
 
-export const LogoVertical = () => (
-  <Brand alt="Culture Amp" variant="logo-vertical" reversed={false} />
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.Row rowTitle="Logo Horizontal">
+      <Brand
+        alt="Culture Amp"
+        variant="logo-horizontal"
+        reversed={isReversed}
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Logo Vertical">
+      <Brand alt="Culture Amp" variant="logo-vertical" reversed={isReversed} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Enso">
+      <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Collective Intelligence">
+      <div style={{ width: "200px" }}>
+        <Brand
+          alt="Collective Intelligence"
+          variant="collective-intelligence"
+          reversed={isReversed}
+        />
+      </div>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-LogoVertical.story = {
-  name: "Logo Vertical",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
-}
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const LogoVerticalReversed = () => (
-  <Brand alt="Culture Amp" variant="logo-vertical" reversed={true} />
-)
-LogoVerticalReversed.story = {
-  name: "Logo Vertical (Reversed)",
-  parameters: {
-    ...REVERSED_BG,
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
-}
-
-export const Enso = () => (
-  <Brand alt="Culture Amp" variant="enso" reversed={false} />
-)
-Enso.story = {
-  name: "Enso",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
-}
-
-export const EnsoReversed = () => (
-  <Brand alt="Culture Amp" variant="enso" reversed={true} />
-)
-EnsoReversed.story = {
-  name: "Enso (Reversed)",
-  parameters: {
-    ...REVERSED_BG,
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
-}
-
-export const CollectiveIntelligence = () => (
-  <Brand
-    alt="Collective Intelligence"
-    variant="collective-intelligence"
-    reversed={false}
-  />
-)
-CollectiveIntelligence.story = {
-  name: "Collective Intelligence",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
-}
-
-export const CollectiveIntelligenceReversed = () => (
-  <Brand
-    alt="Collective Intelligence"
-    variant="collective-intelligence"
-    reversed={true}
-  />
-)
-CollectiveIntelligenceReversed.story = {
-  name: "Collective Intelligence (Reversed)",
-  parameters: {
-    ...REVERSED_BG,
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
-  },
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
