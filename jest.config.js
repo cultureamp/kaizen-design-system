@@ -11,6 +11,8 @@ module.exports = {
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
 }
 
+process.env.TZ = "UTC"
+
 if (process.env.USE_REACT_17 === "true") {
   module.exports.cacheDirectory = ".cache/jest-cache-react-17"
   module.exports.moduleNameMapper = {
