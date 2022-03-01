@@ -1,11 +1,10 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
 import { AvatarGroup, AvatarList } from "../KaizenDraft/Avatar/AvatarGroup"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-
-import avatarGroupData from "./avatarGroupData.json"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Avatar/Avatar Group`,
@@ -23,92 +22,86 @@ export default {
   decorators: [withDesign],
 }
 
+const EXAMPLE_USER_1 = {
+  fullName: "Adirana Aniseed",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_2 = {
+  fullName: "Bethany Blueberry",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_3 = {
+  fullName: "Carey Cringle",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_4 = {
+  fullName: "Derrick Doolittle",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_5 = {
+  fullName: "Evan Eavesdrop",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_6 = {
+  fullName: "Fern Furlow",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
+}
+
+const AVATARS: AvatarList = [
+  EXAMPLE_USER_1,
+  EXAMPLE_USER_2,
+  EXAMPLE_USER_3,
+  EXAMPLE_USER_4,
+  EXAMPLE_USER_5,
+  EXAMPLE_USER_6,
+]
+
 export const DefaultStory = args => <AvatarGroup {...args} />
+
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
-  avatars: avatarGroupData["users"],
+  avatars: AVATARS,
 }
 
-export const DesignSheetDefault = () => {
-  const data = avatarGroupData["users"] as AvatarList
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-        gap: "2.5rem",
-        alignItems: "flex-start",
-        width: "auto",
-      }}
-    >
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Large
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="large" />
-      </div>
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Medium
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="medium" />
-      </div>
-      <div>
-        <Heading tag="h4" variant="heading-4">
-          Small
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="small" />
-      </div>
-    </div>
-  )
-}
-DesignSheetDefault.storyName = "Design Sheet (default)"
-DesignSheetDefault.parameters = { chromatic: { disable: false } }
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Default"]} />
+    <StoryWrapper.Row rowTitle="Large">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="large" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Medium">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="medium" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Small">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="small" />
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
 
-export const DesignSheetReversed = () => {
-  const data = avatarGroupData["company"] as AvatarList
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(150px, max-content))",
-        gap: "2.5rem",
-        alignItems: "flex-start",
-        width: "auto",
-      }}
-    >
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Large
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="large" />
-      </div>
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Medium
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="medium" />
-      </div>
-      <div>
-        <Heading tag="h4" color="white" variant="heading-4">
-          Small
-        </Heading>
-        <br />
-        <AvatarGroup maxVisible={2} avatars={data} size="small" />
-      </div>
-    </div>
-  )
-}
-DesignSheetReversed.storyName = "Design Sheet (reversed)"
-DesignSheetReversed.parameters = {
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
