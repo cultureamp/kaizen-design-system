@@ -22,125 +22,77 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => {
-  const EXAMPLE_USER_1 = {
-    fullName: "Adirana Aniseed",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_2 = {
-    fullName: "Bethany Blueberry",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_3 = {
-    fullName: "Carey Cringle",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_4 = {
-    fullName: "Derrick Doolittle",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_5 = {
-    fullName: "Evan Eavesdrop",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_6 = {
-    fullName: "Fern Furlow",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-
-  const AVATARS = [
-    EXAMPLE_USER_1,
-    EXAMPLE_USER_2,
-    EXAMPLE_USER_3,
-    EXAMPLE_USER_4,
-    EXAMPLE_USER_5,
-    EXAMPLE_USER_6,
-  ] as AvatarList
-
-  return <AvatarGroup {...args} avatars={AVATARS} />
+const EXAMPLE_USER_1 = {
+  fullName: "Adirana Aniseed",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
 }
+const EXAMPLE_USER_2 = {
+  fullName: "Bethany Blueberry",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_3 = {
+  fullName: "Carey Cringle",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_4 = {
+  fullName: "Derrick Doolittle",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_5 = {
+  fullName: "Evan Eavesdrop",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+const EXAMPLE_USER_6 = {
+  fullName: "Fern Furlow",
+  disableInitials: false,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+  isCurrentUser: false,
+}
+
+const AVATARS: AvatarList = [
+  EXAMPLE_USER_1,
+  EXAMPLE_USER_2,
+  EXAMPLE_USER_3,
+  EXAMPLE_USER_4,
+  EXAMPLE_USER_5,
+  EXAMPLE_USER_6,
+]
+
+export const DefaultStory = args => <AvatarGroup {...args} />
+
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
   size: "medium",
+  avatars: AVATARS,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
-}) => {
-  const EXAMPLE_USER_1 = {
-    fullName: "Adirana Aniseed",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_2 = {
-    fullName: "Bethany Blueberry",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_3 = {
-    fullName: "Carey Cringle",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_4 = {
-    fullName: "Derrick Doolittle",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_5 = {
-    fullName: "Evan Eavesdrop",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-  const EXAMPLE_USER_6 = {
-    fullName: "Fern Furlow",
-    disableInitials: false,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-    isCurrentUser: false,
-  }
-
-  const AVATARS = [
-    EXAMPLE_USER_1,
-    EXAMPLE_USER_2,
-    EXAMPLE_USER_3,
-    EXAMPLE_USER_4,
-    EXAMPLE_USER_5,
-    EXAMPLE_USER_6,
-  ] as AvatarList
-
-  return (
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Default"]} />
-      <StoryWrapper.Row rowTitle="Large">
-        <AvatarGroup maxVisible={2} avatars={AVATARS} size="large" />
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Medium">
-        <AvatarGroup maxVisible={2} avatars={AVATARS} size="medium" />
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Small">
-        <AvatarGroup maxVisible={2} avatars={AVATARS} size="small" />
-      </StoryWrapper.Row>
-    </StoryWrapper>
-  )
-}
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Default"]} />
+    <StoryWrapper.Row rowTitle="Large">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="large" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Medium">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="medium" />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Small">
+      <AvatarGroup maxVisible={2} avatars={AVATARS} size="small" />
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
