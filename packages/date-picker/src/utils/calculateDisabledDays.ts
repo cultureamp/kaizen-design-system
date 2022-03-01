@@ -12,7 +12,7 @@ import { daysToNumbers } from "./daysToNumbers"
  * We have split the options out so the consumer can pass in an individual disabledDay option for ease of use.
  */
 
-export const handleDisabledDays = (
+export const calculateDisabledDays = (
   disabledDates?: Date[],
   disabledDaysOfWeek?: DayOfWeek[],
   disabledRange?: RangeModifier,

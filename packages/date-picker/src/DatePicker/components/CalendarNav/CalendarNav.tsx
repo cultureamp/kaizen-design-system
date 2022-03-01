@@ -33,3 +33,5 @@ export const CalendarNav: React.VFC<CalendarNavProps> = ({
     </button>
   </div>
 )
+
+CalendarNav.displayName = "CalendarNav"

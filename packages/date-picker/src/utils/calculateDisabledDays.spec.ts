@@ -1,5 +1,5 @@
 import { DayOfWeek } from "../DatePicker/DatePicker"
-import { handleDisabledDays } from "./handleDisabledDays"
+import { calculateDisabledDays } from "./calculateDisabledDays"
 
 const disabledDaysMock = [
   new Date("2022-04-24T00:00:00.000Z"),
@@ -22,7 +22,7 @@ const disabledDaysMock = [
   },
 ]
 
-describe("handleDisabledDays", () => {
+describe("calculateDisabledDays", () => {
   it("returns correct object when passed disabledDays array", () => {
     const disabledDates = [new Date(2022, 3, 24)]
     const disabledDaysOfWeek = [DayOfWeek.Mon, DayOfWeek.Fri]
@@ -37,7 +37,7 @@ describe("handleDisabledDays", () => {
     const disabledBefore = new Date(2022, 1, 16)
     const disabledAfter = new Date(2022, 1, 17)
 
-    const disabledDays = handleDisabledDays(
+    const disabledDays = calculateDisabledDays(
       disabledDates,
       disabledDaysOfWeek,
       disabledRange,

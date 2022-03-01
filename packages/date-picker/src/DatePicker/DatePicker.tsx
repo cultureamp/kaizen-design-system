@@ -12,7 +12,7 @@ import {
 import { Icon } from "@kaizen/component-library"
 import FocusLock from "react-focus-lock"
 import { useClickOutside } from "../hooks/useClickOutside"
-import { handleDisabledDays } from "../utils/handleDisabledDays"
+import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
@@ -156,7 +156,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const disabledDays = handleDisabledDays(
+  const disabledDays = calculateDisabledDays(
     disabledDates,
     disabledDaysOfWeek,
     disabledRange,
@@ -211,3 +211,5 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     </div>
   )
 }
+
+DatePicker.displayName = "DatePicker"

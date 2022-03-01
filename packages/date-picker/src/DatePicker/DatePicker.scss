@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "../mixins/button-reset";
+@import "./mixins";
 
 // Vars
 $button-height: 48px;
