@@ -1,6 +1,6 @@
 import React from "react"
 import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
