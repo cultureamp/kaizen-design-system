@@ -39,8 +39,5 @@
     "@kaizen/component-library": "^12.4.5",
     "@kaizen/button": "^1.0.4",
     "classnames": "^2.3.1"
-  },
-  "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency should remain here until this is moved out of draft packages"
   }
 }

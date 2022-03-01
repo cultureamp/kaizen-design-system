@@ -42,7 +42,7 @@
     "react-media": "^1.10.0"
   },
   "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency should remain here until this is moved out of draft packages"
+    "@kaizen/draft-button": "The draft dependency is for the Elm component"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

@@ -44,7 +44,7 @@
     "react-select": "^4.3.1"
   },
   "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency should remain here until this is moved out of draft packages"
+    "@kaizen/draft-button": "The draft dependency is for the Elm component"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
