@@ -43,6 +43,7 @@ export const DefaultWithDisabledDates = () => {
       id="make-me-unique-2"
       labelText="Label"
       onChange={onDayChange}
+      value={selectedDate}
       disabledRange={{ from: new Date(2022, 1, 14), to: new Date(2022, 1, 16) }}
       disabledDates={[new Date(2022, 2, 25)]}
     />
@@ -51,7 +52,9 @@ export const DefaultWithDisabledDates = () => {
 DefaultWithDisabledDates.parameters = { chromatic: { disable: false } }
 
 export const DefaultInputWithValue = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    new Date(2022, 1, 14)
+  )
 
   const onDayChange = (day: Date) => {
     setSelectedDate(day)
@@ -61,7 +64,7 @@ export const DefaultInputWithValue = () => {
     <DatePicker
       id="make-me-unique-3"
       labelText="Label"
-      value={new Date(2022, 1, 14)}
+      value={selectedDate}
       onChange={onDayChange}
     />
   )
