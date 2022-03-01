@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Story } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
@@ -7,6 +8,7 @@ import {
 import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Likert Scale`,
@@ -48,35 +50,14 @@ const scale: Scale = [
   },
 ]
 
-const labelId = "456"
-
 export const DefaultStory = () => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
+  const labelId = "456"
 
   return (
-    <div>
+    <>
       <div style={{ marginBottom: "40px" }} id={labelId}>
-        <Heading variant="heading-4">How would you rate this survey?</Heading>
-      </div>
-      <LikertScaleLegacy
-        scale={scale}
-        automationId="123"
-        labelId={labelId} // Intended to match the id of the label
-        selectedItem={selectedItem}
-        onSelect={item => setSelectedItem(item)}
-      />
-    </div>
-  )
-}
-DefaultStory.storyName = "Default"
-
-export const Reversed = () => {
-  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-
-  return (
-    <div>
-      <div style={{ marginBottom: "40px" }} id={labelId}>
-        <Heading variant="heading-4" color="white">
+        <Heading variant="heading-4" color="dark">
           How would you rate this survey?
         </Heading>
       </div>
@@ -86,10 +67,75 @@ export const Reversed = () => {
         labelId={labelId} // Intended to match the id of the label
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
-        reversed
       />
-    </div>
+    </>
   )
 }
-Reversed.storyName = "Reversed"
-Reversed.parameters = { backgrounds: { default: "Purple 700" } }
+DefaultStory.storyName = "Default"
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={[]} />
+        <StoryWrapper.Row rowTitle="Default">
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="456"
+            selectedItem={scale[0]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="456"
+            selectedItem={scale[1]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="456"
+            selectedItem={scale[2]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="456"
+            selectedItem={scale[3]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="456"
+            selectedItem={scale[4]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
