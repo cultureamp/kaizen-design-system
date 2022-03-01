@@ -22,8 +22,8 @@ export type CalendarProps = {
   initialMonth?: Date
   firstDayOfWeek: number
   disabledDays?: Modifier | Modifier[]
-  handleOnDayChange: (day: Date, modifiers: DayModifiers) => void
-  handleKeyDown: (e: any) => void
+  onDayChange: (day: Date, modifiers: DayModifiers) => void
+  onKeyDown: (e: any) => void
 }
 
 export type CalendarNavProps = Pick<
@@ -40,8 +40,8 @@ export const Calendar: React.VFC<CalendarProps> = ({
   initialMonth,
   firstDayOfWeek,
   disabledDays,
-  handleOnDayChange,
-  handleKeyDown,
+  onDayChange,
+  onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -87,10 +87,10 @@ export const Calendar: React.VFC<CalendarProps> = ({
           initialMonth={value ? value : initialMonth}
           firstDayOfWeek={firstDayOfWeek}
           disabledDays={disabledDays}
-          onDayClick={handleOnDayChange}
+          onDayClick={onDayChange}
           navbarElement={getNavbar}
           classNames={defaultCalendarClasses}
-          onKeyDown={e => handleKeyDown(e)}
+          onKeyDown={e => onKeyDown(e)}
         />
       </div>
     </div>

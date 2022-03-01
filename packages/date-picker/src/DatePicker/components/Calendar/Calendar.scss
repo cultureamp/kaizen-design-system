@@ -4,13 +4,9 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 
-// Vars
-$border-radius: 7px;
-
 // Calendar styles
 .calendar {
   background-color: $color-white;
-  font-family: $typography-heading-4-font-family;
   z-index: 1;
 
   .wrapper {
@@ -30,6 +26,7 @@ $border-radius: 7px;
 
   .caption {
     text-align: center;
+    font-family: $typography-heading-4-font-family;
     font-size: $typography-heading-4-font-size;
     font-weight: $typography-heading-4-font-weight;
     line-height: $typography-heading-4-line-height;
@@ -39,14 +36,18 @@ $border-radius: 7px;
   }
 
   .weekday {
+    font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
+    letter-spacing: $typography-paragraph-body-letter-spacing;
     font-weight: $typography-paragraph-body-font-weight;
     line-height: $typography-paragraph-body-line-height;
     color: $color-purple-800;
   }
 
   .body {
+    font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
+    letter-spacing: $typography-paragraph-body-letter-spacing;
     font-weight: $typography-paragraph-body-font-weight;
     line-height: $typography-paragraph-body-line-height;
   }
@@ -57,7 +58,7 @@ $border-radius: 7px;
 
   .day {
     padding: calc(#{$spacing-md} / 3) 0.625rem;
-    border-radius: $border-radius;
+    border-radius: $border-solid-border-radius;
     color: $color-purple-800;
 
     &:focus {
@@ -78,13 +79,13 @@ $border-radius: 7px;
   }
 
   .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
-    border-radius: $border-radius;
+    border-radius: $border-solid-border-radius;
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
   .selected:not(.disabled):not(.outside) {
-    border-radius: $border-radius;
+    border-radius: $border-solid-border-radius;
     background-color: $color-blue-500;
     color: $color-white;
   }

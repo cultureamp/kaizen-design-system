@@ -117,7 +117,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
       {
         name: "offset",
         options: {
-          offset: [0, 20],
+          offset: [0, 15],
         },
       },
     ],
@@ -203,8 +203,8 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
-            handleOnDayChange={handleOnDayChange}
-            handleKeyDown={handleKeyDown}
+            onDayChange={handleOnDayChange}
+            onKeyDown={handleKeyDown}
           />
         </FocusLock>
       )}
