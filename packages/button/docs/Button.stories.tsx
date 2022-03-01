@@ -9,12 +9,12 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton, ButtonProps } from ".."
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
+  title: `${CATEGORIES.components}/Button`,
   component: Button,
   args: {
     label: "Label",
@@ -41,6 +41,12 @@ export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
   name: "Default (Kaizen Demo)",
 }
+
+export const DefaultKaizenDemoIcon = args => (
+  <IconButton {...args} icon={trashIcon} />
+)
+DefaultKaizenDemoIcon.storyName = "Default Icon (Kaizen Demo)"
+DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
