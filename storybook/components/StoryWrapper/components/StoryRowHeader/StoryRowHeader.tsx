@@ -23,6 +23,7 @@ export const StoryRowHeader: React.VFC<StoryRowHeaderProps> = ({
     >
       {headings.map(heading => (
         <Heading
+          key={heading}
           variant="heading-5"
           tag="h3"
           color={isReversed ? "white" : "dark"}
