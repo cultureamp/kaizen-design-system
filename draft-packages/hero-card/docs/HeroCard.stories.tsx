@@ -1,11 +1,11 @@
+import React from "react"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
-const surveyIllustration = require("./survey.png")
+const ILLUSTRATION_SURVEY = require("./survey.png")
 
 const renderContent = () => (
   <div
@@ -58,6 +58,7 @@ export const Badge = () => (
     {renderContent()}
   </HeroCard>
 )
+Badge.parameters = { chromatic: { disable: false } }
 
 export const Image = () => (
   <HeroCard
@@ -65,7 +66,7 @@ export const Image = () => (
     badge={<span>1</span>}
     image={
       <img
-        src={surveyIllustration}
+        src={ILLUSTRATION_SURVEY}
         alt=""
         style={{
           position: "absolute",
@@ -79,6 +80,7 @@ export const Image = () => (
     {renderContent()}
   </HeroCard>
 )
+Image.parameters = { chromatic: { disable: false } }
 
 export const CustomLeftContent = () => (
   <HeroCard
@@ -88,6 +90,7 @@ export const CustomLeftContent = () => (
     {renderContent()}
   </HeroCard>
 )
+CustomLeftContent.parameters = { chromatic: { disable: false } }
 
 export const CustomLeftContentAndBadge = () => (
   <HeroCard
@@ -98,6 +101,7 @@ export const CustomLeftContentAndBadge = () => (
     {renderContent()}
   </HeroCard>
 )
+CustomLeftContentAndBadge.parameters = { chromatic: { disable: false } }
 
 export const FullWidth = () => (
   <HeroCard
@@ -108,6 +112,7 @@ export const FullWidth = () => (
     {renderContent()}
   </HeroCard>
 )
+FullWidth.parameters = { chromatic: { disable: false } }
 
 export const BackgroundColors = () => (
   <HeroCard
@@ -117,3 +122,4 @@ export const BackgroundColors = () => (
     {renderContent()}
   </HeroCard>
 )
+BackgroundColors.parameters = { chromatic: { disable: false } }

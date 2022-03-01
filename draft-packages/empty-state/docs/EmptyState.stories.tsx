@@ -1,32 +1,12 @@
+import React from "react"
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
-
-import * as React from "react"
-
 import { Button } from "@kaizen/button"
 import { withDesign } from "storybook-addon-designs"
 import { EmptyState } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-
 import styles from "./EmptyState.stories.scss"
-
-const SidebarAndContentLayout = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => (
-  <div className={styles.container}>
-    <div className={styles.sidebar} />
-    <div className={styles.content}>{children}</div>
-  </div>
-)
-
-const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
-  <div className={styles.container}>
-    <div className={styles.content}>{children}</div>
-  </div>
-)
 
 export default {
   title: `${CATEGORIES.components}/Empty State`,
@@ -51,7 +31,6 @@ export const DefaultKaizenSiteDemo = () => (
           Default or Primary action."
   />
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Positive = () => (
@@ -66,6 +45,7 @@ export const Positive = () => (
     </div>
   </EmptyState>
 )
+Positive.parameters = { chromatic: { disable: false } }
 
 export const Informative = () => (
   <EmptyState
@@ -75,6 +55,7 @@ export const Informative = () => (
     illustrationType="informative"
   />
 )
+Informative.parameters = { chromatic: { disable: false } }
 
 export const Action = () => (
   <EmptyState
@@ -88,6 +69,7 @@ export const Action = () => (
     </div>
   </EmptyState>
 )
+Action.parameters = { chromatic: { disable: false } }
 
 export const Neutral = () => (
   <EmptyState
@@ -97,6 +79,7 @@ export const Neutral = () => (
     illustrationType="neutral"
   />
 )
+Neutral.parameters = { chromatic: { disable: false } }
 
 export const Negative = () => (
   <EmptyState
@@ -110,6 +93,7 @@ export const Negative = () => (
     </div>
   </EmptyState>
 )
+Negative.parameters = { chromatic: { disable: false } }
 
 export const RtlAction = () => (
   <div dir="rtl">
@@ -125,8 +109,8 @@ export const RtlAction = () => (
     </EmptyState>
   </div>
 )
-
 RtlAction.storyName = "RTL, Action"
+RtlAction.parameters = { chromatic: { disable: false } }
 
 export const StraightCorners = () => (
   <EmptyState
@@ -141,5 +125,5 @@ export const StraightCorners = () => (
     </div>
   </EmptyState>
 )
-
 StraightCorners.storyName = "Straight corners"
+StraightCorners.parameters = { chromatic: { disable: false } }

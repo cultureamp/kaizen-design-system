@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { Avatar, AvatarProps } from "../../avatar/KaizenDraft/Avatar/Avatar"
@@ -26,9 +26,7 @@ export default {
 }
 
 export const DefaultStory = args => <Avatar {...args} />
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
-
 DefaultStory.args = {
   avatarSrc:
     "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
@@ -37,7 +35,6 @@ DefaultStory.args = {
   isCompany: false,
   isCurrentUser: false,
 }
-
 DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
 export const DesignSheetDefault = () => (
@@ -67,8 +64,8 @@ export const DesignSheetDefault = () => (
     ))}
   </div>
 )
-
 DesignSheetDefault.storyName = "Design Sheet (default)"
+DesignSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const DesignSheetReversed = () => (
   <div
@@ -97,10 +94,10 @@ export const DesignSheetReversed = () => (
     ))}
   </div>
 )
-
 DesignSheetReversed.storyName = "Design Sheet (reversed)"
 DesignSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 export const InitialsLong = () => (
@@ -130,6 +127,7 @@ export const InitialsLong = () => (
     ))}
   </div>
 )
+InitialsLong.parameters = { chromatic: { disable: false } }
 
 export const InitialsUnicode = () => (
   <div
@@ -158,3 +156,4 @@ export const InitialsUnicode = () => (
     ))}
   </div>
 )
+InitialsUnicode.parameters = { chromatic: { disable: false } }

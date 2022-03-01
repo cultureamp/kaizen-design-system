@@ -1,8 +1,14 @@
+import React from "react"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+
+const REVERSED_BG = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
 
 type RenderProps = {
   selectedOption: string
@@ -53,12 +59,6 @@ export default {
   decorators: [withDesign],
 }
 
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
 export const DefaultKaizenSiteDemo = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }) => (
@@ -91,7 +91,6 @@ export const DefaultKaizenSiteDemo = () => (
     )}
   />
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const WithDisabledRadios = () => (
@@ -127,7 +126,6 @@ export const WithDisabledRadios = () => (
     )}
   />
 )
-
 WithDisabledRadios.storyName = "With disabled radios"
 
 export const Rtl = () => (
@@ -164,8 +162,8 @@ export const Rtl = () => (
     />
   </div>
 )
-
 Rtl.storyName = "RTL"
+Rtl.parameters = { chromatic: { disable: false } }
 
 export const RtlWithDisabledRadios = () => (
   <div dir="rtl">
@@ -203,7 +201,6 @@ export const RtlWithDisabledRadios = () => (
     />
   </div>
 )
-
 RtlWithDisabledRadios.storyName = "RTL with disabled radios"
 
 export const WithLinks = () => (
@@ -254,53 +251,8 @@ export const WithLinks = () => (
     )}
   />
 )
-
 WithLinks.storyName = "With links"
-
-export const WithoutBottomMargin = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <>
-        <RadioGroup noBottomMargin labelText="Radio group label">
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-1"
-            selectedStatus={selectedOption === "radio-1"}
-            onChange={onChangeHandler}
-            value="radio-1"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-2"
-            selectedStatus={selectedOption === "radio-2"}
-            onChange={onChangeHandler}
-            value="radio-2"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-3"
-            selectedStatus={selectedOption === "radio-3"}
-            onChange={onChangeHandler}
-            value="radio-3"
-          />
-        </RadioGroup>
-
-        <Label
-          id="test_label"
-          htmlFor="test_label"
-          automationId="test_label"
-          labelText="Next line"
-          labelType="radio"
-        />
-      </>
-    )}
-  />
-)
-
-WithoutBottomMargin.storyName = "Without bottom margin"
+WithLinks.parameters = { chromatic: { disable: false } }
 
 export const WithBottomMargin = () => (
   <RadioGroupExample
@@ -344,8 +296,53 @@ export const WithBottomMargin = () => (
     )}
   />
 )
-
 WithBottomMargin.storyName = "With bottom margin"
+WithBottomMargin.parameters = { chromatic: { disable: false } }
+
+export const WithoutBottomMargin = () => (
+  <RadioGroupExample
+    render={({ selectedOption, onChangeHandler }) => (
+      <>
+        <RadioGroup noBottomMargin labelText="Radio group label">
+          <RadioField
+            labelText="Label"
+            name="radio"
+            id="radio-1"
+            selectedStatus={selectedOption === "radio-1"}
+            onChange={onChangeHandler}
+            value="radio-1"
+          />
+          <RadioField
+            labelText="Label"
+            name="radio"
+            id="radio-2"
+            selectedStatus={selectedOption === "radio-2"}
+            onChange={onChangeHandler}
+            value="radio-2"
+          />
+          <RadioField
+            labelText="Label"
+            name="radio"
+            id="radio-3"
+            selectedStatus={selectedOption === "radio-3"}
+            onChange={onChangeHandler}
+            value="radio-3"
+          />
+        </RadioGroup>
+
+        <Label
+          id="test_label"
+          htmlFor="test_label"
+          automationId="test_label"
+          labelText="Next line"
+          labelType="radio"
+        />
+      </>
+    )}
+  />
+)
+WithoutBottomMargin.storyName = "Without bottom margin"
+WithoutBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const ReversedDefault = () => (
   <RadioGroupExample
@@ -385,6 +382,7 @@ export const ReversedDefault = () => (
 ReversedDefault.story = {
   name: "Reversed Default",
   parameters: {
-    ...reversedBg,
+    ...REVERSED_BG,
+    chromatic: { disable: false },
   },
 }

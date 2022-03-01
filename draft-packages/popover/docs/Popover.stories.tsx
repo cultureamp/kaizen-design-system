@@ -125,7 +125,6 @@ export const DefaultKaizenSiteDemo = props => {
     </div>
   )
 }
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const OverflowScroll = props => {
@@ -524,3 +523,4 @@ export const StickerSheet = () => {
     </>
   )
 }
+StickerSheet.parameters = { chromatic: { disable: false } }

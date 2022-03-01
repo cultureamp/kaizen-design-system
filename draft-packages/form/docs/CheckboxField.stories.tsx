@@ -1,8 +1,14 @@
+import React from "react"
 import { CheckboxField } from "@kaizen/draft-form"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+
+const REVERSED_BG = {
+  backgrounds: {
+    default: "Purple 700",
+  },
+}
 
 type RenderProps = {
   checkedStatus: string
@@ -48,6 +54,7 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
   component: CheckboxField,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { CheckboxField } from "@kaizen/draft-form";',
@@ -58,12 +65,6 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
-
-const reversedBg = {
-  backgrounds: {
-    default: "Purple 700",
-  },
 }
 
 export const InteractiveKaizenSiteDemo = () => (
@@ -85,7 +86,6 @@ export const InteractiveKaizenSiteDemo = () => (
     )}
   />
 )
-
 InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const On = () => (
@@ -123,7 +123,6 @@ export const DisabledOn = () => (
     labelText="Label"
   />
 )
-
 DisabledOn.storyName = "Disabled + on"
 
 export const DisabledMixed = () => (
@@ -134,7 +133,6 @@ export const DisabledMixed = () => (
     labelText="Label"
   />
 )
-
 DisabledMixed.storyName = "Disabled + mixed"
 
 export const DisabledOff = () => (
@@ -145,7 +143,6 @@ export const DisabledOff = () => (
     labelText="Label"
   />
 )
-
 DisabledOff.storyName = "Disabled + off"
 
 export const WithBottomMargin = () => (
@@ -164,7 +161,6 @@ export const WithBottomMargin = () => (
     />
   </div>
 )
-
 WithBottomMargin.storyName = "with bottom margin"
 
 export const WithoutBottomMargin = () => (
@@ -185,7 +181,6 @@ export const WithoutBottomMargin = () => (
     />
   </div>
 )
-
 WithoutBottomMargin.storyName = "without bottom margin"
 
 export const ReversedOn = () => (
@@ -198,9 +193,7 @@ export const ReversedOn = () => (
 )
 ReversedOn.story = {
   name: "Reversed + on",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedDisabledOn = () => (
@@ -214,9 +207,7 @@ export const ReversedDisabledOn = () => (
 )
 ReversedDisabledOn.story = {
   name: "Reversed Disabled + on",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedOff = () => (
@@ -229,9 +220,7 @@ export const ReversedOff = () => (
 )
 ReversedOff.story = {
   name: "Reversed + off",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }
 
 export const ReversedDisabledOff = () => (
@@ -245,7 +234,5 @@ export const ReversedDisabledOff = () => (
 )
 ReversedDisabledOff.story = {
   name: "Reversed Disabled + off",
-  parameters: {
-    ...reversedBg,
-  },
+  parameters: { ...REVERSED_BG },
 }

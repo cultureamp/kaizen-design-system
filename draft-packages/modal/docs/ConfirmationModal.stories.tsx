@@ -1,9 +1,8 @@
+import React from "react"
 import { Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/button"
 import { ConfirmationModal } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
-
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -50,6 +49,11 @@ export default {
     mood: "cautionary",
   },
   parameters: {
+    chromatic: {
+      disable: false,
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
     docs: {
       description: {
         component: "import { ConfirmationModal } from @kaizen/draft-modal",
@@ -58,10 +62,6 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
-    chromatic: {
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
-    },
     actions: {
       argTypesRegex: "^on.*",
     },

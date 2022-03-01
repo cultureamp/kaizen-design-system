@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from "react"
+import React from "react"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
@@ -48,7 +48,6 @@ export const DefaultKaizenSiteDemo = props => (
     </Tooltip>
   </div>
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.parameters = {
   info: {
@@ -262,6 +261,7 @@ export const StickerSheet = props => (
     </div>
   </div>
 )
+StickerSheet.parameters = { chromatic: { disable: false } }
 
 export const OverflowScroll = props => (
   <>

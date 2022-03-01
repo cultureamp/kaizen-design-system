@@ -54,6 +54,7 @@ export const Uncontrolled = () => (
     </TabPanels>
   </Tabs>
 )
+Uncontrolled.parameters = { chromatic: { disable: false } }
 
 export const Controlled = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
@@ -165,7 +166,6 @@ export const UsageInCard = () => (
     </Tabs>
   </Card>
 )
-
 UsageInCard.parameters = {
   backgrounds: { default: "Gray 100" },
 }
