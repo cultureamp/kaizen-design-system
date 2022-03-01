@@ -6,8 +6,8 @@ import "@testing-library/jest-dom"
 const defaultProps: CalendarProps = {
   value: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
-  handleKeyDown: jest.fn(),
-  handleOnDayChange: jest.fn(),
+  onKeyDown: jest.fn(),
+  onDayChange: jest.fn(),
   firstDayOfWeek: 1,
   setPopperElement: jest.fn(),
   styles: {},

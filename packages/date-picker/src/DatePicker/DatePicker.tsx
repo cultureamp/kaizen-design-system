@@ -79,7 +79,7 @@ export enum DayOfWeek {
   Sat = 6,
 }
 
-export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
+export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
