@@ -1,17 +1,9 @@
 import React, { useState } from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { SearchField } from "@kaizen/draft-form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-const ExampleContainer: React.FunctionComponent = ({ children }) => (
-  <div style={{ width: "98%", margin: "1%" }}>{children}</div>
-)
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Search Field`,
@@ -27,248 +19,66 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = () => {
+export const DefaultKaizenDemo = args => {
   const [value, setValue] = useState("Some value")
 
   return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
+    <SearchField
+      id="search-field"
+      placeholder="Search…"
+      labelText="Label"
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onClear={() => setValue("")}
+      {...args}
+    />
   )
 }
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo) - with state"
+DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
 
-export const SearchFieldLoading = () => {
-  const [value, setValue] = useState("Some value")
-
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const COMMON_PROPS = {
+    placeholder: "Search…",
+    reversed: isReversed,
+    labelText: "Label",
+    value: "Some value",
+  }
   return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        loading
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader
+        headings={["Base", "Filled", "Loading", "Disabled"]}
       />
-    </ExampleContainer>
+      <StoryWrapper.Row rowTitle="Default">
+        <SearchField {...COMMON_PROPS} value={""} id="search-field-1" />
+        <SearchField id="search-field-2" {...COMMON_PROPS} />
+        <SearchField id="search-field-3" {...COMMON_PROPS} loading />
+        <SearchField id="search-field-4" {...COMMON_PROPS} disabled />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Secondary">
+        <SearchField
+          id="search-field-5"
+          {...COMMON_PROPS}
+          value={""}
+          secondary
+        />
+        <SearchField id="search-field-6" {...COMMON_PROPS} secondary />
+        <SearchField id="search-field-7" {...COMMON_PROPS} secondary loading />
+        <SearchField id="search-field-8" {...COMMON_PROPS} secondary disabled />
+      </StoryWrapper.Row>
+    </StoryWrapper>
   )
 }
-SearchFieldLoading.storyName = "Default Loading"
 
-export const SearchFieldDisabled = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        disabled
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldDisabled.storyName = "Default Disabled"
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const SearchFieldSecondary = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondary.storyName = "Secondary"
-
-export const SearchFieldSecondaryLoading = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        loading
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondaryLoading.storyName = "Secondary Loading"
-
-export const SearchFieldSecondaryDisabled = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        disabled
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondaryDisabled.storyName = "Secondary Disabled"
-
-export const SearchFieldReversed = () => {
-  const [value, setValue] = useState("Some value")
-
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        placeholder="Search…"
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldReversed.story = {
-  name: "Default Reversed",
-  parameters: { ...REVERSED_BG },
-}
-
-export const SearchFieldReversedLoading = () => {
-  const [value, setValue] = useState("Some value")
-
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        placeholder="Search…"
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-        loading
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldReversedLoading.story = {
-  name: "Default Reversed Loading",
-  parameters: { ...REVERSED_BG },
-}
-
-export const SearchFieldReversedDisabled = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        disabled
-        placeholder="Search…"
-        labelText="Label"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldReversedDisabled.story = {
-  name: "Default Reversed Disabled",
-  parameters: { ...REVERSED_BG },
-}
-
-export const SearchFieldSecondaryReversed = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondaryReversed.story = {
-  name: "Secondary Reversed",
-  parameters: { ...REVERSED_BG },
-}
-
-export const SearchFieldSecondaryReversedLoading = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        loading
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondaryReversedLoading.story = {
-  name: "Secondary Reversed Loading",
-  parameters: { ...REVERSED_BG },
-}
-
-export const SearchFieldSecondaryReversedDisabled = () => {
-  const [value, setValue] = useState("Some value")
-  return (
-    <ExampleContainer>
-      <SearchField
-        id="search-field"
-        reversed
-        disabled
-        placeholder="Search…"
-        labelText="Label"
-        secondary
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onClear={() => setValue("")}
-      />
-    </ExampleContainer>
-  )
-}
-SearchFieldSecondaryReversedDisabled.story = {
-  name: "Secondary Reversed Disabled",
-  parameters: { ...REVERSED_BG },
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
