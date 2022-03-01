@@ -35,7 +35,7 @@
     "@headlessui/react": "^1.4.3",
     "@kaizen/component-library": "^12.4.5",
     "@kaizen/deprecated-component-library-helpers": "^2.5.1",
-    "@kaizen/button": "^1.0.1",
+    "@kaizen/button": "^1.0.4",
     "@kaizen/draft-button": "^5.6.5",
     "@kaizen/draft-divider": "^1.9.1",
     "@kaizen/draft-form": "^5.6.3",
