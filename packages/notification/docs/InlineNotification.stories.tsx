@@ -23,7 +23,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const KaizenDemo = () => (
+export const DefaultKaizenDemo = () => (
   <InlineNotification
     type="positive"
     title="Success"
@@ -33,7 +33,7 @@ export const KaizenDemo = () => (
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
-KaizenDemo.storyName = "Default (Kaizen Demo)"
+DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
