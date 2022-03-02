@@ -8,6 +8,10 @@ export interface ToggleIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
+  // /*
+  //  * passes the keyboard shortcut into the tooltip label
+  //  */
+  // shortcut?: string
   /*
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
@@ -18,21 +22,20 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
   React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
     const { icon, label, isActive = false, ...nativeButtonProps } = props
     return (
-      <div>
-        <Tooltip text={label} display="inline-block" position="above">
-          <button
-            ref={ref}
-            aria-pressed={isActive}
-            className={classnames(styles.button, {
-              [styles.active]: isActive,
-            })}
-            {...nativeButtonProps}
-          >
-            <div className={styles.iconWrapper}>
-              <Icon icon={icon} role="presentation" inheritSize />
-            </div>
-          </button>
-        </Tooltip>
-      </div>
+      <Tooltip text={label} display="inline-block" position="above">
+        <button
+          ref={ref}
+          aria-pressed={isActive}
+          aria-label={label}
+          className={classnames(styles.button, {
+            [styles.active]: isActive,
+          })}
+          {...nativeButtonProps}
+        >
+          <div className={styles.iconWrapper}>
+            <Icon icon={icon} role="presentation" inheritSize />
+          </div>
+        </button>
+      </Tooltip>
     )
   })
