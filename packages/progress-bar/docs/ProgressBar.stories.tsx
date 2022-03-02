@@ -1,7 +1,9 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { ProgressBar } from "../index"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/ProgressBar`,
@@ -12,6 +14,9 @@ export default {
         component: 'import { ProgressBar } from "@kaizen/progress-bar"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A20890"
+    ),
   },
 }
 
@@ -24,73 +29,55 @@ export const DefaultStory = () => (
     label="25%"
   />
 )
-DefaultStory.story = {
-  name: "Positive (Kaizen Site Demo)",
-  parameters: {
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A20890"
-    ),
-  },
-}
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const PositiveSubtext = () => (
-  <ProgressBar
-    isAnimating={false}
-    value={25}
-    max={100}
-    mood="positive"
-    label="Label"
-    subtext="Subtext"
-  />
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.Row rowTitle={"Positive"}>
+      <ProgressBar
+        value={25}
+        max={100}
+        mood="positive"
+        isAnimating={true}
+        label="25%"
+        subtext="Subtext"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle={"Informative"}>
+      <ProgressBar
+        value={25}
+        max={100}
+        mood="informative"
+        isAnimating={true}
+        label="25%"
+        subtext="Subtext"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle={"Negative"}>
+      <ProgressBar
+        value={25}
+        max={100}
+        mood="negative"
+        isAnimating={true}
+        label="25%"
+        subtext="Subtext"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle={"Cautionary"}>
+      <ProgressBar
+        value={25}
+        max={100}
+        mood="cautionary"
+        isAnimating={true}
+        label="25%"
+        subtext="Subtext"
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-PositiveSubtext.storyName = "Positive (with subtext)"
-PositiveSubtext.parameters = { chromatic: { disable: false } }
 
-export const PositiveAnimating = () => (
-  <ProgressBar
-    isAnimating={true}
-    value={25}
-    max={25}
-    label="Label"
-    mood="positive"
-  />
-)
-PositiveAnimating.storyName = "Positive (isAnimating)"
-
-export const Informative = () => (
-  <ProgressBar
-    isAnimating={false}
-    value={25}
-    max={100}
-    mood="informative"
-    label="Label"
-  />
-)
-Informative.parameters = { chromatic: { disable: false } }
-
-export const Negative = () => (
-  <ProgressBar
-    isAnimating={false}
-    value={25}
-    max={100}
-    mood="negative"
-    label="Label"
-  />
-)
-Negative.parameters = { chromatic: { disable: false } }
-
-export const Cautionary = () => (
-  <ProgressBar
-    isAnimating={false}
-    value={25}
-    max={100}
-    mood="cautionary"
-    label="Label"
-  />
-)
-Cautionary.parameters = { chromatic: { disable: false } }
-
-export const NoLabel = () => (
-  <ProgressBar isAnimating={true} value={25} max={100} mood="positive" />
-)
-NoLabel.parameters = { chromatic: { disable: false } }
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
