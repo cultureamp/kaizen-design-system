@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
-import { userEvent, within } from "@storybook/testing-library"
+import { within } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { CheckboxField, CheckboxGroup, Label } from "@kaizen/draft-form"
 import { Select } from "@kaizen/draft-select"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
@@ -36,10 +37,55 @@ export const KaizenDefault = props => {
       labelText="Label"
       value={selectedDate}
       onChange={onDayChange}
+      initialMonth={new Date(2022, 2, 5)}
       {...props}
     />
   )
 }
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={["Default", "Value", "Disabled"]} />
+        <StoryWrapper.Row rowTitle="Input">
+          <DatePicker
+            id="make-me-unique-1"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+          />
+          <DatePicker
+            id="make-me-unique-1"
+            labelText="Label"
+            value={new Date(2022, 2, 5)}
+            onChange={onDayChange}
+          />
+          <DatePicker
+            isDisabled
+            id="make-me-unique-1"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -70,35 +116,31 @@ const CalendarTemplate: Story = props => {
         firstDayOfWeek={0}
         onDayChange={() => undefined}
         onKeyDown={() => undefined}
+        value={new Date(2022, 2, 5)}
+        initialMonth={new Date(2022, 2, 5)}
         {...props}
       />
     </div>
   )
 }
 
-export const WithSelectedState = CalendarTemplate.bind({})
-WithSelectedState.parameters = { chromatic: { disable: false } }
-WithSelectedState.args = {
-  value: new Date(1997, 8, 5),
-  intialMonth: new Date(1997, 8, 5),
-}
+export const WithFocusedState = CalendarTemplate.bind({})
+WithFocusedState.storyName = "Calendar (Focused state)"
+WithFocusedState.parameters = { chromatic: { disable: false } }
 
-WithSelectedState.play = async ({ canvasElement }) => {
+WithFocusedState.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const focusedDate = canvas.getByLabelText("Thu Sep 18 1997")
+  const focusedDate = canvas.getByLabelText("Wed Mar 16 2022")
   await userEvent.click(focusedDate)
 }
 
 export const WithHoveredState = CalendarTemplate.bind({})
+WithHoveredState.storyName = "Calendar (Hovered state)"
 WithHoveredState.parameters = { chromatic: { disable: false } }
-WithHoveredState.args = {
-  value: new Date(1997, 9, 5),
-  intialMonth: new Date(1997, 9, 5),
-}
 
 WithHoveredState.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const hoveredDate = canvas.getByLabelText("Sat Oct 18 1997")
+  const hoveredDate = canvas.getByLabelText("Wed Mar 16 2022")
   await userEvent.hover(hoveredDate)
 }
 
@@ -175,47 +217,3 @@ export const FormExample = props => {
   )
 }
 FormExample.parameters = { chromatic: { disable: false } }
-
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
-
-  return (
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Default", "Value", "Disabled"]} />
-        <StoryWrapper.Row rowTitle="Input">
-          <DatePicker
-            id="make-me-unique-1"
-            labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
-          />
-          <DatePicker
-            id="make-me-unique-1"
-            labelText="Label"
-            value={new Date(1997, 8, 5)} // TODO: FIX - displayed month is september when the numbered month is August (8)?
-            onChange={onDayChange}
-          />
-          <DatePicker
-            isDisabled
-            id="make-me-unique-1"
-            labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </>
-  )
-}
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

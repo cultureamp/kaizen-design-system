@@ -4331,7 +4331,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/client-logger@6.4.19", "@storybook/client-logger@^6.4.0 || >=6.5.0-0":
+"@storybook/client-logger@6.4.19":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.4.19.tgz#b2011ad2fa446cce4a9afdb41974b2a576e9fad2"
   integrity sha512-zmg/2wyc9W3uZrvxaW4BfHcr40J0v7AGslqYXk9H+ERLVwIvrR4NhxQFaS6uITjBENyRDxwzfU3Va634WcmdDQ==
@@ -4543,16 +4543,6 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/instrumenter@^6.4.0 || >=6.5.0-0":
-  version "6.4.19"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-6.4.19.tgz#1586624d0315713c20f3d7b4e2c7fc595730b934"
-  integrity sha512-KwOJUW7tItZw1CLffUbaSfEzH1p1HdGmJs1Q42uWGJSbXbVHZ7i7bJWYb3Lf90+yHTlqQjTr1PKAymwDwHseTA==
-  dependencies:
-    "@storybook/addons" "6.4.19"
-    "@storybook/client-logger" "6.4.19"
-    "@storybook/core-events" "6.4.19"
-    global "^4.4.0"
-
 "@storybook/manager-webpack4@6.4.19":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/manager-webpack4/-/manager-webpack4-6.4.19.tgz#999577afb9b9a57fc478f7c5e5d95d785ea69da3"
@@ -4740,17 +4730,6 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/testing-library@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@storybook/testing-library/-/testing-library-0.0.9.tgz#e3d6e8077d58305bb352903e820dcae9306e7a7f"
-  integrity sha512-X4/Tk7RryB0tZ/9NLUHYTBXW01zRpf6+IhdhqsVl6WOWRyUaIv3zEhr43gQyZhBe4ZZyt5d90FJC9qWmY1oFKg==
-  dependencies:
-    "@storybook/client-logger" "^6.4.0 || >=6.5.0-0"
-    "@storybook/instrumenter" "^6.4.0 || >=6.5.0-0"
-    "@testing-library/dom" "^8.3.0"
-    "@testing-library/user-event" "^13.2.1"
-    ts-dedent "^2.2.0"
-
 "@storybook/theming@6.4.19", "@storybook/theming@^6.4.19":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.4.19.tgz#0a6834d91e0b0eadbb10282e7fb2947e2bbf9e9e"
@@ -4839,7 +4818,7 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/dom@^8.11.3", "@testing-library/dom@^8.3.0":
+"@testing-library/dom@^8.11.3":
   version "8.11.3"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.11.3.tgz#38fd63cbfe14557021e88982d931e33fb7c1a808"
   integrity sha512-9LId28I+lx70wUiZjLvi1DB/WT2zGOxUh46glrSNMaWVx849kKAluezVzZrXJfTKKoQTmEOutLes/bHg4Bj3aA==
@@ -4887,7 +4866,7 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
-"@testing-library/user-event@^13.2.1", "@testing-library/user-event@^13.5.0":
+"@testing-library/user-event@^13.5.0":
   version "13.5.0"
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.5.0.tgz#69d77007f1e124d55314a2b73fd204b333b13295"
   integrity sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==
@@ -10242,9 +10221,10 @@ eslint-plugin-sort-imports-es6-autofix@^0.6.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-sort-imports-es6-autofix/-/eslint-plugin-sort-imports-es6-autofix-0.6.0.tgz#b8cd8639d7a54cefce6b17898b102fd5ec31e52b"
   integrity sha512-2NVaBGF9NN+727Fyq+jJYihdIeegjXeUUrZED9Q8FVB8MsV3YQEyXG96GVnXqWt0pmn7xfCZOZf3uKnIhBrfeQ==
 
-"eslint-plugin-ssr-friendly@https://github.com/cultureamp/eslint-plugin-ssr-friendly":
+eslint-plugin-ssr-friendly@^1.0.6:
   version "1.0.6"
-  resolved "https://github.com/cultureamp/eslint-plugin-ssr-friendly#6aa5638f911caf90bfaf8116d8db8a95a3e191ee"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ssr-friendly/-/eslint-plugin-ssr-friendly-1.0.6.tgz#eb7633ab7e51720ebac6dc590bcaf8e28aecd8c6"
+  integrity sha512-O1S/0Q8FYTl1c4vwIr0cg59u37mL5qe7sxpMzjdIo2v8l0LjCugU699trmkgOheQINTq7R9yhfCo6YaAb4tYUQ==
   dependencies:
     globals "^13.8.0"
 
@@ -23142,7 +23122,7 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-2.2.1.tgz#c5bf04a5bbec3fd118be4084461b3a27c4d796bf"
   integrity sha512-0z3j8R7MCjy10kc/g+qg7Ln3alJTodw9aDuVWZa3uiWqfuBMKeAeP2ocWcxoyM3D73yz3Jt/Pu4qPr4wHSdB/Q==
 
-ts-dedent@^2.0.0, ts-dedent@^2.2.0:
+ts-dedent@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ts-dedent/-/ts-dedent-2.2.0.tgz#39e4bd297cd036292ae2394eb3412be63f563bb5"
   integrity sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==
