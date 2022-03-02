@@ -1,16 +1,12 @@
 import React from "react"
 import { Divider } from "@kaizen/draft-divider"
+import { Story } from "@storybook/react"
 import { Card } from "@kaizen/draft-card"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Divider`,
@@ -28,83 +24,73 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = () => (
+export const DefaultStory = args => (
   <Box m={1}>
-    <Divider variant="canvas" />
+    <Divider variant="canvas" {...args} />
   </Box>
 )
-DefaultStory.storyName = "Default (Kaizen Site Demo)"
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const CanvasDivider = () => (
-  <Box m={1}>
-    <Divider variant="canvas" />
-  </Box>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.Row rowTitle="Content">
+      <Divider variant="content" isReversed={isReversed} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Canvas">
+      <Divider variant="canvas" isReversed={isReversed} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Menu Separator">
+      <Divider variant="menuSeparator" isReversed={isReversed} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Example">
+      <Card variant={isReversed ? "highlight" : "default"}>
+        <Box p={0.75}>
+          <Heading variant="heading-4" color="dark">
+            Understands people's agenda and perspectives
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" isReversed={isReversed} />
+        <Box p={0.75}>
+          <Heading variant="heading-4" color="dark">
+            Anticipates customers needs
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Self management
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" isReversed={isReversed} />
+        <Box p={0.75}>
+          <Heading variant="heading-4" color="dark">
+            Initiates and develops relationships
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+      </Card>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-CanvasDivider.storyName = "Canvas Divider"
-CanvasDivider.parameters = { chromatic: { disable: false } }
 
-export const ContentDivider = () => (
-  <Box m={1}>
-    <Divider variant="content" />
-  </Box>
-)
-ContentDivider.storyName = "Content Divider"
-ContentDivider.parameters = { chromatic: { disable: false } }
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const CanvasDividerReversed = () => (
-  <Box m={1}>
-    <Divider variant="canvas" isReversed />
-  </Box>
-)
-CanvasDividerReversed.storyName = "Canvas Divider Reversed"
-CanvasDividerReversed.parameters = {
-  ...REVERSED_BG,
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
-
-export const ContentDividerReversed = () => (
-  <Box m={1}>
-    <Divider variant="content" isReversed />
-  </Box>
-)
-ContentDividerReversed.storyName = "Content Divider Reversed"
-ContentDividerReversed.parameters = {
-  ...REVERSED_BG,
-  chromatic: { disable: false },
-}
-
-export const TabDivider = () => (
-  <Card>
-    <Box p={0.75}>
-      <Heading variant="heading-4" color="dark">
-        Understands people's agenda and perspectives
-      </Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Interpersonal
-        </Paragraph>
-      </Box>
-    </Box>
-    <Divider variant="content" />
-    <Box p={0.75}>
-      <Heading variant="heading-4">Anticipates customers needs</Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Self management
-        </Paragraph>
-      </Box>
-    </Box>
-    <Divider variant="content" />
-    <Box p={0.75}>
-      <Heading variant="heading-4">
-        Initiates and develops relationships
-      </Heading>
-      <Box pt={0.25}>
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          Interpersonal
-        </Paragraph>
-      </Box>
-    </Box>
-  </Card>
-)
-TabDivider.storyName = "Composing divider, card, box, and typography"
