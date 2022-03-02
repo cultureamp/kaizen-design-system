@@ -35,7 +35,7 @@ export const DefaultStory = (args: ToggleIconButtonProps) => (
 DefaultStory.args = {
   label: "Bold",
   icon: boldIcon,
-  pressed: false,
+  isActive: false,
 }
 
 DefaultStory.storyName = "Default (Kaizen Demo)"

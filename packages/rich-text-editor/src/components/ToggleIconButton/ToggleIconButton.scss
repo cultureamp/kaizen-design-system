@@ -16,8 +16,8 @@
   position: relative;
   transition: background-color $animation-duration-immediate;
 
-  &:hover:not(.pressed),
-  &:global(.focus-visible):not(.pressed) {
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
     background-color: $color-gray-200;
   }
 
@@ -41,7 +41,7 @@
   }
 }
 
-.pressed {
+.active {
   background-color: $color-blue-500;
   color: $color-white;
 }
