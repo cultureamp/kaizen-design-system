@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import {
   addToastNotification,

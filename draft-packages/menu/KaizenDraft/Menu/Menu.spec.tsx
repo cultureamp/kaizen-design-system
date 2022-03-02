@@ -1,4 +1,4 @@
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { fireEvent } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
