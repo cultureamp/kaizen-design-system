@@ -73,9 +73,10 @@ export const Calendar: React.VFC<CalendarProps> = ({
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
-        className={cx(calendarStyles.calendar, {
-          classNameAndIHaveSpokenToDST,
-        })}
+        className={cx(
+          calendarStyles.calendar,
+          classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : ""
+        )}
         role="dialog"
         aria-modal="true"
         aria-label={

@@ -37,55 +37,11 @@ export const KaizenDefault = props => {
       labelText="Label"
       value={selectedDate}
       onChange={onDayChange}
-      initialMonth={new Date(2022, 2, 5)}
+      initialMonth={new Date(2022, 1, 5)}
       {...props}
     />
   )
 }
-
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
-
-  return (
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Default", "Value", "Disabled"]} />
-        <StoryWrapper.Row rowTitle="Input">
-          <DatePicker
-            id="make-me-unique-1"
-            labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
-          />
-          <DatePicker
-            id="make-me-unique-1"
-            labelText="Label"
-            value={new Date(2022, 2, 5)}
-            onChange={onDayChange}
-          />
-          <DatePicker
-            isDisabled
-            id="make-me-unique-1"
-            labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </>
-  )
-}
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -116,32 +72,91 @@ const CalendarTemplate: Story = props => {
         firstDayOfWeek={0}
         onDayChange={() => undefined}
         onKeyDown={() => undefined}
-        value={new Date(2022, 2, 5)}
-        initialMonth={new Date(2022, 2, 5)}
+        initialMonth={new Date(2022, 1, 5)}
         {...props}
       />
     </div>
   )
 }
 
-export const WithFocusedState = CalendarTemplate.bind({})
-WithFocusedState.storyName = "Calendar (Focused state)"
-WithFocusedState.parameters = { chromatic: { disable: false } }
+const WithFocusedState = CalendarTemplate.bind({})
 
-WithFocusedState.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const focusedDate = canvas.getByLabelText("Wed Mar 16 2022")
-  await userEvent.click(focusedDate)
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Default", "Selected Value", "Disabled"]}
+        />
+        <StoryWrapper.Row rowTitle="Input">
+          <DatePicker
+            id="make-me-unique-1"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+          />
+          <DatePicker
+            id="make-me-unique-1"
+            labelText="Label"
+            value={new Date(2022, 1, 5)}
+            onChange={onDayChange}
+          />
+          <DatePicker
+            isDisabled
+            id="make-me-unique-1"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={[
+            "Default",
+            "Selected Date",
+            "Focused Date",
+            "Disabled Dates",
+          ]}
+        />
+        <StoryWrapper.Row rowTitle="Calendar">
+          <CalendarTemplate />
+          <CalendarTemplate value={new Date(2022, 1, 5)} />
+          <WithFocusedState
+            value={new Date(2022, 0, 5)}
+            initialMonth={new Date(2022, 0, 5)}
+          />
+          <CalendarTemplate
+            disabledDays={[
+              new Date(2022, 1, 15),
+              { after: new Date(2022, 1, 17) },
+            ]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
+  )
 }
 
-export const WithHoveredState = CalendarTemplate.bind({})
-WithHoveredState.storyName = "Calendar (Hovered state)"
-WithHoveredState.parameters = { chromatic: { disable: false } }
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 
-WithHoveredState.play = async ({ canvasElement }) => {
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const hoveredDate = canvas.getByLabelText("Wed Mar 16 2022")
-  await userEvent.hover(hoveredDate)
+  const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
+  await userEvent.click(focusedDate, undefined, {
+    skipPointerEventsCheck: true,
+  })
 }
 
 export const FormExample = props => {
@@ -186,6 +201,10 @@ export const FormExample = props => {
 
   return (
     <>
+      <p>
+        This story is used to test the z-index in comparision to other pop up
+        styles components. Note: this is not tested on chromatic
+      </p>
       <Label labelText="This is an example form" />
       <Select options={options} />
       <DatePicker
@@ -216,4 +235,3 @@ export const FormExample = props => {
     </>
   )
 }
-FormExample.parameters = { chromatic: { disable: false } }
