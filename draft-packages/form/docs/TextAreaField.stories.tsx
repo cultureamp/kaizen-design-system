@@ -22,7 +22,6 @@ export default {
 }
 
 export const DefaultStory = args => <TextAreaField {...args} />
-
 DefaultStory.args = {
   id: "reply",
   labelText: "Your reply",
@@ -32,7 +31,6 @@ DefaultStory.args = {
   validationMessage: "",
   description: "",
 }
-
 DefaultStory.argTypes = {
   textAreaRef: {
     control: {
@@ -49,7 +47,6 @@ DefaultStory.argTypes = {
     defaultValue: "default",
   },
 }
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
 export const StickerSheetDefault = () => (
@@ -117,8 +114,8 @@ export const StickerSheetDefault = () => (
     </StoryWrapper.Row>
   </StoryWrapper>
 )
-
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const StickerSheetReversed = () => (
   <StoryWrapper isReversed>
@@ -192,11 +189,8 @@ export const StickerSheetReversed = () => (
     </StoryWrapper.Row>
   </StoryWrapper>
 )
-
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-
 StickerSheetReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }

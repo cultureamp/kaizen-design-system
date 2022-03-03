@@ -2,7 +2,6 @@ import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
 import { TextField } from "@kaizen/draft-form"
-
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -60,7 +59,6 @@ export const DefaultStory = args => (
     <TextField {...args} />
   </StoryContainer>
 )
-
 DefaultStory.args = {
   id: "kaizen-demo-text-field",
   labelText: "Label Text",
@@ -74,7 +72,6 @@ DefaultStory.args = {
   inline: false,
   reversed: false,
 }
-
 DefaultStory.argTypes = {
   inputRef: {
     control: {
@@ -95,7 +92,6 @@ DefaultStory.argTypes = {
       "A message that describes `status` for error or caution states. The Storybook example uses a String but the component can also take HTML or React Nodes",
   },
 }
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
 export const StickerSheetDefault = () => (
@@ -368,8 +364,9 @@ export const StickerSheetDefault = () => (
     </StoryGrid>
   </>
 )
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 
-export const StickerSheetDefaultReversed = () => (
+export const StickerSheetReversed = () => (
   <>
     <Heading color="white" variant="heading-3" tag="h2">
       Default
@@ -657,8 +654,8 @@ export const StickerSheetDefaultReversed = () => (
     </StoryGrid>
   </>
 )
-StickerSheetDefaultReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }

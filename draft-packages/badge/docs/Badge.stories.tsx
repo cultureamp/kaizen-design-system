@@ -1,6 +1,5 @@
-import * as React from "react"
-
-import { Button } from "@kaizen/draft-button"
+import React from "react"
+import { Button } from "@kaizen/button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
@@ -130,6 +129,9 @@ export const LightBadges = () => (
     </div>
   </>
 )
+
+LightBadges.parameters = { chromatic: { disable: false } }
+
 export const ReversedBadges = () => (
   <>
     <Heading
@@ -189,7 +191,6 @@ export const ReversedBadges = () => (
 )
 
 ReversedBadges.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }

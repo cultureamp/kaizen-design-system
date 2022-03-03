@@ -1,6 +1,6 @@
+import React from "react"
 import { Heading } from "@kaizen/component-library"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -65,10 +65,9 @@ export const Default = props => (
     )}
   </ToggleStateContainer>
 )
-
 Default.storyName = "Default (Kaizen Demo)"
 
-export const StickerSheet = () => (
+export const StickerSheetDefault = () => (
   <div
     style={{
       display: "grid",
@@ -125,8 +124,8 @@ export const StickerSheet = () => (
     </ToggleStateContainer>
   </div>
 )
-
-StickerSheet.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const StickerSheetReversed = () => (
   <div
@@ -188,11 +187,8 @@ export const StickerSheetReversed = () => (
     </ToggleStateContainer>
   </div>
 )
-
-StickerSheetReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}

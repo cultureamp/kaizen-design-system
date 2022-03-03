@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/component-library"
-import { Button, IconButton } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/button"
 import isChromatic from "chromatic/isChromatic"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -125,7 +125,6 @@ export const DefaultKaizenSiteDemo = props => {
     </div>
   )
 }
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const OverflowScroll = props => {
@@ -524,3 +523,4 @@ export const StickerSheet = () => {
     </>
   )
 }
+StickerSheet.parameters = { chromatic: { disable: false } }

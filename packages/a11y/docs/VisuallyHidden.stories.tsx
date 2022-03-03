@@ -1,5 +1,4 @@
 import React from "react"
-
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { VisuallyHidden } from ".."
 
@@ -23,3 +22,4 @@ export const TextWithVisuallyHidden = () => (
 )
 
 TextWithVisuallyHidden.storyName = "Hidden text embedded in visible text"
+TextWithVisuallyHidden.parameters = { chromatic: { disable: false } }

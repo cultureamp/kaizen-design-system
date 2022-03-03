@@ -1,8 +1,7 @@
-import { TextField } from "@kaizen/draft-form"
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import { Label } from "@kaizen/draft-form"
+import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
-import DayPicker from "react-day-picker/DayPicker"
 import { usePopper } from "react-popper"
 import cx from "classnames"
 import {
@@ -10,18 +9,20 @@ import {
   RangeModifier,
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
-import { daysToNumbers } from "../utils/daysToNumbers"
+import { Icon } from "@kaizen/component-library"
+import FocusLock from "react-focus-lock"
 import { useClickOutside } from "../hooks/useClickOutside"
+import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
-import { CalendarNav, CalendarNavProps } from "./CalendarNav"
-import { defaultDatePickerClasses } from "./DatePickerClasses"
+import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
+import { Calendar } from "./components/Calendar"
 
 export interface DatePickerProps {
   id: string
   classNameAndIHaveSpokenToDST?: string
-  labelText?: string
+  labelText: string
   isDisabled?: boolean
-  inputRef?: RefObject<HTMLInputElement> | undefined
+  buttonRef?: RefObject<HTMLButtonElement>
   description?: string
 
   /** Accepts a DayOfWeek value to start the week on that day. By default,
@@ -78,9 +79,9 @@ export enum DayOfWeek {
   Sat = 6,
 }
 
-export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
+export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
-  inputRef,
+  buttonRef = useRef<HTMLButtonElement>(null),
   description,
   value,
   onChange,
@@ -116,16 +117,12 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
       {
         name: "offset",
         options: {
-          offset: [0, 10],
+          offset: [0, 15],
         },
       },
     ],
     placement: "bottom-start",
   })
-
-  const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
-    <CalendarNav {...navbarProps} />
-  )
 
   useClickOutside(isOpen, setIsOpen, referenceElement, wrapperRef)
 
@@ -142,79 +139,77 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-    if (Object.keys(modifiers).includes(defaultDatePickerClasses.disabled)) {
+    if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
     onChange(day)
     setIsOpen(false)
   }
 
+  const handleOpenClose = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleReturnFocus = () => {
+    if (buttonRef.current) {
+      buttonRef.current.focus()
+    }
+  }
+
+  const disabledDays = calculateDisabledDays(
+    disabledDates,
+    disabledDaysOfWeek,
+    disabledRange,
+    disabledBeforeAfter,
+    disabledBefore,
+    disabledAfter
+  )
+
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
-        <TextField
+        <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
+        <button
+          className={cx(
+            datePickerStyles.button,
+            datePickerStyles.withStartIconAdornment,
+            {
+              [datePickerStyles.disabled]: isDisabled,
+            }
+          )}
           id={id}
-          labelText={labelText}
-          icon={dateStart}
-          value={
-            value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
-          }
           disabled={isDisabled}
-          inputRef={inputRef}
-          description={description}
-          onFocus={() => setIsOpen(true)}
+          ref={buttonRef}
+          onClick={handleOpenClose}
           onKeyDown={e => handleKeyDown(e)}
-          readOnly
           {...inputProps}
-        />
+        >
+          <div className={datePickerStyles.startIconAdornment}>
+            <Icon icon={dateStart} role="presentation" />
+          </div>
+          <span className={datePickerStyles.value}>
+            {value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""}
+          </span>
+        </button>
       </div>
       {isOpen && (
-        <div
-          ref={setPopperElement}
-          style={styles.popper}
-          {...attributes.popper}
-          className={cx(datePickerStyles.calendar, {
-            classNameAndIHaveSpokenToDST,
-          })}
-          role="dialog"
-          aria-modal="true"
-          aria-label={
-            value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
-          }
-        >
-          <DayPicker
-            selectedDays={value}
+        <FocusLock onDeactivation={handleReturnFocus}>
+          <Calendar
+            setPopperElement={setPopperElement}
+            styles={styles}
+            attributes={attributes}
+            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
+            value={value}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
-            disabledDays={[
-              ...(disabledDates ? disabledDates : []),
-              {
-                daysOfWeek: disabledDaysOfWeek
-                  ? daysToNumbers(disabledDaysOfWeek)
-                  : [],
-              },
-              disabledRange && {
-                from: disabledRange.from,
-                to: disabledRange.to,
-              },
-              disabledBefore && {
-                before: disabledBefore,
-              },
-              disabledAfter && {
-                after: disabledAfter,
-              },
-              disabledBeforeAfter && {
-                before: disabledBeforeAfter.before,
-                after: disabledBeforeAfter.after,
-              },
-            ]}
-            onDayClick={handleOnDayChange}
-            navbarElement={getNavbar}
-            classNames={defaultDatePickerClasses}
-            onKeyDown={e => handleKeyDown(e)}
+            disabledDays={disabledDays}
+            onDayChange={handleOnDayChange}
+            onKeyDown={handleKeyDown}
           />
-        </div>
+        </FocusLock>
       )}
     </div>
   )
 }
+
+DatePicker.displayName = "DatePicker"

@@ -1,8 +1,7 @@
+import React from "react"
 import { MenuItem } from "@kaizen/draft-menu"
 import { SplitButton } from "@kaizen/draft-split-button"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
-
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -53,8 +52,8 @@ export const DefaultKaizenSiteDemo = () => (
     dropdownAltText="Open menu"
   />
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.parameters = { chromatic: { disable: false } }
 
 export const Disabled = () => (
   <SplitButton
@@ -67,8 +66,8 @@ export const Disabled = () => (
     dropdownAltText="Open menu"
   />
 )
-
 Disabled.storyName = "Default button disabled"
+Disabled.parameters = { chromatic: { disable: false } }
 
 export const EnabledWithDisabledItems = () => (
   <SplitButton
@@ -96,7 +95,6 @@ export const EnabledWithDisabledItems = () => (
     dropdownAltText="Open menu"
   />
 )
-
 EnabledWithDisabledItems.storyName = "Default enabled with disabled items"
 
 export const Primary = () => (
@@ -121,8 +119,8 @@ export const Primary = () => (
     dropdownAltText="Open menu"
   />
 )
-
 Primary.storyName = "Primary"
+Primary.parameters = { chromatic: { disable: false } }
 
 export const PrimaryDisabled = () => (
   <SplitButton
@@ -147,8 +145,8 @@ export const PrimaryDisabled = () => (
     dropdownAltText="Open menu"
   />
 )
-
 PrimaryDisabled.storyName = "Primary disabled"
+PrimaryDisabled.parameters = { chromatic: { disable: false } }
 
 export const AnchorLink = () => (
   <SplitButton
@@ -160,7 +158,6 @@ export const AnchorLink = () => (
     dropdownAltText="Open menu"
   />
 )
-
 AnchorLink.storyName = "Anchor link"
 
 export const Rtl = () => (
@@ -185,8 +182,8 @@ export const Rtl = () => (
     dropdownAltText="Open menu"
   />
 )
-
 Rtl.storyName = "RTL"
+Rtl.parameters = { chromatic: { disable: false } }
 
 export const PrimaryRtl = () => (
   <SplitButton
@@ -213,5 +210,5 @@ export const PrimaryRtl = () => (
     dropdownAltText="Open menu"
   />
 )
-
 PrimaryRtl.storyName = "Primary RTL"
+PrimaryRtl.parameters = { chromatic: { disable: false } }

@@ -1,6 +1,6 @@
 import React, { useState, MouseEvent } from "react"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 import classNames from "classnames"
 
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
