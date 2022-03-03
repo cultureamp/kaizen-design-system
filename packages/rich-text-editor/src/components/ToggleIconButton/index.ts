@@ -1,1 +1,1 @@
-export { ToggleIconButton, ToggleIconButtonProps } from "./ToggleIconButton"
+export * from "./ToggleIconButton"
