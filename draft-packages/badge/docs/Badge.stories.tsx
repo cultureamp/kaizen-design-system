@@ -27,7 +27,7 @@ export default {
   decorators: [withDesign],
 }
 
-const BadgeAnimationStoryWrapper: React.FunctionComponent<{
+const BadgeAnimationStoryWrapper: React.VFC<{
   children: (badgeCount: string, useAnimation: boolean) => void
 }> = ({ children }) => {
   const [useAnimation, setUseAnimation] = React.useState(false)
@@ -56,10 +56,6 @@ const BadgeAnimationStoryWrapper: React.FunctionComponent<{
   )
 }
 
-const BadgeStoryWrapper: React.FunctionComponent<{
-  children
-}> = ({ children }) => <div style={{ padding: "20px" }}>{children}</div>
-
 export const DefaultStory = args => (
   <BadgeAnimationStoryWrapper>
     {(badgeCount, useAnimation) =>
@@ -79,19 +75,19 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Default", "Active", "Dot"]} />
     <StoryWrapper.Row rowTitle="Small">
-      <BadgeStoryWrapper>
+      <div>
         <Badge size="small" variant="default" reversed={isReversed}>
           3
         </Badge>
-      </BadgeStoryWrapper>
-      <BadgeStoryWrapper>
+      </div>
+      <div>
         <Badge size="small" variant="active" reversed={isReversed}>
           3
         </Badge>
-      </BadgeStoryWrapper>
-      <BadgeStoryWrapper>
+      </div>
+      <div>
         <Badge size="small" variant="dot" reversed={isReversed}></Badge>
-      </BadgeStoryWrapper>
+      </div>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Large">
       <Badge size="large" variant="default" reversed={isReversed}>
