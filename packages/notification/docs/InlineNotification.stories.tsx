@@ -47,7 +47,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         Prominent
       </Heading>
       <Heading
-        variant="heading-5"
+        variant="heading-4"
         tag="h2"
         color={isReversed ? "white" : "dark"}
       >
@@ -126,6 +126,100 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           title="Cautionary title"
           automationId="notification1"
           persistent
+        >
+          The syncing process can take some time to complete. Keep this window
+          open until complete.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <Heading
+        variant="heading-4"
+        tag="h2"
+        color={isReversed ? "white" : "dark"}
+      >
+        Multi Line
+      </Heading>
+      <StoryWrapper.RowHeader headings={["Dismissible", "Persistant"]} />
+      <StoryWrapper.Row rowTitle="Informative">
+        <InlineNotification
+          type="informative"
+          title="Informative title"
+          automationId="notification1"
+          forceMultiline
+        >
+          "All Employees - North America" status has been changed to 'Archived'.
+          <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="informative"
+          title="Informative title"
+          automationId="notification1"
+          persistent
+          forceMultiline
+        >
+          "All Employees - North America" status has been changed to 'Archived'.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Positive">
+        <InlineNotification
+          type="positive"
+          title="Positive title"
+          automationId="notification1"
+          forceMultiline
+        >
+          Emails will be sent notifying coaches and inviting reviewers to give
+          their feedback. <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="positive"
+          title="Positive title"
+          automationId="notification1"
+          persistent
+          forceMultiline
+        >
+          Emails will be sent notifying coaches and inviting reviewers to give
+          their feedback.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Negative">
+        <InlineNotification
+          type="negative"
+          title="Negative title"
+          automationId="notification1"
+          forceMultiline
+        >
+          Something went wrong while validating and analyzing user data.{" "}
+          <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="negative"
+          title="Negative title"
+          automationId="notification1"
+          persistent
+          forceMultiline
+        >
+          Something went wrong while validating and analyzing user data.
+          <a href="/">View all</a>
+        </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Cautionary">
+        <InlineNotification
+          type="cautionary"
+          title="Cautionary title"
+          automationId="notification1"
+          forceMultiline
+        >
+          The syncing process can take some time to complete. Keep this window
+          open until complete. <a href="/">View all</a>
+        </InlineNotification>
+        <InlineNotification
+          type="cautionary"
+          title="Cautionary title"
+          automationId="notification1"
+          persistent
+          forceMultiline
         >
           The syncing process can take some time to complete. Keep this window
           open until complete.
