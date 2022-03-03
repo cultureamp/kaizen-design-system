@@ -42,7 +42,7 @@ describe("shows and hides a tooltip with the label provided", () => {
     await waitFor(() => screen.getByRole("tooltip", { name: "Bold" }))
 
     // TODO: Check that the tooltip disappears.
-    // For some reason it gets stuck in the 'animate out' stage in this environement
+    // For some reason it gets stuck in the 'animate out' stage in this environment
     // fireEvent.blur(button)
     // await waitForElementToBeRemoved(() => screen.getByRole("tooltip", { name: "Bold" }))
   })

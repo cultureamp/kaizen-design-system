@@ -22,7 +22,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
   React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
     const { icon, label, isActive = false, ...nativeButtonProps } = props
     return (
-      <Tooltip text={label} display="inline-block" position="above">
+      <Tooltip text={label} display="inline-block">
         <button
           ref={ref}
           aria-pressed={isActive}

@@ -2826,6 +2826,64 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/component-library@^12.4.4", "@kaizen/component-library@^12.4.7":
+  version "12.4.7"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-12.4.7.tgz#274d38c332abc7ba8e0dc60c111c9e2d58b36cb1"
+  integrity sha512-D/j+RXC9E4o1Fe51q2OblH4XumJXjXS+0vnCEr4wc9Rlt3WP94T4VCTUsCmihTwmKo7Ch6PtkcKY8ISfP2rluA==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^2.5.2"
+    "@kaizen/draft-button" "^5.6.7"
+    "@kaizen/hosted-assets" "^1.2.0"
+    "@kaizen/react-deprecate-warning" "^1.2.0"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.177"
+    "@types/uuid" "^3.4.10"
+    classnames "^2.3.1"
+    motion-ui cultureamp/motion-ui
+
+"@kaizen/deprecated-component-library-helpers@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-2.5.2.tgz#17c130fa3168d91abb4f5d79d4420a703d8e43ee"
+  integrity sha512-WO060O/Uc3VIBiq6f9o9AogGHUeHPLyf3rlJDFy4jHlQJADZzQpCwTDWy/IHjoIBYDv+QreGOpTa3l9a1Gijpw==
+
+"@kaizen/draft-badge@^1.10.3":
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.10.3.tgz#608defea3127be62a5a31bae0bca808fd159d86f"
+  integrity sha512-Ska5z22IcQSEujuwTo2+o828IjLu1WC4Y6Vnu1EhZl6s0Pt3Hr0J833aeFC70pH4+f45Kw++sjOYqlNTB8eP4Q==
+  dependencies:
+    classnames "^2.3.1"
+
+"@kaizen/draft-button@^5.6.7":
+  version "5.6.7"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.7.tgz#25aa843f684684362d28427b1a3ef74924494550"
+  integrity sha512-z+Z5sd3ADqLSZ9F76pA6O0YA3ezord5DUc76vVZMoDf4IxboJofcPAdcT2QmuG2+LdpgCZBO5JDFdQoo0hxSZQ==
+  dependencies:
+    "@kaizen/component-library" "^12.4.7"
+    "@kaizen/draft-badge" "^1.10.3"
+    "@kaizen/loading-spinner" "^2.0.2"
+    "@kaizen/react-deprecate-warning" "^1.2.0"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+
+"@kaizen/draft-tooltip@^3.7.5":
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-3.7.5.tgz#525b4058e021d88c9d0983e08beaabc46c8d3968"
+  integrity sha512-qnhH7bzY9G1yAfswJtOOaAgjrPBzC6yjEBNvZW4vuoLq6EgZ/yoGPoeQa8rwuC/aLQRnSUt29xQn+bBpXgjcJA==
+  dependencies:
+    "@kaizen/component-library" "^12.4.7"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.2"
+    "@popperjs/core" "^2.11.0"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+    react-popper "^2.2.5"
+    use-debounce "^7.0.1"
+    uuid "^8.3.2"
+
+"@kaizen/loading-spinner@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.0.2.tgz#786132055cdaf74787873322bb48b2ed92e9b8d3"
+  integrity sha512-DxcSHeX6RKw+6wfAQxokMSKxNkCIrT4PrwAlQvAOWF2w2Z1hJaUYVafi8IjEDILlWfqNSA0V5TSQTELs7BBt3A==
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -16913,7 +16971,7 @@ moo-color@^1.0.2:
   dependencies:
     color-name "^1.1.4"
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/d73f199d0ab2626a334ba6100604b3d14e6dabf1"
 

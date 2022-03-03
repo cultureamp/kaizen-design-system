@@ -47,9 +47,6 @@
 }
 
 .iconWrapper {
-  > svg {
-    max-width: 14px;
-    max-height: 14px;
-    object-fit: contain;
-  }
+  width: 1rem;
+  height: 1rem;
 }
