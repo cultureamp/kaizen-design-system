@@ -1,14 +1,14 @@
 {
   "name": "site",
-  "version": "0.0.0-private.95",
+  "version": "0.0.0-private.97",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.2.2",
-    "@kaizen/button": "^1.0.6",
+    "@kaizen/button": "^1.0.7",
     "@kaizen/component-library": "^12.4.7",
     "@kaizen/design-tokens": "^7.0.2",
     "@kaizen/draft-card": "^1.7.3",
-    "@kaizen/draft-divider": "^1.9.2",
+    "@kaizen/draft-divider": "^1.9.3",
     "@kaizen/draft-illustration": "^3.6.7",
     "@kaizen/draft-tag": "^2.3.11",
     "@kaizen/hosted-assets": "^1.1.0",
