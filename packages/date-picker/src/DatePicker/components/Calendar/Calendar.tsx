@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
 import DayPicker from "react-day-picker/DayPicker"
-import cx from "classnames"
 import { NavbarElementProps } from "react-day-picker/types/Props"
 import { Modifier, DayModifiers } from "react-day-picker/types/Modifiers"
+import classnames from "classnames"
 import { CalendarNav } from "../CalendarNav/CalendarNav"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
@@ -73,9 +73,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
-        className={cx(
+        className={classnames(
           calendarStyles.calendar,
-          classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : ""
+          classNameAndIHaveSpokenToDST
         )}
         role="dialog"
         aria-modal="true"

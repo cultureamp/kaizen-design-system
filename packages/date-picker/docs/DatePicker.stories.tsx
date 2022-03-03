@@ -93,20 +93,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         />
         <StoryWrapper.Row rowTitle="Input">
           <DatePicker
-            id="make-me-unique-1"
+            id="datepicker-input-default"
             labelText="Label"
             value={selectedDate}
             onChange={onDayChange}
           />
           <DatePicker
-            id="make-me-unique-1"
+            id="datepicker-input-selected"
             labelText="Label"
             value={new Date(2022, 1, 5)}
             onChange={onDayChange}
           />
           <DatePicker
             isDisabled
-            id="make-me-unique-1"
+            id="datepicker-input-disabled"
             labelText="Label"
             value={selectedDate}
             onChange={onDayChange}
