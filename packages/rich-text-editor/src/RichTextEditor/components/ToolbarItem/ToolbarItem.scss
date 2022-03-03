@@ -1,0 +1,9 @@
+@import "@kaizen/design-tokens/sass/spacing";
+
+.item {
+  display: inline-block;
+}
+
+.item + .item {
+  margin-left: $spacing-xs;
+}

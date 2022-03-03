@@ -15,5 +15,5 @@ export interface ToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Toolbar: React.VFC<ToolbarProps> = props => (
-  <div role="toolbar" {...props}></div>
+  <div className={styles.toolbar} role="toolbar" {...props}></div>
 )

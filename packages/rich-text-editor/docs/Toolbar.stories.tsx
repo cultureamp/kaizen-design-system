@@ -1,8 +1,17 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
+import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
+import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
+import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Toolbar, ToolbarProps } from "../src/components/Toolbar/Toolbar"
+import {
+  ToggleIconButton,
+  Toolbar,
+  ToolbarProps,
+  ToolbarSection,
+  ToolbarItem,
+} from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Toolbar`,
@@ -25,7 +34,19 @@ export default {
 
 export const DefaultStory = (args: ToolbarProps) => (
   <Toolbar {...args}>
-    <button>click</button>
+    <ToolbarSection>
+      <ToolbarItem>
+        <ToggleIconButton label="Bold" icon={boldIcon} />
+      </ToolbarItem>
+    </ToolbarSection>
+    <ToolbarSection>
+      <ToolbarItem>
+        <ToggleIconButton label="Italic" icon={italicIcon} />
+      </ToolbarItem>
+      <ToolbarItem>
+        <ToggleIconButton label="Underline" icon={underlineIcon} />
+      </ToolbarItem>
+    </ToolbarSection>
   </Toolbar>
 )
 
