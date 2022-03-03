@@ -3,10 +3,7 @@ import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import {
-  ToggleIconButton,
-  ToggleIconButtonProps,
-} from "../src/components/ToggleIconButton/ToggleIconButton"
+import { ToggleIconButton, ToggleIconButtonProps } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Toggle Icon Button`,
