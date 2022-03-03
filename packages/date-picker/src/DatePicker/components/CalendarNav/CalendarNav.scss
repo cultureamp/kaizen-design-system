@@ -25,7 +25,7 @@
     color: $color-blue-500;
   }
 
-  &:focus {
+  &:global(.focus-visible) {
     outline-offset: -2px;
     outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
