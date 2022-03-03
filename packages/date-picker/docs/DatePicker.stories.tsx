@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Select } from "@kaizen/draft-select"
 import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
@@ -144,40 +143,4 @@ StickerSheetDefault.play = async ({ canvasElement }) => {
   await userEvent.click(focusedDate, undefined, {
     skipPointerEventsCheck: true,
   })
-}
-
-export const FormExample = props => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
-  const options = [
-    { value: "Lloyd", label: "Lloyd" },
-    { value: "Nat", label: "Nat", isDisabled: true },
-    { value: "Rafa", label: "Rafa" },
-    { value: "Elaine", label: "Elaine" },
-    { value: "Julio", label: "Julio" },
-    { value: "Priyanka", label: "Priyanka" },
-    { value: "Prince", label: "Prince" },
-    { value: "Charith", label: "Charith" },
-    { value: "Nick", label: "Nick" },
-  ]
-
-  return (
-    <>
-      <p>
-        This story is used to test the z-index in comparision to other pop up
-        styles components. Note: this is not tested on chromatic
-      </p>
-      <DatePicker
-        id="make-me-unique-1"
-        labelText="Label"
-        value={selectedDate}
-        onChange={onDayChange}
-        {...props}
-      />
-      <Select options={options} />
-    </>
-  )
 }
