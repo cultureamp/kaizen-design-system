@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.3...@kaizen/date-picker@1.3.0) (2022-03-03)
+
+
+### Features
+
+* Datepicker chromatic stories ([#2579](https://github.com/cultureamp/kaizen-design-system/issues/2579)) ([649fc1e](https://github.com/cultureamp/kaizen-design-system/commit/649fc1ef4c6e5ccce682f5b42b0cb169f49b18b3))
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.2...@kaizen/date-picker@1.2.3) (2022-03-01)
 
 **Note:** Version bump only for package @kaizen/date-picker
