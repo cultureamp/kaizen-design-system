@@ -8,10 +8,6 @@ export interface ToggleIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
-  // /*
-  //  * passes the keyboard shortcut into the tooltip label
-  //  */
-  // shortcut?: string
   /*
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
