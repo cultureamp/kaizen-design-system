@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"

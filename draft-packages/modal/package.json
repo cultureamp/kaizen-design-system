@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "8.4.7",
+  "version": "8.4.13",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,26 +33,29 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^1.4.3",
-    "@kaizen/component-library": "^12.4.4",
-    "@kaizen/deprecated-component-library-helpers": "^2.5.1",
-    "@kaizen/draft-button": "^5.6.4",
-    "@kaizen/draft-divider": "^1.9.1",
-    "@kaizen/draft-form": "^5.6.2",
-    "@kaizen/draft-illustration": "^3.6.5",
+    "@kaizen/component-library": "^12.4.7",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.2",
+    "@kaizen/draft-button": "^5.6.7",
+    "@kaizen/draft-divider": "^1.9.3",
+    "@kaizen/draft-form": "^5.6.6",
+    "@kaizen/draft-illustration": "^3.6.8",
     "@kaizen/react-deprecate-warning": "^1.2.0",
-    "@kaizen/responsive": "^1.6.0",
+    "@kaizen/responsive": "^1.6.1",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-dom": "^16.13.1",
     "react-focus-lock": "^2.7.1",
     "uuid": "^3.4.0"
   },
+  "dependenciesComments": {
+    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
+  },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
     "react": "^16.9.0 || ^17.0.0"
   }
 }

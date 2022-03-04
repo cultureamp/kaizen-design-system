@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.3.0...@kaizen/date-picker@1.3.1) (2022-03-03)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.3...@kaizen/date-picker@1.3.0) (2022-03-03)
+
+
+### Features
+
+* Datepicker chromatic stories ([#2579](https://github.com/cultureamp/kaizen-design-system/issues/2579)) ([649fc1e](https://github.com/cultureamp/kaizen-design-system/commit/649fc1ef4c6e5ccce682f5b42b0cb169f49b18b3))
+
+
+
+
+
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.2...@kaizen/date-picker@1.2.3) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.1...@kaizen/date-picker@1.2.2) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.2.0...@kaizen/date-picker@1.2.1) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.1.9...@kaizen/date-picker@1.2.0) (2022-03-01)
+
+
+### Features
+
+* convert date picker input to button for better a11y support ([#2543](https://github.com/cultureamp/kaizen-design-system/issues/2543)) ([e8ce160](https://github.com/cultureamp/kaizen-design-system/commit/e8ce1600116de0bf41fe0ce843ea5fe28401d958))
+
+
+
+
+
+## [1.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.1.8...@kaizen/date-picker@1.1.9) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.1.7...@kaizen/date-picker@1.1.8) (2022-02-28)
 
 **Note:** Version bump only for package @kaizen/date-picker
