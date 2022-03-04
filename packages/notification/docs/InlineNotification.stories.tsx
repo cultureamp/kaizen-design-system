@@ -50,17 +50,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       >
         Single Line
       </Heading>
-      <StoryWrapper.RowHeader headings={["Dismissible", "Persistant"]} />
+      <StoryWrapper.RowHeader headings={["Dismissible"]} />
       <StoryWrapper.Row rowTitle="Informative">
         <InlineNotification type="informative" title="Informative title">
-          "All Employees - North America" status has been changed to 'Archived'.
-          <a href="/">View all</a>
-        </InlineNotification>
-        <InlineNotification
-          type="informative"
-          title="Informative title"
-          persistent
-        >
           "All Employees - North America" status has been changed to 'Archived'.
           <a href="/">View all</a>
         </InlineNotification>
@@ -70,19 +62,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           Emails will be sent notifying coaches and inviting reviewers to give
           their feedback. <a href="/">View all</a>
         </InlineNotification>
-        <InlineNotification type="positive" title="Positive title" persistent>
-          Emails will be sent notifying coaches and inviting reviewers to give
-          their feedback.
-          <a href="/">View all</a>
-        </InlineNotification>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Negative">
         <InlineNotification type="negative" title="Negative title">
           Something went wrong while validating and analyzing user data.{" "}
-          <a href="/">View all</a>
-        </InlineNotification>
-        <InlineNotification type="negative" title="Negative title" persistent>
-          Something went wrong while validating and analyzing user data.
           <a href="/">View all</a>
         </InlineNotification>
       </StoryWrapper.Row>
@@ -91,14 +74,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           The syncing process can take some time to complete. Keep this window
           open until complete. <a href="/">View all</a>
         </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Persistent">
         <InlineNotification
           type="cautionary"
           title="Cautionary title"
           persistent
         >
           The syncing process can take some time to complete. Keep this window
-          open until complete.
-          <a href="/">View all</a>
+          open until complete. <a href="/">View all</a>
         </InlineNotification>
       </StoryWrapper.Row>
       <Heading
@@ -108,20 +92,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       >
         Multi Line
       </Heading>
-      <StoryWrapper.RowHeader headings={["Dismissible", "Persistant"]} />
+      <StoryWrapper.RowHeader headings={["Dismissible"]} />
       <StoryWrapper.Row rowTitle="Informative">
         <InlineNotification
           type="informative"
           title="Informative title"
-          forceMultiline
-        >
-          "All Employees - North America" status has been changed to 'Archived'.
-          <a href="/">View all</a>
-        </InlineNotification>
-        <InlineNotification
-          type="informative"
-          title="Informative title"
-          persistent
           forceMultiline
         >
           "All Employees - North America" status has been changed to 'Archived'.
@@ -137,16 +112,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           Emails will be sent notifying coaches and inviting reviewers to give
           their feedback. <a href="/">View all</a>
         </InlineNotification>
-        <InlineNotification
-          type="positive"
-          title="Positive title"
-          persistent
-          forceMultiline
-        >
-          Emails will be sent notifying coaches and inviting reviewers to give
-          their feedback.
-          <a href="/">View all</a>
-        </InlineNotification>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Negative">
         <InlineNotification
@@ -155,15 +120,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           forceMultiline
         >
           Something went wrong while validating and analyzing user data.{" "}
-          <a href="/">View all</a>
-        </InlineNotification>
-        <InlineNotification
-          type="negative"
-          title="Negative title"
-          persistent
-          forceMultiline
-        >
-          Something went wrong while validating and analyzing user data.
           <a href="/">View all</a>
         </InlineNotification>
       </StoryWrapper.Row>
@@ -176,15 +132,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           The syncing process can take some time to complete. Keep this window
           open until complete. <a href="/">View all</a>
         </InlineNotification>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Persistent">
         <InlineNotification
           type="cautionary"
           title="Cautionary title"
-          persistent
           forceMultiline
+          persistent
         >
           The syncing process can take some time to complete. Keep this window
-          open until complete.
-          <a href="/">View all</a>
+          open until complete. <a href="/">View all</a>
         </InlineNotification>
       </StoryWrapper.Row>
     </StoryWrapper>
