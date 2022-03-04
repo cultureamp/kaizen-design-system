@@ -46,7 +46,7 @@ $placeholder-opacity: 0.7;
     outline-offset: 1px;
   }
 
-  &:focus:not([disabled]) {
+  :focus:not([disabled]) {
     outline: none;
   }
 

@@ -31,7 +31,7 @@
       $border-focus-ring-border-width;
   }
 
-  &:focus {
+  :focus {
     outline: none;
   }
 }
