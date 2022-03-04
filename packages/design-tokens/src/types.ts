@@ -147,6 +147,7 @@ export type Theme = {
   }
   layout: {
     contentMaxWidth: string
+    contentMaxWidthWithSidebar: string
     contentSideMargin: string
     mobileActionsDrawerHeight: string
     navigationBarHeight: string
