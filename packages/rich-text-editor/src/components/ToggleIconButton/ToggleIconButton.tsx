@@ -35,3 +35,5 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       </Tooltip>
     )
   })
+
+ToggleIconButton.displayName = "ToggleIconButton"
