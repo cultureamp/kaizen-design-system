@@ -71,6 +71,10 @@
           $border-focus-ring-border-width;
       }
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .disabled,
