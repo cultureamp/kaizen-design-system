@@ -35,7 +35,6 @@
     "@kaizen/component-library": "^12.4.7",
     "@kaizen/draft-badge": "^1.10.3",
     "@kaizen/loading-spinner": "^2.0.2",
-    "@kaizen/react-deprecate-warning": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },
