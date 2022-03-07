@@ -27,7 +27,6 @@ export type CustomButtonProps = {
 
 export type GenericProps = {
   id?: string
-  label: string
   reversed?: boolean
   onClick?: (e: MouseEvent) => void
   onMouseDown?: (e: MouseEvent) => void
@@ -38,21 +37,7 @@ export type GenericProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
 }
 
-export type SharedButtonProps = {
-  primary?: boolean
-  destructive?: boolean
-  secondary?: boolean
-  form?: boolean
-  badge?: BadgeProps
-  type?: "submit" | "reset" | "button"
-  fullWidth?: boolean
-  component?: ComponentType<CustomButtonProps>
-}
-
-export type DirectionalLinkSharedProps = {
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  disabled?: boolean
-}
+export type ButtonType = "submit" | "reset" | "button"
 
 export type WorkingProps = {
   working: true
@@ -72,7 +57,7 @@ type Props = ButtonProps & {
   isActive?: boolean
 }
 
-type BadgeProps = {
+export type BadgeProps = {
   text: string
   animateChange?: boolean
   variant?: "default" | "dark" | "active"

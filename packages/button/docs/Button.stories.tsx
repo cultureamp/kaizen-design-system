@@ -314,7 +314,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           tag="h1"
           color={isReversed ? "white" : "dark"}
         >
-          Miscellaneous
+          Pagination
         </Heading>
         <StoryWrapper.RowHeader headings={["Default", "Disabled", ""]} />
         <StoryWrapper.Row rowTitle="Directional Link">
@@ -372,31 +372,31 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <div className={styles.circleButtonContainer}>
             <PaginationLink
               pageNumber={1}
-              label="Page 1"
+              aria-label="Page 1"
               isActive={true}
               reversed={isReversed}
             />
             <PaginationLink
               pageNumber={2}
-              label="Page 2"
+              aria-label="Page 2"
               isActive={false}
               reversed={isReversed}
             />
             <PaginationLink
               pageNumber={3}
-              label="Page 3"
+              aria-label="Page 3"
               isActive={false}
               reversed={isReversed}
             />
             <PaginationLink
               pageNumber={4}
-              label="Page 4"
+              aria-label="Page 4"
               isActive={false}
               reversed={isReversed}
             />
             <PaginationLink
               pageNumber={5}
-              label="Page 5"
+              aria-label="Page 5"
               isActive={false}
               reversed={isReversed}
             />

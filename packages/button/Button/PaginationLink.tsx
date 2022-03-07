@@ -4,6 +4,8 @@ import GenericButton, { GenericProps } from "./components/GenericButton"
 type PaginationLinkProps = GenericProps & {
   pageNumber: number
   isActive: boolean
+  /* A description for screen readers to understand because label used here is a number */
+  "aria-label": string
 }
 
 const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
@@ -13,7 +15,7 @@ const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
     {...props}
     paginationLink
     label={`${props.pageNumber}`}
-    aria-label={props.label}
+    aria-label={props["aria-label"]}
   />
 )
 

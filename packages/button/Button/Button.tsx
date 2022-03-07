@@ -1,19 +1,27 @@
-import React, { forwardRef, Ref } from "react"
+import React, { forwardRef, Ref, ComponentType } from "react"
 import GenericButton, {
   GenericProps,
-  SharedButtonProps,
-  DirectionalLinkSharedProps,
+  BadgeProps,
+  CustomButtonProps,
   ButtonRef,
   WorkingProps,
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
 export type ButtonProps = GenericProps &
-  SharedButtonProps &
-  DirectionalLinkSharedProps &
   (WorkingProps | WorkingUndefinedProps) & {
-    iconPosition?: "start" | "end"
+    label: string
     primary?: boolean
+    destructive?: boolean
+    secondary?: boolean
+    form?: boolean
+    badge?: BadgeProps
+    type?: "submit" | "reset" | "button"
+    fullWidth?: boolean
+    component?: ComponentType<CustomButtonProps>
+    iconPosition?: "start" | "end"
+    icon?: React.SVGAttributes<SVGSymbolElement>
+    disabled?: boolean
   }
 
 const Button = forwardRef(
