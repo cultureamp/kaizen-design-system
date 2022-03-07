@@ -6,6 +6,7 @@ import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton } from "@kaizen/button"
 import isChromatic from "chromatic/isChromatic"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
@@ -165,21 +166,31 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
   return (
     <>
-      <Button onClick={() => setIsOpen(!isOpen)} label="Open all Popovers" />
-
+      <div
+        style={{
+          marginBottom: "3rem",
+        }}
+      >
+        <Button onClick={() => setIsOpen(!isOpen)} label="Open all Popovers" />
+      </div>
       <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={["Small", "Large"]} />
         <StoryWrapper.Row rowTitle="Default">
           <PopoverTemplate
             isOpen={isOpen}
-            placement="top"
             children={undefined}
+            isReversed={isReversed}
+          />
+          <PopoverTemplate
+            isOpen={isOpen}
+            children={undefined}
+            size="large"
             isReversed={isReversed}
           />
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Informative">
           <PopoverTemplate
             isOpen={isOpen}
-            placement="top"
             variant="informative"
             children={undefined}
             isReversed={isReversed}
@@ -188,7 +199,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Positive">
           <PopoverTemplate
             isOpen={isOpen}
-            placement="top"
             variant="positive"
             children={undefined}
             isReversed={isReversed}
@@ -197,7 +207,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Negative">
           <PopoverTemplate
             isOpen={isOpen}
-            placement="top"
             variant="negative"
             children={undefined}
             isReversed={isReversed}
@@ -206,10 +215,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Cautionary">
           <PopoverTemplate
             isOpen={isOpen}
-            placement="top"
             variant="cautionary"
             children={undefined}
             isReversed={isReversed}
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Force Single Line">
+          <PopoverTemplate
+            isOpen={isOpen}
+            children={undefined}
+            isReversed={isReversed}
+            singleLine
+          />
+          <PopoverTemplate
+            isOpen={isOpen}
+            children={undefined}
+            isReversed={isReversed}
+            singleLine
+            size="large"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
