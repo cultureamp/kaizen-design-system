@@ -1,10 +1,55 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Avatar } from "../../avatar/KaizenDraft/Avatar/Avatar"
+import {
+  Avatar,
+  AvatarSizes,
+  CompanyAvatarProps,
+  GenericAvatarProps,
+} from "../../avatar/KaizenDraft/Avatar/Avatar"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+
+const PROPS_PHOTO_PERSONAL: GenericAvatarProps = {
+  fullName: "Jane Doe",
+  disableInitials: false,
+  isCurrentUser: true,
+  avatarSrc:
+    "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+}
+
+const PROPS_INITIALS_PERSONAL: GenericAvatarProps = {
+  fullName: "Jane Doe",
+  disableInitials: false,
+  isCurrentUser: true,
+}
+
+const PROPS_INITIALS_GENERIC: GenericAvatarProps = {
+  fullName: "Jane Doe",
+  disableInitials: false,
+  isCurrentUser: false,
+}
+
+const PROPS_INITIALS_UNICODE: GenericAvatarProps = {
+  fullName: "李存信",
+  disableInitials: false,
+  isCurrentUser: true,
+}
+
+const PROPS_INITIALS_LONG: GenericAvatarProps = {
+  fullName:
+    "Spicy Jalapeno Taco Bacon Ipsum Pretzel Dolor Amet Nacho Elit Chicken",
+  disableInitials: false,
+  isCurrentUser: true,
+}
+
+const PROPS_COMPANY: CompanyAvatarProps = {
+  fullName: "Hooli",
+  avatarSrc:
+    "https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg",
+  isCompany: true,
+}
 
 export default {
   title: `${CATEGORIES.components}/Avatar/Avatar`,
@@ -32,50 +77,17 @@ DefaultStory.args = {
   isCompany: false,
   isCurrentUser: false,
 }
-DefaultStory.parameters = { controls: { exclude: ["isCompany"] } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const PROPS_PHOTO_PERSONAL = {
-    fullName: "Jane Doe",
-    disableInitials: false,
-    isCurrentUser: true,
-    avatarSrc:
-      "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-  }
-
-  const PROPS_INITIALS_PERSONAL = {
-    fullName: "Jane Doe",
-    disableInitials: false,
-    isCurrentUser: true,
-  }
-
-  const PROPS_INITIALS_GENERIC = {
-    fullName: "Jane Doe",
-    disableInitials: false,
-    isCurrentUser: false,
-  }
-
-  const PROPS_INITIALS_INICODE = {
-    fullName: "李存信",
-    disableInitials: false,
-    isCurrentUser: true,
-  }
-
-  const PROPS_INITIALS_LONG = {
-    fullName:
-      "Spicy Jalapeno Taco Bacon Ipsum Pretzel Dolor Amet Nacho Elit Chicken",
-    disableInitials: false,
-    isCurrentUser: true,
-  }
-
-  const PROPS_COMPANY = {
-    fullName: "Hooli",
-    avatarSrc:
-      "https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg",
-    isCompany: true,
-  }
+  const ROWS: Array<{ title: string; size: AvatarSizes }> = [
+    { title: "XX-Large", size: "xxlarge" },
+    { title: "X-Large", size: "xlarge" },
+    { title: "Large", size: "large" },
+    { title: "Medium", size: "medium" },
+    { title: "Small", size: "small" },
+  ]
 
   return (
     <>
@@ -88,66 +100,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             "Default User",
           ]}
         />
-        <StoryWrapper.Row rowTitle="XX-Large">
-          <Avatar {...PROPS_PHOTO_PERSONAL} size="xxlarge" />
-          <Avatar {...PROPS_INITIALS_PERSONAL} size="xxlarge" />
-          <Avatar {...PROPS_INITIALS_GENERIC} size="xxlarge" />
-          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="xxlarge" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="X-Large">
-          <Avatar {...PROPS_PHOTO_PERSONAL} size="xlarge" />
-          <Avatar {...PROPS_INITIALS_PERSONAL} size="xlarge" />
-          <Avatar {...PROPS_INITIALS_GENERIC} size="xlarge" />
-          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="xlarge" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Large">
-          <Avatar {...PROPS_PHOTO_PERSONAL} size="large" />
-          <Avatar {...PROPS_INITIALS_PERSONAL} size="large" />
-          <Avatar {...PROPS_INITIALS_GENERIC} size="large" />
-          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="large" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Medium">
-          <Avatar {...PROPS_PHOTO_PERSONAL} size="medium" />
-          <Avatar {...PROPS_INITIALS_PERSONAL} size="medium" />
-          <Avatar {...PROPS_INITIALS_GENERIC} size="medium" />
-          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="medium" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Small">
-          <Avatar {...PROPS_PHOTO_PERSONAL} size="small" />
-          <Avatar {...PROPS_INITIALS_PERSONAL} size="small" />
-          <Avatar {...PROPS_INITIALS_GENERIC} size="small" />
-          <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size="small" />
-        </StoryWrapper.Row>
+        {ROWS.map(({ title, size }) => (
+          <StoryWrapper.Row key={title} rowTitle={title}>
+            <Avatar {...PROPS_PHOTO_PERSONAL} size={size} />
+            <Avatar {...PROPS_INITIALS_PERSONAL} size={size} />
+            <Avatar {...PROPS_INITIALS_GENERIC} size={size} />
+            <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size={size} />
+          </StoryWrapper.Row>
+        ))}
       </StoryWrapper>
+
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
         />
-        <StoryWrapper.Row rowTitle="XX-Large">
-          <Avatar {...PROPS_INITIALS_INICODE} size="xxlarge" />
-          <Avatar {...PROPS_INITIALS_LONG} size="xxlarge" />
-          <Avatar {...PROPS_COMPANY} size="xxlarge" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="X-Large">
-          <Avatar {...PROPS_INITIALS_INICODE} size="xlarge" />
-          <Avatar {...PROPS_INITIALS_LONG} size="xlarge" />
-          <Avatar {...PROPS_COMPANY} size="xlarge" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Large">
-          <Avatar {...PROPS_INITIALS_INICODE} size="large" />
-          <Avatar {...PROPS_INITIALS_LONG} size="large" />
-          <Avatar {...PROPS_COMPANY} size="large" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Medium">
-          <Avatar {...PROPS_INITIALS_INICODE} size="medium" />
-          <Avatar {...PROPS_INITIALS_LONG} size="medium" />
-          <Avatar {...PROPS_COMPANY} size="medium" />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Small">
-          <Avatar {...PROPS_INITIALS_INICODE} size="small" />
-          <Avatar {...PROPS_INITIALS_LONG} size="small" />
-          <Avatar {...PROPS_COMPANY} size="small" />
-        </StoryWrapper.Row>
+        {ROWS.map(({ title, size }) => (
+          <StoryWrapper.Row key={title} rowTitle={title}>
+            <Avatar {...PROPS_INITIALS_UNICODE} size={size} />
+            <Avatar {...PROPS_INITIALS_LONG} size={size} />
+            <Avatar {...PROPS_COMPANY} size={size} />
+          </StoryWrapper.Row>
+        ))}
       </StoryWrapper>
     </>
   )

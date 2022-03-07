@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Icon } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import classnames from "classnames"
