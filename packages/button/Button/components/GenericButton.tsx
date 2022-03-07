@@ -12,7 +12,6 @@ import React, {
 } from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { ButtonProps } from "../Button"
-
 import styles from "./GenericButton.module.scss"
 
 export type CustomButtonProps = {
