@@ -67,7 +67,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         >
           Prominent
         </Heading>
-        <StoryWrapper.RowHeader headings={["Dismissible"]} />
         <StoryWrapper.Row rowTitle="Informative">
           <InlineNotification type="informative" title="Informative title">
             "All Employees - North America" status has been changed to
@@ -139,15 +138,18 @@ StickerSheetReversed.parameters = {
 }
 
 export const AutohideDemo = props => (
-  <InlineNotification
-    type="positive"
-    title="Success"
-    {...props}
-    autohide
-    autohideDelay="short"
-  >
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
+  <>
+    <InlineNotification
+      type="positive"
+      title="Success"
+      {...props}
+      autohide
+      autohideDelay="short"
+    >
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      <a href="/">Manage users is now available</a>
+    </InlineNotification>
+    <p>Content below the notification</p>
+  </>
 )
 AutohideDemo.storyName = "Autohide Demo"
