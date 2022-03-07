@@ -39,29 +39,6 @@ export const DefaultStory = props => {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const FocusLockStory = props => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
-
-  return (
-    <>
-      <button>I am focusable</button>
-
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        value={selectedDate}
-        onChange={onDayChange}
-        {...props}
-      />
-    </>
-  )
-}
-FocusLockStory.storyName = "Focus Lock Story"
-
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
