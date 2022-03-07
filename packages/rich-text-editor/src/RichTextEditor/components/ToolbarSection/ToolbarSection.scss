@@ -1,7 +1,13 @@
 @import "@kaizen/design-tokens/sass/color";
+@import "@kaizen/design-tokens/sass/spacing";
 
 .toolbarSection {
-  + .toolbarSection {
-    border-inline-start: 1px solid rgba($color-gray-600-rgb, 0.1);
-  }
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin: $spacing-xs 0;
+}
+
+.toolbarSection + .toolbarSection {
+  border-inline-start: 1px solid rgba($color-gray-600-rgb, 0.1);
 }
