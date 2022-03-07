@@ -68,7 +68,7 @@ type Props = ButtonProps & {
   additionalContent?: React.ReactNode
   iconButton?: boolean
   directionalLink?: boolean
-  breadcrumbLink?: boolean
+  paginationLink?: boolean
   isActive?: boolean
 }
 
@@ -121,7 +121,7 @@ const GenericButton = forwardRef(
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
           [styles.circleButtonFocus]:
-            props.directionalLink || props.breadcrumbLink,
+            props.directionalLink || props.paginationLink,
         })}
       >
         {determineButtonRenderer()}
@@ -248,9 +248,9 @@ const buttonClass = (props: Props) => {
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
     [styles.working]: props.working,
-    [styles.circleButton]: props.directionalLink || props.breadcrumbLink,
-    [styles.breadcrumbLink]: props.breadcrumbLink,
-    [styles.isBreadcrumbLinkActive]: props.isActive,
+    [styles.circleButton]: props.directionalLink || props.paginationLink,
+    [styles.paginationLink]: props.paginationLink,
+    [styles.isPaginationLinkActive]: props.isActive,
   })
 }
 

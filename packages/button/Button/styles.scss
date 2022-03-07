@@ -434,7 +434,7 @@ $caButtonCircle-radius: 30px;
       calc(#{$spacing-md} - #{$border-focus-ring-border-width});
   }
 
-  :global(.js-focus-visible) %caBreadcrumbLink:global(.focus-visible) &,
+  :global(.js-focus-visible) %caPaginationLink:global(.focus-visible) &,
   :global(.js-focus-visible)
     %caButtonSecondaryDestructive:global(.focus-visible)
     & {
@@ -783,7 +783,7 @@ $caButtonCircle-radius: 30px;
   }
 }
 
-%caBreadcrumbLink {
+%caPaginationLink {
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
   margin: 0 $spacing-xs;
@@ -793,11 +793,6 @@ $caButtonCircle-radius: 30px;
     width: 100%;
     padding: 0;
     height: auto;
-    // IE 10/11 workaround to fix vertical centering of icon
-    margin: calc(
-        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
-      )
-      0;
   }
 
   &:not(:disabled),
@@ -819,25 +814,15 @@ $caButtonCircle-radius: 30px;
       border-color: $color-blue-100;
     }
 
-    &%caIsBreadcrumbLinkActive {
+    &%caIsPaginationLinkActive {
       background-color: $color-blue-500;
       color: $color-white;
       border-color: $color-blue-500;
 
       &:global(.js-focus-visible),
       &:global(.focus-visible) {
-        border-color: $color-blue-100;
-
-        &:hover {
-          border-color: $color-blue-100;
-        }
-      }
-
-      :global(.js-focus-visible) :global(.focus-visible) {
-        border-color: $color-blue-500;
-      }
-
-      &:hover {
+        background-color: $color-blue-500;
+        color: $color-white;
         border-color: $color-blue-500;
       }
     }
@@ -846,28 +831,26 @@ $caButtonCircle-radius: 30px;
       border-color: transparent;
       color: $color-white;
 
-      &%caIsBreadcrumbLinkActive {
-        background-color: $color-white;
-        color: $color-blue-500;
-
-        &:hover {
-          color: $color-white;
-        }
-
-        :global(.js-focus-visible) :global(.focus-visible) {
-          border-color: $color-blue-500;
-        }
-      }
-
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
-        background: rgba($color-white-rgb, 0.1);
+        background-color: rgba($color-white-rgb, 0.1);
         border-color: transparent;
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        background: rgba($color-white-rgb, 0.1);
+        background-color: rgba($color-white-rgb, 0.1);
         color: $color-white;
+      }
+
+      &%caIsPaginationLinkActive {
+        background-color: $color-white;
+        color: $color-purple-800;
+
+        &:global(.js-focus-visible),
+        &:global(.focus-visible) {
+          background-color: $color-white;
+          color: $color-purple-800;
+        }
       }
     }
   }

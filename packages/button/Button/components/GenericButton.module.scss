@@ -97,10 +97,10 @@
   @extend %caCircleButton;
 }
 
-.breadcrumbLink {
-  @extend %caBreadcrumbLink;
+.paginationLink {
+  @extend %caPaginationLink;
 }
 
-.isBreadcrumbLinkActive {
-  @extend %caIsBreadcrumbLinkActive;
+.isPaginationLinkActive {
+  @extend %caIsPaginationLinkActive;
 }

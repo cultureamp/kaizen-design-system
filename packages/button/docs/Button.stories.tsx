@@ -8,7 +8,13 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import { Button, IconButton, ButtonProps } from ".."
+import {
+  Button,
+  IconButton,
+  ButtonProps,
+  DirectionalLink,
+  PaginationLink,
+} from ".."
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -45,8 +51,20 @@ DefaultKaizenSiteDemo.story = {
 export const DefaultKaizenDemoIcon = args => (
   <IconButton {...args} icon={trashIcon} />
 )
+
+export const DefaultKaizenDirectionalLink = args => (
+  <DirectionalLink direction="prev" {...args} />
+)
+
+export const DefaultKaizenPaginationLink = args => (
+  <PaginationLink pageNumber={1} {...args} />
+)
+
 DefaultKaizenDemoIcon.storyName = "Default Icon (Kaizen Demo)"
 DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
+DefaultKaizenDirectionalLink.storyName =
+  "Default Directional Link (Kaizen Demo)"
+DefaultKaizenPaginationLink.storyName = "Default Pagination Link (Kaizen Demo)"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -84,7 +102,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
+      {/* <StoryWrapper isReversed={isReversed}>
         <Heading
           variant="heading-3"
           tag="h1"
@@ -113,8 +131,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <IconButton {...ICON_ONLY_PROPS} icon={meatballsIcon} disabled />
           <IconButton {...ICON_ONLY_PROPS} {...WORKING_PROPS} />
         </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
+      </StoryWrapper> */}
+      {/* <StoryWrapper isReversed={isReversed}>
         <Heading
           variant="heading-3"
           tag="h1"
@@ -287,12 +305,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             secondary
             destructive
           />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+        </StoryWrapper.Row> */}
+      {/* </StoryWrapper> */}
+      {/* <StoryWrapper.Row rowTitle="Directional Link">
+        <DirectionalLink direction="start" accessibleLabel="First page" />
+        <DirectionalLink direction="prev" accessibleLabel="Previous page" />
+        <DirectionalLink direction="next" accessibleLabel="Next page" />
+        <DirectionalLink direction="end" accessibleLabel="Last page" />
+      </StoryWrapper.Row> */}
+      <StoryWrapper.Row rowTitle="Pagination Link">
+        <PaginationLink pageNumber={1} isActive={true} reversed={isReversed} />
+        <PaginationLink pageNumber={2} isActive={false} reversed={isReversed} />
+        <PaginationLink pageNumber={3} isActive={false} reversed={isReversed} />
+        <PaginationLink pageNumber={4} isActive={false} reversed={isReversed} />
+        <PaginationLink pageNumber={5} isActive={false} reversed={isReversed} />
+      </StoryWrapper.Row>
     </>
   )
 }
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-type BreadcrumbLinkProps = Pick<
+type PaginationLinkProps = Pick<
   GenericProps,
   | "id"
   | "reversed"
@@ -17,21 +17,22 @@ type BreadcrumbLinkProps = Pick<
   isActive: boolean
 }
 
-const BreadcrumbLink: React.FunctionComponent<BreadcrumbLinkProps> = (
-  props: BreadcrumbLinkProps
+const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
+  props: PaginationLinkProps
 ) => (
   <GenericButton
     {...props}
-    breadcrumbLink
+    paginationLink
     label={`${props.pageNumber}`}
     aria-label={`Page ${props.pageNumber}`}
   />
 )
 
-BreadcrumbLink.defaultProps = {
+PaginationLink.defaultProps = {
   reversed: false,
+  isActive: false,
 }
 
-BreadcrumbLink.displayName = "BreadcrumbLink"
+PaginationLink.displayName = "PaginationLink"
 
-export default BreadcrumbLink
+export default PaginationLink

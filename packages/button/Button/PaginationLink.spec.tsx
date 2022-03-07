@@ -1,11 +1,11 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { BreadcrumbLink } from ".."
+import { PaginationLink } from ".."
 
-describe("BreadcrumbLink", () => {
+describe("PaginationLink", () => {
   it("has the correct label", () => {
     const expectedPageNumber = 1
-    render(<BreadcrumbLink pageNumber={expectedPageNumber} isActive={false} />)
+    render(<PaginationLink pageNumber={expectedPageNumber} isActive={false} />)
 
     expect(screen.getByLabelText(`Page ${expectedPageNumber}`))
   })
