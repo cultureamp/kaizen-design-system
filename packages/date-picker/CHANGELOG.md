@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.1...@kaizen/date-picker@1.4.2) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.0...@kaizen/date-picker@1.4.1) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.3.1...@kaizen/date-picker@1.4.0) (2022-03-04)
+
+
+### Features
+
+* use focus-visible for focus styling ([#2582](https://github.com/cultureamp/kaizen-design-system/issues/2582)) ([2131189](https://github.com/cultureamp/kaizen-design-system/commit/213118901870538f910ca3cd605b74bd1c0b6f1f))
+
+
+
+
+
 ## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.3.0...@kaizen/date-picker@1.3.1) (2022-03-03)
 
 **Note:** Version bump only for package @kaizen/date-picker
