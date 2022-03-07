@@ -103,7 +103,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      {/* <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper isReversed={isReversed}>
         <Heading
           variant="heading-3"
           tag="h1"
@@ -307,7 +307,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             destructive
           />
         </StoryWrapper.Row>
-      </StoryWrapper> */}
+      </StoryWrapper>
       <StoryWrapper isReversed={isReversed}>
         <Heading
           variant="heading-3"
