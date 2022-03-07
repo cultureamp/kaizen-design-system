@@ -11,6 +11,7 @@ import React, {
   MouseEvent,
 } from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { ButtonProps } from "../Button"
 
 import styles from "./GenericButton.module.scss"
 
@@ -28,24 +29,30 @@ export type CustomButtonProps = {
 export type GenericProps = {
   id?: string
   label: string
-  primary?: boolean
-  destructive?: boolean
-  secondary?: boolean
-  disabled?: boolean
-  form?: boolean
   reversed?: boolean
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  badge?: BadgeProps
   onClick?: (e: MouseEvent) => void
   onMouseDown?: (e: MouseEvent) => void
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
-  type?: "submit" | "reset" | "button"
-  fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
+}
+
+export type SharedButtonProps = {
+  primary?: boolean
+  destructive?: boolean
+  secondary?: boolean
+  form?: boolean
+  badge?: BadgeProps
+  type?: "submit" | "reset" | "button"
+  fullWidth?: boolean
   component?: ComponentType<CustomButtonProps>
+}
+
+export type DirectionalLinkSharedProps = {
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  disabled?: boolean
 }
 
 export type WorkingProps = {
@@ -57,12 +64,6 @@ export type WorkingProps = {
 export type WorkingUndefinedProps = {
   working?: false
 }
-
-export type ButtonProps = GenericProps &
-  (WorkingProps | WorkingUndefinedProps) & {
-    iconPosition?: "start" | "end"
-    primary?: boolean
-  }
 
 type Props = ButtonProps & {
   additionalContent?: React.ReactNode

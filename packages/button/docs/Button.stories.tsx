@@ -131,8 +131,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <IconButton {...ICON_ONLY_PROPS} icon={meatballsIcon} disabled />
           <IconButton {...ICON_ONLY_PROPS} {...WORKING_PROPS} />
         </StoryWrapper.Row>
-      </StoryWrapper> */}
-      {/* <StoryWrapper isReversed={isReversed}>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
         <Heading
           variant="heading-3"
           tag="h1"
@@ -305,21 +305,71 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             secondary
             destructive
           />
-        </StoryWrapper.Row> */}
-      {/* </StoryWrapper> */}
-      {/* <StoryWrapper.Row rowTitle="Directional Link">
-        <DirectionalLink direction="start" accessibleLabel="First page" />
-        <DirectionalLink direction="prev" accessibleLabel="Previous page" />
-        <DirectionalLink direction="next" accessibleLabel="Next page" />
-        <DirectionalLink direction="end" accessibleLabel="Last page" />
-      </StoryWrapper.Row> */}
-      <StoryWrapper.Row rowTitle="Pagination Link">
-        <PaginationLink pageNumber={1} isActive={true} reversed={isReversed} />
-        <PaginationLink pageNumber={2} isActive={false} reversed={isReversed} />
-        <PaginationLink pageNumber={3} isActive={false} reversed={isReversed} />
-        <PaginationLink pageNumber={4} isActive={false} reversed={isReversed} />
-        <PaginationLink pageNumber={5} isActive={false} reversed={isReversed} />
-      </StoryWrapper.Row>
+        </StoryWrapper.Row>
+      </StoryWrapper> */}
+      <StoryWrapper isReversed={isReversed}>
+        <Heading
+          variant="heading-3"
+          tag="h1"
+          color={isReversed ? "white" : "dark"}
+        >
+          Miscellaneous
+        </Heading>
+        <StoryWrapper.Row rowTitle="Directional Link">
+          <DirectionalLink
+            direction="start"
+            label="First page"
+            reversed={isReversed}
+          />
+          <DirectionalLink
+            direction="prev"
+            label="Previous page"
+            reversed={isReversed}
+          />
+          <DirectionalLink
+            direction="next"
+            label="Next page"
+            reversed={isReversed}
+          />
+          <DirectionalLink
+            direction="end"
+            label="Last page"
+            reversed={isReversed}
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Pagination Link">
+          <PaginationLink
+            pageNumber={1}
+            accessibleLabel="Page 1"
+            isActive={true}
+            reversed={isReversed}
+          />
+          <PaginationLink
+            pageNumber={2}
+            accessibleLabel="Page 2"
+            isActive={false}
+            reversed={isReversed}
+          />
+          <PaginationLink
+            pageNumber={3}
+            accessibleLabel="Page 3"
+            isActive={false}
+            reversed={isReversed}
+          />
+          <PaginationLink
+            pageNumber={4}
+            accessibleLabel="Page 4"
+            isActive={false}
+            reversed={isReversed}
+          />
+          <PaginationLink
+            pageNumber={5}
+            accessibleLabel="Page 5"
+            isActive={false}
+            reversed={isReversed}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
     </>
   )
 }

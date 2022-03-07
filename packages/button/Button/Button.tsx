@@ -1,8 +1,20 @@
 import React, { forwardRef, Ref } from "react"
 import GenericButton, {
-  ButtonProps,
+  GenericProps,
+  SharedButtonProps,
+  DirectionalLinkSharedProps,
   ButtonRef,
+  WorkingProps,
+  WorkingUndefinedProps,
 } from "./components/GenericButton"
+
+export type ButtonProps = GenericProps &
+  SharedButtonProps &
+  DirectionalLinkSharedProps &
+  (WorkingProps | WorkingUndefinedProps) & {
+    iconPosition?: "start" | "end"
+    primary?: boolean
+  }
 
 const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (

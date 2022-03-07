@@ -3,25 +3,15 @@ import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.s
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import directionalStart from "@kaizen/component-library/icons/action-off.icon.svg"
 import directionalEnd from "@kaizen/component-library/icons/academy.icon.svg"
-import GenericButton, { GenericProps } from "./components/GenericButton"
-
-type DirectionalLinkProps = Pick<
+import GenericButton, {
   GenericProps,
-  | "id"
-  | "reversed"
-  | "disabled"
-  | "icon"
-  | "onClick"
-  | "onMouseDown"
-  | "href"
-  | "newTabAndIUnderstandTheAccessibilityImplications"
-  | "disableTabFocusAndIUnderstandTheAccessibilityImplications"
-  | "onFocus"
-  | "onBlur"
-> & {
-  accessibleLabel: string
-  direction: "prev" | "next" | "start" | "end"
-}
+  DirectionalLinkSharedProps,
+} from "./components/GenericButton"
+
+type DirectionalLinkProps = GenericProps &
+  DirectionalLinkSharedProps & {
+    direction: "prev" | "next" | "start" | "end"
+  }
 
 const iconMap = {
   prev: arrowBackward,
@@ -35,10 +25,9 @@ const DirectionalLink: React.FunctionComponent<DirectionalLinkProps> = (
 ) => (
   <GenericButton
     {...props}
-    directionalLink
     iconButton
+    directionalLink
     icon={iconMap[props.direction]}
-    label={props.accessibleLabel}
   />
 )
 

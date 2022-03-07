@@ -1,20 +1,10 @@
 import * as React from "react"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-type PaginationLinkProps = Pick<
-  GenericProps,
-  | "id"
-  | "reversed"
-  | "onClick"
-  | "onMouseDown"
-  | "href"
-  | "newTabAndIUnderstandTheAccessibilityImplications"
-  | "disableTabFocusAndIUnderstandTheAccessibilityImplications"
-  | "onFocus"
-  | "onBlur"
-> & {
+type PaginationLinkProps = GenericProps & {
   pageNumber: number
   isActive: boolean
+  accessibleLabel: string
 }
 
 const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
@@ -24,7 +14,7 @@ const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
     {...props}
     paginationLink
     label={`${props.pageNumber}`}
-    aria-label={`Page ${props.pageNumber}`}
+    aria-label={props.accessibleLabel}
   />
 )
 

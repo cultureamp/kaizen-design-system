@@ -1,11 +1,16 @@
 import * as React from "react"
 import GenericButton, {
   GenericProps,
+  SharedButtonProps,
+  DirectionalLinkSharedProps,
   WorkingProps,
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
-type IconButtonProps = GenericProps & (WorkingProps | WorkingUndefinedProps)
+type IconButtonProps = GenericProps &
+  SharedButtonProps &
+  DirectionalLinkSharedProps &
+  (WorkingProps | WorkingUndefinedProps)
 
 const IconButton: React.FunctionComponent<IconButtonProps> = (
   props: IconButtonProps
