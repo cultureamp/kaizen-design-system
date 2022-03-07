@@ -2,7 +2,6 @@
 @import "@kaizen/design-tokens/sass/spacing";
 
 .toolbar {
-  display: inline-flex;
-  align-items: center;
+  display: block;
   border-bottom: 2px solid $color-gray-600;
 }

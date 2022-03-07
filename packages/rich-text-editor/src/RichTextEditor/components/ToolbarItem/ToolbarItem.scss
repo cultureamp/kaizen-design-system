@@ -2,11 +2,4 @@
 
 .item {
   display: inline-block;
-
-  &:last-child {
-    margin-right: $spacing-xs;
-  }
-  &:first-child {
-    margin-left: $spacing-xs;
-  }
 }

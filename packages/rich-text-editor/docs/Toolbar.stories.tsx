@@ -2,7 +2,10 @@ import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
+import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
+import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
@@ -45,6 +48,19 @@ export const DefaultStory = (args: ToolbarProps) => (
       </ToolbarItem>
       <ToolbarItem>
         <ToggleIconButton label="Underline" icon={underlineIcon} />
+      </ToolbarItem>
+    </ToolbarSection>
+    <ToolbarSection>
+      <ToolbarItem>
+        <ToggleIconButton label="Bullet list" icon={bulletListIcon} />
+      </ToolbarItem>
+      <ToolbarItem>
+        <ToggleIconButton label="Numbered list" icon={numberListIcon} />
+      </ToolbarItem>
+    </ToolbarSection>
+    <ToolbarSection>
+      <ToolbarItem>
+        <ToggleIconButton label="Link" icon={linkIcon} />
       </ToolbarItem>
     </ToolbarSection>
   </Toolbar>

@@ -2,10 +2,11 @@
 @import "@kaizen/design-tokens/sass/spacing";
 
 .toolbarSection {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
   margin: $spacing-xs 0;
+  padding: 0 $spacing-xs;
 }
 
 .toolbarSection + .toolbarSection {
