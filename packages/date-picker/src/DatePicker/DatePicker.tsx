@@ -10,8 +10,7 @@ import {
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { Icon } from "@kaizen/component-library"
-import FocusLock from "react-focus-lock"
-import { useClickOutside } from "../hooks/useClickOutside"
+import { FocusOn } from "react-focus-on"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
@@ -124,16 +123,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     placement: "bottom-start",
   })
 
-  useClickOutside(isOpen, setIsOpen, referenceElement, wrapperRef)
-
-  const handleKeyDown = e => {
-    switch (e.keyCode) {
-      case 27:
-        setIsOpen(false)
-        break
-    }
-  }
-
   const handleOnDayChange = (day: Date, modifiers: DayModifiers) => {
     /** react-day-picker will fire events for disabled days by default.
      *  We're checking here if it includes the CSS Modules class for disabled
@@ -181,7 +170,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
-          onKeyDown={e => handleKeyDown(e)}
           {...inputProps}
         >
           <div className={datePickerStyles.startIconAdornment}>
@@ -193,7 +181,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         </button>
       </div>
       {isOpen && (
-        <FocusLock onDeactivation={handleReturnFocus}>
+        <FocusOn
+          onDeactivation={handleReturnFocus}
+          onClickOutside={() => {
+            handleOpenClose()
+          }}
+          onEscapeKey={() => {
+            handleOpenClose()
+          }}
+        >
           <Calendar
             setPopperElement={setPopperElement}
             styles={styles}
@@ -204,9 +200,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnDayChange}
-            onKeyDown={handleKeyDown}
           />
-        </FocusLock>
+        </FocusOn>
       )}
     </div>
   )
