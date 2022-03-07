@@ -34,7 +34,6 @@
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
     "@kaizen/draft-button": "^5.6.10",
     "@kaizen/hosted-assets": "^1.2.0",
-    "@kaizen/react-deprecate-warning": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.177",
     "@types/uuid": "^3.4.10",

@@ -34,7 +34,6 @@
   "dependencies": {
     "@kaizen/component-library": "^12.5.0",
     "@kaizen/draft-tag": "^2.3.13",
-    "@kaizen/react-deprecate-warning": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
