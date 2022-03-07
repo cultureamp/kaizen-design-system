@@ -28,13 +28,22 @@ export const DefaultStory = props => {
   }
 
   return (
-    <DatePicker
-      id="datepicker-default"
-      labelText="Label"
-      value={selectedDate}
-      onChange={onDayChange}
-      {...props}
-    />
+    <>
+      <DatePicker
+        id="datepicker-default"
+        labelText="Label"
+        value={selectedDate}
+        onChange={onDayChange}
+        {...props}
+      />
+      <ul>
+        {Array(100)
+          .fill(1)
+          .map((_, index) => (
+            <li>fill the page with something...</li>
+          ))}
+      </ul>
+    </>
   )
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
