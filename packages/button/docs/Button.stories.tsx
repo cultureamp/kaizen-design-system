@@ -18,6 +18,7 @@ import {
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import styles from "./styles.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Button`,
@@ -315,59 +316,91 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         >
           Miscellaneous
         </Heading>
+        <StoryWrapper.RowHeader headings={["Default", "Disabled", ""]} />
         <StoryWrapper.Row rowTitle="Directional Link">
-          <DirectionalLink
-            direction="start"
-            label="First page"
-            reversed={isReversed}
-          />
-          <DirectionalLink
-            direction="prev"
-            label="Previous page"
-            reversed={isReversed}
-          />
-          <DirectionalLink
-            direction="next"
-            label="Next page"
-            reversed={isReversed}
-          />
-          <DirectionalLink
-            direction="end"
-            label="Last page"
-            reversed={isReversed}
-          />
+          <div className={styles.circleButtonContainer}>
+            <DirectionalLink
+              direction="start"
+              label="First page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="prev"
+              label="Previous page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="next"
+              label="Next page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="end"
+              label="Last page"
+              reversed={isReversed}
+            />
+          </div>
+          <div className={styles.circleButtonContainer}>
+            <DirectionalLink
+              direction="start"
+              label="First page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="prev"
+              label="Previous page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="next"
+              label="Next page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="end"
+              label="Last page"
+              reversed={isReversed}
+              disabled={true}
+            />
+          </div>
+          <div></div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Pagination Link">
-          <PaginationLink
-            pageNumber={1}
-            accessibleLabel="Page 1"
-            isActive={true}
-            reversed={isReversed}
-          />
-          <PaginationLink
-            pageNumber={2}
-            accessibleLabel="Page 2"
-            isActive={false}
-            reversed={isReversed}
-          />
-          <PaginationLink
-            pageNumber={3}
-            accessibleLabel="Page 3"
-            isActive={false}
-            reversed={isReversed}
-          />
-          <PaginationLink
-            pageNumber={4}
-            accessibleLabel="Page 4"
-            isActive={false}
-            reversed={isReversed}
-          />
-          <PaginationLink
-            pageNumber={5}
-            accessibleLabel="Page 5"
-            isActive={false}
-            reversed={isReversed}
-          />
+          <div className={styles.circleButtonContainer}>
+            <PaginationLink
+              pageNumber={1}
+              label="Page 1"
+              isActive={true}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={2}
+              label="Page 2"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={3}
+              label="Page 3"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={4}
+              label="Page 4"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={5}
+              label="Page 5"
+              isActive={false}
+              reversed={isReversed}
+            />
+          </div>
         </StoryWrapper.Row>
       </StoryWrapper>
     </>

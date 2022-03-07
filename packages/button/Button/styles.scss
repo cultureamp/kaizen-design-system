@@ -495,6 +495,13 @@ $caButtonCircle-radius: 30px;
     @include ca-margin($end: 0.5em, $start: null);
   }
 }
+
+@mixin center-align {
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+
 %caButtonIconButton {
   width: $caButton-height;
   // Reset for various states and variants
@@ -609,14 +616,7 @@ $caButtonCircle-radius: 30px;
   }
 
   %caButtonContent {
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    // IE 10/11 workaround to fix vertical centering of icon
-    margin: calc(
-        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
-      )
-      0;
+    @include center-align;
   }
 
   &%caButtonForm {
@@ -736,6 +736,7 @@ $caButtonCircle-radius: 30px;
   width: 40px;
   height: 40px;
   min-height: auto;
+  margin: 0 $spacing-xs;
 
   %caButtonContent {
     height: auto;
@@ -747,7 +748,7 @@ $caButtonCircle-radius: 30px;
     &,
     &:hover,
     &:active {
-      border: 3px solid $color-blue-300;
+      border: $border-solid-border-width solid $color-blue-300;
       border-radius: $caButtonCircle-radius;
 
       svg {
@@ -756,22 +757,18 @@ $caButtonCircle-radius: 30px;
 
       &:hover,
       :global(.js-focus-visible) &:global(.focus-visible) {
-        @include white-icon;
-        background: $color-blue-500;
-        border-color: $color-blue-500;
+        background-color: $color-blue-100;
+        border-color: $color-blue-400;
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
         border: $border-solid-border-width $border-solid-border-style
-          $color-white;
-        border-color: $color-blue-500;
+          $color-blue-400;
       }
 
       &%caButtonReversed {
         @include white-icon;
-        border: $border-solid-border-width $border-solid-border-style
-          rgba($color-white-rgb, 0.65);
-        color: $color-purple-800;
+        border-color: rgba($color-white-rgb, 0.65);
 
         &:hover,
         :global(.js-focus-visible) &:global(.focus-visible) {
@@ -784,15 +781,11 @@ $caButtonCircle-radius: 30px;
 }
 
 %caPaginationLink {
-  font-weight: $typography-button-secondary-font-weight;
+  font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-button-secondary-font-size;
-  margin: 0 $spacing-xs;
 
   %caButtonContent {
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    height: auto;
+    @include center-align;
   }
 
   &:not(:disabled),
@@ -803,9 +796,7 @@ $caButtonCircle-radius: 30px;
 
     &:hover,
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $color-blue-100;
-      background: $color-blue-100;
-      color: $color-blue-500;
+      border-color: transparent;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
