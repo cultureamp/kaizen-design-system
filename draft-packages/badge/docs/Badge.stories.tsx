@@ -1,12 +1,12 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./styles.module.scss"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Badge`,
@@ -27,7 +27,7 @@ export default {
   decorators: [withDesign],
 }
 
-const BadgeStoryWrapper: React.FunctionComponent<{
+const BadgeAnimationStoryWrapper: React.VFC<{
   children: (badgeCount: string, useAnimation: boolean) => void
 }> = ({ children }) => {
   const [useAnimation, setUseAnimation] = React.useState(false)
@@ -56,141 +56,55 @@ const BadgeStoryWrapper: React.FunctionComponent<{
   )
 }
 
-export const DefaultStory = args => <Badge {...args}>3</Badge>
+export const DefaultStory = args => (
+  <BadgeAnimationStoryWrapper>
+    {(badgeCount, useAnimation) =>
+      useAnimation ? (
+        <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
+      ) : (
+        <Badge {...args}>{badgeCount}</Badge>
+      )
+    }
+  </BadgeAnimationStoryWrapper>
+)
+DefaultStory.storyName = "Default (Kaizen Demo)"
 
-DefaultStory.storyName = "Default (with args)"
-DefaultStory.args = {
-  variant: "default",
-  reversed: false,
-  size: "small",
-}
-
-export const AnimatedBadge = args => (
-  <>
-    <BadgeStoryWrapper>
-      {(badgeCount, useAnimation) =>
-        useAnimation ? (
-          <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
-        ) : (
-          <Badge {...args}>{badgeCount}</Badge>
-        )
-      }
-    </BadgeStoryWrapper>
-  </>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Default", "Active", "Dot"]} />
+    <StoryWrapper.Row rowTitle="Small">
+      <div>
+        <Badge size="small" variant="default" reversed={isReversed}>
+          3
+        </Badge>
+      </div>
+      <div>
+        <Badge size="small" variant="active" reversed={isReversed}>
+          3
+        </Badge>
+      </div>
+      <div>
+        <Badge size="small" variant="dot" reversed={isReversed}></Badge>
+      </div>
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Large">
+      <Badge size="large" variant="default" reversed={isReversed}>
+        3
+      </Badge>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-AnimatedBadge.description = "skdjbnsdkjfnsdf lsndfksdjlfn skdjfn"
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const LightBadges = () => (
-  <>
-    <Heading style={{ marginBottom: "2rem" }} variant="heading-2" tag="h1">
-      Light Badges
-    </Heading>
-    <Heading variant="heading-3" tag="h2">
-      Default
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge variant="default">3</Badge>
-      </div>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge size="large" variant="default">
-          3
-        </Badge>
-      </div>
-    </div>
-    <Heading variant="heading-3" tag="h2">
-      Active
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge variant="active">3</Badge>
-      </div>
-    </div>
-    <Heading variant="heading-3" tag="h2">
-      Dot
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge variant="dot"></Badge>
-      </div>
-    </div>
-  </>
-)
-
-LightBadges.parameters = { chromatic: { disable: false } }
-
-export const ReversedBadges = () => (
-  <>
-    <Heading
-      color="white"
-      style={{ marginBottom: "2rem" }}
-      variant="heading-2"
-      tag="h1"
-    >
-      Reversed Badges
-    </Heading>
-    <Heading color="white" variant="heading-3" tag="h2">
-      Default
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge reversed variant="default">
-          3
-        </Badge>
-      </div>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Large
-        </Heading>
-        <Badge reversed size="large" variant="default">
-          3
-        </Badge>
-      </div>
-    </div>
-    <Heading color="white" variant="heading-3" tag="h2">
-      Active
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge reversed variant="active">
-          3
-        </Badge>
-      </div>
-    </div>
-    <Heading color="white" variant="heading-3" tag="h2">
-      Dot
-    </Heading>
-    <div className={styles.badgeSection}>
-      <div className={styles.badgeSize}>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Small
-        </Heading>
-        <Badge reversed variant="dot"></Badge>
-      </div>
-    </div>
-  </>
-)
-
-ReversedBadges.parameters = {
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
