@@ -9,6 +9,7 @@ import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryRowHeader } from "../../../storybook/components/StoryWrapper/components/StoryRowHeader"
 
 export default {
   title: `${CATEGORIES.components}/Likert Scale`,
@@ -80,8 +81,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   return (
     <>
       <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={[]} />
-        <StoryWrapper.Row rowTitle="Default">
+        <StoryRowHeader headings={[]} />
+        <StoryWrapper.Row rowTitle="Very Poor">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
@@ -90,6 +91,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Poor">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
@@ -98,6 +101,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Fair">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
@@ -106,6 +111,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Good">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
@@ -114,6 +121,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Very Good">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
