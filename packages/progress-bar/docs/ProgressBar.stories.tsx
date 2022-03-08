@@ -6,7 +6,7 @@ import { ProgressBar } from "../index"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/ProgressBar`,
+  title: `${CATEGORIES.components}/Progress Bar`,
   component: ProgressBar,
   parameters: {
     docs: {
