@@ -2826,6 +2826,11 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/react-deprecate-warning@^1.1.6":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
+  integrity sha512-rn9SmzMRs7So48S0UInEvUBtuZMNFibd74Pd/ya5yHpLnizrCQv3R8JhQnt5e2Zo7ZiRYvVE4F3KAwePbeNJ9A==
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
