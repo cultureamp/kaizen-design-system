@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.4.7...@kaizen/draft-split-button@3.4.8) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [3.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.4.6...@kaizen/draft-split-button@3.4.7) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.4.5...@kaizen/draft-split-button@3.4.6) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
 ## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@3.4.4...@kaizen/draft-split-button@3.4.5) (2022-03-01)
 
 **Note:** Version bump only for package @kaizen/draft-split-button

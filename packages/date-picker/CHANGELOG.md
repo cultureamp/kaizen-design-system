@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.3...@kaizen/date-picker@1.5.0) (2022-03-08)
+
+
+### Features
+
+* update to use FocusOn ([#2587](https://github.com/cultureamp/kaizen-design-system/issues/2587)) ([f310223](https://github.com/cultureamp/kaizen-design-system/commit/f310223a22ee8d9f8a22badedc74171baec80cc0))
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.2...@kaizen/date-picker@1.4.3) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.1...@kaizen/date-picker@1.4.2) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.0...@kaizen/date-picker@1.4.1) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.3.1...@kaizen/date-picker@1.4.0) (2022-03-04)
 
 
