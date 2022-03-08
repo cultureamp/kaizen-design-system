@@ -1,5 +1,4 @@
 import * as React from "react"
-import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import styles from "./styles.module.scss"
 
 type size = "sm" | "md"
@@ -14,7 +13,10 @@ export interface LoadingSpinnerProps {
   children?: React.ReactNode
 }
 
-const LoadingSpinnerComponent = ({
+/**
+ * @deprecated draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.
+ */
+export const LoadingSpinner = ({
   accessibilityLabel = "Loading",
   size = "md",
   children,
@@ -78,11 +80,3 @@ const LoadingSpinnerComponent = ({
     )}
   </div>
 )
-
-/**
- * @deprecated draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.
- */
-export const LoadingSpinner = withDeprecatedComponent(LoadingSpinnerComponent, {
-  warning:
-    'draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.',
-})

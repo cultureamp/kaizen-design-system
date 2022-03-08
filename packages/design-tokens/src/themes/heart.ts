@@ -117,6 +117,7 @@ export const heartTheme: Theme = {
   },
   layout: {
     contentMaxWidth: "1392px",
+    contentMaxWidthWithSidebar: "1080px",
     contentSideMargin: "72px",
     mobileActionsDrawerHeight: "60px",
     navigationBarHeight: "72px",

@@ -2826,6 +2826,11 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/react-deprecate-warning@^1.1.6":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
+  integrity sha512-rn9SmzMRs7So48S0UInEvUBtuZMNFibd74Pd/ya5yHpLnizrCQv3R8JhQnt5e2Zo7ZiRYvVE4F3KAwePbeNJ9A==
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -5232,10 +5237,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.14.tgz#33b9b94f789a8fedd30a68efdbca4dbb06b61f20"
   integrity sha512-SbjLmERksKOGzWzPNuW7fJM7fk3YXVTFiZWB/Hs99gwhk+/dnrQRPBQjPW9aO+fi1tAffi9PrwFvsmOKmDTyng==
 
-"@types/node@^17.0.19":
-  version "17.0.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.19.tgz#726171367f404bfbe8512ba608a09ebad810c7e6"
-  integrity sha512-PfeQhvcMR4cPFVuYfBN4ifG7p9c+Dlh3yUZR6k+5yQK7wX3gDgVxBly4/WkBRs9x4dmcy1TVl08SY67wwtEvmA==
+"@types/node@^17.0.21":
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
+  integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/node@^8.5.7":
   version "8.10.66"

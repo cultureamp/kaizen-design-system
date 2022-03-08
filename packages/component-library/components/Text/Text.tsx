@@ -1,9 +1,6 @@
-/* !!! This component is deprecated. Please do not use for new code  !!! */
-
 import classNames from "classnames"
 import * as React from "react"
 
-import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -61,6 +58,4 @@ const Text: React.FunctionComponent<TextProps> = ({
 
 Text.displayName = "Text"
 
-export default withDeprecatedComponent(Text, {
-  warning: "Text is deprecated. Use Paragraph or Heading instead.",
-})
+export default Text
