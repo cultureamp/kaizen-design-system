@@ -15,7 +15,3 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   padding: calc(#{$spacing-sm} - #{$menuContentVerticalPadding})
     calc(#{$spacing-sm} - #{$menuContentHorizontalPadding});
 }
-
-.siteDemoWrapper {
-  height: 300px;
-}
