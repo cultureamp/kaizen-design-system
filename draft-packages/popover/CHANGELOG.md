@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@3.4.8...@kaizen/draft-popover@3.5.0) (2022-03-09)
+
+
+### Features
+
+* remove deprecated popover styles ([#2590](https://github.com/cultureamp/kaizen-design-system/issues/2590)) ([57041ae](https://github.com/cultureamp/kaizen-design-system/commit/57041ae3ac05f551344e3c30c34d29dd9f64cc1e))
+
+
+
+
+
 ## [3.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@3.4.7...@kaizen/draft-popover@3.4.8) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-popover
