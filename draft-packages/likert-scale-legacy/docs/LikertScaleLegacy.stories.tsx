@@ -5,11 +5,10 @@ import {
   Scale,
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
-import { Heading } from "@kaizen/typography"
+import { Heading, Box } from "@kaizen/component-library"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { StoryRowHeader } from "../../../storybook/components/StoryWrapper/components/StoryRowHeader"
 
 export default {
   title: `${CATEGORIES.components}/Likert Scale`,
@@ -51,7 +50,7 @@ const scale: Scale = [
   },
 ]
 
-export const DefaultStory = () => {
+export const DefaultStory = args => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
   const labelId = "456"
 
@@ -68,6 +67,7 @@ export const DefaultStory = () => {
         labelId={labelId} // Intended to match the id of the label
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
+        {...args}
       />
     </>
   )
@@ -79,14 +79,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 }) => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
   return (
-    <>
+    <Box mt={2}>
       <StoryWrapper isReversed={isReversed}>
-        <StoryRowHeader headings={[]} />
         <StoryWrapper.Row rowTitle="Very Poor">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="456"
+            labelId="1"
             selectedItem={scale[0]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
@@ -96,7 +95,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="456"
+            labelId="2"
             selectedItem={scale[1]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
@@ -106,7 +105,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="456"
+            labelId="3"
             selectedItem={scale[2]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
@@ -116,7 +115,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="456"
+            labelId="4"
             selectedItem={scale[3]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
@@ -126,14 +125,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="456"
+            labelId="5"
             selectedItem={scale[4]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-    </>
+    </Box>
   )
 }
 
