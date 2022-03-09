@@ -1,20 +1,12 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { withDesign } from "storybook-addon-designs"
+import { Label } from "@kaizen/draft-form"
+import { Heading } from "@kaizen/component-library"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-
-const StoryContainer = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
-)
-
-const WideStoryContainer = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
-)
-
-const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
-)
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const options = [
   { value: "Mindy", label: "Mindy" },
@@ -26,6 +18,11 @@ const options = [
   { value: "Prince", label: "Prince" },
   { value: "Charith", label: "Charith" },
   { value: "Nick", label: "Nick" },
+  {
+    value: "a",
+    label:
+      "Long option where the container is fixed width and the selected option should ellipsize",
+  },
 ]
 
 const asyncOptions = [
@@ -49,18 +46,6 @@ const asyncOptions = [
   { value: "Roberto", label: "Roberto" },
 ]
 
-const filterNames = (inputValue: string) =>
-  asyncOptions.filter(i =>
-    i.label.toLowerCase().includes(inputValue.toLowerCase())
-  )
-
-const promiseOptions = (inputValue): Promise<any[]> =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(filterNames(inputValue))
-    }, 1000)
-  })
-
 export default {
   title: `${CATEGORIES.components}/Select`,
   component: Select,
@@ -77,264 +62,176 @@ export default {
   decorators: [withDesign],
 }
 
-export const Single = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      isDisabled={false}
-      defaultValue={options[0]}
-    />
-  </StoryContainer>
+export const DefaultStory = args => (
+  <>
+    <Label labelText="label" />
+    <Select {...args} />
+  </>
 )
-Single.parameters = { chromatic: { disable: false } }
-
-export const SingleWithDescription = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      isDisabled={false}
-      defaultValue={options[0]}
-      description="My cool description"
-    />
-  </StoryContainer>
-)
-SingleWithDescription.parameters = { chromatic: { disable: false } }
-
-export const SingleWithDescriptionAndErrorMessage = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      isDisabled={false}
-      defaultValue={options[0]}
-      status="error"
-      validationMessage="Oh no!"
-      description="My cool description"
-    />
-  </StoryContainer>
-)
-SingleWithDescriptionAndErrorMessage.parameters = {
-  chromatic: { disable: false },
+DefaultStory.parameters = { chromatic: { disable: false } }
+DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.args = {
+  options,
+  placeholder: "Placeholder",
+  isSearchable: false,
+  isDisabled: false,
+  defaultValue: options[0],
 }
 
-export const SingleDisabled = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      isDisabled={true}
-      defaultValue={options[0]}
-    />
-  </StoryContainer>
-)
-SingleDisabled.parameters = { chromatic: { disable: false } }
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const filterNames = (inputValue: string) =>
+    asyncOptions.filter(i =>
+      i.label.toLowerCase().includes(inputValue.toLowerCase())
+    )
 
-export const SingleError = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      defaultValue={options[0]}
-      status="error"
-    />
-  </StoryContainer>
-)
-SingleError.parameters = { chromatic: { disable: false } }
-
-export const SingleErrorWithLabelAndMessage = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      defaultValue={options[0]}
-      status="error"
-      label="Choose an employee"
-      validationMessage="Something went wrong"
-    />
-  </StoryContainer>
-)
-SingleErrorWithLabelAndMessage.parameters = { chromatic: { disable: false } }
-
-export const SingleEllipsis = () => {
-  const localOptions = [
-    {
-      value: "a",
-      label:
-        "Long option where the container is 200px fixed width and the selected option should ellipsize",
-    },
-    { value: "b", label: "B" },
-  ]
-
+  const promiseOptions = (inputValue): Promise<any[]> =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(filterNames(inputValue))
+      }, 1000)
+    })
   return (
-    <NarrowStoryContainer>
-      <Select
-        options={localOptions}
-        isSearchable={false}
-        defaultValue={localOptions[0]}
-      />
-    </NarrowStoryContainer>
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
+          Default Select
+        </Heading>
+        <StoryWrapper.RowHeader headings={["Base", "Clearble", "Disabled"]} />
+        <StoryWrapper.Row rowTitle="Default">
+          <Select options={options} placeholder="Edit survey" />
+          <Select options={options} defaultValue={options[0]} isClearable />
+          <Select options={options} placeholder="Edit survey" isDisabled />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Ellipsis">
+          <Select
+            options={options}
+            placeholder="Edit survey"
+            defaultValue={options[9]}
+          />
+          <Select
+            options={options}
+            placeholder="Edit survey"
+            defaultValue={options[9]}
+            isClearable
+          />
+          <Select
+            options={options}
+            placeholder="Edit survey"
+            isDisabled
+            defaultValue={options[9]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+        <StoryWrapper.Row rowTitle="Multi Select">
+          <Select options={options} isMulti={true} defaultValue={options[0]} />
+          <Select
+            options={options}
+            placeholder="Edit survey"
+            isDisabled
+            isMulti={true}
+            defaultValue={options[0]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
+          Secondary
+        </Heading>
+        <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+        <StoryWrapper.Row rowTitle="Secondary">
+          <Select
+            options={options}
+            reversed={isReversed}
+            variant="secondary"
+            defaultValue={options[0]}
+          />
+          <Select
+            options={options}
+            placeholder="Edit survey"
+            isDisabled
+            reversed={isReversed}
+            variant="secondary"
+            defaultValue={options[0]}
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Secondary Small">
+          <Select
+            options={options}
+            reversed={isReversed}
+            variant="secondary-small"
+            defaultValue={options[0]}
+          />
+          <Select
+            options={options}
+            isDisabled
+            reversed={isReversed}
+            variant="secondary-small"
+            defaultValue={options[0]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
+          Async Select
+        </Heading>
+        <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+        <StoryWrapper.Row rowTitle="Default">
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            placeholder="Placeholder"
+          />
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            placeholder="Placeholder"
+            isDisabled
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Multi Select">
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            placeholder="Placeholder"
+            isMulti={true}
+          />
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            placeholder="Placeholder"
+            isMulti={true}
+            isDisabled
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Ellipsis">
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            defaultValue={options[9]}
+          />
+          <AsyncSelect
+            loadOptions={promiseOptions}
+            defaultOptions={options}
+            defaultValue={options[9]}
+            isDisabled
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
   )
 }
-SingleEllipsis.storyName = "Single with ellipsizing selection"
-SingleEllipsis.parameters = { chromatic: { disable: false } }
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const SingleClearable = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      placeholder="Placeholder"
-      isSearchable={false}
-      isClearable={true}
-    />
-  </StoryContainer>
-)
-
-export const SingleSearchable = () => (
-  <StoryContainer>
-    <Select options={options} placeholder="Placeholder" />
-  </StoryContainer>
-)
-
-export const MultiSelectSearchable = () => (
-  <WideStoryContainer>
-    <Select options={options} placeholder="Placeholder" isMulti={true} />
-  </WideStoryContainer>
-)
-MultiSelectSearchable.storyName = "Multi-Select Searchable"
-
-export const AsyncSearchable = () => (
-  <WideStoryContainer>
-    <AsyncSelect
-      loadOptions={promiseOptions}
-      defaultOptions={options}
-      placeholder="Placeholder"
-    />
-  </WideStoryContainer>
-)
-
-export const MultiAsyncSearchable = () => (
-  <WideStoryContainer>
-    <AsyncSelect
-      loadOptions={promiseOptions}
-      defaultOptions={options}
-      placeholder="Placeholder"
-      isMulti={true}
-    />
-  </WideStoryContainer>
-)
-MultiAsyncSearchable.storyName = "Multi-Async Searchable"
-
-export const SingleSecondary = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary"
-    />
-  </StoryContainer>
-)
-SingleSecondary.storyName = "Single, Secondary"
-SingleSecondary.parameters = { chromatic: { disable: false } }
-
-export const SingleSecondaryDisabled = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isDisabled={true}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary"
-    />
-  </StoryContainer>
-)
-SingleSecondaryDisabled.storyName = "Single, Secondary, Disabled"
-SingleSecondaryDisabled.parameters = { chromatic: { disable: false } }
-
-export const SingleSecondaryReversed = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary"
-      reversed={true}
-    />
-  </StoryContainer>
-)
-SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
-SingleSecondaryReversed.parameters = {
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
-}
-
-export const SingleSecondarySmallReversed = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary-small"
-      reversed={true}
-    />
-  </StoryContainer>
-)
-SingleSecondarySmallReversed.storyName = "Single, Secondary-Small, Reversed"
-SingleSecondarySmallReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-}
-
-export const SingleSecondaryReversedDisabled = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isDisabled={true}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary"
-      reversed={true}
-    />
-  </StoryContainer>
-)
-SingleSecondaryReversedDisabled.storyName =
-  "Single Secondary Reversed (disabled)"
-SingleSecondaryReversedDisabled.parameters = {
-  backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-}
-
-export const SingleSecondaryWithEllipsis = () => {
-  const localOptions = [
-    {
-      value: "a",
-      label:
-        "Long option where the container is 200px fixed width and the selected option should ellipsize",
-    },
-    { value: "b", label: "B" },
-    { value: "c", label: "Regular" },
-  ]
-  return (
-    <NarrowStoryContainer>
-      <Select
-        options={localOptions}
-        isSearchable={false}
-        defaultValue={localOptions[0]}
-        variant="secondary"
-        reversed={true}
-      />
-    </NarrowStoryContainer>
-  )
-}
-SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
-SingleSecondaryWithEllipsis.parameters = {
-  backgrounds: { default: "Purple 700" },
 }
