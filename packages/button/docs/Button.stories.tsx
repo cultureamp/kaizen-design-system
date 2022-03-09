@@ -4,8 +4,6 @@ import { Heading } from "@kaizen/component-library"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
-import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
-
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -73,7 +71,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   const ICON_ONLY_PROPS: ButtonProps = {
     label: "Label",
-    icon: chevronLeft,
+    icon: trashIcon,
     reversed: isReversed,
   }
 
