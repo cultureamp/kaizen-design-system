@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.3.14...@kaizen/draft-empty-state@3.3.15) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [3.3.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@3.3.13...@kaizen/draft-empty-state@3.3.14) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state
