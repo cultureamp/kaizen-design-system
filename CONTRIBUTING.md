@@ -175,6 +175,8 @@ This workflow requires that all pull requests have a title formatted as follows:
 <type>: <description>
 ```
 
+To help you, we have [`commitizen`](https://github.com/commitizen/cz-cli) installed, so you can run `yarn commit` and follow the prompts and commitizen will format your commit for you.
+
 #### Description
 
 The `description` should be a short (less than ~60 characters) summary of changes introduced in the release. This summary will be included in the CHANGELOG (see the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)), along with the commit type, a link to the pull request which triggered the release, and a detailed summary of any breaking changes.
