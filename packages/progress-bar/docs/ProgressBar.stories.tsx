@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { Story, ComponentStory } from "@storybook/react"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { ProgressBar } from "../index"
@@ -20,16 +20,17 @@ export default {
   },
 }
 
-export const DefaultStory = () => (
-  <ProgressBar
-    value={25}
-    max={100}
-    mood="positive"
-    isAnimating={true}
-    label="25%"
-  />
+export const DefaultStory: ComponentStory<typeof ProgressBar> = args => (
+  <ProgressBar {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.args = {
+  value: 25,
+  max: 100,
+  mood: "positive",
+  isAnimating: true,
+  label: "25%",
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -81,3 +82,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
