@@ -36,7 +36,7 @@ const Input: Input = ({
   ariaLabel,
   ariaDescribedBy,
   className,
-  inputType = "text",
+  inputType = "date",
   placeholder,
   disabled = false,
   inputValue,

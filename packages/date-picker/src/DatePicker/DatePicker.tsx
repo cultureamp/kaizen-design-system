@@ -15,6 +15,7 @@ import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
+import { DateInput, validationMessagesProps } from "./components/DateInput"
 
 export interface DatePickerProps {
   id: string
@@ -23,6 +24,7 @@ export interface DatePickerProps {
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
+  validationMessages: validationMessagesProps
 
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -95,6 +97,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledAfter,
   firstDayOfWeek = 1,
   initialMonth,
+  validationMessages,
   ...inputProps
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -157,7 +160,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
-        <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
+        {/* <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
           className={cx(
             datePickerStyles.button,
@@ -178,7 +181,24 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           <span className={datePickerStyles.value}>
             {value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""}
           </span>
-        </button>
+        </button> */}
+        <DateInput
+          id={id}
+          // inputRef={inputRef}
+          buttonRef={buttonRef}
+          // value={
+          //   value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
+          // }
+          disabled={isDisabled}
+          inputType="text"
+          labelText="Label"
+          placeholder="dd/mm/yyyy"
+          description="Description text"
+          icon={dateStart}
+          validationMessages={validationMessages}
+          onButtonClick={handleOpenClose}
+          {...inputProps}
+        />
       </div>
       {isOpen && (
         <FocusOn
