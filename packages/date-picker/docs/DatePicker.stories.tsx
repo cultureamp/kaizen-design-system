@@ -12,7 +12,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
-  title: `${CATEGORIES.components}/Date Picker`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
   parameters: {
     docs: {
