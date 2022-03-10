@@ -76,7 +76,7 @@ $height: 10px;
   background: $color-red-400;
 }
 
-.animating {
+.isAnimating {
   &::after {
     opacity: 1;
     content: "";
