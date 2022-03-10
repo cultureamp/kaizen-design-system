@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.11...@kaizen/progress-bar@1.3.12) (2022-03-10)
+
+
+### Bug Fixes
+
+* Restore ProgressBar isAnimating styling ([#2604](https://github.com/cultureamp/kaizen-design-system/issues/2604)) ([78843d8](https://github.com/cultureamp/kaizen-design-system/commit/78843d88682efdf0b597d98385df07dc9b577ce7))
+
+
+
+
+
+## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.10...@kaizen/progress-bar@1.3.11) (2022-03-10)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.9...@kaizen/progress-bar@1.3.10) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
 ## [1.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.8...@kaizen/progress-bar@1.3.9) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/progress-bar
