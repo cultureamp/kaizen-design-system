@@ -1,7 +1,8 @@
 import React from "react"
+import { Story } from "@storybook/react"
+import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import { Story } from "@storybook/react"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -56,6 +57,8 @@ import {
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
+const IS_CHROMATIC = isChromatic()
+
 const STATIC_SCENE_CONTROLS = {
   argTypes: {
     isAnimated: { table: { disable: true } },
@@ -101,8 +104,13 @@ const SceneWrapper: React.VFC<{
   </Box>
 )
 
+type StaticSceneProps = SceneProps & {
+  isAnimated?: never
+  loop?: never
+  autoplay?: never
+}
 type AnimatedScene = React.VFC<AnimatedSceneProps>
-type StaticScene = React.VFC<SceneProps>
+type StaticScene = React.VFC<StaticSceneProps>
 type IllustrationScene = AnimatedScene | StaticScene
 
 type SceneComponents = Array<{
@@ -111,30 +119,49 @@ type SceneComponents = Array<{
   width?: string
 }>
 
-const isAnimatedBrandMoment = (
+const isAnimatedScene = (
   Component: IllustrationScene
 ): Component is AnimatedScene => Component.toString().includes("isAnimated")
 
 const IllustrationScenesTemplate: Story<
-  AnimatedSceneProps & SceneProps & { sceneComponents: SceneComponents }
-> = ({ sceneComponents, isAnimated, loop, autoplay, ...props }) => (
-  <>
-    {sceneComponents.map(({ Component, heading, width }) => (
-      <SceneWrapper key={heading} width={width || "450px"} heading={heading}>
-        {isAnimatedBrandMoment(Component) && isAnimated ? (
-          <Component
-            isAnimated={isAnimated}
-            loop={loop}
-            autoplay={autoplay}
-            {...props}
-          />
-        ) : (
-          <Component {...props} />
-        )}
-      </SceneWrapper>
-    ))}
-  </>
-)
+  (AnimatedSceneProps | StaticSceneProps) & { sceneComponents: SceneComponents }
+> = ({ sceneComponents, ...restArgs }) => {
+  const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs
+  const isAnimatedStory = IS_CHROMATIC ? false : isAnimated
+  return (
+    <>
+      {sceneComponents.map(({ Component, heading, width }) => {
+        const sceneWrapperProps = {
+          key: heading,
+          width: width || "450px",
+          heading,
+        }
+        if (isAnimatedScene(Component)) {
+          return (
+            <SceneWrapper {...sceneWrapperProps}>
+              {isAnimatedStory ? (
+                <Component
+                  isAnimated={true}
+                  loop={loop}
+                  autoplay={autoplay}
+                  {...restProps}
+                />
+              ) : (
+                <Component isAnimated={false} alt={alt} {...restProps} />
+              )}
+            </SceneWrapper>
+          )
+        }
+
+        return (
+          <SceneWrapper {...sceneWrapperProps}>
+            <Component alt={alt} {...restProps} />
+          </SceneWrapper>
+        )
+      })}
+    </>
+  )
+}
 
 const BRAND_MOMENTS_COMPONENTS: SceneComponents = [
   {
