@@ -5,7 +5,7 @@ import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { NamedProps as ReactSelectProps } from "react-select/src/Select"
 
-import { FieldMessage } from "@kaizen/draft-form"
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
@@ -23,6 +23,8 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
   variant?: VariantType
 
   status?: StatusType
+
+  label?: string
 
   validationMessage?: string
 
@@ -58,6 +60,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     variant = "default",
     status = "default",
     reversed = false,
+    label,
     validationMessage,
   } = props
 
@@ -86,6 +89,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   })
   return (
     <>
+      {label ? <Label>{label}</Label> : null}
       <ReactSelect
         {...props}
         ref={ref}

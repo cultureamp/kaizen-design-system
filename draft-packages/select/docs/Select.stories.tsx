@@ -116,7 +116,7 @@ export const SingleError = () => (
 )
 SingleError.parameters = { chromatic: { disable: false } }
 
-export const SingleErrorWithMessage = () => (
+export const SingleErrorWithLabelAndMessage = () => (
   <StoryContainer>
     <Select
       options={options}
@@ -124,11 +124,12 @@ export const SingleErrorWithMessage = () => (
       isSearchable={false}
       defaultValue={options[0]}
       status="error"
+      label="Choose an employee"
       validationMessage="Something went wrong"
     />
   </StoryContainer>
 )
-SingleErrorWithMessage.parameters = { chromatic: { disable: false } }
+SingleErrorWithLabelAndMessage.parameters = { chromatic: { disable: false } }
 
 export const SingleEllipsis = () => {
   const localOptions = [
