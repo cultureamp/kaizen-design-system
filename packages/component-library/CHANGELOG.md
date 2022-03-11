@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.2...@kaizen/component-library@12.6.0) (2022-03-09)
+
+
+### Features
+
+* Update new start and end icons ([#2597](https://github.com/cultureamp/kaizen-design-system/issues/2597)) ([a698d9e](https://github.com/cultureamp/kaizen-design-system/commit/a698d9ed49a91aa5a3a7d7474ff1254454b2bb3b))
+
+
+
+
+
+## [12.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.1...@kaizen/component-library@12.5.2) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [12.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.0...@kaizen/component-library@12.5.1) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/component-library

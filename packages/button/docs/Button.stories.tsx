@@ -46,7 +46,7 @@ export default {
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Demo)",
+  name: "Button",
 }
 
 export const DefaultKaizenDemoIcon = args => (
@@ -61,7 +61,7 @@ export const DefaultKaizenPaginationLink = args => (
   <PaginationLink pageNumber={1} {...args} />
 )
 
-DefaultKaizenDemoIcon.storyName = "Default Icon (Kaizen Demo)"
+DefaultKaizenDemoIcon.storyName = "Icon Button"
 DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
 DefaultKaizenDirectionalLink.storyName =
   "Default Directional Link (Kaizen Demo)"
@@ -409,12 +409,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
+  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
