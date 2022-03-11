@@ -39,7 +39,7 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
   fullWidth?: boolean
 }
 
-export type VariantType = "default" | "secondary" | "secondary-small"
+export type VariantType = "default" | "secondary" | "secondary-small" | "error"
 
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
@@ -70,6 +70,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
     [styles.disabled]: props.isDisabled,
+    [styles.error]: variant === "error",
   })
   return (
     <ReactSelect
