@@ -59,7 +59,9 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   classNameOverride,
   ...props
 }) => {
+  const IllustrationComponent = ILLUSTRATIONS[illustrationType]
   const animationProps = isAnimated ? { isAnimated, loop } : {}
+
   return (
     <div
       className={classnames(classNameOverride, [
@@ -74,11 +76,11 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       {...props}
     >
       <div className={styles.illustrationSide}>
-        {React.createElement(ILLUSTRATIONS[illustrationType], {
-          alt: illustrationType,
-          classNameOverride: styles.illustration,
-          ...animationProps,
-        })}
+        <IllustrationComponent
+          alt={illustrationType}
+          classNameOverride={styles.illustration}
+          {...animationProps}
+        />
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
