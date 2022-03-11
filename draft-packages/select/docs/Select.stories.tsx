@@ -110,7 +110,7 @@ export const SingleError = () => (
       placeholder="Placeholder"
       isSearchable={false}
       defaultValue={options[0]}
-      variant="error"
+      status="error"
     />
   </StoryContainer>
 )

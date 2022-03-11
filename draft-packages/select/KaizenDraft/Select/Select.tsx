@@ -21,6 +21,8 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
    */
   variant?: VariantType
 
+  status?: StatusType
+
   /**
    * Use a reversed colour scheme
    * `variant="default" reversed="true" is not implemented and will throw a "not implemented" error
@@ -39,7 +41,9 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
   fullWidth?: boolean
 }
 
-export type VariantType = "default" | "secondary" | "secondary-small" | "error"
+export type VariantType = "default" | "secondary" | "secondary-small"
+
+export type StatusType = "default" | "error"
 
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
@@ -47,7 +51,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
-  const { variant = "default", reversed = false } = props
+  const { variant = "default", status = "default", reversed = false } = props
 
   // the default for fullWidth depends on the variant
   const fullWidth =
@@ -70,7 +74,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
     [styles.disabled]: props.isDisabled,
-    [styles.error]: variant === "error",
+    [styles.error]: status === "error",
   })
   return (
     <ReactSelect
