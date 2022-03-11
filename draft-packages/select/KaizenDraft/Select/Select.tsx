@@ -24,9 +24,9 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
 
   status?: StatusType
 
-  label?: string
+  label?: React.ReactNode
 
-  validationMessage?: string
+  validationMessage?: React.ReactNode
 
   /**
    * Use a reversed colour scheme
