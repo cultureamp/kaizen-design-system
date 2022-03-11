@@ -5,10 +5,12 @@ import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { NamedProps as ReactSelectProps } from "react-select/src/Select"
 
+import { FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
+import { Field } from "@storybook/components/dist/ts3.9/form/field/field"
 import styles from "./styles.react.scss"
 
 export type { ValueType } from "react-select"
@@ -22,6 +24,8 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
   variant?: VariantType
 
   status?: StatusType
+
+  validationMessage?: string
 
   /**
    * Use a reversed colour scheme
@@ -51,7 +55,12 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
-  const { variant = "default", status = "default", reversed = false } = props
+  const {
+    variant = "default",
+    status = "default",
+    reversed = false,
+    validationMessage,
+  } = props
 
   // the default for fullWidth depends on the variant
   const fullWidth =
@@ -77,24 +86,29 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     [styles.error]: status === "error",
   })
   return (
-    <ReactSelect
-      {...props}
-      ref={ref}
-      components={{
-        Control,
-        Placeholder,
-        DropdownIndicator,
-        Menu,
-        Option,
-        NoOptionsMessage,
-        SingleValue,
-        MultiValue,
-        IndicatorsContainer,
-        ClearIndicator,
-        IndicatorSeparator: null,
-      }}
-      className={classes}
-    />
+    <>
+      <ReactSelect
+        {...props}
+        ref={ref}
+        components={{
+          Control,
+          Placeholder,
+          DropdownIndicator,
+          Menu,
+          Option,
+          NoOptionsMessage,
+          SingleValue,
+          MultiValue,
+          IndicatorsContainer,
+          ClearIndicator,
+          IndicatorSeparator: null,
+        }}
+        className={classes}
+      />
+      {validationMessage ? (
+        <FieldMessage message="Hello world" status={status} />
+      ) : null}
+    </>
   )
 })
 Select.displayName = "Select"

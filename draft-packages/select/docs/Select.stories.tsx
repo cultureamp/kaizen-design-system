@@ -114,7 +114,21 @@ export const SingleError = () => (
     />
   </StoryContainer>
 )
-SingleDisabled.parameters = { chromatic: { disable: false } }
+SingleError.parameters = { chromatic: { disable: false } }
+
+export const SingleErrorWithMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+      validationMessage="Something went wrong"
+    />
+  </StoryContainer>
+)
+SingleErrorWithMessage.parameters = { chromatic: { disable: false } }
 
 export const SingleEllipsis = () => {
   const localOptions = [
