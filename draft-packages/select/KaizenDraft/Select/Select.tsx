@@ -10,7 +10,6 @@ import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Field } from "@storybook/components/dist/ts3.9/form/field/field"
 import styles from "./styles.react.scss"
 
 export type { ValueType } from "react-select"
