@@ -105,7 +105,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
         className={classes}
       />
       {validationMessage ? (
-        <FieldMessage message="Hello world" status={status} />
+        <FieldMessage message={validationMessage} status={status} />
       ) : null}
     </>
   )
