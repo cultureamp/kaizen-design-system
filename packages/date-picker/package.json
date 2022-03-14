@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "12.2.0",
     "@kaizen/draft-form": "^5.6.11",
-    "@popperjs/core": "^2.11.2",
+    "@popperjs/core": "^2.11.3",
     "classnames": "^2.3.1",
     "react-day-picker": "^7.4.9",
     "react-focus-on": "^3.5.4",
