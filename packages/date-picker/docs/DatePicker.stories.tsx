@@ -176,6 +176,12 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     setSelectedDate(day)
   }
 
+  const validationMessages = {
+    success: "This is a success message",
+    caution: "This is a cautionary message",
+    error: "This is an error message",
+  }
+
   return (
     <>
       <StoryWrapper isReversed={isReversed}>
@@ -188,12 +194,14 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             value={selectedDate}
             onChange={onDayChange}
+            validationMessages={validationMessages}
           />
           <DatePicker
             id="datepicker-input-selected"
             labelText="Label"
             value={new Date(2022, 1, 5)}
             onChange={onDayChange}
+            validationMessages={validationMessages}
           />
           <DatePicker
             isDisabled
@@ -201,6 +209,7 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             value={selectedDate}
             onChange={onDayChange}
+            validationMessages={validationMessages}
           />
         </StoryWrapper.Row>
       </StoryWrapper>
