@@ -63,9 +63,8 @@ export const DefaultKaizenPaginationLink = args => (
 
 DefaultKaizenDemoIcon.storyName = "Icon Button"
 DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
-DefaultKaizenDirectionalLink.storyName =
-  "Default Directional Link (Kaizen Demo)"
-DefaultKaizenPaginationLink.storyName = "Default Pagination Link (Kaizen Demo)"
+DefaultKaizenDirectionalLink.storyName = "Directional Link"
+DefaultKaizenPaginationLink.storyName = "Pagination Link"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -320,11 +319,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Directional Link">
           <div className={styles.circleButtonContainer}>
             <DirectionalLink
-              direction="start"
-              label="First page"
-              reversed={isReversed}
-            />
-            <DirectionalLink
               direction="prev"
               label="Previous page"
               reversed={isReversed}
@@ -332,6 +326,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <DirectionalLink
               direction="next"
               label="Next page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="start"
+              label="First page"
               reversed={isReversed}
             />
             <DirectionalLink
@@ -342,12 +341,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           </div>
           <div className={styles.circleButtonContainer}>
             <DirectionalLink
-              direction="start"
-              label="First page"
-              reversed={isReversed}
-              disabled={true}
-            />
-            <DirectionalLink
               direction="prev"
               label="Previous page"
               reversed={isReversed}
@@ -356,6 +349,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <DirectionalLink
               direction="next"
               label="Next page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="start"
+              label="First page"
               reversed={isReversed}
               disabled={true}
             />

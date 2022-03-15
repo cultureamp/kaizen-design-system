@@ -1,8 +1,8 @@
 import * as React from "react"
 import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import directionalStart from "@kaizen/component-library/icons/action-off.icon.svg"
-import directionalEnd from "@kaizen/component-library/icons/academy.icon.svg"
+import directionalStart from "@kaizen/component-library/icons/start.icon.svg"
+import directionalEnd from "@kaizen/component-library/icons/end.icon.svg"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
 type DirectionalLinkProps = GenericProps & {
