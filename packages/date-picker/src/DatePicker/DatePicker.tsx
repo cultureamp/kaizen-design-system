@@ -24,6 +24,7 @@ export interface DatePickerProps {
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
+  placeholder?: string
   validationMessages: validationMessagesProps
 
   /** Accepts a DayOfWeek value to start the week on that day. By default,
@@ -84,6 +85,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
+  placeholder,
   value,
   onChange,
   labelText,
@@ -198,13 +200,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           //   value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
           // }
           disabled={isDisabled}
-          // inputType="text"
-          labelText="Label"
-          placeholder="dd/mm/yyyy"
-          description="Description text"
+          labelText={labelText}
+          placeholder={placeholder}
+          description={description}
           icon={dateStart}
           validationMessages={validationMessages}
+          onClick={handleOpenClose}
           onButtonClick={handleOpenClose}
+          calendarId={"calendar-dialog"}
           {...inputProps}
         />
       </div>
@@ -220,6 +223,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            id="calendar-dialog"
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}

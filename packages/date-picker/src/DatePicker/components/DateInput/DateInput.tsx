@@ -1,26 +1,18 @@
-import React, { Ref } from "react"
+import React from "react"
 import { Icon } from "@kaizen/component-library/components/Icon"
-import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
 import {
   FieldGroup,
   FieldMessage,
   Input,
   InputProps,
-  InputStatus,
   Label,
 } from "@kaizen/draft-form/KaizenDraft/Form"
 import { renderValidationMessage } from "../../../utils/renderValidationMessage"
 
 import styles from "./styles.scss"
 
-type OmittedInputProps =
-  | "startIconAdornment"
-  | "endIconAdornment"
-  | "ariaDescribedBy"
-  | "ariaLabel"
-  | "automationId"
-  | "inputType"
+type OmittedInputProps = "startIconAdornment" | "endIconAdornment" | "inputType"
 
 export interface validationMessagesProps {
   success?: string | React.ReactNode
@@ -46,6 +38,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    */
   description?: string | React.ReactNode
   onButtonClick: () => void
+  calendarId?: string
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -63,6 +56,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   status,
   icon,
   onButtonClick,
+  calendarId,
   ...inputProps
 }) => {
   // TODO - handle different validationMessages and their respective aria labels.
@@ -97,7 +91,11 @@ export const DateInput: React.VFC<DateInputProps> = ({
         id={`${id}-field-input`}
         inputType="text"
         automationId={`${id}-field-input`}
-        ariaDescribedBy={ariaDescribedBy}
+        role="combobox"
+        // aria-expanded={}
+        aria-haspopup="dialog"
+        aria-controls={calendarId}
+        ariaDescribedBy={id}
         inputValue={inputValue}
         defaultInputValue={defaultInputValue}
         inputRef={inputRef}
@@ -107,14 +105,27 @@ export const DateInput: React.VFC<DateInputProps> = ({
         endIconAdornment={
           <button
             // buttonRef={buttonRef}
+            // aria-disabled={disabled || working ? true : undefined}
+            disabled={disabled}
             onClick={onButtonClick}
+            // onFocus={onFocus}
+            // onBlur={onBlur}
             type="button"
-            aria-label=""
             className={styles.iconButton}
+            aria-label={
+              inputValue ? `Change Date, ${inputValue}` : "Choose Date"
+            }
           >
-            <Icon icon={icon} role="presentation" />
+            <div
+              className={classnames({
+                [styles.disabled]: disabled,
+              })}
+            >
+              <Icon icon={icon} role="presentation" />{" "}
+            </div>
           </button>
         }
+        isDatePicker
         {...inputProps}
       />
 

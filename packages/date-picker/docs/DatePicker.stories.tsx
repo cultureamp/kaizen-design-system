@@ -37,6 +37,8 @@ export const DatePickerStoryDefault = props => {
         labelText="Label"
         value={selectedDate}
         onChange={onDayChange}
+        description="dd/mm/yyyy"
+        placeholder="dd/mm/yyyy"
         {...props}
       />
       <ul>
@@ -155,6 +157,7 @@ const CalendarTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
+        id="calendar-dialog"
         setPopperElement={setPopperElement}
         styles={styles}
         attributes={attributes}
@@ -195,6 +198,8 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             value={selectedDate}
             onChange={onDayChange}
             validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
           />
           <DatePicker
             id="datepicker-input-selected"
@@ -202,6 +207,8 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             value={new Date(2022, 1, 5)}
             onChange={onDayChange}
             validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
           />
           <DatePicker
             isDisabled
@@ -210,6 +217,8 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             value={selectedDate}
             onChange={onDayChange}
             validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
