@@ -25,6 +25,7 @@ export interface InputProps
   status?: InputStatus
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode
+  isDatePicker?: boolean
 }
 
 type Input = React.FunctionComponent<InputProps>
@@ -51,6 +52,7 @@ const Input: Input = ({
   onChange,
   onBlur,
   onFocus,
+  isDatePicker,
   ...props
 }) => (
   <div
@@ -98,7 +100,13 @@ const Input: Input = ({
     <div className={styles.focusRing} />
 
     {endIconAdornment && (
-      <div className={styles.endIconAdornment}>{endIconAdornment}</div>
+      <div
+        className={classnames(styles.endIconAdornment, {
+          [styles.datePicker]: isDatePicker,
+        })}
+      >
+        {endIconAdornment}
+      </div>
     )}
   </div>
 )
