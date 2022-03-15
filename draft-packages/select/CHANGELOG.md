@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.23.21...@kaizen/draft-select@1.24.0) (2022-03-11)
+
+
+### Features
+
+* Add error state to Select component ([#2607](https://github.com/cultureamp/kaizen-design-system/issues/2607)) ([0c203ff](https://github.com/cultureamp/kaizen-design-system/commit/0c203ff22068ea032ee1510909736506e3fa9769))
+
+
+
+
+
+## [1.23.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.23.20...@kaizen/draft-select@1.23.21) (2022-03-11)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.23.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.23.19...@kaizen/draft-select@1.23.20) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-select

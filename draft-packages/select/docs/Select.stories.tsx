@@ -103,6 +103,34 @@ export const SingleDisabled = () => (
 )
 SingleDisabled.parameters = { chromatic: { disable: false } }
 
+export const SingleError = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+    />
+  </StoryContainer>
+)
+SingleError.parameters = { chromatic: { disable: false } }
+
+export const SingleErrorWithLabelAndMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+      label="Choose an employee"
+      validationMessage="Something went wrong"
+    />
+  </StoryContainer>
+)
+SingleErrorWithLabelAndMessage.parameters = { chromatic: { disable: false } }
+
 export const SingleEllipsis = () => {
   const localOptions = [
     {
