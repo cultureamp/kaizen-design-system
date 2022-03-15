@@ -33,7 +33,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
-  buttonRef?: React.RefObject<HTMLInputElement>
+  buttonRef?: React.RefObject<HTMLButtonElement>
   labelText: string | React.ReactNode
   inline?: boolean
   icon: React.SVGAttributes<SVGSymbolElement>

@@ -190,7 +190,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           //   value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
           // }
           disabled={isDisabled}
-          inputType="text"
+          // inputType="text"
           labelText="Label"
           placeholder="dd/mm/yyyy"
           description="Description text"
