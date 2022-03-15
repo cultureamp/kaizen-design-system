@@ -33,11 +33,12 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^12.6.0",
-    "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-animate-height": "^2.0.23"
   },
   "devDependencies": {
+    "@kaizen/component-base": "^1.0.0",
+    "@types/classnames": "^2.3.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
