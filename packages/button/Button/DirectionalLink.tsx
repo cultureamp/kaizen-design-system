@@ -7,7 +7,6 @@ import GenericButton, { GenericProps } from "./components/GenericButton"
 
 type DirectionalLinkProps = GenericProps & {
   label: string
-  icon?: React.SVGAttributes<SVGSymbolElement>
   disabled?: boolean
   direction: "prev" | "next" | "start" | "end"
 }
