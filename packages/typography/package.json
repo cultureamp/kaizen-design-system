@@ -32,7 +32,6 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.6.0",
     "classnames": "^2.3.1"
   },
   "devDependencies": {

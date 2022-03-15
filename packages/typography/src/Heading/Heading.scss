@@ -1,7 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/component-library/styles/fonts";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "../fonts.scss";
 
 .heading {
   margin: 0;
