@@ -8,7 +8,7 @@
 @import "../../mixins";
 
 // -----------------------------------------------
-// Text Field
+// Date Input
 // -----------------------------------------------
 
 ///////////////////////////////////////////////////
@@ -46,6 +46,10 @@ $input-disabled-opacity: 0.3;
 
   :focus {
     outline: none;
+  }
+
+  .disabled {
+    opacity: $input-disabled-opacity;
   }
 }
 

@@ -125,6 +125,10 @@ $input-with-icon-padding: $input-icon-size + $ca-grid * 0.75;
   .endIconAdornment {
     @include vertically-center-icon;
     @include ca-position($end: $ca-grid / 2);
+
+    &.datePicker {
+      height: 2.25rem;
+    }
   }
 
   &.isDisabled {
