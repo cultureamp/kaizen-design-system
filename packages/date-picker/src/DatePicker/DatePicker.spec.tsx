@@ -4,12 +4,19 @@ import userEvent from "@testing-library/user-event"
 import { DatePicker } from "./DatePicker"
 import "@testing-library/jest-dom"
 
+const validationMessages = {
+  success: "This is a success message",
+  caution: "This is a cautionary message",
+  error: "This is an error message",
+}
+
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
   value: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
   onChange: () => jest.fn(),
+  validationMessages,
 }
 
 describe("<DatePicker />", () => {
