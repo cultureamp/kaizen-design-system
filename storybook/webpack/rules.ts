@@ -1,17 +1,17 @@
 // Call the pre-build script -- used for validation, setup, etc.
 import "../pre-build"
 import { resolve } from "path"
-import { Loader, RuleSetRule as Rule } from "webpack"
+import { RuleSetUseItem, RuleSetRule } from "webpack"
 
 const isEnabled = require("./isEnabled")
 
-export const babel: Rule = {
+export const babel: RuleSetRule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
   options: require("../../.babelrc.json"),
 }
 
-export const stylePreprocessors: Loader[] = [
+export const stylePreprocessors: RuleSetUseItem[] = [
   {
     loader: "postcss-loader",
     options: {
@@ -33,7 +33,7 @@ export const stylePreprocessors: Loader[] = [
   },
 ]
 
-export const styles: Rule = {
+export const styles: RuleSetRule = {
   test: /\.s?css$/,
   use: [
     {
@@ -53,7 +53,7 @@ export const styles: Rule = {
   ],
 }
 
-export const svgs: Rule = {
+export const svgs: RuleSetRule = {
   test: /\.svg$/,
   use: [
     {
@@ -65,7 +65,7 @@ export const svgs: Rule = {
   ],
 }
 
-export const svgIcons: Rule = {
+export const svgIcons: RuleSetRule = {
   test: /\.icon\.svg$/,
   use: {
     loader: "svgo-loader",
@@ -82,7 +82,7 @@ export const svgIcons: Rule = {
   },
 }
 
-export const elm: Rule = {
+export const elm: RuleSetRule = {
   test: /\.elm$/,
   exclude: [/elm-stuff/, /node_modules/],
   use: [
@@ -123,16 +123,17 @@ export const elm: Rule = {
   ],
 }
 
-export const removeSvgFromTest = (rule: Rule): Rule => {
-  if (rule.test && rule.test.toString().includes("svg")) {
+export const removeSvgFromTest = (
+  rule: RuleSetRule | "..."
+): RuleSetRule | "..." => {
+  if (rule !== "..." && rule.test && rule.test.toString().includes("svg")) {
     const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
-    return { ...rule, test: new RegExp(test) }
-  } else {
-    return rule
+    return { ...rule, test: new RegExp(test) } as RuleSetRule
   }
+  return rule
 }
 
-export const excludeExternalModules = (rule: Rule): Rule => ({
+export const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
   exclude: /node_modules\/(?!(\@kaizen|\@cultureamp|elm-storybook)).*/,
   ...rule,
 })
