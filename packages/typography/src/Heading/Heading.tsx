@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { createElement, HTMLAttributes } from "react"
 
-import styles from "./Heading.module.scss"
+import styles from "./Heading.scss"
 
 const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 
@@ -14,7 +14,7 @@ export type HeadingVariants =
   | "heading-5"
   | "heading-6"
 
-export type AllowedTags =
+export type AllowedHeadingTags =
   | "pre"
   | "p"
   | "div"
@@ -27,7 +27,7 @@ export type AllowedTags =
   | "h6"
   | "label"
 
-export type AllowedColors =
+export type AllowedHeadingColors =
   | "dark"
   | "dark-reduced-opacity"
   | "white"
@@ -47,17 +47,14 @@ export interface HeadingProps
    * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
    * the variant. E.g. display-0 will infer h1
    */
-  tag?: AllowedTags
+  tag?: AllowedHeadingTags
   /**
    * Allowed heading variants
    */
   variant: HeadingVariants
-  color?: AllowedColors
+  color?: AllowedHeadingColors
 }
 
-/**
- * @deprecated Heading has been moved to @kaizen/typography.
- */
 export const Heading = ({
   classNameAndIHaveSpokenToDST,
   children,
