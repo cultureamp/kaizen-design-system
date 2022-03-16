@@ -19,7 +19,7 @@ export type BaseProps = {
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
 
   /**
    * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
@@ -31,14 +31,12 @@ export type BaseProps = {
 export const Base = ({
   name,
   alt,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   aspectRatio,
   ...otherProps
 }: BaseProps) => {
   const className =
-    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
-    " " +
-    styles.wrapper
+    (classNameOverride ? classNameOverride : "") + " " + styles.wrapper
 
   const aspectClassName =
     (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper

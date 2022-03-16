@@ -37,10 +37,7 @@ const RelatedIssues = ({ issues }) => {
           {issues.map(({ node }, i) => (
             <>
               <div className={styles.row}>
-                <Box
-                  p={0.5}
-                  classNameAndIHaveSpokenToDST={styles.contentColumn}
-                >
+                <Box p={0.5} classNameOverride={styles.contentColumn}>
                   <Box>
                     <a href={node.html_url}>{node.title}</a>
                   </Box>

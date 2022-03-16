@@ -18,7 +18,7 @@ import { Calendar } from "./components/Calendar"
 
 export interface DatePickerProps {
   id: string
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   labelText: string
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
@@ -86,7 +86,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onChange,
   labelText,
   isDisabled = false,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -195,7 +195,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
-            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
+            classNameOverride={classNameOverride}
             value={value}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}

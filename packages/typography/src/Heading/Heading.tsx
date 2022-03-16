@@ -41,7 +41,7 @@ export interface HeadingProps
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
@@ -56,7 +56,7 @@ export interface HeadingProps
 }
 
 export const Heading = ({
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   children,
   tag,
   variant,
@@ -69,7 +69,7 @@ export const Heading = ({
   const className = classNames([
     styles.heading,
     styles[variant],
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
     styles[color],
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ])

@@ -123,10 +123,7 @@ export const Popover: PopoverModernType = ({
                 />
               </span>
             )}
-            <Heading
-              variant="heading-6"
-              classNameAndIHaveSpokenToDST={styles.singleLine}
-            >
+            <Heading variant="heading-6" classNameOverride={styles.singleLine}>
               {heading}
             </Heading>
             {dismissible && (
@@ -138,7 +135,7 @@ export const Popover: PopoverModernType = ({
         )}
         <Paragraph
           variant="small"
-          classNameAndIHaveSpokenToDST={classNames(
+          classNameOverride={classNames(
             styles.container,
             mapLineVariant(singleLine)
           )}

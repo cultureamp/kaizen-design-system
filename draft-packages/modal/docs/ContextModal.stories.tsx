@@ -87,7 +87,7 @@ export const ContextModals = args => (
           layout="portrait"
           image={
             <AddImage
-              classNameAndIHaveSpokenToDST={
+              classNameOverride={
                 args.layout === "landscape" ? styles.landscape : ""
               }
               alt="placeholder"
