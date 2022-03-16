@@ -27,7 +27,7 @@ describe("<Box />", () => {
 
   it("allows consumers to provide a className", () => {
     const { getByText } = render(
-      <Box classNameAndIHaveSpokenToDST="example-classname">Example</Box>
+      <Box classNameOverride="example-classname">Example</Box>
     )
     const boxClasslist = getByText("Example").classList
     expect(boxClasslist).toContain("example-classname")

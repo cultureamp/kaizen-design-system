@@ -14,7 +14,7 @@ export interface ContentProps {
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
 
   /**
    * Not recommended. A short-circuit for dynamically overriding layout in a pinch
@@ -46,18 +46,13 @@ export interface ContentProps {
 
 export const Container = React.forwardRef(
   (
-    {
-      automationId,
-      children,
-      classNameAndIHaveSpokenToDST,
-      style,
-    }: ContentProps,
+    { automationId, children, classNameOverride, style }: ContentProps,
     ref: React.Ref<HTMLDivElement>
   ) => (
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.container, classNameAndIHaveSpokenToDST)}
+      className={classNames(styles.container, classNameOverride)}
       style={style}
     >
       {children}
@@ -67,18 +62,13 @@ export const Container = React.forwardRef(
 
 export const Content = React.forwardRef(
   (
-    {
-      automationId,
-      children,
-      classNameAndIHaveSpokenToDST,
-      style,
-    }: ContentProps,
+    { automationId, children, classNameOverride, style }: ContentProps,
     ref: React.Ref<HTMLDivElement>
   ) => (
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.content, classNameAndIHaveSpokenToDST)}
+      className={classNames(styles.content, classNameOverride)}
       style={style}
     >
       {children}

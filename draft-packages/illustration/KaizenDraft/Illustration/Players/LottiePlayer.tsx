@@ -35,7 +35,7 @@ export const AnimatedBase = ({
   loop = false,
   alt,
   aspectRatio,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
 }: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
   const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
@@ -80,7 +80,7 @@ export const AnimatedBase = ({
   }, [asset])
 
   const wrapper =
-    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
+    (classNameOverride ? classNameOverride : "") +
     (aspectRatio ? aspectRatio : "") +
     " " +
     styles.wrapper

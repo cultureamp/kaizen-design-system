@@ -32,7 +32,7 @@ export interface ParagraphProps
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Paragraphs
@@ -50,7 +50,7 @@ export interface ParagraphProps
  * @deprecated Paragraph has been moved to @kaizen/typography.
  */
 export const Paragraph = ({
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   children,
   tag,
   variant,
@@ -61,7 +61,7 @@ export const Paragraph = ({
     styles.paragraph,
     styles[variant],
     styles[color],
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
   ])
 
   return createElement(

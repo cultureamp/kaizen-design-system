@@ -13,7 +13,7 @@ export interface InputSearchProps
     "className" | "defaultValue"
   > {
   id: string
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
@@ -28,7 +28,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
     value,
     onChange,
     onClear,
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
     placeholder,
     disabled = false,
     reversed = false,
@@ -69,7 +69,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
         placeholder={placeholder}
         disabled={disabled}
         onChange={onChange}
-        className={classnames(styles.input, styles.search, {
+        className={classnames(styles.input, styles.search, classNameOverride, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.disabled]: disabled,
