@@ -31,6 +31,9 @@
   "author": "",
   "private": false,
   "license": "MIT",
+  "devDependencies": {
+    "@kaizen/component-base": "^1.1.0"
+  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
     "classnames": "^2.3.1",
