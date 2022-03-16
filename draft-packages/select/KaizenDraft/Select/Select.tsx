@@ -28,6 +28,8 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
 
   validationMessage?: React.ReactNode
 
+  description?: React.ReactNode
+
   /**
    * Use a reversed colour scheme
    * `variant="default" reversed="true" is not implemented and will throw a "not implemented" error
@@ -62,6 +64,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     reversed = false,
     label,
     validationMessage,
+    description,
   } = props
 
   // the default for fullWidth depends on the variant
@@ -111,6 +114,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       {validationMessage ? (
         <FieldMessage message={validationMessage} status={status} />
       ) : null}
+      {description ? <FieldMessage message={description} /> : null}
     </>
   )
 })
