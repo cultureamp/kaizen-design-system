@@ -1,5 +1,5 @@
 import React from "react"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
 import {
   Title,
   Subtitle,
@@ -10,7 +10,7 @@ import {
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { Heading } from "../components/Heading"
+import { Heading, Paragraph } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,

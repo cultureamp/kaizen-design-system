@@ -1,11 +1,11 @@
 import classNames from "classnames"
 import { createElement, HTMLAttributes } from "react"
 
-import styles from "./Paragraph.module.scss"
+import styles from "./Paragraph.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 
-export type AllowedTags =
+export type AllowedParagraphTags =
   | "pre"
   | "p"
   | "div"
@@ -18,7 +18,7 @@ export type AllowedTags =
   | "h6"
   | "label"
 
-export type AllowedColors =
+export type AllowedParagraphColors =
   | "dark"
   | "dark-reduced-opacity"
   | "white"
@@ -38,17 +38,14 @@ export interface ParagraphProps
    * HTML elements that are allowed on Paragraphs
    * @default "p"
    */
-  tag?: AllowedTags
+  tag?: AllowedParagraphTags
   /**
    * Allowed paragraph variants
    */
   variant: ParagraphVariants
-  color?: AllowedColors
+  color?: AllowedParagraphColors
 }
 
-/**
- * @deprecated Paragraph has been moved to @kaizen/typography.
- */
 export const Paragraph = ({
   classNameAndIHaveSpokenToDST,
   children,
