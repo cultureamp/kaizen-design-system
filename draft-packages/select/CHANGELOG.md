@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.24.2...@kaizen/draft-select@1.25.0) (2022-03-16)
+
+
+### Features
+
+* Add description prop to Select ([#2621](https://github.com/cultureamp/kaizen-design-system/issues/2621)) ([af01c21](https://github.com/cultureamp/kaizen-design-system/commit/af01c211a8a6d0ee1ccb54572cc375b870a22c26))
+
+
+
+
+
 ## [1.24.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.24.1...@kaizen/draft-select@1.24.2) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/draft-select

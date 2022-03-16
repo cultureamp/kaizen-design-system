@@ -90,6 +90,38 @@ export const Single = () => (
 )
 Single.parameters = { chromatic: { disable: false } }
 
+export const SingleWithDescription = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescription.parameters = { chromatic: { disable: false } }
+
+export const SingleWithDescriptionAndErrorMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      status="error"
+      validationMessage="Oh no!"
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescriptionAndErrorMessage.parameters = {
+  chromatic: { disable: false },
+}
+
 export const SingleDisabled = () => (
   <StoryContainer>
     <Select
