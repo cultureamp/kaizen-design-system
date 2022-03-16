@@ -17,7 +17,7 @@ export interface SliderFieldProps
   labelPosition?: "inline" | "block"
   readOnly?: boolean
   readOnlyMessage?: ReactNode
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   variant?: "default" | "prominent"
 }
 
@@ -54,7 +54,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             <Paragraph
               variant="small"
               id={descriptionId}
-              classNameAndIHaveSpokenToDST={
+              classNameOverride={
                 disabled ? styles.descriptionDisabled : undefined
               }
             >
