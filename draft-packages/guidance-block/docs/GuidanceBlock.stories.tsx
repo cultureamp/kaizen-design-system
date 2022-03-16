@@ -7,7 +7,7 @@ import {
   SkillsCoachEssentialFeedback,
   Communication,
 } from "@kaizen/draft-illustration"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"

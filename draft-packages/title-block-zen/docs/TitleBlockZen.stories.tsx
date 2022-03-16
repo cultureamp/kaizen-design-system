@@ -1,6 +1,7 @@
 import React from "react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"

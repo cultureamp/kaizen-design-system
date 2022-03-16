@@ -1,4 +1,4 @@
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"

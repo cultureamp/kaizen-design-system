@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Heading } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import colorString from "color-string"

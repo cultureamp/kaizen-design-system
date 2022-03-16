@@ -1,4 +1,4 @@
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Strategy, OneOnOne, ManagerLearning } from "@kaizen/draft-illustration"
 import { Button } from "@kaizen/button"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"

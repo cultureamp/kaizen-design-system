@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading } from "../../../../../packages/component-library"
+import { Heading } from "../../../../../packages/typography"
 import styles from "../../StoryWrapper.scss"
 
 export interface StoryRowProps {
