@@ -1,5 +1,6 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { CollapsibleProps } from "./Collapsible"
 import styles from "./styles.scss"
 
@@ -7,30 +8,38 @@ export type Sticky = {
   top: string
 }
 
-type CollapsibleGroupProps = {
+export interface CollapsibleGroupProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: Array<React.ReactElement<CollapsibleProps>>
   separated?: boolean
   sticky?: Sticky
   noSectionPadding?: boolean
-  automationId?: string
   lazyLoad?: boolean
   onToggle?: (open: boolean, id: string) => void
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
 export const CollapsibleGroup: React.VFC<CollapsibleGroupProps> = ({
   children,
-  separated,
+  separated = false,
   sticky,
-  noSectionPadding,
-  automationId,
-  lazyLoad,
+  noSectionPadding = false,
+  lazyLoad = false,
   onToggle,
+  automationId,
+  classNameOverride,
+  ...props
 }) => (
   <div
-    className={classnames({
+    className={classnames(classNameOverride, {
       [styles.container]: !separated,
     })}
     data-automation-id={automationId}
+    {...props}
   >
     {React.Children.map(children, collapsible =>
       React.cloneElement(collapsible, {
