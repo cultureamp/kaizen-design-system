@@ -46,6 +46,9 @@ export interface ParagraphProps
   color?: AllowedColors
 }
 
+/**
+ * @deprecated Paragraph has been moved to @kaizen/typography.
+ */
 export const Paragraph = ({
   classNameAndIHaveSpokenToDST,
   children,
