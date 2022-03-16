@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.10...@kaizen/draft-collapsible@2.7.0) (2022-03-16)
+
+
+### Features
+
+* add `component-base` package and extend Collapsible with HTML attributes and className override ([#2614](https://github.com/cultureamp/kaizen-design-system/issues/2614)) ([419e065](https://github.com/cultureamp/kaizen-design-system/commit/419e065c51d5cdc5b40fdf864b41ed2898913177))
+
+
+
+
+
 ## [2.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.9...@kaizen/draft-collapsible@2.6.10) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible
