@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Negative } from "@kaizen/draft-illustration"
 
 import {

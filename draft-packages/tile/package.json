@@ -38,6 +38,7 @@
   "dependencies": {
     "@kaizen/button": "^1.0.14",
     "@kaizen/component-library": "^12.7.0",
+    "@kaizen/typography": "1.1.0",
     "classnames": "^2.3.1"
   }
 }

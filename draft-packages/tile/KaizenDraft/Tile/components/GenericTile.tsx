@@ -1,11 +1,11 @@
 import React, { useState, MouseEvent } from "react"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph, AllowedHeadingTags } from "@kaizen/typography"
 import { IconButton } from "@kaizen/button"
 import classNames from "classnames"
 
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import { AllowedTags } from "@kaizen/component-library/components/Heading"
 import Action from "./Action"
 import styles from "./GenericTile.scss"
 
@@ -26,7 +26,7 @@ export interface TileInformation {
 
 export interface GenericTileProps {
   readonly title: React.ReactNode
-  readonly titleTag?: AllowedTags
+  readonly titleTag?: AllowedHeadingTags
   readonly metadata?: string
   readonly children?: React.ReactNode
   readonly information?: TileInformation | React.ReactNode

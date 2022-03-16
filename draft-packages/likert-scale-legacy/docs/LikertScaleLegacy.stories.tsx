@@ -4,7 +4,7 @@ import {
   Scale,
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
