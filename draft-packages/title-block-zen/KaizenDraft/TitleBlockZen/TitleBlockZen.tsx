@@ -1,4 +1,5 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   Avatar,
   GenericAvatarProps,

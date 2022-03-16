@@ -1,5 +1,6 @@
 import React, { ReactNode, ReactElement } from "react"
-import { Heading, Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { Button, ButtonProps } from "@kaizen/button"
 import { useMediaQueries } from "@kaizen/responsive"
 import { SceneProps } from "@kaizen/draft-illustration"

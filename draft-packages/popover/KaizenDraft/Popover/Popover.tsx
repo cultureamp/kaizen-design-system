@@ -1,5 +1,6 @@
 import { usePopper } from "react-popper"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
