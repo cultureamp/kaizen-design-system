@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.6.0...@kaizen/component-library@12.7.0) (2022-03-16)
+
+
+### Features
+
+* Copy Heading and Typography components into new @kaizen/typography package ([#2612](https://github.com/cultureamp/kaizen-design-system/issues/2612)) ([48c6848](https://github.com/cultureamp/kaizen-design-system/commit/48c684850f73f96e6aa9fc0ea1f62cfd28374d73))
+
+
+
+
+
 # [12.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.2...@kaizen/component-library@12.6.0) (2022-03-09)
 
 

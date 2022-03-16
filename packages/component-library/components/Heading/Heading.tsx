@@ -55,6 +55,9 @@ export interface HeadingProps
   color?: AllowedColors
 }
 
+/**
+ * @deprecated Heading has been moved to @kaizen/typography.
+ */
 export const Heading = ({
   classNameAndIHaveSpokenToDST,
   children,

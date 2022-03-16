@@ -46,10 +46,14 @@ export const Card = ({
   const Tag = tag
   return (
     <Tag
-      className={cx(styles.wrapper, styles[variant], {
+      className={cx(
+        styles.wrapper,
+        styles[variant],
         classNameAndIHaveSpokenToDST,
-        [styles.elevated]: isElevated,
-      })}
+        {
+          [styles.elevated]: isElevated,
+        }
+      )}
       {...otherProps}
     >
       {children}
