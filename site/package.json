@@ -12,6 +12,7 @@
     "@kaizen/draft-illustration": "^3.6.13",
     "@kaizen/draft-tag": "^2.3.16",
     "@kaizen/hosted-assets": "^1.1.0",
+    "@kaizen/typography": "1.1.0",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "classnames": "^2.3.1",

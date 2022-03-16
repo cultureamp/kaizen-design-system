@@ -1,6 +1,7 @@
 import React from "react"
 import { GlobalNotification } from "@kaizen/notification"
-import { Heading, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
 import { Divider } from "@kaizen/draft-divider"
 import { figmaEmbed } from "../../../storybook/helpers"
