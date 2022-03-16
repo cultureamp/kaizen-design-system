@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-collapsible",
-  "version": "2.6.10",
+  "version": "2.7.0",
   "description": "The draft Collapsible component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -37,7 +37,7 @@
     "react-animate-height": "^2.0.23"
   },
   "devDependencies": {
-    "@kaizen/component-base": "^1.0.0",
+    "@kaizen/component-base": "^1.1.0",
     "@types/classnames": "^2.3.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
