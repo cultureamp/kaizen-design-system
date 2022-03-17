@@ -1,10 +1,9 @@
-import { Heading, Paragraph } from "@kaizen/component-library"
+import React from "react"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-
 import styles from "./LoadingPlaceholder.stories.scss"
 
 const StoryContainer: React.FunctionComponent = ({ children }) => (
@@ -47,7 +46,6 @@ export const DefaultMultipleKaizenSiteDemo = () => (
     </>
   </StoryContainer>
 )
-
 DefaultMultipleKaizenSiteDemo.storyName = "Default, Multiple (Kaizen Site Demo)"
 
 export const DefaultMultipleInline = () => (
@@ -91,7 +89,6 @@ export const DefaultMultipleInline = () => (
     </>
   </StoryContainer>
 )
-
 DefaultMultipleInline.storyName = "Default, Multiple, Inline"
 
 export const DefaultMultipleVariableWidth = () => (
@@ -113,7 +110,6 @@ export const DefaultMultipleVariableWidth = () => (
     </>
   </StoryContainer>
 )
-
 DefaultMultipleVariableWidth.storyName = "Default, Multiple, Variable width"
 
 export const DefaultMultipleVariableWidthCentered = () => (
@@ -137,9 +133,11 @@ export const DefaultMultipleVariableWidthCentered = () => (
     </>
   </StoryContainer>
 )
-
 DefaultMultipleVariableWidthCentered.storyName =
   "Default, Multiple, Variable width, Centered"
+DefaultMultipleVariableWidthCentered.parameters = {
+  chromatic: { disable: false },
+}
 
 export const DefaultMultipleCombinedBlockAndInline = () => (
   <StoryContainer>
@@ -177,9 +175,11 @@ export const DefaultMultipleCombinedBlockAndInline = () => (
     </>
   </StoryContainer>
 )
-
 DefaultMultipleCombinedBlockAndInline.storyName =
   "Default, Multiple, Combined block and inline"
+DefaultMultipleCombinedBlockAndInline.parameters = {
+  chromatic: { disable: false },
+}
 
 export const DefaultWithoutBottomMargin = () => (
   <StoryContainer>
@@ -191,10 +191,10 @@ export const DefaultWithoutBottomMargin = () => (
     <LoadingPlaceholder noBottomMargin />
   </StoryContainer>
 )
-
 DefaultWithoutBottomMargin.storyName = "Default, Without bottom margin"
+DefaultWithoutBottomMargin.parameters = { chromatic: { disable: false } }
 
-export const Defaul = () => (
+export const DefaultInheritBaseline = () => (
   <StoryContainer>
     <div className={styles.flexbox}>
       <Heading tag="h2" variant="heading-2">
@@ -204,8 +204,8 @@ export const Defaul = () => (
     </div>
   </StoryContainer>
 )
-
-Defaul.storyName = "Default, Inherit baseline"
+DefaultInheritBaseline.storyName = "Default, Inherit baseline"
+DefaultInheritBaseline.parameters = { chromatic: { disable: false } }
 
 export const HeadingLoading = () => (
   <StoryContainer>
@@ -228,6 +228,7 @@ export const HeadingLoading = () => (
     </>
   </StoryContainer>
 )
+HeadingLoading.parameters = { chromatic: { disable: false } }
 
 export const ReversedDefault = () => (
   <StoryContainer>
@@ -248,9 +249,8 @@ export const ReversedDefault = () => (
 )
 ReversedDefault.storyName = "Reversed, Default"
 ReversedDefault.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 export const InTheWild = () => (
@@ -331,5 +331,4 @@ export const InTheWild = () => (
     </div>
   </StoryContainer>
 )
-
 InTheWild.storyName = "In the wild"

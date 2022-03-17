@@ -3,10 +3,9 @@ import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
 import { SubsetBecomesNever } from "./types"
 
-export type SceneProps = Pick<
-  BaseProps,
-  "alt" | "classNameAndIHaveSpokenToDST"
-> & { enableAspectRatio?: boolean }
+export type SceneProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
+  enableAspectRatio?: boolean
+}
 export type AnimatedProps = { isAnimated?: true } & Pick<
   VideoPlayerProps,
   "loop" | "autoplay"

@@ -2,13 +2,13 @@
 title: Button
 navTitle: Button
 summaryParagraph: Buttons perform actions.
-tags: ["Link button", "Primary action", "Secondary action", "Default action", "Destructive action"]
+tags: ["Link button", "Primary action", "Secondary action", "Default action", "Destructive action", "Directional link", "Pagination link"]
 githubLabels: ["component:button"]
 needToKnow:
 - Buttons perform actions.
 - If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
 headerImage: button
-demoStoryId: components-button-button--default-kaizen-site-demo
+demoStoryId: components-button--default-kaizen-site-demo
 health:
   designed: true
   documented: true
@@ -34,28 +34,38 @@ import Dont from "docs-components/Dont"
 
 ## To keep in mind
 
-*   All buttons use a button element (not a link element and no `role=”button”`)
+*   All buttons excluding [Pagination](https://cultureamp.design/components/pagination/) use a button element (not a link element and no `role=”button”`)
 *   All buttons have a large click target of 48px to meet minimum touch target sizes
-*   Default action button:
+*   **Default action button:**
     *   Use this when there is more than 1 button or it is not the most important action on the page
-*   Primary action button:
+*   **Primary action button:**
     *   Use only 1 primary action button per page
-*   Destructive action button:
+*   **Secondary action button:**
+    *   Secondary action buttons can look like links, however, they perform actions and are not recommended for navigating.
+*   **Destructive action button:**
     *   Only use when the action will result in data loss, cannot be undone, or otherwise have significant consequences
-*   Secondary action button:
-    *   Secondary Action Buttons kind of look like links but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. That is, they perform actions and do not navigate.
-*   Icon + label (icon on the left):
+*   **Icon + label (icon on the left):**
     *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
-*   Label + icon (icon on the right):
+*   **Label + icon (icon on the right):**
     *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
-*   Disabled buttons:
+*   **Disabled buttons:**
     *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
-*   Focus indicator:
+*   **Pagination buttons:**
+    * These are purpose-built for the [Pagination](https://cultureamp.design/components/pagination/) component.
+    * They look like buttons but are instead links. Pagination buttons use a link element because it navigates to another page.
+    * **Pagination link:**
+        * Centrally located within the Pagination component to display the available page numbers.
+        * Used to navigate between available pages.
+    * **Directional link:**
+        * Bookends (to the left and right of) the Pagination links.
+        * “Back” and “Next” links allow page navigation to occur incrementally across a page list. 
+        * (Optional) “Start” and “End” links allow the user to skip to the first and last items in a page list.
+*   **Focus indicator:**
     *   See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
     *   Must show a focus indicator on keyboard navigation, but not on click.
-*   Working buttons:
+*   **Working buttons:**
     *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#working-state).
-*   Supplementary information:
+*   **Supplementary information:**
     *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
 
 ## Copy guidelines
@@ -215,7 +225,7 @@ Make sure that the button uses the same verb and noun as what’s used in the bo
 <WhenNotToUse>
 
 *   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
-*   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
+*   If the button is used to toggle between 2 states, consider using a [Toggle Switch](/components/toggle-switch-field) instead.
 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>

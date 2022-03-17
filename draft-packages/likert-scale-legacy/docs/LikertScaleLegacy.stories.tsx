@@ -1,11 +1,10 @@
 import React, { useState } from "react"
-
 import {
   LikertScaleLegacy,
   Scale,
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -13,6 +12,7 @@ export default {
   title: `${CATEGORIES.components}/Likert Scale`,
   component: LikertScaleLegacy,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component:
@@ -68,7 +68,6 @@ export const DefaultStory = () => {
     </div>
   )
 }
-
 DefaultStory.storyName = "Default"
 
 export const Reversed = () => {
@@ -92,6 +91,5 @@ export const Reversed = () => {
     </div>
   )
 }
-
 Reversed.storyName = "Reversed"
 Reversed.parameters = { backgrounds: { default: "Purple 700" } }

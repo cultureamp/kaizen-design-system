@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Container, Content } from "@kaizen/draft-page-layout"
 import classNames from "classnames"
+import { Container, Content } from "../../"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
 import styles from "./styles.scss"
 
@@ -35,7 +35,7 @@ export const Skirt = ({
   return (
     <Container
       ref={ref}
-      classNameAndIHaveSpokenToDST={classNames(styles.container, className)}
+      classNameOverride={classNames(styles.container, className)}
     >
       <div
         style={{ ...(skirtHeight && { height: `${skirtHeight}px` }) }}
@@ -44,9 +44,7 @@ export const Skirt = ({
           [styles.educationVariant]: variant === "education",
         })}
       />
-      <Content classNameAndIHaveSpokenToDST={styles.content}>
-        {children}
-      </Content>
+      <Content classNameOverride={styles.content}>{children}</Content>
     </Container>
   )
 }

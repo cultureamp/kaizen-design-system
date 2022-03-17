@@ -1,7 +1,7 @@
 import * as React from "react"
-
 import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Box, Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
@@ -40,6 +40,9 @@ type VariantType =
 export type GuidanceBlockProps = {
   layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
+  /*
+   * Sets how the width and aspect ratio will respond to the Illustration passed in.
+   */
   illustrationType?: IllustrationType
   text: {
     title: string
@@ -47,7 +50,14 @@ export type GuidanceBlockProps = {
   }
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
+  /*
+   * This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
+   */
   secondaryDismiss?: boolean
+  /*
+   * `persistent` should always return true and will soon be deprecated.
+   * The X close icon has been superseded with the pattern "dismiss" or "cancel" using the secondary action.
+   */
   persistent?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
@@ -198,6 +208,11 @@ class GuidanceBlock extends React.Component<
     )
   }
 
+  renderIllustrationType = (illustration, illustrationType) =>
+    illustrationType === "scene"
+      ? React.cloneElement(illustration, { enableAspectRatio: true })
+      : illustration
+
   render(): JSX.Element | null {
     if (this.state.removed) {
       return null
@@ -210,11 +225,12 @@ class GuidanceBlock extends React.Component<
       persistent,
       withActionButtonArrow,
       noMaxWidth,
+      illustrationType,
     } = this.props
 
     return (
       <div
-        className={this.bannerClassName(noMaxWidth)}
+        className={this.bannerClassName(this.props)}
         style={{
           marginTop: this.marginTop(),
         }}
@@ -222,9 +238,10 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>{illustration}</div>
+          <div className={styles.illustration}>
+            {this.renderIllustrationType(illustration, illustrationType)}
+          </div>
         </div>
-
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
             <div className={styles.headingWrapper}>
@@ -244,23 +261,20 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  bannerClassName(noMaxWidth): string {
-    return classnames(styles.banner, {
-      [styles.hidden]: this.state.hidden,
-      [styles.positive]: this.props.variant === "positive",
-      [styles.negative]: this.props.variant === "negative",
-      [styles.informative]: this.props.variant === "informative",
-      [styles.cautionary]: this.props.variant === "cautionary",
-      [styles.assertive]: this.props.variant === "assertive",
-      [styles.prominent]: this.props.variant === "prominent",
-      [styles.noMaxWidth]: noMaxWidth,
-      [styles.hasSceneIllustration]: this.props.illustrationType === "scene",
-      [styles.inline]: this.props.layout === "inline",
-      [styles.stacked]: this.props.layout === "stacked",
-      [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-      [styles.smallScreenTextAlignment]:
-        this.props.smallScreenTextAlignment === "left",
-    })
+  bannerClassName(props): string {
+    return classnames(
+      styles.banner,
+      styles[props.variant],
+      styles[props.layout],
+      {
+        [styles.hidden]: this.state.hidden,
+        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
+        [styles.noMaxWidth]: props.noMaxWidth,
+        [styles.hasSceneIllustration]: props.illustrationType === "scene",
+        [styles.smallScreenTextAlignment]:
+          props.smallScreenTextAlignment === "left",
+      }
+    )
   }
 
   marginTop(): string {

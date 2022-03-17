@@ -13,6 +13,9 @@ export interface LoadingSpinnerProps {
   children?: React.ReactNode
 }
 
+/**
+ * @deprecated draft-packages LoadingSpinner is deprecated. Please use LoadingSpinner from "@kaizen/loading-spinner" instead.
+ */
 export const LoadingSpinner = ({
   accessibilityLabel = "Loading",
   size = "md",

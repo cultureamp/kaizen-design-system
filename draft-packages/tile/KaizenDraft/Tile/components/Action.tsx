@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/button"
 import { TileAction } from "./GenericTile"
 
 interface Props {

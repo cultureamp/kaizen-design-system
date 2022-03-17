@@ -1,6 +1,5 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import React from "react"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -89,6 +88,39 @@ export const Single = () => (
     />
   </StoryContainer>
 )
+Single.parameters = { chromatic: { disable: false } }
+
+export const SingleWithDescription = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescription.parameters = { chromatic: { disable: false } }
+
+export const SingleWithDescriptionAndErrorMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      status="error"
+      validationMessage="Oh no!"
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescriptionAndErrorMessage.parameters = {
+  chromatic: { disable: false },
+}
 
 export const SingleDisabled = () => (
   <StoryContainer>
@@ -101,6 +133,35 @@ export const SingleDisabled = () => (
     />
   </StoryContainer>
 )
+SingleDisabled.parameters = { chromatic: { disable: false } }
+
+export const SingleError = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+    />
+  </StoryContainer>
+)
+SingleError.parameters = { chromatic: { disable: false } }
+
+export const SingleErrorWithLabelAndMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+      label="Choose an employee"
+      validationMessage="Something went wrong"
+    />
+  </StoryContainer>
+)
+SingleErrorWithLabelAndMessage.parameters = { chromatic: { disable: false } }
 
 export const SingleEllipsis = () => {
   const localOptions = [
@@ -122,8 +183,8 @@ export const SingleEllipsis = () => {
     </NarrowStoryContainer>
   )
 }
-
 SingleEllipsis.storyName = "Single with ellipsizing selection"
+SingleEllipsis.parameters = { chromatic: { disable: false } }
 
 export const SingleClearable = () => (
   <StoryContainer>
@@ -147,7 +208,6 @@ export const MultiSelectSearchable = () => (
     <Select options={options} placeholder="Placeholder" isMulti={true} />
   </WideStoryContainer>
 )
-
 MultiSelectSearchable.storyName = "Multi-Select Searchable"
 
 export const AsyncSearchable = () => (
@@ -182,27 +242,8 @@ export const SingleSecondary = () => (
     />
   </StoryContainer>
 )
-
 SingleSecondary.storyName = "Single, Secondary"
-
-export const SingleSecondarySmall = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary-small"
-      reversed={true}
-    />
-  </StoryContainer>
-)
-
-SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
-SingleSecondarySmall.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
+SingleSecondary.parameters = { chromatic: { disable: false } }
 
 export const SingleSecondaryDisabled = () => (
   <StoryContainer>
@@ -215,8 +256,8 @@ export const SingleSecondaryDisabled = () => (
     />
   </StoryContainer>
 )
-
 SingleSecondaryDisabled.storyName = "Single, Secondary, Disabled"
+SingleSecondaryDisabled.parameters = { chromatic: { disable: false } }
 
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
@@ -229,12 +270,46 @@ export const SingleSecondaryReversed = () => (
     />
   </StoryContainer>
 )
-
 SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
 SingleSecondaryReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
+
+export const SingleSecondarySmallReversed = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary-small"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+SingleSecondarySmallReversed.storyName = "Single, Secondary-Small, Reversed"
+SingleSecondarySmallReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
+
+export const SingleSecondaryReversedDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isDisabled={true}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+SingleSecondaryReversedDisabled.storyName =
+  "Single Secondary Reversed (disabled)"
+SingleSecondaryReversedDisabled.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 export const SingleSecondaryWithEllipsis = () => {
@@ -259,31 +334,7 @@ export const SingleSecondaryWithEllipsis = () => {
     </NarrowStoryContainer>
   )
 }
-
 SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
 SingleSecondaryWithEllipsis.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-export const SingleSecondaryReversedDisabled = () => (
-  <StoryContainer>
-    <Select
-      options={options}
-      isDisabled={true}
-      isSearchable={false}
-      defaultValue={options[0]}
-      variant="secondary"
-      reversed={true}
-    />
-  </StoryContainer>
-)
-
-SingleSecondaryReversedDisabled.storyName =
-  "Single Secondary Reversed (disabled)"
-SingleSecondaryReversedDisabled.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
+  backgrounds: { default: "Purple 700" },
 }

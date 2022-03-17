@@ -1,7 +1,8 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Heading, Icon } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   Assertive,
   Cautionary,

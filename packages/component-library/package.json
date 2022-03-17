@@ -22,19 +22,19 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "12.4.1",
+  "version": "13.1.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0 || ^17.0.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.5.0",
-    "@kaizen/draft-button": "^5.6.1",
+    "@kaizen/component-base": "^1.0.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.2",
+    "@kaizen/draft-button": "^5.6.17",
     "@kaizen/hosted-assets": "^1.2.0",
-    "@kaizen/react-deprecate-warning": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.177",
     "@types/uuid": "^3.4.10",

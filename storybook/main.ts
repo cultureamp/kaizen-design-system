@@ -28,6 +28,10 @@ const defaultStoryPaths = [
 ]
 
 module.exports = {
+  core: {
+    builder: "webpack5",
+  },
+  mode: "production",
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
     path.resolve("./storybook/gtm-addon/register"),
