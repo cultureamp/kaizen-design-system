@@ -77,10 +77,7 @@ describe("<Heading />", () => {
 
   it("allows consumers to provide a className", () => {
     const { getByText } = render(
-      <Heading
-        variant="heading-4"
-        classNameAndIHaveSpokenToDST="example-classname"
-      >
+      <Heading variant="heading-4" classNameOverride="example-classname">
         Example
       </Heading>
     )

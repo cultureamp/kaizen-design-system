@@ -12,8 +12,8 @@ export interface InputRangeProps
   minLabel: ReactNode
   maxLabel: ReactNode
   readOnly?: boolean
-  classNameAndIHaveSpokenToDST?: string
   ref?: React.RefObject<HTMLInputElement>
+  classNameOverride?: string
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -27,7 +27,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     maxLabel,
     onChange,
     "aria-describedby": ariaDescribedby,
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
     disabled,
     readOnly,
     min = 1,
@@ -48,14 +48,10 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     <>
       <input
         id={id}
-        className={classnames(
-          styles.ratingScaleRange,
-          classNameAndIHaveSpokenToDST,
-          {
-            [styles.hideThumb]: readOnlyWithNoValue,
-            [styles.disabled]: disabled,
-          }
-        )}
+        className={classnames(styles.ratingScaleRange, classNameOverride, {
+          [styles.hideThumb]: readOnlyWithNoValue,
+          [styles.disabled]: disabled,
+        })}
         disabled={disabled || readOnly}
         type="range"
         min={min}

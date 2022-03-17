@@ -8,7 +8,7 @@ export interface BoxProps {
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   /**
    * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
    * @default "false"
@@ -18,7 +18,7 @@ export interface BoxProps {
 
 export const Box = ({
   children,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   rtl = false,
   m,
   mt,
@@ -44,10 +44,7 @@ BoxProps & Spacing) => {
   ]
 
   return (
-    <div
-      {...otherProps}
-      className={classnames(classes, classNameAndIHaveSpokenToDST)}
-    >
+    <div {...otherProps} className={classnames(classes, classNameOverride)}>
       {children}
     </div>
   )
