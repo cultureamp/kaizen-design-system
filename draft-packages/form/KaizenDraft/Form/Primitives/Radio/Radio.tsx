@@ -12,6 +12,7 @@ export type RadioProps = {
   reversed?: boolean
   name: string
   value: string
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 type Radio = React.FunctionComponent<RadioProps>
@@ -38,6 +39,7 @@ const Radio: Radio = ({
   onChange,
   disabled = false,
   reversed = false,
+  ref,
 }) => (
   <span>
     <input
@@ -52,6 +54,7 @@ const Radio: Radio = ({
       })}
       onChange={onChange}
       disabled={disabled}
+      ref={ref}
     />
     <span
       className={classnames(styles.box, {

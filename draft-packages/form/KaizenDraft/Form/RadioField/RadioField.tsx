@@ -16,6 +16,7 @@ export type RadioFieldProps = {
   disabled?: boolean
   reversed?: boolean
   inline?: boolean
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 type RadioField = React.FunctionComponent<RadioFieldProps>
@@ -31,6 +32,7 @@ const RadioField: RadioField = ({
   inline = false,
   disabled = false,
   reversed = false,
+  ref,
 }) => (
   <div
     data-automation-id={automationId}
@@ -58,6 +60,7 @@ const RadioField: RadioField = ({
         value={value}
         name={name}
         onChange={onChange}
+        ref={ref}
       />
     </Label>
   </div>
