@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading, Paragraph } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"

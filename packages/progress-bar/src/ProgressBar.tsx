@@ -1,4 +1,5 @@
-import { Box, Heading } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import React, { ReactNode } from "react"
 import classnames from "classnames"
 import styles from "./ProgressBar.scss"

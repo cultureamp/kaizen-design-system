@@ -1,5 +1,6 @@
 import { usePopper } from "react-popper"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
@@ -122,10 +123,7 @@ export const Popover: PopoverModernType = ({
                 />
               </span>
             )}
-            <Heading
-              variant="heading-6"
-              classNameAndIHaveSpokenToDST={styles.singleLine}
-            >
+            <Heading variant="heading-6" classNameOverride={styles.singleLine}>
               {heading}
             </Heading>
             {dismissible && (
@@ -137,7 +135,7 @@ export const Popover: PopoverModernType = ({
         )}
         <Paragraph
           variant="small"
-          classNameAndIHaveSpokenToDST={classNames(
+          classNameOverride={classNames(
             styles.container,
             mapLineVariant(singleLine)
           )}

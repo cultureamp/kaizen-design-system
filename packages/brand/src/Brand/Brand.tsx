@@ -1,33 +1,41 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "./Brand.scss"
 
-export interface BrandProps {
+export interface BrandProps
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   variant:
     | "logo-horizontal"
     | "logo-vertical"
     | "enso"
     | "collective-intelligence"
-  reversed?: boolean
   alt: string
+  reversed?: boolean
 }
 
-export const Brand = (props: BrandProps) => {
-  const brandTheme = props.reversed ? "-reversed" : "-default"
+export const Brand: React.VFC<BrandProps> = ({
+  variant,
+  alt,
+  reversed = false,
+  classNameOverride,
+  ...restProps
+}) => {
+  const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
-    <picture>
+    <picture className={classNameOverride} {...restProps}>
       <source
-        srcSet={assetUrl(`brand/${props.variant}-reversed.svg`)}
+        srcSet={assetUrl(`brand/${variant}-reversed.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: dark)"
       />
       <source
-        srcSet={assetUrl(`brand/${props.variant}-default.svg`)}
+        srcSet={assetUrl(`brand/${variant}-default.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: light)"
       />
       <img
-        src={assetUrl(`brand/${props.variant}${brandTheme}.svg`)}
-        alt={props.alt}
+        src={assetUrl(`brand/${variant}${brandTheme}.svg`)}
+        alt={alt}
         className={styles.img}
       />
     </picture>

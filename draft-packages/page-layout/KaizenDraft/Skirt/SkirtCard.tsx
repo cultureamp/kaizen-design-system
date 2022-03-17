@@ -4,14 +4,11 @@ import classNames from "classnames"
 import styles from "./SkirtCard.scss"
 
 export const SkirtCard = (props: CardProps) => {
-  const { classNameAndIHaveSpokenToDST } = props
+  const { classNameOverride } = props
   return (
     <Card
       {...props}
-      classNameAndIHaveSpokenToDST={classNames(
-        styles.wrapper,
-        classNameAndIHaveSpokenToDST
-      )}
+      classNameOverride={classNames(styles.wrapper, classNameOverride)}
     ></Card>
   )
 }

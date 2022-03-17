@@ -1,6 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
