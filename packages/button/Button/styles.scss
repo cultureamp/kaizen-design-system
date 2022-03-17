@@ -809,6 +809,7 @@ $caButtonCircle-radius: 30px;
       background-color: $color-blue-500;
       color: $color-white;
       border-color: $color-blue-500;
+      cursor: initial;
 
       &:global(.js-focus-visible),
       &:global(.focus-visible) {
