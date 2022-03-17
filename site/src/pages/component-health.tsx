@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import * as React from "react"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import subtractIcon from "@kaizen/component-library/icons/subtract-white.icon.svg"

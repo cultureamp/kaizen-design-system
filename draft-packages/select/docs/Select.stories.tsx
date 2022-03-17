@@ -90,6 +90,38 @@ export const Single = () => (
 )
 Single.parameters = { chromatic: { disable: false } }
 
+export const SingleWithDescription = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescription.parameters = { chromatic: { disable: false } }
+
+export const SingleWithDescriptionAndErrorMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+      status="error"
+      validationMessage="Oh no!"
+      description="My cool description"
+    />
+  </StoryContainer>
+)
+SingleWithDescriptionAndErrorMessage.parameters = {
+  chromatic: { disable: false },
+}
+
 export const SingleDisabled = () => (
   <StoryContainer>
     <Select
@@ -102,6 +134,34 @@ export const SingleDisabled = () => (
   </StoryContainer>
 )
 SingleDisabled.parameters = { chromatic: { disable: false } }
+
+export const SingleError = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+    />
+  </StoryContainer>
+)
+SingleError.parameters = { chromatic: { disable: false } }
+
+export const SingleErrorWithLabelAndMessage = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      defaultValue={options[0]}
+      status="error"
+      label="Choose an employee"
+      validationMessage="Something went wrong"
+    />
+  </StoryContainer>
+)
+SingleErrorWithLabelAndMessage.parameters = { chromatic: { disable: false } }
 
 export const SingleEllipsis = () => {
   const localOptions = [

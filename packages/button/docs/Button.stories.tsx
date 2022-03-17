@@ -1,6 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -39,13 +39,13 @@ export default {
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Demo)",
+  name: "Button",
 }
 
 export const DefaultKaizenDemoIcon = args => (
   <IconButton {...args} icon={trashIcon} />
 )
-DefaultKaizenDemoIcon.storyName = "Default Icon (Kaizen Demo)"
+DefaultKaizenDemoIcon.storyName = "Icon Button"
 DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -295,12 +295,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
+  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }

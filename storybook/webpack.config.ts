@@ -10,7 +10,12 @@ import {
 } from "./webpack/rules"
 
 export default ({ config }: { config: Configuration }) => {
-  if (!config.resolve || !config.resolve.extensions || !config.module) {
+  if (
+    !config.resolve ||
+    !config.resolve.extensions ||
+    !config.module ||
+    !config.module.rules
+  ) {
     throw new Error(`Storybook started with unexpected config:\n${config}`)
   }
 
