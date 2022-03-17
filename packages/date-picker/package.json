@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "12.2.0",
-    "@kaizen/draft-form": "^6.0.1",
+    "@kaizen/draft-form": "^6.0.2",
     "@popperjs/core": "^2.11.0",
     "classnames": "^2.3.1",
     "react-day-picker": "^7.4.9",
