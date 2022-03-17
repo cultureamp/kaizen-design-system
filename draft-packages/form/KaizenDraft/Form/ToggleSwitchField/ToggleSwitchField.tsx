@@ -18,6 +18,7 @@ export interface ToggleSwitchFieldProps {
   fullWidth?: boolean
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 type ToggleSwitchField = React.FunctionComponent<ToggleSwitchFieldProps>
@@ -35,6 +36,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
   fullWidth,
   onFocus,
   onBlur,
+  ref,
 }) => (
   <FieldGroup
     id={`${id}-field-group`}
@@ -66,6 +68,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
           onToggle={onToggle}
           onFocus={onFocus}
           onBlur={onBlur}
+          ref={ref}
         />
       </Label>
     </div>

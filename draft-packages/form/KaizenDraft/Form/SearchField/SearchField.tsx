@@ -13,6 +13,7 @@ export interface SearchFieldProps
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 const SearchField: React.FunctionComponent<SearchFieldProps> = ({
@@ -25,6 +26,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   value,
   labelText,
   onClear,
+  ref,
   ...genericInputProps
 }) => {
   const showVisibleLabel = !secondary
@@ -49,6 +51,7 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         secondary={secondary}
         onClear={onClear}
         loading={loading}
+        ref={ref}
         {...genericInputProps}
       />
     </FieldGroup>

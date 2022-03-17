@@ -13,6 +13,7 @@ export interface InputRangeProps
   maxLabel: ReactNode
   readOnly?: boolean
   classNameAndIHaveSpokenToDST?: string
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 const InputRange: React.FunctionComponent<InputRangeProps> = (
@@ -31,6 +32,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     readOnly,
     min = 1,
     max = 10,
+    ref,
     ...genericInputProps
   } = props
 
@@ -71,6 +73,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange && onChange(e)
         }}
+        ref={ref}
         {...genericInputProps}
       />
       <div

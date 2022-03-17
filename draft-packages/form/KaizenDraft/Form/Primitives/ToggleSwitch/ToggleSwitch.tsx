@@ -17,6 +17,7 @@ export interface ToggleSwitchProps {
   reversed?: boolean
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 type ToggleSwitch = React.FunctionComponent<ToggleSwitchProps>
@@ -31,6 +32,7 @@ const ToggleSwitch: ToggleSwitch = ({
   reversed,
   onFocus,
   onBlur,
+  ref,
 }) => {
   const isOn = toggledStatus === ToggledStatus.ON
 
@@ -53,6 +55,7 @@ const ToggleSwitch: ToggleSwitch = ({
         onFocus={onFocus}
         onBlur={onBlur}
         disabled={disabled}
+        ref={ref}
       />
       <span className={styles.track}>
         <span className={styles.thumb} />

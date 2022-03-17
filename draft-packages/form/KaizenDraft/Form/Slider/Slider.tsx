@@ -19,6 +19,7 @@ export interface SliderFieldProps
   readOnlyMessage?: ReactNode
   classNameAndIHaveSpokenToDST?: string
   variant?: "default" | "prominent"
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 const Slider: React.FunctionComponent<SliderFieldProps> = props => {
@@ -30,6 +31,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
     variant = "default",
     disabled,
     readOnlyMessage,
+    ref,
     ...restProps
   } = props
   const descriptionId = `${id}-description`
@@ -64,6 +66,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
         </div>
         <div className={styles.inputWrapper}>
           <InputRange
+            ref={ref}
             id={id}
             aria-describedby={descriptionId}
             disabled={disabled}

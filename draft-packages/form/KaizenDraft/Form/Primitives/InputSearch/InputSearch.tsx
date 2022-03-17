@@ -18,6 +18,7 @@ export interface InputSearchProps
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 const InputSearch: React.FunctionComponent<InputSearchProps> = (
@@ -34,6 +35,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
     reversed = false,
     loading,
     secondary,
+    ref,
     ...genericInputProps
   } = props
 
@@ -75,6 +77,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
           [styles.disabled]: disabled,
           [styles.secondary]: secondary,
         })}
+        ref={ref}
         {...genericInputProps}
       />
       {/* Inputs aren't able to have pseudo elements like ::after on them,
