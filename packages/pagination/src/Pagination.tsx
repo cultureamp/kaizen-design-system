@@ -1,5 +1,6 @@
-import React from "react"
-import cx from "classnames"
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { Icon } from "@kaizen/component-library"
@@ -8,7 +9,8 @@ import { TruncateIndicator } from "./TruncateIndicator"
 import styles from "./Pagination.scss"
 import { createRange } from "./utils"
 
-export interface PaginationProps {
+export interface PaginationProps
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   currentPage: number
   pageCount: number
   ariaLabelNextPage: string
@@ -22,14 +24,16 @@ export enum PageAction {
   NEXT = "next",
 }
 
-export const Pagination = ({
+export const Pagination: React.VFC<PaginationProps> = ({
   currentPage = 1,
   pageCount,
   ariaLabelNextPage,
   ariaLabelPreviousPage,
   ariaLabelPage,
   onPageChange,
-}: PaginationProps) => {
+  classNameOverride,
+  ...restProps
+}) => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | PageAction) => {
     if (newPage === PageAction.PREV) {
@@ -137,9 +141,12 @@ export const Pagination = ({
   const nextPageDisabled = currentPage >= pageCount
 
   return (
-    <nav className={styles.container}>
+    <nav
+      className={classnames(styles.container, classNameOverride)}
+      {...restProps}
+    >
       <button
-        className={cx(styles.arrowIconWrapper)}
+        className={classnames(styles.arrowIconWrapper)}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
         onClick={() => handleButtonClick(PageAction.PREV)}
@@ -149,7 +156,7 @@ export const Pagination = ({
       </button>
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
       <button
-        className={cx(styles.arrowIconWrapper, {
+        className={classnames(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: nextPageDisabled,
         })}
         aria-label={ariaLabelNextPage}
