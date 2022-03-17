@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react"
-import cx from "classnames"
+import React, { useState, useEffect, useRef, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import { Textfit } from "react-textfit"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
@@ -7,21 +8,21 @@ import styles from "./styles.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
-export interface GenericAvatarProps {
-  /**
-   * Src for the avatar img tag - if not passed we will derive initials from the full name.
-   * Note that the fullName prop will be used as the alt text.
-   */
-  avatarSrc?: string
+interface BaseAvatarProps
+  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
   /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
   fullName?: string
   /**
    * There are 5 fixed avatar sizes. `"small"` will remove border and box shadow to save space.
-   * @default "medium"
    */
   size?: AvatarSizes
+  /**
+   * Src for the avatar img tag - if not passed we will derive initials from the full name.
+   * Note that the fullName prop will be used as the alt text.
+   */
+  avatarSrc?: string
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
    * This disables this feature and shows the generic avatar.
@@ -29,26 +30,26 @@ export interface GenericAvatarProps {
    */
   disableInitials?: boolean
   /**
+   * Renders Company Avatar variant - If true `fullName` and `avatarSrc` will be strictly typed.
+   */
+  isCompany?: boolean
+}
+
+export interface GenericAvatarProps extends BaseAvatarProps {
+  isCompany?: false
+  /**
    * Shows a different background colour if the avatar is the current user and does not have a avatar img.
    * @default "true"
    */
   isCurrentUser?: boolean
-  /**
-   * Renders Company Avatar variant - If true `fullName` and `avatarSrc` will be strictly typed.
-   */
-  isCompany?: false
 }
 
-export interface CompanyAvatarProps
-  extends Omit<
-    GenericAvatarProps,
-    "isCompany" | "isCurrentUser" | "disableInitials" | "avatarSrc" | "fullName"
-  > {
-  isCurrentUser?: undefined
-  disableInitials?: undefined
-  avatarSrc: string
+export interface CompanyAvatarProps extends BaseAvatarProps {
   fullName: string
+  avatarSrc: string
+  disableInitials?: undefined
   isCompany: true
+  isCurrentUser?: undefined
 }
 
 export type AvatarProps = GenericAvatarProps | CompanyAvatarProps
@@ -96,7 +97,7 @@ const renderInitials = (
     fallbackIcon(fullName)
   ) : (
     <abbr
-      className={cx(styles.initials, {
+      className={classnames(styles.initials, {
         [styles.longName]: isLongName,
       })}
       title={fullName || ""}
@@ -113,15 +114,16 @@ const renderInitials = (
   )
 }
 
-export const Avatar = (props: AvatarProps) => {
-  const {
-    fullName,
-    avatarSrc,
-    disableInitials,
-    size = "medium",
-    isCurrentUser = true,
-    isCompany = false,
-  } = props
+export const Avatar: React.VFC<AvatarProps> = ({
+  fullName,
+  size = "medium",
+  avatarSrc,
+  disableInitials = false,
+  isCompany = false,
+  isCurrentUser = true,
+  classNameOverride,
+  ...restProps
+}) => {
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
@@ -143,7 +145,7 @@ export const Avatar = (props: AvatarProps) => {
 
   return (
     <span
-      className={cx(styles.wrapper, styles[size], {
+      className={classnames(styles.wrapper, styles[size], classNameOverride, {
         [styles.company]: isCompany,
         [styles.personal]:
           isCurrentUser && (avatarState === "none" || avatarState === "error"),
@@ -151,11 +153,12 @@ export const Avatar = (props: AvatarProps) => {
           !isCurrentUser && (avatarState === "none" || avatarState === "error"),
         [styles.loading]: avatarState === "loading" || avatarState === "error",
       })}
+      {...restProps}
     >
       {avatarState !== "none" && (
         <img
           ref={image}
-          className={cx(styles.avatarImage, {
+          className={classnames(styles.avatarImage, {
             [styles.companyAvatarImage]: isCompany,
           })}
           src={avatarSrc}
