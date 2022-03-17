@@ -22,7 +22,7 @@ export type TooltipProps = {
    * Unfortunately, the content needed to be wrapped in a div. This can sometimes
    * break the css layout. To get around this, we allow you to specify the css
    * display value directly. If you need to need to modify more values, feel free
-   * to use the `classNameAndIHaveSpokenToDST` prop, but avoid it if you can.
+   * to use the `classNameOverride` prop, but avoid it if you can.
    */
   display?: "block" | "inline" | "inline-block" | "flex" | "inline-flex"
   /**
@@ -32,7 +32,7 @@ export type TooltipProps = {
   position?: Position
   text: React.ReactNode
   children?: React.ReactNode
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   mood?: Mood
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
@@ -159,7 +159,7 @@ const Tooltip = ({
   inline,
   display = "block",
   position = "above",
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   portalSelector,
   isInitiallyVisible = false,
   mood = "default",
@@ -205,7 +205,7 @@ const Tooltip = ({
       <>
         <div
           ref={setReferenceElement}
-          className={classnames(classNameAndIHaveSpokenToDST, {
+          className={classnames(classNameOverride, {
             [tooltipStyles.displayInline]: displayToUse === "inline",
             [tooltipStyles.displayBlock]: displayToUse === "block",
             [tooltipStyles.displayInlineBlock]: displayToUse === "inline-block",

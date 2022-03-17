@@ -35,7 +35,7 @@ export const Skirt = ({
   return (
     <Container
       ref={ref}
-      classNameAndIHaveSpokenToDST={classNames(styles.container, className)}
+      classNameOverride={classNames(styles.container, className)}
     >
       <div
         style={{ ...(skirtHeight && { height: `${skirtHeight}px` }) }}
@@ -44,9 +44,7 @@ export const Skirt = ({
           [styles.educationVariant]: variant === "education",
         })}
       />
-      <Content classNameAndIHaveSpokenToDST={styles.content}>
-        {children}
-      </Content>
+      <Content classNameOverride={styles.content}>{children}</Content>
     </Container>
   )
 }

@@ -273,7 +273,7 @@ const renderSectionTitle = (
           <Heading
             variant="heading-2"
             color={isReversed(variant) ? "white" : "dark"}
-            classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+            classNameOverride={styles.sectionTitleOverride}
             data-automation-id={sectionTitleAutomationId}
           >
             {sectionTitle}
@@ -539,9 +539,7 @@ const TitleBlockZen = ({
                         <Heading
                           variant="heading-1"
                           color={isReversed(variant) ? "white" : "dark"}
-                          classNameAndIHaveSpokenToDST={
-                            styles.titleTextOverride
-                          }
+                          classNameOverride={styles.titleTextOverride}
                           data-automation-id={titleAutomationId}
                         >
                           {title}
