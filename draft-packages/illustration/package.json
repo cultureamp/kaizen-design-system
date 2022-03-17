@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -37,7 +37,7 @@
     "lottie-web": "^5.7.14"
   },
   "devDependencies": {
-    "@kaizen/component-library": "^13.1.0",
+    "@kaizen/component-library": "^13.1.2",
     "@kaizen/design-tokens": "^7.1.1",
     "@types/jszip": "^3.4.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
