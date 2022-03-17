@@ -1,5 +1,6 @@
-import { Heading, Box } from "@kaizen/component-library"
-import * as React from "react"
+import React from "react"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -62,6 +63,7 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Scene`,
   component: EmptyStatesInformative,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component:

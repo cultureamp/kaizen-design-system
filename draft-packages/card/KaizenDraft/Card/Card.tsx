@@ -17,7 +17,7 @@ export interface CardProps {
    * Not recommended. A short-circuit for overriding styles in a pinch.
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   /**
    * HTML elements that are allowed on Card.
    * @default "div"
@@ -38,7 +38,7 @@ export interface CardProps {
 export const Card = ({
   children,
   tag = "div",
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   variant = "default",
   isElevated = false,
   ...otherProps
@@ -46,8 +46,7 @@ export const Card = ({
   const Tag = tag
   return (
     <Tag
-      className={cx(styles.wrapper, styles[variant], {
-        classNameAndIHaveSpokenToDST,
+      className={cx(styles.wrapper, styles[variant], classNameOverride, {
         [styles.elevated]: isElevated,
       })}
       {...otherProps}

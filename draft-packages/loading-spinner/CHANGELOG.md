@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.5.2...@kaizen/draft-loading-spinner@2.5.3) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-loading-spinner
+
+
+
+
+
+## [2.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.5.1...@kaizen/draft-loading-spinner@2.5.2) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-loading-spinner
+
+
+
+
+
 ## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.5.0...@kaizen/draft-loading-spinner@2.5.1) (2022-02-17)
 
 

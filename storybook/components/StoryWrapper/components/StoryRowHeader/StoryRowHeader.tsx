@@ -1,6 +1,6 @@
 import React from "react"
 import classNames from "classnames"
-import { Heading } from "../../../../../packages/component-library"
+import { Heading } from "../../../../../packages/typography"
 import styles from "../../StoryWrapper.scss"
 
 export interface StoryRowHeaderProps {
@@ -23,6 +23,7 @@ export const StoryRowHeader: React.VFC<StoryRowHeaderProps> = ({
     >
       {headings.map(heading => (
         <Heading
+          key={heading}
           variant="heading-5"
           tag="h3"
           color={isReversed ? "white" : "dark"}

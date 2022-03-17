@@ -2,13 +2,23 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
 $arrow-height: 7px;
 
 $large-width: 450px;
+
+@mixin button-reset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
 
 // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
 // we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
@@ -109,8 +119,7 @@ $negative-box-border-color: $color-red-300;
 }
 
 .header {
-  position: static;
-  @include kz-typography-heading-6;
+  position: relative;
   margin-bottom: $spacing-xs;
   display: flex;
   align-items: center;
@@ -119,8 +128,7 @@ $negative-box-border-color: $color-red-300;
 }
 
 .container {
-  position: static;
-  @include kz-typography-paragraph-small;
+  position: relative;
   white-space: pre-line;
 }
 
@@ -157,12 +165,16 @@ $negative-box-border-color: $color-red-300;
     color: $color-purple-800;
   }
 
-  &:focus {
+  &:global(.focus-visible) {
     color: $color-purple-800;
     outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     outline-offset: calc(-1 * #{$border-focus-ring-border-width});
     border-radius: $border-borderless-border-radius;
+  }
+
+  :focus {
+    outline: none;
   }
 }
 

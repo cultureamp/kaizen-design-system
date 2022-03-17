@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
@@ -10,6 +10,7 @@ export default {
   title: `${CATEGORIES.components}/Loading Spinner`,
   component: LoadingSpinner,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { LoadingSpinner } from "@kaizen/loading-spinner"',
@@ -43,9 +44,7 @@ export const DefaultStory = args => (
     </Paragraph>
   </div>
 )
-
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
-
 DefaultStory.argTypes = {
   accessibilityLabel: {
     defaultValue: "Loading comments",

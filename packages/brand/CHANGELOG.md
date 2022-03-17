@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.2.2...@kaizen/brand@1.3.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.2.1...@kaizen/brand@1.2.2) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/brand
+
+
+
+
+
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.2.0...@kaizen/brand@1.2.1) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/brand
+
+
+
+
+
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.1.6...@kaizen/brand@1.2.0) (2022-02-10)
 
 

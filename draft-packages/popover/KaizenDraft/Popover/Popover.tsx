@@ -1,5 +1,6 @@
 import { usePopper } from "react-popper"
 import { Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
@@ -122,7 +123,9 @@ export const Popover: PopoverModernType = ({
                 />
               </span>
             )}
-            <div className={styles.singleLine}>{heading}</div>
+            <Heading variant="heading-6" classNameOverride={styles.singleLine}>
+              {heading}
+            </Heading>
             {dismissible && (
               <button className={styles.close} onClick={onClose} type="button">
                 <Icon role="presentation" icon={closeIcon} />
@@ -130,11 +133,15 @@ export const Popover: PopoverModernType = ({
             )}
           </div>
         )}
-        <div
-          className={classNames(styles.container, mapLineVariant(singleLine))}
+        <Paragraph
+          variant="small"
+          classNameOverride={classNames(
+            styles.container,
+            mapLineVariant(singleLine)
+          )}
         >
           {children}
-        </div>
+        </Paragraph>
       </div>
       <div
         ref={setArrowElement}

@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Heading } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import colorString from "color-string"
@@ -8,6 +9,7 @@ import { useTheme } from "../react"
 export default {
   title: "Design Tokens/Color Tokens",
   parameters: {
+    chromatic: { disable: false },
     layout: "fullscreen",
     docs: {
       description: {

@@ -40,24 +40,15 @@ const Footer: React.SFC<FooterProps> = ({
           </a>
         </span>
         <div className={styles.containerLinks}>
-          <Paragraph
-            variant="body"
-            classNameAndIHaveSpokenToDST={styles.footerLink}
-          >
+          <Paragraph variant="body" classNameOverride={styles.footerLink}>
             <a href="https://www.cultureamp.com/privacy-policy/">Privacy</a>
           </Paragraph>
-          <Paragraph
-            variant="body"
-            classNameAndIHaveSpokenToDST={styles.footerLink}
-          >
+          <Paragraph variant="body" classNameOverride={styles.footerLink}>
             <a href="https://github.com/cultureamp/kaizen-design-system">
               GitHub
             </a>
           </Paragraph>
-          <Paragraph
-            variant="body"
-            classNameAndIHaveSpokenToDST={styles.footerLink}
-          >
+          <Paragraph variant="body" classNameOverride={styles.footerLink}>
             <button
               className={`${styles.cookieButton} ca-cookie-consent-open-preferences`}
             >

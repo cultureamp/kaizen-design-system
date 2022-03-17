@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React from "react"
 import {
   MultiActionTile,
   TileInformation,
@@ -72,7 +71,6 @@ export const MultiAction = () => (
     primaryAction={primaryAction}
   />
 )
-
 MultiAction.storyName = "Multi action tile"
 
 export const MultiActionMoods = () => (
@@ -120,8 +118,8 @@ export const MultiActionMoods = () => (
     />
   </TileGrid>
 )
-
 MultiActionMoods.storyName = "Multi action tile moods"
+MultiActionMoods.parameters = { chromatic: { disable: false } }
 
 export const MultiActionWithSecondary = () => (
   <MultiActionTile
@@ -131,8 +129,8 @@ export const MultiActionWithSecondary = () => (
     secondaryAction={secondaryAction}
   />
 )
-
 MultiActionWithSecondary.storyName = "Multi action tile with secondary action"
+MultiActionWithSecondary.parameters = { chromatic: { disable: false } }
 
 export const MultiActionWithChildren = () => (
   <MultiActionTile
@@ -143,8 +141,8 @@ export const MultiActionWithChildren = () => (
     {children}
   </MultiActionTile>
 )
-
 MultiActionWithChildren.storyName = "Multi action tile with children"
+MultiActionWithChildren.parameters = { chromatic: { disable: false } }
 
 export const MultiActionWithCustomTitle = () => (
   <MultiActionTile
@@ -155,7 +153,6 @@ export const MultiActionWithCustomTitle = () => (
     {children}
   </MultiActionTile>
 )
-
 MultiActionWithCustomTitle.storyName = "Multi action tile with custom title tag"
 
 export const MultiActionWithInformation = () => (
@@ -166,7 +163,6 @@ export const MultiActionWithInformation = () => (
     information={information}
   />
 )
-
 MultiActionWithInformation.storyName = "Multi action tile with information"
 
 export const MultiActionActionInNewTabs = () => (
@@ -185,7 +181,6 @@ export const MultiActionActionInNewTabs = () => (
     }}
   />
 )
-
 MultiActionActionInNewTabs.storyName =
   "Multi action tile with actions opening in new tabs"
 
@@ -197,8 +192,8 @@ export const Information = () => (
     footer={<Tag variant="statusLive">Live</Tag>}
   />
 )
-
 Information.storyName = "Information tile"
+Information.parameters = { chromatic: { disable: false } }
 
 export const InformationMood = () => (
   <TileGrid>
@@ -252,7 +247,6 @@ export const InformationMood = () => (
     />
   </TileGrid>
 )
-
 InformationMood.storyName = "Information tile moods"
 
 export const InformationWithChildren = () => (
@@ -265,7 +259,6 @@ export const InformationWithChildren = () => (
     {children}
   </InformationTile>
 )
-
 InformationWithChildren.storyName = "Information tile with children"
 
 export const InformationWithCustomTitle = () => (
@@ -278,7 +271,6 @@ export const InformationWithCustomTitle = () => (
     {children}
   </InformationTile>
 )
-
 InformationMood.storyName = "Information tile moods"
 
 export const InformationCustomInfoElement = () => (
@@ -289,7 +281,6 @@ export const InformationCustomInfoElement = () => (
     footer={<Tag variant="statusLive">Live</Tag>}
   />
 )
-
 InformationCustomInfoElement.storyName =
   "Information tile (custom information element)"
 
@@ -302,7 +293,6 @@ export const InformationCustomTitleTag = () => (
     footer={<Tag variant="statusLive">Live</Tag>}
   />
 )
-
 InformationCustomTitleTag.storyName = "Information tile (custom title tag)"
 
 export const TileGridWithTiles = () => (
@@ -345,8 +335,8 @@ export const TileGridWithTiles = () => (
     />
   </TileGrid>
 )
-
 TileGridWithTiles.storyName = "Tile Grid"
+TileGridWithTiles.parameters = { chromatic: { disable: false } }
 
 export const TileGridWithFewTiles = () => (
   <TileGrid>
@@ -363,5 +353,5 @@ export const TileGridWithFewTiles = () => (
     />
   </TileGrid>
 )
-
 TileGridWithFewTiles.storyName = "Tile Grid (less than one row)"
+TileGridWithFewTiles.parameters = { chromatic: { disable: false } }

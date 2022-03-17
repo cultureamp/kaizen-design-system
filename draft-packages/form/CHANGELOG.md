@@ -3,6 +3,134 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.0...@kaizen/draft-form@6.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.13...@kaizen/draft-form@6.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.12...@kaizen/draft-form@5.6.13) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.11...@kaizen/draft-form@5.6.12) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.10...@kaizen/draft-form@5.6.11) (2022-03-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.9...@kaizen/draft-form@5.6.10) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.8...@kaizen/draft-form@5.6.9) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.7...@kaizen/draft-form@5.6.8) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.6...@kaizen/draft-form@5.6.7) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.5...@kaizen/draft-form@5.6.6) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.4...@kaizen/draft-form@5.6.5) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.3...@kaizen/draft-form@5.6.4) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.2...@kaizen/draft-form@5.6.3) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.1...@kaizen/draft-form@5.6.2) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.0...@kaizen/draft-form@5.6.1) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 # [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.5.1...@kaizen/draft-form@5.6.0) (2022-02-23)
 
 

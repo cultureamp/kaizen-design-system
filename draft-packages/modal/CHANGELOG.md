@@ -3,6 +3,158 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@9.0.0...@kaizen/draft-modal@9.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.21...@kaizen/draft-modal@9.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [8.4.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.20...@kaizen/draft-modal@8.4.21) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.19...@kaizen/draft-modal@8.4.20) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.18...@kaizen/draft-modal@8.4.19) (2022-03-11)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.17...@kaizen/draft-modal@8.4.18) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.16...@kaizen/draft-modal@8.4.17) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.15...@kaizen/draft-modal@8.4.16) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.14...@kaizen/draft-modal@8.4.15) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.13...@kaizen/draft-modal@8.4.14) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.12...@kaizen/draft-modal@8.4.13) (2022-03-03)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.11...@kaizen/draft-modal@8.4.12) (2022-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.10...@kaizen/draft-modal@8.4.11) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.9...@kaizen/draft-modal@8.4.10) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.8...@kaizen/draft-modal@8.4.9) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.7...@kaizen/draft-modal@8.4.8) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.6...@kaizen/draft-modal@8.4.7) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [8.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.5...@kaizen/draft-modal@8.4.6) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [8.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@8.4.4...@kaizen/draft-modal@8.4.5) (2022-02-23)
 
 **Note:** Version bump only for package @kaizen/draft-modal

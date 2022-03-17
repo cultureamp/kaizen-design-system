@@ -68,7 +68,7 @@ const EmptyState: EmptyState = ({
       <div className={styles.illustrationSide}>
         {React.createElement(illustrations[illustrationType], {
           alt: illustrationType,
-          classNameAndIHaveSpokenToDST: styles.illustration,
+          classNameOverride: styles.illustration,
           ...animationProps,
         })}
       </div>

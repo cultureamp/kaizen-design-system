@@ -1,0 +1,96 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+
+// Calendar styles
+.calendar {
+  background-color: $color-white;
+  z-index: 1010;
+
+  .wrapper {
+    padding-bottom: 0;
+  }
+
+  .month {
+    margin: $spacing-md;
+    border-collapse: separate;
+    border-spacing: 1px;
+  }
+
+  .months {
+    box-shadow: $shadow-large-box-shadow;
+    border-radius: $border-solid-border-radius;
+  }
+
+  .caption {
+    text-align: center;
+    font-family: $typography-heading-4-font-family;
+    font-size: $typography-heading-4-font-size;
+    font-weight: $typography-heading-4-font-weight;
+    line-height: $typography-heading-4-line-height;
+    letter-spacing: $typography-heading-4-letter-spacing;
+    color: $color-purple-800;
+    margin: 0 0 $spacing-xs;
+  }
+
+  .weekday {
+    font-family: $typography-paragraph-body-font-family;
+    font-size: $typography-paragraph-body-font-size;
+    letter-spacing: $typography-paragraph-body-letter-spacing;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+    color: $color-purple-800;
+  }
+
+  .body {
+    font-family: $typography-paragraph-body-font-family;
+    font-size: $typography-paragraph-body-font-size;
+    letter-spacing: $typography-paragraph-body-letter-spacing;
+    font-weight: $typography-paragraph-body-font-weight;
+    line-height: $typography-paragraph-body-line-height;
+  }
+
+  .today.day {
+    color: $color-blue-500;
+  }
+
+  .day {
+    padding: calc(#{$spacing-md} / 3) 0.625rem;
+    border-radius: $border-solid-border-radius;
+    color: $color-purple-800;
+
+    &:global(.focus-visible) {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
+
+      &.disabled {
+        outline: $color-gray-300 $border-dashed-border-style
+          $border-focus-ring-border-width;
+      }
+    }
+
+    :focus {
+      outline: none;
+    }
+  }
+
+  .disabled,
+  .disabled.today {
+    color: rgba($color-purple-800-rgb, 0.3);
+  }
+
+  .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
+    border-radius: $border-solid-border-radius;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  .selected:not(.disabled):not(.outside) {
+    border-radius: $border-solid-border-radius;
+    background-color: $color-blue-500;
+    color: $color-white;
+  }
+}
