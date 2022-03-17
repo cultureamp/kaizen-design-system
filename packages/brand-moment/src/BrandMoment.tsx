@@ -1,4 +1,5 @@
-import React, { ReactNode, ReactElement } from "react"
+import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Box } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { Button, ButtonProps } from "@kaizen/button"
@@ -8,7 +9,8 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
-export interface BrandMomentProps {
+export interface BrandMomentProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   mood: "informative" | "positive" | "negative"
   illustration: ReactElement<SceneProps>
   header: ReactNode
@@ -23,63 +25,68 @@ export interface BrandMomentProps {
   }
 }
 
-export const BrandMoment = (props: BrandMomentProps) => {
+export const BrandMoment: React.VFC<BrandMomentProps> = ({
+  mood,
+  illustration,
+  header,
+  body,
+  primaryAction,
+  secondaryAction,
+  text,
+  classNameOverride,
+  ...restProps
+}) => {
   const { queries } = useMediaQueries()
 
   return (
     <div
-      className={classnames(styles.body, {
-        [styles.informative]: props.mood === "informative",
-        [styles.positive]: props.mood === "positive",
-        [styles.negative]: props.mood === "negative",
-      })}
+      className={classnames(styles.body, styles[mood], classNameOverride)}
+      {...restProps}
     >
-      <header className={styles.header}>{props.header}</header>
+      <header className={styles.header}>{header}</header>
       <main className={styles.main}>
         <div className={styles.container}>
           <div className={styles.mainInner}>
             <div className={styles.left}>
-              <div className={styles.leftInner}>{props.illustration}</div>
+              <div className={styles.leftInner}>{illustration}</div>
             </div>
             <div className={styles.right}>
               <div className={styles.rightInner}>
-                {props.text.subtitle && (
+                {text.subtitle && (
                   <Box mb={0.5}>
                     <Heading variant="heading-3" tag="h1">
-                      {props.text.subtitle}
+                      {text.subtitle}
                     </Heading>
                   </Box>
                 )}
                 <Box mb={1.5}>
                   <Heading
                     variant="display-0"
-                    tag={props.text.subtitle ? "h2" : "h1"}
+                    tag={text.subtitle ? "h2" : "h1"}
                   >
-                    {props.text.title}
+                    {text.title}
                   </Heading>
                 </Box>
-                {props.text.body && (
+                {text.body && (
                   <Box mb={1.5}>
-                    <Paragraph variant="intro-lede">
-                      {props.text.body}
-                    </Paragraph>
+                    <Paragraph variant="intro-lede">{text.body}</Paragraph>
                   </Box>
                 )}
-                {props.body && <Box mb={1.5}>{props.body}</Box>}
+                {body && <Box mb={1.5}>{body}</Box>}
                 <div className={styles.actions}>
-                  {props.primaryAction && (
+                  {primaryAction && (
                     <Button
                       primary
                       fullWidth={queries.isSmall}
-                      {...props.primaryAction}
+                      {...primaryAction}
                     />
                   )}
-                  {props.secondaryAction && (
+                  {secondaryAction && (
                     <div className={styles.secondaryAction}>
                       <Button
                         secondary
                         fullWidth={queries.isSmall}
-                        {...props.secondaryAction}
+                        {...secondaryAction}
                       />
                     </div>
                   )}
@@ -89,7 +96,7 @@ export const BrandMoment = (props: BrandMomentProps) => {
           </div>
         </div>
       </main>
-      {props.text.footer && (
+      {text.footer && (
         <footer className={styles.footer}>
           <div className={styles.container}>
             <div className={styles.footerInner}>
@@ -108,7 +115,7 @@ export const BrandMoment = (props: BrandMomentProps) => {
                 </a>
               </div>
               <div className={styles.footerTextContainer}>
-                <Paragraph variant="extra-small">{props.text.footer}</Paragraph>
+                <Paragraph variant="extra-small">{text.footer}</Paragraph>
               </div>
             </div>
           </div>

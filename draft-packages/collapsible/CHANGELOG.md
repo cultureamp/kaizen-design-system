@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.4...@kaizen/draft-collapsible@2.7.5) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.3...@kaizen/draft-collapsible@2.7.4) (2022-03-17)
+
+
+### Bug Fixes
+
+* **deps:** move `@kaizen/component-base` to deps instead of devDeps ([#2626](https://github.com/cultureamp/kaizen-design-system/issues/2626)) ([8475de9](https://github.com/cultureamp/kaizen-design-system/commit/8475de92f37c78035650f50e5a6d601abc510523))
+
+
+
+
+
 ## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.2...@kaizen/draft-collapsible@2.7.3) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible
