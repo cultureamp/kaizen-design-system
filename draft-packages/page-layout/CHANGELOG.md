@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.0.0...@kaizen/draft-page-layout@2.0.1) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
 # [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.5...@kaizen/draft-page-layout@2.0.0) (2022-03-16)
 
 
