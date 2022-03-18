@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.2...@kaizen/component-library@13.2.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
 ## [13.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.1...@kaizen/component-library@13.1.2) (2022-03-17)
 
 **Note:** Version bump only for package @kaizen/component-library
