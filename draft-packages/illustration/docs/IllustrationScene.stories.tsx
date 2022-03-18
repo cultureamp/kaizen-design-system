@@ -1,5 +1,6 @@
 import React from "react"
-import { Heading, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,

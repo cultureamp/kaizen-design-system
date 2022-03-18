@@ -58,8 +58,8 @@ DefaultStory.storyName = "Container/Content (default)"
 
 export const FullBleedBackgroundStory = () => (
   <OffsetPadding>
-    <Container classNameAndIHaveSpokenToDST={styles.pink}>
-      <Content classNameAndIHaveSpokenToDST={styles.white}>
+    <Container classNameOverride={styles.pink}>
+      <Content classNameOverride={styles.white}>
         <Paragraph variant="body">
           Call me Ishmael. Some years ago - never mind how long precisely -
           having little or no money in my purse, and nothing particular to

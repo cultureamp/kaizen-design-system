@@ -1,14 +1,12 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import { marginClasses, paddingClasses, Spacing } from "../Spacing"
 
-export interface BoxProps {
+export interface BoxProps
+  extends Spacing,
+    OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
-   * @default ""
-   */
-  classNameAndIHaveSpokenToDST?: string
   /**
    * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
    * @default "false"
@@ -16,9 +14,8 @@ export interface BoxProps {
   rtl?: boolean
 }
 
-export const Box = ({
+export const Box: React.VFC<BoxProps> = ({
   children,
-  classNameAndIHaveSpokenToDST,
   rtl = false,
   m,
   mt,
@@ -34,20 +31,16 @@ export const Box = ({
   pl,
   px,
   py,
-  ...otherProps
-}: // otherProps accounts for data attributes, which are not valid JS identifiers
-// https://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
-BoxProps & Spacing) => {
+  classNameOverride,
+  ...restProps
+}) => {
   const classes: string[] = [
     ...paddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
     ...marginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
   ]
 
   return (
-    <div
-      {...otherProps}
-      className={classnames(classes, classNameAndIHaveSpokenToDST)}
-    >
+    <div className={classnames(classes, classNameOverride)} {...restProps}>
       {children}
     </div>
   )
