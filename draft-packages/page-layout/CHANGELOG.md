@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.0.1...@kaizen/draft-page-layout@2.1.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 3) ([#2629](https://github.com/cultureamp/kaizen-design-system/issues/2629)) ([4a549ec](https://github.com/cultureamp/kaizen-design-system/commit/4a549ecb4f253d0c7a7066dab66010347690dc18))
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.0.0...@kaizen/draft-page-layout@2.0.1) (2022-03-18)
 
 **Note:** Version bump only for package @kaizen/draft-page-layout
