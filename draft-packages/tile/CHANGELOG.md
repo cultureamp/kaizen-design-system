@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.21...@kaizen/draft-tile@5.7.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 4) ([#2630](https://github.com/cultureamp/kaizen-design-system/issues/2630)) ([d19bd2d](https://github.com/cultureamp/kaizen-design-system/commit/d19bd2d29172d22ea5e6585892164ae84e0927fb))
+
+
+
+
+
 ## [5.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.20...@kaizen/draft-tile@5.6.21) (2022-03-18)
 
 **Note:** Version bump only for package @kaizen/draft-tile
