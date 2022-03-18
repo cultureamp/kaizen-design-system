@@ -82,47 +82,6 @@ export const svgIcons: RuleSetRule = {
   },
 }
 
-export const elm: RuleSetRule = {
-  test: /\.elm$/,
-  exclude: [/elm-stuff/, /node_modules/],
-  use: [
-    {
-      loader: "babel-loader",
-      options: {
-        plugins: [
-          "module:elm-css-modules-plugin",
-          ["module:babel-elm-assets-plugin", {}, "assets-plugin-generic"],
-          [
-            "module:babel-elm-assets-plugin",
-            {
-              // "author/project" is the default value if no "name" field is
-              // specified in elm.json. If we want to allow setting the name
-              // field in our workspaces, we'll need to update the plugin to
-              // support multiple possible package names.
-              package: "author/project",
-              module: "Icon.SvgAsset",
-              function: "svgAsset",
-            },
-            "assets-plugin-svg",
-          ],
-        ],
-      },
-    },
-    {
-      loader: "elm-hot-webpack-loader",
-    },
-    {
-      loader: resolve(__dirname, "elm-webpack-loader-fix.js"),
-      options: {
-        debug: isEnabled("ELM_DEBUG", process.env.ELM_DEBUG, false),
-        cwd: resolve(__dirname, "../.."),
-        pathToElm: resolve(__dirname, "../../node_modules/.bin/elm"),
-        forceWatch: true,
-      },
-    },
-  ],
-}
-
 export const removeSvgFromTest = (
   rule: RuleSetRule | "..."
 ): RuleSetRule | "..." => {
