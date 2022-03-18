@@ -42,6 +42,7 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
+    "@kaizen/component-base": "^1.1.0",
     "@testing-library/dom": "^8.11.3",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
