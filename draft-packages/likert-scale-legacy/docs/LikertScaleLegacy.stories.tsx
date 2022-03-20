@@ -5,7 +5,8 @@ import {
   Scale,
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
-import { Heading, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "../../../packages/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -29,24 +30,28 @@ export default {
 
 const scale: Scale = [
   {
+    value: -1,
+    label: "Not rated",
+  },
+  {
     value: 1,
-    label: "Very poor",
+    label: "Strong Disagree",
   },
   {
     value: 2,
-    label: "Poor",
+    label: "Disagree",
   },
   {
     value: 3,
-    label: "Fair",
+    label: "Neither agree or disagree",
   },
   {
     value: 4,
-    label: "Good",
+    label: "Agree",
   },
   {
     value: 5,
-    label: "Very good",
+    label: "Strongly agree",
   },
 ]
 
@@ -81,7 +86,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   return (
     <Box mt={2}>
       <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.Row rowTitle="Very Poor">
+        <StoryWrapper.Row rowTitle="Not rated">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
@@ -91,42 +96,52 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             reversed={isReversed}
           />
         </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Poor">
+        <StoryWrapper.Row rowTitle="Strongly disagree">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="2"
+            labelId="1"
             selectedItem={scale[1]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
         </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Fair">
+        <StoryWrapper.Row rowTitle="Disagree">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="3"
+            labelId="2"
             selectedItem={scale[2]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
         </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Good">
+        <StoryWrapper.Row rowTitle="Niether agree or disagree">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
-            labelId="4"
+            labelId="3"
             selectedItem={scale[3]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
         </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Very Good">
+        <StoryWrapper.Row rowTitle="Agree">
+          <LikertScaleLegacy
+            scale={scale}
+            automationId="123"
+            labelId="4"
+            selectedItem={scale[4]}
+            onSelect={item => setSelectedItem(item)}
+            reversed={isReversed}
+          />
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Strongly agree">
           <LikertScaleLegacy
             scale={scale}
             automationId="123"
             labelId="5"
-            selectedItem={scale[4]}
+            selectedItem={scale[5]}
             onSelect={item => setSelectedItem(item)}
             reversed={isReversed}
           />
