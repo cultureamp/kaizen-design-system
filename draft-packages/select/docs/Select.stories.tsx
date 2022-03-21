@@ -109,12 +109,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       }, 1000)
     })
   return (
-    <>
+    <div style={{ height: "1500px" }}>
       <StoryWrapper isReversed={isReversed}>
         <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
           Default Select
         </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Clearble", "Disabled"]} />
+        <StoryWrapper.RowHeader headings={["Base", "Clearable", "Disabled"]} />
         <StoryWrapper.Row rowTitle="Default">
           <Select options={options} placeholder="Edit survey" />
           <Select options={options} defaultValue={options[0]} isClearable />
@@ -237,7 +237,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-    </>
+    </div>
   )
 }
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
