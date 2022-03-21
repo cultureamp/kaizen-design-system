@@ -36,6 +36,8 @@ export type CalendarProps = {
   range?: boolean
   selectedRange?: RangeModifier
   modifiers?: RangeModifier
+  inputRef?: React.RefObject<HTMLInputElement>
+  isComobox?: boolean
 }
 
 export type CalendarNavProps = Pick<
@@ -57,6 +59,8 @@ export const Calendar: React.VFC<CalendarProps> = ({
   selectedRange,
   modifiers,
   id,
+  inputRef,
+  isComobox = true,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -68,7 +72,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (value || selectedRange?.from) {
+    if (isComobox && !value && inputRef?.current) {
+      inputRef!.current.focus()
+    } else if (value) {
       const selectedDay = calendarRef.current.getElementsByClassName(
         "DayPicker-Day--selected"
       )[0] as HTMLElement
