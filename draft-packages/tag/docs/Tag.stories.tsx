@@ -30,7 +30,7 @@ export const DefaultStory = args => (
     </Tag>
   </div>
 )
-DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.storyName = "Tag"
 DefaultStory.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -143,7 +143,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -151,4 +154,5 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  controls: { disable: true },
 }
