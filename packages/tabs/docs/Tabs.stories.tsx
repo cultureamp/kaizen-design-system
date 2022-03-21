@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Card } from "@kaizen/draft-card"
 import { Button } from "@kaizen/button"
 import { CATEGORIES } from "../../../storybook/constants"
