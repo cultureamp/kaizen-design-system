@@ -6,7 +6,7 @@ import {
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
 import { Box } from "@kaizen/component-library"
-import { Heading } from "../../../packages/typography"
+import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -81,80 +81,76 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
-}) => {
-  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-  return (
-    <Box mt={2}>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.Row rowTitle="Not rated">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="1"
-            selectedItem={scale[0]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Strongly disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="1"
-            selectedItem={scale[1]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="2"
-            selectedItem={scale[2]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Niether agree or disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="3"
-            selectedItem={scale[3]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Agree">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="4"
-            selectedItem={scale[4]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Strongly agree">
-          <LikertScaleLegacy
-            scale={scale}
-            automationId="123"
-            labelId="5"
-            selectedItem={scale[5]}
-            onSelect={item => setSelectedItem(item)}
-            reversed={isReversed}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </Box>
-  )
-}
+}) => (
+  <Box mt={2}>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.Row rowTitle="Not rated">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="1"
+          selectedItem={scale[0]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Strongly disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="1"
+          selectedItem={scale[1]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="2"
+          selectedItem={scale[2]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Neither agree or disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="3"
+          selectedItem={scale[3]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Agree">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="4"
+          selectedItem={scale[4]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Strongly agree">
+        <LikertScaleLegacy
+          scale={scale}
+          automationId="123"
+          labelId="5"
+          selectedItem={scale[5]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </Box>
+)
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
-
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
