@@ -1,6 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import isChromatic from "chromatic"
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 import { Button } from "@kaizen/button"
@@ -42,9 +43,10 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof EmptyState>
 
-const EmptyStateTemplate: ComponentStory<typeof EmptyState> = args => (
-  <EmptyState {...args} />
-)
+const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
+  isAnimated,
+  ...args
+}) => <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
 
 export const DefaultKaizenSiteDemo = EmptyStateTemplate.bind({})
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
