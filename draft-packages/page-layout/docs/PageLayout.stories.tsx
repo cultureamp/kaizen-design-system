@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
