@@ -1,20 +1,17 @@
 import React from "react"
-
 import { Box } from "@kaizen/component-library"
-import GenericTile, {
+import {
+  GenericTile,
   GenericTileProps,
   TileAction,
 } from "./components/GenericTile"
 import Action from "./components/Action"
-
 import styles from "./MultiActionTile.scss"
 
-export interface MultiActionTileProps extends GenericTileProps {
-  readonly primaryAction: TileAction
-  readonly secondaryAction?: TileAction
+export interface MultiActionTileProps extends Omit<GenericTileProps, "footer"> {
+  primaryAction: TileAction
+  secondaryAction?: TileAction
 }
-
-type MultiActionTile = React.FunctionComponent<MultiActionTileProps>
 
 const renderActions = (
   primaryAction: TileAction,
@@ -30,26 +27,18 @@ const renderActions = (
   </div>
 )
 
-const MultiActionTile: MultiActionTile = ({
-  title,
-  titleTag,
-  metadata,
+export const MultiActionTile: React.VFC<MultiActionTileProps> = ({
   children,
   primaryAction,
   secondaryAction,
-  information,
-  mood,
+  ...restProps
 }) => (
   <GenericTile
-    title={title}
-    titleTag={titleTag}
-    metadata={metadata}
-    information={information}
     footer={renderActions(primaryAction, secondaryAction)}
-    mood={mood}
+    {...restProps}
   >
     {children}
   </GenericTile>
 )
 
-export default MultiActionTile
+MultiActionTile.displayName = "MultiActionTile"

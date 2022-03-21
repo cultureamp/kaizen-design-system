@@ -102,11 +102,11 @@ A basic component will follow this template:
 // PancakeStack.tsx
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./PancakeStack.scss"
 
-export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, "className"> {
+export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  classNameOverride?: string
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
@@ -114,10 +114,10 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 
 export const PancakeStack: React.VFC<PancakeStackProps> = ({
   children,
-  classNameOverride,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
+  classNameOverride,
   ...props
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
@@ -149,10 +149,10 @@ PancakeStack.displayName = "PancakeStack"
 
 ```tsx
 import { HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 
-export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, "className"> {
+export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  classNameOverride?: string
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
@@ -162,7 +162,7 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 - Create and export an `interface` for your props in the format of `{PascalComponentName}Props`
   - You can restrict a prop's type signature by redeclaring it (eg. changing a prop from `string | undefined` to `string`)
   - If you need to change the type signature of an extended prop, ensure you `Omit` it otherwise it will become `never` (eg. changing a prop from `string | undefined` to `number`)
-- `Omit` `"className"` as we re-add it with the alias `classNameOverride`
+- Use our custom type `OverrideClassName` to replace `className` with the alias `classNameOverride`
   - The alias allows us to easier track usage (as ideally teams should not need to use this) and allows us to not be a bottleneck if the component does not meet their needs in the interim
   - Previously `classNameAndIHaveSpokenToDST`
 - Extend the native attributes of the closest HTML element of your component (eg. `<section>` will use `<div>` attributes)
@@ -170,11 +170,11 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 ```tsx
 // Extending <section>
 import { HTMLAttributes } from "react"
-export type SectionProps = Omit<HTMLAttributes<HTMLDivElement>, "className">
+export type SectionProps = OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 // Extending <button>
 import { ButtonHTMLAttributes } from "react"
-export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className">
+export type ButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>>
 ```
 
 - If your component is mainly extending another component, extend the props of that component and spread the props
@@ -190,7 +190,7 @@ export const NewComponent: React.VFC<NewComponentProps> = ({ ...props }) => <Pan
 - Declare the `children` prop if you require it
   - Usually it is `React.ReactNode`, however you can customise it to your needs
   - [ReactNode vs ReactElement vs JSX.Element](https://stackoverflow.com/questions/58123398/when-to-use-jsx-element-vs-reactnode-vs-reactelement)
-- Add `classNameOverride` to replace the omitted `className`
+- If you are extending third party props which contain `className`, wrap it in `OverrideClassName` to replace it with `classNameOverride`
 - Prefix boolean props with `is` or `has`
 - Declare a default value for optional boolean props
   - Unless you specifically have a need to differentiate between `false` and `undefined`, this allows you to have the type safety of only needing to cater for a boolean value in any usages (eg. in a util)
@@ -214,10 +214,10 @@ import React from "react"
 
 export const PancakeStack: React.VFC<PancakeStackProps> = ({
   children,
-  classNameOverride,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
+  classNameOverride,
   ...props
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)

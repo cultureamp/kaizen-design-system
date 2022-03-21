@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"

@@ -1,5 +1,6 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -10,13 +11,13 @@ import {
 } from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
-const illustrations = {
+const ILLUSTRATIONS = {
   positive: EmptyStatesPositive,
   neutral: EmptyStatesNeutral,
   negative: EmptyStatesNegative,
   informative: EmptyStatesInformative,
   action: EmptyStatesAction,
-} as const
+}
 
 type IllustrationType =
   | "positive"
@@ -27,35 +28,41 @@ type IllustrationType =
 
 type LayoutContextType = "sidebarAndContent" | "contentOnly"
 
-export type EmptyStateProps = {
+export interface EmptyStateProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
+    Pick<AnimatedProps, "isAnimated" | "loop"> {
+  children?: React.ReactNode
   id?: string
-  automationId?: string
+  illustrationType?: IllustrationType
+  layoutContext?: LayoutContextType
   headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
-  illustrationType?: IllustrationType
-  layoutContext?: LayoutContextType
-  children?: React.ReactNode
-} & Pick<AnimatedProps, "isAnimated" | "loop">
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
+}
 
-type EmptyState = React.FunctionComponent<EmptyStateProps>
-
-const EmptyState: EmptyState = ({
+export const EmptyState: React.VFC<EmptyStateProps> = ({
+  children,
   id,
-  automationId,
   illustrationType = "informative",
   layoutContext = "sidebarAndContent",
   headingText,
   bodyText,
-  children,
   straightCorners,
   isAnimated = true,
   loop = false,
+  automationId,
+  classNameOverride,
+  ...props
 }) => {
   const animationProps = isAnimated ? { isAnimated, loop } : {}
   return (
     <div
-      className={classnames([
+      className={classnames(classNameOverride, [
         styles[illustrationType],
         styles.container,
         styles.zen,
@@ -64,11 +71,12 @@ const EmptyState: EmptyState = ({
       ])}
       id={id}
       data-automation-id={automationId}
+      {...props}
     >
       <div className={styles.illustrationSide}>
-        {React.createElement(illustrations[illustrationType], {
+        {React.createElement(ILLUSTRATIONS[illustrationType], {
           alt: illustrationType,
-          classNameAndIHaveSpokenToDST: styles.illustration,
+          classNameOverride: styles.illustration,
           ...animationProps,
         })}
       </div>
@@ -82,5 +90,3 @@ const EmptyState: EmptyState = ({
     </div>
   )
 }
-
-export default EmptyState

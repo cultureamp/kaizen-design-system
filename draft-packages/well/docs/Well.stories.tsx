@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { withDesign } from "storybook-addon-designs"

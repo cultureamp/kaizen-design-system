@@ -1,58 +1,56 @@
-import React, { useState, MouseEvent } from "react"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { IconButton } from "@kaizen/button"
-import classNames from "classnames"
-
+import React, { useState, MouseEvent, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Box } from "@kaizen/component-library"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import { AllowedTags } from "@kaizen/component-library/components/Heading"
+import { IconButton } from "@kaizen/button"
+import { Heading, Paragraph, AllowedHeadingTags } from "@kaizen/typography"
 import Action from "./Action"
 import styles from "./GenericTile.scss"
 
 export interface TileAction {
-  readonly label: string
-  readonly onClick?: (e: MouseEvent) => void
-  readonly href?: string
-  readonly icon?: React.SVGAttributes<SVGSymbolElement>
-  readonly automationId?: string
-  readonly newTabAndIUnderstandTheAccessibilityImplications?: boolean
+  label: string
+  onClick?: (e: MouseEvent) => void
+  href?: string
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  automationId?: string
+  newTabAndIUnderstandTheAccessibilityImplications?: boolean
 }
 
 export interface TileInformation {
-  readonly text: string
-  readonly primaryAction?: TileAction
-  readonly secondaryAction?: TileAction
+  text: string
+  primaryAction?: TileAction
+  secondaryAction?: TileAction
 }
 
-export interface GenericTileProps {
-  readonly title: React.ReactNode
-  readonly titleTag?: AllowedTags
-  readonly metadata?: string
-  readonly children?: React.ReactNode
-  readonly information?: TileInformation | React.ReactNode
-  readonly mood?:
+export interface GenericTileProps
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">> {
+  children?: React.ReactNode
+  title: React.ReactNode
+  titleTag?: AllowedHeadingTags
+  metadata?: string
+  information?: TileInformation | React.ReactNode
+  mood?:
     | "positive"
     | "informative"
     | "cautionary"
     | "assertive"
     | "negative"
     | "prominent"
+  footer: React.ReactNode
 }
 
-interface Props extends GenericTileProps {
-  readonly footer: React.ReactNode
-}
-
-type GenericTile = React.FunctionComponent<Props>
-
-const GenericTile: GenericTile = ({
+export const GenericTile: React.VFC<GenericTileProps> = ({
   children,
   title,
   titleTag = "h3",
   metadata,
   information,
-  footer,
   mood,
+  footer,
+  classNameOverride,
+  ...restProps
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
@@ -86,7 +84,7 @@ const GenericTile: GenericTile = ({
 
   const renderFront = () => (
     <div
-      className={classNames(styles.face, styles.faceFront, {
+      className={classnames(styles.face, styles.faceFront, {
         [styles.faceMoodPositive]: mood === "positive",
         [styles.faceMoodInformative]: mood === "informative",
         [styles.faceMoodCautionary]: mood === "cautionary",
@@ -137,7 +135,7 @@ const GenericTile: GenericTile = ({
     if (!information) return
 
     return (
-      <div className={classNames(styles.face, styles.faceBack)}>
+      <div className={classnames(styles.face, styles.faceBack)}>
         <div className={styles.informationBtn}>
           <IconButton
             label="Information"
@@ -154,9 +152,9 @@ const GenericTile: GenericTile = ({
   }
 
   return (
-    <div className={styles.root}>
+    <div className={classnames(styles.root, classNameOverride)} {...restProps}>
       <div
-        className={classNames(styles.tile, {
+        className={classnames(styles.tile, {
           [styles.isFlipped]: isFlipped,
         })}
       >
@@ -167,4 +165,4 @@ const GenericTile: GenericTile = ({
   )
 }
 
-export default GenericTile
+GenericTile.displayName = "GenericTile"

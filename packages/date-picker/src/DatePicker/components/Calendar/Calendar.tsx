@@ -17,7 +17,7 @@ export type CalendarProps = {
         }
       | undefined
   }
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   value?: Date
   initialMonth?: Date
   firstDayOfWeek: number
@@ -34,7 +34,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   setPopperElement,
   styles,
   attributes,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   value,
   initialMonth,
   firstDayOfWeek,
@@ -71,10 +71,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
-        className={classnames(
-          calendarStyles.calendar,
-          classNameAndIHaveSpokenToDST
-        )}
+        className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"
         aria-label={

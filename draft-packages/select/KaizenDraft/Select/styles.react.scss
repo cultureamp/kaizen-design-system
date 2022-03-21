@@ -125,6 +125,13 @@ $focus-border-color: $color-blue-500;
     }
   }
 
+  &.error {
+    .control {
+      border: $border-solid-border-width $border-solid-border-style
+        $color-red-500;
+    }
+  }
+
   &.secondary,
   &.secondarySmall {
     &.default {

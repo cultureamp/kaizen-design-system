@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.7.2...@kaizen/notification@0.7.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.7.1...@kaizen/notification@0.7.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.7.0...@kaizen/notification@0.7.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [0.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.17...@kaizen/notification@0.7.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [0.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.16...@kaizen/notification@0.6.17) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.15...@kaizen/notification@0.6.16) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.14...@kaizen/notification@0.6.15) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.6.13...@kaizen/notification@0.6.14) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/notification

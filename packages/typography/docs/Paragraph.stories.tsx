@@ -10,7 +10,7 @@ import {
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { Paragraph } from "../components/Paragraph"
+import { Paragraph } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,

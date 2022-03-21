@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@4.0.3...@kaizen/draft-table@4.0.4) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@4.0.2...@kaizen/draft-table@4.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@4.0.1...@kaizen/draft-table@4.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@4.0.0...@kaizen/draft-table@4.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.15...@kaizen/draft-table@4.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [3.12.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.14...@kaizen/draft-table@3.12.15) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.12.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.13...@kaizen/draft-table@3.12.14) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.12...@kaizen/draft-table@3.12.13) (2022-03-11)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.11...@kaizen/draft-table@3.12.12) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [3.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.12.10...@kaizen/draft-table@3.12.11) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-table

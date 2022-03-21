@@ -1,9 +1,14 @@
-import { Box, Heading } from "@kaizen/component-library"
-import React, { ReactNode } from "react"
+import React, { HTMLAttributes, ReactNode } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Box } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import styles from "./ProgressBar.scss"
 
-type Props = {
+type Mood = "positive" | "informative" | "negative" | "cautionary"
+
+export interface ProgressBarProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   value: number
   max: number
   isAnimating: boolean
@@ -12,9 +17,7 @@ type Props = {
   label?: string
 }
 
-type Mood = "positive" | "informative" | "negative" | "cautionary"
-
-const progressClassNames = (props: Props) => {
+const progressClassNames = (props: ProgressBarProps): string => {
   const { mood } = props
   return classnames({
     [styles.positive]: mood === "positive",
@@ -25,12 +28,21 @@ const progressClassNames = (props: Props) => {
   })
 }
 
-function calculatePercentage({ value, max }: Props) {
+function calculatePercentage({ value, max }: ProgressBarProps) {
   return (value / max) * 100.0
 }
 
-export function ProgressBar(props: Props) {
-  const { subtext } = props
+export const ProgressBar: React.VFC<ProgressBarProps> = props => {
+  const {
+    value,
+    max,
+    isAnimating,
+    mood,
+    subtext,
+    label,
+    classNameOverride,
+    ...restProps
+  } = props
   const percentage = calculatePercentage(props)
   return (
     <div
@@ -38,15 +50,17 @@ export function ProgressBar(props: Props) {
       aria-valuenow={percentage}
       aria-valuemin={0}
       aria-valuemax={100}
+      className={classNameOverride}
+      {...restProps}
     >
-      {props.label == null ? null : <Label content={props.label} />}
+      {label && <Label content={label} />}
       <div className={styles.progressBackground}>
         <div
           className={progressClassNames(props)}
           style={{ transform: `translateX(-${100 - percentage}%` }}
         />
       </div>
-      {subtext != null ? (
+      {subtext && (
         <div className={styles.subtext}>
           <Box pt={0.25}>
             <Heading variant="heading-6" tag="p">
@@ -54,10 +68,12 @@ export function ProgressBar(props: Props) {
             </Heading>
           </Box>
         </div>
-      ) : null}
+      )}
     </div>
   )
 }
+
+ProgressBar.displayName = "ProgressBar"
 
 function Label({ content }: { content: ReactNode }) {
   return (
