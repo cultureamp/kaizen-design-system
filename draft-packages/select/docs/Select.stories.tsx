@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { withDesign } from "storybook-addon-designs"
 import { Label } from "@kaizen/draft-form"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "../../../packages/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -62,15 +62,31 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => (
+export const DefaultSelectStory = args => (
   <>
     <Label labelText="label" />
     <Select {...args} />
   </>
 )
-DefaultStory.parameters = { chromatic: { disable: false } }
-DefaultStory.storyName = "Default (Kaizen Demo)"
-DefaultStory.args = {
+DefaultSelectStory.parameters = { chromatic: { disable: false } }
+DefaultSelectStory.storyName = "Select"
+DefaultSelectStory.args = {
+  options,
+  placeholder: "Placeholder",
+  isSearchable: false,
+  isDisabled: false,
+  defaultValue: options[0],
+}
+
+export const DefaultAsyncSelectStory = args => (
+  <>
+    <Label labelText="label" />
+    <AsyncSelect {...args} />
+  </>
+)
+DefaultAsyncSelectStory.parameters = { chromatic: { disable: false } }
+DefaultAsyncSelectStory.storyName = "Async Select"
+DefaultAsyncSelectStory.args = {
   options,
   placeholder: "Placeholder",
   isSearchable: false,
