@@ -38,7 +38,8 @@
     "classnames": "^2.3.1",
     "react-day-picker": "^7.4.10",
     "react-focus-on": "^3.5.4",
-    "react-popper": "^2.2.5"
+    "react-popper": "^2.2.5",
+    "date-fns": "^2.28.0"
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^8.0.0",
