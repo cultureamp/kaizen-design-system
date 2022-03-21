@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react"
+import React, { Children, useState, useRef, ReactNode } from "react"
 import classnames from "classnames"
 import { ToolbarSectionProps } from "../ToolbarSection"
 import { ToolbarItem, ToolbarItemProps } from "../ToolbarItem"
@@ -24,27 +24,54 @@ const determineValidKeypress = (event: React.KeyboardEvent<HTMLDivElement>) => {
   return Object.values(validKey).includes(event.key)
 }
 
-const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-  console.log(document.activeElement)
-  if (!determineValidKeypress(event)) return
-  // event.preventDefault()
-  if (event.key === "ArrowLeft") {
-    console.log("left")
+const handleKeyDown = (
+  e: React.KeyboardEvent<HTMLDivElement>,
+  buttonRefs: React.RefObject<any[]>,
+  buttonFocusIndex: number,
+  setButtonFocusIndex: any
+) => {
+  const buttons = buttonRefs.current
+  if (!determineValidKeypress(e) || !buttons || buttons.length === 0) return
+  const activeButton = buttons[buttonFocusIndex] as HTMLElement
+
+  // e.preDefault()
+  if (e.key === "ArrowLeft") {
+    if (buttonFocusIndex === 0) {
+      setButtonFocusIndex(buttons.length - 1)
+    } else {
+      setButtonFocusIndex(buttonFocusIndex - 1)
+    }
+    buttons[buttonFocusIndex].tabIndex = 0
   } else {
-    console.log("right")
+    if (buttonFocusIndex === buttons.length - 1) {
+      setButtonFocusIndex(0)
+    } else {
+      setButtonFocusIndex(buttonFocusIndex + 1)
+    }
+    buttons[buttonFocusIndex].tabIndex = 0
   }
+  buttons[buttonFocusIndex].focus()
+  console.log(activeButton)
 }
 
 export const Toolbar: React.VFC<ToolbarProps> = props => {
   const { children: toolbarChildren, ...toolbarProps } = props
-  let count = 0
-  // TODO: extract all of the inner props
-  // recursively dig through
+  const toolbarButtonsRef = React.useRef<React.ReactNode[]>([])
+  const [buttonFocusIndex, setButtonFocusIndex] = useState<number>(0)
+  let count: number = 0
+
   return (
     <div
       className={styles.toolbar}
       role="toolbar"
-      onKeyDown={e => handleKeyDown(e)}
+      onKeyDown={e =>
+        handleKeyDown(
+          e,
+          toolbarButtonsRef,
+          buttonFocusIndex,
+          setButtonFocusIndex
+        )
+      }
       tabIndex={0}
       {...toolbarProps}
     >
@@ -58,21 +85,34 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
         }: ToolbarSectionProps = toolbarSection.props
 
         return (
-          <toolbarSection.type {...toolbarSectionProps}>
+          <toolbarSection.type
+            {...toolbarSectionProps}
+            key={`rte-section-${sectionIndex}`}
+          >
             {React.Children.map(sectionChildren, (toolbarItem, itemIndex) => {
               if (!React.isValidElement(toolbarItem)) {
                 return sectionChildren
               }
 
               return (
-                <toolbarItem.type {...toolbarItem.props}>
-                  {React.Children.map(toolbarItem.props.children, toggle => {
-                    count += 1
-                    return React.cloneElement(toggle, {
-                      tabIndex: itemIndex === 0 && sectionIndex === 0 ? 0 : -1,
-                      id: `toggleId-${count}`,
-                    })
-                  })}
+                <toolbarItem.type
+                  {...toolbarItem.props}
+                  key={`rte-item-${sectionIndex}`}
+                >
+                  {React.Children.map(
+                    toolbarItem.props.children,
+                    toolbarButton => {
+                      count += 1
+                      return React.cloneElement(toolbarButton, {
+                        key: `rte-button-${count}`,
+                        tabIndex:
+                          itemIndex === 0 && sectionIndex === 0 ? 0 : -1,
+                        ref: (
+                          ref: React.RefObject<React.ReactNode | undefined>
+                        ) => toolbarButtonsRef.current.push(ref),
+                      })
+                    }
+                  )}
                 </toolbarItem.type>
               )
             })}
