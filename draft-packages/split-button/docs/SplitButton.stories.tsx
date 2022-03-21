@@ -7,7 +7,6 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Box } from "../../../packages/component-library"
 import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
@@ -40,7 +39,7 @@ export const DefaultKaizenSiteDemo = args => (
     {...args}
   />
 )
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.storyName = "Split Button"
 DefaultKaizenSiteDemo.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
