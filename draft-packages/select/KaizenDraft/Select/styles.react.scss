@@ -42,6 +42,7 @@ $focus-border-color: $color-blue-500;
     }
   }
   .control {
+    @include base-font-style();
     &.disabled {
       opacity: 0.3;
     }
@@ -55,6 +56,10 @@ $focus-border-color: $color-blue-500;
       background-color: $color-gray-100;
       cursor: pointer;
     }
+  }
+
+  .loadingMessage {
+    @include base-font-style();
   }
 
   .focusedControl {
