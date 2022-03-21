@@ -12,7 +12,11 @@ import { renderValidationMessage } from "../../../utils/renderValidationMessage"
 
 import styles from "./styles.scss"
 
-type OmittedInputProps = "startIconAdornment" | "endIconAdornment" | "inputType"
+type OmittedInputProps =
+  | "startIconAdornment"
+  | "endIconAdornment"
+  | "inputType"
+  | "inputValue"
 
 export interface validationMessagesProps {
   success?: string | React.ReactNode
@@ -39,6 +43,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   description?: string | React.ReactNode
   onButtonClick: () => void
   calendarId?: string
+  isOpen: boolean
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -46,9 +51,9 @@ export const DateInput: React.VFC<DateInputProps> = ({
   disabled = false,
   buttonRef,
   labelText,
-  inputValue,
   defaultInputValue,
   inputRef,
+  value,
   validationMessages,
   description,
   reversed = false,
@@ -57,6 +62,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   icon,
   onButtonClick,
   calendarId,
+  isOpen,
   ...inputProps
 }) => {
   // TODO - handle different validationMessages and their respective aria labels.
@@ -92,11 +98,11 @@ export const DateInput: React.VFC<DateInputProps> = ({
         inputType="text"
         automationId={`${id}-field-input`}
         role="combobox"
-        // aria-expanded={}
+        aria-expanded={isOpen}
         aria-haspopup="dialog"
         aria-controls={calendarId}
-        ariaDescribedBy={id}
-        inputValue={inputValue}
+        ariaDescribedBy={`${id}-field-message`}
+        value={value}
         defaultInputValue={defaultInputValue}
         inputRef={inputRef}
         disabled={disabled}
@@ -104,6 +110,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         status={status}
         endIconAdornment={
           <button
+            tabIndex={-1}
             // buttonRef={buttonRef}
             // aria-disabled={disabled || working ? true : undefined}
             disabled={disabled}
@@ -112,13 +119,12 @@ export const DateInput: React.VFC<DateInputProps> = ({
             // onBlur={onBlur}
             type="button"
             className={styles.iconButton}
-            aria-label={
-              inputValue ? `Change Date, ${inputValue}` : "Choose Date"
-            }
+            aria-label="Choose Date"
           >
             <div
-              className={classnames({
+              className={classnames(styles.icon, {
                 [styles.disabled]: disabled,
+                [styles.calendarActive]: isOpen,
               })}
             >
               <Icon icon={icon} role="presentation" />{" "}

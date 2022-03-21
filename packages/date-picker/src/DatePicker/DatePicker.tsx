@@ -23,9 +23,11 @@ export interface DatePickerProps {
   labelText: string
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
+  inputRef?: React.RefObject<HTMLInputElement>
   description?: string
   placeholder?: string
   validationMessages: validationMessagesProps
+  variant?: "combobox" | "dialog"
 
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -83,7 +85,9 @@ export enum DayOfWeek {
 
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
+  variant = "combobox",
   buttonRef = useRef<HTMLButtonElement>(null),
+  inputRef = useRef<HTMLInputElement>(null),
   description,
   placeholder,
   value,
@@ -162,46 +166,57 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
-        {/* <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
-        <button
-          className={cx(
-            datePickerStyles.button,
-            datePickerStyles.withStartIconAdornment,
-            {
-              [datePickerStyles.disabled]: isDisabled,
+        {variant === "dialog" && (
+          <>
+            <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
+            <button
+              className={cx(
+                datePickerStyles.button,
+                datePickerStyles.withStartIconAdornment,
+                {
+                  [datePickerStyles.disabled]: isDisabled,
+                }
+              )}
+              id={id}
+              disabled={isDisabled}
+              ref={buttonRef}
+              onClick={handleOpenClose}
+              {...inputProps}
+            >
+              <div className={datePickerStyles.startIconAdornment}>
+                <Icon icon={dateStart} role="presentation" />
+              </div>
+              <span className={datePickerStyles.value}>
+                {value
+                  ? value.toLocaleDateString("en-US", dateFormatOptions)
+                  : ""}
+              </span>
+            </button>{" "}
+          </>
+        )}
+        {variant === "combobox" && (
+          <DateInput
+            id={id}
+            inputRef={inputRef}
+            isOpen={isOpen}
+            buttonRef={buttonRef}
+            value={
+              value
+                ? value.toLocaleDateString("en-US", dateFormatOptions)
+                : value
             }
-          )}
-          id={id}
-          disabled={isDisabled}
-          ref={buttonRef}
-          onClick={handleOpenClose}
-          {...inputProps}
-        >
-          <div className={datePickerStyles.startIconAdornment}>
-            <Icon icon={dateStart} role="presentation" />
-          </div>
-          <span className={datePickerStyles.value}>
-            {value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""}
-          </span>
-        </button> */}
-        <DateInput
-          id={id}
-          // inputRef={inputRef}
-          buttonRef={buttonRef}
-          // value={
-          //   value ? value.toLocaleDateString("en-US", dateFormatOptions) : ""
-          // }
-          disabled={isDisabled}
-          labelText={labelText}
-          placeholder={placeholder}
-          description={description}
-          icon={dateStart}
-          validationMessages={validationMessages}
-          onClick={handleOpenClose}
-          onButtonClick={handleOpenClose}
-          calendarId={"calendar-dialog"}
-          {...inputProps}
-        />
+            disabled={isDisabled}
+            labelText={labelText}
+            placeholder={placeholder}
+            description={description}
+            icon={dateStart}
+            validationMessages={validationMessages}
+            onClick={handleOpenClose}
+            onButtonClick={handleOpenClose}
+            calendarId={"calendar-dialog"}
+            {...inputProps}
+          />
+        )}
       </div>
       {isOpen && (
         <FocusOn
@@ -213,6 +228,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onEscapeKey={() => {
             handleOpenClose()
           }}
+          // allow the input to be witin focus lock when combobox
+          shards={variant === "combobox" ? [inputRef] : undefined}
         >
           <Calendar
             id="calendar-dialog"
@@ -225,6 +242,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnDayChange}
+            inputRef={inputRef}
+            isComobox={variant === "combobox" ? true : false}
           />
         </FocusOn>
       )}

@@ -1,117 +1,172 @@
-// import React from "react"
-// import { withDesign } from "storybook-addon-designs"
-// import { Story } from "@storybook/react"
-// import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
-// import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-// import { DateInput } from "../src/DatePicker/components/DateInput"
-// import { figmaEmbed } from "../../../storybook/helpers"
-// import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import React, { useState } from "react"
+import { Story } from "@storybook/react"
+import { usePopper } from "react-popper"
+import { within } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { DatePicker } from "../src/DatePicker"
+import { Calendar } from "../src/DatePicker/components/Calendar"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
-// export default {
-//   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Input`,
-//   component: DateInput,
-//   parameters: {
-//     docs: {
-//       description: {
-//         component: 'import { TextField } from "@kaizen/draft-form"',
-//       },
-//     },
-//     ...figmaEmbed(
-//       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14363%3A67837"
-//     ),
-//   },
-//   decorators: [withDesign],
+export default {
+  title: `${CATEGORIES.components}/DatePicker/Date Combobox`,
+  component: DatePicker,
+  parameters: {
+    docs: {
+      description: {
+        component: 'import { DatePicker } from "@kaizen/date-picker"',
+      },
+    },
+  },
+}
+
+export const DefaultStory = props => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  return (
+    <>
+      <DatePicker
+        id="datepicker-default"
+        labelText="Label"
+        value={selectedDate}
+        onChange={onDayChange}
+        description="dd/mm/yyyy"
+        placeholder="dd/mm/yyyy"
+        {...props}
+      />
+      <ul>
+        {Array(100)
+          .fill(1)
+          .map((_, index) => (
+            <li>fill the page with something...</li>
+          ))}
+      </ul>
+    </>
+  )
+}
+DefaultStory.storyName = "Default (Kaizen Demo)"
+
+const CalendarTemplate: Story = props => {
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLDivElement | null>(null)
+
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 15],
+        },
+      },
+    ],
+    placement: "bottom-start",
+  })
+
+  return (
+    <div ref={setReferenceElement}>
+      <Calendar
+        id="calendar-dialog"
+        setPopperElement={setPopperElement}
+        styles={styles}
+        attributes={attributes}
+        firstDayOfWeek={0}
+        onDayChange={() => undefined}
+        initialMonth={new Date(2022, 1, 5)}
+        {...props}
+      />
+    </div>
+  )
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+
+  const onDayChange = (day: Date) => {
+    setSelectedDate(day)
+  }
+
+  const validationMessages = {
+    success: "This is a success message",
+    caution: "This is a cautionary message",
+    error: "This is an error message",
+  }
+
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Default", "Selected Value", "Disabled"]}
+        />
+        <StoryWrapper.Row rowTitle="Button">
+          <DatePicker
+            id="datepicker-input-default"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+            validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
+          />
+          <DatePicker
+            id="datepicker-input-selected"
+            labelText="Label"
+            value={new Date(2022, 1, 5)}
+            onChange={onDayChange}
+            validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
+          />
+          <DatePicker
+            isDisabled
+            id="datepicker-input-disabled"
+            labelText="Label"
+            value={selectedDate}
+            onChange={onDayChange}
+            validationMessages={validationMessages}
+            description="dd/mm/yyyy"
+            placeholder="dd/mm/yyyy"
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      {/* <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Selected Date", "Focused Date", "Disabled Dates"]}
+        />
+        <StoryWrapper.Row rowTitle="Calendar">
+          <CalendarTemplate value={new Date(2022, 1, 5)} />
+          <CalendarTemplate
+            value={new Date(2022, 0, 5)}
+            initialMonth={new Date(2022, 0, 5)}
+          />
+          <CalendarTemplate
+            disabledDays={[
+              new Date(2022, 1, 15),
+              { after: new Date(2022, 1, 17) },
+            ]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper> */}
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+// StickerSheetDefault.play = async ({ canvasElement }) => {
+//   const canvas = within(canvasElement)
+//   const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
+//   await userEvent.click(focusedDate, undefined, {
+//     skipPointerEventsCheck: true,
+//   })
 // }
-
-// const validationMessages = {
-//   success: "This is a success message",
-//   caution: "This is a cautionary message",
-//   error: "This is an error message",
-// }
-
-// export const DefaultStory = () => (
-//   <DateInput
-//     id="date-input"
-//     labelText="Label"
-//     placeholder="dd/mm/yyyy"
-//     description="Description text"
-//     icon={dateIcon}
-//     validationMessages={validationMessages}
-//   />
-// )
-// DefaultStory.storyName = "Default (Kaizen Demo)"
-
-// const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-//   isReversed,
-// }) => (
-//   <StoryWrapper isReversed={isReversed}>
-//     <StoryWrapper.RowHeader headings={["Base", "Selected", "Disabled"]} />
-//     <StoryWrapper.Row rowTitle="Default">
-//       <DateInput
-//         id="date-input-base"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         description="dd/mm/yyyy"
-//         icon={dateIcon}
-//         validationMessages={validationMessages}
-//       />
-//       <DateInput
-//         id="date-input-selected"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         value={"1/1/2000"}
-//         description="dd/mm/yyyy"
-//         icon={dateIcon}
-//         validationMessages={validationMessages}
-//       />
-//       <DateInput
-//         id="date-input-disabled"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         description="dd/mm/yyyy"
-//         icon={dateIcon}
-//         disabled
-//         validationMessages={validationMessages}
-//       />
-//     </StoryWrapper.Row>
-//     <StoryWrapper.Row rowTitle="Success">
-//       <DateInput
-//         id="date-input-cautionary"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         description="dd/mm/yyyy"
-//         status="success"
-//         icon={dateIcon}
-//         validationMessages={validationMessages}
-//       />
-//     </StoryWrapper.Row>
-//     <StoryWrapper.Row rowTitle="Cautionary">
-//       <DateInput
-//         id="date-input-cautionary"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         value={"potato"}
-//         description="dd/mm/yyyy"
-//         status="caution"
-//         icon={dateIcon}
-//         validationMessages={validationMessages}
-//       />
-//     </StoryWrapper.Row>
-//     <StoryWrapper.Row rowTitle="Error">
-//       <DateInput
-//         id="date-input-error"
-//         labelText="Label"
-//         placeholder="dd/mm/yyyy"
-//         value={"potato"}
-//         description="dd/mm/yyyy"
-//         status="error"
-//         icon={dateIcon}
-//         validationMessages={validationMessages}
-//       />
-//     </StoryWrapper.Row>
-//   </StoryWrapper>
-// )
-
-// export const StickerSheetDefault = StickerSheetTemplate.bind({})
-// StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-// StickerSheetDefault.parameters = { chromatic: { disable: false } }

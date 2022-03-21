@@ -9,7 +9,7 @@ import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
+  title: `${CATEGORIES.components}/DatePicker/Date Picker`,
   component: DatePicker,
   parameters: {
     docs: {
@@ -36,6 +36,7 @@ export const DefaultStory = props => {
         onChange={onDayChange}
         description="dd/mm/yyyy"
         placeholder="dd/mm/yyyy"
+        variant="dialog"
         {...props}
       />
       <ul>
@@ -80,6 +81,7 @@ const CalendarTemplate: Story = props => {
         firstDayOfWeek={0}
         onDayChange={() => undefined}
         initialMonth={new Date(2022, 1, 5)}
+        isComobox={false}
         {...props}
       />
     </div>
@@ -116,6 +118,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="dialog"
           />
           <DatePicker
             id="datepicker-input-selected"
@@ -125,6 +128,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="dialog"
           />
           <DatePicker
             isDisabled
@@ -135,6 +139,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="dialog"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
