@@ -72,24 +72,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       />
       <StoryWrapper.Row gridColumns={10} rowTitle="Sentiment (md)">
         <Tag variant="sentimentNeutral" size="medium">
-          Report
+          Neutral
         </Tag>
         <Tag variant="sentimentPositive" size="medium">
-          Live
+          Postive
         </Tag>
         <Tag variant="sentimentNegative" size="medium">
-          Draft
+          Negative
         </Tag>
       </StoryWrapper.Row>
       <StoryWrapper.Row gridColumns={10} rowTitle="Sentiment (sm)">
         <Tag variant="sentimentNeutral" size="small">
-          Report
+          Neutral
         </Tag>
         <Tag variant="sentimentPositive" size="small">
-          Live
+          Postive
         </Tag>
         <Tag variant="sentimentNegative" size="small">
-          Draft
+          Negative
         </Tag>
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -130,10 +130,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           Jane Doe
         </Tag>
       </StoryWrapper.Row>
+      <StoryWrapper.Row gridColumns={10} rowTitle="No Profile (md)">
+        <Tag variant="profile" avatar={{}} dismissible>
+          Jane Doe
+        </Tag>
+      </StoryWrapper.Row>
     </StoryWrapper>
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.Row gridColumns={10} rowTitle="Dismissible (md)">
-        <Tag variant="default" size="medium" dismissible>
+      <StoryWrapper.Row gridColumns={10} rowTitle="Dismissible (sm)">
+        <Tag variant="default" size="small" dismissible>
           Base
         </Tag>
       </StoryWrapper.Row>
