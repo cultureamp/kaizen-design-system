@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Icon, Paragraph } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import classnames from "classnames"
 import styles from "./styles.scss"
