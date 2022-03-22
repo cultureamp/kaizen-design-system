@@ -1,5 +1,5 @@
 import React from "react"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { Select } from "@kaizen/draft-select"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"

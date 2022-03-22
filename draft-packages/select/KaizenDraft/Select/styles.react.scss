@@ -41,6 +41,7 @@ $focus-border-color: $color-blue-500;
       color: rgba($color-purple-800-rgb, 0.7);
     }
   }
+
   .control {
     &.disabled {
       opacity: 0.3;
@@ -55,6 +56,15 @@ $focus-border-color: $color-blue-500;
       background-color: $color-gray-100;
       cursor: pointer;
     }
+  }
+
+  .valueContainer {
+    font-family: $ca-inter-font-family;
+    font-size: $ca-inter-font-base-size;
+  }
+
+  .loadingMessage {
+    @include base-font-style();
   }
 
   .focusedControl {

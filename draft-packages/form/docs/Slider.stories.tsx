@@ -1,7 +1,8 @@
 import React from "react"
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { InputRange, Label } from "../KaizenDraft/Form"
 

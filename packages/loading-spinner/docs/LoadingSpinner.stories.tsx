@@ -1,6 +1,7 @@
 import React from "react"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
