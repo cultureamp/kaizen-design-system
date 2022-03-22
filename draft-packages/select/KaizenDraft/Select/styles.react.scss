@@ -41,8 +41,8 @@ $focus-border-color: $color-blue-500;
       color: rgba($color-purple-800-rgb, 0.7);
     }
   }
+
   .control {
-    @include kz-typography-paragraph-body;
     &.disabled {
       opacity: 0.3;
     }
@@ -56,6 +56,10 @@ $focus-border-color: $color-blue-500;
       background-color: $color-gray-100;
       cursor: pointer;
     }
+  }
+
+  .valueContainer {
+    @include base-font-style();
   }
 
   .loadingMessage {

@@ -106,6 +106,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           SingleValue,
           MultiValue,
           IndicatorsContainer,
+          ValueContainer,
           ClearIndicator,
           IndicatorSeparator: null,
           LoadingMessage,
@@ -140,6 +141,7 @@ export const AsyncSelect = React.forwardRef(
         SingleValue,
         MultiValue,
         IndicatorsContainer,
+        ValueContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
         LoadingMessage,
@@ -226,6 +228,10 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
     {...props}
     className={styles.indicatorsContainer}
   />
+)
+
+const ValueContainer: typeof components.ValueContainer = props => (
+  <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>
