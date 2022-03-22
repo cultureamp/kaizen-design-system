@@ -109,7 +109,6 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           ValueContainer,
           ClearIndicator,
           IndicatorSeparator: null,
-          LoadingMessage,
         }}
         className={classes}
       />
