@@ -31,6 +31,9 @@ export const calculateMenuTop = (
   return buttonsBoundingRect.height + gapSize
 }
 
+/**
+ * @deprecated Draft SplitButton/DropdownMenu is deprecated.
+ */
 class DropdownMenu extends React.Component<Props> {
   static displayName = "DropdownMenu"
   static defaultProps = {
