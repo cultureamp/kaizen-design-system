@@ -77,7 +77,10 @@ export const DefaultStory = args => {
     </>
   )
 }
-DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.storyName = "Likert Scale"
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
