@@ -42,7 +42,7 @@ $focus-border-color: $color-blue-500;
     }
   }
   .control {
-    @include base-font-style();
+    @include kz-typography-paragraph-body;
     &.disabled {
       opacity: 0.3;
     }
