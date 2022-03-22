@@ -1,5 +1,6 @@
 import React from "react"
-import { Icon, Paragraph, Box } from "@kaizen/component-library"
+import { Icon, Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
 import { CATEGORIES } from "../../../storybook/constants"
