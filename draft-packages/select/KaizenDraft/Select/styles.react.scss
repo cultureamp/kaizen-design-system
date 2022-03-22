@@ -59,7 +59,8 @@ $focus-border-color: $color-blue-500;
   }
 
   .valueContainer {
-    @include base-font-style();
+    font-family: $ca-inter-font-family;
+    font-size: $ca-inter-font-base-size;
   }
 
   .loadingMessage {
