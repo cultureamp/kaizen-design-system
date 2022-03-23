@@ -24,11 +24,9 @@ export default {
 }
 
 export const DefaultStory = args => (
-  <div>
-    <Tag variant="default" {...args}>
-      Default
-    </Tag>
-  </div>
+  <Tag variant="default" {...args}>
+    Default
+  </Tag>
 )
 DefaultStory.storyName = "Tag"
 DefaultStory.parameters = { chromatic: { disable: false } }
@@ -130,7 +128,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           Jane Doe
         </Tag>
       </StoryWrapper.Row>
-      <StoryWrapper.Row gridColumns={10} rowTitle="No Profile (md)">
+      <StoryWrapper.Row gridColumns={10} rowTitle="Profile (md - no avatar)">
         <Tag variant="profile" avatar={{}} dismissible>
           Jane Doe
         </Tag>
