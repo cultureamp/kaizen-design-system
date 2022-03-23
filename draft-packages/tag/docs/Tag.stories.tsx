@@ -29,7 +29,6 @@ export const DefaultStory = args => (
   </Tag>
 )
 DefaultStory.storyName = "Tag"
-DefaultStory.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
