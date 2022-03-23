@@ -38,30 +38,18 @@ export default {
 export const DefaultStory = (args: ToolbarProps) => (
   <Toolbar {...args}>
     <ToolbarSection>
-      <ToolbarItem>
-        <ToggleIconButton label="Bold" icon={boldIcon} />
-      </ToolbarItem>
+      <ToggleIconButton label="Bold" icon={boldIcon} />
     </ToolbarSection>
     <ToolbarSection>
-      <ToolbarItem>
-        <ToggleIconButton label="Italic" icon={italicIcon} />
-      </ToolbarItem>
-      <ToolbarItem>
-        <ToggleIconButton label="Underline" icon={underlineIcon} />
-      </ToolbarItem>
+      <ToggleIconButton label="Italic" icon={italicIcon} />
+      <ToggleIconButton label="Underline" icon={underlineIcon} />
     </ToolbarSection>
     <ToolbarSection>
-      <ToolbarItem>
-        <ToggleIconButton label="Bullet list" icon={bulletListIcon} />
-      </ToolbarItem>
-      <ToolbarItem>
-        <ToggleIconButton label="Numbered list" icon={numberListIcon} />
-      </ToolbarItem>
+      <ToggleIconButton label="Bullet list" icon={bulletListIcon} />
+      <ToggleIconButton label="Numbered list" icon={numberListIcon} />
     </ToolbarSection>
     <ToolbarSection>
-      <ToolbarItem>
-        <ToggleIconButton label="Link" icon={linkIcon} />
-      </ToolbarItem>
+      <ToggleIconButton label="Link" icon={linkIcon} />
     </ToolbarSection>
   </Toolbar>
 )
