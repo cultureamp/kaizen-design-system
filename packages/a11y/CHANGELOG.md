@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.16...@kaizen/a11y@1.3.17) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.15...@kaizen/a11y@1.3.16) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.14...@kaizen/a11y@1.3.15) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.13...@kaizen/a11y@1.3.14) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.12...@kaizen/a11y@1.3.13) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.11...@kaizen/a11y@1.3.12) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.10...@kaizen/a11y@1.3.11) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.9...@kaizen/a11y@1.3.10) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.8...@kaizen/a11y@1.3.9) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
 ## [1.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.7...@kaizen/a11y@1.3.8) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/a11y

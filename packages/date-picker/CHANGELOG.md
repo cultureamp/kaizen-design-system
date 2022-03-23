@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.0.4...@kaizen/date-picker@2.0.5) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.0.3...@kaizen/date-picker@2.0.4) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.0.2...@kaizen/date-picker@2.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.0.1...@kaizen/date-picker@2.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.0.0...@kaizen/date-picker@2.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.5.4...@kaizen/date-picker@2.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [1.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.5.3...@kaizen/date-picker@1.5.4) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.5.2...@kaizen/date-picker@1.5.3) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.5.1...@kaizen/date-picker@1.5.2) (2022-03-11)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.5.0...@kaizen/date-picker@1.5.1) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.3...@kaizen/date-picker@1.5.0) (2022-03-08)
+
+
+### Features
+
+* update to use FocusOn ([#2587](https://github.com/cultureamp/kaizen-design-system/issues/2587)) ([f310223](https://github.com/cultureamp/kaizen-design-system/commit/f310223a22ee8d9f8a22badedc74171baec80cc0))
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.2...@kaizen/date-picker@1.4.3) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@1.4.1...@kaizen/date-picker@1.4.2) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/date-picker

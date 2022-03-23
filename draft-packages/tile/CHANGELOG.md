@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.7.1...@kaizen/draft-tile@5.7.2) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.7.0...@kaizen/draft-tile@5.7.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.21...@kaizen/draft-tile@5.7.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 4) ([#2630](https://github.com/cultureamp/kaizen-design-system/issues/2630)) ([d19bd2d](https://github.com/cultureamp/kaizen-design-system/commit/d19bd2d29172d22ea5e6585892164ae84e0927fb))
+
+
+
+
+
+## [5.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.20...@kaizen/draft-tile@5.6.21) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.19...@kaizen/draft-tile@5.6.20) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.18...@kaizen/draft-tile@5.6.19) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.17...@kaizen/draft-tile@5.6.18) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.16...@kaizen/draft-tile@5.6.17) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.15...@kaizen/draft-tile@5.6.16) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.14...@kaizen/draft-tile@5.6.15) (2022-03-10)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.13...@kaizen/draft-tile@5.6.14) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.12...@kaizen/draft-tile@5.6.13) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [5.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.6.11...@kaizen/draft-tile@5.6.12) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-tile

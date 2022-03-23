@@ -86,7 +86,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         </Badge>
       </div>
       <div>
-        <Badge size="small" variant="dot" reversed={isReversed}></Badge>
+        <Badge size="small" variant="dot" reversed={isReversed} />
       </div>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Large">

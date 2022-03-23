@@ -10,8 +10,7 @@ import {
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { Icon } from "@kaizen/component-library"
-import FocusLock from "react-focus-lock"
-import { useClickOutside } from "../hooks/useClickOutside"
+import { FocusOn } from "react-focus-on"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
@@ -19,7 +18,7 @@ import { Calendar } from "./components/Calendar"
 
 export interface DatePickerProps {
   id: string
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   labelText: string
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
@@ -87,7 +86,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onChange,
   labelText,
   isDisabled = false,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -123,16 +122,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     ],
     placement: "bottom-start",
   })
-
-  useClickOutside(isOpen, setIsOpen, referenceElement, wrapperRef)
-
-  const handleKeyDown = e => {
-    switch (e.keyCode) {
-      case 27:
-        setIsOpen(false)
-        break
-    }
-  }
 
   const handleOnDayChange = (day: Date, modifiers: DayModifiers) => {
     /** react-day-picker will fire events for disabled days by default.
@@ -181,7 +170,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
-          onKeyDown={e => handleKeyDown(e)}
           {...inputProps}
         >
           <div className={datePickerStyles.startIconAdornment}>
@@ -193,20 +181,28 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         </button>
       </div>
       {isOpen && (
-        <FocusLock onDeactivation={handleReturnFocus}>
+        <FocusOn
+          scrollLock={false}
+          onDeactivation={handleReturnFocus}
+          onClickOutside={() => {
+            handleOpenClose()
+          }}
+          onEscapeKey={() => {
+            handleOpenClose()
+          }}
+        >
           <Calendar
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
-            classNameAndIHaveSpokenToDST={classNameAndIHaveSpokenToDST}
+            classNameOverride={classNameOverride}
             value={value}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnDayChange}
-            onKeyDown={handleKeyDown}
           />
-        </FocusLock>
+        </FocusOn>
       )}
     </div>
   )

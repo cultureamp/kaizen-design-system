@@ -33,25 +33,42 @@ const handleKeyDown = (
   const buttons = buttonRefs.current
   if (!determineValidKeypress(e) || !buttons || buttons.length === 0) return
   const activeButton = buttons[buttonFocusIndex] as HTMLElement
+  console.log(buttonFocusIndex)
 
   // e.preDefault()
   if (e.key === "ArrowLeft") {
-    if (buttonFocusIndex === 0) {
-      setButtonFocusIndex(buttons.length - 1)
-    } else {
-      setButtonFocusIndex(buttonFocusIndex - 1)
-    }
-    buttons[buttonFocusIndex].tabIndex = 0
+    setFocusToPrevious(buttonFocusIndex, setButtonFocusIndex, buttons)
   } else {
-    if (buttonFocusIndex === buttons.length - 1) {
-      setButtonFocusIndex(0)
-    } else {
-      setButtonFocusIndex(buttonFocusIndex + 1)
-    }
-    buttons[buttonFocusIndex].tabIndex = 0
+    setFocusToNext(buttonFocusIndex, setButtonFocusIndex, buttons)
   }
-  buttons[buttonFocusIndex].focus()
-  console.log(activeButton)
+}
+
+const setFocusToPrevious = (currentButtonIndex, setCurrentIndex, buttons) => {
+  let newButton
+  // if is first set to last item to loop back around
+  if (currentButtonIndex === 0) {
+    newButton = buttons[buttons.length - 1]
+    setCurrentIndex(buttons.length - 1)
+  } else {
+    newButton = buttons[currentButtonIndex - 1]
+    setCurrentIndex(currentButtonIndex - 1)
+  }
+  newButton.tabIndex = 0
+  newButton.focus()
+}
+
+const setFocusToNext = (currentButtonIndex, setCurrentIndex, buttons) => {
+  let newButton
+  // if is first set to last item to loop back around
+  if (currentButtonIndex === buttons.length - 1) {
+    newButton = buttons[0]
+    setCurrentIndex(0)
+  } else {
+    newButton = buttons[currentButtonIndex + 1]
+    setCurrentIndex(currentButtonIndex + 1)
+  }
+  newButton.tabIndex = 0
+  newButton.focus()
 }
 
 export const Toolbar: React.VFC<ToolbarProps> = props => {
@@ -121,13 +138,4 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
       })}
     </div>
   )
-}
-
-const validateElement = (
-  element: React.ReactElement,
-  node: React.ReactNode
-) => {
-  if (!React.isValidElement(element)) {
-    return node
-  }
 }

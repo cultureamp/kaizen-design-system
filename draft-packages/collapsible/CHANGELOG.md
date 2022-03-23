@@ -3,6 +3,119 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.8.2...@kaizen/draft-collapsible@2.8.3) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.8.1...@kaizen/draft-collapsible@2.8.2) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.8.0...@kaizen/draft-collapsible@2.8.1) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.6...@kaizen/draft-collapsible@2.8.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.5...@kaizen/draft-collapsible@2.7.6) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.4...@kaizen/draft-collapsible@2.7.5) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.3...@kaizen/draft-collapsible@2.7.4) (2022-03-17)
+
+
+### Bug Fixes
+
+* **deps:** move `@kaizen/component-base` to deps instead of devDeps ([#2626](https://github.com/cultureamp/kaizen-design-system/issues/2626)) ([8475de9](https://github.com/cultureamp/kaizen-design-system/commit/8475de92f37c78035650f50e5a6d601abc510523))
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.2...@kaizen/draft-collapsible@2.7.3) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.1...@kaizen/draft-collapsible@2.7.2) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.7.0...@kaizen/draft-collapsible@2.7.1) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.10...@kaizen/draft-collapsible@2.7.0) (2022-03-16)
+
+
+### Features
+
+* add `component-base` package and extend Collapsible with HTML attributes and className override ([#2614](https://github.com/cultureamp/kaizen-design-system/issues/2614)) ([419e065](https://github.com/cultureamp/kaizen-design-system/commit/419e065c51d5cdc5b40fdf864b41ed2898913177))
+
+
+
+
+
+## [2.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.9...@kaizen/draft-collapsible@2.6.10) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.8...@kaizen/draft-collapsible@2.6.9) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [2.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.6.7...@kaizen/draft-collapsible@2.6.8) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

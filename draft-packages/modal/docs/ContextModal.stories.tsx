@@ -1,5 +1,5 @@
 import React from "react"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
@@ -87,7 +87,7 @@ export const ContextModals = args => (
           layout="portrait"
           image={
             <AddImage
-              classNameAndIHaveSpokenToDST={
+              classNameOverride={
                 args.layout === "landscape" ? styles.landscape : ""
               }
               alt="placeholder"

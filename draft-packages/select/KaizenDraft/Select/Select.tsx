@@ -5,6 +5,7 @@ import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { NamedProps as ReactSelectProps } from "react-select/src/Select"
 
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
@@ -20,6 +21,14 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
    * @default "default"
    */
   variant?: VariantType
+
+  status?: StatusType
+
+  label?: React.ReactNode
+
+  validationMessage?: React.ReactNode
+
+  description?: React.ReactNode
 
   /**
    * Use a reversed colour scheme
@@ -41,13 +50,22 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
 
 export type VariantType = "default" | "secondary" | "secondary-small"
 
+export type StatusType = "default" | "error"
+
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
       'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
-  const { variant = "default", reversed = false } = props
+  const {
+    variant = "default",
+    status = "default",
+    reversed = false,
+    label,
+    validationMessage,
+    description,
+  } = props
 
   // the default for fullWidth depends on the variant
   const fullWidth =
@@ -70,26 +88,35 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
     [styles.disabled]: props.isDisabled,
+    [styles.error]: status === "error",
   })
   return (
-    <ReactSelect
-      {...props}
-      ref={ref}
-      components={{
-        Control,
-        Placeholder,
-        DropdownIndicator,
-        Menu,
-        Option,
-        NoOptionsMessage,
-        SingleValue,
-        MultiValue,
-        IndicatorsContainer,
-        ClearIndicator,
-        IndicatorSeparator: null,
-      }}
-      className={classes}
-    />
+    <>
+      {label ? <Label>{label}</Label> : null}
+      <ReactSelect
+        {...props}
+        ref={ref}
+        components={{
+          Control,
+          Placeholder,
+          DropdownIndicator,
+          Menu,
+          Option,
+          NoOptionsMessage,
+          SingleValue,
+          MultiValue,
+          IndicatorsContainer,
+          ValueContainer,
+          ClearIndicator,
+          IndicatorSeparator: null,
+        }}
+        className={classes}
+      />
+      {validationMessage ? (
+        <FieldMessage message={validationMessage} status={status} />
+      ) : null}
+      {description ? <FieldMessage message={description} /> : null}
+    </>
   )
 })
 Select.displayName = "Select"
@@ -113,8 +140,10 @@ export const AsyncSelect = React.forwardRef(
         SingleValue,
         MultiValue,
         IndicatorsContainer,
+        ValueContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
+        LoadingMessage,
       }}
       className={classNames(styles.specificityIncreaser, props.className)}
     />
@@ -146,6 +175,10 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon icon={chevronDownIcon} role="presentation" />
   </components.DropdownIndicator>
+)
+
+const LoadingMessage: typeof components.LoadingMessage = props => (
+  <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
 const Menu: typeof components.Menu = props => (
@@ -194,6 +227,10 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
     {...props}
     className={styles.indicatorsContainer}
   />
+)
+
+const ValueContainer: typeof components.ValueContainer = props => (
+  <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>

@@ -17,13 +17,12 @@ export type CalendarProps = {
         }
       | undefined
   }
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   value?: Date
   initialMonth?: Date
   firstDayOfWeek: number
   disabledDays?: Modifier | Modifier[]
   onDayChange: (day: Date, modifiers: DayModifiers) => void
-  onKeyDown: (e: any) => void
 }
 
 export type CalendarNavProps = Pick<
@@ -35,13 +34,12 @@ export const Calendar: React.VFC<CalendarProps> = ({
   setPopperElement,
   styles,
   attributes,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   value,
   initialMonth,
   firstDayOfWeek,
   disabledDays,
   onDayChange,
-  onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -73,10 +71,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
-        className={classnames(
-          calendarStyles.calendar,
-          classNameAndIHaveSpokenToDST
-        )}
+        className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"
         aria-label={
@@ -91,7 +86,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
           onDayClick={onDayChange}
           navbarElement={getNavbar}
           classNames={defaultCalendarClasses}
-          onKeyDown={e => onKeyDown(e)}
         />
       </div>
     </div>

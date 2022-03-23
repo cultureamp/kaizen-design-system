@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Box, Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"

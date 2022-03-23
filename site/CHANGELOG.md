@@ -3,6 +3,201 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.124](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.123...site@0.0.0-private.124) (2022-03-23)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.123](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.122...site@0.0.0-private.123) (2022-03-23)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.122](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.121...site@0.0.0-private.122) (2022-03-22)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.121](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.120...site@0.0.0-private.121) (2022-03-22)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.120](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.119...site@0.0.0-private.120) (2022-03-21)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.119](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.118...site@0.0.0-private.119) (2022-03-18)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.118](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.117...site@0.0.0-private.118) (2022-03-18)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.117](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.116...site@0.0.0-private.117) (2022-03-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.116](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.115...site@0.0.0-private.116) (2022-03-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.115](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.114...site@0.0.0-private.115) (2022-03-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.114](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.113...site@0.0.0-private.114) (2022-03-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.113](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.112...site@0.0.0-private.113) (2022-03-17)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.112](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.111...site@0.0.0-private.112) (2022-03-16)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.111](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.110...site@0.0.0-private.111) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+# [0.0.0-private.110](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.109...site@0.0.0-private.110) (2022-03-16)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.109](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.108...site@0.0.0-private.109) (2022-03-16)
+
+
+### Features
+
+* Copy Heading and Typography components into new @kaizen/typography package ([#2612](https://github.com/cultureamp/kaizen-design-system/issues/2612)) ([48c6848](https://github.com/cultureamp/kaizen-design-system/commit/48c684850f73f96e6aa9fc0ea1f62cfd28374d73))
+
+
+
+
+
+# [0.0.0-private.108](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.107...site@0.0.0-private.108) (2022-03-15)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.107](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.106...site@0.0.0-private.107) (2022-03-11)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.106](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.105...site@0.0.0-private.106) (2022-03-10)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.105](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.104...site@0.0.0-private.105) (2022-03-10)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.104](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.103...site@0.0.0-private.104) (2022-03-09)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.103](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.102...site@0.0.0-private.103) (2022-03-09)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.102](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.101...site@0.0.0-private.102) (2022-03-07)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.101](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.100...site@0.0.0-private.101) (2022-03-07)
 
 **Note:** Version bump only for package site

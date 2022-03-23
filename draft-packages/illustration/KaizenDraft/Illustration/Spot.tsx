@@ -2,10 +2,9 @@ import * as React from "react"
 import { Base, BaseProps } from "./Base"
 import { AnimatedBase, AnimatedBaseProps } from "./Players/LottiePlayer"
 
-export type SpotProps = Pick<
-  BaseProps,
-  "alt" | "classNameAndIHaveSpokenToDST"
-> & { enableAspectRatio?: boolean }
+export type SpotProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
+  enableAspectRatio?: boolean
+}
 export type AnimatedSpotProps = SpotProps &
   AnimatedBaseProps & { isAnimated?: boolean }
 
