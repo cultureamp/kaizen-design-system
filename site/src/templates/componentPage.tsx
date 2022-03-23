@@ -30,6 +30,7 @@ const renderSidebarTabs = (pages, currentPath) =>
       key={`sidebarTab-${i}`}
     >
       {node!.node!.frontmatter!.navTitle}
+      {node.node.frontmatter.deprecated === true && " (deprecated)"}
     </SidebarTab>
   ))
 
@@ -76,7 +77,11 @@ export default ({ data, location }) => {
 
   const ComponentPageHeader = (
     <PageHeader
-      headingText={md.frontmatter.title}
+      headingText={
+        md.frontmatter.deprecated === true
+          ? `${md.frontmatter.title} (deprecated)`
+          : md.frontmatter.title
+      }
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
       headerImageName={md.frontmatter.headerImage}
@@ -126,6 +131,7 @@ export const query = graphql`
             slug
           }
           frontmatter {
+            deprecated
             navTitle
             title
           }
@@ -135,6 +141,7 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       body
       frontmatter {
+        deprecated
         title
         tags
         needToKnow
