@@ -21,6 +21,10 @@ export interface HeroCardProps
   leftBackgroundColor?: BackgroundColors
 }
 
+/**
+ * @deprecated HeroCard is deprecated.
+ * No further changes will be made to it as it will be superseded by Tile.
+ */
 export const HeroCard: React.VFC<HeroCardProps> = ({
   children,
   leftContent,
