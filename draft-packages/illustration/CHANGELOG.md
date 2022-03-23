@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.5...@kaizen/draft-illustration@4.1.0) (2022-03-23)
+
+
+### Features
+
+* fix EmptyState chromatic snapshots ([#2610](https://github.com/cultureamp/kaizen-design-system/issues/2610)) ([ef63f12](https://github.com/cultureamp/kaizen-design-system/commit/ef63f12c3c96cc64deb9abb385d6a36b9d0061f8))
+
+
+
+
+
 ## [4.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.4...@kaizen/draft-illustration@4.0.5) (2022-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
