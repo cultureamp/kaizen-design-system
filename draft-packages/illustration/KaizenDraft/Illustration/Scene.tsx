@@ -1,21 +1,27 @@
-import * as React from "react"
+import React from "react"
 import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
-import { SubsetBecomesNever } from "./types"
 
-export type SceneProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
+export interface SceneProps
+  extends Pick<BaseProps, "alt" | "classNameOverride"> {
   enableAspectRatio?: boolean
 }
-export type AnimatedProps = { isAnimated?: true } & Pick<
-  VideoPlayerProps,
-  "loop" | "autoplay"
-> &
-  SubsetBecomesNever<SceneProps, "alt"> & { enableAspectRatio?: boolean }
-type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
-  VideoPlayerProps,
-  "autoplay" | "loop"
-> &
-  SceneProps & { enableAspectRatio?: boolean }
+
+interface BaseAnimatedSceneProps
+  extends SceneProps,
+    Pick<VideoPlayerProps, "autoplay" | "loop"> {
+  isAnimated?: boolean
+}
+
+interface AnimatedProps extends Omit<BaseAnimatedSceneProps, "alt"> {
+  isAnimated: true
+  alt?: never
+}
+interface NotAnimatedProps extends BaseAnimatedSceneProps {
+  isAnimated?: false
+  autoplay?: never
+  loop?: never
+}
 
 export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
