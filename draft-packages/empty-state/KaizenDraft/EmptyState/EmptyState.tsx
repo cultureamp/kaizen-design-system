@@ -7,11 +7,11 @@ import {
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
-  AnimatedProps,
+  AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
-const ILLUSTRATIONS = {
+const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
   positive: EmptyStatesPositive,
   neutral: EmptyStatesNeutral,
   negative: EmptyStatesNegative,
@@ -30,7 +30,7 @@ type LayoutContextType = "sidebarAndContent" | "contentOnly"
 
 export interface EmptyStateProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
-    Pick<AnimatedProps, "isAnimated" | "loop"> {
+    Pick<AnimatedSceneProps, "isAnimated" | "loop"> {
   children?: React.ReactNode
   id?: string
   illustrationType?: IllustrationType
@@ -59,7 +59,8 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   classNameOverride,
   ...props
 }) => {
-  const animationProps = isAnimated ? { isAnimated, loop } : {}
+  const IllustrationComponent = ILLUSTRATIONS[illustrationType]
+
   return (
     <div
       className={classnames(classNameOverride, [
@@ -74,11 +75,18 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       {...props}
     >
       <div className={styles.illustrationSide}>
-        {React.createElement(ILLUSTRATIONS[illustrationType], {
-          alt: illustrationType,
-          classNameOverride: styles.illustration,
-          ...animationProps,
-        })}
+        {isAnimated ? (
+          <IllustrationComponent
+            isAnimated
+            loop={loop}
+            classNameOverride={styles.illustration}
+          />
+        ) : (
+          <IllustrationComponent
+            alt={illustrationType}
+            classNameOverride={styles.illustration}
+          />
+        )}
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
