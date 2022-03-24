@@ -34,6 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^13.2.2",
     "@cultureamp/rich-text-editor": "^0.3.4",
+    "@cultureamp/rich-text-toolkit": "^1.1.0",
     "classnames": "^2.3.1",
     "@kaizen/draft-form": "^4.0.0",
     "prosemirror-commands": "^1.1.12",
