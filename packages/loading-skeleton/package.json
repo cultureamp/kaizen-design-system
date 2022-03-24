@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-title-block-zen",
-  "version": "6.0.10",
-  "description": "The draft Title Block (Zen) component",
+  "name": "@kaizen/loading-skeleton",
+  "version": "1.1.0",
+  "description": "A collection of loading placeholders that display a non-interactive preview of the app’s actual UI",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/title-block-zen"
+    "directory": "packages/loading-skeleton"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -32,23 +32,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^13.2.2",
-    "@kaizen/draft-avatar": "^2.4.4",
-    "@kaizen/draft-badge": "^1.11.0",
-    "@kaizen/draft-button": "^5.6.21",
-    "@kaizen/draft-menu": "^4.5.23",
-    "@kaizen/draft-select": "^1.25.10",
-    "@kaizen/draft-tag": "^2.3.23",
-    "@kaizen/responsive": "^1.6.1",
-    "@kaizen/typography": "^2.1.0",
-    "@types/classnames": "^2.3.0",
+    "@kaizen/component-base": "^1.1.0",
     "classnames": "^2.3.1"
   },
-  "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
-  },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
+    "@types/classnames": "^2.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
