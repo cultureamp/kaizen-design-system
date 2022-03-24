@@ -2,8 +2,10 @@ import { MarkSpec, NodeSpec, Schema } from "prosemirror-model"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import { coreNodes } from "./coreNodes"
-import { coreMarks } from "./coreMarks"
+import {
+  nodes as coreNodes,
+  marks as coreMarks,
+} from "@cultureamp/rich-text-toolkit"
 
 export const nodes: NodeSpec = {
   doc: coreNodes.doc,
