@@ -17,49 +17,32 @@ export interface ToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const determineValidKeypress = (event: React.KeyboardEvent<HTMLElement>) => {
-  enum validKey {
-    left = "ArrowLeft",
-    right = "ArrowRight",
+  const validKeys = {
+    left: "ArrowLeft",
+    right: "ArrowRight",
   }
-  return Object.values(validKey).includes(event.key)
+  return Object.values(validKeys).includes(event.key)
 }
 
 const handleKeyDown = (
   e: React.KeyboardEvent<HTMLElement>,
   buttonIndex: number,
   buttonFocusIndex: number,
-  setFocusIndex: any,
-  toolbarButtons: any
+  setFocusIndex: React.Dispatch<React.SetStateAction<number>>,
+  toolbarButtons: React.MutableRefObject<any>
 ) => {
-  // const toolbarState = useContext(ToolbarContext)
   if (!determineValidKeypress(e)) return
   let newFocusIndex
   const lastButtonIndex = toolbarButtons.current.length - 1
-
-  console.log("current button index:", buttonIndex)
-  console.log("buttons:", toolbarButtons.current)
-
-  // e.preDefault()
   if (e.key === "ArrowLeft") {
     newFocusIndex = buttonIndex === 0 ? lastButtonIndex : buttonFocusIndex - 1
   } else {
     newFocusIndex = buttonIndex === lastButtonIndex ? 0 : buttonFocusIndex + 1
   }
 
-  console.log("new Index:", newFocusIndex)
-  console.log("Focusing on:", toolbarButtons.current[newFocusIndex])
-
   setFocusIndex(newFocusIndex)
   toolbarButtons.current[newFocusIndex].focus()
 }
-
-interface ToolbarContextProps {
-  focusIndex: number
-}
-
-// const ToolbarContext = React.createContext<ToolbarContextProps>({
-//   focusIndex: 0,
-// })
 
 export const Toolbar: React.VFC<ToolbarProps> = props => {
   const { children: toolbarChildren, ...toolbarProps } = props
@@ -68,13 +51,7 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
   let buttonCount: number = 0
 
   return (
-    // <ToolbarContext.Provider value={{ focusIndex: buttonFocusIndex }}>
-    <div
-      className={styles.toolbar}
-      role="toolbar"
-      tabIndex={0}
-      {...toolbarProps}
-    >
+    <div className={styles.toolbar} role="toolbar" {...toolbarProps}>
       {React.Children.map(toolbarChildren, (toolbarSection, sectionIndex) => {
         if (!React.isValidElement(toolbarSection)) {
           return toolbarChildren
@@ -102,14 +79,16 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
                   id={`rte-button-${buttonIndex}`}
                   key={`rte-button-${buttonIndex}`}
                   tabIndex={buttonIndex === buttonFocusIndex ? 0 : -1}
-                  onKeyDown={e =>
-                    handleKeyDown(
-                      e,
-                      buttonIndex,
-                      buttonFocusIndex,
-                      setButtonFocusIndex,
-                      toolbarButtonsRef
-                    )
+                  onKeyDown={
+                    e =>
+                      handleKeyDown(
+                        e,
+                        buttonIndex,
+                        buttonFocusIndex,
+                        setButtonFocusIndex,
+                        toolbarButtonsRef
+                      )
+                    // may need to take toolbarButton.props.onKeyDown
                   }
                   ref={(ref: React.RefObject<React.ReactNode | undefined>) =>
                     (toolbarButtonsRef.current[buttonIndex] = ref)
@@ -121,6 +100,5 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
         )
       })}
     </div>
-    // </ToolbarContext.Provider>
   )
 }
