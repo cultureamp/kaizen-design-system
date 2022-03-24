@@ -55,7 +55,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         Amp’s teams rapidly create a world-class experience.
       </Paragraph>
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Paragraph Inline">
+    <StoryWrapper.Row rowTitle="Paragraph - inline, width 30%">
       <div>
         <LoadingParagraph isInline width={30} isReversed={isReversed} />
         <LoadingParagraph isInline width={30} isReversed={isReversed} />
