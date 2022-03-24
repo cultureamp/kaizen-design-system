@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Heading } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { LoadingHeading } from "../src/LoadingSkeleton"
 import { figmaEmbed } from "../../../storybook/helpers"

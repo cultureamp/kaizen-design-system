@@ -34,8 +34,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
       "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
   }
+
   const GUIDANCE_BLOCK_LOADING = {
-    title: (<LoadingHeading variant="heading-3" />) as unknown as string,
+    title: (<LoadingHeading variant="heading-3" />) as any,
     description: (
       <div>
         <LoadingParagraph />
@@ -43,11 +44,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </div>
     ),
   }
+
   const GUIDANCE_BLOCK_ACTION = {
     primary: {
       label: "Action",
     },
   }
+
   return (
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
