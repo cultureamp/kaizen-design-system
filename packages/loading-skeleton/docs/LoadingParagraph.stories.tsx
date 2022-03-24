@@ -8,7 +8,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Paragraph`,
   component: LoadingParagraph,
   parameters: {
     chromatic: { disable: false },
@@ -54,6 +54,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         for our UX guidelines, design assets, and front-end code to help Culture
         Amp’s teams rapidly create a world-class experience.
       </Paragraph>
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Paragraph Inline">
+      <div>
+        <LoadingParagraph isInline width={30} isReversed={isReversed} />
+        <LoadingParagraph isInline width={30} isReversed={isReversed} />
+        <LoadingParagraph isInline width={30} isReversed={isReversed} />
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+        <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
+          Kaizen is Culture Amp’s design system.
+        </Paragraph>
+        <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
+          Kaizen is Culture Amp’s design system.
+        </Paragraph>
+        <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
+          Kaizen is Culture Amp’s design system.
+        </Paragraph>
+      </div>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
