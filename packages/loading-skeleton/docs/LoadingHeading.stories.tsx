@@ -26,6 +26,7 @@ export default {
 
 export const DefaultLoadingHeading = args => <LoadingHeading {...args} />
 DefaultLoadingHeading.storyName = "Loading Heading"
+DefaultLoadingHeading.args = { variant: "heading-1" }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
