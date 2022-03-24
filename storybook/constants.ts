@@ -15,4 +15,5 @@ export const SUB_CATEGORIES = {
   typography: "Typography",
   responsive: "Responsive",
   richTextEditor: "Rich Text Editor",
+  loadingSkeleton: "Loading Skeleton",
 }
