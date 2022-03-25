@@ -1,7 +1,10 @@
 import { EditorState } from "prosemirror-state"
 import { MarkType } from "prosemirror-model"
 import { ReactElement } from "react"
-import { markContainsSelection, markIsActive } from "../commands/marks"
+import {
+  markContainsSelection,
+  markIsActive,
+} from "@cultureamp/rich-text-toolkit"
 
 type RenderProps = {
   active: boolean

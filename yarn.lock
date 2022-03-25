@@ -2257,10 +2257,10 @@
     prosemirror-transform "^1.3.3"
     prosemirror-view "^1.23.3"
 
-"@cultureamp/rich-text-toolkit@^1.1.0":
-  version "1.1.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.1.0/b85522e8ac6fe32bee3c531ff8cee977fe7f921b3d85c5576fe9211a424f75c7#77e973199e6a37c7414a901969188e5c08f618e7"
-  integrity sha512-KBCpNpJH2N0D4J/bSUzvLhhLu/ISdCr0MH8W8+fZU43cjeW3NjTKSFUOWt7qIRqTI0cDzO5m+vKNTpLT2o1DdA==
+"@cultureamp/rich-text-toolkit@^1.2.1":
+  version "1.2.1"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.2.1/084929afbbc3a5070e2476a6baccc14f8eb8138efa2bea9a0b615a75c0a82b02#895897f4597bb84102aa5f4d7341db0bc585cd07"
+  integrity sha512-NP6b/rpXNgXQkUYIVyl9nucdIPBgh4s0WVdhfWHZAItbwf4hsvsBJma/XA0SKGvDO1QeFpv8n5xVBPpit/UM6w==
   dependencies:
     prosemirror-commands "^1.2.1"
     prosemirror-history "^1.2.0"

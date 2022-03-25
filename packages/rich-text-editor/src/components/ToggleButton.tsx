@@ -1,9 +1,11 @@
 import React from "react"
 import { EditorState } from "prosemirror-state"
 import { MarkType } from "prosemirror-model"
-// import { CommandOrTransaction } from "@cultureamp/rich-text-editor"
-import { addMark } from "../commands/addMark"
-import { removeMark } from "../commands/removeMark"
+import {
+  addMark,
+  removeMark,
+  CommandOrTransaction,
+} from "@cultureamp/rich-text-toolkit"
 import { CheckableIconButton } from "./CheckableIconButton"
 import { EditorMarkButton } from "./EditorMarkButton"
 
