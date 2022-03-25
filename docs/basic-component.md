@@ -118,7 +118,7 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
   hasOptionalBooleanProp = false,
   onCustomFunction,
   classNameOverride,
-  ...props
+  ...restProps
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
@@ -130,11 +130,13 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
   return (
     <div
-      className={classnames(styles.pancakeStack, classNameOverride, {
-        [styles.someClass]: isBooleanProp,
-      })}
+      className={classnames([
+        styles.pancakeStack,
+        classNameOverride,
+        isBooleanProp && styles.someClass,
+      ])}
       onSomething={handleCustomFunction}
-      {...props}
+      {...restProps}
     >
       {children}
       {doSomething(hasOptionalBooleanProp) && <SubComponent />}
@@ -165,7 +167,7 @@ export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTML
 - Use our custom type `OverrideClassName` to replace `className` with the alias `classNameOverride`
   - The alias allows us to easier track usage (as ideally teams should not need to use this) and allows us to not be a bottleneck if the component does not meet their needs in the interim
   - Previously `classNameAndIHaveSpokenToDST`
-- Extend the native attributes of the closest HTML element of your component (eg. `<section>` will use `<div>` attributes)
+- Extend the native attributes of the HTML element of your component
 
 ```tsx
 // Extending <section>
@@ -184,7 +186,7 @@ export type ButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonEleme
 ```tsx
 export interface NewComponentProps extends PancakeStackProps {}
 
-export const NewComponent: React.VFC<NewComponentProps> = ({ ...props }) => <PancakeStack {...props} />
+export const NewComponent: React.VFC<NewComponentProps> = props => <PancakeStack {...props} />
 ```
 
 - Declare the `children` prop if you require it
@@ -218,7 +220,7 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
   hasOptionalBooleanProp = false,
   onCustomFunction,
   classNameOverride,
-  ...props
+  ...restProps
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
@@ -230,11 +232,13 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
   return (
     <div
-      className={classnames(styles.pancakeStack, classNameOverride, {
-        [styles.someClass]: isBooleanProp,
-      })}
+      className={classnames([
+        styles.pancakeStack,
+        classNameOverride,
+        isBooleanProp && styles.someClass,
+      ])}
       onSomething={handleCustomFunction}
-      {...props}
+      {...restProps}
     >
       {children}
       {doSomething(hasOptionalBooleanProp) && <SubComponent />}

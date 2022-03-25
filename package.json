@@ -22,7 +22,8 @@
     "clean": "lerna run clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
-    "commit": "cz"
+    "commit": "cz",
+    "plop": "plop"
   },
   "dependencies": {
     "@storybook/addons": "^6.5.9",

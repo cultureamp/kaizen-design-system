@@ -91,8 +91,12 @@ The base package.json will look like this, where:
   "author": "",
   "private": false,
   "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-base": "^1.1.0",
+    "classnames": "^2.3.1"
+  },
   "devDependencies": {
-    "@kaizen/component-base": "^1.0.0"
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
