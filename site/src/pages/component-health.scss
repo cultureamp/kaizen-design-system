@@ -88,3 +88,31 @@
     color: $color-red-600;
   }
 }
+
+.deprecatedHeader td {
+  background-color: $color-red-100;
+}
+
+.deprecatedComponent td {
+  background-color: $color-gray-200;
+  text-align: left;
+}
+
+.deprecatedComponent .componentTitle {
+  background-color: $color-white;
+}
+
+.deprecatedComponent_info {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+}
+
+.deprecatedComponent_date {
+  white-space: nowrap;
+}
+
+.deprecatedComponent_message {
+}

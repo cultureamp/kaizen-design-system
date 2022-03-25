@@ -30,6 +30,10 @@ export default ({ data, location }) => {
     healthAttributeMap
   )
 
+  const deprecatedComponents = componentsSorted.filter(
+    component => component.node?.frontmatter.deprecated === true
+  )
+
   return (
     <Layout
       pageTitle="Component health"
@@ -89,6 +93,35 @@ export default ({ data, location }) => {
                   })}
                 </tr>
               ))}
+              <tr className={styles.deprecatedHeader}>
+                <td colSpan={9}>
+                  <Heading variant="heading-4">
+                    ⛔️ Deprecated components
+                  </Heading>
+                  <Paragraph variant="body" tag="span">
+                    The following components have been deprecated and will
+                    eventually be removed. Please refer to the alternative
+                    approach listed.
+                  </Paragraph>
+                </td>
+              </tr>
+              {deprecatedComponents.map(component => (
+                <tr className={styles.deprecatedComponent}>
+                  <td className={styles.componentTitle}>
+                    <Paragraph variant="body" tag="span">
+                      {component.node.frontmatter.title}
+                    </Paragraph>
+                  </td>
+                  <td colSpan={6}>
+                    {component.node.frontmatter.deprecationMessage}
+                  </td>
+                  <td colSpan={2}>
+                    Removal:
+                    <br />
+                    {component.node.frontmatter.deprecationDate}
+                  </td>
+                </tr>
+              ))}
             </tbody>
             <tfoot>
               <tr>
@@ -128,6 +161,8 @@ export const query = graphql`
         node {
           frontmatter {
             deprecated
+            deprecationDate
+            deprecationMessage
             navTitle
             title
             health {
