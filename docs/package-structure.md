@@ -2,6 +2,7 @@
 
 Recipe for creating a new package.
 
+- [Intro](#intro)
 - [Package structure](#package-structure)
   - [Documentation](#documentation)
   - [Components](#components)
@@ -9,6 +10,18 @@ Recipe for creating a new package.
   - [index.ts](#indexts)
   - [package.json](#packagejson)
   - [tsconfig.dist.json](#tsconfigdistjson)
+
+## Intro
+
+To generate a new component and package, new component within an existing package, or a subcomponent,
+run the following command and follow the prompts:
+```
+yarn plop
+```
+or run the following command to answer the name prop (replace `NewComponentName` with your component name):
+```
+yarn plop NewComponentName
+```
 
 ## Package structure
 
@@ -21,7 +34,7 @@ packages/
     docs/
       - PancakeStack.stories.tsx
     src/
-      (...see Component structure below)
+      (...see Components section below)
     - CHANGELOG.md
     - index.ts
     - package.json
