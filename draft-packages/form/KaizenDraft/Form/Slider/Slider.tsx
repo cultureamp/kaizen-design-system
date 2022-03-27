@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode } from "react"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import classnames from "classnames"
 import { FieldGroup, Label, InputRange } from ".."
 import styles from "./styles.scss"

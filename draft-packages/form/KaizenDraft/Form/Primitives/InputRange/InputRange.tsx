@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import classnames from "classnames"
 import styles from "./styles.scss"
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.4...@kaizen/draft-divider@1.10.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
 ## [1.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.3...@kaizen/draft-divider@1.9.4) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/draft-divider

@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.1...@kaizen/component-library@13.2.2) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.0...@kaizen/component-library@13.2.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [13.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.2...@kaizen/component-library@13.2.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+## [13.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.1...@kaizen/component-library@13.1.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.0...@kaizen/component-library@13.1.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [13.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.0.0...@kaizen/component-library@13.1.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
 # [13.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.7.1...@kaizen/component-library@13.0.0) (2022-03-16)
 
 

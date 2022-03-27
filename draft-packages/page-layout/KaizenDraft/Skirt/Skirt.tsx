@@ -1,6 +1,6 @@
-import * as React from "react"
+import React from "react"
 import classNames from "classnames"
-import { Container, Content } from "../../"
+import { Container, Content, ContentProps } from "../../"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
 import styles from "./styles.scss"
 
@@ -10,19 +10,24 @@ const fallbackPercentage = 0.8
 
 type Variant = "default" | "education"
 
-type SkirtProps = {
+export interface SkirtProps extends ContentProps {
   children: React.ReactNode
+  /**
+   * **Deprecated:** Use `classNameOverride` instead.
+   */
   className?: string
   variant?: Variant
   titleBlockHasNavigation?: boolean
 }
 
-export const Skirt = ({
+export const Skirt: React.VFC<SkirtProps> = ({
   children,
   className,
   variant = "default",
   titleBlockHasNavigation = true,
-}: SkirtProps) => {
+  classNameOverride,
+  ...restProps
+}) => {
   const [ref, skirtHeight] = useResizeObserver<number, HTMLDivElement>(
     entry => {
       if (entry.contentRect) {
@@ -35,7 +40,12 @@ export const Skirt = ({
   return (
     <Container
       ref={ref}
-      classNameOverride={classNames(styles.container, className)}
+      classNameOverride={classNames(
+        styles.container,
+        className,
+        classNameOverride
+      )}
+      {...restProps}
     >
       <div
         style={{ ...(skirtHeight && { height: `${skirtHeight}px` }) }}
@@ -48,6 +58,8 @@ export const Skirt = ({
     </Container>
   )
 }
+
+Skirt.displayName = "Skirt"
 
 const deriveSkirtHeight = (
   rect: DOMRectReadOnly,

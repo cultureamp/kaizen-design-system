@@ -1,16 +1,18 @@
-import * as React from "react"
-import cx from "classnames"
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Avatar, GenericAvatarProps, CompanyAvatarProps } from "./Avatar"
 import styles from "./AvatarGroup.module.scss"
 
-export type AvatarProps =
+export type AvatarGroupAvatarProps =
   | Omit<GenericAvatarProps, "size">
   | Omit<CompanyAvatarProps, "size">
 
 export type AvatarGroupSize = "small" | "medium" | "large"
-export type AvatarList = [AvatarProps, ...AvatarProps[]]
+export type AvatarList = [AvatarGroupAvatarProps, ...AvatarGroupAvatarProps[]]
 
-export interface AvatarGroupProps {
+export interface AvatarGroupProps
+  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
   /**
    * There are 3 fixed sizes available. `"small"` will remove border and box shadow to save space.
    * @default "medium"
@@ -23,7 +25,7 @@ export interface AvatarGroupProps {
   maxVisible: 2 | 3 | 4 | 5 | 6
   /**
    * Takes a array of `AvatarProps` that must have at least item.
-   * Note that 'size' is ommited from the `AvatarProps` type so it will throw a type error if size is provided.
+   * Note that 'size' is omitted from the `AvatarProps` type so it will throw a type error if size is provided.
    * */
   avatars: AvatarList
 }
@@ -64,14 +66,17 @@ const renderAvatars = (
   </>
 )
 
-export const AvatarGroup = ({
+export const AvatarGroup: React.VFC<AvatarGroupProps> = ({
   size = "medium",
   maxVisible = 2,
   avatars,
-}: AvatarGroupProps) => (
+  classNameOverride,
+  ...restProps
+}) => (
   <ul
-    className={cx(styles.AvatarGroup, styles[size])}
+    className={classnames(styles.AvatarGroup, styles[size], classNameOverride)}
     aria-label="Avatar Group"
+    {...restProps}
   >
     {renderAvatars(avatars, maxVisible, size)}
   </ul>

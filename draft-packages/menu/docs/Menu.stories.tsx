@@ -1,4 +1,5 @@
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"

@@ -1,4 +1,5 @@
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import { BrandMomentError } from "@kaizen/draft-illustration"

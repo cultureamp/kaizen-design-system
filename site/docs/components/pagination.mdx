@@ -4,7 +4,7 @@ navTitle: Pagination
 summaryParagraph: Pagination separates large bodies of content into separate pages. You can access each page via a shared index of links.
 tags: ["Pages"]
 needToKnow:
-  - Perform usability testing to decide where to split content into pages (that is, how much content to show per page).
+
 demoStoryId: components-pagination--default
 health:
   designed: true
@@ -21,10 +21,19 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
-## To keep in mind
-
+## Visuals
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D2218%253A16221" allowfullscreen></iframe>
 
+## To keep in mind
+
+- **Medium variant:**
+    - Used when there are 4 or less pages.
+    - Allow users to navigate to the previous and next set of items in a page list.
+    - Does not include “Start” and “End” links.
+- **Large variant:**
+    - Used when there are 5 or more pages.
+    - A non-interactive ellipsis is used to truncate pages. Truncation can exist between the first and last pages.
+    - By default “Start” and “End” links are included as bookends to help the user navigate to the first and last page. These can be optionally removed.
 - Position Pagination centered at the bottom of a long list of content that has been split up into pages.
 - Let people navigate to the Previous and Next set of items in the paged list.
 - Indicate to users when they are on the first or last page by disabling the Previous or Next link.
@@ -47,7 +56,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 - Use Pagination when the first page is enough to make a decision.
 - Use Pagination when loading all the content at once would not be possible technically or not be performant. If it takes more than 10 seconds to load all the content, paginate.
 - Use Pagination when keeping your place is important or you want to bookmark a specific page.
-- Use Pagination when there's lot of screen real estate.
+- Use Pagination when there's a lot of screen real estate.
 - Consider using pagination when a list contains more than 50 items of a single line of text each.
 
 </WhenToUse>

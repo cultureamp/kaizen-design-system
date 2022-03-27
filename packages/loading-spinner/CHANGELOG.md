@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.1.0...@kaizen/loading-spinner@2.1.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/loading-spinner
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.0.2...@kaizen/loading-spinner@2.1.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
 ## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.0.1...@kaizen/loading-spinner@2.0.2) (2022-03-01)
 
 **Note:** Version bump only for package @kaizen/loading-spinner

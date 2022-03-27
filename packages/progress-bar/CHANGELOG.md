@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.4.2...@kaizen/progress-bar@1.4.3) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.4.1...@kaizen/progress-bar@1.4.2) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.4.0...@kaizen/progress-bar@1.4.1) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.18...@kaizen/progress-bar@1.4.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 3) ([#2629](https://github.com/cultureamp/kaizen-design-system/issues/2629)) ([4a549ec](https://github.com/cultureamp/kaizen-design-system/commit/4a549ecb4f253d0c7a7066dab66010347690dc18))
+
+
+
+
+
+## [1.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.17...@kaizen/progress-bar@1.3.18) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.3.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.16...@kaizen/progress-bar@1.3.17) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [1.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.15...@kaizen/progress-bar@1.3.16) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
 ## [1.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@1.3.14...@kaizen/progress-bar@1.3.15) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/progress-bar

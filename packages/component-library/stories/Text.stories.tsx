@@ -6,11 +6,11 @@ export default {
   title: `${CATEGORIES.deprecated}/Text`,
   component: Text,
   parameters: {
-    info: {
-      text: `
-        # Deprecated
-        This component is now deprecated. Please use Heading or Paragraph instead.
-      `,
+    docs: {
+      description: {
+        component:
+          "⛔️ This component is deprecated. Use the `@kaizen/typography` package instead.",
+      },
     },
   },
 }

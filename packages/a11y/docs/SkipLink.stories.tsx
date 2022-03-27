@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import {
   Title,
   Subtitle,

@@ -1,8 +1,7 @@
-import { MenuItem, MenuList } from "@kaizen/component-library"
-
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
-import SplitButton, { SplitButtonProps } from "./SplitButton"
+import { MenuItem, MenuList } from "@kaizen/component-library"
+import { SplitButton, SplitButtonProps } from "./SplitButton"
 const editIcon = require("../../../icons/edit.icon.svg")
 const duplicateIcon = require("../../../icons/duplicate.icon.svg")
 
