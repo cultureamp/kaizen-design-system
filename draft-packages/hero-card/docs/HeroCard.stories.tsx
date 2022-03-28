@@ -24,12 +24,13 @@ const renderContent = () => (
 )
 
 export default {
-  title: `${CATEGORIES.components}/Hero Card`,
+  title: `${CATEGORIES.deprecated}/Hero Card`,
   component: HeroCard,
   parameters: {
     docs: {
       description: {
-        docs: 'import { HeroCard } from "@kaizen/draft-hero-card";',
+        component:
+          '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `Tile`.<br/><br/>`import { HeroCard } from "@kaizen/draft-hero-card"`',
       },
     },
     ...figmaEmbed(
