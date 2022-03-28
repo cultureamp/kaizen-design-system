@@ -1,13 +1,14 @@
-import React, { Children, useState, useContext, useRef, ReactNode } from "react"
-import classnames from "classnames"
+import React from "react"
+import classNames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { ToolbarSectionProps } from "../ToolbarSection"
-import { ToolbarItem, ToolbarItemProps } from "../ToolbarItem"
 import styles from "./Toolbar.scss"
 
-export interface ToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToolbarProps
+  extends OverrideClassName<React.HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /*
-   * Connect the Toolbar with the editable content area though its ID
+   * Connect the Toolbar with the editable content area through its ID
    */
   "aria-controls": string
   /*
@@ -45,13 +46,21 @@ const handleKeyDown = (
 }
 
 export const Toolbar: React.VFC<ToolbarProps> = props => {
-  const { children: toolbarChildren, ...toolbarProps } = props
-  const [buttonFocusIndex, setButtonFocusIndex] = useState<number>(0)
+  const {
+    children: toolbarChildren,
+    classNameOverride,
+    ...toolbarProps
+  } = props
+  const [buttonFocusIndex, setButtonFocusIndex] = React.useState<number>(0)
   const toolbarButtonsRef = React.useRef<React.ReactNode[]>([])
   let buttonCount: number = 0
 
   return (
-    <div className={styles.toolbar} role="toolbar" {...toolbarProps}>
+    <div
+      className={classNames(styles.toolbar, classNameOverride)}
+      role="toolbar"
+      {...toolbarProps}
+    >
       {React.Children.map(toolbarChildren, (toolbarSection, sectionIndex) => {
         if (!React.isValidElement(toolbarSection)) {
           return toolbarChildren

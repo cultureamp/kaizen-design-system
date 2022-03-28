@@ -8,13 +8,7 @@ import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import {
-  ToggleIconButton,
-  Toolbar,
-  ToolbarProps,
-  ToolbarSection,
-  ToolbarItem,
-} from "../"
+import { ToggleIconButton, Toolbar, ToolbarProps, ToolbarSection } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Toolbar`,
@@ -39,8 +33,6 @@ export const DefaultStory = (args: ToolbarProps) => (
   <Toolbar {...args}>
     <ToolbarSection>
       <ToggleIconButton label="Bold" icon={boldIcon} />
-    </ToolbarSection>
-    <ToolbarSection>
       <ToggleIconButton label="Italic" icon={italicIcon} />
       <ToggleIconButton label="Underline" icon={underlineIcon} />
     </ToolbarSection>
