@@ -25,11 +25,17 @@ interface DatePickerProps {
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
 
-  // TODO
+  /** Selected date range which is being updated in handleDayClick and checked
+   * if within range/not disabled and then passed back to the client to update
+   * the state.
+   */
   selectedDateRange?: RangeModifier
 
-  // TODO
+  /** String that is formatted by the client with our helper formatDateRangeValue
+   * and then passed into the button to display the readable range.
+   */
   value?: string
+
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
