@@ -2,10 +2,11 @@ import React from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./ToggleIconButton.scss"
 
 export interface ToggleIconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
   /*
@@ -16,14 +17,20 @@ export interface ToggleIconButtonProps
 
 export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
   React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
-    const { icon, label, isActive = false, ...nativeButtonProps } = props
+    const {
+      icon,
+      label,
+      isActive = false,
+      classNameOverride,
+      ...nativeButtonProps
+    } = props
     return (
       <Tooltip text={label} display="inline-block">
         <button
           ref={ref}
           aria-pressed={isActive}
           aria-label={label}
-          className={classnames(styles.button, {
+          className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
           })}
           {...nativeButtonProps}
