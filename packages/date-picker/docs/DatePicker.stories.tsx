@@ -23,7 +23,7 @@ export default {
   },
 }
 
-export const DefaultStory = props => {
+export const DatePickerStoryDefault = props => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
 
   const onDayChange = (day: Date) => {
@@ -49,9 +49,9 @@ export const DefaultStory = props => {
     </>
   )
 }
-DefaultStory.storyName = "Default (Kaizen Demo)"
+DatePickerStoryDefault.storyName = "Date Picker"
 
-export const DateRangePickerStory = props => {
+const DateRangePickerTemplate: Story = props => {
   const [selectedDateRange, setSelectedDateRange] = useState<RangeModifier>({
     from: undefined,
     to: undefined,
@@ -81,7 +81,57 @@ export const DateRangePickerStory = props => {
     </>
   )
 }
-DateRangePickerStory.storyName = "DateRangePicker"
+
+export const DateRangePickerStoryDefault = props => (
+  <DateRangePickerTemplate {...props} />
+)
+DateRangePickerStoryDefault.storyName = "Date Range Picker"
+
+const CalendarRangeTemplate: Story = props => {
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+  const selectedDateRange = {
+    from: undefined,
+    to: undefined,
+  }
+
+  const modifiers: RangeModifier = {
+    from: selectedDateRange?.from,
+    to: selectedDateRange?.to,
+  }
+
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLDivElement | null>(null)
+
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 15],
+        },
+      },
+    ],
+    placement: "bottom-start",
+  })
+  return (
+    <div ref={setReferenceElement}>
+      <Calendar
+        setPopperElement={setPopperElement}
+        styles={styles}
+        attributes={attributes}
+        firstDayOfWeek={0}
+        onDayChange={e => e}
+        initialMonth={new Date(2022, 2)}
+        range
+        selectedRange={selectedDateRange}
+        modifiers={modifiers}
+        {...props}
+      />
+    </div>
+  )
+}
 
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -118,7 +168,7 @@ const CalendarTemplate: Story = props => {
   )
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>()
@@ -133,7 +183,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Default", "Selected Value", "Disabled"]}
         />
-        <StoryWrapper.Row rowTitle="Input">
+        <StoryWrapper.Row rowTitle="Date Picker Input">
           <DatePicker
             id="datepicker-input-default"
             labelText="Label"
@@ -159,7 +209,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Selected Date", "Focused Date", "Disabled Dates"]}
         />
-        <StoryWrapper.Row rowTitle="Calendar">
+        <StoryWrapper.Row rowTitle="Date Picker Calendar">
           <CalendarTemplate value={new Date(2022, 1, 5)} />
           <CalendarTemplate
             value={new Date(2022, 0, 5)}
@@ -177,13 +227,67 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
-StickerSheetDefault.play = async ({ canvasElement }) => {
+const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const selectedDateRange = {
+    from: new Date(2022, 2, 6),
+    to: new Date(2022, 2, 16),
+  }
+
+  const modifiers: RangeModifier = {
+    from: selectedDateRange?.from,
+    to: selectedDateRange?.to,
+  }
+
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Default", "Selected Value", "Disabled"]}
+        />
+        <StoryWrapper.Row rowTitle="Date Range Picker Input">
+          <DateRangePickerTemplate />
+          <DateRangePickerTemplate
+            selectedDateRange={selectedDateRange}
+            value="Mar 6 – Mar 2, 2022"
+          />
+          <DateRangePickerTemplate isDisabled />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Selected Range Dates", "Disabled Dates"]}
+        />
+        <StoryWrapper.Row rowTitle="Date Range Calendar">
+          <CalendarRangeTemplate
+            modifiers={modifiers}
+            selectedRange={selectedDateRange}
+          />
+          <CalendarRangeTemplate
+            disabledDays={[
+              new Date(2022, 1, 15),
+              { after: new Date(2022, 1, 17) },
+            ]}
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </>
+  )
+}
+
+export const DatePickerStickerSheet = DatePickerStickerSheetTemplate.bind({})
+DatePickerStickerSheet.storyName = "Sticker Sheet (Date Picker)"
+DatePickerStickerSheet.parameters = { chromatic: { disable: false } }
+DatePickerStickerSheet.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
   await userEvent.click(focusedDate, undefined, {
     skipPointerEventsCheck: true,
   })
 }
+
+export const DateRangePickerStickerSheet =
+  DateRangePickerStickerSheetTemplate.bind({})
+DateRangePickerStickerSheet.storyName = "Sticker Sheet (Date Range Picker)"
+DateRangePickerStickerSheet.parameters = { chromatic: { disable: false } }
