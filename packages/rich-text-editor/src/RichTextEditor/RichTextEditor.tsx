@@ -4,7 +4,7 @@ import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { EditorState } from "prosemirror-state"
-import { Node } from "prosemirror-model"
+import { Node, Schema } from "prosemirror-model"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
 import { buildKeymap, useRichTextEditor } from "@cultureamp/rich-text-toolkit"
@@ -22,8 +22,8 @@ export interface RichTextEditorProps
 
 export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   const { onChange, value, labelText, classNameOverride, ...restProps } = props
-  const labelId = v4()
-  const [schema] = useState(createSchemaFromControls([]))
+  const [schema] = useState<Schema>(createSchemaFromControls([]))
+  const [labelId] = useState<string>(v4())
   const [editorRef, editorState] = useRichTextEditor(
     EditorState.create({
       doc: value

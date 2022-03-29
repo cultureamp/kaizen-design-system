@@ -17,14 +17,13 @@ export default {
 export const Default = () => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
   return (
-    <div>
+    <>
       <RichTextEditor
-        id="simple-rich-text-editor"
         labelText="Label"
         value={rteData}
         onChange={data => setRTEData(data)}
       />
-    </div>
+    </>
   )
 }
 Default.storyName = "Default (Kaizen Demo)"
