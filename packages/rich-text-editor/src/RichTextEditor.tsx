@@ -3,11 +3,22 @@ import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
-import { buildKeymap, useRichTextEditor } from "@cultureamp/rich-text-toolkit"
+import {
+  buildKeymap,
+  useRichTextEditor,
+  markIsActive,
+  markContainsSelection,
+  removeMark,
+  addMark,
+} from "@cultureamp/rich-text-toolkit"
+import {
+  Toolbar,
+  ToolbarSection,
+  ToggleIconButton,
+} from "@kaizen/rich-text-editor"
 import { EditorContentArray } from "./types"
 import { createSchemaFromControls } from "./schema"
 import { createInitialState, createDocFromContent } from "./state"
-import { Toolbar } from "./components/Toolbar"
 import styles from "./RichTextEditor.scss"
 
 type ToolbarControls = "strong" | "em" | "underline"
@@ -39,10 +50,10 @@ export const RichTextEditor = (props: RichTextEditorProps) => {
           ...buildKeymap(schema),
         }),
       ]
-    )
-    // {
-    //   "aria-labelledby": props.id,
-    // }
+    ),
+    {
+      "aria-labelledby": props.id,
+    }
   )
 
   useEffect(() => {
@@ -54,15 +65,26 @@ export const RichTextEditor = (props: RichTextEditorProps) => {
     <>
       <Label id={props.id} labelText={props.labelText} />
       <div className={styles.editorComponent} ref={componentRef}>
-        <div className={styles.toolbar}>
-          <Toolbar
-            marks={marksFromControls}
-            dispatchTransaction={dispatchTransaction}
-            editorState={editorState}
-            componentRef={componentRef}
-          />
-        </div>
-        <div ref={editorRef} className={styles.editor} />
+        <Toolbar aria-controls="toolbar-ref-id" aria-label="Test Toolbar">
+          {marksFromControls.map((controlSection, sectionIndex) => (
+            <ToolbarSection key={sectionIndex}>
+              {controlSection.map((mark, markIndex) => {
+                const isActive = markIsActive(editorState, mark) || false
+                const action = !isActive ? addMark(mark) : removeMark(mark)
+                return (
+                  <ToggleIconButton
+                    key={markIndex}
+                    icon={mark.spec.control.icon}
+                    label={mark.spec.control.label}
+                    isActive={isActive}
+                    onClick={() => dispatchTransaction(action)}
+                  />
+                )
+              })}
+            </ToolbarSection>
+          ))}
+        </Toolbar>
+        <div id="toolbar-ref-id" ref={editorRef} className={styles.editor} />
       </div>
     </>
   )

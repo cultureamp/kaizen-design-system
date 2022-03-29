@@ -1,5 +1,8 @@
 import React, { useState } from "react"
-import { RichTextEditor, EditorContentArray } from "@kaizen/rich-text-editor"
+import {
+  RichTextEditor,
+  EditorContentArray,
+} from "@kaizen/rich-text-editor-proto"
 import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
