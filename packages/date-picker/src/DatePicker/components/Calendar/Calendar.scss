@@ -4,6 +4,9 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 
+// Vars
+$cell-border-radius: 3px;
+
 // Calendar styles
 .calendar {
   background-color: $color-white;
@@ -21,7 +24,7 @@
 
   .months {
     box-shadow: $shadow-large-box-shadow;
-    border-radius: $border-solid-border-radius;
+    border-radius: $cell-border-radius;
   }
 
   .caption {
@@ -58,7 +61,7 @@
 
   .day {
     padding: calc(#{$spacing-md} / 3) 0.625rem;
-    border-radius: $border-solid-border-radius;
+    border-radius: $cell-border-radius;
     color: $color-purple-800;
 
     &:global(.focus-visible) {
@@ -75,6 +78,10 @@
     :focus {
       outline: none;
     }
+
+    &.from {
+      color: $color-white;
+    }
   }
 
   .disabled,
@@ -83,14 +90,26 @@
   }
 
   .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
-    border-radius: $border-solid-border-radius;
+    border-radius: $cell-border-radius;
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
   .selected:not(.disabled):not(.outside) {
-    border-radius: $border-solid-border-radius;
+    border-radius: $cell-border-radius;
     background-color: $color-blue-500;
     color: $color-white;
+
+    &:not(.from):not(.to) {
+      background-color: $color-blue-100;
+      color: $color-blue-500;
+    }
   }
+}
+
+.from:not(.outside),
+.to:not(.outside) {
+  border-radius: $cell-border-radius;
+  background-color: $color-blue-500;
+  color: $color-white;
 }

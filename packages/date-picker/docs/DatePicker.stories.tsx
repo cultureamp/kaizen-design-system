@@ -1,12 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { RangeModifier } from "react-day-picker/types/Modifiers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
+import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
   title: `${CATEGORIES.components}/Date Picker`,
@@ -47,6 +50,38 @@ export const DefaultStory = props => {
   )
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
+
+export const DateRangePickerStory = props => {
+  const [selectedDateRange, setSelectedDateRange] = useState<RangeModifier>({
+    from: undefined,
+    to: undefined,
+  })
+  const [value, setValue] = useState("")
+
+  const onDateRangeChange = (dateRange: RangeModifier) => {
+    setSelectedDateRange(dateRange)
+  }
+
+  useEffect(() => {
+    setValue(formatDateRangeValue(selectedDateRange))
+  }, [selectedDateRange])
+
+  return (
+    <>
+      <DateRangePicker
+        id="datepicker-range"
+        labelText="Label"
+        initialMonth={new Date(2022, 2)}
+        disabledBefore={new Date(2022, 2, 4)}
+        onChange={onDateRangeChange}
+        value={value}
+        selectedDateRange={selectedDateRange}
+        {...props}
+      />
+    </>
+  )
+}
+DateRangePickerStory.storyName = "DateRangePicker"
 
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(

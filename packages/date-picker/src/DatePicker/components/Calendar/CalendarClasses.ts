@@ -24,4 +24,6 @@ export const defaultCalendarClasses = {
   selected: `${calendarStyles.selected} DayPicker-Day--selected`,
   disabled: `${calendarStyles.disabled} DayPicker-Day--disabled`,
   outside: `${calendarStyles.outside} DayPicker-Day--outside`,
+  start: `${calendarStyles.start} DayPicker-Day--start`,
+  end: `${calendarStyles.end} DayPicker-Day--end`,
 }

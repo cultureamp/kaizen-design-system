@@ -1,7 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
 import DayPicker from "react-day-picker/DayPicker"
 import { NavbarElementProps } from "react-day-picker/types/Props"
-import { Modifier, DayModifiers } from "react-day-picker/types/Modifiers"
+import {
+  Modifier,
+  DayModifiers,
+  RangeModifier,
+  Modifiers,
+} from "react-day-picker/types/Modifiers"
 import classnames from "classnames"
 import { CalendarNav } from "../CalendarNav/CalendarNav"
 import { defaultCalendarClasses } from "./CalendarClasses"
@@ -22,7 +27,14 @@ export type CalendarProps = {
   initialMonth?: Date
   firstDayOfWeek: number
   disabledDays?: Modifier | Modifier[]
-  onDayChange: (day: Date, modifiers: DayModifiers) => void
+  onDayChange: (
+    day: Date,
+    modifiers: DayModifiers,
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => void
+  range?: boolean
+  selectedRange?: Modifier | Modifier[]
+  modifiers?: RangeModifier
 }
 
 export type CalendarNavProps = Pick<
@@ -40,6 +52,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
   firstDayOfWeek,
   disabledDays,
   onDayChange,
+  range,
+  selectedRange,
+  modifiers,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -79,13 +94,19 @@ export const Calendar: React.VFC<CalendarProps> = ({
         }
       >
         <DayPicker
-          selectedDays={value}
+          selectedDays={range ? selectedRange : value}
           initialMonth={value ? value : initialMonth}
           firstDayOfWeek={firstDayOfWeek}
           disabledDays={disabledDays}
           onDayClick={onDayChange}
           navbarElement={getNavbar}
           classNames={defaultCalendarClasses}
+          modifiers={
+            {
+              [calendarStyles.from]: modifiers?.from,
+              [calendarStyles.to]: modifiers?.to,
+            } as Modifiers
+          }
         />
       </div>
     </div>

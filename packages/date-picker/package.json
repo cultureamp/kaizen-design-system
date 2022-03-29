@@ -33,10 +33,10 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "12.2.0",
-    "@kaizen/draft-form": "^6.0.5",
-    "@popperjs/core": "^2.11.4",
+    "@kaizen/draft-form": "^6.0.4",
+    "@popperjs/core": "^2.11.0",
     "classnames": "^2.3.1",
-    "react-day-picker": "^7.4.9",
+    "react-day-picker": "^7.4.10",
     "react-focus-on": "^3.5.4",
     "react-popper": "^2.2.5"
   },
