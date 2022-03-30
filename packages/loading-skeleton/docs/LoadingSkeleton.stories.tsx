@@ -15,7 +15,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { LoadingHeading, LoadingParagraph } from "@kaizen/loading-skeleton"',
+          'import { LoadingHeading, LoadingParagraph, LoadingInput } from "@kaizen/loading-skeleton"',
       },
     },
     ...figmaEmbed(
