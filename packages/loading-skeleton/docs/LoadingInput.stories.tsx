@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingInput } from "../src/LoadingSkeleton"
+import { LoadingInput, LoadingHeading } from "../src/LoadingSkeleton"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -33,7 +33,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
     <StoryWrapper.Row rowTitle="TextField">
-      <LoadingInput isReversed={isReversed} />
+      <div>
+        <LoadingHeading variant="heading-6" width={10} />
+        <LoadingInput isReversed={isReversed} />
+      </div>
       <TextField
         id="text-default"
         inputType="email"
@@ -42,7 +45,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Text Area Field (custom height)">
-      <LoadingInput isReversed={isReversed} height={100} />
+      <div>
+        <LoadingHeading variant="heading-6" width={10} />
+        <LoadingInput isReversed={isReversed} height={100} />
+      </div>
       <TextAreaField
         id="text-default"
         labelText="Default"
