@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.3.0...@kaizen/loading-skeleton@1.4.0) (2022-03-30)
+
+
+### Features
+
+* create loading-input component ([#2659](https://github.com/cultureamp/kaizen-design-system/issues/2659)) ([963abb2](https://github.com/cultureamp/kaizen-design-system/commit/963abb2f1d82316448942f07eaa457113d19a073))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.2.0...@kaizen/loading-skeleton@1.3.0) (2022-03-29)
 
 
