@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.4...@kaizen/draft-hero-card@1.13.5) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
 ## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.3...@kaizen/draft-hero-card@1.13.4) (2022-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card
