@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.5...@kaizen/draft-empty-state@4.2.6) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
 ## [4.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.4...@kaizen/draft-empty-state@4.2.5) (2022-03-31)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

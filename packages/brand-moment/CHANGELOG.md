@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.15...@kaizen/brand-moment@1.10.16) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
 ## [1.10.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.14...@kaizen/brand-moment@1.10.15) (2022-03-31)
 
 **Note:** Version bump only for package @kaizen/brand-moment
