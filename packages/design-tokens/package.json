@@ -43,7 +43,7 @@
     "@types/yargs": "^16.0.4",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
-    "postcss": "^8.4.8",
+    "postcss": "^8.4.12",
     "prettier": "*",
     "react-highlight": "^0.14.0",
     "react-intersection-observer": "^8.32.5",
