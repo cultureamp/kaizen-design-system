@@ -2,11 +2,13 @@
 
 $shadow-small-box-shadow: var(
   --shadow-small-box-shadow,
-  0 0 6px rgba(53, 55, 74, 0.09)
+  0px 4px 21px rgba(0, 0, 0, 0.06),
+  0px 2px 4px rgba(0, 0, 0, 0.1)
 );
 $shadow-small-box-shadow-id: --shadow-small-box-shadow;
 $shadow-large-box-shadow: var(
   --shadow-large-box-shadow,
-  0 0 12px rgba(53, 55, 74, 0.19)
+  0px 8px 40px rgba(0, 0, 0, 0.08),
+  0px 3px 9px rgba(0, 0, 0, 0.1)
 );
 $shadow-large-box-shadow-id: --shadow-large-box-shadow;
