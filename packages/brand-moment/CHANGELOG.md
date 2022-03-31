@@ -3,6 +3,137 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.13...@kaizen/brand-moment@1.10.14) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.12...@kaizen/brand-moment@1.10.13) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.11...@kaizen/brand-moment@1.10.12) (2022-03-24)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.10...@kaizen/brand-moment@1.10.11) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.9...@kaizen/brand-moment@1.10.10) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.8...@kaizen/brand-moment@1.10.9) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.7...@kaizen/brand-moment@1.10.8) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.6...@kaizen/brand-moment@1.10.7) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.5...@kaizen/brand-moment@1.10.6) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.4...@kaizen/brand-moment@1.10.5) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.3...@kaizen/brand-moment@1.10.4) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.2...@kaizen/brand-moment@1.10.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.1...@kaizen/brand-moment@1.10.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.10.0...@kaizen/brand-moment@1.10.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.9.28...@kaizen/brand-moment@1.10.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
+## [1.9.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.9.27...@kaizen/brand-moment@1.9.28) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
 ## [1.9.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.9.26...@kaizen/brand-moment@1.9.27) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/brand-moment

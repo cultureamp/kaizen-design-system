@@ -3,7 +3,7 @@ import { throttle } from "lodash"
 import * as React from "react"
 import Media from "react-media"
 
-import Icon from "@kaizen/component-library/components/Icon/Icon"
+import { Icon } from "@kaizen/component-library"
 import { layout } from "@kaizen/design-tokens/tokens/layout.json"
 import { Tag } from "@kaizen/draft-tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"

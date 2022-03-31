@@ -244,7 +244,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     tooltipInfo != null ? (
       <Tooltip
         text={tooltipInfo}
-        classNameAndIHaveSpokenToDST={styles.headerRowCellTooltip}
+        classNameOverride={styles.headerRowCellTooltip}
       >
         {cellContents}
       </Tooltip>

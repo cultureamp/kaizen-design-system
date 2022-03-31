@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.6...@kaizen/draft-form@6.0.7) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.5...@kaizen/draft-form@6.0.6) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.4...@kaizen/draft-form@6.0.5) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.3...@kaizen/draft-form@6.0.4) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.2...@kaizen/draft-form@6.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.1...@kaizen/draft-form@6.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.0...@kaizen/draft-form@6.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.13...@kaizen/draft-form@6.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
 ## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.12...@kaizen/draft-form@5.6.13) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/draft-form

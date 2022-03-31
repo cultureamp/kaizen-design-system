@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-well",
-  "version": "3.7.12",
+  "version": "3.8.4",
   "description": "The draft well component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.7.1",
+    "@kaizen/component-base": "^1.1.0",
+    "@kaizen/component-library": "^13.2.4",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },

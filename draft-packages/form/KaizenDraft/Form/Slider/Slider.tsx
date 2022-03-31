@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode } from "react"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import classnames from "classnames"
 import { FieldGroup, Label, InputRange } from ".."
 import styles from "./styles.scss"
@@ -17,7 +18,7 @@ export interface SliderFieldProps
   labelPosition?: "inline" | "block"
   readOnly?: boolean
   readOnlyMessage?: ReactNode
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   variant?: "default" | "prominent"
 }
 
@@ -54,7 +55,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
             <Paragraph
               variant="small"
               id={descriptionId}
-              classNameAndIHaveSpokenToDST={
+              classNameOverride={
                 disabled ? styles.descriptionDisabled : undefined
               }
             >

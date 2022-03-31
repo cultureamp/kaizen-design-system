@@ -111,10 +111,7 @@ describe("<Paragraph />", () => {
 
   it("allows consumers to provide a className", () => {
     const { getByText } = render(
-      <Paragraph
-        variant="body"
-        classNameAndIHaveSpokenToDST="example-classname"
-      >
+      <Paragraph variant="body" classNameOverride="example-classname">
         Example
       </Paragraph>
     )

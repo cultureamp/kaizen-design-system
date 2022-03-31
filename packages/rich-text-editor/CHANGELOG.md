@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.1...@kaizen/rich-text-editor@1.2.2) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.0...@kaizen/rich-text-editor@1.2.1) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.12...@kaizen/rich-text-editor@1.2.0) (2022-03-28)
+
+
+### Features
+
+* Create RTE Toolbar component ([#2581](https://github.com/cultureamp/kaizen-design-system/issues/2581)) ([cb219fe](https://github.com/cultureamp/kaizen-design-system/commit/cb219fe79c4e2117045d652a552a3ae43ae6e2ad))
+
+
+
+
+
+## [1.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.11...@kaizen/rich-text-editor@1.1.12) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.10...@kaizen/rich-text-editor@1.1.11) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.9...@kaizen/rich-text-editor@1.1.10) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.8...@kaizen/rich-text-editor@1.1.9) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.7...@kaizen/rich-text-editor@1.1.8) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.6...@kaizen/rich-text-editor@1.1.7) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 ## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.1.5...@kaizen/rich-text-editor@1.1.6) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

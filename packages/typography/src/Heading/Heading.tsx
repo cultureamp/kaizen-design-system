@@ -1,6 +1,6 @@
-import classNames from "classnames"
 import { createElement, HTMLAttributes } from "react"
-
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Heading.scss"
 
 const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
@@ -36,12 +36,7 @@ export type AllowedHeadingColors =
   | "negative"
 
 export interface HeadingProps
-  extends Omit<HTMLAttributes<HTMLElement>, "className"> {
-  /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
-   * @default ""
-   */
-  classNameAndIHaveSpokenToDST?: string
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
@@ -55,27 +50,29 @@ export interface HeadingProps
   color?: AllowedHeadingColors
 }
 
-export const Heading = ({
-  classNameAndIHaveSpokenToDST,
+export const Heading: React.VFC<HeadingProps> = ({
   children,
   tag,
   variant,
   color = "dark",
-  ...otherProps
-}: HeadingProps) => {
+  classNameOverride,
+  ...restProps
+}) => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
-  const className = classNames([
+  const className = classnames([
     styles.heading,
     styles[variant],
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
     styles[color],
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ])
 
-  return createElement(inferredTag, { ...otherProps, className }, children)
+  return createElement(inferredTag, { ...restProps, className }, children)
 }
+
+Heading.displayName = "Heading"
 
 /**
  * A helper to infer the tag when not explicitly passed as a prop

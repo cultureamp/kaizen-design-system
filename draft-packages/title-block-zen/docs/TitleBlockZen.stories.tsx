@@ -735,7 +735,7 @@ export const DefaultWithContent = () => (
       ]}
     />
     <Container>
-      <Content classNameAndIHaveSpokenToDST={styles.contentContainer}>
+      <Content classNameOverride={styles.contentContainer}>
         <Box my={2}>
           <Heading variant="heading-1">Placeholder heading</Heading>
         </Box>

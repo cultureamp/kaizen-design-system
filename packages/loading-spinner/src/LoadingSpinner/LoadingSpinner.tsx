@@ -1,27 +1,32 @@
-import * as React from "react"
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
 type size = "sm" | "md"
 
-export interface LoadingSpinnerProps {
+export interface LoadingSpinnerProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children?: React.ReactNode
   accessibilityLabel: string
   /**
    * Generally use "md" unless spinner is inside a form field
-   * @default "md"
    */
   size?: size
-  children?: React.ReactNode
 }
 
 export const LoadingSpinner = ({
+  children,
   accessibilityLabel = "Loading",
   size = "md",
-  children,
+  classNameOverride,
+  ...props
 }: LoadingSpinnerProps) => (
   <div
     data-automation-id="loading-spinner"
-    className={styles.wrapper}
+    className={classnames(styles.wrapper, classNameOverride)}
     role="status"
+    {...props}
   >
     <span className={styles.visuallyHidden}>{accessibilityLabel}</span>
     {size === "md" ? (

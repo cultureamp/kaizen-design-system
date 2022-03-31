@@ -106,6 +106,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           SingleValue,
           MultiValue,
           IndicatorsContainer,
+          ValueContainer,
           ClearIndicator,
           IndicatorSeparator: null,
         }}
@@ -139,8 +140,10 @@ export const AsyncSelect = React.forwardRef(
         SingleValue,
         MultiValue,
         IndicatorsContainer,
+        ValueContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
+        LoadingMessage,
       }}
       className={classNames(styles.specificityIncreaser, props.className)}
     />
@@ -172,6 +175,10 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon icon={chevronDownIcon} role="presentation" />
   </components.DropdownIndicator>
+)
+
+const LoadingMessage: typeof components.LoadingMessage = props => (
+  <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
 const Menu: typeof components.Menu = props => (
@@ -220,6 +227,10 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
     {...props}
     className={styles.indicatorsContainer}
   />
+)
+
+const ValueContainer: typeof components.ValueContainer = props => (
+  <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>

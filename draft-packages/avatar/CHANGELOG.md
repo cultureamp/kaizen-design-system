@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.5...@kaizen/draft-avatar@2.4.6) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.4...@kaizen/draft-avatar@2.4.5) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.3...@kaizen/draft-avatar@2.4.4) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.2...@kaizen/draft-avatar@2.4.3) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.1...@kaizen/draft-avatar@2.4.2) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.0...@kaizen/draft-avatar@2.4.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.3.16...@kaizen/draft-avatar@2.4.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
+## [2.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.3.15...@kaizen/draft-avatar@2.3.16) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [2.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.3.14...@kaizen/draft-avatar@2.3.15) (2022-03-16)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

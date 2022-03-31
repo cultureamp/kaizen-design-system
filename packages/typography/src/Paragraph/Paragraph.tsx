@@ -1,6 +1,6 @@
-import classNames from "classnames"
 import { createElement, HTMLAttributes } from "react"
-
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Paragraph.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
@@ -27,12 +27,7 @@ export type AllowedParagraphColors =
   | "negative"
 
 export interface ParagraphProps
-  extends Omit<HTMLAttributes<HTMLElement>, "className"> {
-  /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
-   * @default ""
-   */
-  classNameAndIHaveSpokenToDST?: string
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Paragraphs
@@ -46,24 +41,26 @@ export interface ParagraphProps
   color?: AllowedParagraphColors
 }
 
-export const Paragraph = ({
-  classNameAndIHaveSpokenToDST,
+export const Paragraph: React.VFC<ParagraphProps> = ({
   children,
   tag,
   variant,
   color = "dark",
-  ...otherProps
-}: ParagraphProps) => {
-  const className = classNames([
+  classNameOverride,
+  ...restProps
+}) => {
+  const className = classnames([
     styles.paragraph,
     styles[variant],
     styles[color],
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
   ])
 
   return createElement(
     tag === undefined ? "p" : tag,
-    { ...otherProps, className },
+    { ...restProps, className },
     children
   )
 }
+
+Paragraph.displayName = "Paragraph"

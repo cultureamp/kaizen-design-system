@@ -1,9 +1,9 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
-export type VariantType =
+type VariantType =
   | "positive"
   | "negative"
   | "informative"
@@ -12,38 +12,43 @@ export type VariantType =
   | "assertive"
   | "prominent"
 
-export type BorderStyleType = "solid" | "dashed" | "none"
+type BorderStyleType = "solid" | "dashed" | "none"
 
-export type WellProps = {
-  id?: string
-  automationId?: string
+export interface WellProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children?: React.ReactNode
   variant?: VariantType
   borderStyle?: BorderStyleType
   noMargin?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type Well = React.FunctionComponent<WellProps>
-
-const Well: Well = ({
-  id,
-  automationId,
+export const Well: React.VFC<WellProps> = ({
   children,
   variant = "default",
   borderStyle = "solid",
   noMargin = false,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <div
-    id={id}
     data-automation-id={automationId}
     className={classnames(
       styles.container,
       styles[borderStyle],
       styles[variant],
-      noMargin && styles.noMargin
+      noMargin && styles.noMargin,
+      classNameOverride
     )}
+    {...restProps}
   >
     {children}
   </div>
 )
 
-export default Well
+Well.displayName = "Well"
