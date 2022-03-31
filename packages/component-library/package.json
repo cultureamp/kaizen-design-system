@@ -31,7 +31,7 @@
     "react": "^16.9.0 || ^17.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.0.0",
+    "@kaizen/component-base": "^1.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
     "@kaizen/draft-button": "^5.6.23",
     "@kaizen/hosted-assets": "^1.2.0",
@@ -42,7 +42,6 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
-    "@kaizen/component-base": "^1.1.0",
     "@testing-library/dom": "^8.11.4",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"

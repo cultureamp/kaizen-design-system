@@ -33,12 +33,12 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^13.2.4",
+    "@kaizen/component-base": "^1.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@kaizen/component-base": "^1.1.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
