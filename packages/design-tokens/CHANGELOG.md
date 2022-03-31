@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
+
+
+### Features
+
+* Adjust box shadow values after design update ([#2624](https://github.com/cultureamp/kaizen-design-system/issues/2624)) ([eedd2f2](https://github.com/cultureamp/kaizen-design-system/commit/eedd2f2af6f4904d6a05a673f6d7a9b67211662c))
+
+
+
+
+
 ## [7.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.3...@kaizen/design-tokens@7.1.4) (2022-03-23)
 
 
