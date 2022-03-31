@@ -6,7 +6,13 @@ import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { LoadingHeading, LoadingParagraph } from "../src/LoadingSkeleton"
+import {
+  LoadingGraphic,
+  LoadingHeading,
+  LoadingParagraph,
+  LoadingInput,
+} from "../src/LoadingSkeleton"
+import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceBlock/GuidanceBlock.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Skeleton`,
@@ -15,7 +21,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { LoadingHeading, LoadingParagraph, LoadingInput } from "@kaizen/loading-skeleton"',
+          'import { LoadingHeading, LoadingParagraph, LoadingInput, LoadingGraphic } from "@kaizen/loading-skeleton"',
       },
     },
     ...figmaEmbed(
@@ -25,6 +31,31 @@ export default {
   decorators: [withDesign],
 }
 
+type GuidanceBlockSkeletonTemplateProps = {
+  graphic: React.ReactElement
+  heading: React.ReactElement
+  input: React.ReactElement
+  paragraph: React.ReactElement
+}
+
+const GuidanceBlockSkeletonTemplate: React.VFC<
+  GuidanceBlockSkeletonTemplateProps
+> = ({ graphic, heading, input, paragraph }) => (
+  <div className={styles.banner}>
+    <div className={styles.illustrationWrapper}>{graphic}</div>
+    <div className={styles.descriptionAndActions}>
+      <div className={styles.descriptionContainer}>
+        <div className={styles.headingWrapper}>{heading}</div>
+        {paragraph}
+      </div>
+      <div>
+        <div className={styles.buttonContainer}>
+          <div style={{ width: "130px" }}> {input}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+)
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
@@ -55,10 +86,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
       <StoryWrapper.Row rowTitle="Guidance Block - Spot">
-        <GuidanceBlock
-          illustration={<Informative alt="informative-spot-image" />}
-          text={GUIDANCE_BLOCK_LOADING}
-          actions={GUIDANCE_BLOCK_ACTION}
+        <GuidanceBlockSkeletonTemplate
+          heading={<LoadingHeading variant="heading-3" />}
+          paragraph={
+            <>
+              <LoadingParagraph />
+              <LoadingParagraph />
+            </>
+          }
+          input={<LoadingInput width={100} />}
+          graphic={<LoadingGraphic size="x-large" />}
         />
         <GuidanceBlock
           illustration={<Informative alt="informative-spot-image" />}
@@ -67,11 +104,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Guidance Block - Scene">
-        <GuidanceBlock
-          illustration={<HumanityAtWork alt="humanity-at-work" />}
-          text={GUIDANCE_BLOCK_LOADING}
-          actions={GUIDANCE_BLOCK_ACTION}
-          illustrationType="scene"
+        <GuidanceBlockSkeletonTemplate
+          heading={<LoadingHeading variant="heading-3" />}
+          paragraph={
+            <>
+              <LoadingParagraph />
+              <LoadingParagraph />
+            </>
+          }
+          input={<LoadingInput width={100} />}
+          graphic={<LoadingGraphic size="xxx-large" />}
         />
         <GuidanceBlock
           illustration={<HumanityAtWork alt="humanity-at-work" />}
