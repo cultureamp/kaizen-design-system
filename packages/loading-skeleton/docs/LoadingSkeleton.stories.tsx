@@ -95,7 +95,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             </>
           }
           input={<LoadingInput width={100} />}
-          graphic={<LoadingGraphic size="x-large" />}
+          graphic={<LoadingGraphic width={9.75} />}
         />
         <GuidanceBlock
           illustration={<Informative alt="informative-spot-image" />}
@@ -113,7 +113,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             </>
           }
           input={<LoadingInput width={100} />}
-          graphic={<LoadingGraphic size="xxx-large" />}
+          graphic={<LoadingGraphic width={18.75} />}
         />
         <GuidanceBlock
           illustration={<HumanityAtWork alt="humanity-at-work" />}

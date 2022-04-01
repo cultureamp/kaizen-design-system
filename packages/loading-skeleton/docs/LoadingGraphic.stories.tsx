@@ -30,7 +30,7 @@ export default {
 
 export const DefaultLoadingGraphic = args => <LoadingGraphic {...args} />
 DefaultLoadingGraphic.storyName = "Loading Graphic"
-DefaultLoadingGraphic.args = { size: "large" }
+DefaultLoadingGraphic.args = { width: 7.75 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -38,7 +38,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
     <StoryWrapper.Row rowTitle="Icon (small)">
-      <LoadingGraphic size="small" isReversed={isReversed} />
+      <LoadingGraphic width={1.25} isReversed={isReversed} />
       <div style={{ width: "20px" }}>
         <Icon
           icon={configureIcon}
@@ -50,57 +50,49 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </div>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (medium)">
-      <LoadingGraphic size="medium" isReversed={isReversed} />
-      <div style={{ width: "48px" }}>
-        <Avatar
-          fullName="Jane Doe"
-          disableInitials={false}
-          isCurrentUser
-          size="medium"
-        />
-      </div>
+      <LoadingGraphic width={3} isReversed={isReversed} />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="medium"
+      />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (large)">
-      <LoadingGraphic size="large" isReversed={isReversed} />
-      <div style={{ width: "472px" }}>
-        <Avatar
-          fullName="Jane Doe"
-          disableInitials={false}
-          isCurrentUser
-          size="large"
-        />
-      </div>
+      <LoadingGraphic width={4.5} isReversed={isReversed} />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="large"
+      />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (x-large)">
-      <LoadingGraphic size="x-large" isReversed={isReversed} />
-      <div style={{ width: "96px" }}>
-        <Avatar
-          fullName="Jane Doe"
-          disableInitials={false}
-          isCurrentUser
-          size="xlarge"
-        />
-      </div>
+      <LoadingGraphic width={6} isReversed={isReversed} />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="xlarge"
+      />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (xx-large)">
-      <LoadingGraphic size="xx-large" isReversed={isReversed} />
-      <div style={{ width: "124px" }}>
-        <Avatar
-          fullName="Jane Doe"
-          disableInitials={false}
-          isCurrentUser
-          size="xxlarge"
-        />
-      </div>
+      <LoadingGraphic width={7.75} isReversed={isReversed} />
+      <Avatar
+        fullName="Jane Doe"
+        disableInitials={false}
+        isCurrentUser
+        size="xxlarge"
+      />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Spot (xxx-large)">
-      <LoadingGraphic size="xxx-large" isReversed={isReversed} />
+      <LoadingGraphic width={9.75} isReversed={isReversed} />
       <div style={{ width: "156px" }}>
         <Informative alt="informative-spot-image" />
       </div>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Scene (xxxx-large)">
-      <LoadingGraphic size="xxxx-large" isReversed={isReversed} />
+      <LoadingGraphic width={35} isReversed={isReversed} />
       <HumanityAtWork alt="humanity-at-work" />
     </StoryWrapper.Row>
   </StoryWrapper>

@@ -7,29 +7,25 @@ export interface LoadingGraphicProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   isAnimated?: boolean
   isReversed?: boolean
-  size:
-    | "small"
-    | "medium"
-    | "large"
-    | "x-large"
-    | "xx-large"
-    | "xxx-large"
-    | "xxxx-large"
-  // size: "icon" | "avatar" | "spot" | "scene"
+  /**
+   * Width as a rem.
+   */
+  width: number
 }
 
 export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
   isAnimated,
   isReversed,
-  size,
+  width,
   classNameOverride,
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, styles[`${size}`], {
+    className={classnames(styles.base, classNameOverride, {
       [styles.animated]: isAnimated,
       [styles.reversed]: isReversed,
     })}
+    style={{ width: `${width}rem`, height: `${width}rem` }}
     {...props}
   />
 )
