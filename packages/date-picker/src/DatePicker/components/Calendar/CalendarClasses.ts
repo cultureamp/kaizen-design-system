@@ -26,4 +26,5 @@ export const defaultCalendarClasses = {
   outside: `${calendarStyles.outside} DayPicker-Day--outside`,
   start: `${calendarStyles.start} DayPicker-Day--start`,
   end: `${calendarStyles.end} DayPicker-Day--end`,
+  range: `${calendarStyles.range} DayPicker-Day--range`,
 }

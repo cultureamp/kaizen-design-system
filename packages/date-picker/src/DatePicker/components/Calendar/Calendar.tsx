@@ -100,6 +100,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           disabledDays={disabledDays}
           onDayClick={onDayChange}
           navbarElement={getNavbar}
+          className={range ? calendarStyles.range : ""}
           classNames={defaultCalendarClasses}
           modifiers={
             {

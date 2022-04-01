@@ -99,17 +99,23 @@ $cell-border-radius: 3px;
     border-radius: $cell-border-radius;
     background-color: $color-blue-500;
     color: $color-white;
-
-    &:not(.from):not(.to) {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
-    }
   }
 }
+.range {
+  .from:not(.outside),
+  .to:not(.outside) {
+    border-radius: $cell-border-radius;
+    background-color: $color-blue-500;
+    color: $color-white;
+  }
 
-.from:not(.outside),
-.to:not(.outside) {
-  border-radius: $cell-border-radius;
-  background-color: $color-blue-500;
-  color: $color-white;
+  .selected:not(.disabled):not(.outside):not(.from):not(.to):not(:hover) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  .day:not(.interactionDisabled):not(.disabled):not(.outside):hover {
+    background-color: $color-blue-200;
+    color: $color-blue-500;
+  }
 }
