@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.0...@kaizen/design-tokens@7.2.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* update small box shadow design token value ([#2666](https://github.com/cultureamp/kaizen-design-system/issues/2666)) ([3eb65c1](https://github.com/cultureamp/kaizen-design-system/commit/3eb65c16deea41bb3ecc18db32c843c346398976))
+
+
+
+
+
 # [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
 
 
