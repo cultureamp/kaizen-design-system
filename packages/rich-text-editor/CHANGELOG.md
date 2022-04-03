@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.3...@kaizen/rich-text-editor@1.2.4) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.2...@kaizen/rich-text-editor@1.2.3) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.1...@kaizen/rich-text-editor@1.2.2) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.0...@kaizen/rich-text-editor@1.2.1) (2022-03-29)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

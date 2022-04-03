@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.6...@kaizen/draft-hero-card@1.13.7) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.5...@kaizen/draft-hero-card@1.13.6) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.4...@kaizen/draft-hero-card@1.13.5) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
 ## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.3...@kaizen/draft-hero-card@1.13.4) (2022-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card
