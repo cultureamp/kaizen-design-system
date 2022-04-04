@@ -7,10 +7,12 @@ import { EditorState } from "prosemirror-state"
 import { Node, Schema } from "prosemirror-model"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
-import { buildKeymap, useRichTextEditor } from "@cultureamp/rich-text-toolkit"
+import { useRichTextEditor } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray } from "./types"
 import { createSchemaFromControls } from "./schema"
+import { buildKeymap } from "./keymap"
+import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
 
 export interface RichTextEditorProps
@@ -39,6 +41,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
           ...baseKeymap,
           ...buildKeymap(schema),
         }),
+        buildInputRules(),
       ],
     }),
     { "aria-labelledby": labelId }
