@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.3.1...@kaizen/rich-text-editor@1.4.0) (2022-04-04)
+
+
+### Features
+
+* Add inputrules to RTE ([#2667](https://github.com/cultureamp/kaizen-design-system/issues/2667)) ([4831889](https://github.com/cultureamp/kaizen-design-system/commit/4831889d8edb42e39109fa524fad72d009296f68))
+
+
+
+
+
 ## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.3.0...@kaizen/rich-text-editor@1.3.1) (2022-04-04)
 
 
