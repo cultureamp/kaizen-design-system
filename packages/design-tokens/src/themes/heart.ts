@@ -129,7 +129,7 @@ export const heartTheme: Theme = {
   shadow: {
     small: {
       boxShadow:
-        "0px 4px 21px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.1)",
+        "0px 3px 16px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1)",
     },
     large: {
       boxShadow:
