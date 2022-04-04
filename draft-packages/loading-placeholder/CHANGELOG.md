@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.11.5...@kaizen/draft-loading-placeholder@1.11.6) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.11.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.11.4...@kaizen/draft-loading-placeholder@1.11.5) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
 ## [1.11.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.11.3...@kaizen/draft-loading-placeholder@1.11.4) (2022-03-30)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder
