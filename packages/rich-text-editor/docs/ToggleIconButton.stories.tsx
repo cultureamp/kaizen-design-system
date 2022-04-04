@@ -39,69 +39,55 @@ DefaultStory.args = { isActive: false, label: "Bold", icon: boldIcon }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
-}) => {
-  return (
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={[
-            "Default",
-            "Secondary",
-            "Primary",
-            "Destructive",
-            "Secondary Destructive",
-          ]}
+}) => (
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader
+        headings={[
+          "Default",
+          "Secondary",
+          "Primary",
+          "Destructive",
+          "Secondary Destructive",
+        ]}
+      />
+      <StoryWrapper.Row rowTitle="base">
+        <ToggleIconButton isActive={false} {...defaultButton} />
+        <ToggleIconButton
+          mood="secondary"
+          isActive={false}
+          {...defaultButton}
         />
-        <StoryWrapper.Row rowTitle="base">
-          <ToggleIconButton isActive={false} {...defaultButton} />
-          <ToggleIconButton
-            mood="secondary"
-            isActive={false}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="primary"
-            isActive={false}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="destructive"
-            isActive={false}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="secondary-destructive"
-            isActive={false}
-            {...defaultButton}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Selected">
-          <ToggleIconButton isActive={true} {...defaultButton} />
-          <ToggleIconButton
-            mood="secondary"
-            isActive={true}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="primary"
-            isActive={true}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="destructive"
-            isActive={true}
-            {...defaultButton}
-          />
-          <ToggleIconButton
-            mood="secondary-destructive"
-            isActive={true}
-            {...defaultButton}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </>
-  )
-}
+        <ToggleIconButton mood="primary" isActive={false} {...defaultButton} />
+        <ToggleIconButton
+          mood="destructive"
+          isActive={false}
+          {...defaultButton}
+        />
+        <ToggleIconButton
+          mood="secondary-destructive"
+          isActive={false}
+          {...defaultButton}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Selected">
+        <ToggleIconButton isActive={true} {...defaultButton} />
+        <ToggleIconButton mood="secondary" isActive={true} {...defaultButton} />
+        <ToggleIconButton mood="primary" isActive={true} {...defaultButton} />
+        <ToggleIconButton
+          mood="destructive"
+          isActive={true}
+          {...defaultButton}
+        />
+        <ToggleIconButton
+          mood="secondary-destructive"
+          isActive={true}
+          {...defaultButton}
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
+)
 
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
