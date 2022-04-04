@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 @mixin respond-to($media) {
   @if $media == print {
@@ -107,8 +107,6 @@ $fifth: mix($start, $end, 0%);
   }
 
   &.rated .likertItem.unselected .likertItemFill {
-    background-color: $color-purple-100;
-    border-color: $color-purple-100;
     transition: background 0.1s;
   }
 
@@ -183,10 +181,9 @@ $fifth: mix($start, $end, 0%);
 }
 
 .legend {
-  margin-bottom: $ca-grid * 0.1;
   text-align: center;
   position: absolute;
-  top: -$ca-grid;
+  top: calc(-1 * #{$spacing-md});
   left: 0;
   right: 0;
 
@@ -197,7 +194,15 @@ $fifth: mix($start, $end, 0%);
 }
 
 .likertItem {
-  @include ca-margin($start: 1px);
+  margin-right: 0;
+  margin-left: 1px;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    margin-right: 1px;
+    margin-left: 0;
+  }
+
   @include fill($block-height);
   font-size: 1px;
   line-height: 1;
@@ -215,35 +220,30 @@ $fifth: mix($start, $end, 0%);
   &.selected {
     .field1 {
       background-color: $first;
-      border-color: $first;
       &:after {
         background-color: $first;
       }
     }
     .field2 {
       background-color: $second;
-      border-color: $second;
       &:after {
         background-color: $second;
       }
     }
     .field3 {
       background-color: $third;
-      border-color: $third;
       &:after {
         background-color: $third;
       }
     }
     .field4 {
       background-color: $fourth;
-      border-color: $fourth;
       &:after {
         background-color: $fourth;
       }
     }
     .field5 {
       background-color: $fifth;
-      border-color: $fifth;
       &:after {
         background-color: $fifth;
       }
@@ -253,9 +253,9 @@ $fifth: mix($start, $end, 0%);
 
 .likertItemFill {
   transition: background 0.1s, border-color 0.1s;
-  width: 90%;
+  width: 85%;
   height: $block-height;
-  border: 1px solid #d7d8d8;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
   &:hover {
     transition: background 0s, border-color 0s;
@@ -274,9 +274,7 @@ $fifth: mix($start, $end, 0%);
 }
 
 .reversed .likertItemFill {
-  border-width: 2px;
   border-color: rgba($color-white-rgb, 0.65);
-  width: 85%;
 }
 
 @media only screen and (max-width: 767px) {
