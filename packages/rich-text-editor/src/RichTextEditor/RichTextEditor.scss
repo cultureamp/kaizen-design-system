@@ -39,6 +39,7 @@
   &:global(.focus-visible)::after {
     $focus-ring-offset: 5px;
     content: "";
+    pointer-events: none;
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;
