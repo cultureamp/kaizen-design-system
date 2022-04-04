@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./LoadingInput.scss"
+import styles from "../styles.scss"
 
 export interface LoadingInputProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -26,7 +26,7 @@ export const LoadingInput: React.VFC<LoadingInputProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, {
+    className={classnames(styles.base, styles.input, classNameOverride, {
       [styles.animated]: isAnimated,
       [styles.reversed]: isReversed,
     })}

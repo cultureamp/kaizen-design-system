@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./LoadingGraphic.scss"
+import styles from "../styles.scss"
 
 export interface LoadingGraphicProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -21,7 +21,7 @@ export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, {
+    className={classnames(styles.base, styles.graphic, classNameOverride, {
       [styles.animated]: isAnimated,
       [styles.reversed]: isReversed,
     })}

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./LoadingParagraph.scss"
+import styles from "../styles.scss"
 
 export interface LoadingParagraphProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -31,7 +31,7 @@ export const LoadingParagraph: React.VFC<LoadingParagraphProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, {
+    className={classnames(styles.base, styles.paragraph, classNameOverride, {
       [styles.animated]: isAnimated,
       [styles.centered]: isCentred,
       [styles.reversed]: isReversed,
