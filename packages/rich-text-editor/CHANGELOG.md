@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.3.0...@kaizen/rich-text-editor@1.3.1) (2022-04-04)
+
+
+### Bug Fixes
+
+* Set pointer-events to none on RTE focus ring ([#2669](https://github.com/cultureamp/kaizen-design-system/issues/2669)) ([0252656](https://github.com/cultureamp/kaizen-design-system/commit/0252656029f0cebec77f7263c528bba45ce61b07))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.2.4...@kaizen/rich-text-editor@1.3.0) (2022-04-04)
 
 
