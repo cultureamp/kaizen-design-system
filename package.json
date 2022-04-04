@@ -82,7 +82,7 @@
     "babel-loader": "^8.2.4",
     "chromatic": "^6.2.3",
     "commitizen": "^4.2.4",
-    "css-loader": "^3.6.0",
+    "css-loader": "^6.7.1",
     "cz-conventional-changelog": "3.3.0",
     "danger": "^11.0.2",
     "elm": "0.19.1-5",
