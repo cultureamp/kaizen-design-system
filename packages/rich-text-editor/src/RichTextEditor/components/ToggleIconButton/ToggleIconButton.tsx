@@ -13,6 +13,7 @@ export interface ToggleIconButtonProps
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
   isActive?: boolean
+  mood?: "default" | "secondary" | "primary" | "destructive" | "secondary-destructive"
 }
 
 export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
@@ -21,6 +22,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       icon,
       label,
       isActive = false,
+      mood = "default",
       classNameOverride,
       ...nativeButtonProps
     } = props
@@ -32,6 +34,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
           aria-label={label}
           className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
+            [styles[mood]]: mood
           })}
           {...nativeButtonProps}
         >
