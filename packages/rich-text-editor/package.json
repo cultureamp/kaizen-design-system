@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/rich-text-editor",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "The RichTextEditor component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -43,8 +43,8 @@
     "prosemirror-inputrules": "^1.1.3",
     "prosemirror-keymap": "^1.1.5",
     "prosemirror-model": "^1.16.1",
-    "prosemirror-state": "^1.3.4",
     "prosemirror-schema-list": "^1.1.6",
+    "prosemirror-state": "^1.3.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -54,8 +54,8 @@
     "@types/prosemirror-inputrules": "^1.0.4",
     "@types/prosemirror-keymap": "^1.0.4",
     "@types/prosemirror-model": "^1.16.1",
-    "@types/prosemirror-state": "^1.2.8",
     "@types/prosemirror-schema-list": "^1.0.3",
+    "@types/prosemirror-state": "^1.2.8",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
