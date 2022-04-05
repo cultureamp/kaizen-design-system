@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@6.0.14...@kaizen/draft-title-block-zen@6.0.15) (2022-04-05)
+
+
+### Bug Fixes
+
+* Breadcrumb link in Title Block to use correct underline color [KDS-240] ([#2671](https://github.com/cultureamp/kaizen-design-system/issues/2671)) ([3e79834](https://github.com/cultureamp/kaizen-design-system/commit/3e798342ee9e24bb9468df7e871f1328d237e15a))
+
+
+
+
+
 ## [6.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@6.0.13...@kaizen/draft-title-block-zen@6.0.14) (2022-04-03)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
