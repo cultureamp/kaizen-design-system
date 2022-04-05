@@ -12,6 +12,7 @@ import {
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { DateUtils } from "react-day-picker"
+import { KeyboardEvent } from "react-select/node_modules/@types/react"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
@@ -151,6 +152,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
+
     if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
@@ -162,6 +164,10 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
   const modifiers: RangeModifier = {
     from: selectedDateRange?.from,
     to: selectedDateRange?.to,
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<KeyboardEvent>) => {
+    console.log(e)
   }
 
   return (
@@ -212,6 +218,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
             modifiers={modifiers}
             selectedRange={selectedDateRange}
             onDayChange={handleDayClick}
+            onKeyDown={handleKeyDown}
             range
           />
         </FocusOn>

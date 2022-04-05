@@ -35,6 +35,7 @@ export type CalendarProps = {
   range?: boolean
   selectedRange?: Modifier | Modifier[]
   modifiers?: RangeModifier
+  onKeyDown: any
 }
 
 export type CalendarNavProps = Pick<
@@ -55,6 +56,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   range,
   selectedRange,
   modifiers,
+  onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -108,6 +110,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               [calendarStyles.to]: modifiers?.to,
             } as Modifiers
           }
+          onDayKeyDown={() => onKeyDown}
         />
       </div>
     </div>
