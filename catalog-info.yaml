@@ -1,11 +1,13 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Location
 metadata:
-  name: kaizen-design-system
-  annotations:
-    github.com/project-slug: cultureamp/kaizen-design-system
-  namespace: default
+  name: kaizen-design-system-location
+  tags:
+    - camp-foundations
 spec:
-  type: other
-  lifecycle: unknown
-  owner: foundations
+  targets:
+    - ./catalog-info-design-system.yaml
+    - ./catalog-info-website.yaml
+  dependsOn:
+    - component:kaizen-design-system-ops
+    - component:kaizen-design-system-assets
