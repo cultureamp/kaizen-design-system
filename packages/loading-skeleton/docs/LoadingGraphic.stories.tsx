@@ -38,7 +38,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
     <StoryWrapper.Row rowTitle="Icon (small)">
-      <LoadingGraphic width={1.25} isReversed={isReversed} />
+      <LoadingGraphic size="small" isReversed={isReversed} />
       <div style={{ width: "20px" }}>
         <Icon
           icon={configureIcon}
@@ -50,7 +50,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </div>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (medium)">
-      <LoadingGraphic width={3} isReversed={isReversed} />
+      <LoadingGraphic size="medium" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
         disableInitials={false}
@@ -59,7 +59,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (large)">
-      <LoadingGraphic width={4.5} isReversed={isReversed} />
+      <LoadingGraphic size="large" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
         disableInitials={false}
@@ -68,7 +68,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Avatar (x-large)">
-      <LoadingGraphic width={6} isReversed={isReversed} />
+      <LoadingGraphic size="xlarge" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
         disableInitials={false}
@@ -76,23 +76,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         size="xlarge"
       />
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Avatar (xx-large)">
-      <LoadingGraphic width={7.75} isReversed={isReversed} />
-      <Avatar
-        fullName="Jane Doe"
-        disableInitials={false}
-        isCurrentUser
-        size="xxlarge"
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Spot (xxx-large)">
-      <LoadingGraphic width={9.75} isReversed={isReversed} />
+    <StoryWrapper.Row rowTitle="Spot (xx-large)">
+      <LoadingGraphic size="xxlarge" isReversed={isReversed} />
       <div style={{ width: "156px" }}>
         <Informative alt="informative-spot-image" />
       </div>
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Scene (xxxx-large)">
-      <LoadingGraphic width={35} isReversed={isReversed} />
+    <StoryWrapper.Row rowTitle="Scene (scene)">
+      <LoadingGraphic size="scene" isReversed={isReversed} />
       <HumanityAtWork alt="humanity-at-work" />
     </StoryWrapper.Row>
   </StoryWrapper>

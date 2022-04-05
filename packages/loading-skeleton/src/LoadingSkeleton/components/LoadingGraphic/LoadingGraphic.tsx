@@ -3,20 +3,34 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "../styles.scss"
 
+export type GraphicSizes =
+  | "small"
+  | "medium"
+  | "large"
+  | "xlarge"
+  | "xxlarge"
+  | "scene"
+
+const graphicSizesRem = new Map<string, number>([
+  ["small", 1.25],
+  ["medium", 3],
+  ["large", 4.5],
+  ["xlarge", 6],
+  ["xxlarge", 7.5],
+  ["scene", 32],
+])
+
 export interface LoadingGraphicProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   isAnimated?: boolean
   isReversed?: boolean
-  /**
-   * Width as a rem.
-   */
-  width: number
+  size: GraphicSizes
 }
 
 export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
   isAnimated,
   isReversed,
-  width,
+  size,
   classNameOverride,
   ...props
 }) => (
@@ -25,7 +39,10 @@ export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
       [styles.animated]: isAnimated,
       [styles.reversed]: isReversed,
     })}
-    style={{ width: `${width}rem`, height: `${width}rem` }}
+    style={{
+      width: `${graphicSizesRem.get(size)}rem`,
+      height: `${graphicSizesRem.get(size)}rem`,
+    }}
     {...props}
   />
 )
