@@ -32,7 +32,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       ...nativeButtonProps
     } = props
     return (
-      <Tooltip text={label} display="inline-block">
+      <Tooltip text={label} display="inline-block" position="above">
         <button
           ref={ref}
           aria-pressed={isActive}

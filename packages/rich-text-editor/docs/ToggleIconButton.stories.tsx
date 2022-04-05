@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Children } from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
@@ -35,63 +35,91 @@ const defaultButton = {
   icon: boldIcon,
 }
 
+DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = { isActive: false, label: "Bold", icon: boldIcon }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+// This is used to showcase the toggle icon button within a sticker sheet
+// Implementation wise it is not required in a ToolbarSection
+const InlineWrapper: React.VFC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+}) => <div style={{ display: "inline-block" }}>{children}</div>
+
+const StickerSheetTemplate: Story = () => (
   <>
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader
-        headings={[
-          "Default",
-          "Secondary",
-          "Primary",
-          "Destructive",
-          "Secondary Destructive",
-        ]}
-      />
-      <StoryWrapper.Row rowTitle="base">
-        <ToggleIconButton isActive={false} {...defaultButton} />
-        <ToggleIconButton
-          mood="secondary"
-          isActive={false}
-          {...defaultButton}
-        />
-        <ToggleIconButton mood="primary" isActive={false} {...defaultButton} />
-        <ToggleIconButton
-          mood="destructive"
-          isActive={false}
-          {...defaultButton}
-        />
-        <ToggleIconButton
-          mood="secondary-destructive"
-          isActive={false}
-          {...defaultButton}
-        />
+    <StoryWrapper>
+      <StoryWrapper.RowHeader headings={["Base", "Active"]} />
+      <StoryWrapper.Row rowTitle="Default">
+        <InlineWrapper>
+          <ToggleIconButton isActive={false} {...defaultButton} />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton isActive={true} {...defaultButton} />
+        </InlineWrapper>
       </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Selected">
-        <ToggleIconButton isActive={true} {...defaultButton} />
-        <ToggleIconButton mood="secondary" isActive={true} {...defaultButton} />
-        <ToggleIconButton mood="primary" isActive={true} {...defaultButton} />
-        <ToggleIconButton
-          mood="destructive"
-          isActive={true}
-          {...defaultButton}
-        />
-        <ToggleIconButton
-          mood="secondary-destructive"
-          isActive={true}
-          {...defaultButton}
-        />
+      <StoryWrapper.Row rowTitle="Primary">
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="primary"
+            isActive={false}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton mood="primary" isActive={true} {...defaultButton} />
+        </InlineWrapper>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Secondary">
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="secondary"
+            isActive={false}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="secondary"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Destructive">
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="destructive"
+            isActive={false}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="destructive"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Secondary destructive">
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="secondary-destructive"
+            isActive={false}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            mood="secondary-destructive"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
       </StoryWrapper.Row>
     </StoryWrapper>
   </>
 )
 
-DefaultStory.storyName = "Default (Kaizen Demo)"
-
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
