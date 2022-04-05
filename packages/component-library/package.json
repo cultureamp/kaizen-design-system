@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "13.2.5",
+  "version": "13.2.6",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -33,7 +33,7 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
-    "@kaizen/draft-button": "^5.6.24",
+    "@kaizen/draft-button": "^5.6.25",
     "@kaizen/hosted-assets": "^1.2.0",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.181",
@@ -42,7 +42,7 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.11.4",
+    "@testing-library/dom": "^8.12.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
