@@ -26,4 +26,21 @@ export const Default = () => {
     </>
   )
 }
+
+Default.storyName = "Default (Kaizen Demo)"
+
+export const WithControls = () => {
+  const [rteData, setRTEData] = useState<EditorContentArray>([])
+  return (
+    <>
+      <RichTextEditor
+        labelText="Label"
+        value={rteData}
+        controls={[["em"]]}
+        onChange={data => setRTEData(data)}
+      />
+    </>
+  )
+}
+
 Default.storyName = "Default (Kaizen Demo)"
