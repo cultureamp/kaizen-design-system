@@ -3,28 +3,19 @@ import { Node, Schema } from "prosemirror-model"
 import { EditorContentArray } from "./types"
 
 export function createInitialState(
-  doc: Node | null,
+  value: EditorContentArray | null,
   schema: Schema,
   plugins: Plugin[] = []
 ): EditorState {
   return EditorState.create({
-    doc,
+    doc: value
+      ? Node.fromJSON(schema, {
+          type: "doc",
+          contentObject: value,
+        })
+      : null,
     schema,
     plugins,
-  })
-}
-
-function createDoc(schema: Schema, docObject: Record<string, any>) {
-  return Node.fromJSON(schema, docObject)
-}
-
-export function createDocFromContent(
-  schema: Schema,
-  contentObject: EditorContentArray
-) {
-  return createDoc(schema, {
-    type: "doc",
-    content: contentObject,
   })
 }
 
