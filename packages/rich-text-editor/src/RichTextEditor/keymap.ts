@@ -12,6 +12,14 @@ import {
 } from "prosemirror-commands"
 import { redo, undo } from "prosemirror-history"
 import { undoInputRule } from "prosemirror-inputrules"
+import {
+  wrapInList,
+  splitListItem,
+  liftListItem,
+  sinkListItem,
+} from "prosemirror-schema-list"
+
+// Most/all of this file is copied from https://github.com/ProseMirror/prosemirror-example-setup/blob/master/src/keymap.js
 
 const mac =
   // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
@@ -70,8 +78,22 @@ export function buildKeymap(schema: Schema) {
   }
 
   if (schema.nodes.paragraph) {
-    const type = schema.nodes.paragraph
-    keys["Shift-Ctrl-0"] = setBlockType(type)
+    keys["Shift-Ctrl-0"] = setBlockType(schema.nodes.paragraph)
+  }
+
+  if (schema.nodes.bullet_list) {
+    keys["Shift-Ctrl-8"] = wrapInList(schema.nodes.bullet_list)
+  }
+
+  if (schema.nodes.ordered_list) {
+    keys["Shift-Ctrl-9"] = wrapInList(schema.nodes.ordered_list)
+  }
+
+  if (schema.nodes.list_item) {
+    const type = schema.nodes.list_item
+    keys["Enter"] = splitListItem(type)
+    keys["Mod-["] = liftListItem(type)
+    keys["Mod-]"] = sinkListItem(type)
   }
 
   return keys
