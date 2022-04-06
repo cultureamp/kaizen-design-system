@@ -52,9 +52,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Group`,
   component: CheckboxField,
   parameters: {
-    actions: {
-      argTypesRegex: "^on.*",
-    },
     docs: {
       description: {
         component: 'import { CheckboxGroup } from "@kaizen/draft-form";',
