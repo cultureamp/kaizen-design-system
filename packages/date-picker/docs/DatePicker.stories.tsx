@@ -58,7 +58,7 @@ const DateRangePickerTemplate: Story = props => {
   })
   const [value, setValue] = useState("")
 
-  const onDateRangeChange = (dateRange: RangeModifier) => {
+  const onDateRangeChange = async (dateRange: RangeModifier) => {
     setSelectedDateRange(dateRange)
   }
 

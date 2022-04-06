@@ -12,7 +12,6 @@ import {
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { DateUtils } from "react-day-picker"
-import { KeyboardEvent } from "react-select/node_modules/@types/react"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
@@ -109,6 +108,8 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
   ...inputProps
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [tempTo, setTempTo] = useState<Date | undefined | null>(undefined)
+
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -158,16 +159,28 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
     }
 
     if (!selectedDateRange) return
+
+    // console.log("BEFORE", selectedDateRange)
+
     onChange(DateUtils.addDayToRange(day, selectedDateRange))
+    // console.log("AFTER", selectedDateRange)
+
+    if (
+      (selectedDateRange.to === undefined && selectedDateRange.from) ||
+      (selectedDateRange.to && selectedDateRange.from)
+    ) {
+      // console.log(DateUtils.isDayBefore(day, selectedDateRange.from!))
+      // console.log("Day", day)
+      // console.log("From", selectedDateRange.from!)
+      if (!DateUtils.isDayBefore(day, selectedDateRange.from!)) {
+        handleOpenClose()
+      }
+    }
   }
 
   const modifiers: RangeModifier = {
     from: selectedDateRange?.from,
     to: selectedDateRange?.to,
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent<KeyboardEvent>) => {
-    console.log(e)
   }
 
   return (
@@ -218,7 +231,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
             modifiers={modifiers}
             selectedRange={selectedDateRange}
             onDayChange={handleDayClick}
-            onKeyDown={handleKeyDown}
+            // onKeyDown={handleKeyDown}
             range
           />
         </FocusOn>
@@ -226,5 +239,3 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
     </div>
   )
 }
-
-DateRangePicker.displayName = "DateRangePicker"
