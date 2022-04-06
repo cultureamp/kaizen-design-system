@@ -22,14 +22,11 @@ $block-height: 35px;
 $desktop-rater-width: 220px;
 $desktop-rater-height: 63px;
 
-$start: #fd3;
-$end: #f50;
-
-$first: mix($start, $end, 100%);
-$second: mix($start, $end, 75%);
-$third: mix($start, $end, 50%);
-$fourth: mix($start, $end, 25%);
-$fifth: mix($start, $end, 0%);
+$first: $color-yellow-300;
+$second: $color-yellow-400;
+$third: $color-orange-400;
+$fourth: $color-orange-500;
+$fifth: $color-red-500;
 
 @mixin pop {
   -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
@@ -117,58 +114,29 @@ $fifth: mix($start, $end, 0%);
 }
 
 :global(.js-focus-visible) {
-  $focus-ring-offset: 3px;
-
-  .container {
-    &:focus {
-      outline: none;
-    }
-
-    &:global(.focus-visible)::after {
-      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-      content: "";
-      position: absolute;
-      background: transparent;
-      border-radius: $border-focus-ring-border-radius;
-      border-width: $border-focus-ring-border-width;
-      border-style: $border-focus-ring-border-style;
-      border-color: $color-blue-500;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
-    }
-  }
-
-  .likertItem:focus {
+  .likertItem:focus,
+  .likertItemFill:focus {
     outline: none;
   }
 
   .reversed:not(.rated)
     :global([data-focus-visible-added]).likertItem:focus
     .likertItemFill {
-    border-color: $color-white;
+    outline-color: $color-blue-300;
   }
 
   // React seems to be causing the .focus-visible class to only be added sometimes,
   // so we need to use [data-focus-visible-added] here instead.
   // See https://github.com/WICG/focus-visible#2-update-your-css
-  :global([data-focus-visible-added]).likertItem::after {
-    content: "";
-    position: absolute;
-    background: transparent;
-    border-radius: $border-focus-ring-border-radius;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $color-blue-500;
-    top: calc(-1 * #{$focus-ring-offset});
-    left: calc(-1 * #{$focus-ring-offset});
-    right: calc(-1 * #{$focus-ring-offset});
-    bottom: calc(-1 * #{$focus-ring-offset});
+
+  :global([data-focus-visible-added]).likertItem .likertItemFill {
+    outline-offset: 1px;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
   }
 
-  .reversed :global([data-focus-visible-added]).likertItem::after {
-    border-color: $color-blue-300;
+  .reversed :global([data-focus-visible-added]).likertItem .likertItemFill {
+    outline-color: $color-blue-300;
   }
 }
 
@@ -194,13 +162,13 @@ $fifth: mix($start, $end, 0%);
 }
 
 .likertItem {
-  margin-right: 0;
-  margin-left: 1px;
+  margin-right: 2px;
+  margin-left: 2px;
 
   &[dir="rtl"],
   [dir="rtl"] & {
-    margin-right: 1px;
-    margin-left: 0;
+    margin-right: 2px;
+    margin-left: 2px;
   }
 
   @include fill($block-height);
@@ -213,7 +181,10 @@ $fifth: mix($start, $end, 0%);
   position: relative;
 
   &:first-child {
-    margin: 0;
+    margin-right: 2px;
+  }
+  &:last-child {
+    margin-left: 2px;
   }
 
   &.suggested,
@@ -253,7 +224,6 @@ $fifth: mix($start, $end, 0%);
 
 .likertItemFill {
   transition: background 0.1s, border-color 0.1s;
-  width: 85%;
   height: $block-height;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
