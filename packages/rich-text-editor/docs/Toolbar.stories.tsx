@@ -1,5 +1,6 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
+import { Story } from "@storybook/react"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
@@ -29,7 +30,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = (args: ToolbarProps) => (
+const ToolbarStoryTemplate: Story<ToolbarProps> = (args: ToolbarProps) => (
   <Toolbar {...args}>
     <ToolbarSection>
       <ToggleIconButton label="Bold" icon={boldIcon} />
@@ -46,6 +47,10 @@ export const DefaultStory = (args: ToolbarProps) => (
   </Toolbar>
 )
 
+export const DefaultStory = ToolbarStoryTemplate.bind({})
+
+DefaultStory.storyName = "Default (Kaizen Demo)"
+
 DefaultStory.args = {
   "aria-label": "Toolbar",
   "aria-controls": "editable-id",
@@ -55,11 +60,28 @@ DefaultStory.argTypes = {
   children: {
     name: "children",
     description: "Takes a collection of `<ToolbarSection>`",
-    type: { name: "React.ReactNode", required: true },
+    type: { name: "function", required: true },
     control: {
       type: null,
     },
   },
 }
 
-DefaultStory.storyName = "Default (Kaizen Demo)"
+export const ToolBarWithTopContent = ToolbarStoryTemplate.bind({})
+
+ToolBarWithTopContent.storyName = "Toolbar with top content"
+ToolBarWithTopContent.decorators = [
+  StoryComponent => (
+    <div>
+      <p style={{ paddingBottom: "100px" }}>
+        This is an example to showcase the tooltip positioning when the page
+        actually has content
+      </p>
+      <StoryComponent />
+    </div>
+  ),
+]
+ToolBarWithTopContent.args = {
+  "aria-label": "Toolbar-with-top-spacing",
+  "aria-controls": "editable-id-with-top-spacing",
+}

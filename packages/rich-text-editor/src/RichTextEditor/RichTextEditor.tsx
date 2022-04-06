@@ -60,11 +60,9 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       schema,
       plugins: [
         history(),
-        keymap({
-          ...baseKeymap,
-          ...buildKeymap(schema),
-        }),
-        buildInputRules(),
+        keymap(buildKeymap(schema)),
+        keymap(baseKeymap),
+        buildInputRules(schema),
       ],
     }),
     { "aria-labelledby": labelId }

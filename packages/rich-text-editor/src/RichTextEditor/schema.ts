@@ -6,6 +6,7 @@ import {
   nodes as coreNodes,
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
+import { addListNodes } from "prosemirror-schema-list"
 
 export const nodes: NodeSpec = {
   doc: coreNodes.doc,
@@ -47,5 +48,19 @@ export const createSchemaFromControls = controls => {
     }),
     {}
   )
-  return new Schema({ nodes, marks: newMarks })
+
+  // TODO: This is hard coded to always enable lists for now,
+  // but once we have the toolbar we can use the controls to determine this.
+  const listsEnabled = true
+
+  const schema = new Schema({ nodes, marks: newMarks })
+
+  if (listsEnabled) {
+    return new Schema({
+      nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
+      marks: newMarks,
+    })
+  }
+
+  return schema
 }
