@@ -623,6 +623,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .breadcrumb,
+.breadcrumb:hover,
 .breadcrumbText {
   color: $color-white;
   .educationVariant &,
