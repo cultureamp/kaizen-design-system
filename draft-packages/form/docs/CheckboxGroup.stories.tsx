@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -19,33 +19,14 @@ interface Props {
   render: (props: RenderProps) => JSX.Element
 }
 
-class CheckboxGroupExample extends React.Component<Props> {
-  public state = {
-    checkedStatus: "mixed",
-  }
-  constructor(props: Props) {
-    super(props)
-
-    this.onCheckHandler = this.onCheckHandler.bind(this)
+function CheckboxGroupExample({ render }) {
+  const [checkedStatus, setCheckedStatus] = useState("mixed")
+  const onCheckHandler = () => {
+    const newStatus = checkedStatus === "on" ? "off" : "on"
+    setCheckedStatus(newStatus)
   }
 
-  public onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      checkedStatus: this.state.checkedStatus === "on" ? "off" : "on",
-    })
-  }
-
-  public render() {
-    const { render } = this.props
-    return (
-      <div>
-        {render({
-          checkedStatus: this.state.checkedStatus,
-          onCheckHandler: this.onCheckHandler,
-        })}
-      </div>
-    )
-  }
+  return <>{render({ checkedStatus, onCheckHandler })}</>
 }
 
 export default {
