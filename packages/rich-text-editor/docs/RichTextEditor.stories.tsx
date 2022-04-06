@@ -14,17 +14,18 @@ export default {
   },
 }
 
-export const Default = () => {
+export const Default = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
   return (
-    <>
-      <RichTextEditor
-        labelText="Label"
-        value={rteData}
-        onChange={data => setRTEData(data)}
-        rows={1}
-      />
-    </>
+    <RichTextEditor
+      value={rteData}
+      onChange={data => setRTEData(data)}
+      {...args}
+    />
   )
 }
 Default.storyName = "Default (Kaizen Demo)"
+Default.args = {
+  labelText: "Label",
+  rows: 3,
+}
