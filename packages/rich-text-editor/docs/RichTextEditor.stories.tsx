@@ -22,6 +22,7 @@ export const Default = () => {
         labelText="Label"
         value={rteData}
         onChange={data => setRTEData(data)}
+        rows={1}
       />
     </>
   )
