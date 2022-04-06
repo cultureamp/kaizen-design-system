@@ -16,6 +16,9 @@ export type DropdownProps = {
   onOpenDropdown: () => void
 }
 
+/**
+ * @deprecated Draft SplitButton/Dropdown is deprecated.
+ */
 class Dropdown extends React.Component<DropdownProps> {
   static displayName = "Dropdown"
   static defaultProps = {
