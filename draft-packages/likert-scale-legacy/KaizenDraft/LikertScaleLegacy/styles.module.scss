@@ -177,14 +177,16 @@ $fifth: $color-red-500;
   padding: 0;
   overflow-x: visible;
   display: inline-block;
-  width: 20%; // 5 columns
+  width: 18.5%; // 5 columns
   position: relative;
 
   &:first-child {
     margin-right: 2px;
+    margin-left: 0;
   }
   &:last-child {
     margin-left: 2px;
+    margin-right: 0;
   }
 
   &.suggested,
