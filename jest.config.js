@@ -2,7 +2,7 @@ module.exports = {
   preset: "ts-jest",
   testRunner: "jest-circus/runner",
   testMatch: ["**/*.spec.ts?(x)"],
-  setupFilesAfterEnv: ["jest-canvas-mock"],
+  setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
   moduleNameMapper: {
     "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
     "\\.s?css$": "identity-obj-proxy",

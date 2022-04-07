@@ -29,6 +29,9 @@ export interface SplitButtonProps
   automationId?: string
 }
 
+/**
+ * @deprecated Draft SplitButton is deprecated. Use "@kaizen/split-button" instead.
+ */
 export const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
   label,
   href,
