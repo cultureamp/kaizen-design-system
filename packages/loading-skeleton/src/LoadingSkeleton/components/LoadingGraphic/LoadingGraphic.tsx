@@ -17,7 +17,7 @@ const graphicSizesRem = new Map<string, number>([
   ["large", 4.5],
   ["xlarge", 6],
   ["xxlarge", 7.5],
-  ["scene", 32],
+  ["scene", 18.75],
 ])
 
 export interface LoadingGraphicProps

@@ -95,7 +95,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             </>
           }
           input={<LoadingInput width={100} />}
-          graphic={<LoadingGraphic width={9.75} />}
+          graphic={<LoadingGraphic size="xxlarge" />}
         />
         <GuidanceBlock
           illustration={<Informative alt="informative-spot-image" />}
@@ -113,7 +113,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             </>
           }
           input={<LoadingInput width={100} />}
-          graphic={<LoadingGraphic width={18.75} />}
+          graphic={<LoadingGraphic size="scene" />}
         />
         <GuidanceBlock
           illustration={<HumanityAtWork alt="humanity-at-work" />}
@@ -128,4 +128,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
