@@ -5,10 +5,6 @@
 @import "@kaizen/design-tokens/sass/typography";
 
 .editor > :global(.ProseMirror) {
-  position: relative;
-  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
-  background: $color-white;
-  border-radius: $border-solid-border-radius;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
@@ -17,6 +13,7 @@
   padding: $spacing-sm calc($spacing-xs * 3);
   transition: background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
+  min-height: 100px;
 
   > p {
     margin: 0 0 $spacing-sm;
@@ -51,4 +48,11 @@
     right: calc(-1 * #{$focus-ring-offset});
     bottom: calc(-1 * #{$focus-ring-offset});
   }
+}
+
+.editorWrapper {
+  position: relative;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  background: $color-white;
+  border-radius: $border-solid-border-radius;
 }

@@ -65,32 +65,34 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     <>
       {labelText && <Label id={labelId} labelText={labelText} />}
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
-      {controls && (
-        <Toolbar aria-controls="toolbar-ref-id" aria-label="Test Toolbar">
-          {marksFromControls?.map((controlSection, sectionIndex) => (
-            <ToolbarSection key={sectionIndex}>
-              {controlSection.map((mark, markIndex) => {
-                const isActive = markIsActive(editorState, mark) || false
-                const action = isActive ? removeMark(mark) : addMark(mark)
-                return (
-                  <ToggleIconButton
-                    key={markIndex}
-                    icon={mark.spec.control.icon}
-                    label={mark.spec.control.label}
-                    isActive={isActive}
-                    onClick={() => dispatchTransaction(action)}
-                  />
-                )
-              })}
-            </ToolbarSection>
-          ))}
-        </Toolbar>
-      )}
-      <div
-        ref={editorRef}
-        className={classnames(styles.editor, classNameOverride)}
-        {...restProps}
-      />
+      <div className={styles.editorWrapper}>
+        {controls && (
+          <Toolbar aria-controls="toolbar-ref-id" aria-label="Text formatting">
+            {marksFromControls?.map((controlSection, sectionIndex) => (
+              <ToolbarSection key={sectionIndex}>
+                {controlSection.map((mark, markIndex) => {
+                  const isActive = markIsActive(editorState, mark) || false
+                  const action = isActive ? removeMark(mark) : addMark(mark)
+                  return (
+                    <ToggleIconButton
+                      key={markIndex}
+                      icon={mark.spec.control.icon}
+                      label={mark.spec.control.label}
+                      isActive={isActive}
+                      onClick={() => dispatchTransaction(action)}
+                    />
+                  )
+                })}
+              </ToolbarSection>
+            ))}
+          </Toolbar>
+        )}
+        <div
+          ref={editorRef}
+          className={classnames(styles.editor, classNameOverride)}
+          {...restProps}
+        />
+      </div>
     </>
   )
 }
