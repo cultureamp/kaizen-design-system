@@ -172,17 +172,16 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
         from: selectedDateRange.from,
         to: day,
       })
-      console.log("close")
       handleOpenClose()
     }
   }
 
   const isSelectingFirstDay = (range: RangeModifier, day: Date) => {
-    console.log(range)
     const isBeforeFirstDay =
       !!range.from && DateUtils.isDayBefore(day, range.from)
+
     const isRangeSelected = !!range.from && !!range.to
-    // console.log(isBeforeFirstDay, isRangeSelected)
+
     return !range.from || isBeforeFirstDay || isRangeSelected
   }
 
