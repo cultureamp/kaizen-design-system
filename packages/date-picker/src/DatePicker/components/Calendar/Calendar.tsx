@@ -33,13 +33,8 @@ export type CalendarProps = {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void
   range?: boolean
-  selectedRange?: Modifier | Modifier[]
+  selectedRange?: RangeModifier
   modifiers?: RangeModifier
-  // onKeyDown: (
-  //   day: Date,
-  //   modifiers: DayModifiers,
-  //   e: React.KeyboardEvent<HTMLDivElement>
-  // ) => void
 }
 
 export type CalendarNavProps = Pick<
@@ -60,7 +55,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   range,
   selectedRange,
   modifiers,
-  // onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -68,10 +62,11 @@ export const Calendar: React.VFC<CalendarProps> = ({
     <CalendarNav {...navbarProps} />
   )
 
+  // Initial focus when opening the calendar
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (value) {
+    if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
         "DayPicker-Day--selected"
       )[0] as HTMLElement
@@ -85,6 +80,16 @@ export const Calendar: React.VFC<CalendarProps> = ({
       today?.focus()
     }
   }, [])
+
+  const getInitialMonth = () => {
+    if (selectedRange?.from) {
+      return selectedRange.from
+    } else if (value) {
+      return value
+    } else {
+      return initialMonth
+    }
+  }
 
   return (
     <div ref={calendarRef}>
@@ -101,7 +106,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
       >
         <DayPicker
           selectedDays={range ? selectedRange : value}
-          initialMonth={value ? value : initialMonth}
+          initialMonth={getInitialMonth()}
           firstDayOfWeek={firstDayOfWeek}
           disabledDays={disabledDays}
           onDayClick={onDayChange}
@@ -114,7 +119,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
               [calendarStyles.to]: modifiers?.to,
             } as Modifiers
           }
-          // onDayKeyDown={(day, m, e) => onKeyDown(day, m, e)}
         />
       </div>
     </div>

@@ -108,7 +108,6 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
   ...inputProps
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [tempTo, setTempTo] = useState<Date | undefined | null>(undefined)
 
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -153,29 +152,38 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-
     if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
 
     if (!selectedDateRange) return
 
-    // console.log("BEFORE", selectedDateRange)
-
-    onChange(DateUtils.addDayToRange(day, selectedDateRange))
-    // console.log("AFTER", selectedDateRange)
-
-    if (
-      (selectedDateRange.to === undefined && selectedDateRange.from) ||
-      (selectedDateRange.to && selectedDateRange.from)
-    ) {
-      // console.log(DateUtils.isDayBefore(day, selectedDateRange.from!))
-      // console.log("Day", day)
-      // console.log("From", selectedDateRange.from!)
-      if (!DateUtils.isDayBefore(day, selectedDateRange.from!)) {
-        handleOpenClose()
-      }
+    /** If user has already selected range and then selects again, treat first
+     * click as the start of the new range.
+     *  */
+    if (isSelectingFirstDay(selectedDateRange, day)) {
+      onChange({
+        from: day,
+        to: null,
+      })
+    } else {
+      // Otherwise, treat click as the final selection.
+      onChange({
+        from: selectedDateRange.from,
+        to: day,
+      })
+      console.log("close")
+      handleOpenClose()
     }
+  }
+
+  const isSelectingFirstDay = (range: RangeModifier, day: Date) => {
+    console.log(range)
+    const isBeforeFirstDay =
+      !!range.from && DateUtils.isDayBefore(day, range.from)
+    const isRangeSelected = !!range.from && !!range.to
+    // console.log(isBeforeFirstDay, isRangeSelected)
+    return !range.from || isBeforeFirstDay || isRangeSelected
   }
 
   const modifiers: RangeModifier = {
@@ -231,7 +239,6 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
             modifiers={modifiers}
             selectedRange={selectedDateRange}
             onDayChange={handleDayClick}
-            // onKeyDown={handleKeyDown}
             range
           />
         </FocusOn>

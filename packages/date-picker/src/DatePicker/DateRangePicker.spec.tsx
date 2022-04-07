@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react"
+import { act, render, screen, waitFor } from "@testing-library/react"
 import React from "react"
 import userEvent from "@testing-library/user-event"
 import { DateRangePicker } from "./DateRangePicker"
@@ -7,6 +7,10 @@ import "@testing-library/jest-dom"
 const defaultProps = {
   id: "date-picker-range",
   labelText: "Choose date",
+  selectedDateRange: {
+    from: null,
+    to: null,
+  },
   initialMonth: new Date(2022, 2),
   onChange: () => jest.fn(),
 }
@@ -49,6 +53,8 @@ describe("<DateRangePicker />", () => {
       userEvent.keyboard("{enter}")
     })
 
+    // Calendar closes on select and value shows in input
+    // expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
     expect(element.innerText === "Mar 6 – Mar 16, 2022")
   })
 
