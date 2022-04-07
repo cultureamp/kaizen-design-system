@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.4.0...@kaizen/rich-text-editor@1.6.0) (2022-04-06)
+
+
+### Features
+
+* Add list functionality to RichTextEditor ([#2672](https://github.com/cultureamp/kaizen-design-system/issues/2672)) ([5e78fd7](https://github.com/cultureamp/kaizen-design-system/commit/5e78fd71066d7ef37d0b307231f283b0e6c72a8e))
+* update interactive state styles and add toggle mood support ([#2668](https://github.com/cultureamp/kaizen-design-system/issues/2668)) ([51afc42](https://github.com/cultureamp/kaizen-design-system/commit/51afc425a1fbba1d4cf2bb3a58a4589e7a51e5f8))
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.4.0...@kaizen/rich-text-editor@1.5.0) (2022-04-05)
 
 
