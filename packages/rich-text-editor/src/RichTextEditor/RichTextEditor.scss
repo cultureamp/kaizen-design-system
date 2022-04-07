@@ -5,6 +5,7 @@
 @import "@kaizen/design-tokens/sass/typography";
 
 .editor > :global(.ProseMirror) {
+  border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
@@ -13,7 +14,6 @@
   padding: $spacing-sm calc($spacing-xs * 3);
   transition: background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
-  min-height: 100px;
 
   > p {
     margin: 0 0 $spacing-sm;
