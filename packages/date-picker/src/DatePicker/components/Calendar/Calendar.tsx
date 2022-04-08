@@ -38,6 +38,7 @@ export type CalendarProps = {
   modifiers?: RangeModifier
   inputRef?: React.RefObject<HTMLInputElement>
   isComobox?: boolean
+  onKeyDown: (e: any) => void
 }
 
 export type CalendarNavProps = Pick<
@@ -61,6 +62,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   id,
   inputRef,
   isComobox = true,
+  onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -118,12 +120,16 @@ export const Calendar: React.VFC<CalendarProps> = ({
           navbarElement={getNavbar}
           className={range ? calendarStyles.range : ""}
           classNames={defaultCalendarClasses}
+<<<<<<< HEAD
           modifiers={
             {
               [calendarStyles.from]: modifiers?.from,
               [calendarStyles.to]: modifiers?.to,
             } as Modifiers
           }
+=======
+          onKeyDown={e => onKeyDown(e)}
+>>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
         />
       </div>
     </div>

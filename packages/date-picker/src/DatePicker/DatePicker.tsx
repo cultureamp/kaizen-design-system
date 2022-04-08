@@ -72,6 +72,10 @@ export interface DatePickerProps {
    */
   disabledDaysOfWeek?: DayOfWeek[]
 
+<<<<<<< HEAD
+=======
+  isInput?: boolean
+>>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
   onTextChange?: () => void
 }
 
@@ -105,6 +109,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   firstDayOfWeek = 1,
   initialMonth,
   validationMessages,
+  isInput,
   ...inputProps
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -142,8 +147,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       return
     }
 
+<<<<<<< HEAD
     if (variant === "input") {
       setInputDate(format(day, "P"))
+=======
+    if (isInput) {
+      setInputDate(format(day, "PP"))
+>>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
     } else {
       onChange(day)
     }
