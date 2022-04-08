@@ -45,14 +45,14 @@ export function buildKeymap(schema: Schema) {
     keys["Mod-y"] = redo
   }
 
-  if (schema.marks.strong) {
-    const type = schema.marks.strong
+  if (schema.marks.bold) {
+    const type = schema.marks.bold
     keys["Mod-b"] = toggleMark(type)
     keys["Mod-B"] = toggleMark(type)
   }
 
-  if (schema.marks.em) {
-    const type = schema.marks.em
+  if (schema.marks.italic) {
+    const type = schema.marks.italic
     keys["Mod-i"] = toggleMark(type)
     keys["Mod-I"] = toggleMark(type)
   }

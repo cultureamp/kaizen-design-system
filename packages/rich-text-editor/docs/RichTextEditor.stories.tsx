@@ -34,7 +34,7 @@ export const WithControls = () => {
       <RichTextEditor
         labelText="Label"
         value={rteData}
-        controls={[["strong", "em"], ["underline"]]}
+        controls={[["bold", "italic"], ["underline"]]}
         onChange={data => setRTEData(data)}
       />
     </>
