@@ -1,7 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
 import DayPicker from "react-day-picker/DayPicker"
 import { NavbarElementProps } from "react-day-picker/types/Props"
-import { Modifier, DayModifiers } from "react-day-picker/types/Modifiers"
+import {
+  Modifier,
+  DayModifiers,
+  RangeModifier,
+  Modifiers,
+} from "react-day-picker/types/Modifiers"
 import classnames from "classnames"
 import { CalendarNav } from "../CalendarNav/CalendarNav"
 import { defaultCalendarClasses } from "./CalendarClasses"
@@ -22,7 +27,14 @@ export type CalendarProps = {
   initialMonth?: Date
   firstDayOfWeek: number
   disabledDays?: Modifier | Modifier[]
-  onDayChange: (day: Date, modifiers: DayModifiers) => void
+  onDayChange: (
+    day: Date,
+    modifiers: DayModifiers,
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => void
+  range?: boolean
+  selectedRange?: RangeModifier
+  modifiers?: RangeModifier
 }
 
 export type CalendarNavProps = Pick<
@@ -40,6 +52,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
   firstDayOfWeek,
   disabledDays,
   onDayChange,
+  range,
+  selectedRange,
+  modifiers,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -47,10 +62,11 @@ export const Calendar: React.VFC<CalendarProps> = ({
     <CalendarNav {...navbarProps} />
   )
 
+  // Initial focus when opening the calendar
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (value) {
+    if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
         "DayPicker-Day--selected"
       )[0] as HTMLElement
@@ -65,6 +81,16 @@ export const Calendar: React.VFC<CalendarProps> = ({
     }
   }, [])
 
+  const getInitialMonth = () => {
+    if (selectedRange?.from) {
+      return selectedRange.from
+    } else if (value) {
+      return value
+    } else {
+      return initialMonth
+    }
+  }
+
   return (
     <div ref={calendarRef}>
       <div
@@ -74,18 +100,22 @@ export const Calendar: React.VFC<CalendarProps> = ({
         className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"
-        aria-label={
-          value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
-        }
       >
         <DayPicker
-          selectedDays={value}
-          initialMonth={value ? value : initialMonth}
+          selectedDays={range ? selectedRange : value}
+          initialMonth={getInitialMonth()}
           firstDayOfWeek={firstDayOfWeek}
           disabledDays={disabledDays}
           onDayClick={onDayChange}
           navbarElement={getNavbar}
+          className={range ? calendarStyles.range : ""}
           classNames={defaultCalendarClasses}
+          modifiers={
+            {
+              [calendarStyles.from]: modifiers?.from,
+              [calendarStyles.to]: modifiers?.to,
+            } as Modifiers
+          }
         />
       </div>
     </div>
