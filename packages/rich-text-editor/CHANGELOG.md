@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.6.0...@kaizen/rich-text-editor@1.7.0) (2022-04-08)
+
+
+### Features
+
+* Add rows prop to RichTextEditor for setting min-height ([#2679](https://github.com/cultureamp/kaizen-design-system/issues/2679)) ([db90941](https://github.com/cultureamp/kaizen-design-system/commit/db90941874850bc88bb34a97c52f813ec967d3cb))
+
+
+
+
+
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.4.0...@kaizen/rich-text-editor@1.6.0) (2022-04-06)
 
 

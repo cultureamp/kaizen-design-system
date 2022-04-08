@@ -20,10 +20,42 @@ export interface RichTextEditorProps
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
   labelText: ReactNode
+  /**
+   * Sets a default min-height for the editable area in units of body paragraph line height, similar to the 'rows' attribute on <textarea>.
+   * The editable area will autogrow, so this only affects the component when the content doesn't exceed this height.
+   */
+  rows?:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16
+    | 17
+    | 18
+    | 19
+    | 20
 }
 
 export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
-  const { onChange, value, labelText, classNameOverride, ...restProps } = props
+  const {
+    onChange,
+    value,
+    labelText,
+    rows = 3,
+    classNameOverride,
+    ...restProps
+  } = props
   const [schema] = useState<Schema>(createSchemaFromControls([]))
   const [labelId] = useState<string>(v4())
   const [editorRef, editorState] = useRichTextEditor(
@@ -56,7 +88,11 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
       <div
         ref={editorRef}
-        className={classnames(styles.editor, classNameOverride)}
+        className={classnames(
+          styles.editor,
+          styles[`rows${rows}`],
+          classNameOverride
+        )}
         {...restProps}
       />
     </>
