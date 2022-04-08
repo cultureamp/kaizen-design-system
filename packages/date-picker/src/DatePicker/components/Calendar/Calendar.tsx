@@ -38,6 +38,7 @@ export type CalendarProps = {
   modifiers?: RangeModifier
   inputRef?: React.RefObject<HTMLInputElement>
   isInput?: boolean
+  onKeyDown?: (e: React.KeyboardEvent) => void
 }
 
 export type CalendarNavProps = Pick<
@@ -61,6 +62,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   id,
   inputRef,
   isInput = true,
+  onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -118,19 +120,13 @@ export const Calendar: React.VFC<CalendarProps> = ({
           navbarElement={getNavbar}
           className={range ? calendarStyles.range : ""}
           classNames={defaultCalendarClasses}
-<<<<<<< HEAD
-<<<<<<< HEAD
           modifiers={
             {
               [calendarStyles.from]: modifiers?.from,
               [calendarStyles.to]: modifiers?.to,
             } as Modifiers
           }
-=======
-          onKeyDown={e => onKeyDown(e)}
->>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
-=======
->>>>>>> 3653ff0af (fix: clean up Date picker input and stories)
+          onKeyDown={onKeyDown && (e => onKeyDown(e))}
         />
       </div>
     </div>
