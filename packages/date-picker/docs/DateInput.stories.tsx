@@ -20,34 +20,26 @@ export default {
   },
 }
 
-export const DefaultStory = props => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
-
-  return (
-    <>
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        value={selectedDate}
-        onChange={onDayChange}
-        description="dd/mm/yyyy"
-        placeholder="dd/mm/yyyy"
-        {...props}
-      />
-      <ul>
-        {Array(100)
-          .fill(1)
-          .map((_, index) => (
-            <li>fill the page with something...</li>
-          ))}
-      </ul>
-    </>
-  )
-}
+export const DefaultStory = props => (
+  <>
+    <DatePicker
+      id="datepicker-default"
+      labelText="Label"
+      description="dd/mm/yyyy"
+      placeholder="dd/mm/yyyy"
+      isInput
+      variant="combobox"
+      {...props}
+    />
+    <ul>
+      {Array(100)
+        .fill(1)
+        .map((_, index) => (
+          <li key={index}>fill the page with something...</li>
+        ))}
+    </ul>
+  </>
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
 const CalendarTemplate: Story = props => {
