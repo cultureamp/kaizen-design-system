@@ -3,10 +3,7 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-<<<<<<< HEAD:packages/date-picker/docs/DatePicker.stories.tsx
 import { RangeModifier } from "react-day-picker/types/Modifiers"
-=======
->>>>>>> 3653ff0af (fix: clean up Date picker input and stories):packages/date-picker/docs/DatePickerButton.stories.tsx
 import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
@@ -123,6 +120,7 @@ const CalendarRangeTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
+        id="calendar"
         setPopperElement={setPopperElement}
         styles={styles}
         attributes={attributes}

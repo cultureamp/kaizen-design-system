@@ -191,6 +191,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleKeyDown = e => {
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
+      e.preventDefault()
       setIsOpen(true)
     }
     return
@@ -278,6 +279,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             onDayChange={handleOnDayChange}
             inputRef={inputRef}
             isInput={variant === "input" ? true : false}
+            onKeyDown={handleKeyDown}
           />
         </FocusOn>
       )}
