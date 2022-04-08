@@ -18,7 +18,8 @@
     outline: none;
   }
 
-  &:global(.focus-visible)::after {
+  &:global(.focus-visible)::after,
+  &:focus-visible:after {
     $focus-ring-offset: 3px;
     content: "";
     position: absolute;

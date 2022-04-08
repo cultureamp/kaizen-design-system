@@ -17,14 +17,14 @@ export const nodes: NodeSpec = {
 }
 
 export const marks: MarkSpec = {
-  strong: {
+  bold: {
     ...coreMarks.strong,
     control: {
       label: "Bold",
       icon: boldIcon,
     },
   },
-  em: {
+  italic: {
     ...coreMarks.em,
     control: {
       label: "Italic",
