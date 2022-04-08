@@ -147,13 +147,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       return
     }
 
-<<<<<<< HEAD
     if (variant === "input") {
       setInputDate(format(day, "P"))
-=======
-    if (isInput) {
-      setInputDate(format(day, "PP"))
->>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
     } else {
       onChange(day)
     }
