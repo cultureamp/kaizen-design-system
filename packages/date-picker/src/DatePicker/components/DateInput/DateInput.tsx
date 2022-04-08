@@ -120,7 +120,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
           </div>
         </button>
       }
-      isDatePicker
+      // isDatePicker
       onKeyDown={onKeyDown}
       {...inputProps}
     />
@@ -158,4 +158,4 @@ export const DateInput: React.VFC<DateInputProps> = ({
   </FieldGroup>
 )
 
-DateInput.displayName = "Date Picker Input"
+DateInput.displayName = "DatePickerInput"
