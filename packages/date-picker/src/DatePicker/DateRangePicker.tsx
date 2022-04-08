@@ -207,6 +207,9 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
           ref={buttonRef}
           onClick={handleOpenClose}
           {...inputProps}
+          aria-label={
+            selectedDateRange?.from ? `Change date: ${value}` : "Choose date"
+          }
         >
           <div className={datePickerStyles.startIconAdornment}>
             <Icon icon={dateStart} role="presentation" />

@@ -170,6 +170,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
+          aria-label={
+            value
+              ? `Change date: ${value.toLocaleDateString(
+                  "en-US",
+                  dateFormatOptions
+                )}`
+              : "Choose date"
+          }
           {...inputProps}
         >
           <div className={datePickerStyles.startIconAdornment}>

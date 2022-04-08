@@ -100,9 +100,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
         className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"
-        aria-label={
-          value ? `Change date, ${value.toLocaleDateString()}` : "Choose date"
-        }
       >
         <DayPicker
           selectedDays={range ? selectedRange : value}
