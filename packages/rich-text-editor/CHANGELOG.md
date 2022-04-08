@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.7.0...@kaizen/rich-text-editor@1.8.0) (2022-04-08)
+
+
+### Features
+
+* Rich Text Editor toolbar integration ([#2681](https://github.com/cultureamp/kaizen-design-system/issues/2681)) ([5e9deaf](https://github.com/cultureamp/kaizen-design-system/commit/5e9deafa545623bd084b087312fd954e74e98ad6))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.6.0...@kaizen/rich-text-editor@1.7.0) (2022-04-08)
 
 
