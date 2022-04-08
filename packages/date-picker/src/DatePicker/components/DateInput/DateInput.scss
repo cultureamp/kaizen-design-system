@@ -52,8 +52,9 @@ $input-disabled-opacity: 0.3;
     opacity: $input-disabled-opacity;
   }
 
-  .calendarActive {
+  &.calendarActive {
     color: $color-blue-500;
+    background-color: $color-blue-100;
   }
 }
 

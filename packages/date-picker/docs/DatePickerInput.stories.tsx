@@ -1,15 +1,13 @@
 import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
-import { within } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/DatePicker/Date Combobox`,
+  title: `${CATEGORIES.components}/DatePicker/Date Picker Input`,
   component: DatePicker,
   parameters: {
     docs: {
@@ -27,8 +25,7 @@ export const DefaultStory = props => (
       labelText="Label"
       description="dd/mm/yyyy"
       placeholder="dd/mm/yyyy"
-      isInput
-      variant="combobox"
+      variant="input"
       {...props}
     />
     <ul>
@@ -108,6 +105,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="input"
           />
           <DatePicker
             id="datepicker-input-selected"
@@ -117,6 +115,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="input"
           />
           <DatePicker
             isDisabled
@@ -127,27 +126,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
+            variant="input"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-      {/* <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Selected Date", "Focused Date", "Disabled Dates"]}
-        />
-        <StoryWrapper.Row rowTitle="Calendar">
-          <CalendarTemplate value={new Date(2022, 1, 5)} />
-          <CalendarTemplate
-            value={new Date(2022, 0, 5)}
-            initialMonth={new Date(2022, 0, 5)}
-          />
-          <CalendarTemplate
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper> */}
     </>
   )
 }
@@ -155,10 +137,3 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
-// StickerSheetDefault.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement)
-//   const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
-//   await userEvent.click(focusedDate, undefined, {
-//     skipPointerEventsCheck: true,
-//   })
-// }
