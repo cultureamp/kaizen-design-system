@@ -10,7 +10,7 @@ import {
 } from "@kaizen/draft-form/KaizenDraft/Form"
 import { renderValidationMessage } from "../../../utils/renderValidationMessage"
 
-import styles from "./styles.scss"
+import styles from "./DateInput.scss"
 
 type OmittedInputProps =
   | "startIconAdornment"
@@ -42,6 +42,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    */
   description?: string | React.ReactNode
   onButtonClick: () => void
+  onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void
   calendarId?: string
   isOpen: boolean
 }
@@ -63,108 +64,98 @@ export const DateInput: React.VFC<DateInputProps> = ({
   onButtonClick,
   calendarId,
   isOpen,
+  onKeyDown,
   ...inputProps
-}) => {
-  // TODO - handle different validationMessages and their respective aria labels.
-  const validationMessageAria = validationMessages?.success
-    ? `${id}-field-validation-message`
-    : ""
-  const descriptionAria = description ? `${id}-field-description` : ""
-
-  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
-    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
-  )
-
-  return (
-    <FieldGroup
-      id={`${id}-field-group`}
-      automationId={`${id}-field-group`}
-      inline={inline}
-      className={classnames(styles.withLabel, {
-        [styles.withDisabled]: disabled,
-      })}
-    >
-      <Label
-        id={`${id}-field-label`}
-        automationId={`${id}-field-label`}
-        htmlFor={`${id}-field-input`}
-        labelText={labelText}
-        reversed={reversed}
-        disabled={disabled}
-      />
-      <Input
-        id={`${id}-field-input`}
-        inputType="text"
-        automationId={`${id}-field-input`}
-        role="combobox"
-        aria-expanded={isOpen}
-        aria-haspopup="dialog"
-        aria-controls={calendarId}
-        ariaDescribedBy={`${id}-field-message`}
-        value={value}
-        defaultInputValue={defaultInputValue}
-        inputRef={inputRef}
-        disabled={disabled}
-        reversed={reversed}
-        status={status}
-        endIconAdornment={
-          <button
-            tabIndex={-1}
-            // buttonRef={buttonRef}
-            // aria-disabled={disabled || working ? true : undefined}
-            disabled={disabled}
-            onClick={onButtonClick}
-            // onFocus={onFocus}
-            // onBlur={onBlur}
-            type="button"
-            className={styles.iconButton}
-            aria-label="Choose Date"
+}) => (
+  <FieldGroup
+    id={`${id}-field-group`}
+    automationId={`${id}-field-group`}
+    inline={inline}
+    className={classnames(styles.withLabel, {
+      [styles.withDisabled]: disabled,
+    })}
+  >
+    <Label
+      id={`${id}-field-label`}
+      automationId={`${id}-field-label`}
+      htmlFor={`${id}-field-input`}
+      labelText={labelText}
+      reversed={reversed}
+      disabled={disabled}
+    />
+    <Input
+      id={`${id}-field-input`}
+      inputType="text"
+      automationId={`${id}-field-input`}
+      role="combobox"
+      aria-expanded={isOpen}
+      aria-haspopup="dialog"
+      aria-controls={calendarId}
+      ariaDescribedBy={`${id}-field-message`}
+      autoComplete="off"
+      value={value}
+      defaultInputValue={defaultInputValue}
+      inputRef={inputRef}
+      disabled={disabled}
+      reversed={reversed}
+      status={status}
+      endIconAdornment={
+        <button
+          tabIndex={-1}
+          aria-disabled={disabled ? true : undefined}
+          disabled={disabled}
+          onClick={onButtonClick}
+          type="button"
+          className={classnames(styles.iconButton, {
+            [styles.calendarActive]: isOpen,
+          })}
+          aria-label={value ? `Change date, ${value}` : "Choose date"}
+        >
+          <div
+            className={classnames(styles.icon, {
+              [styles.disabled]: disabled,
+            })}
           >
-            <div
-              className={classnames(styles.icon, {
-                [styles.disabled]: disabled,
-                [styles.calendarActive]: isOpen,
-              })}
-            >
-              <Icon icon={icon} role="presentation" />{" "}
-            </div>
-          </button>
-        }
-        isDatePicker
-        {...inputProps}
-      />
+            <Icon icon={icon} role="presentation" />
+          </div>
+        </button>
+      }
+      isDatePicker
+      onKeyDown={onKeyDown}
+      {...inputProps}
+    />
 
-      {status && (
-        <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
-        >
-          <FieldMessage
-            id={`${id}-field-message`}
-            automationId={`${id}-field-validation-message`}
-            message={renderValidationMessage(status, validationMessages)}
-            status={status}
-            reversed={reversed}
-          />
-        </div>
-      )}
+    {status && (
+      <div
+        className={classnames(styles.message, {
+          [styles.disabled]: disabled,
+        })}
+      >
+        <FieldMessage
+          id={`${id}-field-message`}
+          automationId={`${id}-field-validation-message`}
+          message={renderValidationMessage(status, validationMessages)}
+          status={status}
+          reversed={reversed}
+        />
+      </div>
+    )}
 
-      {description && (
-        <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
-        >
-          <FieldMessage
-            id={`${id}-field-message`}
-            automationId={`${id}-field-description`}
-            message={description}
-            reversed={reversed}
-          />
-        </div>
-      )}
-    </FieldGroup>
-  )
-}
+    {description && (
+      <div
+        className={classnames(styles.message, {
+          [styles.disabled]: disabled,
+        })}
+      >
+        <FieldMessage
+          id={`${id}-field-message`}
+          automationId={`${id}-field-description`}
+          message={description}
+          reversed={reversed}
+        />
+      </div>
+    )}
+  </FieldGroup>
+)
+
+DateInput.displayName = "Date Picker Input"

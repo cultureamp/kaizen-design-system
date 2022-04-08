@@ -37,8 +37,7 @@ export type CalendarProps = {
   selectedRange?: RangeModifier
   modifiers?: RangeModifier
   inputRef?: React.RefObject<HTMLInputElement>
-  isComobox?: boolean
-  onKeyDown: (e: any) => void
+  isInput?: boolean
 }
 
 export type CalendarNavProps = Pick<
@@ -61,8 +60,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   modifiers,
   id,
   inputRef,
-  isComobox = true,
-  onKeyDown,
+  isInput = true,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -74,7 +72,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (isComobox && !value && inputRef?.current) {
+    if (isInput && !value && inputRef?.current) {
       inputRef!.current.focus()
     } else if (value) {
       const selectedDay = calendarRef.current.getElementsByClassName(
@@ -121,6 +119,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           className={range ? calendarStyles.range : ""}
           classNames={defaultCalendarClasses}
 <<<<<<< HEAD
+<<<<<<< HEAD
           modifiers={
             {
               [calendarStyles.from]: modifiers?.from,
@@ -130,6 +129,8 @@ export const Calendar: React.VFC<CalendarProps> = ({
 =======
           onKeyDown={e => onKeyDown(e)}
 >>>>>>> 76612b4a1 (wip: merge dateinput work and POC)
+=======
+>>>>>>> 3653ff0af (fix: clean up Date picker input and stories)
         />
       </div>
     </div>

@@ -3,7 +3,10 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+<<<<<<< HEAD:packages/date-picker/docs/DatePicker.stories.tsx
 import { RangeModifier } from "react-day-picker/types/Modifiers"
+=======
+>>>>>>> 3653ff0af (fix: clean up Date picker input and stories):packages/date-picker/docs/DatePickerButton.stories.tsx
 import { CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
@@ -12,7 +15,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
-  title: `${CATEGORIES.components}/DatePicker/Date Picker`,
+  title: `${CATEGORIES.components}/DatePicker/Date Picker Button`,
   component: DatePicker,
   parameters: {
     docs: {
@@ -39,14 +42,14 @@ export const DatePickerStoryDefault = props => {
         onChange={onDayChange}
         description="dd/mm/yyyy"
         placeholder="dd/mm/yyyy"
-        variant="dialog"
+        variant="button"
         {...props}
       />
       <ul>
         {Array(100)
           .fill(1)
           .map((_, index) => (
-            <li>fill the page with something...</li>
+            <li key={index}>fill the page with something...</li>
           ))}
       </ul>
     </>
@@ -165,7 +168,6 @@ const CalendarTemplate: Story = props => {
         firstDayOfWeek={0}
         onDayChange={() => undefined}
         initialMonth={new Date(2022, 1, 5)}
-        isComobox={false}
         {...props}
       />
     </div>
@@ -202,7 +204,7 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
-            variant="dialog"
+            variant="button"
           />
           <DatePicker
             id="datepicker-input-selected"
@@ -212,7 +214,7 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
-            variant="dialog"
+            variant="button"
           />
           <DatePicker
             isDisabled
@@ -223,7 +225,7 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             validationMessages={validationMessages}
             description="dd/mm/yyyy"
             placeholder="dd/mm/yyyy"
-            variant="dialog"
+            variant="button"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
