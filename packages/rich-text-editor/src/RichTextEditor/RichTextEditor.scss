@@ -52,3 +52,9 @@
     bottom: calc(-1 * #{$focus-ring-offset});
   }
 }
+
+@for $i from 1 through 20 {
+  .editor.rows#{$i} > :global(.ProseMirror) {
+    min-height: calc($typography-paragraph-body-line-height * $i);
+  }
+}
