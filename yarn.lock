@@ -2948,7 +2948,7 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
-"@kaizen/draft-button@^5.4.1", "@kaizen/draft-button@^5.6.25":
+"@kaizen/draft-button@^5.6.25":
   version "5.6.25"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
   integrity sha512-WmkpyPMGc/IzOPUej38pSyTGaNuj5/RV4MY3aAwrKrb+ut70FmjarMdqBTG6Z7HQnE0fapxB5E44izDBXi+dOg==
@@ -2959,10 +2959,25 @@
     "@types/classnames" "^2.3.0"
     classnames "^2.3.1"
 
-"@kaizen/hosted-assets@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
-  integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
+"@kaizen/draft-form@^6.0.9":
+  version "6.0.9"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-6.0.9.tgz#5a7aae0c4e9595026e2a0a36c1428579b916686a"
+  integrity sha512-Sq0XpJ6bBBUp08mnThGUge1HrSA0PAPOhO66hg4zixvNSc/NRJbwwiue3mQ9X7IjlOOOTgq70+6zbGTfhDrbxw==
+  dependencies:
+    "@kaizen/component-library" "^13.2.6"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.2"
+    "@kaizen/loading-spinner" "^2.1.2"
+    "@kaizen/typography" "2.1.0"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+
+"@kaizen/loading-spinner@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.1.2.tgz#03c4be960ada3a086497843c3a43cfce20b0fa7e"
+  integrity sha512-mwia3R4VtUXmIXFRLozLwWGsMvkh7z4pecstLwv2O8yXlUsjWcgpg22QEyVXorTJheN/3ArlP/eO3iLk6MiDqA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.0"
+    classnames "^2.3.1"
 
 "@kaizen/react-deprecate-warning@^1.1.6":
   version "1.2.0"
