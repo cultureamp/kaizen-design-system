@@ -14,7 +14,7 @@ import {
   addMark,
 } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
-import { EditorContentArray, EditorRows } from "./types"
+import { EditorContentArray, EditorRows } from "../types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
 import { buildInputRules } from "./inputrules"
