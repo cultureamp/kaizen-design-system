@@ -14,4 +14,6 @@ export const SUB_CATEGORIES = {
   notification: "Notification",
   typography: "Typography",
   responsive: "Responsive",
+  richTextEditor: "Rich Text Editor",
+  loadingSkeleton: "Loading Skeleton",
 }

@@ -179,9 +179,14 @@ class GenericModal extends React.Component<GenericModalProps> {
         <FocusLock
           disabled={focusLockDisabled}
           returnFocus={true}
+          // Disabling false positive
+          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus={false}
         >
           <div className={styles.backdropLayer} />
+          {/* Disabling these because we don't want this to be keyboard focusable. Users can use Esc to achieve this with a keyboard.
+           */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div
             className={styles.scrollLayer}
             ref={scrollLayer => (this.scrollLayer = scrollLayer)}

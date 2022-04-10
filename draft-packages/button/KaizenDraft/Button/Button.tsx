@@ -4,6 +4,9 @@ import GenericButton, {
   ButtonRef,
 } from "./components/GenericButton"
 
+/**
+ * @deprecated draft-packages Button is deprecated. Please use Button from "@kaizen/button" instead.
+ */
 const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
     <GenericButton {...props} ref={ref} />

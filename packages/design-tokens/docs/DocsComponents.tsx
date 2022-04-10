@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
 import LinkTo from "@storybook/addon-links/react"
@@ -65,6 +66,7 @@ const TabbedCodeBlocks = ({
               tabClassName,
               disabledTabClassName,
             }) => (
+              // eslint-disable-next-line jsx-a11y/anchor-is-valid
               <a
                 style={{ flexShrink: 0 }}
                 data-automation-id={tab.automationId}

@@ -1,13 +1,11 @@
-import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import React from "react"
+import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
 import { Select } from "@kaizen/draft-select"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
-
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-
 import { CATEGORIES } from "../../../storybook/constants"
 
 // Add additional height to the stories when running in Chromatic only.
@@ -22,6 +20,7 @@ const withMinHeight = Story => {
     </div>
   )
 }
+
 class ModalStateContainer extends React.Component<
   {
     isInitiallyOpen: boolean
@@ -49,6 +48,11 @@ export default {
   title: `${CATEGORIES.components}/Modal/Input Edit Modal`,
   component: InputEditModal,
   parameters: {
+    chromatic: {
+      disable: false,
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
     docs: {
       description: {
         component:
@@ -60,15 +64,11 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
-    chromatic: {
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
-    },
   },
   decorators: [withDesign, withMinHeight],
 }
 
-const options = [
+const SELECT_OPTIONS = [
   { value: "Mindy", label: "Mindy" },
   { value: "Jaime", label: "Jaime", isDisabled: true },
   { value: "Rafa", label: "Rafa" },
@@ -100,11 +100,11 @@ export const InputEditModals = args => (
             </Paragraph>
           </ModalAccessibleDescription>
           <Select
-            options={options}
+            options={SELECT_OPTIONS}
             placeholder="Placeholder"
             isSearchable={false}
             isDisabled={false}
-            defaultValue={options[0]}
+            defaultValue={SELECT_OPTIONS[0]}
           />
         </InputEditModal>
       </div>

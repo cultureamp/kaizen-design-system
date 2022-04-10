@@ -1,8 +1,7 @@
 import * as React from "react"
 
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Negative } from "@kaizen/draft-illustration"
-import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import {
   GenericModal,
@@ -72,8 +71,4 @@ const RoadblockModal = ({
     </div>
   </GenericModal>
 )
-
-export default withDeprecatedComponent(RoadblockModal, {
-  warning:
-    "RoadblockModal is deprecated. Please use Confirmation Modal instead.",
-})
+export default RoadblockModal

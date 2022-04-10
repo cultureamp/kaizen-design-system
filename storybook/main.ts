@@ -23,11 +23,15 @@ const getStoryPathsFromEnv = (): string[] | false => {
 const defaultStoryPaths = [
   "../packages/**/*.stories.tsx",
   "../packages/**/*.stories.mdx",
-  "../draft-packages/**/*.stories.tsx",
+  "../draft-packages/**/!(deprecated.)*.stories.tsx",
   "../legacy-packages/**/*.stories.tsx",
 ]
 
 module.exports = {
+  core: {
+    builder: "webpack5",
+  },
+  mode: "production",
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
     path.resolve("./storybook/gtm-addon/register"),

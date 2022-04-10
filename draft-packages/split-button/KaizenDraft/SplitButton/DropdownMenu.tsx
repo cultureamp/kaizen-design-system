@@ -31,6 +31,9 @@ export const calculateMenuTop = (
   return buttonsBoundingRect.height + gapSize
 }
 
+/**
+ * @deprecated Draft SplitButton/DropdownMenu is deprecated.
+ */
 class DropdownMenu extends React.Component<Props> {
   static displayName = "DropdownMenu"
   static defaultProps = {
@@ -88,6 +91,9 @@ class DropdownMenu extends React.Component<Props> {
   render() {
     const props = this.props
     return (
+      // Disabling these because we don't want this to be keyboard focusable.
+      // Esc keypress should be used instead for the same behaviour (hasn't been implemented here yet)
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div
         className={styles.menuContainer}
         ref={this.menuRef}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import {
   BrandMomentCaptureIntro,
@@ -9,7 +10,8 @@ import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg
 import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
 import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "@kaizen/brand-moment"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
@@ -55,6 +57,7 @@ export const InformativeIntro = (_, { isRTL }) => (
   />
 )
 InformativeIntro.storyName = "Informative intro"
+InformativeIntro.parameters = { chromatic: { disable: false } }
 
 export const PositiveOutro = (_, { isRTL }) => (
   <BrandMoment
@@ -152,6 +155,7 @@ export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
   />
 )
 PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
+PositiveOutroCustomerFocused.parameters = { chromatic: { disable: false } }
 
 export const Error = (_, { isRTL }) => (
   <BrandMoment
@@ -186,3 +190,4 @@ export const Error = (_, { isRTL }) => (
     }}
   />
 )
+Error.parameters = { chromatic: { disable: false } }

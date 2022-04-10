@@ -1,19 +1,26 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
-import { useState } from "react"
-import { Button, IconButton } from "@kaizen/draft-button"
+import { Heading } from "@kaizen/typography"
+import { Button, IconButton } from "@kaizen/button"
 import isChromatic from "chromatic/isChromatic"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
+const DEFAULT_IS_OPEN: boolean = isChromatic()
+
 export default {
   title: `${CATEGORIES.components}/Popover`,
   component: PopoverRaw,
   parameters: {
+    /**
+     * To cater for false positives when the popover renders
+     * with a different alignment (controlled by react-popper).
+     */
+    chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
@@ -78,18 +85,17 @@ const InlineBlockTargetElement = ({
       display: "inline-block",
       marginTop: "100px",
     }}
-    onClick={openPopover}
     onMouseEnter={openPopover}
     onFocusCapture={openPopover}
   >
-    <IconButton label="Label" icon={informationIcon} />
+    <IconButton label="Label" icon={informationIcon} onClick={openPopover} />
   </div>
 )
 
 export const DefaultKaizenSiteDemo = props => {
   const [ElementRef, Popover] = usePopover()
   // set the popover open state to be true when testing on chromatic
-  const [isOpen, setIsOpen] = isChromatic() ? useState(true) : useState(false)
+  const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
   const openPopover = () => setIsOpen(true)
   return (
     <div
@@ -119,12 +125,11 @@ export const DefaultKaizenSiteDemo = props => {
     </div>
   )
 }
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const OverflowScroll = props => {
   const [ElementRef, Popover] = usePopover()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
   const openPopover = () => setIsOpen(true)
 
   return (
@@ -151,7 +156,7 @@ export const OverflowScroll = props => {
 }
 
 export const StickerSheet = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
 
   const [ElementRefTopDefault, PopoverTopDefault] = usePopover()
   const [ElementRefTopInformative, PopoverTopInformative] = usePopover()
@@ -518,3 +523,4 @@ export const StickerSheet = () => {
     </>
   )
 }
+StickerSheet.parameters = { chromatic: { disable: false } }

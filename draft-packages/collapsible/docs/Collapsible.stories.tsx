@@ -1,7 +1,7 @@
-import { Icon, Paragraph, Box } from "@kaizen/component-library"
+import React from "react"
+import { Icon, Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
-
-import * as React from "react"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.scss"
@@ -67,8 +67,8 @@ export const SingleCollapsibleNoPadding = () => (
     </Collapsible>
   </Box>
 )
-
 SingleCollapsibleNoPadding.storyName = "Single collapsible (no padding)"
+SingleCollapsibleNoPadding.parameters = { chromatic: { disable: false } }
 
 export const SingleCollapsibleCustomHeader = () => (
   <Box m={1}>
@@ -94,8 +94,8 @@ export const SingleCollapsibleCustomHeader = () => (
     </Collapsible>
   </Box>
 )
-
 SingleCollapsibleCustomHeader.storyName = "Single collapsible (custom header)"
+SingleCollapsibleCustomHeader.parameters = { chromatic: { disable: false } }
 
 export const SingleCollapsibleLazyLoad = () => (
   <Box m={1}>
@@ -112,11 +112,9 @@ export const SingleCollapsibleLazyLoad = () => (
     </Collapsible>
   </Box>
 )
-
 SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
 
-// eslint-disable-next-line no-underscore-dangle
-export const _CollapsibleGroup = () => (
+export const CollapsibleGroupDefault = () => (
   <Box m={1}>
     <CollapsibleGroup>
       <Collapsible id="collapsible-separate-1" open title="First panel">
@@ -131,12 +129,9 @@ export const _CollapsibleGroup = () => (
     </CollapsibleGroup>
   </Box>
 )
+CollapsibleGroupDefault.storyName = "Collapsible group"
 
-_CollapsibleGroup.storyName = "Collapsible group"
-SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
-
-// eslint-disable-next-line no-underscore-dangle
-export const _CollapsibleClearVariantGroup = () => (
+export const CollapsibleGroupVariantClear = () => (
   <Box m={1}>
     <CollapsibleGroup>
       <Collapsible
@@ -164,8 +159,8 @@ export const _CollapsibleClearVariantGroup = () => (
     </CollapsibleGroup>
   </Box>
 )
-
-_CollapsibleClearVariantGroup.storyName = "Collapsible group (clear variant)"
+CollapsibleGroupVariantClear.storyName = "Collapsible group (clear variant)"
+CollapsibleGroupVariantClear.parameters = { chromatic: { disable: false } }
 
 export const CollapsibleGroupSeparated = () => (
   <Box m={1}>
@@ -182,8 +177,8 @@ export const CollapsibleGroupSeparated = () => (
     </CollapsibleGroup>
   </Box>
 )
-
 CollapsibleGroupSeparated.storyName = "Collapsible group (separated)"
+CollapsibleGroupSeparated.parameters = { chromatic: { disable: false } }
 
 export const CollapsibleGroupStickyHeaders = () => (
   <div style={{ margin: "4rem", width: "40rem" }}>
@@ -215,7 +210,6 @@ export const CollapsibleGroupStickyHeaders = () => (
     </CollapsibleGroup>
   </div>
 )
-
 CollapsibleGroupStickyHeaders.storyName = "Collapsible group (sticky headers)"
 
 export const CollapsibleGroupCallbackOnOpenClose = () => (
@@ -233,6 +227,5 @@ export const CollapsibleGroupCallbackOnOpenClose = () => (
     </CollapsibleGroup>
   </Box>
 )
-
 CollapsibleGroupCallbackOnOpenClose.storyName =
   "Collapsible group (callback on open/close)"

@@ -37,7 +37,7 @@ class IconTile extends React.Component<IconTileProps> {
             <span className={styles.iconLabelText}>{title}</span>
           </span>
           <span className={styles.iconWrapper}>
-            <img src={path} />
+            <img src={path} alt="" />
           </span>
           {this.renderCopyLabel()}
         </div>

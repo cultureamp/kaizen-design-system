@@ -15,12 +15,12 @@ class Drop extends React.PureComponent<DropProps> {
 
     return (
       <div className={styles.droplet}>
-        <div className={styles.container} onClick={onClick}>
-          <div
+        <button className={styles.container} onClick={onClick}>
+          <span
             className={classnames(classes, styles.example)}
             style={{ background: color }}
           />
-        </div>
+        </button>
         {children}
       </div>
     )

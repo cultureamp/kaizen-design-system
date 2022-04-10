@@ -3,6 +3,364 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.38...@kaizen/draft-guidance-block@4.6.39) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.37...@kaizen/draft-guidance-block@4.6.38) (2022-04-01)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.36...@kaizen/draft-guidance-block@4.6.37) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.35...@kaizen/draft-guidance-block@4.6.36) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.34...@kaizen/draft-guidance-block@4.6.35) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.33...@kaizen/draft-guidance-block@4.6.34) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.32...@kaizen/draft-guidance-block@4.6.33) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.31...@kaizen/draft-guidance-block@4.6.32) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.30...@kaizen/draft-guidance-block@4.6.31) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.29...@kaizen/draft-guidance-block@4.6.30) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.28...@kaizen/draft-guidance-block@4.6.29) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.27...@kaizen/draft-guidance-block@4.6.28) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.26...@kaizen/draft-guidance-block@4.6.27) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.25...@kaizen/draft-guidance-block@4.6.26) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.24...@kaizen/draft-guidance-block@4.6.25) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.23...@kaizen/draft-guidance-block@4.6.24) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.22...@kaizen/draft-guidance-block@4.6.23) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.21...@kaizen/draft-guidance-block@4.6.22) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.20...@kaizen/draft-guidance-block@4.6.21) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.19...@kaizen/draft-guidance-block@4.6.20) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.18...@kaizen/draft-guidance-block@4.6.19) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.17...@kaizen/draft-guidance-block@4.6.18) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.16...@kaizen/draft-guidance-block@4.6.17) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.15...@kaizen/draft-guidance-block@4.6.16) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.14...@kaizen/draft-guidance-block@4.6.15) (2022-03-03)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.13...@kaizen/draft-guidance-block@4.6.14) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.12...@kaizen/draft-guidance-block@4.6.13) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.11...@kaizen/draft-guidance-block@4.6.12) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.10...@kaizen/draft-guidance-block@4.6.11) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.9...@kaizen/draft-guidance-block@4.6.10) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.8...@kaizen/draft-guidance-block@4.6.9) (2022-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.7...@kaizen/draft-guidance-block@4.6.8) (2022-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.6...@kaizen/draft-guidance-block@4.6.7) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.5...@kaizen/draft-guidance-block@4.6.6) (2022-02-17)
+
+
+### Bug Fixes
+
+* resolve aspect ratio issue in guidance block ([#2504](https://github.com/cultureamp/kaizen-design-system/issues/2504)) ([d751233](https://github.com/cultureamp/kaizen-design-system/commit/d751233b517dde6f03af42c10c3f41e36d61c6ca))
+
+
+
+
+
+## [4.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.4...@kaizen/draft-guidance-block@4.6.5) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.3...@kaizen/draft-guidance-block@4.6.4) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.2...@kaizen/draft-guidance-block@4.6.3) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.1...@kaizen/draft-guidance-block@4.6.2) (2022-02-14)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.6.0...@kaizen/draft-guidance-block@4.6.1) (2022-02-11)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+# [4.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.12...@kaizen/draft-guidance-block@4.6.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [4.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.11...@kaizen/draft-guidance-block@4.5.12) (2022-02-10)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.10...@kaizen/draft-guidance-block@4.5.11) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.9...@kaizen/draft-guidance-block@4.5.10) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [4.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.8...@kaizen/draft-guidance-block@4.5.9) (2022-02-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [4.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@4.5.7...@kaizen/draft-guidance-block@4.5.8) (2022-02-03)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

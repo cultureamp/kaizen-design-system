@@ -1,22 +1,16 @@
-import { Box, Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import React, { useState } from "react"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
+import { ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import React, { useState } from "react"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./FilterMenuButton.stories.scss"
 
-/**
- * When running visual regressions on this story we need to do two things to
- * ensure the stories are snapshotted and tested correctly:
- * 1) Expand the dropdown
- * 2) Set a minimum height on the container to capture the dropdown
- */
-const withMinHeight = Story => {
-  if (!isChromatic()) return <Story />
-  return <div className={styles.siteDemoWrapper}>{Story}</div>
-}
+const IS_CHROMATIC = isChromatic()
+const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
   title: `${CATEGORIES.components}/Filter Menu`,
@@ -29,7 +23,6 @@ export default {
       },
     },
   },
-  decorators: [withMinHeight],
 }
 
 type DropdownOption = {
@@ -37,28 +30,116 @@ type DropdownOption = {
   label: string
 }
 
-export const DefaultStory = props => (
-  <DefaultWithChildrenSimpleFilter {...props} />
-)
-DefaultStory.storyName = "Simple Filter (Kaizen Site Demo)"
+const DROPDOWN_OPTIONS: DropdownOption[] = [
+  { id: 1, label: "Furry" },
+  { id: 2, label: "Aquatic" },
+  { id: 3, label: "Venomous" },
+  { id: 4, label: "Egg-laying" },
+  { id: 5, label: "Water-proof feathers" },
+  { id: 6, label: "Cold-blooded" },
+  { id: 7, label: "Warm-blooded" },
+]
 
-export const DefaultEmpty = () => {
-  const isInitialDropdownVisible = isChromatic()
-  const [isDropdownVisible, setIsDropdownVisible] = useState(
-    isInitialDropdownVisible
+const DROPDOWN_OPTIONS_CHROMATIC_SELECTED: DropdownOption[] = [
+  DROPDOWN_OPTIONS[1],
+  DROPDOWN_OPTIONS[2],
+]
+
+const SimpleFilterTemplate: ComponentStory<typeof FilterMenuButton> = ({
+  id: argsId,
+  labelText: argsLabelText,
+  isDropdownVisible: argsIsDropdownVisible,
+  metadata: argsMetadata,
+  ...args
+}) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(
+    IS_INITIAL_DROPDOWN_VISIBLE
+  )
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>(
+    IS_CHROMATIC ? DROPDOWN_OPTIONS_CHROMATIC_SELECTED : []
   )
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible)
-  }
+  const checkedTraits: string = appliedFilters
+    .map(trait => trait.label)
+    .join(", ")
 
-  const hideDropdown = () => {
-    setIsDropdownVisible(false)
+  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
+
+  const hideDropdown = () => setIsDropdownVisible(false)
+
+  const onCheckboxChange = (option: DropdownOption) => {
+    if (appliedFilters.find(filter => filter.id === option.id)) {
+      setAppliedFilters(
+        appliedFilters.filter(filter => filter.id !== option.id)
+      )
+    } else {
+      setAppliedFilters([...appliedFilters, option])
+    }
   }
 
   return (
     <FilterMenuButton
-      id="filter-drawer-3"
+      {...args}
+      id={argsId || "filter-menu-button--simple"}
+      labelText={argsLabelText || "Animal traits"}
+      metadata={argsMetadata || checkedTraits}
+      isDropdownVisible={argsIsDropdownVisible || isDropdownVisible}
+      toggleDropdown={toggleDropdown}
+      hideDropdown={hideDropdown}
+    >
+      <>
+        <div className={styles.content}>
+          <CheckboxGroup labelText="Traits">
+            {DROPDOWN_OPTIONS.map(trait => (
+              <CheckboxField
+                key={trait.id}
+                onCheck={() => onCheckboxChange(trait)}
+                id={`checkbox-${trait.id}`}
+                checkedStatus={
+                  appliedFilters.find(({ id }) => id === trait.id)
+                    ? "on"
+                    : "off"
+                }
+                labelText={trait.label}
+              />
+            ))}
+          </CheckboxGroup>
+        </div>
+        <div className={styles.buttons}>
+          <Button
+            secondary={true}
+            fullWidth
+            label="Done"
+            onClick={hideDropdown}
+          />
+        </div>
+      </>
+    </FilterMenuButton>
+  )
+}
+
+export const DefaultStory = SimpleFilterTemplate.bind({})
+DefaultStory.storyName = "Simple Filter (Kaizen Site Demo)"
+DefaultStory.args = {
+  id: "filter-menu-button--default",
+  labelText: "Filter",
+}
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
+
+export const DefaultEmpty = () => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(
+    IS_INITIAL_DROPDOWN_VISIBLE
+  )
+
+  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
+
+  const hideDropdown = () => setIsDropdownVisible(false)
+
+  return (
+    <FilterMenuButton
+      id="filter-menu-button--empty"
       labelText="Filter"
       metadata=""
       isDropdownVisible={isDropdownVisible}
@@ -80,111 +161,34 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
+DefaultEmpty.parameters = { chromatic: { disable: false } }
 
-const dropdownOptions = [
-  { id: 1, label: "Furry" },
-  { id: 2, label: "Aquatic" },
-  { id: 3, label: "Venomous" },
-  { id: 4, label: "Egg-laying" },
-  { id: 5, label: "Water-proof feathers" },
-  { id: 6, label: "Cold-blooded" },
-  { id: 7, label: "Warm-blooded" },
-]
-
-export const DefaultWithChildrenSimpleFilter = () => {
-  const isInitialDropdownVisible = isChromatic()
-  const [isDropdownVisible, setIsDropdownVisible] = useState(
-    isInitialDropdownVisible
-  )
-  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
-
-  const checkedTraits: string = appliedFilters
-    .map(trait => trait.label)
-    .join(", ")
-
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible)
-  }
-
-  const hideDropdown = () => {
-    setIsDropdownVisible(false)
-  }
-
-  const onCheckboxChange = (option: DropdownOption) => {
-    if (appliedFilters.filter(filter => filter.id === option.id).length > 0) {
-      setAppliedFilters(
-        appliedFilters.filter(filter => filter.id !== option.id)
-      )
-    } else {
-      setAppliedFilters([...appliedFilters, option])
-    }
-  }
-
-  return (
-    <FilterMenuButton
-      id="filter-menu-button"
-      labelText="Animal traits"
-      metadata={checkedTraits}
-      isDropdownVisible={isDropdownVisible}
-      toggleDropdown={toggleDropdown}
-      hideDropdown={hideDropdown}
-    >
-      <>
-        <div className={styles.content}>
-          <CheckboxGroup labelText="Traits">
-            {dropdownOptions.map(trait => (
-              <CheckboxField
-                onCheck={() => {
-                  onCheckboxChange(trait)
-                }}
-                id={`checkbox-${trait.id}`}
-                checkedStatus={
-                  appliedFilters.filter(filter => filter.id === trait.id)
-                    .length > 0
-                    ? "on"
-                    : "off"
-                }
-                labelText={trait.label}
-              />
-            ))}
-          </CheckboxGroup>
-        </div>
-        <div className={styles.buttons}>
-          <Button
-            secondary={true}
-            fullWidth
-            label="Done"
-            onClick={hideDropdown}
-          />
-        </div>
-      </>
-    </FilterMenuButton>
-  )
-}
+export const DefaultWithChildrenSimpleFilter = SimpleFilterTemplate.bind({})
 DefaultWithChildrenSimpleFilter.storyName =
   "Default with children (Simple filter)"
+DefaultWithChildrenSimpleFilter.parameters = {
+  chromatic: { disable: false },
+  docs: { source: { type: "code" } },
+}
 
 export const DefaultWithChildrenAdvancedFilter = () => {
-  const isInitialDropdownVisible = isChromatic()
   const [isDropdownVisible, setIsDropdownVisible] = useState(
-    isInitialDropdownVisible
+    IS_INITIAL_DROPDOWN_VISIBLE
   )
-  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>(
+    IS_CHROMATIC ? DROPDOWN_OPTIONS_CHROMATIC_SELECTED : []
+  )
 
   const checkedTraits: string = appliedFilters
     .map(trait => trait.label)
     .join(", ")
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible)
-  }
+  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
 
-  const hideDropdown = () => {
-    setIsDropdownVisible(false)
-  }
+  const hideDropdown = () => setIsDropdownVisible(false)
 
   const onCheckboxChange = (option: DropdownOption) => {
-    if (appliedFilters.filter(filter => filter.id === option.id).length > 0) {
+    if (appliedFilters.find(filter => filter.id === option.id)) {
       setAppliedFilters(
         appliedFilters.filter(filter => filter.id !== option.id)
       )
@@ -193,13 +197,11 @@ export const DefaultWithChildrenAdvancedFilter = () => {
     }
   }
 
-  const clearFilter = () => {
-    setAppliedFilters([])
-  }
+  const clearFilter = () => setAppliedFilters([])
 
   return (
     <FilterMenuButton
-      id="filter-menu-button"
+      id="filter-menu-button--advanced"
       labelText="Animal traits"
       metadata={checkedTraits}
       isDropdownVisible={isDropdownVisible}
@@ -210,15 +212,13 @@ export const DefaultWithChildrenAdvancedFilter = () => {
       <>
         <div className={styles.content}>
           <CheckboxGroup labelText="Traits">
-            {dropdownOptions.map(trait => (
+            {DROPDOWN_OPTIONS.map(trait => (
               <CheckboxField
-                onCheck={() => {
-                  onCheckboxChange(trait)
-                }}
+                key={trait.id}
+                onCheck={() => onCheckboxChange(trait)}
                 id={`checkbox-${trait.id}`}
                 checkedStatus={
-                  appliedFilters.filter(filter => filter.id === trait.id)
-                    .length > 0
+                  appliedFilters.find(({ id }) => id === trait.id)
                     ? "on"
                     : "off"
                 }
@@ -241,3 +241,4 @@ export const DefaultWithChildrenAdvancedFilter = () => {
 }
 DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
+DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-card",
-  "version": "1.6.0",
+  "version": "2.1.1",
   "description": "The draft card component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,9 +31,12 @@
   "author": "",
   "private": false,
   "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-base": "^1.1.0"
+  },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
     "classnames": "^2.3.1",
-    "react": "^16.9.0"
+    "react": "^16.9.0 || ^17.0.0"
   }
 }

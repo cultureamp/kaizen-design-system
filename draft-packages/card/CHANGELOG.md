@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@2.1.0...@kaizen/draft-card@2.1.1) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@2.0.0...@kaizen/draft-card@2.1.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.7.4...@kaizen/draft-card@2.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.7.3...@kaizen/draft-card@1.7.4) (2022-03-15)
+
+
+### Bug Fixes
+
+* draft-card classNameAndIHaveSpokenToDST prop ([#2615](https://github.com/cultureamp/kaizen-design-system/issues/2615)) ([c95ad57](https://github.com/cultureamp/kaizen-design-system/commit/c95ad571dd498b12283c818dc9fb69ed4208e762))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.7.2...@kaizen/draft-card@1.7.3) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.7.1...@kaizen/draft-card@1.7.2) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.7.0...@kaizen/draft-card@1.7.1) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.6.0...@kaizen/draft-card@1.7.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@1.5.0...@kaizen/draft-card@1.6.0) (2022-01-24)
 
 

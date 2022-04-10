@@ -1,4 +1,5 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
@@ -243,7 +244,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     tooltipInfo != null ? (
       <Tooltip
         text={tooltipInfo}
-        classNameAndIHaveSpokenToDST={styles.headerRowCellTooltip}
+        classNameOverride={styles.headerRowCellTooltip}
       >
         {cellContents}
       </Tooltip>
@@ -372,6 +373,7 @@ export const TableRowCell: TableRowCell = ({
 }) =>
   href != null ? (
     <a
+      // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
       role="cell"
       style={{
         width: ratioToPercent(width),

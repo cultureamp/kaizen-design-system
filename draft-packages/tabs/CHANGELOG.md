@@ -3,6 +3,188 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.19...@kaizen/draft-tabs@4.7.20) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.18...@kaizen/draft-tabs@4.7.19) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.17...@kaizen/draft-tabs@4.7.18) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.16...@kaizen/draft-tabs@4.7.17) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.15...@kaizen/draft-tabs@4.7.16) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.14...@kaizen/draft-tabs@4.7.15) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.13...@kaizen/draft-tabs@4.7.14) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.12...@kaizen/draft-tabs@4.7.13) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.11...@kaizen/draft-tabs@4.7.12) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.10...@kaizen/draft-tabs@4.7.11) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.9...@kaizen/draft-tabs@4.7.10) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.8...@kaizen/draft-tabs@4.7.9) (2022-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.7...@kaizen/draft-tabs@4.7.8) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.6...@kaizen/draft-tabs@4.7.7) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.5...@kaizen/draft-tabs@4.7.6) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.4...@kaizen/draft-tabs@4.7.5) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.3...@kaizen/draft-tabs@4.7.4) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.2...@kaizen/draft-tabs@4.7.3) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.1...@kaizen/draft-tabs@4.7.2) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [4.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.7.0...@kaizen/draft-tabs@4.7.1) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+# [4.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.6.0...@kaizen/draft-tabs@4.7.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+# [4.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.5.3...@kaizen/draft-tabs@4.6.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 ## [4.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.5.2...@kaizen/draft-tabs@4.5.3) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/draft-tabs

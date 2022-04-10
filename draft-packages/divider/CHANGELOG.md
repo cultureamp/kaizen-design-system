@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.10.0...@kaizen/draft-divider@1.10.1) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.4...@kaizen/draft-divider@1.10.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+## [1.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.3...@kaizen/draft-divider@1.9.4) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.2...@kaizen/draft-divider@1.9.3) (2022-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.1...@kaizen/draft-divider@1.9.2) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.9.0...@kaizen/draft-divider@1.9.1) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.8.0...@kaizen/draft-divider@1.9.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.7.2...@kaizen/draft-divider@1.8.0) (2022-01-24)
 
 

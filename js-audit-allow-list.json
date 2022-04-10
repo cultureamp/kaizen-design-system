@@ -31,6 +31,13 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["gatsby"]
+    },
+    {
+      "title": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.6.",
+      "cve": "CVE-2022-0512",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["gatsby"]
     }
   ],
   "xmlhttprequest-ssl": [
@@ -156,6 +163,30 @@
       "reason": "Dev dependency",
       "reviewer": "christianklammer",
       "whenSubDependencyOf": ["axios", "http-proxy"]
+    },
+    {
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor in NPM follow-redirects prior to 1.14.8.",
+      "cve": "CVE-2022-0536",
+      "reason": "Dev dependency",
+      "reviewer": "christianklammer",
+      "whenSubDependencyOf": ["gatsby"]
+    }
+  ],
+  "node-sass": [
+    {
+      "title": "Certificate validation in node-sass 2.0.0 to 4.14.1 is disabled when requesting binaries even if the user is not specifying an alternative download path.",
+      "cve": "CVE-2020-24025",
+      "reason": "Our builds fail",
+      "reviewer": "cassandra.tam"
+    }
+  ],
+  "engine.io": [
+    {
+      "title": "Engine.IO before 4.0.0 allows attackers to cause a denial of service (resource consumption) via a POST request to the long polling transport.",
+      "cve": "CVE-2020-36048",
+      "reason": "Our builds fail",
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["gatsby"]
     }
   ]
 }

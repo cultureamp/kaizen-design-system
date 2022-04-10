@@ -1,6 +1,7 @@
-import * as React from "react"
+import React from "react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
@@ -120,7 +121,6 @@ Default.args = {
     <NavigationTab text="Label" href="#" />,
   ],
 }
-
 Default.storyName = "Default"
 
 export const WithBadge = () => {
@@ -157,8 +157,8 @@ export const WithBadge = () => {
     </OffsetPadding>
   )
 }
-
 WithBadge.storyName = "With Primary Action Badge"
+WithBadge.parameters = { chromatic: { disable: false } }
 
 export const WithDefaultTag = () => (
   <OffsetPadding>
@@ -181,8 +181,8 @@ export const WithDefaultTag = () => (
     />
   </OffsetPadding>
 )
-
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
+WithDefaultTag.parameters = { chromatic: { disable: false } }
 
 export const AdminWithDefaultTag = () => (
   <OffsetPadding>
@@ -206,8 +206,8 @@ export const AdminWithDefaultTag = () => (
     />
   </OffsetPadding>
 )
-
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
+AdminWithDefaultTag.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithMenuButton = () => (
   <OffsetPadding>
@@ -259,8 +259,8 @@ export const DefaultWithMenuButton = () => (
     />
   </OffsetPadding>
 )
-
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
+DefaultWithMenuButton.parameters = { chromatic: { disable: false } }
 
 export const AdminVariant = () => (
   <OffsetPadding>
@@ -292,8 +292,9 @@ export const AdminVariant = () => (
     />
   </OffsetPadding>
 )
-
 AdminVariant.storyName = "Admin variant"
+AdminVariant.parameters = { chromatic: { disable: false } }
+
 export const AdminVariantWithNavTabs = () => (
   <OffsetPadding>
     <TitleBlockZen
@@ -323,8 +324,8 @@ export const AdminVariantWithNavTabs = () => (
     />
   </OffsetPadding>
 )
-
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
+AdminVariantWithNavTabs.parameters = { chromatic: { disable: false } }
 
 export const EducationVariant = () => (
   <OffsetPadding>
@@ -385,8 +386,8 @@ export const EducationVariant = () => (
     </Skirt>
   </OffsetPadding>
 )
-
 EducationVariant.storyName = "Education variant"
+EducationVariant.parameters = { chromatic: { disable: false } }
 
 export const Engagement = () => (
   <OffsetPadding>
@@ -431,15 +432,15 @@ export const Engagement = () => (
     />
   </OffsetPadding>
 )
-
 Engagement.storyName = "Engagement"
+Engagement.parameters = { chromatic: { disable: false } }
 
 export const Performance = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
       subtitle="Director of Stuff and Things"
-      avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
+      avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       primaryAction={{
         href: "#",
         label: "Request feedback",
@@ -490,8 +491,8 @@ export const Performance = () => (
     />
   </OffsetPadding>
 )
-
 Performance.storyName = "Performance"
+Performance.parameters = { chromatic: { disable: false } }
 
 export const PerformanceWithAvatarProps = () => (
   <OffsetPadding>
@@ -552,7 +553,6 @@ export const PerformanceWithAvatarProps = () => (
     />
   </OffsetPadding>
 )
-
 PerformanceWithAvatarProps.storyName = "Performance with AvatarProps"
 
 export const PerformanceWithEmptyAvatarProps = () => (
@@ -611,7 +611,6 @@ export const PerformanceWithEmptyAvatarProps = () => (
     />
   </OffsetPadding>
 )
-
 PerformanceWithEmptyAvatarProps.storyName = "Performance with Empty AvatarProps"
 
 export const LongLabels = () => (
@@ -656,7 +655,7 @@ export const LongLabels = () => (
           alert("breadcrumb clicked!")
         },
       }}
-      avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
+      avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
       navigationTabs={[
         <NavigationTab text="Feedback" href="#" active />,
@@ -674,6 +673,7 @@ export const LongLabels = () => (
     />
   </OffsetPadding>
 )
+LongLabels.parameters = { chromatic: { disable: false } }
 
 const MENU_LINKS = [
   {
@@ -735,7 +735,7 @@ export const DefaultWithContent = () => (
       ]}
     />
     <Container>
-      <Content classNameAndIHaveSpokenToDST={styles.contentContainer}>
+      <Content classNameOverride={styles.contentContainer}>
         <Box my={2}>
           <Heading variant="heading-1">Placeholder heading</Heading>
         </Box>
@@ -815,8 +815,8 @@ export const DefaultWithContent = () => (
     </Container>
   </OffsetPadding>
 )
-
 DefaultWithContent.storyName = "Default with content"
+DefaultWithContent.parameters = { chromatic: { disable: false } }
 
 export const DefaultNoSecondary = () => (
   <OffsetPadding>
@@ -933,7 +933,6 @@ export const DefaultNoSecondary = () => (
     </Skirt> */}
   </OffsetPadding>
 )
-
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
@@ -967,7 +966,6 @@ export const DefaultOnlyPrimary = () => (
     />
   </OffsetPadding>
 )
-
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
 export const DefaultWithReportSwitcher = () => (
@@ -1024,8 +1022,8 @@ export const DefaultWithReportSwitcher = () => (
     />
   </OffsetPadding>
 )
-
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
+DefaultWithReportSwitcher.parameters = { chromatic: { disable: false } }
 
 export const DefaultNoLink = () => (
   <OffsetPadding>
@@ -1086,7 +1084,6 @@ export const DefaultNoLink = () => (
     </Skirt>
   </OffsetPadding>
 )
-
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
 export const DefaultOnlyLongTitle = () => (
@@ -1107,7 +1104,6 @@ export const DefaultOnlyLongTitle = () => (
     />
   </OffsetPadding>
 )
-
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
 export const DefaultCollapsedNavigation = () => (
@@ -1136,8 +1132,8 @@ export const DefaultCollapsedNavigation = () => (
     </Container>
   </OffsetPadding>
 )
-
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+DefaultCollapsedNavigation.parameters = { chromatic: { disable: false } }
 
 export const DefaultCollapsedNavigationCard = () => (
   <OffsetPadding>
@@ -1167,7 +1163,6 @@ export const DefaultCollapsedNavigationCard = () => (
     </Skirt>
   </OffsetPadding>
 )
-
 DefaultCollapsedNavigationCard.story = {
   name: "Default (collapsed navigation with card)",
 }
@@ -1201,5 +1196,4 @@ export const AdminVariantNavigation = () => (
     </Container>
   </OffsetPadding>
 )
-
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"

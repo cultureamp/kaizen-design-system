@@ -1,10 +1,8 @@
-import { graphql } from "gatsby"
 import * as React from "react"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
-
+import { graphql } from "gatsby"
+import { Icon } from "@kaizen/component-library"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
-import subtractIcon from "@kaizen/component-library/icons/subtract-white.icon.svg"
-
+import { Heading, Paragraph } from "@kaizen/typography"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
@@ -23,7 +21,9 @@ const ComponentPageHeader = (
 export default ({ data, location }) => {
   const componentsSorted = sortSidebarTabs(data.allMdx.edges)
   const componentsFiltered = componentsSorted.filter(
-    component => component.node?.frontmatter.navTitle !== "Overview"
+    component =>
+      component.node?.frontmatter.navTitle !== "Overview" &&
+      component.node.frontmatter.deprecated !== true
   )
   const totals = calculateHealthTotals(
     componentsFiltered.map(component => component.node.frontmatter),
@@ -106,7 +106,7 @@ export default ({ data, location }) => {
                         {count}
                       </Heading>
 
-                      <Paragraph as="span" variant="small">
+                      <Paragraph tag="span" variant="small">
                         ({percentage.toFixed(0)}%)
                       </Paragraph>
                     </td>
@@ -127,6 +127,7 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
+            deprecated
             navTitle
             title
             health {

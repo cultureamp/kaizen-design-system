@@ -1,20 +1,17 @@
-import * as React from "react"
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Icon, Paragraph, Heading } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Paragraph, Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
-import { Button, IconButton } from "@kaizen/draft-button"
+import { Button, IconButton } from "@kaizen/button"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
-/**
- * We should not be running visual regressions on these tooltip stories
- * until there is a clean way to trigger open states for the snapshots. See:
- * https://github.com/cultureamp/kaizen-design-system/issues/1375
- */
 const openTooltipInChromatic = (story, config) => {
   if (isChromatic()) config.args.isInitiallyVisible = true
   return story()
@@ -24,6 +21,11 @@ export default {
   title: `${CATEGORIES.components}/Tooltip`,
   component: Tooltip,
   parameters: {
+    /**
+     * To cater for false positives when the tooltip renders
+     * with a different alignment (controlled by react-popper).
+     */
+    chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
@@ -47,17 +49,14 @@ export const DefaultKaizenSiteDemo = props => (
     </Tooltip>
   </div>
 )
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.parameters = {
   info: {
-    text: `
-    import { Tooltip } from "@kaizen/draft-tooltip"
-    `,
+    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
   },
 }
 
-export const StickerSheet = () => (
+export const StickerSheet = props => (
   <div
     style={{
       marginTop: "100px",
@@ -88,6 +87,9 @@ export const StickerSheet = () => (
         Positive
       </Heading>
       <Heading variant="heading-5" tag="h2">
+        Highlight
+      </Heading>
+      <Heading variant="heading-5" tag="h2">
         Cautionary
       </Heading>
     </div>
@@ -103,16 +105,34 @@ export const StickerSheet = () => (
       <Heading variant="heading-3" tag="h1">
         Top
       </Heading>
-      <Tooltip position="above" text="Tooltip label" mood="default">
+      <Tooltip {...props} position="above" text="Tooltip label" mood="default">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="above" text="Tooltip label" mood="informative">
+      <Tooltip
+        {...props}
+        position="above"
+        text="Tooltip label"
+        mood="informative"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="above" text="Tooltip label" mood="positive">
+      <Tooltip {...props} position="above" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="above" text="Tooltip label" mood="cautionary">
+      <Tooltip
+        {...props}
+        position="above"
+        text="Tooltip label"
+        mood="highlight"
+      >
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="above"
+        text="Tooltip label"
+        mood="cautionary"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
@@ -128,16 +148,34 @@ export const StickerSheet = () => (
       <Heading variant="heading-3" tag="h1">
         Bottom
       </Heading>
-      <Tooltip position="below" text="Tooltip label" mood="default">
+      <Tooltip {...props} position="below" text="Tooltip label" mood="default">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="below" text="Tooltip label" mood="informative">
+      <Tooltip
+        {...props}
+        position="below"
+        text="Tooltip label"
+        mood="informative"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="below" text="Tooltip label" mood="positive">
+      <Tooltip {...props} position="below" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="below" text="Tooltip label" mood="cautionary">
+      <Tooltip
+        {...props}
+        position="below"
+        text="Tooltip label"
+        mood="highlight"
+      >
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="below"
+        text="Tooltip label"
+        mood="cautionary"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
@@ -153,16 +191,29 @@ export const StickerSheet = () => (
       <Heading variant="heading-3" tag="h1">
         Left
       </Heading>
-      <Tooltip position="left" text="Tooltip label" mood="default">
+      <Tooltip {...props} position="left" text="Tooltip label" mood="default">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="left" text="Tooltip label" mood="informative">
+      <Tooltip
+        {...props}
+        position="left"
+        text="Tooltip label"
+        mood="informative"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="left" text="Tooltip label" mood="positive">
+      <Tooltip {...props} position="left" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="left" text="Tooltip label" mood="cautionary">
+      <Tooltip {...props} position="left" text="Tooltip label" mood="highlight">
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="left"
+        text="Tooltip label"
+        mood="cautionary"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
@@ -178,21 +229,40 @@ export const StickerSheet = () => (
       <Heading variant="heading-3" tag="h1">
         Right
       </Heading>
-      <Tooltip position="right" text="Tooltip label" mood="default">
+      <Tooltip {...props} position="right" text="Tooltip label" mood="default">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="right" text="Tooltip label" mood="informative">
+      <Tooltip
+        {...props}
+        position="right"
+        text="Tooltip label"
+        mood="informative"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="right" text="Tooltip label" mood="positive">
+      <Tooltip {...props} position="right" text="Tooltip label" mood="positive">
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
-      <Tooltip position="right" text="Tooltip label" mood="cautionary">
+      <Tooltip
+        {...props}
+        position="right"
+        text="Tooltip label"
+        mood="highlight"
+      >
+        <IconButton label="Label" icon={meatballsIcon} />
+      </Tooltip>
+      <Tooltip
+        {...props}
+        position="right"
+        text="Tooltip label"
+        mood="cautionary"
+      >
         <IconButton label="Label" icon={meatballsIcon} />
       </Tooltip>
     </div>
   </div>
 )
+StickerSheet.parameters = { chromatic: { disable: false } }
 
 export const OverflowScroll = props => (
   <>
@@ -269,12 +339,12 @@ export const OverflowScroll = props => (
           <Paragraph variant="body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
-            <Tooltip display="inline-block" text="Tooltip label" {...props}>
+            <Tooltip {...props} display="inline-block" text="Tooltip label">
               <Tag>ad veniam sapiente</Tag>
             </Tooltip>{" "}
             Maxime harum, ducimus maiores itaque pariatur quod vel porro
             mollitia. Lorem ipsum dolor sit{" "}
-            <Tooltip display="inline" text="Open in new tab" {...props}>
+            <Tooltip {...props} display="inline" text="Open in new tab">
               <a href="#">
                 amet consectetur adipisicing elit Itaque obcaecati maxime
                 molestiae blanditiis pariatur

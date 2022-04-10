@@ -1,10 +1,8 @@
-import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import React from "react"
+import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import isChromatic from "chromatic/isChromatic"
-import classNames from "classnames"
-
-import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { AddImage } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -50,6 +48,11 @@ export default {
   title: `${CATEGORIES.components}/Modal/Context Modal`,
   component: ContextModal,
   parameters: {
+    chromatic: {
+      disable: false,
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
     docs: {
       description: {
         component:
@@ -61,10 +64,6 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
-    chromatic: {
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
-    },
     actions: {
       argTypesRegex: "^on.*",
     },
@@ -88,7 +87,7 @@ export const ContextModals = args => (
           layout="portrait"
           image={
             <AddImage
-              classNameAndIHaveSpokenToDST={
+              classNameOverride={
                 args.layout === "landscape" ? styles.landscape : ""
               }
               alt="placeholder"

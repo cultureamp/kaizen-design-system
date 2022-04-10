@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Paragraph } from "@kaizen/component-library"
+import React from "react"
+import { Paragraph } from "@kaizen/typography"
 import {
   Title,
   Subtitle,
@@ -10,7 +10,6 @@ import {
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
 import { Box } from "../components/Box"
-
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Box.stories.scss"
 
@@ -64,61 +63,55 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
 )
 
 export const BoxDefault = () => (
-  <>
-    <div className={styles.boxStoriesWrapper}>
-      <Box>
-        A box with no props has a default margin and padding of 0. The children
-        of box are also unstyled.
-      </Box>
-    </div>
-  </>
+  <div className={styles.boxStoriesWrapper}>
+    <Box>
+      A box with no props has a default margin and padding of 0. The children of
+      box are also unstyled.
+    </Box>
+  </div>
 )
 BoxDefault.storyName = "Default"
 
 export const BoxWithMargin = () => (
-  <>
-    <div className={styles.boxStoriesWrapper}>
-      <Box ml={1} mr={0.25} mt={0.5} mb={0.5}>
-        This is an example Box with margin left, right, and top explicitly
-        defined.
-      </Box>
-    </div>
-  </>
+  <div className={styles.boxStoriesWrapper}>
+    <Box ml={1} mr={0.25} mt={0.5} mb={0.5}>
+      This is an example Box with margin left, right, and top explicitly
+      defined.
+    </Box>
+  </div>
 )
 BoxWithMargin.storyName = "Box With Margin"
+BoxWithMargin.parameters = { chromatic: { disable: false } }
 
 export const BoxWithPadding = () => (
-  <>
-    <div className={styles.boxStoriesWrapper}>
-      <Box p={4}>
-        <span>Box with 4 units of padding</span>
-      </Box>
-    </div>
-  </>
+  <div className={styles.boxStoriesWrapper}>
+    <Box p={4}>
+      <span>Box with 4 units of padding</span>
+    </Box>
+  </div>
 )
 BoxWithPadding.storyName = "Box With Padding"
+BoxWithPadding.parameters = { chromatic: { disable: false } }
 
 export const BoxWithXAndYPadding = () => (
-  <>
-    <div className={styles.boxStoriesWrapper}>
-      <Box px={4} py={1}>
-        <span>Box with 4 units of padding</span>
-      </Box>
-    </div>
-  </>
+  <div className={styles.boxStoriesWrapper}>
+    <Box px={4} py={1}>
+      <span>Box with 4 units of padding</span>
+    </Box>
+  </div>
 )
 BoxWithXAndYPadding.storyName = "Box With X And Y Padding"
+BoxWithXAndYPadding.parameters = { chromatic: { disable: false } }
 
 export const BoxWithRtlSupport = () => (
-  <>
-    <div className={styles.boxStoriesWrapper}>
-      <Box rtl pr={4}>
-        <span>
-          Box with 4 units of padding on the <strong>left</strong> for RTL
-          languages
-        </span>
-      </Box>
-    </div>
-  </>
+  <div className={styles.boxStoriesWrapper}>
+    <Box rtl pr={4}>
+      <span>
+        Box with 4 units of padding on the <strong>left</strong> for RTL
+        languages
+      </span>
+    </Box>
+  </div>
 )
 BoxWithRtlSupport.storyName = "Box With Rtl Support"
+BoxWithRtlSupport.parameters = { chromatic: { disable: false } }

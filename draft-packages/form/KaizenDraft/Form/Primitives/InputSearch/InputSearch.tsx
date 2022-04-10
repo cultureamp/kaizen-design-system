@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import classnames from "classnames"
 import React from "react"
 import search from "@kaizen/component-library/icons/search.icon.svg"
@@ -13,7 +13,7 @@ export interface InputSearchProps
     "className" | "defaultValue"
   > {
   id: string
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
@@ -28,7 +28,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
     value,
     onChange,
     onClear,
-    classNameAndIHaveSpokenToDST,
+    classNameOverride,
     placeholder,
     disabled = false,
     reversed = false,
@@ -69,7 +69,7 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
         placeholder={placeholder}
         disabled={disabled}
         onChange={onChange}
-        className={classnames(styles.input, styles.search, {
+        className={classnames(styles.input, styles.search, classNameOverride, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.disabled]: disabled,
@@ -82,11 +82,12 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
       <div className={styles.focusRing} />
 
       {value && (
-        <div className={styles.endIconAdornment} onClick={onClear}>
+        <div className={styles.endIconAdornment}>
           <button
             type="button"
             className={styles.cancelButton}
             aria-label="clear"
+            onClick={onClear}
           >
             <Icon icon={clear} role="presentation" />
           </button>

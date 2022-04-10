@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-guidance-block",
-  "version": "4.5.8",
+  "version": "4.6.39",
   "description": "The draft Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,20 +32,24 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^12.2.2",
-    "@kaizen/draft-button": "^5.4.3",
-    "@kaizen/draft-illustration": "^3.3.4",
-    "@kaizen/draft-tooltip": "^3.4.6",
+    "@kaizen/component-library": "^13.2.6",
+    "@kaizen/draft-button": "^5.6.25",
+    "@kaizen/draft-illustration": "^4.1.8",
+    "@kaizen/draft-tooltip": "^4.0.9",
+    "@kaizen/typography": "^2.1.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1",
     "react-media": "^1.10.0"
+  },
+  "dependenciesComments": {
+    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0",
-    "react": "^16.9.0"
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
+    "react": "^16.9.0 || ^17.0.0"
   }
 }

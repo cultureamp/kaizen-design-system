@@ -1,17 +1,18 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
 import AnimateHeight from "react-animate-height"
-
+import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { Sticky } from "./CollapsibleGroup"
-
 import styles from "./styles.scss"
 
 type Variant = "default" | "clear"
 
-export type CollapsibleProps = {
+export interface CollapsibleProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   children: JSX.Element | JSX.Element[] | string
   title: string
@@ -21,21 +22,27 @@ export type CollapsibleProps = {
   separated?: boolean
   sticky?: Sticky
   noSectionPadding?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
   automationId?: string
   onToggle?: (open: boolean, id: string) => void
-
   /**
    * By default, the header will change background colour when open. When the variant
-    is set to 'clear', it will not have a background but a border-bottom will appear
-    to separate the heading from the content.
+   * is set to 'clear', it will not have a background but a border-bottom will appear
+   * to separate the heading from the content.
    */
   variant?: Variant
-
-  /* Will avoid rendering the content until required (especially important when you have queries inside sections).
-  Removes animation. */
+  /**
+   * Will avoid rendering the content until required (especially important when you
+   * have queries inside sections).
+   * Removes animation.
+   */
   lazyLoad?: boolean
-
-  /* Disables internal `open` state, allowing it to be controlled in the usage */
+  /**
+   * Disables internal `open` state, allowing it to be controlled in the usage.
+   */
   controlled?: boolean
 }
 
@@ -43,7 +50,7 @@ type State = {
   open: boolean
 }
 
-class Collapsible extends React.Component<CollapsibleProps, State> {
+export class Collapsible extends React.Component<CollapsibleProps, State> {
   public state = {
     open: !!this.props.open,
   }
@@ -51,25 +58,31 @@ class Collapsible extends React.Component<CollapsibleProps, State> {
   public render() {
     const {
       id,
+      children,
+      title,
+      renderHeader,
+      open: propsOpen, // Unused, but extracted so as not to spread into the container
       group,
       separated,
       sticky,
       noSectionPadding,
-      title,
-      renderHeader,
       automationId,
-      children,
-      lazyLoad,
+      onToggle, // Unused, but extracted so as not to spread into the container
       variant = "default",
+      lazyLoad,
+      controlled, // Unused, but extracted so as not to spread into the container
+      classNameOverride,
+      ...props
     } = this.props
-    const buttonId = `${this.props.id}-button`
-    const sectionId = `${this.props.id}-section`
+    const buttonId = `${id}-button`
+    const sectionId = `${id}-section`
     const open = this.getOpen()
     const isContainer = !group || separated
 
     return (
       <div
-        className={classnames({
+        id={id}
+        className={classnames(classNameOverride, {
           [styles.container]: isContainer,
           [styles.stickyContainer]: isContainer && sticky,
           [styles.groupItem]: group && !separated,
@@ -78,6 +91,7 @@ class Collapsible extends React.Component<CollapsibleProps, State> {
           [styles.single]: !group,
         })}
         data-automation-id={automationId || `collapsible-container-${id}`}
+        {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
         <button
           type="button"
@@ -94,23 +108,18 @@ class Collapsible extends React.Component<CollapsibleProps, State> {
           aria-controls={sectionId}
           data-automation-id={`collapsible-button-${id}`}
         >
-          {
-            // If a renderHeader prop has been provided: use that to render the header
-            renderHeader && renderHeader(title)
-          }
-          {
-            // Otherwise, use a prescribed structure for the title
-            !renderHeader && (
-              <div
-                className={styles.title}
-                data-automation-id={`collapsible-button-title-${id}`}
-              >
-                <Heading variant="heading-4" tag="span">
-                  {title}
-                </Heading>
-              </div>
-            )
-          }
+          {renderHeader !== undefined ? (
+            renderHeader(title)
+          ) : (
+            <div
+              className={styles.title}
+              data-automation-id={`collapsible-button-title-${id}`}
+            >
+              <Heading variant="heading-4" tag="span">
+                {title}
+              </Heading>
+            </div>
+          )}
           <div>
             <Icon icon={open ? chevronUp : chevronDown} role="presentation" />
           </div>
@@ -121,6 +130,7 @@ class Collapsible extends React.Component<CollapsibleProps, State> {
             data-automation-id={`collapsible-section-${id}`}
           >
             <div
+              id={sectionId}
               className={classnames(styles.section, {
                 [styles.noPadding]: noSectionPadding,
               })}
@@ -151,5 +161,3 @@ class Collapsible extends React.Component<CollapsibleProps, State> {
     }
   }
 }
-
-export default Collapsible

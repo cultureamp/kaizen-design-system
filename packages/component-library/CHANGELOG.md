@@ -3,6 +3,262 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.5...@kaizen/component-library@13.2.6) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.4...@kaizen/component-library@13.2.5) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+## [13.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.3...@kaizen/component-library@13.2.4) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.2...@kaizen/component-library@13.2.3) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.1...@kaizen/component-library@13.2.2) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.2.0...@kaizen/component-library@13.2.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [13.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.2...@kaizen/component-library@13.2.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+## [13.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.1...@kaizen/component-library@13.1.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [13.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.1.0...@kaizen/component-library@13.1.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [13.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@13.0.0...@kaizen/component-library@13.1.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
+# [13.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.7.1...@kaizen/component-library@13.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [12.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.7.0...@kaizen/component-library@12.7.1) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [12.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.6.0...@kaizen/component-library@12.7.0) (2022-03-16)
+
+
+### Features
+
+* Copy Heading and Typography components into new @kaizen/typography package ([#2612](https://github.com/cultureamp/kaizen-design-system/issues/2612)) ([48c6848](https://github.com/cultureamp/kaizen-design-system/commit/48c684850f73f96e6aa9fc0ea1f62cfd28374d73))
+
+
+
+
+
+# [12.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.2...@kaizen/component-library@12.6.0) (2022-03-09)
+
+
+### Features
+
+* Update new start and end icons ([#2597](https://github.com/cultureamp/kaizen-design-system/issues/2597)) ([a698d9e](https://github.com/cultureamp/kaizen-design-system/commit/a698d9ed49a91aa5a3a7d7474ff1254454b2bb3b))
+
+
+
+
+
+## [12.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.1...@kaizen/component-library@12.5.2) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.5.0...@kaizen/component-library@12.5.1) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [12.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.8...@kaizen/component-library@12.5.0) (2022-03-07)
+
+
+### Features
+
+* Add new start and end icons ([#2588](https://github.com/cultureamp/kaizen-design-system/issues/2588)) ([db6dfb4](https://github.com/cultureamp/kaizen-design-system/commit/db6dfb479cff3aefb7b67f13819876051c8bdba7))
+
+
+
+
+
+## [12.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.7...@kaizen/component-library@12.4.8) (2022-03-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.6...@kaizen/component-library@12.4.7) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.5...@kaizen/component-library@12.4.6) (2022-03-01)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.4...@kaizen/component-library@12.4.5) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.3...@kaizen/component-library@12.4.4) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.2...@kaizen/component-library@12.4.3) (2022-02-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.1...@kaizen/component-library@12.4.2) (2022-02-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [12.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.4.0...@kaizen/component-library@12.4.1) (2022-02-15)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [12.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.3.0...@kaizen/component-library@12.4.0) (2022-02-15)
+
+
+### Features
+
+* Install eslint-plugin-jsx-a11y ([#2527](https://github.com/cultureamp/kaizen-design-system/issues/2527)) ([f106089](https://github.com/cultureamp/kaizen-design-system/commit/f1060891a8771d61ec6329f9e854e15683b30382))
+
+
+
+
+
+# [12.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.2.3...@kaizen/component-library@12.3.0) (2022-02-10)
+
+
+### Features
+
+* Updated the allowable React version range to include React 17 ([#2521](https://github.com/cultureamp/kaizen-design-system/issues/2521)) ([0889ae8](https://github.com/cultureamp/kaizen-design-system/commit/0889ae82cc2836fe606957cd1f39a2eb94df00c1))
+
+
+
+
+
+## [12.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.2.2...@kaizen/component-library@12.2.3) (2022-02-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [12.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@12.2.1...@kaizen/component-library@12.2.2) (2022-02-02)
 
 **Note:** Version bump only for package @kaizen/component-library
