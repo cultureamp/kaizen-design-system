@@ -61,7 +61,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@storybook/addon-a11y": "^6.4.20",
+    "@storybook/addon-a11y": "^6.4.21",
     "@storybook/builder-webpack5": "^6.4.21",
     "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/node-logger": "^6.4.19",
