@@ -11,7 +11,7 @@ export type GraphicSizes =
   | "xxlarge"
   | "scene"
 
-const graphicSizesRem = new Map<string, number>([
+const graphicSizesRem = new Map<GraphicSizes, number>([
   ["small", 1.25],
   ["medium", 3],
   ["large", 4.5],

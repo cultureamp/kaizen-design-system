@@ -11,7 +11,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Headings`,
   component: LoadingHeading,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { LoadingHeading } from "@kaizen/loading-skeleton"',

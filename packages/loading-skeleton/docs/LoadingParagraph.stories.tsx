@@ -11,7 +11,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Paragraph`,
   component: LoadingParagraph,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component:

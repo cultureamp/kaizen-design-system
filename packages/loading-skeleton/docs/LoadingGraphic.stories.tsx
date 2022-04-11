@@ -15,7 +15,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Graphic`,
   component: LoadingGraphic,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { LoadingGraphic } from "@kaizen/loading-skeleton"',

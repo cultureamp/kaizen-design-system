@@ -17,7 +17,6 @@ import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceB
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Skeleton`,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component:

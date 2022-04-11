@@ -11,7 +11,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Input`,
   component: LoadingInput,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { LoadingInput } from "@kaizen/loading-skeleton"',
