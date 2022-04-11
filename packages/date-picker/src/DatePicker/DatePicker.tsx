@@ -143,7 +143,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
 
     if (variant === "input") {
-      setInputDate(format(day, "P"))
+      setValueString(format(day, "P"))
+      setValueDate(day)
     } else {
       onChange(day)
     }
@@ -170,7 +171,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   )
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const [inputDate, setInputDate] = useState<string | undefined>()
+  const [valueString, setValueString] = useState<string | undefined>()
+  const [valueDate, setValueDate] = useState<Date | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
 
   const handleValidation = (inputText: string) => {
@@ -181,12 +183,16 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     if (!isTextValid) return
 
-    setInputDate(inputText)
+    setValueString(inputText)
+    console.log("input text", inputText)
+
+    setValueDate(parsedDate)
+    console.log("value date", valueDate)
   }
 
   const handleTextChange = e => {
     const target = e.target as HTMLInputElement
-    setInputDate(target.value)
+    setValueString(target.value)
   }
 
   const handleKeyDown = e => {
@@ -196,8 +202,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
     return
   }
-
-  const sanitisedDate = variant === "input" && isTextValid && inputDate
 
   return (
     <div ref={wrapperRef}>
@@ -236,9 +240,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             inputRef={inputRef}
             isOpen={isOpen}
             buttonRef={buttonRef}
-            value={inputDate && inputDate}
+            value={valueString && valueString}
             disabled={isDisabled}
-            onBlur={() => inputDate && handleValidation(inputDate)}
+            onBlur={() => valueString && handleValidation(valueString)}
+            onFocus={() => valueString && handleValidation(valueString)}
             labelText={labelText}
             placeholder={placeholder}
             description={description}
@@ -272,7 +277,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             styles={styles}
             attributes={attributes}
             classNameOverride={classNameOverride}
-            value={sanitisedDate ? parse(inputDate, "P", new Date()) : value}
+            value={valueDate}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
