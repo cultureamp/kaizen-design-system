@@ -25,7 +25,7 @@ yarn add @kaizen/draft-well
 
 ## Usage
 
-You can import a Kaizen Component Library package inside your application using React or Elm.
+You can import a Kaizen Component Library package inside your application using React.
 
 React import example:
 
@@ -46,10 +46,6 @@ ReactDOM.render(
   , document.querySelector('#app'),
 );
 ```
-
-Elm imports:
-
-Elm support for Kaizen has been discontinued as of 11/03/2022 - All Elm components and styles can be imported from the [elm-ui](https://github.com/cultureamp/elm-ui) repository.
 
 You can also import Kaizen styles into SCSS files:
 

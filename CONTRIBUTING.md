@@ -119,10 +119,6 @@ You can also clean up generated files in your `@kaizen/component-library` repo:
 
 `yarn clean`
 
-### Elm
-
-Elm support for Kaizen has been discontinued as of 11/03/2022 - You may continue use and contribute to the Elm library via the new [elm-ui](https://github.com/cultureamp/elm-ui) repository.
-
 ## Releasing packages
 
 Automated releases to the npm public registry are triggered for all pull requests containing modifications to one or more npm packages (found in the `/packages/` directory). The information required to determine the version update for each release is taken from the title and content of the pull request.
