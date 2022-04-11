@@ -88,16 +88,14 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
                   id={`rte-button-${buttonIndex}`}
                   key={`rte-button-${buttonIndex}`}
                   tabIndex={buttonIndex === buttonFocusIndex ? 0 : -1}
-                  onKeyDown={
-                    e =>
-                      handleKeyDown(
-                        e,
-                        buttonIndex,
-                        buttonFocusIndex,
-                        setButtonFocusIndex,
-                        toolbarButtonsRef
-                      )
-                    // may need to take toolbarButton.props.onKeyDown
+                  onKeyDown={e =>
+                    handleKeyDown(
+                      e,
+                      buttonIndex,
+                      buttonFocusIndex,
+                      setButtonFocusIndex,
+                      toolbarButtonsRef
+                    )
                   }
                   ref={(ref: React.RefObject<React.ReactNode | undefined>) =>
                     (toolbarButtonsRef.current[buttonIndex] = ref)
