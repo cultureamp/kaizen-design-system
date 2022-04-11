@@ -112,7 +112,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
           aria-label={value ? `Change date, ${value}` : "Choose date"}
         >
           <div
-            className={classnames(styles.icon, {
+            className={classnames({
               [styles.disabled]: disabled,
             })}
           >
@@ -120,7 +120,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
           </div>
         </button>
       }
-      // isDatePicker
+      isDatePicker
       onKeyDown={onKeyDown}
       {...inputProps}
     />
