@@ -205,6 +205,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     return
   }
 
+  const handleOnBlur = () => {
+    valueString && handleValidation(valueString)
+    console.log(valueDate)
+  }
+
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -244,7 +249,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             isOpen={isOpen}
             value={valueString && valueString}
             disabled={isDisabled}
-            onBlur={() => valueString && handleValidation(valueString)}
+            handleOnBlur={() => handleOnBlur()}
             onFocus={() =>
               valueDate && handleValidation(format(valueDate, "P"))
             }

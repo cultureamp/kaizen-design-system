@@ -45,6 +45,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void
   calendarId?: string
   isOpen: boolean
+  handleOnBlur?: React.FocusEventHandler<HTMLInputElement> | undefined
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -65,6 +66,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   calendarId,
   isOpen,
   onKeyDown,
+  handleOnBlur,
   ...inputProps
 }) => (
   <FieldGroup
@@ -99,6 +101,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       disabled={disabled}
       reversed={reversed}
       status={status}
+      onBlur={handleOnBlur}
       endIconAdornment={
         <button
           ref={buttonRef}
