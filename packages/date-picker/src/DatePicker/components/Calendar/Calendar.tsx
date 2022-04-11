@@ -74,9 +74,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (isInput && !value && inputRef?.current) {
-      inputRef!.current.focus()
-    } else if (value) {
+    if (value) {
       const selectedDay = calendarRef.current.getElementsByClassName(
         "DayPicker-Day--selected"
       )[0] as HTMLElement

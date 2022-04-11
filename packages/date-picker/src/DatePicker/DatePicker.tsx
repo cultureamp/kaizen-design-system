@@ -1,5 +1,5 @@
 import { Label } from "@kaizen/draft-form"
-import React, { RefObject, useRef, useState } from "react"
+import React, { RefObject, useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
 import { usePopper } from "react-popper"
@@ -177,6 +177,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleValidation = (inputText: string) => {
     const parsedDate = parse(inputText, "P", new Date())
+
+    // isValid will return true for "Invalid Date" which is a truthy Date object
+    if (parsedDate.toString() === "Invalid Date") return
+
     const isValidDate = isValid(parsedDate)
 
     setIsTextValid(isValidDate)
@@ -184,10 +188,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (!isTextValid) return
 
     setValueString(inputText)
-    console.log("input text", inputText)
-
     setValueDate(parsedDate)
-    console.log("value date", valueDate)
   }
 
   const handleTextChange = e => {
@@ -196,7 +197,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleKeyDown = e => {
-    if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
+    if (
+      (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) &&
+      valueString
+    ) {
+      handleValidation(valueString)
       e.preventDefault()
       setIsOpen(true)
     }
@@ -243,7 +248,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             value={valueString && valueString}
             disabled={isDisabled}
             onBlur={() => valueString && handleValidation(valueString)}
-            onFocus={() => valueString && handleValidation(valueString)}
             labelText={labelText}
             placeholder={placeholder}
             description={description}
