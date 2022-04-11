@@ -127,7 +127,8 @@ $input-with-icon-padding: $input-icon-size + $ca-grid * 0.75;
     @include ca-position($end: $ca-grid / 2);
 
     &.datePicker {
-      height: 2.25rem;
+      height: auto;
+      right: 0.25rem;
     }
   }
 

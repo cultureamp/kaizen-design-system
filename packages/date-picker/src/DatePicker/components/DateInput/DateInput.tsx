@@ -101,7 +101,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       status={status}
       endIconAdornment={
         <button
-          tabIndex={-1}
+          ref={buttonRef}
           aria-disabled={disabled ? true : undefined}
           disabled={disabled}
           onClick={onButtonClick}
