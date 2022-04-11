@@ -143,7 +143,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
 
     if (variant === "input") {
-      setValueString(format(day, "P"))
+      setValueString(format(day, "PP"))
       setValueDate(day)
     } else {
       onChange(day)
@@ -197,11 +197,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleKeyDown = e => {
-    if (
-      (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) &&
-      valueString
-    ) {
-      handleValidation(valueString)
+    if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
+      handleValidation(valueString ? valueString : "")
       e.preventDefault()
       setIsOpen(true)
     }
@@ -243,17 +240,19 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           <DateInput
             id={id}
             inputRef={inputRef}
-            isOpen={isOpen}
             buttonRef={buttonRef}
+            isOpen={isOpen}
             value={valueString && valueString}
             disabled={isDisabled}
             onBlur={() => valueString && handleValidation(valueString)}
+            onFocus={() =>
+              valueDate && handleValidation(format(valueDate, "P"))
+            }
             labelText={labelText}
             placeholder={placeholder}
             description={description}
             icon={dateStart}
             validationMessages={validationMessages}
-            onClick={handleOpenClose}
             onButtonClick={handleOpenClose}
             onChange={handleTextChange}
             calendarId={"calendar-dialog"}
@@ -273,7 +272,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             handleOpenClose()
           }}
           // allow the input to be within focus lock when input variant
-          shards={variant === "input" ? [inputRef] : undefined}
+          shards={variant === "input" ? [inputRef, buttonRef] : undefined}
         >
           <Calendar
             id="calendar-dialog"
