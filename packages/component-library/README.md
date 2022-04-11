@@ -47,27 +47,9 @@ ReactDOM.render(
 );
 ```
 
-Elm import example:
+Elm imports:
 
-```
-import Kaizen.Button.Button as Button
-
--- draft component
-import KaizenDraft.Well.Well as Well
-```
-
-Elm usage example:
-
-```
-[ Button.view
-    (Button.primary
-        |> Button.href configuration.callToActionPath
-    )
-    Example button
-]
-```
-
-For Elm components, we have used Kaizen to namespace them because the source directories that are specified in `elm.json` are all pulled into the same namespace, creating potential conflicts.
+Elm support for Kaizen has been discontinued as of 11/03/2022 - All Elm components and styles can be imported from the [elm-ui](https://github.com/cultureamp/elm-ui) repository.
 
 You can also import Kaizen styles into SCSS files:
 

@@ -119,23 +119,9 @@ You can also clean up generated files in your `@kaizen/component-library` repo:
 
 `yarn clean`
 
-### Elm components stories
+### Elm
 
-Besides creating your Elm story on an Elm file, there is an extra step in order to make it appear on the storybook.
-
-You have to refer it on the component's JS story.
-
-```
--- MyComponent.tsx
-import { loadElmStories } from "elm-storybook"
-
-// JS stories
-
-loadElmStories("Elm/MyComponent", module, require("./MyComponent.elm"), [
-  "Your new story #1",
-  "Your new story #2",
-])
-```
+Elm support for Kaizen has been discontinued as of 11/03/2022 - You may continue use and contribute to the Elm library via the new [elm-ui](https://github.com/cultureamp/elm-ui) repository.
 
 ## Releasing packages
 
