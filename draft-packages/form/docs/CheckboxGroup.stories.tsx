@@ -15,18 +15,20 @@ interface RenderProps {
   onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
 }
 
-interface Props {
+interface CheckboxGroupExampleProps {
   render: (props: RenderProps) => JSX.Element
 }
 
-function CheckboxGroupExample({ render }) {
+const CheckboxGroupExample: React.VFC<CheckboxGroupExampleProps> = ({
+  render,
+}) => {
   const [checkedStatus, setCheckedStatus] = useState("mixed")
   const onCheckHandler = () => {
     const newStatus = checkedStatus === "on" ? "off" : "on"
     setCheckedStatus(newStatus)
   }
 
-  return <>{render({ checkedStatus, onCheckHandler })}</>
+  return render({ checkedStatus, onCheckHandler })
 }
 
 export default {
