@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -15,46 +15,26 @@ interface RenderProps {
   onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
 }
 
-interface Props {
+interface CheckboxGroupExampleProps {
   render: (props: RenderProps) => JSX.Element
 }
 
-class CheckboxGroupExample extends React.Component<Props> {
-  public state = {
-    checkedStatus: "mixed",
-  }
-  constructor(props: Props) {
-    super(props)
-
-    this.onCheckHandler = this.onCheckHandler.bind(this)
-  }
-
-  public onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      checkedStatus: this.state.checkedStatus === "on" ? "off" : "on",
-    })
+const CheckboxGroupExample: React.VFC<CheckboxGroupExampleProps> = ({
+  render,
+}) => {
+  const [checkedStatus, setCheckedStatus] = useState("mixed")
+  const onCheckHandler = () => {
+    const newStatus = checkedStatus === "on" ? "off" : "on"
+    setCheckedStatus(newStatus)
   }
 
-  public render() {
-    const { render } = this.props
-    return (
-      <div>
-        {render({
-          checkedStatus: this.state.checkedStatus,
-          onCheckHandler: this.onCheckHandler,
-        })}
-      </div>
-    )
-  }
+  return render({ checkedStatus, onCheckHandler })
 }
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Group`,
   component: CheckboxField,
   parameters: {
-    actions: {
-      argTypesRegex: "^on.*",
-    },
     docs: {
       description: {
         component: 'import { CheckboxGroup } from "@kaizen/draft-form";',
