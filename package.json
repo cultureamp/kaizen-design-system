@@ -67,7 +67,7 @@
     "@storybook/node-logger": "^6.4.19",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/chalk": "^2.2.0",
     "@types/classnames": "^2.3.1",
