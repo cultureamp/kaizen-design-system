@@ -133,6 +133,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     placement: "bottom-start",
   })
 
+  const disabledDays = calculateDisabledDays(
+    disabledDates,
+    disabledDaysOfWeek,
+    disabledRange,
+    disabledBeforeAfter,
+    disabledBefore,
+    disabledAfter
+  )
+
   const handleOnDayChange = (day: Date, modifiers: DayModifiers) => {
     /** react-day-picker will fire events for disabled days by default.
      *  We're checking here if it includes the CSS Modules class for disabled
@@ -161,34 +170,38 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const disabledDays = calculateDisabledDays(
-    disabledDates,
-    disabledDaysOfWeek,
-    disabledRange,
-    disabledBeforeAfter,
-    disabledBefore,
-    disabledAfter
-  )
-
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
   const [valueDate, setValueDate] = useState<Date | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
 
-  const handleValidation = (inputText: string) => {
+  const handleOnFocus = (inputText: string) => {
     const parsedDate = parse(inputText, "P", new Date())
-
     // isValid will return true for "Invalid Date" which is a truthy Date object
     if (parsedDate.toString() === "Invalid Date") return
 
     const isValidDate = isValid(parsedDate)
-
     setIsTextValid(isValidDate)
 
     if (!isTextValid) return
 
     setValueString(inputText)
     setValueDate(parsedDate)
+  }
+
+  const handleOnBlur = () => {
+    if (valueString) {
+      const parsedDate = parse(valueString, "P", new Date())
+      // isValid will return true for "Invalid Date" which is a truthy Date object
+      if (parsedDate.toString() === "Invalid Date") return
+
+      const isValidDate = isValid(parsedDate)
+      setIsTextValid(isValidDate)
+
+      if (!isTextValid) return
+
+      setValueString(format(parsedDate, "PP"))
+    }
   }
 
   const handleTextChange = e => {
@@ -198,16 +211,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleKeyDown = e => {
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
-      handleValidation(valueString ? valueString : "")
       e.preventDefault()
       setIsOpen(true)
     }
     return
-  }
-
-  const handleOnBlur = () => {
-    valueString && handleValidation(valueString)
-    console.log(valueDate)
   }
 
   return (
@@ -250,9 +257,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             value={valueString && valueString}
             disabled={isDisabled}
             handleOnBlur={() => handleOnBlur()}
-            onFocus={() =>
-              valueDate && handleValidation(format(valueDate, "P"))
-            }
+            onFocus={() => valueDate && handleOnFocus(format(valueDate, "P"))}
             labelText={labelText}
             placeholder={placeholder}
             description={description}
