@@ -1,8 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Icon } from "@kaizen/component-library"
+import { Icon, Box } from "@kaizen/component-library"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import { Heading, Paragraph } from "@kaizen/typography"
+import { Tag } from "@kaizen/draft-tag"
+import { Divider } from "@kaizen/draft-divider"
+import { EmergencyResponse, Negative } from "@kaizen/draft-illustration"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import { ContentOnly, Content } from "../components/ContentOnly"
@@ -16,6 +19,31 @@ const ComponentPageHeader = (
     headingText="Component health"
     summaryParagraph="View the health status of all Kaizen components at a glance."
   />
+)
+
+type SectionHeaderProps = {
+  illustration: React.ReactNode
+  heading: string
+  subheading: string
+}
+
+const SectionHeader: React.VFC<SectionHeaderProps> = ({
+  illustration,
+  heading,
+  subheading,
+}) => (
+  <div className={styles.sectionHeader}>
+    <div className={styles.sectionHeaderIllustration}>{illustration}</div>
+
+    <div>
+      <Box mb={0.25}>
+        <Heading tag="h2" variant="heading-2">
+          {heading}
+        </Heading>
+      </Box>
+      <Paragraph variant="small">{subheading}</Paragraph>
+    </div>
+  </div>
 )
 
 export default ({ data, location }) => {
@@ -42,6 +70,11 @@ export default ({ data, location }) => {
     >
       <ContentOnly>
         <Content>
+          <SectionHeader
+            illustration={<EmergencyResponse alt="" />}
+            heading="Health stats"
+            subheading="Overview of our health metrics per component"
+          />
           <table className={styles.healthTable}>
             <thead>
               <tr>
@@ -93,35 +126,6 @@ export default ({ data, location }) => {
                   })}
                 </tr>
               ))}
-              <tr className={styles.deprecatedHeader}>
-                <td colSpan={9}>
-                  <Heading variant="heading-4">
-                    ⛔️ Deprecated components
-                  </Heading>
-                  <Paragraph variant="body" tag="span">
-                    The following components have been deprecated and will
-                    eventually be removed. Please refer to the alternative
-                    approach listed.
-                  </Paragraph>
-                </td>
-              </tr>
-              {deprecatedComponents.map(component => (
-                <tr className={styles.deprecatedComponent}>
-                  <td className={styles.componentTitle}>
-                    <Paragraph variant="body" tag="span">
-                      {component.node.frontmatter.title}
-                    </Paragraph>
-                  </td>
-                  <td colSpan={6}>
-                    {component.node.frontmatter.deprecationMessage}
-                  </td>
-                  <td colSpan={2}>
-                    Removal:
-                    <br />
-                    {component.node.frontmatter.deprecationDate}
-                  </td>
-                </tr>
-              ))}
             </tbody>
             <tfoot>
               <tr>
@@ -148,6 +152,36 @@ export default ({ data, location }) => {
               </tr>
             </tfoot>
           </table>
+
+          <Divider variant="canvas" />
+
+          <SectionHeader
+            illustration={<Negative alt="" />}
+            heading="Deprecated components"
+            subheading="The following components have been deprecated and will
+            eventually be removed from the Kaizen code base. Follow the given tips to update to the new
+            or alternative component."
+          />
+
+          <div className={styles.deprecatedComponentList}>
+            {deprecatedComponents.map(component => (
+              <div className={styles.deprecatedComponentListItem}>
+                <div className={styles.deprecatedComponentListItem_RemovalDate}>
+                  <Tag variant="default">
+                    {component.node.frontmatter.deprecationDate}
+                  </Tag>
+                </div>
+                <Box mb={0.5}>
+                  <Heading tag="span" variant="heading-4">
+                    {component.node.frontmatter.title}
+                  </Heading>
+                </Box>
+                <Paragraph variant="small" tag="span">
+                  {component.node.frontmatter.deprecationMessage}
+                </Paragraph>
+              </div>
+            ))}
+          </div>
         </Content>
       </ContentOnly>
     </Layout>

@@ -116,3 +116,34 @@
 
 .deprecatedComponent_message {
 }
+
+.deprecatedComponentList {
+  padding: 2em;
+}
+
+.deprecatedComponentListItem {
+  padding: 1em 0;
+  border-top: 1px solid #ccc;
+}
+
+.deprecatedComponentListItem_Info {
+}
+
+.deprecatedComponentListItem_RemovalDate {
+  float: right;
+}
+
+.deprecatedComponentListItem + .deprecatedComponentListItem {
+  border-top: 1px solid #ccc;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.sectionHeaderIllustration {
+  width: 100px;
+}
