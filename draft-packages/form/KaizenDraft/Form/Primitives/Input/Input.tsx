@@ -1,57 +1,75 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
 export type InputType = "text" | "email" | "password"
 export type InputStatus = "default" | "success" | "error" | "caution"
 
 export interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
-  automationId?: string
-  ariaLabel?: string
-  ariaDescribedBy?: string
-  inputType?: InputType
-  /*
-   * The aim is to do a gentle deprecation of defaultInputValue and use the native defaultValue prop
-   */
-  defaultInputValue?: string
+  extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {
   inputRef?: React.RefObject<HTMLInputElement>
-  /*
-   * The aim is to do a gentle deprecation of inputValue and use the native value prop
-   */
-  inputValue?: string
-  reversed?: boolean
   status?: InputStatus
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode
+  reversed?: boolean
+  type?: InputType
+  /**
+   * **Deprecated:** Use `type` instead
+   * @deprecated
+   */
+  inputType?: InputType
+  /**
+   * **Deprecated:** Use `aria-label` instead
+   * @deprecated
+   */
+  ariaLabel?: string
+  /**
+   * **Deprecated:** Use `aria-describedby` instead
+   * @deprecated
+   */
+  ariaDescribedBy?: string
+  /**
+   * **Deprecated:** Use `value` instead
+   * @deprecated
+   */
+  inputValue?: string
+  /**
+   * **Deprecated:** Use `defaultValue` instead
+   * @deprecated
+   */
+  defaultInputValue?: string
+  /**
+   * **Deprecated:** Use `classNameOverride` instead
+   * @deprecated
+   */
+  className?: string
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type Input = React.FunctionComponent<InputProps>
-
-const Input: Input = ({
-  id,
-  name,
-  automationId,
-  ariaLabel,
-  ariaDescribedBy,
-  className,
-  inputType = "text",
-  placeholder,
-  disabled = false,
-  inputValue,
-  value,
-  defaultInputValue,
-  defaultValue,
+export const Input: React.VFC<InputProps> = ({
   inputRef,
-  reversed = false,
   status = "default",
   startIconAdornment,
   endIconAdornment,
-  onChange,
-  onBlur,
-  onFocus,
-  ...props
+  reversed = false,
+  type = "text",
+  inputType = "text",
+  ariaLabel,
+  ariaDescribedBy,
+  value,
+  inputValue,
+  defaultValue,
+  defaultInputValue,
+  classNameOverride,
+  className,
+  automationId,
+  disabled,
+  ...restProps
 }) => (
   <div
     className={classnames(styles.wrapper, {
@@ -66,31 +84,23 @@ const Input: Input = ({
     )}
 
     <input
-      id={id}
-      name={name}
+      ref={inputRef}
       data-automation-id={automationId}
-      type={inputType}
+      type={inputType || type}
       value={inputValue || value}
       defaultValue={defaultInputValue || defaultValue}
-      ref={inputRef}
-      aria-describedby={ariaDescribedBy}
-      aria-label={ariaLabel}
-      placeholder={placeholder}
-      onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
+      aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps
+      aria-label={ariaLabel} // will be replaced by `aria-label` in restProps
       disabled={disabled}
-      className={classnames(
+      className={classnames([
         styles.input,
         styles[status],
-        {
-          [styles.default]: !reversed,
-          [styles.reversed]: reversed,
-          [styles.disabled]: disabled,
-        },
-        className
-      )}
-      {...props}
+        className,
+        classNameOverride,
+        reversed ? styles.reversed : styles.default,
+        disabled && styles.disabled,
+      ])}
+      {...restProps}
     />
 
     {/* Inputs aren't able to have pseudo elements like ::after on them,
@@ -103,4 +113,4 @@ const Input: Input = ({
   </div>
 )
 
-export default Input
+Input.displayName = "Input"
