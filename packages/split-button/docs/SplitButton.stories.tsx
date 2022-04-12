@@ -23,18 +23,30 @@ const ACTION_BUTTON_PROPS__ANCHOR = {
   href: "//example.com",
 }
 
+const WrapperChromaticIgnore: React.VFC<{ children: React.ReactNode }> = ({
+  children,
+}) => <div data-chromatic="ignore">{children}</div>
+
 const DROPDOWN_CONTENT__ENABLED = (
-  <MenuList>
-    <MenuItem icon={editIcon} label="Menu Item 1" onClick={action("clicked")} />
-    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-  </MenuList>
+  <WrapperChromaticIgnore>
+    <MenuList>
+      <MenuItem
+        icon={editIcon}
+        label="Menu Item 1"
+        onClick={action("clicked")}
+      />
+      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+    </MenuList>
+  </WrapperChromaticIgnore>
 )
 
-const DROPDOWN_CONTENT_ONE__DISABLED = (
-  <MenuList>
-    <MenuItem icon={editIcon} label="Menu Item 1" disabled />
-    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-  </MenuList>
+const DROPDOWN_CONTENT__ONE_DISABLED = (
+  <WrapperChromaticIgnore>
+    <MenuList>
+      <MenuItem icon={editIcon} label="Menu Item 1" disabled />
+      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+    </MenuList>
+  </WrapperChromaticIgnore>
 )
 
 export default {
@@ -67,7 +79,7 @@ export default {
       control: { type: "select" },
       mapping: {
         "MenuList - MenuItems enabled": DROPDOWN_CONTENT__ENABLED,
-        "MenuList - one MenuItem disabled": DROPDOWN_CONTENT_ONE__DISABLED,
+        "MenuList - one MenuItem disabled": DROPDOWN_CONTENT__ONE_DISABLED,
       },
     },
   },
@@ -114,7 +126,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     {
       rowTitle: "With Disabled Dropdown Option",
       actionButtonProps: ACTION_BUTTON_PROPS__BUTTON,
-      dropdownContent: DROPDOWN_CONTENT_ONE__DISABLED,
+      dropdownContent: DROPDOWN_CONTENT__ONE_DISABLED,
     },
   ]
 
