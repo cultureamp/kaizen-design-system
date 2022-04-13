@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "4.1.8",
+  "version": "5.0.0",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,13 +32,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/hosted-assets": "^1.2.0",
+    "@kaizen/hosted-assets": "^2.0.0",
     "jszip": "^3.7.1",
     "lottie-web": "^5.7.14"
   },
   "devDependencies": {
-    "@kaizen/component-library": "^13.2.6",
-    "@kaizen/design-tokens": "^7.2.2",
+    "@kaizen/component-library": "^14.0.0",
+    "@kaizen/design-tokens": "^8.0.0",
     "@types/jszip": "^3.4.0",
     "rimraf": "^3.0.2"
   },

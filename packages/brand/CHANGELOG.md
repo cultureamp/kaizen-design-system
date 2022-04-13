@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.3.0...@kaizen/brand@1.3.1) (2022-04-13)
+
+**Note:** Version bump only for package @kaizen/brand
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand@1.2.2...@kaizen/brand@1.3.0) (2022-03-17)
 
 
