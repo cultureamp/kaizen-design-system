@@ -1,6 +1,6 @@
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, waitFor } from "@testing-library/react"
 import * as React from "react"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { BrandMoment } from "./BrandMoment"
@@ -22,6 +22,13 @@ window.HTMLMediaElement.prototype.load = () => jest.fn()
 // @ts-ignore-next-line
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.HTMLMediaElement.prototype.play = () => jest.fn()
+// @ts-ignore-next-line
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
+window.HTMLMediaElement.prototype.pause = () => jest.fn()
+// @ts-ignore-next-line
+// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
+window.HTMLMediaElement.prototype.mute = () => jest.fn()
+// this will still throw unstable_flushDiscreteUpdates console error. This more a React issue than a testing issue
 
 describe("<BrandMoment />", () => {
   afterEach(cleanup)
