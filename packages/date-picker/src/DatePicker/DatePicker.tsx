@@ -9,6 +9,7 @@ import {
   RangeModifier,
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
+import { ModifiersUtils } from "react-day-picker"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { isValid, parse, format } from "date-fns"
@@ -147,6 +148,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
+    console.log(modifiers)
     if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
@@ -201,7 +203,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       setIsTextValid(false)
     }
 
-    const isValidDate = isValid(parsedDate)
+    // Check if typed day has disabled modifier
+    const isTypedDayDisabled = ModifiersUtils.getModifiersForDay(parsedDate, {
+      [defaultCalendarClasses.disabled]: disabledDays,
+    })
+
+    const isValidDate = isValid(!isTypedDayDisabled.length && parsedDate)
     setIsTextValid(isValidDate)
 
     if (!isValidDate) return
