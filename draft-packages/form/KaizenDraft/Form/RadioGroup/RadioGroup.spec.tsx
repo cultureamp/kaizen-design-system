@@ -32,6 +32,7 @@ describe("<RadioGroup /> ", () => {
             selectedStatus={false}
             disabled={false}
             value="radio-1"
+            onChange={() => jest.fn()}
           />
           <RadioField
             name="radio"
@@ -40,6 +41,7 @@ describe("<RadioGroup /> ", () => {
             selectedStatus={false}
             disabled={false}
             value="radio-2"
+            onChange={() => jest.fn()}
           />
         </RadioGroup>
       )
