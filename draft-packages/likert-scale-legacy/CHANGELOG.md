@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.6.23...@kaizen/draft-likert-scale-legacy@1.7.0) (2022-04-13)
+
+
+### Features
+
+* border styles for likert scale ([#2670](https://github.com/cultureamp/kaizen-design-system/issues/2670)) ([f763ba6](https://github.com/cultureamp/kaizen-design-system/commit/f763ba62181631cf11c464cd718302c8f919c096))
+
+
+
+
+
 ## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.6.22...@kaizen/draft-likert-scale-legacy@1.6.23) (2022-04-03)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
