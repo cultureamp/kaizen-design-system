@@ -2973,6 +2973,37 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/component-library@^13.2.6":
+  version "13.2.6"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-13.2.6.tgz#3c7086d727ee9a68a93c7bbf6d0267874aeb21bd"
+  integrity sha512-hk7ufWmOuYtG2kPPNgEGP1GeLiw5zGtfXbc/MpKpW2xixEDG+5xKcVav2VJ3BBGVeW/HHgO8iUmhcGjplY2Twg==
+  dependencies:
+    "@kaizen/component-base" "^1.1.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.2"
+    "@kaizen/draft-button" "^5.6.25"
+    "@kaizen/hosted-assets" "^1.2.0"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.181"
+    "@types/uuid" "^3.4.10"
+    classnames "^2.3.1"
+    motion-ui "github:cultureamp/motion-ui"
+
+"@kaizen/draft-button@^5.4.1", "@kaizen/draft-button@^5.6.25":
+  version "5.6.25"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
+  integrity sha512-WmkpyPMGc/IzOPUej38pSyTGaNuj5/RV4MY3aAwrKrb+ut70FmjarMdqBTG6Z7HQnE0fapxB5E44izDBXi+dOg==
+  dependencies:
+    "@kaizen/component-library" "^13.2.6"
+    "@kaizen/draft-badge" "^1.11.0"
+    "@kaizen/loading-spinner" "^2.1.2"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+
+"@kaizen/hosted-assets@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
+  integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
+
 "@kaizen/react-deprecate-warning@^1.1.6":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
@@ -4963,14 +4994,14 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core-events@6.4.19", "@storybook/core-events@^6.4.19":
+"@storybook/core-events@6.4.19":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.19.tgz#d2a03156783a3cb9bd9f7ba81a06a798a5c296ae"
   integrity sha512-KICzUw6XVQUJzFSCXfvhfHAuyhn4Q5J4IZEfuZkcGJS4ODkrO6tmpdYE5Cfr+so95Nfp0ErWiLUuodBsW9/rtA==
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-events@6.4.21":
+"@storybook/core-events@6.4.21", "@storybook/core-events@^6.4.21":
   version "6.4.21"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.21.tgz#28fff8b10c0d564259edf4439ff8677615ce59c0"
   integrity sha512-K6b9M1zYvW/Kfb1cnH6JDfmFvTYDMx/ot9zdl9O5SPH9glUwzOXSk8qKu6GmZTiW2YnC2nKbjaN20mfMsCBPGw==
@@ -18265,7 +18296,7 @@ moo-color@^1.0.2:
   dependencies:
     color-name "^1.1.4"
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/d73f199d0ab2626a334ba6100604b3d14e6dabf1"
 
