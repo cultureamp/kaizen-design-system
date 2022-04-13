@@ -34,7 +34,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
       title="Success"
       onHide={onHide}
     >
-      This is my positive notification
+      Notification Text
     </GenericNotification>
   )
 
@@ -43,10 +43,9 @@ test("The cancel button hides the notification and triggers the onHide callback"
 
   // After clicking, the element should fade out, but the onHide not trigger yet.
   const cancelButton = getByTestId("close-button")
-
-  fireEvent.click(cancelButton)
-
   const notification = container.querySelector(".notification")
+
+  fireEvent(cancelButton, new MouseEvent("click"))
 
   await waitFor(() => {
     expect(notification).toBeTruthy()
@@ -60,7 +59,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
     } as any)
 
   await waitFor(() => {
-    expect(container.querySelector(".notification")).toBeFalsy()
+    expect(notification).not.toBeInTheDocument()
   })
   await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
 })
