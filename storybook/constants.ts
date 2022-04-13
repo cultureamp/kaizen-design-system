@@ -2,7 +2,6 @@ export const CATEGORIES = {
   components: "Components",
   helpers: "Helpers",
   designTokens: "Design Tokens",
-  elm: "Elm",
   deprecated: "Deprecated",
 }
 

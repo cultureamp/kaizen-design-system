@@ -46,7 +46,7 @@ To begin developing the design system locally, run the following from the reposi
 yarn install
 ```
 
-We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) and [Elm](https://elm-lang.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
+We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
 
 To run Storybook locally, run the following from the repository root:
 

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-select",
-  "version": "1.25.15",
+  "version": "2.0.0",
   "description": "The draft Select component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,11 +32,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^13.2.6",
+    "@kaizen/component-library": "^14.0.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
-    "@kaizen/draft-button": "^5.6.25",
-    "@kaizen/draft-form": "^6.0.10",
-    "@kaizen/draft-tag": "^2.3.27",
+    "@kaizen/draft-button": "^6.0.0",
+    "@kaizen/draft-form": "^7.0.0",
+    "@kaizen/draft-tag": "^3.0.0",
     "@types/classnames": "^2.3.0",
     "@types/react-select": "^4.0.18",
     "classnames": "^2.3.1",
@@ -46,7 +46,6 @@
     "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
