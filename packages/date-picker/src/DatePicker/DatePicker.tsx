@@ -153,6 +153,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     if (variant === "input") {
       setValueString(format(day, "PP"))
+      setCurrentDateFormat("PP")
       setValueDate(day)
     } else {
       onChange(day)
@@ -170,37 +171,48 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
+  type DateFormat = "P" | "PP"
+
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
   const [valueDate, setValueDate] = useState<Date | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
+  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>("P")
 
-  const handleOnFocus = (inputText: string) => {
-    const parsedDate = parse(inputText, "P", new Date())
+  useEffect(() => {
+    if (valueString && valueDate) {
+      const dateNumeral = parse(valueString, "P", new Date())
+      const dateText = parse(valueString, "PP", new Date())
+
+      // isValid will return true for "Invalid Date" which is a truthy Date object
+      if (dateNumeral.toString() !== "Invalid Date") {
+        setCurrentDateFormat("P")
+      } else if (dateText.toString() !== "Invalid Date") {
+        setCurrentDateFormat("PP")
+      }
+    }
+  }, [valueString, valueDate])
+
+  const handleFormatChange = (input: string) => {
+    const parsedDate = parse(input, currentDateFormat, new Date())
+
     // isValid will return true for "Invalid Date" which is a truthy Date object
-    if (parsedDate.toString() === "Invalid Date") return
+    if (parsedDate.toString() === "Invalid Date") {
+      setIsTextValid(false)
+    }
 
     const isValidDate = isValid(parsedDate)
     setIsTextValid(isValidDate)
 
-    if (!isTextValid) return
+    if (!isValidDate) return
 
-    setValueString(inputText)
-    setValueDate(parsedDate)
-  }
-
-  const handleOnBlur = () => {
-    if (valueString) {
-      const parsedDate = parse(valueString, "P", new Date())
-      // isValid will return true for "Invalid Date" which is a truthy Date object
-      if (parsedDate.toString() === "Invalid Date") return
-
-      const isValidDate = isValid(parsedDate)
-      setIsTextValid(isValidDate)
-
-      if (!isTextValid) return
-
+    if (currentDateFormat === "P") {
       setValueString(format(parsedDate, "PP"))
+      setCurrentDateFormat("PP")
+    } else {
+      setValueString(format(parsedDate, "P"))
+      setCurrentDateFormat("P")
+      setValueDate(parsedDate)
     }
   }
 
@@ -254,10 +266,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             inputRef={inputRef}
             buttonRef={buttonRef}
             isOpen={isOpen}
-            value={valueString && valueString}
+            value={valueString ? valueString : ""}
             disabled={isDisabled}
-            handleOnBlur={() => handleOnBlur()}
-            onFocus={() => valueDate && handleOnFocus(format(valueDate, "P"))}
+            handleOnBlur={() => valueString && handleFormatChange(valueString)}
+            onFocus={() => valueString && handleFormatChange(valueString)}
             labelText={labelText}
             placeholder={placeholder}
             description={description}
@@ -267,6 +279,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             onChange={handleTextChange}
             calendarId={"calendar-dialog"}
             onKeyDown={e => handleKeyDown(e)}
+            status={!isTextValid ? "error" : "default"}
             {...inputProps}
           />
         )}
@@ -281,7 +294,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onEscapeKey={() => {
             handleOpenClose()
           }}
-          // allow the input to be within focus lock when input variant
+          // Allow the input and button to be within focus lock when input variant
           shards={variant === "input" ? [inputRef, buttonRef] : undefined}
         >
           <Calendar
