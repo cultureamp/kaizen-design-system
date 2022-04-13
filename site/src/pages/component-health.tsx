@@ -157,13 +157,13 @@ export default ({ data, location }) => {
 
             <Divider variant="content" />
 
-            <Box mb={4}> </Box>
+            <Box mb={2}> </Box>
 
             <SectionHeader
               illustration={<Negative alt="" />}
               heading="Deprecated components"
               subheading="The following components have been deprecated and will
-            eventually be removed from the Kaizen code base. Follow the given tips to update to the new
+            eventually be removed from the Kaizen code base (see tag). Follow the given tips to update to the new
             or alternative component."
             />
 
