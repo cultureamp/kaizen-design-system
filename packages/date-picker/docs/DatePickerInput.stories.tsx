@@ -17,15 +17,21 @@ export default {
     },
   },
 }
-
+const validationMessages = {
+  success: "This is a success message",
+  caution: "This is a cautionary message",
+  error: "This is an error message",
+}
 export const DefaultStory = props => (
   <>
     <DatePicker
       id="datepicker-default"
       labelText="Label"
-      description="dd/mm/yyyy"
-      placeholder="dd/mm/yyyy"
+      description="mm/dd/yyyy"
+      placeholder="mm/dd/yyyy"
       variant="input"
+      validationMessages={validationMessages}
+      disabledBefore={new Date()}
       {...props}
     />
     <ul>
@@ -84,27 +90,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     setSelectedDate(day)
   }
 
-  const validationMessages = {
-    success: "This is a success message",
-    caution: "This is a cautionary message",
-    error: "This is an error message",
-  }
-
   return (
     <>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Default", "Selected Value", "Disabled"]}
+          headings={["Default", "Selected Value", "Disabled", "Error"]}
         />
-        <StoryWrapper.Row rowTitle="Button">
+        <StoryWrapper.Row rowTitle="Input">
           <DatePicker
             id="datepicker-input-default"
             labelText="Label"
             value={selectedDate}
             onChange={onDayChange}
             validationMessages={validationMessages}
-            description="dd/mm/yyyy"
-            placeholder="dd/mm/yyyy"
+            description="mm/dd/yyyy"
+            placeholder="mm/dd/yyyy"
             variant="input"
           />
           <DatePicker
@@ -113,8 +113,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             value={new Date(2022, 1, 5)}
             onChange={onDayChange}
             validationMessages={validationMessages}
-            description="dd/mm/yyyy"
-            placeholder="dd/mm/yyyy"
+            description="mm/dd/yyyy"
             variant="input"
           />
           <DatePicker
@@ -124,8 +123,17 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             value={selectedDate}
             onChange={onDayChange}
             validationMessages={validationMessages}
-            description="dd/mm/yyyy"
-            placeholder="dd/mm/yyyy"
+            description="mm/dd/yyyy"
+            placeholder="mm/dd/yyyy"
+            variant="input"
+          />
+          <DatePicker
+            id="datepicker-input-error"
+            labelText="Label"
+            value={new Date("Invalid Date")}
+            onChange={onDayChange}
+            validationMessages={validationMessages}
+            description="mm/dd/yyyy"
             variant="input"
           />
         </StoryWrapper.Row>
