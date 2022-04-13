@@ -25,7 +25,7 @@ yarn add @kaizen/draft-well
 
 ## Usage
 
-You can import a Kaizen Component Library package inside your application using React or Elm.
+You can import a Kaizen Component Library package inside your application using React.
 
 React import example:
 
@@ -46,28 +46,6 @@ ReactDOM.render(
   , document.querySelector('#app'),
 );
 ```
-
-Elm import example:
-
-```
-import Kaizen.Button.Button as Button
-
--- draft component
-import KaizenDraft.Well.Well as Well
-```
-
-Elm usage example:
-
-```
-[ Button.view
-    (Button.primary
-        |> Button.href configuration.callToActionPath
-    )
-    Example button
-]
-```
-
-For Elm components, we have used Kaizen to namespace them because the source directories that are specified in `elm.json` are all pulled into the same namespace, creating potential conflicts.
 
 You can also import Kaizen styles into SCSS files:
 

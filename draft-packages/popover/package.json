@@ -43,7 +43,6 @@
     "use-debounce": "^7.0.1"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
