@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-filter-menu-button",
-  "version": "2.3.30",
+  "version": "2.3.31",
   "description": "The draft filter-menu-button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,9 +32,9 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/button": "^1.0.26",
-    "@kaizen/component-library": "^14.0.0",
-    "@kaizen/draft-menu": "^4.5.28",
+    "@kaizen/button": "^1.0.27",
+    "@kaizen/component-library": "^14.0.1",
+    "@kaizen/draft-menu": "^4.5.29",
     "classnames": "^2.3.1"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-card",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "The draft card component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

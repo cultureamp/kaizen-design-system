@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "14.0.0",
+  "version": "14.0.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@kaizen/component-base": "^1.1.0",
-    "@kaizen/deprecated-component-library-helpers": "^2.5.2",
-    "@kaizen/draft-button": "^6.0.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.3",
+    "@kaizen/draft-button": "^6.0.1",
     "@kaizen/hosted-assets": "^2.0.0",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.181",
