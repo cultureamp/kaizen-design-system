@@ -1,1 +1,1 @@
-export { default as Checkbox, CheckedStatus } from "./Checkbox"
+export * from "./Checkbox"

@@ -1,20 +1,23 @@
+import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
-export type RadioProps = {
+export interface RadioProps
+  extends OverrideClassName<
+    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
+  > {
   id: string
-  automationId?: string
-  selectedStatus?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  disabled?: boolean
-  reversed?: boolean
   name: string
   value: string
+  selectedStatus?: boolean
+  reversed?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
-
-type Radio = React.FunctionComponent<RadioProps>
 
 const renderSelected = (selectedStatus: boolean, reversed) => {
   if (selectedStatus) {
@@ -29,29 +32,31 @@ const renderSelected = (selectedStatus: boolean, reversed) => {
   return
 }
 
-const Radio: Radio = ({
+export const Radio: React.VFC<RadioProps> = ({
   id,
-  automationId,
   name,
   value,
   selectedStatus = false,
-  onChange,
-  disabled = false,
   reversed = false,
+  automationId,
+  onChange,
+  classNameOverride,
+  ...restProps
 }) => (
   <span>
     <input
+      data-automation-id={automationId}
       type="radio"
       id={id}
       name={name}
       value={value}
       checked={selectedStatus}
-      data-automation-id={automationId}
-      className={classnames(styles.radioInput, {
+      className={classnames(styles.radioInput, classNameOverride, {
         [styles.reversed]: reversed,
       })}
       onChange={onChange}
-      disabled={disabled}
+      readOnly={onChange === undefined}
+      {...restProps}
     />
     <span
       className={classnames(styles.box, {
@@ -63,4 +68,4 @@ const Radio: Radio = ({
   </span>
 )
 
-export default Radio
+Radio.displayName = "Radio"

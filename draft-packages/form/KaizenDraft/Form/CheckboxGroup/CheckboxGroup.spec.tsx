@@ -1,6 +1,6 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
-import CheckboxGroup, { CheckboxGroupProps } from "./CheckboxGroup"
+import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup"
 
 afterEach(cleanup)
 

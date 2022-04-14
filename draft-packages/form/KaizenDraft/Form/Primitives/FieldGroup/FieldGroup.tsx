@@ -1,31 +1,41 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
-export type FieldGroupProps = {
-  id?: string
-  automationId?: string
-  className?: string
+export interface FieldGroupProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children?: React.ReactNode
   inline?: boolean
+  /**
+   * **Deprecated:** Use `classNameOverride` instead
+   * @deprecated
+   */
+  className?: string
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type FormGroup = React.SFC<FieldGroupProps>
-
-const FormGroup: FormGroup = ({
-  id,
-  automationId,
-  className,
-  inline = false,
+export const FieldGroup: React.VFC<FieldGroupProps> = ({
   children,
+  inline = false,
+  classNameOverride,
+  className,
+  automationId,
+  ...restProps
 }) => (
   <div
-    id={id}
     data-automation-id={automationId}
-    className={classnames(styles.group, className, { [styles.inline]: inline })}
+    className={classnames(styles.group, className, classNameOverride, {
+      [styles.inline]: inline,
+    })}
+    {...restProps}
   >
     {children}
   </div>
 )
 
-export default FormGroup
+FieldGroup.displayName = "FieldGroup"
