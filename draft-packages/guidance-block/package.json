@@ -33,16 +33,13 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^14.0.0",
-    "@kaizen/draft-button": "^6.0.0",
+    "@kaizen/button": "^1.0.26",
     "@kaizen/draft-illustration": "^5.0.0",
     "@kaizen/draft-tooltip": "^5.0.0",
     "@kaizen/typography": "^2.1.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1",
     "react-media": "^1.10.0"
-  },
-  "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"

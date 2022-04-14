@@ -34,16 +34,13 @@
   "dependencies": {
     "@kaizen/component-library": "^14.0.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.2",
-    "@kaizen/draft-button": "^6.0.0",
+    "@kaizen/button": "^1.0.26",
     "@kaizen/draft-form": "^7.1.0",
     "@kaizen/draft-tag": "^3.0.0",
     "@types/classnames": "^2.3.0",
     "@types/react-select": "^4.0.18",
     "classnames": "^2.3.1",
     "react-select": "^4.3.1"
-  },
-  "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
