@@ -9,6 +9,7 @@ export interface FilterMenuButtonProps {
    * accessibilty purposes)*/
   id: string
 
+  automationId?: string
   /**
    * The text that goes inside the filter button
    */
@@ -32,6 +33,12 @@ export interface FilterMenuButtonProps {
   isDropdownVisible: boolean
 
   /**
+   * Determines when the menu should automatically hide.
+   * @default: "on"
+   */
+  autoHide?: "on" | "outside-click-only" | "off"
+
+  /**
    * A function that toggles the isDropdownVisible state
    */
   toggleDropdown: () => void
@@ -49,9 +56,11 @@ export interface FilterMenuButtonProps {
 
 export const FilterMenuButton = ({
   id,
+  automationId,
   labelText,
   children,
   metadata,
+  autoHide = "on",
   isDropdownVisible,
   toggleDropdown,
   hideDropdown,
@@ -59,7 +68,11 @@ export const FilterMenuButton = ({
 }: FilterMenuButtonProps) => {
   const dropdownId = `${id}-dropdown`
   return (
-    <div id={id} className={styles.filterMenuButton}>
+    <div
+      id={id}
+      data-automation-id={automationId}
+      className={styles.filterMenuButton}
+    >
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
           <FilterSplitButton
@@ -80,6 +93,7 @@ export const FilterMenuButton = ({
         hideMenuDropdown={hideDropdown}
         dropdownWidth="contain"
         dropdownId={dropdownId}
+        autoHide={autoHide}
         onClick={e => e.stopPropagation()}
       >
         {children}

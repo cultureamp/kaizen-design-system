@@ -242,3 +242,163 @@ export const DefaultWithChildrenAdvancedFilter = () => {
 DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
 DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }
+
+export const AutoHideBehaviours = () => {
+  const [isDropdownVisible1, setIsDropdownVisible1] = useState<boolean>(
+    IS_INITIAL_DROPDOWN_VISIBLE
+  )
+  const [isDropdownVisible2, setIsDropdownVisible2] = useState<boolean>(
+    IS_INITIAL_DROPDOWN_VISIBLE
+  )
+  const [isDropdownVisible3, setIsDropdownVisible3] = useState<boolean>(
+    IS_INITIAL_DROPDOWN_VISIBLE
+  )
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>(
+    IS_CHROMATIC ? DROPDOWN_OPTIONS_CHROMATIC_SELECTED : []
+  )
+
+  const checkedTraits: string = appliedFilters
+    .map(trait => trait.label)
+    .join(", ")
+
+  const toggleDropdown1 = () => setIsDropdownVisible1(!isDropdownVisible1)
+
+  const hideDropdown1 = () => setIsDropdownVisible1(false)
+
+  const toggleDropdown2 = () => setIsDropdownVisible2(!isDropdownVisible2)
+
+  const hideDropdown2 = () => setIsDropdownVisible2(false)
+
+  const toggleDropdown3 = () => setIsDropdownVisible3(!isDropdownVisible3)
+
+  const hideDropdown3 = () => setIsDropdownVisible3(false)
+
+  const onCheckboxChange = (option: DropdownOption) => {
+    if (appliedFilters.find(filter => filter.id === option.id)) {
+      setAppliedFilters(
+        appliedFilters.filter(filter => filter.id !== option.id)
+      )
+    } else {
+      setAppliedFilters([...appliedFilters, option])
+    }
+  }
+
+  return (
+    <>
+      <FilterMenuButton
+        id={"filter-menu-button--simple1"}
+        labelText={"Animal traits autoHide on"}
+        metadata={checkedTraits}
+        isDropdownVisible={isDropdownVisible1}
+        toggleDropdown={toggleDropdown1}
+        hideDropdown={hideDropdown1}
+        autoHide="on"
+      >
+        <>
+          <div className={styles.content}>
+            <CheckboxGroup labelText="Traits">
+              {DROPDOWN_OPTIONS.map(trait => (
+                <CheckboxField
+                  key={trait.id}
+                  onCheck={() => onCheckboxChange(trait)}
+                  id={`checkbox-${trait.id}`}
+                  checkedStatus={
+                    appliedFilters.find(({ id }) => id === trait.id)
+                      ? "on"
+                      : "off"
+                  }
+                  labelText={trait.label}
+                />
+              ))}
+            </CheckboxGroup>
+          </div>
+          <div className={styles.buttons}>
+            <Button
+              secondary={true}
+              fullWidth
+              label="Done"
+              onClick={hideDropdown1}
+            />
+          </div>
+        </>
+      </FilterMenuButton>
+      <FilterMenuButton
+        id={"filter-menu-button--simple2"}
+        labelText={"Animal traits autoHide off"}
+        metadata={checkedTraits}
+        isDropdownVisible={isDropdownVisible2}
+        toggleDropdown={toggleDropdown2}
+        hideDropdown={hideDropdown2}
+        autoHide="off"
+      >
+        <>
+          <div className={styles.content}>
+            <CheckboxGroup labelText="Traits">
+              {DROPDOWN_OPTIONS.map(trait => (
+                <CheckboxField
+                  key={trait.id}
+                  onCheck={() => onCheckboxChange(trait)}
+                  id={`checkbox-${trait.id}`}
+                  checkedStatus={
+                    appliedFilters.find(({ id }) => id === trait.id)
+                      ? "on"
+                      : "off"
+                  }
+                  labelText={trait.label}
+                />
+              ))}
+            </CheckboxGroup>
+          </div>
+          <div className={styles.buttons}>
+            <Button
+              secondary={true}
+              fullWidth
+              label="Done"
+              onClick={hideDropdown2}
+            />
+          </div>
+        </>
+      </FilterMenuButton>
+      <FilterMenuButton
+        id={"filter-menu-button--simple3"}
+        labelText={"Animal traits Outside click only"}
+        metadata={checkedTraits}
+        isDropdownVisible={isDropdownVisible3}
+        toggleDropdown={toggleDropdown3}
+        hideDropdown={hideDropdown3}
+        autoHide="outside-click-only"
+      >
+        <>
+          <div className={styles.content}>
+            <CheckboxGroup labelText="Traits">
+              {DROPDOWN_OPTIONS.map(trait => (
+                <CheckboxField
+                  key={trait.id}
+                  onCheck={() => onCheckboxChange(trait)}
+                  id={`checkbox-${trait.id}`}
+                  checkedStatus={
+                    appliedFilters.find(({ id }) => id === trait.id)
+                      ? "on"
+                      : "off"
+                  }
+                  labelText={trait.label}
+                />
+              ))}
+            </CheckboxGroup>
+          </div>
+          <div className={styles.buttons}>
+            <Button
+              secondary={true}
+              fullWidth
+              label="Done"
+              onClick={hideDropdown3}
+            />
+          </div>
+        </>
+      </FilterMenuButton>
+    </>
+  )
+}
+
+AutoHideBehaviours.storyName = "Auto hide behaviours"
+AutoHideBehaviours.parameters = { chromatic: { disable: false } }
