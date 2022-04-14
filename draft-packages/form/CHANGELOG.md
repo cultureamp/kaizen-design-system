@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.0.0...@kaizen/draft-form@7.1.0) (2022-04-14)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 5) ([#2632](https://github.com/cultureamp/kaizen-design-system/issues/2632)) ([a87ac09](https://github.com/cultureamp/kaizen-design-system/commit/a87ac09a1e9d398adeb84526df00c1d6a4ef0151))
+
+
+
+
+
 # [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.10...@kaizen/draft-form@7.0.0) (2022-04-13)
 
 
