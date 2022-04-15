@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-links": "^6.4.21",
+    "@storybook/addon-links": "^6.4.22",
     "@storybook/addons": "^6.4.21",
     "@storybook/api": "^6.4.21",
     "@storybook/components": "^6.4.21",
