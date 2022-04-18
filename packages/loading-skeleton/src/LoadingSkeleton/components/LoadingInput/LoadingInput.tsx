@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "../styles.scss"
+import skeletonStyles from "../LoadingSkeleton.scss"
+import inputStyles from "./LoadingInput.scss"
 
 export interface LoadingInputProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -26,10 +27,15 @@ export const LoadingInput: React.VFC<LoadingInputProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, styles.input, classNameOverride, {
-      [styles.animated]: isAnimated,
-      [styles.reversed]: isReversed,
-    })}
+    className={classnames(
+      skeletonStyles.base,
+      inputStyles.input,
+      classNameOverride,
+      {
+        [skeletonStyles.animated]: isAnimated,
+        [inputStyles.reversed]: isReversed,
+      }
+    )}
     style={{ width: `${width}%`, height: `${height}px` }}
     {...props}
   />

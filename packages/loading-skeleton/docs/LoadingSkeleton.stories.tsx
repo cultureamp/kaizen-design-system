@@ -15,7 +15,7 @@ import {
 import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceBlock/GuidanceBlock.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Skeleton`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
   parameters: {
     docs: {
       description: {
@@ -126,8 +126,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Example Usage"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
   controls: { disable: true },
 }

@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "../styles.scss"
+import skeletonStyles from "../LoadingSkeleton.scss"
+import graphicStyles from "./LoadingGraphic.scss"
 
 export type GraphicSizes =
   | "small"
@@ -35,10 +36,15 @@ export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, styles.graphic, classNameOverride, {
-      [styles.animated]: isAnimated,
-      [styles.reversed]: isReversed,
-    })}
+    className={classnames(
+      skeletonStyles.base,
+      graphicStyles.graphic,
+      classNameOverride,
+      {
+        [skeletonStyles.animated]: isAnimated,
+        [graphicStyles.reversed]: isReversed,
+      }
+    )}
     style={{
       width: `${graphicSizesRem.get(size)}rem`,
       height: `${graphicSizesRem.get(size)}rem`,
