@@ -31,7 +31,7 @@
     "@storybook/addon-links": "^6.4.22",
     "@storybook/addons": "^6.4.22",
     "@storybook/api": "^6.4.22",
-    "@storybook/components": "^6.4.21",
+    "@storybook/components": "^6.4.22",
     "@storybook/core-events": "^6.4.21",
     "@storybook/react": "^6.4.19",
     "@storybook/theming": "^6.4.19",
