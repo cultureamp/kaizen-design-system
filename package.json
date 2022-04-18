@@ -62,7 +62,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.21",
+    "@storybook/builder-webpack5": "^6.4.22",
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/node-logger": "^6.4.19",
     "@testing-library/jest-dom": "^5.16.3",
