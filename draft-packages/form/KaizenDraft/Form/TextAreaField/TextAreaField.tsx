@@ -1,6 +1,12 @@
-import * as React from "react"
+import React from "react"
 import classnames from "classnames"
-import { FieldGroup, FieldMessage, Label, TextArea, TextAreaProps } from ".."
+import {
+  FieldGroup,
+  FieldMessage,
+  Label,
+  TextArea,
+  TextAreaProps,
+} from "../Primitives"
 import styles from "./styles.scss"
 
 export interface TextAreaFieldProps
@@ -12,17 +18,17 @@ export interface TextAreaFieldProps
   variant?: "default" | "prominent"
 }
 
-export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
-  id,
+export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
   labelText,
+  inline = false,
+  validationMessage,
   description,
   variant = "default",
-  inline = false,
+  id,
   reversed = false,
   status = "default",
-  validationMessage,
-  disabled = false,
-  ...textAreaProps
+  disabled,
+  ...restProps
 }) => {
   const renderDescriptionOnTop = variant === "prominent"
   const renderDescription = (position: "top" | "bottom") => {
@@ -49,7 +55,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
       id={`${id}-field-group`}
       inline={inline}
       automationId={`${id}-field-group`}
-      className={disabled ? styles.disabled : undefined}
+      classNameOverride={disabled ? styles.disabled : undefined}
     >
       <div
         className={classnames(styles.textareaLabel, {
@@ -73,7 +79,7 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
         reversed={reversed}
         status={status}
         disabled={disabled}
-        {...textAreaProps}
+        {...restProps}
       />
       {!disabled && validationMessage && (
         <FieldMessage
