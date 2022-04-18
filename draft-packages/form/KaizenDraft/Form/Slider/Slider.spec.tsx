@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import Slider from "./Slider"
+import { Slider } from "./index"
 
 it("renders the label", async () => {
   render(

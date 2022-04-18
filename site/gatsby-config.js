@@ -52,14 +52,7 @@ module.exports = {
       options: {
         path: resolve("../packages/component-library/components"),
         name: "components",
-        ignore: [
-          "**/*.ts",
-          "**/*.tsx",
-          "**/*.elm",
-          "**/*.scss",
-          "**/*.snap",
-          "**/*.png",
-        ],
+        ignore: ["**/*.ts", "**/*.tsx", "**/*.scss", "**/*.snap", "**/*.png"],
       },
     },
     {
@@ -67,14 +60,7 @@ module.exports = {
       options: {
         path: resolve("../draft-packages"),
         name: "draftComponents",
-        ignore: [
-          "**/*.ts",
-          "**/*.tsx",
-          "**/*.elm",
-          "**/*.scss",
-          "**/*.snap",
-          "**/*.png",
-        ],
+        ignore: ["**/*.ts", "**/*.tsx", "**/*.scss", "**/*.snap", "**/*.png"],
       },
     },
     {

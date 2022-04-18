@@ -1,10 +1,14 @@
 import React from "react"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library/components/Icon"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-import classnames from "classnames"
-
-import { FieldGroup, FieldMessage, Input, InputProps, Label } from ".."
-
+import {
+  FieldGroup,
+  FieldMessage,
+  Input,
+  InputProps,
+  Label,
+} from "../Primitives"
 import styles from "./styles.scss"
 
 type OmittedInputProps =
@@ -32,21 +36,17 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
   description?: string | React.ReactNode
 }
 
-export const TextField: React.FunctionComponent<TextFieldProps> = ({
+export const TextField: React.VFC<TextFieldProps> = ({
   id,
-  inputType,
-  disabled = false,
   labelText,
-  inputValue,
-  defaultInputValue,
-  inputRef,
+  inline = false,
+  icon,
   validationMessage,
   description,
-  reversed = false,
-  inline = false,
   status,
-  icon,
-  ...inputProps
+  reversed = false,
+  disabled,
+  ...restProps
 }) => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
@@ -63,7 +63,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
       id={`${id}-field-group`}
       automationId={`${id}-field-group`}
       inline={inline}
-      className={classnames(styles.withLabel, {
+      classNameOverride={classnames(styles.withLabel, {
         [styles.withDisabled]: disabled,
       })}
     >
@@ -79,10 +79,6 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         id={`${id}-field-input`}
         automationId={`${id}-field-input`}
         ariaDescribedBy={ariaDescribedBy}
-        inputType={inputType}
-        inputValue={inputValue}
-        defaultInputValue={defaultInputValue}
-        inputRef={inputRef}
         disabled={disabled}
         reversed={reversed}
         status={status}
@@ -104,7 +100,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
             </div>
           )
         }
-        {...inputProps}
+        {...restProps}
       />
 
       {validationMessage && (
@@ -140,3 +136,5 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
     </FieldGroup>
   )
 }
+
+TextField.displayName = "TextField"
