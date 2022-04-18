@@ -4419,7 +4419,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/api@6.4.21", "@storybook/api@^6.4.21":
+"@storybook/api@6.4.21":
   version "6.4.21"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.4.21.tgz#efee41ae7bde37f6fe43ee960fef1a261b1b1dd6"
   integrity sha512-AULsLd7ew11IRCpzffyLFGl5cwt9BLMok33DcIlCyvXsiqLm4/OsbgM4sj6QqWVuxcFlWMQJHoRJyeFlULFvZA==
@@ -4442,7 +4442,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/api@6.4.22":
+"@storybook/api@6.4.22", "@storybook/api@^6.4.22":
   version "6.4.22"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.4.22.tgz#d63f7ad3ffdd74af01ae35099bff4c39702cf793"
   integrity sha512-lAVI3o2hKupYHXFTt+1nqFct942up5dHH6YD7SZZJGyW21dwKC3HK1IzCsTawq3fZAKkgWFgmOO649hKk60yKg==
