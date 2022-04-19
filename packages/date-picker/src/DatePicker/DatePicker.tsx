@@ -301,8 +301,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onEscapeKey={() => {
             handleOpenClose()
           }}
-          // Allow the input and button to be within focus lock when input variant
-          shards={variant === "input" ? [inputRef, buttonRef] : undefined}
         >
           <Calendar
             id="calendar-dialog"
