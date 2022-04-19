@@ -74,6 +74,8 @@ export interface DatePickerProps {
   disabledDaysOfWeek?: DayOfWeek[]
   isInput?: boolean
   onTextChange?: () => void
+  valueDate: Date | undefined
+  setValueDate: React.Dispatch<React.SetStateAction<Date | undefined>>
 }
 
 export enum DayOfWeek {
@@ -106,6 +108,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   firstDayOfWeek = 1,
   initialMonth,
   validationMessages,
+  valueDate,
+  setValueDate,
   ...inputProps
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -148,7 +152,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-    console.log(modifiers)
     if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
       return
     }
@@ -177,7 +180,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
-  const [valueDate, setValueDate] = useState<Date | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
   const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>("P")
 
