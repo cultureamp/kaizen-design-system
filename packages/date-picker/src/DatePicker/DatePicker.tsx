@@ -1,24 +1,19 @@
-import { Label } from "@kaizen/draft-form"
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
 import { usePopper } from "react-popper"
-import cx from "classnames"
 import {
   DayModifiers,
   RangeModifier,
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { ModifiersUtils } from "react-day-picker"
-import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { isValid, parse, format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
-import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DateInput, validationMessagesProps } from "./components/DateInput"
-
 export interface DatePickerProps {
   id: string
   classNameOverride?: string
@@ -28,8 +23,6 @@ export interface DatePickerProps {
   description?: string
   placeholder?: string
   validationMessages: validationMessagesProps
-  variant?: "input" | "button"
-
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
@@ -39,10 +32,10 @@ export interface DatePickerProps {
   initialMonth?: Date
 
   // The date passed in from the consumer that renders in the input and calendar.
-  value?: Date
+  valueDate: Date | undefined
 
-  // Event passed from consumer to handle the date on change.
-  onChange: (day: Date) => void
+  // Setter for updating the selected date used by the consumer.
+  setValueDate: React.Dispatch<React.SetStateAction<Date | undefined>>
 
   /** Accepts an array of singluar dates and disables them.
    * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
@@ -72,10 +65,6 @@ export interface DatePickerProps {
    * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
    */
   disabledDaysOfWeek?: DayOfWeek[]
-  isInput?: boolean
-  onTextChange?: () => void
-  valueDate: Date | undefined
-  setValueDate: React.Dispatch<React.SetStateAction<Date | undefined>>
 }
 
 export enum DayOfWeek {
@@ -90,12 +79,9 @@ export enum DayOfWeek {
 
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
-  variant = "input",
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
   placeholder,
-  value,
-  onChange,
   labelText,
   isDisabled = false,
   classNameOverride,
@@ -119,12 +105,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     null
   )
   const wrapperRef = useRef<HTMLDivElement>(null)
-
-  const dateFormatOptions: Intl.DateTimeFormatOptions = {
-    month: "short",
-    year: "numeric",
-    day: "numeric",
-  }
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -156,13 +136,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       return
     }
 
-    if (variant === "input") {
-      setValueString(format(day, "PP"))
-      setCurrentDateFormat("PP")
-      setValueDate(day)
-    } else {
-      onChange(day)
-    }
+    setValueString(format(day, "PP"))
+    setCurrentDateFormat("PP")
+    setValueDate(day)
     setIsOpen(false)
   }
 
@@ -241,57 +217,27 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
-        {variant === "button" && (
-          <>
-            <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
-            <button
-              className={cx(
-                datePickerStyles.button,
-                datePickerStyles.withStartIconAdornment,
-                {
-                  [datePickerStyles.disabled]: isDisabled,
-                }
-              )}
-              id={id}
-              disabled={isDisabled}
-              ref={buttonRef}
-              onClick={handleOpenClose}
-              {...inputProps}
-            >
-              <div className={datePickerStyles.startIconAdornment}>
-                <Icon icon={dateStart} role="presentation" />
-              </div>
-              <span className={datePickerStyles.value}>
-                {value
-                  ? value.toLocaleDateString("en-US", dateFormatOptions)
-                  : ""}
-              </span>
-            </button>
-          </>
-        )}
-        {variant === "input" && (
-          <DateInput
-            id={id}
-            inputRef={inputRef}
-            buttonRef={buttonRef}
-            isOpen={isOpen}
-            value={valueString ? valueString : ""}
-            disabled={isDisabled}
-            handleOnBlur={() => valueString && handleFormatChange(valueString)}
-            onFocus={() => valueString && handleFormatChange(valueString)}
-            labelText={labelText}
-            placeholder={placeholder}
-            description={description}
-            icon={dateStart}
-            validationMessages={validationMessages}
-            onButtonClick={handleOpenClose}
-            onChange={handleTextChange}
-            calendarId={"calendar-dialog"}
-            onKeyDown={e => handleKeyDown(e)}
-            status={!isTextValid ? "error" : "default"}
-            {...inputProps}
-          />
-        )}
+        <DateInput
+          id={id}
+          inputRef={inputRef}
+          buttonRef={buttonRef}
+          isOpen={isOpen}
+          value={valueString ? valueString : ""}
+          disabled={isDisabled}
+          handleOnBlur={() => valueString && handleFormatChange(valueString)}
+          onFocus={() => valueString && handleFormatChange(valueString)}
+          labelText={labelText}
+          placeholder={placeholder}
+          description={description}
+          icon={dateStart}
+          validationMessages={validationMessages}
+          onButtonClick={handleOpenClose}
+          onChange={handleTextChange}
+          calendarId={"calendar-dialog"}
+          onKeyDown={e => handleKeyDown(e)}
+          status={!isTextValid ? "error" : "default"}
+          {...inputProps}
+        />
       </div>
       {isOpen && (
         <FocusOn
@@ -316,7 +262,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             disabledDays={disabledDays}
             onDayChange={handleOnDayChange}
             inputRef={inputRef}
-            isInput={variant === "input" ? true : false}
             onKeyDown={handleKeyDown}
           />
         </FocusOn>

@@ -37,7 +37,6 @@ export type CalendarProps = {
   selectedRange?: RangeModifier
   modifiers?: RangeModifier
   inputRef?: React.RefObject<HTMLInputElement>
-  isInput?: boolean
   onKeyDown?: (e: React.KeyboardEvent) => void
 }
 
@@ -59,9 +58,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   range,
   selectedRange,
   modifiers,
-  id,
-  inputRef,
-  isInput = true,
   onKeyDown,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
