@@ -30,7 +30,7 @@
     "@kaizen/design-tokens": "^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "devDependencies": {
-    "@types/lodash.kebabcase": "^4.1.6",
+    "@types/lodash.kebabcase": "^4.1.7",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^17.0.23",
     "@types/node-fetch": "^2.5.12",
