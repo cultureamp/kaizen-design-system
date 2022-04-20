@@ -13,10 +13,11 @@ const validationMessages = {
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
-  value: new Date(2022, 2, 1),
+  valueDate: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
   onChange: () => jest.fn(),
   validationMessages,
+  setValueDate: () => jest.fn(),
 }
 
 describe("<DatePicker />", () => {
@@ -24,7 +25,7 @@ describe("<DatePicker />", () => {
     render(<DatePicker {...defaultProps} />)
 
     // Make sure date renders in the button
-    expect(screen.getByText("Mar 1, 2022")).toBeInTheDocument()
+    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
 
     const element = screen.getByRole("button")
 
