@@ -100,7 +100,7 @@ export const UnselectedDisabled = () => (
     id="radio-1"
     labelText="Label"
     selectedStatus={false}
-    disabled={true}
+    disabled
     value="radio-1"
   >
     <ExampleContent />

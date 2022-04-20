@@ -20,6 +20,7 @@ setup_github() {
   git config --global user.name "cultureamp-ci"
   git config --global user.password "$GH_TOKEN"
   git config --global commit.gpgsign false
+  git config --global --add safe.directory /workspace
 
   eval "$(ssh-agent -s)"
   echo "$GH_SSH_KEY" | ssh-add -
