@@ -59,6 +59,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   modifiers,
   onKeyDown,
 }) => {
+  console.log(value)
   const calendarRef = useRef<HTMLDivElement>(null)
 
   const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (

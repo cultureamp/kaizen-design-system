@@ -65,4 +65,10 @@ describe("<DatePicker />", () => {
 
     expect(element).toHaveAttribute("disabled")
   })
+
+  // it("Opens on downarrow", async () => {})
+  // it("On focus value changes", async () => {})
+  // it("On blur value changes", async () => {})
+  // it("On enter focus returns to the button", async () => {})
+  // it("validates a invalid date, on blur focus to xyz", async () => {})
 })

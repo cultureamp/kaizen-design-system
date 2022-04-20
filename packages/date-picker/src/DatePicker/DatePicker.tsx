@@ -230,9 +230,16 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
    * * */
   useEffect(() => {
     if (valueDate && !valueString) {
-      const formattedDate = format(new Date(valueDate), "PP")
-      if (formattedDate.toString() === "Invalid Date") return
-      setValueString(formattedDate)
+      try {
+        // format() can't be passed an invalid date, so we need to catch the range error.
+        const formattedDate = format(new Date(valueDate), "PP")
+        if (formattedDate.toString() !== "Invalid Date") {
+          setValueString(formattedDate)
+        }
+      } catch (error) {
+        setIsTextValid(false)
+        setValueDate(undefined)
+      }
     }
   }, [])
 
