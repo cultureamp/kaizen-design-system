@@ -146,6 +146,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     setCurrentDateFormat("PP")
     setValueDate(day)
     setIsOpen(false)
+    setIsTextValid(true)
   }
 
   const handleOpenClose = () => {
@@ -167,6 +168,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      * If the input is valid, check what the currentDateFormat is set to and set
      * the currentDateFormat and valueString to be the opposing format.
      * */
+    if (input === "") {
+      setIsTextValid(true)
+      return
+    }
+
     const parsedDate = parse(input, currentDateFormat, new Date())
 
     // isValid will return true for "Invalid Date" which is a truthy Date object
@@ -253,8 +259,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           isOpen={isOpen}
           value={valueString ? valueString : ""}
           disabled={isDisabled}
-          handleOnBlur={() => valueString && handleFormatChange(valueString)}
-          onFocus={() => valueString && handleFormatChange(valueString)}
+          handleOnBlur={() =>
+            valueString != undefined && handleFormatChange(valueString)
+          }
+          onFocus={() =>
+            valueString != undefined && handleFormatChange(valueString)
+          }
           labelText={labelText}
           placeholder={placeholder}
           description={description}
