@@ -118,14 +118,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             placeholder="mm/dd/yyyy"
             setValueDate={setValueDate}
           />
-          {/* <DatePicker
+          <DatePicker
             id="datepicker-error"
             labelText="Label"
-            valueDate={new Date("Invalid Date")}
+            valueDate={new Date("potato")}
             validationMessages={validationMessages}
             description="mm/dd/yyyy"
             setValueDate={setValueDate}
-          /> */}
+          />
         </StoryWrapper.Row>
       </StoryWrapper>
     </>
