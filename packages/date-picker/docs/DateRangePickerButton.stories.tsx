@@ -87,7 +87,6 @@ const CalendarRangeTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
-        id="calendar"
         setPopperElement={setPopperElement}
         styles={styles}
         attributes={attributes}

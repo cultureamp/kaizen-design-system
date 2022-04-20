@@ -4,7 +4,6 @@ import { Calendar, CalendarProps } from "./Calendar"
 import "@testing-library/jest-dom"
 
 const defaultProps: CalendarProps = {
-  id: "calendar-id-1",
   value: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
