@@ -67,6 +67,8 @@ export interface DatePickerProps {
   disabledDaysOfWeek?: DayOfWeek[]
 }
 
+type DateFormat = "P" | "PP"
+
 export enum DayOfWeek {
   Sun = 0,
   Mon = 1,
@@ -98,6 +100,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   setValueDate,
   ...inputProps
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [valueString, setValueString] = useState<string | undefined>()
+  const [isTextValid, setIsTextValid] = useState<boolean>(true)
+  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>("P")
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -152,28 +158,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  type DateFormat = "P" | "PP"
-
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [valueString, setValueString] = useState<string | undefined>()
-  const [isTextValid, setIsTextValid] = useState<boolean>(true)
-  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>("P")
-
-  useEffect(() => {
-    if (valueString && valueDate) {
-      const dateNumeral = parse(valueString, "P", new Date())
-      const dateText = parse(valueString, "PP", new Date())
-
-      // isValid will return true for "Invalid Date" which is a truthy Date object
-      if (dateNumeral.toString() !== "Invalid Date") {
-        setCurrentDateFormat("P")
-      } else if (dateText.toString() !== "Invalid Date") {
-        setCurrentDateFormat("PP")
-      }
-    }
-  }, [valueString, valueDate])
-
   const handleFormatChange = (input: string) => {
+    /** The format of the input displayed toggles between
+     * "P" => 1/1/1111 or "PP" => 1, Jan 1111
+     * In order to switch between formats we must parse and validate
+     * the given input. We also check if it includes the CSS Modules class for disabled
+     * on the modifier.
+     * If the input is valid, check what the currentDateFormat is set to and set
+     * the currentDateFormat and valueString to be the opposing format.
+     * */
     const parsedDate = parse(input, currentDateFormat, new Date())
 
     // isValid will return true for "Invalid Date" which is a truthy Date object
@@ -207,12 +200,41 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleKeyDown = e => {
+    // check whether event key is arrow down or alt + arrow down, open calendar if so.
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)
     }
     return
   }
+
+  /** Watcher to toggle the current date format when
+   * both values are present.
+   * * */
+  useEffect(() => {
+    if (valueString && valueDate) {
+      const dateNumeral = parse(valueString, "P", new Date())
+      const dateText = parse(valueString, "PP", new Date())
+
+      // isValid will return true for "Invalid Date" which is a truthy Date object
+      if (dateNumeral.toString() !== "Invalid Date") {
+        setCurrentDateFormat("P")
+      } else if (dateText.toString() !== "Invalid Date") {
+        setCurrentDateFormat("PP")
+      }
+    }
+  }, [valueString, valueDate])
+
+  /** On first render, if consumer has passed in a valueDate
+   * we render it as a string within the input.
+   * * */
+  useEffect(() => {
+    if (valueDate && !valueString) {
+      const formattedDate = format(new Date(valueDate), "PP")
+      if (formattedDate.toString() === "Invalid Date") return
+      setValueString(formattedDate)
+    }
+  }, [])
 
   return (
     <div ref={wrapperRef}>
@@ -251,7 +273,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
-            id="calendar-dialog"
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}

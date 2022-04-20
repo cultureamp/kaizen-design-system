@@ -18,7 +18,6 @@ import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 
 interface DatePickerProps {
-  id: string
   classNameOverride?: string
   labelText: string
   isDisabled?: boolean
@@ -88,7 +87,6 @@ enum DayOfWeek {
 }
 
 export const DateRangePicker: React.VFC<DatePickerProps> = ({
-  id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
   onChange,
@@ -193,7 +191,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
-        <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
+        <Label disabled={isDisabled} labelText={labelText} />
         <button
           className={cx(
             datePickerStyles.button,
@@ -202,7 +200,6 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
               [datePickerStyles.disabled]: isDisabled,
             }
           )}
-          id={id}
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}

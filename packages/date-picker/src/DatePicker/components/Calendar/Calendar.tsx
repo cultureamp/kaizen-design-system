@@ -13,7 +13,6 @@ import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
 export type CalendarProps = {
-  id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
   styles: { [key: string]: React.CSSProperties }
   attributes: {
