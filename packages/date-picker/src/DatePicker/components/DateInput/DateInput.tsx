@@ -26,9 +26,7 @@ export interface validationMessagesProps {
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
-  /**
-   * A short example of input text. For context or additional information use the `description` prop
-   */
+  calendarId?: string
   buttonRef?: React.RefObject<HTMLButtonElement>
   labelText: string | React.ReactNode
   inline?: boolean
@@ -41,10 +39,9 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * A description that provides context for the text field
    */
   description?: string | React.ReactNode
+  isOpen: boolean
   onButtonClick: () => void
   onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void
-  calendarId?: string
-  isOpen: boolean
   handleOnBlur?: React.FocusEventHandler<HTMLInputElement> | undefined
 }
 
