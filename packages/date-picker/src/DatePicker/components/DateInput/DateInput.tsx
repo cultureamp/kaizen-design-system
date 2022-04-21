@@ -19,8 +19,6 @@ type OmittedInputProps =
   | "inputValue"
 
 export interface validationMessagesProps {
-  success?: string | React.ReactNode
-  caution?: string | React.ReactNode
   error?: string | React.ReactNode
 }
 
