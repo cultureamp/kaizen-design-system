@@ -168,6 +168,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      * If the input is valid, check what the currentDateFormat is set to and set
      * the currentDateFormat and valueString to be the opposing format.
      * */
+
+    console.log("format")
     if (input === "") {
       setIsTextValid(true)
       return
@@ -193,6 +195,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (currentDateFormat === "P") {
       setValueString(format(parsedDate, "PP"))
       setCurrentDateFormat("PP")
+      setValueDate(parsedDate)
     } else {
       setValueString(format(parsedDate, "P"))
       setCurrentDateFormat("P")
