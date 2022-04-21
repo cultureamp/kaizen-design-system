@@ -193,6 +193,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (currentDateFormat === "P") {
       setValueString(format(parsedDate, "PP"))
       setCurrentDateFormat("PP")
+      setValueDate(parsedDate)
     } else {
       setValueString(format(parsedDate, "P"))
       setCurrentDateFormat("P")
