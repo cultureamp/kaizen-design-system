@@ -6,10 +6,6 @@ export const renderValidationMessage = (
   messages: validationMessagesProps
 ): string | React.ReactNode => {
   switch (status) {
-    case "success":
-      return messages.success
-    case "caution":
-      return messages.caution
     case "error":
       return messages.error
     default:

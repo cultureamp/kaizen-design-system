@@ -18,8 +18,6 @@ export default {
   },
 }
 const validationMessages = {
-  success: "This is a success message",
-  caution: "This is a cautionary message",
   error: "This is an error message",
 }
 export const DefaultStory = props => {
@@ -32,9 +30,7 @@ export const DefaultStory = props => {
         labelText="Label"
         description="mm/dd/yyyy"
         placeholder="mm/dd/yyyy"
-        variant="input"
         validationMessages={validationMessages}
-        disabledBefore={new Date()}
         valueDate={valueDate}
         setValueDate={setValueDate}
         {...props}
