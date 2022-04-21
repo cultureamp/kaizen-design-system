@@ -2,7 +2,8 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { HeadingVariants } from "@kaizen/typography"
-import styles from "./LoadingHeading.scss"
+import skeletonStyles from "../LoadingSkeleton.scss"
+import headingStyles from "./LoadingHeading.scss"
 
 export interface LoadingHeadingProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -26,11 +27,17 @@ export const LoadingHeading: React.VFC<LoadingHeadingProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, styles[variant], {
-      [styles.animated]: isAnimated,
-      [styles.reversed]: isReversed,
-      [styles.link]: isLink,
-    })}
+    className={classnames(
+      skeletonStyles.base,
+      headingStyles.heading,
+      classNameOverride,
+      headingStyles[variant],
+      {
+        [skeletonStyles.animated]: isAnimated,
+        [headingStyles.reversed]: isReversed,
+        [headingStyles.link]: isLink,
+      }
+    )}
     style={{ width: `${width}%` }}
     {...props}
   />
