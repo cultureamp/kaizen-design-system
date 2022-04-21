@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .base {
-  border-radius: calc(#{$border-solid-border-radius} * 3);
+  border-radius: $border-solid-border-radius;
   top: calc(#{$spacing-md} * 0.175);
 }
 
