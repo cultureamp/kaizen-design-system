@@ -260,10 +260,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           value={valueString ? valueString : ""}
           disabled={isDisabled}
           handleOnBlur={() =>
-            valueString != undefined && handleFormatChange(valueString)
+            valueString !== undefined && handleFormatChange(valueString)
           }
           onFocus={() =>
-            valueString != undefined && handleFormatChange(valueString)
+            valueString !== undefined && handleFormatChange(valueString)
           }
           labelText={labelText}
           placeholder={placeholder}
