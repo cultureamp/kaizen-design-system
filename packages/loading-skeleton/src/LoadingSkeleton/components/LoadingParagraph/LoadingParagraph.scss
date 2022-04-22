@@ -1,49 +1,27 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/border";
 
-.base {
+.paragraph {
   background-color: $color-gray-300;
-  border-radius: calc(#{$border-solid-border-radius} * 3);
-  top: calc(#{$spacing-md} * 0.175);
-  margin-bottom: calc(#{$spacing-md} * 0.5);
   height: calc(#{$spacing-md} * 0.625);
-}
+  margin-bottom: calc(#{$spacing-md} * 0.5);
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0.6;
+  &.reversed:not(.link) {
+    background-color: rgba($color-white-rgb, 0.1);
   }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
 
-.animated {
-  animation-name: fadeInOut;
-  animation-duration: calc(#{$animation-duration-deliberate} * 2);
-  animation-iteration-count: infinite;
+  &.link {
+    background-color: rgba($color-blue-500-rgb, 0.2);
+  }
+
+  &.link.reversed {
+    background-color: rgba($color-white-rgb, 0.65);
+  }
 }
 
 .centered {
   margin-left: auto;
   margin-right: auto;
-}
-
-.reversed:not(.link) {
-  background-color: rgba($color-white-rgb, 0.1);
-}
-
-.link {
-  background-color: rgba($color-blue-500-rgb, 0.2);
-}
-
-.link.reversed {
-  background-color: rgba($color-white-rgb, 0.65);
 }
 
 .inline {
