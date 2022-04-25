@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.140](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.139...site@0.0.0-private.140) (2022-04-22)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.139](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.138...site@0.0.0-private.139) (2022-04-21)
+
+
+### Features
+
+* LoadingGraphic and update loading skeleton story ([#2665](https://github.com/cultureamp/kaizen-design-system/issues/2665)) ([0d473bc](https://github.com/cultureamp/kaizen-design-system/commit/0d473bcd6fb0ef0ed5218af2e4708b3fc6d59c6e))
+
+
+
+
+
 # [0.0.0-private.138](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.137...site@0.0.0-private.138) (2022-04-19)
 
 **Note:** Version bump only for package site
