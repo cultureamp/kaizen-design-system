@@ -30,7 +30,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   inline?: boolean
   icon: React.SVGAttributes<SVGSymbolElement>
   /**
-   * A descriptive message for `error` or `caution` states
+   * A descriptive message for `error` state
    */
   validationMessages: validationMessagesProps
   /**
@@ -55,7 +55,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   description,
   reversed = false,
   inline = false,
-  status,
+  status = "default",
   icon,
   onButtonClick,
   calendarId,
@@ -123,7 +123,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       {...inputProps}
     />
 
-    {status && (
+    {status != "default" && (
       <div
         className={classnames(styles.message, {
           [styles.disabled]: disabled,
