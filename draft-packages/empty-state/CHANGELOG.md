@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@5.0.1...@kaizen/draft-empty-state@5.0.2) (2022-04-22)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@5.0.0...@kaizen/draft-empty-state@5.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.8...@kaizen/draft-empty-state@5.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [4.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.7...@kaizen/draft-empty-state@4.2.8) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [4.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.6...@kaizen/draft-empty-state@4.2.7) (2022-04-01)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [4.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.5...@kaizen/draft-empty-state@4.2.6) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+## [4.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.4...@kaizen/draft-empty-state@4.2.5) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [4.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@4.2.3...@kaizen/draft-empty-state@4.2.4) (2022-03-30)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

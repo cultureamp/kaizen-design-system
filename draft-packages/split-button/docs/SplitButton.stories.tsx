@@ -10,13 +10,14 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/Split Button`,
+  title: `${CATEGORIES.deprecated}/Split Button`,
   component: SplitButton,
   argTypes: { onClick: { action: "clicked" } },
   parameters: {
     docs: {
       description: {
-        component: 'import { SplitButton } from "@kaizen/draft-split-button"',
+        component:
+          "⛔️ This component is deprecated. Use the `@kaizen/split-button` package instead.",
       },
     },
     ...figmaEmbed(
@@ -40,7 +41,6 @@ export const DefaultKaizenSiteDemo = args => (
   />
 )
 DefaultKaizenSiteDemo.storyName = "Split Button"
-DefaultKaizenSiteDemo.parameters = { chromatic: { disable: false } }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -148,12 +148,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
 }

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.2...@kaizen/design-tokens@8.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [7.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.1...@kaizen/design-tokens@7.2.2) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [7.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.0...@kaizen/design-tokens@7.2.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* update small box shadow design token value ([#2666](https://github.com/cultureamp/kaizen-design-system/issues/2666)) ([3eb65c1](https://github.com/cultureamp/kaizen-design-system/commit/3eb65c16deea41bb3ecc18db32c843c346398976))
+
+
+
+
+
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
+
+
+### Features
+
+* Adjust box shadow values after design update ([#2624](https://github.com/cultureamp/kaizen-design-system/issues/2624)) ([eedd2f2](https://github.com/cultureamp/kaizen-design-system/commit/eedd2f2af6f4904d6a05a673f6d7a9b67211662c))
+
+
+
+
+
 ## [7.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.3...@kaizen/design-tokens@7.1.4) (2022-03-23)
 
 

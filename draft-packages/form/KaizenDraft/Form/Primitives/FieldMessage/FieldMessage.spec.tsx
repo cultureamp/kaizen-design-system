@@ -1,8 +1,6 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
-
-import { FieldMessageProps } from "./FieldMessage"
-import { FieldMessage } from "."
+import { FieldMessage, FieldMessageProps } from "./index"
 
 afterEach(cleanup)
 

@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.140](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.139...site@0.0.0-private.140) (2022-04-22)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.139](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.138...site@0.0.0-private.139) (2022-04-21)
+
+
+### Features
+
+* LoadingGraphic and update loading skeleton story ([#2665](https://github.com/cultureamp/kaizen-design-system/issues/2665)) ([0d473bc](https://github.com/cultureamp/kaizen-design-system/commit/0d473bcd6fb0ef0ed5218af2e4708b3fc6d59c6e))
+
+
+
+
+
+# [0.0.0-private.138](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.137...site@0.0.0-private.138) (2022-04-19)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.137](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.136...site@0.0.0-private.137) (2022-04-14)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.136](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.135...site@0.0.0-private.136) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+# [0.0.0-private.135](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.134...site@0.0.0-private.135) (2022-04-11)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.134](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.133...site@0.0.0-private.134) (2022-04-06)
+
+
+### Features
+
+* **splitbutton:** add SplitButton package ([#2654](https://github.com/cultureamp/kaizen-design-system/issues/2654)) ([12d2d69](https://github.com/cultureamp/kaizen-design-system/commit/12d2d697e9cb29d5eccbd62cac408b3c0ffaa30a))
+
+
+
+
+
+# [0.0.0-private.133](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.132...site@0.0.0-private.133) (2022-04-03)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.132](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.131...site@0.0.0-private.132) (2022-04-01)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.131](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.130...site@0.0.0-private.131) (2022-03-31)
+
+**Note:** Version bump only for package site
+
+
+
+
+
+# [0.0.0-private.130](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.129...site@0.0.0-private.130) (2022-03-31)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.129](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.128...site@0.0.0-private.129) (2022-03-30)
 
 **Note:** Version bump only for package site
