@@ -123,7 +123,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       {...inputProps}
     />
 
-    {status != "default" && (
+    {status !== "default" && (
       <div
         className={classnames(styles.message, {
           [styles.disabled]: disabled,
