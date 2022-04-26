@@ -1,10 +1,8 @@
 import { Button } from "@kaizen/button"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import * as React from "react"
 import Menu from "./Menu"
-
-afterEach(cleanup)
 
 describe("Dropdown", () => {
   it("renders default view", () => {
@@ -17,16 +15,18 @@ describe("Dropdown", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it("shows menu when clicking on the button", () => {
-    const { container, queryByText } = render(
+  it("shows menu when clicking on the button", async () => {
+    render(
       <Menu button={<Button label="Button"></Button>}>
         <div>Item</div>
       </Menu>
     )
 
-    expect(queryByText("Item")).toBeFalsy()
-    const button = container.querySelector("button")
-    button && fireEvent.click(button)
-    expect(queryByText("Item")).toBeTruthy()
+    expect(screen.queryByText("Item")).toBeFalsy()
+    const button = screen.getByText("Button")
+    fireEvent.click(button)
+    await waitFor(() => {
+      expect(screen.getByText("Item")).toBeInTheDocument()
+    })
   })
 })
