@@ -35,6 +35,7 @@ export type GenericProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
+  component?: ComponentType<CustomButtonProps>
 }
 
 export type ButtonType = "submit" | "reset" | "button"

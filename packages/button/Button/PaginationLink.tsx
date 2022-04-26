@@ -8,7 +8,7 @@ type PaginationLinkProps = GenericProps & {
   "aria-label": string
 }
 
-const PaginationLink: React.FunctionComponent<PaginationLinkProps> = (
+const PaginationLink: React.VFC<PaginationLinkProps> = (
   props: PaginationLinkProps
 ) => (
   <GenericButton

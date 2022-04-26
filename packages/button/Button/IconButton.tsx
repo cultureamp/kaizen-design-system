@@ -1,8 +1,7 @@
-import React, { ComponentType } from "react"
+import React from "react"
 import GenericButton, {
   GenericProps,
   BadgeProps,
-  CustomButtonProps,
   WorkingProps,
   WorkingUndefinedProps,
 } from "./components/GenericButton"
@@ -17,8 +16,6 @@ type IconButtonProps = GenericProps &
     badge?: BadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
-    component?: ComponentType<CustomButtonProps>
-    iconPosition?: "start" | "end"
     icon?: React.SVGAttributes<SVGSymbolElement>
     disabled?: boolean
   }

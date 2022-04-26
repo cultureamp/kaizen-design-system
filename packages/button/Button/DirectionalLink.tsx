@@ -18,7 +18,7 @@ const iconMap = {
   end: directionalEnd,
 }
 
-const DirectionalLink: React.FunctionComponent<DirectionalLinkProps> = (
+const DirectionalLink: React.VFC<DirectionalLinkProps> = (
   props: DirectionalLinkProps
 ) => (
   <GenericButton
