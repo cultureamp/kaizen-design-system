@@ -106,7 +106,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
-  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>("P")
+  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>(
+    DateFormat.numeral
+  )
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -145,8 +147,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       return
     }
 
-    setValueString(format(day, "PP"))
-    setCurrentDateFormat("PP")
+    setValueString(format(day, DateFormat.text))
+    setCurrentDateFormat(DateFormat.text)
     setValueDate(day)
     setIsOpen(false)
     setIsTextValid(true)
@@ -164,7 +166,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleFormatChange = (input: string) => {
     /** The format of the input displayed toggles between
-     * "P" => 1/1/1111 or "PP" => 1, Jan 1111
+     * DateFormat.numeral => 1/1/1111 or DateFormat.text => 1, Jan 1111
      * In order to switch between formats we must parse and validate
      * the given input. We also check if it includes the CSS Modules class for disabled
      * on the modifier.
@@ -193,13 +195,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     if (!isValidDate) return
 
-    if (currentDateFormat === "P") {
-      setValueString(format(parsedDate, "PP"))
-      setCurrentDateFormat("PP")
+    if (currentDateFormat === DateFormat.numeral) {
+      setValueString(format(parsedDate, DateFormat.text))
+      setCurrentDateFormat(DateFormat.text)
       setValueDate(parsedDate)
     } else {
-      setValueString(format(parsedDate, "P"))
-      setCurrentDateFormat("P")
+      setValueString(format(parsedDate, DateFormat.numeral))
+      setCurrentDateFormat(DateFormat.numeral)
       setValueDate(parsedDate)
     }
   }
@@ -223,14 +225,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
    * * */
   useEffect(() => {
     if (valueString && valueDate) {
-      const dateNumeral = parse(valueString, "P", new Date())
-      const dateText = parse(valueString, "PP", new Date())
+      const dateNumeral = parse(valueString, DateFormat.numeral, new Date())
+      const dateText = parse(valueString, DateFormat.text, new Date())
 
       // isValid will return true for "Invalid Date" which is a truthy Date object
       if (dateNumeral.toString() !== "Invalid Date") {
-        setCurrentDateFormat("P")
+        setCurrentDateFormat(DateFormat.numeral)
       } else if (dateText.toString() !== "Invalid Date") {
-        setCurrentDateFormat("PP")
+        setCurrentDateFormat(DateFormat.text)
       }
     }
   }, [valueString, valueDate])
@@ -242,7 +244,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (valueDate && !valueString) {
       try {
         // format() can't be passed an invalid date, so we need to catch the range error.
-        const formattedDate = format(new Date(valueDate), "PP")
+        const formattedDate = format(new Date(valueDate), DateFormat.text)
         if (formattedDate.toString() !== "Invalid Date") {
           setValueString(formattedDate)
         }
