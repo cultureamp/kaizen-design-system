@@ -1,5 +1,5 @@
 import React from "react"
-import { Paragraph } from "@kaizen/typography"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -111,6 +111,54 @@ export const DefaultMultipleVariableWidth = () => (
   </StoryContainer>
 )
 DefaultMultipleVariableWidth.storyName = "Default, Multiple, Variable width"
+
+export const DefaultMultipleVariableWidthCentered = () => (
+  <StoryContainer>
+    <div style={{ textAlign: "center" }}>
+      <Paragraph variant="body">
+        Dr. Brené Brown, author of Daring Greatly, is a research professor from
+        the University of Houston who studies human emotions, including shame
+        and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
+        not weakness, and that myth is profoundly dangerous.” She went on to say
+        that after 12 years of research, she has actually determined that
+        vulnerability is “our most accurate measurement of courage.”
+      </Paragraph>
+    </div>
+    <>
+      <LoadingPlaceholder centred width={90} />
+      <LoadingPlaceholder centred />
+      <LoadingPlaceholder centred width={95} />
+      <LoadingPlaceholder centred width={85} />
+      <LoadingPlaceholder centred width={60} />
+    </>
+  </StoryContainer>
+)
+DefaultMultipleVariableWidthCentered.storyName =
+  "Default, Multiple, Variable width, Centered"
+
+export const DefaultWithoutBottomMargin = () => (
+  <StoryContainer>
+    <LoadingPlaceholder noBottomMargin />
+    <Paragraph variant="body">
+      These loading placeholders have no bottom margin.
+    </Paragraph>
+
+    <LoadingPlaceholder noBottomMargin />
+  </StoryContainer>
+)
+DefaultWithoutBottomMargin.storyName = "Default, Without bottom margin"
+
+export const DefaultInheritBaseline = () => (
+  <StoryContainer>
+    <div className={styles.flexbox}>
+      <Heading tag="h2" variant="heading-2">
+        Inheriting baseline
+      </Heading>
+      <LoadingPlaceholder />
+    </div>
+  </StoryContainer>
+)
+DefaultInheritBaseline.storyName = "Default, Inherit baseline"
 
 export const DefaultMultipleCombinedBlockAndInline = () => (
   <StoryContainer>
