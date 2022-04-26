@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
-import InputRange from "./InputRange"
+import { InputRange } from "./index"
 
 it("renders value as 5.5 when no default value provided", async () => {
   render(<InputRange id="unique-1" minLabel="Awful" maxLabel="Fantastic" />)

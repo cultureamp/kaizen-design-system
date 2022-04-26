@@ -1,27 +1,21 @@
-import React, { InputHTMLAttributes, ReactNode } from "react"
-import { Paragraph, Box } from "@kaizen/component-library"
+import React, { ReactNode } from "react"
 import classnames from "classnames"
-import { FieldGroup, Label, InputRange } from ".."
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
+import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
 import styles from "./styles.scss"
 
-export interface SliderFieldProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
+export interface SliderFieldProps extends InputRangeProps {
   id: string
-  value?: number
-  min?: number
-  max?: number
-  minLabel: ReactNode
-  maxLabel: ReactNode
   labelText: ReactNode
   description?: ReactNode
   labelPosition?: "inline" | "block"
-  readOnly?: boolean
-  readOnlyMessage?: ReactNode
-  classNameOverride?: string
   variant?: "default" | "prominent"
+  disabled?: boolean
+  readOnlyMessage?: ReactNode
 }
 
-const Slider: React.FunctionComponent<SliderFieldProps> = props => {
+export const Slider: React.VFC<SliderFieldProps> = props => {
   const {
     id,
     labelText,
@@ -35,7 +29,7 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
   const descriptionId = `${id}-description`
 
   return (
-    <FieldGroup inline={true}>
+    <FieldGroup inline>
       <div
         className={classnames(styles.wrapper, {
           [styles.labelInline]: labelPosition === "inline",
@@ -78,4 +72,4 @@ const Slider: React.FunctionComponent<SliderFieldProps> = props => {
   )
 }
 
-export default Slider
+Slider.displayName = "Slider"

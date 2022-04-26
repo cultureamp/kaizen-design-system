@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.26...@kaizen/button@1.0.27) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.25...@kaizen/button@1.0.26) (2022-04-13)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.24...@kaizen/button@1.0.25) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.23...@kaizen/button@1.0.24) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.22...@kaizen/button@1.0.23) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.21...@kaizen/button@1.0.22) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.20...@kaizen/button@1.0.21) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.19...@kaizen/button@1.0.20) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.18...@kaizen/button@1.0.19) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
+## [1.0.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.17...@kaizen/button@1.0.18) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
 ## [1.0.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.16...@kaizen/button@1.0.17) (2022-03-17)
 
 **Note:** Version bump only for package @kaizen/button

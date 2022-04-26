@@ -1,32 +1,38 @@
-import * as React from "react"
+import React from "react"
 import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
-import { SubsetBecomesNever } from "./types"
 
-export type SceneProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
+export interface SceneProps
+  extends Pick<BaseProps, "alt" | "classNameOverride"> {
   enableAspectRatio?: boolean
 }
-export type AnimatedProps = { isAnimated?: true } & Pick<
-  VideoPlayerProps,
-  "loop" | "autoplay"
-> &
-  SubsetBecomesNever<SceneProps, "alt"> & { enableAspectRatio?: boolean }
-type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
-  VideoPlayerProps,
-  "autoplay" | "loop"
-> &
-  SceneProps & { enableAspectRatio?: boolean }
+
+interface BaseAnimatedSceneProps
+  extends SceneProps,
+    Pick<VideoPlayerProps, "autoplay" | "loop"> {
+  isAnimated?: boolean
+}
+
+interface AnimatedProps extends Omit<BaseAnimatedSceneProps, "alt"> {
+  isAnimated: true
+  alt?: never
+}
+interface NotAnimatedProps extends BaseAnimatedSceneProps {
+  isAnimated?: false
+  autoplay?: never
+  loop?: never
+}
 
 export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
 // Brand Moments
 
-export const BrandMomentPositiveOutro = ({
+export const BrandMomentPositiveOutro: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -46,13 +52,14 @@ export const BrandMomentPositiveOutro = ({
     />
   )
 }
+BrandMomentPositiveOutro.displayName = "BrandMomentPositiveOutro"
 
-export const BrandMomentLogin = ({
+export const BrandMomentLogin: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -72,13 +79,14 @@ export const BrandMomentLogin = ({
     />
   )
 }
+BrandMomentLogin.displayName = "BrandMomentLogin"
 
-export const BrandMomentError = ({
+export const BrandMomentError: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -98,48 +106,52 @@ export const BrandMomentError = ({
     />
   )
 }
+BrandMomentError.displayName = "BrandMomentError"
 
-export const BrandMomentNewAccountOnboarding = ({
+export const BrandMomentNewAccountOnboarding: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/brand-moments-new-account-onboarding.svg"
   />
 )
+BrandMomentNewAccountOnboarding.displayName = "BrandMomentNewAccountOnboarding"
 
-export const BrandMomentUploadEmployeeData = ({
+export const BrandMomentUploadEmployeeData: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/brand-moments-upload-employee-data.svg"
   />
 )
+BrandMomentUploadEmployeeData.displayName = "BrandMomentUploadEmployeeData"
 
-export const BrandMomentStarterKit = ({
+export const BrandMomentStarterKit: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/brand-moments-starter-kit.svg"
   />
 )
+BrandMomentStarterKit.displayName = "BrandMomentStarterKit"
 
 // Empty States
 
-export const EmptyStatesAction = ({
+export const EmptyStatesAction: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -159,13 +171,14 @@ export const EmptyStatesAction = ({
     />
   )
 }
+EmptyStatesAction.displayName = "EmptyStatesAction"
 
-export const EmptyStatesInformative = ({
+export const EmptyStatesInformative: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -185,13 +198,14 @@ export const EmptyStatesInformative = ({
     />
   )
 }
+EmptyStatesInformative.displayName = "EmptyStatesInformative"
 
-export const EmptyStatesNegative = ({
+export const EmptyStatesNegative: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -211,13 +225,14 @@ export const EmptyStatesNegative = ({
     />
   )
 }
+EmptyStatesNegative.displayName = "EmptyStatesNegative"
 
-export const EmptyStatesPositive = ({
+export const EmptyStatesPositive: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -237,13 +252,14 @@ export const EmptyStatesPositive = ({
     />
   )
 }
+EmptyStatesPositive.displayName = "EmptyStatesPositive"
 
-export const EmptyStatesNeutral = ({
+export const EmptyStatesNeutral: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -263,380 +279,446 @@ export const EmptyStatesNeutral = ({
     />
   )
 }
+EmptyStatesNeutral.displayName = "EmptyStatesNeutral"
 
 // Information Modals
 
-export const Information360Upgrade = ({
+export const Information360Upgrade: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-360-upgrade.svg"
   />
 )
+Information360Upgrade.displayName = "Information360Upgrade"
 
-export const InformationDemographicFocus = ({
+export const InformationDemographicFocus: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-demographic-focus.svg"
   />
 )
+InformationDemographicFocus.displayName = "InformationDemographicFocus"
 
-export const InformationTurnoverCalculator = ({
+export const InformationTurnoverCalculator: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-turnover-calculator.svg"
   />
 )
+InformationTurnoverCalculator.displayName = "InformationTurnoverCalculator"
 
-export const InformationTurnoverForecast = ({
+export const InformationTurnoverForecast: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-turnover-forecast.svg"
   />
 )
+InformationTurnoverForecast.displayName = "InformationTurnoverForecast"
 
-export const InformationEmergingTrends = ({
+export const InformationEmergingTrends: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-emerging-trends.svg"
   />
 )
+InformationEmergingTrends.displayName = "InformationEmergingTrends"
 
-export const InformationEmployeeLifecycle = ({
+export const InformationEmployeeLifecycle: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-employee-lifecycle.svg"
   />
 )
+InformationEmployeeLifecycle.displayName = "InformationEmployeeLifecycle"
 
-export const InformationReportOwner = ({
+export const InformationReportOwner: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-report-owner.svg"
   />
 )
+InformationReportOwner.displayName = "InformationReportOwner"
 
-export const InformationReportOwnerByRule = ({
+export const InformationReportOwnerByRule: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/information-modals-report-owner-by-rule.svg"
   />
 )
+InformationReportOwnerByRule.displayName = "InformationReportOwnerByRule"
 
 // Miscellaneous
 
-export const Collaboration = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const Collaboration: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-collaboration.svg"
   />
 )
+Collaboration.displayName = "Collaboration"
 
-export const Communication = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const Communication: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-communications.svg"
   />
 )
+Communication.displayName = "Communication"
 
-export const CompanyValues = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const CompanyValues: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-company-values.svg"
   />
 )
+CompanyValues.displayName = "CompanyValues"
 
-export const ConnectTheDots = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const ConnectTheDots: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-connect-the-dots.svg"
   />
 )
+ConnectTheDots.displayName = "ConnectTheDots"
 
-export const CultureLab = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const CultureLab: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-culture-lab.svg"
   />
 )
+CultureLab.displayName = "CultureLab"
 
-export const DataCatching = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const DataCatching: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-data-catching.svg"
   />
 )
+DataCatching.displayName = "DataCatching"
 
-export const HumanityAtWork = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const HumanityAtWork: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-humanity-at-work.svg"
   />
 )
+HumanityAtWork.displayName = "HumanityAtWork"
 
-export const TermsAgreement = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const TermsAgreement: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/miscellaneous-terms-agreement.svg"
   />
 )
+TermsAgreement.displayName = "TermsAgreement"
 
 // Skills Coach
 
-export const SkillsCoach1On1Meetings = ({
+export const SkillsCoach1On1Meetings: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-1-on-1-meetings.svg"
   />
 )
+SkillsCoach1On1Meetings.displayName = "SkillsCoach1On1Meetings"
 
-export const SkillsCoachCoaching = ({
+export const SkillsCoachCoaching: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-coaching.svg"
   />
 )
+SkillsCoachCoaching.displayName = "SkillsCoachCoaching"
 
-export const SkillsCoachEmployeeDevelopment = ({
+export const SkillsCoachEmployeeDevelopment: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-employee-development.svg"
   />
 )
+SkillsCoachEmployeeDevelopment.displayName = "SkillsCoachEmployeeDevelopment"
 
-export const SkillsCoachEssentialFeedback = ({
+export const SkillsCoachEssentialFeedback: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-essential-feedback.svg"
   />
 )
+SkillsCoachEssentialFeedback.displayName = "SkillsCoachEssentialFeedback"
 
-export const SkillsCoachEssentialProductivity = ({
+export const SkillsCoachEssentialProductivity: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-essential-productivity.svg"
   />
 )
+SkillsCoachEssentialProductivity.displayName =
+  "SkillsCoachEssentialProductivity"
 
-export const SkillsCoachEssentialResilience = ({
+export const SkillsCoachEssentialResilience: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-essential-resilience.svg"
   />
 )
+SkillsCoachEssentialResilience.displayName = "SkillsCoachEssentialResilience"
 
-export const SkillsCoachInfluentialCommunication = ({
+export const SkillsCoachInfluentialCommunication: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-influential-communication.svg"
   />
 )
+SkillsCoachInfluentialCommunication.displayName =
+  "SkillsCoachInfluentialCommunication"
 
-export const SkillsCoachLeadingChange = ({
+export const SkillsCoachLeadingChange: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-leading-change.svg"
   />
 )
+SkillsCoachLeadingChange.displayName = "SkillsCoachLeadingChange"
 
-export const SkillsCoachFeedback = ({
+export const SkillsCoachFeedback: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-feedback.svg"
   />
 )
+SkillsCoachFeedback.displayName = "SkillsCoachFeedback"
 
-export const SkillsCoachManagerHub = ({
+export const SkillsCoachManagerHub: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-manager-hub.svg"
   />
 )
+SkillsCoachManagerHub.displayName = "SkillsCoachManagerHub"
 
-export const SkillsCoachProductivity = ({
+export const SkillsCoachProductivity: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-productivity.svg"
   />
 )
+SkillsCoachProductivity.displayName = "SkillsCoachProductivity"
 
-export const SkillsCoachRemoteManager = ({
+export const SkillsCoachRemoteManager: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-remote-manager.svg"
   />
 )
+SkillsCoachRemoteManager.displayName = "SkillsCoachRemoteManager"
 
-export const SkillsCoachResilience = ({
+export const SkillsCoachResilience: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-resilience.svg"
   />
 )
+SkillsCoachResilience.displayName = "SkillsCoachResilience"
 
-export const SkillsCoachStrategy = ({
+export const SkillsCoachStrategy: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/skills-coach-strategy.svg"
   />
 )
+SkillsCoachStrategy.displayName = "SkillsCoachStrategy"
 
 // Engagement
 
-export const Programs = ({ enableAspectRatio, ...props }: SceneProps) => (
+export const Programs: React.VFC<SceneProps> = ({
+  enableAspectRatio,
+  ...props
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/engagement-programs.svg"
   />
 )
+Programs.displayName = "Programs"
 
-export const EngagementSurveySummaryFemale = ({
+export const EngagementSurveySummaryFemale: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/engagement-survey-summary-female.svg"
   />
 )
+EngagementSurveySummaryFemale.displayName = "EngagementSurveySummaryFemale"
 
-export const EngagementSurveySummaryMale = ({
+export const EngagementSurveySummaryMale: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/engagement-survey-summary-male.svg"
   />
 )
+EngagementSurveySummaryMale.displayName = "EngagementSurveySummaryMale"
 
-export const SurveyOverviewClosed = ({
+export const SurveyOverviewClosed: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/survey-overview-closed.svg"
   />
 )
+SurveyOverviewClosed.displayName = "SurveyOverviewClosed"
 
-export const SurveyGetStarted = ({
+export const SurveyGetStarted: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
     name="illustrations/heart/scene/getting-started.svg"
   />
 )
+SurveyGetStarted.displayName = "SurveyGetStarted"
 
-export const PerformanceCompanySettings = ({
+export const PerformanceCompanySettings: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
-}: SceneProps) => (
+}) => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
     name="illustrations/heart/scene/performance-company-settings.svg"
   />
 )
+PerformanceCompanySettings.displayName = "PerformanceCompanySettings"

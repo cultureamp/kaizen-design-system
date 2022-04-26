@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.0.0...@kaizen/draft-popover@5.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.7...@kaizen/draft-popover@5.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.6...@kaizen/draft-popover@4.1.7) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.5...@kaizen/draft-popover@4.1.6) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.4...@kaizen/draft-popover@4.1.5) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.3...@kaizen/draft-popover@4.1.4) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.2...@kaizen/draft-popover@4.1.3) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.1...@kaizen/draft-popover@4.1.2) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.1.0...@kaizen/draft-popover@4.1.1) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.0.3...@kaizen/draft-popover@4.1.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 3) ([#2629](https://github.com/cultureamp/kaizen-design-system/issues/2629)) ([4a549ec](https://github.com/cultureamp/kaizen-design-system/commit/4a549ecb4f253d0c7a7066dab66010347690dc18))
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.0.2...@kaizen/draft-popover@4.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.0.1...@kaizen/draft-popover@4.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@4.0.0...@kaizen/draft-popover@4.0.1) (2022-03-17)
 
 **Note:** Version bump only for package @kaizen/draft-popover

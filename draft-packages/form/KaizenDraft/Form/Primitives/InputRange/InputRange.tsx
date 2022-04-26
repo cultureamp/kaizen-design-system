@@ -1,21 +1,21 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
-import { Paragraph } from "@kaizen/component-library"
 import classnames from "classnames"
+import { Paragraph } from "@kaizen/typography"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
 export interface InputRangeProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
+  extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {
   id: string
+  defaultValue?: number
   value?: number
-  min?: number
-  max?: number
   minLabel: ReactNode
   maxLabel: ReactNode
-  readOnly?: boolean
-  classNameOverride?: string
+  min?: number
+  max?: number
 }
 
-const InputRange: React.FunctionComponent<InputRangeProps> = (
+export const InputRange: React.VFC<InputRangeProps> = (
   props: InputRangeProps
 ) => {
   const {
@@ -24,14 +24,14 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
     value,
     minLabel,
     maxLabel,
+    min = 1,
+    max = 10,
     onChange,
     "aria-describedby": ariaDescribedby,
     classNameOverride,
     disabled,
     readOnly,
-    min = 1,
-    max = 10,
-    ...genericInputProps
+    ...restProps
   } = props
 
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
@@ -67,7 +67,7 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange && onChange(e)
         }}
-        {...genericInputProps}
+        {...restProps}
       />
       <div
         className={classnames(styles.spokes, {
@@ -103,4 +103,4 @@ const InputRange: React.FunctionComponent<InputRangeProps> = (
   )
 }
 
-export default InputRange
+InputRange.displayName = "InputRange"

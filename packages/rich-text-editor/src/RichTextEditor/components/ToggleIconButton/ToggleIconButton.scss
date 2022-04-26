@@ -1,7 +1,6 @@
 @import "@kaizen/design-tokens/sass/animation";
 @import "@kaizen/design-tokens/sass/border";
 @import "@kaizen/design-tokens/sass/color";
-@import "@kaizen/design-tokens/sass/spacing";
 
 .button {
   border: none;
@@ -12,20 +11,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-purple-800;
   position: relative;
   transition: background-color $animation-duration-immediate;
-
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-gray-200;
-  }
 
   &:focus {
     outline: none;
   }
 
-  &:global(.focus-visible)::after {
+  &:global(.focus-visible)::after,
+  &:focus-visible:after {
     $focus-ring-offset: 3px;
     content: "";
     position: absolute;
@@ -41,12 +35,78 @@
   }
 }
 
-.active {
+.default {
+  background-color: $color-white;
+  color: $color-purple-800;
+
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
+    background-color: $color-gray-200;
+  }
+
+  &.active {
+    background-color: $color-gray-300;
+    color: $color-purple-800;
+  }
+}
+
+.secondary {
+  background-color: $color-white;
+  color: $color-blue-500;
+
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
+    background-color: $color-blue-100;
+  }
+
+  &.active {
+    background-color: $color-blue-200;
+  }
+}
+
+.primary {
   background-color: $color-blue-500;
   color: $color-white;
+
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
+    background-color: $color-blue-600;
+  }
+
+  &.active {
+    background-color: $color-blue-700;
+  }
+}
+
+.destructive {
+  background-color: $color-red-500;
+  color: $color-white;
+
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
+    background-color: $color-red-600;
+  }
+
+  &.active {
+    background-color: $color-red-700;
+  }
+}
+
+.secondary-destructive {
+  background-color: $color-white;
+  color: $color-red-600;
+
+  &:hover:not(.active),
+  &:global(.focus-visible):not(.active) {
+    background-color: $color-red-100;
+  }
+
+  &.active {
+    background-color: $color-red-200;
+  }
 }
 
 .iconWrapper {
-  width: 1rem;
-  height: 1rem;
+  width: 0.9375rem;
+  height: 0.9375rem;
 }

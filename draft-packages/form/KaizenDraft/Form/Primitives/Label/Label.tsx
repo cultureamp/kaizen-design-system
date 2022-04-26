@@ -1,41 +1,41 @@
+import React, { LabelHTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./styles.scss"
 
 type LabelType = "text" | "checkbox" | "toggle" | "radio"
 
-export type LabelProps = {
-  id?: string
-  automationId?: string
-  htmlFor?: string
+export interface LabelProps
+  extends OverrideClassName<LabelHTMLAttributes<HTMLLabelElement>> {
+  children?: React.ReactNode
   labelText?: string | React.ReactNode
-  labelPosition?: "start" | "end"
   labelType?: LabelType
+  labelPosition?: "start" | "end"
   reversed?: boolean
   variant?: "default" | "prominent"
   disabled?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type Label = React.SFC<LabelProps>
-
-const Label: Label = ({
-  id,
-  automationId,
-  htmlFor,
+export const Label: React.VFC<LabelProps> = ({
+  children,
   labelText = "",
   labelType = "text",
   labelPosition = "end",
   reversed = false,
   variant = "default",
-  children,
   disabled,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <label
-    id={id}
     data-automation-id={automationId}
-    htmlFor={htmlFor}
-    className={classnames(styles.label, {
+    className={classnames(styles.label, classNameOverride, {
       [styles.reversed]: reversed,
       [styles.text]: labelType === "text",
       [styles.checkbox]: labelType === "checkbox",
@@ -44,6 +44,7 @@ const Label: Label = ({
       [styles.prominent]: variant === "prominent",
       [styles.disabled]: disabled,
     })}
+    {...restProps}
   >
     {children}
     <span
@@ -57,4 +58,4 @@ const Label: Label = ({
   </label>
 )
 
-export default Label
+Label.displayName = "Label"

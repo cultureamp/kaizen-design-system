@@ -1,6 +1,6 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./HeroCard.scss"
 
 type BackgroundColors =
@@ -9,33 +9,39 @@ type BackgroundColors =
   | "cluny200"
   | "seedling200"
 
-export interface HeroCardProps {
-  readonly leftContent?: React.ReactNode
-  readonly children: React.ReactNode
-  readonly title?: React.ReactNode
-  readonly image?: React.ReactNode
-  readonly badge?: React.ReactNode
-  readonly fullWidth?: boolean
-  readonly minHeight?: string
-  readonly leftBackgroundColor?: BackgroundColors
+export interface HeroCardProps
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">> {
+  children: React.ReactNode
+  leftContent?: React.ReactNode
+  title?: React.ReactNode
+  image?: React.ReactNode
+  badge?: React.ReactNode
+  minHeight?: string
+  fullWidth?: boolean
+  leftBackgroundColor?: BackgroundColors
 }
 
-type HeroCard = React.FunctionComponent<HeroCardProps>
-
-const HeroCard: HeroCard = ({
-  leftContent,
+/**
+ * @deprecated HeroCard is deprecated.
+ * No further changes will be made to it as it will be superseded by Tile.
+ */
+export const HeroCard: React.VFC<HeroCardProps> = ({
   children,
+  leftContent,
   title,
   image,
   badge,
   minHeight = "none",
   fullWidth = false,
   leftBackgroundColor = "wisteria700",
-}: HeroCardProps) => (
+  classNameOverride,
+  ...props
+}) => (
   <div
-    className={classnames(styles.root, {
+    className={classnames(styles.root, classNameOverride, {
       [styles.fullWidth]: fullWidth,
     })}
+    {...props} // `title` is missing as it is used as a heading; requires breaking change to fix
   >
     <div
       style={{ minHeight }}
@@ -59,5 +65,3 @@ const HeroCard: HeroCard = ({
     </div>
   </div>
 )
-
-export default HeroCard

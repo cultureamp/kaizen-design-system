@@ -2,7 +2,6 @@ export const CATEGORIES = {
   components: "Components",
   helpers: "Helpers",
   designTokens: "Design Tokens",
-  elm: "Elm",
   deprecated: "Deprecated",
 }
 
@@ -15,4 +14,5 @@ export const SUB_CATEGORIES = {
   typography: "Typography",
   responsive: "Responsive",
   richTextEditor: "Rich Text Editor",
+  loadingSkeleton: "Loading Skeleton",
 }

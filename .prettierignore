@@ -17,6 +17,4 @@
 /site/.cache/
 /site/public/
 /storybook/public/
-/elm-stuff/
-elm.json
 /packages/**/dist

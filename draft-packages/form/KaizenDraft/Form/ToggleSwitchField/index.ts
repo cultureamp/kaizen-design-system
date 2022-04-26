@@ -1,1 +1,1 @@
-export { default as ToggleSwitchField } from "./ToggleSwitchField"
+export * from "./ToggleSwitchField"

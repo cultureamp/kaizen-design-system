@@ -55,19 +55,7 @@
   }
 }
 
-// TODO: unify margin top styling
-.elmGenericModal {
-  @extend .genericModal;
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: $ca-z-index-modal + 1;
-}
-
-.animatingEnter,
-.animatingElmEnter {
+.animatingEnter {
   transition-duration: $ca-duration-fast;
 
   .backdropLayer {
@@ -78,8 +66,7 @@
     );
   }
 
-  .genericModal,
-  .elmGenericModal {
+  .genericModal {
     @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
     animation-duration: $ca-duration-fast;
     animation-fill-mode: forwards;
@@ -87,8 +74,7 @@
   }
 }
 
-.animatingLeave,
-.animatingElmLeave {
+.animatingLeave {
   transition-duration: $ca-duration-rapid;
 
   .backdropLayer {
@@ -99,18 +85,11 @@
     );
   }
 
-  .genericModal,
-  .elmGenericModal {
+  .genericModal {
     @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
     animation-duration: $ca-duration-rapid;
     animation-fill-mode: forwards;
     animation-timing-function: $ca-bounce-out;
-  }
-}
-
-.elmUnscrollable {
-  .scrollLayer {
-    overflow-y: hidden;
   }
 }
 

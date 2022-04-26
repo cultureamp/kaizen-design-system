@@ -1,14 +1,18 @@
-import * as React from "react"
+import React from "react"
 import { Card, CardProps } from "@kaizen/draft-card"
 import classNames from "classnames"
 import styles from "./SkirtCard.scss"
 
-export const SkirtCard = (props: CardProps) => {
-  const { classNameOverride } = props
+export type SkirtCardProps = CardProps
+
+export const SkirtCard: React.VFC<SkirtCardProps> = props => {
+  const { classNameOverride, ...restProps } = props
   return (
     <Card
-      {...props}
       classNameOverride={classNames(styles.wrapper, classNameOverride)}
-    ></Card>
+      {...restProps}
+    />
   )
 }
+
+SkirtCard.displayName = "SkirtCard"

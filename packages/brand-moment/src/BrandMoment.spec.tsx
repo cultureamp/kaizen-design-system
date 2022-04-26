@@ -1,8 +1,11 @@
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { BrandMoment } from "./BrandMoment"
+
+afterEach(cleanup)
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
@@ -15,15 +18,20 @@ window.matchMedia = jest.fn().mockImplementation(() => ({
   removeEventListener: jest.fn(),
 }))
 
-// Stub video elements for JS-Dom to prevent console errors
-// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-window.HTMLMediaElement.prototype.load = () => jest.fn()
-// @ts-ignore-next-line
-// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-window.HTMLMediaElement.prototype.play = () => jest.fn()
+const mockPlay = jest.fn().mockResolvedValue(undefined)
+const mockLoad = jest.fn()
+const mockPause = jest.fn()
+
+beforeEach(() => {
+  window.HTMLMediaElement.prototype.load = mockLoad
+  window.HTMLMediaElement.prototype.play = mockPlay
+  window.HTMLMediaElement.prototype.pause = mockPause
+  Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+    set: jest.fn(),
+  })
+})
 
 describe("<BrandMoment />", () => {
-  afterEach(cleanup)
   it("matches the snapshot", () => {
     const { container } = render(
       <BrandMoment

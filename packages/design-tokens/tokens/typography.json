@@ -115,7 +115,7 @@
       "fontWeight-id": "--typography-heading-3-font-weight",
       "fontSize": "var(--typography-heading-3-font-size, 1.375rem)",
       "fontSize-id": "--typography-heading-3-font-size",
-      "lineHeight": "var(--typography-heading-3-line-height, 1.5rem)",
+      "lineHeight": "var(--typography-heading-3-line-height, 1.875rem)",
       "lineHeight-id": "--typography-heading-3-line-height",
       "letterSpacing": "var(--typography-heading-3-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-3-letter-spacing"
