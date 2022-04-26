@@ -67,7 +67,6 @@ $input-disabled-opacity: 0.3;
 // VALIDATION STYLES
 ///////////////////////////////////////////////////
 
-
 .error {
   @include input-icon($color-red-100, $color-purple-700);
   @include ca-animation-fade(in);

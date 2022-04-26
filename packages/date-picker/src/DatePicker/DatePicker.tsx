@@ -67,7 +67,10 @@ export interface DatePickerProps {
   disabledDaysOfWeek?: DayOfWeek[]
 }
 
-type DateFormat = "P" | "PP"
+enum DateFormat {
+  numeral = "P",
+  text = "PP",
+}
 
 export enum DayOfWeek {
   Sun = 0,
