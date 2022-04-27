@@ -3,7 +3,7 @@ import { v4 } from "uuid"
 import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
-import { Node, Schema } from "prosemirror-model"
+import { Node, Schema, MarkType, NodeType } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
@@ -21,7 +21,12 @@ import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
-type ToolbarControls = "bold" | "italic" | "underline"
+type ToolbarControls =
+  | "bold"
+  | "italic"
+  | "underline"
+  | "bulletList"
+  | "orderedList"
 export interface RichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
@@ -68,8 +73,14 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     }),
     { "aria-labelledby": labelId }
   )
-  const marksFromControls = controls?.map(controlGroup =>
-    controlGroup.map(control => schema.marks[control])
+  const toolbarItemsFromControls:
+    | Array<Array<MarkType | NodeType<Schema<any, any>>>>
+    | undefined = controls?.map(controlGroup =>
+    controlGroup.map(control => {
+      console.log(schema)
+      console.log(control)
+      return schema.marks[control]
+    })
   )
   useEffect(() => {
     onChange(editorState.toJSON().doc.content)
@@ -83,7 +94,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       <div className={styles.editorWrapper}>
         {controls && (
           <Toolbar aria-controls={editorId} aria-label="Text formatting">
-            {marksFromControls?.map((controlSection, sectionIndex) => (
+            {toolbarItemsFromControls?.map((controlSection, sectionIndex) => (
               <ToolbarSection key={sectionIndex}>
                 {controlSection.map((mark, markIndex) => {
                   const isActive = markIsActive(editorState, mark) || false
