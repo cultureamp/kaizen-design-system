@@ -10,12 +10,14 @@ import {
 } from "@cultureamp/rich-text-toolkit"
 import { addListNodes, orderedList, bulletList } from "prosemirror-schema-list"
 
-export const nodes: NodeSpec = {
+export const defaultNodes: NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
   text: coreNodes.text,
   // eslint-disable-next-line camelcase
   hard_break: coreNodes.hard_break,
+}
+export const nodes: NodeSpec = {
   orderedList: {
     orderedList,
     control: {
@@ -64,19 +66,26 @@ export const createSchemaFromControls = controls => {
         [currentValue]: marks[currentValue],
       }
     }
+    return previousValue
   }, {})
-  const newNodes: NodeSpec = controls.reduce((previousValue, currentValue) => {
-    console.log(currentValue)
-    if (nodes[currentValue]) {
-      return {
-        ...previousValue,
-        [currentValue]: marks[currentValue],
+  const newNodes: NodeSpec = controls.reduce(
+    (previousValue, currentValue) => {
+      if (nodes[currentValue]) {
+        return {
+          ...previousValue,
+          [currentValue]: nodes[currentValue],
+        }
       }
-    }
-  }, {})
+      return previousValue
+    },
+    { ...defaultNodes }
+  )
 
-  console.log(nodes)
-  console.log(newMarks)
+  console.log("nodes:", nodes)
+  console.log("New nodes:", newNodes)
+  console.log("marks:", nodes)
+  console.log("New marks:", newMarks)
+
   // TODO: This is hard coded to always enable lists for now,
   // but once we have the toolbar we can use the controls to determine this.
   // const listsEnabled = true
