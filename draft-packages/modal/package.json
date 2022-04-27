@@ -35,7 +35,7 @@
     "@headlessui/react": "^1.4.3",
     "@kaizen/component-library": "^14.0.1",
     "@kaizen/deprecated-component-library-helpers": "^2.5.3",
-    "@kaizen/draft-button": "^6.0.1",
+    "@kaizen/button": "^1.0.26",
     "@kaizen/draft-divider": "^2.0.1",
     "@kaizen/draft-form": "^7.1.1",
     "@kaizen/draft-illustration": "^5.0.3",
@@ -46,9 +46,6 @@
     "react-dom": "^16.13.1",
     "react-focus-lock": "^2.7.1",
     "uuid": "^3.4.0"
-  },
-  "dependenciesComments": {
-    "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
