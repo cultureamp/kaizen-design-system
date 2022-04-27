@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "6.0.17",
+  "version": "7.0.5",
   "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,15 +32,15 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^13.2.6",
-    "@kaizen/draft-avatar": "^2.4.8",
-    "@kaizen/draft-badge": "^1.11.0",
-    "@kaizen/draft-button": "^5.6.25",
-    "@kaizen/draft-menu": "^4.5.27",
-    "@kaizen/draft-select": "^1.25.14",
-    "@kaizen/draft-tag": "^2.3.27",
-    "@kaizen/responsive": "^1.6.1",
-    "@kaizen/typography": "^2.1.0",
+    "@kaizen/component-library": "^14.0.1",
+    "@kaizen/draft-avatar": "^2.4.11",
+    "@kaizen/draft-badge": "^1.11.1",
+    "@kaizen/draft-button": "^6.0.1",
+    "@kaizen/draft-menu": "^4.5.31",
+    "@kaizen/draft-select": "^2.0.4",
+    "@kaizen/draft-tag": "^3.0.3",
+    "@kaizen/responsive": "^1.6.2",
+    "@kaizen/typography": "^2.1.1",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },
@@ -48,11 +48,10 @@
     "@kaizen/draft-button": "The draft dependency is for the Elm component. This should be updated when moved to packages"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
     "react": "^16.9.0 || ^17.0.0"
   }
 }

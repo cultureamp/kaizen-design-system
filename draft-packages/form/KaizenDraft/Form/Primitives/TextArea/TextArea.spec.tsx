@@ -1,7 +1,6 @@
+import React from "react"
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
-import * as React from "react"
-import { TextAreaProps } from "./TextArea"
-import { TextArea } from "."
+import { TextArea, TextAreaProps } from "./index"
 
 afterEach(cleanup)
 

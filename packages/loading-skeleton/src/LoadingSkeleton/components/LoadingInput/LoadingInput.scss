@@ -1,32 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/border";
 
-.base {
+.input {
   background-color: rgba($color-gray-600-rgb, 0.1);
-  border-radius: calc(#{$border-solid-border-radius} * 3);
-  top: calc(#{$spacing-md} * 0.175);
-}
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0.6;
+  &.reversed {
+    background-color: rgba($color-white-rgb, 0.1);
   }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-.animated {
-  animation-name: fadeInOut;
-  animation-duration: calc(#{$animation-duration-deliberate} * 2);
-  animation-iteration-count: infinite;
-}
-
-.reversed {
-  background-color: rgba($color-white-rgb, 0.1);
 }

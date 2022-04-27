@@ -34,11 +34,6 @@
   }
 }
 
-// to avoid the row-reverse styles
-.elmActionButton + .elmActionButton {
-  margin-left: $spacing-sm;
-}
-
 .footerWrap {
   align-items: baseline;
   width: 100%;

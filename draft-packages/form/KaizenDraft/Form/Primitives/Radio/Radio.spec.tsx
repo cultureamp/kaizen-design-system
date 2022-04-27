@@ -1,7 +1,7 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
-import * as React from "react"
-import Radio, { RadioProps } from "./Radio"
+import { Radio, RadioProps } from "./Radio"
 
 afterEach(cleanup)
 

@@ -1,7 +1,6 @@
-import { cleanup, render } from "@testing-library/react"
+import React from "react"
+import { render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
-import * as React from "react"
-
 import { InputSearchProps } from "./InputSearch"
 import { InputSearch } from "."
 

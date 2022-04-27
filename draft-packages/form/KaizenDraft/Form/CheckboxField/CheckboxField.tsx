@@ -1,45 +1,36 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-import { Checkbox, CheckedStatus, Label } from ".."
-
+import { Checkbox, CheckboxProps, CheckedStatus, Label } from "../Primitives"
 import styles from "./styles.scss"
 
-export type CheckboxFieldProps = {
+export interface CheckboxFieldProps extends CheckboxProps {
   id?: string
-  automationId?: string
-  name?: string
   labelText: string | React.ReactNode
   checkedStatus?: CheckedStatus
-  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   disabled?: boolean
   reversed?: boolean
   noBottomMargin?: boolean
-  tabIndex?: number
-  value?: string
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type CheckboxField = React.FunctionComponent<CheckboxFieldProps>
-
-const CheckboxField: CheckboxField = ({
+export const CheckboxField: React.VFC<CheckboxFieldProps> = ({
   id = "",
-  automationId,
-  name = "",
   labelText,
   checkedStatus,
-  onCheck,
-  onFocus,
-  onBlur,
   disabled = false,
   reversed = false,
   noBottomMargin = false,
-  tabIndex,
-  value,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.container, {
+    className={classnames(styles.container, classNameOverride, {
       [styles.checked]: checkedStatus === "on",
       [styles.mixed]: checkedStatus === "mixed",
       [styles.reversed]: reversed,
@@ -61,15 +52,10 @@ const CheckboxField: CheckboxField = ({
         disabled={disabled}
         reversed={reversed}
         checkedStatus={checkedStatus}
-        name={name}
-        onCheck={onCheck}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        tabIndex={tabIndex}
-        value={value}
+        {...restProps}
       />
     </Label>
   </div>
 )
 
-export default CheckboxField
+CheckboxField.displayName = "CheckboxField"

@@ -25,17 +25,22 @@ const mockPlay = jest.fn().mockResolvedValue(undefined)
 const mockLoad = jest.fn()
 const mockPause = jest.fn()
 
-describe("<VideoPlayer />", () => {
-  beforeEach(() => {
-    jest.clearAllMocks()
-    window.HTMLMediaElement.prototype.load = mockLoad
-    window.HTMLMediaElement.prototype.play = mockPlay
-    window.HTMLMediaElement.prototype.pause = mockPause
-    window.matchMedia = jest
-      .fn()
-      .mockImplementation(() => mockDoesNotPreferReducedMotion)
+beforeEach(() => {
+  jest.clearAllMocks()
+  window.HTMLMediaElement.prototype.load = mockLoad
+  window.HTMLMediaElement.prototype.play = mockPlay
+  window.HTMLMediaElement.prototype.pause = mockPause
+  window.matchMedia = jest
+    .fn()
+    .mockImplementation(() => mockDoesNotPreferReducedMotion)
+  // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
+  // https://stackoverflow.com/a/65338472/18285270
+  Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+    set: jest.fn(),
   })
+})
 
+describe("<VideoPlayer />", () => {
   it("should render a video player in the document and autoplay", async () => {
     render(
       <VideoPlayer
