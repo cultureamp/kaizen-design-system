@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/button"
 import close from "@kaizen/component-library/icons/close.icon.svg"
 import GenericModalSection from "./GenericModalSection"
 
