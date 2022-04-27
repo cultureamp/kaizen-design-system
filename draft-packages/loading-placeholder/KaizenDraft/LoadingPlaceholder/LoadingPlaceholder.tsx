@@ -22,7 +22,9 @@ export interface LoadingPlaceholderProps
    */
   width?: number
 }
-
+/**
+ * @deprecated LoadingPlaceholder is deprecated. Use "@kaizen/loading-skeleton" instead.
+ */
 export const LoadingPlaceholder: React.VFC<LoadingPlaceholderProps> = ({
   animated = true,
   centred,
