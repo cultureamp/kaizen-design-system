@@ -37,7 +37,7 @@
     "prepublish": "yarn build:json && yarn build:less && yarn build:sass && yarn build:ts"
   },
   "devDependencies": {
-    "@types/lodash.flatmap": "^4.5.6",
+    "@types/lodash.flatmap": "^4.5.7",
     "@types/react-highlight": "^0.12.5",
     "@types/yargs": "^16.0.4",
     "json-to-flat-sass": "^1.0.0",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@types/color-string": "^1.5.2",
-    "@types/lodash.kebabcase": "^4.1.6",
+    "@types/lodash.kebabcase": "^4.1.7",
     "color-string": "^1.8.2",
     "lodash.kebabcase": "^4.1.1"
   },
