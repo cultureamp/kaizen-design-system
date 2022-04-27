@@ -1,15 +1,15 @@
 {
   "name": "site",
-  "version": "0.0.0-private.141",
+  "version": "0.0.0-private.142",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.3.1",
     "@kaizen/button": "^1.0.27",
     "@kaizen/component-library": "^14.0.1",
-    "@kaizen/design-tokens": "^8.0.0",
+    "@kaizen/design-tokens": "^8.0.1",
     "@kaizen/draft-card": "^3.0.1",
     "@kaizen/draft-divider": "^2.0.1",
-    "@kaizen/draft-illustration": "^5.0.2",
+    "@kaizen/draft-illustration": "^5.0.3",
     "@kaizen/draft-tag": "^3.0.3",
     "@kaizen/hosted-assets": "^2.0.0",
     "@kaizen/typography": "^2.1.1",
