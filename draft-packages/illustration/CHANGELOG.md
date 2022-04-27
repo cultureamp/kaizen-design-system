@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.2...@kaizen/draft-illustration@5.0.3) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.1...@kaizen/draft-illustration@5.0.2) (2022-04-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.0...@kaizen/draft-illustration@5.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.8...@kaizen/draft-illustration@5.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
 ## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.7...@kaizen/draft-illustration@4.1.8) (2022-04-03)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

@@ -1,66 +1,62 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-import { Label } from "../"
-import RadioInput from "../Primitives/Radio/Radio"
-
+import { Label, Radio, RadioProps } from "../Primitives"
 import styles from "./styles.scss"
 
-export type RadioFieldProps = {
+export interface RadioFieldProps extends RadioProps {
+  children?: React.ReactNode // This should not exist, but it will be a breaking change to fix
   id: string
-  automationId?: string
-  name: string
-  value: string
   labelText: string | React.ReactNode
   selectedStatus?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  inline?: boolean
   disabled?: boolean
   reversed?: boolean
-  inline?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type RadioField = React.FunctionComponent<RadioFieldProps>
-
-const RadioField: RadioField = ({
-  id = "",
-  automationId,
-  name = "",
-  value = "",
+export const RadioField: React.VFC<RadioFieldProps> = ({
+  children, // Not used
+  id,
   labelText,
   selectedStatus = false,
-  onChange,
   inline = false,
   disabled = false,
   reversed = false,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.container, {
+    className={classnames(styles.container, classNameOverride, {
       [styles.selected]: selectedStatus,
       [styles.inline]: inline,
       [styles.reversed]: reversed,
     })}
   >
     <Label
+      automationId={`${id}-field-label`}
       id={`${id}-field-label`}
       htmlFor={id}
-      automationId={`${id}-field-label`}
       labelText={labelText}
       labelType="radio"
       disabled={disabled}
       reversed={reversed}
     >
-      <RadioInput
-        id={id}
+      <Radio
         automationId={`${id}-radio-input`}
+        id={id}
         disabled={disabled}
         reversed={reversed}
         selectedStatus={selectedStatus}
-        value={value}
-        name={name}
-        onChange={onChange}
+        {...restProps}
       />
     </Label>
   </div>
 )
 
-export default RadioField
+RadioField.displayName = "RadioField"

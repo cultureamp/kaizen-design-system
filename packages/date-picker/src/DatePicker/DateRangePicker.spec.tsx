@@ -27,6 +27,7 @@ describe("<DateRangePicker />", () => {
   })
 
   it("is able to select date range and shows in button", async () => {
+    jest.setTimeout(10000)
     render(<DateRangePicker {...defaultProps} />)
 
     const element = screen.getByRole("button")

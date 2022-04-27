@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./LoadingParagraph.scss"
+import skeletonStyles from "../LoadingSkeleton.scss"
+import paragraphStyles from "./LoadingParagraph.scss"
 
 export interface LoadingParagraphProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -31,15 +32,20 @@ export const LoadingParagraph: React.VFC<LoadingParagraphProps> = ({
   ...props
 }) => (
   <div
-    className={classnames(styles.base, classNameOverride, {
-      [styles.animated]: isAnimated,
-      [styles.centered]: isCentred,
-      [styles.reversed]: isReversed,
-      [styles.link]: isLink,
-      [styles.inheritBaseline]: inheritBaseline,
-      [styles.inline]: isInline,
-      [styles.noBottomMargin]: noBottomMargin,
-    })}
+    className={classnames(
+      skeletonStyles.base,
+      paragraphStyles.paragraph,
+      classNameOverride,
+      {
+        [skeletonStyles.animated]: isAnimated,
+        [paragraphStyles.centered]: isCentred,
+        [paragraphStyles.reversed]: isReversed,
+        [paragraphStyles.link]: isLink,
+        [paragraphStyles.inheritBaseline]: inheritBaseline,
+        [paragraphStyles.inline]: isInline,
+        [paragraphStyles.noBottomMargin]: noBottomMargin,
+      }
+    )}
     style={{ width: `${width}%` }}
     {...props}
   />
