@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Button, ButtonProps } from "@kaizen/button"
 import { useMediaQueries } from "@kaizen/responsive"
 import classNames from "classnames"
 import * as React from "react"

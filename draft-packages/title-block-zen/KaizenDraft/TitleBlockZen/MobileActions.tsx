@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"

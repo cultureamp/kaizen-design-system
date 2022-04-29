@@ -242,3 +242,11 @@ export const DefaultWithChildrenAdvancedFilter = () => {
 DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
 DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }
+
+export const AutoHideBehaviours = SimpleFilterTemplate.bind({})
+AutoHideBehaviours.args = {
+  autoHide: "outside-click-only",
+  id: "filter-menu-button--autohide",
+}
+
+AutoHideBehaviours.storyName = "Auto hide behaviours"
