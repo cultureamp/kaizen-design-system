@@ -253,9 +253,7 @@ export const AutoHideBehaviours = () => {
   const [isDropdownVisible3, setIsDropdownVisible3] = useState<boolean>(
     IS_INITIAL_DROPDOWN_VISIBLE
   )
-  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>(
-    IS_CHROMATIC ? DROPDOWN_OPTIONS_CHROMATIC_SELECTED : []
-  )
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
 
   const checkedTraits: string = appliedFilters
     .map(trait => trait.label)
@@ -286,7 +284,7 @@ export const AutoHideBehaviours = () => {
   return (
     <>
       <FilterMenuButton
-        id={"filter-menu-button--simple1"}
+        id={"filter-menu-button--autohide-on"}
         labelText={"Animal traits autoHide on"}
         metadata={checkedTraits}
         isDropdownVisible={isDropdownVisible1}
@@ -323,7 +321,7 @@ export const AutoHideBehaviours = () => {
         </>
       </FilterMenuButton>
       <FilterMenuButton
-        id={"filter-menu-button--simple2"}
+        id={"filter-menu-button--autohide-off"}
         labelText={"Animal traits autoHide off"}
         metadata={checkedTraits}
         isDropdownVisible={isDropdownVisible2}
@@ -360,7 +358,7 @@ export const AutoHideBehaviours = () => {
         </>
       </FilterMenuButton>
       <FilterMenuButton
-        id={"filter-menu-button--simple3"}
+        id={"filter-menu-button--autohide-click-only"}
         labelText={"Animal traits Outside click only"}
         metadata={checkedTraits}
         isDropdownVisible={isDropdownVisible3}
