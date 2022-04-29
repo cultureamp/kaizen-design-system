@@ -19,9 +19,7 @@ export default {
     },
   },
 }
-const validationMessages = {
-  error: "This is an error message",
-}
+
 export const DefaultStory = props => {
   const [valueDate, setValueDate] = useState<Date | undefined>()
 
@@ -30,7 +28,6 @@ export const DefaultStory = props => {
       <DatePicker
         id="datepicker-default"
         labelText="Label"
-        validationMessages={validationMessages}
         valueDate={valueDate}
         setValueDate={setValueDate}
         {...props}
@@ -91,14 +88,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-default"
             labelText="Label"
             valueDate={selectedDate}
-            validationMessages={validationMessages}
             setValueDate={setValueDate}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
             valueDate={new Date(2022, 1, 5)}
-            validationMessages={validationMessages}
             setValueDate={setValueDate}
           />
           <DatePicker
@@ -106,14 +101,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-disabled"
             labelText="Label"
             valueDate={selectedDate}
-            validationMessages={validationMessages}
             setValueDate={setValueDate}
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
             valueDate={new Date("potato")}
-            validationMessages={validationMessages}
             setValueDate={setValueDate}
           />
         </StoryWrapper.Row>
