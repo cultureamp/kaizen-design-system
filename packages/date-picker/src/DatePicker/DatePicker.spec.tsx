@@ -4,18 +4,11 @@ import userEvent from "@testing-library/user-event"
 import { DatePicker } from "./DatePicker"
 import "@testing-library/jest-dom"
 
-const validationMessages = {
-  success: "This is a success message",
-  caution: "This is a cautionary message",
-  error: "This is an error message",
-}
-
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
   valueDate: undefined,
   initialMonth: new Date(2022, 2),
-  validationMessages,
   setValueDate: jest.fn(),
 }
 
@@ -131,20 +124,5 @@ describe("<DatePicker />", () => {
     const button = screen.getByRole("button")
 
     expect(button).toHaveAttribute("disabled")
-  })
-
-  it("validates an invalid date and displays message", async () => {
-    render(<DatePicker {...defaultProps} />)
-
-    const input = screen.getByRole("combobox")
-
-    userEvent.type(input, "Invalid Date")
-
-    // tab to next focusable element to trigger validation onChange
-    await act(async () => {
-      userEvent.tab()
-    })
-
-    screen.getByText("This is an error message")
   })
 })

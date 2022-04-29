@@ -30,10 +30,6 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   inline?: boolean
   icon: React.SVGAttributes<SVGSymbolElement>
   /**
-   * A descriptive message for `error` state
-   */
-  validationMessages: validationMessagesProps
-  /**
    * A description that provides context for the text field
    */
   description?: string | React.ReactNode
@@ -51,7 +47,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
   defaultInputValue,
   inputRef,
   value,
-  validationMessages,
   description,
   reversed = false,
   inline = false,
@@ -122,22 +117,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
       onKeyDown={onKeyDown}
       {...inputProps}
     />
-
-    {status !== "default" && (
-      <div
-        className={classnames(styles.message, {
-          [styles.disabled]: disabled,
-        })}
-      >
-        <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-validation-message`}
-          message={renderValidationMessage(status, validationMessages)}
-          status={status}
-          reversed={reversed}
-        />
-      </div>
-    )}
 
     {description && (
       <div
