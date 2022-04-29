@@ -20,7 +20,6 @@ export interface DatePickerProps {
   labelText: string
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
-  validationMessages: validationMessagesProps
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
@@ -94,7 +93,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledAfter,
   firstDayOfWeek = 1,
   initialMonth,
-  validationMessages,
   valueDate,
   setValueDate,
   ...inputProps
@@ -274,12 +272,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           description="mm/dd/yyyy"
           placeholder="mm/dd/yyyy"
           icon={dateStart}
-          validationMessages={validationMessages}
           onButtonClick={handleOpenClose}
           onChange={handleTextChange}
           calendarId={"calendar-dialog"}
           onKeyDown={e => handleKeyDown(e)}
-          status={!isTextValid ? "error" : "default"}
           {...inputProps}
         />
       </div>
