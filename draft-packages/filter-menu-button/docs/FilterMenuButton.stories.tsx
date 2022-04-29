@@ -243,103 +243,10 @@ DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
 DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }
 
-const FilterButtonWithState = ({
-  dropdownSet,
-  id,
-  labelText,
-  autoHide,
-}: {
-  dropdownSet: DropdownOption[]
-  id: string
-  labelText: string
-  autoHide: "on" | "off" | "outside-click-only"
-}) => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(
-    IS_INITIAL_DROPDOWN_VISIBLE
-  )
-  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
-
-  const checkedTraits: string = appliedFilters
-    .map(trait => trait.label)
-    .join(", ")
-
-  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
-
-  const hideDropdown = () => setIsDropdownVisible(false)
-
-  const onCheckboxChange = (option: DropdownOption) => {
-    if (appliedFilters.find(filter => filter.id === option.id)) {
-      setAppliedFilters(
-        appliedFilters.filter(filter => filter.id !== option.id)
-      )
-    } else {
-      setAppliedFilters([...appliedFilters, option])
-    }
-  }
-  return (
-    <FilterMenuButton
-      id={id}
-      labelText={labelText}
-      metadata={checkedTraits}
-      isDropdownVisible={isDropdownVisible}
-      toggleDropdown={toggleDropdown}
-      hideDropdown={hideDropdown}
-      autoHide={autoHide}
-    >
-      <>
-        <div className={styles.content}>
-          <CheckboxGroup labelText="Traits">
-            {dropdownSet.map(trait => (
-              <CheckboxField
-                key={trait.id}
-                onCheck={() => onCheckboxChange(trait)}
-                id={`checkbox-${trait.id}`}
-                checkedStatus={
-                  appliedFilters.find(
-                    (filter: DropdownOption) => filter.id === trait.id
-                  )
-                    ? "on"
-                    : "off"
-                }
-                labelText={trait.label}
-              />
-            ))}
-          </CheckboxGroup>
-        </div>
-        <div className={styles.buttons}>
-          <Button
-            secondary={true}
-            fullWidth
-            label="Done"
-            onClick={hideDropdown}
-          />
-        </div>
-      </>
-    </FilterMenuButton>
-  )
+export const AutoHideBehaviours = SimpleFilterTemplate.bind({})
+AutoHideBehaviours.args = {
+  autoHide: "outside-click-only",
+  id: "filter-menu-button--autohide",
 }
-
-export const AutoHideBehaviours = () => (
-  <>
-    {FilterButtonWithState({
-      dropdownSet: [DROPDOWN_OPTIONS[0], DROPDOWN_OPTIONS[1]],
-      id: "filter-menu-button--autohide-on",
-      labelText: "Animal traits autoHide on",
-      autoHide: "on",
-    })}
-    {FilterButtonWithState({
-      dropdownSet: [DROPDOWN_OPTIONS[2], DROPDOWN_OPTIONS[3]],
-      id: "filter-menu-button--autohide-off",
-      labelText: "Animal traits autoHide off",
-      autoHide: "off",
-    })}
-    {FilterButtonWithState({
-      dropdownSet: [DROPDOWN_OPTIONS[4], DROPDOWN_OPTIONS[5]],
-      id: "filter-menu-button--autohide-outside-click-only",
-      labelText: "Animal traits autoHide outside-click-only",
-      autoHide: "outside-click-only",
-    })}
-  </>
-)
 
 AutoHideBehaviours.storyName = "Auto hide behaviours"
