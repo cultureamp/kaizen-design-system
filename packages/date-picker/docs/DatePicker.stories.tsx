@@ -30,8 +30,6 @@ export const DefaultStory = props => {
       <DatePicker
         id="datepicker-default"
         labelText="Label"
-        description="mm/dd/yyyy"
-        placeholder="mm/dd/yyyy"
         validationMessages={validationMessages}
         valueDate={valueDate}
         setValueDate={setValueDate}
@@ -94,8 +92,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             valueDate={selectedDate}
             validationMessages={validationMessages}
-            description="mm/dd/yyyy"
-            placeholder="mm/dd/yyyy"
             setValueDate={setValueDate}
           />
           <DatePicker
@@ -103,7 +99,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             valueDate={new Date(2022, 1, 5)}
             validationMessages={validationMessages}
-            description="mm/dd/yyyy"
             setValueDate={setValueDate}
           />
           <DatePicker
@@ -112,8 +107,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             valueDate={selectedDate}
             validationMessages={validationMessages}
-            description="mm/dd/yyyy"
-            placeholder="mm/dd/yyyy"
             setValueDate={setValueDate}
           />
           <DatePicker
@@ -121,7 +114,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             valueDate={new Date("potato")}
             validationMessages={validationMessages}
-            description="mm/dd/yyyy"
             setValueDate={setValueDate}
           />
         </StoryWrapper.Row>
