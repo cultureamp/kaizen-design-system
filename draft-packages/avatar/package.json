@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-avatar",
-  "version": "2.4.9",
+  "version": "2.4.11",
   "description": "The draft avatar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-base": "^1.0.0",
-    "@kaizen/component-library": "^14.0.0",
+    "@kaizen/component-library": "^14.0.1",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-textfit": "^1.1.1"
@@ -42,7 +42,7 @@
     "@types/react-textfit": "^1.1.0"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
     "react": "^16.9.0 || ^17.0.0"
   }
 }
