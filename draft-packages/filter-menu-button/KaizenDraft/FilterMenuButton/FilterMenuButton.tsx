@@ -9,7 +9,6 @@ export interface FilterMenuButtonProps {
    * accessibilty purposes)*/
   id: string
 
-  automationId?: string
   /**
    * The text that goes inside the filter button
    */
@@ -56,7 +55,6 @@ export interface FilterMenuButtonProps {
 
 export const FilterMenuButton = ({
   id,
-  automationId,
   labelText,
   children,
   metadata,
@@ -68,11 +66,7 @@ export const FilterMenuButton = ({
 }: FilterMenuButtonProps) => {
   const dropdownId = `${id}-dropdown`
   return (
-    <div
-      id={id}
-      data-automation-id={automationId}
-      className={styles.filterMenuButton}
-    >
+    <div id={id} className={styles.filterMenuButton}>
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
           <FilterSplitButton
