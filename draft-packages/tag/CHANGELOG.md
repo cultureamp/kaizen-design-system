@@ -3,6 +3,102 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.4...@kaizen/draft-tag@3.0.5) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.3...@kaizen/draft-tag@3.0.4) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.2...@kaizen/draft-tag@3.0.3) (2022-04-22)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.1...@kaizen/draft-tag@3.0.2) (2022-04-19)
+
+
+### Bug Fixes
+
+* update stories typo ([#2694](https://github.com/cultureamp/kaizen-design-system/issues/2694)) ([ddc0645](https://github.com/cultureamp/kaizen-design-system/commit/ddc06456e707e9c1a101336b67a1c92ad4343f57))
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.0...@kaizen/draft-tag@3.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.27...@kaizen/draft-tag@3.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [2.3.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.26...@kaizen/draft-tag@2.3.27) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.3.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.25...@kaizen/draft-tag@2.3.26) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.3.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.24...@kaizen/draft-tag@2.3.25) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [2.3.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.23...@kaizen/draft-tag@2.3.24) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [2.3.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@2.3.22...@kaizen/draft-tag@2.3.23) (2022-03-24)
 
 **Note:** Version bump only for package @kaizen/draft-tag

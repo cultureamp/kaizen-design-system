@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.38...@kaizen/tabs@1.3.39) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.37...@kaizen/tabs@1.3.38) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.36...@kaizen/tabs@1.3.37) (2022-04-13)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.35...@kaizen/tabs@1.3.36) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.34...@kaizen/tabs@1.3.35) (2022-04-01)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.33...@kaizen/tabs@1.3.34) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.32...@kaizen/tabs@1.3.33) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.31...@kaizen/tabs@1.3.32) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.3.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.30...@kaizen/tabs@1.3.31) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
 ## [1.3.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.3.29...@kaizen/tabs@1.3.30) (2022-03-23)
 
 **Note:** Version bump only for package @kaizen/tabs

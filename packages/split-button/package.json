@@ -1,0 +1,46 @@
+{
+  "name": "@kaizen/split-button",
+  "version": "1.1.7",
+  "description": "The Split Button component",
+  "scripts": {
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/split-button"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!docs",
+    "!tsconfig.dist.json"
+  ],
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-base": "^1.1.0",
+    "@kaizen/component-library": "^14.0.3",
+    "@kaizen/draft-menu": "^4.5.33",
+    "classnames": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.3.0",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "react": "^16.9.0 || ^17.0.0"
+  }
+}

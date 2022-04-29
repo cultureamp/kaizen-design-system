@@ -65,14 +65,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader
         gridColumns={10}
-        headings={["Neutral", "Postive", "Negative"]}
+        headings={["Neutral", "Positive", "Negative"]}
       />
       <StoryWrapper.Row gridColumns={10} rowTitle="Sentiment (md)">
         <Tag variant="sentimentNeutral" size="medium">
           Neutral
         </Tag>
         <Tag variant="sentimentPositive" size="medium">
-          Postive
+          Positive
         </Tag>
         <Tag variant="sentimentNegative" size="medium">
           Negative
@@ -83,7 +83,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           Neutral
         </Tag>
         <Tag variant="sentimentPositive" size="small">
-          Postive
+          Positive
         </Tag>
         <Tag variant="sentimentNegative" size="small">
           Negative
@@ -92,7 +92,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </StoryWrapper>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader
-        headings={["Informative", "Postive", "Negative", "Cautionary"]}
+        headings={["Informative", "Positive", "Negative", "Cautionary"]}
         gridColumns={7}
       />
       <StoryWrapper.Row gridColumns={7} rowTitle="Validation (md)">

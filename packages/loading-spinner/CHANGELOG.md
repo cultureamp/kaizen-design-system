@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.1.2...@kaizen/loading-spinner@2.1.3) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/loading-spinner
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.1.1...@kaizen/loading-spinner@2.1.2) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
 ## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.1.0...@kaizen/loading-spinner@2.1.1) (2022-03-21)
 
 **Note:** Version bump only for package @kaizen/loading-spinner

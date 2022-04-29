@@ -1,6 +1,5 @@
 import type { Configuration } from "webpack"
 import {
-  elm,
   excludeExternalModules,
   babel,
   styles,
@@ -25,8 +24,7 @@ export default ({ config }: { config: Configuration }) => {
   config.module.rules.push(
     ...[babel, styles].map(excludeExternalModules),
     svgs,
-    svgIcons,
-    elm
+    svgIcons
   )
 
   config.resolve.extensions.push(".ts", ".tsx")
