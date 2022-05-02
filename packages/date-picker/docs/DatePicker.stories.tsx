@@ -3,13 +3,13 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/DatePicker/Date Picker`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
   parameters: {
     docs: {

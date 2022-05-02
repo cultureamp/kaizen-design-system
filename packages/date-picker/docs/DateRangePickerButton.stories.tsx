@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { RangeModifier } from "react-day-picker/types/Modifiers"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
@@ -10,7 +10,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
-  title: `${CATEGORIES.components}/DatePicker/Date Range Picker - Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker - Button`,
   component: DatePicker,
   parameters: {
     docs: {
