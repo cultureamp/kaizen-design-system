@@ -155,9 +155,9 @@ export default ({ data, location }) => {
               </tfoot>
             </table>
 
-            <Divider variant="content" />
-
-            <Box mb={2}> </Box>
+            <Box mb={2}>
+              <Divider variant="content" />
+            </Box>
 
             <SectionHeader
               illustration={<Negative alt="" />}

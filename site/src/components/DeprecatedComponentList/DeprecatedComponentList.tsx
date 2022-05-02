@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Box } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { Tag } from "@kaizen/draft-tag"
@@ -37,7 +37,7 @@ export const DeprecatedComponentListItem: React.VFC<
   </div>
 )
 
-const DeprecatedComponentList = ({ deprecatedComponents }) => (
+export const DeprecatedComponentList = ({ deprecatedComponents }) => (
   <div className={styles.deprecatedComponentList}>
     {deprecatedComponents.map(component => {
       const { deprecationDate, title, deprecationMessage } =
@@ -53,5 +53,3 @@ const DeprecatedComponentList = ({ deprecatedComponents }) => (
     })}
   </div>
 )
-
-export default DeprecatedComponentList

@@ -1,1 +1,1 @@
-export { default as DeprecatedComponentList } from "./DeprecatedComponentList"
+export * from "./DeprecatedComponentList"
