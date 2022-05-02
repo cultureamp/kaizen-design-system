@@ -1,11 +1,11 @@
 {
   "name": "site",
-  "version": "0.0.0-private.145",
+  "version": "0.0.0-private.146",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.3.1",
-    "@kaizen/button": "^1.0.29",
-    "@kaizen/component-library": "^14.0.3",
+    "@kaizen/button": "^1.1.0",
+    "@kaizen/component-library": "^14.0.4",
     "@kaizen/design-tokens": "^8.0.1",
     "@kaizen/draft-card": "^3.0.1",
     "@kaizen/draft-divider": "^2.0.1",
