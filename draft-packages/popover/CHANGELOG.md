@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.0.4...@kaizen/draft-popover@5.0.5) (2022-05-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency use-debounce to v8 ([#2707](https://github.com/cultureamp/kaizen-design-system/issues/2707)) ([27203c5](https://github.com/cultureamp/kaizen-design-system/commit/27203c53b49d8c2fbe4998412f12aadbe96c0140))
+
+
+
+
+
 ## [5.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.0.3...@kaizen/draft-popover@5.0.4) (2022-04-29)
 
 **Note:** Version bump only for package @kaizen/draft-popover
