@@ -4,6 +4,7 @@ import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { Node, Schema, MarkType, NodeType } from "prosemirror-model"
+import { wrapInList } from "prosemirror-schema-list"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
@@ -21,12 +22,14 @@ import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
-type ToolbarControls =
+export type ToolbarControls =
   | "bold"
   | "italic"
   | "underline"
-  | "bulletList"
-  | "orderedList"
+  | "bullet_list"
+  | "ordered_list"
+
+type ToolbarControlSpec = MarkType | NodeType
 export interface RichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
@@ -73,20 +76,35 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     }),
     { "aria-labelledby": labelId }
   )
-  const toolbarItemsFromControls:
-    | Array<Array<MarkType | NodeType<Schema<any, any>>>>
-    | undefined = controls?.map(controlGroup =>
-    controlGroup.map(control => {
-      console.log(schema)
-      console.log(control)
-      return schema.marks[control]
-    })
-  )
+
+  const toolbarItemsFromControls: ToolbarControlSpec[][] | undefined =
+    controls?.map(controlGroup =>
+      controlGroup.map(control => {
+        if (schema.marks[control]) {
+          return schema.marks[control]
+        } else {
+          return schema.nodes[control]
+        }
+      })
+    )
+
+  const createNodeAction = (node: NodeType) => {
+    switch (node.name) {
+      case "bullet_list":
+        return () => {
+          console.log("bullet list action")
+          wrapInList(schema.nodes.bullet_list)
+        }
+      default:
+        return console.log("no schema action")
+    }
+  }
+
   useEffect(() => {
     onChange(editorState.toJSON().doc.content)
+    console.log(schema)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
-
   return (
     <>
       {labelText && <Label id={labelId} labelText={labelText} />}
@@ -96,19 +114,44 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
           <Toolbar aria-controls={editorId} aria-label="Text formatting">
             {toolbarItemsFromControls?.map((controlSection, sectionIndex) => (
               <ToolbarSection key={sectionIndex}>
-                {controlSection.map((mark, markIndex) => {
-                  const isActive = markIsActive(editorState, mark) || false
-                  const action = isActive ? removeMark(mark) : addMark(mark)
-                  return (
-                    <ToggleIconButton
-                      key={markIndex}
-                      icon={mark.spec.control.icon}
-                      label={mark.spec.control.label}
-                      isActive={isActive}
-                      onClick={() => dispatchTransaction(action)}
-                    />
-                  )
-                })}
+                {controlSection.map(
+                  (control: MarkType | NodeType, controlIndex) => {
+                    // console.log(control)
+                    if (control instanceof NodeType) {
+                      // TODO: function to generate node config
+                      // nodes can respond differently so may require different implementations
+                      // the main requirement is that a toggle-able action be passed into the button
+
+                      const action = createNodeAction(control)
+                      return (
+                        <ToggleIconButton
+                          key={controlIndex}
+                          icon={control.spec.control.icon}
+                          label={control.spec.control.label}
+                          isActive={false}
+                          onClick={() => dispatchTransaction(action)}
+                        />
+                      )
+                    } else if (control instanceof MarkType) {
+                      console.log(control)
+                      // TODO: function to generate mark config
+                      const isActive =
+                        markIsActive(editorState, control) || false
+                      const action = isActive
+                        ? removeMark(control)
+                        : addMark(control)
+                      return (
+                        <ToggleIconButton
+                          key={controlIndex}
+                          icon={control.spec.control.icon}
+                          label={control.spec.control.label}
+                          isActive={isActive}
+                          onClick={() => dispatchTransaction(action)}
+                        />
+                      )
+                    }
+                  }
+                )}
               </ToolbarSection>
             ))}
           </Toolbar>
