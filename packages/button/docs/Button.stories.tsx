@@ -8,10 +8,17 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import { Button, IconButton, ButtonProps } from ".."
+import {
+  Button,
+  IconButton,
+  ButtonProps,
+  DirectionalLink,
+  PaginationLink,
+} from ".."
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import styles from "./styles.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Button`,
@@ -45,8 +52,19 @@ DefaultKaizenSiteDemo.story = {
 export const DefaultKaizenDemoIcon = args => (
   <IconButton {...args} icon={trashIcon} />
 )
+
+export const DefaultKaizenDirectionalLink = args => (
+  <DirectionalLink direction="prev" {...args} />
+)
+
+export const DefaultKaizenPaginationLink = args => (
+  <PaginationLink pageNumber={1} {...args} />
+)
+
 DefaultKaizenDemoIcon.storyName = "Icon Button"
 DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
+DefaultKaizenDirectionalLink.storyName = "Directional Link"
+DefaultKaizenPaginationLink.storyName = "Pagination Link"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -287,6 +305,101 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             secondary
             destructive
           />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <Heading
+          variant="heading-3"
+          tag="h1"
+          color={isReversed ? "white" : "dark"}
+        >
+          Pagination
+        </Heading>
+        <StoryWrapper.RowHeader headings={["Default", "Disabled", ""]} />
+        <StoryWrapper.Row rowTitle="Directional Link">
+          <div className={styles.circleButtonContainer}>
+            <DirectionalLink
+              direction="prev"
+              label="Previous page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="next"
+              label="Next page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="start"
+              label="First page"
+              reversed={isReversed}
+            />
+            <DirectionalLink
+              direction="end"
+              label="Last page"
+              reversed={isReversed}
+            />
+          </div>
+          <div className={styles.circleButtonContainer}>
+            <DirectionalLink
+              direction="prev"
+              label="Previous page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="next"
+              label="Next page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="start"
+              label="First page"
+              reversed={isReversed}
+              disabled={true}
+            />
+            <DirectionalLink
+              direction="end"
+              label="Last page"
+              reversed={isReversed}
+              disabled={true}
+            />
+          </div>
+          <div></div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Pagination Link">
+          <div className={styles.circleButtonContainer}>
+            <PaginationLink
+              pageNumber={1}
+              aria-label="Page 1"
+              isActive={true}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={2}
+              aria-label="Page 2"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={3}
+              aria-label="Page 3"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={4}
+              aria-label="Page 4"
+              isActive={false}
+              reversed={isReversed}
+            />
+            <PaginationLink
+              pageNumber={5}
+              aria-label="Page 5"
+              isActive={false}
+              reversed={isReversed}
+            />
+          </div>
         </StoryWrapper.Row>
       </StoryWrapper>
     </>

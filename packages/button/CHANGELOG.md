@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.29...@kaizen/button@1.1.0) (2022-05-02)
+
+
+### Features
+
+* DirectionalLink and BreadcrumbLink button variant ([#2571](https://github.com/cultureamp/kaizen-design-system/issues/2571)) ([de5b3c1](https://github.com/cultureamp/kaizen-design-system/commit/de5b3c1daac712fc38cb088e1de96b757e3c6e86))
+
+
+
+
+
+## [1.0.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.28...@kaizen/button@1.0.29) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
 ## [1.0.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.0.27...@kaizen/button@1.0.28) (2022-04-27)
 
 **Note:** Version bump only for package @kaizen/button

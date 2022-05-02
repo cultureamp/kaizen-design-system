@@ -1,8 +1,26 @@
 import React, { forwardRef, Ref } from "react"
 import GenericButton, {
-  ButtonProps,
+  GenericProps,
+  BadgeProps,
   ButtonRef,
+  WorkingProps,
+  WorkingUndefinedProps,
 } from "./components/GenericButton"
+
+export type ButtonProps = GenericProps &
+  (WorkingProps | WorkingUndefinedProps) & {
+    label: string
+    primary?: boolean
+    destructive?: boolean
+    secondary?: boolean
+    form?: boolean
+    badge?: BadgeProps
+    type?: "submit" | "reset" | "button"
+    fullWidth?: boolean
+    iconPosition?: "start" | "end"
+    icon?: React.SVGAttributes<SVGSymbolElement>
+    disabled?: boolean
+  }
 
 const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
