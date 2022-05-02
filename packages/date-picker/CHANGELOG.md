@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.7...@kaizen/date-picker@2.1.8) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.6...@kaizen/date-picker@2.1.7) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.5...@kaizen/date-picker@2.1.6) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.4...@kaizen/date-picker@2.1.5) (2022-04-22)
 
 **Note:** Version bump only for package @kaizen/date-picker
