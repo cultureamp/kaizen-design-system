@@ -688,40 +688,6 @@ $caButtonCircle-radius: 30px;
   }
 }
 
-%caButtonLabel {
-  // This line height equates to 3/4 of a grid unit - so 18px. We set this
-  // here rather than in ca-type-inter-button because changing the type style
-  // changes the baseline grid alignment for all buttons. Changing it here keeps
-  // the baseline alignment correct for single line buttons.
-  line-height: 1;
-
-  &:only-child {
-    %caButtonSecondary & {
-      margin: 0;
-    }
-  }
-
-  &:not(:first-child) {
-    @include ca-margin($start: 0.5em, $end: null);
-  }
-
-  &:not(:last-child) {
-    @include ca-margin($end: 0.5em, $start: null);
-  }
-}
-
-%caButtonIconWrapper {
-  height: $caButtonIcon-height;
-  align-self: flex-start;
-}
-
-%caButtonAdditionalContentWrapper {
-  display: inherit;
-  &:not(:last-child) {
-    @include ca-margin($end: 0.5em, $start: null);
-  }
-}
-
 @mixin white-icon {
   svg {
     color: $color-white;
