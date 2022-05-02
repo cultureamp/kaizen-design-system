@@ -11,7 +11,7 @@ import React, {
   MouseEvent,
 } from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
-
+import { ButtonProps } from "../Button"
 import styles from "./GenericButton.module.scss"
 
 export type CustomButtonProps = {
@@ -27,58 +27,38 @@ export type CustomButtonProps = {
 
 export type GenericProps = {
   id?: string
-  label: string
-  primary?: boolean
-  destructive?: boolean
-  secondary?: boolean
-  disabled?: boolean
-  form?: boolean
   reversed?: boolean
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  badge?: BadgeProps
   onClick?: (e: MouseEvent) => void
   onMouseDown?: (e: MouseEvent) => void
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
-  type?: "submit" | "reset" | "button"
-  fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
 }
 
-export type AdditionalContentProps = {
-  additionalContent?: React.ReactNode
-}
+export type ButtonType = "submit" | "reset" | "button"
 
-type LabelPropsGeneric = {
-  iconPosition?: "start" | "end"
-  primary?: boolean
-}
-
-type WorkingProps = {
+export type WorkingProps = {
   working: true
   workingLabel: string
   workingLabelHidden?: boolean
 }
 
-type WorkingUndefinedProps = {
+export type WorkingUndefinedProps = {
   working?: false
 }
 
-export type LabelProps = LabelPropsGeneric &
-  (WorkingProps | WorkingUndefinedProps)
-
-export type IconButtonProps = GenericProps &
-  (WorkingProps | WorkingUndefinedProps)
-export type ButtonProps = GenericProps & LabelProps
-
 type Props = ButtonProps & {
+  additionalContent?: React.ReactNode
   iconButton?: boolean
-} & AdditionalContentProps
+  directionalLink?: boolean
+  paginationLink?: boolean
+  isActive?: boolean
+}
 
-type BadgeProps = {
+export type BadgeProps = {
   text: string
   animateChange?: boolean
   variant?: "default" | "dark" | "active"
@@ -126,6 +106,8 @@ const GenericButton = forwardRef(
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
+          [styles.circleButtonFocus]:
+            props.directionalLink || props.paginationLink,
         })}
       >
         {determineButtonRenderer()}
@@ -252,6 +234,9 @@ const buttonClass = (props: Props) => {
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
     [styles.working]: props.working,
+    [styles.circleButton]: props.directionalLink || props.paginationLink,
+    [styles.paginationLink]: props.paginationLink,
+    [styles.isPaginationLinkActive]: props.isActive,
   })
 }
 
