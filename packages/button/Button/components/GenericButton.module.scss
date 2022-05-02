@@ -88,3 +88,19 @@
 .hidden {
   visibility: hidden;
 }
+
+.circleButtonFocus {
+  @extend %caCircleButtonFocus;
+}
+
+.circleButton {
+  @extend %caCircleButton;
+}
+
+.paginationLink {
+  @extend %caPaginationLink;
+}
+
+.isPaginationLinkActive {
+  @extend %caIsPaginationLinkActive;
+}
