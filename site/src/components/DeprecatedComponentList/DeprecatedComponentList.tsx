@@ -45,9 +45,9 @@ export const DeprecatedComponentList = ({ deprecatedComponents }) => (
 
       return (
         <DeprecatedComponentListItem
-          deprecationDate={deprecationDate}
+          deprecationDate={deprecationDate || "tba"}
           title={title}
-          message={deprecationMessage}
+          message={deprecationMessage || ""}
         />
       )
     })}
