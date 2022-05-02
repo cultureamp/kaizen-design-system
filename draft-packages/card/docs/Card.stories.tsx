@@ -13,7 +13,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Card } from "@kaizen/component-library". The `Card` component is a flexible container used to wrap primary content. It has several variants (moods) to assist in displaying information to a user. In the UI toolkit you will find the `Card` component is referred to as `Container`.',
+          'import { Card } from "@kaizen/draft-card"<br><br>The `Card` component is a flexible container used to wrap primary content. It has several variants (moods) to assist in displaying information to a user. In the UI toolkit you will find the `Card` component is referred to as `Container`.',
       },
     },
     ...figmaEmbed(
