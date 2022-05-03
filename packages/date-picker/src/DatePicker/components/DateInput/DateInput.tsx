@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "@kaizen/component-library/components/Icon"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
   FieldGroup,
@@ -7,8 +7,7 @@ import {
   Input,
   InputProps,
   Label,
-} from "@kaizen/draft-form/KaizenDraft/Form"
-import { renderValidationMessage } from "../../../utils/renderValidationMessage"
+} from "@kaizen/draft-form"
 
 import styles from "./DateInput.scss"
 
@@ -59,17 +58,9 @@ export const DateInput: React.VFC<DateInputProps> = ({
   handleOnBlur,
   ...inputProps
 }) => (
-  <FieldGroup
-    id={`${id}-field-group`}
-    automationId={`${id}-field-group`}
-    inline={inline}
-    className={classnames(styles.withLabel, {
-      [styles.withDisabled]: disabled,
-    })}
-  >
+  <FieldGroup id={`${id}-field-group`} inline={inline}>
     <Label
       id={`${id}-field-label`}
-      automationId={`${id}-field-label`}
       htmlFor={`${id}-field-input`}
       labelText={labelText}
       reversed={reversed}
@@ -78,7 +69,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
     <Input
       id={`${id}-field-input`}
       inputType="text"
-      automationId={`${id}-field-input`}
       role="combobox"
       aria-expanded={isOpen}
       aria-haspopup="dialog"
@@ -126,7 +116,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
       >
         <FieldMessage
           id={`${id}-field-message`}
-          automationId={`${id}-field-description`}
           message={description}
           reversed={reversed}
         />

@@ -269,8 +269,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             valueString !== undefined && handleFormatChange(valueString)
           }
           labelText={labelText}
-          description="mm/dd/yyyy"
-          placeholder="mm/dd/yyyy"
+          description="Format: mm/dd/yyyy"
           icon={dateStart}
           onButtonClick={handleOpenClose}
           onChange={handleTextChange}
