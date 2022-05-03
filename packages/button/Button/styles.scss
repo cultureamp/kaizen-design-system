@@ -725,9 +725,9 @@ $caButtonCircle-radius: 30px;
       :global(.js-focus-visible) &:global(.focus-visible) {
         border: $border-solid-border-width $border-solid-border-style
           $color-blue-400;
-          &::after {
-            border-radius: $caButtonCircle-radius;
-          }
+        &::after {
+          border-radius: $caButtonCircle-radius;
+        }
       }
 
       &%caButtonReversed {
