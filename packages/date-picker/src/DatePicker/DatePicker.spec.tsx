@@ -7,14 +7,14 @@ import "@testing-library/jest-dom"
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
-  valueDate: undefined,
+  value: undefined,
   initialMonth: new Date(2022, 2),
-  setValueDate: jest.fn(),
+  onChange: jest.fn(),
 }
 
 describe("<DatePicker />", () => {
   it("renders DatePicker and displays inital date within input", async () => {
-    render(<DatePicker {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
 
     // Make sure date renders in the button
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
@@ -86,7 +86,7 @@ describe("<DatePicker />", () => {
   })
 
   it("formats values when focus is on the input", async () => {
-    render(<DatePicker {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
 
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
 
@@ -99,7 +99,7 @@ describe("<DatePicker />", () => {
   })
 
   it("formats values when the input loses focus - onBlur", async () => {
-    render(<DatePicker {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
 
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
 
