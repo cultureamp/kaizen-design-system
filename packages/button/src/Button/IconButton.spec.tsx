@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { CustomButtonProps, IconButton } from "../"
+import { CustomButtonProps, IconButton } from "../.."
 
 it("renders an accessible label when it's a link", () => {
   render(<IconButton href="#" label="Accessible label on the link version" />)
