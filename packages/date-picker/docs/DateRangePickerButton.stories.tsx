@@ -11,11 +11,11 @@ import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker - Button`,
-  component: DatePicker,
+  component: DateRangePicker,
   parameters: {
     docs: {
       description: {
-        component: 'import { DatePicker } from "@kaizen/date-picker"',
+        component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
   },
