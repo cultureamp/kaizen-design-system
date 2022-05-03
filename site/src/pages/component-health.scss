@@ -88,3 +88,14 @@
     color: $color-red-600;
   }
 }
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.sectionHeaderIllustration {
+  width: 100px;
+}

@@ -35,14 +35,14 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: `${CATEGORIES.deprecated}/Title Block`,
+  title: `${CATEGORIES.deprecated}/Title Block (legacy)`,
   component: TitleBlock,
   parameters: {
-    info: {
-      text: `
-      # Deprecated
-      This component is now deprecated. Please use @kaizen/draft-zen-title-block instead.
-      `,
+    docs: {
+      description: {
+        component:
+          "⛔️ This component is deprecated. Please use @kaizen/draft-zen-title-block instead.",
+      },
     },
   },
 }

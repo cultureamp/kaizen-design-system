@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingHeading } from "../src/LoadingSkeleton"
+import { LoadingHeading } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 

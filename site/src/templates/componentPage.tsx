@@ -44,7 +44,11 @@ export default ({ data, location }) => {
     el => el.node.frontmatter.navTitle === "Overview"
   )
   const pagesWithoutOverview = sortSidebarTabs(
-    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
+    allPages.filter(
+      el =>
+        el.node.frontmatter.navTitle !== "Overview" &&
+        el.node.frontmatter.excludeFromSidebar !== true
+    )
   )
   const relatedIssues = allIssues.filter(({ node }) => {
     if (!node.labels.length || !md.frontmatter.githubLabels) return false
@@ -132,6 +136,7 @@ export const query = graphql`
           }
           frontmatter {
             deprecated
+            excludeFromSidebar
             navTitle
             title
           }

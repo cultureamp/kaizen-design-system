@@ -11,7 +11,7 @@ import {
   LoadingHeading,
   LoadingParagraph,
   LoadingInput,
-} from "../src/LoadingSkeleton"
+} from ".."
 import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceBlock/GuidanceBlock.scss"
 
 export default {
