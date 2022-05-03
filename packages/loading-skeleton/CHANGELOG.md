@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.5.0...@kaizen/loading-skeleton@1.5.1) (2022-05-03)
+
+
+### Bug Fixes
+
+* update index.ts to be on root level of package ([#2709](https://github.com/cultureamp/kaizen-design-system/issues/2709)) ([97f2d3f](https://github.com/cultureamp/kaizen-design-system/commit/97f2d3fc1c00811c7f731a5811f38880b1855014))
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.4.1...@kaizen/loading-skeleton@1.5.0) (2022-04-21)
 
 

@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingInput, LoadingHeading } from "../src/LoadingSkeleton"
+import { LoadingInput, LoadingHeading } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 

@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { HeadingVariants } from "@kaizen/typography"
-import skeletonStyles from "../LoadingSkeleton.scss"
+import skeletonStyles from "../loading-skeleton.scss"
 import headingStyles from "./LoadingHeading.scss"
 
 export interface LoadingHeadingProps
