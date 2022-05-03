@@ -1,10 +1,17 @@
+import { json } from "stream/consumers"
 import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
 import { v4 } from "uuid"
 import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { Node, Schema, MarkType, NodeType } from "prosemirror-model"
-import { wrapInList } from "prosemirror-schema-list"
+import {
+  addListNodes,
+  wrapInList,
+  orderedList,
+  bulletList,
+  listItem,
+} from "prosemirror-schema-list"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
@@ -14,6 +21,7 @@ import {
   removeMark,
   addMark,
 } from "@cultureamp/rich-text-toolkit"
+
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray, EditorRows } from "./types"
 import { createSchemaFromControls } from "./schema"
@@ -102,7 +110,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
 
   useEffect(() => {
     onChange(editorState.toJSON().doc.content)
-    console.log(schema)
+    console.log("Schema: ", schema)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
   return (
@@ -121,19 +129,28 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                       // TODO: function to generate node config
                       // nodes can respond differently so may require different implementations
                       // the main requirement is that a toggle-able action be passed into the button
-
-                      const action = createNodeAction(control)
+                      console.log("node control: ", control)
+                      // const action = createNodeAction(control)
                       return (
                         <ToggleIconButton
                           key={controlIndex}
                           icon={control.spec.control.icon}
                           label={control.spec.control.label}
                           isActive={false}
-                          onClick={() => dispatchTransaction(action)}
+                          onClick={() =>
+                            dispatchTransaction(wrapInList(control))
+                          }
                         />
+                        // <button
+                        //   onClick={() => {
+                        //     console.log("control clicked:", control)
+                        //   }}
+                        // >
+                        //   {control.name}
+                        // </button>
                       )
                     } else if (control instanceof MarkType) {
-                      console.log(control)
+                      console.log("marks control: ", control)
                       // TODO: function to generate mark config
                       const isActive =
                         markIsActive(editorState, control) || false

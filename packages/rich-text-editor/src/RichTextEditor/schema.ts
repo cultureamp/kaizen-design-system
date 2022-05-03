@@ -11,13 +11,15 @@ import {
 import {
   addListNodes,
   wrapInList,
-  orderedList,
-  bulletList,
-  listItem,
+  orderedList as olNodeSpec,
+  bulletList as ulNodeSpec,
+  listItem as liNodeSpec,
 } from "prosemirror-schema-list"
+
+import { customAddListNodes } from "./list-helpers"
 import { ToolbarControls } from "./RichTextEditor"
 
-export const defaultNodes: NodeSpec = {
+export const nodes: NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
   text: coreNodes.text,
@@ -33,26 +35,29 @@ export const defaultNodes: NodeSpec = {
 //   isNodeSpec: boolean
 // }
 
-export const nodes: NodeSpec = {
+export const listNodes: NodeSpec = {
   // eslint-disable-next-line camelcase
   ordered_list: {
-    isNodeSpec: true,
     attrs: { order: { default: 1 } },
-    parseDOM: [
-      {
-        tag: "ol",
-        getAttrs(dom) {
-          return {
-            order: dom.hasAttribute("start") ? +dom.getAttribute("start") : 1,
-          }
-        },
-      },
-    ],
-    toDOM(node) {
-      return node.attrs.order == 1
-        ? ["ol", 0]
-        : ["ol", { start: node.attrs.order }, 0]
-    },
+    groups: ["block"],
+    content: "list_item+",
+    // parseDOM: [
+    //   {
+    //     group: "list",
+    //     tag: "ol",
+    //     getAttrs(dom) {
+    //       return {
+    //         order: dom.hasAttribute("start") ? +dom.getAttribute("start") : 1,
+    //       }
+    //     },
+    //   },
+    // ],
+    // toDOM(node) {
+    //   return node.attrs.order == 1
+    //     ? ["ol", 0]
+    //     : ["ol", { start: node.attrs.order }, 0]
+    // },
+    ...olNodeSpec,
     control: {
       label: "Numbered List",
       icon: numberedListIcon,
@@ -60,11 +65,13 @@ export const nodes: NodeSpec = {
   },
   // eslint-disable-next-line camelcase
   bullet_list: {
-    isNodeSpec: true,
-    parseDOM: [{ tag: "ul" }],
-    toDOM() {
-      return ["ul", 0]
-    },
+    groups: ["block"],
+    content: "list_item+",
+    // parseDOM: [{ tag: "ul" }],
+    // toDOM() {
+    //   return ["ul", 0]
+    // },
+    ...ulNodeSpec,
     control: {
       label: "Bulleted List",
       icon: bulletListIcon,
@@ -72,11 +79,14 @@ export const nodes: NodeSpec = {
   },
   // eslint-disable-next-line camelcase
   list_item: {
-    parseDOM: [{ tag: "li" }],
-    toDOM() {
-      return ["li", 0]
-    },
-    defining: true,
+    groups: ["block"],
+    content: "paragraph block*",
+    ...liNodeSpec,
+    // parseDOM: [{ tag: "li" }],
+    // toDOM() {
+    //   return ["li", 0]
+    // },
+    // defining: true,
   },
 }
 
@@ -116,37 +126,6 @@ export const marks: MarkSpec = {
 //   return copy
 // }
 
-// // modified addList from list schema
-// const createListNodes = (listNodes: NodeSpec, itemContent, listGroup) => ({
-//   ordered_list: add(orderedList, {
-//     content: "list_item+",
-//     group: listGroup,
-//     control: {
-//       label: "Numbered List",
-//       icon: numberedListIcon,
-//     },
-//   }),
-//   bullet_list: add(bulletList, {
-//     content: "list_item+",
-//     group: listGroup,
-//     control: {
-//       label: "Bullet List",
-//       icon: bulletListIcon,
-//     },
-//   }),
-//   list_item: add(listItem, { content: itemContent }),
-// })
-
-// export const listNodes: NodeSpec = createListNodes(
-//   defaultNodes,
-//   "paragraph block*",
-//   "block"
-// )
-
-// const listNodes = {
-//   nodes: addListNodes(defaultNodes, "paragraph block*", "block"),
-// }
-
 // TODO: merge the reduce into one reduce function
 export const createSchemaFromControls = controls => {
   const newMarks: MarkSpec = controls.reduce((previousValue, currentValue) => {
@@ -161,7 +140,15 @@ export const createSchemaFromControls = controls => {
 
   const newNodes: NodeSpec = controls.reduce(
     (previousValue, currentValue) => {
-      if (nodes[currentValue]) {
+      const isListNode = listNodes[currentValue]
+      if (!nodes[currentValue] && !isListNode) return previousValue
+      if (isListNode) {
+        return {
+          [currentValue]: { ...listNodes[currentValue] },
+          list_item: { ...listNodes.list_item },
+          ...previousValue,
+        }
+      } else if (nodes[currentValue]) {
         return {
           ...previousValue,
           [currentValue]: {
@@ -169,22 +156,24 @@ export const createSchemaFromControls = controls => {
           },
         }
       }
-      return previousValue
     },
-    { ...defaultNodes }
+    { ...nodes }
   )
 
   // TODO: This is hard coded to always enable lists for now,
   // but once we have the toolbar we can use the controls to determine this.
-  // const listsEnabled = true
 
   const schema = new Schema({
     nodes: newNodes,
     marks: newMarks,
   })
+  // const listSchema = new Schema({
+  //   nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block")
+  // })
+  // console.log("general list schema", listSchema)
 
-  console.log("New nodes: ", newNodes)
-  console.log("schema: ", schema)
+  // console.log("New nodes: ", newNodes)
+  // console.log("schema: ", schema)
   // console.log("list nodes: ", listNodes)
 
   // if (listsEnabled) {
