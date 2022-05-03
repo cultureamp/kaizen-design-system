@@ -106,8 +106,6 @@ const GenericButton = forwardRef(
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
-          [styles.circleButtonFocus]:
-            props.directionalLink || props.paginationLink,
         })}
       >
         {determineButtonRenderer()}
