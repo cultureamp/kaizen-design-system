@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import skeletonStyles from "../LoadingSkeleton.scss"
+import skeletonStyles from "../loading-skeleton.scss"
 import paragraphStyles from "./LoadingParagraph.scss"
 
 export interface LoadingParagraphProps
