@@ -6,7 +6,7 @@ import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingGraphic } from "../src/LoadingSkeleton"
+import { LoadingGraphic } from ".."
 
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
