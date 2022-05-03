@@ -89,10 +89,6 @@
   visibility: hidden;
 }
 
-.circleButtonFocus {
-  @extend %caCircleButtonFocus;
-}
-
 .circleButton {
   @extend %caCircleButton;
 }

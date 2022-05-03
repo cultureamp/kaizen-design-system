@@ -234,11 +234,6 @@ $caButtonCircle-radius: 30px;
         right: calc(-1 * #{$focus-ring-offset});
         bottom: calc(-1 * #{$focus-ring-offset});
       }
-
-      &:global(.focus-visible)::after,
-      %caCircleButtonFocus {
-        border-radius: $caButtonCircle-radius;
-      }
     }
   }
 
@@ -730,6 +725,9 @@ $caButtonCircle-radius: 30px;
       :global(.js-focus-visible) &:global(.focus-visible) {
         border: $border-solid-border-width $border-solid-border-style
           $color-blue-400;
+        &::after {
+          border-radius: $caButtonCircle-radius;
+        }
       }
 
       &%caButtonReversed {

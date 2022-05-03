@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.1.1...@kaizen/button@1.1.2) (2022-05-03)
+
+
+### Bug Fixes
+
+* button focus styling ([#2711](https://github.com/cultureamp/kaizen-design-system/issues/2711)) ([860b2f9](https://github.com/cultureamp/kaizen-design-system/commit/860b2f9b74db1bc3f1f007107e48a4e6a77acc0d))
+
+
+
+
+
 ## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.1.0...@kaizen/button@1.1.1) (2022-05-03)
 
 **Note:** Version bump only for package @kaizen/button
