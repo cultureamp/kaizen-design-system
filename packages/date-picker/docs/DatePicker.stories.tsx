@@ -28,8 +28,8 @@ export const DefaultStory = props => {
       <DatePicker
         id="datepicker-default"
         labelText="Label"
-        valueDate={valueDate}
-        setValueDate={setValueDate}
+        value={valueDate}
+        onChange={setValueDate}
         {...props}
       />
     </>
@@ -87,27 +87,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <DatePicker
             id="datepicker-default"
             labelText="Label"
-            valueDate={selectedDate}
-            setValueDate={setValueDate}
+            value={selectedDate}
+            onChange={date => setValueDate(date)}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
-            valueDate={new Date(2022, 1, 5)}
-            setValueDate={setValueDate}
+            value={new Date(2022, 1, 5)}
+            onChange={date => setValueDate(date)}
           />
           <DatePicker
             isDisabled
             id="datepicker-disabled"
             labelText="Label"
-            valueDate={selectedDate}
-            setValueDate={setValueDate}
+            value={selectedDate}
+            onChange={date => setValueDate(date)}
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
-            valueDate={new Date("potato")}
-            setValueDate={setValueDate}
+            value={new Date("potato")}
+            onChange={date => setValueDate(date)}
           />
         </StoryWrapper.Row>
       </StoryWrapper>

@@ -13,7 +13,7 @@ import { isValid, parse, format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
-import { DateInput, validationMessagesProps } from "./components/DateInput"
+import { DateInput } from "./components/DateInput"
 export interface DatePickerProps {
   id: string
   classNameOverride?: string
@@ -29,10 +29,12 @@ export interface DatePickerProps {
   initialMonth?: Date
 
   // The date passed in from the consumer that renders in the input and calendar.
-  valueDate: Date | undefined
+  value: Date | undefined
 
-  // Setter for updating the selected date used by the consumer.
-  setValueDate: React.Dispatch<React.SetStateAction<Date | undefined>>
+  /** Callback when date is updated either by the calendar picker or by typing and bluring.
+   * Date will return as undefined if invalid or disabled.
+   * * */
+  onChange: (date: Date | undefined) => void
 
   /** Accepts an array of singluar dates and disables them.
    * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
@@ -93,10 +95,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledAfter,
   firstDayOfWeek = 1,
   initialMonth,
-  valueDate,
-  setValueDate,
+  value,
+  onChange,
   ...inputProps
 }) => {
+  const valueDate = value
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
   const [isTextValid, setIsTextValid] = useState<boolean>(true)
@@ -143,7 +146,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     setValueString(format(day, DateFormat.text))
     setCurrentDateFormat(DateFormat.text)
-    setValueDate(day)
+    onChange(day)
     setIsOpen(false)
     setIsTextValid(true)
   }
@@ -188,18 +191,18 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     setIsTextValid(isValidDate)
 
     if (!isValidDate) {
-      setValueDate(undefined)
+      onChange(undefined)
       return
     }
 
     if (currentDateFormat === DateFormat.numeral) {
       setValueString(format(parsedDate, DateFormat.text))
       setCurrentDateFormat(DateFormat.text)
-      setValueDate(parsedDate)
+      onChange(parsedDate)
     } else {
       setValueString(format(parsedDate, DateFormat.numeral))
       setCurrentDateFormat(DateFormat.numeral)
-      setValueDate(parsedDate)
+      onChange(parsedDate)
     }
   }
 
@@ -247,7 +250,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         }
       } catch (error) {
         setIsTextValid(false)
-        setValueDate(undefined)
+        onChange(undefined)
       }
     }
   }, [])
