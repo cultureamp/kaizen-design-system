@@ -49,7 +49,6 @@ export interface InputProps
    * @deprecated
    */
   automationId?: string
-  isDatePicker?: boolean
 }
 
 export const Input: React.VFC<InputProps> = ({
@@ -70,7 +69,6 @@ export const Input: React.VFC<InputProps> = ({
   className,
   automationId,
   disabled,
-  isDatePicker = false,
   ...restProps
 }) => (
   <div
@@ -110,13 +108,7 @@ export const Input: React.VFC<InputProps> = ({
     <div className={styles.focusRing} />
 
     {endIconAdornment && (
-      <div
-        className={classnames(styles.endIconAdornment, {
-          [styles.datePicker]: isDatePicker,
-        })}
-      >
-        {endIconAdornment}
-      </div>
+      <div className={styles.endIconAdornment}>{endIconAdornment}</div>
     )}
   </div>
 )

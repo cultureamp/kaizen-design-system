@@ -33,6 +33,8 @@ $input-disabled-opacity: 0.3;
   border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
   position: relative;
+  right: -0.25rem;
+  top: -45%;
 
   &:hover:not([disabled]) {
     background-color: $color-blue-100;
