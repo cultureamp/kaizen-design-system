@@ -103,7 +103,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
           </div>
         </button>
       }
-      isDatePicker
       onKeyDown={onKeyDown}
       {...inputProps}
     />
