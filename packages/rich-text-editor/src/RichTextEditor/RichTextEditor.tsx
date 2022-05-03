@@ -14,14 +14,16 @@ import {
   addMark,
 } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
+import { menuBar } from "../prosemirror-menu"
 import { EditorContentArray, EditorRows } from "./types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
 import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
+import { buildMenuItems } from "./menu"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
-type ToolbarControls = "bold" | "italic" | "underline"
+type ToolbarControls = "strong" | "em" | "underline"
 export interface RichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
@@ -64,6 +66,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
         buildInputRules(schema),
+        menuBar({ floating: false, content: buildMenuItems(schema).fullMenu }),
       ],
     }),
     { "aria-labelledby": labelId }
@@ -116,5 +119,3 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     </>
   )
 }
-
-RichTextEditor.displayName = "RichTextEditor"

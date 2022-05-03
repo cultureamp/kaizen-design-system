@@ -34,9 +34,10 @@ export const WithControls = () => {
       <RichTextEditor
         labelText="Label"
         value={rteData}
-        controls={[["bold", "italic"], ["underline"]]}
+        controls={[["strong", "em"], ["underline"]]}
         onChange={data => setRTEData(data)}
       />
+      <div>{JSON.stringify(rteData)}</div>
     </>
   )
 }

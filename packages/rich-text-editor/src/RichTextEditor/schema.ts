@@ -17,14 +17,14 @@ export const nodes: NodeSpec = {
 }
 
 export const marks: MarkSpec = {
-  bold: {
+  strong: {
     ...coreMarks.strong,
     control: {
       label: "Bold",
       icon: boldIcon,
     },
   },
-  italic: {
+  em: {
     ...coreMarks.em,
     control: {
       label: "Italic",
@@ -57,7 +57,11 @@ export const createSchemaFromControls = controls => {
 
   if (listsEnabled) {
     return new Schema({
-      nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
+      nodes: addListNodes(
+        schema.spec.nodes,
+        "paragraph (ordered_list)?",
+        "block"
+      ),
       marks: newMarks,
     })
   }
