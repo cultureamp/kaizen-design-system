@@ -25,8 +25,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
   calendarId?: string
   buttonRef?: React.RefObject<HTMLButtonElement>
-  labelText: string | React.ReactNode
-  inline?: boolean
+  labelText: React.ReactNode
   icon: React.SVGAttributes<SVGSymbolElement>
   /**
    * A description that provides context for the text field
@@ -34,8 +33,6 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   description?: string | React.ReactNode
   isOpen: boolean
   onButtonClick: () => void
-  onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => void
-  handleOnBlur?: React.FocusEventHandler<HTMLInputElement> | undefined
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -48,17 +45,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
   value,
   description,
   reversed = false,
-  inline = false,
   status = "default",
   icon,
   onButtonClick,
   calendarId,
   isOpen,
+  onBlur,
   onKeyDown,
-  handleOnBlur,
   ...inputProps
 }) => (
-  <FieldGroup id={`${id}-field-group`} inline={inline}>
+  <FieldGroup id={`${id}-field-group`} inline={true}>
     <Label
       id={`${id}-field-label`}
       htmlFor={`${id}-field-input`}
@@ -81,7 +77,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       disabled={disabled}
       reversed={reversed}
       status={status}
-      onBlur={handleOnBlur}
+      onBlur={onBlur}
       endIconAdornment={
         <button
           ref={buttonRef}
@@ -123,4 +119,4 @@ export const DateInput: React.VFC<DateInputProps> = ({
   </FieldGroup>
 )
 
-DateInput.displayName = "DatePickerInput"
+DateInput.displayName = "DateInput"
