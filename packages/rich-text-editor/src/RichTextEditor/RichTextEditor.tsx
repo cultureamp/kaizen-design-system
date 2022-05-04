@@ -24,7 +24,7 @@ import {
 
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray, EditorRows } from "./types"
-import { createSchemaFromControls } from "./schema"
+import { createSchemaFromControls, buildToolbarConfig } from "./schema"
 import { buildKeymap } from "./keymap"
 import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
@@ -85,6 +85,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     { "aria-labelledby": labelId }
   )
 
+  // TODO: ToolbarItemsFromSchema
   const toolbarItemsFromControls: ToolbarControlSpec[][] | undefined =
     controls?.map(controlGroup =>
       controlGroup.map(control => {
@@ -129,6 +130,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                       // TODO: function to generate node config
                       // nodes can respond differently so may require different implementations
                       // the main requirement is that a toggle-able action be passed into the button
+                      const config = buildControlConfig(control)
 
                       console.log("node control: ", control)
                       // TODO: function to pass action into IconButton

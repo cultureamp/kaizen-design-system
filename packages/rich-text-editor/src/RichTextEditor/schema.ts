@@ -130,13 +130,13 @@ export const createSchemaFromControls = controls => {
   })
 
   if (listsEnabled) {
-    const listNodesTest = addListNodes(
-      schema.spec.nodes,
-      "paragraph block*",
-      "block"
-    )
+    // const listNodesTest = addListNodes(
+    //   schema.spec.nodes,
+    //   "paragraph block*",
+    //   "block"
+    // )
 
-    console.log("list nodes test:", listNodesTest)
+    // console.log("list nodes test:", listNodesTest)
     // const listNodeTestObj = [
     //   "doc",
     //   { content: "block+" },
@@ -198,10 +198,8 @@ export const createSchemaFromControls = controls => {
       },
     }
 
-    const orderedMap = OrderedMap.from(listNodeTestObj)
-    console.log("OM:", orderedMap)
     return new Schema({
-      nodes: orderedMap,
+      nodes: listNodeTestObj,
       marks: newMarks,
     })
   }
