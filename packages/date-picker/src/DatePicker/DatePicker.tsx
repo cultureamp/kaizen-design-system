@@ -180,6 +180,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     // isValid will return true for "Invalid Date" which is a truthy Date object
     if (parsedDate.toString() === "Invalid Date") {
       setIsTextValid(false)
+      return
     }
 
     // Check if typed day has disabled modifier
@@ -265,7 +266,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           isOpen={isOpen}
           value={valueString ? valueString : ""}
           disabled={isDisabled}
-          handleOnBlur={() =>
+          onBlur={() =>
             valueString !== undefined && handleFormatChange(valueString)
           }
           onFocus={() =>
@@ -276,7 +277,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           icon={dateStart}
           onButtonClick={handleOpenClose}
           onChange={handleTextChange}
-          calendarId={"calendar-dialog"}
+          calendarId={`${id}-calendar-dialog`}
           onKeyDown={e => handleKeyDown(e)}
           {...inputProps}
         />
