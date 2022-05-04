@@ -277,7 +277,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           icon={dateStart}
           onButtonClick={handleOpenClose}
           onChange={handleTextChange}
-          calendarId={"calendar-dialog"}
+          calendarId={`${id}-calendar-dialog`}
           onKeyDown={e => handleKeyDown(e)}
           {...inputProps}
         />
