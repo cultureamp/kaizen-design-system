@@ -4,6 +4,8 @@ import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
 import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
+import OrderedMap from "orderedmap"
+
 import {
   nodes as coreNodes,
   marks as coreMarks,
@@ -27,10 +29,6 @@ export const nodes: NodeSpec = {
   hard_break: coreNodes.hard_break,
 }
 
-// const listNodeSchema = new Schema({
-//   nodes: addListNodes(defaultNodes, "paragraph block*", "block"),
-// })
-
 // interface ControlNodeType extends NodeSpec {
 //   isNodeSpec: boolean
 // }
@@ -38,26 +36,10 @@ export const nodes: NodeSpec = {
 export const listNodes: NodeSpec = {
   // eslint-disable-next-line camelcase
   ordered_list: {
+    ...olNodeSpec,
     attrs: { order: { default: 1 } },
     groups: ["block"],
     content: "list_item+",
-    // parseDOM: [
-    //   {
-    //     group: "list",
-    //     tag: "ol",
-    //     getAttrs(dom) {
-    //       return {
-    //         order: dom.hasAttribute("start") ? +dom.getAttribute("start") : 1,
-    //       }
-    //     },
-    //   },
-    // ],
-    // toDOM(node) {
-    //   return node.attrs.order == 1
-    //     ? ["ol", 0]
-    //     : ["ol", { start: node.attrs.order }, 0]
-    // },
-    ...olNodeSpec,
     control: {
       label: "Numbered List",
       icon: numberedListIcon,
@@ -65,13 +47,9 @@ export const listNodes: NodeSpec = {
   },
   // eslint-disable-next-line camelcase
   bullet_list: {
+    ...ulNodeSpec,
     groups: ["block"],
     content: "list_item+",
-    // parseDOM: [{ tag: "ul" }],
-    // toDOM() {
-    //   return ["ul", 0]
-    // },
-    ...ulNodeSpec,
     control: {
       label: "Bulleted List",
       icon: bulletListIcon,
@@ -82,11 +60,6 @@ export const listNodes: NodeSpec = {
     groups: ["block"],
     content: "paragraph block*",
     ...liNodeSpec,
-    // parseDOM: [{ tag: "li" }],
-    // toDOM() {
-    //   return ["li", 0]
-    // },
-    // defining: true,
   },
 }
 
@@ -114,20 +87,9 @@ export const marks: MarkSpec = {
   },
 }
 
-// // copied from list schema
-// function add(obj, props) {
-//   const copy = {}
-//   for (const prop in obj) {
-//     copy[prop] = obj[prop]
-//   }
-//   for (const prop$1 in props) {
-//     copy[prop$1] = props[prop$1]
-//   }
-//   return copy
-// }
-
 // TODO: merge the reduce into one reduce function
 export const createSchemaFromControls = controls => {
+  let listsEnabled
   const newMarks: MarkSpec = controls.reduce((previousValue, currentValue) => {
     if (marks[currentValue]) {
       return {
@@ -143,9 +105,11 @@ export const createSchemaFromControls = controls => {
       const isListNode = listNodes[currentValue]
       if (!nodes[currentValue] && !isListNode) return previousValue
       if (isListNode) {
+        listsEnabled = true
         return {
-          [currentValue]: { ...listNodes[currentValue] },
-          list_item: { ...listNodes.list_item },
+          // [currentValue]: { ...listNodes[currentValue] },
+          // // eslint-disable-next-line camelcase
+          // list_item: { ...listNodes.list_item },
           ...previousValue,
         }
       } else if (nodes[currentValue]) {
@@ -159,29 +123,99 @@ export const createSchemaFromControls = controls => {
     },
     { ...nodes }
   )
-
-  // TODO: This is hard coded to always enable lists for now,
-  // but once we have the toolbar we can use the controls to determine this.
-
+  console.log(JSON.stringify(newNodes))
   const schema = new Schema({
     nodes: newNodes,
     marks: newMarks,
   })
-  // const listSchema = new Schema({
-  //   nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block")
-  // })
-  // console.log("general list schema", listSchema)
 
-  // console.log("New nodes: ", newNodes)
-  // console.log("schema: ", schema)
-  // console.log("list nodes: ", listNodes)
+  if (listsEnabled) {
+    const listNodesTest = addListNodes(
+      schema.spec.nodes,
+      "paragraph block*",
+      "block"
+    )
 
-  // if (listsEnabled) {
-  //   return new Schema({
-  //     nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-  //     marks: newMarks,
-  //   })
-  // }
+    console.log("list nodes test:", listNodesTest)
+    // const listNodeTestObj = [
+    //   "doc",
+    //   { content: "block+" },
+    //   "paragraph",
+    //   { content: "inline*", group: "block", parseDOM: [{ tag: "p" }] },
+    //   "text",
+    //   { group: "inline" },
+    //   "hard_break",
+    //   {
+    //     inline: true,
+    //     group: "inline",
+    //     selectable: false,
+    //     parseDOM: [{ tag: "br" }],
+    //   },
+    //   "ordered_list",
+    //   {
+    //     attrs: { order: { default: 1 } },
+    //     parseDOM: [{ tag: "ol" }],
+    //     content: "list_item+",
+    //     group: "block",
+    //   },
+    //   "bullet_list",
+    //   { parseDOM: [{ tag: "ul" }], content: "list_item+", group: "block" },
+    //   "list_item",
+    //   {
+    //     parseDOM: [{ tag: "li" }],
+    //     defining: true,
+    //     content: "paragraph block*",
+    //   },
+    // ] as OrderedMap
+    const listNodeTestObj = {
+      ...newNodes,
+      ordered_list: {
+        attrs: { order: { default: 1 } },
+        parseDOM: [{ tag: "ol" }],
+        content: "list_item+",
+        group: "block",
+        toDOM: function toDOM(node) {
+          return node.attrs.order == 1
+            ? ["ol", 0]
+            : ["ol", { start: node.attrs.order }, 0]
+        },
+      },
+      bullet_list: {
+        parseDOM: [{ tag: "ul" }],
+        content: "list_item+",
+        group: "block",
+        toDOM: function toDOM() {
+          return ["ul", 0]
+        },
+      },
+      list_item: {
+        parseDOM: [{ tag: "li" }],
+        defining: true,
+        content: "paragraph block*",
+        toDOM: function toDOM() {
+          return ["li", 0]
+        },
+      },
+    }
+
+    const orderedMap = OrderedMap.from(listNodeTestObj)
+    console.log("OM:", orderedMap)
+    return new Schema({
+      nodes: orderedMap,
+      marks: newMarks,
+    })
+  }
 
   return schema
 }
+
+// export const buildControlConfig = control => {
+//   const menuConfig = {}
+
+//   switch (control.name) {
+//     case "bullet_list":
+//       return {}
+//     default:
+//       return {}
+//   }
+// }

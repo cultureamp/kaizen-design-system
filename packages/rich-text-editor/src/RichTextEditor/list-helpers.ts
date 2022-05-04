@@ -41,13 +41,11 @@ type listTypes = "ordered_list" | "bullet_list"
 // const listSchema = addListNodes({ nodes: {} }, "paragraph block*", "block")
 
 export const customAddListNodes = (
-  listNodeToAdd: listTypes,
+  listNodes: [listTypes],
   itemContent = "paragraph block*",
   listGroup = "list"
 ) => {
-  // console.log(listSchema)
-
-  const listTypes = {
+  const listsNodeCofig = {
     ordered_list: add(orderedList, {
       content: "list_item+",
       group: listGroup,
@@ -66,8 +64,15 @@ export const customAddListNodes = (
     }),
   }
 
+  const lists = listNodes.reduce((previousListItems, currentListItem) => {
+    if (listsNodeCofig[currentListItem]) {
+      return { [currentListItem]: { ...listsNodeCofig[currentListItem] } }
+    }
+    return previousListItems
+  }, {})
+
   return {
-    [listNodeToAdd]: { ...listTypes[listNodeToAdd] },
+    ...lists,
     list_item: add(listItem, { content: itemContent }),
   }
 }

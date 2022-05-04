@@ -129,25 +129,27 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                       // TODO: function to generate node config
                       // nodes can respond differently so may require different implementations
                       // the main requirement is that a toggle-able action be passed into the button
+
                       console.log("node control: ", control)
-                      // const action = createNodeAction(control)
+                      // TODO: function to pass action into IconButton
+                      // ie: const action = createNodeAction(control)
+
                       return (
                         <ToggleIconButton
                           key={controlIndex}
-                          icon={control.spec.control.icon}
-                          label={control.spec.control.label}
+                          icon={
+                            control.spec.control?.icon || (
+                              <svg>{control.name}</svg>
+                            )
+                          }
+                          label={control.spec.control?.label || control.name}
                           isActive={false}
                           onClick={() =>
-                            dispatchTransaction(wrapInList(control))
+                            dispatchTransaction(
+                              wrapInList(schema.nodes[control.name])
+                            )
                           }
                         />
-                        // <button
-                        //   onClick={() => {
-                        //     console.log("control clicked:", control)
-                        //   }}
-                        // >
-                        //   {control.name}
-                        // </button>
                       )
                     } else if (control instanceof MarkType) {
                       console.log("marks control: ", control)
