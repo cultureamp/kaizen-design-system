@@ -11,10 +11,7 @@ export {
   default as ModalHeader,
   ModalHeaderProps,
 } from "./Primitives/ModalHeader"
-export {
-  default as ModalAccessibleDescription,
-  ModalAccessibleDescriptionProps,
-} from "./Primitives/ModalAccessibleDescription"
+export * from "./Primitives/ModalAccessibleDescription"
 export {
   default as ModalAccessibleLabel,
   ModalAccessibleLabelProps,

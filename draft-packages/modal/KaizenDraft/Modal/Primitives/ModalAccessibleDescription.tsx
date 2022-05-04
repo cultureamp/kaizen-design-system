@@ -1,17 +1,14 @@
-import * as React from "react"
+import React from "react"
 import { ModalAccessibleContext } from "./ModalAccessibleContext"
 import styles from "./ModalAccessibleDescription.scss"
 
 export interface ModalAccessibleDescriptionProps {
-  readonly children: React.ReactNode
+  children: React.ReactNode
 }
 
-type ModalAccessibleDescription =
-  React.FunctionComponent<ModalAccessibleDescriptionProps>
-
-const ModalAccessibleDescription: ModalAccessibleDescription = ({
-  children,
-}) => (
+export const ModalAccessibleDescription: React.VFC<
+  ModalAccessibleDescriptionProps
+> = ({ children }) => (
   <ModalAccessibleContext.Consumer>
     {({ describedByID }) => (
       <div id={describedByID} className={styles.modalDescription}>
@@ -21,4 +18,4 @@ const ModalAccessibleDescription: ModalAccessibleDescription = ({
   </ModalAccessibleContext.Consumer>
 )
 
-export default ModalAccessibleDescription
+ModalAccessibleDescription.displayName = "ModalAccessibleDescription"
