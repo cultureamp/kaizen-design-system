@@ -1,51 +1,31 @@
-import React from "react"
-import { Paragraph } from "@kaizen/typography"
-import { Button } from "@kaizen/button"
-import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
+import React, { useState } from "react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
+import { ComponentStory } from "@storybook/react"
+import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
+import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
+import { Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./ContextModal.stories.scss"
+
+const IS_CHROMATIC = isChromatic()
 
 // Add additional height to the stories when running in Chromatic only.
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
 const withMinHeight = Story => {
-  if (!isChromatic()) return <Story />
-  return (
-    <div style={{ minHeight: "100vh" }}>
-      <Story />
-    </div>
-  )
-}
-class ModalStateContainer extends React.Component<
-  {
-    isInitiallyOpen: boolean
-    children: (renderProps: {
-      open: () => void
-      close: () => void
-      isOpen: boolean
-    }) => React.ReactNode
-  },
-  { isOpen: boolean }
-> {
-  state = { isOpen: this.props.isInitiallyOpen }
-  open = () => this.setState({ isOpen: true })
-  close = () => this.setState({ isOpen: false })
-  render() {
-    return this.props.children({
-      open: this.open,
-      close: this.close,
-      isOpen: this.state.isOpen,
-    })
+  if (IS_CHROMATIC) {
+    return <div style={{ minHeight: "100vh" }}>{Story()}</div>
   }
+
+  return Story()
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal/Context Modal`,
+  title: `${CATEGORIES.components}/Modal`,
   component: ContextModal,
   parameters: {
     chromatic: {
@@ -56,9 +36,7 @@ export default {
     docs: {
       description: {
         component:
-          "import { ContextModal, " +
-          "ModalAccessibleDescription" +
-          '} from "@kaizen/draft-modal"',
+          'import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"',
       },
     },
     ...figmaEmbed(
@@ -71,59 +49,71 @@ export default {
   decorators: [withDesign, withMinHeight],
 }
 
-export const ContextModals = args => (
-  <ModalStateContainer isInitiallyOpen={isChromatic()}>
-    {({ open, close, isOpen }) => (
-      <div>
-        <Button label="Open modal" onClick={open} />
-        <ContextModal
-          isOpen={isOpen}
-          title="Context modal title"
-          onConfirm={close}
-          onDismiss={close}
-          secondaryLabel="Cancel"
-          onSecondaryAction={close}
-          confirmLabel="Label"
-          layout="portrait"
-          image={
-            <AddImage
-              classNameOverride={
-                args.layout === "landscape" ? styles.landscape : ""
-              }
-              alt="placeholder"
-            />
-          }
-          {...args}
-        >
-          <ModalAccessibleDescription>
-            <Paragraph variant="body">
-              Intro defining what the modal is trying to explain or depict.
-              Intro defining what the modal is trying to explain or depict.
-            </Paragraph>
-          </ModalAccessibleDescription>
-          <ul>
-            <li>
-              <Paragraph variant="body">
-                Key point to the benefits of the feature
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph variant="body">
-                Key point to the benefits of the feature
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph variant="body">
-                Key point to the benefits of the feature
-              </Paragraph>
-            </li>
-          </ul>
+const ContextModalTemplate: ComponentStory<typeof ContextModal> = args => {
+  const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
+
+  const handleOpen = () => setIsOpen(true)
+  const handleClose = () => setIsOpen(false)
+
+  return (
+    <>
+      <Button label="Open modal" onClick={handleOpen} />
+      <ContextModal
+        {...args}
+        isOpen={args.isOpen === undefined ? isOpen : args.isOpen}
+        onConfirm={handleClose}
+        onDismiss={handleClose}
+        secondaryLabel={args.secondaryLabel || "Cancel"}
+        onSecondaryAction={handleClose}
+        image={
+          <AddImage
+            classNameOverride={
+              args.layout === "landscape" ? styles.landscape : undefined
+            }
+            alt="placeholder"
+          />
+        }
+      >
+        <ModalAccessibleDescription>
           <Paragraph variant="body">
-            More information to conclude can go here. More information to
-            conclude can go here. More information to conclude can go here.
+            Intro defining what the modal is trying to explain or depict. Intro
+            defining what the modal is trying to explain or depict.
           </Paragraph>
-        </ContextModal>
-      </div>
-    )}
-  </ModalStateContainer>
-)
+        </ModalAccessibleDescription>
+        <ul>
+          <li>
+            <Paragraph variant="body">
+              Key point to the benefits of the feature
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph variant="body">
+              Key point to the benefits of the feature
+            </Paragraph>
+          </li>
+          <li>
+            <Paragraph variant="body">
+              Key point to the benefits of the feature
+            </Paragraph>
+          </li>
+        </ul>
+        <Paragraph variant="body">
+          More information to conclude can go here. More information to conclude
+          can go here. More information to conclude can go here.
+        </Paragraph>
+      </ContextModal>
+    </>
+  )
+}
+
+export const ContextModalExample = ContextModalTemplate.bind({})
+ContextModalExample.storyName = "Context Modal"
+ContextModalExample.args = {
+  title: "Context modal title",
+  secondaryLabel: "Cancel",
+  confirmLabel: "Label",
+  layout: "portrait",
+}
+ContextModalExample.parameters = {
+  docs: { source: { type: "code" } },
+}
