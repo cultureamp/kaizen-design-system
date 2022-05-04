@@ -3,6 +3,7 @@ import isChromatic from "chromatic/isChromatic"
 import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
@@ -73,11 +74,13 @@ const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
         onSubmit={handleClose}
         onDismiss={handleClose}
       >
-        <ModalAccessibleDescription>
-          <Paragraph variant="body">
-            Instructive text to drive user selection goes here.
-          </Paragraph>
-        </ModalAccessibleDescription>
+        <Box mb={1}>
+          <ModalAccessibleDescription>
+            <Paragraph variant="body">
+              Instructive text to drive user selection goes here.
+            </Paragraph>
+          </ModalAccessibleDescription>
+        </Box>
         <Select
           options={SELECT_OPTIONS}
           placeholder="Placeholder"
