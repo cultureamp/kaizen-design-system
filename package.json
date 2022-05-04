@@ -95,7 +95,7 @@
     "jest-canvas-mock": "^2.3.1",
     "jest-circus": "^27.4.2",
     "jest-static-stubs": "^0.0.1",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "node-fetch": "^2.6.7",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.1",
