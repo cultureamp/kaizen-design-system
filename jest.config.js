@@ -1,5 +1,6 @@
 module.exports = {
   preset: "ts-jest",
+  testEnvironment: "jsdom",
   testRunner: "jest-circus/runner",
   testMatch: ["**/*.spec.ts?(x)"],
   setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
