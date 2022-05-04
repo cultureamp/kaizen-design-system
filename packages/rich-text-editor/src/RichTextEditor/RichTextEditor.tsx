@@ -130,7 +130,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                       // TODO: function to generate node config
                       // nodes can respond differently so may require different implementations
                       // the main requirement is that a toggle-able action be passed into the button
-                      const config = buildControlConfig(control)
+                      // const config = buildControlConfig(control)
 
                       console.log("node control: ", control)
                       // TODO: function to pass action into IconButton
