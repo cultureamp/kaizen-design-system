@@ -172,6 +172,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      * */
     if (input === "") {
       setIsTextValid(true)
+      onChange(undefined)
       return
     }
 
@@ -180,6 +181,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     // isValid will return true for "Invalid Date" which is a truthy Date object
     if (parsedDate.toString() === "Invalid Date") {
       setIsTextValid(false)
+      onChange(undefined)
       return
     }
 
@@ -311,3 +313,5 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     </div>
   )
 }
+
+DatePicker.displayName = "DatePicker"

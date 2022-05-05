@@ -18,19 +18,19 @@ type OmittedInputProps =
   | "inputValue"
 
 export interface validationMessagesProps {
-  error?: string | React.ReactNode
+  error?: React.ReactNode
 }
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
-  calendarId?: string
+  calendarId: string
   buttonRef?: React.RefObject<HTMLButtonElement>
   labelText: React.ReactNode
   icon: React.SVGAttributes<SVGSymbolElement>
   /**
    * A description that provides context for the text field
    */
-  description?: string | React.ReactNode
+  description?: React.ReactNode
   isOpen: boolean
   onButtonClick: () => void
 }
@@ -69,7 +69,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       aria-expanded={isOpen}
       aria-haspopup="dialog"
       aria-controls={calendarId}
-      ariaDescribedBy={`${id}-field-message`}
+      aria-describedby={`${id}-field-message`}
       autoComplete="off"
       value={value}
       defaultInputValue={defaultInputValue}
