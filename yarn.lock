@@ -2217,16 +2217,17 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@cultureamp/rich-text-toolkit@^1.5.0":
-  version "1.5.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.5.0/3bda0b271ab982abab573a14c6274e6a7e814466737a79ff2fe05de15acc66cc#afaab0d9bbd6d885d9f0ce36f9b25b7889bb6d76"
-  integrity sha512-gRUAyNZRaWfVUNyOuJSw9+OfNIsNCkLFUbODjFbLaO9rRb5D/559J3/9pC6VnzA5pnZIdqJnwYE6zlqBwYWYrg==
+"@cultureamp/rich-text-toolkit@^1.6.0":
+  version "1.6.0"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.6.0/10cfeb2d3428a0a7f1353509b3ee6abae26f3c6c119c7ffb9cacafaadcbb4cff#6db1a4b4540346c3249544bc682b3179f346a332"
+  integrity sha512-Kkd/wVrIti/Iw3wdE+ilFRTRxxiODX2Xpa5joZ6OXd7z6egoVhL7DVwYaMDVaD1YVe0B+o0TIUmqKYHkCi9LRQ==
   dependencies:
     prosemirror-commands "^1.2.1"
     prosemirror-history "^1.2.0"
     prosemirror-inputrules "^1.1.3"
     prosemirror-model "^1.16.1"
     prosemirror-schema-basic "^1.1.2"
+    prosemirror-schema-list "^1.1.6"
     prosemirror-state "^1.3.4"
     prosemirror-view "^1.23.7"
 

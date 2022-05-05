@@ -3,25 +3,27 @@ import { v4 } from "uuid"
 import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
-import { Node, Schema } from "prosemirror-model"
+import { Node, Schema, NodeType, MarkType } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
-import {
-  useRichTextEditor,
-  markIsActive,
-  removeMark,
-  addMark,
-} from "@cultureamp/rich-text-toolkit"
+import { useRichTextEditor } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray, EditorRows } from "./types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
+import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
-type ToolbarControls = "bold" | "italic" | "underline"
+export type ToolbarControls =
+  | "bold"
+  | "italic"
+  | "underline"
+  | "ordered_list"
+  | "bullet_list"
+
 export interface RichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
@@ -72,9 +74,8 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     }),
     { "aria-labelledby": labelId }
   )
-  const marksFromControls = controls?.map(controlGroup =>
-    controlGroup.map(control => schema.marks[control])
-  )
+  const controlMap = controls && buildControlMap(schema, editorState, controls)
+
   useEffect(() => {
     onChange(editorState.toJSON().doc.content)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
@@ -87,21 +88,24 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       <div className={styles.editorWrapper}>
         {controls && (
           <Toolbar aria-controls={editorId} aria-label="Text formatting">
-            {marksFromControls?.map((controlSection, sectionIndex) => (
-              <ToolbarSection key={sectionIndex}>
-                {controlSection.map((mark, markIndex) => {
-                  const isActive = markIsActive(editorState, mark) || false
-                  const action = isActive ? removeMark(mark) : addMark(mark)
-                  return (
-                    <ToggleIconButton
-                      key={markIndex}
-                      icon={mark.spec.control.icon}
-                      label={mark.spec.control.label}
-                      isActive={isActive}
-                      onClick={() => dispatchTransaction(action)}
-                    />
-                  )
-                })}
+            {controlMap?.map((controlSection, index) => (
+              <ToolbarSection>
+                {Object.keys(controlSection).map(
+                  (toolbarControlKey, controlKeyIndex) => {
+                    const controlConfig = controlSection[toolbarControlKey]
+                    return (
+                      <ToggleIconButton
+                        key={controlKeyIndex}
+                        icon={controlConfig.icon}
+                        label={controlConfig.label}
+                        isActive={controlConfig.isActive}
+                        onClick={() =>
+                          dispatchTransaction(controlConfig.action)
+                        }
+                      />
+                    )
+                  }
+                )}
               </ToolbarSection>
             ))}
           </Toolbar>
