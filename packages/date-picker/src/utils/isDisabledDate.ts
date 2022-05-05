@@ -6,10 +6,12 @@ export const isDisabledDate = (
   parsedDate: Date,
   disabledDays: Modifier | Modifier[]
 ): boolean => {
-  // Check if typed day has disabled modifier
-  const isTypedDayDisabled = ModifiersUtils.getModifiersForDay(parsedDate, {
-    [defaultCalendarClasses.disabled]: disabledDays,
-  })
+  const selectedDayDisabledModifiers = ModifiersUtils.getModifiersForDay(
+    parsedDate,
+    {
+      [defaultCalendarClasses.disabled]: disabledDays,
+    }
+  )
 
-  return isTypedDayDisabled.length !== 0
+  return selectedDayDisabledModifiers.length !== 0
 }

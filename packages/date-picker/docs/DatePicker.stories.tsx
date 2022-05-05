@@ -34,6 +34,9 @@ export const DefaultStory = props => {
   )
 }
 DefaultStory.storyName = "Date Picker"
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
 
 const CalendarTemplate: Story = props => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -81,31 +84,31 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Default", "Selected Value", "Disabled", "Error"]}
         />
-        <StoryWrapper.Row rowTitle="Default">
+        <StoryWrapper.Row rowTitle="Input">
           <DatePicker
             id="datepicker-default"
             labelText="Label"
-            value={selectedDate}
-            onDayChange={date => setValueDate(date)}
+            selectedDay={selectedDate}
+            onDayChange={setValueDate}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
-            value={new Date(2022, 1, 5)}
-            onDayChange={date => setValueDate(date)}
+            selectedDay={new Date(2022, 1, 5)}
+            onDayChange={setValueDate}
           />
           <DatePicker
             isDisabled
             id="datepicker-disabled"
             labelText="Label"
-            value={selectedDate}
-            onDayChange={date => setValueDate(date)}
+            selectedDay={selectedDate}
+            onDayChange={setValueDate}
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
-            value={new Date("potato")}
-            onDayChange={date => setValueDate(date)}
+            selectedDay={new Date("potato")}
+            onDayChange={setValueDate}
           />
         </StoryWrapper.Row>
       </StoryWrapper>
@@ -113,7 +116,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Selected Date", "Focused Date", "Disabled Dates"]}
         />
-        <StoryWrapper.Row rowTitle="Date Picker Calendar">
+        <StoryWrapper.Row rowTitle="Calendar">
           <CalendarTemplate value={new Date(2022, 1, 5)} />
           <CalendarTemplate
             value={new Date(2022, 0, 5)}

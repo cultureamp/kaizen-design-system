@@ -13,6 +13,7 @@ const defaultProps = {
   isOpen: false,
   onButtonClick: () => jest.fn(),
   onKeyDown: () => jest.fn(),
+  calendarId: "calendar-dialog",
 }
 
 describe("<DateInput />", () => {

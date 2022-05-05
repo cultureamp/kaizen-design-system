@@ -16,7 +16,12 @@ import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
-type OmittedDateInputProps = "value" | "isOpen" | "icon" | "onButtonClick"
+type OmittedDateInputProps =
+  | "value"
+  | "isOpen"
+  | "icon"
+  | "onButtonClick"
+  | "calendarId"
 
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
@@ -35,7 +40,7 @@ export interface DatePickerProps
   initialMonth?: Date
 
   // The date passed in from the consumer that renders in the input and calendar.
-  value: Date | undefined
+  selectedDay: Date | undefined
 
   /**
    * Callback when date is updated either by the calendar picker or by typing and bluring.
@@ -78,8 +83,8 @@ export interface DatePickerProps
 }
 
 export enum DateFormat {
-  Numeral = "P",
-  Text = "PP",
+  Numeral = "P", // eg. 01/15/2022
+  Text = "PP", // eg. Jan 15, 2022
 }
 
 export enum DayOfWeek {
@@ -105,12 +110,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledAfter,
   firstDayOfWeek = 1,
   initialMonth,
-  value,
+  selectedDay,
   onButtonClick,
   onDayChange,
   ...restDateInputProps
 }) => {
-  const valueDate = value
+  const valueDate = selectedDay
   const inputRef = useRef<HTMLInputElement>(null)
   const [valueString, setValueString] = useState<string | undefined>()
   const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>(
@@ -162,15 +167,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleFormatChange = (input: string): void => {
-    /**
-     * The format of the input displayed toggles between
-     * DateFormat.Numeral => 1/1/1111 or DateFormat.Text => 1, Jan 1111
-     * In order to switch between formats we must parse and validate
-     * the given input. We also check if it includes the CSS Modules class for disabled
-     * on the modifier.
-     * If the input is valid, check what the currentDateFormat is set to and set
-     * the currentDateFormat and valueString to be the opposing format.
-     */
     if (input === "") {
       onDayChange(undefined)
       return
@@ -194,9 +190,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const handleOpenClose = (): void => {
-    setIsOpen(!isOpen)
-  }
+  const handleOpenClose = (): void => setIsOpen(!isOpen)
 
   const handleReturnFocus = (): void => {
     if (buttonRef.current) {
@@ -315,3 +309,5 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     </div>
   )
 }
+
+DatePicker.displayName = "DatePicker"

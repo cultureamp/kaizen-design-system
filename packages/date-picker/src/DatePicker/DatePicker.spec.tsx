@@ -9,7 +9,7 @@ const defaultProps = {
   labelText: "Choose date",
   value: undefined,
   initialMonth: new Date(2022, 2),
-  onChange: jest.fn(),
+  onDayChange: jest.fn(),
 }
 
 describe("<DatePicker />", () => {

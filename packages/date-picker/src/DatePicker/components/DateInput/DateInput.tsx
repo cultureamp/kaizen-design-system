@@ -16,23 +16,25 @@ type OmittedInputProps =
   | "endIconAdornment"
   | "inputType"
   | "inputValue"
+  | "reversed"
 
 export interface validationMessagesProps {
-  error?: string | React.ReactNode
+  error?: React.ReactNode
 }
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
-  calendarId?: string
+  calendarId: string
   buttonRef?: React.RefObject<HTMLButtonElement>
   labelText: React.ReactNode
   icon: React.SVGAttributes<SVGSymbolElement>
   /**
    * A description that provides context for the text field
    */
-  description?: string | React.ReactNode
+  description?: React.ReactNode
   isOpen: boolean
   onButtonClick: () => void
+  isReversed: boolean
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -44,7 +46,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   inputRef,
   value,
   description,
-  reversed = false,
+  isReversed = false,
   status = "default",
   icon,
   onButtonClick,
@@ -59,23 +61,23 @@ export const DateInput: React.VFC<DateInputProps> = ({
       id={`${id}-field-label`}
       htmlFor={`${id}-field-input`}
       labelText={labelText}
-      reversed={reversed}
+      reversed={isReversed}
       disabled={disabled}
     />
     <Input
-      id={`${id}-field-input`}
+      id={id}
       inputType="text"
       role="combobox"
       aria-expanded={isOpen}
       aria-haspopup="dialog"
       aria-controls={calendarId}
-      ariaDescribedBy={`${id}-field-message`}
+      aria-describedby={`${id}-field-message`}
       autoComplete="off"
       value={value}
       defaultInputValue={defaultInputValue}
       inputRef={inputRef}
       disabled={disabled}
-      reversed={reversed}
+      reversed={isReversed}
       status={status}
       onBlur={onBlur}
       endIconAdornment={
@@ -112,7 +114,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         <FieldMessage
           id={`${id}-field-message`}
           message={description}
-          reversed={reversed}
+          reversed={isReversed}
         />
       </div>
     )}
