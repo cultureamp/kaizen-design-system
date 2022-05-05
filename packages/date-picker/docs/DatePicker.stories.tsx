@@ -24,15 +24,13 @@ export const DefaultStory = props => {
   const [valueDate, setValueDate] = useState<Date | undefined>()
 
   return (
-    <>
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        value={valueDate}
-        onChange={setValueDate}
-        {...props}
-      />
-    </>
+    <DatePicker
+      id="datepicker-default"
+      labelText="Label"
+      value={valueDate}
+      onDayChange={setValueDate}
+      {...props}
+    />
   )
 }
 DefaultStory.storyName = "Date Picker"
@@ -88,26 +86,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-default"
             labelText="Label"
             value={selectedDate}
-            onChange={date => setValueDate(date)}
+            onDayChange={date => setValueDate(date)}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
             value={new Date(2022, 1, 5)}
-            onChange={date => setValueDate(date)}
+            onDayChange={date => setValueDate(date)}
           />
           <DatePicker
             isDisabled
             id="datepicker-disabled"
             labelText="Label"
             value={selectedDate}
-            onChange={date => setValueDate(date)}
+            onDayChange={date => setValueDate(date)}
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
             value={new Date("potato")}
-            onChange={date => setValueDate(date)}
+            onDayChange={date => setValueDate(date)}
           />
         </StoryWrapper.Row>
       </StoryWrapper>
@@ -139,7 +137,7 @@ StickerSheetDefault.parameters = { chromatic: { disable: false } }
 StickerSheetDefault.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
-  await userEvent.click(focusedDate, undefined, {
+  userEvent.click(focusedDate, undefined, {
     skipPointerEventsCheck: true,
   })
 }

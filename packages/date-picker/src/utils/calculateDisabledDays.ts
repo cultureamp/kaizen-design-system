@@ -5,7 +5,6 @@ import {
 } from "react-day-picker/types/Modifiers"
 
 import { DayOfWeek } from "../DatePicker/DatePicker"
-import { daysToNumbers } from "./daysToNumbers"
 
 /**
  * To save the consumer from passing an array of disabledDay options (each being a different object).
@@ -21,8 +20,8 @@ export const calculateDisabledDays = (
   disabledAfter?: Date
 ): Modifier | Modifier[] => [
   ...(disabledDates ? disabledDates : []),
-  {
-    daysOfWeek: disabledDaysOfWeek ? daysToNumbers(disabledDaysOfWeek) : [],
+  disabledDaysOfWeek && {
+    daysOfWeek: disabledDaysOfWeek,
   },
   disabledRange && {
     from: disabledRange.from,
