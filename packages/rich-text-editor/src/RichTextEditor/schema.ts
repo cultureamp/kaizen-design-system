@@ -29,40 +29,6 @@ export const nodes: NodeSpec = {
   hard_break: coreNodes.hard_break,
 }
 
-// interface ControlNodeType extends NodeSpec {
-//   isNodeSpec: boolean
-// }
-
-export const listNodes: NodeSpec = {
-  // eslint-disable-next-line camelcase
-  ordered_list: {
-    ...olNodeSpec,
-    attrs: { order: { default: 1 } },
-    groups: ["block"],
-    content: "list_item+",
-    control: {
-      label: "Numbered List",
-      icon: numberedListIcon,
-    },
-  },
-  // eslint-disable-next-line camelcase
-  bullet_list: {
-    ...ulNodeSpec,
-    groups: ["block"],
-    content: "list_item+",
-    control: {
-      label: "Bulleted List",
-      icon: bulletListIcon,
-    },
-  },
-  // eslint-disable-next-line camelcase
-  list_item: {
-    groups: ["block"],
-    content: "paragraph block*",
-    ...liNodeSpec,
-  },
-}
-
 export const marks: MarkSpec = {
   bold: {
     ...coreMarks.strong,
@@ -102,7 +68,8 @@ export const createSchemaFromControls = controls => {
 
   const newNodes: NodeSpec = controls.reduce(
     (previousValue, currentValue) => {
-      const isListNode = listNodes[currentValue]
+      const isListNode =
+        currentValue === "bullet_list" || currentValue === "ordered_list"
       if (!nodes[currentValue] && !isListNode) return previousValue
       if (isListNode) {
         listsEnabled = true
@@ -130,43 +97,6 @@ export const createSchemaFromControls = controls => {
   })
 
   if (listsEnabled) {
-    // const listNodesTest = addListNodes(
-    //   schema.spec.nodes,
-    //   "paragraph block*",
-    //   "block"
-    // )
-
-    // console.log("list nodes test:", listNodesTest)
-    // const listNodeTestObj = [
-    //   "doc",
-    //   { content: "block+" },
-    //   "paragraph",
-    //   { content: "inline*", group: "block", parseDOM: [{ tag: "p" }] },
-    //   "text",
-    //   { group: "inline" },
-    //   "hard_break",
-    //   {
-    //     inline: true,
-    //     group: "inline",
-    //     selectable: false,
-    //     parseDOM: [{ tag: "br" }],
-    //   },
-    //   "ordered_list",
-    //   {
-    //     attrs: { order: { default: 1 } },
-    //     parseDOM: [{ tag: "ol" }],
-    //     content: "list_item+",
-    //     group: "block",
-    //   },
-    //   "bullet_list",
-    //   { parseDOM: [{ tag: "ul" }], content: "list_item+", group: "block" },
-    //   "list_item",
-    //   {
-    //     parseDOM: [{ tag: "li" }],
-    //     defining: true,
-    //     content: "paragraph block*",
-    //   },
-    // ] as OrderedMap
     const listNodeTestObj = {
       ...newNodes,
       ordered_list: {
