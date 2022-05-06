@@ -1,0 +1,110 @@
+---
+title: {{titleCase componentName}}
+navTitle: {{titleCase componentName}}
+##
+# @todo REQUIRED
+# summaryParagraph: Short description for the intent of the component
+#
+summaryParagraph: COMPONENT_SUMMARY_HERE
+##
+# @todo OPTIONAL - delete if there are no aliases
+# tags: Array of aliases listed in the page header "Also known as" section
+#
+tags: ["Component alias", "Another alias"]
+##
+# @todo REQUIRED
+# needToKnow: Important details about the component
+#
+needToKnow:
+- ADD_EXTRA_DETAILS
+- ADD_EXTRA_DETAILS
+##
+# @todo REQUIRED
+# health: For the component health page; update as needed
+#
+health:
+  designed: false
+  documented: false
+  implemented: false
+  latestDesign: false
+  allVariants: false
+  responsive: false
+  internationalized: false
+  accessible: false
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## UI Kit
+
+<!--
+  @todo REQUIRED
+  Update `src` to the correct frame in Figma for your component
+-->
+<iframe style="border: none;" width="744" height="450" src="LINK_TO_FIGMA_FRAME" allowfullscreen></iframe>
+
+## To keep in mind
+
+<!--
+  @todo REQUIRED
+  Extra things to note about the component
+-->
+- LIST_ITEM
+- LIST_ITEM
+
+<!--
+  @todo OPTIONAL - delete if you have no custom sections
+  Extra sections you want to add
+-->
+## CUSTOM_HEADING
+
+EXTRA_DETAILS_HERE
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+<!--
+  @todo REQUIRED
+  Contextual information for when to use the component
+-->
+- LIST_ITEM
+- LIST_ITEM
+
+</WhenToUse>
+<WhenNotToUse>
+
+<!--
+  @todo REQUIRED
+  Contextual information for when NOT to use the component
+-->
+- LIST_ITEM
+- LIST_ITEM
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+<!--
+  @todo OPTIONAL - delete if there are no related internal pages
+  Link to any internal pages relating to this component
+  eg. [Text Field](/components/text-field/)
+-->
+## See also
+
+- [PAGE_NAME](/PAGE_SLUG)
+
+<!--
+  @todo OPTIONAL - delete if there are no related external links
+  Link to any external resource relating to this component
+  eg. [HMCTS: Rich text editor](https://hmcts-design-system.herokuapp.com/components/rich-text-editor)
+-->
+## External links
+
+- [PAGE_DESCRIPTION](/PAGE_URL)

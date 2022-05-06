@@ -3,7 +3,10 @@ module.exports = (
   plop
 ) => {
   const TEMPLATE_DIR__BASIC_COMPONENT = "plop-templates/basic-component"
+  const TEMPLATE_DIR__SITE__COMPONENT_DOCS =
+    "plop-templates/site/docs/components"
   const PACKAGE_DIR = "packages/{{kebabCase componentName}}"
+  const SITE_DIR__COMPONENT_DOCS = "site/docs/components"
 
   plop.setGenerator("basic component", {
     description: "Generate a basic component",
@@ -57,6 +60,12 @@ module.exports = (
         type: "add",
         path: `${PACKAGE_DIR}/src/{{pascalCase componentName}}/index.ts`,
         templateFile: `${TEMPLATE_DIR__BASIC_COMPONENT}/src/ComponentName/index.ts.hbs`,
+      },
+      // Site docs (not in package)
+      {
+        type: "add",
+        path: `${SITE_DIR__COMPONENT_DOCS}/{{kebabCase componentName}}.mdx`,
+        templateFile: `${TEMPLATE_DIR__SITE__COMPONENT_DOCS}/component-name.mdx.hbs`,
       },
     ],
   })
