@@ -42,24 +42,18 @@ export const DateInput: React.VFC<DateInputProps> = ({
   disabled = false,
   buttonRef,
   labelText,
-  defaultInputValue,
-  inputRef,
   value,
   description,
   isReversed = false,
-  status = "default",
   icon,
   onButtonClick,
   calendarId,
   isOpen,
-  onBlur,
-  onKeyDown,
   ...inputProps
 }) => (
-  <FieldGroup id={`${id}-field-group`} inline={true}>
+  <FieldGroup inline={true}>
     <Label
-      id={`${id}-field-label`}
-      htmlFor={`${id}-field-input`}
+      htmlFor={id}
       labelText={labelText}
       reversed={isReversed}
       disabled={disabled}
@@ -71,15 +65,11 @@ export const DateInput: React.VFC<DateInputProps> = ({
       aria-expanded={isOpen}
       aria-haspopup="dialog"
       aria-controls={calendarId}
-      aria-describedby={`${id}-field-message`}
+      aria-describedby={description ? `${id}-field-message` : undefined}
       autoComplete="off"
       value={value}
-      defaultInputValue={defaultInputValue}
-      inputRef={inputRef}
       disabled={disabled}
       reversed={isReversed}
-      status={status}
-      onBlur={onBlur}
       endIconAdornment={
         <button
           ref={buttonRef}
@@ -101,7 +91,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
           </div>
         </button>
       }
-      onKeyDown={onKeyDown}
       {...inputProps}
     />
 

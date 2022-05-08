@@ -12,6 +12,7 @@ import { parse, format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
+import { getValidDayString } from "../utils/getValidDayString"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
@@ -117,7 +118,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 }) => {
   const valueDate = selectedDay
   const inputRef = useRef<HTMLInputElement>(null)
-  const [valueString, setValueString] = useState<string | undefined>()
+  const [valueString, setValueString] = useState<string | undefined>(
+    getValidDayString(valueDate)
+  )
   const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>(
     DateFormat.Numeral
   )
@@ -166,7 +169,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     setIsOpen(false)
   }
 
-  const handleFormatChange = (input: string): void => {
+  const handleInputChange = (input: string): void => {
     if (input === "") {
       onDayChange(undefined)
       return
@@ -237,24 +240,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }, [valueString, valueDate])
 
-  /**
-   * On first render, if consumer has passed in a valueDate
-   * we render it as a string within the input.
-   */
-  useEffect(() => {
-    if (valueDate && !valueString) {
-      try {
-        // format() can't be passed an invalid date, so we need to catch the range error.
-        const formattedDate = format(new Date(valueDate), DateFormat.Text)
-        if (formattedDate.toString() !== "Invalid Date") {
-          setValueString(formattedDate)
-        }
-      } catch (error) {
-        onDayChange(undefined)
-      }
-    }
-  }, [])
-
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -266,10 +251,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           value={valueString ? valueString : ""}
           disabled={isDisabled}
           onBlur={() =>
-            valueString !== undefined && handleFormatChange(valueString)
+            valueString !== undefined && handleInputChange(valueString)
           }
           onFocus={() =>
-            valueString !== undefined && handleFormatChange(valueString)
+            valueString !== undefined && handleInputChange(valueString)
           }
           labelText={labelText}
           description="Format: mm/dd/yyyy"

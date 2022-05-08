@@ -69,7 +69,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   useEffect(() => {
     if (!calendarRef.current) return
 
-    if (value) {
+    if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
         "DayPicker-Day--selected"
       )[0] as HTMLElement

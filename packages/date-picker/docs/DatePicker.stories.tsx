@@ -90,12 +90,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
+            isReversed={isReversed}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={setValueDate}
+            isReversed={isReversed}
           />
           <DatePicker
             isDisabled
@@ -103,12 +105,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
+            isReversed={isReversed}
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={setValueDate}
+            isReversed={isReversed}
           />
         </StoryWrapper.Row>
       </StoryWrapper>
