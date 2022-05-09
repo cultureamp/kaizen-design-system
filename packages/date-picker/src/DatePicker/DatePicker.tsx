@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
 import { usePopper } from "react-popper"
@@ -8,11 +8,9 @@ import {
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { FocusOn } from "react-focus-on"
-import { parse, format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import { getValidDayString } from "../utils/getValidDayString"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
@@ -23,6 +21,9 @@ type OmittedDateInputProps =
   | "icon"
   | "onButtonClick"
   | "calendarId"
+  | "valueDate"
+  | "onBlur"
+  | "disabledDays"
 
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
@@ -31,6 +32,7 @@ export interface DatePickerProps
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   onButtonClick?: DateInputProps["onButtonClick"]
+  description: string
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -116,14 +118,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onDayChange,
   ...restDateInputProps
 }) => {
-  const valueDate = selectedDay
   const inputRef = useRef<HTMLInputElement>(null)
-  const [valueString, setValueString] = useState<string | undefined>(
-    getValidDayString(valueDate)
-  )
-  const [currentDateFormat, setCurrentDateFormat] = useState<DateFormat>(
-    DateFormat.Numeral
-  )
+
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -159,38 +155,24 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
      * We're checking here if it includes the CSS Modules class for disabled
      * on the modifier to then return early.
      */
-    if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
+    if (isDisabledDate(day, disabledDays)) {
       return
     }
-
-    setValueString(format(day, DateFormat.Text))
-    setCurrentDateFormat(DateFormat.Text)
     onDayChange(day)
     setIsOpen(false)
   }
 
-  const handleInputChange = (input: string): void => {
-    if (input === "") {
-      onDayChange(undefined)
+  const handleInputChange = (date: Date | undefined): void => {
+    if (
+      date !== undefined &&
+      !isInvalidDate(date) &&
+      !isDisabledDate(date, disabledDays)
+    ) {
+      onDayChange(date)
       return
     }
 
-    const parsedDate = parse(input, currentDateFormat, new Date())
-
-    if (isInvalidDate(parsedDate) || isDisabledDate(parsedDate, disabledDays)) {
-      onDayChange(undefined)
-      return
-    }
-
-    if (currentDateFormat === DateFormat.Numeral) {
-      setValueString(format(parsedDate, DateFormat.Text))
-      setCurrentDateFormat(DateFormat.Text)
-      onDayChange(parsedDate)
-    } else {
-      setValueString(format(parsedDate, DateFormat.Numeral))
-      setCurrentDateFormat(DateFormat.Numeral)
-      onDayChange(parsedDate)
-    }
+    onDayChange(undefined)
   }
 
   const handleOpenClose = (): void => setIsOpen(!isOpen)
@@ -199,12 +181,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (buttonRef.current) {
       buttonRef.current.focus()
     }
-  }
-
-  const handleTextChange: React.ChangeEventHandler<HTMLInputElement> = ({
-    target,
-  }): void => {
-    setValueString(target.value)
   }
 
   const handleButtonClick = (): void => {
@@ -222,24 +198,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  /**
-   * Watcher to toggle the current date format when
-   * both values are present.
-   */
-  useEffect(() => {
-    if (valueString && valueDate) {
-      const dateNumeral = parse(valueString, DateFormat.Numeral, new Date())
-      const dateText = parse(valueString, DateFormat.Text, new Date())
-
-      // isValid will return true for "Invalid Date" which is a truthy Date object
-      if (dateNumeral.toString() !== "Invalid Date") {
-        setCurrentDateFormat(DateFormat.Numeral)
-      } else if (dateText.toString() !== "Invalid Date") {
-        setCurrentDateFormat(DateFormat.Text)
-      }
-    }
-  }, [valueString, valueDate])
-
   return (
     <div ref={wrapperRef}>
       <div ref={setReferenceElement}>
@@ -248,21 +206,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           inputRef={inputRef}
           buttonRef={buttonRef}
           isOpen={isOpen}
-          value={valueString ? valueString : ""}
           disabled={isDisabled}
-          onBlur={() =>
-            valueString !== undefined && handleInputChange(valueString)
-          }
-          onFocus={() =>
-            valueString !== undefined && handleInputChange(valueString)
-          }
+          onBlur={handleInputChange}
           labelText={labelText}
-          description="Format: mm/dd/yyyy"
           icon={dateStart}
           onButtonClick={handleButtonClick}
-          onChange={handleTextChange}
           calendarId={`${id}-calendar-dialog`}
-          onKeyDown={e => handleKeyDown(e)}
+          onKeyDown={handleKeyDown}
+          valueDate={selectedDay}
+          disabledDays={disabledDays}
           {...restDateInputProps}
         />
       </div>
@@ -278,15 +230,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            id={`${id}-calendar-dialog`}
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
-            value={valueDate}
+            value={selectedDay}
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnDayChange}
-            inputRef={inputRef}
             onKeyDown={handleKeyDown}
           />
         </FocusOn>

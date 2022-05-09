@@ -13,6 +13,7 @@ import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
 export type CalendarProps = {
+  id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
   styles: { [key: string]: React.CSSProperties }
   attributes: {
@@ -35,7 +36,6 @@ export type CalendarProps = {
   range?: boolean
   selectedRange?: RangeModifier
   modifiers?: RangeModifier
-  inputRef?: React.RefObject<HTMLInputElement>
   onKeyDown?: (e: React.KeyboardEvent) => void
 }
 
@@ -45,6 +45,7 @@ export type CalendarNavProps = Pick<
 >
 
 export const Calendar: React.VFC<CalendarProps> = ({
+  id,
   setPopperElement,
   styles,
   attributes,
@@ -97,6 +98,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   return (
     <div ref={calendarRef}>
       <div
+        id={id}
         ref={setPopperElement}
         style={styles.popper}
         {...attributes.popper}
@@ -119,7 +121,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               [calendarStyles.to]: modifiers?.to,
             } as Modifiers
           }
-          onKeyDown={onKeyDown && (e => onKeyDown(e))}
+          onKeyDown={onKeyDown && onKeyDown}
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from "@testing-library/react"
+import { act, render, screen } from "@testing-library/react"
 import React from "react"
 import userEvent from "@testing-library/user-event"
 import { DatePicker } from "./DatePicker"
@@ -7,14 +7,15 @@ import "@testing-library/jest-dom"
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
-  value: undefined,
+  selectedDay: undefined,
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
+  description: "Format: mm/dd/yyyy",
 }
 
 describe("<DatePicker />", () => {
   it("renders DatePicker and displays inital date within input", async () => {
-    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
+    render(<DatePicker {...defaultProps} selectedDay={new Date(2022, 2, 1)} />)
 
     // Make sure date renders in the button
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
@@ -83,39 +84,6 @@ describe("<DatePicker />", () => {
     })
 
     expect(button).toHaveFocus()
-  })
-
-  it("formats values when focus is on the input", async () => {
-    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
-
-    const input = screen.getByRole("combobox")
-
-    await act(async () => {
-      input.focus()
-    })
-    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
-  })
-
-  it("formats values when the input loses focus - onBlur", async () => {
-    render(<DatePicker {...defaultProps} value={new Date(2022, 2, 1)} />)
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
-
-    const input = screen.getByRole("combobox")
-
-    await act(async () => {
-      input.focus()
-    })
-    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
-
-    // tab to next focusable element
-    await act(async () => {
-      userEvent.tab()
-    })
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
   })
 
   it("has disabled attribute on button", async () => {

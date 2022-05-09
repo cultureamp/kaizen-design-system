@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
@@ -9,6 +9,11 @@ import {
   Label,
 } from "@kaizen/draft-form"
 
+import { format, parse } from "date-fns"
+import { Modifier } from "react-day-picker"
+import { DateFormat } from "../../DatePicker"
+import { isInvalidDate } from "../../../utils/isInvalidDate"
+import { isDisabledDate } from "../../../utils/isDisabledDate"
 import styles from "./DateInput.scss"
 
 type OmittedInputProps =
@@ -17,10 +22,7 @@ type OmittedInputProps =
   | "inputType"
   | "inputValue"
   | "reversed"
-
-export interface validationMessagesProps {
-  error?: React.ReactNode
-}
+  | "onBlur"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
@@ -34,7 +36,20 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   description?: React.ReactNode
   isOpen: boolean
   onButtonClick: () => void
-  isReversed: boolean
+  isReversed?: boolean
+  valueDate: Date | undefined
+  onBlur: (date: Date | undefined) => void
+  disabledDays?: Modifier | Modifier[]
+}
+
+const formatDateAsText = (
+  date: Date,
+  disabledDays: Modifier | Modifier[],
+  onValidDate: React.Dispatch<React.SetStateAction<string>>
+): void => {
+  if (!isInvalidDate(date) && !isDisabledDate(date, disabledDays)) {
+    onValidDate(format(date, DateFormat.Text))
+  }
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -49,65 +64,97 @@ export const DateInput: React.VFC<DateInputProps> = ({
   onButtonClick,
   calendarId,
   isOpen,
+  valueDate,
+  onBlur,
+  disabledDays,
   ...inputProps
-}) => (
-  <FieldGroup inline={true}>
-    <Label
-      htmlFor={id}
-      labelText={labelText}
-      reversed={isReversed}
-      disabled={disabled}
-    />
-    <Input
-      id={id}
-      inputType="text"
-      role="combobox"
-      aria-expanded={isOpen}
-      aria-haspopup="dialog"
-      aria-controls={calendarId}
-      aria-describedby={description ? `${id}-field-message` : undefined}
-      autoComplete="off"
-      value={value}
-      disabled={disabled}
-      reversed={isReversed}
-      endIconAdornment={
-        <button
-          ref={buttonRef}
-          aria-disabled={disabled ? true : undefined}
-          disabled={disabled}
-          onClick={onButtonClick}
-          type="button"
-          className={classnames(styles.iconButton, {
-            [styles.calendarActive]: isOpen,
-          })}
-          aria-label={value ? `Change date, ${value}` : "Choose date"}
-        >
-          <div
-            className={classnames({
-              [styles.disabled]: disabled,
-            })}
-          >
-            <Icon icon={icon} role="presentation" />
-          </div>
-        </button>
-      }
-      {...inputProps}
-    />
+}) => {
+  const [valueString, setValueString] = useState<string>("")
 
-    {description && (
-      <div
-        className={classnames(styles.message, {
-          [styles.disabled]: disabled,
-        })}
-      >
-        <FieldMessage
-          id={`${id}-field-message`}
-          message={description}
-          reversed={isReversed}
-        />
-      </div>
-    )}
-  </FieldGroup>
-)
+  useEffect(() => {
+    valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
+  }, [valueDate])
+
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (): void => {
+    if (valueString !== "") {
+      const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
+      formatDateAsText(parsedDate, disabledDays, setValueString)
+      return onBlur(parsedDate)
+    } else {
+      onBlur(undefined)
+    }
+  }
+  const handleFocus = (): void => {
+    valueDate && setValueString(format(valueDate, DateFormat.Numeral))
+  }
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = ({
+    target,
+  }): void => setValueString(target.value)
+
+  return (
+    <FieldGroup inline={true}>
+      <Label
+        htmlFor={id}
+        labelText={labelText}
+        reversed={isReversed}
+        disabled={disabled}
+      />
+      <Input
+        id={id}
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-haspopup="dialog"
+        aria-controls={calendarId}
+        aria-describedby={description ? `${id}-field-message` : undefined}
+        autoComplete="off"
+        value={valueString}
+        disabled={disabled}
+        reversed={isReversed}
+        endIconAdornment={
+          <button
+            ref={buttonRef}
+            aria-disabled={disabled ? true : undefined}
+            disabled={disabled}
+            onClick={onButtonClick}
+            type="button"
+            className={classnames(styles.iconButton, {
+              [styles.calendarActive]: isOpen,
+            })}
+            aria-label={
+              valueString ? `Change date, ${valueString}` : "Choose date"
+            }
+          >
+            <div
+              className={classnames({
+                [styles.disabled]: disabled,
+              })}
+            >
+              <Icon icon={icon} role="presentation" />
+            </div>
+          </button>
+        }
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        {...inputProps}
+      />
+
+      {description && (
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
+          <FieldMessage
+            id={`${id}-field-message`}
+            message={description}
+            reversed={isReversed}
+          />
+        </div>
+      )}
+    </FieldGroup>
+  )
+}
 
 DateInput.displayName = "DateInput"
