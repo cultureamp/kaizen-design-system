@@ -228,6 +228,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            id="calendar-dialog"
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
