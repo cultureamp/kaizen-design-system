@@ -92,6 +92,17 @@ export const DateInput: React.VFC<DateInputProps> = ({
     target,
   }): void => setValueString(target.value)
 
+  const getDescription = (message: React.ReactNode): React.ReactNode => {
+    switch (typeof message) {
+      case "string":
+        return message + " (Format: mm/dd/yyyy)"
+      case "object":
+        return <>{message} (Format: mm/dd/yyyy)</>
+      default:
+        return "Format: mm/dd/yyyy"
+    }
+  }
+
   return (
     <FieldGroup inline={true}>
       <Label
@@ -147,16 +158,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       >
         <FieldMessage
           id={`${id}-field-message`}
-          message={
-            description ? (
-              <>
-                {description}
-                (Format: mm/dd/yyyy)
-              </>
-            ) : (
-              "Format: mm/dd/yyyy"
-            )
-          }
+          message={getDescription(description)}
           reversed={isReversed}
         />
       </div>

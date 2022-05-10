@@ -28,9 +28,9 @@ describe("<DateInput />", () => {
       container.querySelector(`[aria-describedby="${ariaDescribedBy}"]`)
     ).toBeInTheDocument()
 
-    expect(screen.getByText("Description text")).toBeInTheDocument()
-
-    expect(screen.getByText("(Format: mm/dd/yyyy)")).toBeInTheDocument()
+    expect(
+      screen.getByText("Description text (Format: mm/dd/yyyy)")
+    ).toBeInTheDocument()
   })
 
   it("formats values when focus is on the input", async () => {
