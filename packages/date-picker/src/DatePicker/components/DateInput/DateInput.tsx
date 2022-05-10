@@ -11,7 +11,6 @@ import {
 
 import { format, parse } from "date-fns"
 import { Modifier } from "react-day-picker"
-import { Paragraph } from "@kaizen/typography"
 import { DateFormat } from "../../DatePicker"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
@@ -152,12 +151,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
             description ? (
               <>
                 {description}
-                <Paragraph
-                  variant="small"
-                  color={isReversed ? "white" : "dark"}
-                >
-                  (Format: mm/dd/yyyy)
-                </Paragraph>
+                (Format: mm/dd/yyyy)
               </>
             ) : (
               "Format: mm/dd/yyyy"
