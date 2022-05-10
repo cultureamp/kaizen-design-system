@@ -4,6 +4,7 @@ import { Calendar, CalendarProps } from "./Calendar"
 import "@testing-library/jest-dom"
 
 const defaultProps: CalendarProps = {
+  id: "calendar-dialog",
   value: new Date(2022, 2, 1),
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),

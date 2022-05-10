@@ -7,34 +7,77 @@ import "@testing-library/jest-dom"
 const defaultProps = {
   id: "date-picker",
   labelText: "Choose date",
-  value: new Date(2022, 2, 1),
+  selectedDay: undefined,
   initialMonth: new Date(2022, 2),
-  onChange: () => jest.fn(),
+  onDayChange: jest.fn(),
 }
 
 describe("<DatePicker />", () => {
+  it("renders DatePicker with an empty input value", async () => {
+    render(<DatePicker {...defaultProps} />)
+
+    expect(screen.getByRole("combobox")).toHaveValue("")
+  })
+
+  it("renders DatePicker and displays inital date within input", async () => {
+    render(<DatePicker {...defaultProps} selectedDay={new Date(2022, 2, 1)} />)
+
+    // Make sure date renders in the button
+    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+  })
+
   it("renders DatePicker and shows/hides calendar on button press", async () => {
     render(<DatePicker {...defaultProps} />)
 
-    // Make sure date renders in the button
-    expect(screen.getByText("Mar 1, 2022")).toBeInTheDocument()
-
-    const element = screen.getByRole("button")
+    const button = screen.getByRole("button")
 
     // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
     // Click button and test calendar popup is showing
-    await act(async () => element.click())
+    await act(async () => button.click())
     expect(screen.getByRole("dialog")).toBeVisible()
   })
 
-  it("is able to select date and shows in button", async () => {
+  it("renders DatePicker and shows/hides calendar on arrow down keydown", async () => {
     render(<DatePicker {...defaultProps} />)
 
-    const element = screen.getByRole("button")
+    const input = screen.getByRole("combobox")
 
-    await act(async () => element.click())
+    // Make sure calendar popup is not in the DOM
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+    // Click button and test calendar popup is showing
+    await act(async () => {
+      input.focus()
+      userEvent.keyboard("{arrowdown}")
+    })
+    expect(screen.getByRole("dialog")).toBeVisible()
+  })
+
+  it("is able to select date and shows in input", async () => {
+    render(<DatePicker {...defaultProps} />)
+
+    const button = screen.getByRole("button")
+
+    await act(async () => button.click())
+
+    // Focus on date and select
+    const selectedDate = screen.getByRole("gridcell", {
+      name: "Sun Mar 06 2022",
+    })
+    await act(async () => {
+      selectedDate.focus()
+      userEvent.keyboard("{enter}")
+    })
+  })
+
+  it("returns focus to the button once date has been selected", async () => {
+    render(<DatePicker {...defaultProps} />)
+
+    const button = screen.getByRole("button")
+
+    await act(async () => button.click())
 
     // Focus on date and select
     const selectedDate = screen.getByRole("gridcell", {
@@ -45,16 +88,6 @@ describe("<DatePicker />", () => {
       userEvent.keyboard("{enter}")
     })
 
-    // Calendar closes on select and value shows in input
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
-    expect(element.innerText === "Mar 6, 2022")
-  })
-
-  it("has disabled attribute on button", async () => {
-    render(<DatePicker {...defaultProps} isDisabled />)
-
-    const element = screen.getByRole("button")
-
-    expect(element).toHaveAttribute("disabled")
+    expect(button).toHaveFocus()
   })
 })
