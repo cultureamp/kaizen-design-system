@@ -143,6 +143,7 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               new Date(2022, 1, 15),
               { after: new Date(2022, 1, 17) },
             ]}
+            id="calendar-dialog-disabled"
           />
         </StoryWrapper.Row>
       </StoryWrapper>

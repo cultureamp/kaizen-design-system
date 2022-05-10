@@ -29,7 +29,6 @@ export const DefaultStory = props => {
       labelText="Label"
       selectedDay={selectedDate}
       onDayChange={setValueDate}
-      disabledBefore={new Date()}
       {...props}
     />
   )
@@ -127,12 +126,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <CalendarTemplate
             value={new Date(2022, 0, 5)}
             initialMonth={new Date(2022, 0, 5)}
+            id="calendar-dialog-focused"
           />
           <CalendarTemplate
             disabledDays={[
               new Date(2022, 1, 15),
               { after: new Date(2022, 1, 17) },
             ]}
+            id="calendar-dialog-disabled"
           />
         </StoryWrapper.Row>
       </StoryWrapper>

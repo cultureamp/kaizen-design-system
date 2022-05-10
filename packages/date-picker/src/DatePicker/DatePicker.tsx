@@ -148,11 +148,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   )
 
   const handleOnDayChange = (day: Date, modifiers: DayModifiers): void => {
-    /**
-     * react-day-picker will fire events for disabled days by default.
-     * We're checking here if it includes the CSS Modules class for disabled
-     * on the modifier to then return early.
-     */
     if (isDisabledDate(day, disabledDays)) {
       return
     }
