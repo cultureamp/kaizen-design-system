@@ -20,9 +20,17 @@ const defaultProps = {
 }
 
 describe("<DateInput />", () => {
-  it("renders a description when provided", () => {
-    render(<DateInput {...defaultProps} />)
-    screen.getByText("Description text (Format: mm/dd/yyyy)")
+  it("renders a description and aria-describeBy when provided", () => {
+    const ariaDescribedBy = "text-field-test-field-message"
+
+    const { container } = render(<DateInput {...defaultProps} />)
+    expect(
+      container.querySelector(`[aria-describedby="${ariaDescribedBy}"]`)
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText("Description text (Format: mm/dd/yyyy)")
+    ).toBeInTheDocument()
   })
 
   it("formats values when focus is on the input", async () => {
@@ -68,8 +76,11 @@ describe("<DateInput />", () => {
 
   it("updates calendar button to be disabled when input is disabled", async () => {
     render(<DateInput {...defaultProps} disabled />)
-    expect(
-      screen.getByLabelText("Choose date").closest("button")
-    ).toBeDisabled()
+
+    const calendarButton = screen
+      .getByLabelText("Choose date")
+      .closest("button")
+
+    expect(calendarButton).toBeDisabled()
   })
 })

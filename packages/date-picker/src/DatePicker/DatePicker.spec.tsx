@@ -13,6 +13,12 @@ const defaultProps = {
 }
 
 describe("<DatePicker />", () => {
+  it("renders DatePicker with an empty input value", async () => {
+    render(<DatePicker {...defaultProps} />)
+
+    expect(screen.getByRole("combobox")).toHaveValue("")
+  })
+
   it("renders DatePicker and displays inital date within input", async () => {
     render(<DatePicker {...defaultProps} selectedDay={new Date(2022, 2, 1)} />)
 
@@ -83,13 +89,5 @@ describe("<DatePicker />", () => {
     })
 
     expect(button).toHaveFocus()
-  })
-
-  it("has disabled attribute on button", async () => {
-    render(<DatePicker {...defaultProps} isDisabled />)
-
-    const button = screen.getByRole("button")
-
-    expect(button).toHaveAttribute("disabled")
   })
 })
