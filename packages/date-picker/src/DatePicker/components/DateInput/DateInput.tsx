@@ -23,6 +23,7 @@ type OmittedInputProps =
   | "inputValue"
   | "reversed"
   | "onBlur"
+  | "value"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
@@ -57,7 +58,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
   disabled = false,
   buttonRef,
   labelText,
-  value,
   description,
   isReversed = false,
   icon,

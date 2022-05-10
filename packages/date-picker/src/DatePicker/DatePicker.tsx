@@ -15,7 +15,6 @@ import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
 type OmittedDateInputProps =
-  | "value"
   | "isOpen"
   | "icon"
   | "onButtonClick"
