@@ -30,7 +30,6 @@ export const DefaultStory = props => {
       selectedDay={selectedDate}
       onDayChange={setValueDate}
       disabledBefore={new Date()}
-      description="Format: mm/dd/yyyy"
       {...props}
     />
   )
@@ -93,7 +92,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
-            description="Format: mm/dd/yyyy"
             isReversed={isReversed}
           />
           <DatePicker
@@ -101,7 +99,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={setValueDate}
-            description="Format: mm/dd/yyyy"
             isReversed={isReversed}
           />
           <DatePicker
@@ -110,7 +107,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
-            description="Format: mm/dd/yyyy"
             isReversed={isReversed}
           />
           <DatePicker
@@ -118,7 +114,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={setValueDate}
-            description="Format: mm/dd/yyyy"
             isReversed={isReversed}
           />
         </StoryWrapper.Row>

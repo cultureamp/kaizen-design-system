@@ -45,7 +45,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 const formatDateAsText = (
   date: Date,
   disabledDays: Modifier | Modifier[],
-  onValidDate: React.Dispatch<React.SetStateAction<string>>
+  onValidDate: (newFormattedDate: string) => void
 ): void => {
   if (!isInvalidDate(date) && !isDisabledDate(date, disabledDays)) {
     onValidDate(format(date, DateFormat.Text))
@@ -140,19 +140,21 @@ export const DateInput: React.VFC<DateInputProps> = ({
         {...inputProps}
       />
 
-      {description && (
-        <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
-        >
-          <FieldMessage
-            id={`${id}-field-message`}
-            message={description}
-            reversed={isReversed}
-          />
-        </div>
-      )}
+      <div
+        className={classnames(styles.message, {
+          [styles.disabled]: disabled,
+        })}
+      >
+        <FieldMessage
+          id={`${id}-field-message`}
+          message={
+            description
+              ? `${description} (Format: mm/dd/yyyy)`
+              : "Format: mm/dd/yyyy"
+          }
+          reversed={isReversed}
+        />
+      </div>
     </FieldGroup>
   )
 }

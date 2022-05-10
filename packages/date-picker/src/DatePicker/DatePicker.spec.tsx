@@ -10,7 +10,6 @@ const defaultProps = {
   selectedDay: undefined,
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
-  description: "Format: mm/dd/yyyy",
 }
 
 describe("<DatePicker />", () => {

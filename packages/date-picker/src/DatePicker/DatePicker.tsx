@@ -11,7 +11,6 @@ import { FocusOn } from "react-focus-on"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
@@ -32,7 +31,6 @@ export interface DatePickerProps
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   onButtonClick?: DateInputProps["onButtonClick"]
-  description: string
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.

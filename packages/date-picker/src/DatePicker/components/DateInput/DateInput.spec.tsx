@@ -22,7 +22,7 @@ const defaultProps = {
 describe("<DateInput />", () => {
   it("renders a description when provided", () => {
     render(<DateInput {...defaultProps} />)
-    screen.getByText("Description text")
+    screen.getByText("Description text (Format: mm/dd/yyyy)")
   })
 
   it("formats values when focus is on the input", async () => {
