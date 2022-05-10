@@ -3,6 +3,7 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
@@ -83,7 +84,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Default", "Selected Value", "Disabled", "Error"]}
+          headings={[
+            "Default",
+            "Selected Value",
+            "Custom Description",
+            "Disabled",
+            "Error",
+          ]}
         />
         <StoryWrapper.Row rowTitle="Input">
           <DatePicker
@@ -97,22 +104,39 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
-            onDayChange={setValueDate}
+            onDayChange={e => e}
             isReversed={isReversed}
           />
           <DatePicker
-            isDisabled
+            id="datepicker-description"
+            labelText="Label"
+            selectedDay={undefined}
+            onDayChange={e => e}
+            isReversed={isReversed}
+            description={
+              <>
+                <Paragraph
+                  variant="small"
+                  color={isReversed ? "white" : "dark"}
+                >
+                  My <strong>Custom</strong> Description Paragraph
+                </Paragraph>
+              </>
+            }
+          />
+          <DatePicker
             id="datepicker-disabled"
             labelText="Label"
-            selectedDay={selectedDate}
-            onDayChange={setValueDate}
+            selectedDay={undefined}
+            onDayChange={e => e}
             isReversed={isReversed}
+            isDisabled
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
             selectedDay={new Date("potato")}
-            onDayChange={setValueDate}
+            onDayChange={e => e}
             isReversed={isReversed}
           />
         </StoryWrapper.Row>

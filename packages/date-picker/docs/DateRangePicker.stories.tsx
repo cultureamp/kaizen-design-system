@@ -43,6 +43,7 @@ const DateRangePickerTemplate: Story = props => {
   return (
     <>
       <DateRangePicker
+        id="date-range"
         labelText="Label"
         disabledBefore={new Date(2022, 2, 4)}
         onChange={onDateRangeChange}
