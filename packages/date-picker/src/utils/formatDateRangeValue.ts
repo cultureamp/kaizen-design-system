@@ -11,7 +11,7 @@ const dateWithoutYearFormatOptions: Intl.DateTimeFormatOptions = {
   day: "numeric",
 }
 
-export const formatDateRangeValue = (dateRange: RangeModifier) => {
+export const formatDateRangeValue = (dateRange: RangeModifier): string => {
   if (dateRange.to) {
     const isSameYear =
       dateRange.from?.getFullYear() === dateRange?.to?.getFullYear()

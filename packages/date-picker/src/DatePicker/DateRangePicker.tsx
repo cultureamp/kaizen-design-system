@@ -195,6 +195,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
       <div ref={setReferenceElement}>
         <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
+          id={id}
           className={cx(
             datePickerStyles.button,
             datePickerStyles.withStartIconAdornment,
@@ -202,7 +203,6 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
               [datePickerStyles.disabled]: isDisabled,
             }
           )}
-          id={id}
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
@@ -231,6 +231,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            id="calendar-dialog"
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
