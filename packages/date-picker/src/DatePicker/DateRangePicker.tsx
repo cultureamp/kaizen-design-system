@@ -17,7 +17,7 @@ import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 
-interface DatePickerProps {
+export interface DateRangePickerProps {
   id: string
   classNameOverride?: string
   labelText: string
@@ -87,7 +87,7 @@ enum DayOfWeek {
   Sat = 6,
 }
 
-export const DateRangePicker: React.VFC<DatePickerProps> = ({
+export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
