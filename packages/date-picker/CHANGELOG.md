@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.10...@kaizen/date-picker@3.0.0) (2022-05-10)
+
+
+### Features
+
+* DateInputPicker ([#2718](https://github.com/cultureamp/kaizen-design-system/issues/2718)) ([ac1bdf0](https://github.com/cultureamp/kaizen-design-system/commit/ac1bdf0ab81f5a14a0f3eda3810d2a026a57125c))
+
+
+### BREAKING CHANGES
+
+* Complete refactor of DatePicker to utilise the new 'DateInput' sub component. This enables users to type a date via the input, as well as select a date through the 'Calendar' dialog picker. Note the UX and design have also been updated as a result of this change.
+
+* 'value' prop has been renamed to 'selectedDay'.
+* 'onChange' prop has been renamed to 'OnDayChange'.
+* New 'description' prop (optional) - Displays a description message on the input, by default "format: mm/dd/yyyy" will display.
+* New 'onButtonClick' prop (optional) - Overrides the calendar icon button onClick event.
+* 'id' prop is now required on the sub-component 'Calendar' if you are using it directly.
+
+Co-authored-by: Lloyd Stubber <lloyd@squareyes.info>
+
+
+
+
+
 ## [2.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.9...@kaizen/date-picker@2.1.10) (2022-05-03)
 
 **Note:** Version bump only for package @kaizen/date-picker
