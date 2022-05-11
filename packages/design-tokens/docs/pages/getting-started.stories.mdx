@@ -16,34 +16,33 @@ This document should serve as an explanation for how to use our design tokens - 
 
 ## 1. Setup a ThemeManager
 
-<CodeBlock language="typescript" code={
-`import { ThemeManager, defaultTheme } from '@kaizen/design-tokens'
-export const themeManager = new ThemeManager(defaultTheme);`
-} />
+<CodeBlock
+  language="typescript"
+  code={`import { ThemeManager, defaultTheme } from '@kaizen/design-tokens'
+export const themeManager = new ThemeManager(defaultTheme);`}
+/>
 
-* Instantiate a `ThemeManager` with your choice of initial theme. If you're not sure, use the `defaultTheme`.
-* There should only be one instance per application (singleton).
-* It is responsible for holding the state of the current theme.
-* The current theme can be subscribed to using `addThemeChangeListener` so you can be reactive to changes. This is the preferred way to consume tokens in JS/TS.
-* Themes are applied to the DOM as a flattened list of CSS variables, so that changes to the current theme are also reflected in CSS (or SASS/LESS)
+- Instantiate a `ThemeManager` with your choice of initial theme. If you're not sure, use the `defaultTheme`.
+- There should only be one instance per application (singleton).
+- It is responsible for holding the state of the current theme.
+- The current theme can be subscribed to using `addThemeChangeListener` so you can be reactive to changes. This is the preferred way to consume tokens in JS/TS.
+- Themes are applied to the DOM as a flattened list of CSS variables, so that changes to the current theme are also reflected in CSS (or SASS/LESS)
 
-**Note**: it is important to be aware of the loading order of your application's assets. This code needs to be run *before* any parts of your UI (that depend on CSS variables being defined) are visible. See [Caveats](#caveats)
+**Note**: it is important to be aware of the loading order of your application's assets. This code needs to be run _before_ any parts of your UI (that depend on CSS variables being defined) are visible. See [Caveats](#caveats)
 
 ## 2. Start using design tokens
 
 The recommended approaches to consuming design tokens are to:
 
-* Import their CSS variables representations in SASS - <LinkToStory storyModule={howToUseInSass} />
-* In a React application, use the context and hook components to subscribe and consume the current theme values - <LinkToStory storyModule={howToUseInReact} />
-* Subscribe to the theme using `themeManager.addThemeChangeListener(theme => ...)` and react to changes.
-
+- Import their CSS variables representations in SASS - <LinkToStory storyModule={howToUseInSass} />
+- In a React application, use the context and hook components to subscribe and consume the current theme values - <LinkToStory storyModule={howToUseInReact} />
+- Subscribe to the theme using `themeManager.addThemeChangeListener(theme => ...)` and react to changes.
 
 ## 3. Switching themes
 
-* Call `themeManager.setAndApplyTheme(themeObject)` which will set CSS variables accordingly and update all subscribers.
+- Call `themeManager.setAndApplyTheme(themeObject)` which will set CSS variables accordingly and update all subscribers.
 
 See <LinkToStory storyModule={howToSwitchThemes} /> for more details and complex examples.
-
 
 ## Caveats
 
@@ -55,5 +54,5 @@ This means that any parts of your UI that are loaded before the theme manager (f
 
 #### If you can't instantiate a ThemeManager, import a CSS file to apply a theme.
 
-* Add `import "@kaizen/design-tokens/css/default-theme.css"` to your JS/TS source to apply the default theme's CSS variables on the `:root` element.
-* Similarly, you can add `<link rel="stylesheet" href="./node_modules/@kaizen/design-tokens/css/default-theme.css">` to your HTML.
+- Add `import "@kaizen/design-tokens/css/default-theme.css"` to your JS/TS source to apply the default theme's CSS variables on the `:root` element.
+- Similarly, you can add `<link rel="stylesheet" href="./node_modules/@kaizen/design-tokens/css/default-theme.css">` to your HTML.
