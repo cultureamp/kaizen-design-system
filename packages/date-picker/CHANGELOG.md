@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.1...@kaizen/date-picker@3.0.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* update DateRangePicker props name ([#2722](https://github.com/cultureamp/kaizen-design-system/issues/2722)) ([a53fff0](https://github.com/cultureamp/kaizen-design-system/commit/a53fff075a06d7d885d87e9720f579544b9d5f25))
+
+
+
+
+
 ## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.0...@kaizen/date-picker@3.0.1) (2022-05-11)
 
 **Note:** Version bump only for package @kaizen/date-picker
