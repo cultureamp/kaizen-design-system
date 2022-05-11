@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.6...@kaizen/component-library@14.1.0) (2022-05-11)
+
+
+### Features
+
+* add increase and decrease indent icons for RTE ([#2721](https://github.com/cultureamp/kaizen-design-system/issues/2721)) ([b85f2be](https://github.com/cultureamp/kaizen-design-system/commit/b85f2bed7e76f72ae7544bf37e150043d92f661c)), closes [#000000](https://github.com/cultureamp/kaizen-design-system/issues/000000)
+
+
+
+
+
 ## [14.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.5...@kaizen/component-library@14.0.6) (2022-05-03)
 
 **Note:** Version bump only for package @kaizen/component-library
