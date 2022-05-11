@@ -5,6 +5,7 @@
 !**/
 !*.ts
 !*.tsx
+!*.stories.mdx
 !*.js
 !*.json
 !*.yaml

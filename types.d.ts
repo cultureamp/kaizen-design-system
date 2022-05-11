@@ -39,3 +39,7 @@ declare module "react-map-interaction" {
     }
   >
 }
+declare module "*.mdx" {
+  const value: string
+  export default value
+}

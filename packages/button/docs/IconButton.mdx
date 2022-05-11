@@ -1,0 +1,100 @@
+<!-- Badge.stories.mdx -->
+
+import { Canvas, Meta, Story, Source, Props } from "@storybook/addon-docs"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
+import { InlineNotification } from "@kaizen/notification";
+import { LoadingInput } from "@kaizen/loading-skeleton"
+
+import { IconButton } from "@kaizen/button"
+
+<Meta title="Design System/IconButton" component={IconButton} />
+
+# IconButton
+
+[Source code](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button)
+&nbsp;|&nbsp;
+[Component guidelines](https://cultureamp.design/components/iconbutton/)
+&nbsp;|&nbsp;
+[UI Kit](https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364)
+
+| npm | [View on npm](https://www.npmjs.com/package/@kaizen/button)
+| ---- | ---- 
+| **Install** | `npm install @kaizen/button` |
+| **Import** | `import { IconButton } from "@kaizen/button"`. This Button supersedes "@kaizen/draft-button" |
+<br />
+
+## Overview
+
+Icon buttons are buttons without visible text labels by default.
+
+<Canvas mdxSource="<IconButton label='Label' icon={trashIcon} />">
+  <IconButton label="Label" icon={trashIcon}  />
+</Canvas>
+
+## Skeleton State
+
+Use the `LoadingInput` component from the `LoadingSkeleton` package. Please refer to the LoadingInput [Component guidelines](https://cultureamp.design/components/loading-skeleton/).
+
+<Canvas mdxSource="<LoadingInput isAnimated width={10} />">
+  <LoadingInput isAnimated width={7} />
+</Canvas>
+
+### Component API
+
+<Props />
+
+### IconButton Variants
+
+Kaizen has five variants of icon button, `Default`, `Primary`, `Destructive`, `Secondary` and `Seconday` + `Destructive`.
+
+If no `variant` is specified, a `Default` icon button will be rendered. 
+
+For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/iconbutton/)
+
+<Canvas mdxSource="<IconButton label='Default IconButton' icon={trashIcon}/>
+<IconButton label='Primary IconButton' icon={trashIcon} primary />
+<IconButton label='Destructive IconButton' icon={trashIcon} destructive />
+<IconButton label='Secondary IconButton' icon={trashIcon} secondary />
+<IconButton label='Secondary Destructive IconButton' icon={trashIcon} secondary destructive />
+">
+  <IconButton label="Default IconButton" icon={trashIcon}/>
+  <IconButton label="Primary IconButton" icon={trashIcon} primary />
+  <IconButton label="Destructive IconButton" icon={trashIcon} destructive />
+  <IconButton label="Secondary IconButton" icon={trashIcon} secondary />
+  <IconButton label="Secondary Destructive IconButton" icon={trashIcon} secondary destructive />
+</Canvas>
+
+### IconButton `label`
+
+An IconButton must always include a label for accessibility purposes.
+
+### IconButton `disabled`
+
+A disabled IconButton prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read aloud by a screenreader.
+
+<Canvas mdxSource="<IconButton label='Label' icon={trashIcon} disabled/>">
+  <IconButton label="Label" icon={trashIcon} disabled/>
+</Canvas>
+
+### IconButton `icon`
+
+When a IconButton is supplied to the `icon` prop, it displays an icon.
+
+```js
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
+```
+Once the icons are imported, you can pass them directly into the IconButton component. 
+
+### IconButton `Working`
+
+The `working` prop should be used in situations where a IconButton action triggers a change in UI state but needs to wait for a server response, such as submitting a form
+
+In conjuction use the `workingLabel` prop to update the label of the IconButton when the working state is triggered. 
+
+Alternatively use the `workingLabelHidden` prop to hide the IconButton label all together. 
+
+<Canvas mdxSource="<IconButton label='Label' working workingLabel='Submitting' workingLabelHidden />">
+  <IconButton label="Label" working workingLabel="Submitting" workingLabelHidden />
+</Canvas>
