@@ -80,6 +80,20 @@ export interface DatePickerProps
    * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
    */
   disabledDaysOfWeek?: DayOfWeek[]
+
+  onValidation: (validationObj: DatePickerValidation) => void
+  /**
+   * A descriptive message for `error` states
+   */
+  validationMessage?: string | React.ReactNode
+  status?: "default" | "error"
+  invalidDateValidationMessage?: string
+  disabledValidationMessage?: string
+}
+
+export type DatePickerValidation = {
+  status?: "default" | "error"
+  validationMessage?: string
 }
 
 export enum DateFormat {
@@ -106,6 +120,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   buttonRef = useRef<HTMLButtonElement>(null),
   labelText,
   isDisabled = false,
+  validationMessage,
+  status,
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -117,10 +133,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   selectedDay,
   onButtonClick,
   onDayChange,
+  onValidation,
+  invalidDateValidationMessage = "Disabled Date.",
+  disabledValidationMessage = "Invalid Date.",
   ...restDateInputProps
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
-
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -150,25 +168,46 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     disabledAfter
   )
 
-  const handleOnDayChange = (day: Date, modifiers: DayModifiers): void => {
+  const handleOnDayChange = (day: Date): void => {
     if (isDisabledDate(day, disabledDays)) {
+      onValidation({
+        status: "error",
+        validationMessage: disabledValidationMessage,
+      })
       return
     }
+    onValidation({
+      status: "default",
+      validationMessage: undefined,
+    })
     onDayChange(day)
     setIsOpen(false)
   }
 
   const handleInputChange = (date: Date | undefined): void => {
-    if (
-      date !== undefined &&
-      !isInvalidDate(date) &&
-      !isDisabledDate(date, disabledDays)
-    ) {
-      onDayChange(date)
+    if (date !== undefined && isInvalidDate(date)) {
+      onDayChange(undefined)
+      onValidation({
+        status: "error",
+        validationMessage: invalidDateValidationMessage,
+      })
       return
     }
 
-    onDayChange(undefined)
+    if (date !== undefined && isDisabledDate(date, disabledDays)) {
+      onDayChange(undefined)
+      onValidation({
+        status: "error",
+        validationMessage: disabledValidationMessage,
+      })
+      return
+    }
+    onDayChange(date)
+    onValidation({
+      status: "default",
+      validationMessage: undefined,
+    })
+    return
   }
 
   const handleOpenClose = (): void => setIsOpen(!isOpen)
@@ -209,8 +248,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onButtonClick={handleButtonClick}
           calendarId={`${id}-calendar-dialog`}
           onKeyDown={handleKeyDown}
+          onValidation={onValidation}
           valueDate={selectedDay}
           disabledDays={disabledDays}
+          validationMessage={validationMessage}
+          status={status}
           {...restDateInputProps}
         />
       </div>

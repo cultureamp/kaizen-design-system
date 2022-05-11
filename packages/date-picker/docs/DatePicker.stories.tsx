@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker } from "../src/DatePicker"
+import { DatePicker, DatePickerValidation } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -33,6 +34,69 @@ export const DefaultStory = props => {
   )
 }
 DefaultStory.storyName = "Date Picker"
+
+export const ValidationStory = props => {
+  const [selectedDate, setValueDate] = useState<Date | undefined>()
+  const [status, setStatus] = useState<"default" | "error">("default")
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >(undefined)
+
+  const [validation, setValidation] = useState<DatePickerValidation>({
+    status: "default",
+    validationMessage: undefined,
+  })
+
+  const submitRequest = () => {
+    console.log("VALUE ON SUBMIT ", selectedDate)
+
+    if (selectedDate === undefined) {
+      setValidation({
+        status: "error",
+        validationMessage: "Please enter a valid date.",
+      })
+      return
+    } else if (validation.status === "error") {
+      alert("There is an error within form")
+    }
+  }
+
+  return (
+    <>
+      <DatePicker
+        id="datepicker-default"
+        labelText="Label"
+        selectedDay={selectedDate}
+        onDayChange={day => {
+          setValueDate(day)
+          if (day?.getFullYear() !== new Date().getFullYear()) {
+            setValidation({
+              status: "error",
+              validationMessage: "Date is not this year.",
+            })
+          } else {
+            setValidation({
+              status: "default",
+              validationMessage: undefined,
+            })
+          }
+          console.log("VALUE ", selectedDate)
+        }}
+        onValidation={setValidation}
+        status={validation.status}
+        validationMessage={validation.validationMessage}
+        disabledBefore={new Date()}
+        disabledValidationMessage="Custom Disabled Date message."
+        invalidDateValidationMessage="Custom invalid Date message."
+        {...props}
+      />
+      <Button onClick={submitRequest} label="Submit" />
+    </>
+  )
+}
+
+ValidationStory.storyName = "Validation Story"
+
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
@@ -96,6 +160,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
+            onValidation={e => e}
             isReversed={isReversed}
           />
           <DatePicker
@@ -103,6 +168,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={e => e}
+            onValidation={e => e}
             isReversed={isReversed}
           />
           <DatePicker
@@ -110,6 +176,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={e => e}
+            onValidation={e => e}
             isReversed={isReversed}
             description={
               <>
@@ -127,6 +194,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={e => e}
+            onValidation={e => e}
             isReversed={isReversed}
             isDisabled
           />
@@ -135,6 +203,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={e => e}
+            onValidation={e => e}
             isReversed={isReversed}
           />
         </StoryWrapper.Row>

@@ -11,7 +11,7 @@ import {
 
 import { format, parse } from "date-fns"
 import { Modifier } from "react-day-picker"
-import { DateFormat } from "../../DatePicker"
+import { DateFormat, DatePickerValidation } from "../../DatePicker"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
 import styles from "./DateInput.scss"
@@ -41,6 +41,12 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   valueDate: Date | undefined
   onBlur: (date: Date | undefined) => void
   disabledDays?: Modifier | Modifier[]
+  /**
+   * A descriptive message for `error` states
+   */
+  validationMessage?: string | React.ReactNode
+  status?: "default" | "error"
+  onValidation: (validationObj: DatePickerValidation) => void
 }
 
 const formatDateAsText = (
@@ -62,11 +68,14 @@ export const DateInput: React.VFC<DateInputProps> = ({
   isReversed = false,
   icon,
   onButtonClick,
+  onValidation,
   calendarId,
   isOpen,
   valueDate,
   onBlur,
   disabledDays,
+  validationMessage,
+  status,
   ...inputProps
 }) => {
   const [valueString, setValueString] = useState<string>("")
@@ -150,7 +159,21 @@ export const DateInput: React.VFC<DateInputProps> = ({
         onFocus={handleFocus}
         {...inputProps}
       />
-
+      {status !== "default" && (
+        <div
+          className={classnames(styles.message, {
+            [styles.disabled]: disabled,
+          })}
+        >
+          <FieldMessage
+            id={`${id}-field-message`}
+            automationId={`${id}-field-validation-message`}
+            message={validationMessage}
+            status={status}
+            reversed={isReversed}
+          />
+        </div>
+      )}
       <div
         className={classnames(styles.message, {
           [styles.disabled]: disabled,
