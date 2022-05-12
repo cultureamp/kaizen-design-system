@@ -3,7 +3,7 @@ import { v4 } from "uuid"
 import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
-import { Node, Schema, NodeType, MarkType } from "prosemirror-model"
+import { Node, Schema } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
@@ -15,6 +15,7 @@ import { buildKeymap } from "./keymap"
 import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
+import { createLinkManager } from "./plugins/LinkManager/LinkManager"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
 export type ToolbarControlTypes =
@@ -23,6 +24,7 @@ export type ToolbarControlTypes =
   | "underline"
   | "orderedList"
   | "bulletList"
+  | "link"
 
 export interface ToolbarItems {
   name: ToolbarControlTypes
@@ -73,6 +75,9 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
         keymap(buildKeymap(schema)),
         keymap(baseKeymap),
         buildInputRules(schema),
+        createLinkManager({
+          markType: schema.marks.link,
+        }),
       ],
     }),
     { "aria-labelledby": labelId }

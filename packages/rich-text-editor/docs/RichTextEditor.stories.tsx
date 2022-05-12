@@ -37,5 +37,6 @@ Default.args = {
     { name: "underline", group: "inline" },
     { name: "orderedList", group: "list" },
     { name: "bulletList", group: "list" },
+    { name: "link", group: "link" },
   ],
 }
