@@ -9,8 +9,7 @@
     "noImplicitAny": false,
     "strict": true,
     "allowJs": false,
-    "noEmit": true,
-    "noUncheckedIndexedAccess": true
+    "noEmit": true
   },
   "files": ["./types.d.ts"],
   "include": [
