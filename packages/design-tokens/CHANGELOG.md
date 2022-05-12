@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.2...@kaizen/design-tokens@8.0.3) (2022-05-12)
+
+
+### Bug Fixes
+
+* Enable noUncheckedIndexedAccess for design tokens and fix TS errors ([#2725](https://github.com/cultureamp/kaizen-design-system/issues/2725)) ([467bf1a](https://github.com/cultureamp/kaizen-design-system/commit/467bf1a0117d3961f5474f5c05854395072c5840))
+
+
+
+
+
 ## [8.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.1...@kaizen/design-tokens@8.0.2) (2022-05-02)
 
 **Note:** Version bump only for package @kaizen/design-tokens
