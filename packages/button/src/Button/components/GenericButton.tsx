@@ -12,7 +12,7 @@ import React, {
 } from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { ButtonProps } from "../Button"
-import styles from "./GenericButton.module.scss"
+import styles from "./GenericButton.scss"
 
 export type CustomButtonProps = {
   id?: string
@@ -37,6 +37,7 @@ export type GenericProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
+  classNameOverride?: string
 }
 
 export type ButtonType = "submit" | "reset" | "button"
@@ -218,26 +219,22 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   )
 }
 
-const buttonClass = (props: Props) => {
-  const variantClass =
-    (props.destructive &&
-      props.secondary &&
-      !props.reversed &&
-      styles.secondaryDestructive) ||
-    (props.destructive && styles.destructive) ||
-    (props.primary && styles.primary) ||
-    (props.secondary && styles.secondary)
-
-  return classNames(styles.button, variantClass, {
-    [styles.form]: props.form,
-    [styles.reversed]: props.reversed,
-    [styles.iconButton]: props.iconButton,
-    [styles.working]: props.working,
-    [styles.circleButton]: props.directionalLink || props.paginationLink,
-    [styles.paginationLink]: props.paginationLink,
-    [styles.isPaginationLinkActive]: props.isActive,
-  })
-}
+const buttonClass = (props: Props) =>
+  classNames([
+    styles.button,
+    props.primary && styles.primary,
+    props.destructive && styles.destructive,
+    props.secondary && styles.secondary,
+    props.form && styles.form,
+    props.reversed && styles.reversed,
+    props.iconButton && styles.iconButton,
+    props.working && styles.working,
+    (props.directionalLink || props.paginationLink) && styles.circleButton,
+    props.directionalLink && styles.directionalLink,
+    props.paginationLink && styles.paginationLink,
+    props.isActive && styles.isPaginationLinkActive,
+    props.classNameOverride,
+  ])
 
 const renderLoadingSpinner = () => (
   <div className={styles.loadingSpinner}>

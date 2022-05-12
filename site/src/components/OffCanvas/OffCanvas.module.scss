@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/button/Button/styles";
+@import "~@kaizen/button/src/Button/mixins";
 @import "@kaizen/component-library/styles/animation";
 
 $hamburger-width: 18px;

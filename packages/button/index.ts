@@ -1,5 +1,5 @@
 export { default as Button } from "./src/Button/Button"
-export { default as IconButton } from "./src/Button/IconButton"
+export * from "./src/Button/IconButton"
 export { default as DirectionalLink } from "./src/Button/DirectionalLink"
 export { default as PaginationLink } from "./src/Button/PaginationLink"
 export type {

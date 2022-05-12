@@ -1,0 +1,25 @@
+@import "mixins";
+@import "variables";
+
+%icon-button {
+  width: $button-height;
+  border-color: $border-borderless-border-color;
+
+  @include enabled-pseudo-states-variant(
+    $border-color: $border-borderless-border-color
+  );
+
+  & #{$className--content} {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  &.reversed {
+    border-color: $border-borderless-border-color;
+
+    @include enabled-pseudo-states-variant(
+      $border-color: $border-borderless-border-color
+    );
+  }
+}
