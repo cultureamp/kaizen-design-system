@@ -4,6 +4,7 @@ import classnames from "classnames"
 import {
   FieldGroup,
   FieldMessage,
+  FieldMessageStatus,
   Input,
   InputProps,
   Label,
@@ -11,11 +12,14 @@ import {
 
 import { format, parse } from "date-fns"
 import { Modifier } from "react-day-picker"
-import { DateFormat, DatePickerValidation } from "../../DatePicker"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
 import styles from "./DateInput.scss"
 
+export enum DateFormat {
+  Numeral = "P", // eg. 01/15/2022
+  Text = "PP", // eg. Jan 15, 2022
+}
 type OmittedInputProps =
   | "startIconAdornment"
   | "endIconAdornment"
@@ -24,6 +28,11 @@ type OmittedInputProps =
   | "reversed"
   | "onBlur"
   | "value"
+  | "type"
+  | "ariaLabel"
+  | "ariaDescribedBy"
+  | "defaultInputValue"
+  | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
@@ -36,17 +45,28 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    */
   description?: React.ReactNode
   isOpen: boolean
+  /**
+   * Event for the onClick of the icon button
+   */
   onButtonClick: () => void
   isReversed?: boolean
+  /**
+   * The input value as a Date
+   */
   valueDate: Date | undefined
-  onBlur: (date: Date | undefined) => void
+  /**
+   * The callback for then onBlur is triggered on the input
+   */
+  onBlur: (date: Date | undefined, inputValue: string) => void
   disabledDays?: Modifier | Modifier[]
   /**
-   * A descriptive message for `error` states
+   * A descriptive message for `status` states
    */
   validationMessage?: string | React.ReactNode
-  status?: "default" | "error"
-  onValidation: (validationObj: DatePickerValidation) => void
+  /**
+   * Updates the styling of the validation FieldMessage.
+   */
+  status?: FieldMessageStatus
 }
 
 const formatDateAsText = (
@@ -68,7 +88,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
   isReversed = false,
   icon,
   onButtonClick,
-  onValidation,
   calendarId,
   isOpen,
   valueDate,
@@ -88,10 +107,9 @@ export const DateInput: React.VFC<DateInputProps> = ({
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
       formatDateAsText(parsedDate, disabledDays, setValueString)
-      return onBlur(parsedDate)
-    } else {
-      onBlur(undefined)
+      return onBlur(parsedDate, valueString)
     }
+    onBlur(undefined, valueString)
   }
   const handleFocus = (): void => {
     valueDate && setValueString(format(valueDate, DateFormat.Numeral))
@@ -159,7 +177,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         onFocus={handleFocus}
         {...inputProps}
       />
-      {status !== "default" && (
+      {status && (
         <div
           className={classnames(styles.message, {
             [styles.disabled]: disabled,

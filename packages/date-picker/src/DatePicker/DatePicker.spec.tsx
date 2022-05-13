@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react"
+import { act, fireEvent, render, screen } from "@testing-library/react"
 import React from "react"
 import userEvent from "@testing-library/user-event"
 import { DatePicker } from "./DatePicker"
@@ -10,7 +10,7 @@ const defaultProps = {
   selectedDay: undefined,
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
-  onValidation: () => jest.fn(),
+  onValidate: jest.fn(),
 }
 
 describe("<DatePicker />", () => {
@@ -90,5 +90,19 @@ describe("<DatePicker />", () => {
     })
 
     expect(button).toHaveFocus()
+  })
+
+  describe("Validation", () => {
+    it("Error message when status is error", async () => {
+      render(
+        <DatePicker
+          {...defaultProps}
+          status="error"
+          validationMessage="Invalid Date."
+        />
+      )
+
+      expect(screen.getByText("Invalid Date.")).toBeInTheDocument()
+    })
   })
 })
