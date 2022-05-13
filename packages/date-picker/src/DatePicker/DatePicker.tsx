@@ -206,7 +206,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       onValidate({
         ...baseResponse,
         status: "error",
-        validationMessage: "Date not valid, try again",
+        validationMessage: `${inputValue} is an invalid date.`,
         isInvalid: true,
       })
       return onDayChange(undefined)
@@ -216,7 +216,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       onValidate({
         ...baseResponse,
         status: "error",
-        validationMessage: "Date not available, choose another",
+        validationMessage: `${
+          inputValue ? inputValue : "Date"
+        } not available, choose another.`,
         isDisabled: true,
       })
       return onDayChange(undefined)

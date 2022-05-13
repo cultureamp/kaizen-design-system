@@ -93,7 +93,7 @@ describe("<DatePicker />", () => {
   })
 
   describe("Validation", () => {
-    it("Error message when status is error", async () => {
+    it("displays error message when status is error", async () => {
       render(
         <DatePicker
           {...defaultProps}
