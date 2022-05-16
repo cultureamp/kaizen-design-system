@@ -29,23 +29,23 @@ const renderCheckOrMixedIcon = (
 ): React.ReactNode => {
   if (status === "on") {
     return (
-      <div
+      <span
         className={classnames(styles.icon, {
           [styles.reversed]: reversed,
         })}
       >
         <Icon icon={checkIcon} role="presentation" inheritSize />
-      </div>
+      </span>
     )
   } else if (status === "mixed") {
     return (
-      <div
+      <span
         className={classnames(styles.icon, {
           [styles.reversed]: reversed,
         })}
       >
         <Icon icon={minusIcon} role="presentation" inheritSize />
-      </div>
+      </span>
     )
   }
   return
