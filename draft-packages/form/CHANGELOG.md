@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.5...@kaizen/draft-form@7.1.6) (2022-05-16)
+
+
+### Bug Fixes
+
+* Kds 267 checkbox adds a div into span when clicked ([#2732](https://github.com/cultureamp/kaizen-design-system/issues/2732)) ([ab7ed2f](https://github.com/cultureamp/kaizen-design-system/commit/ab7ed2f26edf168d35938691ae2a2034adc1fbe1))
+
+
+
+
+
 ## [7.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.4...@kaizen/draft-form@7.1.5) (2022-05-11)
 
 **Note:** Version bump only for package @kaizen/draft-form
