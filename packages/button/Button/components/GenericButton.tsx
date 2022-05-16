@@ -23,6 +23,7 @@ export type CustomButtonProps = {
   onClick?: (e: MouseEvent<any>) => void
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
+  children?: React.ReactNode
 }
 
 export type GenericProps = {
