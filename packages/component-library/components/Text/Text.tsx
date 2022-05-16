@@ -33,12 +33,13 @@ type TextProps = {
     | "zen-data-small-units"
   inheritBaseline?: boolean
   inline?: boolean
+  children: React.ReactNode
 }
 
 /**
  * @deprecated Text is deprecated. Use Paragraph or Heading instead.
  */
-const Text: React.FunctionComponent<TextProps> = ({
+const Text: React.VFC<TextProps> = ({
   tag,
   children,
   inheritBaseline = false,

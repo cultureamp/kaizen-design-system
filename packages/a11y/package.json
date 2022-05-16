@@ -33,7 +33,7 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.9.0 || ^17.0.0"
+    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@kaizen/component-library": "^14.1.1"
