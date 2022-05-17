@@ -44,7 +44,7 @@
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-dom": "^16.13.1",
-    "react-focus-lock": "^2.7.1",
+    "react-focus-lock": "^2.9.1",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
@@ -52,6 +52,6 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
-    "react": "^16.9.0 || ^17.0.0"
+    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   }
 }
