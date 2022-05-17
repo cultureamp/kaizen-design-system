@@ -5,6 +5,7 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
+  act,
 } from "@testing-library/react"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { ToggleIconButton } from "./"
@@ -37,8 +38,9 @@ describe("shows and hides a tooltip with the label provided", () => {
   it("on focus/blur", async () => {
     render(<ExampleToggleIconButton />)
     const button = screen.getByRole("button")
-
-    fireEvent.focus(button)
+    await act(async () => {
+      fireEvent.focus(button)
+    })
     await waitFor(() => screen.getByRole("tooltip", { name: "Bold" }))
 
     // TODO: Check that the tooltip disappears.
@@ -50,11 +52,13 @@ describe("shows and hides a tooltip with the label provided", () => {
   it("on mouseOver/mouseLeave", async () => {
     render(<ExampleToggleIconButton />)
     const button = screen.getByRole("button")
-
-    fireEvent.mouseOver(button)
+    await act(async () => {
+      fireEvent.mouseOver(button)
+    })
     await waitFor(() => screen.getByRole("tooltip", { name: "Bold" }))
-
-    fireEvent.mouseLeave(button)
+    await act(async () => {
+      fireEvent.mouseLeave(button)
+    })
     await waitForElementToBeRemoved(() =>
       screen.getByRole("tooltip", { name: "Bold" })
     )

@@ -1,5 +1,6 @@
 import { cleanup, render } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
+import { fireEvent, waitFor } from "@testing-library/dom"
+import { act } from "react-test-renderer"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import { Informative } from "@kaizen/draft-illustration"
@@ -64,7 +65,7 @@ describe("GuidanceBlock", () => {
     expect(onDismiss).toHaveBeenCalledTimes(1)
   })
 
-  test("The action button calls the action function", () => {
+  test("The action button calls the action function", async () => {
     const onAction = jest.fn()
     const { container } = render(
       <GuidanceBlock
@@ -84,7 +85,7 @@ describe("GuidanceBlock", () => {
     expect(onAction).toHaveBeenCalledTimes(1)
   })
 
-  test("when animation ends the element is removed", () => {
+  test("when animation ends the element is removed", async () => {
     const { container } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}
@@ -101,16 +102,16 @@ describe("GuidanceBlock", () => {
     // After clicking, the element should fade out
     const cancelButton = container.querySelector(".cancel")
     cancelButton && fireEvent.click(cancelButton)
-
     const banner = container.querySelector(".banner")
     // Simulate fade out
+
     banner &&
       ReactTestUtils.Simulate.transitionEnd(banner, {
         propertyName: "margin-top",
       } as any)
 
     const bannerAfter = container.querySelector(".banner")
-    expect(bannerAfter).toBeNull()
+    await waitFor(() => expect(bannerAfter).not.toBeInTheDocument())
   })
 
   test("when guidance block is persistent", () => {
@@ -130,7 +131,7 @@ describe("GuidanceBlock", () => {
     )
 
     const cancelButton = container.querySelector(".cancel")
-    expect(cancelButton).toBeNull()
+    expect(cancelButton).not.toBeInTheDocument()
   })
 
   test("when secondary action is supplied", () => {
