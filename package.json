@@ -119,7 +119,8 @@
     "svgo-loader": "version locked to keep consistency with gatsby site"
   },
   "resolutions": {
-    "axios": "0.21.2"
+    "axios": "0.21.2",
+    "@types/react": "^18.0.9"
   },
   "config": {
     "commitizen": {
