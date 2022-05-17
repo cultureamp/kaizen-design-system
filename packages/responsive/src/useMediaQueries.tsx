@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useState, ReactNode, useMemo } from "react"
+import React, { VFC, useEffect, useState, ReactNode, useMemo } from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
+type GenericChildrenType = { children?: ReactNode }
 
 export const subtractOnePixel = (breakpoint: string) =>
   `${parseInt(breakpoint, 10) - 1}px`
@@ -18,12 +19,12 @@ export const useMediaQueries = (
     isMediumOrLarger: boolean
   }
   components: {
-    [key: string]: FC
-    SmallOnly: FC
-    MediumOnly: FC
-    LargeOnly: FC
-    MediumOrSmaller: FC
-    MediumOrLarger: FC
+    [key: string]: VFC<GenericChildrenType>
+    SmallOnly: VFC<GenericChildrenType>
+    MediumOnly: VFC<GenericChildrenType>
+    LargeOnly: VFC<GenericChildrenType>
+    MediumOrSmaller: VFC<GenericChildrenType>
+    MediumOrLarger: VFC<GenericChildrenType>
   }
 } => {
   if (typeof window === "undefined") {
