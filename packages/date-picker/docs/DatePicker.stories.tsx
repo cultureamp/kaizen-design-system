@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { within } from "@testing-library/react"
-import userEvent, { PointerEventsCheckLevel } from "@testing-library/user-event"
+import userEvent from "@testing-library/user-event"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
@@ -171,7 +171,7 @@ StickerSheetDefault.parameters = { chromatic: { disable: false } }
 StickerSheetDefault.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
-  userEvent.click(focusedDate, {
-    pointerEventsCheck: PointerEventsCheckLevel.Never,
+  userEvent.click(focusedDate, undefined, {
+    skipPointerEventsCheck: true,
   })
 }

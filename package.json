@@ -71,7 +71,7 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/react-12": "npm:@testing-library/react@^12.1.5",
     "@testing-library/react-hooks": "^8.0.0",
-    "@testing-library/user-event": "^14.2.0",
+    "@testing-library/user-event": "^13.5.0",
     "@types/chalk": "^2.2.0",
     "@types/classnames": "^2.3.1",
     "@types/jest": "^27.4.1",
