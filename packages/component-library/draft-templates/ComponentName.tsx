@@ -10,12 +10,13 @@ export type ComponentNameProps = {
   automationId?: string
   //   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   //   disabled?: boolean
+  children?: React.ReactNode
 }
 
-type ComponentName = React.FunctionComponent<ComponentNameProps>
-
-const ComponentName: ComponentName = ({ id, automationId, children }) => (
-  <div className={styles.container}>{children}</div>
-)
+const ComponentName: React.VFC<ComponentNameProps> = ({
+  id,
+  automationId,
+  children,
+}) => <div className={styles.container}>{children}</div>
 
 export default ComponentName
