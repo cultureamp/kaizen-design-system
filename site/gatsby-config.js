@@ -1,7 +1,7 @@
 const { resolve } = require("path")
 
 module.exports = {
-  pathPrefix: process.env.KAIZEN_BASE_PATH || "/",
+  pathPrefix: "/",
   siteMetadata: {
     title: "Kaizen Design System",
     author: "Culture Amp",
