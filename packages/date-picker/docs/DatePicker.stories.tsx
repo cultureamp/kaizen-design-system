@@ -168,10 +168,3 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
-StickerSheetDefault.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
-  userEvent.click(focusedDate, undefined, {
-    skipPointerEventsCheck: true,
-  })
-}
