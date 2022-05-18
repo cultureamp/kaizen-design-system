@@ -1,5 +1,5 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import ReactDOM, { createRoot } from "react-dom/client"
 import { v4 } from "uuid"
 import {
   AddToastNotification,
@@ -107,12 +107,12 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   }
 
   if (portal) {
-    ReactDOM.render(
+    const root = createRoot(portal)
+    root.render(
       <ToastNotificationsListContainer
         removeToastNotification={removeToastNotification}
         registerSetNotificationsCallback={registerSetNotificationsCallback}
-      />,
-      portal
+      />
     )
   }
 
