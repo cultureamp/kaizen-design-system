@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
-if [[ "$BUILDKITE_BRANCH" == "master" ]]; then
-    destination=${KAIZEN_DOMAIN_NAME}
+if [ "$BUILDKITE_BRANCH" = "master" ]; then
+    destination="${KAIZEN_DOMAIN_NAME}"
     echo "Publishing to ${destination}"
 
     aws s3 sync --delete \
@@ -13,7 +13,7 @@ if [[ "$BUILDKITE_BRANCH" == "master" ]]; then
         "storybook/public" \
         "s3://${destination}/storybook"
 else
-    destination=${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}
+    destination="${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}"
     echo "Publishing to ${destination}"
 
     aws s3 sync --delete \
