@@ -21,6 +21,7 @@ if (process.env.USE_REACT_16 === "true") {
     "^react-dom((\\/.*)?)$": "react-dom-16$1",
     "^react((\\/.*)?)$": "react-16$1",
     "^@testing-library/react((\\/.*)?)$": "@testing-library/react-12$1",
+    "^react-test-renderer((\\/.*)?)$": "react-test-renderer-17$1",
   }
 }
 
@@ -31,5 +32,6 @@ if (process.env.USE_REACT_17 === "true") {
     "^react-dom((\\/.*)?)$": "react-dom-17$1",
     "^react((\\/.*)?)$": "react-17$1",
     "^@testing-library/react((\\/.*)?)$": "@testing-library/react-12$1",
+    "^react-test-renderer((\\/.*)?)$": "react-test-renderer-17$1",
   }
 }
