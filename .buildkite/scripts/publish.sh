@@ -1,17 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-destination=${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}
+if [[ "$BUILDKITE_BRANCH" == "master" ]]; then
+    destination=${KAIZEN_DOMAIN_NAME}
+    echo "Publishing to ${destination}"
 
-echo "Publishing to ${destination}"
+    aws s3 sync --delete \
+        "site/public" \
+        "s3://${destination}"
 
-aws s3 sync --delete \
-    "site/public" \
-    "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
+    aws s3 sync --delete \
+        "storybook/public" \
+        "s3://${destination}/storybook"
+else
+    destination=${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}
+    echo "Publishing to ${destination}"
 
-aws s3 sync --delete \
-    "storybook/public" \
-    "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}/storybook"
+    aws s3 sync --delete \
+        "storybook/public" \
+        "s3://${destination}"
+fi
 
 aws cloudfront create-invalidation \
     --distribution-id "${KAIZEN_DISTRIBUTION_ID}" \

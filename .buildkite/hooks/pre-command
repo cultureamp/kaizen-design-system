@@ -7,11 +7,6 @@ extract_artifact() {
 }
 
 main() {
-  export KAIZEN_BASE_PATH=""
-  if [[ $BUILDKITE_BRANCH != "master" ]]; then
-    KAIZEN_BASE_PATH="/${BUILDKITE_BRANCH}"
-  fi
-
   if [[ -n $KAIZEN_EXTRACT_ARTIFACTS ]]; then
     echo "Extracting build artifacts..."
     extract_artifact "site.tar.gz"
