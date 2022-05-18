@@ -1,6 +1,6 @@
-import { cleanup, render } from "@testing-library/react"
+import { act, cleanup, render } from "@testing-library/react"
 import { fireEvent, waitFor } from "@testing-library/dom"
-import * as React from "react"
+import React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
@@ -66,7 +66,7 @@ describe("<GenericNotification />", () => {
     await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
   })
 
-  test("If autohide is specified, we should start hiding after 5s", () => {
+  test("If autohide is specified, we should start hiding after 5s", async () => {
     const { container } = render(
       <GenericNotification
         type="positive"
@@ -77,12 +77,18 @@ describe("<GenericNotification />", () => {
         This is my positive notification
       </GenericNotification>
     )
-
-    // After 4s, it should still be visible
-    jest.advanceTimersByTime(4999)
-    expect(container.querySelector(".hidden")).not.toBeInTheDocument()
-
-    jest.advanceTimersByTime(1)
+    expect(container.querySelector(".hidden")).toBeTruthy()
     expect(container.querySelector(".hidden")).toBeInTheDocument()
+
+    // // After 4s, it should still be visible
+    await act(async () => {
+      jest.advanceTimersByTime(4999)
+    }).then(() => {
+      expect(container.querySelector(".hidden")).not.toBeInTheDocument()
+    })
+
+    await waitFor(() => {
+      expect(container.querySelector(".hidden")).toBeInTheDocument()
+    })
   })
 })
