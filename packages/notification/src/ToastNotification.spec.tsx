@@ -17,7 +17,7 @@ test("The basic notification renders correctly", async () => {
     </ToastNotification>
   )
 
-  waitFor(() =>
+  await waitFor(async () =>
     expect(screen.getByRole("heading").textContent).toEqual("Success")
   )
 })

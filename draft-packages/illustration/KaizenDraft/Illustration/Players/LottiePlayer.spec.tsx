@@ -7,6 +7,7 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react"
 import React from "react"
+import { act } from "react-dom/test-utils"
 import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 
@@ -92,32 +93,41 @@ describe("<AnimatedBase />", () => {
 
   describe("when the aspect ratio is set as a prop", () => {
     it("should have aspect ratio class", async () => {
-      const { container } = render(
+      render(
         <AnimatedBase
-          name=""
+          name="landscape"
           aspectRatio="landscape"
           alt="Screen reader text"
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
-      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       await waitFor(() => {
-        expect(container.querySelector(".landscape")).toBeTruthy()
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+      })
+      await waitFor(() => {
+        const figureClassList =
+          document.getElementsByTagName("figure")[0].classList
+        expect(figureClassList.contains("landscape"))
       })
     })
 
     describe("when the aspect ratio is NOT set as a prop", () => {
       it("should not have aspect ratio class", async () => {
-        const { container } = render(
+        render(
           <AnimatedBase
             name=""
             alt="Screen reader text"
             fallback="illustrations/heart/spot/moods-cautionary.svg"
           />
         )
-        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
         await waitFor(() => {
-          expect(container.querySelector(".landscape")).toBeFalsy()
+          expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+        })
+
+        await waitFor(() => {
+          const figureClassList =
+            document.getElementsByTagName("figure")[0].classList
+          expect(!figureClassList.contains("landscape"))
         })
       })
     })

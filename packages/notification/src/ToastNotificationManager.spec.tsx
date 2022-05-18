@@ -1,5 +1,10 @@
 import React from "react"
-import { configure, queryByTestId, getByTestId } from "@testing-library/dom"
+import {
+  configure,
+  queryByTestId,
+  getByTestId,
+  waitFor,
+} from "@testing-library/dom"
 import { act, screen } from "@testing-library/react"
 import {
   addToastNotification,
@@ -119,7 +124,8 @@ describe("ToastNotificationsManager", () => {
     await act(async () => {
       clearToastNotifications()
     })
-
-    expect(document.querySelectorAll(".toast").length).toBe(0)
+    await waitFor(() => {
+      expect(document.querySelectorAll(".toast").length).toBe(0)
+    })
   })
 })
