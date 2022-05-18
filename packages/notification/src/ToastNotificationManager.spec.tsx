@@ -16,8 +16,8 @@ describe("ToastNotificationsManager", () => {
     })
   })
 
-  it("creates a portal", () => {
-    act(() => {
+  it("creates a portal", async () => {
+    await act(async () => {
       addToastNotification({
         type: "informative",
         title: "Test portal",

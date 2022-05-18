@@ -1,4 +1,4 @@
-import { cleanup, render } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import * as React from "react"
 import ToastNotification from "./ToastNotification"
 
@@ -9,14 +9,15 @@ beforeEach(() => {
 })
 afterEach(() => {
   spy.mockRestore()
-  cleanup()
 })
-test("The basic notification renders correctly", () => {
-  const { getByRole } = render(
+test("The basic notification renders correctly", async () => {
+  render(
     <ToastNotification type="positive" title="Success">
       It worked!
     </ToastNotification>
   )
 
-  expect(getByRole("heading").textContent).toEqual("Success")
+  waitFor(() =>
+    expect(screen.getByRole("heading").textContent).toEqual("Success")
+  )
 })
