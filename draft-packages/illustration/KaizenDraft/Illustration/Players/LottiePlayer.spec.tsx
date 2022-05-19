@@ -94,7 +94,7 @@ describe("<AnimatedBase />", () => {
     it("should have aspect ratio class", async () => {
       render(
         <AnimatedBase
-          name="landscape"
+          name=""
           aspectRatio="landscape"
           alt="Screen reader text"
           fallback="illustrations/heart/spot/moods-cautionary.svg"
@@ -106,7 +106,7 @@ describe("<AnimatedBase />", () => {
       await waitFor(() => {
         const figureClassList =
           document.getElementsByTagName("figure")[0].classList
-        expect(figureClassList.contains("landscape"))
+        expect(figureClassList.contains("landscape")).toBe(true)
       })
     })
 
@@ -126,7 +126,7 @@ describe("<AnimatedBase />", () => {
         await waitFor(() => {
           const figureClassList =
             document.getElementsByTagName("figure")[0].classList
-          expect(!figureClassList.contains("landscape"))
+          expect(figureClassList.contains("landscape")).toBe(false)
         })
       })
     })
