@@ -8,7 +8,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
-  margin-bottom: $ca-grid / 2;
+  margin-bottom: calc($ca-grid / 2);
 
   label {
     -webkit-tap-highlight-color: transparent;

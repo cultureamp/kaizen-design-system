@@ -6,7 +6,7 @@
 
 $width: 248px;
 $caButton-border-width: $border-solid-border-width;
-$caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
+$caButton-verticalPadding: calc($ca-grid / 2) - #{$caButton-border-width};
 
 .dropdown {
   position: relative;
