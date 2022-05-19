@@ -1,11 +1,15 @@
-import { act, cleanup, render } from "@testing-library/react"
+import { act, render } from "@testing-library/react"
 import { fireEvent, waitFor } from "@testing-library/dom"
 import React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
+const tick = () => new Promise(res => setImmediate(res))
+const advanceTimersByTime = async time =>
+  jest.advanceTimersByTime(time) && tick()
+// ^ taken from https://stackoverflow.com/questions/66391541/jest-advancetimersbytime-doesnt-work-when-i-try-to-test-my-retry-util-function
+
 afterEach(() => {
-  cleanup()
   jest.runAllTimers()
 })
 
@@ -55,10 +59,12 @@ describe("<GenericNotification />", () => {
 
     // Cannot use @testing-library/react `fireEvent` as it relies on jsdom events
     // TransitionEvent has not been implemented yet, using `ReactTestUtils.Simulate` is a workaround
-    notification &&
-      ReactTestUtils.Simulate.transitionEnd(notification, {
-        propertyName: "margin-top",
-      } as any)
+    act(() => {
+      notification &&
+        ReactTestUtils.Simulate.transitionEnd(notification, {
+          propertyName: "margin-top",
+        } as any)
+    })
 
     await waitFor(() => {
       expect(notification).not.toBeInTheDocument()
@@ -82,10 +88,9 @@ describe("<GenericNotification />", () => {
 
     // // After 4s, it should still be visible
     await act(async () => {
-      jest.advanceTimersByTime(4999)
-    }).then(() => {
-      expect(container.querySelector(".hidden")).not.toBeInTheDocument()
+      await advanceTimersByTime(4999)
     })
+    expect(container.querySelector(".hidden")).not.toBeInTheDocument()
 
     await waitFor(() => {
       expect(container.querySelector(".hidden")).toBeInTheDocument()
