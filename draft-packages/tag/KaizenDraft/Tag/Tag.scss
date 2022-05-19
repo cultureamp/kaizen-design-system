@@ -247,8 +247,8 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
   width: $pulse-size-after;
   height: $pulse-size-after;
   // this positioning has to be calculated as an exact value as scaling will mess with percentage values
-  left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
-  top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
+  left: calc(-1 * calc($pulse-size-after / 2)) + calc($pulse-size-initial / 2);
+  top: calc(-1 * calc($pulse-size-after / 2)) + calc($pulse-size-initial / 2);
   border-radius: 50%;
   background-color: $color-green-500;
   animation: pulsate infinite 2.5s ease-out;
