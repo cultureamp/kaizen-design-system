@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.27...@kaizen/a11y@1.3.28) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
 ## [1.3.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.3.26...@kaizen/a11y@1.3.27) (2022-05-11)
 
 **Note:** Version bump only for package @kaizen/a11y
