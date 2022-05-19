@@ -23,9 +23,7 @@ if (process.env.USE_REACT_16 === "true") {
     "^@testing-library/react((\\/.*)?)$": "@testing-library/react-12$1",
     "^react-test-renderer((\\/.*)?)$": "react-test-renderer-17$1",
   }
-}
-
-if (process.env.USE_REACT_17 === "true") {
+} else if (process.env.USE_REACT_17 === "true") {
   module.exports.cacheDirectory = ".cache/jest-cache-react-17"
   module.exports.moduleNameMapper = {
     ...module.exports.moduleNameMapper,
