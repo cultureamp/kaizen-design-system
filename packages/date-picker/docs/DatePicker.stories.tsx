@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
-import { within } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
@@ -143,15 +141,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Selected Date", "Focused Date", "Disabled Dates"]}
+          headings={["Selected Date", "Disabled Dates"]}
         />
         <StoryWrapper.Row rowTitle="Calendar">
           <CalendarTemplate value={new Date(2022, 1, 5)} />
-          <CalendarTemplate
-            value={new Date(2022, 0, 5)}
-            initialMonth={new Date(2022, 0, 5)}
-            id="calendar-dialog-focused"
-          />
           <CalendarTemplate
             disabledDays={[
               new Date(2022, 1, 15),
