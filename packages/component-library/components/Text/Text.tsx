@@ -33,7 +33,7 @@ type TextProps = {
     | "zen-data-small-units"
   inheritBaseline?: boolean
   inline?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 /**

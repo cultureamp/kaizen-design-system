@@ -4,7 +4,7 @@ import { useDebouncedCallback } from "use-debounce"
 import styles from "./AppearanceAnim.scss"
 
 type Props = {
-  children?: React.ReactNode
+  children: React.ReactNode
   isVisible: boolean
   className?: string | null
 }
