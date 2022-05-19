@@ -71,7 +71,7 @@ export type GuidanceBlockState = {
 }
 
 type WithTooltipProps = {
-  children?: React.ReactNode
+  children: React.ReactNode
   tooltipProps?: TooltipProps
 }
 
