@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.1.13...@kaizen/split-button@1.2.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
 ## [1.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.1.12...@kaizen/split-button@1.1.13) (2022-05-19)
 
 **Note:** Version bump only for package @kaizen/split-button

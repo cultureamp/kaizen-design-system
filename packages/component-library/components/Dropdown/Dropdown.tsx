@@ -19,6 +19,7 @@ export type DropdownProps = {
   automationId?: string
   reversedColor?: boolean
   iconPosition?: "start" | "end"
+  children?: React.ReactNode
 }
 
 /**

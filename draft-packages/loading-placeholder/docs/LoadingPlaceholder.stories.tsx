@@ -6,7 +6,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./LoadingPlaceholder.stories.scss"
 
-const StoryContainer: React.FunctionComponent = ({ children }) => (
+const StoryContainer = ({ children }) => (
   <div className={styles.storyContainer}>{children}</div>
 )
 

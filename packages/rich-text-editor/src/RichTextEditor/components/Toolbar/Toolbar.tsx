@@ -97,7 +97,7 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
                       toolbarButtonsRef
                     )
                   }
-                  ref={(ref: React.RefObject<React.ReactNode | undefined>) =>
+                  ref={(ref: React.ReactNode | undefined) =>
                     (toolbarButtonsRef.current[buttonIndex] = ref)
                   }
                 />
