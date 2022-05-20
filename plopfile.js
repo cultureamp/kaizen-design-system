@@ -11,19 +11,34 @@ module.exports = (
         message: "What is the component name?",
       },
       {
+        type: "confirm",
+        name: "isSubcomponent",
+        message: "Is this a subcomponent?",
+        default: false,
+      },
+      {
         type: "input",
         name: "parentComponentName",
-        message:
-          "If this is a subcomponent, enter the parent component name (leave blank otherwise)",
+        message: "What is the parent component name?",
+        when: answers => answers.isSubcomponent,
+      },
+      {
+        type: "input",
+        name: "packageName",
+        message: "What is the package name?",
+        default: ({ componentName, isSubcomponent, parentComponentName }) =>
+          plop.getHelper("kebabCase")(
+            isSubcomponent ? parentComponentName : componentName
+          ),
       },
     ],
-    actions: ({ parentComponentName }) => {
-      if (parentComponentName) {
+    actions: ({ isSubcomponent }) => {
+      if (isSubcomponent) {
         return [
           {
             type: "addMany",
             destination:
-              "packages/{{kebabCase parentComponentName}}/src/{{pascalCase parentComponentName}}/components",
+              "packages/{{kebabCase packageName}}/src/{{pascalCase parentComponentName}}/components",
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
           },
@@ -33,7 +48,7 @@ module.exports = (
       return [
         {
           type: "addMany",
-          destination: "packages/{{kebabCase componentName}}",
+          destination: "packages/{{kebabCase packageName}}",
           base: "plop-templates/basic-component",
           templateFiles: "plop-templates/basic-component/**/*.hbs",
           skipIfExists: true,
