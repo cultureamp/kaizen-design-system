@@ -13,11 +13,11 @@ export interface VisuallyHiddenProps
   tag?: AllowedTags
 }
 
-export const VisuallyHidden = ({
+export const VisuallyHidden: React.VFC<VisuallyHiddenProps> = ({
   children,
   tag = "span",
   ...otherProps
-}: VisuallyHiddenProps) => {
+}) => {
   const className = styles.srOnly
   return createElement(tag, { ...otherProps, className }, children)
 }

@@ -1,6 +1,11 @@
 import React from "react"
-import { configure, queryByTestId, getByTestId } from "@testing-library/dom"
-import { act } from "@testing-library/react"
+import {
+  configure,
+  queryByTestId,
+  getByTestId,
+  waitFor,
+} from "@testing-library/dom"
+import { act, screen } from "@testing-library/react"
 import {
   addToastNotification,
   removeToastNotification,
@@ -16,8 +21,8 @@ describe("ToastNotificationsManager", () => {
     })
   })
 
-  it("creates a portal", () => {
-    act(() => {
+  it("creates a portal", async () => {
+    await act(async () => {
       addToastNotification({
         type: "informative",
         title: "Test portal",
@@ -33,7 +38,7 @@ describe("ToastNotificationsManager", () => {
   })
 
   it("re-renders notifications with the same ID", async () => {
-    act(() => {
+    await act(async () => {
       addToastNotification({
         id: "abc123",
         type: "informative",
@@ -49,7 +54,7 @@ describe("ToastNotificationsManager", () => {
       getByTestId(document.body, "first").querySelector("h6")?.textContent
     ).toBe("First render")
 
-    act(() => {
+    await act(async () => {
       addToastNotification({
         id: "abc123",
         type: "informative",
@@ -61,15 +66,15 @@ describe("ToastNotificationsManager", () => {
       })
     })
 
-    expect(queryByTestId(document.body, "first")).toBe(null)
-    expect(
-      getByTestId(document.body, "second").querySelector("h6")?.textContent
-    ).toBe("Second render")
+    expect(queryByTestId(document.body, "first")).not.toBeInTheDocument
+    const elementSecond = screen.getByTestId("second")
+
+    expect(elementSecond.querySelector("h6")?.textContent).toBe("Second render")
   })
 
   it("removes individual notifications by ID", async () => {
     const id = "remove-notifications"
-    act(() => {
+    await act(async () => {
       addToastNotification({
         id,
         type: "informative",
@@ -81,11 +86,10 @@ describe("ToastNotificationsManager", () => {
       })
     })
 
-    expect(
-      getByTestId(document.body, "remove-me").querySelector("h6")?.textContent
-    ).toBe("Remove me")
+    const element = screen.getByTestId("remove-me")
+    expect(element.querySelector("h6")?.textContent).toBe("Remove me")
 
-    act(() => {
+    await act(async () => {
       removeToastNotification(id)
     })
 
@@ -93,7 +97,7 @@ describe("ToastNotificationsManager", () => {
   })
 
   it("clears all notifications", async () => {
-    act(() => {
+    await act(async () => {
       addToastNotification({
         id: "clear-notifications-1",
         type: "informative",
@@ -114,12 +118,14 @@ describe("ToastNotificationsManager", () => {
       })
     })
 
-    expect(document.querySelectorAll(".toast").length).toBe(2)
+    const toastNotifications = document.querySelectorAll(".toast")
+    expect(toastNotifications.length).toBe(2)
 
-    act(() => {
+    await act(async () => {
       clearToastNotifications()
     })
-
-    expect(document.querySelectorAll(".toast").length).toBe(0)
+    await waitFor(() => {
+      expect(document.querySelectorAll(".toast").length).toBe(0)
+    })
   })
 })

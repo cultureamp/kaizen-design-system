@@ -31,7 +31,7 @@ export const BaseButton: React.VFC<BaseButtonProps> = ({
 
   const contentProps = icon
     ? {
-        children: icon,
+        children: <>{icon}</>,
         "aria-label": label,
       }
     : { children: label }

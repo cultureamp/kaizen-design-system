@@ -17,7 +17,7 @@ export interface SkipLinkProps {
 /**
  * The skip link should be the first focusable element in the page.
  */
-export const SkipLink = ({ label, skipTo }: SkipLinkProps) => (
+export const SkipLink: React.VFC<SkipLinkProps> = ({ label, skipTo }) => (
   <a className={styles.skipLinkContainer} href={`#${skipTo}`}>
     <span className={styles.skipLinkContent}>
       <span className={styles.skipLinkIcon}>

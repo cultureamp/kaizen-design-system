@@ -1,13 +1,17 @@
 import * as React from "react"
 import styles from "./Layout.module.scss"
 
-const NavigationBar: React.FunctionComponent = ({ children }) => (
+type GenericChildrenProps = {
+  children?: React.ReactNode
+}
+
+const NavigationBar: React.VFC<GenericChildrenProps> = ({ children }) => (
   <div className={styles.navigationBar}>{children}</div>
 )
 
 NavigationBar.displayName = "NavigationBar"
 
-const Sidebar: React.FunctionComponent = ({ children }) => (
+const Sidebar: React.VFC<GenericChildrenProps> = ({ children }) => (
   <div className={styles.sidebar}>
     <div className={styles.sidebarInner}>{children}</div>
   </div>
@@ -15,13 +19,13 @@ const Sidebar: React.FunctionComponent = ({ children }) => (
 
 Sidebar.displayName = "Sidebar"
 
-const Header: React.FunctionComponent = ({ children }) => (
+const Header: React.VFC<GenericChildrenProps> = ({ children }) => (
   <aside className={styles.header}>{children}</aside>
 )
 
 Header.displayName = "Header"
 
-const Footer: React.FunctionComponent = ({ children }) => (
+const Footer: React.VFC<GenericChildrenProps> = ({ children }) => (
   <footer className={styles.footer}>{children}</footer>
 )
 
@@ -34,7 +38,7 @@ Footer.displayName = "Footer"
  * focus. You can safely add and remove toasts without worrying about the screen reader announcement being interrupted
  * or repeated.
  */
-const Toasts: React.FunctionComponent = ({ children }) => (
+const Toasts: React.VFC<GenericChildrenProps> = ({ children }) => (
   <div className={styles.toasts} aria-live="assertive">
     {children}
   </div>
@@ -48,7 +52,7 @@ Toasts.displayName = "Toasts"
  * without losing focus. You can safely override the contents when adding a new announcement rather than
  * appending the contents.
  */
-const Announcers: React.FunctionComponent = ({ children }) => (
+const Announcers: React.VFC<GenericChildrenProps> = ({ children }) => (
   <div className={styles.announcers} aria-live="assertive">
     {children}
   </div>
@@ -59,7 +63,7 @@ Announcers.displayName = "Announcers"
 /**
  * @deprecated Layout is deprecated. Please use draft-page-layout instead.
  */
-class Layout extends React.Component {
+class Layout extends React.Component<GenericChildrenProps> {
   static displayName = "Layout"
   static NavigationBar = NavigationBar
   static Sidebar = Sidebar
@@ -96,13 +100,10 @@ class Layout extends React.Component {
   }
 }
 
-const extractChildOfType = (
-  children: React.ReactNode[],
-  type: React.FunctionComponent
-) => {
+const extractChildOfType = (children: React.ReactNode[], type: React.VFC) => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {
-      return (child.type as React.SFC).displayName === type.displayName
+      return (child.type as React.FC).displayName === type.displayName
     }
 
     return false
