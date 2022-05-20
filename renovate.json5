@@ -2,9 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "updatePinnedDependencies": false,
   "ignoreDeps": [
-    // React and React DOM are pinned for now until all consumers are on React 17+
-    "react",
-    "react-dom",
+    // We include older versions of React things in order to test against React 16 & 17
+    "react-16",
+    "react-17",
+    "react-dom-16",
+    "react-dom-17",
+    "@testing-library/react-12",
+    "react-test-renderer-17",
     // Gatsby is pinned because upgrades working with our icons
     "gatsby",
     "gatsby-plugin-google-tagmanager",
