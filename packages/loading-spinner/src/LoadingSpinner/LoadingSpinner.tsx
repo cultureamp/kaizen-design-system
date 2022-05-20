@@ -15,13 +15,13 @@ export interface LoadingSpinnerProps
   size?: size
 }
 
-export const LoadingSpinner = ({
+export const LoadingSpinner: React.VFC<LoadingSpinnerProps> = ({
   children,
   accessibilityLabel = "Loading",
   size = "md",
   classNameOverride,
   ...props
-}: LoadingSpinnerProps) => (
+}) => (
   <div
     data-automation-id="loading-spinner"
     className={classnames(styles.wrapper, classNameOverride)}

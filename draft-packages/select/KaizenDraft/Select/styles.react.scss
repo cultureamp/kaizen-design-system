@@ -285,6 +285,7 @@ $focus-border-color: $color-blue-500;
         // a way to customise this element in react-select.
         height: 44px; // fixed height required for vertical centering, due to IE11 hack
         flex-wrap: nowrap;
+        display: flex;
       }
     }
 

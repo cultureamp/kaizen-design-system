@@ -6,8 +6,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react"
-import * as React from "react"
-import { LottieAnimation } from "../types"
+import React from "react"
 import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 
@@ -93,7 +92,7 @@ describe("<AnimatedBase />", () => {
 
   describe("when the aspect ratio is set as a prop", () => {
     it("should have aspect ratio class", async () => {
-      const { container } = render(
+      render(
         <AnimatedBase
           name=""
           aspectRatio="landscape"
@@ -101,24 +100,33 @@ describe("<AnimatedBase />", () => {
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
-      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       await waitFor(() => {
-        expect(container.querySelector(".landscape")).toBeTruthy()
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+      })
+      await waitFor(() => {
+        const figureClassList =
+          document.getElementsByTagName("figure")[0].classList
+        expect(figureClassList.contains("landscape")).toBe(true)
       })
     })
 
     describe("when the aspect ratio is NOT set as a prop", () => {
       it("should not have aspect ratio class", async () => {
-        const { container } = render(
+        render(
           <AnimatedBase
             name=""
             alt="Screen reader text"
             fallback="illustrations/heart/spot/moods-cautionary.svg"
           />
         )
-        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
         await waitFor(() => {
-          expect(container.querySelector(".landscape")).toBeFalsy()
+          expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+        })
+
+        await waitFor(() => {
+          const figureClassList =
+            document.getElementsByTagName("figure")[0].classList
+          expect(figureClassList.contains("landscape")).toBe(false)
         })
       })
     })

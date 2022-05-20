@@ -10,6 +10,7 @@ type DropdownMenuProps = {
     left: number
     right: number
   } | null
+  children?: React.ReactNode
 }
 
 /**
