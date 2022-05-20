@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.5.4...@kaizen/draft-loading-spinner@2.6.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
 ## [2.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.5.3...@kaizen/draft-loading-spinner@2.5.4) (2022-03-21)
 
 **Note:** Version bump only for package @kaizen/draft-loading-spinner

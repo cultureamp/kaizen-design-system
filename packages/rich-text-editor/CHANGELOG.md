@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.8.13...@kaizen/rich-text-editor@1.9.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
 ## [1.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.8.12...@kaizen/rich-text-editor@1.8.13) (2022-05-19)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
