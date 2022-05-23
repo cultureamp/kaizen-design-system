@@ -100,6 +100,23 @@ export const DateInput: React.VFC<DateInputProps> = ({
   const [valueString, setValueString] = useState<string>("")
 
   useEffect(() => {
+    if (
+      (valueDate && isInvalidDate(valueDate)) ||
+      (valueDate && isDisabledDate(valueDate, disabledDays))
+    ) {
+      let invalidDateString: string
+      try {
+        invalidDateString = format(valueDate, DateFormat.Text)
+        setValueString(invalidDateString)
+        onBlur(valueDate, invalidDateString)
+      } catch (error) {
+        setValueString("")
+        onBlur(valueDate, "Date")
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
   }, [valueDate])
 
@@ -206,5 +223,3 @@ export const DateInput: React.VFC<DateInputProps> = ({
     </FieldGroup>
   )
 }
-
-DateInput.displayName = "DateInput"

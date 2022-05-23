@@ -52,7 +52,9 @@ export const DefaultStory = props => {
 DefaultStory.storyName = "Date Picker"
 
 export const ValidationStory = props => {
-  const [selectedDate, setValueDate] = useState<Date | undefined>()
+  const [selectedDate, setValueDate] = useState<Date | undefined>(
+    new Date(2022, 1, 5)
+  )
   const [status, setStatus] = useState<FieldMessageStatus | undefined>()
   const [response, setResponse] = useState<ValidationResponse | undefined>()
   const [validationMessage, setValidationMessage] = useState<
