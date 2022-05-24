@@ -55,7 +55,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       doc: value
         ? Node.fromJSON(schema, {
             type: "doc",
-            contentObject: value,
+            content: value,
           })
         : null,
       schema,
