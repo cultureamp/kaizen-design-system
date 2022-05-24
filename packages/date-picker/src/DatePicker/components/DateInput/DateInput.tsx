@@ -9,17 +9,13 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
-
 import { format, parse } from "date-fns"
 import { Modifier } from "react-day-picker"
+import { DateFormat } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
 import styles from "./DateInput.scss"
 
-export enum DateFormat {
-  Numeral = "P", // eg. 01/15/2022
-  Text = "PP", // eg. Jan 15, 2022
-}
 type OmittedInputProps =
   | "startIconAdornment"
   | "endIconAdornment"
@@ -74,9 +70,13 @@ const formatDateAsText = (
   disabledDays: Modifier | Modifier[],
   onValidDate: (newFormattedDate: string) => void
 ): void => {
-  if (!isInvalidDate(date) && !isDisabledDate(date, disabledDays)) {
-    onValidDate(format(date, DateFormat.Text))
+  if (isDisabledDate(date, disabledDays)) {
+    return onValidDate(format(date, DateFormat.Numeral))
   }
+  if (isInvalidDate(date)) {
+    return onValidDate("Invalid Date")
+  }
+  onValidDate(format(date, DateFormat.Text))
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -100,29 +100,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
   const [valueString, setValueString] = useState<string>("")
 
   useEffect(() => {
-    if (
-      (valueDate && isInvalidDate(valueDate)) ||
-      (valueDate && isDisabledDate(valueDate, disabledDays))
-    ) {
-      let invalidDateString: string
-      try {
-        invalidDateString = format(valueDate, DateFormat.Text)
-        setValueString(invalidDateString)
-        onBlur(valueDate, invalidDateString)
-      } catch (error) {
-        setValueString("")
-        onBlur(valueDate, "Date")
-      }
-    }
-  }, [])
-
-  useEffect(() => {
     valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
   }, [valueDate])
 
   const handleBlur: React.FocusEventHandler<HTMLInputElement> = (): void => {
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
+      if (isInvalidDate(parsedDate)) {
+        return onBlur(parsedDate, valueString)
+      }
+
       formatDateAsText(parsedDate, disabledDays, setValueString)
       return onBlur(parsedDate, valueString)
     }
@@ -223,3 +210,5 @@ export const DateInput: React.VFC<DateInputProps> = ({
     </FieldGroup>
   )
 }
+
+DateInput.displayName = "DateInput"
