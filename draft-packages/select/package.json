@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-select",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "The draft Select component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,7 +36,7 @@
     "@kaizen/component-library": "^14.3.0",
     "@kaizen/deprecated-component-library-helpers": "^2.5.5",
     "@kaizen/draft-form": "^7.2.1",
-    "@kaizen/draft-tag": "^3.1.1",
+    "@kaizen/draft-tag": "^3.1.2",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-select": "^5.3.2"
