@@ -1,5 +1,5 @@
 import { parse } from "date-fns"
-import { DateFormat } from "../DatePicker/components/DateInput"
+import { DateFormat } from "../DatePicker/enums"
 import { isInvalidDate } from "./isInvalidDate"
 
 describe("isInvalidDate", () => {
