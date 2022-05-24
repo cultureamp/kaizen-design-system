@@ -7,18 +7,12 @@ echo "Publishing to ${KAIZEN_DOMAIN_NAME}"
 
 # if we're publishing to the production bucket...
 if [ "$KAIZEN_DOMAIN_NAME" = "cultureamp.design" ]; then
-    # publish the site to the bucket root
-    # note: doesn't delete the bucket contents
-    aws s3 sync \
-        "site/public" \
-        "s3://${KAIZEN_DOMAIN_NAME}"
     aws s3 sync --delete \
         "storybook/public" \
         "s3://${KAIZEN_DOMAIN_NAME}/storybook"
 else
     KAIZEN_BASE_PATH="/${BUILDKITE_BRANCH}"
     # publish storybook to the root of the path corresponding to the branch
-    # note: no site deploy when targeting the dev bucket
     aws s3 sync --delete \
         "storybook/public" \
         "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
