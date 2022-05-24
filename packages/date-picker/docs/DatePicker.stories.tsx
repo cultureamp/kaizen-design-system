@@ -78,10 +78,11 @@ export const ValidationStory = props => {
 
   const submitRequest = () => {
     // An example of a form submit request
-    if (selectedDate === undefined) {
-      setStatus("error")
+    if (status === "error" || status === "caution") {
       setValidationMessage("There is an error.")
-      return
+      alert("Error")
+    } else {
+      alert("Success")
     }
   }
 
@@ -96,7 +97,7 @@ export const ValidationStory = props => {
   return (
     <>
       <p>
-        We have added additional validation to this DatePicker to provide some
+        We have added additional validation to this story to provide some
         guidance when dealing with validation other than date isInvalid or
         isDisabled.
       </p>
