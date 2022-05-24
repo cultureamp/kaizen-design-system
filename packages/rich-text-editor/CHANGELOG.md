@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.2...@kaizen/rich-text-editor@1.9.3) (2022-05-24)
+
+
+### Bug Fixes
+
+* Use interpolation for RTE height calculation ([#2750](https://github.com/cultureamp/kaizen-design-system/issues/2750)) ([03f923a](https://github.com/cultureamp/kaizen-design-system/commit/03f923ab59db4597e3f44c94803da2e41d9c7929))
+
+
+
+
+
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.1...@kaizen/rich-text-editor@1.9.2) (2022-05-24)
+
+
+### Bug Fixes
+
+* Supply correct property name for prepopulating RTE ([#2749](https://github.com/cultureamp/kaizen-design-system/issues/2749)) ([e21b0fb](https://github.com/cultureamp/kaizen-design-system/commit/e21b0fb72cacb2eb2cc263c67851d0d43699a279))
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.0...@kaizen/rich-text-editor@1.9.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 # [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.8.13...@kaizen/rich-text-editor@1.9.0) (2022-05-20)
 
 

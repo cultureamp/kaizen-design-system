@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.2.0...@kaizen/component-library@14.3.0) (2022-05-24)
+
+
+### Features
+
+* add zoom in and out icons ([#2748](https://github.com/cultureamp/kaizen-design-system/issues/2748)) ([22d5ac4](https://github.com/cultureamp/kaizen-design-system/commit/22d5ac4a59c55a80496bc768d905b93790136512))
+
+
+
+
+
 # [14.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.1.2...@kaizen/component-library@14.2.0) (2022-05-20)
 
 
