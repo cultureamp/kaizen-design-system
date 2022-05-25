@@ -9,6 +9,9 @@
 
 .button {
   @extend %button;
+}
+
+.default {
   @extend %variant-default;
 }
 

@@ -59,6 +59,24 @@
     }
   }
 
+  &:not(:disabled) {
+    #{$selectors--button-focus} {
+      &::after {
+        border-color: $color-blue-500;
+      }
+    }
+  }
+
+  &.reversed {
+    &:not(:disabled) {
+      #{$selectors--button-focus} {
+        &::after {
+          border-color: $color-blue-300;
+        }
+      }
+    }
+  }
+
   &:disabled,
   &.working {
     pointer-events: none;
@@ -82,14 +100,6 @@
 
   @include enabled-pseudo-states-variant($color-gray-200, $color-gray-600);
 
-  &:not(:disabled) {
-    #{$selectors--button-focus} {
-      &::after {
-        border-color: $color-blue-500;
-      }
-    }
-  }
-
   &.reversed {
     background-color: transparent;
     border-color: rgba($color-white-rgb, 0.65);
@@ -99,14 +109,6 @@
       rgba($color-white-rgb, 0.1),
       $color-white
     );
-
-    &:not(:disabled) {
-      #{$selectors--button-focus} {
-        &::after {
-          border-color: $color-blue-300;
-        }
-      }
-    }
   }
 }
 

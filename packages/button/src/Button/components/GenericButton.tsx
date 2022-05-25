@@ -219,9 +219,11 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   )
 }
 
-const buttonClass = (props: Props) =>
-  classNames([
+const buttonClass = (props: Props) => {
+  const isDefault = !props.primary && !props.destructive && !props.secondary
+  return classNames([
     styles.button,
+    isDefault && styles.default,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
@@ -235,6 +237,7 @@ const buttonClass = (props: Props) =>
     props.isActive && styles.isPaginationLinkActive,
     props.classNameOverride,
   ])
+}
 
 const renderLoadingSpinner = () => (
   <div className={styles.loadingSpinner}>
