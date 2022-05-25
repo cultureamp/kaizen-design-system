@@ -52,15 +52,13 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.number }}
           body: |
-            :sparkles: Here are your branch previews! :sparkles:
+            :sparkles: Here is your branch preview! :sparkles:
 
-            - [Kaizen site][1]
-            - [Storybook][2]
+            - [Storybook][1]
 
             Last updated for commit ${{ github.event.sha }}: ${{ github.event.commit.commit.message }}
 
             [1]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}
-            [2]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}/storybook
 
       - name: Update an existing comment
         if: success() && steps.find_comment.outputs.comment-id != 0
@@ -69,12 +67,10 @@ jobs:
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
           edit-mode: replace
           body: |
-            :sparkles: Here are your branch previews! :sparkles:
+            :sparkles: Here is your branch preview! :sparkles:
 
-            - [Kaizen site][1]
-            - [Storybook][2]
+            - [Storybook][1]
 
             Last updated for commit ${{ github.event.sha }}: ${{ github.event.commit.commit.message }}
 
             [1]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}
-            [2]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}/storybook
