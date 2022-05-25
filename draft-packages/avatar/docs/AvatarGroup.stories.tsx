@@ -12,7 +12,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const EXAMPLE_USER_1: AvatarGroupAvatarProps = {
-  fullName: "Adirana Aniseed",
+  fullName: "Adirana Appleseed",
   disableInitials: false,
   avatarSrc:
     "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
