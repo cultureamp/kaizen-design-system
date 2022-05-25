@@ -15,7 +15,7 @@ on:
 
 jobs:
   visual-testing:
-    if: (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') || github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
+    if: github.event.label.name == 'run chromatic' || github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
