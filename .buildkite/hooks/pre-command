@@ -9,7 +9,6 @@ extract_artifact() {
 main() {
   if [[ -n $KAIZEN_EXTRACT_ARTIFACTS ]]; then
     echo "Extracting build artifacts..."
-    extract_artifact "site.tar.gz"
     extract_artifact "storybook.tar.gz"
   fi
 }

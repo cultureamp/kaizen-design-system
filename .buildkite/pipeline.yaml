@@ -36,13 +36,6 @@ steps:
       - docker-compose#v3.9.0:
           run: release
 
-  - name: ":package: Build (site)"
-    command: ".buildkite/scripts/build-site.sh"
-    timeout_in_minutes: 15
-    artifact_paths: "./site.tar.gz"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-
   - name: ":package: Build (storybook)"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
