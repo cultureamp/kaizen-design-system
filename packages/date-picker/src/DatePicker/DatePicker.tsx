@@ -97,6 +97,10 @@ export enum DayOfWeek {
   Sat = 6,
 }
 
+/**
+ * {@link https://cultureamp.design/components/date-picker/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
+ */
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),

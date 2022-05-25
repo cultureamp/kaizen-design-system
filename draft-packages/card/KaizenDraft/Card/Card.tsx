@@ -29,6 +29,10 @@ export interface CardProps
   isElevated?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/card/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-card--default-story Storybook}
+ */
 export const Card = ({
   children,
   tag = "div",

@@ -9,6 +9,10 @@ export interface DividerProps
   isReversed?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/divider/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-divider--default-story Storybook}
+ */
 export const Divider: React.VFC<DividerProps> = ({
   variant,
   isReversed = false,
