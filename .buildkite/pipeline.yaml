@@ -36,14 +36,8 @@ steps:
       - docker-compose#v3.9.0:
           run: release
 
-  - name: ":package: Build (site)"
-    command: ".buildkite/scripts/build-site.sh"
-    timeout_in_minutes: 15
-    artifact_paths: "./site.tar.gz"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-
   - name: ":package: Build (storybook)"
+    key: "build-storybook"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
@@ -60,9 +54,8 @@ steps:
           environment:
             - GITHUB_REGISTRY_TOKEN
 
-  - wait
-
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    depends_on: "build-storybook"
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
