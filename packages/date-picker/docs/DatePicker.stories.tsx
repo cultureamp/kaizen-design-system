@@ -80,6 +80,7 @@ export const ValidationStory = props => {
     // An example of a form submit request
     if (status === "error" || status === "caution") {
       setValidationMessage("There is an error.")
+      setStatus("error")
       alert("Error")
     } else {
       alert("Success")
@@ -96,20 +97,6 @@ export const ValidationStory = props => {
 
   return (
     <>
-      <p>
-        We have added additional validation to this story to provide some
-        guidance when dealing with validation other than date isInvalid or
-        isDisabled.
-      </p>
-      <ul>
-        <li>
-          There will be a caution when the selectedDay is not within this year.
-        </li>
-        <li>
-          There will be an error when the submit button is clicked and there is
-          an error status within the DatePicker.
-        </li>
-      </ul>
       <DatePicker
         id="datepicker-default"
         labelText="Label"
@@ -127,6 +114,21 @@ export const ValidationStory = props => {
         <Button onClick={submitRequest} label="Submit" />
       </div>
       <div>
+        <p>
+          We have added additional validation to this story to provide some
+          guidance when dealing with validation other than date isInvalid or
+          isDisabled.
+        </p>
+        <ul>
+          <li>
+            There will be a caution when the selectedDay is not within this
+            year.
+          </li>
+          <li>
+            There will be an error when the submit button is clicked and there
+            is an error status within the DatePicker.
+          </li>
+        </ul>
         <p>
           The <code>onValidate</code> callback returns a
           <code>validationResponse</code> object which can be used to provide
