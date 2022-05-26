@@ -13,21 +13,22 @@ const defaultProps = {
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
   onValidate: jest.fn(),
+  status: "default",
+  validationMessage: "This is a validation message",
 }
 
 const MockDatePicker = ({
   selectedDay,
   ...restProps
 }: Partial<DatePickerProps>) => {
-  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
-  const [validationMessage, setValidationMessage] = useState<
-    string | undefined
-  >()
+  const [status, setStatus] = useState<FieldMessageStatus>("default")
+  const [validationMessage, setValidationMessage] = useState<string>()
   const [selectedDate, setValueDate] = useState<Date | undefined>(selectedDay)
 
   const handleValidation = (validationResponse: ValidationResponse) => {
-    setStatus(validationResponse.status)
-    setValidationMessage(validationResponse.validationMessage)
+    validationResponse.status && setStatus(validationResponse.status)
+    validationResponse.validationMessage &&
+      setValidationMessage(validationResponse.validationMessage)
   }
   return (
     <DatePicker

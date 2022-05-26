@@ -100,11 +100,11 @@ export interface DatePickerProps
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: FieldMessageStatus
+  status: FieldMessageStatus
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage?: string | React.ReactNode
+  validationMessage: string | React.ReactNode
 }
 
 export type ValidationResponse = {

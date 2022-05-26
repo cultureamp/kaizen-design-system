@@ -213,6 +213,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onDayChange={setValueDate}
             onValidate={e => e}
             isReversed={isReversed}
+            status="default"
+            validationMessage="This is a validation message"
           />
           <DatePicker
             id="datepicker-selected"
@@ -221,6 +223,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onDayChange={e => e}
             onValidate={e => e}
             isReversed={isReversed}
+            status="default"
+            validationMessage="This is a validation message"
           />
           <DatePicker
             id="datepicker-description"
@@ -239,6 +243,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </Paragraph>
               </>
             }
+            status="default"
+            validationMessage="This is a validation message"
           />
           <DatePicker
             id="datepicker-disabled"
@@ -247,6 +253,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onDayChange={e => e}
             onValidate={e => e}
             isReversed={isReversed}
+            status="default"
+            validationMessage="This is a validation message"
             isDisabled
           />
           <DatePicker
