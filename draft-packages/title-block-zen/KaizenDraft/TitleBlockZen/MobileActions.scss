@@ -62,10 +62,10 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   display: flex;
   justify-content: center;
   align-items: center;
-  @include ca-margin($end: calc($ca-grid / 2));
+  @include ca-margin($end: calc(#{$ca-grid} / 2));
 
   .drawerHandleLabelText + & {
-    @include ca-margin($start: calc($ca-grid / 2));
+    @include ca-margin($start: calc(#{$ca-grid} / 2));
   }
 }
 

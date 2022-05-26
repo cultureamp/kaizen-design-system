@@ -63,16 +63,16 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   letter-spacing: $letter-spacing;
 
   $font-size: calc(#{$base-size} * #{$size-ratio}); // in rem
-  $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
+  $absolute-line-height: calc(#{$ca-grid} * #{$line-height-in-grid-units}); // in rem
   $line-height-ratio: calc(
-    $absolute-line-height / $font-size
+    #{$absolute-line-height} / #{$font-size}
   ); // unitless number
   $line-spacing: $line-height-ratio - 1;
   font-size: $font-size;
   line-height: $line-height-ratio;
 
   position: relative;
-  top: #{$descender-height + $line-spacing / 2}em;
+  top: calc((#{$descender-height} + calc(#{$line-spacing} / 2)) * 1em);
   // If `position: relative` creates issues, we could alternatively use a transform,
   // though this creates a new stacking context which can break z-index based layers:
   // transform: translateY(#{$descender-height + $line-spacing / 2}em);
@@ -167,7 +167,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: calc(#{$size} / 16),
     $family: $ca-ideal-sans-font-family,
     $base-size: $ca-ideal-sans-font-base-size,
     $descender-height: $ca-ideal-sans-font-descender-height,
@@ -244,7 +244,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-medium,
-    $letter-spacing: calc($letter-spacing-in-px / calc($size * 1em)),
+    $letter-spacing: calc((#{$letter-spacing-in-px} / #{$size}) * 1em),
     $args...
   );
   text-transform: uppercase;
@@ -280,7 +280,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: calc(#{$size} / 16),
     $family: $ca-inter-font-family,
     $base-size: $ca-inter-font-base-size,
     $descender-height: $ca-inter-font-descender-height,
