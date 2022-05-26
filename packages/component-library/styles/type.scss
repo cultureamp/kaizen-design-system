@@ -62,7 +62,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   font-weight: $weight;
   letter-spacing: $letter-spacing;
 
-  $font-size: $base-size * $size-ratio; // in rem
+  $font-size: calc(#{$base-size} * #{$size-ratio}); // in rem
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
   $line-height-ratio: calc(
     $absolute-line-height / $font-size

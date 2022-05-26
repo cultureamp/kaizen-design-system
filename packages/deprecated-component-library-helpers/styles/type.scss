@@ -61,7 +61,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   font-weight: $weight;
   letter-spacing: $letter-spacing;
 
-  $font-size: $base-size * $size-ratio; // in rem
+  $font-size: calc(#{$base-size} * #{$size-ratio}); // in rem
 
   // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
