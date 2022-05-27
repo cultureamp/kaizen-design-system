@@ -269,7 +269,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   useEffect(() => {
     if (selectedDay && isInvalidDate(selectedDay)) {
-      return onValidate({
+      onValidate({
         date: undefined,
         inputValue: "Invalid Date",
         status: "error",
@@ -282,7 +282,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
     if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
       const inputValue = format(selectedDay, DateFormat.Numeral)
-      return onValidate({
+      onValidate({
         date: undefined,
         inputValue,
         status: "error",
