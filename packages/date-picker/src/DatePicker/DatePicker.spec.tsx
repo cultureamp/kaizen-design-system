@@ -13,8 +13,6 @@ const defaultProps = {
   initialMonth: new Date(2022, 2),
   onDayChange: jest.fn(),
   onValidate: jest.fn(),
-  status: "default",
-  validationMessage: "This is a validation message",
 }
 
 const MockDatePicker = ({
