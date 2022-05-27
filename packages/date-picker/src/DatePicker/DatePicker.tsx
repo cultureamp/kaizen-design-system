@@ -279,6 +279,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         isEmpty: false,
         isValidDate: false,
       })
+      return
     }
     if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
       const inputValue = format(selectedDay, DateFormat.Numeral)
@@ -292,6 +293,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         isEmpty: false,
         isValidDate: false,
       })
+      return
     }
   }, [])
 
