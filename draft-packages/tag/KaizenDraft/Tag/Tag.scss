@@ -227,7 +227,9 @@ $small: $spacing-md;
 $pulse-size-initial: 2px;
 $pulse-scale-factor: 9;
 $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
-$pulse-ring-position: calc(-1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2));
+$pulse-ring-position: calc(
+  -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
+);
 
 .pulse {
   @include ca-margin(

@@ -63,7 +63,9 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   letter-spacing: $letter-spacing;
 
   $font-size: calc(#{$base-size} * #{$size-ratio}); // in rem
-  $absolute-line-height: calc(#{$ca-grid} * #{$line-height-in-grid-units}); // in rem
+  $absolute-line-height: calc(
+    #{$ca-grid} * #{$line-height-in-grid-units}
+  ); // in rem
   $line-height-ratio: calc(
     #{$absolute-line-height} / #{$font-size}
   ); // unitless number
