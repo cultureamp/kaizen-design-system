@@ -8,6 +8,10 @@ type Props = Omit<ToastNotificationWithOptionals, "message"> & {
   children: React.ReactNode
 }
 
+/**
+ * {@link https://cultureamp.design/components/toast-notification/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-toast-notification--cautionary Storybook}
+ */
 const ToastNotification = ({
   id,
   hideCloseIcon = false,

@@ -14,6 +14,10 @@ export interface TileGridProps
   children: TileElement[] | TileElement
 }
 
+/**
+ * {@link https://cultureamp.design/components/tile/#tilegrid Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tile--tile-grid-with-tiles Storybook}
+ */
 export const TileGrid: React.VFC<TileGridProps> = ({
   children,
   classNameOverride,

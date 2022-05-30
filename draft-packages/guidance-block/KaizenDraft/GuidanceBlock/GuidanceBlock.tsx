@@ -85,6 +85,10 @@ const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
     <>{children}</>
   )
 
+/**
+ * {@link https://cultureamp.design/components/guidance-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-guidance-block--default-story Storybook}
+ */
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState

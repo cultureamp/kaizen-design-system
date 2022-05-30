@@ -38,6 +38,10 @@ export interface ContentProps
   automationId?: string
 }
 
+/**
+ * {@link https://cultureamp.design/components/page-layout/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-page-layout--default-story Storybook}
+ */
 export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, style, automationId, classNameOverride, ...restProps }, ref) => (
     <div
@@ -54,6 +58,10 @@ export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
 
 Container.displayName = "Container"
 
+/**
+ * {@link https://cultureamp.design/components/page-layout/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-page-layout--default-story Storybook}
+ */
 export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, style, automationId, classNameOverride, ...restProps }, ref) => (
     <div

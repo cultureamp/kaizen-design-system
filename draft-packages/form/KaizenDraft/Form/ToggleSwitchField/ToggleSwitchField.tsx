@@ -20,6 +20,10 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
   fullWidth?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/toggle-switch-field/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-toggle-switch-field--default Storybook}
+ */
 export const ToggleSwitchField: React.VFC<ToggleSwitchFieldProps> = ({
   id = "",
   labelText,

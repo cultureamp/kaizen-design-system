@@ -14,6 +14,10 @@ type TableContainerProps = {
   children?: React.ReactNode
   variant?: "compact" | "default" | "data"
 }
+/**
+ * {@link https://cultureamp.design/components/table/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-table--default-kaizen-site-demo Storybook}
+ */
 export const TableContainer: TableContainer = ({
   variant = "compact",
   children,
