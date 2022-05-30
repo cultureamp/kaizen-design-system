@@ -1,9 +1,9 @@
-import * as React from "react"
+import React from "react"
 import GenericButton, { GenericProps } from "./components/GenericButton"
 
-type PaginationLinkProps = GenericProps & {
+export interface PaginationLinkProps extends GenericProps {
   pageNumber: number
-  isActive: boolean
+  isActive?: boolean
   /* A description for screen readers to understand because label used here is a number */
   "aria-label": string
 }
