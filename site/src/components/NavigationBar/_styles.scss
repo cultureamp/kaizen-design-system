@@ -87,7 +87,9 @@ $link-margin: calc(#{$ca-grid} / 4);
       transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}));
 
       @include ca-media-mobile {
-        transform: translateX(calc(-1 * #{$ca-navigation-bar__link-item-margin}));
+        transform: translateX(
+          calc(-1 * #{$ca-navigation-bar__link-item-margin})
+        );
       }
     }
   }
