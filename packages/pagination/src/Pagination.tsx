@@ -24,6 +24,10 @@ export enum PageAction {
   NEXT = "next",
 }
 
+/**
+ * {@link https://cultureamp.design/components/pagination/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-pagination--default Storybook}
+ */
 export const Pagination: React.VFC<PaginationProps> = ({
   currentPage = 1,
   pageCount,

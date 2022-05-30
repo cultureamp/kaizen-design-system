@@ -20,6 +20,10 @@ export type MenuProps = Omit<
   button: React.ReactElement<ButtonPropsWithOptionalAria>
 }
 
+/**
+ * {@link https://cultureamp.design/components/menu/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-menu--auto-hide-behaviours Storybook}
+ */
 const Menu: React.FunctionComponent<MenuProps> = ({
   button,
   menuVisible = false,

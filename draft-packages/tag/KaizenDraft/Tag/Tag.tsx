@@ -53,6 +53,10 @@ const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps) =>
     <Avatar {...imageElementOrAvatarProps} size="small" />
   )
 
+/**
+ * {@link https://cultureamp.design/components/tag/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tag--default-story Storybook}
+ */
 const Tag = (props: TagProps) => {
   const {
     children,

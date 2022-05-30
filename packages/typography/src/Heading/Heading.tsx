@@ -50,6 +50,10 @@ export interface HeadingProps
   color?: AllowedHeadingColors
 }
 
+/**
+ * {@link https://cultureamp.design/components/heading/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-heading--display-0 Storybook}
+ */
 export const Heading: React.VFC<HeadingProps> = ({
   children,
   tag,
