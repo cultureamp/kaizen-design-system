@@ -87,6 +87,10 @@ enum DayOfWeek {
   Sat = 6,
 }
 
+/**
+ * {@link https://cultureamp.design/components/date-range-picker/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-range-picker--date-range-picker-sticker-sheet Storybook}
+ */
 export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),

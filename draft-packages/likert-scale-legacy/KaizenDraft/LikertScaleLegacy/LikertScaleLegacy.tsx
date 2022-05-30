@@ -23,6 +23,10 @@ export interface LikertScaleProps {
   onSelect: (value: ScaleItem | null) => void
 }
 
+/**
+ * {@link https://cultureamp.design/components/likert-scale/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-likert-scale--default-story Storybook}
+ */
 export const LikertScaleLegacy = ({
   scale,
   selectedItem,

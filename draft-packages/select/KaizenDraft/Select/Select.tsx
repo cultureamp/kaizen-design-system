@@ -53,6 +53,10 @@ export type VariantType = "default" | "secondary" | "secondary-small"
 
 export type StatusType = "default" | "error"
 
+/**
+ * {@link https://cultureamp.design/components/select/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-select--default-select-story Storybook}
+ */
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(

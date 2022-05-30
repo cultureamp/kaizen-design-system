@@ -38,6 +38,10 @@ export type ContextModalProps = Readonly<
 
 type ContextModal = React.FunctionComponent<ContextModalProps>
 
+/**
+ * {@link https://cultureamp.design/components/modal/#context-modals-previously-information-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--context-modal-example Storybook}
+ */
 const ContextModal = ({
   isOpen,
   unpadded = false,

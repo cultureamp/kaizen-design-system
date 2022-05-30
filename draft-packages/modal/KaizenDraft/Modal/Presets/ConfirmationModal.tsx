@@ -87,6 +87,10 @@ const getIcon = (mood: Mood, isProminent: boolean) => {
   }
 }
 
+/**
+ * {@link https://cultureamp.design/components/modal/#confirmation-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--confirmation-modal-example Storybook}
+ */
 const ConfirmationModal = ({
   isOpen,
   isProminent = false,

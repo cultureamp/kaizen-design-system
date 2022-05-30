@@ -14,6 +14,9 @@ export interface BoxProps
   rtl?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-box--box-default Storybook}
+ */
 export const Box: React.VFC<BoxProps> = ({
   children,
   rtl = false,

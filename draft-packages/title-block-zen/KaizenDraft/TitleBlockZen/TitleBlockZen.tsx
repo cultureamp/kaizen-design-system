@@ -408,6 +408,9 @@ const createTabletOverflowMenuItems = (
 }
 
 /**
+ * {@link https://cultureamp.design/components/title-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-title-block--default Storybook}
+ *
  * ### primaryAction
  *
  * The primary action (the "main" button in the top right) can either be a Button,

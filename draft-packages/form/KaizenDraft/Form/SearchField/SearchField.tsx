@@ -8,6 +8,10 @@ export interface SearchFieldProps extends InputSearchProps {
   secondary?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/search-field/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-search-field--default-kaizen-demo Storybook}
+ */
 export const SearchField: React.VFC<SearchFieldProps> = ({
   id,
   labelText,

@@ -23,6 +23,10 @@ export interface CollapsibleGroupProps
   automationId?: string
 }
 
+/**
+ * {@link https://cultureamp.design/components/collapsible/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible--collapsible-group-default Storybook}
+ */
 export const CollapsibleGroup: React.VFC<CollapsibleGroupProps> = ({
   children,
   separated = false,

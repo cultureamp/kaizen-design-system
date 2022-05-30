@@ -66,6 +66,10 @@ const renderAvatars = (
   </>
 )
 
+/**
+ * {@link https://cultureamp.design/components/avatar-group/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar-group--default-story Storybook}
+ */
 export const AvatarGroup: React.VFC<AvatarGroupProps> = ({
   size = "medium",
   maxVisible = 2,
