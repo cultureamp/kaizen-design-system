@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.161](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.160...site@0.0.0-private.161) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
 # [0.0.0-private.160](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.159...site@0.0.0-private.160) (2022-05-25)
 
 **Note:** Version bump only for package site
