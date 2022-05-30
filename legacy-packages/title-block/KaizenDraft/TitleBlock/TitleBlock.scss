@@ -208,7 +208,7 @@
 }
 
 .buttonWrapper {
-  margin: 0 calc($ca-grid / 2);
+  margin: 0 calc(#{$ca-grid} / 2);
 
   &:last-child {
     margin-right: 0;
