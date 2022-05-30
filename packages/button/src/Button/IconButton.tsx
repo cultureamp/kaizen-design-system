@@ -6,7 +6,7 @@ import GenericButton, {
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
-type IconButtonProps = GenericProps &
+export type IconButtonProps = GenericProps &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
     primary?: boolean
@@ -20,9 +20,9 @@ type IconButtonProps = GenericProps &
     disabled?: boolean
   }
 
-const IconButton: React.FunctionComponent<IconButtonProps> = (
-  props: IconButtonProps
-) => <GenericButton iconButton {...props} />
+export const IconButton: React.VFC<IconButtonProps> = props => (
+  <GenericButton iconButton {...props} />
+)
 
 IconButton.defaultProps = {
   form: false,
@@ -34,5 +34,3 @@ IconButton.defaultProps = {
 }
 
 IconButton.displayName = "IconButton"
-
-export default IconButton
