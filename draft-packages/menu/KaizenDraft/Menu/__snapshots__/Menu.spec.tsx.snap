@@ -11,7 +11,7 @@ exports[`Dropdown renders default view 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="true"
-        class="button"
+        class="button default"
         type="button"
       >
         <span
