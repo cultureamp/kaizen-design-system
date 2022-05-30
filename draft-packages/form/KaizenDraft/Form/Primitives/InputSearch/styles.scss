@@ -12,7 +12,7 @@
 
 // Vars
 $input-height: 48px;
-$input-base-padding-horizontal: calc($ca-grid / 2);
+$input-base-padding-horizontal: calc(#{$ca-grid} / 2);
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
@@ -103,7 +103,7 @@ $border-solid-border-radius-curved: $input-height;
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
-    @include ca-position($start: calc($ca-grid / 2));
+    @include ca-position($start: calc(#{$ca-grid} / 2));
   }
 
   &.withDisabled {
@@ -123,7 +123,7 @@ $border-solid-border-radius-curved: $input-height;
 .withEndIconAdornment {
   .endIconAdornment {
     @include vertically-center-icon;
-    @include ca-position($end: calc($ca-grid / 2));
+    @include ca-position($end: calc(#{$ca-grid} / 2));
   }
 
   &.isDisabled {

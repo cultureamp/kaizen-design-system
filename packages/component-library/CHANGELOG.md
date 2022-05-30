@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.1...@kaizen/component-library@14.3.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.0...@kaizen/component-library@14.3.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
 # [14.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.2.0...@kaizen/component-library@14.3.0) (2022-05-24)
 
 
