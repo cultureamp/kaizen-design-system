@@ -17,6 +17,10 @@ export interface IconProps
   desc?: string
 }
 
+/**
+ * {@link https://cultureamp.design/components/icon/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-icon--meaningful-kaizen-site-demo Storybook}
+ */
 export const Icon: React.VFC<IconProps> = ({
   icon,
   inheritSize = false,

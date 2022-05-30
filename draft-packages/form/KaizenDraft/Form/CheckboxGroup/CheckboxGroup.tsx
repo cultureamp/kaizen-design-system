@@ -17,6 +17,10 @@ export interface CheckboxGroupProps
   automationId?: string
 }
 
+/**
+ * {@link https://cultureamp.design/components/checkbox-group/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-checkbox-group--interactive-kaizen-site-demo Storybook}
+ */
 export const CheckboxGroup: React.VFC<CheckboxGroupProps> = ({
   children,
   labelText,

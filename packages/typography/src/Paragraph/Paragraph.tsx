@@ -41,6 +41,10 @@ export interface ParagraphProps
   color?: AllowedParagraphColors
 }
 
+/**
+ * {@link https://cultureamp.design/components/paragraph/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-paragraph--body Storybook}
+ */
 export const Paragraph: React.VFC<ParagraphProps> = ({
   children,
   tag,

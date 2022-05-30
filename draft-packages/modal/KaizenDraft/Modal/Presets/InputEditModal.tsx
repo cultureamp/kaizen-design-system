@@ -28,6 +28,10 @@ export interface InputEditModalProps {
 
 type InputEditModal = React.FunctionComponent<InputEditModalProps>
 
+/**
+ * {@link https://cultureamp.design/components/modal/#input-edit-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal-input-edit-modal--input-edit-modal-example Storybook}
+ */
 const InputEditModal = ({
   isOpen,
   mood,

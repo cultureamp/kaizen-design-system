@@ -27,6 +27,10 @@ const renderActions = (
   </div>
 )
 
+/**
+ * {@link https://cultureamp.design/components/tile/#multiactiontile Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tile--multi-action Storybook}
+ */
 export const MultiActionTile: React.VFC<MultiActionTileProps> = ({
   children,
   primaryAction,
