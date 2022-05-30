@@ -47,7 +47,7 @@ $link-margin: calc(#{$ca-grid} / 4);
     text-decoration: none;
 
     .linkText::before {
-      transform: translateY(-#{$link-margin});
+      transform: translateY(calc(-1 * #{$link-margin}));
       @include ca-media-mobile {
         transform: translateY(0);
       }
@@ -58,7 +58,7 @@ $link-margin: calc(#{$ca-grid} / 4);
   .linkText::before {
     content: "";
     display: block;
-    transform: translateY(-#{$ca-navigation-bar__link-item-margin})
+    transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
       translateY(-100%);
     height: $ca-navigation-bar__link-item-indicator-height;
     width: 100%;
@@ -74,7 +74,7 @@ $link-margin: calc(#{$ca-grid} / 4);
       width: $ca-navigation-bar__link-item-indicator-height;
       height: $ca-navigation-bar__height;
       right: auto;
-      transform: translateX(-#{$ca-navigation-bar__link-item-margin})
+      transform: translateX(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
         translateX(-100%);
     }
   }
@@ -84,10 +84,10 @@ $link-margin: calc(#{$ca-grid} / 4);
     text-decoration: none;
 
     .linkText::before {
-      transform: translateY(-#{$ca-navigation-bar__link-item-margin});
+      transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}));
 
       @include ca-media-mobile {
-        transform: translateX(-#{$ca-navigation-bar__link-item-margin});
+        transform: translateX(calc(-1 * #{$ca-navigation-bar__link-item-margin}));
       }
     }
   }
