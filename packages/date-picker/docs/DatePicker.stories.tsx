@@ -212,7 +212,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
             onValidate={() => undefined}
             isReversed={isReversed}
             status="default"
@@ -222,7 +222,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-description"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
             onValidate={() => undefined}
             isReversed={isReversed}
             description={
@@ -242,7 +242,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-disabled"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
             onValidate={() => undefined}
             isReversed={isReversed}
             status="default"
@@ -253,7 +253,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-error"
             labelText="Label"
             selectedDay={new Date("potato")}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
             onValidate={() => undefined}
             isReversed={isReversed}
             status="error"
