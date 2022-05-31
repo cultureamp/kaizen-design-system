@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.166](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.165...site@0.0.0-private.166) (2022-05-31)
+
+
+### Bug Fixes
+
+* update site nav styles to use interpolated variables within calcs ([#2764](https://github.com/cultureamp/kaizen-design-system/issues/2764)) ([5f20937](https://github.com/cultureamp/kaizen-design-system/commit/5f20937ef8663c393a7e9295fc491a7f2c15148e))
+
+
+
+
+
 # [0.0.0-private.165](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.164...site@0.0.0-private.165) (2022-05-31)
 
 **Note:** Version bump only for package site
