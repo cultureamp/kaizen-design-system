@@ -12,8 +12,8 @@ $cell-border-radius: 3px;
   background-color: $color-white;
   z-index: 1010;
 
-  .wrapper {
-    padding-bottom: 0;
+  .container {
+    margin: 0;
   }
 
   .month {
