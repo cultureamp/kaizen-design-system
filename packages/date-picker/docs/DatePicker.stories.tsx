@@ -45,6 +45,7 @@ export const DefaultStory = props => {
       onValidate={handleValidation}
       status={status}
       validationMessage={validationMessage}
+      disabledBefore={new Date()}
       {...props}
     />
   )
@@ -168,13 +169,14 @@ const CalendarTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
+        mode="single"
         id="calendar-dialog"
         setPopperElement={setPopperElement}
         styles={styles}
         attributes={attributes}
-        firstDayOfWeek={0}
+        weekStartsOn={0}
         onDayChange={() => undefined}
-        initialMonth={new Date(2022, 1, 5)}
+        defaultMonth={new Date(2022, 1, 5)}
         {...props}
       />
     </div>
@@ -268,10 +270,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Calendar">
           <CalendarTemplate value={new Date(2022, 1, 5)} />
           <CalendarTemplate
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
+            disabled={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
             id="calendar-dialog-disabled"
           />
         </StoryWrapper.Row>

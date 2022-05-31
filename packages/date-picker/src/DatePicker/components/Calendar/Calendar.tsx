@@ -1,14 +1,17 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
-import DayPicker from "react-day-picker/DayPicker"
-import { NavbarElementProps } from "react-day-picker/types/Props"
 import {
-  Modifier,
-  DayModifiers,
-  RangeModifier,
-  Modifiers,
-} from "react-day-picker/types/Modifiers"
+  DayPicker,
+  DateRange,
+  StyledComponent,
+  DaySelectionMode,
+} from "react-day-picker"
+import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
+import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
+import { Matcher } from "react-day-picker/src/types/Matchers"
 import classnames from "classnames"
-import { CalendarNav } from "../CalendarNav/CalendarNav"
+import { Icon } from "@kaizen/component-library"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
@@ -25,24 +28,14 @@ export type CalendarProps = {
   }
   classNameOverride?: string
   value?: Date
-  initialMonth?: Date
-  firstDayOfWeek: number
-  disabledDays?: Modifier | Modifier[]
-  onDayChange: (
-    day: Date,
-    modifiers: DayModifiers,
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => void
-  range?: boolean
-  selectedRange?: RangeModifier
-  modifiers?: RangeModifier
-  onKeyDown?: (e: React.KeyboardEvent) => void
+  defaultMonth?: Date
+  weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
+  disabledDays?: Matcher[]
+  onDayChange: DayClickEventHandler
+  selectedRange?: DateRange
+  modifiers?: DateRange
+  mode: DaySelectionMode
 }
-
-export type CalendarNavProps = Pick<
-  NavbarElementProps,
-  "onPreviousClick" | "onNextClick"
->
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
@@ -51,20 +44,15 @@ export const Calendar: React.VFC<CalendarProps> = ({
   attributes,
   classNameOverride,
   value,
-  initialMonth,
-  firstDayOfWeek,
+  defaultMonth,
+  weekStartsOn,
   disabledDays,
   onDayChange,
-  range,
   selectedRange,
   modifiers,
-  onKeyDown,
+  mode,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
-
-  const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
-    <CalendarNav {...navbarProps} />
-  )
 
   // Initial focus when opening the calendar
   useEffect(() => {
@@ -72,28 +60,35 @@ export const Calendar: React.VFC<CalendarProps> = ({
 
     if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
-        "DayPicker-Day--selected"
+        "rdp-day_selected"
       )[0] as HTMLElement
-
       selectedDay?.focus()
+      return
     } else {
       const today = calendarRef.current.getElementsByClassName(
-        "DayPicker-Day--today"
+        "rdp-day_today"
       )[0] as HTMLElement
-
       today?.focus()
+      return
     }
   }, [])
 
-  const getInitialMonth = () => {
+  const getdefaultMonth = () => {
     if (selectedRange?.from) {
       return selectedRange.from
     } else if (value) {
       return value
     } else {
-      return initialMonth
+      return defaultMonth
     }
   }
+
+  const IconRight = (props: StyledComponent) => (
+    <Icon icon={arrowRight} role="presentation" {...props} />
+  )
+  const IconLeft = (props: StyledComponent) => (
+    <Icon icon={arrowLeft} role="presentation" {...props} />
+  )
 
   return (
     <div ref={calendarRef}>
@@ -106,23 +101,43 @@ export const Calendar: React.VFC<CalendarProps> = ({
         role="dialog"
         aria-modal="true"
       >
-        <DayPicker
-          selectedDays={range ? selectedRange : value}
-          initialMonth={getInitialMonth()}
-          firstDayOfWeek={firstDayOfWeek}
-          disabledDays={disabledDays}
-          onDayClick={onDayChange}
-          navbarElement={getNavbar}
-          className={range ? calendarStyles.range : ""}
-          classNames={defaultCalendarClasses}
-          modifiers={
-            {
-              [calendarStyles.from]: modifiers?.from,
-              [calendarStyles.to]: modifiers?.to,
-            } as Modifiers
-          }
-          onKeyDown={onKeyDown && onKeyDown}
-        />
+        {mode === "single" && (
+          <DayPicker
+            mode="single"
+            selected={value}
+            defaultMonth={getdefaultMonth()}
+            weekStartsOn={weekStartsOn}
+            disabled={disabledDays}
+            onDayClick={onDayChange}
+            classNames={defaultCalendarClasses}
+            components={{
+              IconRight,
+              IconLeft,
+            }}
+          />
+        )}
+        {mode === "range" && (
+          <DayPicker
+            mode="range"
+            selected={selectedRange}
+            defaultMonth={getdefaultMonth()}
+            weekStartsOn={weekStartsOn}
+            disabled={disabledDays}
+            onDayClick={onDayChange}
+            className={calendarStyles.range}
+            classNames={defaultCalendarClasses}
+            modifiers={
+              {
+                [calendarStyles.from]: modifiers?.from,
+                [calendarStyles.to]: modifiers?.to,
+              } as DayModifiers
+            }
+            components={{
+              IconRight,
+              IconLeft,
+            }}
+          />
+        )}
       </div>
     </div>
   )

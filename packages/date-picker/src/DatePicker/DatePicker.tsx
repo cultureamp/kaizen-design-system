@@ -1,11 +1,8 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import "react-day-picker/lib/style.css"
+import "react-day-picker/dist/style.css"
 import { usePopper } from "react-popper"
-import {
-  RangeModifier,
-  BeforeAfterModifier,
-} from "react-day-picker/types/Modifiers"
+import { DateRange, DateInterval } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { format } from "date-fns"
@@ -36,12 +33,12 @@ export interface DatePickerProps
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: DayOfWeek
+  firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 
   /**
    * Accepts a date to display that month on first render.
    */
-  initialMonth?: Date
+  defaultMonth?: Date
 
   /**
    *  The date passed in from the consumer that renders in the input and calendar.
@@ -65,14 +62,14 @@ export interface DatePickerProps
    * inside of that range.
    * disabledRange={ from: new Date(2022, 1, 12), to: new Date(2022, 1, 16) }
    */
-  disabledRange?: RangeModifier
+  disabledRange?: DateRange
 
   /**
    * Accepts an object with a before and after date. Disables any date
    * outside of that range.
    * { before: new Date(2022, 1, 12), after: new Date(2022, 1, 16) }
    */
-  disabledBeforeAfter?: BeforeAfterModifier
+  disabledBeforeAfter?: DateInterval
 
   /**
    * Accepts single date and disables all days before it.
@@ -141,7 +138,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledBefore,
   disabledAfter,
   firstDayOfWeek = 1,
-  initialMonth,
+  defaultMonth,
   selectedDay,
   onButtonClick,
   onDayChange,
@@ -169,14 +166,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     placement: "bottom-start",
   })
 
-  const disabledDays = calculateDisabledDays(
+  const disabledDays = calculateDisabledDays({
     disabledDates,
     disabledDaysOfWeek,
     disabledRange,
     disabledBeforeAfter,
     disabledBefore,
-    disabledAfter
-  )
+    disabledAfter,
+  })
 
   const handleDayChange = (
     date: Date | undefined,
@@ -227,8 +224,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     onDayChange(date)
   }
 
-  const handleOnCalendarDayChange = (date: Date): void => {
-    if (!isDisabledDate(date, disabledDays)) {
+  const handleOnCalendarDayChange = (date: Date | undefined): void => {
+    if (date && !isDisabledDate(date, disabledDays)) {
       handleDayChange(date)
       setIsOpen(false)
     }
@@ -290,6 +287,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       })
       return
     }
+    return
   }, [])
 
   return (
@@ -324,16 +322,16 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            mode={"single"}
             id={`${id}-calendar-dialog`}
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
             value={selectedDay}
-            initialMonth={initialMonth}
-            firstDayOfWeek={firstDayOfWeek}
+            defaultMonth={defaultMonth}
+            weekStartsOn={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
-            onKeyDown={handleKeyDown}
           />
         </FocusOn>
       )}

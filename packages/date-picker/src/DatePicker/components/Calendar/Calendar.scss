@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
-
+@import "../../mixins";
 // Vars
 $cell-border-radius: 3px;
 
@@ -18,8 +18,6 @@ $cell-border-radius: 3px;
 
   .month {
     margin: $spacing-md;
-    border-collapse: separate;
-    border-spacing: 1px;
   }
 
   .months {
@@ -29,13 +27,68 @@ $cell-border-radius: 3px;
 
   .caption {
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 $spacing-xs;
+  }
+
+  .captionLabel {
     font-family: $typography-heading-4-font-family;
     font-size: $typography-heading-4-font-size;
-    font-weight: $typography-heading-4-font-weight;
+    font-weight: $typography-heading-5-font-weight;
     line-height: $typography-heading-4-line-height;
     letter-spacing: $typography-heading-4-letter-spacing;
     color: $color-purple-800;
-    margin: 0 0 $spacing-xs;
+  }
+
+  .nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 3rem);
+    margin: 0 $spacing-md;
+    top: 2.25rem;
+    color: $color-purple-800;
+  }
+
+  .navButton {
+    position: absolute;
+    @include button-reset;
+    display: inherit;
+    padding: 0.25rem $spacing-xs;
+    border: $border-solid-border-width $border-solid-border-style transparent;
+    border-radius: $cell-border-radius;
+
+    &:hover {
+      background-color: $color-blue-100;
+      color: $color-blue-500;
+    }
+
+    &:global(.focus-visible) {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
+      background-color: transparent;
+    }
+
+    :focus {
+      outline: none;
+      background-color: transparent;
+      border: transparent;
+    }
+  }
+
+  .navButtonPrev {
+    left: 1rem;
+  }
+
+  .navButtonNext {
+    right: 1rem;
+  }
+
+  .table {
+    border-collapse: separate;
+    border-spacing: 1px;
   }
 
   .weekday {
@@ -45,6 +98,7 @@ $cell-border-radius: 3px;
     font-weight: $typography-paragraph-body-font-weight;
     line-height: $typography-paragraph-body-line-height;
     color: $color-purple-800;
+    padding: 0.5em;
   }
 
   .body {
@@ -58,7 +112,20 @@ $cell-border-radius: 3px;
   .today.day {
     color: $color-blue-500;
   }
+  .cell {
+    &:global(.focus-visible) {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
+      background-color: transparent;
+    }
 
+    :focus {
+      outline: none;
+      background-color: transparent;
+      border: transparent;
+    }
+  }
   .day {
     padding: calc(#{$spacing-md} / 3) 0.625rem;
     border-radius: $cell-border-radius;
@@ -68,8 +135,9 @@ $cell-border-radius: 3px;
       outline-offset: -2px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
-
-      &.disabled {
+      background-color: transparent;
+      &[aria-disabled="true"] {
+        opacity: 1;
         outline: $color-gray-300 $border-dashed-border-style
           $border-focus-ring-border-width;
       }
@@ -77,6 +145,8 @@ $cell-border-radius: 3px;
 
     :focus {
       outline: none;
+      background-color: transparent;
+      border: transparent;
     }
 
     &.from {
@@ -84,18 +154,19 @@ $cell-border-radius: 3px;
     }
   }
 
-  .disabled,
-  .disabled.today {
+  [aria-disabled="true"],
+  [aria-disabled="true"].today {
     color: rgba($color-purple-800-rgb, 0.3);
+    opacity: 1;
   }
 
-  .day:not(.interactionDisabled):not(.disabled):not(.selected):not(.outside):hover {
+  .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.selected):not(.outside):hover {
     border-radius: $cell-border-radius;
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
-  .selected:not(.disabled):not(.outside) {
+  .selected:not([aria-disabled="true"]):not(.outside) {
     border-radius: $cell-border-radius;
     background-color: $color-blue-500;
     color: $color-white;
@@ -109,12 +180,12 @@ $cell-border-radius: 3px;
     color: $color-white;
   }
 
-  .selected:not(.disabled):not(.outside):not(.from):not(.to):not(:hover) {
+  .selected:not([aria-disabled="true"]):not(.outside):not(.from):not(.to):not(:hover) {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
-  .day:not(.interactionDisabled):not(.disabled):not(.outside):hover {
+  .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.outside):hover {
     background-color: $color-blue-200;
     color: $color-blue-500;
   }

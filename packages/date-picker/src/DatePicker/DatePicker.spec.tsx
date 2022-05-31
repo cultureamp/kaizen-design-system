@@ -78,17 +78,17 @@ describe("<DatePicker />", () => {
   })
 
   it("is able to select date and shows in input", async () => {
-    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
+    render(<DatePickerWrapper defaultMonth={new Date("2022-03-01")} />)
 
     const button = screen.getByRole("button")
 
     await act(async () => button.click())
 
-    const selectedDate = screen.getByRole("gridcell", {
-      name: "Sun Mar 06 2022",
-    })
+    // Focus on date and select
+    const selectedDate = screen.getByText("6th March (Sunday)")
+
     await act(async () => {
-      selectedDate.focus()
+      selectedDate.parentElement && selectedDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
@@ -96,17 +96,18 @@ describe("<DatePicker />", () => {
   })
 
   it("returns focus to the button once date has been selected", async () => {
-    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
+    render(<DatePickerWrapper defaultMonth={new Date("2022-03-01")} />)
 
-    const button = screen.getByRole("button")
+    const button = screen.getByRole("button", {
+      name: "Choose date",
+    })
 
     await act(async () => button.click())
 
-    const selectedDate = screen.getByRole("gridcell", {
-      name: "Sun Mar 06 2022",
-    })
+    // Focus on date and select
+    const selectedDate = screen.getByText("6th March (Sunday)")
     await act(async () => {
-      selectedDate.focus()
+      selectedDate.parentElement && selectedDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
