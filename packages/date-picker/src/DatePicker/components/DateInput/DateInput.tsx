@@ -20,6 +20,7 @@ type OmittedInputProps =
   | "startIconAdornment"
   | "endIconAdornment"
   | "inputType"
+  | "status"
   | "inputValue"
   | "reversed"
   | "onBlur"
@@ -60,7 +61,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    */
   validationMessage?: string | React.ReactNode
   /**
-   * Updates the styling of the validation FieldMessage.
+   * Updates the styling of the validation FieldMessage
    */
   status?: FieldMessageStatus
 }
@@ -68,15 +69,15 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 const formatDateAsText = (
   date: Date,
   disabledDays: Modifier | Modifier[],
-  onValidDate: (newFormattedDate: string) => void
+  onFormat: (newFormattedDate: string) => void
 ): void => {
   if (isDisabledDate(date, disabledDays)) {
-    return onValidDate(format(date, DateFormat.Numeral))
+    return onFormat(format(date, DateFormat.Numeral))
   }
   if (isInvalidDate(date)) {
-    return onValidDate("Invalid Date")
+    return onFormat("Invalid Date")
   }
-  onValidDate(format(date, DateFormat.Text))
+  onFormat(format(date, DateFormat.Text))
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -189,7 +190,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
         >
           <FieldMessage
             id={`${id}-field-message`}
-            automationId={`${id}-field-validation-message`}
             message={validationMessage}
             status={status}
             reversed={isReversed}

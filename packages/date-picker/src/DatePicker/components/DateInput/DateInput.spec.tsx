@@ -17,7 +17,6 @@ const defaultProps = {
   onBlur: () => jest.fn(),
   calendarId: "calendar-dialog",
   valueDate: undefined,
-  onValidation: jest.fn(),
 }
 
 describe("<DateInput />", () => {

@@ -31,7 +31,7 @@ export const DefaultStory = props => {
     string | undefined
   >()
 
-  const handleValidation = (validationResponse: ValidationResponse) => {
+  const handleValidation = (validationResponse: ValidationResponse): void => {
     setStatus(validationResponse.status)
     setValidationMessage(validationResponse.validationMessage)
   }
@@ -50,6 +50,9 @@ export const DefaultStory = props => {
   )
 }
 DefaultStory.storyName = "Date Picker"
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
 
 export const ValidationStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
@@ -61,7 +64,7 @@ export const ValidationStory = props => {
     string | undefined
   >()
 
-  const handleValidation = (validationResponse: ValidationResponse) => {
+  const handleValidation = (validationResponse: ValidationResponse): void => {
     setResponse(validationResponse)
     // An example of additional validation
     if (
@@ -115,25 +118,26 @@ export const ValidationStory = props => {
       </div>
       <div>
         <p>
-          We have added additional validation to this story to provide some
+          This story includes additional custom validation to provide some
           guidance when dealing with validation other than date isInvalid or
           isDisabled.
         </p>
         <ul>
           <li>
-            There will be a caution when the selectedDay is not within this
-            year.
+            There will be a caution when the selectedDay{" "}
+            <strong>is valid</strong> but{" "}
+            <strong>is not within this year</strong>.
           </li>
           <li>
-            There will be an error when the submit button is clicked and there
-            is an error status within the DatePicker.
+            There will be an error when the{" "}
+            <strong>submit button is clicked</strong> and there is a{" "}
+            <strong>current error</strong> within the DatePicker.
           </li>
         </ul>
         <p>
-          The <code>onValidate</code> callback returns a
-          <code>validationResponse</code> object which can be used to provide
-          additional validation as well as update our default validation message
-          if neccessary.
+          The <code>onValidate</code> callback returns a{" "}
+          <code>validationResponse</code> object which provides data such as a
+          default validation message, and can be utilised for custom validation.
         </p>
         <CodeBlock
           language="json"
@@ -211,27 +215,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
-            onValidate={e => e}
+            onValidate={() => undefined}
             isReversed={isReversed}
             status="default"
-            validationMessage="This is a validation message"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={e => e}
-            onValidate={e => e}
+            onValidate={() => undefined}
             isReversed={isReversed}
             status="default"
-            validationMessage="This is a validation message"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-description"
             labelText="Label"
             selectedDay={undefined}
             onDayChange={e => e}
-            onValidate={e => e}
+            onValidate={() => undefined}
             isReversed={isReversed}
             description={
               <>
@@ -244,17 +248,17 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               </>
             }
             status="default"
-            validationMessage="This is a validation message"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-disabled"
             labelText="Label"
             selectedDay={undefined}
             onDayChange={e => e}
-            onValidate={e => e}
+            onValidate={() => undefined}
             isReversed={isReversed}
             status="default"
-            validationMessage="This is a validation message"
+            validationMessage={undefined}
             isDisabled
           />
           <DatePicker
@@ -262,7 +266,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={e => e}
-            onValidate={e => e}
+            onValidate={() => undefined}
             isReversed={isReversed}
             status="error"
             validationMessage="Invalid Date."

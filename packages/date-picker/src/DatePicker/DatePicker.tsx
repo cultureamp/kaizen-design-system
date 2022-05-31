@@ -35,7 +35,6 @@ export interface DatePickerProps
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
-   *  @default 1
    */
   firstDayOfWeek?: DayOfWeek
 
@@ -93,18 +92,16 @@ export interface DatePickerProps
   disabledDaysOfWeek?: DayOfWeek[]
   /**
    * Callback when a date is attempted to be selected.
-   * ValidationResponse object will be returned.
-   * @returns {ValidationResponse}
    */
   onValidate: (validationResponse: ValidationResponse) => void
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status: FieldMessageStatus
+  status: FieldMessageStatus | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage: string | React.ReactNode
+  validationMessage: string | React.ReactNode | undefined
 }
 
 export type ValidationResponse = {
@@ -240,9 +237,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const handleInputChange = (
     date: Date | undefined,
     inputValue: string
-  ): void => {
-    handleDayChange(date, inputValue)
-  }
+  ): void => handleDayChange(date, inputValue)
 
   const handleOpenClose = (): void => setIsOpen(!isOpen)
 
@@ -345,3 +340,5 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     </div>
   )
 }
+
+DatePicker.displayName = "DatePicker"
