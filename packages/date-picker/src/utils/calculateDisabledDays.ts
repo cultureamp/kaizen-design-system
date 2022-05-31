@@ -1,8 +1,8 @@
 import {
-  Modifier,
-  RangeModifier,
-  BeforeAfterModifier,
-} from "react-day-picker/types/Modifiers"
+  Matcher,
+  DateRange,
+  DateInterval,
+} from "react-day-picker/src/types/Matchers"
 
 import { DayOfWeek } from "../DatePicker/DatePicker"
 
@@ -11,30 +11,27 @@ import { DayOfWeek } from "../DatePicker/DatePicker"
  * We have split the options out so the consumer can pass in an individual disabledDay option for ease of use.
  */
 
-export const calculateDisabledDays = (
-  disabledDates?: Date[],
-  disabledDaysOfWeek?: DayOfWeek[],
-  disabledRange?: RangeModifier,
-  disabledBeforeAfter?: BeforeAfterModifier,
-  disabledBefore?: Date,
+type DisabledDayMatchers = {
+  disabledDates?: Date[]
+  disabledDaysOfWeek?: DayOfWeek[]
+  disabledRange?: DateRange
+  disabledBeforeAfter?: DateInterval
+  disabledBefore?: Date
   disabledAfter?: Date
-): Modifier | Modifier[] => [
-  ...(disabledDates ? disabledDates : []),
-  disabledDaysOfWeek && {
-    daysOfWeek: disabledDaysOfWeek,
-  },
-  disabledRange && {
-    from: disabledRange.from,
-    to: disabledRange.to,
-  },
-  disabledBefore && {
-    before: disabledBefore,
-  },
-  disabledAfter && {
-    after: disabledAfter,
-  },
-  disabledBeforeAfter && {
-    before: disabledBeforeAfter.before,
-    after: disabledBeforeAfter.after,
-  },
+}
+
+export const calculateDisabledDays = ({
+  disabledDates = [],
+  disabledDaysOfWeek,
+  disabledRange,
+  disabledBeforeAfter,
+  disabledBefore,
+  disabledAfter,
+}: DisabledDayMatchers): Matcher[] => [
+  ...disabledDates,
+  disabledDaysOfWeek !== undefined && { dayOfWeek: disabledDaysOfWeek },
+  disabledRange !== undefined && disabledRange,
+  disabledBefore !== undefined && { before: disabledBefore },
+  disabledAfter !== undefined && { after: disabledAfter },
+  disabledBeforeAfter !== undefined && disabledBeforeAfter,
 ]
