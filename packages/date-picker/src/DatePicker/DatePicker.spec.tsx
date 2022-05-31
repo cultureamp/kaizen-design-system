@@ -47,7 +47,7 @@ describe("<DatePicker />", () => {
   })
 
   it("should pre-fill the input when an initial date is provided", async () => {
-    render(<DatePickerWrapper selectedDay={new Date(2022, 2, 1)} />)
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
 
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
   })
@@ -57,10 +57,8 @@ describe("<DatePicker />", () => {
 
     const button = screen.getByRole("button")
 
-    // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    // Click button and test calendar popup is showing
     await act(async () => button.click())
     expect(screen.getByRole("dialog")).toBeVisible()
   })
@@ -70,10 +68,8 @@ describe("<DatePicker />", () => {
 
     const input = screen.getByRole("combobox")
 
-    // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    // Click button and test calendar popup is showing
     await act(async () => {
       input.focus()
       userEvent.keyboard("{arrowdown}")
@@ -82,13 +78,12 @@ describe("<DatePicker />", () => {
   })
 
   it("is able to select date and shows in input", async () => {
-    render(<DatePickerWrapper />)
+    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
 
     const button = screen.getByRole("button")
 
     await act(async () => button.click())
 
-    // Focus on date and select
     const selectedDate = screen.getByRole("gridcell", {
       name: "Sun Mar 06 2022",
     })
@@ -101,13 +96,12 @@ describe("<DatePicker />", () => {
   })
 
   it("returns focus to the button once date has been selected", async () => {
-    render(<DatePickerWrapper />)
+    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
 
     const button = screen.getByRole("button")
 
     await act(async () => button.click())
 
-    // Focus on date and select
     const selectedDate = screen.getByRole("gridcell", {
       name: "Sun Mar 06 2022",
     })
@@ -119,62 +113,65 @@ describe("<DatePicker />", () => {
     expect(button).toHaveFocus()
   })
 
-  it("displays the message when status is error", async () => {
-    render(
-      <DatePickerWrapper status="error" validationMessage="Invalid Date." />
-    )
-
-    describe("Validation", () => {
-      expect(screen.getByText("Invalid Date.")).toBeInTheDocument()
+  describe("Validation", () => {
+    describe("Custom Validation", () => {
+      it("displays the message when status is error", async () => {
+        render(
+          <DatePickerWrapper status="error" validationMessage="Invalid Date." />
+        )
+        expect(screen.getByText("Invalid Date.")).toBeInTheDocument()
+      })
     })
 
-    it("displays error message when selected day is invalid", async () => {
-      render(<DatePickerWrapper selectedDay={new Date("potato")} />)
+    describe("Inbuilt Validation", () => {
+      it("displays error message when selected day is invalid", async () => {
+        render(<DatePickerWrapper selectedDay={new Date("potato")} />)
 
-      expect(screen.getByText("Date is invalid")).toBeInTheDocument()
-    })
-
-    it("displays error message when selected day is disabled", async () => {
-      render(
-        <DatePickerWrapper
-          disabledBefore={new Date(2022, 4, 15)}
-          selectedDay={new Date(2022, 4, 5)}
-        />
-      )
-
-      expect(
-        screen.getByText("05/05/2022 is not available, try another date")
-      ).toBeInTheDocument()
-    })
-
-    it("displays error message when input date is invalid", async () => {
-      render(<DatePickerWrapper />)
-
-      const input = screen.getByRole("combobox")
-      userEvent.type(input, "05/05/2022Blah")
-
-      await act(async () => {
-        userEvent.tab()
+        expect(screen.getByText("Date is invalid")).toBeInTheDocument()
       })
 
-      expect(
-        screen.getByText("05/05/2022Blah is an invalid date")
-      ).toBeInTheDocument()
-    })
+      it("displays error message when selected day is disabled", async () => {
+        render(
+          <DatePickerWrapper
+            disabledBefore={new Date("2022-05-15")}
+            selectedDay={new Date("2022-05-05")}
+          />
+        )
 
-    it("displays error message when input date is disabled", async () => {
-      render(<DatePickerWrapper disabledBefore={new Date(2022, 4, 15)} />)
-
-      const input = screen.getByRole("combobox")
-      userEvent.type(input, "05/05/2022")
-
-      await act(async () => {
-        userEvent.tab()
+        expect(
+          screen.getByText("05/05/2022 is not available, try another date")
+        ).toBeInTheDocument()
       })
 
-      expect(
-        screen.getByText("05/05/2022 is not available, try another date")
-      ).toBeInTheDocument()
+      it("displays error message when input date is invalid", async () => {
+        render(<DatePickerWrapper />)
+
+        const input = screen.getByRole("combobox")
+        userEvent.type(input, "05/05/2022Blah")
+
+        await act(async () => {
+          userEvent.tab()
+        })
+
+        expect(
+          screen.getByText("05/05/2022Blah is an invalid date")
+        ).toBeInTheDocument()
+      })
+
+      it("displays error message when input date is disabled", async () => {
+        render(<DatePickerWrapper disabledBefore={new Date("2022-05-15")} />)
+
+        const input = screen.getByRole("combobox")
+        userEvent.type(input, "05/05/2022")
+
+        await act(async () => {
+          userEvent.tab()
+        })
+
+        expect(
+          screen.getByText("05/05/2022 is not available, try another date")
+        ).toBeInTheDocument()
+      })
     })
   })
 })
