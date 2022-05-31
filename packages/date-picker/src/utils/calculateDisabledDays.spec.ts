@@ -49,5 +49,71 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  // @TODO Add test for each matcher
+  it("calculates only an array of dates", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
+    })
+
+    const expectedResult = [DISABLED_DATE__1, DISABLED_DATE__2]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
+
+  it("calculates only days of the week", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledDaysOfWeek: [
+        DayOfWeek.Mon,
+        DayOfWeek.Tue,
+        DayOfWeek.Wed,
+        DayOfWeek.Thu,
+        DayOfWeek.Fri,
+        DayOfWeek.Sat,
+        DayOfWeek.Sun,
+      ],
+    })
+
+    const expectedResult = [{ dayOfWeek: [1, 2, 3, 4, 5, 6, 0] }]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
+
+  it("calculates only a date range", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledRange: DISABLED_RANGE,
+    })
+
+    const expectedResult = [DISABLED_RANGE]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
+
+  it("calculates only a before and after dates", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledBeforeAfter: DISABLED_BEFORE_AFTER,
+    })
+
+    const expectedResult = [DISABLED_BEFORE_AFTER]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
+
+  it("calculates only a before dates", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledBefore: DISABLED_BEFORE,
+    })
+
+    const expectedResult = [{ before: DISABLED_BEFORE }]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
+
+  it("calculates only a after dates", () => {
+    const disabledDays = calculateDisabledDays({
+      disabledAfter: DISABLED_AFTER,
+    })
+
+    const expectedResult = [{ after: DISABLED_AFTER }]
+
+    expect(disabledDays).toEqual(expectedResult)
+  })
 })
