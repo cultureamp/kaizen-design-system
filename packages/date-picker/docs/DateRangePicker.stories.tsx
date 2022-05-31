@@ -91,7 +91,7 @@ const CalendarRangeTemplate: Story = props => {
         styles={styles}
         attributes={attributes}
         firstDayOfWeek={0}
-        onDayChange={e => e}
+        onDayChange={() => undefined}
         initialMonth={new Date(2022, 2)}
         range
         selectedRange={selectedDateRange}
