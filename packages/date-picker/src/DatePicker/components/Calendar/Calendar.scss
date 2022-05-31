@@ -47,7 +47,7 @@ $cell-border-radius: 3px;
     justify-content: space-between;
     width: calc(100% - 3rem);
     margin: 0 $spacing-md;
-    top: 2.25rem;
+    top: 1.25rem;
     color: $color-purple-800;
   }
 
@@ -76,14 +76,6 @@ $cell-border-radius: 3px;
       background-color: transparent;
       border: transparent;
     }
-  }
-
-  .navButtonPrev {
-    left: 1rem;
-  }
-
-  .navButtonNext {
-    right: 1rem;
   }
 
   .table {
