@@ -135,6 +135,8 @@ export const DateInput: React.VFC<DateInputProps> = ({
     }
   }
 
+  const shouldShowValidationMessage = !disabled && validationMessage
+
   return (
     <FieldGroup inline={true}>
       <Label
@@ -182,19 +184,12 @@ export const DateInput: React.VFC<DateInputProps> = ({
         onFocus={handleFocus}
         {...inputProps}
       />
-      {status && (
-        <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
-        >
-          <FieldMessage
-            id={`${id}-field-message`}
-            message={validationMessage}
-            status={status}
-            reversed={isReversed}
-          />
-        </div>
+      {shouldShowValidationMessage && (
+        <FieldMessage
+          message={validationMessage}
+          status={status}
+          reversed={isReversed}
+        />
       )}
       <div
         className={classnames(styles.message, {

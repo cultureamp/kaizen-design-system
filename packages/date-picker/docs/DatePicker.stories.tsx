@@ -90,14 +90,6 @@ export const ValidationStory = props => {
     }
   }
 
-  const baseResponse = {
-    inputValue: "",
-    isInvalid: false,
-    isDisabled: false,
-    isEmpty: true,
-    isValidDate: false,
-  }
-
   return (
     <>
       <DatePicker
@@ -141,11 +133,7 @@ export const ValidationStory = props => {
         </p>
         <CodeBlock
           language="json"
-          code={
-            response
-              ? JSON.stringify(response, null, "\t")
-              : JSON.stringify(baseResponse, null, "\t")
-          }
+          code={JSON.stringify(response, null, "\t")}
         />
       </div>
     </>
