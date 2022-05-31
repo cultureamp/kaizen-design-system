@@ -1,16 +1,18 @@
-import React, { RefObject, useRef, useState } from "react"
+import React, { RefObject, useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/lib/style.css"
 import { usePopper } from "react-popper"
 import {
-  DayModifiers,
   RangeModifier,
   BeforeAfterModifier,
 } from "react-day-picker/types/Modifiers"
 import { FocusOn } from "react-focus-on"
+import { FieldMessageStatus } from "@kaizen/draft-form"
+import { format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
+import { DateFormat } from "./enums"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
@@ -36,10 +38,14 @@ export interface DatePickerProps
    */
   firstDayOfWeek?: DayOfWeek
 
-  // Accepts a date to display that month on first render.
+  /**
+   * Accepts a date to display that month on first render.
+   */
   initialMonth?: Date
 
-  // The date passed in from the consumer that renders in the input and calendar.
+  /**
+   *  The date passed in from the consumer that renders in the input and calendar.
+   */
   selectedDay: Date | undefined
 
   /**
@@ -68,10 +74,14 @@ export interface DatePickerProps
    */
   disabledBeforeAfter?: BeforeAfterModifier
 
-  // Accepts single date and disables all days before it.
+  /**
+   * Accepts single date and disables all days before it.
+   * */
   disabledBefore?: Date
 
-  // Accepts single date and disables all days after it.
+  /**
+   * Accepts single date and disables all days after it.
+   */
   disabledAfter?: Date
 
   /**
@@ -80,11 +90,29 @@ export interface DatePickerProps
    * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
    */
   disabledDaysOfWeek?: DayOfWeek[]
+  /**
+   * Callback when a date is attempted to be selected.
+   */
+  onValidate: (validationResponse: ValidationResponse) => void
+  /**
+   * Updates the styling of the validation FieldMessage.
+   */
+  status: FieldMessageStatus | undefined
+  /**
+   * A descriptive message for the 'status' states.
+   */
+  validationMessage: string | React.ReactNode | undefined
 }
 
-export enum DateFormat {
-  Numeral = "P", // eg. 01/15/2022
-  Text = "PP", // eg. Jan 15, 2022
+export type ValidationResponse = {
+  date?: Date
+  inputValue?: string // Input value upon validation
+  status?: FieldMessageStatus
+  validationMessage?: string
+  isDisabled: boolean
+  isInvalid: boolean
+  isEmpty: boolean
+  isValidDate: boolean // A date is !isDisabled && !isInvalid && !isEmpty
 }
 
 export enum DayOfWeek {
@@ -117,10 +145,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   selectedDay,
   onButtonClick,
   onDayChange,
+  onValidate,
   ...restDateInputProps
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
-
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
@@ -150,26 +178,66 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     disabledAfter
   )
 
-  const handleOnDayChange = (day: Date, modifiers: DayModifiers): void => {
-    if (isDisabledDate(day, disabledDays)) {
-      return
-    }
-    onDayChange(day)
-    setIsOpen(false)
-  }
-
-  const handleInputChange = (date: Date | undefined): void => {
-    if (
-      date !== undefined &&
-      !isInvalidDate(date) &&
-      !isDisabledDate(date, disabledDays)
-    ) {
-      onDayChange(date)
-      return
+  const handleDayChange = (
+    date: Date | undefined,
+    inputValue?: string
+  ): void => {
+    const baseResponse = {
+      date,
+      inputValue,
+      status: undefined,
+      validationMessage: undefined,
+      isInvalid: false,
+      isDisabled: false,
+      isEmpty: false,
+      isValidDate: false,
     }
 
-    onDayChange(undefined)
+    if (date === undefined) {
+      onValidate({
+        ...baseResponse,
+        isEmpty: true,
+      })
+      return onDayChange(undefined)
+    }
+
+    if (isInvalidDate(date)) {
+      onValidate({
+        ...baseResponse,
+        status: "error",
+        validationMessage: inputValue
+          ? `${inputValue} is an invalid date`
+          : "Date is invalid",
+        isInvalid: true,
+      })
+      return onDayChange(undefined)
+    }
+
+    if (isDisabledDate(date, disabledDays)) {
+      onValidate({
+        ...baseResponse,
+        status: "error",
+        validationMessage: `${inputValue} is not available, try another date`,
+        isDisabled: true,
+      })
+      return onDayChange(undefined)
+    }
+
+    onValidate({ ...baseResponse, isValidDate: true })
+    onDayChange(date)
   }
+
+  const handleOnCalendarDayChange = (date: Date): void => {
+    if (!isDisabledDate(date, disabledDays)) {
+      handleDayChange(date)
+      setIsOpen(false)
+    }
+  }
+
+  const handleInputChange = (
+    date: Date | undefined,
+    inputValue: string
+  ): void => handleDayChange(date, inputValue)
 
   const handleOpenClose = (): void => setIsOpen(!isOpen)
 
@@ -193,6 +261,36 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       setIsOpen(true)
     }
   }
+
+  useEffect(() => {
+    if (selectedDay && isInvalidDate(selectedDay)) {
+      onValidate({
+        date: undefined,
+        inputValue: "Invalid Date",
+        status: "error",
+        validationMessage: "Date is invalid",
+        isInvalid: true,
+        isDisabled: false,
+        isEmpty: false,
+        isValidDate: false,
+      })
+      return
+    }
+    if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
+      const inputValue = format(selectedDay, DateFormat.Numeral)
+      onValidate({
+        date: undefined,
+        inputValue,
+        status: "error",
+        validationMessage: `${inputValue} is not available, try another date`,
+        isInvalid: false,
+        isDisabled: true,
+        isEmpty: false,
+        isValidDate: false,
+      })
+      return
+    }
+  }, [])
 
   return (
     <div ref={wrapperRef}>
@@ -234,7 +332,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             initialMonth={initialMonth}
             firstDayOfWeek={firstDayOfWeek}
             disabledDays={disabledDays}
-            onDayChange={handleOnDayChange}
+            onDayChange={handleOnCalendarDayChange}
             onKeyDown={handleKeyDown}
           />
         </FocusOn>

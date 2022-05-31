@@ -5,8 +5,8 @@ import "@testing-library/jest-dom"
 
 const defaultProps: CalendarProps = {
   id: "calendar-dialog",
-  value: new Date(2022, 2, 1),
-  initialMonth: new Date(2022, 2),
+  value: new Date("2022-03-01"),
+  initialMonth: new Date("2022-03-01"),
   onDayChange: jest.fn(),
   firstDayOfWeek: 1,
   setPopperElement: jest.fn(),

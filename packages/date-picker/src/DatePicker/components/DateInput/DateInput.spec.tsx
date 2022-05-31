@@ -34,7 +34,7 @@ describe("<DateInput />", () => {
   })
 
   it("formats values when focus is on the input", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
 
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
 
@@ -47,7 +47,7 @@ describe("<DateInput />", () => {
   })
 
   it("formats values when the input loses focus - onBlur", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
 
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
 
@@ -67,7 +67,7 @@ describe("<DateInput />", () => {
   })
 
   it("updates calendar button aria-label with selected day", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date(2022, 2, 1)} />)
+    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
 
     expect(
       screen.getByLabelText("Change date, Mar 1, 2022")
