@@ -2,14 +2,19 @@ import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
+import { FieldMessageStatus } from "@kaizen/draft-form"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { DateInput } from "../src/DatePicker/components/DateInput"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker } from "../src/DatePicker"
+import { DatePicker, ValidationResponse } from "../src/DatePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
+  subcomponents: { DateInput, Calendar },
   parameters: {
     docs: {
       description: {
@@ -21,6 +26,15 @@ export default {
 
 export const DefaultStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()
+  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >()
+
+  const handleValidation = (validationResponse: ValidationResponse): void => {
+    setStatus(validationResponse.status)
+    setValidationMessage(validationResponse.validationMessage)
+  }
 
   return (
     <DatePicker
@@ -28,12 +42,106 @@ export const DefaultStory = props => {
       labelText="Label"
       selectedDay={selectedDate}
       onDayChange={setValueDate}
+      onValidate={handleValidation}
+      status={status}
+      validationMessage={validationMessage}
       {...props}
     />
   )
 }
 DefaultStory.storyName = "Date Picker"
 DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
+
+export const ValidationStory = props => {
+  const [selectedDate, setValueDate] = useState<Date | undefined>(
+    new Date(2022, 4, 5)
+  )
+  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
+  const [response, setResponse] = useState<ValidationResponse | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >()
+
+  const handleValidation = (validationResponse: ValidationResponse): void => {
+    setResponse(validationResponse)
+    // An example of additional validation
+    if (
+      validationResponse.isValidDate &&
+      validationResponse.date?.getFullYear() !== new Date().getFullYear()
+    ) {
+      setStatus("caution")
+      setValidationMessage("Date is not this year.")
+      return
+    }
+    setStatus(validationResponse.status)
+    setValidationMessage(validationResponse.validationMessage)
+  }
+
+  const submitRequest = () => {
+    // An example of a form submit request
+    if (status === "error" || status === "caution") {
+      setValidationMessage("There is an error.")
+      setStatus("error")
+      alert("Error")
+    } else {
+      alert("Success")
+    }
+  }
+
+  return (
+    <>
+      <DatePicker
+        id="datepicker-default"
+        labelText="Label"
+        selectedDay={selectedDate}
+        onDayChange={day => {
+          setValueDate(day)
+        }}
+        onValidate={handleValidation}
+        status={status}
+        validationMessage={validationMessage}
+        disabledBefore={new Date()}
+        {...props}
+      />
+      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+        <Button onClick={submitRequest} label="Submit" />
+      </div>
+      <div>
+        <p>
+          This story includes additional custom validation to provide some
+          guidance when dealing with validation other than date isInvalid or
+          isDisabled.
+        </p>
+        <ul>
+          <li>
+            There will be a caution when the selectedDay{" "}
+            <strong>is valid</strong> but{" "}
+            <strong>is not within this year</strong>.
+          </li>
+          <li>
+            There will be an error when the{" "}
+            <strong>submit button is clicked</strong> and there is a{" "}
+            <strong>current error</strong> within the DatePicker.
+          </li>
+        </ul>
+        <p>
+          The <code>onValidate</code> callback returns a{" "}
+          <code>validationResponse</code> object which provides data such as a
+          default validation message, and can be utilised for custom validation.
+        </p>
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(response, null, "\t")}
+        />
+      </div>
+    </>
+  )
+}
+ValidationStory.storyName = "Validation"
+
+ValidationStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
@@ -72,7 +180,6 @@ const CalendarTemplate: Story = props => {
     </div>
   )
 }
-
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
@@ -96,20 +203,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
+            onValidate={() => undefined}
             isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
             isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-description"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
             isReversed={isReversed}
             description={
               <>
@@ -121,21 +235,29 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </Paragraph>
               </>
             }
+            status="default"
+            validationMessage={undefined}
           />
           <DatePicker
             id="datepicker-disabled"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
             isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
             isDisabled
           />
           <DatePicker
             id="datepicker-error"
             labelText="Label"
             selectedDay={new Date("potato")}
-            onDayChange={e => e}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
             isReversed={isReversed}
+            status="error"
+            validationMessage="Invalid Date."
           />
         </StoryWrapper.Row>
       </StoryWrapper>
