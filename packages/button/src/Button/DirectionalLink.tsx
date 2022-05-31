@@ -18,6 +18,10 @@ const iconMap = {
   end: directionalEnd,
 }
 
+/**
+ * {@link https://cultureamp.design/components/pagination/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-button-pagination-buttons--default-kaizen-directional-link Storybook}
+ */
 const DirectionalLink: React.VFC<DirectionalLinkProps> = (
   props: DirectionalLinkProps
 ) => (
