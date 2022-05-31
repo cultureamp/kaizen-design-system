@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.5...@kaizen/date-picker@4.0.0) (2022-05-31)
+
+
+### Features
+
+* Add validation to DatePicker ([#2729](https://github.com/cultureamp/kaizen-design-system/issues/2729)) ([9982c85](https://github.com/cultureamp/kaizen-design-system/commit/9982c858fcbca9a0d5c7ef42cb3bda5ce45a4781))
+
+
+### BREAKING CHANGES
+
+* Handle validation within DatePicker.
+Add new required props for validation:
+-`onValidate` callback function as a prop of DatePicker.
+- `status` 
+- `validationMessage`
+
+- Remove deprecated Input Props
+
+
+
+
+
 ## [3.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.4...@kaizen/date-picker@3.1.5) (2022-05-30)
 
 **Note:** Version bump only for package @kaizen/date-picker
