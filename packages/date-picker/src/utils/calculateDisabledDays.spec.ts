@@ -23,15 +23,7 @@ describe("calculateDisabledDays", () => {
       calculateDisabledDays({
         disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
       })
-    ).toEqual([
-      DISABLED_DATE__1,
-      DISABLED_DATE__2,
-      false,
-      false,
-      false,
-      false,
-      false,
-    ])
+    ).toEqual([DISABLED_DATE__1, DISABLED_DATE__2])
   })
 
   it("correctly combines multiple disabled days", () => {
@@ -56,4 +48,6 @@ describe("calculateDisabledDays", () => {
 
     expect(disabledDays).toEqual(expectedResult)
   })
+
+  // @TODO Add test for each matcher
 })
