@@ -37,6 +37,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
           ref={ref}
           aria-pressed={isActive}
           aria-label={label}
+          onMouseDown={e => e.preventDefault()}
           className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
             [styles[mood]]: mood,
