@@ -17,10 +17,8 @@ describe("<DateRangePicker />", () => {
 
     const element = screen.getByRole("button")
 
-    // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    // Click button and test calendar popup is showing
     await act(async () => element.click())
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
@@ -34,7 +32,6 @@ describe("<DateRangePicker />", () => {
 
     await act(async () => element.click())
 
-    // Focus on 'from' date and select
     const selectedFromDate = screen.getByText("6th March (Sunday)")
 
     await act(async () => {
@@ -42,7 +39,6 @@ describe("<DateRangePicker />", () => {
       userEvent.keyboard("{enter}")
     })
 
-    // Focus on 'to' date and select
     const selectedToDate = screen.getByText("16th March (Wednesday)")
 
     await act(async () => {

@@ -45,7 +45,6 @@ export const DefaultStory = props => {
       onValidate={handleValidation}
       status={status}
       validationMessage={validationMessage}
-      disabledBefore={new Date()}
       {...props}
     />
   )

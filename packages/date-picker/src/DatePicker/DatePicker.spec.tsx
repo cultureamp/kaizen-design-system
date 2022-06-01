@@ -84,7 +84,6 @@ describe("<DatePicker />", () => {
 
     await act(async () => button.click())
 
-    // Focus on date and select
     const selectedDate = screen.getByText("6th March (Sunday)")
 
     await act(async () => {
@@ -104,7 +103,6 @@ describe("<DatePicker />", () => {
 
     await act(async () => button.click())
 
-    // Focus on date and select
     const selectedDate = screen.getByText("6th March (Sunday)")
     await act(async () => {
       selectedDate.parentElement && selectedDate.parentElement.focus()

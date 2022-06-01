@@ -33,7 +33,6 @@ export type CalendarProps = {
   disabledDays?: Matcher[]
   onDayChange: DayClickEventHandler
   selectedRange?: DateRange
-  modifiers?: DateRange
   mode: DaySelectionMode
 }
 
@@ -49,7 +48,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   disabledDays,
   onDayChange,
   selectedRange,
-  modifiers,
   mode,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
@@ -126,12 +124,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
             onDayClick={onDayChange}
             className={calendarStyles.range}
             classNames={defaultCalendarClasses}
-            modifiers={
-              {
-                [calendarStyles.from]: modifiers?.from,
-                [calendarStyles.to]: modifiers?.to,
-              } as DayModifiers
-            }
             components={{
               IconRight,
               IconLeft,
