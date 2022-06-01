@@ -33,7 +33,7 @@ export interface DatePickerProps
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
+  firstDayOfWeek?: DayOfWeek
 
   /**
    * Accepts a date to display that month on first render.
@@ -121,6 +121,11 @@ export enum DayOfWeek {
   Fri = 5,
   Sat = 6,
 }
+
+const isValidWeekStartsOn = (
+  day: DayOfWeek | undefined
+): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
+  [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 /**
  * {@link https://cultureamp.design/components/date-picker/ Guidance} |
@@ -314,12 +319,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         <FocusOn
           scrollLock={false}
           onDeactivation={handleReturnFocus}
-          onClickOutside={() => {
-            handleOpenClose()
-          }}
-          onEscapeKey={() => {
-            handleOpenClose()
-          }}
+          onClickOutside={handleOpenClose}
+          onEscapeKey={handleOpenClose}
         >
           <Calendar
             mode={"single"}
@@ -329,7 +330,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             attributes={attributes}
             value={selectedDay}
             defaultMonth={defaultMonth}
-            weekStartsOn={firstDayOfWeek}
+            weekStartsOn={
+              isValidWeekStartsOn(firstDayOfWeek) ? firstDayOfWeek : undefined
+            }
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
           />
