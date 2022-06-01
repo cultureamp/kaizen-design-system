@@ -27,10 +27,6 @@
     padding: $spacing-sm;
   }
 
-  td {
-    border-top: 1px solid $color-white;
-  }
-
   th {
     text-align: start;
     background: $color-white;
@@ -66,6 +62,7 @@
   }
 
   td {
+    border-top: 1px solid $color-white;
     background: $color-white;
     text-align: center;
   }

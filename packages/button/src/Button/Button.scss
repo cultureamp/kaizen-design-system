@@ -1,3 +1,7 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "mixins";
 @import "variables";
 
@@ -48,6 +52,7 @@
         content: "";
         position: absolute;
         background: transparent;
+        border-color: $color-blue-500;
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
@@ -55,14 +60,6 @@
         left: calc(-1 * #{$focus-ring-offset});
         right: calc(-1 * #{$focus-ring-offset});
         bottom: calc(-1 * #{$focus-ring-offset});
-      }
-    }
-  }
-
-  &:not(:disabled) {
-    #{$selectors--button-focus} {
-      &::after {
-        border-color: $color-blue-500;
       }
     }
   }
