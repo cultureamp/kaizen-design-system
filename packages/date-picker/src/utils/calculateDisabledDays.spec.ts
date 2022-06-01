@@ -1,4 +1,4 @@
-import { DayOfWeek } from "../DatePicker/DatePicker"
+import { DayOfWeek } from "../DatePicker/enums"
 import { calculateDisabledDays } from "./calculateDisabledDays"
 
 const DISABLED_DATE__1 = new Date(2022, 3, 24)
@@ -45,16 +45,6 @@ describe("calculateDisabledDays", () => {
       { after: DISABLED_AFTER },
       DISABLED_BEFORE_AFTER,
     ]
-
-    expect(disabledDays).toEqual(expectedResult)
-  })
-
-  it("calculates only an array of dates", () => {
-    const disabledDays = calculateDisabledDays({
-      disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
-    })
-
-    const expectedResult = [DISABLED_DATE__1, DISABLED_DATE__2]
 
     expect(disabledDays).toEqual(expectedResult)
   })

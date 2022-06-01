@@ -1,5 +1,5 @@
 import { Label } from "@kaizen/draft-form"
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import "react-day-picker/dist/style.css"
 import { usePopper } from "react-popper"
@@ -11,12 +11,13 @@ import {
   DateInterval,
   ActiveModifiers,
   isMatch,
-  DateBefore,
 } from "react-day-picker"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
+import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
 import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
+import { DayOfWeek } from "./enums"
 
 export interface DateRangePickerProps {
   id: string
@@ -40,7 +41,7 @@ export interface DateRangePickerProps {
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
+  firstDayOfWeek?: DayOfWeek
 
   // Accepts a date to display that month on first render.
   defaultMonth?: Date
@@ -76,16 +77,6 @@ export interface DateRangePickerProps {
    * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
    */
   disabledDaysOfWeek?: DayOfWeek[]
-}
-
-enum DayOfWeek {
-  Sun = 0,
-  Mon = 1,
-  Tue = 2,
-  Wed = 3,
-  Thu = 4,
-  Fri = 5,
-  Sat = 6,
 }
 
 /**
@@ -157,7 +148,8 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-    if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
+
+    if (isDisabledDate(day, disabledDays)) {
       return
     }
 

@@ -9,7 +9,7 @@ import { format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import { DateFormat } from "./enums"
+import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
@@ -111,21 +111,6 @@ export type ValidationResponse = {
   isEmpty: boolean
   isValidDate: boolean // A date is !isDisabled && !isInvalid && !isEmpty
 }
-
-export enum DayOfWeek {
-  Sun = 0,
-  Mon = 1,
-  Tue = 2,
-  Wed = 3,
-  Thu = 4,
-  Fri = 5,
-  Sat = 6,
-}
-
-const isValidWeekStartsOn = (
-  day: DayOfWeek | undefined
-): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
-  [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 /**
  * {@link https://cultureamp.design/components/date-picker/ Guidance} |
@@ -229,8 +214,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     onDayChange(date)
   }
 
-  const handleOnCalendarDayChange = (date: Date | undefined): void => {
-    if (date && !isDisabledDate(date, disabledDays)) {
+  const handleOnCalendarDayChange = (date: Date): void => {
+    if (!isDisabledDate(date, disabledDays)) {
       handleDayChange(date)
       setIsOpen(false)
     }
@@ -290,9 +275,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         isEmpty: false,
         isValidDate: false,
       })
-      return
     }
-    return
   }, [])
 
   return (
@@ -323,16 +306,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onEscapeKey={handleOpenClose}
         >
           <Calendar
-            mode={"single"}
+            mode="single"
             id={`${id}-calendar-dialog`}
             setPopperElement={setPopperElement}
             styles={styles}
             attributes={attributes}
             value={selectedDay}
             defaultMonth={defaultMonth}
-            weekStartsOn={
-              isValidWeekStartsOn(firstDayOfWeek) ? firstDayOfWeek : undefined
-            }
+            weekStartsOn={firstDayOfWeek}
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
           />

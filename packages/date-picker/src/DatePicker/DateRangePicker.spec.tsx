@@ -1,6 +1,7 @@
 import { act, render, screen } from "@testing-library/react"
 import React from "react"
 import userEvent from "@testing-library/user-event"
+import { DateRange } from "react-day-picker"
 import { DateRangePicker } from "./DateRangePicker"
 import "@testing-library/jest-dom"
 
@@ -8,7 +9,7 @@ const defaultProps = {
   id: "date-picker-range",
   labelText: "Choose date",
   defaultMonth: new Date("2022-03-01"),
-  onChange: jest.fn(),
+  onChange: jest.fn<void, [DateRange]>(),
 }
 
 describe("<DateRangePicker />", () => {

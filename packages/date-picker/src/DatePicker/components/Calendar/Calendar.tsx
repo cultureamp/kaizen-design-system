@@ -1,10 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
-import {
-  DayPicker,
-  DateRange,
-  StyledComponent,
-  DaySelectionMode,
-} from "react-day-picker"
+import { DayPicker, DateRange, StyledComponent } from "react-day-picker"
 import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
 import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
 import { Matcher } from "react-day-picker/src/types/Matchers"
@@ -12,6 +7,7 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
@@ -29,13 +25,18 @@ export type CalendarProps = {
   classNameOverride?: string
   value?: Date
   defaultMonth?: Date
-  weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
+  weekStartsOn: DayOfWeek
   disabledDays?: Matcher[]
   onDayChange: DayClickEventHandler
   selectedRange?: DateRange
-  mode: DaySelectionMode
+  mode: "single" | "range"
   modifiers?: DateRange
 }
+
+const isValidWeekStartsOn = (
+  day: DayOfWeek | undefined
+): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
+  [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
@@ -106,7 +107,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
             mode="single"
             selected={value}
             defaultMonth={getdefaultMonth()}
-            weekStartsOn={weekStartsOn}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
             disabled={disabledDays}
             onDayClick={onDayChange}
             classNames={defaultCalendarClasses}
@@ -121,7 +124,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
             mode="range"
             selected={selectedRange}
             defaultMonth={getdefaultMonth()}
-            weekStartsOn={weekStartsOn}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
             disabled={disabledDays}
             onDayClick={onDayChange}
             className={calendarStyles.range}
