@@ -10,6 +10,7 @@ import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
+import "react-day-picker/dist/style.css"
 
 export type CalendarProps = {
   id: string

@@ -1,6 +1,5 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import "react-day-picker/dist/style.css"
 import { usePopper } from "react-popper"
 import { DateRange, DateInterval } from "react-day-picker"
 import { FocusOn } from "react-focus-on"

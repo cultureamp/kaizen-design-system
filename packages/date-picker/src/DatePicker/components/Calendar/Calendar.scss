@@ -4,185 +4,235 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "../../mixins";
+
 // Vars
 $cell-border-radius: 3px;
+$rdp-cell-size: 40px;
 
-// Calendar styles
+.container {
+  margin: 0;
+}
+
+.months {
+  display: flex;
+  box-shadow: $shadow-large-box-shadow;
+  border-radius: $cell-border-radius;
+}
+
+.month {
+  margin: $spacing-md;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  margin: 0;
+  max-width: calc($rdp-cell-size * 7);
+}
+
+.caption {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 $spacing-xs;
+  padding: 0;
+}
+
+.captionLabel {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  font-family: $typography-heading-4-font-family;
+  font-size: $typography-heading-4-font-size;
+  font-weight: $typography-heading-5-font-weight;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+  color: $color-purple-800;
+}
+
+.weekday {
+  padding: 0.5em;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  color: $color-purple-800;
+}
+
+.cell {
+  width: $rdp-cell-size;
+  height: $rdp-cell-size;
+  padding: 0;
+  text-align: center;
+  // &:global(.focus-visible) {
+  //   outline-offset: -2px;
+  //   outline: $color-blue-500 $border-focus-ring-border-style
+  //     $border-focus-ring-border-width;
+  //   background-color: transparent;
+  // }
+
+  // :focus {
+  //   outline: none;
+  //   background-color: transparent;
+  //   border: transparent;
+  // }
+}
+
+.day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: $rdp-cell-size;
+  max-width: $rdp-cell-size;
+  height: $rdp-cell-size;
+  margin: 0;
+  border: 2px solid transparent;
+  padding: calc(#{$spacing-md} / 3) 0.625rem;
+  border-radius: $cell-border-radius;
+  color: $color-purple-800;
+
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+      border: 2px solid transparent;
+    }
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style
+        $border-focus-ring-border-width;
+      background-color: transparent;
+      
+    }
+  }
+}
+
+[aria-disabled="true"] {
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+      border: 2px solid transparent;
+    }
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) {
+      color: rgba($color-purple-800-rgb, 0.3);
+      outline-offset: -2px;
+      background-color: transparent;
+      opacity: 1;
+      outline: $color-gray-300 $border-dashed-border-style
+        $border-focus-ring-border-width;
+    }
+  }
+}
+
+[aria-disabled="true"],
+[aria-disabled="true"].today {
+  color: rgba($color-purple-800-rgb, 0.3);
+  opacity: 1!important;
+}
+
+.day:not(.interactionDisabled):not([aria-disabled="true"]):not(.selected):not(.outside):hover {
+  border-radius: $cell-border-radius;
+  background-color: $color-blue-100;
+  color: $color-blue-500;
+}
+
+.selected:not([aria-disabled="true"]):not(.outside) {
+  border-radius: $cell-border-radius;
+  background-color: $color-blue-500;
+  color: $color-white;
+}
+
+.middle:not([aria-disabled="true"]):not(.outside):not(.from):not(.to):not(:hover) {
+  background-color: $color-blue-100;
+  color: $color-blue-500;
+}
+
+.today:not(.outside) {
+  color: $color-blue-500;
+  font-weight: bold;
+}
+
+.body {
+  border: 0;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+}
+
 .calendar {
   background-color: $color-white;
   z-index: 1010;
+}
 
-  .container {
-    margin: 0;
+.nav {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - #{$spacing-xl});
+  margin: 0 $spacing-md;
+  top: 1.25rem;
+  color: $color-purple-800;
+}
+
+.navButton:not([aria-disabled="true"]) {
+  position: absolute;
+  @include button-reset;
+  display: inherit;
+  padding: 0.25rem $spacing-xs;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $cell-border-radius;
+
+  &:hover {
+    background-color: $color-blue-100!important;
+    color: $color-blue-500!important;
   }
 
-  .month {
-    margin: $spacing-md;
-  }
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+      border: 2px solid transparent;
+      background-color: transparent;
 
-  .months {
-    box-shadow: $shadow-large-box-shadow;
-    border-radius: $cell-border-radius;
-  }
-
-  .caption {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 $spacing-xs;
-  }
-
-  .captionLabel {
-    font-family: $typography-heading-4-font-family;
-    font-size: $typography-heading-4-font-size;
-    font-weight: $typography-heading-5-font-weight;
-    line-height: $typography-heading-4-line-height;
-    letter-spacing: $typography-heading-4-letter-spacing;
-    color: $color-purple-800;
-  }
-
-  .nav {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: calc(100% - 3rem);
-    margin: 0 $spacing-md;
-    top: 1.25rem;
-    color: $color-purple-800;
-  }
-
-  .navButton {
-    position: absolute;
-    @include button-reset;
-    display: inherit;
-    padding: 0.25rem $spacing-xs;
-    border: $border-solid-border-width $border-solid-border-style transparent;
-    border-radius: $cell-border-radius;
-
-    &:hover {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
     }
 
+    // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       outline-offset: -2px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
       background-color: transparent;
     }
-
-    :focus {
-      outline: none;
-      background-color: transparent;
-      border: transparent;
-    }
-  }
-
-  .navButtonNext {
-    right: 0;
-  }
-
-  .table {
-    border-collapse: separate;
-    border-spacing: 1px;
-  }
-
-  .weekday {
-    font-family: $typography-paragraph-body-font-family;
-    font-size: $typography-paragraph-body-font-size;
-    letter-spacing: $typography-paragraph-body-letter-spacing;
-    font-weight: $typography-paragraph-body-font-weight;
-    line-height: $typography-paragraph-body-line-height;
-    color: $color-purple-800;
-    padding: 0.5em;
-  }
-
-  .body {
-    font-family: $typography-paragraph-body-font-family;
-    font-size: $typography-paragraph-body-font-size;
-    letter-spacing: $typography-paragraph-body-letter-spacing;
-    font-weight: $typography-paragraph-body-font-weight;
-    line-height: $typography-paragraph-body-line-height;
-  }
-
-  .today.day {
-    color: $color-blue-500;
-  }
-  .cell {
-    &:global(.focus-visible) {
-      outline-offset: -2px;
-      outline: $color-blue-500 $border-focus-ring-border-style
-        $border-focus-ring-border-width;
-      background-color: transparent;
-    }
-
-    :focus {
-      outline: none;
-      background-color: transparent;
-      border: transparent;
-    }
-  }
-  .day {
-    padding: calc(#{$spacing-md} / 3) 0.625rem;
-    border-radius: $cell-border-radius;
-    color: $color-purple-800;
-
-    &:global(.focus-visible) {
-      outline-offset: -2px;
-      outline: $color-blue-500 $border-focus-ring-border-style
-        $border-focus-ring-border-width;
-      background-color: transparent;
-      &[aria-disabled="true"] {
-        opacity: 1;
-        outline: $color-gray-300 $border-dashed-border-style
-          $border-focus-ring-border-width;
-      }
-    }
-
-    :focus {
-      outline: none;
-      background-color: transparent;
-      border: transparent;
-    }
-
-    &.from {
-      color: $color-white;
-    }
-  }
-
-  [aria-disabled="true"],
-  [aria-disabled="true"].today {
-    color: rgba($color-purple-800-rgb, 0.3);
-    opacity: 1;
-  }
-
-  .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.selected):not(.outside):hover {
-    border-radius: $cell-border-radius;
-    background-color: $color-blue-100;
-    color: $color-blue-500;
-  }
-
-  .selected:not([aria-disabled="true"]):not(.outside) {
-    border-radius: $cell-border-radius;
-    background-color: $color-blue-500;
-    color: $color-white;
   }
 }
-.range {
-  .from:not(.outside),
-  .to:not(.outside) {
-    border-radius: $cell-border-radius;
-    background-color: $color-blue-500;
-    color: $color-white;
-  }
 
-  .selected:not([aria-disabled="true"]):not(.outside):not(.from):not(.to):not(:hover) {
-    background-color: $color-blue-100;
-    color: $color-blue-500;
-  }
+.navButtonNext {
+  right: 0;
+}
 
-  .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.outside):hover {
-    background-color: $color-blue-200;
-    color: $color-blue-500;
-  }
+.from:not(.outside),
+.to:not(.outside) {
+  border-radius: $cell-border-radius;
+  background-color: $color-blue-500;
+  color: $color-white;
+}
+
+
+.day:not(.interactionDisabled):not([aria-disabled="true"]):not(.outside):hover {
+  background-color: $color-blue-200;
+  color: $color-blue-500;
 }
