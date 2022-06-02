@@ -26,6 +26,10 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   &.negative {
     background: $color-red-100;
   }
+
+  &.highlight {
+    background: $color-purple-100;
+  }
 }
 
 // --------------------------------

@@ -11,7 +11,7 @@ import styles from "./BrandMoment.scss"
 
 export interface BrandMomentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  mood: "informative" | "positive" | "negative"
+  mood: "informative" | "positive" | "negative" | "highlight"
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
