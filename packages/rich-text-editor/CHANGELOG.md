@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.5...@kaizen/rich-text-editor@1.10.6) (2022-06-02)
+
+
+### Bug Fixes
+
+* focus should remain in editor when clicking toolbar buttons ([#2767](https://github.com/cultureamp/kaizen-design-system/issues/2767)) ([5e87c0f](https://github.com/cultureamp/kaizen-design-system/commit/5e87c0ff8588651419aa5259ad9e8471f5e89478))
+
+
+
+
+
 ## [1.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.4...@kaizen/rich-text-editor@1.10.5) (2022-05-30)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
