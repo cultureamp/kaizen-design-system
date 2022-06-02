@@ -35,6 +35,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       <Tooltip text={label} display="inline-block" position="above">
         <button
           ref={ref}
+          type="button"
           aria-pressed={isActive}
           aria-label={label}
           onMouseDown={e => e.preventDefault()}
