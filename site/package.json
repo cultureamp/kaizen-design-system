@@ -55,7 +55,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "raw-loader": "^4.0.2",
     "svgo-loader": "2.2.2",
-    "webpack": "^4.46.0"
+    "webpack": "^5.73.0"
   },
   "devDependenciesComments": {
     "svgo-loader": "version locked for gatsby 2 compatibility"
