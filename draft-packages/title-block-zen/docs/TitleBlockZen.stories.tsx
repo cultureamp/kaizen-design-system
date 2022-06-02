@@ -268,6 +268,11 @@ export const AdminVariant = () => (
       title="Page title"
       variant="admin"
       sectionTitle="Default questions"
+      subtitle={
+        <Paragraph variant="body">
+          This is a <a href="/">link</a>
+        </Paragraph>
+      }
       sectionTitleDescription={
         "Default questions are surfaced automatically for " +
         "managers when requesting feedback about their teams from colleagues. " +
