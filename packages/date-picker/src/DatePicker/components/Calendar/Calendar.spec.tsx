@@ -8,7 +8,7 @@ const defaultProps: CalendarProps = {
   id: "calendar-dialog",
   value: new Date("2022-03-01"),
   defaultMonth: new Date("2022-03-01"),
-  onDayChange: jest.fn(),
+  onDayChange: jest.fn<void, [Date]>(),
   weekStartsOn: 1,
   setPopperElement: jest.fn(),
   styles: {},

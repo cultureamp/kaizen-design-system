@@ -22,4 +22,6 @@ export const defaultCalendarClasses: ClassNames = {
   nav_button: `${calendarStyles.navButton}`,
   nav_button_previous: `${calendarStyles.navButtonPrev}`,
   nav_button_next: `${calendarStyles.navButtonNext}`,
+  button_reset: `${calendarStyles.buttonReset}`,
+  button: `${calendarStyles.button}`,
 }

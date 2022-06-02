@@ -62,13 +62,13 @@ export const Calendar: React.VFC<CalendarProps> = ({
 
     if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
-        "rdp-day_selected"
+        calendarStyles.selected
       )[0] as HTMLElement
       selectedDay?.focus()
       return
     } else {
       const today = calendarRef.current.getElementsByClassName(
-        "rdp-day_today"
+        calendarStyles.today
       )[0] as HTMLElement
       today?.focus()
       return
@@ -130,7 +130,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
             }
             disabled={disabledDays}
             onDayClick={onDayChange}
-            className={calendarStyles.range}
             classNames={defaultCalendarClasses}
             components={{
               IconRight,

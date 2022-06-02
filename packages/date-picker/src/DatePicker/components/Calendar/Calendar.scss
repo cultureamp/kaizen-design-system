@@ -30,6 +30,14 @@ $rdp-cell-size: 40px;
   max-width: calc($rdp-cell-size * 7);
 }
 
+.button {
+  cursor: pointer;
+}
+
+.buttonReset {
+  @include button-reset;
+}
+
 .caption {
   display: flex;
   text-align: center;
@@ -70,18 +78,6 @@ $rdp-cell-size: 40px;
   height: $rdp-cell-size;
   padding: 0;
   text-align: center;
-  // &:global(.focus-visible) {
-  //   outline-offset: -2px;
-  //   outline: $color-blue-500 $border-focus-ring-border-style
-  //     $border-focus-ring-border-width;
-  //   background-color: transparent;
-  // }
-
-  // :focus {
-  //   outline: none;
-  //   background-color: transparent;
-  //   border: transparent;
-  // }
 }
 
 .day {
@@ -112,7 +108,6 @@ $rdp-cell-size: 40px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
       background-color: transparent;
-      
     }
   }
 }
@@ -139,7 +134,7 @@ $rdp-cell-size: 40px;
 [aria-disabled="true"],
 [aria-disabled="true"].today {
   color: rgba($color-purple-800-rgb, 0.3);
-  opacity: 1!important;
+  opacity: 1 !important;
 }
 
 .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.selected):not(.outside):hover {
@@ -197,8 +192,8 @@ $rdp-cell-size: 40px;
   border-radius: $cell-border-radius;
 
   &:hover {
-    background-color: $color-blue-100!important;
-    color: $color-blue-500!important;
+    background-color: $color-blue-100 !important;
+    color: $color-blue-500 !important;
   }
 
   :global(.js-focus-visible) & {
@@ -207,7 +202,6 @@ $rdp-cell-size: 40px;
       outline: none;
       border: 2px solid transparent;
       background-color: transparent;
-
     }
 
     // show custom focus ring when :focus-visible
@@ -230,7 +224,6 @@ $rdp-cell-size: 40px;
   background-color: $color-blue-500;
   color: $color-white;
 }
-
 
 .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.outside):hover {
   background-color: $color-blue-200;
