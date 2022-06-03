@@ -9,7 +9,7 @@ import styles from "./styles.module.scss"
 import mdx from "./Pagination.mdx"
 
 export default {
-  title: `${CATEGORIES.actions}/Pagination`,
+  title: `${CATEGORIES.components}/Pagination`,
   component: PaginationLink,
   args: {
     label: "Label",

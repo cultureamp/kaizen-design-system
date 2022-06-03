@@ -11,7 +11,6 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { SplitButton, SplitButtonProps } from "../"
 import { ActionButton, DropdownButton } from "../src/SplitButton/components"
-import mdx from "./SplitButton.mdx"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -51,7 +50,7 @@ const DROPDOWN_CONTENT__ONE_DISABLED = (
 )
 
 export default {
-  title: `${CATEGORIES.actions}/Split Button`,
+  title: `${CATEGORIES.components}/Split Button`,
   component: SplitButton,
   subcomponents: {
     actionButtonProps: ActionButton,
@@ -86,7 +85,9 @@ export default {
   },
   parameters: {
     docs: {
-      page: mdx,
+      description: {
+        component: '`import { SplitButton } from "@kaizen/split-button"`',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14512%3A404"
