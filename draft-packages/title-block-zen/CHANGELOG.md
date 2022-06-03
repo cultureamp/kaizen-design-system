@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.1.8...@kaizen/draft-title-block-zen@7.2.0) (2022-06-02)
+
+
+### Features
+
+* Change subtitle prop type of title block to ReactNode ([#2770](https://github.com/cultureamp/kaizen-design-system/issues/2770)) ([0b7268a](https://github.com/cultureamp/kaizen-design-system/commit/0b7268a65fc35faed7328aecef33a222823815fd))
+
+
+
+
+
 ## [7.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.1.7...@kaizen/draft-title-block-zen@7.1.8) (2022-05-31)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
