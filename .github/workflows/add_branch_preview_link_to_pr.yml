@@ -1,4 +1,4 @@
-name: Add branch preview links to a PR comment
+name: Add branch preview link to a PR comment
 
 # Note about "status" events:
 # - The workflow must be merged to master, a status on a commit in any branch will still run the workflow found on master
@@ -44,7 +44,7 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.number }}
           comment-author: "github-actions[bot]"
-          body-includes: ":sparkles: Here are your branch previews! :sparkles:"
+          body-includes: ":sparkles: Here is your branch preview! :sparkles:"
 
       - name: Create a new comment
         if: success() && steps.find_comment.outputs.comment-id == 0
