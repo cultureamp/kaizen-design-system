@@ -10,7 +10,6 @@ import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
-import "react-day-picker/dist/style.css"
 
 export type CalendarProps = {
   id: string
@@ -75,21 +74,13 @@ export const Calendar: React.VFC<CalendarProps> = ({
     }
   }, [])
 
-  const getdefaultMonth = () => {
-    if (selectedRange?.from) {
-      return selectedRange.from
-    } else if (value) {
-      return value
-    } else {
-      return defaultMonth
-    }
-  }
+  const getdefaultMonth = () => selectedRange?.from || value || defaultMonth
 
-  const IconRight = (props: StyledComponent) => (
-    <Icon icon={arrowRight} role="presentation" {...props} />
+  const IconRight: React.VFC = () => (
+    <Icon icon={arrowRight} role="presentation" />
   )
-  const IconLeft = (props: StyledComponent) => (
-    <Icon icon={arrowLeft} role="presentation" {...props} />
+  const IconLeft: React.VFC = () => (
+    <Icon icon={arrowLeft} role="presentation" />
   )
 
   return (

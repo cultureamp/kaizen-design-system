@@ -15,7 +15,6 @@ import {
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
-import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
 import { Calendar } from "./components/Calendar"
 import { DayOfWeek } from "./enums"
 
@@ -41,7 +40,7 @@ export interface DateRangePickerProps {
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: DayOfWeek
+  weekStartsOn?: DayOfWeek
 
   // Accepts a date to display that month on first render.
   defaultMonth?: Date
@@ -97,7 +96,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
-  firstDayOfWeek = 1,
+  weekStartsOn = 1,
   defaultMonth,
   selectedDateRange,
   value,
@@ -240,7 +239,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
             attributes={attributes}
             classNameOverride={classNameOverride}
             defaultMonth={defaultMonth}
-            weekStartsOn={firstDayOfWeek}
+            weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             modifiers={modifiers}
             selectedRange={selectedDateRange}

@@ -9,7 +9,7 @@ import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { DateFormat, DayOfWeek } from "./enums"
-import { Calendar } from "./components/Calendar"
+import { Calendar, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
 type OmittedDateInputProps =
@@ -32,12 +32,12 @@ export interface DatePickerProps
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: DayOfWeek
+  weekStartsOn?: DayOfWeek
 
   /**
    * Accepts a date to display that month on first render.
    */
-  defaultMonth?: Date
+  defaultMonth?: CalendarProps["defaultMonth"]
 
   /**
    *  The date passed in from the consumer that renders in the input and calendar.
@@ -126,7 +126,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
-  firstDayOfWeek = 1,
+  weekStartsOn = 1,
   defaultMonth,
   selectedDay,
   onButtonClick,
@@ -312,7 +312,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             attributes={attributes}
             value={selectedDay}
             defaultMonth={defaultMonth}
-            weekStartsOn={firstDayOfWeek}
+            weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
           />

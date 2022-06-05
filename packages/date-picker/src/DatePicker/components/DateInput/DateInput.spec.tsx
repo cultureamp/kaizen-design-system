@@ -12,9 +12,9 @@ const defaultProps = {
   description: "Description text",
   icon: dateStart,
   isOpen: false,
-  onButtonClick: jest.fn(),
-  onKeyDown: jest.fn(),
-  onBlur: jest.fn(),
+  onButtonClick: jest.fn<void, []>(),
+  onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
+  onBlur: jest.fn<void, [Date | undefined, string]>(),
   calendarId: "calendar-dialog",
   valueDate: undefined,
 }
