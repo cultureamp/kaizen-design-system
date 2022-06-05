@@ -17,6 +17,10 @@ export interface SkirtProps extends ContentProps {
    */
   className?: string
   variant?: Variant
+  /**
+   * If false skirt will add the responsive offset to the max height of 222px
+   * * @default true
+   */
   titleBlockHasNavigation?: boolean
 }
 
