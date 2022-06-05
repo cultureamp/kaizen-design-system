@@ -37,7 +37,7 @@
     "@popperjs/core": "^2.11.5",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
-    "react-day-picker": "^7.4.10",
+    "react-day-picker": "^8.0.6",
     "react-focus-on": "^3.6.0",
     "react-popper": "^2.2.5"
   },

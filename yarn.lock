@@ -20898,12 +20898,12 @@ react-colorful@^5.1.2:
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.5.1.tgz#29d9c4e496f2ca784dd2bb5053a3a4340cfaf784"
   integrity sha512-M1TJH2X3RXEt12sWkpa6hLc/bbYS0H6F4rIqjQZ+RxNBstpY67d9TrFXtqdZwhpmBXcCwEi7stKqFue3ZRkiOg==
 
-react-day-picker@^7.4.10:
-  version "7.4.10"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-7.4.10.tgz#d3928fa65c04379ad28c76de22aa85374a8361e1"
-  integrity sha512-/QkK75qLKdyLmv0kcVzhL7HoJPazoZXS8a6HixbVoK6vWey1Od1WRLcxfyEiUsRfccAlIlf6oKHShqY2SM82rA==
+react-day-picker@^8.0.6:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.0.6.tgz#f6edb6c3b487b06ded915172b73fb5e86b15b0bd"
+  integrity sha512-qXeKHL643dmkss/fXu/SjkRPGj3Aws3CKYw1Znstks+BN3wh1GZ5Ok6mrcVz62BLLlFhaBsR7U238YjK0J/k5w==
   dependencies:
-    prop-types "^15.6.2"
+    "@reach/auto-id" "0.16.0"
 
 react-dev-utils@^4.2.3:
   version "4.2.3"
