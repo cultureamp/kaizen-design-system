@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/split-button",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "The Split Button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.0",
     "@kaizen/component-library": "^14.3.3",
-    "@kaizen/draft-menu": "^4.7.6",
+    "@kaizen/draft-menu": "^4.7.7",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
