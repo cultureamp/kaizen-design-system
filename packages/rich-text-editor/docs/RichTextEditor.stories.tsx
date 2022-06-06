@@ -35,10 +35,11 @@ export const WithControls = () => {
         labelText="Label"
         value={rteData}
         controls={[
-          ["bold"],
-          ["italic"],
-          ["underline"],
-          ["bullet_list", "ordered_list"],
+          { name: "bold", group: "inline" },
+          { name: "italic", group: "inline" },
+          { name: "underline" },
+          { name: "ordered_list", group: "list" },
+          { name: "bullet_list", group: "list" },
         ]}
         onChange={data => setRTEData(data)}
       />

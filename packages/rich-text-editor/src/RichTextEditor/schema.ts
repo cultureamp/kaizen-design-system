@@ -9,6 +9,11 @@ import {
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
 
+interface schemaConfig {
+  nodes: Record<"string", NodeSpec>
+  marks: Record<"string", MarkSpec>
+}
+
 export const defaultNodes: NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
@@ -63,19 +68,27 @@ export const marks: MarkSpec = {
 }
 
 export const createSchemaFromControls = controls => {
-  const schemaConfig: MarkSpec | NodeSpec = controls.reduce(
-    (previousValue, currentValue) => {
-      if (marks[currentValue]) {
-        previousValue.marks[currentValue] = marks[currentValue]
-        return previousValue
-      } else if (nodes[currentValue]) {
-        previousValue.nodes[currentValue] = nodes[currentValue]
-        if (currentValue === "bullet_list" || currentValue === "ordered_list") {
-          previousValue.nodes["list_item"] = nodes.list_item
+  if (!controls)
+    return new Schema({
+      nodes: defaultNodes,
+    })
+
+  const schemaConfig: schemaConfig = controls.reduce(
+    (config, currentControl: NodeSpec | MarkSpec) => {
+      if (marks[currentControl.name]) {
+        config.marks[currentControl.name] = marks[currentControl.name]
+        return config
+      } else if (nodes[currentControl.name]) {
+        config.nodes[currentControl.name] = nodes[currentControl.name]
+        if (
+          currentControl.name === "bullet_list" ||
+          currentControl.name === "ordered_list"
+        ) {
+          config.nodes["list_item"] = nodes.list_item
         }
-        return previousValue
+        return config
       }
-      return previousValue
+      return config
     },
     { nodes: { ...defaultNodes }, marks: {} }
   )

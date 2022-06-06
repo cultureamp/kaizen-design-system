@@ -11,18 +11,23 @@ import { Schema, NodeType, MarkType } from "prosemirror-model"
 import { Command, toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
 import { markIsActive } from "@cultureamp/rich-text-toolkit"
-import { ToolbarControls } from "./RichTextEditor"
+import { ToolbarItems, ToolbarControlTypes } from "./RichTextEditor"
 
-interface toolbarControl {
-  [key: string]: {
-    icon: React.SVGAttributes<SVGSymbolElement>
-    label: string
-    isActive: boolean
-    action: (
-      state: EditorState<any>,
-      dispatch?: ((tr: Transaction<any>) => void) | undefined
-    ) => boolean
-  }
+type ToolbarControl = {
+  icon: React.SVGAttributes<SVGSymbolElement>
+  label: string
+  isActive: boolean
+  action: (
+    state: EditorState<any>,
+    dispatch: ((tr: Transaction<any>) => void) | undefined
+  ) => boolean
+}
+interface GroupedToolbarControls {
+  [group: string]: ToolbarControl[]
+}
+
+type ControlGroupTypes = {
+  [key in ToolbarControlTypes]?: string
 }
 
 function toggleMarkCommand(mark: MarkType): Command {
@@ -62,135 +67,128 @@ function liftOrIndentList(action: "lift" | "indent"): Command {
   }
 }
 
+// Creates an object used as an index to map the controls to respective groups
+const createControlGroupIndex = (controls: ToolbarItems[]) =>
+  controls.reduce((groups, currentControl) => {
+    if (!currentControl?.name) return groups
+    return {
+      ...groups,
+      [currentControl.name]: currentControl.group || "ungrouped",
+    }
+  }, {})
+
+// Creates an initial object used to map button configuration into its respective groups
+const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
+  const uniqueGroups: string[] = Array.from(
+    new Set(Object.values(controlGroupIndex))
+  )
+
+  const initialControlObject = uniqueGroups.reduce(
+    (controlObject, controlKey) => {
+      if (controlKey === "ungrouped") return controlObject
+      return {
+        ...controlObject,
+        [controlKey]: [],
+      }
+    },
+    {}
+  )
+  // This ensure that ungrouped controls are always last
+  initialControlObject["ungrouped"] = []
+  return initialControlObject
+}
+
+const getGroupIndex = (
+  controlGroupIndex: ControlGroupTypes,
+  controlType: string | undefined
+) => (controlType ? controlGroupIndex[controlType] : "ungrouped")
+
 export function buildControlMap(
   schema: Schema,
   editorState: EditorState,
-  controls: ToolbarControls[][]
+  controls?: ToolbarItems[]
 ) {
-  // creates an initial array of objects for the controls to be sorted into
-  const toolbarControls = Array.from({ length: controls.length }, () => ({}))
-  // console.log("toolbar initial", toolbarControls)
-
-  const controlGroupings = controls.reduce(
-    (prevSection, section, sectionIndex) => {
-      const innerControls = section.map(item => [item, sectionIndex])
-      if (innerControls && innerControls.length) {
-        return [...prevSection, ...innerControls]
-      }
-      return [...prevSection]
-    },
-    []
-  )
-
-  // console.log("controlGroupings", controlGroupings)
-  const controlsSections = new Map(controlGroupings)
-  // console.log("control section Map", controlsSections)
-
-  // const ideaObj = [
-  //   {
-  //     bold: {
-  //       isActive: markIsActive(editorState, type),
-  //       action: toggleMarkCommand(type),
-  //       label: "Bold",
-  //       icon: boldIcon,
-  //     },
-  //     italic: {
-  //       isActive: markIsActive(editorState, type),
-  //       action: toggleMarkCommand(type),
-  //       label: "Italic",
-  //       icon: italicIcon,
-  //     },
-  //   },
-  //   {
-  //     underline: {
-  //       isActive: markIsActive(editorState, type),
-  //       action: toggleMarkCommand(type),
-  //       label: "Underline",
-  //       icon: underlineIcon,
-  //     },
-  //   },
-  //   {
-  //     bullet_list: {
-  //       action: toggleListCommand(schema.nodes.bullet_list),
-  //       isActive: false,
-  //       label: "Bullet List",
-  //       icon: bulletListIcon,
-  //     },
-  //   },
-  // ]
+  if (!controls) return {}
+  const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
+  const toolbarControls: GroupedToolbarControls =
+    createInitialControls(controlGroupIndex)
 
   if (schema.marks.bold) {
     const type = schema.marks.bold
-    const groupIndex = controlsSections.get("bold")
-    toolbarControls[groupIndex]["bold"] = {
+    const groupIndex = getGroupIndex(controlGroupIndex, "bold")
+    toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: toggleMarkCommand(type),
       label: "Bold",
       icon: boldIcon,
-    }
+    })
   }
 
   if (schema.marks.italic) {
     const type = schema.marks.italic
-    const groupIndex = controlsSections.get("italic") || 0
-    toolbarControls[groupIndex]["italic"] = {
+    const groupIndex = getGroupIndex(controlGroupIndex, "italic")
+    toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: toggleMarkCommand(type),
       label: "Italic",
       icon: italicIcon,
-    }
+    })
   }
 
   if (schema.marks.underline) {
     const type = schema.marks.underline
-    const groupIndex = controlsSections.get("underline") || 0
-    toolbarControls[groupIndex]["underline"] = {
+    const groupIndex = getGroupIndex(controlGroupIndex, "underline")
+    toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: toggleMarkCommand(type),
       label: "Underline",
       icon: underlineIcon,
-    }
+    })
   }
 
   if (schema.nodes.bullet_list) {
-    const groupIndex = controlsSections.get("bullet_list") || 0
-    toolbarControls[groupIndex]["bullet_list"] = {
-      action: toggleListCommand(schema.nodes.bullet_list),
+    const type = schema.nodes.bullet_list
+    const groupIndex = getGroupIndex(controlGroupIndex, "bullet_list")
+    toolbarControls[groupIndex].push({
+      action: toggleListCommand(type),
       isActive: false,
       label: "Bullet List",
       icon: bulletListIcon,
-    }
+    })
   }
 
   if (schema.nodes.ordered_list) {
-    const groupIndex = controlsSections.get("ordered_list") || 0
-    toolbarControls[groupIndex]["ordered_list"] = {
-      action: toggleListCommand(schema.nodes.ordered_list),
+    const type = schema.nodes.ordered_list
+    const groupIndex = getGroupIndex(controlGroupIndex, "ordered_list")
+    toolbarControls[groupIndex].push({
+      action: toggleListCommand(type),
       isActive: false,
       label: "Numbered List",
       icon: numberedListIcon,
-    }
+    })
   }
 
   if (schema.nodes.ordered_list || schema.nodes.bullet_list) {
     const groupIndex =
-      controlsSections.get("bullet_list") ||
-      controlsSections.get("ordered_list") ||
-      0
-    toolbarControls[groupIndex]["lift_list"] = {
-      action: liftOrIndentList("lift"),
-      isActive: false,
-      label: "Decrease indent",
-      icon: decreaseIndentIcon,
-    }
-    toolbarControls[groupIndex]["indent_list"] = {
-      action: liftOrIndentList("indent"),
-      isActive: false,
-      label: "Increase indent",
-      icon: increaseIndentIcon,
-    }
+      controlGroupIndex["ordered_list"] ||
+      controlGroupIndex["bullet_list"] ||
+      "ungrouped"
+
+    toolbarControls[groupIndex].push(
+      {
+        action: liftOrIndentList("lift"),
+        isActive: false,
+        label: "Decrease indent",
+        icon: decreaseIndentIcon,
+      },
+      {
+        action: liftOrIndentList("indent"),
+        isActive: false,
+        label: "Increase indent",
+        icon: increaseIndentIcon,
+      }
+    )
   }
 
-  // console.log("toolbarControls", toolbarControls)
   return toolbarControls
 }
