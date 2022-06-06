@@ -1,10 +1,10 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import { usePopper } from "react-popper"
+import { format } from "date-fns"
 import { DateRange, DateInterval } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
+import { usePopper } from "react-popper"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { format } from "date-fns"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -32,7 +32,7 @@ export interface DatePickerProps
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  weekStartsOn?: DayOfWeek
+  weekStartsOn?: CalendarProps["weekStartsOn"]
 
   /**
    * Accepts a date to display that month on first render.
@@ -126,7 +126,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
-  weekStartsOn = 1,
+  weekStartsOn,
   defaultMonth,
   selectedDay,
   onButtonClick,
@@ -225,8 +225,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     inputValue: string
   ): void => handleDayChange(date, inputValue)
 
-  const handleOpenClose = (): void => setIsOpen(!isOpen)
-
   const handleReturnFocus = (): void => {
     if (buttonRef.current) {
       buttonRef.current.focus()
@@ -234,7 +232,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleButtonClick = (): void => {
-    handleOpenClose()
+    setIsOpen(true)
     onButtonClick && onButtonClick()
   }
 
@@ -301,8 +299,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         <FocusOn
           scrollLock={false}
           onDeactivation={handleReturnFocus}
-          onClickOutside={handleOpenClose}
-          onEscapeKey={handleOpenClose}
+          onClickOutside={() => setIsOpen(false)}
+          onEscapeKey={() => setIsOpen(false)}
         >
           <Calendar
             mode="single"

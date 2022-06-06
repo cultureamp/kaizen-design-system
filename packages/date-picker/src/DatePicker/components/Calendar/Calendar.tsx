@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
-import { DayPicker, DateRange, StyledComponent } from "react-day-picker"
+import { DayPicker, DateRange } from "react-day-picker"
 import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
 import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
 import { Matcher } from "react-day-picker/src/types/Matchers"
@@ -25,7 +25,7 @@ export type CalendarProps = {
   classNameOverride?: string
   value?: Date
   defaultMonth?: Date
-  weekStartsOn: DayOfWeek
+  weekStartsOn?: DayOfWeek
   disabledDays?: Matcher[]
   onDayChange: DayClickEventHandler
   selectedRange?: DateRange
@@ -46,7 +46,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
   classNameOverride,
   value,
   defaultMonth,
-  weekStartsOn,
+  weekStartsOn = DayOfWeek.Mon,
   disabledDays,
   onDayChange,
   selectedRange,

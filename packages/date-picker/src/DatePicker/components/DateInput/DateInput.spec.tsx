@@ -1,9 +1,7 @@
 import React from "react"
 import { act, render, screen } from "@testing-library/react"
-import "@testing-library/jest-dom"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-
 import userEvent from "@testing-library/user-event"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { DateInput } from "./DateInput"
 
 const defaultProps = {

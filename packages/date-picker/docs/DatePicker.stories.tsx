@@ -7,8 +7,8 @@ import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { DateInput } from "../src/DatePicker/components/DateInput"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker, ValidationResponse } from "../src/DatePicker"
-import { Calendar } from "../src/DatePicker/components/Calendar"
+import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
+import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
@@ -140,12 +140,11 @@ export const ValidationStory = props => {
   )
 }
 ValidationStory.storyName = "Validation"
-
 ValidationStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-const CalendarTemplate: Story = props => {
+const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -173,7 +172,7 @@ const CalendarTemplate: Story = props => {
         setPopperElement={setPopperElement}
         styles={styles}
         attributes={attributes}
-        weekStartsOn={0}
+        weekStartsOn={DayOfWeek.Sun}
         onDayChange={() => undefined}
         defaultMonth={new Date(2022, 1, 5)}
         {...props}
@@ -181,6 +180,7 @@ const CalendarTemplate: Story = props => {
     </div>
   )
 }
+
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
@@ -267,9 +267,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           headings={["Selected Date", "Disabled Dates"]}
         />
         <StoryWrapper.Row rowTitle="Calendar">
-          <CalendarTemplate value={new Date(2022, 1, 5)} />
-          <CalendarTemplate
-            disabled={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
+          <CalendarExample value={new Date(2022, 1, 5)} />
+          <CalendarExample
+            disabledDays={[
+              new Date(2022, 1, 15),
+              { after: new Date(2022, 1, 17) },
+            ]}
             id="calendar-dialog-disabled"
           />
         </StoryWrapper.Row>

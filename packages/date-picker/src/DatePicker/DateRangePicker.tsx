@@ -1,7 +1,6 @@
 import { Label } from "@kaizen/draft-form"
 import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import "react-day-picker/dist/style.css"
 import { usePopper } from "react-popper"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
@@ -15,7 +14,7 @@ import {
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
-import { Calendar } from "./components/Calendar"
+import { Calendar, CalendarProps } from "./components/Calendar"
 import { DayOfWeek } from "./enums"
 
 export interface DateRangePickerProps {
@@ -43,7 +42,7 @@ export interface DateRangePickerProps {
   weekStartsOn?: DayOfWeek
 
   // Accepts a date to display that month on first render.
-  defaultMonth?: Date
+  defaultMonth?: CalendarProps["defaultMonth"]
 
   // Event passed from consumer to handle the date on change.
   onChange: (dateRange: DateRange) => void
@@ -96,7 +95,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
-  weekStartsOn = 1,
+  weekStartsOn,
   defaultMonth,
   selectedDateRange,
   value,

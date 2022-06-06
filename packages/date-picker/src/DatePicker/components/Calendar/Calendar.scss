@@ -113,6 +113,10 @@ $rdp-cell-size: 40px;
 }
 
 [aria-disabled="true"] {
+  cursor: default;
+  color: rgba($color-purple-800-rgb, 0.3);
+  opacity: 1;
+
   :global(.js-focus-visible) & {
     // hide native focus ring when :focus but not :focus-visible
     &:focus {
@@ -129,12 +133,6 @@ $rdp-cell-size: 40px;
         $border-focus-ring-border-width;
     }
   }
-}
-
-[aria-disabled="true"],
-[aria-disabled="true"].today {
-  color: rgba($color-purple-800-rgb, 0.3);
-  opacity: 1 !important;
 }
 
 .day:not(.interactionDisabled):not([aria-disabled="true"]):not(.selected):not(.outside):hover {
@@ -192,8 +190,8 @@ $rdp-cell-size: 40px;
   border-radius: $cell-border-radius;
 
   &:hover {
-    background-color: $color-blue-100 !important;
-    color: $color-blue-500 !important;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
   }
 
   :global(.js-focus-visible) & {
