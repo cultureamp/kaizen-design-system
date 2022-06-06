@@ -1,10 +1,10 @@
 {
   "name": "site",
-  "version": "0.0.0-private.166",
+  "version": "0.0.0-private.167",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.4.0",
-    "@kaizen/button": "^1.2.6",
+    "@kaizen/button": "^1.2.7",
     "@kaizen/component-library": "^14.3.3",
     "@kaizen/design-tokens": "^8.1.0",
     "@kaizen/draft-card": "^3.1.1",
