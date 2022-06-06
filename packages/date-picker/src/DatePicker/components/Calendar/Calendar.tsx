@@ -31,6 +31,7 @@ export type CalendarProps = {
   selectedRange?: DateRange
   mode: "single" | "range"
   modifiers?: DateRange
+  shouldFocusOnCalendar?: boolean
 }
 
 const isValidWeekStartsOn = (
@@ -52,27 +53,28 @@ export const Calendar: React.VFC<CalendarProps> = ({
   selectedRange,
   modifiers,
   mode,
+  shouldFocusOnCalendar = false,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
   // Initial focus when opening the calendar
   useEffect(() => {
-    if (!calendarRef.current) return
+    if (shouldFocusOnCalendar && calendarRef.current) {
+      if (value || selectedRange?.from) {
+        const selectedDay = calendarRef.current.getElementsByClassName(
+          calendarStyles.daySelected
+        )[0] as HTMLElement
 
-    if (value || selectedRange?.from) {
-      const selectedDay = calendarRef.current.getElementsByClassName(
-        calendarStyles.daySelected
-      )[0] as HTMLElement
-      selectedDay?.focus()
-      return
-    } else {
+        return selectedDay?.focus()
+      }
+
       const today = calendarRef.current.getElementsByClassName(
         calendarStyles.dayToday
       )[0] as HTMLElement
+
       today?.focus()
-      return
     }
-  }, [])
+  }, [shouldFocusOnCalendar, calendarRef.current])
 
   const getdefaultMonth = () => selectedRange?.from || value || defaultMonth
 
@@ -138,5 +140,3 @@ export const Calendar: React.VFC<CalendarProps> = ({
     </div>
   )
 }
-
-Calendar.displayName = "Calendar"

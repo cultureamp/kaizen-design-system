@@ -8,6 +8,7 @@ import { FieldMessageStatus } from "@kaizen/draft-form"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
+import calendarStyles from "./components/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
@@ -28,6 +29,7 @@ export interface DatePickerProps
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   onButtonClick?: DateInputProps["onButtonClick"]
+  onClick?: DateInputProps["onClick"]
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -132,10 +134,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onButtonClick,
   onDayChange,
   onValidate,
+  onClick,
   ...restDateInputProps
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const calendarRef = useRef<HTMLDivElement>(null)
+
   const [isOpen, setIsOpen] = useState(false)
+  const [shouldFocusOnCalendar, setShouldFocusOnCalendar] =
+    useState<boolean>(true)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -233,7 +240,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleButtonClick = (): void => {
     setIsOpen(true)
+    setShouldFocusOnCalendar(true)
     onButtonClick && onButtonClick()
+  }
+
+  const handleInputClick: React.MouseEventHandler<HTMLInputElement> = e => {
+    setIsOpen(true)
+    setShouldFocusOnCalendar(false)
+    onClick && onClick(e)
   }
 
   const handleKeyDown = (
@@ -243,6 +257,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)
+      setShouldFocusOnCalendar(true)
     }
   }
 
@@ -292,6 +307,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onKeyDown={handleKeyDown}
           valueDate={selectedDay}
           disabledDays={disabledDays}
+          onClick={handleInputClick}
           {...restDateInputProps}
         />
       </div>
@@ -301,6 +317,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onDeactivation={handleReturnFocus}
           onClickOutside={() => setIsOpen(false)}
           onEscapeKey={() => setIsOpen(false)}
+          shards={[inputRef, buttonRef]}
         >
           <Calendar
             mode="single"
@@ -313,6 +330,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
+            shouldFocusOnCalendar={shouldFocusOnCalendar}
           />
         </FocusOn>
       )}
