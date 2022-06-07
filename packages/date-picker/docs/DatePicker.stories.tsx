@@ -170,8 +170,8 @@ const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
         mode="single"
         id="calendar-dialog"
         setPopperElement={setPopperElement}
-        styles={styles}
-        attributes={attributes}
+        popperStyles={styles}
+        popperAttributes={attributes}
         weekStartsOn={DayOfWeek.Sun}
         onDayChange={() => undefined}
         defaultMonth={new Date(2022, 1, 5)}

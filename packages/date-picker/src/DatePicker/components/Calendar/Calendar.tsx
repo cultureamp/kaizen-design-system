@@ -14,8 +14,8 @@ import calendarStyles from "./Calendar.scss"
 export type CalendarProps = {
   id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
-  styles: { [key: string]: React.CSSProperties }
-  attributes: {
+  popperStyles?: { [key: string]: React.CSSProperties }
+  popperAttributes?: {
     [key: string]:
       | {
           [key: string]: string
@@ -41,8 +41,8 @@ const isValidWeekStartsOn = (
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
   setPopperElement,
-  styles,
-  attributes,
+  popperStyles,
+  popperAttributes,
   classNameOverride,
   value,
   defaultMonth,
@@ -61,13 +61,13 @@ export const Calendar: React.VFC<CalendarProps> = ({
 
     if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
-        calendarStyles.selected
+        calendarStyles.daySelected
       )[0] as HTMLElement
       selectedDay?.focus()
       return
     } else {
       const today = calendarRef.current.getElementsByClassName(
-        calendarStyles.today
+        calendarStyles.dayToday
       )[0] as HTMLElement
       today?.focus()
       return
@@ -88,8 +88,8 @@ export const Calendar: React.VFC<CalendarProps> = ({
       <div
         id={id}
         ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
+        style={popperStyles?.popper}
+        {...popperAttributes?.popper}
         className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"

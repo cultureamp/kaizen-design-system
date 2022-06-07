@@ -88,8 +88,8 @@ const CalendarRangeTemplate: Story = props => {
         mode="range"
         id="calendar-dialog"
         setPopperElement={setPopperElement}
-        styles={styles}
-        attributes={attributes}
+        popperStyles={styles}
+        popperAttributes={attributes}
         onDayChange={() => undefined}
         weekStartsOn={0}
         defaultMonth={new Date(2022, 2)}
