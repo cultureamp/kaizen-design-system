@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -37,7 +37,7 @@
     "@popperjs/core": "^2.11.5",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
-    "react-day-picker": "^7.4.10",
+    "react-day-picker": "^8.0.5",
     "react-focus-on": "^3.6.0",
     "react-popper": "^2.2.5"
   },

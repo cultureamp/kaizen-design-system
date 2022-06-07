@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.2.9...@kaizen/draft-modal@10.2.10) (2022-06-07)
+
+
+### Bug Fixes
+
+* Fixed issue of modal background going full opacity in Chrome 102 by changing animation speed  [KDS-523] ([#2778](https://github.com/cultureamp/kaizen-design-system/issues/2778)) ([e73b314](https://github.com/cultureamp/kaizen-design-system/commit/e73b314fb226ddcf575a2f964b2557351c5eb895))
+
+
+
+
+
 ## [10.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.2.8...@kaizen/draft-modal@10.2.9) (2022-06-07)
 
 **Note:** Version bump only for package @kaizen/draft-modal

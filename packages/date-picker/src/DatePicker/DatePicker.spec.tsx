@@ -1,7 +1,7 @@
-import { act, render, screen } from "@testing-library/react"
 import React, { useState } from "react"
-import { FieldMessageStatus } from "@kaizen/draft-form"
+import { act, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { FieldMessageStatus } from "@kaizen/draft-form"
 import { DatePicker, ValidationResponse } from "./DatePicker"
 import { DatePickerProps } from "."
 
@@ -29,12 +29,12 @@ const DatePickerWrapper = ({
     <DatePicker
       id="test__date-picker"
       labelText="Choose date"
-      {...restProps}
       onValidate={handleValidation}
       onDayChange={setValueDate}
       status={status}
       validationMessage={validationMessage}
       selectedDay={selectedDate}
+      {...restProps}
     />
   )
 }
@@ -77,40 +77,28 @@ describe("<DatePicker />", () => {
     expect(screen.getByRole("dialog")).toBeVisible()
   })
 
-  it("is able to select date and shows in input", async () => {
-    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
-
-    const button = screen.getByRole("button")
-
-    await act(async () => button.click())
-
-    const selectedDate = screen.getByRole("gridcell", {
-      name: "Sun Mar 06 2022",
+  describe("Selecting a date using the calendar", () => {
+    beforeEach(() => {
+      render(<DatePickerWrapper defaultMonth={new Date("2022-03-01")} />)
+      const calendarButton = screen.getByLabelText("Choose date", {
+        selector: "button",
+      })
+      userEvent.click(calendarButton)
+      const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
+      act(() => {
+        dateToSelect?.focus()
+        userEvent.keyboard("{enter}")
+      })
     })
-    await act(async () => {
-      selectedDate.focus()
-      userEvent.keyboard("{enter}")
+    it("shows the selected date in the input", () => {
+      expect(screen.getByDisplayValue("Mar 6, 2022")).toBeInTheDocument()
     })
-
-    expect(screen.getByDisplayValue("Mar 6, 2022")).toBeInTheDocument()
-  })
-
-  it("returns focus to the button once date has been selected", async () => {
-    render(<DatePickerWrapper initialMonth={new Date("2022-03-01")} />)
-
-    const button = screen.getByRole("button")
-
-    await act(async () => button.click())
-
-    const selectedDate = screen.getByRole("gridcell", {
-      name: "Sun Mar 06 2022",
+    it("returns focus to the button once date has been selected", () => {
+      const calendarButton = screen.getByLabelText("Change date, Mar 6, 2022", {
+        selector: "button",
+      })
+      expect(calendarButton).toHaveFocus()
     })
-    await act(async () => {
-      selectedDate.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    expect(button).toHaveFocus()
   })
 
   describe("Validation", () => {
