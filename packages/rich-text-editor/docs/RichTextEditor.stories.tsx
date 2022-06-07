@@ -38,8 +38,8 @@ export const WithControls = () => {
           { name: "bold", group: "inline" },
           { name: "italic", group: "inline" },
           { name: "underline" },
-          { name: "ordered_list", group: "list" },
-          { name: "bullet_list", group: "list" },
+          { name: "orderedList", group: "list" },
+          { name: "bulletList", group: "list" },
         ]}
         onChange={data => setRTEData(data)}
       />

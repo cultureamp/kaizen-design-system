@@ -53,7 +53,7 @@ function liftOrIndentList(action: "lift" | "indent"): Command {
     // calculate the parent node from the current tag selected
     const topLevelListNode = $from.node($from.depth - 1)?.type
     const islistNode =
-      (topLevelListNode?.name && topLevelListNode.name === "list_item") || false
+      (topLevelListNode?.name && topLevelListNode.name === "listItem") || false
 
     if (!islistNode) {
       return false
@@ -113,8 +113,8 @@ export function buildControlMap(
   const toolbarControls: GroupedToolbarControls =
     createInitialControls(controlGroupIndex)
 
-  if (schema.marks.bold) {
-    const type = schema.marks.bold
+  if (schema.marks.strong) {
+    const type = schema.marks.strong
     const groupIndex = getGroupIndex(controlGroupIndex, "bold")
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
@@ -124,8 +124,8 @@ export function buildControlMap(
     })
   }
 
-  if (schema.marks.italic) {
-    const type = schema.marks.italic
+  if (schema.marks.em) {
+    const type = schema.marks.em
     const groupIndex = getGroupIndex(controlGroupIndex, "italic")
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
@@ -146,9 +146,9 @@ export function buildControlMap(
     })
   }
 
-  if (schema.nodes.bullet_list) {
-    const type = schema.nodes.bullet_list
-    const groupIndex = getGroupIndex(controlGroupIndex, "bullet_list")
+  if (schema.nodes.bulletList) {
+    const type = schema.nodes.bulletList
+    const groupIndex = getGroupIndex(controlGroupIndex, "bulletList")
     toolbarControls[groupIndex].push({
       action: toggleListCommand(type),
       isActive: false,
@@ -157,9 +157,9 @@ export function buildControlMap(
     })
   }
 
-  if (schema.nodes.ordered_list) {
-    const type = schema.nodes.ordered_list
-    const groupIndex = getGroupIndex(controlGroupIndex, "ordered_list")
+  if (schema.nodes.orderedList) {
+    const type = schema.nodes.orderedList
+    const groupIndex = getGroupIndex(controlGroupIndex, "orderedList")
     toolbarControls[groupIndex].push({
       action: toggleListCommand(type),
       isActive: false,
@@ -168,10 +168,10 @@ export function buildControlMap(
     })
   }
 
-  if (schema.nodes.ordered_list || schema.nodes.bullet_list) {
+  if (schema.nodes.orderedList || schema.nodes.bulletList) {
     const groupIndex =
-      controlGroupIndex["ordered_list"] ||
-      controlGroupIndex["bullet_list"] ||
+      controlGroupIndex["orderedList"] ||
+      controlGroupIndex["bulletList"] ||
       "ungrouped"
 
     toolbarControls[groupIndex].push(
