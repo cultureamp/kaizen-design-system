@@ -5,7 +5,7 @@
 @import "@kaizen/design-tokens/sass/typography";
 
 .editor > :global(.ProseMirror) {
-  border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
@@ -56,6 +56,11 @@
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   background: $color-white;
   border-radius: $border-solid-border-radius;
+
+  .activeToolbar > :global(.ProseMirror) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 }
 
 @for $i from 1 through 20 {

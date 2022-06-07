@@ -112,6 +112,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
           className={classnames(
             styles.editor,
             styles[`rows${rows}`],
+            controls && styles.activeToolbar,
             classNameOverride
           )}
           {...restProps}
