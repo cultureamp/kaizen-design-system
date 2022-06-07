@@ -99,9 +99,7 @@ export const VideoPlayer = ({
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      try {
-        videoElement.play()
-      } catch (e) {
+      videoElement.play().catch(e => {
         /*
          * An DOMException _may_ be raised by some browsers if we
          * programatically interact with the video before the
@@ -109,7 +107,7 @@ export const VideoPlayer = ({
          * we're going to catch this error without handling it. See:
          * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
          */
-      }
+      })
     }
     /**
      * Chrome seems to have an issue with changes to autoplay after the video
