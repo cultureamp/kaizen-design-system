@@ -1,22 +1,21 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
-import DayPicker from "react-day-picker/DayPicker"
-import { NavbarElementProps } from "react-day-picker/types/Props"
-import {
-  Modifier,
-  DayModifiers,
-  RangeModifier,
-  Modifiers,
-} from "react-day-picker/types/Modifiers"
+import { DayPicker, DateRange } from "react-day-picker"
+import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
+import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
+import { Matcher } from "react-day-picker/src/types/Matchers"
 import classnames from "classnames"
-import { CalendarNav } from "../CalendarNav/CalendarNav"
+import { Icon } from "@kaizen/component-library"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
 export type CalendarProps = {
   id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
-  styles: { [key: string]: React.CSSProperties }
-  attributes: {
+  popperStyles?: { [key: string]: React.CSSProperties }
+  popperAttributes?: {
     [key: string]:
       | {
           [key: string]: string
@@ -25,46 +24,36 @@ export type CalendarProps = {
   }
   classNameOverride?: string
   value?: Date
-  initialMonth?: Date
-  firstDayOfWeek: number
-  disabledDays?: Modifier | Modifier[]
-  onDayChange: (
-    day: Date,
-    modifiers: DayModifiers,
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => void
-  range?: boolean
-  selectedRange?: RangeModifier
-  modifiers?: RangeModifier
-  onKeyDown?: (e: React.KeyboardEvent) => void
+  defaultMonth?: Date
+  weekStartsOn?: DayOfWeek
+  disabledDays?: Matcher[]
+  onDayChange: DayClickEventHandler
+  selectedRange?: DateRange
+  mode: "single" | "range"
+  modifiers?: DateRange
 }
 
-export type CalendarNavProps = Pick<
-  NavbarElementProps,
-  "onPreviousClick" | "onNextClick"
->
+const isValidWeekStartsOn = (
+  day: DayOfWeek | undefined
+): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
+  [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
   setPopperElement,
-  styles,
-  attributes,
+  popperStyles,
+  popperAttributes,
   classNameOverride,
   value,
-  initialMonth,
-  firstDayOfWeek,
+  defaultMonth,
+  weekStartsOn = DayOfWeek.Mon,
   disabledDays,
   onDayChange,
-  range,
   selectedRange,
   modifiers,
-  onKeyDown,
+  mode,
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
-
-  const getNavbar = ({ ...navbarProps }: CalendarNavProps) => (
-    <CalendarNav {...navbarProps} />
-  )
 
   // Initial focus when opening the calendar
   useEffect(() => {
@@ -72,57 +61,79 @@ export const Calendar: React.VFC<CalendarProps> = ({
 
     if (value || selectedRange?.from) {
       const selectedDay = calendarRef.current.getElementsByClassName(
-        "DayPicker-Day--selected"
+        calendarStyles.daySelected
       )[0] as HTMLElement
-
       selectedDay?.focus()
+      return
     } else {
       const today = calendarRef.current.getElementsByClassName(
-        "DayPicker-Day--today"
+        calendarStyles.dayToday
       )[0] as HTMLElement
-
       today?.focus()
+      return
     }
   }, [])
 
-  const getInitialMonth = () => {
-    if (selectedRange?.from) {
-      return selectedRange.from
-    } else if (value) {
-      return value
-    } else {
-      return initialMonth
-    }
-  }
+  const getdefaultMonth = () => selectedRange?.from || value || defaultMonth
+
+  const IconRight: React.VFC = () => (
+    <Icon icon={arrowRight} role="presentation" />
+  )
+  const IconLeft: React.VFC = () => (
+    <Icon icon={arrowLeft} role="presentation" />
+  )
 
   return (
     <div ref={calendarRef}>
       <div
         id={id}
         ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
+        style={popperStyles?.popper}
+        {...popperAttributes?.popper}
         className={classnames(calendarStyles.calendar, classNameOverride)}
         role="dialog"
         aria-modal="true"
       >
-        <DayPicker
-          selectedDays={range ? selectedRange : value}
-          initialMonth={getInitialMonth()}
-          firstDayOfWeek={firstDayOfWeek}
-          disabledDays={disabledDays}
-          onDayClick={onDayChange}
-          navbarElement={getNavbar}
-          className={range ? calendarStyles.range : ""}
-          classNames={defaultCalendarClasses}
-          modifiers={
-            {
-              [calendarStyles.from]: modifiers?.from,
-              [calendarStyles.to]: modifiers?.to,
-            } as Modifiers
-          }
-          onKeyDown={onKeyDown && onKeyDown}
-        />
+        {mode === "single" && (
+          <DayPicker
+            mode="single"
+            selected={value}
+            defaultMonth={getdefaultMonth()}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
+            disabled={disabledDays}
+            onDayClick={onDayChange}
+            classNames={defaultCalendarClasses}
+            components={{
+              IconRight,
+              IconLeft,
+            }}
+          />
+        )}
+        {mode === "range" && (
+          <DayPicker
+            mode="range"
+            selected={selectedRange}
+            defaultMonth={getdefaultMonth()}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
+            disabled={disabledDays}
+            onDayClick={onDayChange}
+            classNames={defaultCalendarClasses}
+            components={{
+              IconRight,
+              IconLeft,
+            }}
+            modifiers={
+              {
+                [calendarStyles.from]: modifiers?.from,
+                [calendarStyles.to]: modifiers?.to,
+              } as DayModifiers
+            }
+          />
+        )}
       </div>
     </div>
   )

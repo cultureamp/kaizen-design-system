@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
-import { RangeModifier } from "react-day-picker/types/Modifiers"
+import { DateRange } from "react-day-picker"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
@@ -26,13 +26,13 @@ export const DateRangePickerStoryDefault = props => (
 DateRangePickerStoryDefault.storyName = "Date Range Picker"
 
 const DateRangePickerTemplate: Story = props => {
-  const [selectedDateRange, setSelectedDateRange] = useState<RangeModifier>({
+  const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
   })
   const [value, setValue] = useState("")
 
-  const onDateRangeChange = (dateRange: RangeModifier) => {
+  const onDateRangeChange = (dateRange: DateRange) => {
     setSelectedDateRange(dateRange)
   }
 
@@ -45,7 +45,6 @@ const DateRangePickerTemplate: Story = props => {
       <DateRangePicker
         id="date-range"
         labelText="Label"
-        disabledBefore={new Date(2022, 2, 4)}
         onChange={onDateRangeChange}
         value={value}
         selectedDateRange={selectedDateRange}
@@ -64,7 +63,7 @@ const CalendarRangeTemplate: Story = props => {
     to: undefined,
   }
 
-  const modifiers: RangeModifier = {
+  const modifiers: DateRange = {
     from: selectedDateRange?.from,
     to: selectedDateRange?.to,
   }
@@ -86,14 +85,14 @@ const CalendarRangeTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
+        mode="range"
         id="calendar-dialog"
         setPopperElement={setPopperElement}
-        styles={styles}
-        attributes={attributes}
-        firstDayOfWeek={0}
+        popperStyles={styles}
+        popperAttributes={attributes}
         onDayChange={() => undefined}
-        initialMonth={new Date(2022, 2)}
-        range
+        weekStartsOn={0}
+        defaultMonth={new Date(2022, 2)}
         selectedRange={selectedDateRange}
         modifiers={modifiers}
         {...props}
@@ -110,7 +109,7 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     to: new Date(2022, 2, 16),
   }
 
-  const modifiers: RangeModifier = {
+  const modifiers: DateRange = {
     from: selectedDateRange?.from,
     to: selectedDateRange?.to,
   }
