@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.8...@kaizen/rich-text-editor@1.11.0) (2022-06-07)
+
+
+### Features
+
+* add list buttons to rte ([#2726](https://github.com/cultureamp/kaizen-design-system/issues/2726)) ([f5e2a95](https://github.com/cultureamp/kaizen-design-system/commit/f5e2a9599096354bbed7412fd673fa8d959744d4))
+
+
+
+
+
 ## [1.10.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.7...@kaizen/rich-text-editor@1.10.8) (2022-06-07)
 
 
