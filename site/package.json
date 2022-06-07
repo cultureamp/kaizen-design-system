@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.0.0-private.167",
+  "version": "0.0.0-private.168",
   "private": true,
   "dependencies": {
     "@kaizen/brand": "^1.4.0",
@@ -9,7 +9,7 @@
     "@kaizen/design-tokens": "^8.1.0",
     "@kaizen/draft-card": "^3.1.1",
     "@kaizen/draft-divider": "^2.1.1",
-    "@kaizen/draft-illustration": "^5.1.4",
+    "@kaizen/draft-illustration": "^5.1.5",
     "@kaizen/draft-tag": "^3.1.6",
     "@kaizen/hosted-assets": "^2.0.0",
     "@kaizen/typography": "^2.2.1",

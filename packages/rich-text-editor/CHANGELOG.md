@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.8...@kaizen/rich-text-editor@1.11.0) (2022-06-07)
+
+
+### Features
+
+* add list buttons to rte ([#2726](https://github.com/cultureamp/kaizen-design-system/issues/2726)) ([f5e2a95](https://github.com/cultureamp/kaizen-design-system/commit/f5e2a9599096354bbed7412fd673fa8d959744d4))
+
+
+
+
+
+## [1.10.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.7...@kaizen/rich-text-editor@1.10.8) (2022-06-07)
+
+
+### Bug Fixes
+
+* add white space fix to resolve spacing bug on firefox ([#2774](https://github.com/cultureamp/kaizen-design-system/issues/2774)) ([c517026](https://github.com/cultureamp/kaizen-design-system/commit/c517026461b22a6f52cf889fa8d3808b0ecfbb69))
+
+
+
+
+
 ## [1.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.6...@kaizen/rich-text-editor@1.10.7) (2022-06-06)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
