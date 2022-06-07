@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.4...@kaizen/draft-illustration@5.1.5) (2022-06-07)
+
+
+### Bug Fixes
+
+* Catch the video element error ([#2775](https://github.com/cultureamp/kaizen-design-system/issues/2775)) ([341fd94](https://github.com/cultureamp/kaizen-design-system/commit/341fd9461bbfe534a871957c5cdd4a73ea7311ce))
+
+
+
+
+
 ## [5.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.3...@kaizen/draft-illustration@5.1.4) (2022-05-30)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
