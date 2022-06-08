@@ -26,7 +26,6 @@ export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
   id: string
   labelText: string
-  isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   onButtonClick?: DateInputProps["onButtonClick"]
   onClick?: DateInputProps["onClick"]
@@ -121,7 +120,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   labelText,
-  isDisabled = false,
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -298,7 +296,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           inputRef={inputRef}
           buttonRef={buttonRef}
           isOpen={isOpen}
-          disabled={isDisabled}
           onBlur={handleInputChange}
           labelText={labelText}
           icon={dateStart}

@@ -248,7 +248,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isReversed={isReversed}
             status="default"
             validationMessage={undefined}
-            isDisabled
+            disabled
           />
           <DatePicker
             id="datepicker-error"
