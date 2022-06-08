@@ -17,31 +17,11 @@ export default {
 export const Default = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
   return (
-    <RichTextEditor
-      value={rteData}
-      onChange={data => setRTEData(data)}
-      {...args}
-    />
-  )
-}
-
-Default.storyName = "Default (Kaizen Demo)"
-
-export const WithControls = () => {
-  const [rteData, setRTEData] = useState<EditorContentArray>([])
-  return (
     <>
       <RichTextEditor
-        labelText="Label"
         value={rteData}
-        controls={[
-          { name: "bold", group: "inline" },
-          { name: "italic", group: "inline" },
-          { name: "underline" },
-          { name: "ordered_list", group: "list" },
-          { name: "bullet_list", group: "list" },
-        ]}
         onChange={data => setRTEData(data)}
+        {...args}
       />
     </>
   )
@@ -51,4 +31,11 @@ Default.storyName = "Default (Kaizen Demo)"
 Default.args = {
   labelText: "Label",
   rows: 3,
+  controls: [
+    { name: "bold", group: "inline" },
+    { name: "italic", group: "inline" },
+    { name: "underline", group: "inline" },
+    { name: "orderedList", group: "list" },
+    { name: "bulletList", group: "list" },
+  ],
 }

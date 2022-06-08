@@ -10,12 +10,12 @@ import { orderedListRule, bulletListRule } from "@cultureamp/rich-text-toolkit"
 export function buildInputRules(schema: Schema) {
   const rules = smartQuotes.concat(ellipsis, emDash)
 
-  if (schema.nodes.ordered_list) {
-    rules.push(orderedListRule(schema.nodes.ordered_list))
+  if (schema.nodes.orderedList) {
+    rules.push(orderedListRule(schema.nodes.orderedList))
   }
 
-  if (schema.nodes.bullet_list) {
-    rules.push(bulletListRule(schema.nodes.bullet_list))
+  if (schema.nodes.bulletList) {
+    rules.push(bulletListRule(schema.nodes.bulletList))
   }
 
   return inputRules({ rules })

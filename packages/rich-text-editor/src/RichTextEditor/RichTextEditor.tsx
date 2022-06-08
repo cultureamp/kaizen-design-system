@@ -21,8 +21,8 @@ export type ToolbarControlTypes =
   | "bold"
   | "italic"
   | "underline"
-  | "ordered_list"
-  | "bullet_list"
+  | "orderedList"
+  | "bulletList"
 
 export interface ToolbarItems {
   name: ToolbarControlTypes
