@@ -9,8 +9,9 @@ import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { DateFormat, DayOfWeek } from "./enums"
-import { Calendar, CalendarProps } from "./components/Calendar"
+import { Calendar, CalendarElement, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
+import calendarStyles from "./components/Calendar/Calendar.scss"
 
 type OmittedDateInputProps =
   | "isOpen"
@@ -134,8 +135,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onClick,
   ...restDateInputProps
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const calendarRef = useRef<HTMLDivElement>(null)
+  // const calendarRef = useRef<HTMLDivElement>(null)
 
   const [isOpen, setIsOpen] = useState(false)
   const [shouldFocusOnCalendar, setShouldFocusOnCalendar] =
@@ -145,7 +147,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
-  const wrapperRef = useRef<HTMLDivElement>(null)
+
+  const [lastTrigger, setLastTrigger] = useState<"inputClick" | "inputKeydown" | "calendarButton">()
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -237,13 +240,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleButtonClick = (): void => {
     setIsOpen(!isOpen)
-    setShouldFocusOnCalendar(true)
+    // setShouldFocusOnCalendar(true)
+    setLastTrigger("calendarButton")
     onButtonClick && onButtonClick()
   }
 
   const handleInputClick: React.MouseEventHandler<HTMLInputElement> = e => {
     setIsOpen(true)
-    setShouldFocusOnCalendar(false)
+    // setShouldFocusOnCalendar(false)
+    setLastTrigger("inputClick")
     onClick && onClick(e)
   }
 
@@ -254,7 +259,29 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)
-      setShouldFocusOnCalendar(true)
+      setLastTrigger("inputKeydown")
+      // setShouldFocusOnCalendar(true)
+    }
+  }
+
+const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
+
+  const focusInCalendar = (calendarElement: CalendarElement): void => {
+    const dayToFocus = calendarElement.getElementsByClassName(
+      selectedDay ? calendarStyles.daySelected : calendarStyles.dayToday)[0]
+
+    if (isHTMLElement(dayToFocus)) dayToFocus.focus()
+  }
+
+  const handleCalendarMount = (calendarElement: CalendarElement): void => {
+    console.log("onMount called",calendarElement)
+    switch (lastTrigger) {
+      case "inputClick":
+        console.log("last trigger inputClick", lastTrigger)
+        return
+      default:
+        console.log("onMount default", lastTrigger)
+        focusInCalendar(calendarElement)
     }
   }
 
@@ -326,7 +353,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             onDayChange={handleOnCalendarDayChange}
-            shouldFocusOnCalendar={shouldFocusOnCalendar}
+            // shouldFocusOnCalendar={shouldFocusOnCalendar}
+            onMount={handleCalendarMount}
           />
         </FocusOn>
       )}

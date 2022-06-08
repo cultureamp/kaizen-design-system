@@ -31,15 +31,18 @@ export type CalendarProps = {
   selectedRange?: DateRange
   mode: "single" | "range"
   modifiers?: DateRange
-  shouldFocusOnCalendar?: boolean
+  // shouldFocusOnCalendar?: boolean
+  onMount?: (calendarElement: HTMLDivElement) => void
 }
+
+export type CalendarElement = HTMLDivElement
 
 const isValidWeekStartsOn = (
   day: DayOfWeek | undefined
 ): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
   [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
-const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
+// const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
@@ -55,28 +58,15 @@ export const Calendar: React.VFC<CalendarProps> = ({
   selectedRange,
   modifiers,
   mode,
-  shouldFocusOnCalendar = false,
+  // shouldFocusOnCalendar = false,
+  onMount
 }) => {
-  const calendarRef = useRef<HTMLDivElement>(null)
+  const calendarRef = useRef<CalendarElement>(null)
 
   useEffect(() => {
-    if (shouldFocusOnCalendar && calendarRef.current) {
-      if (value || selectedRange?.from) {
-        const selectedDay = calendarRef.current.getElementsByClassName(
-          calendarStyles.daySelected
-        )[0]
-
-        if (isHTMLElement(selectedDay)) selectedDay.focus()
-        return
-      }
-
-      const today = calendarRef.current.getElementsByClassName(
-        calendarStyles.dayToday
-      )[0]
-
-      if (isHTMLElement(today)) today.focus()
-    }
-  }, [shouldFocusOnCalendar, calendarRef])
+    console.log("calendarRef",calendarRef)
+    if (calendarRef.current) onMount && onMount(calendarRef.current)
+  }, [calendarRef])
 
   const selectedMonth = selectedRange?.from || value || defaultMonth
 
