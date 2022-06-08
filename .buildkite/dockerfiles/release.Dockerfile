@@ -3,11 +3,11 @@ FROM node:16-alpine
 RUN apk update && apk add --no-cache \
   git \
   openssh \
-  python2 \
-  py-pip \ 
+  python3 \
+  py3-pip \ 
   gcc \ 
   alpine-sdk \ 
-  python2-dev
+  python3-dev
 
 RUN pip install \
   awscli
