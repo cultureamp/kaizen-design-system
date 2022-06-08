@@ -39,6 +39,8 @@ const isValidWeekStartsOn = (
 ): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
   [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
+const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
+
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
   setPopperElement,
@@ -57,26 +59,26 @@ export const Calendar: React.VFC<CalendarProps> = ({
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null)
 
-  // Initial focus when opening the calendar
   useEffect(() => {
     if (shouldFocusOnCalendar && calendarRef.current) {
       if (value || selectedRange?.from) {
         const selectedDay = calendarRef.current.getElementsByClassName(
           calendarStyles.daySelected
-        )[0] as HTMLElement
+        )[0]
 
-        return selectedDay?.focus()
+        if (isHTMLElement(selectedDay)) selectedDay.focus()
+        return
       }
 
       const today = calendarRef.current.getElementsByClassName(
         calendarStyles.dayToday
-      )[0] as HTMLElement
+      )[0]
 
-      today?.focus()
+      if (isHTMLElement(today)) today.focus()
     }
-  }, [shouldFocusOnCalendar, calendarRef.current])
+  }, [shouldFocusOnCalendar, calendarRef])
 
-  const getdefaultMonth = () => selectedRange?.from || value || defaultMonth
+  const selectedMonth = selectedRange?.from || value || defaultMonth
 
   const IconRight: React.VFC = () => (
     <Icon icon={arrowRight} role="presentation" />
@@ -100,7 +102,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           <DayPicker
             mode="single"
             selected={value}
-            defaultMonth={getdefaultMonth()}
+            defaultMonth={selectedMonth}
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }
@@ -117,7 +119,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           <DayPicker
             mode="range"
             selected={selectedRange}
-            defaultMonth={getdefaultMonth()}
+            defaultMonth={selectedMonth}
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }

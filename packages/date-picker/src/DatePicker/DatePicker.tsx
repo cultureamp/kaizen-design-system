@@ -8,7 +8,6 @@ import { FieldMessageStatus } from "@kaizen/draft-form"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import calendarStyles from "./components/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
@@ -237,7 +236,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleButtonClick = (): void => {
-    setIsOpen(true)
+    setIsOpen(!isOpen)
     setShouldFocusOnCalendar(true)
     onButtonClick && onButtonClick()
   }
