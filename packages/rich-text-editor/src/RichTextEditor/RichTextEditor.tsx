@@ -21,8 +21,8 @@ export type ToolbarControlTypes =
   | "bold"
   | "italic"
   | "underline"
-  | "ordered_list"
-  | "bullet_list"
+  | "orderedList"
+  | "bulletList"
 
 export interface ToolbarItems {
   name: ToolbarControlTypes
@@ -112,7 +112,8 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
           className={classnames(
             styles.editor,
             styles[`rows${rows}`],
-            classNameOverride
+            classNameOverride,
+            { [styles.hasToolbar]: controls != null && controls.length > 0 }
           )}
           {...restProps}
         />
