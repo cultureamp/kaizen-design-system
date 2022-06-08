@@ -59,11 +59,12 @@
   transition-duration: $ca-duration-fast;
 
   .backdropLayer {
-    @include ca-animation-fade(
-      $duration: $ca-duration-rapid,
-      $from: 0,
-      $to: 0.5
-    );
+    /*
+      There's a weird bug in Chrome/Blink 102.x that animates the opacity
+      all the way to 1 with 200ms ("rapid" token), but is fine with
+      201ms, see Jira [KDS-523]
+    */
+    @include ca-animation-fade($duration: 201ms, $from: 0, $to: 0.5);
   }
 
   .genericModal {
@@ -78,7 +79,11 @@
   transition-duration: $ca-duration-rapid;
 
   .backdropLayer {
-    @include ca-animation-fade($from: 0.5, $to: 0);
+    @include ca-animation-fade(
+      $duration: $ca-duration-rapid,
+      $from: 0.5,
+      $to: 0
+    );
   }
 
   .genericModal {
