@@ -1,9 +1,7 @@
 import React from "react"
 import { act, render, screen } from "@testing-library/react"
-import "@testing-library/jest-dom"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-
 import userEvent from "@testing-library/user-event"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { DateInput } from "./DateInput"
 
 const defaultProps = {
@@ -12,9 +10,9 @@ const defaultProps = {
   description: "Description text",
   icon: dateStart,
   isOpen: false,
-  onButtonClick: () => jest.fn(),
-  onKeyDown: () => jest.fn(),
-  onBlur: () => jest.fn(),
+  onButtonClick: jest.fn<void, []>(),
+  onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
+  onBlur: jest.fn<void, [Date | undefined, string]>(),
   calendarId: "calendar-dialog",
   valueDate: undefined,
 }

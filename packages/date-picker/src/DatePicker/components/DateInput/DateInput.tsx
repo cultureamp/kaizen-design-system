@@ -10,7 +10,8 @@ import {
   Label,
 } from "@kaizen/draft-form"
 import { format, parse } from "date-fns"
-import { Modifier } from "react-day-picker"
+import { Matcher } from "react-day-picker/src/types/Matchers"
+
 import { DateFormat } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
@@ -55,7 +56,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * The callback for then onBlur is triggered on the input
    */
   onBlur: (date: Date | undefined, inputValue: string) => void
-  disabledDays?: Modifier | Modifier[]
+  disabledDays?: Matcher[] | undefined
   /**
    * A descriptive message for `status` states
    */
@@ -68,7 +69,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 
 const formatDateAsText = (
   date: Date,
-  disabledDays: Modifier | Modifier[],
+  disabledDays: Matcher[] | undefined,
   onFormat: (newFormattedDate: string) => void
 ): void => {
   if (isDisabledDate(date, disabledDays)) {

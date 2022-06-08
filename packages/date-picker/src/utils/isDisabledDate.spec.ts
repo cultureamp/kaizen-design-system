@@ -1,17 +1,40 @@
 import { isDisabledDate } from "./isDisabledDate"
 
-const disabledDaysMock = [new Date("2022-04-24T00:00:00.000Z")]
-
 describe("isDisabledDate", () => {
-  it("returns true when given date is disabled", () => {
-    const date = new Date(2022, 3, 24)
-
-    expect(isDisabledDate(date, disabledDaysMock)).toEqual(true)
+  it("is true when given date is disabled", () => {
+    const disabledDays = [new Date(2022, 3, 24)]
+    expect(isDisabledDate(new Date(2022, 3, 24), disabledDays)).toEqual(true)
   })
 
-  it("returns false when given date is not disabled", () => {
-    const date = new Date(2022, 1, 24)
+  it("is false when given date is not disabled", () => {
+    const disabledDays = [new Date(2022, 3, 24)]
+    expect(isDisabledDate(new Date(2022, 1, 24), disabledDays)).toEqual(false)
+  })
 
-    expect(isDisabledDate(date, disabledDaysMock)).toEqual(false)
+  it("is false when no dates are disabled", () => {
+    expect(isDisabledDate(new Date(2022, 1, 24), undefined)).toEqual(false)
+    expect(isDisabledDate(new Date(2022, 1, 24), [])).toEqual(false)
+  })
+
+  it("correctly checks if a date is disabled before a specified date", () => {
+    const disabledDays = [
+      {
+        before: new Date(2022, 1, 24),
+      },
+    ]
+
+    expect(isDisabledDate(new Date(2022, 1, 23), disabledDays)).toEqual(true)
+    expect(isDisabledDate(new Date(2022, 1, 24), disabledDays)).toEqual(false)
+  })
+
+  it("correctly checks if a date is disabled after a specified date", () => {
+    const disabledDays = [
+      {
+        after: new Date(2022, 1, 24),
+      },
+    ]
+
+    expect(isDisabledDate(new Date(2022, 1, 24), disabledDays)).toEqual(false)
+    expect(isDisabledDate(new Date(2022, 1, 25), disabledDays)).toEqual(true)
   })
 })
