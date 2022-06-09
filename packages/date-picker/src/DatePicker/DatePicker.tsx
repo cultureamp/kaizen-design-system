@@ -1,17 +1,17 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import { format } from "date-fns"
 import { DateRange, DateInterval } from "react-day-picker"
-import { FocusOn, InFocusGuard } from "react-focus-on"
+import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
+import { setFocusInCalendar } from "../utils/setFocusInCalendar"
 import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar, CalendarElement, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
-import calendarStyles from "./components/Calendar/Calendar.scss"
 
 type OmittedDateInputProps =
   | "isOpen"
@@ -117,7 +117,6 @@ export type ValidationResponse = {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
 export const DatePicker: React.VFC<DatePickerProps> = ({
-  inputRef: propsInputRef,
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   labelText,
@@ -138,11 +137,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  // const calendarRef = useRef<HTMLDivElement>(null)
-
   const [isOpen, setIsOpen] = useState(false)
-  const [shouldFocusOnCalendar, setShouldFocusOnCalendar] =
-    useState<boolean>(true)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -280,25 +275,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const isHTMLElement = (
-    element: Element | undefined
-  ): element is HTMLElement => element instanceof HTMLElement
-
-  const focusInCalendar = (calendarElement: CalendarElement): void => {
-    const dayToFocus = calendarElement.getElementsByClassName(
-      selectedDay ? calendarStyles.daySelected : calendarStyles.dayToday
-    )[0]
-
-    if (isHTMLElement(dayToFocus)) dayToFocus.focus()
-  }
-
   const handleCalendarMount = (calendarElement: CalendarElement): void => {
     switch (lastTrigger) {
       case "inputClick":
       case "inputFocus":
         return
       default:
-        focusInCalendar(calendarElement)
+        setFocusInCalendar(calendarElement, selectedDay)
     }
   }
 

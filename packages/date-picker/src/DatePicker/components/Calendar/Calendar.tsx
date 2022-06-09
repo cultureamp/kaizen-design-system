@@ -31,7 +31,6 @@ export type CalendarProps = {
   selectedRange?: DateRange
   mode: "single" | "range"
   modifiers?: DateRange
-  // shouldFocusOnCalendar?: boolean
   onMount?: (calendarElement: HTMLDivElement) => void
 }
 
@@ -41,8 +40,6 @@ const isValidWeekStartsOn = (
   day: DayOfWeek | undefined
 ): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
   [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
-
-// const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
@@ -58,7 +55,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   selectedRange,
   modifiers,
   mode,
-  // shouldFocusOnCalendar = false,
   onMount,
 }) => {
   const calendarRef = useRef<CalendarElement>(null)
