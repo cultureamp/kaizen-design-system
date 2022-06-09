@@ -1,9 +1,9 @@
 import {
-  cleanup,
   render,
   fireEvent,
   configure,
   waitFor,
+  screen,
 } from "@testing-library/react"
 import * as React from "react"
 import GenericModal from "./GenericModal"
@@ -11,7 +11,26 @@ import ModalAccessibleLabel from "./ModalAccessibleLabel"
 
 configure({ testIdAttribute: "data-automation-id" })
 
-afterEach(cleanup)
+const ExampleModalWithState: React.VFC<{
+  onAfterLeave: () => void
+  children: React.ReactNode
+}> = props => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(true)
+  const handleDismiss = () => {
+    setIsOpen(false)
+  }
+
+  return (
+    <GenericModal
+      isOpen={isOpen}
+      onOutsideModalClick={handleDismiss}
+      onEscapeKeyup={handleDismiss}
+      onAfterLeave={props.onAfterLeave}
+      children={props.children}
+      automationId="GenericModalAutomationId"
+    />
+  )
+}
 
 describe("<GenericModal />", () => {
   it("renders an open modal with the provided content", () => {
@@ -74,5 +93,17 @@ describe("<GenericModal />", () => {
       )
     })
     spy.mockRestore()
+  })
+
+  it("calls onAfterLeave after it closes", async () => {
+    const mockOnAfterLeave = jest.fn()
+
+    render(
+      <ExampleModalWithState onAfterLeave={mockOnAfterLeave}>
+        Catch me if you can
+      </ExampleModalWithState>
+    )
+    fireEvent.click(screen.getByTestId("GenericModalAutomationId-scrollLayer"))
+    await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(1))
   })
 })
