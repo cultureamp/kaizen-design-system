@@ -33,7 +33,6 @@ type OmittedInputProps =
   | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
-  inputRef: React.RefObject<HTMLInputElement>
   id: string
   calendarId: string
   buttonRef?: React.RefObject<HTMLButtonElement>

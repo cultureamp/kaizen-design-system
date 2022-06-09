@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { act, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FieldMessageStatus } from "@kaizen/draft-form"
+import format from "date-fns/format"
 import { DatePicker, ValidationResponse } from "./DatePicker"
 import { DatePickerProps } from "."
 
@@ -52,29 +53,56 @@ describe("<DatePicker />", () => {
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
   })
 
-  it("shows/hides calendar on button press", async () => {
-    render(<DatePickerWrapper />)
+  describe("Opening Calendar", () => {
+    it("opens the calendar on input click", async () => {
+      render(<DatePickerWrapper />)
+      const input = screen.getByRole("combobox")
 
-    const button = screen.getByRole("button")
-
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
-
-    await act(async () => button.click())
-    expect(screen.getByRole("dialog")).toBeVisible()
-  })
-
-  it("shows/hides calendar on arrow down keydown", async () => {
-    render(<DatePickerWrapper />)
-
-    const input = screen.getByRole("combobox")
-
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
-
-    await act(async () => {
-      input.focus()
-      userEvent.keyboard("{arrowdown}")
+      await act(async () => {
+        input.click()
+      })
+      expect(screen.getByRole("dialog")).toBeVisible()
     })
-    expect(screen.getByRole("dialog")).toBeVisible()
+
+    it("shows/hides calendar on arrow down keydown within input", async () => {
+      render(<DatePickerWrapper />)
+
+      const input = screen.getByRole("combobox")
+
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+      await act(async () => {
+        input.focus()
+        userEvent.keyboard("{arrowdown}")
+      })
+      expect(screen.getByRole("dialog")).toBeVisible()
+    })
+
+    it("openscalendar on calendar button click", async () => {
+      render(<DatePickerWrapper />)
+
+      const button = screen.getByRole("button")
+
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+      await act(async () => button.click())
+      expect(screen.getByRole("dialog")).toBeVisible()
+    })
+
+    it("opens calendar on calendar button keydown enter", async () => {
+      render(<DatePickerWrapper />)
+
+      const button = screen.getByRole("button")
+
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+      await act(async () => {
+        button.focus()
+        userEvent.keyboard("{enter}")
+      })
+
+      expect(screen.getByRole("dialog")).toBeInTheDocument()
+    })
   })
 
   describe("Selecting a date using the calendar", () => {
@@ -161,5 +189,59 @@ describe("<DatePicker />", () => {
         ).toBeInTheDocument()
       })
     })
+  })
+  describe("Focus", () => {
+    it("show focus on single selected day", async () => {
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+      const input = screen.getByRole("combobox")
+
+      await act(async () => {
+        input.focus()
+        userEvent.keyboard("{arrowdown}")
+      })
+      const selectedDate = screen.getByText("1st March (Tuesday)")
+
+      expect(selectedDate.parentElement).toHaveFocus()
+    })
+
+    it("show focus on today when no date is selected", async () => {
+      const today = new Date()
+      const todayFormatted = format(today, "do LLLL (eeee)") // e.g 6th June (Monday)
+
+      render(<DatePickerWrapper selectedDay={undefined} />)
+      const input = screen.getByRole("combobox")
+
+      await act(async () => {
+        input.focus()
+        userEvent.keyboard("{arrowdown}")
+      })
+      const dateToSelect = screen.getByText(todayFormatted).parentElement
+
+      expect(dateToSelect).toHaveFocus()
+    })
+
+    it("focuses on the input when a date is selected from the calendar", async () => {
+      // render(<DatePickerWrapper defaultMonth={new Date("2022-03-01")} />)
+      // const input = screen.getByRole("combobox")
+      // await act(async () => {
+      //   input.click()
+      // })
+      // const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
+      // act(() => {
+      //   dateToSelect?.click()
+      // })
+      // expect(input).toHaveFocus()
+    })
+
+    // it("focuses on the input when a date is selected from the calendar", async () => {
+    // })
+
+    // it("focus on the input when it came from the input", async () => {
+    //   //make sure the format is correct
+    // })
+    // it("allows you to tab through input, button and calendar", async () => {
+    // })
+    // it("focus on the button when it came from the button", async () => {
+    // })
   })
 })
