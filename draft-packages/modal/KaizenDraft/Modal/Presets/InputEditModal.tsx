@@ -18,6 +18,7 @@ export interface InputEditModalProps {
   readonly title: string
   readonly onSubmit: () => void
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
@@ -37,6 +38,7 @@ const InputEditModal = ({
   mood,
   title,
   onSubmit,
+  onAfterLeave,
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
@@ -66,6 +68,7 @@ const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal} dir={localeDirection}>
         <ModalHeader onDismiss={onDismiss}>

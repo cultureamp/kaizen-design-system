@@ -17,6 +17,7 @@ export interface GenericModalContainerProps {
   readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
+  readonly onAfterLeave?: () => void
   readonly automationId?: string
 }
 
@@ -77,6 +78,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
+    this.props.onAfterLeave && this.props.onAfterLeave()
   }
 
   addEventHandlers() {
