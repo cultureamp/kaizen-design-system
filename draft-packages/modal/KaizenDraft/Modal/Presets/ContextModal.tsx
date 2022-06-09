@@ -26,6 +26,7 @@ export type ContextModalProps = Readonly<
     title: string
     onConfirm?: () => void
     onDismiss: () => void
+    onAfterLeave?: () => void
     confirmLabel?: string
     confirmWorking?: { label: string; labelHidden?: boolean }
     automationId?: string
@@ -48,6 +49,7 @@ const ContextModal = ({
   layout = "portrait",
   title,
   onConfirm,
+  onAfterLeave,
   confirmLabel = "Confirm",
   confirmWorking,
   automationId,
@@ -88,6 +90,7 @@ const ContextModal = ({
       onEscapeKeyup={onDismiss}
       onOutsideModalClick={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal}>
         {renderBackground && renderBackground()}

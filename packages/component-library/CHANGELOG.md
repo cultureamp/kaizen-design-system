@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.3...@kaizen/component-library@14.3.4) (2022-06-09)
+
+
+### Bug Fixes
+
+* remove fill from nested svg path in indent icons ([#2787](https://github.com/cultureamp/kaizen-design-system/issues/2787)) ([138ff69](https://github.com/cultureamp/kaizen-design-system/commit/138ff6957bfbebe4f4fd4324ae2f9dd5d5636721))
+
+
+
+
+
 ## [14.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.2...@kaizen/component-library@14.3.3) (2022-05-30)
 
 **Note:** Version bump only for package @kaizen/component-library

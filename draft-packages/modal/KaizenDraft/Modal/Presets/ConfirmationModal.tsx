@@ -41,6 +41,7 @@ export interface ConfirmationModalProps {
   readonly title: string
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly confirmLabel?: string
   readonly dismissLabel?: string
   readonly confirmWorking?: { label: string; labelHidden?: boolean }
@@ -98,6 +99,7 @@ const ConfirmationModal = ({
   mood,
   title,
   onConfirm,
+  onAfterLeave,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
   confirmWorking,
@@ -133,6 +135,7 @@ const ConfirmationModal = ({
       onEscapeKeyup={onDismiss}
       onOutsideModalClick={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal}>
         <ModalHeader onDismiss={onDismiss}>
