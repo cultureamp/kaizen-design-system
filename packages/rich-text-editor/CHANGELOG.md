@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.1...@kaizen/rich-text-editor@1.11.2) (2022-06-08)
+
+
+### Bug Fixes
+
+* **rte:** rte hover state causing clipping ([#2776](https://github.com/cultureamp/kaizen-design-system/issues/2776)) ([75ea33d](https://github.com/cultureamp/kaizen-design-system/commit/75ea33d5829b48e7d99002cbbc04e910fde56f16))
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.0...@kaizen/rich-text-editor@1.11.1) (2022-06-08)
+
+
+### Bug Fixes
+
+* Move to camelCase and rename bold and italic to strong and em ([#2777](https://github.com/cultureamp/kaizen-design-system/issues/2777)) ([c95245b](https://github.com/cultureamp/kaizen-design-system/commit/c95245bd316f760c66d6c647001af47bdbbd1fd6))
+
+
+
+
+
 # [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.8...@kaizen/rich-text-editor@1.11.0) (2022-06-07)
 
 
