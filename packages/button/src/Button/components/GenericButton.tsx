@@ -199,6 +199,14 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   } = props
   const customProps = getCustomProps(rest)
 
+  const handleOnClick = (event: MouseEvent) => {
+    event.preventDefault()
+    onClick && onClick(event)
+    if (href) {
+      window.location.href = href
+    }
+  }
+
   return (
     <a
       id={id}
@@ -207,7 +215,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={onClick}
+      onClick={handleOnClick}
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
