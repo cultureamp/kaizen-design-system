@@ -17,6 +17,7 @@ type ToolbarControl = {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
   isActive: boolean
+  disabled?: boolean
   action: (
     state: EditorState<any>,
     dispatch: ((tr: Transaction<any>) => void) | undefined
@@ -37,6 +38,7 @@ function toggleMarkCommand(mark: MarkType): Command {
   ) => toggleMark(mark)(state, dispatch)
 }
 
+// TODO: If a different list is clicked on a list update the list type
 function toggleListCommand(node: NodeType): Command {
   return (
     state: EditorState,
@@ -44,27 +46,57 @@ function toggleListCommand(node: NodeType): Command {
   ) => wrapInList(node)(state, dispatch)
 }
 
-function liftOrIndentList(action: "lift" | "indent"): Command {
+function liftList(): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
   ) => {
     const { $from } = state.selection
     // calculate the parent node from the current tag selected
-    const topLevelListNode = $from.node($from.depth - 1)?.type
-    const islistNode =
-      (topLevelListNode?.name && topLevelListNode.name === "listItem") || false
+    const listItemNode = $from.node($from.depth - 1)?.type
 
-    if (!islistNode) {
-      return false
-    }
-
-    if (action === "lift") {
-      return liftListItem(topLevelListNode)(state, dispatch)
-    } else {
-      return sinkListItem(topLevelListNode)(state, dispatch)
-    }
+    return liftListItem(listItemNode)(state, dispatch)
   }
+}
+
+// increase list indent should only be available on the second list node of a list item (otherwise it should be disabled)
+function indentList(): Command {
+  return (
+    state: EditorState,
+    dispatch: ((tr: Transaction) => void) | undefined
+  ) => {
+    const { $from } = state.selection
+    const listItemNode = $from.node($from.depth - 1)?.type
+
+    return sinkListItem(listItemNode)(state, dispatch)
+  }
+}
+
+// If there is a valid list item its indent can be decrease or 'lifted'
+function liftListIsDisabled(state: EditorState): boolean {
+  const { $from } = state.selection
+  const listItemNode = $from.node($from.depth - 1)?.type
+  const isValidListItem = listItemNode?.name === "listItem" || false
+
+  return !isValidListItem
+}
+
+// If the is a valid list item and it is not the first in a list it can be indented
+function indentListIsDisabled(state: EditorState): boolean {
+  const { $from, $to } = state.selection
+  const listItemNode = $from.node($from.depth - 1)?.type
+  const isValidListItem = listItemNode?.name === "listItem" || false
+
+  if (!isValidListItem) {
+    return true
+  }
+
+  const range = $from.blockRange(
+    $to,
+    node => node.childCount > 0 && node.firstChild!.type === listItemNode
+  )
+
+  return !range || range.startIndex === 0 ? true : false
 }
 
 // Creates an object used as an index to map the controls to respective groups
@@ -176,13 +208,15 @@ export function buildControlMap(
 
     toolbarControls[groupIndex].push(
       {
-        action: liftOrIndentList("lift"),
+        action: liftList(),
+        disabled: liftListIsDisabled(editorState),
         isActive: false,
         label: "Decrease indent",
         icon: decreaseIndentIcon,
       },
       {
-        action: liftOrIndentList("indent"),
+        action: indentList(),
+        disabled: indentListIsDisabled(editorState),
         isActive: false,
         label: "Increase indent",
         icon: increaseIndentIcon,

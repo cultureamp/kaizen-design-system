@@ -33,6 +33,10 @@
     right: calc(-1 * #{$focus-ring-offset});
     bottom: calc(-1 * #{$focus-ring-offset});
   }
+
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 
 .default {

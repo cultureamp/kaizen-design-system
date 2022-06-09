@@ -28,6 +28,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       label,
       isActive = false,
       mood = "default",
+      disabled = false,
       classNameOverride,
       ...nativeButtonProps
     } = props
@@ -38,6 +39,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
           type="button"
           aria-pressed={isActive}
           aria-label={label}
+          disabled={disabled}
           onMouseDown={e => e.preventDefault()}
           className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
