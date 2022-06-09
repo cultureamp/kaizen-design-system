@@ -1,7 +1,7 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import { format } from "date-fns"
 import { DateRange, DateInterval } from "react-day-picker"
-import { FocusOn } from "react-focus-on"
+import { FocusOn, InFocusGuard } from "react-focus-on"
 import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
@@ -117,6 +117,7 @@ export type ValidationResponse = {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
 export const DatePicker: React.VFC<DatePickerProps> = ({
+  inputRef: propsInputRef,
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   labelText,
@@ -148,7 +149,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     null
   )
 
-  const [lastTrigger, setLastTrigger] = useState<"inputClick" | "inputKeydown" | "calendarButton">()
+  const [lastTrigger, setLastTrigger] = useState<
+    | "inputFocus"
+    | "inputClick"
+    | "inputKeydown"
+    | "calendarButton"
+    | "calendarSelectDay"
+  >()
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -220,19 +227,32 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     onDayChange(date)
   }
 
-  const handleOnCalendarDayChange = (date: Date): void => {
+  const handleCalendarDayChange = (date: Date): void => {
+    setLastTrigger("calendarSelectDay")
     if (!isDisabledDate(date, disabledDays)) {
       handleDayChange(date)
       setIsOpen(false)
     }
   }
 
-  const handleInputChange = (
+  const handleInputBlur = (
     date: Date | undefined,
     inputValue: string
-  ): void => handleDayChange(date, inputValue)
+  ): void => {
+    if (lastTrigger !== "calendarSelectDay") {
+      handleDayChange(date, inputValue)
+    }
+  }
+
+  const handleInputFocus = () => {
+    setLastTrigger("inputFocus")
+  }
 
   const handleReturnFocus = (): void => {
+    if (lastTrigger === "inputKeydown") {
+      return inputRef.current?.focus()
+    }
+
     if (buttonRef.current) {
       buttonRef.current.focus()
     }
@@ -240,15 +260,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleButtonClick = (): void => {
     setIsOpen(!isOpen)
-    // setShouldFocusOnCalendar(true)
     setLastTrigger("calendarButton")
     onButtonClick && onButtonClick()
   }
 
   const handleInputClick: React.MouseEventHandler<HTMLInputElement> = e => {
     setIsOpen(true)
-    // setShouldFocusOnCalendar(false)
-    setLastTrigger("inputClick")
     onClick && onClick(e)
   }
 
@@ -260,27 +277,27 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       e.preventDefault()
       setIsOpen(true)
       setLastTrigger("inputKeydown")
-      // setShouldFocusOnCalendar(true)
     }
   }
 
-const isHTMLElement = (element: Element | undefined): element is HTMLElement => element instanceof HTMLElement
+  const isHTMLElement = (
+    element: Element | undefined
+  ): element is HTMLElement => element instanceof HTMLElement
 
   const focusInCalendar = (calendarElement: CalendarElement): void => {
     const dayToFocus = calendarElement.getElementsByClassName(
-      selectedDay ? calendarStyles.daySelected : calendarStyles.dayToday)[0]
+      selectedDay ? calendarStyles.daySelected : calendarStyles.dayToday
+    )[0]
 
     if (isHTMLElement(dayToFocus)) dayToFocus.focus()
   }
 
   const handleCalendarMount = (calendarElement: CalendarElement): void => {
-    console.log("onMount called",calendarElement)
     switch (lastTrigger) {
       case "inputClick":
-        console.log("last trigger inputClick", lastTrigger)
+      case "inputFocus":
         return
       default:
-        console.log("onMount default", lastTrigger)
         focusInCalendar(calendarElement)
     }
   }
@@ -315,33 +332,34 @@ const isHTMLElement = (element: Element | undefined): element is HTMLElement => 
   }, [])
 
   return (
-    <div ref={wrapperRef}>
-      <div ref={setReferenceElement}>
-        <DateInput
-          id={id}
-          inputRef={inputRef}
-          buttonRef={buttonRef}
-          isOpen={isOpen}
-          onBlur={handleInputChange}
-          labelText={labelText}
-          icon={dateStart}
-          onButtonClick={handleButtonClick}
-          calendarId={`${id}-calendar-dialog`}
-          onKeyDown={handleKeyDown}
-          valueDate={selectedDay}
-          disabledDays={disabledDays}
-          onClick={handleInputClick}
-          {...restDateInputProps}
-        />
-      </div>
-      {isOpen && (
-        <FocusOn
-          scrollLock={false}
-          onDeactivation={handleReturnFocus}
-          onClickOutside={() => setIsOpen(false)}
-          onEscapeKey={() => setIsOpen(false)}
-          shards={[inputRef, buttonRef]}
-        >
+    <FocusOn
+      scrollLock={false}
+      onDeactivation={handleReturnFocus}
+      onClickOutside={() => setIsOpen(false)}
+      onEscapeKey={() => setIsOpen(false)}
+      enabled={isOpen}
+    >
+      <div ref={wrapperRef}>
+        <div ref={setReferenceElement}>
+          <DateInput
+            id={id}
+            inputRef={inputRef}
+            buttonRef={buttonRef}
+            isOpen={isOpen}
+            onBlur={handleInputBlur}
+            onFocus={handleInputFocus}
+            labelText={labelText}
+            icon={dateStart}
+            onButtonClick={handleButtonClick}
+            calendarId={`${id}-calendar-dialog`}
+            onKeyDown={handleKeyDown}
+            valueDate={selectedDay}
+            disabledDays={disabledDays}
+            onClick={handleInputClick}
+            {...restDateInputProps}
+          />
+        </div>
+        {isOpen && (
           <Calendar
             mode="single"
             id={`${id}-calendar-dialog`}
@@ -352,13 +370,12 @@ const isHTMLElement = (element: Element | undefined): element is HTMLElement => 
             defaultMonth={defaultMonth}
             weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
-            onDayChange={handleOnCalendarDayChange}
-            // shouldFocusOnCalendar={shouldFocusOnCalendar}
+            onDayChange={handleCalendarDayChange}
             onMount={handleCalendarMount}
           />
-        </FocusOn>
-      )}
-    </div>
+        )}
+      </div>
+    </FocusOn>
   )
 }
 

@@ -59,12 +59,11 @@ export const Calendar: React.VFC<CalendarProps> = ({
   modifiers,
   mode,
   // shouldFocusOnCalendar = false,
-  onMount
+  onMount,
 }) => {
   const calendarRef = useRef<CalendarElement>(null)
 
   useEffect(() => {
-    console.log("calendarRef",calendarRef)
     if (calendarRef.current) onMount && onMount(calendarRef.current)
   }, [calendarRef])
 
