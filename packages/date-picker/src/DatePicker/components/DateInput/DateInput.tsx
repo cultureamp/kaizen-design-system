@@ -33,6 +33,7 @@ type OmittedInputProps =
   | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
+  inputRef: React.RefObject<HTMLInputElement>
   id: string
   calendarId: string
   buttonRef?: React.RefObject<HTMLButtonElement>
@@ -84,6 +85,7 @@ const formatDateAsText = (
 export const DateInput: React.VFC<DateInputProps> = ({
   id,
   disabled = false,
+  inputRef,
   buttonRef,
   labelText,
   description,
@@ -94,6 +96,8 @@ export const DateInput: React.VFC<DateInputProps> = ({
   isOpen,
   valueDate,
   onBlur,
+  onFocus,
+  onChange,
   disabledDays,
   validationMessage,
   status,
@@ -102,10 +106,12 @@ export const DateInput: React.VFC<DateInputProps> = ({
   const [valueString, setValueString] = useState<string>("")
 
   useEffect(() => {
-    valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
-  }, [valueDate])
+    if (inputRef?.current !== document.activeElement) {
+      valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
+    }
+  }, [valueDate, inputRef])
 
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (): void => {
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = () => {
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
       if (isInvalidDate(parsedDate)) {
@@ -117,13 +123,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
     }
     onBlur(undefined, valueString)
   }
-  const handleFocus = (): void => {
+
+  const handleFocus: React.FocusEventHandler<HTMLInputElement> = e => {
     valueDate && setValueString(format(valueDate, DateFormat.Numeral))
+    onFocus && onFocus(e)
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = ({
-    target,
-  }): void => setValueString(target.value)
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+    setValueString(e.target.value)
+    onChange && onChange(e)
+  }
 
   const getDescription = (): React.ReactNode => {
     switch (typeof description) {
@@ -147,6 +156,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         disabled={disabled}
       />
       <Input
+        inputRef={inputRef}
         id={id}
         role="combobox"
         aria-expanded={isOpen}
