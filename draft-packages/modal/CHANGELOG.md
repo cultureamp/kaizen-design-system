@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.2.11...@kaizen/draft-modal@10.3.0) (2022-06-09)
+
+
+### Features
+
+* Expose onAfterLeave on all modal components ([#2784](https://github.com/cultureamp/kaizen-design-system/issues/2784)) ([ec02763](https://github.com/cultureamp/kaizen-design-system/commit/ec02763dab2e7207fc330b3ccec67e41853cb40c))
+
+
+
+
+
 ## [10.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.2.10...@kaizen/draft-modal@10.2.11) (2022-06-08)
 
 

@@ -18,6 +18,7 @@ export interface RoadblockModalProps {
   readonly isOpen: boolean
   readonly title: string
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly dismissLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
@@ -32,6 +33,7 @@ const RoadblockModal = ({
   isOpen,
   title,
   onDismiss,
+  onAfterLeave,
   dismissLabel = "Back",
   automationId,
   children,
@@ -41,6 +43,7 @@ const RoadblockModal = ({
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
     automationId={automationId}
+    onAfterLeave={onAfterLeave}
   >
     <div className={styles.modal}>
       <ModalHeader unpadded onDismiss={onDismiss}>
