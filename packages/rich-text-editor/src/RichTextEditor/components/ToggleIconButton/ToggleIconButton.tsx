@@ -46,6 +46,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
           className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
             [styles[mood]]: mood,
+            [styles.disabled]: disabled,
           })}
           {...nativeButtonProps}
         >

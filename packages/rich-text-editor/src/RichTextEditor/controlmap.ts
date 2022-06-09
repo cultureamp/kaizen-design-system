@@ -81,7 +81,7 @@ function liftListIsDisabled(state: EditorState): boolean {
   return !isValidListItem
 }
 
-// If the is a valid list item and it is not the first in a list it can be indented
+// If there is a valid list item and it is not the first in a list it can be indented
 function indentListIsDisabled(state: EditorState): boolean {
   const { $from, $to } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type

@@ -34,7 +34,8 @@
     bottom: calc(-1 * #{$focus-ring-offset});
   }
 
-  &[aria-disabled="true"] {
+  &.disabled {
+    opacity: 0.3;
     &:global(.focus-visible)::after,
     &:focus-visible:after {
       color: rgba($color-purple-800-rgb, 0.3);
@@ -44,7 +45,7 @@
       opacity: 1;
       outline-style: $border-dashed-border-style;
       outline-width: $border-focus-ring-border-width;
-      outline-color: $color-gray-300;
+      outline-color: $color-purple-800;
     }
   }
 }
@@ -53,7 +54,7 @@
   background-color: $color-white;
   color: $color-purple-800;
 
-  &:not([aria-disabled="true"]) {
+  &:not(.disabled) {
     &:hover:not(.active),
     &:global(.focus-visible):not(.active) {
       background-color: $color-gray-200;
@@ -64,17 +65,13 @@
       color: $color-purple-800;
     }
   }
-
-  &[aria-disabled="true"] {
-    color: rgba($color-purple-800-rgb, 0.3);
-  }
 }
 
 .secondary {
   background-color: $color-white;
   color: $color-blue-500;
 
-  &:not([aria-disabled="true"]) {
+  &:not(.disabled) {
     &:hover:not(.active),
     &:global(.focus-visible):not(.active) {
       background-color: $color-blue-100;
@@ -84,17 +81,13 @@
       background-color: $color-blue-200;
     }
   }
-
-  &[aria-disabled="true"] {
-    color: rgba($color-blue-500-rgb, 0.3);
-  }
 }
 
 .primary {
   background-color: $color-blue-500;
   color: $color-white;
 
-  &:not([aria-disabled="true"]) {
+  &:not(.disabled) {
     &:hover:not(.active),
     &:global(.focus-visible):not(.active) {
       background-color: $color-blue-600;
@@ -104,17 +97,13 @@
       background-color: $color-blue-700;
     }
   }
-
-  &[aria-disabled="true"] {
-    background-color: rgba($color-blue-500-rgb, 0.3);
-  }
 }
 
 .destructive {
   background-color: $color-red-500;
   color: $color-white;
 
-  &:not([aria-disabled="true"]) {
+  &:not(.disabled) {
     &:hover:not(.active),
     &:global(.focus-visible):not(.active) {
       background-color: $color-red-600;
@@ -124,17 +113,13 @@
       background-color: $color-red-700;
     }
   }
-
-  &[aria-disabled="true"] {
-    background-color: rgba($color-red-500-rgb, 0.3);
-  }
 }
 
 .secondary-destructive {
   background-color: $color-white;
   color: $color-red-600;
 
-  &:not([aria-disabled="true"]) {
+  &:not(.disabled) {
     &:hover:not(.active),
     &:global(.focus-visible):not(.active) {
       background-color: $color-red-100;
@@ -143,10 +128,6 @@
     &.active {
       background-color: $color-red-200;
     }
-  }
-
-  &[aria-disabled="true"] {
-    color: rgba($color-red-600-rgb, 0.3);
   }
 }
 
