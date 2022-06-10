@@ -31,22 +31,21 @@ type ControlGroupTypes = {
   [key in ToolbarControlTypes]?: string
 }
 
-function toggleMarkCommand(mark: MarkType): Command {
+function createToggleMarkCommand(mark: MarkType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
   ) => toggleMark(mark)(state, dispatch)
 }
 
-// TODO: If a different list is clicked on a list update the list type
-function toggleListCommand(node: NodeType): Command {
+function createToggleListCommand(node: NodeType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
   ) => wrapInList(node)(state, dispatch)
 }
 
-function liftList(): Command {
+function createLiftListCommand(): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
@@ -54,13 +53,12 @@ function liftList(): Command {
     const { $from } = state.selection
     // calculate the parent node from the current tag selected
     const listItemNode = $from.node($from.depth - 1)?.type
-
     return liftListItem(listItemNode)(state, dispatch)
   }
 }
 
 // increase list indent should only be available on the second list node of a list item (otherwise it should be disabled)
-function indentList(): Command {
+function createIndentListCommand(): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
@@ -150,7 +148,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "bold")
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
-      action: toggleMarkCommand(type),
+      action: createToggleMarkCommand(type),
       label: "Bold",
       icon: boldIcon,
     })
@@ -161,7 +159,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "italic")
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
-      action: toggleMarkCommand(type),
+      action: createToggleMarkCommand(type),
       label: "Italic",
       icon: italicIcon,
     })
@@ -172,7 +170,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "underline")
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
-      action: toggleMarkCommand(type),
+      action: createToggleMarkCommand(type),
       label: "Underline",
       icon: underlineIcon,
     })
@@ -182,7 +180,7 @@ export function buildControlMap(
     const type = schema.nodes.bulletList
     const groupIndex = getGroupIndex(controlGroupIndex, "bulletList")
     toolbarControls[groupIndex].push({
-      action: toggleListCommand(type),
+      action: createToggleListCommand(type),
       isActive: false,
       label: "Bullet List",
       icon: bulletListIcon,
@@ -193,7 +191,7 @@ export function buildControlMap(
     const type = schema.nodes.orderedList
     const groupIndex = getGroupIndex(controlGroupIndex, "orderedList")
     toolbarControls[groupIndex].push({
-      action: toggleListCommand(type),
+      action: createToggleListCommand(type),
       isActive: false,
       label: "Numbered List",
       icon: numberedListIcon,
@@ -208,14 +206,14 @@ export function buildControlMap(
 
     toolbarControls[groupIndex].push(
       {
-        action: liftList(),
+        action: createLiftListCommand(),
         disabled: liftListIsDisabled(editorState),
         isActive: false,
         label: "Decrease indent",
         icon: decreaseIndentIcon,
       },
       {
-        action: indentList(),
+        action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
         label: "Increase indent",
