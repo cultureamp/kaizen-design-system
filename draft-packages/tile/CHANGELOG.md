@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.8...@kaizen/draft-tile@5.8.9) (2022-06-10)
+
+
+### Bug Fixes
+
+* Allow passing both href and onClick to Button from Action component ([#2788](https://github.com/cultureamp/kaizen-design-system/issues/2788)) ([c0d3c3f](https://github.com/cultureamp/kaizen-design-system/commit/c0d3c3f39e94038d5b626bfc6474ed8e53f1a393))
+
+
+
+
+
 ## [5.8.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.7...@kaizen/draft-tile@5.8.8) (2022-06-09)
 
 **Note:** Version bump only for package @kaizen/draft-tile
