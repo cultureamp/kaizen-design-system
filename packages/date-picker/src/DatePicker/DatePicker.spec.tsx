@@ -56,12 +56,16 @@ describe("<DatePicker />", () => {
   describe("Selecting a date using the calendar", () => {
     beforeEach(() => {
       render(<DatePickerWrapper defaultMonth={new Date("2022-03-01")} />)
+
       const calendarButton = screen.getByLabelText("Choose date", {
         selector: "button",
       })
+
       userEvent.click(calendarButton)
-      const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
-      act(() => {
+
+      waitFor(() => {
+        const dateToSelect =
+          screen.getByText("6th March (Sunday)").parentElement
         dateToSelect?.focus()
         userEvent.keyboard("{enter}")
       })
@@ -179,34 +183,38 @@ describe("<DatePicker />", () => {
   })
 
   describe("Click on input", () => {
-    it("show focus on input", async () => {
+    it("show focus on input", () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
-      const input = screen.getByRole("combobox")
 
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
-      waitFor(() => {
-        userEvent.click(input)
-        expect(screen.queryByRole("dialog")).toBeInTheDocument()
-      })
 
-      expect(input).toHaveFocus()
+      const input = screen.getByLabelText("Choose date", { selector: "input" })
+      userEvent.click(input)
+
+      waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeInTheDocument()
+        expect(input).toHaveFocus()
+      })
     })
 
     it("show focus on the input when a new date is selected from the calendar", async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
-      const input = screen.getByRole("combobox")
 
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-      waitFor(() => {
-        userEvent.click(input)
-        expect(screen.queryByRole("dialog")).toBeInTheDocument()
-        const dateToSelect =
-          screen.getByText("6th March (Sunday)").parentElement
+      const input = screen.getByLabelText("Choose date", { selector: "input" })
+      userEvent.click(input)
 
-        dateToSelect && userEvent.click(dateToSelect)
+      await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeInTheDocument()
       })
-      expect(input).toHaveFocus()
+
+      const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
+      dateToSelect && userEvent.click(dateToSelect)
+
+      waitFor(() => {
+        expect(input).toHaveFocus()
+      })
     })
   })
 
@@ -245,9 +253,9 @@ describe("<DatePicker />", () => {
         expect(screen.queryByRole("dialog")).toBeInTheDocument()
       })
 
-      const dateToSelect = screen.getByText(todayFormatted).parentElement
+      const todayDate = screen.getByText(todayFormatted).parentElement
 
-      expect(dateToSelect).toHaveFocus()
+      expect(todayDate).toHaveFocus()
     })
   })
 
@@ -284,9 +292,9 @@ describe("<DatePicker />", () => {
         expect(screen.queryByRole("dialog")).toBeInTheDocument()
       })
 
-      const dateToSelect = screen.getByText(todayFormatted).parentElement
+      const todayDate = screen.getByText(todayFormatted).parentElement
 
-      expect(dateToSelect).toHaveFocus()
+      expect(todayDate).toHaveFocus()
     })
   })
 
