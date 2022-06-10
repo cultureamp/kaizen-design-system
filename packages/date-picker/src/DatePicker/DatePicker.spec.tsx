@@ -197,18 +197,16 @@ describe("<DatePicker />", () => {
       const input = screen.getByRole("combobox")
 
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
-      await act(async () => {
-        userEvent.click(input)
-      })
 
       waitFor(() => {
+        userEvent.click(input)
         expect(screen.queryByRole("dialog")).toBeInTheDocument()
         const dateToSelect =
           screen.getByText("6th March (Sunday)").parentElement
 
         dateToSelect && userEvent.click(dateToSelect)
-        expect(input).toHaveFocus()
       })
+      expect(input).toHaveFocus()
     })
   })
 
