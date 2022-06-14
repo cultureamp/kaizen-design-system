@@ -144,7 +144,7 @@ describe("<DatePicker />", () => {
   })
 
   describe("Keydown arrow on input", () => {
-    it("show focus on selected day", async () => {
+    it("shows focus on selected day", async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
       const input = screen.getByRole("combobox")
 
@@ -161,7 +161,7 @@ describe("<DatePicker />", () => {
       expect(selectedDate.parentElement).toHaveFocus()
     })
 
-    it("show focus on today when no date is selected", async () => {
+    it("shows focus on today when no date is selected", async () => {
       const today = new Date()
       const todayFormatted = format(today, "do LLLL (eeee)") // e.g 6th June (Monday)
 
@@ -183,7 +183,7 @@ describe("<DatePicker />", () => {
   })
 
   describe("Click on input", () => {
-    it("show focus on input", () => {
+    it("shows focus on input", () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
 
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
@@ -197,7 +197,7 @@ describe("<DatePicker />", () => {
       })
     })
 
-    it("show focus on the input when a new date is selected from the calendar", async () => {
+    it("shows focus on the input when a new date is selected from the calendar", async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
 
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
@@ -219,7 +219,7 @@ describe("<DatePicker />", () => {
   })
 
   describe("Click on calendar button", () => {
-    it("show focus on selected day", async () => {
+    it("shows focus on selected day", async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
 
       const calendarButton = screen.getByLabelText("Change date, Mar 1, 2022", {
@@ -237,7 +237,7 @@ describe("<DatePicker />", () => {
       expect(selectedDate).toHaveFocus()
     })
 
-    it("show focus on today when no date is selected", async () => {
+    it("shows focus on today when no date is selected", async () => {
       const today = new Date()
       const todayFormatted = format(today, "do LLLL (eeee)") // e.g 6th June (Monday)
 
@@ -260,7 +260,7 @@ describe("<DatePicker />", () => {
   })
 
   describe("Keydown enter on calendar button", () => {
-    it("show focus on selected day", async () => {
+    it("shows focus on selected day", async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
       const calendarButton = screen.getByLabelText("Change date, Mar 1, 2022", {
         selector: "button",
@@ -277,7 +277,7 @@ describe("<DatePicker />", () => {
       expect(selectedDate.parentElement).toHaveFocus()
     })
 
-    it("show focus on today when no date is selected", async () => {
+    it("shows focus on today when no date is selected", async () => {
       const today = new Date()
       const todayFormatted = format(today, "do LLLL (eeee)") // e.g 6th June (Monday)
 
