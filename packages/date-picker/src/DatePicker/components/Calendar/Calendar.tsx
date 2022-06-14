@@ -127,3 +127,5 @@ export const Calendar: React.VFC<CalendarProps> = ({
     </div>
   )
 }
+
+Calendar.displayName = "Calendar"
