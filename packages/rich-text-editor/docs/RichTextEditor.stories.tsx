@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { RichTextEditor, EditorContentArray, RichTextEditorProps } from "@kaizen/rich-text-editor"
-import { CATEGORIES } from "../../../storybook/constants"
 import { Label } from "@kaizen/draft-form"
+import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
   title: `${CATEGORIES.components}/Rich Text Editor`,
