@@ -123,12 +123,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
     onBlur(undefined, valueString)
   }
 
-  const handleFocus: React.FocusEventHandler<HTMLInputElement> = e => {
+  const handleFocus: React.FocusEventHandler<HTMLInputElement> = (
+    e: React.FocusEvent<HTMLInputElement>
+  ) => {
     valueDate && setValueString(format(valueDate, DateFormat.Numeral))
     onFocus && onFocus(e)
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setValueString(e.target.value)
     onChange && onChange(e)
   }
