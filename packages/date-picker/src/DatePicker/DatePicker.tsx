@@ -272,6 +272,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       e.preventDefault()
       setIsOpen(true)
       setLastTrigger("inputKeydown")
+    } else if (e.key === "Tab" && selectedDay) {
+      isOpen && setIsOpen(false)
+      setLastTrigger("calendarButton")
     }
   }
 
