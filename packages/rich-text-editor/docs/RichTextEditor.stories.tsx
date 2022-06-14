@@ -1,6 +1,8 @@
 import React, { useState } from "react"
-import { RichTextEditor, EditorContentArray } from "@kaizen/rich-text-editor"
+import { Story } from "@storybook/react"
+import { RichTextEditor, EditorContentArray, RichTextEditorProps } from "@kaizen/rich-text-editor"
 import { CATEGORIES } from "../../../storybook/constants"
+import { Label } from "@kaizen/draft-form"
 
 export default {
   title: `${CATEGORIES.components}/Rich Text Editor`,
@@ -14,28 +16,49 @@ export default {
   },
 }
 
-export const Default = args => {
+export const Default: Story<RichTextEditorProps> = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
   return (
     <>
       <RichTextEditor
         value={rteData}
         onChange={data => setRTEData(data)}
-        {...args}
+        labelText={"Label"}
+        rows={3}
+        controls={[
+          { name: "bold", group: "inline" },
+          { name: "italic", group: "inline" },
+          { name: "underline", group: "inline" },
+          { name: "orderedList", group: "list" },
+          { name: "bulletList", group: "list" },
+        ]}
       />
     </>
   )
 }
 
 Default.storyName = "Default (Kaizen Demo)"
-Default.args = {
-  labelText: "Label",
-  rows: 3,
-  controls: [
-    { name: "bold", group: "inline" },
-    { name: "italic", group: "inline" },
-    { name: "underline", group: "inline" },
-    { name: "orderedList", group: "list" },
-    { name: "bulletList", group: "list" },
-  ],
+
+export const WithLabelledBy: Story<RichTextEditorProps> = args => {
+  const [rteData, setRTEData] = useState<EditorContentArray>([])
+  return (
+    <>
+      <Label id="Label-id" labelText="Sample Label" />
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        labelledBy={"Label-id"}
+        rows={3}
+        controls={[
+          { name: "bold", group: "inline" },
+          { name: "italic", group: "inline" },
+          { name: "underline", group: "inline" },
+          { name: "orderedList", group: "list" },
+          { name: "bulletList", group: "list" },
+        ]}
+      />
+    </>
+  )
 }
+
+WithLabelledBy.storyName = "Rich Text Editor with LabelledBy Prop"
