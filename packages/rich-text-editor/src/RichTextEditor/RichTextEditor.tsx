@@ -51,7 +51,7 @@ interface RTEWithLabelledBy extends BaseRichTextEditorProps {
   labelledBy: string
 }
 
-export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy;
+export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
 /**
  * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
