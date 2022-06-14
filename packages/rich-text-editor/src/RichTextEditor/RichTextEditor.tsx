@@ -29,12 +29,10 @@ export interface ToolbarItems {
   group?: string
 }
 
-export interface RichTextEditorProps
+interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
-  labelText: ReactNode
-  labelledBy: string
   controls?: ToolbarItems[]
   /**
    * Sets a default min-height for the editable area in units of body paragraph line height, similar to the 'rows' attribute on <textarea>.
@@ -43,6 +41,17 @@ export interface RichTextEditorProps
   rows?: EditorRows
 }
 
+interface RTEWithLabelText extends BaseRichTextEditorProps {
+  labelText: ReactNode
+  labelledBy?: never
+}
+
+interface RTEWithLabelledBy extends BaseRichTextEditorProps {
+  labelText?: never
+  labelledBy: string
+}
+
+export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy;
 /**
  * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
