@@ -33,20 +33,37 @@
     right: calc(-1 * #{$focus-ring-offset});
     bottom: calc(-1 * #{$focus-ring-offset});
   }
+
+  &.disabled {
+    opacity: 0.3;
+    &:global(.focus-visible)::after,
+    &:focus-visible:after {
+      color: rgba($color-purple-800-rgb, 0.3);
+      outline-offset: -2px;
+      background-color: transparent;
+      border-color: transparent;
+      opacity: 1;
+      outline-style: $border-dashed-border-style;
+      outline-width: $border-focus-ring-border-width;
+      outline-color: $color-purple-800;
+    }
+  }
 }
 
 .default {
   background-color: $color-white;
   color: $color-purple-800;
 
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-gray-200;
-  }
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:global(.focus-visible):not(.active) {
+      background-color: $color-gray-200;
+    }
 
-  &.active {
-    background-color: $color-gray-300;
-    color: $color-purple-800;
+    &.active {
+      background-color: $color-gray-300;
+      color: $color-purple-800;
+    }
   }
 }
 
@@ -54,13 +71,15 @@
   background-color: $color-white;
   color: $color-blue-500;
 
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-blue-100;
-  }
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:global(.focus-visible):not(.active) {
+      background-color: $color-blue-100;
+    }
 
-  &.active {
-    background-color: $color-blue-200;
+    &.active {
+      background-color: $color-blue-200;
+    }
   }
 }
 
@@ -68,13 +87,15 @@
   background-color: $color-blue-500;
   color: $color-white;
 
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-blue-600;
-  }
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:global(.focus-visible):not(.active) {
+      background-color: $color-blue-600;
+    }
 
-  &.active {
-    background-color: $color-blue-700;
+    &.active {
+      background-color: $color-blue-700;
+    }
   }
 }
 
@@ -82,13 +103,15 @@
   background-color: $color-red-500;
   color: $color-white;
 
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-red-600;
-  }
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:global(.focus-visible):not(.active) {
+      background-color: $color-red-600;
+    }
 
-  &.active {
-    background-color: $color-red-700;
+    &.active {
+      background-color: $color-red-700;
+    }
   }
 }
 
@@ -96,13 +119,15 @@
   background-color: $color-white;
   color: $color-red-600;
 
-  &:hover:not(.active),
-  &:global(.focus-visible):not(.active) {
-    background-color: $color-red-100;
-  }
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:global(.focus-visible):not(.active) {
+      background-color: $color-red-100;
+    }
 
-  &.active {
-    background-color: $color-red-200;
+    &.active {
+      background-color: $color-red-200;
+    }
   }
 }
 
