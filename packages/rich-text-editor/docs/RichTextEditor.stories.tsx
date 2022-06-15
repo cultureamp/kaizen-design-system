@@ -42,27 +42,3 @@ export const Default: Story<RichTextEditorProps> = args => {
 }
 
 Default.storyName = "Default (Kaizen Demo)"
-
-export const WithLabelledBy: Story<RichTextEditorProps> = args => {
-  const [rteData, setRTEData] = useState<EditorContentArray>([])
-  return (
-    <>
-      <Label id="Label-id" labelText="Sample Label" />
-      <RichTextEditor
-        value={rteData}
-        onChange={data => setRTEData(data)}
-        labelledBy={"Label-id"}
-        rows={3}
-        controls={[
-          { name: "bold", group: "inline" },
-          { name: "italic", group: "inline" },
-          { name: "underline", group: "inline" },
-          { name: "orderedList", group: "list" },
-          { name: "bulletList", group: "list" },
-        ]}
-      />
-    </>
-  )
-}
-
-WithLabelledBy.storyName = "Rich Text Editor with LabelledBy Prop"
