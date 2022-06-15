@@ -47,13 +47,16 @@ const InlineWrapper: React.VFC<React.HTMLAttributes<HTMLDivElement>> = ({
 const StickerSheetTemplate: Story = () => (
   <>
     <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Base", "Active"]} />
+      <StoryWrapper.RowHeader headings={["Base", "Active", "Disabled"]} />
       <StoryWrapper.Row rowTitle="Default">
         <InlineWrapper>
           <ToggleIconButton isActive={false} {...defaultButton} />
         </InlineWrapper>
         <InlineWrapper>
           <ToggleIconButton isActive={true} {...defaultButton} />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton disabled isActive={true} {...defaultButton} />
         </InlineWrapper>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Primary">
@@ -67,6 +70,14 @@ const StickerSheetTemplate: Story = () => (
         <InlineWrapper>
           <ToggleIconButton mood="primary" isActive={true} {...defaultButton} />
         </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            disabled
+            mood="primary"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Secondary">
         <InlineWrapper>
@@ -78,6 +89,14 @@ const StickerSheetTemplate: Story = () => (
         </InlineWrapper>
         <InlineWrapper>
           <ToggleIconButton
+            mood="secondary"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            disabled
             mood="secondary"
             isActive={true}
             {...defaultButton}
@@ -99,6 +118,14 @@ const StickerSheetTemplate: Story = () => (
             {...defaultButton}
           />
         </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            disabled
+            mood="destructive"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Secondary destructive">
         <InlineWrapper>
@@ -110,6 +137,14 @@ const StickerSheetTemplate: Story = () => (
         </InlineWrapper>
         <InlineWrapper>
           <ToggleIconButton
+            mood="secondary-destructive"
+            isActive={true}
+            {...defaultButton}
+          />
+        </InlineWrapper>
+        <InlineWrapper>
+          <ToggleIconButton
+            disabled
             mood="secondary-destructive"
             isActive={true}
             {...defaultButton}

@@ -97,6 +97,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                   <ToggleIconButton
                     key={controlKeyIndex}
                     icon={controlConfig.icon}
+                    disabled={controlConfig.disabled}
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
                     onClick={() => dispatchTransaction(controlConfig.action)}

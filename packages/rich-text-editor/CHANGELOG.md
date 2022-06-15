@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.3...@kaizen/rich-text-editor@1.12.0) (2022-06-15)
+
+
+### Features
+
+* update indentation logic to include disabled states ([#2779](https://github.com/cultureamp/kaizen-design-system/issues/2779)) ([4e355cd](https://github.com/cultureamp/kaizen-design-system/commit/4e355cdf936f784bc82c519b49ef181f7b9d5d8f))
+
+
+
+
+
 ## [1.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.2...@kaizen/rich-text-editor@1.11.3) (2022-06-09)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
