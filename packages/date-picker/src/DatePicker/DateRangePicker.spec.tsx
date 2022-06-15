@@ -26,7 +26,7 @@ const DateRangePickerWrapper = ({
     <DateRangePicker
       id="test__date-range-picker"
       labelText="Choose date"
-      onChange={setSelectedDateRange}
+      onChange={onDateRangeChange}
       value={value}
       defaultMonth={new Date("2022-03-01")}
       {...restProps}
