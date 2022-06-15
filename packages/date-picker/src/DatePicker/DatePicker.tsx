@@ -145,11 +145,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   )
 
   const [lastTrigger, setLastTrigger] = useState<
-    | "inputFocus"
-    | "inputClick"
-    | "inputKeydown"
-    | "calendarButton"
-    | "calendarSelectDay"
+    "inputFocus" | "inputClick" | "inputKeydown" | "calendarButton"
   >()
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -223,7 +219,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleCalendarDayChange = (date: Date): void => {
-    setLastTrigger("calendarSelectDay")
     if (!isDisabledDate(date, disabledDays)) {
       handleDayChange(date)
       setIsOpen(false)
@@ -234,9 +229,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     date: Date | undefined,
     inputValue: string
   ): void => {
-    if (lastTrigger !== "calendarSelectDay") {
-      handleDayChange(date, inputValue)
-    }
+    handleDayChange(date, inputValue)
   }
 
   const handleInputFocus = () => {

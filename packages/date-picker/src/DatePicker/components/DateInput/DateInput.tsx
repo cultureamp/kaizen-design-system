@@ -15,6 +15,7 @@ import { Matcher } from "react-day-picker/src/types/Matchers"
 import { DateFormat } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
+import calendarStyles from "../Calendar/Calendar.scss"
 import styles from "./DateInput.scss"
 
 type OmittedInputProps =
@@ -70,6 +71,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 const formatDateAsText = (
   date: Date,
   disabledDays: Matcher[] | undefined,
+
   onFormat: (newFormattedDate: string) => void
 ): void => {
   if (isDisabledDate(date, disabledDays)) {
@@ -105,18 +107,25 @@ export const DateInput: React.VFC<DateInputProps> = ({
   const [valueString, setValueString] = useState<string>("")
 
   useEffect(() => {
-    if (inputRef?.current !== document.activeElement) {
+    if (
+      inputRef?.current !== document.activeElement &&
+      !document.activeElement?.classList.contains(calendarStyles.day)
+    ) {
       valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
     }
   }, [valueDate, inputRef])
 
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = () => {
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (
+    e: React.FocusEvent<HTMLInputElement>
+  ) => {
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
       if (isInvalidDate(parsedDate)) {
         return onBlur(parsedDate, valueString)
       }
-
+      if (e.relatedTarget?.classList.contains(calendarStyles.day)) {
+        return onBlur(parsedDate, valueString)
+      }
       formatDateAsText(parsedDate, disabledDays, setValueString)
       return onBlur(parsedDate, valueString)
     }
