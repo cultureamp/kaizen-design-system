@@ -145,7 +145,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   )
 
   const [lastTrigger, setLastTrigger] = useState<
-    "inputFocus" | "inputClick" | "inputKeydown" | "calendarButton"
+    "inputFocus" | "inputKeydown" | "calendarButton"
   >()
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -232,12 +232,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     handleDayChange(date, inputValue)
   }
 
-  const handleInputFocus = () => {
-    setLastTrigger("inputFocus")
-  }
+  const handleInputFocus = () => setLastTrigger("inputFocus")
 
   const handleReturnFocus = (): void => {
-    if (lastTrigger === "inputKeydown") {
+    if (lastTrigger === "inputKeydown" || lastTrigger === "inputFocus") {
       return inputRef.current?.focus()
     }
 
@@ -260,20 +258,21 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<Element>
   ): void => {
-    // check whether event key is arrow down or alt + arrow down, open calendar if so.
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)
       setLastTrigger("inputKeydown")
     } else if (e.key === "Tab" && selectedDay) {
       isOpen && setIsOpen(false)
+      // @todo what's this? check with Nat
+      // calendar remains open, but since focus shifted to calendarButton instead of input
+      // the lastTrigger wouldn't be accurate
       setLastTrigger("calendarButton")
     }
   }
 
   const handleCalendarMount = (calendarElement: CalendarElement): void => {
     switch (lastTrigger) {
-      case "inputClick":
       case "inputFocus":
         return
       default:
