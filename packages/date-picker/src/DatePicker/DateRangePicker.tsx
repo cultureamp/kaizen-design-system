@@ -5,12 +5,7 @@ import { usePopper } from "react-popper"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
-import {
-  DateRange,
-  DateInterval,
-  ActiveModifiers,
-  isMatch,
-} from "react-day-picker"
+import { DateRange, DateInterval, isMatch } from "react-day-picker"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
@@ -39,7 +34,7 @@ export interface DateRangePickerProps {
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  weekStartsOn?: DayOfWeek
+  weekStartsOn?: CalendarProps["weekStartsOn"]
 
   // Accepts a date to display that month on first render.
   defaultMonth?: CalendarProps["defaultMonth"]
@@ -101,14 +96,13 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   value,
   ...inputProps
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -122,16 +116,6 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
     placement: "bottom-start",
   })
 
-  const handleOpenClose = () => {
-    setIsOpen(!isOpen)
-  }
-
-  const handleReturnFocus = () => {
-    if (buttonRef.current) {
-      buttonRef.current.focus()
-    }
-  }
-
   const disabledDays = calculateDisabledDays({
     disabledDates,
     disabledDaysOfWeek,
@@ -141,7 +125,17 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
     disabledAfter,
   })
 
-  const handleDayClick = (day: Date, modifiers: ActiveModifiers) => {
+  const handleOpenClose = (): void => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleReturnFocus = (): void => {
+    if (buttonRef.current) {
+      buttonRef.current.focus()
+    }
+  }
+
+  const handleDayClick = (day: Date): void => {
     /** react-day-picker will fire events for disabled days by default.
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
@@ -171,7 +165,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
     }
   }
 
-  const isSelectingFirstDay = (range: DateRange, day: Date) => {
+  const isSelectingFirstDay = (range: DateRange, day: Date): boolean => {
     const isBeforeFirstDay =
       !!range.from &&
       isMatch(day, [
@@ -206,10 +200,10 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
-          {...inputProps}
           aria-label={
             selectedDateRange?.from ? `Change date: ${value}` : "Choose date"
           }
+          {...inputProps}
         >
           <div className={datePickerStyles.startIconAdornment}>
             <Icon icon={dateStart} role="presentation" />
@@ -229,10 +223,11 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           onEscapeKey={() => {
             handleOpenClose()
           }}
+          enabled={isOpen}
         >
           <Calendar
-            mode="range"
             id="calendar-dialog"
+            mode="range"
             setPopperElement={setPopperElement}
             popperStyles={styles}
             popperAttributes={attributes}

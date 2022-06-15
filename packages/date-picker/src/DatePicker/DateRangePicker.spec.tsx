@@ -1,36 +1,73 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { act, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "react-day-picker"
-import { DateRangePicker } from "./DateRangePicker"
+import { formatDateRangeValue } from "../utils/formatDateRangeValue"
+import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
 
-const defaultProps = {
-  id: "date-picker-range",
-  labelText: "Choose date",
-  defaultMonth: new Date("2022-03-01"),
-  onChange: jest.fn<void, [DateRange]>(),
+const DateRangePickerWrapper = ({
+  ...restProps
+}: Partial<DateRangePickerProps>) => {
+  const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
+    from: undefined,
+    to: undefined,
+  })
+  const [value, setValue] = useState("")
+
+  const onDateRangeChange = (dateRange: DateRange) => {
+    setSelectedDateRange(dateRange)
+  }
+
+  useEffect(() => {
+    setValue(formatDateRangeValue(selectedDateRange))
+  }, [selectedDateRange])
+
+  return (
+    <DateRangePicker
+      id="test__date-range-picker"
+      labelText="Choose date"
+      onChange={setSelectedDateRange}
+      value={value}
+      defaultMonth={new Date("2022-03-01")}
+      {...restProps}
+    />
+  )
 }
 
 describe("<DateRangePicker />", () => {
-  it("renders DateRangePicker and shows/hides calendar on button press", async () => {
-    render(<DateRangePicker {...defaultProps} />)
+  it("renders DateRangePicker and shows/hides on button press", async () => {
+    render(<DateRangePickerWrapper />)
 
-    const element = screen.getByRole("button")
+    const button = screen.getByRole("button")
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    await act(async () => element.click())
+    await act(async () => button.click())
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
   })
 
-  it("is able to select date range and shows in button", async () => {
-    render(<DateRangePicker {...defaultProps} />)
+  it("shows/hides on button focus and keydown enter", () => {
+    render(<DateRangePickerWrapper />)
 
-    const element = screen.getByRole("button")
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+    const button = screen.getByRole("button")
+    waitFor(() => {
+      button.focus()
+      userEvent.keyboard("{enter}")
+    })
+
+    expect(screen.queryByRole("dialog")).toBeInTheDocument()
+  })
+
+  it("is able to select date range and shows in button", () => {
+    render(<DateRangePickerWrapper />)
+
+    const button = screen.getByRole("button")
 
     waitFor(() => {
-      element.click()
+      button.click()
       const selectedFromDate = screen.getByText("6th March (Sunday)")
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
@@ -42,14 +79,61 @@ describe("<DateRangePicker />", () => {
       userEvent.keyboard("{enter}")
     })
 
-    expect(element.innerText === "Mar 6 – Mar 16, 2022")
+    expect(button.innerText === "Mar 6 – Mar 16, 2022")
   })
 
-  it("has disabled attribute on button", async () => {
-    render(<DateRangePicker {...defaultProps} isDisabled />)
+  it("resets the selected range when the user selected a new range", () => {
+    const selectedDateRange = {
+      from: new Date(2022, 2, 1),
+      to: new Date(2022, 2, 16),
+    }
+    render(<DateRangePickerWrapper selectedDateRange={selectedDateRange} />)
 
-    const element = screen.getByRole("button")
+    const button = screen.getByRole("button")
+    expect(button.innerText === "Mar 1 – Mar 16, 2022")
 
-    expect(element).toHaveAttribute("disabled")
+    waitFor(() => {
+      button.click()
+      const selectedFromDate = screen.getByText("6th March (Sunday)")
+      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
+      userEvent.keyboard("{enter}")
+    })
+
+    waitFor(() => {
+      const selectedToDate = screen.getByText("16th March (Wednesday)")
+      selectedToDate.parentElement && selectedToDate.parentElement.focus()
+      userEvent.keyboard("{enter}")
+    })
+
+    expect(button.innerText === "Mar 6 – Mar 16, 2022")
+  })
+  it("resets the selected from date when the user attempts to select a to date that is before the from date", () => {
+    render(<DateRangePickerWrapper />)
+
+    const button = screen.getByRole("button")
+
+    waitFor(() => {
+      button.click()
+      const selectedFromDate = screen.getByText("6th March (Sunday)")
+      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
+      userEvent.keyboard("{enter}")
+    })
+
+    waitFor(() => {
+      const selectedToDate = screen.getByText("1st March (Tuesday)")
+      selectedToDate.parentElement && selectedToDate.parentElement.focus()
+      userEvent.keyboard("{enter}")
+      expect(screen.queryByRole("dialog")).toBeInTheDocument()
+    })
+
+    expect(button.innerText === "Mar 1, 2022")
+  })
+
+  it("has disabled attribute on button", () => {
+    render(<DateRangePickerWrapper isDisabled />)
+
+    const button = screen.getByRole("button")
+
+    expect(button).toHaveAttribute("disabled")
   })
 })
