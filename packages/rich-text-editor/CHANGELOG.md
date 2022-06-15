@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.12.0...@kaizen/rich-text-editor@1.13.0) (2022-06-15)
+
+
+### Features
+
+* Allow aria-labelledby as an alternative to labelText on RTE ([#2790](https://github.com/cultureamp/kaizen-design-system/issues/2790)) ([20937b4](https://github.com/cultureamp/kaizen-design-system/commit/20937b408616cfe5481fbe09ec6cd2276ad9aa12))
+
+
+
+
+
 # [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.3...@kaizen/rich-text-editor@1.12.0) (2022-06-15)
 
 
