@@ -109,6 +109,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   useEffect(() => {
     if (
       inputRef?.current !== document.activeElement &&
+      // This check should belong to the parent
       !document.activeElement?.classList.contains(calendarStyles.day)
     ) {
       valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
@@ -120,12 +121,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
   ) => {
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
+
       if (isInvalidDate(parsedDate)) {
         return onBlur(parsedDate, valueString)
       }
+
+      // This check should belong to the parent
       if (e.relatedTarget?.classList.contains(calendarStyles.day)) {
         return onBlur(parsedDate, valueString)
       }
+
       formatDateAsText(parsedDate, disabledDays, setValueString)
       return onBlur(parsedDate, valueString)
     }
