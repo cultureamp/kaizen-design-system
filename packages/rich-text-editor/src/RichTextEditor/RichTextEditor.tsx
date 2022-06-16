@@ -29,11 +29,10 @@ export interface ToolbarItems {
   group?: string
 }
 
-export interface RichTextEditorProps
+interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
-  labelText: ReactNode
   controls?: ToolbarItems[]
   /**
    * Sets a default min-height for the editable area in units of body paragraph line height, similar to the 'rows' attribute on <textarea>.
@@ -42,6 +41,17 @@ export interface RichTextEditorProps
   rows?: EditorRows
 }
 
+interface RTEWithLabelText extends BaseRichTextEditorProps {
+  labelText: ReactNode
+  "aria-labelledby"?: never
+}
+
+interface RTEWithLabelledBy extends BaseRichTextEditorProps {
+  labelText?: never
+  "aria-labelledby": string
+}
+
+export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
 /**
  * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
@@ -51,13 +61,14 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     onChange,
     value,
     labelText,
+    "aria-labelledby": labelledBy,
     classNameOverride,
     controls,
     rows = 3,
     ...restProps
   } = props
   const [schema] = useState<Schema>(createSchemaFromControls(controls))
-  const [labelId] = useState<string>(v4())
+  const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
     EditorState.create({
@@ -86,7 +97,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
 
   return (
     <>
-      {labelText && <Label id={labelId} labelText={labelText} />}
+      {!labelledBy && labelText && <Label id={labelId} labelText={labelText} />}
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
       <div className={styles.editorWrapper}>
         {controls && (
