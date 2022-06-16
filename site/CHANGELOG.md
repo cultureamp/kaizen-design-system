@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-private.170](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.169...site@0.0.0-private.170) (2022-06-16)
+
+**Note:** Version bump only for package site
+
+
+
+
+
 # [0.0.0-private.169](https://github.com/cultureamp/kaizen-design-system/compare/site@0.0.0-private.168...site@0.0.0-private.169) (2022-06-09)
 
 **Note:** Version bump only for package site
