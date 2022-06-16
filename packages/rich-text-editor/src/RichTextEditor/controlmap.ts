@@ -5,6 +5,7 @@ import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.
 import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.icon.svg"
 import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 
 import { EditorState, Transaction } from "prosemirror-state"
 import { Schema, NodeType, MarkType } from "prosemirror-model"
@@ -220,6 +221,17 @@ export function buildControlMap(
         icon: increaseIndentIcon,
       }
     )
+  }
+
+  if (schema.marks.link) {
+    const type = schema.marks.link
+    const groupIndex = getGroupIndex(controlGroupIndex, "link")
+    toolbarControls[groupIndex].push({
+      action: createToggleMarkCommand(type),
+      isActive: false,
+      label: "Link",
+      icon: linkIcon,
+    })
   }
 
   return toolbarControls
