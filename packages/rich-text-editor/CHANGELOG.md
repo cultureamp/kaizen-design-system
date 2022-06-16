@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.13.0...@kaizen/rich-text-editor@1.13.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* Update RTE icons to be a consistent 20x20 viewbox ([#2793](https://github.com/cultureamp/kaizen-design-system/issues/2793)) ([1d10542](https://github.com/cultureamp/kaizen-design-system/commit/1d10542e02fbbe25318820c77393284c7cf499c6))
+
+
+
+
+
 # [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.12.0...@kaizen/rich-text-editor@1.13.0) (2022-06-15)
 
 

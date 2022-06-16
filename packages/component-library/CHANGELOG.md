@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.4...@kaizen/component-library@14.3.5) (2022-06-16)
+
+
+### Bug Fixes
+
+* Update RTE icons to be a consistent 20x20 viewbox ([#2793](https://github.com/cultureamp/kaizen-design-system/issues/2793)) ([1d10542](https://github.com/cultureamp/kaizen-design-system/commit/1d10542e02fbbe25318820c77393284c7cf499c6))
+
+
+
+
+
 ## [14.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.3...@kaizen/component-library@14.3.4) (2022-06-09)
 
 
