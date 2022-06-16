@@ -50,9 +50,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
           })}
           {...nativeButtonProps}
         >
-          <div className={styles.iconWrapper}>
-            <Icon icon={icon} role="presentation" inheritSize />
-          </div>
+          <Icon icon={icon} role="presentation" />
         </button>
       </Tooltip>
     )
