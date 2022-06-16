@@ -1,6 +1,5 @@
 import React from "react"
-import { act, render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
+import { render, screen } from "@testing-library/react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { DateInput } from "./DateInput"
 
@@ -12,9 +11,10 @@ const defaultProps = {
   isOpen: false,
   onButtonClick: jest.fn<void, []>(),
   onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
-  onBlur: jest.fn<void, [Date | undefined, string]>(),
+  onBlur: jest.fn,
+  onChange: jest.fn,
   calendarId: "calendar-dialog",
-  valueDate: undefined,
+  value: undefined,
 }
 
 describe("<DateInput />", () => {
@@ -31,41 +31,8 @@ describe("<DateInput />", () => {
     ).toBeInTheDocument()
   })
 
-  it("formats values when focus is on the input", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
-
-    const input = screen.getByRole("combobox")
-
-    await act(async () => {
-      input.focus()
-    })
-    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
-  })
-
-  it("formats values when the input loses focus - onBlur", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
-
-    const input = screen.getByRole("combobox")
-
-    await act(async () => {
-      input.focus()
-    })
-    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
-
-    // tab to next focusable element
-    await act(async () => {
-      userEvent.tab()
-    })
-
-    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
-  })
-
   it("updates calendar button aria-label with selected day", async () => {
-    render(<DateInput {...defaultProps} valueDate={new Date("2022-03-01")} />)
+    render(<DateInput {...defaultProps} value={"Mar 1, 2022"} />)
 
     expect(
       screen.getByLabelText("Change date, Mar 1, 2022")

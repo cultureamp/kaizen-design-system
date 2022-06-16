@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { act, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import format from "date-fns/format"
@@ -18,9 +18,7 @@ const DatePickerWrapper = ({
   const [validationMessage, setValidationMessage] = useState<React.ReactNode>(
     propsValidationMessage
   )
-  const [selectedDate, setValueDate] = useState<Date | undefined>(
-    selectedDay
-  )
+  const [selectedDate, setValueDate] = useState<Date | undefined>(selectedDay)
 
   const handleValidation = (validationResponse: ValidationResponse) => {
     validationResponse.status && setStatus(validationResponse.status)
@@ -121,16 +119,16 @@ describe("<DatePicker /> - Click on input", () => {
     })
 
     await waitFor(async () => {
-        const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
-        if (dateToSelect) {
-          userEvent.click(dateToSelect)
-        }
-      })
+      const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
+      if (dateToSelect) {
+        userEvent.click(dateToSelect)
+      }
+    })
 
-     await waitFor(() => {
+    await waitFor(() => {
       expect(input).toHaveFocus()
       expect(input).toHaveValue("03/06/2022")
-      })
+    })
   })
 })
 
@@ -264,8 +262,7 @@ describe("<DatePicker /> - Selecting a date using the calendar", () => {
     userEvent.click(calendarButton)
 
     waitFor(() => {
-      const dateToSelect =
-        screen.getByText("6th March (Sunday)").parentElement
+      const dateToSelect = screen.getByText("6th March (Sunday)").parentElement
       dateToSelect?.focus()
       userEvent.keyboard("{enter}")
     })
@@ -342,5 +339,40 @@ describe("<DatePicker /> - Validation", () => {
         screen.getByText("05/05/2022 is not available, try another date")
       ).toBeInTheDocument()
     })
+  })
+})
+
+describe("<DatePicker /> - Formatting", () => {
+  it("formats values when focus is on the input", async () => {
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+
+    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+
+    const input = screen.getByRole("combobox")
+
+    await act(async () => {
+      input.focus()
+    })
+    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
+  })
+
+  it("formats values when the input loses focus - onBlur", async () => {
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+
+    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+
+    const input = screen.getByRole("combobox")
+
+    await act(async () => {
+      input.focus()
+    })
+    expect(screen.getByDisplayValue("03/01/2022")).toBeInTheDocument()
+
+    // tab to next focusable element
+    await act(async () => {
+      userEvent.tab()
+    })
+
+    expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
   })
 })

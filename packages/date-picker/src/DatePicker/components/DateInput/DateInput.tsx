@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
@@ -9,13 +9,7 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
-import { format, parse } from "date-fns"
 import { Matcher } from "react-day-picker/src/types/Matchers"
-
-import { DateFormat } from "../../enums"
-import { isInvalidDate } from "../../../utils/isInvalidDate"
-import { isDisabledDate } from "../../../utils/isDisabledDate"
-import calendarStyles from "../Calendar/Calendar.scss"
 import styles from "./DateInput.scss"
 
 type OmittedInputProps =
@@ -25,8 +19,6 @@ type OmittedInputProps =
   | "status"
   | "inputValue"
   | "reversed"
-  | "onBlur"
-  | "value"
   | "type"
   | "ariaLabel"
   | "ariaDescribedBy"
@@ -52,11 +44,11 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   /**
    * The input value as a Date
    */
-  valueDate: Date | undefined
+  value: string | undefined
   /**
    * The callback for then onBlur is triggered on the input
    */
-  onBlur: (date: Date | undefined, inputValue: string) => void
+  // onBlur: (date: Date | undefined, inputValue: string) => void
   disabledDays?: Matcher[] | undefined
   /**
    * A descriptive message for `status` states
@@ -66,21 +58,6 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * Updates the styling of the validation FieldMessage
    */
   status?: FieldMessageStatus
-}
-
-const formatDateAsText = (
-  date: Date,
-  disabledDays: Matcher[] | undefined,
-
-  onFormat: (newFormattedDate: string) => void
-): void => {
-  if (isDisabledDate(date, disabledDays)) {
-    return onFormat(format(date, DateFormat.Numeral))
-  }
-  if (isInvalidDate(date)) {
-    return onFormat("Invalid Date")
-  }
-  onFormat(format(date, DateFormat.Text))
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -95,7 +72,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
   onButtonClick,
   calendarId,
   isOpen,
-  valueDate,
+  value,
   onBlur,
   onFocus,
   onChange,
@@ -104,53 +81,6 @@ export const DateInput: React.VFC<DateInputProps> = ({
   status,
   ...inputProps
 }) => {
-  const [valueString, setValueString] = useState<string>("")
-
-  useEffect(() => {
-    if (
-      inputRef?.current !== document.activeElement &&
-      // This check should belong to the parent
-      !document.activeElement?.classList.contains(calendarStyles.day)
-    ) {
-      valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
-    }
-  }, [valueDate, inputRef])
-
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (
-    e: React.FocusEvent<HTMLInputElement>
-  ) => {
-    if (valueString !== "") {
-      const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
-
-      if (isInvalidDate(parsedDate)) {
-        return onBlur(parsedDate, valueString)
-      }
-
-      // This check should belong to the parent
-      if (e.relatedTarget?.classList.contains(calendarStyles.day)) {
-        return onBlur(parsedDate, valueString)
-      }
-
-      formatDateAsText(parsedDate, disabledDays, setValueString)
-      return onBlur(parsedDate, valueString)
-    }
-    onBlur(undefined, valueString)
-  }
-
-  const handleFocus: React.FocusEventHandler<HTMLInputElement> = (
-    e: React.FocusEvent<HTMLInputElement>
-  ) => {
-    valueDate && setValueString(format(valueDate, DateFormat.Numeral))
-    onFocus && onFocus(e)
-  }
-
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setValueString(e.target.value)
-    onChange && onChange(e)
-  }
-
   const getDescription = (): React.ReactNode => {
     switch (typeof description) {
       case "string":
@@ -181,7 +111,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         aria-controls={calendarId}
         aria-describedby={description ? `${id}-field-message` : undefined}
         autoComplete="off"
-        value={valueString}
+        value={value}
         disabled={disabled}
         reversed={isReversed}
         endIconAdornment={
@@ -194,9 +124,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
             className={classnames(styles.iconButton, {
               [styles.calendarActive]: isOpen,
             })}
-            aria-label={
-              valueString ? `Change date, ${valueString}` : "Choose date"
-            }
+            aria-label={value ? `Change date, ${value}` : "Choose date"}
           >
             <div
               className={classnames({
@@ -207,9 +135,9 @@ export const DateInput: React.VFC<DateInputProps> = ({
             </div>
           </button>
         }
-        onChange={handleChange}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
+        onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
         {...inputProps}
       />
       {shouldShowValidationMessage && (

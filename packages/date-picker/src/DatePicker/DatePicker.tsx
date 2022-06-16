@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
-import { format } from "date-fns"
+import { format, parse } from "date-fns"
 import { DateRange, DateInterval } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
@@ -9,6 +9,8 @@ import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { setFocusInCalendar } from "../utils/setFocusInCalendar"
+import { formatDateAsText } from "../utils/formatDateAsText"
+import calendarStyles from "./components/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar, CalendarElement, CalendarProps } from "./components/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
@@ -18,7 +20,7 @@ type OmittedDateInputProps =
   | "icon"
   | "onButtonClick"
   | "calendarId"
-  | "valueDate"
+  | "value"
   | "onBlur"
   | "disabledDays"
 
@@ -135,7 +137,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onClick,
   ...restDateInputProps
 }) => {
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [valueString, setValueString] = useState<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [referenceElement, setReferenceElement] =
@@ -220,19 +222,46 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleCalendarDayChange = (date: Date): void => {
     if (!isDisabledDate(date, disabledDays)) {
+      if (lastTrigger === "calendarButton") {
+        formatDateAsText(date, disabledDays, setValueString)
+      } else {
+        setValueString(format(date, DateFormat.Numeral))
+      }
       handleDayChange(date)
       setIsOpen(false)
     }
   }
 
-  const handleInputBlur = (
-    date: Date | undefined,
-    inputValue: string
-  ): void => {
-    handleDayChange(date, inputValue)
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
+    if (valueString !== "") {
+      const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
+
+      if (isInvalidDate(parsedDate)) {
+        return handleDayChange(parsedDate, valueString)
+      }
+
+      if (e.relatedTarget?.classList.contains(calendarStyles.day)) {
+        return handleDayChange(parsedDate, valueString)
+      }
+
+      formatDateAsText(parsedDate, disabledDays, setValueString)
+      return handleDayChange(parsedDate, valueString)
+    }
+    handleDayChange(undefined, valueString)
   }
 
-  const handleInputFocus = () => setLastTrigger("inputFocus")
+  const handleInputFocus: React.FocusEventHandler<
+    HTMLInputElement
+  > = (): void => {
+    setLastTrigger("inputFocus")
+    selectedDay && setValueString(format(selectedDay, DateFormat.Numeral))
+  }
+
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setValueString(e.target.value)
+  }
 
   const handleReturnFocus = (): void => {
     if (lastTrigger === "inputKeydown" || lastTrigger === "inputFocus") {
@@ -250,7 +279,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     onButtonClick && onButtonClick()
   }
 
-  const handleInputClick: React.MouseEventHandler<HTMLInputElement> = e => {
+  const handleInputClick: React.MouseEventHandler<HTMLInputElement> = (
+    e: React.MouseEvent<HTMLInputElement, MouseEvent>
+  ): void => {
     setIsOpen(true)
     onClick && onClick(e)
   }
@@ -262,12 +293,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       e.preventDefault()
       setIsOpen(true)
       setLastTrigger("inputKeydown")
-    } else if (e.key === "Tab" && selectedDay) {
-      isOpen && setIsOpen(false)
-      // @todo what's this? check with Nat
-      // calendar remains open, but since focus shifted to calendarButton instead of input
-      // the lastTrigger wouldn't be accurate
-      setLastTrigger("calendarButton")
     }
   }
 
@@ -281,6 +306,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   useEffect(() => {
+    selectedDay && formatDateAsText(selectedDay, disabledDays, setValueString)
     if (selectedDay && isInvalidDate(selectedDay)) {
       onValidate({
         date: undefined,
@@ -317,7 +343,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       onEscapeKey={() => setIsOpen(false)}
       enabled={isOpen}
     >
-      <div ref={wrapperRef}>
+      <div>
         <div ref={setReferenceElement}>
           <DateInput
             id={id}
@@ -326,12 +352,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             isOpen={isOpen}
             onBlur={handleInputBlur}
             onFocus={handleInputFocus}
+            onChange={handleInputChange}
             labelText={labelText}
             icon={dateStart}
             onButtonClick={handleButtonClick}
             calendarId={`${id}-calendar-dialog`}
             onKeyDown={handleKeyDown}
-            valueDate={selectedDay}
+            value={valueString}
             disabledDays={disabledDays}
             onClick={handleInputClick}
             {...restDateInputProps}
