@@ -54,11 +54,18 @@ module.exports = (
           skipIfExists: true,
         },
         {
-          type: "addMany",
-          destination: "site/docs/components",
-          base: "plop-templates/site/docs/components",
-          templateFiles: "plop-templates/site/docs/components/*.hbs",
-          skipIfExists: true,
+          type: "modify",
+          path: "packages/{{kebabCase packageName}}/index.ts",
+          transform: (content, answers) => {
+            const componentName = plop.getHelper("pascalCase")(
+              answers.componentName
+            )
+            const exportStatement = `export * from "./src/${componentName}"`
+
+            if (content.includes(exportStatement)) return content
+
+            return `${content.trim()}\n${exportStatement}\n`
+          },
         },
       ]
     },
