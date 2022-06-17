@@ -10,6 +10,7 @@ import {
   Label,
 } from "@kaizen/draft-form"
 import { Matcher } from "react-day-picker/src/types/Matchers"
+import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.scss"
 
 type OmittedInputProps =
@@ -35,11 +36,11 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * A description that provides context for the text field
    */
   description?: React.ReactNode
-  isOpen: boolean
+  isCalendarOpen: boolean
   /**
    * Event for the onClick of the icon button
    */
-  onButtonClick: () => void
+  onButtonClick: React.MouseEventHandler<HTMLButtonElement>
   isReversed?: boolean
   /**
    * The input value as a Date
@@ -48,7 +49,6 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   /**
    * The callback for then onBlur is triggered on the input
    */
-  // onBlur: (date: Date | undefined, inputValue: string) => void
   disabledDays?: Matcher[] | undefined
   /**
    * A descriptive message for `status` states
@@ -61,36 +61,41 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
-  id,
-  disabled = false,
   inputRef,
   buttonRef,
+  id,
+  calendarId,
   labelText,
   description,
-  isReversed = false,
   icon,
   onButtonClick,
-  calendarId,
-  isOpen,
+  isCalendarOpen,
+  disabled,
+  isReversed = false,
   value,
-  onBlur,
-  onFocus,
-  onChange,
   disabledDays,
   validationMessage,
   status,
   ...inputProps
 }) => {
-  const getDescription = (): React.ReactNode => {
-    switch (typeof description) {
-      case "string":
-        return description + " (Format: mm/dd/yyyy)"
-      case "object":
-        return <>{description} (Format: mm/dd/yyyy)</>
-      default:
-        return "Format: mm/dd/yyyy"
-    }
-  }
+  // Focus behaviour breaks when this is a function component.
+  const IconButton: React.ReactNode = (
+    <button
+      ref={buttonRef}
+      aria-disabled={disabled}
+      disabled={disabled}
+      onClick={onButtonClick}
+      type="button"
+      className={classnames([
+        styles.iconButton,
+        isCalendarOpen && styles.calendarActive,
+        disabled && styles.disabled,
+      ])}
+      aria-label={value ? `Change date, ${value}` : "Choose date"}
+    >
+      <Icon icon={icon} role="presentation" />
+    </button>
+  )
 
   const shouldShowValidationMessage = !disabled && validationMessage
 
@@ -106,7 +111,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         inputRef={inputRef}
         id={id}
         role="combobox"
-        aria-expanded={isOpen}
+        aria-expanded={isCalendarOpen}
         aria-haspopup="dialog"
         aria-controls={calendarId}
         aria-describedby={description ? `${id}-field-message` : undefined}
@@ -114,30 +119,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         value={value}
         disabled={disabled}
         reversed={isReversed}
-        endIconAdornment={
-          <button
-            ref={buttonRef}
-            aria-disabled={disabled ? true : undefined}
-            disabled={disabled}
-            onClick={onButtonClick}
-            type="button"
-            className={classnames(styles.iconButton, {
-              [styles.calendarActive]: isOpen,
-            })}
-            aria-label={value ? `Change date, ${value}` : "Choose date"}
-          >
-            <div
-              className={classnames({
-                [styles.disabled]: disabled,
-              })}
-            >
-              <Icon icon={icon} role="presentation" />
-            </div>
-          </button>
-        }
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
+        endIconAdornment={IconButton}
         {...inputProps}
       />
       {shouldShowValidationMessage && (
@@ -148,13 +130,11 @@ export const DateInput: React.VFC<DateInputProps> = ({
         />
       )}
       <div
-        className={classnames(styles.message, {
-          [styles.disabled]: disabled,
-        })}
+        className={classnames([styles.message, disabled && styles.disabled])}
       >
         <FieldMessage
           id={`${id}-field-message`}
-          message={getDescription()}
+          message={getDescription(description)}
           reversed={isReversed}
         />
       </div>

@@ -8,16 +8,19 @@ const defaultProps = {
   labelText: "Label",
   description: "Description text",
   icon: dateStart,
-  isOpen: false,
+  isCalendarOpen: false,
   onButtonClick: jest.fn<void, []>(),
   onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
-  onBlur: jest.fn,
-  onChange: jest.fn,
   calendarId: "calendar-dialog",
   value: undefined,
 }
 
 describe("<DateInput />", () => {
+  it("has the role of combobox", () => {
+    render(<DateInput {...defaultProps} />)
+    expect(screen.getByRole("combobox", { name: "Label" })).toBeInTheDocument()
+  })
+
   it("renders a description and aria-describeBy when provided", () => {
     const ariaDescribedBy = "text-field-test-field-message"
 
@@ -32,7 +35,13 @@ describe("<DateInput />", () => {
   })
 
   it("updates calendar button aria-label with selected day", async () => {
-    render(<DateInput {...defaultProps} value={"Mar 1, 2022"} />)
+    render(
+      <DateInput
+        {...defaultProps}
+        value="Mar 1, 2022"
+        onChange={() => undefined}
+      />
+    )
 
     expect(
       screen.getByLabelText("Change date, Mar 1, 2022")
