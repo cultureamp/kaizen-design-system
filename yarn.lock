@@ -2217,10 +2217,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@cultureamp/rich-text-toolkit@^1.8.0":
-  version "1.8.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.8.0/85b31514a37e4aef02313ff365e61866665ad9e44398c9b0feb1a8176c74605a#73368eb3aaa4951223d7f52f9a236c082a1ecde5"
-  integrity sha512-rEdn4QFMaH+ABCUayNJyDynyd9aZAPXeBrRz4UkuM/ePb5VBmfF+EMlkxOlINvgV/OeZgMkXaRacFK8JMm4Amw==
+"@cultureamp/rich-text-toolkit@^1.8.1":
+  version "1.8.1"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.8.1/5c19d08d703b3b6a336613fb136a2ebf729b02488e941f15cc5a01c9a11a4098#3c92c64d4c82a1ac0b06ff8044d1929de1994586"
+  integrity sha512-avbjD+Z+drmlW5gmqPg/qLMkMmPHtmif61FiWHWhwAd2pGiYeLol1I2Vcd8XIZBrhFCE+vWzDLa9pCz2HZ+FzA==
   dependencies:
     "@kaizen/button" "^1.2.8"
     "@kaizen/component-library" "^14.3.4"
