@@ -3,11 +3,14 @@ import { v4 } from "uuid"
 import classnames from "classnames"
 import { history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
-import { Node, Schema, NodeType, MarkType } from "prosemirror-model"
+import { Node, Schema } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 import { Label } from "@kaizen/draft-form"
 import { baseKeymap } from "prosemirror-commands"
-import { useRichTextEditor } from "@cultureamp/rich-text-toolkit"
+import {
+  useRichTextEditor,
+  createLinkManager,
+} from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray, EditorRows } from "./types"
 import { createSchemaFromControls } from "./schema"
@@ -23,6 +26,7 @@ export type ToolbarControlTypes =
   | "underline"
   | "orderedList"
   | "bulletList"
+  | "link"
 
 export interface ToolbarItems {
   name: ToolbarControlTypes
@@ -70,6 +74,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   const [schema] = useState<Schema>(createSchemaFromControls(controls))
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
+
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
     EditorState.create({
       doc: value
@@ -79,12 +84,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
           })
         : null,
       schema,
-      plugins: [
-        history(),
-        keymap(buildKeymap(schema)),
-        keymap(baseKeymap),
-        buildInputRules(schema),
-      ],
+      plugins: getPlugins(controls, schema),
     }),
     { "aria-labelledby": labelId }
   )
@@ -132,6 +132,28 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       </div>
     </>
   )
+}
+
+function getPlugins(controls: ToolbarItems[] | undefined, schema: Schema) {
+  const allControlNames: string[] = controls
+    ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
+    : []
+  const plugins = [
+    history(),
+    keymap(buildKeymap(schema)),
+    keymap(baseKeymap),
+    buildInputRules(schema),
+  ]
+
+  if (allControlNames.includes("link")) {
+    plugins.push(
+      createLinkManager({
+        markType: schema.marks.link,
+      })
+    )
+  }
+
+  return plugins
 }
 
 RichTextEditor.displayName = "RichTextEditor"

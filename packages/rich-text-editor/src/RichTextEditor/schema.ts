@@ -50,6 +50,10 @@ export const createSchemaFromControls = (
     newNodes["listItem"] = coreNodes.listItem
   }
 
+  if (allControlNames.includes("link")) {
+    newMarks["link"] = coreMarks.link
+  }
+
   return new Schema({
     nodes: newNodes,
     marks: newMarks,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.13.1...@kaizen/rich-text-editor@1.14.0) (2022-06-17)
+
+
+### Features
+
+* Add link functionality to RichTextEditor ([#2795](https://github.com/cultureamp/kaizen-design-system/issues/2795)) ([f06ac28](https://github.com/cultureamp/kaizen-design-system/commit/f06ac28ed0bf267a223b9171da72c959df93fb38))
+
+
+
+
+
 ## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.13.0...@kaizen/rich-text-editor@1.13.1) (2022-06-16)
 
 
