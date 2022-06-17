@@ -228,6 +228,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "link")
     toolbarControls[groupIndex].push({
       action: createToggleMarkCommand(type),
+      disabled: editorState.selection.empty,
       isActive: false,
       label: "Link",
       icon: linkIcon,
