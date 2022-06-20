@@ -54,7 +54,7 @@ export const Controlled = () => {
   )
 }
 
-export const LabelAboveSlider = () => (
+export const LabelAboveInput = () => (
   <Slider
     id="make-me-unique-4"
     labelText="Work overall"
@@ -65,8 +65,7 @@ export const LabelAboveSlider = () => (
     maxLabel="Fantastic"
   />
 )
-LabelAboveSlider.storyName = "Label above input"
-LabelAboveSlider.parameters = { chromatic: { disable: false } }
+LabelAboveInput.parameters = { chromatic: { disable: false } }
 
 export const CustomMinMaxLabels = () => (
   <Slider

@@ -1165,9 +1165,8 @@ export const DefaultCollapsedNavigationCard = () => (
     </Skirt>
   </OffsetPadding>
 )
-DefaultCollapsedNavigationCard.story = {
-  name: "Default (collapsed navigation with card)",
-}
+DefaultCollapsedNavigationCard.storyName =
+  "Default (collapsed navigation with card)"
 
 export const AdminVariantNavigation = () => (
   <OffsetPadding>

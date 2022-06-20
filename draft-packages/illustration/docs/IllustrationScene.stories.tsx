@@ -60,12 +60,10 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 const IS_CHROMATIC = isChromatic()
 
 const STATIC_SCENE_CONTROLS = {
-  argTypes: {
-    isAnimated: { table: { disable: true } },
-    loop: { table: { disable: true } },
-    autoplay: { table: { disable: true } },
-    onEnded: { table: { disable: true } },
-  },
+  isAnimated: { table: { disable: true } },
+  loop: { table: { disable: true } },
+  autoplay: { table: { disable: true } },
+  onEnded: { table: { disable: true } },
 }
 
 export default {
@@ -268,7 +266,7 @@ const INFORMATION_MODALS_COMPONENTS: SceneComponents = [
 ]
 
 export const InformationModals = IllustrationScenesTemplate.bind({})
-InformationModals.story = { ...STATIC_SCENE_CONTROLS }
+InformationModals.argTypes = STATIC_SCENE_CONTROLS
 InformationModals.args = {
   sceneComponents: INFORMATION_MODALS_COMPONENTS,
 }
@@ -313,7 +311,7 @@ const MISCELLANEOUS_COMPONENTS: SceneComponents = [
 ]
 
 export const Miscellaneous = IllustrationScenesTemplate.bind({})
-Miscellaneous.story = { ...STATIC_SCENE_CONTROLS }
+Miscellaneous.argTypes = STATIC_SCENE_CONTROLS
 Miscellaneous.args = {
   sceneComponents: MISCELLANEOUS_COMPONENTS,
 }
@@ -378,7 +376,7 @@ const SKILLS_COACH_COMPONENTS: SceneComponents = [
 ]
 
 export const SkillsCoach = IllustrationScenesTemplate.bind({})
-SkillsCoach.story = { ...STATIC_SCENE_CONTROLS }
+SkillsCoach.argTypes = STATIC_SCENE_CONTROLS
 SkillsCoach.args = {
   sceneComponents: SKILLS_COACH_COMPONENTS,
 }
@@ -395,7 +393,7 @@ const SURVEY_COMPONENTS: SceneComponents = [
 ]
 
 export const Survey = IllustrationScenesTemplate.bind({})
-Survey.story = { ...STATIC_SCENE_CONTROLS }
+Survey.argTypes = STATIC_SCENE_CONTROLS
 Survey.args = {
   sceneComponents: SURVEY_COMPONENTS,
 }
@@ -416,7 +414,7 @@ const ENGAGEMENT_COMPONENTS: SceneComponents = [
 ]
 
 export const Engagement = IllustrationScenesTemplate.bind({})
-Engagement.story = { ...STATIC_SCENE_CONTROLS }
+Engagement.argTypes = STATIC_SCENE_CONTROLS
 Engagement.args = {
   sceneComponents: ENGAGEMENT_COMPONENTS,
 }
