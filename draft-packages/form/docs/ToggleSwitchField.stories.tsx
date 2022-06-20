@@ -15,15 +15,6 @@ class ToggleStateContainer extends React.Component<
   },
   { toggledStatus: ToggledStatus }
 > {
-  state = {
-    toggledStatus: this.props.initialToggledStatus,
-  }
-  toggle = () => {
-    const { toggledStatus } = this.state
-    const newStatus =
-      toggledStatus === ToggledStatus.ON ? ToggledStatus.OFF : ToggledStatus.ON
-    this.setState({ toggledStatus: newStatus })
-  }
   render() {
     return (
       <div>
@@ -33,6 +24,16 @@ class ToggleStateContainer extends React.Component<
         })}
       </div>
     )
+  }
+
+  state = {
+    toggledStatus: this.props.initialToggledStatus,
+  }
+  toggle = () => {
+    const { toggledStatus } = this.state
+    const newStatus =
+      toggledStatus === ToggledStatus.ON ? ToggledStatus.OFF : ToggledStatus.ON
+    this.setState({ toggledStatus: newStatus })
   }
 }
 

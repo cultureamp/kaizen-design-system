@@ -24,10 +24,6 @@ type Props = {
 }
 
 class RadioFieldExample extends React.Component<Props> {
-  state = {
-    selectedStatus: false,
-  }
-
   constructor(props: Props) {
     super(props)
 
@@ -51,6 +47,10 @@ class RadioFieldExample extends React.Component<Props> {
         })}
       </>
     )
+  }
+
+  state = {
+    selectedStatus: false,
   }
 }
 
