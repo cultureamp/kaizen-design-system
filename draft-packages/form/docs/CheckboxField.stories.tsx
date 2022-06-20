@@ -191,10 +191,8 @@ export const ReversedOn = () => (
     reversed
   />
 )
-ReversedOn.story = {
-  name: "Reversed + on",
-  parameters: { ...REVERSED_BG },
-}
+ReversedOn.storyName = "Reversed + on"
+ReversedOn.parameters = { ...REVERSED_BG }
 
 export const ReversedDisabledOn = () => (
   <CheckboxField
@@ -205,10 +203,8 @@ export const ReversedDisabledOn = () => (
     disabled
   />
 )
-ReversedDisabledOn.story = {
-  name: "Reversed Disabled + on",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDisabledOn.storyName = "Reversed Disabled + on"
+ReversedDisabledOn.parameters = { ...REVERSED_BG }
 
 export const ReversedOff = () => (
   <CheckboxField
@@ -218,10 +214,8 @@ export const ReversedOff = () => (
     reversed
   />
 )
-ReversedOff.story = {
-  name: "Reversed + off",
-  parameters: { ...REVERSED_BG },
-}
+ReversedOff.storyName = "Reversed + off"
+ReversedOff.parameters = { ...REVERSED_BG }
 
 export const ReversedDisabledOff = () => (
   <CheckboxField
@@ -232,7 +226,5 @@ export const ReversedDisabledOff = () => (
     disabled
   />
 )
-ReversedDisabledOff.story = {
-  name: "Reversed Disabled + off",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDisabledOff.storyName = "Reversed Disabled + off"
+ReversedDisabledOff.parameters = { ...REVERSED_BG }
