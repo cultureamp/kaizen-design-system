@@ -81,7 +81,7 @@
     "@types/react-dom": "^18.0.4",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/eslint-plugin-tslint": "^5.21.0",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/parser": "^5.29.0",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.2.3",
     "commitizen": "^4.2.4",
