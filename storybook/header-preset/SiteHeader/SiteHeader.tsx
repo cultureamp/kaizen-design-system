@@ -1,18 +1,9 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 /* eslint-disable ssr-friendly/no-dom-globals-in-react-fc */
-
-/**
- * This file is the Storybook-specific header. The Gatsby header is
- * located site/src/components/MainNav
- */
 import React from "react"
-import {
-  Link as NavLink,
-  NavigationBar,
-} from "../../site/src/components/NavigationBar"
-import styles from "./header.module.scss"
+import { Link as NavLink, NavigationBar } from "./NavigationBar"
+import styles from "./SiteHeader.module.scss"
 
-const SiteHeader = () => {
+export const SiteHeader = () => {
   const getBaseUrl = (pathname, origin, hostname) => {
     let branch = ""
     if (hostname.match(/^dev/)) {
@@ -35,8 +26,9 @@ const SiteHeader = () => {
   return (
     <div className={styles.wrapper}>
       <NavigationBar
+        logoUrl={baseUrl}
         links={[
-          <NavLink text="Home" href={`${baseUrl}`} />,
+          <NavLink text="Home" href={baseUrl} />,
           <NavLink
             text="Guidelines"
             href={`${baseUrl}/guidelines/overview/`}
@@ -56,5 +48,3 @@ const SiteHeader = () => {
     </div>
   )
 }
-
-export default SiteHeader
