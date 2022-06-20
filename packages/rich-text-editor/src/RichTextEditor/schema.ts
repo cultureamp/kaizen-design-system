@@ -1,66 +1,61 @@
-import { MarkSpec, NodeSpec, Schema } from "prosemirror-model"
-import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
-import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
+import { NodeSpec, Schema } from "prosemirror-model"
 import {
   nodes as coreNodes,
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
-import { addListNodes } from "prosemirror-schema-list"
+import { ToolbarItems } from "./RichTextEditor"
 
-export const nodes: NodeSpec = {
+export const defaultNodes: NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
   text: coreNodes.text,
-  // eslint-disable-next-line camelcase
-  hard_break: coreNodes.hard_break,
+  hardBreak: coreNodes.hardBreak,
 }
 
-export const marks: MarkSpec = {
-  bold: {
-    ...coreMarks.strong,
-    control: {
-      label: "Bold",
-      icon: boldIcon,
-    },
-  },
-  italic: {
-    ...coreMarks.em,
-    control: {
-      label: "Italic",
-      icon: italicIcon,
-    },
-  },
-  underline: {
-    ...coreMarks.underline,
-    control: {
-      label: "Underline",
-      icon: underlineIcon,
-    },
-  },
-}
-
-export const createSchemaFromControls = controls => {
-  const newMarks: MarkSpec = controls.reduce(
-    (previousValue, currentValue) => ({
-      ...previousValue,
-      [currentValue]: marks[currentValue],
-    }),
-    {}
-  )
-
-  // TODO: This is hard coded to always enable lists for now,
-  // but once we have the toolbar we can use the controls to determine this.
-  const listsEnabled = true
-
-  const schema = new Schema({ nodes, marks: newMarks })
-
-  if (listsEnabled) {
+export const createSchemaFromControls = (
+  controls: ToolbarItems[] | undefined
+) => {
+  if (!controls) {
     return new Schema({
-      nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-      marks: newMarks,
+      nodes: defaultNodes,
     })
   }
 
-  return schema
+  const allControlNames: string[] = controls.reduce(
+    (acc: string[], c: ToolbarItems) => [...acc, c.name],
+    []
+  )
+  const newNodes = { ...defaultNodes }
+  const newMarks = {}
+
+  if (allControlNames.includes("bold")) {
+    newMarks["strong"] = coreMarks.strong
+  }
+
+  if (allControlNames.includes("italic")) {
+    newMarks["em"] = coreMarks.em
+  }
+
+  if (allControlNames.includes("underline")) {
+    newMarks["underline"] = coreMarks.underline
+  }
+
+  if (allControlNames.includes("bulletList")) {
+    newNodes["bulletList"] = coreNodes.bulletList
+    newNodes["listItem"] = coreNodes.listItem
+  }
+
+  if (allControlNames.includes("orderedList")) {
+    newNodes["orderedList"] = coreNodes.orderedList
+    newNodes["listItem"] = coreNodes.listItem
+  }
+
+  if (allControlNames.includes("link")) {
+    newMarks["link"] = coreMarks.link
+  }
+
+  return new Schema({
+    nodes: newNodes,
+    marks: newMarks,
+  })
 }

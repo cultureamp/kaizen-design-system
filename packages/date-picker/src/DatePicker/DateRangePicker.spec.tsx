@@ -1,14 +1,14 @@
-import { act, render, screen } from "@testing-library/react"
 import React from "react"
+import { act, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { DateRange } from "react-day-picker"
 import { DateRangePicker } from "./DateRangePicker"
-import "@testing-library/jest-dom"
 
 const defaultProps = {
   id: "date-picker-range",
   labelText: "Choose date",
-  initialMonth: new Date(2022, 2),
-  onChange: () => jest.fn(),
+  defaultMonth: new Date("2022-03-01"),
+  onChange: jest.fn<void, [DateRange]>(),
 }
 
 describe("<DateRangePicker />", () => {
@@ -17,10 +17,8 @@ describe("<DateRangePicker />", () => {
 
     const element = screen.getByRole("button")
 
-    // Make sure calendar popup is not in the DOM
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    // Click button and test calendar popup is showing
     await act(async () => element.click())
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
@@ -34,20 +32,17 @@ describe("<DateRangePicker />", () => {
 
     await act(async () => element.click())
 
-    // Focus on 'from' date and select
-    const selectedFromDate = screen.getByRole("gridcell", {
-      name: "Sun Mar 06 2022",
-    })
+    const selectedFromDate = screen.getByText("6th March (Sunday)")
+
     await act(async () => {
-      selectedFromDate.focus()
+      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
-    // Focus on 'to' date and select
-    const selectedToDate = screen.getByRole("gridcell", {
-      name: "Wed Mar 16 2022",
-    })
+
+    const selectedToDate = screen.getByText("16th March (Wednesday)")
+
     await act(async () => {
-      selectedToDate.focus()
+      selectedToDate.parentElement && selectedToDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
     expect(element.innerText === "Mar 6 – Mar 16, 2022")

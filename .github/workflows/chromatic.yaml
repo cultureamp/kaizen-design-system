@@ -3,6 +3,8 @@
 name: "chromatic"
 
 on:
+  pull_request:
+    types: [labeled]
   pull_request_review:
     types: [submitted]
   push:
@@ -13,11 +15,11 @@ on:
 
 jobs:
   visual-testing:
-    if: github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
+    if: (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') || github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 

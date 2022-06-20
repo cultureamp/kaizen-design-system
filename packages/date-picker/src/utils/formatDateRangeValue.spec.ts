@@ -1,9 +1,9 @@
-import { RangeModifier } from "react-day-picker"
+import { DateRange } from "react-day-picker"
 import { formatDateRangeValue } from "./formatDateRangeValue"
 
 describe("formatDateRangeValue", () => {
   it("displays a from date by itself", () => {
-    const dateRangeFromOnly: RangeModifier = {
+    const dateRangeFromOnly: DateRange = {
       from: new Date(2022, 1, 1),
       to: undefined,
     }
@@ -12,7 +12,7 @@ describe("formatDateRangeValue", () => {
   })
 
   it("displays a from date by itself", () => {
-    const dateRangeBothValues: RangeModifier = {
+    const dateRangeBothValues: DateRange = {
       from: new Date(2022, 1, 1),
       to: new Date(2022, 2, 2),
     }
@@ -23,7 +23,7 @@ describe("formatDateRangeValue", () => {
   })
 
   it("displays a from date by itself", () => {
-    const dateRangeOvertoNewYear: RangeModifier = {
+    const dateRangeOvertoNewYear: DateRange = {
       from: new Date(2022, 1, 1),
       to: new Date(2023, 1, 1),
     }

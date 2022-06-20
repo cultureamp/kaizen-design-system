@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
-import { within } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { RangeModifier } from "react-day-picker/types/Modifiers"
-import { CATEGORIES } from "../../../storybook/constants"
-import { DatePicker } from "../src/DatePicker"
-import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
-import { Calendar } from "../src/DatePicker/components/Calendar"
+import { Paragraph } from "@kaizen/typography"
+import { Button } from "@kaizen/button"
+import { FieldMessageStatus } from "@kaizen/draft-form"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { DateInput } from "../src/DatePicker/components/DateInput"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
+import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
 
 export default {
-  title: `${CATEGORIES.components}/Date Picker`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
+  subcomponents: { DateInput, Calendar },
   parameters: {
     docs: {
       description: {
@@ -23,11 +24,70 @@ export default {
   },
 }
 
-export const DatePickerStoryDefault = props => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+export const DefaultStory = props => {
+  const [selectedDate, setValueDate] = useState<Date | undefined>()
+  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >()
 
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
+  const handleValidation = (validationResponse: ValidationResponse): void => {
+    setStatus(validationResponse.status)
+    setValidationMessage(validationResponse.validationMessage)
+  }
+
+  return (
+    <DatePicker
+      id="datepicker-default"
+      labelText="Label"
+      selectedDay={selectedDate}
+      onDayChange={setValueDate}
+      onValidate={handleValidation}
+      status={status}
+      validationMessage={validationMessage}
+      {...props}
+    />
+  )
+}
+DefaultStory.storyName = "Date Picker"
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
+
+export const ValidationStory = props => {
+  const [selectedDate, setValueDate] = useState<Date | undefined>(
+    new Date(2022, 4, 5)
+  )
+  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
+  const [response, setResponse] = useState<ValidationResponse | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >()
+
+  const handleValidation = (validationResponse: ValidationResponse): void => {
+    setResponse(validationResponse)
+    // An example of additional validation
+    if (
+      validationResponse.isValidDate &&
+      validationResponse.date?.getFullYear() !== new Date().getFullYear()
+    ) {
+      setStatus("caution")
+      setValidationMessage("Date is not this year.")
+      return
+    }
+    setStatus(validationResponse.status)
+    setValidationMessage(validationResponse.validationMessage)
+  }
+
+  const submitRequest = () => {
+    // An example of a form submit request
+    if (status === "error" || status === "caution") {
+      setValidationMessage("There is an error.")
+      setStatus("error")
+      alert("Error")
+    } else {
+      alert("Success")
+    }
   }
 
   return (
@@ -35,104 +95,56 @@ export const DatePickerStoryDefault = props => {
       <DatePicker
         id="datepicker-default"
         labelText="Label"
-        value={selectedDate}
-        onChange={onDayChange}
+        selectedDay={selectedDate}
+        onDayChange={day => {
+          setValueDate(day)
+        }}
+        onValidate={handleValidation}
+        status={status}
+        validationMessage={validationMessage}
+        disabledBefore={new Date()}
         {...props}
       />
-      <ul>
-        {Array(100)
-          .fill(1)
-          .map((_, index) => (
-            <li>fill the page with something...</li>
-          ))}
-      </ul>
+      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+        <Button onClick={submitRequest} label="Submit" />
+      </div>
+      <div>
+        <p>
+          This story includes additional custom validation to provide some
+          guidance when dealing with validation other than date isInvalid or
+          isDisabled.
+        </p>
+        <ul>
+          <li>
+            There will be a caution when the selectedDay{" "}
+            <strong>is valid</strong> but{" "}
+            <strong>is not within this year</strong>.
+          </li>
+          <li>
+            There will be an error when the{" "}
+            <strong>submit button is clicked</strong> and there is a{" "}
+            <strong>current error</strong> within the DatePicker.
+          </li>
+        </ul>
+        <p>
+          The <code>onValidate</code> callback returns a{" "}
+          <code>validationResponse</code> object which provides data such as a
+          default validation message, and can be utilised for custom validation.
+        </p>
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(response, null, "\t")}
+        />
+      </div>
     </>
   )
 }
-DatePickerStoryDefault.storyName = "Date Picker"
-
-const DateRangePickerTemplate: Story = props => {
-  const [selectedDateRange, setSelectedDateRange] = useState<RangeModifier>({
-    from: undefined,
-    to: undefined,
-  })
-  const [value, setValue] = useState("")
-
-  const onDateRangeChange = (dateRange: RangeModifier) => {
-    setSelectedDateRange(dateRange)
-  }
-
-  useEffect(() => {
-    setValue(formatDateRangeValue(selectedDateRange))
-  }, [selectedDateRange])
-
-  return (
-    <>
-      <DateRangePicker
-        id="datepicker-range"
-        labelText="Label"
-        disabledBefore={new Date(2022, 2, 4)}
-        onChange={onDateRangeChange}
-        value={value}
-        selectedDateRange={selectedDateRange}
-        {...props}
-      />
-    </>
-  )
+ValidationStory.storyName = "Validation"
+ValidationStory.parameters = {
+  docs: { source: { type: "code" } },
 }
 
-export const DateRangePickerStoryDefault = props => (
-  <DateRangePickerTemplate {...props} />
-)
-DateRangePickerStoryDefault.storyName = "Date Range Picker"
-
-const CalendarRangeTemplate: Story = props => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-  const selectedDateRange = {
-    from: undefined,
-    to: undefined,
-  }
-
-  const modifiers: RangeModifier = {
-    from: selectedDateRange?.from,
-    to: selectedDateRange?.to,
-  }
-
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
-  return (
-    <div ref={setReferenceElement}>
-      <Calendar
-        setPopperElement={setPopperElement}
-        styles={styles}
-        attributes={attributes}
-        firstDayOfWeek={0}
-        onDayChange={e => e}
-        initialMonth={new Date(2022, 2)}
-        range
-        selectedRange={selectedDateRange}
-        modifiers={modifiers}
-        {...props}
-      />
-    </div>
-  )
-}
-
-const CalendarTemplate: Story = props => {
+const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -155,70 +167,113 @@ const CalendarTemplate: Story = props => {
   return (
     <div ref={setReferenceElement}>
       <Calendar
+        mode="single"
+        id="calendar-dialog"
         setPopperElement={setPopperElement}
-        styles={styles}
-        attributes={attributes}
-        firstDayOfWeek={0}
+        popperStyles={styles}
+        popperAttributes={attributes}
+        weekStartsOn={DayOfWeek.Sun}
         onDayChange={() => undefined}
-        initialMonth={new Date(2022, 1, 5)}
+        defaultMonth={new Date(2022, 1, 5)}
         {...props}
       />
     </div>
   )
 }
 
-const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
-
-  const onDayChange = (day: Date) => {
-    setSelectedDate(day)
-  }
+  const [selectedDate, setValueDate] = useState<Date | undefined>()
 
   return (
     <>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Default", "Selected Value", "Disabled"]}
+          headings={[
+            "Default",
+            "Selected Value",
+            "Custom Description",
+            "Disabled",
+            "Error",
+          ]}
         />
-        <StoryWrapper.Row rowTitle="Date Picker Input">
+        <StoryWrapper.Row rowTitle="Input">
           <DatePicker
-            id="datepicker-input-default"
+            id="datepicker-default"
             labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
+            selectedDay={selectedDate}
+            onDayChange={setValueDate}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
           />
           <DatePicker
-            id="datepicker-input-selected"
+            id="datepicker-selected"
             labelText="Label"
-            value={new Date(2022, 1, 5)}
-            onChange={onDayChange}
+            selectedDay={new Date(2022, 1, 5)}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
           />
           <DatePicker
+            id="datepicker-description"
+            labelText="Label"
+            selectedDay={undefined}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            description={
+              <>
+                <Paragraph
+                  variant="small"
+                  color={isReversed ? "white" : "dark"}
+                >
+                  My <strong>Custom</strong> Description Paragraph
+                </Paragraph>
+              </>
+            }
+            status="default"
+            validationMessage={undefined}
+          />
+          <DatePicker
+            id="datepicker-disabled"
+            labelText="Label"
+            selectedDay={undefined}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
             isDisabled
-            id="datepicker-input-disabled"
+          />
+          <DatePicker
+            id="datepicker-error"
             labelText="Label"
-            value={selectedDate}
-            onChange={onDayChange}
+            selectedDay={new Date("potato")}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="error"
+            validationMessage="Invalid Date."
           />
         </StoryWrapper.Row>
       </StoryWrapper>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Selected Date", "Focused Date", "Disabled Dates"]}
+          headings={["Selected Date", "Disabled Dates"]}
         />
-        <StoryWrapper.Row rowTitle="Date Picker Calendar">
-          <CalendarTemplate value={new Date(2022, 1, 5)} />
-          <CalendarTemplate
-            value={new Date(2022, 0, 5)}
-            initialMonth={new Date(2022, 0, 5)}
-          />
-          <CalendarTemplate
+        <StoryWrapper.Row rowTitle="Calendar">
+          <CalendarExample value={new Date(2022, 1, 5)} />
+          <CalendarExample
             disabledDays={[
               new Date(2022, 1, 15),
               { after: new Date(2022, 1, 17) },
             ]}
+            id="calendar-dialog-disabled"
           />
         </StoryWrapper.Row>
       </StoryWrapper>
@@ -226,67 +281,6 @@ const DatePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   )
 }
 
-const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
-  const selectedDateRange = {
-    from: new Date(2022, 2, 6),
-    to: new Date(2022, 2, 16),
-  }
-
-  const modifiers: RangeModifier = {
-    from: selectedDateRange?.from,
-    to: selectedDateRange?.to,
-  }
-
-  return (
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Default", "Selected Value", "Disabled"]}
-        />
-        <StoryWrapper.Row rowTitle="Date Range Picker Input">
-          <DateRangePickerTemplate />
-          <DateRangePickerTemplate
-            selectedDateRange={selectedDateRange}
-            value="Mar 6 – Mar 2, 2022"
-          />
-          <DateRangePickerTemplate isDisabled />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Selected Range Dates", "Disabled Dates"]}
-        />
-        <StoryWrapper.Row rowTitle="Date Range Calendar">
-          <CalendarRangeTemplate
-            modifiers={modifiers}
-            selectedRange={selectedDateRange}
-          />
-          <CalendarRangeTemplate
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </>
-  )
-}
-
-export const DatePickerStickerSheet = DatePickerStickerSheetTemplate.bind({})
-DatePickerStickerSheet.storyName = "Sticker Sheet (Date Picker)"
-DatePickerStickerSheet.parameters = { chromatic: { disable: false } }
-DatePickerStickerSheet.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const focusedDate = canvas.getByLabelText("Wed Jan 19 2022")
-  await userEvent.click(focusedDate, undefined, {
-    skipPointerEventsCheck: true,
-  })
-}
-
-export const DateRangePickerStickerSheet =
-  DateRangePickerStickerSheetTemplate.bind({})
-DateRangePickerStickerSheet.storyName = "Sticker Sheet (Date Range Picker)"
-DateRangePickerStickerSheet.parameters = { chromatic: { disable: false } }
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }

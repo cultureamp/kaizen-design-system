@@ -27,28 +27,17 @@ const renderCheckOrMixedIcon = (
   status: CheckedStatus,
   reversed: boolean
 ): React.ReactNode => {
-  if (status === "on") {
-    return (
-      <div
-        className={classnames(styles.icon, {
-          [styles.reversed]: reversed,
-        })}
-      >
-        <Icon icon={checkIcon} role="presentation" inheritSize />
-      </div>
-    )
-  } else if (status === "mixed") {
-    return (
-      <div
-        className={classnames(styles.icon, {
-          [styles.reversed]: reversed,
-        })}
-      >
-        <Icon icon={minusIcon} role="presentation" inheritSize />
-      </div>
-    )
-  }
-  return
+  if (status === "off") return
+  const icon = status === "on" ? checkIcon : minusIcon
+  return (
+    <span
+      className={classnames(styles.icon, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      <Icon icon={icon} role="presentation" inheritSize />
+    </span>
+  )
 }
 
 const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>

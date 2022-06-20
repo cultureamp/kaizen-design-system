@@ -5,15 +5,16 @@
 @import "@kaizen/design-tokens/sass/typography";
 
 .editor > :global(.ProseMirror) {
-  border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
   line-height: $typography-paragraph-body-line-height;
   letter-spacing: $typography-paragraph-body-letter-spacing;
-  padding: $spacing-sm calc($spacing-xs * 3);
+  padding: $spacing-sm calc(#{$spacing-xs} * 3);
   transition: background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
+  white-space: pre-wrap;
 
   > p {
     margin: 0 0 $spacing-sm;
@@ -50,6 +51,11 @@
   }
 }
 
+.editor.hasToolbar > :global(.ProseMirror) {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .editorWrapper {
   position: relative;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
@@ -59,6 +65,6 @@
 
 @for $i from 1 through 20 {
   .editor.rows#{$i} > :global(.ProseMirror) {
-    min-height: calc($typography-paragraph-body-line-height * $i);
+    min-height: calc(#{$typography-paragraph-body-line-height} * #{$i});
   }
 }

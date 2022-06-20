@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -85,6 +85,10 @@ const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
     <>{children}</>
   )
 
+/**
+ * {@link https://cultureamp.design/components/guidance-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-guidance-block--default-story Storybook}
+ */
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState

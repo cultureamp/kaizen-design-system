@@ -28,24 +28,29 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       label,
       isActive = false,
       mood = "default",
+      disabled = false,
       classNameOverride,
+      onClick,
       ...nativeButtonProps
     } = props
     return (
       <Tooltip text={label} display="inline-block" position="above">
         <button
           ref={ref}
+          type="button"
           aria-pressed={isActive}
           aria-label={label}
+          aria-disabled={disabled}
+          onMouseDown={e => e.preventDefault()}
+          onClick={!disabled ? onClick : undefined}
           className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
             [styles[mood]]: mood,
+            [styles.disabled]: disabled,
           })}
           {...nativeButtonProps}
         >
-          <div className={styles.iconWrapper}>
-            <Icon icon={icon} role="presentation" inheritSize />
-          </div>
+          <Icon icon={icon} role="presentation" />
         </button>
       </Tooltip>
     )

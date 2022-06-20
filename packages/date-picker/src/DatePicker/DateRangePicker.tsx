@@ -1,23 +1,23 @@
 import { Label } from "@kaizen/draft-form"
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import "react-day-picker/lib/style.css"
 import { usePopper } from "react-popper"
 import cx from "classnames"
-import {
-  DayModifiers,
-  RangeModifier,
-  BeforeAfterModifier,
-} from "react-day-picker/types/Modifiers"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
-import { DateUtils } from "react-day-picker"
+import {
+  DateRange,
+  DateInterval,
+  ActiveModifiers,
+  isMatch,
+} from "react-day-picker"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
+import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
-import { defaultCalendarClasses } from "./components/Calendar/CalendarClasses"
-import { Calendar } from "./components/Calendar"
+import { Calendar, CalendarProps } from "./components/Calendar"
+import { DayOfWeek } from "./enums"
 
-interface DatePickerProps {
+export interface DateRangePickerProps {
   id: string
   classNameOverride?: string
   labelText: string
@@ -29,7 +29,7 @@ interface DatePickerProps {
    * if within range/not disabled and then passed back to the client to update
    * the state.
    */
-  selectedDateRange?: RangeModifier
+  selectedDateRange?: DateRange
 
   /** String that is formatted by the client with our helper formatDateRangeValue
    * and then passed into the button to display the readable range.
@@ -39,13 +39,13 @@ interface DatePickerProps {
   /** Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  firstDayOfWeek?: DayOfWeek
+  weekStartsOn?: DayOfWeek
 
   // Accepts a date to display that month on first render.
-  initialMonth?: Date
+  defaultMonth?: CalendarProps["defaultMonth"]
 
   // Event passed from consumer to handle the date on change.
-  onChange: (dateRange: RangeModifier) => void
+  onChange: (dateRange: DateRange) => void
 
   /** Accepts an array of singluar dates and disables them.
    * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
@@ -56,13 +56,13 @@ interface DatePickerProps {
    *  inside of that range.
    *  disabledRange={ from: new Date(2022, 1, 12), to: new Date(2022, 1, 16) }
    * */
-  disabledRange?: RangeModifier
+  disabledRange?: DateRange
 
   /** Accepts an object with a before and after date. Disables any date
    *  outside of that range.
    *  { before: new Date(2022, 1, 12), after: new Date(2022, 1, 16) }
    */
-  disabledBeforeAfter?: BeforeAfterModifier
+  disabledBeforeAfter?: DateInterval
 
   // Accepts single date and disables all days before it.
   disabledBefore?: Date
@@ -77,17 +77,11 @@ interface DatePickerProps {
   disabledDaysOfWeek?: DayOfWeek[]
 }
 
-enum DayOfWeek {
-  Sun = 0,
-  Mon = 1,
-  Tue = 2,
-  Wed = 3,
-  Thu = 4,
-  Fri = 5,
-  Sat = 6,
-}
-
-export const DateRangePicker: React.VFC<DatePickerProps> = ({
+/**
+ * {@link https://cultureamp.design/components/date-range-picker/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-range-picker--date-range-picker-sticker-sheet Storybook}
+ */
+export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
@@ -101,8 +95,8 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
-  firstDayOfWeek = 1,
-  initialMonth,
+  weekStartsOn,
+  defaultMonth,
   selectedDateRange,
   value,
   ...inputProps
@@ -138,21 +132,22 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const disabledDays = calculateDisabledDays(
+  const disabledDays = calculateDisabledDays({
     disabledDates,
     disabledDaysOfWeek,
     disabledRange,
     disabledBeforeAfter,
     disabledBefore,
-    disabledAfter
-  )
+    disabledAfter,
+  })
 
-  const handleDayClick = (day: Date, modifiers: DayModifiers) => {
+  const handleDayClick = (day: Date, modifiers: ActiveModifiers) => {
     /** react-day-picker will fire events for disabled days by default.
      *  We're checking here if it includes the CSS Modules class for disabled
      *  on the modifier to then return early.
      * */
-    if (Object.keys(modifiers).includes(defaultCalendarClasses.disabled)) {
+
+    if (isDisabledDate(day, disabledDays)) {
       return
     }
 
@@ -164,7 +159,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
     if (isSelectingFirstDay(selectedDateRange, day)) {
       onChange({
         from: day,
-        to: null,
+        to: undefined,
       })
     } else {
       // Otherwise, treat click as the final selection.
@@ -176,16 +171,21 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
     }
   }
 
-  const isSelectingFirstDay = (range: RangeModifier, day: Date) => {
+  const isSelectingFirstDay = (range: DateRange, day: Date) => {
     const isBeforeFirstDay =
-      !!range.from && DateUtils.isDayBefore(day, range.from)
+      !!range.from &&
+      isMatch(day, [
+        {
+          before: range.from,
+        },
+      ])
 
     const isRangeSelected = !!range.from && !!range.to
 
     return !range.from || isBeforeFirstDay || isRangeSelected
   }
 
-  const modifiers: RangeModifier = {
+  const modifiers: DateRange = {
     from: selectedDateRange?.from,
     to: selectedDateRange?.to,
   }
@@ -195,6 +195,7 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
       <div ref={setReferenceElement}>
         <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
+          id={id}
           className={cx(
             datePickerStyles.button,
             datePickerStyles.withStartIconAdornment,
@@ -202,7 +203,6 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
               [datePickerStyles.disabled]: isDisabled,
             }
           )}
-          id={id}
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
@@ -231,17 +231,18 @@ export const DateRangePicker: React.VFC<DatePickerProps> = ({
           }}
         >
           <Calendar
+            mode="range"
+            id="calendar-dialog"
             setPopperElement={setPopperElement}
-            styles={styles}
-            attributes={attributes}
+            popperStyles={styles}
+            popperAttributes={attributes}
             classNameOverride={classNameOverride}
-            initialMonth={initialMonth}
-            firstDayOfWeek={firstDayOfWeek}
+            defaultMonth={defaultMonth}
+            weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             modifiers={modifiers}
             selectedRange={selectedDateRange}
             onDayChange={handleDayClick}
-            range
           />
         </FocusOn>
       )}

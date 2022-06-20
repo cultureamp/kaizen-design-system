@@ -26,15 +26,17 @@ export default {
   },
   decorators: [withDesign],
 }
-
-const BadgeAnimationStoryWrapper: React.VFC<{
+type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void
-}> = ({ children }) => {
+}
+const BadgeAnimationStoryWrapper: React.VFC<
+  BadgeAnimationStoryWrapperProps
+> = ({ children }) => {
   const [useAnimation, setUseAnimation] = React.useState(false)
   const [badgeCount, setBadgeCount] = React.useState(1)
 
   return (
-    <div style={{ padding: "20px" }}>
+    <>
       {children(String(badgeCount), useAnimation)}
       <div style={{ height: "40px" }} />
       <ToggleSwitchField
@@ -52,7 +54,7 @@ const BadgeAnimationStoryWrapper: React.VFC<{
           }}
         />
       )}
-    </div>
+    </>
   )
 }
 

@@ -3,6 +3,262 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.0.2...@kaizen/date-picker@5.0.3) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.0.1...@kaizen/date-picker@5.0.2) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.0.0...@kaizen/date-picker@5.0.1) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@4.0.1...@kaizen/date-picker@5.0.0) (2022-06-07)
+
+
+### Features
+
+* Upgrade react-day-picker to v8 ([#2761](https://github.com/cultureamp/kaizen-design-system/issues/2761)) ([2dccc54](https://github.com/cultureamp/kaizen-design-system/commit/2dccc54e029492b1a5398a9e6d52550ed5de13cf))
+
+
+### BREAKING CHANGES
+
+* upgrade react-day-picker to v8
+
+* rename Calendar prop `styles` to `popperStyles`
+
+* rename Calendar prop `attributes` to `popperAttributes`
+
+* rename Calendar, DatePicker, DateRangePicker prop `initialMonth` to `defaultMonth`
+
+* rename Calendar, DatePicker, DateRangePicker prop `firstDayOfWeek` to `weekStartsOn`
+
+* update Calendar props `disabledDays`, `onDayChange`, `selectedRange`, `modifiers` to match new rdp types
+
+* remove Calendar props `range` and `onKeyDown`
+
+* add Calendar prop `mode`
+
+* update DateInput `disabledDays` type to `Matcher`
+
+* update DatePicker, DateRangePicker props `disabledRange`, `disabledBeforeAfter` to match new rdp types
+
+* update DateRangePicker prop `onChange` to match new rdp type
+
+* feat: remove CalendarNav component
+
+* test: add more tests to calculateDisabledDays
+
+* refactor: add type guard to allow DayOfWeek to be compatible with weekStartsOn
+
+Co-authored-by: Cassandra Tam <cassandra.tam@cultureamp.com>
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@4.0.0...@kaizen/date-picker@4.0.1) (2022-06-06)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.5...@kaizen/date-picker@4.0.0) (2022-05-31)
+
+
+### Features
+
+* Add validation to DatePicker ([#2729](https://github.com/cultureamp/kaizen-design-system/issues/2729)) ([9982c85](https://github.com/cultureamp/kaizen-design-system/commit/9982c858fcbca9a0d5c7ef42cb3bda5ce45a4781))
+
+
+### BREAKING CHANGES
+
+* Handle validation within DatePicker.
+Add new required props for validation:
+-`onValidate` callback function as a prop of DatePicker.
+- `status` 
+- `validationMessage`
+
+- Remove deprecated Input Props
+
+
+
+
+
+## [3.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.4...@kaizen/date-picker@3.1.5) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.3...@kaizen/date-picker@3.1.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.2...@kaizen/date-picker@3.1.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.1...@kaizen/date-picker@3.1.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.1.0...@kaizen/date-picker@3.1.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.6...@kaizen/date-picker@3.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [3.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.5...@kaizen/date-picker@3.0.6) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.4...@kaizen/date-picker@3.0.5) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.3...@kaizen/date-picker@3.0.4) (2022-05-16)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.2...@kaizen/date-picker@3.0.3) (2022-05-12)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.1...@kaizen/date-picker@3.0.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* update DateRangePicker props name ([#2722](https://github.com/cultureamp/kaizen-design-system/issues/2722)) ([a53fff0](https://github.com/cultureamp/kaizen-design-system/commit/a53fff075a06d7d885d87e9720f579544b9d5f25))
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@3.0.0...@kaizen/date-picker@3.0.1) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.10...@kaizen/date-picker@3.0.0) (2022-05-10)
+
+
+### Features
+
+* DateInputPicker ([#2718](https://github.com/cultureamp/kaizen-design-system/issues/2718)) ([ac1bdf0](https://github.com/cultureamp/kaizen-design-system/commit/ac1bdf0ab81f5a14a0f3eda3810d2a026a57125c))
+
+
+### BREAKING CHANGES
+
+* Complete refactor of DatePicker to utilise the new 'DateInput' sub component. This enables users to type a date via the input, as well as select a date through the 'Calendar' dialog picker. Note the UX and design have also been updated as a result of this change.
+
+* 'value' prop has been renamed to 'selectedDay'.
+* 'onChange' prop has been renamed to 'OnDayChange'.
+* New 'description' prop (optional) - Displays a description message on the input, by default "format: mm/dd/yyyy" will display.
+* New 'onButtonClick' prop (optional) - Overrides the calendar icon button onClick event.
+* 'id' prop is now required on the sub-component 'Calendar' if you are using it directly.
+
+Co-authored-by: Lloyd Stubber <lloyd@squareyes.info>
+
+
+
+
+
+## [2.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.9...@kaizen/date-picker@2.1.10) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.8...@kaizen/date-picker@2.1.9) (2022-05-02)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.7...@kaizen/date-picker@2.1.8) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.6...@kaizen/date-picker@2.1.7) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@2.1.5...@kaizen/date-picker@2.1.6) (2022-04-27)
 
 **Note:** Version bump only for package @kaizen/date-picker

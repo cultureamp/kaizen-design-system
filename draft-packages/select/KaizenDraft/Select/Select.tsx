@@ -1,10 +1,11 @@
 import classNames from "classnames"
 import * as React from "react"
-import ReactSelect, { components } from "react-select"
-import Async from "react-select/async"
-import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
-import { NamedProps as ReactSelectProps } from "react-select/src/Select"
-
+import ReactSelect, {
+  components,
+  Props as ReactSelectProps,
+  NoticeProps,
+} from "react-select"
+import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -12,7 +13,7 @@ import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
 
-export type { ValueType } from "react-select"
+export type { OnChangeValue as ValueType } from "react-select"
 
 export interface SelectProps extends ReactSelectProps<any, boolean> {
   /**
@@ -52,6 +53,10 @@ export type VariantType = "default" | "secondary" | "secondary-small"
 
 export type StatusType = "default" | "error"
 
+/**
+ * {@link https://cultureamp.design/components/select/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-select--default-select-story Storybook}
+ */
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
@@ -122,8 +127,8 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
 Select.displayName = "Select"
 
 interface AsyncProps
-  extends ReactAsyncSelectProps<any>,
-    ReactSelectProps<any, boolean> {}
+  extends ReactAsyncSelectProps<any, boolean, any>,
+    ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
   (props: AsyncProps, ref: React.Ref<any>) => (
@@ -141,7 +146,7 @@ export const AsyncSelect = React.forwardRef(
         MultiValue,
         IndicatorsContainer,
         ValueContainer,
-        ClearIndicator: null,
+        ClearIndicator: undefined,
         IndicatorSeparator: null,
         LoadingMessage,
       }}
@@ -177,7 +182,7 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   </components.DropdownIndicator>
 )
 
-const LoadingMessage: typeof components.LoadingMessage = props => (
+const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
   <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
@@ -198,7 +203,7 @@ const Option: typeof components.Option = props => (
   </div>
 )
 
-const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
+const NoOptionsMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>

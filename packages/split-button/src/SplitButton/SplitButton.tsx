@@ -46,6 +46,10 @@ export interface SplitButtonProps
   dir?: "ltr" | "rtl"
 }
 
+/**
+ * {@link https://cultureamp.design/components/split-button/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-split-button--default-kaizen-site-demo Storybook}
+ */
 export const SplitButton: React.VFC<SplitButtonProps> = ({
   actionButtonProps,
   dropdownButtonProps,

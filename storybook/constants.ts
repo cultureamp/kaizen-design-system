@@ -15,4 +15,5 @@ export const SUB_CATEGORIES = {
   responsive: "Responsive",
   richTextEditor: "Rich Text Editor",
   loadingSkeleton: "Loading Skeleton",
+  datePicker: "Date Picker",
 }

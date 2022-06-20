@@ -55,18 +55,24 @@ $indicator-height: 3px;
 }
 
 .badge {
-  @include ca-margin($start: $ca-grid * 0.25);
+  @include ca-margin($start: calc(#{$ca-grid} * 0.25));
   @include ca-type-inter-small-bold;
   @include ca-inherit-baseline;
 
   border-radius: $ca-grid;
   &.badgeNew {
-    @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+    @include ca-padding(
+      $start: calc(#{$ca-grid} * 0.5),
+      $end: calc(#{$ca-grid} * 0.5)
+    );
     background-color: $dt-color-badge-background-color-new;
     color: $color-purple-800;
   }
   &.badgeNotification {
-    @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+    @include ca-padding(
+      $start: calc(#{$ca-grid} / 3),
+      $end: calc(#{$ca-grid} / 3)
+    );
     background-color: $dt-color-badge-background-color;
     color: $color-white;
   }

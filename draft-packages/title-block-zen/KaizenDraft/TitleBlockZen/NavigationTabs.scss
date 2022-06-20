@@ -14,7 +14,7 @@
 
 .linkAnchor {
   display: flex;
-  padding: 0 ($ca-grid / 2);
+  padding: 0 calc(#{$ca-grid} / 2);
   @include ca-margin($end: $ca-grid);
   color: rgba($color-white-rgb, 0.7);
   text-decoration: none;
@@ -70,8 +70,8 @@
       height: 5px;
       position: absolute;
       top: 0;
-      left: -($ca-grid / 2);
-      right: -($ca-grid / 2);
+      left: calc(-1 * calc(#{$ca-grid} / 2));
+      right: calc(-1 * calc(#{$ca-grid} / 2));
       background-color: $color-white;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
       border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;

@@ -12,9 +12,9 @@ $ca-navigation-bar__animation-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $ca-navigation-bar__animation-timing: 150ms;
 
 $ca-navigation-bar__link-item-indicator-height: 3px;
-$ca-navigation-bar__link-item-margin: $ca-grid / 4;
+$ca-navigation-bar__link-item-margin: calc(#{$ca-grid} / 4);
 
-$link-margin: $ca-grid / 4;
+$link-margin: calc(#{$ca-grid} / 4);
 
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
@@ -29,7 +29,7 @@ $link-margin: $ca-grid / 4;
   // fill parent
   display: flex;
   min-width: 2 * $ca-grid;
-  margin: ($ca-grid / 4) 0;
+  margin: calc(#{$ca-grid} / 4) 0;
 
   // center child
   align-items: center;
@@ -47,7 +47,7 @@ $link-margin: $ca-grid / 4;
     text-decoration: none;
 
     .linkText::before {
-      transform: translateY(-#{$link-margin});
+      transform: translateY(calc(-1 * #{$link-margin}));
       @include ca-media-mobile {
         transform: translateY(0);
       }
@@ -58,7 +58,7 @@ $link-margin: $ca-grid / 4;
   .linkText::before {
     content: "";
     display: block;
-    transform: translateY(-#{$ca-navigation-bar__link-item-margin})
+    transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
       translateY(-100%);
     height: $ca-navigation-bar__link-item-indicator-height;
     width: 100%;
@@ -74,7 +74,7 @@ $link-margin: $ca-grid / 4;
       width: $ca-navigation-bar__link-item-indicator-height;
       height: $ca-navigation-bar__height;
       right: auto;
-      transform: translateX(-#{$ca-navigation-bar__link-item-margin})
+      transform: translateX(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
         translateX(-100%);
     }
   }
@@ -84,10 +84,12 @@ $link-margin: $ca-grid / 4;
     text-decoration: none;
 
     .linkText::before {
-      transform: translateY(-#{$ca-navigation-bar__link-item-margin});
+      transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}));
 
       @include ca-media-mobile {
-        transform: translateX(-#{$ca-navigation-bar__link-item-margin});
+        transform: translateX(
+          calc(-1 * #{$ca-navigation-bar__link-item-margin})
+        );
       }
     }
   }
@@ -101,7 +103,7 @@ $link-margin: $ca-grid / 4;
       @include ca-type-inter-body;
       @include ca-inherit-baseline;
 
-      padding: 0 $ca-grid / 2;
+      padding: 0 calc(#{$ca-grid} / 2);
 
       .linkIcon {
         @include ca-media-tablet {

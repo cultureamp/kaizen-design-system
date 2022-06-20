@@ -32,6 +32,12 @@ export interface FilterMenuButtonProps {
   isDropdownVisible: boolean
 
   /**
+   * Determines when the menu should automatically hide.
+   * @default: "on"
+   */
+  autoHide?: "on" | "outside-click-only" | "off"
+
+  /**
    * A function that toggles the isDropdownVisible state
    */
   toggleDropdown: () => void
@@ -52,6 +58,7 @@ export const FilterMenuButton = ({
   labelText,
   children,
   metadata,
+  autoHide = "on",
   isDropdownVisible,
   toggleDropdown,
   hideDropdown,
@@ -80,6 +87,7 @@ export const FilterMenuButton = ({
         hideMenuDropdown={hideDropdown}
         dropdownWidth="contain"
         dropdownId={dropdownId}
+        autoHide={autoHide}
         onClick={e => e.stopPropagation()}
       >
         {children}

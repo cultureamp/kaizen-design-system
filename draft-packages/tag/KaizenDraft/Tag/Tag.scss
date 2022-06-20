@@ -227,6 +227,9 @@ $small: $spacing-md;
 $pulse-size-initial: 2px;
 $pulse-scale-factor: 9;
 $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
+$pulse-ring-position: calc(
+  -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
+);
 
 .pulse {
   @include ca-margin(
@@ -247,8 +250,8 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
   width: $pulse-size-after;
   height: $pulse-size-after;
   // this positioning has to be calculated as an exact value as scaling will mess with percentage values
-  left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
-  top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
+  left: $pulse-ring-position;
+  top: $pulse-ring-position;
   border-radius: 50%;
   background-color: $color-green-500;
   animation: pulsate infinite 2.5s ease-out;

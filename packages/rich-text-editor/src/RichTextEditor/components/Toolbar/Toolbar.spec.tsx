@@ -3,7 +3,6 @@ import { render, screen, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import { tab } from "@testing-library/user-event/dist/tab"
 import { ToolbarSection } from "../ToolbarSection"
 import { ToggleIconButton } from "../ToggleIconButton"
 import { Toolbar } from "./"
@@ -22,7 +21,7 @@ describe("Navigate using the arrow keys", () => {
   it("will focus to the first item in the list", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    tab()
+    userEvent.tab()
     await waitFor(() => {
       const firstFoundElement = screen.getByLabelText("Bold")
       expect(firstFoundElement).toHaveFocus()
@@ -32,7 +31,7 @@ describe("Navigate using the arrow keys", () => {
   it("will navigate to the left and right with arrow keys", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    tab()
+    userEvent.tab()
     userEvent.keyboard("{arrowright}")
     await waitFor(() => {
       expect(screen.getByLabelText("Italic")).toHaveFocus()
@@ -46,7 +45,7 @@ describe("Navigate using the arrow keys", () => {
   it("will loop selection on either side of the toolbar", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    tab()
+    userEvent.tab()
     userEvent.keyboard("{arrowleft}")
     await waitFor(() => {
       expect(screen.getByLabelText("Underline")).toHaveFocus()
@@ -67,10 +66,10 @@ describe("Tabbing out of the toolbar", () => {
       </>
     )
     screen.getByRole("toolbar").focus()
-    tab()
+    userEvent.tab()
     userEvent.keyboard("{arrowright}")
-    tab()
-    tab({ shift: true })
+    userEvent.tab()
+    userEvent.tab({ shift: true })
     await waitFor(() => {
       expect(screen.getByLabelText("Italic")).toHaveFocus()
     })

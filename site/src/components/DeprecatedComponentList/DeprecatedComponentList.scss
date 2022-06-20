@@ -1,0 +1,19 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.deprecatedComponentList {
+  padding: 0 2em;
+}
+
+.deprecatedComponentListItem {
+  padding: 1.5rem 0.75rem;
+}
+
+.deprecatedComponentListItem + .deprecatedComponentListItem {
+  border-top: 1px solid rgba($color-gray-600-rgb, 0.1);
+}
+
+.deprecatedComponentListItem_RemovalDate {
+  float: right;
+  position: relative;
+  right: -12px;
+}

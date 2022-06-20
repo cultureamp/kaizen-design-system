@@ -5,7 +5,7 @@ import {
   GenericAvatarProps,
   CompanyAvatarProps,
 } from "@kaizen/draft-avatar"
-import { IconButton, ButtonProps } from "@kaizen/draft-button"
+import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
@@ -54,7 +54,7 @@ export interface TitleBlockProps {
   variant?: Variant
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element | AvatarProps
-  subtitle?: string
+  subtitle?: React.ReactNode
   sectionTitle?: string
   sectionTitleDescription?: string
   pageSwitcherSelect?: SelectProps
@@ -248,7 +248,10 @@ const renderAvatar = (
     </div>
   )
 
-const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
+const renderSubtitle = (
+  subtitle: React.ReactNode,
+  subtitleAutomationId: string
+) => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -408,6 +411,9 @@ const createTabletOverflowMenuItems = (
 }
 
 /**
+ * {@link https://cultureamp.design/components/title-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-title-block--default Storybook}
+ *
  * ### primaryAction
  *
  * The primary action (the "main" button in the top right) can either be a Button,
@@ -506,7 +512,8 @@ const TitleBlockZen = ({
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
           [styles.hasLongTitle]: title && title.length >= 30,
-          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
+          [styles.hasLongSubtitle]:
+            subtitle && typeof subtitle === "string" && subtitle.length >= 18,
           [styles.hasNavigationTabs]: hasNavigationTabs,
         })}
       >

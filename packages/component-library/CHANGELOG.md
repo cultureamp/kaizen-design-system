@@ -3,6 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.4...@kaizen/component-library@14.3.5) (2022-06-16)
+
+
+### Bug Fixes
+
+* Update RTE icons to be a consistent 20x20 viewbox ([#2793](https://github.com/cultureamp/kaizen-design-system/issues/2793)) ([1d10542](https://github.com/cultureamp/kaizen-design-system/commit/1d10542e02fbbe25318820c77393284c7cf499c6))
+
+
+
+
+
+## [14.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.3...@kaizen/component-library@14.3.4) (2022-06-09)
+
+
+### Bug Fixes
+
+* remove fill from nested svg path in indent icons ([#2787](https://github.com/cultureamp/kaizen-design-system/issues/2787)) ([138ff69](https://github.com/cultureamp/kaizen-design-system/commit/138ff6957bfbebe4f4fd4324ae2f9dd5d5636721))
+
+
+
+
+
+## [14.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.2...@kaizen/component-library@14.3.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.1...@kaizen/component-library@14.3.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.0...@kaizen/component-library@14.3.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
+# [14.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.2.0...@kaizen/component-library@14.3.0) (2022-05-24)
+
+
+### Features
+
+* add zoom in and out icons ([#2748](https://github.com/cultureamp/kaizen-design-system/issues/2748)) ([22d5ac4](https://github.com/cultureamp/kaizen-design-system/commit/22d5ac4a59c55a80496bc768d905b93790136512))
+
+
+
+
+
+# [14.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.1.2...@kaizen/component-library@14.2.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [14.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.1.1...@kaizen/component-library@14.1.2) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.1.0...@kaizen/component-library@14.1.1) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [14.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.6...@kaizen/component-library@14.1.0) (2022-05-11)
+
+
+### Features
+
+* add increase and decrease indent icons for RTE ([#2721](https://github.com/cultureamp/kaizen-design-system/issues/2721)) ([b85f2be](https://github.com/cultureamp/kaizen-design-system/commit/b85f2bed7e76f72ae7544bf37e150043d92f661c)), closes [#000000](https://github.com/cultureamp/kaizen-design-system/issues/000000)
+
+
+
+
+
+## [14.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.5...@kaizen/component-library@14.0.6) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.4...@kaizen/component-library@14.0.5) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.3...@kaizen/component-library@14.0.4) (2022-05-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.2...@kaizen/component-library@14.0.3) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [14.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.1...@kaizen/component-library@14.0.2) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [14.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.0.0...@kaizen/component-library@14.0.1) (2022-04-14)
 
 **Note:** Version bump only for package @kaizen/component-library

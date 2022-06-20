@@ -3,6 +3,140 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.7...@kaizen/draft-tag@3.1.8) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.6...@kaizen/draft-tag@3.1.7) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.5...@kaizen/draft-tag@3.1.6) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.4...@kaizen/draft-tag@3.1.5) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.3...@kaizen/draft-tag@3.1.4) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
+## [3.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.2...@kaizen/draft-tag@3.1.3) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.1...@kaizen/draft-tag@3.1.2) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.1.0...@kaizen/draft-tag@3.1.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.10...@kaizen/draft-tag@3.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [3.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.9...@kaizen/draft-tag@3.0.10) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.8...@kaizen/draft-tag@3.0.9) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.7...@kaizen/draft-tag@3.0.8) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.6...@kaizen/draft-tag@3.0.7) (2022-05-06)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.5...@kaizen/draft-tag@3.0.6) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.4...@kaizen/draft-tag@3.0.5) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.3...@kaizen/draft-tag@3.0.4) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.0.2...@kaizen/draft-tag@3.0.3) (2022-04-22)
 
 **Note:** Version bump only for package @kaizen/draft-tag

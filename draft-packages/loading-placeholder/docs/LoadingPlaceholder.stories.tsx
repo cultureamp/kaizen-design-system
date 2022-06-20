@@ -6,18 +6,18 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./LoadingPlaceholder.stories.scss"
 
-const StoryContainer: React.FunctionComponent = ({ children }) => (
+const StoryContainer = ({ children }) => (
   <div className={styles.storyContainer}>{children}</div>
 )
 
 export default {
-  title: `${CATEGORIES.components}/Loading Placeholder`,
+  title: `${CATEGORIES.deprecated}/Loading Placeholder`,
   component: LoadingPlaceholder,
   parameters: {
     docs: {
       description: {
         component:
-          'import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"',
+          "⛔️ This component is deprecated. Use the `@kaizen/loading-skeleton` package instead.",
       },
     },
     ...figmaEmbed(
@@ -135,9 +135,30 @@ export const DefaultMultipleVariableWidthCentered = () => (
 )
 DefaultMultipleVariableWidthCentered.storyName =
   "Default, Multiple, Variable width, Centered"
-DefaultMultipleVariableWidthCentered.parameters = {
-  chromatic: { disable: false },
-}
+
+export const DefaultWithoutBottomMargin = () => (
+  <StoryContainer>
+    <LoadingPlaceholder noBottomMargin />
+    <Paragraph variant="body">
+      These loading placeholders have no bottom margin.
+    </Paragraph>
+
+    <LoadingPlaceholder noBottomMargin />
+  </StoryContainer>
+)
+DefaultWithoutBottomMargin.storyName = "Default, Without bottom margin"
+
+export const DefaultInheritBaseline = () => (
+  <StoryContainer>
+    <div className={styles.flexbox}>
+      <Heading tag="h2" variant="heading-2">
+        Inheriting baseline
+      </Heading>
+      <LoadingPlaceholder />
+    </div>
+  </StoryContainer>
+)
+DefaultInheritBaseline.storyName = "Default, Inherit baseline"
 
 export const DefaultMultipleCombinedBlockAndInline = () => (
   <StoryContainer>
@@ -177,35 +198,6 @@ export const DefaultMultipleCombinedBlockAndInline = () => (
 )
 DefaultMultipleCombinedBlockAndInline.storyName =
   "Default, Multiple, Combined block and inline"
-DefaultMultipleCombinedBlockAndInline.parameters = {
-  chromatic: { disable: false },
-}
-
-export const DefaultWithoutBottomMargin = () => (
-  <StoryContainer>
-    <LoadingPlaceholder noBottomMargin />
-    <Paragraph variant="body">
-      These loading placeholders have no bottom margin.
-    </Paragraph>
-
-    <LoadingPlaceholder noBottomMargin />
-  </StoryContainer>
-)
-DefaultWithoutBottomMargin.storyName = "Default, Without bottom margin"
-DefaultWithoutBottomMargin.parameters = { chromatic: { disable: false } }
-
-export const DefaultInheritBaseline = () => (
-  <StoryContainer>
-    <div className={styles.flexbox}>
-      <Heading tag="h2" variant="heading-2">
-        Inheriting baseline
-      </Heading>
-      <LoadingPlaceholder />
-    </div>
-  </StoryContainer>
-)
-DefaultInheritBaseline.storyName = "Default, Inherit baseline"
-DefaultInheritBaseline.parameters = { chromatic: { disable: false } }
 
 export const HeadingLoading = () => (
   <StoryContainer>
@@ -228,7 +220,6 @@ export const HeadingLoading = () => (
     </>
   </StoryContainer>
 )
-HeadingLoading.parameters = { chromatic: { disable: false } }
 
 export const ReversedDefault = () => (
   <StoryContainer>
@@ -250,7 +241,6 @@ export const ReversedDefault = () => (
 ReversedDefault.storyName = "Reversed, Default"
 ReversedDefault.parameters = {
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
 }
 
 export const InTheWild = () => (

@@ -5,9 +5,7 @@
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
-// @import "~@kaizen/button/Button/styles";
-// 🔥 Uncomment the above and remove the below when moving this package out of drafts
-@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+@import "~@kaizen/button/src/Button/mixins";
 @import "./GuidanceBlockBreakpoints.scss";
 
 $bannerPadding: $spacing-lg;
@@ -253,7 +251,7 @@ $scene-illustration-size: 300px;
 
   .buttonContainer {
     padding-left: $spacing-sm;
-    justify-content: end;
+    justify-content: flex-start;
     width: unset;
     min-width: unset;
 

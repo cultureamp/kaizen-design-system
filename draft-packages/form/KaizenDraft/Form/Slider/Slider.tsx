@@ -15,6 +15,10 @@ export interface SliderFieldProps extends InputRangeProps {
   readOnlyMessage?: ReactNode
 }
 
+/**
+ * {@link https://cultureamp.design/components/slider/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-slider--controlled Storybook}
+ */
 export const Slider: React.VFC<SliderFieldProps> = props => {
   const {
     id,
