@@ -111,7 +111,7 @@
     "ts-jest": "^27.1.4",
     "typescript": "^4.5.5",
     "typescript-plugin-css-modules": "^3.4.0",
-    "webpack": "^5.68.0"
+    "webpack": "^5.73.0"
   },
   "devDependenciesComments": {
     "svgo-loader": "version locked to keep consistency with gatsby site"
