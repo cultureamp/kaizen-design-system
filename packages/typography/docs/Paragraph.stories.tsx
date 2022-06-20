@@ -111,7 +111,6 @@ export const BodyWhite = () => (
     <Documentation reversed />
   </>
 )
-BodyWhite.storyName = "Body White"
 BodyWhite.parameters = {
   backgrounds: { default: "Purple 700" },
 }

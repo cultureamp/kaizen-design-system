@@ -121,7 +121,6 @@ Default.args = {
     <NavigationTab text="Label" href="#" />,
   ],
 }
-Default.storyName = "Default"
 
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
@@ -437,7 +436,6 @@ export const Engagement = () => (
     />
   </OffsetPadding>
 )
-Engagement.storyName = "Engagement"
 Engagement.parameters = { chromatic: { disable: false } }
 
 export const Performance = () => (
@@ -496,7 +494,6 @@ export const Performance = () => (
     />
   </OffsetPadding>
 )
-Performance.storyName = "Performance"
 Performance.parameters = { chromatic: { disable: false } }
 
 export const PerformanceWithAvatarProps = () => (
@@ -1168,9 +1165,8 @@ export const DefaultCollapsedNavigationCard = () => (
     </Skirt>
   </OffsetPadding>
 )
-DefaultCollapsedNavigationCard.story = {
-  name: "Default (collapsed navigation with card)",
-}
+DefaultCollapsedNavigationCard.storyName =
+  "Default (collapsed navigation with card)"
 
 export const AdminVariantNavigation = () => (
   <OffsetPadding>

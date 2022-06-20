@@ -46,13 +46,9 @@ export const DefaultStory = args => (
   </div>
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
-DefaultStory.argTypes = {
-  accessibilityLabel: {
-    defaultValue: "Loading comments",
-  },
-  size: {
-    defaultValue: "sm",
-  },
+DefaultStory.args = {
+  accessibilityLabel: "Loading comments",
+  size: "sm",
 }
 
 export const StickerSheet = () => (

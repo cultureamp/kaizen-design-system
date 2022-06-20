@@ -808,9 +808,7 @@ export const ReversedButtons = () => (
   </>
 )
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
-DefaultKaizenSiteDemo.story = {
-  name: "Default Button (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default Button (Kaizen Site Demo)"
 
 ReversedButtons.parameters = {
   backgrounds: {

@@ -18,6 +18,15 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14539%3A69482"
     ),
   },
+  args: {
+    status: "default",
+    variant: "default",
+  },
+  argTypes: {
+    autogrow: {
+      table: { defaultValue: { summary: false } },
+    },
+  },
   decorators: [withDesign],
 }
 
@@ -36,15 +45,6 @@ DefaultStory.argTypes = {
     control: {
       disable: true,
     },
-  },
-  autogrow: {
-    defaultValue: { summary: "false" },
-  },
-  status: {
-    defaultValue: "default",
-  },
-  variant: {
-    defaultValue: "default",
   },
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"

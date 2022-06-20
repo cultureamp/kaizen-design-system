@@ -256,5 +256,3 @@ export const ColorTokens: Story = () => {
     </div>
   )
 }
-
-ColorTokens.storyName = "Color Tokens"
