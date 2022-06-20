@@ -1,15 +1,14 @@
-import { heartTheme, zenTheme } from "@kaizen/design-tokens"
+import { heartTheme } from "@kaizen/design-tokens"
 import { themeManager } from "./themeManager"
 
 themeManager.setAndApplyTheme(heartTheme)
-// or
-themeManager.setAndApplyTheme(zenTheme)
+
 // or make your own modifications
 themeManager.setAndApplyTheme({
-  ...zenTheme,
+  ...heartTheme,
   themeKey: "custom",
   spacing: {
-    ...zenTheme.spacing,
+    ...heartTheme.spacing,
     md: "1rem",
   },
 })
