@@ -1,6 +1,5 @@
 import React from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Heading } from "@kaizen/typography"
+import { Heading } from "../../../../../packages/typography"
 import styles from "../../StoryWrapper.scss"
 
 export interface StoryRowProps {
