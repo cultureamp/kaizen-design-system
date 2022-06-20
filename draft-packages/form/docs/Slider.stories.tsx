@@ -38,7 +38,6 @@ export const Uncontrolled = () => (
     maxLabel="Fantastic"
   />
 )
-Uncontrolled.storyName = "Uncontrolled"
 Uncontrolled.parameters = { chromatic: { disable: false } }
 
 export const Controlled = () => {
@@ -54,7 +53,6 @@ export const Controlled = () => {
     />
   )
 }
-Controlled.storyName = "Controlled"
 
 export const LabelAboveSlider = () => (
   <Slider
@@ -107,7 +105,6 @@ export const Prominent = () => (
     maxLabel="Fantastic"
   />
 )
-Prominent.storyName = "Prominent"
 Prominent.parameters = { chromatic: { disable: false } }
 
 export const Disabled = () => (
@@ -121,7 +118,6 @@ export const Disabled = () => (
     maxLabel="Fantastic"
   />
 )
-Disabled.storyName = "Disabled"
 Disabled.parameters = { chromatic: { disable: false } }
 
 export const ReadOnly = () => (

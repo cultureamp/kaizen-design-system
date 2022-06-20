@@ -272,7 +272,6 @@ export const NestedCheckboxGroup = () => {
     </div>
   )
 }
-NestedCheckboxGroup.storyName = "Nested Checkbox Group"
 
 export const ReversedCheckboxGroup = args => (
   <div>
