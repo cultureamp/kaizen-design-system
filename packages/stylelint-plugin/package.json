@@ -38,7 +38,7 @@
     "@types/stylelint": "^13.13.3",
     "@types/tinycolor2": "^1.4.3",
     "lodash.merge": "^4.6.2",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^3.2.6",
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0"
   }
