@@ -152,4 +152,3 @@ export const AutohideDemo = props => (
     <p>Content below the notification</p>
   </>
 )
-AutohideDemo.storyName = "Autohide Demo"

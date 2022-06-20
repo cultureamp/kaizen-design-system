@@ -196,7 +196,6 @@ export const Reversed = () => (
     </TableContainer>
   </Container>
 )
-Reversed.storyName = "Reversed"
 Reversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
@@ -220,7 +219,6 @@ export const DataVariant = () => (
     </TableContainer>
   </Container>
 )
-DataVariant.storyName = "Data Variant"
 DataVariant.parameters = { chromatic: { disable: false } }
 
 export const Clickable = () => (
@@ -324,7 +322,6 @@ export const ExpandedPopout = () => {
     </Container>
   )
 }
-ExpandedPopout.storyName = "Expanded popout"
 ExpandedPopout.parameters = { chromatic: { disable: false } }
 
 export const NoHeader = () => (
@@ -342,7 +339,6 @@ export const NoHeader = () => (
     </TableContainer>
   </Container>
 )
-NoHeader.storyName = "No header"
 NoHeader.parameters = { chromatic: { disable: false } }
 
 export const ExtraSpacing = () => (
@@ -360,7 +356,7 @@ export const ExtraSpacing = () => (
     </TableContainer>
   </Container>
 )
-ExtraSpacing.storyName = "Default variant (extra spacing)"
+ExtraSpacing.storyName = "Default Variant (Extra Spacing)"
 ExtraSpacing.parameters = { chromatic: { disable: false } }
 
 export const HeaderAlignmentAndWrapping = () => (
@@ -419,7 +415,6 @@ export const HeaderAlignmentAndWrapping = () => (
     </TableContainer>
   </Container>
 )
-HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
 HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
 export const Tooltip = () => (
@@ -478,7 +473,6 @@ export const Tooltip = () => (
     </TableContainer>
   </Container>
 )
-Tooltip.storyName = "Tooltip"
 Tooltip.parameters = { chromatic: { disable: false } }
 
 export const AnchorLink = () => (
@@ -525,9 +519,8 @@ export const AnchorLink = () => (
     </TableContainer>
   </Container>
 )
-AnchorLink.storyName = "Anchor Link"
 
-export const HoverHeaderCell = () => (
+export const HeaderRowHover = () => (
   <Container style={{ marginTop: "200px" }}>
     <TableContainer>
       <TableHeader>
@@ -579,4 +572,3 @@ export const HoverHeaderCell = () => (
     </TableContainer>
   </Container>
 )
-HoverHeaderCell.storyName = "Header row hover"

@@ -36,9 +36,7 @@ export default {
 }
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
-DefaultKaizenSiteDemo.story = {
-  name: "Button",
-}
+DefaultKaizenSiteDemo.storyName = "Button"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
