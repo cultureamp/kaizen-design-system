@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -42,7 +42,7 @@
     "react-popper": "^2.2.5"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^8.1.0",
+    "@kaizen/design-tokens": "^9.0.0",
     "@types/classnames": "^2.3.1"
   },
   "peerDependencies": {
