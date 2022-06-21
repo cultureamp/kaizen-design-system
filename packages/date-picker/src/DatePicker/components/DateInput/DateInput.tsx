@@ -10,6 +10,7 @@ import {
   Label,
 } from "@kaizen/draft-form"
 import { Matcher } from "react-day-picker/src/types/Matchers"
+import { LanguageLocale } from "../.."
 import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.scss"
 
@@ -25,6 +26,7 @@ type OmittedInputProps =
   | "ariaDescribedBy"
   | "defaultInputValue"
   | "automationId"
+  | "locale"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   buttonRef?: React.RefObject<HTMLButtonElement>
@@ -50,6 +52,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * A descriptive message for `status` states
    */
   validationMessage?: string | React.ReactNode
+  locale: LanguageLocale
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -67,9 +70,9 @@ export const DateInput: React.VFC<DateInputProps> = ({
   status,
   validationMessage,
   value,
+  locale,
   ...inputProps
 }) => {
-  // Focus behaviour breaks when this is a function component.
   const IconButton: React.ReactNode = (
     <button
       ref={buttonRef}

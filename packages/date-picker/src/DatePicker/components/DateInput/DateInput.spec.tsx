@@ -1,8 +1,17 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
+import "@testing-library/jest-dom"
+import { enUS } from "date-fns/locale"
+import userEvent from "@testing-library/user-event"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import { Direction } from "../../DatePicker"
 import { DateInput, DateInputProps } from "./DateInput"
 
+const localeUS = {
+  localeObj: enUS,
+  code: enUS.code,
+  dir: "ltr" as Direction,
+}
 const defaultProps = {
   id: "text-field-test",
   labelText: "Label",
@@ -12,6 +21,7 @@ const defaultProps = {
   onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
   calendarId: "calendar-dialog",
   value: undefined,
+  locale: localeUS,
 }
 
 const DateInputWrapper = (props: Partial<DateInputProps>) => (

@@ -5,6 +5,7 @@ import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
+import { enUS } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -25,7 +26,17 @@ type OmittedDateInputProps =
   | "onButtonClick"
   | "calendarId"
   | "value"
+  | "locale"
 
+export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
+
+export type Direction = "ltr" | "rtl"
+
+export type LanguageLocale = {
+  localeObj: Locale
+  code: string | undefined
+  dir: Direction
+}
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
   id: string
@@ -35,6 +46,7 @@ export interface DatePickerProps
   onInputChange?: DateInputProps["onChange"]
   onInputBlur?: DateInputProps["onBlur"]
   onButtonClick?: DateInputProps["onButtonClick"]
+  locale?: LanguageLocale
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -125,6 +137,11 @@ export type ValidationResponse = {
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
+  locale = {
+    localeObj: enUS,
+    code: enUS.code,
+    dir: "ltr",
+  },
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -360,14 +377,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             inputRef={inputRef}
             buttonRef={buttonRef}
             id={id}
-            calendarId={`${id}-calendar-dialog`}
             isCalendarOpen={isOpen}
+            locale={locale}
+            onButtonClick={handleButtonClick}
+            calendarId={`${id}-calendar-dialog`}
             onClick={handleInputClick}
             onFocus={handleInputFocus}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             onKeyDown={handleKeyDown}
-            onButtonClick={handleButtonClick}
             icon={dateStart}
             value={inputValue}
             {...restDateInputProps}
@@ -386,6 +404,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             disabledDays={disabledDays}
             onDayChange={handleCalendarDayChange}
             onMount={handleCalendarMount}
+            locale={locale}
           />
         )}
       </div>

@@ -11,11 +11,13 @@ import {
   ActiveModifiers,
   isMatch,
 } from "react-day-picker"
+import { enUS } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
 import { Calendar, CalendarProps } from "./components/Calendar"
 import { DayOfWeek } from "./enums"
+import { LanguageLocale } from "./DatePicker"
 
 export interface DateRangePickerProps {
   id: string
@@ -24,7 +26,7 @@ export interface DateRangePickerProps {
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
-
+  locale?: LanguageLocale
   /** Selected date range which is being updated in handleDayClick and checked
    * if within range/not disabled and then passed back to the client to update
    * the state.
@@ -84,6 +86,11 @@ export interface DateRangePickerProps {
 export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
+  locale = {
+    localeObj: enUS,
+    code: enUS.code,
+    dir: "ltr",
+  },
   description,
   onChange,
   labelText,
@@ -243,6 +250,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
             modifiers={modifiers}
             selectedRange={selectedDateRange}
             onDayChange={handleDayClick}
+            locale={locale}
           />
         </FocusOn>
       )}
