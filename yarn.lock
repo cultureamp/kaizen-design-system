@@ -2231,6 +2231,20 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/component-library@^14.3.4":
+  version "14.3.6"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-14.3.6.tgz#bbc8beb7af1bd619de0e3e8c4c292050683bcd28"
+  integrity sha512-7fXTOOLuGIgsE+SmsfCCyWQfFlkhsgv0i5Va3FwSPBdO5RSkCmnxOHxNRFGydkQ0vAiBYTJmGKlXl8aGdC43dg==
+  dependencies:
+    "@kaizen/component-base" "^1.1.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
+    "@kaizen/hosted-assets" "^2.0.0"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.182"
+    "@types/uuid" "^3.4.10"
+    classnames "^2.3.1"
+    motion-ui "github:cultureamp/motion-ui"
+
 "@kaizen/draft-button@^5.4.1", "@kaizen/draft-button@^5.6.25":
   version "5.6.25"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
@@ -6706,6 +6720,11 @@ chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chalk@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.0.1.tgz#ca57d71e82bb534a296df63bbacc4a1c22b2a4b6"
+  integrity sha512-Fo07WOYGqMfCWHOzSXOt2CxDbC6skS/jO9ynEcmpANMoPrD+W1r1K6Vx7iNm+AQmETU1Xr2t+n8nzkV9t6xh3w==
 
 char-regex@^1.0.2:
   version "1.0.2"
@@ -13334,7 +13353,7 @@ moo-color@^1.0.2:
   dependencies:
     color-name "^1.1.4"
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/d73f199d0ab2626a334ba6100604b3d14e6dabf1"
 
