@@ -116,6 +116,9 @@
   "resolutions": {
     "@types/react": "^18.0.9"
   },
+  "resolutionsComments": {
+    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
