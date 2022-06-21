@@ -247,9 +247,17 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const handleCalendarDayChange: DayClickEventHandler = date => {
     if (!isDisabledDate(date, disabledDays)) {
       if (lastTrigger === "calendarButton") {
-        setInputValue(format(date, DateFormat.Text))
+        setInputValue(
+          format(date, DateFormat.Text, {
+            locale: locale.localeObj,
+          })
+        )
       } else {
-        setInputValue(format(date, DateFormat.Numeral))
+        setInputValue(
+          format(date, DateFormat.Numeral, {
+            locale: locale.localeObj,
+          })
+        )
       }
 
       handleDayChange(date)
@@ -267,7 +275,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (selectedDay) {
       const newInputValue = isInvalidDate(selectedDay)
         ? ""
-        : format(selectedDay, DateFormat.Numeral)
+        : format(selectedDay, DateFormat.Numeral, {
+            locale: locale.localeObj,
+          })
       setInputValue(newInputValue)
     }
     onInputFocus && onInputFocus(e)
@@ -285,7 +295,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (isSelectingDayInCalendar) return
 
     if (inputValue !== "") {
-      const parsedDate = parse(inputValue, DateFormat.Numeral, new Date())
+      const parsedDate = parse(inputValue, DateFormat.Numeral, new Date(), {
+        locale: locale.localeObj,
+      })
 
       if (!isInvalidDate(parsedDate)) {
         formatDateAsText(parsedDate, disabledDays, setInputValue)
@@ -349,7 +361,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
 
     if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
-      const formattedDate = format(selectedDay, DateFormat.Numeral)
+      const formattedDate = format(selectedDay, DateFormat.Numeral, {
+        locale: locale.localeObj,
+      })
       onValidate({
         date: undefined,
         inputValue: formattedDate,
