@@ -147,7 +147,6 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
   static defaultProps: DropdownProps = {
     iconPosition: "start",
   }
-
   dropdownButton = React.createRef<HTMLButtonElement>()
 }
 

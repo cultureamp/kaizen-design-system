@@ -22,11 +22,9 @@ type RenderProps = {
 type Props = {
   render: (props: RenderProps) => JSX.Element
 }
-
 class RadioFieldExample extends React.Component<Props> {
   constructor(props: Props) {
     super(props)
-
     this.onChangeHandler = this.onChangeHandler.bind(this)
   }
 

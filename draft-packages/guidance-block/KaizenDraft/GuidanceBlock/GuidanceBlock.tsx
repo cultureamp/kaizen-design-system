@@ -75,6 +75,18 @@ type WithTooltipProps = {
   tooltipProps?: TooltipProps
 }
 
+type CancelButtonProps = {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const CancelButton = ({ onClick }: CancelButtonProps) => (
+  <button className={styles.cancel} type="button" onClick={onClick}>
+    <span>
+      <Icon icon={closeIcon} role="img" title="close notification" />
+    </span>
+  </button>
+)
+
 const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
   tooltipProps,
   children,
@@ -286,20 +298,7 @@ class GuidanceBlock extends React.Component<
     removed: false,
     mediaQueryLayout: "",
   }
-
   containerRef = React.createRef<HTMLDivElement>()
 }
-
-type CancelButtonProps = {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const CancelButton = ({ onClick }: CancelButtonProps) => (
-  <button className={styles.cancel} type="button" onClick={onClick}>
-    <span>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
-  </button>
-)
 
 export default GuidanceBlock

@@ -145,10 +145,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     )
   }
 
-  public state = {
-    open: !!this.props.open,
-  }
-
   private getOpen = () =>
     this.props.controlled ? this.props.open : this.state.open
 
@@ -163,5 +159,9 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         open: !open,
       })
     }
+  }
+
+  public state = {
+    open: !!this.props.open,
   }
 }

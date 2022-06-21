@@ -25,7 +25,6 @@ class ToggleStateContainer extends React.Component<
       </div>
     )
   }
-
   state = {
     toggledStatus: this.props.initialToggledStatus,
   }
