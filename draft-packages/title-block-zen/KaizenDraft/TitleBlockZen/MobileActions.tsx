@@ -409,10 +409,6 @@ export type MobileActionsProps = {
 }
 
 export default class MobileActions extends React.Component<MobileActionsProps> {
-  state = {
-    isOpen: false,
-  }
-
   toggleDisplay() {
     this.setState({ isOpen: !this.state.isOpen })
   }
@@ -470,5 +466,9 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
         )}
       </div>
     )
+  }
+
+  state = {
+    isOpen: false,
   }
 }

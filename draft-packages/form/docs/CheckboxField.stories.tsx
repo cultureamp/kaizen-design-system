@@ -20,10 +20,6 @@ type Props = {
 }
 
 class CheckboxFieldExample extends React.Component<Props> {
-  state = {
-    checkedStatus: "mixed",
-  }
-
   constructor(props: Props) {
     super(props)
 
@@ -47,6 +43,10 @@ class CheckboxFieldExample extends React.Component<Props> {
         })}
       </>
     )
+  }
+
+  state = {
+    checkedStatus: "mixed",
   }
 }
 

@@ -20,16 +20,6 @@ type Props = {
 }
 
 class RadioGroupExample extends React.Component<Props> {
-  state = {
-    selectedOption: "",
-  }
-
-  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      selectedOption: event.target.value,
-    })
-  }
-
   render() {
     const { render } = this.props
     return (
@@ -40,6 +30,16 @@ class RadioGroupExample extends React.Component<Props> {
         })}
       </div>
     )
+  }
+
+  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      selectedOption: event.target.value,
+    })
+  }
+
+  state = {
+    selectedOption: "",
   }
 }
 
