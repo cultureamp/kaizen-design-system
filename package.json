@@ -26,14 +26,12 @@
     "commit": "cz"
   },
   "dependencies": {
-    "@storybook/addon-essentials": "^6.5.6",
-    "@storybook/addon-links": "^6.5.6",
-    "@storybook/addons": "^6.5.6",
-    "@storybook/api": "^6.5.6",
-    "@storybook/components": "^6.5.6",
-    "@storybook/core-events": "^6.5.6",
-    "@storybook/react": "^6.5.6",
-    "@storybook/theming": "^6.5.6",
+    "@storybook/addons": "^6.5.9",
+    "@storybook/api": "^6.5.9",
+    "@storybook/components": "^6.5.9",
+    "@storybook/core-events": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/theming": "^6.5.9",
     "chalk": "^2.4.2",
     "classnames": "^2.3.1",
     "focus-visible": "^5.2.0",
@@ -59,6 +57,8 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.5.6",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
     "@storybook/builder-webpack5": "^6.5.6",
     "@storybook/manager-webpack5": "^6.5.6",
     "@storybook/node-logger": "^6.5.6",
@@ -114,8 +114,8 @@
     "webpack": "^5.68.0"
   },
   "resolutions": {
-    "axios": "0.21.2",
-    "@types/react": "^18.0.9"
+    "@types/react": "^18.0.9",
+    "axios": "0.21.2"
   },
   "config": {
     "commitizen": {
