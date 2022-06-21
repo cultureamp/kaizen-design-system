@@ -114,8 +114,7 @@
     "webpack": "^5.68.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.9",
-    "axios": "0.21.2"
+    "@types/react": "^18.0.9"
   },
   "config": {
     "commitizen": {
