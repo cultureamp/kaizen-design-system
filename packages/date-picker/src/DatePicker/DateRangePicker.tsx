@@ -6,11 +6,13 @@ import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { DateRange, DateInterval, isMatch } from "react-day-picker"
+import { enAU } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
 import { Calendar, CalendarProps } from "./components/Calendar"
 import { DayOfWeek } from "./enums"
+import { LanguageLocale } from "./DatePicker"
 
 export interface DateRangePickerProps {
   id: string
@@ -19,7 +21,7 @@ export interface DateRangePickerProps {
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
-
+  locale?: LanguageLocale
   /** Selected date range which is being updated in handleDayClick and checked
    * if within range/not disabled and then passed back to the client to update
    * the state.
@@ -236,6 +238,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
             disabledDays={disabledDays}
             onDayChange={handleDayClick}
             modifiers={modifiers}
+            locale={enAU}
           />
         </FocusOn>
       )}

@@ -7,9 +7,15 @@ import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { DateInput } from "../src/DatePicker/components/DateInput"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
+import {
+  DatePicker,
+  DayOfWeek,
+  ValidationResponse,
+  LanguageLocale,
+} from "../src/DatePicker"
 import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { locales } from "../src/DatePicker/supportedLanguages"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
@@ -53,6 +59,58 @@ DefaultStory.storyName = "Date Picker"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
+
+export const LocaleStory = props => {
+  const [selectedDate, setValueDate] = useState<Date | undefined>(
+    new Date(2022, 4, 5)
+  )
+  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
+  const [locale, setLocale] = useState<Locale | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    string | undefined
+  >()
+
+  const handleValidation = (validationResponse: ValidationResponse) => {
+    setStatus(validationResponse.status)
+    setValidationMessage(validationResponse.validationMessage)
+  }
+
+  const handleLocalisation = e => {
+    setLocale(locales[e.target.value])
+  }
+
+  return (
+    <>
+      <DatePicker
+        id="datepicker-default"
+        labelText="Label"
+        selectedDay={selectedDate}
+        onDayChange={setValueDate}
+        onValidate={handleValidation}
+        status={status}
+        validationMessage={validationMessage}
+        locale={locale}
+        {...props}
+      />
+      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+        <label htmlFor="languages">Select language: </label>
+        <select
+          name="languages"
+          id="languages"
+          onChange={e => handleLocalisation(e)}
+          defaultValue={"englishUS"}
+        >
+          {Object.keys(locales).map(language => (
+            <option key={language} value={language}>
+              {language}
+            </option>
+          ))}
+        </select>
+      </div>
+    </>
+  )
+}
+LocaleStory.storyName = "Localisation"
 
 export const ValidationStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
@@ -175,6 +233,7 @@ const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
         weekStartsOn={DayOfWeek.Sun}
         onDayChange={() => undefined}
         defaultMonth={new Date(2022, 1, 5)}
+        locale={locales.englishUS as LanguageLocale}
         {...props}
       />
     </div>
