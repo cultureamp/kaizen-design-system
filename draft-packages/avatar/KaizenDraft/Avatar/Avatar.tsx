@@ -114,6 +114,10 @@ const renderInitials = (
   )
 }
 
+/**
+ * {@link https://cultureamp.design/components/avatar/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar--default-story Storybook}
+ */
 export const Avatar: React.VFC<AvatarProps> = ({
   fullName,
   size = "medium",

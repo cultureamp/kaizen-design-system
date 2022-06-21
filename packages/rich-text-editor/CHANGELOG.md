@@ -3,6 +3,223 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.3...@kaizen/rich-text-editor@1.14.4) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.14.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.2...@kaizen/rich-text-editor@1.14.3) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.14.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.1...@kaizen/rich-text-editor@1.14.2) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.14.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.0...@kaizen/rich-text-editor@1.14.1) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.13.1...@kaizen/rich-text-editor@1.14.0) (2022-06-17)
+
+
+### Features
+
+* Add link functionality to RichTextEditor ([#2795](https://github.com/cultureamp/kaizen-design-system/issues/2795)) ([f06ac28](https://github.com/cultureamp/kaizen-design-system/commit/f06ac28ed0bf267a223b9171da72c959df93fb38))
+
+
+
+
+
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.13.0...@kaizen/rich-text-editor@1.13.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* Update RTE icons to be a consistent 20x20 viewbox ([#2793](https://github.com/cultureamp/kaizen-design-system/issues/2793)) ([1d10542](https://github.com/cultureamp/kaizen-design-system/commit/1d10542e02fbbe25318820c77393284c7cf499c6))
+
+
+
+
+
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.12.0...@kaizen/rich-text-editor@1.13.0) (2022-06-15)
+
+
+### Features
+
+* Allow aria-labelledby as an alternative to labelText on RTE ([#2790](https://github.com/cultureamp/kaizen-design-system/issues/2790)) ([20937b4](https://github.com/cultureamp/kaizen-design-system/commit/20937b408616cfe5481fbe09ec6cd2276ad9aa12))
+
+
+
+
+
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.3...@kaizen/rich-text-editor@1.12.0) (2022-06-15)
+
+
+### Features
+
+* update indentation logic to include disabled states ([#2779](https://github.com/cultureamp/kaizen-design-system/issues/2779)) ([4e355cd](https://github.com/cultureamp/kaizen-design-system/commit/4e355cdf936f784bc82c519b49ef181f7b9d5d8f))
+
+
+
+
+
+## [1.11.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.2...@kaizen/rich-text-editor@1.11.3) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.1...@kaizen/rich-text-editor@1.11.2) (2022-06-08)
+
+
+### Bug Fixes
+
+* **rte:** rte hover state causing clipping ([#2776](https://github.com/cultureamp/kaizen-design-system/issues/2776)) ([75ea33d](https://github.com/cultureamp/kaizen-design-system/commit/75ea33d5829b48e7d99002cbbc04e910fde56f16))
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.11.0...@kaizen/rich-text-editor@1.11.1) (2022-06-08)
+
+
+### Bug Fixes
+
+* Move to camelCase and rename bold and italic to strong and em ([#2777](https://github.com/cultureamp/kaizen-design-system/issues/2777)) ([c95245b](https://github.com/cultureamp/kaizen-design-system/commit/c95245bd316f760c66d6c647001af47bdbbd1fd6))
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.8...@kaizen/rich-text-editor@1.11.0) (2022-06-07)
+
+
+### Features
+
+* add list buttons to rte ([#2726](https://github.com/cultureamp/kaizen-design-system/issues/2726)) ([f5e2a95](https://github.com/cultureamp/kaizen-design-system/commit/f5e2a9599096354bbed7412fd673fa8d959744d4))
+
+
+
+
+
+## [1.10.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.7...@kaizen/rich-text-editor@1.10.8) (2022-06-07)
+
+
+### Bug Fixes
+
+* add white space fix to resolve spacing bug on firefox ([#2774](https://github.com/cultureamp/kaizen-design-system/issues/2774)) ([c517026](https://github.com/cultureamp/kaizen-design-system/commit/c517026461b22a6f52cf889fa8d3808b0ecfbb69))
+
+
+
+
+
+## [1.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.6...@kaizen/rich-text-editor@1.10.7) (2022-06-06)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.5...@kaizen/rich-text-editor@1.10.6) (2022-06-02)
+
+
+### Bug Fixes
+
+* focus should remain in editor when clicking toolbar buttons ([#2767](https://github.com/cultureamp/kaizen-design-system/issues/2767)) ([5e87c0f](https://github.com/cultureamp/kaizen-design-system/commit/5e87c0ff8588651419aa5259ad9e8471f5e89478))
+
+
+
+
+
+## [1.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.4...@kaizen/rich-text-editor@1.10.5) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.3...@kaizen/rich-text-editor@1.10.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.2...@kaizen/rich-text-editor@1.10.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.10.1...@kaizen/rich-text-editor@1.10.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.3...@kaizen/rich-text-editor@1.10.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.2...@kaizen/rich-text-editor@1.9.3) (2022-05-24)
+
+
+### Bug Fixes
+
+* Use interpolation for RTE height calculation ([#2750](https://github.com/cultureamp/kaizen-design-system/issues/2750)) ([03f923a](https://github.com/cultureamp/kaizen-design-system/commit/03f923ab59db4597e3f44c94803da2e41d9c7929))
+
+
+
+
+
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.1...@kaizen/rich-text-editor@1.9.2) (2022-05-24)
+
+
+### Bug Fixes
+
+* Supply correct property name for prepopulating RTE ([#2749](https://github.com/cultureamp/kaizen-design-system/issues/2749)) ([e21b0fb](https://github.com/cultureamp/kaizen-design-system/commit/e21b0fb72cacb2eb2cc263c67851d0d43699a279))
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.9.0...@kaizen/rich-text-editor@1.9.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 # [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.8.13...@kaizen/rich-text-editor@1.9.0) (2022-05-20)
 
 

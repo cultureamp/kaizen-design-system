@@ -28,7 +28,7 @@ export type TypographyFont = {
   letterSpacing: KaizenCSSProperties["letterSpacing"]
 }
 
-export type ThemeKey = "zen" | "heart" | "custom"
+export type ThemeKey = "heart" | "custom"
 
 export type Theme = {
   themeKey: ThemeKey

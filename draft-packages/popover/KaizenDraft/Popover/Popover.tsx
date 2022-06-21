@@ -43,6 +43,10 @@ export interface PopoverProps
 const arrowWidth = 14
 const arrowHeight = 7
 
+/**
+ * {@link https://cultureamp.design/components/popover/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-popover--default-kaizen-site-demo Storybook}
+ */
 export const Popover: React.VFC<PopoverProps> = ({
   children,
   variant = "default",

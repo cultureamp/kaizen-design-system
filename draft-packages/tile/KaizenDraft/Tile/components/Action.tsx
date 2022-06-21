@@ -20,21 +20,10 @@ const Action: Action = ({ action, secondary = false, disabled = false }) => {
     newTabAndIUnderstandTheAccessibilityImplications,
   } = action
 
-  return href ? (
+  return (
     <Button
       label={label}
       href={href}
-      secondary={secondary}
-      icon={icon}
-      data-automation-id={automationId}
-      disabled={disabled}
-      newTabAndIUnderstandTheAccessibilityImplications={
-        newTabAndIUnderstandTheAccessibilityImplications
-      }
-    />
-  ) : (
-    <Button
-      label={label}
       onClick={onClick}
       secondary={secondary}
       icon={icon}

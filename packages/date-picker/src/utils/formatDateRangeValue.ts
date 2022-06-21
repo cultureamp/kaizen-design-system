@@ -1,4 +1,4 @@
-import { RangeModifier } from "react-day-picker/types/Modifiers"
+import { DateRange } from "react-day-picker"
 
 const dateFormatOptions: Intl.DateTimeFormatOptions = {
   month: "short",
@@ -11,7 +11,7 @@ const dateWithoutYearFormatOptions: Intl.DateTimeFormatOptions = {
   day: "numeric",
 }
 
-export const formatDateRangeValue = (dateRange: RangeModifier): string => {
+export const formatDateRangeValue = (dateRange: DateRange): string => {
   if (dateRange.to) {
     const isSameYear =
       dateRange.from?.getFullYear() === dateRange?.to?.getFullYear()

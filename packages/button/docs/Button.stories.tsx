@@ -1,27 +1,19 @@
 import React from "react"
+import isChromatic from "chromatic"
+import { withDesign } from "storybook-addon-designs"
 import { Story } from "@storybook/react"
-import { Heading } from "@kaizen/typography"
-import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
-import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import { withDesign } from "storybook-addon-designs"
-import {
-  Button,
-  IconButton,
-  ButtonProps,
-  DirectionalLink,
-  PaginationLink,
-} from ".."
-import { CATEGORIES } from "../../../storybook/constants"
+import { Heading } from "@kaizen/typography"
+import { Button, ButtonProps } from ".."
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import styles from "./styles.module.scss"
+
+const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",
@@ -30,7 +22,6 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    chromatic: { disable: false },
     docs: {
       description: {
         component:
@@ -45,53 +36,60 @@ export default {
 }
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
-DefaultKaizenSiteDemo.story = {
-  name: "Button",
-}
-
-export const DefaultKaizenDemoIcon = args => (
-  <IconButton {...args} icon={trashIcon} />
-)
-
-export const DefaultKaizenDirectionalLink = args => (
-  <DirectionalLink direction="prev" {...args} />
-)
-
-export const DefaultKaizenPaginationLink = args => (
-  <PaginationLink pageNumber={1} {...args} />
-)
-
-DefaultKaizenDemoIcon.storyName = "Icon Button"
-DefaultKaizenDemoIcon.parameters = { chromatic: { disable: false } }
-DefaultKaizenDirectionalLink.storyName = "Directional Link"
-DefaultKaizenPaginationLink.storyName = "Pagination Link"
+DefaultKaizenSiteDemo.storyName = "Button"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const ICON_LEFT_PROPS: ButtonProps = {
-    label: "Label",
-    icon: addIcon,
-    reversed: isReversed,
-  }
+  const REVERSED__VARIANT_PROPS: Array<{
+    title: string
+    props: ButtonProps
+  }> = [
+    {
+      title: "Default",
+      props: {
+        label: "Label",
+      },
+    },
+    {
+      title: "Primary",
+      props: {
+        label: "Label",
+        primary: true,
+      },
+    },
+    {
+      title: "Destructive",
+      props: {
+        label: "Label",
+        destructive: true,
+      },
+    },
+    {
+      title: "Secondary",
+      props: {
+        label: "Label",
+        secondary: true,
+      },
+    },
+  ]
 
-  const ICON_RIGHT_PROPS: ButtonProps = {
-    label: "Label",
-    icon: arrowRight,
-    iconPosition: "end",
-    reversed: isReversed,
-  }
-
-  const NO_ICON_PROPS: ButtonProps = {
-    label: "Label",
-    reversed: isReversed,
-  }
-
-  const ICON_ONLY_PROPS: ButtonProps = {
-    label: "Label",
-    icon: trashIcon,
-    reversed: isReversed,
-  }
+  const VARIANTS_PROPS: Array<{
+    title: string
+    props: ButtonProps
+  }> = isReversed
+    ? REVERSED__VARIANT_PROPS
+    : [
+        ...REVERSED__VARIANT_PROPS,
+        {
+          title: "Secondary Destructive",
+          props: {
+            label: "Label",
+            secondary: true,
+            destructive: true,
+          },
+        },
+      ]
 
   const WORKING_PROPS: ButtonProps = {
     label: "Label",
@@ -100,309 +98,127 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     workingLabelHidden: true,
   }
 
-  return (
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Default
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled", "Working"]} />
-        <StoryWrapper.Row rowTitle="Icon Left">
-          <Button {...ICON_LEFT_PROPS} />
-          <Button {...ICON_LEFT_PROPS} disabled />
-          <Button {...ICON_LEFT_PROPS} {...WORKING_PROPS} />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Right">
-          <Button {...ICON_RIGHT_PROPS} />
-          <Button {...ICON_RIGHT_PROPS} disabled />
-          <Button {...ICON_RIGHT_PROPS} {...WORKING_PROPS} />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="No Icon">
-          <Button {...NO_ICON_PROPS} />
-          <Button {...NO_ICON_PROPS} disabled />
-          <Button {...NO_ICON_PROPS} {...WORKING_PROPS} />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Only">
-          <IconButton {...ICON_ONLY_PROPS} icon={meatballsIcon} />
-          <IconButton {...ICON_ONLY_PROPS} icon={meatballsIcon} disabled />
-          <IconButton {...ICON_ONLY_PROPS} {...WORKING_PROPS} />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Primary
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled", "Working"]} />
-        <StoryWrapper.Row rowTitle="Icon Left">
-          <Button {...ICON_LEFT_PROPS} primary />
-          <Button {...ICON_LEFT_PROPS} disabled primary />
-          <Button {...ICON_LEFT_PROPS} {...WORKING_PROPS} primary />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Right">
-          <Button {...ICON_RIGHT_PROPS} primary />
-          <Button {...ICON_RIGHT_PROPS} disabled primary />
-          <Button {...ICON_RIGHT_PROPS} {...WORKING_PROPS} primary />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="No Icon">
-          <Button {...NO_ICON_PROPS} primary />
-          <Button {...NO_ICON_PROPS} disabled primary />
-          <Button {...NO_ICON_PROPS} {...WORKING_PROPS} primary />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Only">
-          <IconButton {...ICON_ONLY_PROPS} icon={meatballsIcon} primary />
-          <IconButton
-            {...ICON_ONLY_PROPS}
-            icon={meatballsIcon}
-            disabled
-            primary
-          />
-          <IconButton
-            {...ICON_ONLY_PROPS}
-            icon={meatballsIcon}
-            {...WORKING_PROPS}
-            primary
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Destructive
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled", "Working"]} />
-        <StoryWrapper.Row rowTitle="Icon Left">
-          <Button {...ICON_LEFT_PROPS} destructive />
-          <Button {...ICON_LEFT_PROPS} disabled destructive />
-          <Button {...ICON_LEFT_PROPS} {...WORKING_PROPS} destructive />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="No Icon">
-          <Button {...NO_ICON_PROPS} destructive />
-          <Button {...NO_ICON_PROPS} disabled destructive />
-          <Button {...NO_ICON_PROPS} {...WORKING_PROPS} destructive />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Only">
-          <IconButton {...ICON_ONLY_PROPS} destructive />
-          <IconButton {...ICON_ONLY_PROPS} disabled destructive />
-          <IconButton {...ICON_ONLY_PROPS} {...WORKING_PROPS} destructive />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Secondary
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled", "Working"]} />
-        <StoryWrapper.Row rowTitle="Badge">
-          <Button
-            {...ICON_LEFT_PROPS}
-            icon={filterIcon}
-            badge={{ text: "3", variant: "active" }}
-            secondary
-          />
-          <Button
-            {...ICON_LEFT_PROPS}
-            icon={filterIcon}
-            disabled
-            secondary
-            badge={{ text: "3", variant: "active" }}
-          />
-          <Button
-            {...ICON_LEFT_PROPS}
-            icon={filterIcon}
-            {...WORKING_PROPS}
-            secondary
-            badge={{ text: "3", variant: "active" }}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Left">
-          <Button {...ICON_LEFT_PROPS} secondary />
-          <Button {...ICON_LEFT_PROPS} disabled secondary />
-          <Button {...ICON_LEFT_PROPS} {...WORKING_PROPS} secondary />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Right">
-          <Button {...ICON_RIGHT_PROPS} icon={chevronDown} secondary />
-          <Button {...ICON_RIGHT_PROPS} icon={chevronDown} disabled secondary />
-          <Button
-            {...ICON_RIGHT_PROPS}
-            icon={chevronDown}
-            {...WORKING_PROPS}
-            secondary
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="No Icon">
-          <Button {...NO_ICON_PROPS} secondary />
-          <Button {...NO_ICON_PROPS} disabled secondary />
-          <Button {...NO_ICON_PROPS} {...WORKING_PROPS} secondary />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Only">
-          <IconButton {...ICON_ONLY_PROPS} icon={filterIcon} secondary />
-          <IconButton
-            {...ICON_ONLY_PROPS}
-            icon={filterIcon}
-            disabled
-            secondary
-          />
-          <IconButton
-            {...ICON_ONLY_PROPS}
-            icon={filterIcon}
-            {...WORKING_PROPS}
-            secondary
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Secondary Destructive
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled", "Working"]} />
-        <StoryWrapper.Row rowTitle="Icon Left">
-          <Button {...ICON_LEFT_PROPS} icon={trashIcon} secondary destructive />
-          <Button
-            {...ICON_LEFT_PROPS}
-            icon={trashIcon}
-            disabled
-            secondary
-            destructive
-          />
-          <Button
-            {...ICON_LEFT_PROPS}
-            icon={trashIcon}
-            {...WORKING_PROPS}
-            secondary
-            destructive
-          />
-        </StoryWrapper.Row>
+  const ICON_LEFT_PROPS: ButtonProps = {
+    label: "Label",
+    icon: addIcon,
+  }
 
-        <StoryWrapper.Row rowTitle="No Icon">
-          <Button {...NO_ICON_PROPS} secondary destructive />
-          <Button {...NO_ICON_PROPS} disabled secondary destructive />
-          <Button {...NO_ICON_PROPS} {...WORKING_PROPS} secondary destructive />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Icon Only">
-          <IconButton {...ICON_ONLY_PROPS} secondary destructive />
-          <IconButton {...ICON_ONLY_PROPS} disabled secondary destructive />
-          <IconButton
-            {...ICON_ONLY_PROPS}
-            {...WORKING_PROPS}
-            secondary
-            destructive
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+  const ICON_RIGHT_PROPS: ButtonProps = {
+    label: "Label",
+    icon: arrowRight,
+    iconPosition: "end",
+  }
+
+  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
+    <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
+      {heading}
+    </Heading>
+  )
+
+  return (
+    <div style={{ paddingBottom: "1rem" }}>
       <StoryWrapper isReversed={isReversed}>
-        <Heading
-          variant="heading-3"
-          tag="h1"
-          color={isReversed ? "white" : "dark"}
-        >
-          Pagination
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Default", "Disabled", ""]} />
-        <StoryWrapper.Row rowTitle="Directional Link">
-          <div className={styles.circleButtonContainer}>
-            <DirectionalLink
-              direction="prev"
-              label="Previous page"
+        <SectionHeading heading="Button" />
+        <StoryWrapper.RowHeader
+          headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
+        />
+        {VARIANTS_PROPS.map(({ title, props }) => (
+          <StoryWrapper.Row rowTitle={title}>
+            <Button reversed={isReversed} {...props} />
+            <Button
               reversed={isReversed}
+              classNameOverride="story__button-hover"
+              {...props}
             />
-            <DirectionalLink
-              direction="next"
-              label="Next page"
+            <Button
               reversed={isReversed}
+              classNameOverride="story__button-active"
+              {...props}
             />
-            <DirectionalLink
-              direction="start"
-              label="First page"
+            <Button
               reversed={isReversed}
+              classNameOverride="story__button-focus"
+              {...props}
             />
-            <DirectionalLink
-              direction="end"
-              label="Last page"
-              reversed={isReversed}
-            />
-          </div>
-          <div className={styles.circleButtonContainer}>
-            <DirectionalLink
-              direction="prev"
-              label="Previous page"
-              reversed={isReversed}
-              disabled={true}
-            />
-            <DirectionalLink
-              direction="next"
-              label="Next page"
-              reversed={isReversed}
-              disabled={true}
-            />
-            <DirectionalLink
-              direction="start"
-              label="First page"
-              reversed={isReversed}
-              disabled={true}
-            />
-            <DirectionalLink
-              direction="end"
-              label="Last page"
-              reversed={isReversed}
-              disabled={true}
-            />
-          </div>
-          <div></div>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Pagination Link">
-          <div className={styles.circleButtonContainer}>
-            <PaginationLink
-              pageNumber={1}
-              aria-label="Page 1"
-              isActive={true}
-              reversed={isReversed}
-            />
-            <PaginationLink
-              pageNumber={2}
-              aria-label="Page 2"
-              isActive={false}
-              reversed={isReversed}
-            />
-            <PaginationLink
-              pageNumber={3}
-              aria-label="Page 3"
-              isActive={false}
-              reversed={isReversed}
-            />
-            <PaginationLink
-              pageNumber={4}
-              aria-label="Page 4"
-              isActive={false}
-              reversed={isReversed}
-            />
-            <PaginationLink
-              pageNumber={5}
-              aria-label="Page 5"
-              isActive={false}
-              reversed={isReversed}
-            />
-          </div>
-        </StoryWrapper.Row>
+            <Button reversed={isReversed} {...props} disabled />
+          </StoryWrapper.Row>
+        ))}
       </StoryWrapper>
-    </>
+
+      {IS_CHROMATIC && (
+        <StoryWrapper isReversed={isReversed}>
+          <SectionHeading heading="Form (to be deprecated)" />
+          <StoryWrapper.RowHeader
+            headings={[
+              "Base",
+              "Hover",
+              "Active",
+              "Focus",
+              "Disabled",
+              "Working",
+              "Working Focus",
+            ]}
+          />
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StoryWrapper.Row rowTitle={title}>
+              <Button reversed={isReversed} {...props} form />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-hover"
+                {...props}
+                form
+              />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-active"
+                {...props}
+                form
+              />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-focus"
+                {...props}
+                form
+              />
+              <Button reversed={isReversed} {...props} disabled form />
+              <Button
+                reversed={isReversed}
+                {...props}
+                form
+                {...WORKING_PROPS}
+              />
+              <Button
+                reversed={isReversed}
+                {...props}
+                form
+                classNameOverride="story__button-focus"
+                {...WORKING_PROPS}
+              />
+            </StoryWrapper.Row>
+          ))}
+        </StoryWrapper>
+      )}
+
+      <StoryWrapper isReversed={isReversed}>
+        <SectionHeading heading="Working / With Icon" />
+        <StoryWrapper.RowHeader
+          headings={["Working", "Working (Focus)", "Icon Left", "Icon Right"]}
+        />
+        {VARIANTS_PROPS.map(({ title, props }) => (
+          <StoryWrapper.Row rowTitle={title}>
+            <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
+            <Button
+              reversed={isReversed}
+              classNameOverride="story__button-focus"
+              {...props}
+              {...WORKING_PROPS}
+            />
+            <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
+            <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
+          </StoryWrapper.Row>
+        ))}
+      </StoryWrapper>
+    </div>
   )
 }
 

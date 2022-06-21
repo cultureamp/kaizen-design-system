@@ -64,13 +64,6 @@ Announcers.displayName = "Announcers"
  * @deprecated Layout is deprecated. Please use draft-page-layout instead.
  */
 class Layout extends React.Component<GenericChildrenProps> {
-  static displayName = "Layout"
-  static NavigationBar = NavigationBar
-  static Sidebar = Sidebar
-  static Header = Header
-  static Footer = Footer
-  static Toasts = Toasts
-  static Announcers = Announcers
   render() {
     const content = React.Children.toArray(this.props.children)
     const navbar = extractChildOfType(content, NavigationBar)
@@ -98,6 +91,14 @@ class Layout extends React.Component<GenericChildrenProps> {
       </div>
     )
   }
+
+  static displayName = "Layout"
+  static NavigationBar = NavigationBar
+  static Sidebar = Sidebar
+  static Header = Header
+  static Footer = Footer
+  static Toasts = Toasts
+  static Announcers = Announcers
 }
 
 const extractChildOfType = (children: React.ReactNode[], type: React.VFC) => {

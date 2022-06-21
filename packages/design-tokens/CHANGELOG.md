@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.1...@kaizen/design-tokens@9.0.2) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [9.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.0...@kaizen/design-tokens@9.0.1) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.1.0...@kaizen/design-tokens@9.0.0) (2022-06-20)
+
+
+### Code Refactoring
+
+* remove zen theme from kds ([#2799](https://github.com/cultureamp/kaizen-design-system/issues/2799)) ([a3a26a5](https://github.com/cultureamp/kaizen-design-system/commit/a3a26a549ee3c37d159c2547d8e78d07e53f16ec))
+
+
+### BREAKING CHANGES
+
+* Remove exported zenTheme and config from `design-tokens` package
+
+
+
+
+
 # [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.3...@kaizen/design-tokens@8.1.0) (2022-05-20)
 
 

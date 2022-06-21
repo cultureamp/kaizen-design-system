@@ -18,6 +18,7 @@ export interface InputEditModalProps {
   readonly title: string
   readonly onSubmit: () => void
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
@@ -28,11 +29,16 @@ export interface InputEditModalProps {
 
 type InputEditModal = React.FunctionComponent<InputEditModalProps>
 
+/**
+ * {@link https://cultureamp.design/components/modal/#input-edit-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal-input-edit-modal--input-edit-modal-example Storybook}
+ */
 const InputEditModal = ({
   isOpen,
   mood,
   title,
   onSubmit,
+  onAfterLeave,
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
@@ -62,6 +68,7 @@ const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal} dir={localeDirection}>
         <ModalHeader onDismiss={onDismiss}>

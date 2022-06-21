@@ -112,7 +112,6 @@ export const WithDisabledCheckboxes = () => (
     </CheckboxGroup>
   </div>
 )
-WithDisabledCheckboxes.storyName = "with disabled checkboxes"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -172,7 +171,6 @@ export const WithBottomMargin = () => (
     />
   </div>
 )
-WithBottomMargin.storyName = "with bottom margin"
 WithBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const WithoutBottomMargin = () => (
@@ -206,7 +204,6 @@ export const WithoutBottomMargin = () => (
     />
   </div>
 )
-WithoutBottomMargin.storyName = "without bottom margin"
 WithoutBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const NestedCheckboxGroup = () => {
@@ -272,7 +269,6 @@ export const NestedCheckboxGroup = () => {
     </div>
   )
 }
-NestedCheckboxGroup.storyName = "Nested Checkbox Group"
 
 export const ReversedCheckboxGroup = args => (
   <div>
@@ -316,10 +312,7 @@ export const ReversedCheckboxGroup = args => (
     </CheckboxGroup>
   </div>
 )
-ReversedCheckboxGroup.story = {
-  name: "Reversed Checkbox Group",
-  parameters: {
-    ...REVERSED_BG,
-    chromatic: { disable: false },
-  },
+ReversedCheckboxGroup.parameters = {
+  ...REVERSED_BG,
+  chromatic: { disable: false },
 }

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.6.2...@kaizen/loading-skeleton@1.6.3) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/loading-skeleton
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.6.1...@kaizen/loading-skeleton@1.6.2) (2022-06-06)
+
+**Note:** Version bump only for package @kaizen/loading-skeleton
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.6.0...@kaizen/loading-skeleton@1.6.1) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/loading-skeleton
+
+
+
+
+
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-skeleton@1.5.1...@kaizen/loading-skeleton@1.6.0) (2022-05-20)
 
 

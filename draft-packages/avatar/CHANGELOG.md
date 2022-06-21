@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.9...@kaizen/draft-avatar@2.7.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.8...@kaizen/draft-avatar@2.7.9) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.7...@kaizen/draft-avatar@2.7.8) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.6...@kaizen/draft-avatar@2.7.7) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.5...@kaizen/draft-avatar@2.7.6) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.4...@kaizen/draft-avatar@2.7.5) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.3...@kaizen/draft-avatar@2.7.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.2...@kaizen/draft-avatar@2.7.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.1...@kaizen/draft-avatar@2.7.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.6.1...@kaizen/draft-avatar@2.7.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.5.0...@kaizen/draft-avatar@2.6.1) (2022-05-24)
+
+
+### Bug Fixes
+
+* manually bump draft-avatar to 2.6.0 to correct failed lerna publish to npm ([#2751](https://github.com/cultureamp/kaizen-design-system/issues/2751)) ([71ac0e5](https://github.com/cultureamp/kaizen-design-system/commit/71ac0e5d66c3241a073bde31defeeb2a9c0a85e4))
+
+
+
+
+
+## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.5.0...@kaizen/draft-avatar@2.5.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 # [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.4.17...@kaizen/draft-avatar@2.5.0) (2022-05-20)
 
 

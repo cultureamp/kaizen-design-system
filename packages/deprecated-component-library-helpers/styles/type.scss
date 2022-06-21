@@ -65,15 +65,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
   // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
-  $line-height-ratio: calc(
-    $absolute-line-height / $font-size
-  ); // unitless number
+  $line-height-ratio: $absolute-line-height / $font-size; // unitless number
   $line-spacing: $line-height-ratio - 1;
   font-size: $font-size;
   line-height: $line-height-ratio;
 
   position: relative;
-  top: #{$descender-height + calc($line-spacing / 2)}em;
+  top: #{$descender-height + $line-spacing / 2}em;
   // If `position: relative` creates issues, we could alternatively use a transform,
   // though this creates a new stacking context which can break z-index based layers:
   // transform: translateY(#{$descender-height + $line-spacing / 2}em);
@@ -101,7 +99,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-title($args...) {
   @include ca-type(
-    $size-ratio: calc(12 / 7),
+    $size-ratio: 12/7,
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-medium,
     $args...
@@ -119,23 +117,15 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-display($args...) {
-  @include ca-type(
-    $size-ratio: calc(10 / 7),
-    $weight: $ca-weight-medium,
-    $args...
-  );
+  @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-heading($args...) {
-  @include ca-type(
-    $size-ratio: calc(8 / 7),
-    $weight: $ca-weight-medium,
-    $args...
-  );
+  @include ca-type($size-ratio: 8/7, $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-lede($args...) {
-  @include ca-type($size-ratio: calc(8 / 7), $args...);
+  @include ca-type($size-ratio: 8/7, $args...);
 }
 
 @mixin ca-type-body($args...) {
@@ -147,11 +137,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-small($args...) {
-  @include ca-type($size-ratio: calc(6 / 7), $args...);
+  @include ca-type($size-ratio: 6/7, $args...);
 }
 
 @mixin ca-type-labels-and-legends($args...) {
-  @include ca-type($size-ratio: calc(6 / 7), $letter-spacing: 0.04em, $args...);
+  @include ca-type($size-ratio: 6/7, $letter-spacing: 0.04em, $args...);
   text-transform: uppercase;
 }
 
@@ -165,7 +155,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: $size / 16,
     $family: $ca-ideal-sans-font-family,
     $base-size: $ca-ideal-sans-font-base-size,
     $descender-height: $ca-ideal-sans-font-descender-height,
@@ -232,7 +222,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: calc(3 / 4),
+    $line-height-in-grid-units: 3/4,
     $args...
   );
 }
@@ -278,7 +268,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: $size / 16,
     $family: $ca-inter-font-family,
     $base-size: $ca-inter-font-base-size,
     $descender-height: $ca-inter-font-descender-height,
@@ -345,7 +335,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: calc(3 / 4),
+    $line-height-in-grid-units: 3/4,
     $args...
   );
 }
@@ -355,7 +345,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: 600,
-    $letter-spacing: calc($letter-spacing-in-px / $size) * 1em,
+    $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
   text-transform: uppercase;
@@ -399,8 +389,22 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 // Greycliff styles
 
+// A utility to strip the unit from a value. Eg: `1.5rem` to `1.5`
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Given a rem unit like `1.5rem`, convert to pixels, but without the unit,
+// (eg `24`). This is to maintain backwards compatibility with existing usages
+// of the mixins, which are specified in unitless pixels. Eg: `ca-type-inter-heading(32)`
+// will become `kz-typography-heading-4(32)` which would be converted internally to `2rem`.
+
+@function to-unitless-pixels($value-in-rems) {
+  @return strip-unit($value-in-rems) * 16;
+}
+
 @function to-grid-units($value-in-rems) {
-  @return calc($value-in-rems / $ca-grid);
+  @return $value-in-rems / $ca-grid;
 }
 
 /*
@@ -416,7 +420,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: $size / 16,
     $family:
       unquote(
         "#{$typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
@@ -438,7 +442,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: calc($size / 16),
+    $size-ratio: $size / 16,
     $family:
       unquote(
         "#{$typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
@@ -452,7 +456,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-large($size: 84, $args...) {
+@mixin kz-typography-data-large($size: to-unitless-pixels(5.25rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-large-font-weight,
@@ -462,7 +466,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-large-units($size: 42, $args...) {
+@mixin kz-typography-data-large-units(
+  $size: to-unitless-pixels(2.625rem),
+  $args...
+) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-large-units-font-weight,
@@ -472,7 +479,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-medium($size: 48, $args...) {
+@mixin kz-typography-data-medium($size: to-unitless-pixels(3rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-medium-font-weight,
@@ -482,7 +489,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-medium-units($size: 24, $args...) {
+@mixin kz-typography-data-medium-units(
+  $size: to-unitless-pixels(1.5rem),
+  $args...
+) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-medium-units-font-weight,
@@ -492,7 +502,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-small($size: 24, $args...) {
+@mixin kz-typography-data-small($size: to-unitless-pixels(1.5rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-small-font-weight,
@@ -502,7 +512,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-small-units($size: 18, $args...) {
+@mixin kz-typography-data-small-units(
+  $size: to-unitless-pixels(1.125rem),
+  $args...
+) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-small-units-font-weight,
@@ -512,7 +525,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-display-0($size: 72, $args...) {
+@mixin kz-typography-display-0($size: to-unitless-pixels(4.5rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-display-0-font-weight,
@@ -522,7 +535,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-1($size: 36, $args...) {
+@mixin kz-typography-heading-1($size: to-unitless-pixels(2.25rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-1-font-weight,
@@ -532,7 +545,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-2($size: 30, $args...) {
+@mixin kz-typography-heading-2($size: to-unitless-pixels(1.875rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-2-font-weight,
@@ -542,7 +555,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-3($size: 22, $args...) {
+@mixin kz-typography-heading-3($size: to-unitless-pixels(1.375rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-3-font-weight,
@@ -552,7 +565,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-4($size: 18, $args...) {
+@mixin kz-typography-heading-4($size: to-unitless-pixels(1.125rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-4-font-weight,
@@ -562,7 +575,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-5($size: 16, $args...) {
+@mixin kz-typography-heading-5($size: to-unitless-pixels(1rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-5-font-weight,
@@ -572,7 +585,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-heading-6($size: 14, $args...) {
+@mixin kz-typography-heading-6($size: to-unitless-pixels(0.875rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-6-font-weight,
@@ -582,7 +595,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-paragraph-body($size: 16, $args...) {
+@mixin kz-typography-paragraph-body($size: to-unitless-pixels(1rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-body-font-weight,
@@ -592,7 +605,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-paragraph-body-bold($size: 16, $args...) {
+@mixin kz-typography-paragraph-body-bold(
+  $size: to-unitless-pixels(1rem),
+  $args...
+) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-body-font-weight,
@@ -603,7 +619,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   font-weight: $typography-paragraph-bold-font-weight;
 }
 
-@mixin kz-typography-paragraph-small($size: 14, $args...) {
+@mixin kz-typography-paragraph-small(
+  $size: to-unitless-pixels(0.875rem),
+  $args...
+) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-small-font-weight,

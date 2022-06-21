@@ -20,16 +20,6 @@ type Props = {
 }
 
 class RadioGroupExample extends React.Component<Props> {
-  state = {
-    selectedOption: "",
-  }
-
-  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      selectedOption: event.target.value,
-    })
-  }
-
   render() {
     const { render } = this.props
     return (
@@ -40,6 +30,16 @@ class RadioGroupExample extends React.Component<Props> {
         })}
       </div>
     )
+  }
+
+  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      selectedOption: event.target.value,
+    })
+  }
+
+  state = {
+    selectedOption: "",
   }
 }
 
@@ -126,7 +126,6 @@ export const WithDisabledRadios = () => (
     )}
   />
 )
-WithDisabledRadios.storyName = "With disabled radios"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -251,7 +250,6 @@ export const WithLinks = () => (
     )}
   />
 )
-WithLinks.storyName = "With links"
 WithLinks.parameters = { chromatic: { disable: false } }
 
 export const WithBottomMargin = () => (
@@ -296,7 +294,6 @@ export const WithBottomMargin = () => (
     )}
   />
 )
-WithBottomMargin.storyName = "With bottom margin"
 WithBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const WithoutBottomMargin = () => (
@@ -341,7 +338,6 @@ export const WithoutBottomMargin = () => (
     )}
   />
 )
-WithoutBottomMargin.storyName = "Without bottom margin"
 WithoutBottomMargin.parameters = { chromatic: { disable: false } }
 
 export const ReversedDefault = () => (
@@ -379,10 +375,7 @@ export const ReversedDefault = () => (
     )}
   />
 )
-ReversedDefault.story = {
-  name: "Reversed Default",
-  parameters: {
-    ...REVERSED_BG,
-    chromatic: { disable: false },
-  },
+ReversedDefault.parameters = {
+  ...REVERSED_BG,
+  chromatic: { disable: false },
 }

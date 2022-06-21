@@ -1,8 +1,6 @@
 node_modules
 yarn-*.log
 lerna-*.log
-/site/.cache/
-/site/public/
 /storybook/public/
 /packages/**/*.js
 /packages/**/*.js.map

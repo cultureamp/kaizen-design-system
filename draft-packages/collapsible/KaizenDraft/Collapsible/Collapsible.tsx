@@ -50,11 +50,11 @@ type State = {
   open: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/collapsible/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible--single-collapsible-kaizen-site-demo Storybook}
+ */
 export class Collapsible extends React.Component<CollapsibleProps, State> {
-  public state = {
-    open: !!this.props.open,
-  }
-
   public render() {
     const {
       id,
@@ -159,5 +159,9 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         open: !open,
       })
     }
+  }
+
+  public state = {
+    open: !!this.props.open,
   }
 }

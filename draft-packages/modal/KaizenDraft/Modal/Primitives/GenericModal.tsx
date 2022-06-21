@@ -17,6 +17,7 @@ export interface GenericModalContainerProps {
   readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
+  readonly onAfterLeave?: () => void
   readonly automationId?: string
 }
 
@@ -46,9 +47,6 @@ const GenericModalContainer = (props: GenericModalContainerProps) => {
 }
 
 class GenericModal extends React.Component<GenericModalProps> {
-  scrollLayer: HTMLDivElement | null = null
-  modalLayer: HTMLDivElement | null = null
-
   componentWillUnmount() {
     /*
       Sometimes consumers control rendering modals without the
@@ -77,6 +75,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
+    this.props.onAfterLeave && this.props.onAfterLeave()
   }
 
   addEventHandlers() {
@@ -108,21 +107,6 @@ class GenericModal extends React.Component<GenericModalProps> {
       styles.pseudoScrollbar
     )
   }
-
-  escapeKeyHandler = (event: KeyboardEvent) => {
-    if (
-      event.key === "Escape" ||
-      event.key === "Esc" // IE11
-    )
-      this.props.onEscapeKeyup && this.props.onEscapeKeyup(event)
-  }
-
-  outsideModalClickHandler = (event: React.MouseEvent) => {
-    if (event.target === this.scrollLayer || event.target === this.modalLayer) {
-      this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
-    }
-  }
-
   ensureAccessiblityIsMet() {
     if (!this.modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
@@ -211,6 +195,23 @@ class GenericModal extends React.Component<GenericModalProps> {
       document.body
     )
   }
+
+  escapeKeyHandler = (event: KeyboardEvent) => {
+    if (
+      event.key === "Escape" ||
+      event.key === "Esc" // IE11
+    )
+      this.props.onEscapeKeyup && this.props.onEscapeKeyup(event)
+  }
+
+  outsideModalClickHandler = (event: React.MouseEvent) => {
+    if (event.target === this.scrollLayer || event.target === this.modalLayer) {
+      this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
+    }
+  }
+
+  scrollLayer: HTMLDivElement | null = null
+  modalLayer: HTMLDivElement | null = null
 }
 
 /**

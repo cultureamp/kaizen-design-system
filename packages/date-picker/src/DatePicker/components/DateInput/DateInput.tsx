@@ -4,14 +4,15 @@ import classnames from "classnames"
 import {
   FieldGroup,
   FieldMessage,
+  FieldMessageStatus,
   Input,
   InputProps,
   Label,
 } from "@kaizen/draft-form"
-
 import { format, parse } from "date-fns"
-import { Modifier } from "react-day-picker"
-import { DateFormat } from "../../DatePicker"
+import { Matcher } from "react-day-picker/src/types/Matchers"
+
+import { DateFormat } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { isDisabledDate } from "../../../utils/isDisabledDate"
 import styles from "./DateInput.scss"
@@ -20,10 +21,16 @@ type OmittedInputProps =
   | "startIconAdornment"
   | "endIconAdornment"
   | "inputType"
+  | "status"
   | "inputValue"
   | "reversed"
   | "onBlur"
   | "value"
+  | "type"
+  | "ariaLabel"
+  | "ariaDescribedBy"
+  | "defaultInputValue"
+  | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   id: string
@@ -36,21 +43,42 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    */
   description?: React.ReactNode
   isOpen: boolean
+  /**
+   * Event for the onClick of the icon button
+   */
   onButtonClick: () => void
   isReversed?: boolean
+  /**
+   * The input value as a Date
+   */
   valueDate: Date | undefined
-  onBlur: (date: Date | undefined) => void
-  disabledDays?: Modifier | Modifier[]
+  /**
+   * The callback for then onBlur is triggered on the input
+   */
+  onBlur: (date: Date | undefined, inputValue: string) => void
+  disabledDays?: Matcher[] | undefined
+  /**
+   * A descriptive message for `status` states
+   */
+  validationMessage?: string | React.ReactNode
+  /**
+   * Updates the styling of the validation FieldMessage
+   */
+  status?: FieldMessageStatus
 }
 
 const formatDateAsText = (
   date: Date,
-  disabledDays: Modifier | Modifier[],
-  onValidDate: (newFormattedDate: string) => void
+  disabledDays: Matcher[] | undefined,
+  onFormat: (newFormattedDate: string) => void
 ): void => {
-  if (!isInvalidDate(date) && !isDisabledDate(date, disabledDays)) {
-    onValidDate(format(date, DateFormat.Text))
+  if (isDisabledDate(date, disabledDays)) {
+    return onFormat(format(date, DateFormat.Numeral))
   }
+  if (isInvalidDate(date)) {
+    return onFormat("Invalid Date")
+  }
+  onFormat(format(date, DateFormat.Text))
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -67,6 +95,8 @@ export const DateInput: React.VFC<DateInputProps> = ({
   valueDate,
   onBlur,
   disabledDays,
+  validationMessage,
+  status,
   ...inputProps
 }) => {
   const [valueString, setValueString] = useState<string>("")
@@ -78,11 +108,14 @@ export const DateInput: React.VFC<DateInputProps> = ({
   const handleBlur: React.FocusEventHandler<HTMLInputElement> = (): void => {
     if (valueString !== "") {
       const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
+      if (isInvalidDate(parsedDate)) {
+        return onBlur(parsedDate, valueString)
+      }
+
       formatDateAsText(parsedDate, disabledDays, setValueString)
-      return onBlur(parsedDate)
-    } else {
-      onBlur(undefined)
+      return onBlur(parsedDate, valueString)
     }
+    onBlur(undefined, valueString)
   }
   const handleFocus = (): void => {
     valueDate && setValueString(format(valueDate, DateFormat.Numeral))
@@ -102,6 +135,8 @@ export const DateInput: React.VFC<DateInputProps> = ({
         return "Format: mm/dd/yyyy"
     }
   }
+
+  const shouldShowValidationMessage = !disabled && validationMessage
 
   return (
     <FieldGroup inline={true}>
@@ -150,7 +185,13 @@ export const DateInput: React.VFC<DateInputProps> = ({
         onFocus={handleFocus}
         {...inputProps}
       />
-
+      {shouldShowValidationMessage && (
+        <FieldMessage
+          message={validationMessage}
+          status={status}
+          reversed={isReversed}
+        />
+      )}
       <div
         className={classnames(styles.message, {
           [styles.disabled]: disabled,

@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.13...@kaizen/draft-tile@5.8.14) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.12...@kaizen/draft-tile@5.8.13) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.11...@kaizen/draft-tile@5.8.12) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.10...@kaizen/draft-tile@5.8.11) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.9...@kaizen/draft-tile@5.8.10) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.8...@kaizen/draft-tile@5.8.9) (2022-06-10)
+
+
+### Bug Fixes
+
+* Allow passing both href and onClick to Button from Action component ([#2788](https://github.com/cultureamp/kaizen-design-system/issues/2788)) ([c0d3c3f](https://github.com/cultureamp/kaizen-design-system/commit/c0d3c3f39e94038d5b626bfc6474ed8e53f1a393))
+
+
+
+
+
+## [5.8.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.7...@kaizen/draft-tile@5.8.8) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.6...@kaizen/draft-tile@5.8.7) (2022-06-06)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.5...@kaizen/draft-tile@5.8.6) (2022-05-31)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.4...@kaizen/draft-tile@5.8.5) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.3...@kaizen/draft-tile@5.8.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.2...@kaizen/draft-tile@5.8.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.1...@kaizen/draft-tile@5.8.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.8.0...@kaizen/draft-tile@5.8.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 # [5.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.7.16...@kaizen/draft-tile@5.8.0) (2022-05-20)
 
 

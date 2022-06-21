@@ -45,14 +45,14 @@ export function buildKeymap(schema: Schema) {
     keys["Mod-y"] = redo
   }
 
-  if (schema.marks.bold) {
-    const type = schema.marks.bold
+  if (schema.marks.strong) {
+    const type = schema.marks.strong
     keys["Mod-b"] = toggleMark(type)
     keys["Mod-B"] = toggleMark(type)
   }
 
-  if (schema.marks.italic) {
-    const type = schema.marks.italic
+  if (schema.marks.em) {
+    const type = schema.marks.em
     keys["Mod-i"] = toggleMark(type)
     keys["Mod-I"] = toggleMark(type)
   }
@@ -63,8 +63,8 @@ export function buildKeymap(schema: Schema) {
     keys["Mod-U"] = toggleMark(type)
   }
 
-  if (schema.nodes.hard_break) {
-    const br = schema.nodes.hard_break
+  if (schema.nodes.hardBreak) {
+    const br = schema.nodes.hardBreak
     const cmd = chainCommands(exitCode, (state, dispatch) => {
       dispatch &&
         dispatch(state.tr.replaceSelectionWith(br.create()).scrollIntoView())
@@ -81,16 +81,16 @@ export function buildKeymap(schema: Schema) {
     keys["Shift-Ctrl-0"] = setBlockType(schema.nodes.paragraph)
   }
 
-  if (schema.nodes.bullet_list) {
-    keys["Shift-Ctrl-8"] = wrapInList(schema.nodes.bullet_list)
+  if (schema.nodes.bulletList) {
+    keys["Shift-Ctrl-8"] = wrapInList(schema.nodes.bulletList)
   }
 
-  if (schema.nodes.ordered_list) {
-    keys["Shift-Ctrl-9"] = wrapInList(schema.nodes.ordered_list)
+  if (schema.nodes.orderedList) {
+    keys["Shift-Ctrl-9"] = wrapInList(schema.nodes.orderedList)
   }
 
-  if (schema.nodes.list_item) {
-    const type = schema.nodes.list_item
+  if (schema.nodes.listItem) {
+    const type = schema.nodes.listItem
     keys["Enter"] = splitListItem(type)
     keys["Mod-["] = liftListItem(type)
     keys["Mod-]"] = sinkListItem(type)

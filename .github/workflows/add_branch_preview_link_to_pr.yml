@@ -1,4 +1,4 @@
-name: Add branch preview links to a PR comment
+name: Add branch preview link to a PR comment
 
 # Note about "status" events:
 # - The workflow must be merged to master, a status on a commit in any branch will still run the workflow found on master
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.state == 'success' && github.event.context == 'Branch preview'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Find relevant PR
         if: github.event.state == 'success'
@@ -44,7 +44,7 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.number }}
           comment-author: "github-actions[bot]"
-          body-includes: ":sparkles: Here are your branch previews! :sparkles:"
+          body-includes: ":sparkles: Here is your branch preview! :sparkles:"
 
       - name: Create a new comment
         if: success() && steps.find_comment.outputs.comment-id == 0
@@ -52,15 +52,13 @@ jobs:
         with:
           issue-number: ${{ steps.findPr.outputs.number }}
           body: |
-            :sparkles: Here are your branch previews! :sparkles:
+            :sparkles: Here is your branch preview! :sparkles:
 
-            - [Kaizen site][1]
-            - [Storybook][2]
+            - [Storybook][1]
 
             Last updated for commit ${{ github.event.sha }}: ${{ github.event.commit.commit.message }}
 
             [1]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}
-            [2]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}/storybook
 
       - name: Update an existing comment
         if: success() && steps.find_comment.outputs.comment-id != 0
@@ -69,12 +67,10 @@ jobs:
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
           edit-mode: replace
           body: |
-            :sparkles: Here are your branch previews! :sparkles:
+            :sparkles: Here is your branch preview! :sparkles:
 
-            - [Kaizen site][1]
-            - [Storybook][2]
+            - [Storybook][1]
 
             Last updated for commit ${{ github.event.sha }}: ${{ github.event.commit.commit.message }}
 
             [1]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}
-            [2]: https://dev.cultureamp.design/${{ github.event.branches[0].name }}/storybook

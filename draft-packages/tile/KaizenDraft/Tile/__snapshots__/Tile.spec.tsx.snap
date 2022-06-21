@@ -194,7 +194,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
         >
           <button
             aria-label="Information"
-            class="button iconButton"
+            class="button default iconButton"
             type="button"
           >
             <span
@@ -263,7 +263,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           <button
             aria-disabled="true"
             aria-label="Information"
-            class="button iconButton"
+            class="button default iconButton"
             disabled=""
             type="button"
           >
@@ -543,7 +543,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -629,7 +629,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with assertive mo
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -715,7 +715,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with cautionary m
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -801,7 +801,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with informative 
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -887,7 +887,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with negative moo
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -973,7 +973,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with positive moo
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -1059,7 +1059,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with prominent mo
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
@@ -1145,7 +1145,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
             class="container"
           >
             <a
-              class="button"
+              class="button default"
               href="href"
               target="_self"
             >
