@@ -12,7 +12,6 @@ This document serves to orient you within the repository — to get you set up a
 
 - [Kaizen Design Tokens README](./packages/design-tokens/README.md)
 - [Kaizen Component Library README](./packages/component-library/README.md)
-- [Kaizen Site README](./site/README.md) (and <https://cultureamp.design>)
 - [Contributing guidelines](./CONTRIBUTING.md)
 
 ## Designers
@@ -56,11 +55,9 @@ yarn storybook
 
 (Having trouble running Storybook? Try running `yarn reset`, which includes `yarn clean` and `yarn install --force`!)
 
-To develop the site locally, please refer to the documentation in [the site package](./site/README.md).
-
 ## Branch previews
 
-While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment includes the Storybook build for that branch, along with any changes to documentation or the site.
+While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment is a Storybook build for that branch.
 
 For example, pushing the branch `louis/more-glitter` would make its documentation and Storybook build available at `dev.cultureamp.design/louis/more-glitter`.
 
