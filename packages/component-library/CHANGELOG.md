@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.1...@kaizen/component-library@15.0.2) (2022-06-21)
+
+
+### Bug Fixes
+
+* Remove typography scss files from component-library ([#2820](https://github.com/cultureamp/kaizen-design-system/issues/2820)) ([a0e1b5e](https://github.com/cultureamp/kaizen-design-system/commit/a0e1b5e92cbb1ca33ff4800741c77f943290f71d))
+
+
+
+
+
 ## [15.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.0...@kaizen/component-library@15.0.1) (2022-06-21)
 
 **Note:** Version bump only for package @kaizen/component-library
