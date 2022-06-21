@@ -59,17 +59,6 @@ const meetsCompactThreshold = () =>
  * @deprecated TitleBlock is deprecated. Please use draft-title-block-zen instead.
  */
 class TitleBlock extends React.Component<Props, State> {
-  static defaultProps: Pick<Props, "textDirection"> = {
-    textDirection: "ltr",
-  }
-  state = {
-    useCompactSize: meetsCompactThreshold(),
-  }
-
-  updateScrollPosition = throttle(() => {
-    this.setState({ useCompactSize: meetsCompactThreshold() })
-  }, 50)
-
   componentDidMount() {
     if (this.props.sticky) {
       document.addEventListener("scroll", this.updateScrollPosition)
@@ -80,6 +69,63 @@ class TitleBlock extends React.Component<Props, State> {
     if (this.props.sticky) {
       document.removeEventListener("scroll", this.updateScrollPosition)
     }
+  }
+
+  render() {
+    const { reversed, reverseColor, sticky, stickyColor, children } = this.props
+    const { useCompactSize } = this.state
+
+    return (
+      <div
+        className={classNames(styles.titleBlockContainer, {
+          [styles.reversed]: reversed,
+          [styles[`reverseColor${reverseColor}`]]: reverseColor,
+          [styles.sticky]: sticky,
+          [styles.compact]: useCompactSize,
+          [styles[`stickyColor${stickyColor}`]]: useCompactSize && stickyColor,
+        })}
+      >
+        <div
+          className={classNames(styles.titleBlock)}
+          data-automation-id="TitleBlock__TitleBlock"
+        >
+          <div className={styles.titleBlockInner}>
+            {this.renderBreadcrumb()}
+            <div className={styles.leftContent}>
+              <div className={styles.titleContainer}>
+                <div
+                  className={styles.textContainer}
+                  data-automation-id="TitleBlock__Text"
+                >
+                  {this.renderTitle()}
+                  {this.renderSubtitle()}
+                </div>
+              </div>
+              <Media query={{ minWidth: layout.breakpoints.large }}>
+                {(matches: boolean) =>
+                  matches && (
+                    <React.Fragment>{this.renderNavigation()}</React.Fragment>
+                  )
+                }
+              </Media>
+            </div>
+            <div
+              className={styles.actionsContainer}
+              data-automation-id="title-block--actions"
+            >
+              {children}
+            </div>
+          </div>
+        </div>
+        <Media query={{ minWidth: layout.breakpoints.large }}>
+          {(matches: boolean) =>
+            !matches && (
+              <React.Fragment>{this.renderNavigation()}</React.Fragment>
+            )
+          }
+        </Media>
+      </div>
+    )
   }
 
   renderTitle = () => {
@@ -173,62 +219,16 @@ class TitleBlock extends React.Component<Props, State> {
     )
   }
 
-  render() {
-    const { reversed, reverseColor, sticky, stickyColor, children } = this.props
-    const { useCompactSize } = this.state
-
-    return (
-      <div
-        className={classNames(styles.titleBlockContainer, {
-          [styles.reversed]: reversed,
-          [styles[`reverseColor${reverseColor}`]]: reverseColor,
-          [styles.sticky]: sticky,
-          [styles.compact]: useCompactSize,
-          [styles[`stickyColor${stickyColor}`]]: useCompactSize && stickyColor,
-        })}
-      >
-        <div
-          className={classNames(styles.titleBlock)}
-          data-automation-id="TitleBlock__TitleBlock"
-        >
-          <div className={styles.titleBlockInner}>
-            {this.renderBreadcrumb()}
-            <div className={styles.leftContent}>
-              <div className={styles.titleContainer}>
-                <div
-                  className={styles.textContainer}
-                  data-automation-id="TitleBlock__Text"
-                >
-                  {this.renderTitle()}
-                  {this.renderSubtitle()}
-                </div>
-              </div>
-              <Media query={{ minWidth: layout.breakpoints.large }}>
-                {(matches: boolean) =>
-                  matches && (
-                    <React.Fragment>{this.renderNavigation()}</React.Fragment>
-                  )
-                }
-              </Media>
-            </div>
-            <div
-              className={styles.actionsContainer}
-              data-automation-id="title-block--actions"
-            >
-              {children}
-            </div>
-          </div>
-        </div>
-        <Media query={{ minWidth: layout.breakpoints.large }}>
-          {(matches: boolean) =>
-            !matches && (
-              <React.Fragment>{this.renderNavigation()}</React.Fragment>
-            )
-          }
-        </Media>
-      </div>
-    )
+  static defaultProps: Pick<Props, "textDirection"> = {
+    textDirection: "ltr",
   }
+  state = {
+    useCompactSize: meetsCompactThreshold(),
+  }
+
+  updateScrollPosition = throttle(() => {
+    this.setState({ useCompactSize: meetsCompactThreshold() })
+  }, 50)
 }
 
 export default TitleBlock
