@@ -3,46 +3,9 @@
     {
       "title": "Regex DOS",
       "cve": "CVE-2021-33623",
-      "reason": "Regex DOS attacks aren't relevant in our devDependencies",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["lerna", "node-sass"]
-    }
-  ],
-  "node-fetch": [
-    {
-      "title": "Does not honor the size option after following a redirect, which means that when a content size is over the limit, a FetchError will never get thrown and the process will end without failure.",
-      "cve": "CVE-2020-15168",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["eslint-plugin-graphql"]
-    }
-  ],
-  "is-svg": [
-    {
-      "title": "ReDoS",
-      "cve": "CVE-2021-28092",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["optimize-css-assets-webpack-plugin"]
-    },
-    {
-      "title": "ReDoS",
-      "cve": "CVE-2021-29059",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["optimize-css-assets-webpack-plugin"]
-    }
-  ],
-  "ansi-html": [
-    {
-      "title": "If an attacker provides a malicious string, it will get stuck processing the input for an extremely long time.",
-      "cve": "CVE-2021-23424",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": [
-        "@storybook/react",
-        "@pmmmwh/react-refresh-webpack-plugin"
-      ]
+      "reason": "Regex DOS attacks aren't relevant to dev tools",
+      "reviewer": "christianklammer, cassandra.tam",
+      "whenSubDependencyOf": ["lerna", "@storybook/react"]
     }
   ],
   "ansi-regex": [
@@ -50,29 +13,17 @@
       "title": "Inefficient Regular Expression Complexity",
       "cve": "CVE-2021-3807",
       "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": [
-        "@storybook/node-logger",
-        "strip-ansi",
-        "pretty-format"
-      ]
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["@storybook/node-logger", "commitizen"]
     }
   ],
-  "follow-redirects": [
+  "minimist": [
     {
-      "title": "Still under investigation",
-      "cve": "CVE-2022-0155",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["axios", "http-proxy"]
-    }
-  ],
-  "node-sass": [
-    {
-      "title": "Certificate validation in node-sass 2.0.0 to 4.14.1 is disabled when requesting binaries even if the user is not specifying an alternative download path.",
-      "cve": "CVE-2020-24025",
-      "reason": "Our builds fail",
-      "reviewer": "cassandra.tam"
+      "title": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
+      "cve": "CVE-2021-44906",
+      "reason": "Dev dependency; Note: Commitizen has been updated, but there hasn't been a release yet",
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["commitizen"]
     }
   ]
 }
