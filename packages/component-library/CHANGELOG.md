@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.6...@kaizen/component-library@15.0.0) (2022-06-21)
+
+
+### chore
+
+* Remove Heading and Paragraph components from component-library ([#2800](https://github.com/cultureamp/kaizen-design-system/issues/2800)) ([ef11482](https://github.com/cultureamp/kaizen-design-system/commit/ef114824d13e14434274b7f037900863fa0b951e))
+
+
+### BREAKING CHANGES
+
+* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/master/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
+
+
+
+
+
 ## [14.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.5...@kaizen/component-library@14.3.6) (2022-06-20)
 
 **Note:** Version bump only for package @kaizen/component-library
