@@ -11,6 +11,8 @@ import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
+export type CalendarElement = HTMLDivElement
+
 export type CalendarProps = {
   id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
@@ -31,10 +33,8 @@ export type CalendarProps = {
   selectedRange?: DateRange
   mode: "single" | "range"
   modifiers?: DateRange
-  onMount?: (calendarElement: HTMLDivElement) => void
+  onMount?: (calendarElement: CalendarElement) => void
 }
-
-export type CalendarElement = HTMLDivElement
 
 const isValidWeekStartsOn = (
   day: DayOfWeek | undefined
