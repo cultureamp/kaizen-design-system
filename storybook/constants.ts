@@ -2,6 +2,7 @@ export const CATEGORIES = {
   components: "Components",
   helpers: "Helpers",
   designTokens: "Design Tokens",
+  pageTemplates: "Page Templates",
   deprecated: "Deprecated",
 }
 

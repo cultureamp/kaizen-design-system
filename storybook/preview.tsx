@@ -32,6 +32,7 @@ addParameters({
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
+        CATEGORIES.pageTemplates,
         CATEGORIES.deprecated,
       ],
     },
