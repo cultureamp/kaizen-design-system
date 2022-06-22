@@ -3,13 +3,13 @@ import React from "react"
 export const getDescription = (
   description: React.ReactNode
 ): React.ReactNode => {
-  switch (typeof description) {
-    case "string":
-      if (description === "") return "Format: mm/dd/yyyy"
-      return `${description} (Format: mm/dd/yyyy)`
-    case "object":
-      return <>{description} (Format: mm/dd/yyyy)</>
-    default:
-      return "Format: mm/dd/yyyy"
+  if (React.isValidElement(description)) {
+    return <>{description} (Format: mm/dd/yyyy)</>
   }
+
+  if (typeof description === "string" && description !== "") {
+    return `${description} (Format: mm/dd/yyyy)`
+  }
+
+  return "Format: mm/dd/yyyy"
 }
