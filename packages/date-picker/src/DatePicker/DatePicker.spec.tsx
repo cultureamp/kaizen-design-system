@@ -118,7 +118,7 @@ describe("<DatePicker /> - Selecting a date using the calendar", () => {
 describe("<DatePicker /> - Focus within calendar", () => {
   it("shows focus on today when no date is selected", () => {
     const today = new Date()
-    const todayFormatted = format(today, "do LLLL (eeee)") // e.g 6th June (Monday)
+    const todayFormatted = format(today, "do MMMM (eeee)") // e.g 6th June (Monday)
 
     render(<DatePickerWrapper />)
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
