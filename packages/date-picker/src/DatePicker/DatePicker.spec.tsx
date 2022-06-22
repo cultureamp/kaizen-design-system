@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { act, render, screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import format from "date-fns/format"
 import { FieldMessageStatus } from "@kaizen/draft-form"
@@ -343,34 +343,34 @@ describe("<DatePicker /> - Validation", () => {
       ).toBeInTheDocument()
     })
 
-    it("displays error message when input date is invalid", async () => {
+    it("displays error message when input date is invalid", () => {
       render(<DatePickerWrapper />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       userEvent.type(input, "05/05/2022Blah")
 
-      await act(async () => {
-        userEvent.tab()
-      })
+      userEvent.tab()
 
-      expect(
-        screen.getByText("05/05/2022Blah is an invalid date")
-      ).toBeInTheDocument()
+      waitFor(() => {
+        expect(
+          screen.getByText("05/05/2022Blah is an invalid date")
+        ).toBeInTheDocument()
+      })
     })
 
-    it("displays error message when input date is disabled", async () => {
+    it("displays error message when input date is disabled", () => {
       render(<DatePickerWrapper disabledBefore={new Date("2022-05-15")} />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       userEvent.type(input, "05/05/2022")
 
-      await act(async () => {
-        userEvent.tab()
-      })
+      userEvent.tab()
 
-      expect(
-        screen.getByText("05/05/2022 is not available, try another date")
-      ).toBeInTheDocument()
+      waitFor(() => {
+        expect(
+          screen.getByText("05/05/2022 is not available, try another date")
+        ).toBeInTheDocument()
+      })
     })
   })
 })
