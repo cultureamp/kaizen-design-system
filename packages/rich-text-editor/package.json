@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/rich-text-editor",
-  "version": "1.14.4",
+  "version": "1.14.6",
   "description": "The RichTextEditor component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -34,9 +34,9 @@
   "dependencies": {
     "@cultureamp/rich-text-toolkit": "^1.8.1",
     "@kaizen/component-base": "^1.1.0",
-    "@kaizen/component-library": "^15.0.2",
-    "@kaizen/draft-form": "^7.2.12",
-    "@kaizen/draft-tooltip": "^5.2.10",
+    "@kaizen/component-library": "^15.0.3",
+    "@kaizen/draft-form": "^7.2.14",
+    "@kaizen/draft-tooltip": "^5.2.11",
     "classnames": "^2.3.1",
     "prosemirror-commands": "^1.2.2",
     "prosemirror-history": "^1.2.0",
@@ -59,7 +59,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
     "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   }
 }
