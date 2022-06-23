@@ -80,9 +80,13 @@ export const svgIcons: RuleSetRule = {
     loader: "svgo-loader",
     options: {
       plugins: [
-        { removeTitle: true },
         {
-          convertColors: {
+          name: "removeTitle",
+          active: true,
+        },
+        {
+          name: "convertColors",
+          params: {
             currentColor: /black|#000|#000000/,
           },
         },
