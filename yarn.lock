@@ -12374,7 +12374,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.3, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
+loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
@@ -17642,13 +17642,13 @@ svg-tags@^1.0.0:
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
-svgo-loader@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/svgo-loader/-/svgo-loader-2.2.2.tgz#5f54e3e0d77c36a84c42bcb42e812c4db534bf96"
-  integrity sha512-UeE/4yZEK96LoYqvxwh8YqCOJCjXwRY9K6YT99vXE+nYhs/W8hAY2hNf5zg/lRsyKshJkR79V+4beV3cbGL40Q==
+svgo-loader@~3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/svgo-loader/-/svgo-loader-3.0.1.tgz#15ae51fe0b8a4e183482bc3c3de844026bade1a4"
+  integrity sha512-4DsyqtJy/vMzL2QTXfvUfpcojceQMjaQeJcX9gfUBZAVPm9zA2jjDAqFrvegRbFyffHWvXHPf4+dzO5MZRcC8Q==
   dependencies:
-    js-yaml "^3.13.1"
-    loader-utils "^1.0.3"
+    loader-utils "^1.4.0"
+    svgo "^2.8.0"
 
 svgo@^2.8.0:
   version "2.8.0"
