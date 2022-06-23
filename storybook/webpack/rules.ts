@@ -2,6 +2,7 @@
 import "../pre-build"
 import { resolve } from "path"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
+import { browsersList } from "./browserslist"
 
 const isEnabled = require("./isEnabled")
 
@@ -15,14 +16,22 @@ export const stylePreprocessors: RuleSetUseItem[] = [
   {
     loader: "postcss-loader",
     options: {
-      ident: "postcss",
-      plugins: () => [
-        require("postcss-flexbugs-fixes"),
-        require("postcss-preset-env")({
-          autoprefixer: { flexbox: "no-2009" },
-          stage: 3,
-        }),
-      ],
+      postcssOptions: {
+        plugins: [
+          require("postcss-flexbugs-fixes"),
+          [
+            require("postcss-preset-env"),
+            {
+              autoprefixer: {
+                flexbox: "no-2009",
+                grid: "no-autoplace",
+              },
+              browsers: browsersList,
+              stage: 3,
+            },
+          ],
+        ],
+      },
     },
   },
   {
