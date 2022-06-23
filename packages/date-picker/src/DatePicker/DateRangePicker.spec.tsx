@@ -1,5 +1,5 @@
 import React from "react"
-import { act, render, screen } from "@testing-library/react"
+import { act, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "react-day-picker"
 import { DateRangePicker } from "./DateRangePicker"
@@ -25,26 +25,23 @@ describe("<DateRangePicker />", () => {
   })
 
   it("is able to select date range and shows in button", async () => {
-    jest.setTimeout(10000)
     render(<DateRangePicker {...defaultProps} />)
 
     const element = screen.getByRole("button")
 
-    await act(async () => element.click())
-
-    const selectedFromDate = screen.getByText("6th March (Sunday)")
-
-    await act(async () => {
+    waitFor(() => {
+      element.click()
+      const selectedFromDate = screen.getByText("6th March (Sunday)")
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
-    const selectedToDate = screen.getByText("16th March (Wednesday)")
-
-    await act(async () => {
+    waitFor(() => {
+      const selectedToDate = screen.getByText("16th March (Wednesday)")
       selectedToDate.parentElement && selectedToDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
+
     expect(element.innerText === "Mar 6 – Mar 16, 2022")
   })
 
