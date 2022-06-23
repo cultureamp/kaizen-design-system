@@ -113,6 +113,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         disabled={disabled}
         reversed={isReversed}
         endIconAdornment={IconButton}
+        status={status}
         {...inputProps}
       />
       {shouldShowValidationMessage && (
