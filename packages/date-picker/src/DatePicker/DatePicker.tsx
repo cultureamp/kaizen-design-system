@@ -25,7 +25,6 @@ type OmittedDateInputProps =
   | "onButtonClick"
   | "calendarId"
   | "value"
-  | "disabledDays"
 
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
@@ -365,7 +364,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             onButtonClick={handleButtonClick}
             icon={dateStart}
             value={inputValue}
-            disabledDays={disabledDays}
             {...restDateInputProps}
           />
         </div>

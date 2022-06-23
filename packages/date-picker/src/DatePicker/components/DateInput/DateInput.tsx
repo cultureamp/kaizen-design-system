@@ -27,37 +27,29 @@ type OmittedInputProps =
   | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
+  buttonRef?: React.RefObject<HTMLButtonElement>
   id: string
   calendarId: string
-  buttonRef?: React.RefObject<HTMLButtonElement>
+  isCalendarOpen: boolean
   labelText: React.ReactNode
-  icon: React.SVGAttributes<SVGSymbolElement>
   /**
    * A description that provides context for the text field
    */
   description?: React.ReactNode
-  isCalendarOpen: boolean
+  icon: React.SVGAttributes<SVGSymbolElement>
   /**
-   * Event for the onClick of the icon button
+   * Icon button onClick handler
    */
   onButtonClick: React.MouseEventHandler<HTMLButtonElement>
   isReversed?: boolean
   /**
-   * The input value as a Date
+   * Updates the styling of the validation FieldMessage
    */
-  value: string | undefined
-  /**
-   * The callback for then onBlur is triggered on the input
-   */
-  disabledDays?: Matcher[] | undefined
+  status?: FieldMessageStatus
   /**
    * A descriptive message for `status` states
    */
   validationMessage?: string | React.ReactNode
-  /**
-   * Updates the styling of the validation FieldMessage
-   */
-  status?: FieldMessageStatus
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -65,17 +57,16 @@ export const DateInput: React.VFC<DateInputProps> = ({
   buttonRef,
   id,
   calendarId,
+  isCalendarOpen,
   labelText,
   description,
   icon,
   onButtonClick,
-  isCalendarOpen,
   disabled,
   isReversed = false,
-  value,
-  disabledDays,
-  validationMessage,
   status,
+  validationMessage,
+  value,
   ...inputProps
 }) => {
   // Focus behaviour breaks when this is a function component.
@@ -97,6 +88,8 @@ export const DateInput: React.VFC<DateInputProps> = ({
     </button>
   )
 
+  const descriptionId = `${id}-field-message`
+
   const shouldShowValidationMessage = !disabled && validationMessage
 
   return (
@@ -114,7 +107,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         aria-expanded={isCalendarOpen}
         aria-haspopup="dialog"
         aria-controls={calendarId}
-        aria-describedby={description ? `${id}-field-message` : undefined}
+        aria-describedby={descriptionId}
         autoComplete="off"
         value={value}
         disabled={disabled}
@@ -133,7 +126,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
         className={classnames([styles.message, disabled && styles.disabled])}
       >
         <FieldMessage
-          id={`${id}-field-message`}
+          id={descriptionId}
           message={getDescription(description)}
           reversed={isReversed}
         />

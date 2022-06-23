@@ -1,12 +1,11 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import { DateInput } from "./DateInput"
+import { DateInput, DateInputProps } from "./DateInput"
 
 const defaultProps = {
   id: "text-field-test",
   labelText: "Label",
-  description: "Description text",
   icon: dateStart,
   isCalendarOpen: false,
   onButtonClick: jest.fn<void, []>(),
@@ -15,46 +14,77 @@ const defaultProps = {
   value: undefined,
 }
 
+const DateInputWrapper = (props: Partial<DateInputProps>) => (
+  <DateInput {...defaultProps} {...props} />
+)
+
 describe("<DateInput />", () => {
-  it("has the role of combobox", () => {
-    render(<DateInput {...defaultProps} />)
-    expect(screen.getByRole("combobox", { name: "Label" })).toBeInTheDocument()
+  describe("Input", () => {
+    it("has the role of combobox", () => {
+      render(<DateInputWrapper />)
+      expect(
+        screen.getByRole("combobox", { name: "Label" })
+      ).toBeInTheDocument()
+    })
+
+    it("associates the description with the input", () => {
+      render(<DateInputWrapper />)
+      expect(
+        screen.getByRole("combobox", { description: "Format: mm/dd/yyyy" })
+      ).toBeInTheDocument()
+    })
   })
 
-  it("renders a description and aria-describeBy when provided", () => {
-    const ariaDescribedBy = "text-field-test-field-message"
+  describe("Icon button", () => {
+    it("has helpful label", () => {
+      render(<DateInputWrapper />)
+      expect(
+        screen.getByRole("button", { name: "Choose date" })
+      ).toBeInTheDocument()
+    })
 
-    const { container } = render(<DateInput {...defaultProps} />)
-    expect(
-      container.querySelector(`[aria-describedby="${ariaDescribedBy}"]`)
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByText("Description text (Format: mm/dd/yyyy)")
-    ).toBeInTheDocument()
+    it("has helpful label showing the current date when one is selected", () => {
+      render(
+        <DateInputWrapper value="Mar 1, 2022" onChange={() => undefined} />
+      )
+      expect(
+        screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
+      ).toBeInTheDocument()
+    })
   })
 
-  it("updates calendar button aria-label with selected day", async () => {
-    render(
-      <DateInput
-        {...defaultProps}
-        value="Mar 1, 2022"
-        onChange={() => undefined}
-      />
-    )
-
-    expect(
-      screen.getByLabelText("Change date, Mar 1, 2022")
-    ).toBeInTheDocument()
+  describe("States", () => {
+    it("disables both input and icon button", () => {
+      render(<DateInputWrapper disabled />)
+      const input = screen.getByRole("combobox", { name: "Label" })
+      const calendarButton = screen.getByRole("button", { name: "Choose date" })
+      expect(input).toBeDisabled()
+      expect(calendarButton).toBeDisabled()
+    })
   })
 
-  it("updates calendar button to be disabled when input is disabled", async () => {
-    render(<DateInput {...defaultProps} disabled />)
+  describe("Validation", () => {
+    it("shows validation message", () => {
+      render(
+        <DateInputWrapper
+          status="error"
+          validationMessage="There is an error"
+        />
+      )
+      const errorMessage = screen.getByText("There is an error")
+      expect(errorMessage).toBeInTheDocument()
+    })
 
-    const calendarButton = screen
-      .getByLabelText("Choose date")
-      .closest("button")
-
-    expect(calendarButton).toBeDisabled()
+    it("does not show validation message when field is disabled", () => {
+      render(
+        <DateInputWrapper
+          status="error"
+          validationMessage="There is an error"
+          disabled
+        />
+      )
+      const errorMessage = screen.queryByText("There is an error")
+      expect(errorMessage).not.toBeInTheDocument()
+    })
   })
 })
