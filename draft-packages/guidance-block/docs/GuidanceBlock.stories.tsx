@@ -87,7 +87,6 @@ DefaultStory.argTypes = {
   illustration: {
     control: { type: "radio" },
     options: ["spot", "scene"],
-    defaultValue: "spot",
     mapping: {
       spot: <Informative alt="" />,
       scene: <HumanityAtWork alt="" />,

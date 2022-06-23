@@ -80,7 +80,6 @@ export const BoxWithMargin = () => (
     </Box>
   </div>
 )
-BoxWithMargin.storyName = "Box With Margin"
 BoxWithMargin.parameters = { chromatic: { disable: false } }
 
 export const BoxWithPadding = () => (
@@ -90,7 +89,6 @@ export const BoxWithPadding = () => (
     </Box>
   </div>
 )
-BoxWithPadding.storyName = "Box With Padding"
 BoxWithPadding.parameters = { chromatic: { disable: false } }
 
 export const BoxWithXAndYPadding = () => (
@@ -100,7 +98,6 @@ export const BoxWithXAndYPadding = () => (
     </Box>
   </div>
 )
-BoxWithXAndYPadding.storyName = "Box With X And Y Padding"
 BoxWithXAndYPadding.parameters = { chromatic: { disable: false } }
 
 export const BoxWithRtlSupport = () => (
@@ -113,5 +110,4 @@ export const BoxWithRtlSupport = () => (
     </Box>
   </div>
 )
-BoxWithRtlSupport.storyName = "Box With Rtl Support"
 BoxWithRtlSupport.parameters = { chromatic: { disable: false } }

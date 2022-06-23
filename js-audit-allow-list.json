@@ -3,135 +3,9 @@
     {
       "title": "Regex DOS",
       "cve": "CVE-2021-33623",
-      "reason": "Regex DOS attacks aren't relevant in our devDependencies",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["lerna", "node-sass"]
-    }
-  ],
-  "normalize-url": [
-    {
-      "title": "Regex DOS",
-      "cve": "CVE-2021-33502",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby", "gatsby-source-filesystem"]
-    }
-  ],
-  "url-parse": [
-    {
-      "title": "URL Redirection to Untrusted Site",
-      "cve": "CVE-2021-3664",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    },
-    {
-      "title": "url-parse before 1.5.0 mishandles certain uses of backslash such as http:/ and interprets the URI as a relative path.",
-      "cve": "CVE-2021-27515",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    },
-    {
-      "title": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.6.",
-      "cve": "CVE-2022-0512",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "xmlhttprequest-ssl": [
-    {
-      "title": "Disables SSL certificate validation by default, no SSL certificate is ever rejected",
-      "cve": "CVE-2021-31597",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    },
-    {
-      "title": "Malicious user input flowing into xhr.send could result in arbitrary code being injected and run",
-      "cve": "CVE-2020-28502",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "sanitize-html": [
-    {
-      "title": "Does not properly handle internationalized domain name (IDN) which could allow an attacker to bypass hostname whitelist validation",
-      "cve": "CVE-2021-26539",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby", "gatsby-transformer-remark"]
-    },
-    {
-      "title": "Does not properly validate the hostnames set by the allowedIframeHostnames, allows attackers to bypass hostname whitelist for iframe element",
-      "cve": "CVE-2021-26540",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby", "gatsby-transformer-remark"]
-    }
-  ],
-  "node-fetch": [
-    {
-      "title": "Does not honor the size option after following a redirect, which means that when a content size is over the limit, a FetchError will never get thrown and the process will end without failure.",
-      "cve": "CVE-2020-15168",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["eslint-plugin-graphql"]
-    },
-    {
-      "title": "node-fetch is vulnerable to Exposure of Sensitive Information to an Unauthorized Actor",
-      "cve": "CVE-2022-0235",
-      "reason": "As per Ops team: The Gatsby site is incredibly low risk (no customer data, static site only, separate domain, etc)",
-      "reviewer": "cassandra.tam",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "is-svg": [
-    {
-      "title": "ReDoS",
-      "cve": "CVE-2021-28092",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["optimize-css-assets-webpack-plugin"]
-    },
-    {
-      "title": "ReDoS",
-      "cve": "CVE-2021-29059",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["optimize-css-assets-webpack-plugin"]
-    }
-  ],
-  "react-dev-utils": [
-    {
-      "title": "getProcessForPort function, typically used from react-scripts (in Create React App projects), when manually invoked has potential for command injection",
-      "cve": "CVE-2021-24033",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "hosted-git-info": [
-    {
-      "title": "ReDoS",
-      "cve": "CVE-2021-23362",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby-cli"]
-    }
-  ],
-  "ansi-html": [
-    {
-      "title": "If an attacker provides a malicious string, it will get stuck processing the input for an extremely long time.",
-      "cve": "CVE-2021-23424",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": [
-        "@storybook/react",
-        "@pmmmwh/react-refresh-webpack-plugin"
-      ]
+      "reason": "Regex DOS attacks aren't relevant to dev tools",
+      "reviewer": "christianklammer, cassandra.tam",
+      "whenSubDependencyOf": ["lerna", "@storybook/react"]
     }
   ],
   "ansi-regex": [
@@ -139,54 +13,17 @@
       "title": "Inefficient Regular Expression Complexity",
       "cve": "CVE-2021-3807",
       "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": [
-        "@storybook/node-logger",
-        "strip-ansi",
-        "pretty-format"
-      ]
-    }
-  ],
-  "ws": [
-    {
-      "title": "A specially crafted value of the `Sec-Websocket-Protocol` header can be used to significantly slow down a ws server.",
-      "cve": "CVE-2021-32640",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "follow-redirects": [
-    {
-      "title": "Still under investigation",
-      "cve": "CVE-2022-0155",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["axios", "http-proxy"]
-    },
-    {
-      "title": "Exposure of Sensitive Information to an Unauthorized Actor in NPM follow-redirects prior to 1.14.8.",
-      "cve": "CVE-2022-0536",
-      "reason": "Dev dependency",
-      "reviewer": "christianklammer",
-      "whenSubDependencyOf": ["gatsby"]
-    }
-  ],
-  "node-sass": [
-    {
-      "title": "Certificate validation in node-sass 2.0.0 to 4.14.1 is disabled when requesting binaries even if the user is not specifying an alternative download path.",
-      "cve": "CVE-2020-24025",
-      "reason": "Our builds fail",
-      "reviewer": "cassandra.tam"
-    }
-  ],
-  "engine.io": [
-    {
-      "title": "Engine.IO before 4.0.0 allows attackers to cause a denial of service (resource consumption) via a POST request to the long polling transport.",
-      "cve": "CVE-2020-36048",
-      "reason": "Our builds fail",
       "reviewer": "cassandra.tam",
-      "whenSubDependencyOf": ["gatsby"]
+      "whenSubDependencyOf": ["@storybook/node-logger", "commitizen"]
+    }
+  ],
+  "minimist": [
+    {
+      "title": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
+      "cve": "CVE-2021-44906",
+      "reason": "Dev dependency; Note: Commitizen has been updated, but there hasn't been a release yet",
+      "reviewer": "cassandra.tam",
+      "whenSubDependencyOf": ["commitizen"]
     }
   ]
 }

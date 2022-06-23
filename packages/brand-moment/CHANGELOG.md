@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.19...@kaizen/brand-moment@1.11.20) (2022-06-23)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.18...@kaizen/brand-moment@1.11.19) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.17...@kaizen/brand-moment@1.11.18) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.16...@kaizen/brand-moment@1.11.17) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.15...@kaizen/brand-moment@1.11.16) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.14...@kaizen/brand-moment@1.11.15) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.13...@kaizen/brand-moment@1.11.14) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.11.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.12...@kaizen/brand-moment@1.11.13) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
 ## [1.11.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.11...@kaizen/brand-moment@1.11.12) (2022-06-16)
 
 **Note:** Version bump only for package @kaizen/brand-moment

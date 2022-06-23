@@ -15,7 +15,8 @@
   "include": [
     "./packages/**/*",
     "./draft-packages/**/*",
-    "./legacy-packages/**/*"
+    "./legacy-packages/**/*",
+    "./storybook/**/*"
   ],
   "exclude": ["**/node_modules"]
 }

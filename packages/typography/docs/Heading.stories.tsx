@@ -131,7 +131,6 @@ export const Heading1White = () => (
     <Documentation reversed />
   </>
 )
-Heading1White.storyName = "Heading 1 White"
 Heading1White.parameters = {
   backgrounds: { default: "Purple 700" },
 }
@@ -144,7 +143,6 @@ export const Heading1WhiteReducedOpacity = () => (
     <Documentation reversed />
   </>
 )
-Heading1WhiteReducedOpacity.storyName = "Heading 1 White Reduced Opacity"
 Heading1WhiteReducedOpacity.parameters = {
   backgrounds: { default: "Purple 700" },
 }

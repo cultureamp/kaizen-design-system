@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from '@storybook/addon-docs'
 import { LinkToStory, CodeBlock } from '../DocsComponents'
 import switchingThemesExample from '!!raw-loader!./examples/switchingThemes.docsExample.tsx'
 import gettingStartedPage from './getting-started.stories.mdx'
@@ -14,7 +14,7 @@ Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPa
 
 ## 2. Use `setAndApplyTheme`
 
-You can use the `setAndApplyTheme` method to change the current theme, to either a preset like Zen or Heart, or a customised object.
+You can use the `setAndApplyTheme` method to change the current theme, to either Heart or a customised object.
 
 Example:
 <CodeBlock language="typescript" code={switchingThemesExample} />

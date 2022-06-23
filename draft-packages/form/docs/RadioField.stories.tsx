@@ -22,15 +22,9 @@ type RenderProps = {
 type Props = {
   render: (props: RenderProps) => JSX.Element
 }
-
 class RadioFieldExample extends React.Component<Props> {
-  state = {
-    selectedStatus: false,
-  }
-
   constructor(props: Props) {
     super(props)
-
     this.onChangeHandler = this.onChangeHandler.bind(this)
   }
 
@@ -51,6 +45,10 @@ class RadioFieldExample extends React.Component<Props> {
         })}
       </>
     )
+  }
+
+  state = {
+    selectedStatus: false,
   }
 }
 
@@ -106,7 +104,6 @@ export const UnselectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-UnselectedDisabled.storyName = "Unselected disabled"
 
 export const UnselectedDefault = () => (
   <RadioField
@@ -120,7 +117,6 @@ export const UnselectedDefault = () => (
     <ExampleContent />
   </RadioField>
 )
-UnselectedDefault.storyName = "Unselected default"
 
 export const SelectedDefault = () => (
   <RadioField
@@ -134,7 +130,6 @@ export const SelectedDefault = () => (
     <ExampleContent />
   </RadioField>
 )
-SelectedDefault.storyName = "Selected default"
 
 export const SelectedDisabled = () => (
   <RadioField
@@ -148,7 +143,6 @@ export const SelectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-SelectedDisabled.storyName = "Selected disabled"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -177,10 +171,7 @@ export const ReversedDefaultUnselected = () => (
     <ExampleContent />
   </RadioField>
 )
-ReversedDefaultUnselected.story = {
-  name: "Reversed Default Unselected",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDefaultUnselected.parameters = { ...REVERSED_BG }
 
 export const ReversedDefaultUnselectedDisabled = () => (
   <RadioField
@@ -194,10 +185,7 @@ export const ReversedDefaultUnselectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-ReversedDefaultUnselectedDisabled.story = {
-  name: "Reversed Default Unselected Disabled ",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDefaultUnselectedDisabled.parameters = { ...REVERSED_BG }
 
 export const ReversedDefaultSelected = () => (
   <RadioField
@@ -211,10 +199,7 @@ export const ReversedDefaultSelected = () => (
     <ExampleContent />
   </RadioField>
 )
-ReversedDefaultSelected.story = {
-  name: "Reversed Default Selected",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDefaultSelected.parameters = { ...REVERSED_BG }
 
 export const ReversedDefaultSelectedDisabled = () => (
   <RadioField
@@ -229,7 +214,4 @@ export const ReversedDefaultSelectedDisabled = () => (
     <ExampleContent />
   </RadioField>
 )
-ReversedDefaultSelectedDisabled.story = {
-  name: "Reversed Default Selected Disabled",
-  parameters: { ...REVERSED_BG },
-}
+ReversedDefaultSelectedDisabled.parameters = { ...REVERSED_BG }

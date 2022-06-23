@@ -17,9 +17,6 @@ type DropdownMenuProps = {
  * @deprecated DropdownMenu is deprecated. Please use draft-menu instead.
  */
 class DropdownMenu extends React.Component<DropdownMenuProps> {
-  static displayName = "DropdownMenu"
-  menu = React.createRef<HTMLDivElement>()
-
   componentDidMount() {
     document.addEventListener("click", this.handleDocumentClick, false)
     window.addEventListener("resize", this.handleDocumentResize, false)
@@ -29,6 +26,22 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
   componentWillUnmount() {
     document.removeEventListener("click", this.handleDocumentClick, false)
     window.removeEventListener("resize", this.handleDocumentResize, false)
+  }
+
+  render(): JSX.Element {
+    const { hideDropdownMenu, children } = this.props
+
+    return (
+      // Disabling instead of addressing because this component is deprecated
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+      <div
+        className={styles.menuContainer}
+        ref={this.menu}
+        onClick={() => hideDropdownMenu()}
+      >
+        {children}
+      </div>
+    )
   }
 
   positionMenu() {
@@ -68,21 +81,8 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
     this.props.hideDropdownMenu()
   }
 
-  render(): JSX.Element {
-    const { hideDropdownMenu, children } = this.props
-
-    return (
-      // Disabling instead of addressing because this component is deprecated
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-      <div
-        className={styles.menuContainer}
-        ref={this.menu}
-        onClick={() => hideDropdownMenu()}
-      >
-        {children}
-      </div>
-    )
-  }
+  static displayName = "DropdownMenu"
+  menu = React.createRef<HTMLDivElement>()
 }
 
 export default DropdownMenu

@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.14...@kaizen/notification@0.9.15) (2022-06-23)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.13...@kaizen/notification@0.9.14) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.12...@kaizen/notification@0.9.13) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.11...@kaizen/notification@0.9.12) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.10...@kaizen/notification@0.9.11) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.9...@kaizen/notification@0.9.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.8...@kaizen/notification@0.9.9) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.7...@kaizen/notification@0.9.8) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [0.9.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.6...@kaizen/notification@0.9.7) (2022-06-16)
 
 **Note:** Version bump only for package @kaizen/notification

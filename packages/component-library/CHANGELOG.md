@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.2...@kaizen/component-library@15.0.3) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [15.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.1...@kaizen/component-library@15.0.2) (2022-06-21)
+
+
+### Bug Fixes
+
+* Remove typography scss files from component-library ([#2820](https://github.com/cultureamp/kaizen-design-system/issues/2820)) ([a0e1b5e](https://github.com/cultureamp/kaizen-design-system/commit/a0e1b5e92cbb1ca33ff4800741c77f943290f71d))
+
+
+
+
+
+## [15.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.0...@kaizen/component-library@15.0.1) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [15.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.6...@kaizen/component-library@15.0.0) (2022-06-21)
+
+
+### chore
+
+* Remove Heading and Paragraph components from component-library ([#2800](https://github.com/cultureamp/kaizen-design-system/issues/2800)) ([ef11482](https://github.com/cultureamp/kaizen-design-system/commit/ef114824d13e14434274b7f037900863fa0b951e))
+
+
+### BREAKING CHANGES
+
+* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/master/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
+
+
+
+
+
+## [14.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.5...@kaizen/component-library@14.3.6) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [14.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@14.3.4...@kaizen/component-library@14.3.5) (2022-06-16)
 
 

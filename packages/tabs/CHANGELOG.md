@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.14...@kaizen/tabs@1.4.15) (2022-06-23)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.13...@kaizen/tabs@1.4.14) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.12...@kaizen/tabs@1.4.13) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.11...@kaizen/tabs@1.4.12) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.10...@kaizen/tabs@1.4.11) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.9...@kaizen/tabs@1.4.10) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
+## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.8...@kaizen/tabs@1.4.9) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/tabs
+
+
+
+
+
 ## [1.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tabs@1.4.7...@kaizen/tabs@1.4.8) (2022-06-16)
 
 **Note:** Version bump only for package @kaizen/tabs
