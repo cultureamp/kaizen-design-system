@@ -4,11 +4,6 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "../../mixins";
 
-// -----------------------------------------------
-// Date Input
-// -----------------------------------------------
-
-// Vars
 $input-disabled-opacity: 0.3;
 
 .iconButton {
@@ -36,10 +31,6 @@ $input-disabled-opacity: 0.3;
     outline: none;
   }
 
-  .disabled {
-    opacity: $input-disabled-opacity;
-  }
-
   &.calendarActive {
     color: $color-blue-500;
     background-color: $color-blue-100;
@@ -59,8 +50,6 @@ $input-disabled-opacity: 0.3;
   @include ca-animation-fade(in);
 }
 
-.message {
-  &.disabled {
-    opacity: $input-disabled-opacity;
-  }
+.disabled {
+  opacity: $input-disabled-opacity;
 }

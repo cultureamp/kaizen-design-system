@@ -11,6 +11,8 @@ import { DayOfWeek } from "../../enums"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
+export type CalendarElement = HTMLDivElement
+
 export type CalendarProps = {
   id: string
   setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
@@ -31,6 +33,7 @@ export type CalendarProps = {
   selectedRange?: DateRange
   mode: "single" | "range"
   modifiers?: DateRange
+  onMount?: (calendarElement: CalendarElement) => void
 }
 
 const isValidWeekStartsOn = (
@@ -52,29 +55,15 @@ export const Calendar: React.VFC<CalendarProps> = ({
   selectedRange,
   modifiers,
   mode,
+  onMount,
 }) => {
-  const calendarRef = useRef<HTMLDivElement>(null)
+  const calendarRef = useRef<CalendarElement>(null)
 
-  // Initial focus when opening the calendar
   useEffect(() => {
-    if (!calendarRef.current) return
+    if (calendarRef.current) onMount && onMount(calendarRef.current)
+  }, [calendarRef])
 
-    if (value || selectedRange?.from) {
-      const selectedDay = calendarRef.current.getElementsByClassName(
-        calendarStyles.daySelected
-      )[0] as HTMLElement
-      selectedDay?.focus()
-      return
-    } else {
-      const today = calendarRef.current.getElementsByClassName(
-        calendarStyles.dayToday
-      )[0] as HTMLElement
-      today?.focus()
-      return
-    }
-  }, [])
-
-  const getdefaultMonth = () => selectedRange?.from || value || defaultMonth
+  const selectedMonth = selectedRange?.from || value || defaultMonth
 
   const IconRight: React.VFC = () => (
     <Icon icon={arrowRight} role="presentation" />
@@ -98,7 +87,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           <DayPicker
             mode="single"
             selected={value}
-            defaultMonth={getdefaultMonth()}
+            defaultMonth={selectedMonth}
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }
@@ -115,7 +104,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           <DayPicker
             mode="range"
             selected={selectedRange}
-            defaultMonth={getdefaultMonth()}
+            defaultMonth={selectedMonth}
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }
