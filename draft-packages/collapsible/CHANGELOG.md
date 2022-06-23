@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.11...@kaizen/draft-collapsible@3.1.12) (2022-06-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-animate-height to v3 ([#2765](https://github.com/cultureamp/kaizen-design-system/issues/2765)) ([b21f4b4](https://github.com/cultureamp/kaizen-design-system/commit/b21f4b49c0323e2cc982b7af58742a2f66a66ee6))
+
+
+
+
+
 ## [3.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.10...@kaizen/draft-collapsible@3.1.11) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

@@ -1,42 +1,9 @@
-import "@testing-library/jest-dom/extend-expect"
-
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
 import * as React from "react"
 import { Collapsible, CollapsibleGroup } from "./"
 
 configure({ testIdAttribute: "data-automation-id" })
-
-afterEach(cleanup)
-
-it("matches snapshot with everything enabled", () => {
-  const { container } = render(
-    <CollapsibleGroup
-      separated
-      sticky={{ top: "20px" }}
-      noSectionPadding
-      automationId="some-bogus-test-id"
-    >
-      <Collapsible
-        id="1"
-        title="First panel w/ custom header"
-        renderHeader={title => <div>{title}</div>}
-      >
-        First panel content
-      </Collapsible>
-      <Collapsible
-        id="2"
-        open
-        title="Second panel"
-        automationId="another-bogus-test-id"
-      >
-        Second panel content
-      </Collapsible>
-    </CollapsibleGroup>
-  )
-
-  expect(container).toMatchSnapshot()
-})
 
 it("renders closed by default", () => {
   const { getByTestId } = render(
