@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
@@ -9,12 +9,8 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
-import { format, parse } from "date-fns"
 import { Matcher } from "react-day-picker/src/types/Matchers"
-
-import { DateFormat } from "../../enums"
-import { isInvalidDate } from "../../../utils/isInvalidDate"
-import { isDisabledDate } from "../../../utils/isDisabledDate"
+import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.scss"
 
 type OmittedInputProps =
@@ -24,8 +20,6 @@ type OmittedInputProps =
   | "status"
   | "inputValue"
   | "reversed"
-  | "onBlur"
-  | "value"
   | "type"
   | "ariaLabel"
   | "ariaDescribedBy"
@@ -33,108 +27,68 @@ type OmittedInputProps =
   | "automationId"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
+  buttonRef?: React.RefObject<HTMLButtonElement>
   id: string
   calendarId: string
-  buttonRef?: React.RefObject<HTMLButtonElement>
+  isCalendarOpen: boolean
   labelText: React.ReactNode
-  icon: React.SVGAttributes<SVGSymbolElement>
   /**
    * A description that provides context for the text field
    */
   description?: React.ReactNode
-  isOpen: boolean
+  icon: React.SVGAttributes<SVGSymbolElement>
   /**
-   * Event for the onClick of the icon button
+   * Icon button onClick handler
    */
-  onButtonClick: () => void
+  onButtonClick: React.MouseEventHandler<HTMLButtonElement>
   isReversed?: boolean
-  /**
-   * The input value as a Date
-   */
-  valueDate: Date | undefined
-  /**
-   * The callback for then onBlur is triggered on the input
-   */
-  onBlur: (date: Date | undefined, inputValue: string) => void
-  disabledDays?: Matcher[] | undefined
-  /**
-   * A descriptive message for `status` states
-   */
-  validationMessage?: string | React.ReactNode
   /**
    * Updates the styling of the validation FieldMessage
    */
   status?: FieldMessageStatus
-}
-
-const formatDateAsText = (
-  date: Date,
-  disabledDays: Matcher[] | undefined,
-  onFormat: (newFormattedDate: string) => void
-): void => {
-  if (isDisabledDate(date, disabledDays)) {
-    return onFormat(format(date, DateFormat.Numeral))
-  }
-  if (isInvalidDate(date)) {
-    return onFormat("Invalid Date")
-  }
-  onFormat(format(date, DateFormat.Text))
+  /**
+   * A descriptive message for `status` states
+   */
+  validationMessage?: string | React.ReactNode
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
-  id,
-  disabled = false,
+  inputRef,
   buttonRef,
+  id,
+  calendarId,
+  isCalendarOpen,
   labelText,
   description,
-  isReversed = false,
   icon,
   onButtonClick,
-  calendarId,
-  isOpen,
-  valueDate,
-  onBlur,
-  disabledDays,
-  validationMessage,
+  disabled,
+  isReversed = false,
   status,
+  validationMessage,
+  value,
   ...inputProps
 }) => {
-  const [valueString, setValueString] = useState<string>("")
+  // Focus behaviour breaks when this is a function component.
+  const IconButton: React.ReactNode = (
+    <button
+      ref={buttonRef}
+      aria-disabled={disabled}
+      disabled={disabled}
+      onClick={onButtonClick}
+      type="button"
+      className={classnames([
+        styles.iconButton,
+        isCalendarOpen && styles.calendarActive,
+        disabled && styles.disabled,
+      ])}
+      aria-label={value ? `Change date, ${value}` : "Choose date"}
+    >
+      <Icon icon={icon} role="presentation" />
+    </button>
+  )
 
-  useEffect(() => {
-    valueDate && formatDateAsText(valueDate, disabledDays, setValueString)
-  }, [valueDate])
-
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (): void => {
-    if (valueString !== "") {
-      const parsedDate = parse(valueString, DateFormat.Numeral, new Date())
-      if (isInvalidDate(parsedDate)) {
-        return onBlur(parsedDate, valueString)
-      }
-
-      formatDateAsText(parsedDate, disabledDays, setValueString)
-      return onBlur(parsedDate, valueString)
-    }
-    onBlur(undefined, valueString)
-  }
-  const handleFocus = (): void => {
-    valueDate && setValueString(format(valueDate, DateFormat.Numeral))
-  }
-
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = ({
-    target,
-  }): void => setValueString(target.value)
-
-  const getDescription = (): React.ReactNode => {
-    switch (typeof description) {
-      case "string":
-        return description + " (Format: mm/dd/yyyy)"
-      case "object":
-        return <>{description} (Format: mm/dd/yyyy)</>
-      default:
-        return "Format: mm/dd/yyyy"
-    }
-  }
+  const descriptionId = `${id}-field-message`
 
   const shouldShowValidationMessage = !disabled && validationMessage
 
@@ -147,42 +101,19 @@ export const DateInput: React.VFC<DateInputProps> = ({
         disabled={disabled}
       />
       <Input
+        inputRef={inputRef}
         id={id}
         role="combobox"
-        aria-expanded={isOpen}
+        aria-expanded={isCalendarOpen}
         aria-haspopup="dialog"
         aria-controls={calendarId}
-        aria-describedby={description ? `${id}-field-message` : undefined}
+        aria-describedby={descriptionId}
         autoComplete="off"
-        value={valueString}
+        value={value}
         disabled={disabled}
         reversed={isReversed}
-        endIconAdornment={
-          <button
-            ref={buttonRef}
-            aria-disabled={disabled ? true : undefined}
-            disabled={disabled}
-            onClick={onButtonClick}
-            type="button"
-            className={classnames(styles.iconButton, {
-              [styles.calendarActive]: isOpen,
-            })}
-            aria-label={
-              valueString ? `Change date, ${valueString}` : "Choose date"
-            }
-          >
-            <div
-              className={classnames({
-                [styles.disabled]: disabled,
-              })}
-            >
-              <Icon icon={icon} role="presentation" />
-            </div>
-          </button>
-        }
-        onChange={handleChange}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
+        endIconAdornment={IconButton}
+        status={status}
         {...inputProps}
       />
       {shouldShowValidationMessage && (
@@ -193,13 +124,11 @@ export const DateInput: React.VFC<DateInputProps> = ({
         />
       )}
       <div
-        className={classnames(styles.message, {
-          [styles.disabled]: disabled,
-        })}
+        className={classnames([styles.message, disabled && styles.disabled])}
       >
         <FieldMessage
-          id={`${id}-field-message`}
-          message={getDescription()}
+          id={descriptionId}
+          message={getDescription(description)}
           reversed={isReversed}
         />
       </div>
