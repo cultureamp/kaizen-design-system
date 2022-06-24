@@ -24,7 +24,6 @@ const defaultStoryPaths = [
   "../packages/**/*.stories.tsx",
   "../packages/**/*.stories.mdx",
   "../draft-packages/**/!(deprecated.)*.stories.tsx",
-  "../legacy-packages/**/*.stories.tsx",
 ]
 
 module.exports = {
