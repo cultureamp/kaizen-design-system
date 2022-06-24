@@ -159,7 +159,7 @@ export const VideoPlayer = ({
 
   if (aspectRatio) {
     return (
-      <figure className={styles[aspectRatio] + " " + styles.aspectRatioWrapper}>
+      <figure className={`${styles[aspectRatio]} ${styles.aspectRatioWrapper}`}>
         {videoPlayer}
       </figure>
     )
