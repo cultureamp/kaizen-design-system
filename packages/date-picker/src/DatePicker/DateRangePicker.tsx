@@ -21,7 +21,6 @@ export interface DateRangePickerProps {
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
-  locale?: LanguageLocale
   /** Selected date range which is being updated in handleDayClick and checked
    * if within range/not disabled and then passed back to the client to update
    * the state.

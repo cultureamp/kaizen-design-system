@@ -5,7 +5,7 @@ import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { enUS } from "date-fns/locale"
+import { enGB } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -138,8 +138,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   locale = {
-    localeObj: enUS,
-    code: enUS.code,
+    localeObj: enGB,
+    code: enGB.code,
     dir: "ltr",
   },
   disabledDates,
