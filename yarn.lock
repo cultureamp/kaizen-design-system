@@ -7823,10 +7823,10 @@ damerau-levenshtein@^1.0.7:
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.7.tgz#64368003512a1a6992593741a09a9d31a836f55d"
   integrity sha512-VvdQIPGdWP0SqFXghj79Wf/5LArmreyMsGLa6FG6iC4t3j7j5s71TrwWmT/4akbDQIqjfACkLZmjXhA7g2oUZw==
 
-danger@^11.0.5:
-  version "11.0.5"
-  resolved "https://registry.yarnpkg.com/danger/-/danger-11.0.5.tgz#d6dd93ee92236535443c65ad32ca10e1e361ae56"
-  integrity sha512-3EzH9bDlSeDK+2EDe/0xD3JTiaotWK6lrtS91rK8z9pq440Tq9c050uylrkA0tXv0lr/T/8iK8Cp4kw0R+TNAA==
+danger@^11.0.7:
+  version "11.0.7"
+  resolved "https://registry.yarnpkg.com/danger/-/danger-11.0.7.tgz#1d801f0b2e1ef89a74a9b1f2776cd8e5c1ce8e5e"
+  integrity sha512-4jdZ5xqQO03EDmoYf29EMvHluNFMXOi5u8msxKE/pAe4UlfvQ6yOpQC5jHF73f724OLP2x9paqVd+vumoC3lug==
   dependencies:
     "@octokit/rest" "^18.12.0"
     async-retry "1.2.3"
