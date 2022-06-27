@@ -76,6 +76,7 @@ describe("<VideoPlayer />", () => {
           playsinline=""
           poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
+          tabindex="-1"
           width="100%"
         >
           <source
@@ -109,6 +110,7 @@ describe("<VideoPlayer />", () => {
           playsinline=""
           poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
+          tabindex="-1"
           width="100%"
         >
           <source
