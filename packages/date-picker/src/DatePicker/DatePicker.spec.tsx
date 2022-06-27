@@ -165,7 +165,6 @@ describe("<DatePicker /> - Focus element", () => {
       const dateToSelect = screen.getByRole("button", {
         name: "6th March (Sunday)",
       })
-      expect(dateToSelect).toBeInstanceOf(HTMLElement)
       userEvent.click(dateToSelect)
 
       expect(input).toHaveFocus()
