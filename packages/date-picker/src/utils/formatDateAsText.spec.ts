@@ -4,7 +4,12 @@ import { formatDateAsText } from "./formatDateAsText"
 const onFormat = jest.fn<void, [string]>()
 
 describe("formatDateAsText", () => {
-  it("formats valid date in text format", () => {
+  it("formats valid date in enGB text format", () => {
+    formatDateAsText(new Date("2022-01-16"), undefined, enGB, onFormat)
+    expect(onFormat).toHaveBeenCalledWith("Jan 16 2022")
+  })
+
+  it("formats valid date in enUS text format", () => {
     formatDateAsText(new Date("2022-01-16"), undefined, enGB, onFormat)
     expect(onFormat).toHaveBeenCalledWith("Jan 16, 2022")
   })
