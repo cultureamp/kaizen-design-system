@@ -86,8 +86,16 @@ export const Calendar: React.VFC<CalendarProps> = ({
         {mode === "single" && (
           <DayPicker
             mode="single"
-            selected={value}
-            defaultMonth={selectedMonth}
+            selected={
+              value && value.toDateString() === "Invalid Date"
+                ? undefined
+                : value
+            }
+            defaultMonth={
+              selectedMonth && selectedMonth.toDateString() === "Invalid Date"
+                ? new Date()
+                : selectedMonth
+            }
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }

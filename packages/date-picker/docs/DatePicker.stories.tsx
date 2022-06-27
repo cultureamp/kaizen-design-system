@@ -56,7 +56,7 @@ DefaultStory.parameters = {
 
 export const ValidationStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
-    new Date(2022, 4, 5)
+    new Date("potato")
   )
   const [status, setStatus] = useState<FieldMessageStatus | undefined>()
   const [response, setResponse] = useState<ValidationResponse | undefined>()
@@ -229,6 +229,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description={
               <>
                 <Paragraph
+                  tag="span"
                   variant="small"
                   color={isReversed ? "white" : "dark"}
                 >
