@@ -56,7 +56,7 @@ DefaultStory.parameters = {
 
 export const ValidationStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
-    new Date("potato")
+    new Date(2022, 4, 5)
   )
   const [status, setStatus] = useState<FieldMessageStatus | undefined>()
   const [response, setResponse] = useState<ValidationResponse | undefined>()
