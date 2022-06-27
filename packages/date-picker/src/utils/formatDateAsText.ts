@@ -7,6 +7,7 @@ import { isInvalidDate } from "./isInvalidDate"
 export const formatDateAsText = (
   date: Date,
   disabledDays: Matcher[] | undefined,
+  locale: Locale,
   onFormat: (newFormattedDate: string) => void
 ): void => {
   if (isDisabledDate(date, disabledDays)) {
