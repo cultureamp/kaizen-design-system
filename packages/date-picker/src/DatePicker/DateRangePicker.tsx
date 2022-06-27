@@ -11,7 +11,7 @@ import {
   ActiveModifiers,
   isMatch,
 } from "react-day-picker"
-import { enUS } from "date-fns/locale"
+import { enGB } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
@@ -87,8 +87,8 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   locale = {
-    localeObj: enUS,
-    code: enUS.code,
+    localeObj: enGB,
+    code: enGB.code,
     dir: "ltr",
   },
   description,

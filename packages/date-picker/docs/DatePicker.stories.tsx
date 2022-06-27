@@ -98,7 +98,7 @@ export const LocaleStory = props => {
           name="languages"
           id="languages"
           onChange={e => handleLocalisation(e)}
-          defaultValue={"englishUS"}
+          defaultValue={"englishGB"}
         >
           {Object.keys(locales).map(language => (
             <option key={language} value={language}>

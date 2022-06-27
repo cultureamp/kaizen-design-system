@@ -1,15 +1,15 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { enUS } from "date-fns/locale"
+import { enGB } from "date-fns/locale"
 import userEvent from "@testing-library/user-event"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { Direction } from "../../DatePicker"
 import { DateInput, DateInputProps } from "./DateInput"
 
 const localeUS = {
-  localeObj: enUS,
-  code: enUS.code,
+  localeObj: enGB,
+  code: enGB.code,
   dir: "ltr" as Direction,
 }
 const defaultProps = {
@@ -40,7 +40,7 @@ describe("<DateInput />", () => {
     it("associates the description with the input", () => {
       render(<DateInputWrapper />)
       expect(
-        screen.getByRole("combobox", { description: "Format: mm/dd/yyyy" })
+        screen.getByRole("combobox", { description: "Format: dd/mm/yyyy" })
       ).toBeInTheDocument()
     })
   })
