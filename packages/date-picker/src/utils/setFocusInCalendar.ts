@@ -1,5 +1,6 @@
 import calendarStyles from "../DatePicker/components/Calendar/Calendar.scss"
 import { CalendarElement } from "../DatePicker/components/Calendar/Calendar"
+import { isInvalidDate } from "./isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
   element instanceof HTMLElement
@@ -9,7 +10,7 @@ export const setFocusInCalendar = (
   selectedDay: Date | undefined
 ): void => {
   const dayToFocus = calendarElement.getElementsByClassName(
-    selectedDay && selectedDay.toDateString() !== "Invalid Date"
+    selectedDay && isInvalidDate(selectedDay)
       ? calendarStyles.daySelected
       : calendarStyles.dayToday
   )[0]

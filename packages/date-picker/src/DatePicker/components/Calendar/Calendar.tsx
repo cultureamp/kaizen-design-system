@@ -8,6 +8,7 @@ import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { DayOfWeek } from "../../enums"
+import { isInvalidDate } from "../../../utils/isInvalidDate"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
@@ -86,13 +87,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
         {mode === "single" && (
           <DayPicker
             mode="single"
-            selected={
-              value && value.toDateString() === "Invalid Date"
-                ? undefined
-                : value
-            }
+            selected={value && isInvalidDate(value) ? undefined : value}
             defaultMonth={
-              selectedMonth && selectedMonth.toDateString() === "Invalid Date"
+              selectedMonth && isInvalidDate(selectedMonth)
                 ? new Date()
                 : selectedMonth
             }
