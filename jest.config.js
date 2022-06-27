@@ -2,7 +2,7 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   testRunner: "jest-circus/runner",
-  testMatch: ["**/*.spec.ts?(x)"],
+  testMatch: ["**/*.spec.ts?(x)", "!**/*.playwright.spec.ts?(x)"],
   setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
   moduleNameMapper: {
     "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
