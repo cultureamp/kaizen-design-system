@@ -11,10 +11,10 @@ export const formatDateAsText = (
   onFormat: (newFormattedDate: string) => void
 ): void => {
   if (isDisabledDate(date, disabledDays)) {
-    return onFormat(format(date, DateFormat.Numeral))
+    return onFormat(format(date, DateFormat.Numeral, { locale }))
   }
   if (isInvalidDate(date)) {
     return onFormat("Invalid Date")
   }
-  onFormat(format(date, DateFormat.Text))
+  onFormat(format(date, DateFormat.Text, { locale }))
 }
