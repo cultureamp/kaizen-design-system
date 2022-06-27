@@ -134,6 +134,7 @@ export type ValidationResponse = {
  * {@link https://cultureamp.design/components/date-picker/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
+
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
@@ -300,7 +301,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       })
 
       if (!isInvalidDate(parsedDate)) {
-        formatDateAsText(parsedDate, disabledDays, setInputValue)
+        formatDateAsText(
+          parsedDate,
+          disabledDays,
+          locale.localeObj,
+          setInputValue
+        )
       }
 
       handleDayChange(parsedDate, inputValue)
@@ -344,7 +350,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   useEffect(() => {
-    selectedDay && formatDateAsText(selectedDay, disabledDays, setInputValue)
+    selectedDay &&
+      formatDateAsText(
+        selectedDay,
+        disabledDays,
+        locale.localeObj,
+        setInputValue
+      )
 
     if (selectedDay && isInvalidDate(selectedDay)) {
       onValidate({
