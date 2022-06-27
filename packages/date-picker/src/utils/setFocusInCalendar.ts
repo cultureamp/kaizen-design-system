@@ -10,7 +10,7 @@ export const setFocusInCalendar = (
   selectedDay: Date | undefined
 ): void => {
   const dayToFocus = calendarElement.getElementsByClassName(
-    selectedDay && isInvalidDate(selectedDay)
+    selectedDay && !isInvalidDate(selectedDay)
       ? calendarStyles.daySelected
       : calendarStyles.dayToday
   )[0]
