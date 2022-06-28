@@ -18,6 +18,7 @@ const DateRangePickerWrapper = ({
     setSelectedDateRange(dateRange)
   }
 
+  // TODO: Make formating built in
   useEffect(() => {
     setValue(formatDateRangeValue(selectedDateRange))
   }, [selectedDateRange])
@@ -35,16 +36,17 @@ const DateRangePickerWrapper = ({
 }
 
 describe("<DateRangePicker />", () => {
-  it("renders DateRangePicker and shows/hides on button press", async () => {
+  it("renders DateRangePicker and shows/hides on button press", () => {
     render(<DateRangePickerWrapper />)
 
     const button = screen.getByRole("button")
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
-    await act(async () => button.click())
-
-    expect(screen.queryByRole("dialog")).toBeInTheDocument()
+    userEvent.click(button)
+    waitFor(() => {
+      expect(screen.queryByRole("dialog")).toBeInTheDocument()
+    })
   })
 
   it("shows/hides on button focus and keydown enter", () => {
@@ -66,8 +68,9 @@ describe("<DateRangePicker />", () => {
 
     const button = screen.getByRole("button")
 
+    userEvent.click(button)
+
     waitFor(() => {
-      button.click()
       const selectedFromDate = screen.getByText("6th March (Sunday)")
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
@@ -82,7 +85,7 @@ describe("<DateRangePicker />", () => {
     expect(button.innerText === "Mar 6 – Mar 16, 2022")
   })
 
-  it("resets the selected range when the user selected a new range", () => {
+  it("updates the selected range when the user selects a new range", () => {
     const selectedDateRange = {
       from: new Date(2022, 2, 1),
       to: new Date(2022, 2, 16),
@@ -92,8 +95,9 @@ describe("<DateRangePicker />", () => {
     const button = screen.getByRole("button")
     expect(button.innerText === "Mar 1 – Mar 16, 2022")
 
+    userEvent.click(button)
+
     waitFor(() => {
-      button.click()
       const selectedFromDate = screen.getByText("6th March (Sunday)")
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
@@ -111,9 +115,9 @@ describe("<DateRangePicker />", () => {
     render(<DateRangePickerWrapper />)
 
     const button = screen.getByRole("button")
+    userEvent.click(button)
 
     waitFor(() => {
-      button.click()
       const selectedFromDate = screen.getByText("6th March (Sunday)")
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
