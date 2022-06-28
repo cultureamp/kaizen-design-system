@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.3...@kaizen/date-picker@5.2.0) (2022-06-28)
+
+
+### Features
+
+* refactor DateRangePicker and add tests ([#2791](https://github.com/cultureamp/kaizen-design-system/issues/2791)) ([47cdd9e](https://github.com/cultureamp/kaizen-design-system/commit/47cdd9ed5e54675ff247109fd89a958570bdc439))
+
+
+
+
+
 ## [5.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.2...@kaizen/date-picker@5.1.3) (2022-06-28)
 
 
