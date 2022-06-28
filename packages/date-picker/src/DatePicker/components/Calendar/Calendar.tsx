@@ -64,7 +64,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
     if (calendarRef.current) onMount && onMount(calendarRef.current)
   }, [calendarRef])
 
-  const selectedMonth = selectedRange?.from || value || defaultMonth
+  const monthToShow = selectedRange?.from || value || defaultMonth
+  const selectedMonth =
+    monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   const IconRight: React.VFC = () => (
     <Icon icon={arrowRight} role="presentation" />
@@ -88,11 +90,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
           <DayPicker
             mode="single"
             selected={value && isInvalidDate(value) ? undefined : value}
-            defaultMonth={
-              selectedMonth && isInvalidDate(selectedMonth)
-                ? new Date()
-                : selectedMonth
-            }
+            defaultMonth={selectedMonth}
             weekStartsOn={
               isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
             }
