@@ -1,5 +1,5 @@
 import React from "react"
-import { getFormatDescription } from "../../../../utils/getFormatDescription"
+import { getFormatDescription } from "./getFormatDescription"
 
 export const getDescription = (
   description: React.ReactNode,
