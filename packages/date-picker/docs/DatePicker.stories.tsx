@@ -229,6 +229,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description={
               <>
                 <Paragraph
+                  tag="span"
                   variant="small"
                   color={isReversed ? "white" : "dark"}
                 >

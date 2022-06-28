@@ -247,7 +247,12 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const handleInputFocus: React.FocusEventHandler<HTMLInputElement> = e => {
     setLastTrigger("inputFocus")
-    selectedDay && setInputValue(format(selectedDay, DateFormat.Numeral))
+    if (selectedDay) {
+      const newInputValue = isInvalidDate(selectedDay)
+        ? ""
+        : format(selectedDay, DateFormat.Numeral)
+      setInputValue(newInputValue)
+    }
     onInputFocus && onInputFocus(e)
   }
 

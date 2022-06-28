@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.1...@kaizen/date-picker@5.1.2) (2022-06-28)
+
+
+### Bug Fixes
+
+* update calendar to check for Invalid Date type Date ([#2835](https://github.com/cultureamp/kaizen-design-system/issues/2835)) ([121890d](https://github.com/cultureamp/kaizen-design-system/commit/121890d38e19ec743eca9efce00f0bd76a71303a))
+
+
+
+
+
 ## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.0...@kaizen/date-picker@5.1.1) (2022-06-23)
 
 **Note:** Version bump only for package @kaizen/date-picker
