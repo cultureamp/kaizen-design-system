@@ -166,6 +166,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       },
     ],
     placement: "bottom-start",
+    strategy: "fixed",
   })
 
   const disabledDays = calculateDisabledDays({
