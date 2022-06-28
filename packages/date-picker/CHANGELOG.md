@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.2...@kaizen/date-picker@5.1.3) (2022-06-28)
+
+
+### Bug Fixes
+
+* **date-picker:** Update popper to be fixed ([#2838](https://github.com/cultureamp/kaizen-design-system/issues/2838)) ([6889c6a](https://github.com/cultureamp/kaizen-design-system/commit/6889c6af321b1688499e8b29f7e4ea812901ddbc))
+
+
+
+
+
 ## [5.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.1...@kaizen/date-picker@5.1.2) (2022-06-28)
 
 
