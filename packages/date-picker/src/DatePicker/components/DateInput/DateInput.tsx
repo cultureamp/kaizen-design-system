@@ -9,8 +9,6 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
-import { Matcher } from "react-day-picker/src/types/Matchers"
-import { LanguageLocale } from "../.."
 import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.scss"
 
@@ -52,7 +50,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
    * A descriptive message for `status` states
    */
   validationMessage?: string | React.ReactNode
-  locale: LanguageLocale
+  locale: Locale
 }
 
 export const DateInput: React.VFC<DateInputProps> = ({
@@ -131,7 +129,7 @@ export const DateInput: React.VFC<DateInputProps> = ({
       >
         <FieldMessage
           id={descriptionId}
-          message={getDescription(description)}
+          message={getDescription(description, locale)}
           reversed={isReversed}
         />
       </div>

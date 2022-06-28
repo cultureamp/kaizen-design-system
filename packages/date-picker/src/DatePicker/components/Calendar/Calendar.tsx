@@ -1,11 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
-import {
-  DayPicker,
-  DateRange,
-  DaySelectionMode,
-  DateFormatter,
-  WeekNumberFormatter,
-} from "react-day-picker"
+import { DayPicker, DateRange } from "react-day-picker"
 import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
 import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
 import { Matcher } from "react-day-picker/src/types/Matchers"
@@ -13,10 +7,9 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
-import { format } from "date-fns"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
-import { Direction, LanguageLocale, WeekStartsOn } from "../.."
+import { WeekStartsOn } from "../../../types"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
@@ -43,12 +36,10 @@ export type CalendarProps = {
   modifiers?: DateRange
   mode: "single" | "range"
   onMount?: (calendarElement: CalendarElement) => void
-  locale: LanguageLocale
+  locale: Locale
 }
 
-const isValidWeekStartsOn = (
-  day: DayOfWeek | undefined
-): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
+const isValidWeekStartsOn = (day: DayOfWeek | undefined): day is WeekStartsOn =>
   [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 export const Calendar: React.VFC<CalendarProps> = ({
@@ -78,23 +69,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
-  const formatDay: DateFormatter = (day: Date): string =>
-    day.getDate().toLocaleString(locale.code)
-
-  const formatWeekNumber: WeekNumberFormatter = (weekNumber: number) =>
-    weekNumber.toLocaleString(locale.code)
-
-  const formatCaption: DateFormatter = (date, options) => {
-    const y = date.getFullYear().toLocaleString(locale.code)
-    const m = format(date, "LLLL", { locale: options?.locale })
-    return `${m} ${y}`
-  }
-
-  const getFirstDayOfWeek = (): WeekStartsOn =>
-    isValidWeekStartsOn(weekStartsOn)
-      ? weekStartsOn
-      : locale.localeObj.options?.weekStartsOn!
-
   const IconLeft: React.VFC = () => (
     <Icon icon={arrowLeft} role="presentation" />
   )
@@ -119,7 +93,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
             mode="single"
             selected={value && isInvalidDate(value) ? undefined : value}
             defaultMonth={selectedMonth}
-            weekStartsOn={getFirstDayOfWeek()}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
             disabled={disabledDays}
             onDayClick={onDayChange}
             classNames={defaultCalendarClasses}
@@ -127,9 +103,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               IconRight,
               IconLeft,
             }}
-            locale={locale.localeObj}
-            dir={locale.dir}
-            formatters={{ formatDay, formatCaption, formatWeekNumber }}
+            locale={locale}
           />
         )}
         {mode === "range" && (
@@ -137,7 +111,9 @@ export const Calendar: React.VFC<CalendarProps> = ({
             mode="range"
             selected={selectedRange}
             defaultMonth={selectedMonth}
-            weekStartsOn={getFirstDayOfWeek()}
+            weekStartsOn={
+              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+            }
             disabled={disabledDays}
             onDayClick={onDayChange}
             classNames={defaultCalendarClasses}
@@ -145,9 +121,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               IconRight,
               IconLeft,
             }}
-            locale={locale.localeObj}
-            dir={locale.dir}
-            formatters={{ formatDay, formatCaption, formatWeekNumber }}
+            locale={locale}
             modifiers={
               {
                 [calendarStyles.from]: modifiers?.from,

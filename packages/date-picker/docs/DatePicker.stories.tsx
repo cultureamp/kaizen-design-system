@@ -5,17 +5,12 @@ import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { enAU } from "date-fns/locale"
 import { DateInput } from "../src/DatePicker/components/DateInput"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import {
-  DatePicker,
-  DayOfWeek,
-  ValidationResponse,
-  LanguageLocale,
-} from "../src/DatePicker"
+import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
 import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { locales } from "../src/DatePicker/supportedLanguages"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
@@ -51,6 +46,7 @@ export const DefaultStory = props => {
       onValidate={handleValidation}
       status={status}
       validationMessage={validationMessage}
+      locale={"en-AU"}
       {...props}
     />
   )
@@ -59,58 +55,6 @@ DefaultStory.storyName = "Date Picker"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
-
-export const LocaleStory = props => {
-  const [selectedDate, setValueDate] = useState<Date | undefined>(
-    new Date(2022, 4, 5)
-  )
-  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
-  const [locale, setLocale] = useState<Locale | undefined>()
-  const [validationMessage, setValidationMessage] = useState<
-    string | undefined
-  >()
-
-  const handleValidation = (validationResponse: ValidationResponse) => {
-    setStatus(validationResponse.status)
-    setValidationMessage(validationResponse.validationMessage)
-  }
-
-  const handleLocalisation = e => {
-    setLocale(locales[e.target.value])
-  }
-
-  return (
-    <>
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        selectedDay={selectedDate}
-        onDayChange={setValueDate}
-        onValidate={handleValidation}
-        status={status}
-        validationMessage={validationMessage}
-        locale={locale}
-        {...props}
-      />
-      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-        <label htmlFor="languages">Select language: </label>
-        <select
-          name="languages"
-          id="languages"
-          onChange={e => handleLocalisation(e)}
-          defaultValue={"englishGB"}
-        >
-          {Object.keys(locales).map(language => (
-            <option key={language} value={language}>
-              {language}
-            </option>
-          ))}
-        </select>
-      </div>
-    </>
-  )
-}
-LocaleStory.storyName = "Localisation"
 
 export const ValidationStory = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
@@ -161,6 +105,7 @@ export const ValidationStory = props => {
         status={status}
         validationMessage={validationMessage}
         disabledBefore={new Date()}
+        locale={"en-AU"}
         {...props}
       />
       <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
@@ -233,7 +178,7 @@ const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
         weekStartsOn={DayOfWeek.Sun}
         onDayChange={() => undefined}
         defaultMonth={new Date(2022, 1, 5)}
-        locale={locales.englishUS as LanguageLocale}
+        locale={enAU}
         {...props}
       />
     </div>
@@ -267,6 +212,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isReversed={isReversed}
             status="default"
             validationMessage={undefined}
+            locale="en-AU"
           />
           <DatePicker
             id="datepicker-selected"
@@ -277,6 +223,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isReversed={isReversed}
             status="default"
             validationMessage={undefined}
+            locale="en-AU"
           />
           <DatePicker
             id="datepicker-description"
@@ -298,6 +245,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
             status="default"
             validationMessage={undefined}
+            locale="en-AU"
           />
           <DatePicker
             id="datepicker-disabled"
@@ -308,6 +256,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isReversed={isReversed}
             status="default"
             validationMessage={undefined}
+            locale={"en-AU"}
             disabled
           />
           <DatePicker
@@ -319,6 +268,34 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isReversed={isReversed}
             status="error"
             validationMessage="Invalid Date."
+            locale="en-AU"
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={["en-AU", "en-US"]} />
+        <StoryWrapper.Row rowTitle="Localisation">
+          <DatePicker
+            id="datepicker-enAU"
+            labelText="Label"
+            selectedDay={new Date("2022, 1, 5")}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
+            locale="en-AU"
+          />
+          <DatePicker
+            id="datepicker-enUS"
+            labelText="Label"
+            selectedDay={new Date("2022, 1, 5")}
+            onDayChange={() => undefined}
+            onValidate={() => undefined}
+            isReversed={isReversed}
+            status="default"
+            validationMessage={undefined}
+            locale="en-US"
           />
         </StoryWrapper.Row>
       </StoryWrapper>

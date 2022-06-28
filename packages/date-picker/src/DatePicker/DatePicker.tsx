@@ -5,12 +5,13 @@ import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { enGB } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { setFocusInCalendar } from "../utils/setFocusInCalendar"
 import { formatDateAsText } from "../utils/formatDateAsText"
+import { getLocale } from "../utils/getLocale"
+import { SupportedLocales } from "../types"
 import calendarStyles from "./components/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "./enums"
 import { Calendar, CalendarElement, CalendarProps } from "./components/Calendar"
@@ -28,15 +29,6 @@ type OmittedDateInputProps =
   | "value"
   | "locale"
 
-export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
-
-export type Direction = "ltr" | "rtl"
-
-export type LanguageLocale = {
-  localeObj: Locale
-  code: string | undefined
-  dir: Direction
-}
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
   id: string
@@ -46,7 +38,7 @@ export interface DatePickerProps
   onInputChange?: DateInputProps["onChange"]
   onInputBlur?: DateInputProps["onBlur"]
   onButtonClick?: DateInputProps["onButtonClick"]
-  locale?: LanguageLocale
+  locale: SupportedLocales
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
@@ -138,11 +130,7 @@ export type ValidationResponse = {
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
-  locale = {
-    localeObj: enGB,
-    code: enGB.code,
-    dir: "ltr",
-  },
+  locale: propsLocale,
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -170,6 +158,10 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     null
   )
 
+  const locale = getLocale(propsLocale)
+
+  // console.log(enGB.formatLong?.date({ width: "short" }))
+  // console.log(enUS.formatLong?.date({ width: "short" }))
   const [lastTrigger, setLastTrigger] = useState<
     "inputFocus" | "inputKeydown" | "calendarButton"
   >()
@@ -250,13 +242,13 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       if (lastTrigger === "calendarButton") {
         setInputValue(
           format(date, DateFormat.Text, {
-            locale: locale.localeObj,
+            locale,
           })
         )
       } else {
         setInputValue(
           format(date, DateFormat.Numeral, {
-            locale: locale.localeObj,
+            locale,
           })
         )
       }
@@ -277,7 +269,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       const newInputValue = isInvalidDate(selectedDay)
         ? ""
         : format(selectedDay, DateFormat.Numeral, {
-            locale: locale.localeObj,
+            locale,
           })
       setInputValue(newInputValue)
     }
@@ -297,16 +289,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     if (inputValue !== "") {
       const parsedDate = parse(inputValue, DateFormat.Numeral, new Date(), {
-        locale: locale.localeObj,
+        locale,
       })
 
       if (!isInvalidDate(parsedDate)) {
-        formatDateAsText(
-          parsedDate,
-          disabledDays,
-          locale.localeObj,
-          setInputValue
-        )
+        formatDateAsText(parsedDate, disabledDays, locale, setInputValue)
       }
 
       handleDayChange(parsedDate, inputValue)
@@ -351,12 +338,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   useEffect(() => {
     selectedDay &&
-      formatDateAsText(
-        selectedDay,
-        disabledDays,
-        locale.localeObj,
-        setInputValue
-      )
+      formatDateAsText(selectedDay, disabledDays, locale, setInputValue)
 
     if (selectedDay && isInvalidDate(selectedDay)) {
       onValidate({
@@ -374,7 +356,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
     if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
       const formattedDate = format(selectedDay, DateFormat.Numeral, {
-        locale: locale.localeObj,
+        locale,
       })
       onValidate({
         date: undefined,
