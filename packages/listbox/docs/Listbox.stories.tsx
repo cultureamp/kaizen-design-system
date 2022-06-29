@@ -12,11 +12,12 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { Listbox } from "@kaizen/listbox".',
+        component: 'import { Listbox } from "@kaizen/listbox".',
       },
     },
-    ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
+    ...figmaEmbed(
+      "REPLACE_THIS_WITH_FIGMA_URL"
+    ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof Listbox>
@@ -30,12 +31,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
     <StoryWrapper.Row rowTitle="ROW 1">
-      <Listbox /> {/** @todo: Add column 1 + row 1 props */}
-      <Listbox /> {/** @todo: Add column 2 + row 1 props */}
+      <Listbox>
+        <Listbox.Option>First</Listbox.Option>
+        <Listbox.Option>Second</Listbox.Option>
+        <Listbox.Option>Third</Listbox.Option>
+      </Listbox>
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="ROW 2">
-      <Listbox /> {/** @todo: Add column 1 + row 2 props */}
-      <Listbox /> {/** @todo: Add column 2 + row 2 props */}
+      <Listbox>
+        <Listbox.Option>First</Listbox.Option>
+        <Listbox.Option>Second</Listbox.Option>
+        <Listbox.Option>Third</Listbox.Option>
+      </Listbox>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
