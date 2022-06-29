@@ -36,6 +36,7 @@ const DateRangePickerTemplate: Story = props => {
     setSelectedDateRange(dateRange)
   }
 
+  // TODO: Make formating built in
   useEffect(() => {
     setValue(formatDateRangeValue(selectedDateRange))
   }, [selectedDateRange])
