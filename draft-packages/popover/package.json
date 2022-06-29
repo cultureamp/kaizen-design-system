@@ -40,7 +40,7 @@
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1",
     "react-popper": "^2.2.5",
-    "use-debounce": "^8.0.0"
+    "use-debounce": "^8.0.1"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
