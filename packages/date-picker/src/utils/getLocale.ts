@@ -8,6 +8,6 @@ export const getLocale = (locale: SupportedLocales): Locale => {
     case "en-US":
       return enUS
     default:
-      return enUS
+      return enAU
   }
 }
