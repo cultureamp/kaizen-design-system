@@ -6,16 +6,18 @@ export const getDescription = (
   locale: Locale
 ): React.ReactNode => {
   const dateFormat = getFormatDescription(locale)
+  const dateFormatString = ` (Format: ${dateFormat})`
   if (React.isValidElement(description)) {
     return (
       <>
-        {description} (Format: ${dateFormat})
+        {description}
+        {dateFormatString}
       </>
     )
   }
 
   if (typeof description === "string" && description !== "") {
-    return `${description} (Format: ${dateFormat})`
+    return `${description}${dateFormatString}`
   }
 
   return `Format: ${dateFormat}`

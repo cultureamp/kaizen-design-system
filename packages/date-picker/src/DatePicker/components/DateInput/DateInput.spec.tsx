@@ -33,7 +33,7 @@ describe("<DateInput />", () => {
     it("associates the description with the input", () => {
       render(<DateInputWrapper />)
       expect(
-        screen.getByRole("combobox", { description: "Format: dd/mm/yyyy" })
+        screen.getByRole("combobox", { description: "Format: mm/dd/yyyy" })
       ).toBeInTheDocument()
     })
   })
