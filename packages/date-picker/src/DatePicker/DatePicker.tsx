@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
-import { format, parse } from "date-fns"
+import { parse } from "date-fns"
 import { DateRange, DateInterval, DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
@@ -239,11 +239,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const handleCalendarDayChange: DayClickEventHandler = date => {
     if (!isDisabledDate(date, disabledDays)) {
       if (lastTrigger === "calendarButton") {
-        setInputValue(
-          format(date, DateFormat.Text, {
-            locale,
-          })
-        )
+        setInputValue(formatDateAsText(date, disabledDays, locale))
       } else {
         setInputValue(formatDateAsNumeral(date, locale))
       }
@@ -286,7 +282,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       })
 
       if (!isInvalidDate(parsedDate)) {
-        formatDateAsText(parsedDate, disabledDays, locale, setInputValue)
+        setInputValue(formatDateAsText(parsedDate, disabledDays, locale))
       }
 
       handleDayChange(parsedDate, inputValue)
@@ -313,12 +309,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleCalendarMount = (calendarElement: CalendarElement): void => {
-    switch (lastTrigger) {
-      case "inputFocus":
-        return
-      default:
-        setFocusInCalendar(calendarElement, selectedDay)
-    }
+    if (lastTrigger === "inputFocus") return
+
+    setFocusInCalendar(calendarElement, selectedDay)
   }
 
   const handleReturnFocus = (): void => {
@@ -331,7 +324,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   useEffect(() => {
     selectedDay &&
-      formatDateAsText(selectedDay, disabledDays, locale, setInputValue)
+      setInputValue(formatDateAsText(selectedDay, disabledDays, locale))
 
     if (selectedDay && isInvalidDate(selectedDay)) {
       onValidate({

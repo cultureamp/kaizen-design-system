@@ -6,7 +6,7 @@ import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
 import { DateRange, DateInterval, isMatch } from "react-day-picker"
-import { enAU } from "date-fns/locale"
+import { enUS } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import datePickerStyles from "./DatePicker.scss"
@@ -236,7 +236,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
             disabledDays={disabledDays}
             onDayChange={handleDayClick}
             modifiers={modifiers}
-            locale={enAU}
+            locale={enUS}
           />
         </FocusOn>
       )}
