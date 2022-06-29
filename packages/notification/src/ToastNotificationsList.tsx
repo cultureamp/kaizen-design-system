@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import GenericNotification from "./components/GenericNotification"
 import { RemoveToastNotification, ToastNotification } from "./types"
-const styles = require("./ToastNotificationsList.module.scss")
+import styles from "./ToastNotificationsList.module.scss"
 
 export const ToastNotificationsList = ({
   notifications,
