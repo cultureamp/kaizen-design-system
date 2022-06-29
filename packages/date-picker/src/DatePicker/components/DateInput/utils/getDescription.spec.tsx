@@ -20,9 +20,10 @@ describe("getDescription", () => {
 
   it("returns template string when description is an element", () => {
     const description = getDescription(<span>Description span</span>, enUS)
+    // {} used to add new lines to replicate DOM structure.
     expect(description).toEqual(
       <>
-        <span>Description span</span> (Format: mm/dd/yyyy)
+        <span>Description span</span> (Format: {}mm/dd/yyyy{})
       </>
     )
   })
