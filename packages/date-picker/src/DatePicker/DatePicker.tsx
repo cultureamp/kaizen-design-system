@@ -160,8 +160,6 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 
   const locale = getLocale(propsLocale)
 
-  // console.log(enGB.formatLong?.date({ width: "short" }))
-  // console.log(enUS.formatLong?.date({ width: "short" }))
   const [lastTrigger, setLastTrigger] = useState<
     "inputFocus" | "inputKeydown" | "calendarButton"
   >()
@@ -385,34 +383,34 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             inputRef={inputRef}
             buttonRef={buttonRef}
             id={id}
-            isCalendarOpen={isOpen}
-            locale={locale}
-            onButtonClick={handleButtonClick}
             calendarId={`${id}-calendar-dialog`}
+            value={inputValue}
+            locale={locale}
+            isCalendarOpen={isOpen}
+            icon={dateStart}
+            onButtonClick={handleButtonClick}
             onClick={handleInputClick}
             onFocus={handleInputFocus}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             onKeyDown={handleKeyDown}
-            icon={dateStart}
-            value={inputValue}
             {...restDateInputProps}
           />
         </div>
         {isOpen && (
           <Calendar
-            mode="single"
             id={`${id}-calendar-dialog`}
-            setPopperElement={setPopperElement}
-            popperStyles={styles}
-            popperAttributes={attributes}
+            mode="single"
             value={selectedDay}
             defaultMonth={defaultMonth}
             weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
+            locale={locale}
+            popperStyles={styles}
+            popperAttributes={attributes}
             onDayChange={handleCalendarDayChange}
             onMount={handleCalendarMount}
-            locale={locale}
+            setPopperElement={setPopperElement}
           />
         )}
       </div>
