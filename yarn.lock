@@ -15707,10 +15707,10 @@ react-clientside-effect@^1.2.6:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-react-day-picker@^8.0.5:
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.0.5.tgz#079f21ebdc353b66a97ef4258062f27c10b55145"
-  integrity sha512-qw5t2zJB1ob7p0yhbuVY0kzu08qePrpYW1kldrhTJ0nHN/z5Jb90MeCAi2889z8h2NJ/Flh5gLR9XcJIsr4ijQ==
+react-day-picker@^8.0.7:
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.0.7.tgz#6f2fb98b33a6f7e1a4e03d557bd78fffeb21ccda"
+  integrity sha512-isrLVhWpfdsxtG8YarHh5c0erL5aV1nrfolR/yK3KGTUqb7UGiCFnleBSH/Bv45tNpC2CZNFne01dsQEiocjYw==
   dependencies:
     "@reach/auto-id" "0.16.0"
 
