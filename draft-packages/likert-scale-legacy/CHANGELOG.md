@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.11...@kaizen/draft-likert-scale-legacy@1.8.12) (2022-06-29)
+
+
+### Bug Fixes
+
+* Update styles to use import instead of require ([#2840](https://github.com/cultureamp/kaizen-design-system/issues/2840)) ([5b49adb](https://github.com/cultureamp/kaizen-design-system/commit/5b49adb5b0c9ebb952e9c5dce1219fc7a9930056))
+
+
+
+
+
 ## [1.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.10...@kaizen/draft-likert-scale-legacy@1.8.11) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
