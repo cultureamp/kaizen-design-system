@@ -10,6 +10,7 @@ import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { setFocusInCalendar } from "../utils/setFocusInCalendar"
 import { formatDateAsText } from "../utils/formatDateAsText"
+import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { getLocale } from "../utils/getLocale"
 import { SupportedLocales } from "../types"
 import calendarStyles from "./components/Calendar/Calendar.scss"
@@ -244,11 +245,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           })
         )
       } else {
-        setInputValue(
-          format(date, DateFormat.Numeral, {
-            locale,
-          })
-        )
+        setInputValue(formatDateAsNumeral(date, locale))
       }
 
       handleDayChange(date)
@@ -266,9 +263,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     if (selectedDay) {
       const newInputValue = isInvalidDate(selectedDay)
         ? ""
-        : format(selectedDay, DateFormat.Numeral, {
-            locale,
-          })
+        : formatDateAsNumeral(selectedDay, locale)
       setInputValue(newInputValue)
     }
     onInputFocus && onInputFocus(e)
@@ -353,9 +348,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     }
 
     if (selectedDay && isDisabledDate(selectedDay, disabledDays)) {
-      const formattedDate = format(selectedDay, DateFormat.Numeral, {
-        locale,
-      })
+      const formattedDate = formatDateAsNumeral(selectedDay, locale)
+
       onValidate({
         date: undefined,
         inputValue: formattedDate,
