@@ -46,7 +46,7 @@ export const DefaultStory = props => {
       onValidate={handleValidation}
       status={status}
       validationMessage={validationMessage}
-      locale={"en-AU"}
+      locale="en-AU"
       {...props}
     />
   )
@@ -105,7 +105,7 @@ export const ValidationStory = props => {
         status={status}
         validationMessage={validationMessage}
         disabledBefore={new Date()}
-        locale={"en-AU"}
+        locale="en-AU"
         {...props}
       />
       <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
