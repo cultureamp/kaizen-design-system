@@ -9,6 +9,7 @@ import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../../utils/isInvalidDate"
+import { WeekStartsOn } from "../../../types"
 import { defaultCalendarClasses } from "./CalendarClasses"
 import calendarStyles from "./Calendar.scss"
 
@@ -16,7 +17,6 @@ export type CalendarElement = HTMLDivElement
 
 export type CalendarProps = {
   id: string
-  setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
   popperStyles?: { [key: string]: React.CSSProperties }
   popperAttributes?: {
     [key: string]:
@@ -30,21 +30,20 @@ export type CalendarProps = {
   defaultMonth?: Date
   weekStartsOn?: DayOfWeek
   disabledDays?: Matcher[]
-  onDayChange: DayClickEventHandler
   selectedRange?: DateRange
-  mode: "single" | "range"
   modifiers?: DateRange
+  mode: "single" | "range"
+  locale: Locale
+  onDayChange: DayClickEventHandler
   onMount?: (calendarElement: CalendarElement) => void
+  setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
 }
 
-const isValidWeekStartsOn = (
-  day: DayOfWeek | undefined
-): day is 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined =>
+const isValidWeekStartsOn = (day: DayOfWeek | undefined): day is WeekStartsOn =>
   [0, 1, 2, 3, 4, 5, 6, undefined].includes(day)
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
-  setPopperElement,
   popperStyles,
   popperAttributes,
   classNameOverride,
@@ -52,11 +51,13 @@ export const Calendar: React.VFC<CalendarProps> = ({
   defaultMonth,
   weekStartsOn = DayOfWeek.Mon,
   disabledDays,
-  onDayChange,
   selectedRange,
   modifiers,
+  locale,
   mode,
+  onDayChange,
   onMount,
+  setPopperElement,
 }) => {
   const calendarRef = useRef<CalendarElement>(null)
 
@@ -68,11 +69,12 @@ export const Calendar: React.VFC<CalendarProps> = ({
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
-  const IconRight: React.VFC = () => (
-    <Icon icon={arrowRight} role="presentation" />
-  )
   const IconLeft: React.VFC = () => (
     <Icon icon={arrowLeft} role="presentation" />
+  )
+
+  const IconRight: React.VFC = () => (
+    <Icon icon={arrowRight} role="presentation" />
   )
 
   return (
@@ -101,6 +103,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               IconRight,
               IconLeft,
             }}
+            locale={locale}
           />
         )}
         {mode === "range" && (
@@ -118,6 +121,7 @@ export const Calendar: React.VFC<CalendarProps> = ({
               IconRight,
               IconLeft,
             }}
+            locale={locale}
             modifiers={
               {
                 [calendarStyles.from]: modifiers?.from,
