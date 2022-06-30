@@ -117,20 +117,18 @@ export const ValidationStory = props => {
           guidance when dealing with validation other than date isInvalid or
           isDisabled.
         </Paragraph>
-        <Paragraph variant="body">
-          <ul>
-            <li>
-              There will be a caution when the selectedDay{" "}
-              <strong>is valid</strong> but{" "}
-              <strong>is not within this year</strong>.
-            </li>
-            <li>
-              There will be an error when the{" "}
-              <strong>submit button is clicked</strong> and there is a{" "}
-              <strong>current error</strong> within the DatePicker.
-            </li>
-          </ul>
-        </Paragraph>
+        <ul>
+          <li>
+            There will be a caution when the selectedDay{" "}
+            <strong>is valid</strong> but{" "}
+            <strong>is not within this year</strong>.
+          </li>
+          <li>
+            There will be an error when the{" "}
+            <strong>submit button is clicked</strong> and there is a{" "}
+            <strong>current error</strong> within the DatePicker.
+          </li>
+        </ul>
         <Paragraph variant="body">
           The <code>onValidate</code> callback returns a{" "}
           <code>validationResponse</code> object which provides data such as a
@@ -140,26 +138,23 @@ export const ValidationStory = props => {
           language="json"
           code={JSON.stringify(response, null, "\t")}
         />
-        <Paragraph variant="body">
-          <ul>
-            <li>
-              <code>isInvalid</code>: A date that cannot be parsed. e.g
-              "potato".
-            </li>
-            <li>
-              <code>isDisabled</code>: A date that have been set as disabled
-              through the <code>disabledDates</code> prop.
-            </li>
-            <li>
-              <code>isEmpty</code>: Input is empty.
-            </li>
-            <li>
-              <code>isValidDate</code>: Date input that is not{" "}
-              <code>invalid</code> nor <code>disabled</code> nor{" "}
-              <code>empty</code>.
-            </li>
-          </ul>
-        </Paragraph>
+        <ul>
+          <li>
+            <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
+          </li>
+          <li>
+            <code>isDisabled</code>: A date that have been set as disabled
+            through the <code>disabledDates</code> prop.
+          </li>
+          <li>
+            <code>isEmpty</code>: Input is empty.
+          </li>
+          <li>
+            <code>isValidDate</code>: Date input that is not{" "}
+            <code>invalid</code> nor <code>disabled</code> nor{" "}
+            <code>empty</code>.
+          </li>
+        </ul>
       </div>
     </>
   )
