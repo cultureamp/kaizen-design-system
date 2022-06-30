@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.3.1...@kaizen/date-picker@5.3.2) (2022-06-30)
+
+
+### Bug Fixes
+
+* lexical error on sass variable ([#2843](https://github.com/cultureamp/kaizen-design-system/issues/2843)) ([596d554](https://github.com/cultureamp/kaizen-design-system/commit/596d55425deaa5f4f1e6cb76c6f98cbc84a2d884))
+
+
+
+
+
 ## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.3.0...@kaizen/date-picker@5.3.1) (2022-06-30)
 
 **Note:** Version bump only for package @kaizen/date-picker
