@@ -11,6 +11,14 @@ import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import { RichTextEditor, EditorContentArray } from "./"
 
+const getSelectionOfNode = node => {
+  const range = document.createRange()
+  range.selectNodeContents(node)
+  range.collapse(false)
+  const selection = document.getSelection()
+  selection?.addRange(range)
+}
+
 // TODO: List Tests
 const RTE = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
@@ -61,35 +69,43 @@ describe("RTE receives list controls", () => {
 
   describe("Creating list nodes", () => {
     it("will create a <ul> node in the editor when user clicks the bullet list button", async () => {
-      const { container } = render(<RTE {...defaultListArgs} />)
+      render(<RTE {...defaultListArgs} />)
 
-      await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: "Bullet List" }))
+      // We would use userEvent.type but contenteditable is not supported
+      // see thread: https://github.com/testing-library/user-event/issues/230
+      fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
+        target: { textContent: "this will be a ul" },
       })
+
       await waitFor(() => {
-        const listNodes = screen.getByRole("textbox", { name: "List RTE" })
-        expect(listNodes).toBeTruthy()
-        // TODO: test for existance of ul and li
-        // expect(editor.getElementsByClassName("ul").length).toBe(1)
-        // expect(editor.getElementsByClassName("li").length).toBe(1)
+        const resolvedEditor = screen.getByText("this will be a ul").parentNode
+
+        getSelectionOfNode(resolvedEditor)
+        userEvent.click(screen.getByRole("button", { name: "Bullet List" }))
+        screen.getByRole("list")
+
+        expect(screen.getByRole("list")).toBeInTheDocument()
+        expect(document.querySelectorAll("ul").length).toBeGreaterThan(0)
       })
     })
 
-    // TODO: test OL creation
-    // it("will create a <ol> node in the editor when user clicks the numbered list button", () => {
-    //   render(<RTE {...defaultListArgs} />)
+    it("will create a <ol> node in the editor when user clicks the numbered list button", async () => {
+      render(<RTE {...defaultListArgs} />)
 
-    //   const numberedButton = screen.getByRole("button", {
-    //     name: "Numbered List",
-    //   })
-    //   const editor = screen.getByRole("textbox")
+      fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
+        target: { textContent: "this will be a ol" },
+      })
 
-    //   // fireEvent.click(numberedButton)
+      await waitFor(() => {
+        const editor = screen.getByText("this will be a ol").parentNode
 
-    //   // expect(editor.getElementsByClassName("ol").length).toBe(1)
-    //   // expect(editor.getElementsByClassName("li").length).toBe(1)
-    //   expect(false === false).toBeFalsy
-    // })
+        getSelectionOfNode(editor)
+        userEvent.click(screen.getByRole("button", { name: "Numbered List" }))
+
+        expect(screen.getByRole("list")).toBeInTheDocument()
+        expect(document.querySelectorAll("ol").length).toBeGreaterThan(0)
+      })
+    })
   })
 
   describe("Handling disabled states", () => {
