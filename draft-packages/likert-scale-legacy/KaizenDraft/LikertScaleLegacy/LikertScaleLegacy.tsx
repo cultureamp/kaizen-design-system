@@ -5,7 +5,7 @@ import { Paragraph } from "@kaizen/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
 
-const styles = require("./styles.module.scss")
+import styles from "./styles.module.scss"
 
 type ItemRefs = Array<{
   value: ScaleValue
