@@ -24,7 +24,7 @@ export default {
     },
   },
   argTypes: {
-    variant: {
+    locale: {
       options: SUPPORTED_LOCALES,
       control: { type: "radio" },
     },
