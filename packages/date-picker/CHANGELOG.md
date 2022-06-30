@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.3.0...@kaizen/date-picker@5.3.1) (2022-06-30)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.2.0...@kaizen/date-picker@5.3.0) (2022-06-30)
+
+
+### Features
+
+* Add en-AU and en-US localisation ([#2839](https://github.com/cultureamp/kaizen-design-system/issues/2839)) ([4d89517](https://github.com/cultureamp/kaizen-design-system/commit/4d89517a2a98a6b3bc2bff74e43954ba369fc9a8))
+
+
+
+
+
 # [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.1.3...@kaizen/date-picker@5.2.0) (2022-06-28)
 
 
