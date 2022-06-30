@@ -6,21 +6,27 @@ import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { enAU } from "date-fns/locale"
-import { DateInput } from "../src/DatePicker/components/DateInput"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
 import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
+const SUPPORTED_LOCALES = ["en-US", "en-AU"]
+
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
-  subcomponents: { DateInput, Calendar },
   parameters: {
     docs: {
       description: {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
+    },
+  },
+  argTypes: {
+    variant: {
+      options: SUPPORTED_LOCALES,
+      control: { type: "radio" },
     },
   },
 }
@@ -337,4 +343,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
