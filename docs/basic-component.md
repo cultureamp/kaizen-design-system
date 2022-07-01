@@ -262,9 +262,9 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
 - Write and directly export a `React.VFC` (React VoidFunctionComponent)
   - **Do not** use `React.FC`
-    - This comes with `children?: React.ReactNode` as a default, and reduces type safety for your component as it will exist even if your component should not be taking `children`
+    - This comes with `children?: React.ReactNode` as a default in React 17 and below, and reduces type safety for your component as it will exist even if your component should not be taking `children`
     - When you want your component to accept `children`, declare it yourself within your props (this also increases readability as there is no need to guess whether the component should or shouldn't accept `children`)
-    - There is also a plan for [React 18 to no longer include `children` in `React.FC`](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46643#issuecomment-801487166) (deprecating `React.VFC`), which would create more clean up work for those relying on the inferred `children` (as opposed to a simple find and replace for `VFC`)
+    - While we are using React 18 ourselves, some of our consumers are still using React 17 or below, so until we stop supporting them, we will continue to use VFC
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
 - Always be explicit and include the expected generic type (eg. `useState<string>()`)
