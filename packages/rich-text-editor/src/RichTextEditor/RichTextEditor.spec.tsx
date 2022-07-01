@@ -1,35 +1,33 @@
 import React, { useState } from "react"
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  waitForElementToBeRemoved,
-  act,
-} from "@testing-library/react"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import { RichTextEditor, EditorContentArray } from "./"
 
+// This helper is needed to simulate selection of a component since we
+// cannot userEvent.type with contenteditable
 const getSelectionOfNode = node => {
+  // Clear any current selection
+  const selection = window.getSelection()
+  selection?.removeAllRanges()
+
+  // Select paragraph
   const range = document.createRange()
   range.selectNodeContents(node)
-  range.collapse(false)
-  const selection = document.getSelection()
   selection?.addRange(range)
 }
 
-// TODO: List Tests
-const RTE = args => {
-  const [rteData, setRTEData] = useState<EditorContentArray>([])
+const TestRTE = args => {
+  const { rteMockData, ...rest } = args
+  const [rteData, setRTEData] = useState<EditorContentArray>(
+    args.rteMockData || []
+  )
   return (
     <>
-      nmv us
-      {/* this is currently erroring so this is a placeholder */}
       <RichTextEditor
         value={rteData}
         onChange={data => setRTEData(data)}
-        {...args}
+        {...rest}
       />
     </>
   )
@@ -46,7 +44,7 @@ describe("RTE receives list controls", () => {
   }
 
   it("renders list buttons when receiving a list controls", () => {
-    render(<RTE {...defaultListArgs} />)
+    render(<TestRTE {...defaultListArgs} />)
 
     const bulletButton = screen.getByRole("button", { name: "Bullet List" })
     const orderedButton = screen.getByRole("button", { name: "Numbered List" })
@@ -55,7 +53,7 @@ describe("RTE receives list controls", () => {
   })
 
   it("renders indent buttons when receiving a list controls", () => {
-    render(<RTE {...defaultListArgs} />)
+    render(<TestRTE {...defaultListArgs} />)
 
     const decreaseIndentBtn = screen.getByRole("button", {
       name: "Decrease indent",
@@ -67,9 +65,9 @@ describe("RTE receives list controls", () => {
     expect(decreaseIndentBtn && increaseIndentBtn).toBeTruthy()
   })
 
-  describe("Creating list nodes", () => {
-    it("will create a <ul> node in the editor when user clicks the bullet list button", async () => {
-      render(<RTE {...defaultListArgs} />)
+  describe("Creating list nodes with buttons", () => {
+    it("will create a <ul> when user clicks the bullet list button", async () => {
+      render(<TestRTE {...defaultListArgs} />)
 
       // We would use userEvent.type but contenteditable is not supported
       // see thread: https://github.com/testing-library/user-event/issues/230
@@ -78,9 +76,6 @@ describe("RTE receives list controls", () => {
       })
 
       await waitFor(() => {
-        const resolvedEditor = screen.getByText("this will be a ul").parentNode
-
-        getSelectionOfNode(resolvedEditor)
         userEvent.click(screen.getByRole("button", { name: "Bullet List" }))
         screen.getByRole("list")
 
@@ -89,17 +84,14 @@ describe("RTE receives list controls", () => {
       })
     })
 
-    it("will create a <ol> node in the editor when user clicks the numbered list button", async () => {
-      render(<RTE {...defaultListArgs} />)
+    it("will create a <ol> when user clicks the numbered list button", async () => {
+      render(<TestRTE {...defaultListArgs} />)
 
       fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
         target: { textContent: "this will be a ol" },
       })
 
       await waitFor(() => {
-        const editor = screen.getByText("this will be a ol").parentNode
-
-        getSelectionOfNode(editor)
         userEvent.click(screen.getByRole("button", { name: "Numbered List" }))
 
         expect(screen.getByRole("list")).toBeInTheDocument()
@@ -108,9 +100,45 @@ describe("RTE receives list controls", () => {
     })
   })
 
-  describe("Handling disabled states", () => {
+  describe("Handling disabled indent states", () => {
+    const rteListData = [
+      {
+        type: "bulletList",
+        content: [
+          {
+            type: "listItem",
+            content: [
+              {
+                type: "paragraph",
+                content: [
+                  {
+                    type: "text",
+                    text: "First list item",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "listItem",
+            content: [
+              {
+                type: "paragraph",
+                content: [
+                  {
+                    type: "text",
+                    text: "Second list item",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ]
+
     it("indent buttons are 'disabled' by default", () => {
-      render(<RTE {...defaultListArgs} />)
+      render(<TestRTE {...defaultListArgs} />)
 
       const decreaseIndentBtn = screen.getByRole("button", {
         name: "Decrease indent",
@@ -123,30 +151,17 @@ describe("RTE receives list controls", () => {
       expect(increaseIndentBtn).toHaveAttribute("aria-disabled", "true")
     })
 
-    // TODO: test decrease indent
-    // it("decrease indent button is enabled only when on a list element", () => {
-    //   render(<RTE {...defaultListArgs} />)
+    it("decrease indent button is enabled only when on a list item", () => {
+      render(<TestRTE {...defaultListArgs} rteMockData={rteListData} />)
 
-    //   const decreaseIndentBtn = screen.getByRole("button", {
-    //     name: "Decrease indent",
-    //   })
+      const firstListNode = document.querySelectorAll("li")[0]
+      const decreaseIndentBtn = screen.getByRole("button", {
+        name: "Decrease indent",
+      })
 
-    //   // create a list node and navigate to the first list item
+      getSelectionOfNode(firstListNode)
 
-    //   // expect(decreaseIndentBtn).toHaveAttribute("aria-disabled", "false")
-    //   expect(false === false).toBeFalsy
-    // })
-
-    // TODO: test increase indent
-    // it("increase indent button is enabled only when on the second list item and above", () => {
-    //   render(<RTE {...defaultListArgs} />)
-
-    //   const increaseIndentBtn = screen.getByRole("button", {
-    //     name: "Increase indent",
-    //   })
-
-    //   // expect(increaseIndentBtn).toHaveAttribute("aria-disabled", "false")
-    //   expect(false === false).toBeFalsy
-    // })
+      expect(decreaseIndentBtn).toHaveAttribute("aria-disabled", "false")
+    })
   })
 })
