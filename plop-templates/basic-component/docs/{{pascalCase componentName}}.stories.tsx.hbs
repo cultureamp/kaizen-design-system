@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -13,7 +13,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { {{pascalCase componentName}} } from "@kaizen/{{kebabCase componentName}}".',
+          'import { {{pascalCase componentName}} } from "@kaizen/{{kebabCase packageName}}"',
       },
     },
     ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
@@ -21,8 +21,8 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof {{pascalCase componentName}}>
 
-export const DefaultKaizenSiteDemo = args => <{{pascalCase componentName}} {...args} />
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+export const DefaultKaizenSiteDemo: ComponentStory<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
+DefaultKaizenSiteDemo.storyName = "{{pascalCase componentName}}"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -30,12 +30,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
     <StoryWrapper.Row rowTitle="ROW 1">
-      <{{pascalCase componentName}} /> {/** @todo: Add column 1 + row 1 props */}
-      <{{pascalCase componentName}} /> {/** @todo: Add column 2 + row 1 props */}
+      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 1 props */}
+      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 1 props */}
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="ROW 2">
-      <{{pascalCase componentName}} /> {/** @todo: Add column 1 + row 2 props */}
-      <{{pascalCase componentName}} /> {/** @todo: Add column 2 + row 2 props */}
+      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 2 props */}
+      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 2 props */}
     </StoryWrapper.Row>
   </StoryWrapper>
 )

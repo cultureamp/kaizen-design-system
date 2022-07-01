@@ -8,13 +8,15 @@ import styles from "./{{pascalCase componentName}}.scss"
  */
 
 /**
- * @todo: Replace `HTMLAttributes<HTMLElement>` with attributes/props you need to extend
+ * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
  */
 export interface {{pascalCase componentName}}Props extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   /** @todo: Add custom props here */
+  exampleRequiredString: string
 }
 
 export const {{pascalCase componentName}}: React.VFC<{{pascalCase componentName}}Props> = ({
+  exampleRequiredString,
   classNameOverride,
   ...restProps
 }) => {
@@ -25,7 +27,9 @@ export const {{pascalCase componentName}}: React.VFC<{{pascalCase componentName}
         classNameOverride,
       ])}
       {...restProps}
-    />
+    >
+      {exampleRequiredString}
+    </div>
   )
 }
 
