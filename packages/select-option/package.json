@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/listbox",
+  "name": "@kaizen/select-option",
   "version": "1.0.0",
-  "description": "Listbox components",
+  "description": "SelectOption components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "packages/listbox"
+    "directory": "packages/select-option"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
