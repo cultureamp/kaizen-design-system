@@ -110,13 +110,6 @@ $rdp-cell-size: 40px;
   [dir="rtl"] & {
     left: 0;
     right: auto;
-    transform: rotate(180deg);
-  }
-}
-
-.navButtonPrev {
-  [dir="rtl"] & {
-    transform: rotate(180deg);
   }
 }
 
