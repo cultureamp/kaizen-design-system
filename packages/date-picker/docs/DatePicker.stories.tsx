@@ -170,44 +170,6 @@ ValidationStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
-
-  return (
-    <div ref={setReferenceElement}>
-      <Calendar
-        mode="single"
-        id="calendar-dialog"
-        setPopperElement={setPopperElement}
-        popperStyles={styles}
-        popperAttributes={attributes}
-        weekStartsOn={DayOfWeek.Sun}
-        onDayChange={() => undefined}
-        defaultMonth={new Date(2022, 1, 5)}
-        locale={enAU}
-        {...props}
-      />
-    </div>
-  )
-}
-
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
@@ -322,28 +284,73 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Selected Date", "Disabled Dates"]}
-        />
-        <StoryWrapper.Row rowTitle="Calendar">
-          <CalendarExample value={new Date(2022, 1, 5)} />
-          <CalendarExample
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
-            id="calendar-dialog-disabled"
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
     </>
   )
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet"
+StickerSheetDefault.storyName = "Date Input"
 StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLDivElement | null>(null)
+
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 15],
+        },
+      },
+    ],
+    placement: "bottom-start",
+  })
+
+  return (
+    <div ref={setReferenceElement}>
+      <Calendar
+        mode="single"
+        id="calendar-dialog"
+        setPopperElement={setPopperElement}
+        popperStyles={styles}
+        popperAttributes={attributes}
+        weekStartsOn={DayOfWeek.Sun}
+        onDayChange={() => undefined}
+        defaultMonth={new Date(2022, 1, 5)}
+        locale={enAU}
+        {...props}
+      />
+    </div>
+  )
+}
+
+const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Selected Date", "Disabled Dates"]} />
+    <StoryWrapper.Row rowTitle="Calendar">
+      <CalendarExample value={new Date(2022, 1, 5)} />
+      <CalendarExample
+        disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
+        id="calendar-dialog-disabled"
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
+
+export const StickerSheetCalendar = StickerSheetCalendarTemplate.bind({})
+StickerSheetCalendar.storyName = "Calendar"
+StickerSheetCalendar.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }
