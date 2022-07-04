@@ -117,7 +117,7 @@ $rdp-cell-size: 40px;
   border-collapse: separate;
   border-spacing: 1px;
   margin: 0;
-  max-width: calc($rdp-cell-size * 7);
+  max-width: calc(#{$rdp-cell-size} * 7);
 }
 
 .tbody {
