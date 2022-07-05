@@ -79,7 +79,6 @@ describe("RTE receives list controls", () => {
         userEvent.click(screen.getByRole("button", { name: "Bullet List" }))
         screen.getByRole("list")
 
-        expect(screen.getByRole("list")).toBeInTheDocument()
         expect(document.querySelectorAll("ul").length).toBeGreaterThan(0)
       })
     })
@@ -94,13 +93,12 @@ describe("RTE receives list controls", () => {
       await waitFor(() => {
         userEvent.click(screen.getByRole("button", { name: "Numbered List" }))
 
-        expect(screen.getByRole("list")).toBeInTheDocument()
         expect(document.querySelectorAll("ol").length).toBeGreaterThan(0)
       })
     })
   })
 
-  describe("Handling disabled indent states", () => {
+  describe("Indent list nodes with buttons", () => {
     const rteListData = [
       {
         type: "bulletList",
@@ -137,7 +135,7 @@ describe("RTE receives list controls", () => {
       },
     ]
 
-    it("indent buttons are 'disabled' by default", () => {
+    it("will render indent buttons as 'disabled'", () => {
       render(<TestRTE {...defaultListArgs} />)
 
       const decreaseIndentBtn = screen.getByRole("button", {
@@ -151,7 +149,7 @@ describe("RTE receives list controls", () => {
       expect(increaseIndentBtn).toHaveAttribute("aria-disabled", "true")
     })
 
-    it("decrease indent button is enabled only when on a list item", () => {
+    it("will enable increase indent when on a list item", () => {
       render(<TestRTE {...defaultListArgs} rteMockData={rteListData} />)
 
       const firstListNode = document.querySelectorAll("li")[0]
