@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.20...@kaizen/brand-moment@1.11.21) (2022-06-27)
+
+
+### Bug Fixes
+
+* Remove tab on scene illustrations [KDS-564] ([#2830](https://github.com/cultureamp/kaizen-design-system/issues/2830)) ([bee63df](https://github.com/cultureamp/kaizen-design-system/commit/bee63df288309afb3f21d430166ed4e68a539f91))
+
+
+
+
+
 ## [1.11.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.11.19...@kaizen/brand-moment@1.11.20) (2022-06-23)
 
 **Note:** Version bump only for package @kaizen/brand-moment

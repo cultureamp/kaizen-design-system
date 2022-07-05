@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { DateRange } from "react-day-picker"
+import { enAU } from "date-fns/locale"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
 import { Calendar } from "../src/DatePicker/components/Calendar"
@@ -36,6 +37,7 @@ const DateRangePickerTemplate: Story = props => {
     setSelectedDateRange(dateRange)
   }
 
+  // TODO: Make formating built in
   useEffect(() => {
     setValue(formatDateRangeValue(selectedDateRange))
   }, [selectedDateRange])
@@ -95,6 +97,7 @@ const CalendarRangeTemplate: Story = props => {
         defaultMonth={new Date(2022, 2)}
         selectedRange={selectedDateRange}
         modifiers={modifiers}
+        locale={enAU}
         {...props}
       />
     </div>

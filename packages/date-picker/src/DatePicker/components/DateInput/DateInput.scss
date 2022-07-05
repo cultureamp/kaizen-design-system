@@ -16,6 +16,10 @@ $input-disabled-opacity: 0.3;
   right: -0.25rem;
   top: -45%;
 
+  [dir="rtl"] & {
+    right: 0.25rem;
+  }
+
   &:hover:not([disabled]) {
     background-color: $color-blue-100;
     color: $color-blue-500;
