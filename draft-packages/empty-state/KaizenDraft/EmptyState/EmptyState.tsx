@@ -9,6 +9,7 @@ import {
   EmptyStatesPositive,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
+import { Paragraph, Heading } from "@kaizen/typography"
 import styles from "./styles.scss"
 
 const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
@@ -94,8 +95,16 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
-          <div className={styles.heading}>{headingText}</div>
-          <div className={styles.description}>{bodyText}</div>
+          <Heading
+            variant="heading-3"
+            classNameOverride={styles.heading}
+            tag="div"
+          >
+            {headingText}
+          </Heading>
+          <Paragraph variant="body" classNameOverride={styles.description}>
+            {bodyText}
+          </Paragraph>
           {children}
         </div>
       </div>
