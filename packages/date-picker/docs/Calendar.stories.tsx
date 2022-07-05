@@ -15,7 +15,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Calendar, DateInput } from "@kaizen/date-picker"',
+        component:
+          "This is a subcomponent - use DatePicker or DateRangePicker.",
       },
     },
   },
@@ -51,7 +52,7 @@ const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
     <div ref={setReferenceElement}>
       <Calendar
         mode="single"
-        id="calendar-dialog"
+        id={props.id ? props.id : "calendar-dialog"}
         setPopperElement={setPopperElement}
         popperStyles={styles}
         popperAttributes={attributes}
@@ -71,10 +72,13 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Selected Date", "Disabled Dates"]} />
     <StoryWrapper.Row rowTitle="Calendar">
-      <CalendarExample value={new Date(2022, 1, 5)} />
       <CalendarExample
-        disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
+        id="calendar-dialog-selected"
+        value={new Date(2022, 1, 5)}
+      />
+      <CalendarExample
         id="calendar-dialog-disabled"
+        disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
       />
     </StoryWrapper.Row>
   </StoryWrapper>

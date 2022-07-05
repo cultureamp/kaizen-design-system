@@ -77,7 +77,7 @@ export const ValidationStory = props => {
       validationResponse.date?.getFullYear() !== new Date().getFullYear()
     ) {
       setStatus("caution")
-      setValidationMessage("Date is not this year.")
+      setValidationMessage("Date is not this year")
       return
     }
     setStatus(validationResponse.status)
@@ -87,7 +87,7 @@ export const ValidationStory = props => {
   const submitRequest = () => {
     // An example of a form submit request
     if (status === "error" || status === "caution") {
-      setValidationMessage("There is an error.")
+      setValidationMessage("There is an error")
       setStatus("error")
       alert("Error")
     } else {
@@ -249,7 +249,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onValidate={() => undefined}
             isReversed={isReversed}
             status="error"
-            validationMessage="Invalid Date."
+            validationMessage="Invalid Date"
             locale="en-AU"
           />
         </StoryWrapper.Row>
