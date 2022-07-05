@@ -15,6 +15,7 @@ import { ButtonProps } from "../Button"
 import styles from "./GenericButton.scss"
 
 export type CustomButtonProps = {
+  [key: string]: unknown
   id?: string
   className: string
   ref: Ref<any>
@@ -90,7 +91,7 @@ const GenericButton = forwardRef(
 
     const ButtonRender = () => {
       if (props.component) {
-        return <CustomComponent {...props} ref={buttonRef as Ref<any>} />
+        return <CustomComponent {...props} ref={buttonRef as Ref<unknown>} />
       }
 
       if (props.href && !props.disabled && !props.working) {
