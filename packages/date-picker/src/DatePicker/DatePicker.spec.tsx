@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import format from "date-fns/format"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { DatePicker, ValidationResponse } from "./DatePicker"
 import { DatePickerProps } from "."
@@ -83,27 +82,6 @@ describe("<DatePicker />", () => {
       name: "Go to previous month",
     })
     expect(arrowButton).toHaveFocus()
-  })
-})
-
-// @todo: Move this to be tests for utils/setFocusInCalendar
-describe("<DatePicker /> - Focus within calendar", () => {
-  it("shows focus on today when no date is selected", () => {
-    const today = new Date()
-    const todayFormatted = format(today, "do MMMM (eeee)") // e.g 6th June (Monday)
-
-    render(<DatePickerWrapper />)
-
-    const calendarButton = screen.getByRole("button", {
-      name: "Choose date",
-    })
-    userEvent.click(calendarButton)
-    waitFor(() => {
-      expect(screen.queryByRole("dialog")).toBeVisible()
-    })
-
-    const dateToSelect = screen.getByRole("button", { name: todayFormatted })
-    expect(dateToSelect).toHaveFocus()
   })
 })
 
