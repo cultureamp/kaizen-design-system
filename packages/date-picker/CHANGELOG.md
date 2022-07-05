@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.3.2...@kaizen/date-picker@5.4.0) (2022-07-05)
+
+
+### Features
+
+* Add RTL styles to Calendar and DateInput ([#2842](https://github.com/cultureamp/kaizen-design-system/issues/2842)) ([b1eece4](https://github.com/cultureamp/kaizen-design-system/commit/b1eece45056b57043d445509d47f2e8fd9362c69))
+
+
+
+
+
 ## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.3.1...@kaizen/date-picker@5.3.2) (2022-06-30)
 
 
