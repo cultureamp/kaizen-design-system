@@ -35,6 +35,7 @@ const DatePickerWrapper = ({
       status={status}
       validationMessage={validationMessage}
       selectedDay={selectedDate}
+      locale="en-US"
       {...restProps}
     />
   )
