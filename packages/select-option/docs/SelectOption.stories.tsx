@@ -6,7 +6,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { SelectOption } from "../index"
-import { MenuButton } from "../src/Exp/Select"
+import { MenuButton } from "../src/Exp/SelectOption"
 
 export default {
   title: `${CATEGORIES.components}/Select Option`,
@@ -44,11 +44,11 @@ export const DefaultKaizenSiteDemo = args => (
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const ReactAriaDemo = args => (
-  <MenuButton label="Actions">
-    <Item key="copy">Copy</Item>
-    <Item key="cut">Cut</Item>
-    <Item key="paste">Paste</Item>
-  </MenuButton>
+  <MenuButton label="Engineer" />
+  //   <Item key="copy">Copy</Item>
+  //   <Item key="cut">Cut</Item>
+  //   <Item key="paste">Paste</Item>
+  // </MenuButton>
 )
 ReactAriaDemo.storyName = "React-Aria Demo"
 
