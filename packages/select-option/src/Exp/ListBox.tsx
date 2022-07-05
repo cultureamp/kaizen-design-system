@@ -1,4 +1,10 @@
-import React, { ReactNode, useState } from "react"
+import React, {
+  HTMLAttributes,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react"
 import { useMenuTriggerState } from "@react-stately/menu"
 import { useButton } from "@react-aria/button"
 import { useMenu, useMenuItem, useMenuTrigger } from "@react-aria/menu"
@@ -13,49 +19,61 @@ import {
   SelectionMode,
   FocusStrategy,
   Node,
+  Selection,
 } from "@react-types/shared"
 import { useListBox, useOption } from "@react-aria/listbox"
-import { ListState, useListState } from "@react-stately/list"
+import { ListProps, ListState, useListState } from "@react-stately/list"
 import { ItemType } from "./type"
 import { Option } from "./Option"
+import { ListBoxProvider } from "./provider/ListBoxProvider"
+
 export interface SelectOptionListBoxProps {
   selectionMode: SelectionMode
-  children: CollectionChildren<ItemType> // can be only Item or Section
+  children: React.ReactNode // control how menu should look like
   autoFocus?: boolean | FocusStrategy
-  filter?: (nodes: Iterable<Node<ItemType>>) => Iterable<Node<ItemType>>
   items: ItemType[]
+  childrenItems: CollectionChildren<ItemType> // for useListState to initialise selection, can be only Item or Section
+  onSelectionChange?: (keys: Selection) => void
 }
-export function ListBox(props: SelectOptionListBoxProps) {
-  // ListProps -> MultipleSelection
-  const state = useListState(props)
-  const ref = React.createRef<HTMLUListElement>()
 
-  // ListBoxProps -> A11y
-  const { listBoxProps } = useListBox(props, state, ref)
+// TODO: Naming of ListBox is not great here, as its more like a selection manager center
+export function ListBox({ childrenItems, ...props }: SelectOptionListBoxProps) {
+  const [searchQuery, setSearchQuery] = useState<string | undefined>()
+
+  const handleSearch: React.ChangeEventHandler<HTMLInputElement> = e => {
+    setSearchQuery(e.target.value.toLowerCase())
+  }
+
+  const searchFilter = useCallback(
+    (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
+      searchQuery
+        ? Array.from(nodes).filter(f =>
+            f.textValue.toLowerCase().includes(searchQuery)
+          )
+        : nodes,
+    [searchQuery]
+  )
+
+  // useListState -> Selection
+  const state = useListState({
+    ...props,
+    children: childrenItems,
+    filter: searchFilter,
+  })
+
+  // useListBox -> A11y
+  const ref = React.createRef<HTMLUListElement>()
+  const { listBoxProps, labelProps } = useListBox(props, state, ref)
 
   return (
-    <>
-      <ul
-        {...listBoxProps}
-        ref={ref}
-        style={{
-          padding: 0,
-          margin: "5px 0",
-          listStyle: "none",
-          border: "1px solid gray",
-          maxWidth: 250,
-        }}
-      >
-        {Array.from(state.collection).map(item => (
-          <Option key={item.key} item={item} state={state} />
-        ))}
-      </ul>
-      <button onClick={() => state.selectionManager.selectAll()}>
-        Select All
-      </button>
-      <button onClick={() => state.selectionManager.clearSelection()}>
-        Clear
-      </button>
-    </>
+    <ListBoxProvider
+      listBoxProps={listBoxProps}
+      labelProps={labelProps}
+      selectionState={state}
+      listRef={ref}
+      handleSearch={handleSearch}
+    >
+      {props.children}
+    </ListBoxProvider>
   )
 }
