@@ -290,7 +290,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onValidate={() => undefined}
             isReversed={isReversed}
             status="error"
-            validationMessage="Invalid Date."
+            validationMessage="Invalid Date"
             locale="en-AU"
           />
         </StoryWrapper.Row>
