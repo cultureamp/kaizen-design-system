@@ -88,20 +88,20 @@ const GenericButton = forwardRef(
       },
     }))
 
-    const determineButtonRenderer = () => {
+    const ButtonRender = () => {
       if (props.component) {
-        return renderCustomComponent(
-          props.component,
-          props,
-          buttonRef as Ref<HTMLElement>
-        )
+        return <CustomComponent {...props} ref={buttonRef as Ref<any>} />
       }
 
       if (props.href && !props.disabled && !props.working) {
-        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+        return (
+          <LinkElement {...props} ref={buttonRef as Ref<HTMLAnchorElement>} />
+        )
       }
 
-      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+      return (
+        <ButtonElement {...props} ref={buttonRef as Ref<HTMLButtonElement>} />
+      )
     }
 
     return (
@@ -110,7 +110,7 @@ const GenericButton = forwardRef(
           [styles.fullWidth]: props.fullWidth,
         })}
       >
-        {determineButtonRenderer()}
+        <ButtonRender />
       </span>
     )
   }
@@ -126,67 +126,68 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderCustomComponent = (
-  CustomComponent: ComponentType<CustomButtonProps>,
-  props: Props,
-  ref: Ref<any>
-) => (
-  <CustomComponent
-    id={props.id}
-    className={buttonClass(props)}
-    disabled={props.disabled}
-    ref={ref}
-    href={props.href}
-    onClick={props.onClick}
-    onFocus={props.onFocus}
-    onBlur={props.onBlur}
-    aria-label={generateAriaLabel(props)}
-  >
-    {renderContent(props)}
-  </CustomComponent>
-)
-
-const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
-  const {
-    id,
-    disabled,
-    onClick,
-    onMouseDown,
-    type,
-    disableTabFocusAndIUnderstandTheAccessibilityImplications,
-    onFocus,
-    onBlur,
-    iconButton,
-    ...rest
-  } = props
-  const customProps = getCustomProps(rest)
-
+const CustomComponent = forwardRef((props: Props, ref: Ref<any>) => {
+  const Component = props.component as ComponentType<CustomButtonProps>
   return (
-    <button
-      id={id}
-      disabled={disabled}
+    <Component
+      id={props.id}
       className={buttonClass(props)}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
-      type={type}
-      aria-label={generateAriaLabel(props)}
-      aria-disabled={disabled || props.working ? true : undefined}
-      tabIndex={
-        disableTabFocusAndIUnderstandTheAccessibilityImplications
-          ? -1
-          : undefined
-      }
+      disabled={props.disabled}
       ref={ref}
-      {...customProps}
+      href={props.href}
+      onClick={props.onClick}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
+      aria-label={generateAriaLabel(props)}
     >
       {renderContent(props)}
-    </button>
+    </Component>
   )
-}
+})
 
-const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
+const ButtonElement = forwardRef(
+  (props: Props, ref: Ref<HTMLButtonElement>) => {
+    const {
+      id,
+      disabled,
+      onClick,
+      onMouseDown,
+      type,
+      disableTabFocusAndIUnderstandTheAccessibilityImplications,
+      onFocus,
+      onBlur,
+      iconButton,
+      ...rest
+    } = props
+    const customProps = getCustomProps(rest)
+
+    return (
+      <button
+        id={id}
+        disabled={disabled}
+        className={buttonClass(props)}
+        onClick={onClick}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
+        type={type}
+        aria-label={generateAriaLabel(props)}
+        aria-disabled={disabled || props.working ? true : undefined}
+        tabIndex={
+          disableTabFocusAndIUnderstandTheAccessibilityImplications
+            ? -1
+            : undefined
+        }
+        ref={ref}
+        {...customProps}
+      >
+        {renderContent(props)}
+      </button>
+    )
+  }
+)
+
+const LinkElement = forwardRef((props: Props, ref: Ref<HTMLAnchorElement>) => {
   const {
     id,
     href,
@@ -217,7 +218,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       {renderContent(props)}
     </a>
   )
-}
+})
 
 const buttonClass = (props: Props) => {
   const isDefault = !props.primary && !props.destructive && !props.secondary
