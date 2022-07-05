@@ -7,9 +7,9 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { SelectOption } from "../index"
-import { SelectOption as SelectOptionReactAria } from "../src/Exp/SelectOption"
-import { ItemType, ValueType } from "../src/Exp/type"
-import { Option } from "../src/Exp/Option"
+import { SelectOption as SelectOptionReactAria } from "../src/ReactAriaSelectOption/SelectOption"
+import { ItemType, ValueType } from "../src/ReactAriaSelectOption/type"
+import { Option } from "../src/ReactAriaSelectOption/Option"
 
 export default {
   title: `${CATEGORIES.components}/Select Option`,
