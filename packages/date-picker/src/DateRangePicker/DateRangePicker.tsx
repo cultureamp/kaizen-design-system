@@ -9,7 +9,7 @@ import { DateRange, DateInterval, isMatch } from "react-day-picker"
 import { enUS } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import { Calendar, CalendarProps } from "../_primitives/Calendar/Calendar"
+import { Calendar, CalendarProps } from "../_primitives/Calendar"
 import { DayOfWeek } from "../enums"
 import dateRangePickerStyles from "./DateRangePicker.scss"
 
