@@ -11,6 +11,8 @@ on:
     paths:
       - packages/**
       - draft-packages/**
+    branches-ignore:
+      - 'snyk-fix*'
 
 jobs:
   visual-testing:
