@@ -1,4 +1,4 @@
-import { DayOfWeek } from "../DatePicker/enums"
+import { DayOfWeek } from "../enums"
 import { calculateDisabledDays } from "./calculateDisabledDays"
 
 const DISABLED_DATE__1 = new Date(2022, 3, 24)

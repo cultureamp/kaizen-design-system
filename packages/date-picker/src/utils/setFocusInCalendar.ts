@@ -1,5 +1,5 @@
-import calendarStyles from "../DatePicker/components/Calendar/Calendar.scss"
-import { CalendarElement } from "../DatePicker/components/Calendar/Calendar"
+import calendarStyles from "../_primitives/Calendar/Calendar.scss"
+import { CalendarElement } from "../_primitives/Calendar"
 import { isInvalidDate } from "./isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>

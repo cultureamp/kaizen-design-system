@@ -13,9 +13,13 @@ import { formatDateAsText } from "../utils/formatDateAsText"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { getLocale } from "../utils/getLocale"
 import { SupportedLocales } from "../types"
-import calendarStyles from "./components/Calendar/Calendar.scss"
-import { DateFormat, DayOfWeek } from "./enums"
-import { Calendar, CalendarElement, CalendarProps } from "./components/Calendar"
+import calendarStyles from "../_primitives/Calendar/Calendar.scss"
+import { DateFormat, DayOfWeek } from "../enums"
+import {
+  Calendar,
+  CalendarElement,
+  CalendarProps,
+} from "../_primitives/Calendar"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
 type OmittedDateInputProps =
