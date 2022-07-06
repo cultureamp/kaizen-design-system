@@ -1,14 +1,11 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
-import { usePopper } from "react-popper"
 import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { enAU } from "date-fns/locale"
+import { Story } from "@storybook/react"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker, DayOfWeek, ValidationResponse } from "../src/DatePicker"
-import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
+import { DatePicker, ValidationResponse } from "../src/DatePicker"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
@@ -80,7 +77,7 @@ export const ValidationStory = props => {
       validationResponse.date?.getFullYear() !== new Date().getFullYear()
     ) {
       setStatus("caution")
-      setValidationMessage("Date is not this year.")
+      setValidationMessage("Date is not this year")
       return
     }
     setStatus(validationResponse.status)
@@ -90,7 +87,7 @@ export const ValidationStory = props => {
   const submitRequest = () => {
     // An example of a form submit request
     if (status === "error" || status === "caution") {
-      setValidationMessage("There is an error.")
+      setValidationMessage("There is an error")
       setStatus("error")
       alert("Error")
     } else {
@@ -168,44 +165,6 @@ export const ValidationStory = props => {
 ValidationStory.storyName = "Validation"
 ValidationStory.parameters = {
   docs: { source: { type: "code" } },
-}
-
-const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
-
-  return (
-    <div ref={setReferenceElement}>
-      <Calendar
-        mode="single"
-        id="calendar-dialog"
-        setPopperElement={setPopperElement}
-        popperStyles={styles}
-        popperAttributes={attributes}
-        weekStartsOn={DayOfWeek.Sun}
-        onDayChange={() => undefined}
-        defaultMonth={new Date(2022, 1, 5)}
-        locale={enAU}
-        {...props}
-      />
-    </div>
-  )
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -322,27 +281,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Selected Date", "Disabled Dates"]}
-        />
-        <StoryWrapper.Row rowTitle="Calendar">
-          <CalendarExample value={new Date(2022, 1, 5)} />
-          <CalendarExample
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
-            id="calendar-dialog-disabled"
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
     </>
   )
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet"
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
