@@ -87,7 +87,7 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetCalendar = StickerSheetCalendarTemplate.bind({})
-StickerSheetCalendar.storyName = "Calendar"
+StickerSheetCalendar.storyName = "Sticker Sheet (Default)"
 StickerSheetCalendar.parameters = {
   chromatic: { disable: false, viewports: [1800] },
   controls: { disable: true },
