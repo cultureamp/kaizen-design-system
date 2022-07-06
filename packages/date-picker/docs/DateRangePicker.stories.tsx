@@ -4,10 +4,10 @@ import { usePopper } from "react-popper"
 import { DateRange } from "react-day-picker"
 import { enAU } from "date-fns/locale"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DateRangePicker } from "../src/DatePicker/DateRangePicker"
-import { Calendar } from "../src/DatePicker/components/Calendar"
+import { DateRangePicker } from "../src/DateRangePicker"
+import { Calendar } from "../src/_primitives/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { formatDateRangeValue } from "../src/utils/formatDateRangeValue"
+import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker`,
