@@ -1,7 +1,7 @@
 import React from "react"
 import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { ItemType } from "./type"
+import { ItemType } from "../type"
 
 export interface MenuPopupProps {
   onClose: () => void

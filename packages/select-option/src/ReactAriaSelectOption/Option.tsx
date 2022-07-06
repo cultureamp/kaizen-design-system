@@ -16,7 +16,7 @@ import {
 } from "@react-types/shared"
 import { useListBox, useOption } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
-import { ItemType } from "./type"
+import { ItemType } from "../type"
 
 export interface OptionProps {
   item: Node<ItemType>

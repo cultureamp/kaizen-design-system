@@ -8,7 +8,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { SelectOption } from "../index"
 import { SelectOption as SelectOptionReactAria } from "../src/ReactAriaSelectOption/SelectOption"
-import { ItemType, ValueType } from "../src/ReactAriaSelectOption/type"
+import { ItemType, ValueType } from "../src/type"
 import { Option } from "../src/ReactAriaSelectOption/Option"
 
 export default {
@@ -77,9 +77,11 @@ export const ReactAriaDemo = args => {
   }
   return (
     <SelectOptionReactAria
+      defaultOpen={true}
       label="Engineer"
       items={items}
       onSelectionChange={handleSelectionChange}
+      selectionMode={"multiple"}
       trigger={menuCtx => (
         <button
           {...menuCtx.buttonProps}

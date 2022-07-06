@@ -11,19 +11,19 @@ import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { useListBox, useOption } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { Selection, SelectionMode } from "@react-types/shared"
-import { ItemType } from "../type"
+import { MenuPopup } from "./MenuPopup"
+import { ItemType } from "./type"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
-} from "../provider/MenuTriggerProvider"
+} from "./provider/MenuTriggerProvider"
+import { Option } from "./Option"
+import { ListBox } from "./ListBox"
 import {
   ListBoxConsumer,
   ListBoxProviderContextType,
-} from "../provider/ListBoxProvider"
-import { MenuPopup } from "./MenuPopup"
-import { Option } from "./Option"
-import { ListBox } from "./ListBox"
+} from "./provider/ListBoxProvider"
 
 export interface SelectOptionProps {
   label: string // A11y requirement for listbox

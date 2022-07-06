@@ -23,9 +23,9 @@ import {
 } from "@react-types/shared"
 import { useListBox, useOption } from "@react-aria/listbox"
 import { ListProps, ListState, useListState } from "@react-stately/list"
-import { ItemType } from "./type"
+import { ItemType } from "../type"
+import { ListBoxProvider } from "../provider/ListBoxProvider"
 import { Option } from "./Option"
-import { ListBoxProvider } from "./provider/ListBoxProvider"
 
 export interface SelectOptionListBoxProps {
   selectionMode: SelectionMode
@@ -57,6 +57,7 @@ export function ListBox({ childrenItems, ...props }: SelectOptionListBoxProps) {
   // useListState -> Selection
   const state = useListState({
     ...props,
+    disallowEmptySelection: true, // stop escape key from clearing selection
     children: childrenItems,
     filter: searchFilter,
   })
