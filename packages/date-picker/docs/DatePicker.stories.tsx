@@ -288,6 +288,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false, viewports: [1800, 1800] },
+  chromatic: { disable: false, viewports: [1800] },
   controls: { disable: true },
 }
