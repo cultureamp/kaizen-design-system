@@ -111,7 +111,7 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
 
   calendars.forEach(cal => {
     getElementWithinCalendar(`${cal.calendar}-hover`, cal.name).classList.add(
-      "story__day-hover"
+      "story_hover"
     )
     getElementWithinCalendar(`${cal.calendar}-focus`, cal.name).classList.add(
       "focus-visible"

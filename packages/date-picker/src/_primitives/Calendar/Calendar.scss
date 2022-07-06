@@ -98,7 +98,8 @@ $rdp-cell-size: 40px;
     border: $border-solid-border-width $border-solid-border-style transparent;
     border-radius: $cell-border-radius;
 
-    &:hover {
+    &:hover,
+    &:global(.story_hover) {
       background-color: $color-blue-100;
       color: $color-blue-500;
     }
@@ -197,13 +198,15 @@ $rdp-cell-size: 40px;
 
   &:not([aria-disabled="true"]) {
     &:not(.outside) {
-      &:hover {
+      &:hover,
+      &:global(.story_hover) {
         background-color: $color-blue-200;
         color: $color-blue-500;
       }
 
       &:not(.daySelected) {
-        &:hover {
+        &:hover,
+        &:global(.story_hover) {
           border-radius: $cell-border-radius;
           background-color: $color-blue-100;
           color: $color-blue-500;
@@ -220,7 +223,8 @@ $rdp-cell-size: 40px;
       background-color: $color-blue-500;
       color: $color-white;
 
-      &:hover {
+      &:hover,
+      &:global(.story_hover) {
         background-color: $color-blue-400;
         color: $color-white;
       }
@@ -243,19 +247,4 @@ $rdp-cell-size: 40px;
 .dayRangeMiddle:not([aria-disabled="true"]):not(.outside):not(.from):not(.to):not(:hover) {
   background-color: $color-blue-100;
   color: $color-blue-500;
-}
-
-// Add Storybook pseudo classes
-:global(.story__day-hover) {
-  &:not([aria-disabled="true"]) {
-    &:not(.outside) {
-      background-color: $color-blue-200;
-      color: $color-blue-500;
-    }
-    &:not(.daySelected) {
-      border-radius: $cell-border-radius;
-      background-color: $color-blue-100;
-      color: $color-blue-500;
-    }
-  }
 }
