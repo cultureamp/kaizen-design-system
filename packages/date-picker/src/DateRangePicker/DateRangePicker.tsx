@@ -224,20 +224,24 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           }}
           enabled={isOpen}
         >
-          <Calendar
-            mode="range"
-            id={`${id}-calendar-dialog`}
-            setPopperElement={setPopperElement}
-            popperStyles={styles}
-            popperAttributes={attributes}
-            selectedRange={selectedDateRange}
-            defaultMonth={defaultMonth}
-            weekStartsOn={weekStartsOn}
-            disabledDays={disabledDays}
-            onDayChange={handleDayClick}
-            modifiers={modifiers}
-            locale={enUS}
-          />
+          <div
+            ref={setPopperElement}
+            style={styles?.popper}
+            {...attributes?.popper}
+            className={dateRangePickerStyles.popper}
+          >
+            <Calendar
+              mode="range"
+              id={`${id}-calendar-dialog`}
+              selectedRange={selectedDateRange}
+              defaultMonth={defaultMonth}
+              weekStartsOn={weekStartsOn}
+              disabledDays={disabledDays}
+              onDayChange={handleDayClick}
+              modifiers={modifiers}
+              locale={enUS}
+            />
+          </div>
         </FocusOn>
       )}
     </div>

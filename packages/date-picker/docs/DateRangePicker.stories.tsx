@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
-import { usePopper } from "react-popper"
 import { DateRange } from "react-day-picker"
 import { enAU } from "date-fns/locale"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -57,9 +56,6 @@ const DateRangePickerTemplate: Story = props => {
 }
 
 const CalendarRangeTemplate: Story = props => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
   const selectedDateRange = {
     from: undefined,
     to: undefined,
@@ -70,37 +66,18 @@ const CalendarRangeTemplate: Story = props => {
     to: selectedDateRange?.to,
   }
 
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
   return (
-    <div ref={setReferenceElement}>
-      <Calendar
-        mode="range"
-        id="calendar-dialog"
-        setPopperElement={setPopperElement}
-        popperStyles={styles}
-        popperAttributes={attributes}
-        onDayChange={() => undefined}
-        weekStartsOn={0}
-        defaultMonth={new Date(2022, 2)}
-        selectedRange={selectedDateRange}
-        modifiers={modifiers}
-        locale={enAU}
-        {...props}
-      />
-    </div>
+    <Calendar
+      mode="range"
+      id="calendar-dialog"
+      onDayChange={() => undefined}
+      weekStartsOn={0}
+      defaultMonth={new Date(2022, 2)}
+      selectedRange={selectedDateRange}
+      modifiers={modifiers}
+      locale={enAU}
+      {...props}
+    />
   )
 }
 

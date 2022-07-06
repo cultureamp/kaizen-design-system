@@ -13,14 +13,15 @@ import { formatDateAsText } from "../utils/formatDateAsText"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { getLocale } from "../utils/getLocale"
 import { SupportedLocales } from "../types"
-import calendarStyles from "../_primitives/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "../enums"
 import {
   Calendar,
   CalendarElement,
   CalendarProps,
 } from "../_primitives/Calendar"
+import calendarStyles from "../_primitives/Calendar/Calendar.scss"
 import { DateInput, DateInputProps } from "./components/DateInput"
+import datePickerStyles from "./DatePicker.scss"
 
 type OmittedDateInputProps =
   | "isCalendarOpen"
@@ -389,20 +390,24 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           />
         </div>
         {isOpen && (
-          <Calendar
-            id={`${id}-calendar-dialog`}
-            mode="single"
-            value={selectedDay}
-            defaultMonth={defaultMonth}
-            weekStartsOn={weekStartsOn}
-            disabledDays={disabledDays}
-            locale={locale}
-            popperStyles={styles}
-            popperAttributes={attributes}
-            onDayChange={handleCalendarDayChange}
-            onMount={handleCalendarMount}
-            setPopperElement={setPopperElement}
-          />
+          <div
+            ref={setPopperElement}
+            style={styles?.popper}
+            {...attributes?.popper}
+            className={datePickerStyles.popper}
+          >
+            <Calendar
+              id={`${id}-calendar-dialog`}
+              mode="single"
+              value={selectedDay}
+              defaultMonth={defaultMonth}
+              weekStartsOn={weekStartsOn}
+              disabledDays={disabledDays}
+              locale={locale}
+              onDayChange={handleCalendarDayChange}
+              onMount={handleCalendarMount}
+            />
+          </div>
         )}
       </div>
     </FocusOn>

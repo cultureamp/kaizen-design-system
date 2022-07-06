@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import { Story } from "@storybook/react"
-import { usePopper } from "react-popper"
 import { enAU } from "date-fns/locale"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DayOfWeek } from "../src/enums"
@@ -28,43 +27,18 @@ export default {
   },
 }
 
-const CalendarExample = (props: Partial<CalendarProps>): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
-
-  return (
-    <div ref={setReferenceElement}>
-      <Calendar
-        mode="single"
-        id={props.id ? props.id : "calendar-dialog"}
-        setPopperElement={setPopperElement}
-        popperStyles={styles}
-        popperAttributes={attributes}
-        weekStartsOn={DayOfWeek.Sun}
-        onDayChange={() => undefined}
-        defaultMonth={new Date(2022, 1, 5)}
-        locale={enAU}
-        {...props}
-      />
-    </div>
-  )
-}
+const CalendarExample = (
+  props: Partial<CalendarProps> & { id: CalendarProps["id"] }
+): JSX.Element => (
+  <Calendar
+    mode="single"
+    weekStartsOn={DayOfWeek.Sun}
+    onDayChange={() => undefined}
+    defaultMonth={new Date(2022, 1, 5)}
+    locale={enAU}
+    {...props}
+  />
+)
 
 const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
