@@ -1,6 +1,6 @@
-import calendarStyles from "../DatePicker/components/Calendar/Calendar.scss"
-import { CalendarElement } from "../DatePicker/components/Calendar/Calendar"
-import { isInvalidDate } from "./isInvalidDate"
+import calendarStyles from "../Calendar.scss"
+import { CalendarElement } from "../Calendar"
+import { isInvalidDate } from "../../../utils/isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
   element instanceof HTMLElement

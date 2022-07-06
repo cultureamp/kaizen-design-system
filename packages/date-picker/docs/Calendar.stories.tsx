@@ -3,8 +3,8 @@ import { Story } from "@storybook/react"
 import { usePopper } from "react-popper"
 import { enAU } from "date-fns/locale"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DayOfWeek } from "../src/DatePicker"
-import { Calendar, CalendarProps } from "../src/DatePicker/components/Calendar"
+import { DayOfWeek } from "../src/enums"
+import { Calendar, CalendarProps } from "../src/_primitives/Calendar/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]

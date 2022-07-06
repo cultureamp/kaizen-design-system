@@ -9,9 +9,9 @@ import { DateRange, DateInterval, isMatch } from "react-day-picker"
 import { enUS } from "date-fns/locale"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import datePickerStyles from "./DatePicker.scss"
-import { Calendar, CalendarProps } from "./components/Calendar"
-import { DayOfWeek } from "./enums"
+import { Calendar, CalendarProps } from "../_primitives/Calendar/Calendar"
+import { DayOfWeek } from "../enums"
+import dateRangePickerStyles from "./DateRangePicker.scss"
 
 export interface DateRangePickerProps {
   id: string
@@ -190,10 +190,10 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
         <button
           id={id}
           className={cx(
-            datePickerStyles.button,
-            datePickerStyles.withStartIconAdornment,
+            dateRangePickerStyles.button,
+            dateRangePickerStyles.withStartIconAdornment,
             {
-              [datePickerStyles.disabled]: isDisabled,
+              [dateRangePickerStyles.disabled]: isDisabled,
             }
           )}
           disabled={isDisabled}
@@ -204,10 +204,10 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           }
           {...inputProps}
         >
-          <div className={datePickerStyles.startIconAdornment}>
+          <div className={dateRangePickerStyles.startIconAdornment}>
             <Icon icon={dateStart} role="presentation" />
           </div>
-          <span className={datePickerStyles.value}>
+          <span className={dateRangePickerStyles.value}>
             {selectedDateRange?.from ? value : undefined}
           </span>
         </button>
