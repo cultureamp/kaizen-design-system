@@ -245,7 +245,7 @@ $rdp-cell-size: 40px;
   color: $color-blue-500;
 }
 
-// Add Storybook psuedo classes
+// Add Storybook pseudo classes
 :global(.story__day-hover) {
   &:not([aria-disabled="true"]) {
     &:not(.outside) {
