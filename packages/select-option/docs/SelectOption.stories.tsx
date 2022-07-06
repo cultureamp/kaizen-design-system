@@ -10,6 +10,8 @@ import { SelectOption } from "../index"
 import { SelectOption as SelectOptionReactAria } from "../src/ReactAriaSelectOption/SelectOption"
 import { ItemType, ValueType } from "../src/type"
 import { Option } from "../src/ReactAriaSelectOption/Option"
+import { MenuButton } from "../src/ReactAriaMenu/MenuButton"
+import { Menu } from "../src/ReactAriaMenu/Menu"
 
 export default {
   title: `${CATEGORIES.components}/Select Option`,
@@ -80,6 +82,7 @@ export const ReactAriaDemo = args => {
       defaultOpen={true}
       label="Engineer"
       items={items}
+      selectedKeys={selectedKeys}
       onSelectionChange={handleSelectionChange}
       selectionMode={"multiple"}
       trigger={menuCtx => (
@@ -133,6 +136,36 @@ export const ReactAriaDemo = args => {
   )
 }
 ReactAriaDemo.storyName = "React-Aria Demo"
+
+export const ReactAriaMenuDemo = args => (
+  <>
+    <MenuButton label="Add Filter" onAction={alert}>
+      <Item key="id-engieer">Engineer</Item>
+      <Item key="id-design">Design</Item>
+      <Item key="id-finance">Finance</Item>
+    </MenuButton>
+    {/* <Menu>
+      {ctx => (
+        <ul
+          {...ctx.listBoxProps}
+          ref={ctx.listRef}
+          style={{
+            padding: 0,
+            margin: "5px 0",
+            listStyle: "none",
+            border: "1px solid gray",
+            maxWidth: 250,
+          }}
+        >
+          {Array.from(ctx.selectionState.collection).map(item => (
+            <Option key={item.key} item={item} state={ctx.selectionState} />
+          ))}
+        </ul>
+      )}
+    </Menu> */}
+  </>
+)
+ReactAriaMenuDemo.storyName = "React-Aria Menu Demo"
 
 // const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 //   isReversed,

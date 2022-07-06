@@ -34,6 +34,7 @@ export interface SelectOptionListBoxProps {
   items: ItemType[]
   childrenItems: CollectionChildren<ItemType> // for useListState to initialise selection, can be only Item or Section
   onSelectionChange?: (keys: Selection) => void
+  selectedKeys?: Selection
 }
 
 // TODO: Naming of ListBox is not great here, as its more like a selection manager center
@@ -57,14 +58,20 @@ export function ListBox({ childrenItems, ...props }: SelectOptionListBoxProps) {
   // useListState -> Selection
   const state = useListState({
     ...props,
-    disallowEmptySelection: true, // stop escape key from clearing selection
     children: childrenItems,
     filter: searchFilter,
   })
 
   // useListBox -> A11y
   const ref = React.createRef<HTMLUListElement>()
-  const { listBoxProps, labelProps } = useListBox(props, state, ref)
+  const { listBoxProps, labelProps } = useListBox(
+    {
+      ...props,
+      disallowEmptySelection: true, // stop escape key from clearing selection
+    },
+    state,
+    ref
+  )
 
   return (
     <ListBoxProvider

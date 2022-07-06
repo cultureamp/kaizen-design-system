@@ -33,11 +33,13 @@ export interface SelectOptionProps {
   selectionMode: SelectionMode
   onSelectionChange?: (keys: Selection) => void
   defaultOpen?: boolean
+  selectedKeys?: Selection
 }
 export function SelectOption({
   trigger,
   selectionMode,
   defaultOpen,
+  selectedKeys,
   ...props
 }: SelectOptionProps) {
   // Create state based on the incoming props
@@ -71,6 +73,7 @@ export function SelectOption({
             }}
           >
             <ListBox
+              selectedKeys={selectedKeys}
               selectionMode={selectionMode}
               items={props.items}
               onSelectionChange={(keys: Selection) => {

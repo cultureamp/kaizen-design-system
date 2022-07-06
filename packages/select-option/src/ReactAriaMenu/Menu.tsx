@@ -11,35 +11,26 @@ import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { useListBox, useOption } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { Selection, SelectionMode } from "@react-types/shared"
-import { MenuPopup } from "./MenuPopup"
-import { ItemType } from "./type"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
-} from "./provider/MenuTriggerProvider"
-import { Option } from "./Option"
-import { ListBox } from "./ListBox"
-import {
-  ListBoxConsumer,
-  ListBoxProviderContextType,
-} from "./provider/ListBoxProvider"
+} from "../provider/MenuTriggerProvider"
+import { ItemType } from "../type"
+import { MenuPopup } from "./MenuPopup"
 
-export interface SelectOptionProps {
+export interface MenuProps {
   label: string // A11y requirement for listbox
   items: ItemType[]
   trigger: (value: MenuTriggerProviderContextType) => React.ReactNode
-  children: (value: ListBoxProviderContextType) => React.ReactNode // The content of the menu
-  selectionMode: SelectionMode
-  onSelectionChange?: (keys: Selection) => void
+  children: React.ReactNode // The content of the menu
   defaultOpen?: boolean
 }
-export function SelectOption({
+export function Menu({
   trigger,
-  selectionMode,
   defaultOpen,
   ...props
-}: SelectOptionProps) {
+}: MenuProps): JSX.Element {
   // Create state based on the incoming props
   const state = useMenuTriggerState({ defaultOpen })
 
