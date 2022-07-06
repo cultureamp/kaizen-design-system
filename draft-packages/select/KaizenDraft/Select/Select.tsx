@@ -9,6 +9,7 @@ import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
@@ -175,10 +176,11 @@ const Placeholder: typeof components.Placeholder = props => (
 )
 
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
-  // Suppress typing issue - looks like the type defs are incorrect
-  // @ts-ignore
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
-    <Icon icon={chevronDownIcon} role="presentation" />
+    <Icon
+      icon={props.selectProps.menuIsOpen ? chevronUpIcon : chevronDownIcon}
+      role="presentation"
+    />
   </components.DropdownIndicator>
 )
 
