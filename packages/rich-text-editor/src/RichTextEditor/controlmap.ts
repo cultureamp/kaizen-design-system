@@ -12,7 +12,7 @@ import { Schema, NodeType, MarkType } from "prosemirror-model"
 import { Command, toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
 import { markIsActive } from "@cultureamp/rich-text-toolkit"
-import { ToolbarItems, ToolbarControlTypes } from "./RichTextEditor"
+import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 type ToolbarControl = {
   icon: React.SVGAttributes<SVGSymbolElement>
