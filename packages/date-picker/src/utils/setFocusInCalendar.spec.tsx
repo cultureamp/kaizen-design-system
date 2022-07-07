@@ -10,7 +10,6 @@ const CalendarWrapper = (props: Partial<CalendarProps>): JSX.Element => (
     mode="single"
     id="calendar-dialog"
     onDayChange={jest.fn<void, [Date]>()}
-    setPopperElement={jest.fn()}
     locale={enUS}
     onMount={calendarElement =>
       setFocusInCalendar(calendarElement, props.value)

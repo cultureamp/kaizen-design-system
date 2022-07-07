@@ -8,13 +8,8 @@
 $cell-border-radius: 3px;
 $rdp-cell-size: 40px;
 
-.calendar {
-  background-color: $color-white;
-  z-index: 1010;
-}
-
 .container {
-  margin: 0;
+  display: flex;
 }
 
 .months {
@@ -61,19 +56,42 @@ $rdp-cell-size: 40px;
   }
 }
 
+.caption {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 $spacing-xs;
+  padding: 0;
+}
+
+.captionLabel {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  font-family: $typography-heading-4-font-family;
+  font-size: $typography-heading-4-font-size;
+  font-weight: $typography-heading-5-font-weight;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+  color: $color-purple-800;
+}
+
 .nav {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - #{$spacing-xl});
-  margin: 0 $spacing-md;
-  top: 1.25rem;
+  width: 100%;
   color: $color-purple-800;
 }
 
 .navButton {
   &:not([aria-disabled="true"]) {
-    position: absolute;
     @include button-reset;
     display: inherit;
     padding: 0.25rem $spacing-xs;
@@ -127,31 +145,6 @@ $rdp-cell-size: 40px;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   font-weight: $typography-paragraph-body-font-weight;
   line-height: $typography-paragraph-body-line-height;
-}
-
-.caption {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 $spacing-xs;
-  padding: 0;
-}
-
-.captionLabel {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 0 0.25em;
-  white-space: nowrap;
-  font-family: $typography-heading-4-font-family;
-  font-size: $typography-heading-4-font-size;
-  font-weight: $typography-heading-5-font-weight;
-  line-height: $typography-heading-4-line-height;
-  letter-spacing: $typography-heading-4-letter-spacing;
-  color: $color-purple-800;
 }
 
 .weekday {

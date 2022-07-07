@@ -1,9 +1,8 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { DayPicker, DateRange } from "react-day-picker"
 import { DayModifiers } from "react-day-picker/dist/types/Modifiers"
 import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
 import { Matcher } from "react-day-picker/src/types/Matchers"
-import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import arrowLeft from "@kaizen/component-library/icons/arrow-left.icon.svg"
@@ -17,14 +16,6 @@ export type CalendarElement = HTMLDivElement
 
 export type CalendarProps = {
   id: string
-  popperStyles?: { [key: string]: React.CSSProperties }
-  popperAttributes?: {
-    [key: string]:
-      | {
-          [key: string]: string
-        }
-      | undefined
-  }
   classNameOverride?: string
   value?: Date
   defaultMonth?: Date
@@ -36,7 +27,6 @@ export type CalendarProps = {
   locale: Locale
   onDayChange: DayClickEventHandler
   onMount?: (calendarElement: CalendarElement) => void
-  setPopperElement: Dispatch<SetStateAction<HTMLDivElement | null>>
 }
 
 const isValidWeekStartsOn = (day: DayOfWeek | undefined): day is WeekStartsOn =>
@@ -44,8 +34,6 @@ const isValidWeekStartsOn = (day: DayOfWeek | undefined): day is WeekStartsOn =>
 
 export const Calendar: React.VFC<CalendarProps> = ({
   id,
-  popperStyles,
-  popperAttributes,
   classNameOverride,
   value,
   defaultMonth,
@@ -57,7 +45,6 @@ export const Calendar: React.VFC<CalendarProps> = ({
   mode,
   onDayChange,
   onMount,
-  setPopperElement,
 }) => {
   const calendarRef = useRef<CalendarElement>(null)
 
@@ -78,59 +65,55 @@ export const Calendar: React.VFC<CalendarProps> = ({
   )
 
   return (
-    <div ref={calendarRef}>
-      <div
-        id={id}
-        ref={setPopperElement}
-        style={popperStyles?.popper}
-        {...popperAttributes?.popper}
-        className={classnames(calendarStyles.calendar, classNameOverride)}
-        role="dialog"
-        aria-modal="true"
-      >
-        {mode === "single" && (
-          <DayPicker
-            mode="single"
-            selected={value && isInvalidDate(value) ? undefined : value}
-            defaultMonth={selectedMonth}
-            weekStartsOn={
-              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
-            }
-            disabled={disabledDays}
-            onDayClick={onDayChange}
-            classNames={defaultCalendarClasses}
-            components={{
-              IconRight,
-              IconLeft,
-            }}
-            locale={locale}
-          />
-        )}
-        {mode === "range" && (
-          <DayPicker
-            mode="range"
-            selected={selectedRange}
-            defaultMonth={selectedMonth}
-            weekStartsOn={
-              isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
-            }
-            disabled={disabledDays}
-            onDayClick={onDayChange}
-            classNames={defaultCalendarClasses}
-            components={{
-              IconRight,
-              IconLeft,
-            }}
-            locale={locale}
-            modifiers={
-              {
-                [calendarStyles.from]: modifiers?.from,
-                [calendarStyles.to]: modifiers?.to,
-              } as DayModifiers
-            }
-          />
-        )}
-      </div>
+    <div
+      ref={calendarRef}
+      id={id}
+      className={classNameOverride}
+      role="dialog"
+      aria-modal="true"
+    >
+      {mode === "single" && (
+        <DayPicker
+          mode="single"
+          selected={value && isInvalidDate(value) ? undefined : value}
+          defaultMonth={selectedMonth}
+          weekStartsOn={
+            isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+          }
+          disabled={disabledDays}
+          onDayClick={onDayChange}
+          classNames={defaultCalendarClasses}
+          components={{
+            IconRight,
+            IconLeft,
+          }}
+          locale={locale}
+        />
+      )}
+      {mode === "range" && (
+        <DayPicker
+          mode="range"
+          selected={selectedRange}
+          defaultMonth={selectedMonth}
+          weekStartsOn={
+            isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
+          }
+          disabled={disabledDays}
+          onDayClick={onDayChange}
+          classNames={defaultCalendarClasses}
+          components={{
+            IconRight,
+            IconLeft,
+          }}
+          locale={locale}
+          modifiers={
+            {
+              [calendarStyles.from]: modifiers?.from,
+              [calendarStyles.to]: modifiers?.to,
+            } as DayModifiers
+          }
+        />
+      )}
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import { Label } from "@kaizen/draft-form"
 import React, { RefObject, useRef, useState } from "react"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
-import { usePopper } from "react-popper"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { FocusOn } from "react-focus-on"
@@ -11,6 +10,7 @@ import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { Calendar, CalendarProps } from "../_primitives/Calendar"
 import { DayOfWeek } from "../enums"
+import { CalendarWrapper } from "../_primitives/CalendarWrapper"
 import dateRangePickerStyles from "./DateRangePicker.scss"
 
 export interface DateRangePickerProps {
@@ -96,24 +96,8 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   onChange,
   ...inputProps
 }) => {
+  const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-  })
 
   const disabledDays = calculateDisabledDays({
     disabledDates,
@@ -185,7 +169,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
 
   return (
     <div>
-      <div ref={setReferenceElement}>
+      <div ref={containerRef}>
         <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
           id={id}
@@ -212,6 +196,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           </span>
         </button>
       </div>
+
       {isOpen && (
         <FocusOn
           scrollLock={false}
@@ -224,20 +209,19 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
           }}
           enabled={isOpen}
         >
-          <Calendar
-            mode="range"
-            id={`${id}-calendar-dialog`}
-            setPopperElement={setPopperElement}
-            popperStyles={styles}
-            popperAttributes={attributes}
-            selectedRange={selectedDateRange}
-            defaultMonth={defaultMonth}
-            weekStartsOn={weekStartsOn}
-            disabledDays={disabledDays}
-            onDayChange={handleDayClick}
-            modifiers={modifiers}
-            locale={enUS}
-          />
+          <CalendarWrapper referenceElement={containerRef.current}>
+            <Calendar
+              mode="range"
+              id={`${id}-calendar-dialog`}
+              selectedRange={selectedDateRange}
+              defaultMonth={defaultMonth}
+              weekStartsOn={weekStartsOn}
+              disabledDays={disabledDays}
+              onDayChange={handleDayClick}
+              modifiers={modifiers}
+              locale={enUS}
+            />
+          </CalendarWrapper>
         </FocusOn>
       )}
     </div>
