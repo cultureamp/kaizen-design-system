@@ -31,14 +31,16 @@ export default {
 const CalendarExample = (
   props: Partial<CalendarProps> & { id: CalendarProps["id"] }
 ): JSX.Element => (
-  <Calendar
-    mode="single"
-    weekStartsOn={DayOfWeek.Sun}
-    onDayChange={() => undefined}
-    defaultMonth={new Date(2022, 1, 5)}
-    locale={enAU}
-    {...props}
-  />
+  <div data-testid={props.id}>
+    <Calendar
+      mode="single"
+      weekStartsOn={DayOfWeek.Sun}
+      onDayChange={() => undefined}
+      defaultMonth={new Date(2022, 8, 5)}
+      locale={enAU}
+      {...props}
+    />
+  </div>
 )
 
 const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
