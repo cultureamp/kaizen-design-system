@@ -46,7 +46,7 @@ $rdp-cell-size: 40px;
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
         color: rgba($color-purple-800-rgb, 0.3);
-        outline-offset: -2px;
+        outline-offset: 1px;
         background-color: transparent;
         opacity: 1;
         outline: $color-gray-300 $border-dashed-border-style
@@ -109,15 +109,15 @@ $rdp-cell-size: 40px;
       &:focus {
         outline: none;
         border: 2px solid transparent;
-        background-color: transparent;
       }
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        outline-offset: -2px;
+        outline-offset: 1px;
         outline: $color-blue-500 $border-focus-ring-border-style
           $border-focus-ring-border-width;
-        background-color: transparent;
+          background-color: $color-blue-100;
+          color: $color-blue-500;
       }
     }
   }
@@ -189,11 +189,16 @@ $rdp-cell-size: 40px;
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline-offset: -2px;
+      outline-offset: 1px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
-      background-color: transparent;
-    }
+        background-color: $color-blue-100;
+        color: $color-blue-500;
+        &.daySelected {
+          background-color: $color-blue-400;
+          color: $color-white;
+        }
+      }
   }
 
   &:not([aria-disabled="true"]) {
