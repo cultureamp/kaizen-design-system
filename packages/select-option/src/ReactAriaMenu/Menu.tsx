@@ -17,7 +17,7 @@ import {
   MenuTriggerProviderContextType,
 } from "../provider/MenuTriggerProvider"
 import { ItemType } from "../type"
-import { MenuPopup } from "./MenuPopup"
+import { MenuPopup } from "../ReactAriaSelectOption/MenuPopup"
 
 export interface MenuProps {
   label: string // A11y requirement for listbox
@@ -61,20 +61,7 @@ export function Menu({
               state.close()
             }}
           >
-            <ListBox
-              selectionMode={selectionMode}
-              items={props.items}
-              onSelectionChange={(keys: Selection) => {
-                props.onSelectionChange && props.onSelectionChange(keys)
-                selectionMode === "single" && state.close()
-              }}
-              childrenItems={item => <Item key={item.value}>{item.label}</Item>}
-              // TODO: fix this elint disable
-              // eslint-disable-next-line jsx-a11y/no-autofocus
-              autoFocus
-            >
-              <ListBoxConsumer>{props.children}</ListBoxConsumer>
-            </ListBox>
+            {props.children}
           </MenuPopup>
         )}
       </div>

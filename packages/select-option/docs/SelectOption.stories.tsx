@@ -144,25 +144,23 @@ export const ReactAriaMenuDemo = args => (
       <Item key="id-design">Design</Item>
       <Item key="id-finance">Finance</Item>
     </MenuButton>
-    {/* <Menu>
-      {ctx => (
-        <ul
-          {...ctx.listBoxProps}
-          ref={ctx.listRef}
-          style={{
-            padding: 0,
-            margin: "5px 0",
-            listStyle: "none",
-            border: "1px solid gray",
-            maxWidth: 250,
-          }}
+    <Menu
+      label={""}
+      items={[{ label: "stuff", value: "id-stuff" }]}
+      trigger={menuCtx => (
+        <button
+          {...menuCtx.buttonProps}
+          ref={menuCtx.buttonRef}
+          style={{ height: 30, fontSize: 14 }}
         >
-          {Array.from(ctx.selectionState.collection).map(item => (
-            <Option key={item.key} item={item} state={ctx.selectionState} />
-          ))}
-        </ul>
+          Add Filter +
+        </button>
       )}
-    </Menu> */}
+    >
+      <Item key="id-engieer">Engineer</Item>
+      <Item key="id-design">Design</Item>
+      <Item key="id-finance">Finance</Item>
+    </Menu>
   </>
 )
 ReactAriaMenuDemo.storyName = "React-Aria Menu Demo"

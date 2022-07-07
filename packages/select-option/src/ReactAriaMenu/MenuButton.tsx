@@ -40,7 +40,7 @@ export function MenuButton(props) {
   )
 }
 
-function MenuPopup(props) {
+export function MenuPopup(props) {
   // Create menu state based on the incoming props
   const state = useTreeState({ ...props, selectionMode: "none" })
 
