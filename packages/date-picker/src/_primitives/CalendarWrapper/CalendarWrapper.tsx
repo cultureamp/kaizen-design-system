@@ -1,9 +1,12 @@
 import React, { HTMLAttributes, useState } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
+import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { Calendar } from "../Calendar"
 import calendarWrapperStyles from "./CalendarWrapper.scss"
 
-interface CalendarWrapperProps extends HTMLAttributes<HTMLDivElement> {
+interface CalendarWrapperProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactElement<typeof Calendar>
   referenceElement: HTMLElement | null
 }
@@ -11,6 +14,8 @@ interface CalendarWrapperProps extends HTMLAttributes<HTMLDivElement> {
 export const CalendarWrapper: React.VFC<CalendarWrapperProps> = ({
   children,
   referenceElement,
+  classNameOverride,
+  ...restProps
 }) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
@@ -38,7 +43,11 @@ export const CalendarWrapper: React.VFC<CalendarWrapperProps> = ({
       ref={setPopperElement}
       style={popperStyles?.popper}
       {...popperAttributes?.popper}
-      className={calendarWrapperStyles.calendarWrapper}
+      className={classnames(
+        calendarWrapperStyles.calendarWrapper,
+        classNameOverride
+      )}
+      {...restProps}
     >
       {children}
     </div>
