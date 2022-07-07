@@ -2,7 +2,6 @@ import React, { RefObject, useEffect, useRef, useState } from "react"
 import { parse } from "date-fns"
 import { DateRange, DateInterval, DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
-import { usePopper } from "react-popper"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
@@ -13,13 +12,14 @@ import { formatDateAsText } from "../utils/formatDateAsText"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { getLocale } from "../utils/getLocale"
 import { SupportedLocales } from "../types"
-import calendarStyles from "../_primitives/Calendar/Calendar.scss"
 import { DateFormat, DayOfWeek } from "../enums"
 import {
   Calendar,
   CalendarElement,
   CalendarProps,
 } from "../_primitives/Calendar"
+import calendarStyles from "../_primitives/Calendar/Calendar.scss"
+import { CalendarWrapper } from "../_primitives/CalendarWrapper"
 import { DateInput, DateInputProps } from "./components/DateInput"
 
 type OmittedDateInputProps =
@@ -154,33 +154,16 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onValidate,
   ...restDateInputProps
 }) => {
-  const [inputValue, setInputValue] = useState<string>("")
+  const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const [inputValue, setInputValue] = useState<string>("")
   const [isOpen, setIsOpen] = useState(false)
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
 
   const locale = getLocale(propsLocale)
 
   const [lastTrigger, setLastTrigger] = useState<
     "inputFocus" | "inputKeydown" | "calendarButton"
   >()
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 15],
-        },
-      },
-    ],
-    placement: "bottom-start",
-    strategy: "fixed",
-  })
 
   const disabledDays = calculateDisabledDays({
     disabledDates,
@@ -368,27 +351,28 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       onEscapeKey={() => setIsOpen(false)}
       enabled={isOpen}
     >
-      <div>
-        <div ref={setReferenceElement}>
-          <DateInput
-            inputRef={inputRef}
-            buttonRef={buttonRef}
-            id={id}
-            calendarId={`${id}-calendar-dialog`}
-            value={inputValue}
-            locale={locale}
-            isCalendarOpen={isOpen}
-            icon={dateStart}
-            onButtonClick={handleButtonClick}
-            onClick={handleInputClick}
-            onFocus={handleInputFocus}
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            onKeyDown={handleKeyDown}
-            {...restDateInputProps}
-          />
-        </div>
-        {isOpen && (
+      <div ref={containerRef}>
+        <DateInput
+          inputRef={inputRef}
+          buttonRef={buttonRef}
+          id={id}
+          calendarId={`${id}-calendar-dialog`}
+          value={inputValue}
+          locale={locale}
+          isCalendarOpen={isOpen}
+          icon={dateStart}
+          onButtonClick={handleButtonClick}
+          onClick={handleInputClick}
+          onFocus={handleInputFocus}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          onKeyDown={handleKeyDown}
+          {...restDateInputProps}
+        />
+      </div>
+
+      {isOpen && (
+        <CalendarWrapper referenceElement={containerRef.current}>
           <Calendar
             id={`${id}-calendar-dialog`}
             mode="single"
@@ -397,14 +381,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
             weekStartsOn={weekStartsOn}
             disabledDays={disabledDays}
             locale={locale}
-            popperStyles={styles}
-            popperAttributes={attributes}
             onDayChange={handleCalendarDayChange}
             onMount={handleCalendarMount}
-            setPopperElement={setPopperElement}
           />
-        )}
-      </div>
+        </CalendarWrapper>
+      )}
     </FocusOn>
   )
 }

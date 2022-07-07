@@ -11,7 +11,6 @@ const defaultProps: CalendarProps = {
   id: "calendar-dialog",
   onDayChange: jest.fn<void, [Date]>(),
   weekStartsOn: DayOfWeek.Mon,
-  setPopperElement: jest.fn(),
   locale: enUS,
 }
 
