@@ -46,7 +46,7 @@ const CalendarExample = (
 const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <div style={{ height: "1600px" }}>
+  <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader
         headings={["Hover", "Focus", "Disabled", "Disabled Focus"]}
@@ -85,13 +85,13 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
         <CalendarExample id="navigation-focus" />
       </StoryWrapper.Row>
     </StoryWrapper>
-  </div>
+  </>
 )
 
 export const StickerSheetCalendar = StickerSheetCalendarTemplate.bind({})
 StickerSheetCalendar.storyName = "Sticker Sheet (Default)"
 StickerSheetCalendar.parameters = {
-  chromatic: { disable: false, viewports: [1800] },
+  chromatic: { disable: false },
   controls: { disable: true },
 }
 
@@ -106,16 +106,16 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
   }
 
   const calendars = [
-    { calendar: "default", name: "5th September (Monday)" },
-    { calendar: "selected", name: "5th September (Monday)" },
-    { calendar: "navigation", name: "Go to previous month" },
+    { row: "default", name: "5th September (Monday)" },
+    { row: "selected", name: "5th September (Monday)" },
+    { row: "navigation", name: "Go to previous month" },
   ]
 
-  calendars.forEach(cal => {
-    getElementWithinCalendar(`${cal.calendar}-hover`, cal.name).classList.add(
-      "story_hover"
+  calendars.forEach(({ row, name }) => {
+    getElementWithinCalendar(`${row}-hover`, name).classList.add(
+      "story__datepicker__calendar--hover"
     )
-    getElementWithinCalendar(`${cal.calendar}-focus`, cal.name).classList.add(
+    getElementWithinCalendar(`${row}-focus`, name).classList.add(
       "focus-visible"
     )
   })
