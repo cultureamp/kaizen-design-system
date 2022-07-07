@@ -86,7 +86,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       schema,
       plugins: getPlugins(controls, schema),
     }),
-    { "aria-labelledby": labelId }
+    { "aria-labelledby": labelId, role: "textbox" }
   )
   const controlMap = buildControlMap(schema, editorState, controls)
 
