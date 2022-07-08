@@ -116,8 +116,8 @@ $rdp-cell-size: 40px;
         outline-offset: 1px;
         outline: $color-blue-500 $border-focus-ring-border-style
           $border-focus-ring-border-width;
-          background-color: $color-blue-100;
-          color: $color-blue-500;
+        background-color: $color-blue-100;
+        color: $color-blue-500;
       }
     }
   }
@@ -192,13 +192,13 @@ $rdp-cell-size: 40px;
       outline-offset: 1px;
       outline: $color-blue-500 $border-focus-ring-border-style
         $border-focus-ring-border-width;
-        background-color: $color-blue-100;
-        color: $color-blue-500;
-        &.daySelected {
-          background-color: $color-blue-400;
-          color: $color-white;
-        }
+      background-color: $color-blue-100;
+      color: $color-blue-500;
+      &.daySelected {
+        background-color: $color-blue-400;
+        color: $color-white;
       }
+    }
   }
 
   &:not([aria-disabled="true"]) {
