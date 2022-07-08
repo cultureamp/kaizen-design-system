@@ -98,7 +98,8 @@ $rdp-cell-size: 40px;
     border: $border-solid-border-width $border-solid-border-style transparent;
     border-radius: $cell-border-radius;
 
-    &:hover {
+    &:hover,
+    &:global(.story__datepicker__calendar--hover) {
       background-color: $color-blue-100;
       color: $color-blue-500;
     }
@@ -197,13 +198,15 @@ $rdp-cell-size: 40px;
 
   &:not([aria-disabled="true"]) {
     &:not(.outside) {
-      &:hover {
+      &:hover,
+      &:global(.story__datepicker__calendar--hover) {
         background-color: $color-blue-200;
         color: $color-blue-500;
       }
 
       &:not(.daySelected) {
-        &:hover {
+        &:hover,
+        &:global(.story__datepicker__calendar--hover) {
           border-radius: $cell-border-radius;
           background-color: $color-blue-100;
           color: $color-blue-500;
@@ -220,7 +223,8 @@ $rdp-cell-size: 40px;
       background-color: $color-blue-500;
       color: $color-white;
 
-      &:hover {
+      &:hover,
+      &:global(.story__datepicker__calendar--hover) {
         background-color: $color-blue-400;
         color: $color-white;
       }

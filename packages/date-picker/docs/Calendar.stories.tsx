@@ -1,6 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
+import { within } from "@storybook/testing-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DayOfWeek } from "../src/enums"
 import { Calendar, CalendarProps } from "../src/_primitives/Calendar"
@@ -30,32 +31,61 @@ export default {
 const CalendarExample = (
   props: Partial<CalendarProps> & { id: CalendarProps["id"] }
 ): JSX.Element => (
-  <Calendar
-    mode="single"
-    weekStartsOn={DayOfWeek.Sun}
-    onDayChange={() => undefined}
-    defaultMonth={new Date(2022, 1, 5)}
-    locale={enAU}
-    {...props}
-  />
+  <div data-testid={props.id}>
+    <Calendar
+      mode="single"
+      weekStartsOn={DayOfWeek.Sun}
+      onDayChange={() => undefined}
+      defaultMonth={new Date(2022, 8, 5)}
+      locale={enAU}
+      {...props}
+    />
+  </div>
 )
 
 const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader headings={["Selected Date", "Disabled Dates"]} />
-    <StoryWrapper.Row rowTitle="Calendar">
-      <CalendarExample
-        id="calendar-dialog-selected"
-        value={new Date(2022, 1, 5)}
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader
+        headings={["Hover", "Focus", "Disabled", "Disabled Focus"]}
       />
-      <CalendarExample
-        id="calendar-dialog-disabled"
-        disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
-      />
-    </StoryWrapper.Row>
-  </StoryWrapper>
+      <StoryWrapper.Row rowTitle="Default">
+        <CalendarExample id="default-hover" />
+        <CalendarExample id="default-focus" />
+        <CalendarExample
+          disabledDays={[
+            new Date(2022, 8, 15),
+            { after: new Date(2022, 8, 17) },
+          ]}
+          id="default-disabled"
+        />
+        <CalendarExample
+          disabledDays={[
+            new Date(2022, 8, 15),
+            { after: new Date(2022, 8, 17) },
+          ]}
+          id="default-disabled-focus"
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Selected", "Hover", "Focus"]} />
+      <StoryWrapper.Row rowTitle="Selected">
+        <CalendarExample value={new Date(2022, 8, 5)} id="selected-selected" />
+        <CalendarExample value={new Date(2022, 8, 5)} id="selected-hover" />
+        <CalendarExample value={new Date(2022, 8, 5)} id="selected-focus" />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} />
+      <StoryWrapper.Row rowTitle="Navigation Buttons">
+        <CalendarExample id="navigation-hover" />
+        <CalendarExample id="navigation-focus" />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
 )
 
 export const StickerSheetCalendar = StickerSheetCalendarTemplate.bind({})
@@ -63,4 +93,35 @@ StickerSheetCalendar.storyName = "Sticker Sheet (Default)"
 StickerSheetCalendar.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+
+StickerSheetCalendar.play = ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+
+  const getElementWithinCalendar = (id: string, name: string) => {
+    const calendar = canvas.getByTestId(id)
+    return within(calendar).getByRole("button", {
+      name,
+    })
+  }
+
+  const calendars = [
+    { row: "default", name: "5th September (Monday)" },
+    { row: "selected", name: "5th September (Monday)" },
+    { row: "navigation", name: "Go to previous month" },
+  ]
+
+  calendars.forEach(({ row, name }) => {
+    getElementWithinCalendar(`${row}-hover`, name).classList.add(
+      "story__datepicker__calendar--hover"
+    )
+    getElementWithinCalendar(`${row}-focus`, name).classList.add(
+      "focus-visible"
+    )
+  })
+
+  getElementWithinCalendar(
+    "default-disabled-focus",
+    "15th September (Thursday)"
+  ).classList.add("focus-visible")
 }
