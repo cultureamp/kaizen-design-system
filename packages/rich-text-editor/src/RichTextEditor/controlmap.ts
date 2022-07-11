@@ -7,7 +7,7 @@ import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.
 import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 
-import { EditorState, Transaction, TextSelection } from "prosemirror-state"
+import { EditorState, Transaction } from "prosemirror-state"
 import { Schema, NodeType, MarkType } from "prosemirror-model"
 import { Command, toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
@@ -32,49 +32,56 @@ type ControlGroupTypes = {
   [key in ToolbarControlTypes]?: string
 }
 
+/**
+ * Chains multiple commands to dispatch each transitions in sequential order
+ */
+function chainTransactions(...commands: Command[]): Command {
+  return (state, dispatch): boolean => {
+    const updateStateAndDispatch = (tr: Transaction): void => {
+      state = state.apply(tr)
+      dispatch && dispatch(tr)
+    }
+    const lastCommand = commands.pop()
+
+    for (const command of commands) {
+      command(state, updateStateAndDispatch)
+    }
+
+    return lastCommand !== undefined && lastCommand(state, dispatch)
+  }
+}
+
+/**
+ * Dispatches a transaction to create initial p tag required for pm commands
+ */
+function createInitialParagraph(
+  state: EditorState,
+  dispatch?: (tr: Transaction) => void
+) {
+  if (dispatch) {
+    const { tr, schema } = state
+
+    dispatch(tr.replaceSelectionWith(schema.nodes.paragraph.create()))
+    return true
+  }
+  return false
+}
+
 function createToggleMarkCommand(mark: MarkType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
-  ) => toggleMark(mark)(state, dispatch)
-}
+  ) => {
+    const docIsEmpty = state.doc.content.size === 0
 
-type PredicateCommand = (
-  state: EditorState,
-  dispatch?: (tr: Transaction) => void
-) => boolean
-
-const preCreateEditorNode = (node: NodeType) => (state, dispatch) =>
-  dispatch(state.tr.replaceSelectionWith(node.create()))
-
-function chainTransactions(...commands: PredicateCommand[]): PredicateCommand {
-  return (state, dispatch): boolean => {
-    const dispatcher = (tr: Transaction): void => {
-      state = state.apply(tr)
-      dispatch && dispatch(tr)
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, toggleMark(mark))(
+        state,
+        dispatch
+      )
     }
-    const last = commands.pop()
-    const reduced = commands.reduce(
-      (result, command) => result || command(state, dispatcher),
-      false
-    )
-    return reduced && last !== undefined && last(state, dispatch)
+    return toggleMark(mark)(state, dispatch)
   }
-}
-
-export const createInitialParagraph: Command = (state, dispatch) => {
-  const { $from, $to } = state.selection
-  const { paragraph } = state.schema.nodes
-
-  if (dispatch) {
-    const side = (
-      !$from.parentOffset && $to.index() < $to.parent.childCount ? $from : $to
-    ).pos
-    const tr = state.tr.insert(side, paragraph.createAndFill()!)
-    tr.setSelection(TextSelection.create(tr.doc, side + 1))
-    dispatch(tr.scrollIntoView())
-  }
-  return true
 }
 
 function createToggleListCommand(node: NodeType): Command {
@@ -82,14 +89,13 @@ function createToggleListCommand(node: NodeType): Command {
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
   ) => {
-    if (state.doc.content.size === 0) {
-      const paragraph = state.schema.nodes.paragraph
-      // return createParagraphNear(state, dispatch)
-      const chainedTransaction = chainTransactions(
-        createInitialParagraph,
-        wrapInList(node)
+    const docIsEmpty = state.doc.content.size === 0
+
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, wrapInList(node))(
+        state,
+        dispatch
       )
-      return chainedTransaction(state, dispatch)
     }
     return wrapInList(node)(state, dispatch)
   }
