@@ -207,6 +207,10 @@ $focus-border-color: $color-blue-500;
           border-color: $secondary-reversed-focus-color;
         }
       }
+
+      .placeholder {
+        color: $color-white;
+      }
     }
   }
 
@@ -305,7 +309,9 @@ $focus-border-color: $color-blue-500;
       max-width: 100%;
       padding-right: 30px;
     }
-
+    .placeholderOverrides {
+      padding-right: 30px;
+    }
     .singleValue {
       max-width: 100%;
     }

@@ -98,7 +98,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   })
   return (
     <>
-      {label ? <Label>{label}</Label> : null}
+      {label ? <Label reversed={reversed}>{label}</Label> : null}
       <ReactSelect
         {...props}
         ref={ref}
@@ -170,7 +170,7 @@ const Control: typeof components.Control = props => (
 )
 
 const Placeholder: typeof components.Placeholder = props => (
-  <components.Placeholder {...props}>
+  <components.Placeholder {...props} className={styles.placeholderOverrides}>
     <span className={styles.placeholder}>{props.children}</span>
   </components.Placeholder>
 )
