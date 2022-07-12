@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.listBox {
+  list-style: none;
+  padding: 0;
+  margin: $spacing-xs 0;
+  max-height: 210px; // TODO: TBD
+  display: grid;
+}

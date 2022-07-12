@@ -1,0 +1,8 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.footer {
+  border-top: 1px solid rgba($color-gray-600-rgb, 0.1);
+  gap: $spacing-sm;
+  display: inline-flex;
+  width: 100%;
+}
