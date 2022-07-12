@@ -27,22 +27,23 @@ export default {
 const items: ItemType[] = [
   { label: "Front-End", value: "id-fe", count: "12" },
   { label: "Back-End", value: "id-be", count: "4" },
-  { label: "Site reliability", value: "id-sre" },
+  { label: "SRE", value: "id-sre" },
+  { label: "Dev-ops", value: "id-devops" },
+  { label: "Others", value: "id-others" },
 ]
 
-const getLabels = (keys?: Selection) => {
+const getLabels = (keys?: Selection): string[] => {
   if (!keys) {
-    return ""
+    return []
   }
 
   if (keys === "all") {
-    return items.map(item => item.label).join(", ")
+    return items.map(item => item.label)
   }
 
   return Array.from(keys)
-    .map(key => items.find(item => item.value === key)?.label)
-    .filter(item => item)
-    .join(", ")
+    .map(key => items.find(item => item.value === key)?.label ?? "")
+    .filter(item => item !== "")
 }
 
 export const DefaultKaizenSiteDemo = args => {
@@ -84,8 +85,9 @@ export const DefaultKaizenSiteDemo = args => {
         items={items}
         trigger={_ => (
           <FilterSelect.TriggerButton
-            hasSelectedValues={Array.from(selectedKeys).length > 0}
-          >{`Engineer: ${getLabels(selectedKeys)}`}</FilterSelect.TriggerButton>
+            selectedLabels={getLabels(selectedKeys)}
+            label="Engineer"
+          />
         )}
       >
         {MenuContent}
@@ -99,8 +101,9 @@ export const DefaultKaizenSiteDemo = args => {
         trigger={_ => (
           <FilterSelect.TriggerButton
             isRemovalbe
-            hasSelectedValues={Array.from(selectedKeys).length > 0}
-          >{`Engineer: ${getLabels(selectedKeys)}`}</FilterSelect.TriggerButton>
+            selectedLabels={getLabels(selectedKeys)}
+            label="Engineer"
+          />
         )}
       >
         {MenuContent}
