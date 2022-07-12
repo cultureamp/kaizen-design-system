@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.2.0...@kaizen/draft-select@2.3.0) (2022-07-12)
+
+
+### Features
+
+* update secondary select styles ([#2856](https://github.com/cultureamp/kaizen-design-system/issues/2856)) ([44563a7](https://github.com/cultureamp/kaizen-design-system/commit/44563a763015fd880c328b63f3ccfdde7b646f5e))
+
+
+
+
+
 # [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.1.17...@kaizen/draft-select@2.2.0) (2022-07-05)
 
 
