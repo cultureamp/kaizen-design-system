@@ -76,7 +76,7 @@ export const DefaultKaizenSiteDemo = args => {
   return (
     <div style={{ display: "inline-flex", gap: 6 }}>
       {/* Not Removable */}
-      <FilterSelect
+      {/* <FilterSelect
         defaultOpen
         label="Engineer"
         onSelectionChange={handleSelectionChange}
@@ -89,7 +89,7 @@ export const DefaultKaizenSiteDemo = args => {
         )}
       >
         {MenuContent}
-      </FilterSelect>
+      </FilterSelect> */}
       {/* Removable */}
       <FilterSelect
         label="Engineer"
