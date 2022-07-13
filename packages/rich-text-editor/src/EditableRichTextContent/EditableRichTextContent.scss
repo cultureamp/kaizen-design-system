@@ -11,6 +11,7 @@
     transparent;
   transition: background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
+  background-color: $color-gray-200;
 }
 
 .editableContainer:hover :global(.ProseMirror) {
