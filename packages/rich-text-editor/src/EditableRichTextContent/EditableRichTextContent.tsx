@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, HTMLAttributes } from "react"
+import React, { MouseEvent, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -8,7 +8,7 @@ import styles from "./EditableRichTextContent.scss"
 
 export interface EditableRichTextContentProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick">> {
-  onClick: (event: SyntheticEvent<HTMLElement>) => void
+  onClick: (event: MouseEvent<HTMLElement>) => void
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
