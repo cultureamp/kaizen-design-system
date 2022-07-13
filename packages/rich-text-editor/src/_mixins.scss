@@ -18,6 +18,12 @@
     margin-bottom: 0;
   }
 
+  @include nestedListStyles {
+    @include nestedListStyles;
+  }
+}
+
+@mixin nestedListStyles {
   ol {
     list-style-type: decimal;
     ol {
