@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.5.2...@kaizen/date-picker@5.6.0) (2022-07-10)
+
+
+### Features
+
+* update focus and hover styles for Calendar component ([#2855](https://github.com/cultureamp/kaizen-design-system/issues/2855)) ([909622d](https://github.com/cultureamp/kaizen-design-system/commit/909622d225889e64e93c2c19d111b200757b01fd))
+
+
+
+
+
+## [5.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.5.1...@kaizen/date-picker@5.5.2) (2022-07-08)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.5.0...@kaizen/date-picker@5.5.1) (2022-07-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 # [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.4.2...@kaizen/date-picker@5.5.0) (2022-07-06)
 
 

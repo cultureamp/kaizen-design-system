@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.8...@kaizen/rich-text-editor@1.15.0) (2022-07-13)
+
+
+### Features
+
+* Create RichTextContent and EditableRichTextContent components ([#2854](https://github.com/cultureamp/kaizen-design-system/issues/2854)) ([1ca1bbe](https://github.com/cultureamp/kaizen-design-system/commit/1ca1bbe88e0f5296a3dc47d0972582c115e42865))
+
+
+
+
+
 ## [1.14.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.14.7...@kaizen/rich-text-editor@1.14.8) (2022-07-06)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
