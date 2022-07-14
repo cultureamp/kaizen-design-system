@@ -32,18 +32,73 @@ type ControlGroupTypes = {
   [key in ToolbarControlTypes]?: string
 }
 
+/**
+ * Chains multiple commands to dispatch each transitions in sequential order
+ */
+function chainTransactions(...commands: Command[]): Command {
+  return (state, dispatch): boolean => {
+    const updateStateAndDispatch = (tr: Transaction): void => {
+      state = state.apply(tr)
+      dispatch && dispatch(tr)
+    }
+    const lastCommand = commands.pop()
+
+    for (const command of commands) {
+      command(state, updateStateAndDispatch)
+    }
+
+    return lastCommand !== undefined && lastCommand(state, dispatch)
+  }
+}
+
+/**
+ * Dispatches a transaction to create initial p tag required for pm commands
+ */
+function createInitialParagraph(
+  state: EditorState,
+  dispatch?: (tr: Transaction) => void
+) {
+  if (dispatch) {
+    const { tr, schema } = state
+
+    dispatch(tr.replaceSelectionWith(schema.nodes.paragraph.create()))
+    return true
+  }
+  return false
+}
+
 function createToggleMarkCommand(mark: MarkType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
-  ) => toggleMark(mark)(state, dispatch)
+  ) => {
+    const docIsEmpty = state.doc.content.size === 0
+
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, toggleMark(mark))(
+        state,
+        dispatch
+      )
+    }
+    return toggleMark(mark)(state, dispatch)
+  }
 }
 
 function createToggleListCommand(node: NodeType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
-  ) => wrapInList(node)(state, dispatch)
+  ) => {
+    const docIsEmpty = state.doc.content.size === 0
+
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, wrapInList(node))(
+        state,
+        dispatch
+      )
+    }
+    return wrapInList(node)(state, dispatch)
+  }
 }
 
 function createLiftListCommand(): Command {
