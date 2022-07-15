@@ -1,0 +1,64 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.option {
+  height: $spacing-lg;
+
+  align-items: center;
+  display: inline-grid;
+  grid-template-columns: $spacing-md auto $spacing-md;
+  gap: $spacing-xs;
+  width: 100%;
+
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $border-borderless-border-color;
+  border-radius: $border-solid-border-radius;
+
+  &:hover,
+  &:active {
+    background-color: $color-blue-100;
+  }
+
+  // TODO: move to focus ring (::after) ?
+  &:focus {
+    outline: none; // cancel browser style
+    border-color: $color-blue-500;
+  }
+
+  &.isFocused {
+    border-color: $color-blue-500;
+  }
+
+  &.isDisabled {
+    opacity: 0.3;
+  }
+}
+
+.icon {
+  line-height: 1;
+  height: calc(#{$spacing-md} - #{$border-solid-border-width});
+  width: calc(#{$spacing-md} - #{$border-solid-border-width});
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.isSelected {
+  &.icon {
+    background-color: $color-gray-500;
+    color: white;
+  }
+
+  font-weight: 600;
+}

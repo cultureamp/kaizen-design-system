@@ -1,0 +1,8 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+
+$button-height: $spacing-xl;
+$button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+$button-vertical-padding--form: calc(
+  #{$spacing-md / 3} - #{$border-solid-border-width}
+);
