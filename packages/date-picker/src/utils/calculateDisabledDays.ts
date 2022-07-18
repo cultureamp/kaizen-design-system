@@ -4,7 +4,7 @@ import {
   DateInterval,
 } from "react-day-picker/src/types/Matchers"
 
-import { DayOfWeek } from "../DatePicker/enums"
+import { DayOfWeek } from "../enums"
 
 /**
  * To save the consumer from passing an array of disabledDay options (each being a different object).

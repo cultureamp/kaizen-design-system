@@ -2,13 +2,17 @@ import React, { Children } from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import {
+  CATEGORIES,
+  SUB_CATEGORIES,
+  SUB_COMPONENTS_FOLDER_NAME,
+} from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton, ToggleIconButtonProps } from "../"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Toggle Icon Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toggle Icon Button`,
   component: ToggleIconButton,
   parameters: {
     actions: {

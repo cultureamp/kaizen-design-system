@@ -12,7 +12,7 @@ import {
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
-import { EditorContentArray, EditorRows } from "./types"
+import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
 import { buildControlMap } from "./controlmap"
@@ -20,20 +20,7 @@ import { buildInputRules } from "./inputrules"
 import styles from "./RichTextEditor.scss"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
-export type ToolbarControlTypes =
-  | "bold"
-  | "italic"
-  | "underline"
-  | "orderedList"
-  | "bulletList"
-  | "link"
-
-export interface ToolbarItems {
-  name: ToolbarControlTypes
-  group?: string
-}
-
-interface BaseRichTextEditorProps
+export interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
   onChange: (content: EditorContentArray) => void
   value: EditorContentArray
@@ -86,7 +73,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       schema,
       plugins: getPlugins(controls, schema),
     }),
-    { "aria-labelledby": labelId }
+    { "aria-labelledby": labelId, role: "textbox" }
   )
   const controlMap = buildControlMap(schema, editorState, controls)
 

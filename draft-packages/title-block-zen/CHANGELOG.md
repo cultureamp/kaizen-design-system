@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.2.10...@kaizen/draft-title-block-zen@7.2.11) (2022-07-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.2.9...@kaizen/draft-title-block-zen@7.2.10) (2022-07-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [7.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.2.8...@kaizen/draft-title-block-zen@7.2.9) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

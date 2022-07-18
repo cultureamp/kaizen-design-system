@@ -9,6 +9,7 @@ import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
@@ -97,7 +98,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   })
   return (
     <>
-      {label ? <Label>{label}</Label> : null}
+      {label ? <Label reversed={reversed}>{label}</Label> : null}
       <ReactSelect
         {...props}
         ref={ref}
@@ -169,16 +170,17 @@ const Control: typeof components.Control = props => (
 )
 
 const Placeholder: typeof components.Placeholder = props => (
-  <components.Placeholder {...props}>
+  <components.Placeholder {...props} className={styles.placeholderOverrides}>
     <span className={styles.placeholder}>{props.children}</span>
   </components.Placeholder>
 )
 
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
-  // Suppress typing issue - looks like the type defs are incorrect
-  // @ts-ignore
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
-    <Icon icon={chevronDownIcon} role="presentation" />
+    <Icon
+      icon={props.selectProps.menuIsOpen ? chevronUpIcon : chevronDownIcon}
+      role="presentation"
+    />
   </components.DropdownIndicator>
 )
 

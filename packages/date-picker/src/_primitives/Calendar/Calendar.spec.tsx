@@ -1,6 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import { format } from "date-fns"
+import { enUS } from "date-fns/locale"
 import { DayOfWeek } from "../../enums"
 import { Calendar, CalendarProps } from "./Calendar"
 import "@testing-library/jest-dom"
@@ -10,7 +11,7 @@ const defaultProps: CalendarProps = {
   id: "calendar-dialog",
   onDayChange: jest.fn<void, [Date]>(),
   weekStartsOn: DayOfWeek.Mon,
-  setPopperElement: jest.fn(),
+  locale: enUS,
 }
 
 const CalendarWrapper = (props: Partial<CalendarProps>) => (

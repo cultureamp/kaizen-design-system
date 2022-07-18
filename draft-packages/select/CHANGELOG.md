@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.2.0...@kaizen/draft-select@2.3.0) (2022-07-12)
+
+
+### Features
+
+* update secondary select styles ([#2856](https://github.com/cultureamp/kaizen-design-system/issues/2856)) ([44563a7](https://github.com/cultureamp/kaizen-design-system/commit/44563a763015fd880c328b63f3ccfdde7b646f5e))
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.1.17...@kaizen/draft-select@2.2.0) (2022-07-05)
+
+
+### Features
+
+* Add chevron up to Select when dropdown is open ([#2837](https://github.com/cultureamp/kaizen-design-system/issues/2837)) ([ad99657](https://github.com/cultureamp/kaizen-design-system/commit/ad99657c47601783c9172109863efcb9fb04aef5))
+
+
+
+
+
 ## [2.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.1.16...@kaizen/draft-select@2.1.17) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-select

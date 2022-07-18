@@ -1,5 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
+import "@testing-library/jest-dom"
+import { enUS } from "date-fns/locale"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { DateInput, DateInputProps } from "./DateInput"
 
@@ -12,6 +14,7 @@ const defaultProps = {
   onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
   calendarId: "calendar-dialog",
   value: undefined,
+  locale: enUS,
 }
 
 const DateInputWrapper = (props: Partial<DateInputProps>) => (
