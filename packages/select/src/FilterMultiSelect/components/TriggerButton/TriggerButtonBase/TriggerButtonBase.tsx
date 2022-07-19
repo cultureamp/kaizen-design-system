@@ -55,7 +55,7 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
         <button
           className={classNames(buttonStyle, styles.removeButton)}
           aria-label={`Remove ${label} filter`}
-          onClick={() => onRemove && onRemove()}
+          onClick={() => onRemove && onRemove()} // build failed if I dont put onRemove
         >
           <Icon icon={clear} role="presentation" />
         </button>

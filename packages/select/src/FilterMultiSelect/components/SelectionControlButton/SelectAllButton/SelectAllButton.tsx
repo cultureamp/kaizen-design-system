@@ -8,7 +8,12 @@ export const SelectAllButton: React.VFC = () => {
   return (
     <button
       className={styles.button}
-      onClick={() => selectionState.selectionManager.selectAll()}
+      onClick={
+        () =>
+          !selectionState.selectionManager.isSelectAll &&
+          selectionState.selectionManager.selectAll()
+        // TODO: add annoucemnt here to inform all selected
+      }
     >
       Select All
     </button>

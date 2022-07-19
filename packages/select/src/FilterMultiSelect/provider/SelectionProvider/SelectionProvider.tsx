@@ -2,19 +2,17 @@ import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
 import {
   CollectionChildren,
   SelectionMode,
-  FocusStrategy,
   Node,
   Selection,
 } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { ItemType } from "../type"
+import { ItemType } from "../../type"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
   children: React.ReactNode // control how menu should look like
-  autoFocus?: boolean | FocusStrategy
   items: ItemType[]
   renderItems: CollectionChildren<ItemType> // for useListState to initialise selection, can be only Item or Section
   onSelectionChange?: (keys: Selection) => void
@@ -41,7 +39,7 @@ export function SelectionProvider({
 }: SelectionProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("")
 
-  // TODO: Support Async search?
+  // TODO: Support Async search? e.g. option props searchFilter
   const searchFilter = useCallback(
     (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
       searchQuery
@@ -52,14 +50,14 @@ export function SelectionProvider({
     [searchQuery]
   )
 
-  // useListState -> Selection
+  // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...props,
     children: renderItems,
     filter: searchFilter,
   })
 
-  // useListBox -> A11y
+  // Get A11y attributes and events for the listbox
   const ref = React.createRef<HTMLUListElement>()
   const { listBoxProps, labelProps } = useListBox(
     {

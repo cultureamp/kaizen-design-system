@@ -8,7 +8,10 @@ export const ClearButton: React.VFC = () => {
   return (
     <button
       className={styles.button}
-      onClick={() => selectionState.selectionManager.clearSelection()}
+      onClick={
+        () => selectionState.selectionManager.clearSelection()
+        // TODO: add annoucemnt here to inform selection cleared
+      }
     >
       Clear
     </button>
