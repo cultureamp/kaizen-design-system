@@ -17,3 +17,5 @@ export const SUB_CATEGORIES = {
   loadingSkeleton: "Loading Skeleton",
   datePicker: "Date Picker",
 }
+
+export const SUB_COMPONENTS_FOLDER_NAME = "Subcomponents"

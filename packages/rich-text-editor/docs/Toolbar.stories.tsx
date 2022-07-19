@@ -7,12 +7,16 @@ import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import {
+  CATEGORIES,
+  SUB_CATEGORIES,
+  SUB_COMPONENTS_FOLDER_NAME,
+} from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton, Toolbar, ToolbarProps, ToolbarSection } from "../"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Toolbar`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toolbar`,
   component: Toolbar,
   parameters: {
     actions: {
