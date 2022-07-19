@@ -10,7 +10,7 @@ import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
 
 export interface MenuTriggerProviderProps {
-  defaultOpen: boolean
+  defaultOpen?: boolean
   children: React.ReactNode
 }
 
