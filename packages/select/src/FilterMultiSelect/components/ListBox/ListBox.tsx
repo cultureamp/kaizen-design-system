@@ -1,15 +1,11 @@
 import React from "react"
 import { Node } from "@react-types/shared"
-import { ListState } from "@react-stately/list"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import { ItemType } from "../../type"
 import styles from "./ListBox.scss"
 
 export interface ListBoxProps {
-  children: (
-    item: Node<ItemType>,
-    selectionState: ListState<ItemType>
-  ) => React.ReactNode
+  children: (item: Node<ItemType>) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
@@ -17,8 +13,8 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
   return (
     <ul {...listBoxProps} ref={listRef} className={styles.listBox}>
       {Array.from(selectionState.collection).map(item =>
-        // pass on item and selectionState to render children
-        children(item, selectionState)
+        // pass item to render children
+        children(item)
       )}
     </ul>
   )

@@ -15,7 +15,7 @@ export const SelectAllButton: React.VFC = () => {
         // TODO: add annoucemnt here to inform all selected
       }
     >
-      Select All
+      Select all
     </button>
   )
 }

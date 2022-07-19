@@ -46,6 +46,21 @@ const getLabels = (keys?: Selection): string[] => {
     .filter(item => item !== "")
 }
 
+const MenuContent = (_: SelectionProviderContextType) => (
+  <>
+    <FilterMultiSelect.SearchInput label="Search label" />
+    <FilterMultiSelect.ListBox>
+      {item => (
+        <FilterMultiSelect.MultiSelectOption key={item.key} item={item} />
+      )}
+    </FilterMultiSelect.ListBox>
+    <FilterMultiSelect.MenuFooter>
+      <FilterMultiSelect.SelectAllButton />
+      <FilterMultiSelect.ClearButton />
+    </FilterMultiSelect.MenuFooter>
+  </>
+)
+
 export const DefaultKaizenSiteDemo = args => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
@@ -54,25 +69,6 @@ export const DefaultKaizenSiteDemo = args => {
   const handleSelectionChange = (keys: Selection) => {
     keys && setSelectedKeys(keys)
   }
-
-  const MenuContent = (_: SelectionProviderContextType) => (
-    <>
-      <FilterMultiSelect.SearchInput label="Search label" />
-      <FilterMultiSelect.ListBox>
-        {(item, selectionState) => (
-          <FilterMultiSelect.MultiSelectOption
-            key={item.key}
-            item={item}
-            state={selectionState}
-          />
-        )}
-      </FilterMultiSelect.ListBox>
-      <FilterMultiSelect.MenuFooter>
-        <FilterMultiSelect.SelectAllButton />
-        <FilterMultiSelect.ClearButton />
-      </FilterMultiSelect.MenuFooter>
-    </>
-  )
 
   return (
     <div style={{ display: "inline-flex", gap: 6 }}>
@@ -104,25 +100,6 @@ export const RemovableDemo = args => {
   const handleSelectionChange = (keys: Selection) => {
     keys && setSelectedKeys(keys)
   }
-
-  const MenuContent = (_: SelectionProviderContextType) => (
-    <>
-      <FilterMultiSelect.SearchInput label="Search label" />
-      <FilterMultiSelect.ListBox>
-        {(item, selectionState) => (
-          <FilterMultiSelect.MultiSelectOption
-            key={item.key}
-            item={item}
-            state={selectionState}
-          />
-        )}
-      </FilterMultiSelect.ListBox>
-      <FilterMultiSelect.MenuFooter>
-        <FilterMultiSelect.SelectAllButton />
-        <FilterMultiSelect.ClearButton />
-      </FilterMultiSelect.MenuFooter>
-    </>
-  )
 
   return (
     <FilterMultiSelect

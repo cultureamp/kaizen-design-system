@@ -1,5 +1,4 @@
 import React from "react"
-import { Item } from "@react-stately/collections"
 import { SelectionMode, Selection } from "@react-types/shared"
 import {
   MenuTriggerConsumer,
@@ -47,7 +46,6 @@ export const Root: React.VFC<RootProps> = ({
         <SelectionProvider
           items={items}
           selectionMode={selectionMode}
-          renderItems={item => <Item key={item.value}>{item.label}</Item>}
           label={label}
           selectedKeys={selectedKeys}
           onSelectionChange={onSelectionChange}

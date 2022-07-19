@@ -1,20 +1,15 @@
 import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
-import {
-  CollectionChildren,
-  SelectionMode,
-  Node,
-  Selection,
-} from "@react-types/shared"
+import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
+import { Item } from "@react-stately/collections"
 import { ItemType } from "../../type"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
   children: React.ReactNode // control how menu should look like
   items: ItemType[]
-  renderItems: CollectionChildren<ItemType> // for useListState to initialise selection, can be only Item or Section
   onSelectionChange?: (keys: Selection) => void
   selectedKeys?: Selection
   label: string
@@ -33,10 +28,7 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
   {} as SelectionProviderContextType
 )
 
-export function SelectionProvider({
-  renderItems,
-  ...props
-}: SelectionProviderProps) {
+export function SelectionProvider(props: SelectionProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("")
 
   // TODO: Support Async search? e.g. option props searchFilter
@@ -53,7 +45,7 @@ export function SelectionProvider({
   // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...props,
-    children: renderItems,
+    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection, can be only Item or Section
     filter: searchFilter,
   })
 

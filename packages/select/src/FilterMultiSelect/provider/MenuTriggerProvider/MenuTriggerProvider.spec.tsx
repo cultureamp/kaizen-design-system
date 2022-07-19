@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { TriggerButtonBase } from "../../components/TriggerButton/TriggerButtonBase"
 import { MenuPopup } from "../../components/MenuPopup"
@@ -60,10 +60,7 @@ describe("<MenuTriggerProvider /> - Mouse interaction", () => {
       })
       userEvent.click(trigger)
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).toBeVisible()
     })
   })
 
@@ -75,20 +72,14 @@ describe("<MenuTriggerProvider /> - Mouse interaction", () => {
       })
       userEvent.click(trigger)
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).not.toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
     it("is closed when user clicks outside of the menu", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
       userEvent.click(document.body)
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).not.toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
     it("remains open when user clicks inside of the menu", () => {
@@ -98,26 +89,22 @@ describe("<MenuTriggerProvider /> - Mouse interaction", () => {
       })
       userEvent.click(buttonInsideMenu)
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).toBeVisible()
     })
   })
 })
 
 describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
   describe("Given the menu is closed", () => {
-    it("allows you to tab to the trigger", () => {
+    it("allows the user to tab to the trigger", () => {
       render(<MenuTriggerProviderWrapper />)
       const trigger = screen.getByRole("button", {
         name: "trigger-display-label-mock",
       })
       userEvent.tab()
+      userEvent.tab()
 
-      waitFor(() => {
-        expect(trigger).toHaveFocus()
-      })
+      expect(trigger).toHaveFocus()
     })
 
     it("opens the menu when hits enter key", () => {
@@ -125,18 +112,11 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
       const trigger = screen.getByRole("button", {
         name: "trigger-display-label-mock",
       })
-      userEvent.tab()
-
-      waitFor(() => {
-        expect(trigger).toHaveFocus()
-      })
+      trigger.focus()
 
       userEvent.keyboard("{Enter}")
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).toBeVisible()
     })
   })
 
@@ -144,48 +124,35 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
     // TBD
     it("moves the focus to the first focusable element inside the menu initially", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
-      const menu = screen.queryByText("menu-content-mock")
-      expect(menu).toBeVisible()
+      expect(screen.queryByText("menu-content-mock")).toBeVisible()
 
-      waitFor(() => {
-        expect(
-          screen.queryByRole("button", { name: "menu-content-button-mock" })
-        ).toHaveFocus()
-      })
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" })
+      ).toHaveFocus()
     })
 
     it("is closed when hits the escape key", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
-      waitFor(() => {
-        expect(
-          screen.queryByRole("button", { name: "menu-content-button-mock" })
-        ).toHaveFocus()
-      })
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" })
+      ).toHaveFocus()
 
       userEvent.keyboard("{Escape}")
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).not.toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
     it("is closed when the focus is moved outside of the menu", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
-      waitFor(() => {
-        expect(
-          screen.queryByRole("button", { name: "menu-content-button-mock" })
-        ).toHaveFocus()
-      })
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" })
+      ).toHaveFocus()
 
       userEvent.click(document.body)
 
-      waitFor(() => {
-        const menu = screen.queryByText("menu-content-mock")
-        expect(menu).not.toBeVisible()
-      })
+      expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
   })
 })

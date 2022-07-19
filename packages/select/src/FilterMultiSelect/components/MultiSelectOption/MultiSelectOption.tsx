@@ -3,24 +3,23 @@ import { mergeProps } from "@react-aria/utils"
 import { useFocusRing } from "@react-aria/focus"
 import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
-import { ListState } from "@react-stately/list"
 import classNames from "classnames"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import { Badge } from "@kaizen/draft-badge"
 import { ItemType } from "../../type"
+import { useSelectionContext } from "../../provider"
 import styles from "./MultiSelectOption.scss"
 
 // TODO: could rename to Option?
 export interface MultiSelectOptionProps {
   item: Node<ItemType>
-  state: ListState<ItemType>
 }
 
 export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
   item,
-  state,
 }) => {
+  const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
   const { optionProps, isSelected, isDisabled } = useOption(
