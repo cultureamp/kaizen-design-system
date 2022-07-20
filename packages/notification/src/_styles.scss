@@ -168,7 +168,7 @@ $notification-slide-right: transform 300ms ease-out;
     width: $size;
     height: $size;
     padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
-    margin:  calc(#{$spacing-md} / 4);
+    margin: calc(#{$spacing-md} / 4);
     border-radius: $border-solid-border-radius;
 
     // Override the type-specific color values set above
