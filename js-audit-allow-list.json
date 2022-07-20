@@ -14,16 +14,7 @@
       "cve": "CVE-2021-3807",
       "reason": "Dev dependency",
       "reviewer": "cassandra.tam",
-      "whenSubDependencyOf": ["@storybook/node-logger", "commitizen"]
-    }
-  ],
-  "minimist": [
-    {
-      "title": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
-      "cve": "CVE-2021-44906",
-      "reason": "Dev dependency; Note: Commitizen has been updated, but there hasn't been a release yet",
-      "reviewer": "cassandra.tam",
-      "whenSubDependencyOf": ["commitizen"]
+      "whenSubDependencyOf": ["@storybook/node-logger"]
     }
   ]
 }
