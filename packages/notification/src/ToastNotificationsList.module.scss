@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/component-library/styles/layers";
 
 .list {
   display: flex;
@@ -14,7 +13,7 @@
   right: $spacing-md;
   top: 0;
   bottom: 0;
-  z-index: $ca-z-index-fixed;
+  z-index: 1030;
   max-width: 100%;
   pointer-events: none;
 
