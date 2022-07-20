@@ -96,7 +96,7 @@ $notification-slide-right: transform 300ms ease-out;
     color: $color-purple-800;
 
     &%ca-notification---global {
-      background-color: $color-red-300;
+      background-color: $color-red-200;
     }
   }
 
@@ -306,8 +306,8 @@ $notification-slide-right: transform 300ms ease-out;
   %ca-notification---toast & {
     width: $spacing-xl;
     height: $spacing-xl;
-    margin-top: calc(-1 * #{$spacing-sm});
-    margin-bottom: calc(-1 * #{$spacing-sm});
+    margin-top: calc(-1 * #{$spacing-xs});
+    margin-bottom: calc(-1 * #{$spacing-xs});
   }
 
   %ca-notification---inline & {
