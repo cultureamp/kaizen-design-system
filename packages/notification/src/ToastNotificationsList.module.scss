@@ -17,10 +17,10 @@
   max-width: 100%;
   pointer-events: none;
 
-  @media (max-width: $layout-breakpoints-large - 1px) {
+  @media (max-width: ($layout-breakpoints-large - 1px)) {
     padding-top: 108px;
   }
-  @media (max-width: $layout-breakpoints-medium - 1px) {
+  @media (max-width: ($layout-breakpoints-medium - 1px)) {
     left: $spacing-md;
   }
 }
