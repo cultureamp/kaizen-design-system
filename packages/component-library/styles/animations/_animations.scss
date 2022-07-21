@@ -24,11 +24,7 @@
     $from: 1;
     $to: 0;
   }
-  $keyframes: fade(
-    $from: $from,
-    $to: $to,
-  );
-  @include ca-animation($keyframes);
+  @include ca-animation(fade($from: $from, $to: $to));
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
