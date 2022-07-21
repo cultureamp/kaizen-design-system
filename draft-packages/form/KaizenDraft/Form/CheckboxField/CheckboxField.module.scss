@@ -1,11 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Checkbox/styles";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Label/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "../decision-tokens.scss";
+@import "../variables";
 
 // -----------------------------------------------
 // Checkbox Field
@@ -43,8 +41,4 @@
       @include ca-inherit-baseline;
     }
   }
-}
-
-.description {
-  padding-left: $checkbox-size + $label-start-margin;
 }

@@ -6,14 +6,6 @@
 @import "~@kaizen/component-library/styles/utils";
 @import "~@kaizen/component-library/styles/mixins/forms";
 
-// -----------------------------------------------
-// Text Field
-// -----------------------------------------------
-
-///////////////////////////////////////////////////
-// MIXINS
-///////////////////////////////////////////////////
-
 @mixin input-icon($color, $reversed) {
   color: $color;
 
@@ -22,7 +14,6 @@
   }
 }
 
-// Vars
 $input-disabled-opacity: 0.3;
 
 ///////////////////////////////////////////////////

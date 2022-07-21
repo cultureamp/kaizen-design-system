@@ -7,7 +7,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/mixins/forms";
-@import "../../decision-tokens.scss";
+@import "../../variables";
 
 $animation-timing: $ca-duration-immediate $ca-linear;
 $focus-ring-offset: 2px;

@@ -3,29 +3,18 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
 @import "../../mixins";
+@import "../mixins";
 
-// -----------------------------------------------
-// Form Input Primitive
-// -----------------------------------------------
-
-// Vars
 $input-height: 48px;
 $input-base-padding-horizontal: calc(#{$ca-grid} / 2);
 $input-icon-size: 1.25rem; // 20px
-$input-placeholder-opacity: 0.5;
-$input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
 $search-input-placeholder-opacity: 0.7;
 $search-input-disabled-icon-opacity: 0.8;
 $border-solid-border-radius-curved: $input-height;
-
-///////////////////////////////////////////////////
-// BASE STYLES
-///////////////////////////////////////////////////
 
 .wrapper {
   position: relative;

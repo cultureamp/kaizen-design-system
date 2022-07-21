@@ -3,13 +3,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "../../decision-tokens.scss";
+@import "../../variables";
 
 $label-start-margin: 10px;
-
-// -----------------------------------------------
-// Form Control Label Primitive
-// -----------------------------------------------
 
 .label,
 :global(.ideal-sans) .label {

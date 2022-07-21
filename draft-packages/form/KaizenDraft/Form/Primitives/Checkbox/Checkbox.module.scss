@@ -3,11 +3,13 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
-@import "../../decision-tokens.scss";
+@import "../../variables";
 
 $checkbox-size: 24px;
 $icon-size: 24px;
 $focus-ring-offset: 2px;
+
+$dt-color-checkbox-background-color-checked: $color-gray-500;
 
 // override bootstrap styles
 .checkbox.checkbox {

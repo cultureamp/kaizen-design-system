@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "../../decision-tokens.scss";
+@import "../../variables";
 
 $message-icon-size: 1.25rem;
 $validation-message-padding: 0.5625rem;

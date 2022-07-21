@@ -31,6 +31,14 @@ $input-placeholder-line-height: 2.9rem;
   }
 }
 
+@mixin form-input-focus-state {
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]),
+  &:hover:not([disabled]) {
+    @content;
+  }
+}
+
 // Simple form input css reset
 @mixin form-input-reset() {
   outline: 0;
