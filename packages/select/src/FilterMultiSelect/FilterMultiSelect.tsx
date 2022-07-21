@@ -33,3 +33,6 @@ export interface ItemType {
 }
 
 export * from "./provider"
+
+// TODO: might be more types from @react-X to export, do we have a strategy for this case?
+export type { Selection } from "@react-types/shared"
