@@ -22,7 +22,8 @@
     "clean": "lerna run clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
-    "commit": "cz"
+    "commit": "cz",
+    "plop": "plop"
   },
   "dependencies": {
     "@storybook/addons": "^6.5.9",
@@ -93,6 +94,7 @@
     "jest-static-stubs": "^0.0.1",
     "lerna": "3.22.1",
     "node-fetch": "^2.6.7",
+    "plop": "^3.1.1",
     "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.0.0",
