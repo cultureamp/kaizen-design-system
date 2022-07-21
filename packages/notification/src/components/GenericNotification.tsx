@@ -35,6 +35,22 @@ type State = {
 }
 
 class GenericNotification extends React.Component<Props, State> {
+  static defaultProps = {
+    persistent: false,
+
+    autohide: false,
+    autohideDelay: "short",
+  }
+
+  state = {
+    hidden: true,
+    removed: false,
+  }
+
+  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
+
+  containerRef = React.createRef<HTMLDivElement>()
+
   constructor(props: Props) {
     super(props)
 
@@ -157,22 +173,6 @@ class GenericNotification extends React.Component<Props, State> {
   hide() {
     this.setState({ hidden: true })
   }
-
-  static defaultProps = {
-    persistent: false,
-
-    autohide: false,
-    autohideDelay: "short",
-  }
-
-  state = {
-    hidden: true,
-    removed: false,
-  }
-
-  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
-
-  containerRef = React.createRef<HTMLDivElement>()
 }
 
 type CancelButtonProps = {

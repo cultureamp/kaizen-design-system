@@ -26,6 +26,11 @@ export type DropdownProps = {
  * @deprecated Dropdown is deprecated. Please use draft-menu instead.
  */
 class Dropdown extends React.Component<DropdownProps, DropdownState> {
+  static displayName = "Dropdown"
+  static defaultProps: DropdownProps = {
+    iconPosition: "start",
+  }
+  dropdownButton = React.createRef<HTMLButtonElement>()
   constructor(props: DropdownProps) {
     super(props)
 
@@ -142,12 +147,6 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
       </React.Fragment>
     )
   }
-
-  static displayName = "Dropdown"
-  static defaultProps: DropdownProps = {
-    iconPosition: "start",
-  }
-  dropdownButton = React.createRef<HTMLButtonElement>()
 }
 
 export default Dropdown

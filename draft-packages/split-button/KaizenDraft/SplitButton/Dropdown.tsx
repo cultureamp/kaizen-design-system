@@ -20,6 +20,11 @@ export type DropdownProps = {
  * @deprecated Draft SplitButton/Dropdown is deprecated.
  */
 class Dropdown extends React.Component<DropdownProps> {
+  static displayName = "Dropdown"
+  static defaultProps = {
+    dir: "ltr",
+    variant: "default",
+  }
   constructor(props: DropdownProps) {
     super(props)
   }
@@ -49,12 +54,6 @@ class Dropdown extends React.Component<DropdownProps> {
     e.stopPropagation()
     const { onOpenDropdown } = this.props
     onOpenDropdown()
-  }
-
-  static displayName = "Dropdown"
-  static defaultProps = {
-    dir: "ltr",
-    variant: "default",
   }
 }
 export default Dropdown
