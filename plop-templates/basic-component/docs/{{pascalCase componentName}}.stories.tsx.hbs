@@ -21,8 +21,8 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof {{pascalCase componentName}}>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
-DefaultKaizenSiteDemo.storyName = "{{pascalCase componentName}}"
+export const DefaultStory: ComponentStory<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
+DefaultStory.storyName = "{{pascalCase componentName}}"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
