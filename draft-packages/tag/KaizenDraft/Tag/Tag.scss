@@ -2,7 +2,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 $medium: calc(#{$spacing-md} * 1.25);
 $small: $spacing-md;
@@ -15,11 +14,11 @@ $small: $spacing-md;
   font: inherit;
   margin: 0;
   padding: 0;
-  transition: none; // override Murmur global styles :(
+  transition: none;
 }
 
 .root {
-  @include ca-margin($end: calc(#{$spacing-md} * 0.5));
+  margin-inline-end: calc(#{$spacing-md} * 0.5);
   font-size: $typography-paragraph-small-font-size;
   font-weight: $typography-paragraph-small-font-weight;
   letter-spacing: $typography-paragraph-small-letter-spacing;
@@ -43,21 +42,26 @@ $small: $spacing-md;
 }
 
 .validationIcon {
-  @include ca-margin($start: calc(#{$spacing-md} * -0.15), $end: $spacing-xs);
-  display: flex;
   align-items: center;
+  display: flex;
+  margin-inline-start: calc(#{$spacing-md} * -0.15);
+  margin-inline-end: $spacing-xs;
 }
 
 .profile {
-  @include ca-margin($start: calc(#{$spacing-md} * -0.15), $end: $spacing-xs);
+  margin-inline-start: calc(#{$spacing-md} * -0.15);
+  margin-inline-end: $spacing-xs;
   display: flex;
   align-items: center;
 }
 
 .textContent {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
   margin-top: -1px;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
   white-space: nowrap;
 }
 
@@ -68,14 +72,10 @@ $small: $spacing-md;
   height: 100%;
   align-items: center;
   padding: 0 $spacing-xs;
-  margin-right: -0.6625rem;
-  margin-left: -0.225rem;
+  margin-inline-end: -0.6625rem;
+  margin-inline-start: -0.225rem;
   color: rgba($color-purple-800-rgb, 0.7);
   cursor: pointer;
-  [dir="rtl"] & {
-    margin-left: -0.6625rem;
-    margin-right: -0.225rem;
-  }
 
   &:hover {
     color: $color-purple-800;
@@ -232,10 +232,8 @@ $pulse-ring-position: calc(
 );
 
 .pulse {
-  @include ca-margin(
-    $start: calc(#{$spacing-md} * 0.35),
-    $end: calc(#{$spacing-md} * 0.15)
-  );
+  margin-inline-start: calc(#{$spacing-md} * 0.35);
+  margin-inline-end: calc(#{$spacing-md} * 0.15);
   width: $pulse-size-initial;
   height: $pulse-size-initial;
   border-radius: 50%;
