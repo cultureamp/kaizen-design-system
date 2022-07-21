@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-form",
-  "version": "7.2.14",
+  "version": "7.2.15",
   "description": "The draft Form component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-base": "^1.1.0",
-    "@kaizen/component-library": "^15.0.3",
+    "@kaizen/component-library": "^15.0.4",
     "@kaizen/deprecated-component-library-helpers": "^2.5.6",
     "@kaizen/loading-spinner": "^2.2.3",
     "@kaizen/typography": "^2.2.3",
