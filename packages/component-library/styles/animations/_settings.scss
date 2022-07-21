@@ -1,3 +1,6 @@
+@import "./durations";
+@import "./easings";
+
 // CLASSES
 $motion-ui-classes: (
   chain: true,
@@ -29,5 +32,3 @@ $motion-ui-easings: (
   bounce-out: $ca-bounce-out,
   bounce-in-out: $ca-bounce-in-out,
 );
-
-@import "~motion-ui/src/motion-ui";

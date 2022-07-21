@@ -1,3 +1,6 @@
+@import "./vendor/effects/fade";
+@import "./vendor/util/args";
+
 @mixin ca-animation-pop($duration: $ca-duration-slow, $delay: null) {
   @include ca-animation(pop());
   animation-duration: $duration;
@@ -21,8 +24,11 @@
     $from: 1;
     $to: 0;
   }
-
-  @include ca-animation(fade($from: $from, $to: $to));
+  $keyframes: fade(
+    $from: $from,
+    $to: $to,
+  );
+  @include ca-animation($keyframes);
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
