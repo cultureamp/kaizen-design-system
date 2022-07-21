@@ -4,7 +4,7 @@ import { useListBox } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Item } from "@react-stately/collections"
-import { ItemType } from "../../type"
+import { ItemType } from "../../FilterMultiSelect"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
@@ -45,7 +45,7 @@ export function SelectionProvider(props: SelectionProviderProps) {
   // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...props,
-    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection, can be only Item or Section
+    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
     filter: searchFilter,
   })
 

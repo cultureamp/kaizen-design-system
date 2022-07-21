@@ -7,8 +7,8 @@ import classNames from "classnames"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import { Badge } from "@kaizen/draft-badge"
-import { ItemType } from "../../type"
 import { useSelectionContext } from "../../provider"
+import { ItemType } from "../../FilterMultiSelect"
 import styles from "./MultiSelectOption.scss"
 
 // TODO: could rename to Option?
@@ -54,6 +54,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
       >
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>
+      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
       {item.value.count && <Badge>{item.value.count}</Badge>}
     </li>

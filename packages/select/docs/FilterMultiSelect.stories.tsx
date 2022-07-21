@@ -5,7 +5,7 @@ import { Selection } from "@react-types/shared"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { SelectionProviderContextType } from "../src/FilterMultiSelect/provider/SelectionProvider"
-import { ItemType } from "../src/FilterMultiSelect/type"
+import { ItemType } from "../src/FilterMultiSelect"
 import { FilterMultiSelect } from "../src/FilterMultiSelect/FilterMultiSelect"
 
 export default {
@@ -79,7 +79,7 @@ export const DefaultKaizenSiteDemo = args => {
         selectedKeys={selectedKeys}
         items={items}
         trigger={_ => (
-          <FilterMultiSelect.TriggerButton
+          <FilterMultiSelect.TruncatedLabelTriggerButton
             selectedLabels={getLabels(selectedKeys)}
             label="Engineer"
           />
@@ -108,7 +108,7 @@ export const RemovableDemo = args => {
       selectedKeys={selectedKeys}
       items={items}
       trigger={_ => (
-        <FilterMultiSelect.TriggerButton
+        <FilterMultiSelect.TruncatedLabelTriggerButton
           isRemovable
           onRemove={() => alert("onRemove")}
           selectedLabels={getLabels(selectedKeys)}

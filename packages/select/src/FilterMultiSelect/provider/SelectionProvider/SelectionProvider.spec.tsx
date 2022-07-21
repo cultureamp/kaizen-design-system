@@ -1,5 +1,5 @@
-import React, { Key } from "react"
-import { getByRole, render, screen, waitFor } from "@testing-library/react"
+import React from "react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
@@ -8,7 +8,7 @@ import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
-import { ItemType } from "../../type"
+import { ItemType } from "../../FilterMultiSelect"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [

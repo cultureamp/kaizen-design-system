@@ -1,7 +1,7 @@
 import React from "react"
 import { Node } from "@react-types/shared"
 import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../type"
+import { ItemType } from "../../FilterMultiSelect"
 import styles from "./ListBox.scss"
 
 export interface ListBoxProps {

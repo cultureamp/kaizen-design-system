@@ -1,5 +1,5 @@
 import React from "react"
-import { useSelectionContext } from "../../../provider/SelectionProvider"
+import { useSelectionContext } from "../../../provider"
 
 import styles from "../SelectionControlButton.scss"
 

@@ -7,10 +7,10 @@ import {
   ClearButton,
   SelectAllButton,
 } from "./components/SelectionControlButton"
-import { TriggerButton } from "./components/TriggerButton"
+import { TruncatedLabelTriggerButton } from "./components/TriggerButton"
 
 export const FilterMultiSelect = Object.assign(Root, {
-  TriggerButton,
+  TruncatedLabelTriggerButton,
   SearchInput,
   ListBox,
   MultiSelectOption,
@@ -19,10 +19,17 @@ export const FilterMultiSelect = Object.assign(Root, {
   MenuFooter, // For layout
 })
 
-export type { TriggerButtonProps } from "./components/TriggerButton"
+export type { TruncatedLabelTriggerButtonProps } from "./components/TriggerButton"
 export type { SearchInputProps } from "./components/SearchInput"
 export type { ListBoxProps } from "./components/ListBox"
 export type { MultiSelectOptionProps } from "./components/MultiSelectOption"
-export type { ItemType, ValueType } from "./type" // TODO: do we want to move them to shared?
+
+// TODO: do we want to move them to shared?
+export type ValueType = React.Key
+export interface ItemType {
+  label: string
+  value: ValueType
+  count?: string
+}
 
 export * from "./provider"

@@ -11,15 +11,20 @@ import {
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { ItemType } from "../../type"
+import { ItemType } from "../../FilterMultiSelect"
 
-export interface RootProps {
-  label: string // A11y requirement for listbox
-  items: ItemType[]
+export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value: MenuTriggerProviderContextType) => React.ReactNode
   children: (value: SelectionProviderContextType) => React.ReactNode // The content of the menu
-  defaultOpen?: boolean
+}
 
+interface MenuTriggerProps {
+  defaultOpen?: boolean
+}
+
+interface SelectionProps {
+  label: string // A11y requirement for listbox
+  items: ItemType[]
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
@@ -28,34 +33,39 @@ export interface RootProps {
 export type FilterMultiSelectProps = RootProps
 
 export const Root: React.VFC<RootProps> = ({
-  label,
-  items,
   trigger,
   children,
+
   defaultOpen = false,
 
+  label,
+  items,
   selectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
-}) => (
-  <MenuTriggerProvider defaultOpen={defaultOpen}>
-    <div>
-      {/* TODO: keep the consumer or remove it? */}
-      <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-      <MenuPopup>
-        <SelectionProvider
-          items={items}
-          selectionMode={selectionMode}
-          label={label}
-          selectedKeys={selectedKeys}
-          onSelectionChange={onSelectionChange}
-        >
-          {/* TODO: keep the consumer or remove it? */}
-          <SelectionConsumer>{children}</SelectionConsumer>
-        </SelectionProvider>
-      </MenuPopup>
-    </div>
-  </MenuTriggerProvider>
-)
+}) => {
+  const menuTriggerProps = { defaultOpen }
+  const selectionProps = {
+    label,
+    items,
+    selectedKeys,
+    onSelectionChange,
+    selectionMode,
+  }
+  return (
+    <MenuTriggerProvider {...menuTriggerProps}>
+      <div>
+        {/* TODO: keep the consumer or remove it? */}
+        <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
+        <MenuPopup>
+          <SelectionProvider {...selectionProps}>
+            {/* TODO: keep the consumer or remove it? */}
+            <SelectionConsumer>{children}</SelectionConsumer>
+          </SelectionProvider>
+        </MenuPopup>
+      </div>
+    </MenuTriggerProvider>
+  )
+}
 
 Root.displayName = "Root"

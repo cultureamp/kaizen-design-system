@@ -5,7 +5,6 @@ import React, {
   useEffect,
 } from "react"
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
-import { AriaButtonProps } from "@react-types/button"
 import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
 

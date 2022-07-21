@@ -1,1 +1,1 @@
-export * from "./TriggerButton"
+export * from "./TruncatedLabelTriggerButton"
