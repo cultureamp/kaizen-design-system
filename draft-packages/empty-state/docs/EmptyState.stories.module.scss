@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/draft-empty-state/KaizenDraft/EmptyState/responsive";
+@import "~@kaizen/draft-empty-state/KaizenDraft/EmptyState/mixins";
 
 .container {
   width: 100%;
@@ -34,7 +34,7 @@
 }
 
 .buttonContainer {
-  // This size mixin comes from EmptyState's responsive.scss - useful for
+  // This size mixin comes from EmptyState's _mixins.scss - useful for
   // applying your own styles at the component's own breakpoints.
   // Unfortunately if you want full-width buttons at the "sm" size and
   // regular buttons otherwise, you'll have to specify a fixed width for
