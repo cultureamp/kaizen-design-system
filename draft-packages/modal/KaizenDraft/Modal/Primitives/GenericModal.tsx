@@ -47,6 +47,9 @@ const GenericModalContainer = (props: GenericModalContainerProps) => {
 }
 
 class GenericModal extends React.Component<GenericModalProps> {
+  scrollLayer: HTMLDivElement | null = null
+  modalLayer: HTMLDivElement | null = null
+
   componentWillUnmount() {
     /*
       Sometimes consumers control rendering modals without the
@@ -209,9 +212,6 @@ class GenericModal extends React.Component<GenericModalProps> {
       this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
     }
   }
-
-  scrollLayer: HTMLDivElement | null = null
-  modalLayer: HTMLDivElement | null = null
 }
 
 /**

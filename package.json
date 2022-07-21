@@ -22,7 +22,8 @@
     "clean": "lerna run clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
-    "commit": "cz"
+    "commit": "cz",
+    "plop": "plop"
   },
   "dependencies": {
     "@storybook/addons": "^6.5.9",
@@ -72,7 +73,7 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/eslint-plugin-tslint": "^5.30.5",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/parser": "^5.30.7",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.7.0",
     "commitizen": "^4.2.4",
@@ -93,6 +94,7 @@
     "jest-static-stubs": "^0.0.1",
     "lerna": "3.22.1",
     "node-fetch": "^2.6.7",
+    "plop": "^3.1.1",
     "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.0.0",

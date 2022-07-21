@@ -35,6 +35,12 @@ export const calculateMenuTop = (
  * @deprecated Draft SplitButton/DropdownMenu is deprecated.
  */
 class DropdownMenu extends React.Component<Props> {
+  static displayName = "DropdownMenu"
+  static defaultProps = {
+    dir: "ltr",
+  }
+
+  menuRef: RefObject<HTMLDivElement> | null
   constructor(props: Props) {
     super(props)
     this.menuRef = React.createRef()
@@ -96,12 +102,5 @@ class DropdownMenu extends React.Component<Props> {
   handleDocumentResize = () => {
     this.props.hideDropdownMenu()
   }
-
-  static displayName = "DropdownMenu"
-  static defaultProps = {
-    dir: "ltr",
-  }
-
-  menuRef: RefObject<HTMLDivElement> | null
 }
 export default DropdownMenu
