@@ -1,6 +1,5 @@
 import { Icon } from "@kaizen/component-library"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
-import { Paragraph } from "@kaizen/typography"
 import classNames from "classnames"
 import * as React from "react"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
@@ -134,10 +133,8 @@ const Tag = (props: TagProps) => {
                 return
             }
           })()}
-        <Paragraph
-          variant="small"
-          tag="span"
-          classNameOverride={classNames(styles.textContent, {
+        <span
+          className={classNames(styles.textContent, {
             [styles.truncate]: isTruncated,
           })}
           style={{
@@ -145,7 +142,7 @@ const Tag = (props: TagProps) => {
           }}
         >
           {children}
-        </Paragraph>
+        </span>
         {dismissible && (
           <>
             <button

@@ -57,6 +57,11 @@ $small: $spacing-md;
 
 .textContent {
   margin-top: -1px;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
   white-space: nowrap;
 }
 
@@ -67,14 +72,10 @@ $small: $spacing-md;
   height: 100%;
   align-items: center;
   padding: 0 $spacing-xs;
-  margin-right: -0.6625rem;
-  margin-left: -0.225rem;
+  margin-inline-end: -0.6625rem;
+  margin-inline-start: -0.225rem;
   color: rgba($color-purple-800-rgb, 0.7);
   cursor: pointer;
-  [dir="rtl"] & {
-    margin-left: -0.6625rem;
-    margin-right: -0.225rem;
-  }
 
   &:hover {
     color: $color-purple-800;
