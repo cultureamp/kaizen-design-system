@@ -222,3 +222,15 @@ Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANG
 ## Contributing components
 
 To learn more about contributing components, see the [Kaizen Site: components overview](https://cultureamp.design/components/overview).
+
+### Patterns
+
+Refer to the [docs folder](docs) for code guidelines and patterns.
+
+### Component generator
+
+To generate a new component and package, new component within an existing package, or a subcomponent,
+run the following command and follow the prompts:
+```
+yarn plop
+```
