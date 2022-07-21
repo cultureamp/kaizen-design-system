@@ -20,6 +20,9 @@ type Props = {
 }
 
 class RadioGroupExample extends React.Component<Props> {
+  state = {
+    selectedOption: "",
+  }
   render() {
     const { render } = this.props
     return (
@@ -36,10 +39,6 @@ class RadioGroupExample extends React.Component<Props> {
     this.setState({
       selectedOption: event.target.value,
     })
-  }
-
-  state = {
-    selectedOption: "",
   }
 }
 
