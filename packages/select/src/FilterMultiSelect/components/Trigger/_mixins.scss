@@ -3,7 +3,6 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "variables";
-@import "mixins";
 
 // reset user agent styles for button element type
 @mixin button-reset {
@@ -15,7 +14,7 @@
   transition: none; // override Murmur global styles :(
 }
 
-.button {
+@mixin button {
   @include button-reset;
 
   -webkit-font-smoothing: antialiased;
@@ -27,13 +26,14 @@
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
 
+  height: $spacing-xl;
   color: $color-blue-500;
 
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
-  border-radius: $border-solid-border-radius;
 
-  padding: 0;
+  padding: $button-vertical-padding
+    calc(#{$spacing-sm} - #{$border-solid-border-width});
 
   &:hover,
   &:active,
@@ -41,7 +41,15 @@
     background-color: $color-blue-100;
   }
 
-  // TODO: Replace it to use focus ring
+  &.hasSelectedValues {
+    background-color: $color-blue-100;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-blue-200;
+    }
+  }
+
   &:focus {
     outline: none;
     border-color: $color-blue-500;
@@ -51,27 +59,7 @@
   gap: $spacing-xs;
   align-items: center;
 
-  // TODO: copied from Calendar button since the design is not settled
-  &[aria-disabled="true"] {
-    pointer-events: none;
-    color: rgba($color-purple-800-rgb, 0.3);
-    opacity: 1;
-
-    :global(.js-focus-visible) & {
-      // hide native focus ring when :focus but not :focus-visible
-      &:focus {
-        outline: none;
-        border: 2px solid transparent;
-      }
-      // show custom focus ring when :focus-visible
-      &:global(.focus-visible) {
-        color: rgba($color-purple-800-rgb, 0.3);
-        outline-offset: 1px;
-        background-color: transparent;
-        opacity: 1;
-        outline: $color-gray-300 $border-dashed-border-style
-          $border-focus-ring-border-width;
-      }
-    }
+  .iconWrapper {
+    line-height: 1;
   }
 }

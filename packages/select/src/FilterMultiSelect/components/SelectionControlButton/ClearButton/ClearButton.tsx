@@ -8,8 +8,11 @@ export const ClearButton: React.VFC = () => {
   return (
     <button
       className={styles.button}
+      aria-disabled={selectionState.selectionManager.isEmpty}
       onClick={
-        () => selectionState.selectionManager.clearSelection()
+        () =>
+          !selectionState.selectionManager.isEmpty &&
+          selectionState.selectionManager.clearSelection()
         // TODO: add annoucemnt here to inform selection cleared
       }
     >

@@ -4,13 +4,13 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .option {
-  height: $spacing-lg;
+  min-height: $spacing-lg;
+  height: fit-content;
 
   align-items: center;
   display: inline-grid;
-  grid-template-columns: $spacing-md auto $spacing-md;
+  grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
-  width: 100%;
 
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;

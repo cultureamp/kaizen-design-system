@@ -8,6 +8,7 @@ export const SelectAllButton: React.VFC = () => {
   return (
     <button
       className={styles.button}
+      aria-disabled={selectionState.selectionManager.isSelectAll}
       onClick={
         () =>
           !selectionState.selectionManager.isSelectAll &&

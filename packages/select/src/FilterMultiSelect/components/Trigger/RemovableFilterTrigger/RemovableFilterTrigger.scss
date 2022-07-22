@@ -1,0 +1,29 @@
+@import "../mixins";
+
+.trigger {
+  display: inline-flex;
+
+  :first-child {
+    border-top-left-radius: $border-solid-border-radius;
+    border-bottom-left-radius: $border-solid-border-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: $border-solid-border-radius;
+    border-bottom-right-radius: $border-solid-border-radius;
+  }
+
+  .removeButton {
+    @include button;
+    width: $spacing-xl;
+    justify-content: center;
+  }
+
+  .divider {
+    border-left: 1px solid $color-gray-400;
+  }
+}

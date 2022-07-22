@@ -3,11 +3,13 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 
-$menu-container-width: 294px; // figma hard coded: https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966
+// figma hard coded: https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966
+$menu-container-width: 294px;
+$menu-container-max-height: 312px;
 
 .menuPopup {
   position: absolute;
-  z-index: 1000; // TOOD: can we replace it by a not deprecated token? $ca-z-index-dropdown from @kaizen/deprecated-√-helpers/styles/layout
+  z-index: 1000; // from $ca-z-index-dropdown
   box-sizing: border-box;
   background: $color-white;
   color: $color-purple-800;
@@ -17,13 +19,9 @@ $menu-container-width: 294px; // figma hard coded: https://www.figma.com/file/eZ
   margin-top: $spacing-xs;
   text-align: left;
 
-  // TODO: should it be left here or remove?
+  width: $menu-container-width;
+
   [dir="rtl"] & {
     text-align: right;
   }
-}
-
-// TODO: TBD
-.defaultWidth {
-  min-width: $menu-container-width;
 }

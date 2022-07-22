@@ -2400,6 +2400,20 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
+"@kaizen/component-library@^15.0.5":
+  version "15.0.5"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-15.0.5.tgz#976751c8c165c7a985f2b7f32f4561b1851e27e9"
+  integrity sha512-8Hu4xsU98ScuNL78swnoxR7een6fFHVcAUl6A09rXLwZH0HA39VO4ZX+Bm1x1P/r7eHUl0CsXepmnIiOV5yXOA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
+    "@kaizen/hosted-assets" "^2.0.0"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.182"
+    "@types/uuid" "^3.4.10"
+    classnames "^2.3.1"
+    motion-ui cultureamp/motion-ui
+
 "@kaizen/draft-button@^5.4.1", "@kaizen/draft-button@^5.6.25":
   version "5.6.25"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
@@ -2410,6 +2424,20 @@
     "@kaizen/loading-spinner" "^2.1.2"
     "@types/classnames" "^2.3.0"
     classnames "^2.3.1"
+
+"@kaizen/draft-tooltip@^5.2.14":
+  version "5.2.14"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.2.14.tgz#e56a306b9b8debd2c59945004397df0e0b373761"
+  integrity sha512-iVgsFi/Mhkw6Fx4zBSyA7hBwAKGI9Bwm2wHsTqAaXkFudMuKc98jJIRfivJcNWSGSP0D7pHi2hXdCdj3nKhHKg==
+  dependencies:
+    "@kaizen/component-library" "^15.0.5"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
+    "@popperjs/core" "^2.11.5"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+    react-popper "^2.2.5"
+    use-debounce "^8.0.1"
+    uuid "^8.3.2"
 
 "@kaizen/hosted-assets@^1.2.0":
   version "1.2.0"
@@ -19060,6 +19088,11 @@ use-debounce@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.0.tgz#fd8d24858dd0d1986bb9a45af4d0aa6ce99226d2"
   integrity sha512-rKavD/3NxRR8MnCBhcS+TiBEqLQHEFRPjm/MYKYZsRE8Z8u1einvgqRKcBTNkt4SfIXfYZNTJe3YSDBC+Vhz5g==
+
+use-debounce@^8.0.1:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.2.tgz#bd1b522c7b5b5d9dc249824fd2e4c3e4137b1ea9"
+  integrity sha512-4yCQ4FmlmYNpcHXJk1E19chO1X58fH4+QrwKpa5nkx3d7szHR3MjheRgECLvHivp3ClUqEom+SHOGB9zBz+qlw==
 
 use-sidecar@^1.1.2:
   version "1.1.2"

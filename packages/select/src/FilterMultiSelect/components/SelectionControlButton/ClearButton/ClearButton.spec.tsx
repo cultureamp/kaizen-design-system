@@ -14,6 +14,7 @@ describe("<ClearButton /> - interaction", () => {
     ;(useSelectionContext as jest.Mock).mockReturnValue({
       selectionState: {
         selectionManager: {
+          isSelected: true,
           clearSelection: spy,
         },
       },

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import { mergeProps } from "@react-aria/utils"
 import { useFocusRing } from "@react-aria/focus"
 import { Node } from "@react-types/shared"
@@ -7,11 +7,11 @@ import classNames from "classnames"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import { Badge } from "@kaizen/draft-badge"
+import { VisuallyHidden } from "@kaizen/a11y"
 import { useSelectionContext } from "../../provider"
 import { ItemType } from "../../FilterMultiSelect"
 import styles from "./MultiSelectOption.scss"
 
-// TODO: could rename to Option?
 export interface MultiSelectOptionProps {
   item: Node<ItemType>
 }
@@ -31,6 +31,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
   // Determine whether we should show a keyboard
   // focus ring for accessibility
   const { isFocusVisible, focusProps } = useFocusRing()
+  const countElementId = useId()
 
   return (
     <li
@@ -43,11 +44,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
         isDisabled ? styles.isDisabled : ""
       )}
       aria-label={item.value.label}
-      // TODO: appears to be a bug in eslint-plugin-jsx-a11y: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/699
-      // eslint-disable-next-line jsx-a11y/aria-props
-      aria-description={
-        item.value.count ? `${item.value.count} available` : undefined
-      }
+      aria-describedby={item.value.count ? countElementId : undefined}
     >
       <span
         className={classNames(styles.icon, isSelected ? styles.isSelected : "")}
@@ -56,7 +53,12 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
-      {item.value.count && <Badge>{item.value.count}</Badge>}
+      {item.value.count && (
+        <span id={countElementId}>
+          <Badge>{item.value.count}</Badge>
+          <VisuallyHidden> available</VisuallyHidden>
+        </span>
+      )}
     </li>
   )
 }

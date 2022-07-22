@@ -9,7 +9,7 @@ import { ItemType } from "../../FilterMultiSelect"
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
   children: React.ReactNode // control how menu should look like
-  items: ItemType[]
+  items?: ItemType[]
   onSelectionChange?: (keys: Selection) => void
   selectedKeys?: Selection
   label: string

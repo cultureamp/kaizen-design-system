@@ -13,18 +13,26 @@ import {
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../FilterMultiSelect"
 
-export interface RootProps extends MenuTriggerProps, SelectionProps {
-  trigger: (value: MenuTriggerProviderContextType) => React.ReactNode
-  children: (value: SelectionProviderContextType) => React.ReactNode // The content of the menu
+export interface RootProps
+  extends MenuPopupProps,
+    MenuTriggerProps,
+    SelectionProps {
+  trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
+  children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
 }
 
 interface MenuTriggerProps {
   defaultOpen?: boolean
 }
 
+interface MenuPopupProps {
+  isLoading?: boolean
+  loadingSkeleton?: React.ReactNode
+}
+
 interface SelectionProps {
-  label: string // A11y requirement for listbox
-  items: ItemType[]
+  label: string // provide A11y context for listbox
+  items?: ItemType[]
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
@@ -38,6 +46,9 @@ export const Root: React.VFC<RootProps> = ({
 
   defaultOpen = false,
 
+  isLoading,
+  loadingSkeleton,
+
   label,
   items,
   selectedKeys,
@@ -45,6 +56,7 @@ export const Root: React.VFC<RootProps> = ({
   selectionMode = "multiple",
 }) => {
   const menuTriggerProps = { defaultOpen }
+  const menuPopupProps = { isLoading, loadingSkeleton }
   const selectionProps = {
     label,
     items,
@@ -52,14 +64,13 @@ export const Root: React.VFC<RootProps> = ({
     onSelectionChange,
     selectionMode,
   }
+
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
       <div>
-        {/* TODO: keep the consumer or remove it? */}
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-        <MenuPopup>
+        <MenuPopup {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
-            {/* TODO: keep the consumer or remove it? */}
             <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
         </MenuPopup>

@@ -4,8 +4,6 @@ import userEvent from "@testing-library/user-event"
 import { useSelectionContext } from "../../provider"
 import { SearchInput } from "./"
 
-// TODO: could be a good place to add tests for debounce if needed
-
 jest.mock("../../provider", () => ({
   useSelectionContext: jest.fn(),
 }))

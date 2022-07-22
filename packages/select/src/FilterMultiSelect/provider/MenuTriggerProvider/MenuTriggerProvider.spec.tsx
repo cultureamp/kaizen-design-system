@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { TriggerButtonBase } from "../../components/TriggerButton/TriggerButtonBase"
+import { TriggerButtonBase } from "../../components/Trigger/TriggerButtonBase"
 import { MenuPopup } from "../../components/MenuPopup"
 import {
   MenuTriggerProvider,

@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.loadingInput {
+  margin-bottom: $spacing-sm;
+}
+
+.loadingControlButtons {
+  margin-top: $spacing-sm;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-xs;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.09);
+  border-radius: 7px;
+  padding: $spacing-xs;
+}
+
+.clearAllButton {
+  position: absolute;
+  right: $spacing-xs;
+  top: $spacing-md;
+}
