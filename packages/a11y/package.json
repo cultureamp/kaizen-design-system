@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/a11y",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "description": "A collection of accessibility utils",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,6 +36,6 @@
     "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-library": "^15.0.4"
+    "@kaizen/component-library": "^15.0.5"
   }
 }
