@@ -12,7 +12,7 @@ import {
   LoadingParagraph,
   LoadingInput,
 } from ".."
-import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceBlock/GuidanceBlock.scss"
+import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
@@ -55,24 +55,13 @@ const GuidanceBlockSkeletonTemplate: React.VFC<
     </div>
   </div>
 )
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+
+const ExampleUsageTemplate: Story = () => {
   const GUIDANCE_BLOCK_TEXT = {
     title: "This is the Guidance block title",
     description:
       "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
       "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-  }
-
-  const GUIDANCE_BLOCK_LOADING = {
-    title: (<LoadingHeading variant="heading-3" />) as any,
-    description: (
-      <div>
-        <LoadingParagraph />
-        <LoadingParagraph />
-      </div>
-    ),
   }
 
   const GUIDANCE_BLOCK_ACTION = {
@@ -82,7 +71,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   }
 
   return (
-    <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
       <StoryWrapper.Row rowTitle="Guidance Block - Spot">
         <GuidanceBlockSkeletonTemplate
@@ -102,6 +91,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           actions={GUIDANCE_BLOCK_ACTION}
         />
       </StoryWrapper.Row>
+
       <StoryWrapper.Row rowTitle="Guidance Block - Scene">
         <GuidanceBlockSkeletonTemplate
           heading={<LoadingHeading variant="heading-3" />}
@@ -125,8 +115,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Example Usage"
-StickerSheetDefault.parameters = {
+export const ExampleUsage = ExampleUsageTemplate.bind({})
+ExampleUsage.parameters = {
   controls: { disable: true },
 }
