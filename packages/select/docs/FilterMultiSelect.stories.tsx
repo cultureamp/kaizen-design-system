@@ -136,4 +136,3 @@ export const FilterBarDemo = args => {
 }
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
-∂
