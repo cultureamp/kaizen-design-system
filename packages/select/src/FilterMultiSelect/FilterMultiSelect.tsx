@@ -1,5 +1,5 @@
 import { ListBox } from "./components/ListBox"
-import { MenuFooter } from "./components/MenuLayout"
+import { MenuFooter, MenuLoadingSkeleton } from "./components/MenuLayout"
 import { MultiSelectOption } from "./components/MultiSelectOption"
 import { Root } from "./components/Root"
 import { SearchInput } from "./components/SearchInput/SearchInput"
@@ -21,6 +21,7 @@ export const FilterMultiSelect = Object.assign(Root, {
   SelectAllButton,
   ClearButton,
   MenuFooter, // For layout
+  MenuLoadingSkeleton, // Menu Loading Skeleton example
 })
 
 // Here only export component props as we would like to enforce consumer to use dot notation component.

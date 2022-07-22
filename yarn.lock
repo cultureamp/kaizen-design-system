@@ -2356,6 +2356,16 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@kaizen/button@^1.2.16":
+  version "1.2.16"
+  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-1.2.16.tgz#a66e56f421adb9f811036421d6b1afa06ab1ecac"
+  integrity sha512-qpfFKbUPSKM3Ya/lWOXvWKfAg+IjmEAI0sTSLojnJZXxk4smHs4NG7zLFTYWHx2Fp1P1M7rQp+XkbD2TVRumAw==
+  dependencies:
+    "@kaizen/component-library" "^15.0.5"
+    "@kaizen/draft-badge" "^1.12.2"
+    "@kaizen/loading-spinner" "^2.2.3"
+    classnames "^2.3.1"
+
 "@kaizen/component-library@12.2.0":
   version "12.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-12.2.0.tgz#8851ad3501d2df767940d83e9e3d23128d2ceb05"
@@ -2424,6 +2434,20 @@
     "@kaizen/loading-spinner" "^2.1.2"
     "@types/classnames" "^2.3.0"
     classnames "^2.3.1"
+
+"@kaizen/draft-menu@^4.7.16":
+  version "4.7.16"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-menu/-/draft-menu-4.7.16.tgz#a0d34d6cd69c6b3c06c6e06a3443e55741064cf8"
+  integrity sha512-da7FtoE/FIvDDfUKiCA1OZNlBtIzyo6C5jGKUabf7eLoC2vGA76Z4JeY1gVgc8K3q7RCEpA3edOIhJoz95sLww==
+  dependencies:
+    "@kaizen/button" "^1.2.16"
+    "@kaizen/component-library" "^15.0.5"
+    "@kaizen/draft-divider" "^2.1.2"
+    "@popperjs/core" "^2.11.5"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+    react-popper "^2.2.5"
+    uuid "^8.3.2"
 
 "@kaizen/draft-tooltip@^5.2.14":
   version "5.2.14"
