@@ -8,6 +8,10 @@ import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsM
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
+  private themeChangeListeners = [] as Array<(theme: Theme) => void>
+  private theme: Theme
+  private rootElement: HTMLElement | null = null
+
   constructor(
     theme: Theme,
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
@@ -20,10 +24,6 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.theme = theme
     if (apply) this.applyCurrentTheme()
   }
-
-  private themeChangeListeners = [] as Array<(theme: Theme) => void>
-  private theme: Theme
-  private rootElement: HTMLElement | null = null
 
   public getRootElement = () => this.rootElement
   public getCurrentTheme = () => this.theme

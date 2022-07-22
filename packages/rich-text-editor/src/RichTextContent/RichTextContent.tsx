@@ -8,7 +8,7 @@ import { EditorContentArray } from "../types"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
 import styles from "./RichTextContent.scss"
 
-interface RichTextContentProps
+export interface RichTextContentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   content: EditorContentArray
 }

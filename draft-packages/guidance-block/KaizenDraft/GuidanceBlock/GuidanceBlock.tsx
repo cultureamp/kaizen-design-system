@@ -105,6 +105,22 @@ class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState
 > {
+  static defaultProps = {
+    layout: "default",
+    variant: "default",
+    withActionButtonArrow: true,
+    noMaxWidth: false,
+    illustrationType: "spot",
+    smallScreenTextAlignment: "center",
+  }
+
+  state = {
+    hidden: false,
+    removed: false,
+    mediaQueryLayout: "",
+  }
+  containerRef = React.createRef<HTMLDivElement>()
+
   constructor(props: GuidanceBlockProps) {
     super(props)
 
@@ -283,22 +299,6 @@ class GuidanceBlock extends React.Component<
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration
-
-  static defaultProps = {
-    layout: "default",
-    variant: "default",
-    withActionButtonArrow: true,
-    noMaxWidth: false,
-    illustrationType: "spot",
-    smallScreenTextAlignment: "center",
-  }
-
-  state = {
-    hidden: false,
-    removed: false,
-    mediaQueryLayout: "",
-  }
-  containerRef = React.createRef<HTMLDivElement>()
 }
 
 export default GuidanceBlock

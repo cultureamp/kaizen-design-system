@@ -17,6 +17,9 @@ type DropdownMenuProps = {
  * @deprecated DropdownMenu is deprecated. Please use draft-menu instead.
  */
 class DropdownMenu extends React.Component<DropdownMenuProps> {
+  static displayName = "DropdownMenu"
+  menu = React.createRef<HTMLDivElement>()
+
   componentDidMount() {
     document.addEventListener("click", this.handleDocumentClick, false)
     window.addEventListener("resize", this.handleDocumentResize, false)
@@ -80,9 +83,6 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
   handleDocumentResize = () => {
     this.props.hideDropdownMenu()
   }
-
-  static displayName = "DropdownMenu"
-  menu = React.createRef<HTMLDivElement>()
 }
 
 export default DropdownMenu

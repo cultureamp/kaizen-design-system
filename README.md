@@ -69,9 +69,11 @@ Command | Summary
 :- | :-
 `yarn storybook` | Develop components locally using Storybook
 `STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
+`yarn commit` | Use commitizen to help you write your conventional commits
 `yarn compile` | Run all typechecks
 `yarn lint` | Run all linters
 `yarn lint:fix` | Run all linters, fixing violations
+`yarn plop` | Add a new component/subcomponent
 `yarn test` | Run all tests (using [Jest](https://jestjs.io/))
 `yarn reset` | Reinstall all dependencies
 

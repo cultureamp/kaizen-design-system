@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "15.0.3",
+  "version": "15.0.5",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -41,7 +41,7 @@
     "motion-ui": "cultureamp/motion-ui"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.13.0",
+    "@testing-library/dom": "^8.16.0",
     "rimraf": "^3.0.2"
   },
   "scripts": {
