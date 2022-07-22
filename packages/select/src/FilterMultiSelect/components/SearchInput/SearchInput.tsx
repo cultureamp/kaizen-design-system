@@ -1,7 +1,6 @@
 import React, { useId } from "react"
 import { InputSearch } from "@kaizen/draft-form"
 import { useSelectionContext } from "../../provider"
-import styles from "./SearchInput.scss"
 
 export interface SearchInputProps {
   label: string
@@ -28,7 +27,6 @@ export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
       value={searchQuery}
       onChange={handleChange}
       onClear={handleClear}
-      classNameOverride={styles.searchInput}
     />
   )
 }
