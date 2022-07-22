@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { TriggerButtonBase } from "../../components/Trigger/TriggerButtonBase"
 import { MenuPopup } from "../../components/MenuPopup"
+import { FilterTriggerButton } from "../../components/Trigger"
 import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
@@ -12,9 +13,7 @@ const MenuTriggerProviderWrapper = ({
   defaultOpen,
 }: Partial<MenuTriggerProviderProps>) => (
   <MenuTriggerProvider defaultOpen={defaultOpen}>
-    <TriggerButtonBase label="label-mock">
-      trigger-display-label-mock
-    </TriggerButtonBase>
+    <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>
       <span>menu-content-mock</span>
       <button>menu-content-button-mock</button>

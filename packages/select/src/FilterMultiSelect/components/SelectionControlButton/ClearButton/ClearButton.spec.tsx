@@ -9,19 +9,39 @@ jest.mock("../../../provider", () => ({
 }))
 
 describe("<ClearButton /> - interaction", () => {
-  it("triggers selectionManager.clearSelection() when clicks on the button", () => {
-    const spy = jest.fn()
-    ;(useSelectionContext as jest.Mock).mockReturnValue({
-      selectionState: {
-        selectionManager: {
-          isSelected: true,
-          clearSelection: spy,
+  describe("Given selection is not empty", () => {
+    it("triggesrs selectionManager.clearSelection() when clicks on the button", () => {
+      const spy = jest.fn()
+      ;(useSelectionContext as jest.Mock).mockReturnValue({
+        selectionState: {
+          selectionManager: {
+            isEmpty: false,
+            clearSelection: spy,
+          },
         },
-      },
-    })
-    render(<ClearButton />)
-    userEvent.click(screen.getByRole("button"))
+      })
+      render(<ClearButton />)
+      userEvent.click(screen.getByRole("button"))
 
-    expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe("Given selection is empty", () => {
+    it("does not trigger selectionManager.clearSelection() when clicks on the button", () => {
+      const spy = jest.fn()
+      ;(useSelectionContext as jest.Mock).mockReturnValue({
+        selectionState: {
+          selectionManager: {
+            isEmpty: true,
+            clearSelection: spy,
+          },
+        },
+      })
+      render(<ClearButton />)
+      userEvent.click(screen.getByRole("button"))
+
+      expect(spy).toHaveBeenCalledTimes(0)
+    })
   })
 })

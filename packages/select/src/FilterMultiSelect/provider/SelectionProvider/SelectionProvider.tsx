@@ -31,7 +31,6 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
 export function SelectionProvider(props: SelectionProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("")
 
-  // TODO: Support Async search? e.g. option props searchFilter
   const searchFilter = useCallback(
     (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
       searchQuery

@@ -27,7 +27,7 @@
     background-color: $color-blue-100;
   }
 
-  // TODO: move to focus ring (::after) ?
+  // TODO: move to focus ring (::after)
   &:focus {
     outline: none; // cancel browser style
     border-color: $color-blue-500;

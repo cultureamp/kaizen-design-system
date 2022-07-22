@@ -103,7 +103,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
     it("has aria-description to describe the count are available for this option", () => {
       const option = screen.getByLabelText("label-mock")
-      expect(option).toHaveAttribute("aria-description", "count-mock available")
+      expect(option).toHaveAccessibleDescription("count-mock available")
     })
   })
 })

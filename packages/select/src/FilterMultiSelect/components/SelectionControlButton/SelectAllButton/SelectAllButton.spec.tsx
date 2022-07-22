@@ -27,7 +27,7 @@ describe("<SelectAllButton /> - interaction", () => {
     })
   })
 
-  describe("Given not all options are selected", () => {
+  describe("Given all options are selected", () => {
     it("does not trigger selectionManager.selectAll() when clicks on the button", () => {
       const spy = jest.fn()
       ;(useSelectionContext as jest.Mock).mockReturnValue({

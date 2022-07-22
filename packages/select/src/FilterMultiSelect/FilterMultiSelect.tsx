@@ -27,4 +27,4 @@ export const FilterMultiSelect = Object.assign(Root, {
 export * from "./components"
 export * from "./provider"
 export * from "./types"
-export { getSelectedOptionLabels } from "./utils"
+export { getSelectedOptionLabels, getSelectedOptionKeys } from "./utils"
