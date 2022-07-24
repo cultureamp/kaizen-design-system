@@ -23,6 +23,11 @@ jest.mock("../../provider", () => ({
   useSelectionContext: () => ({ selectionState: {} }),
 }))
 
+jest.mock("react", () => ({
+  ...jest.requireActual("react"),
+  useId: () => "id-mock", // To cover testing in React 16 and 17
+}))
+
 const itemMock: Node<ItemType> = {
   type: "type-mock",
   key: "key-mock",

@@ -8,6 +8,11 @@ jest.mock("../../provider", () => ({
   useSelectionContext: jest.fn(),
 }))
 
+jest.mock("react", () => ({
+  ...jest.requireActual("react"),
+  useId: () => "id-mock", // To cover testing in React 16 and 17
+}))
+
 const SearchInputWrapper = () => <SearchInput label="label-mock" />
 
 describe("<SearchInput /> - interaction", () => {
