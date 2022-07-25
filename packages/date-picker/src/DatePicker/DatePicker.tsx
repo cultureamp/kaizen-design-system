@@ -18,7 +18,7 @@ import {
   CalendarElement,
   CalendarProps,
 } from "../_primitives/Calendar"
-import calendarStyles from "../_primitives/Calendar/Calendar.scss"
+import calendarStyles from "../_primitives/Calendar/Calendar.module.scss"
 import { CalendarWrapper } from "../_primitives/CalendarWrapper"
 import { DateInput, DateInputProps } from "./components/DateInput"
 

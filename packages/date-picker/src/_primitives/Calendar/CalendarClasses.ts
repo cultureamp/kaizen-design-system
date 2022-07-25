@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { ClassNames } from "react-day-picker"
-import calendarStyles from "./Calendar.scss"
-import reactDayPickerStyles from "./react-day-picker.scss"
+import calendarStyles from "./Calendar.module.scss"
+import reactDayPickerStyles from "./react-day-picker.module.scss"
 
 export const defaultCalendarClasses: ClassNames = {
   root: calendarStyles.container,
