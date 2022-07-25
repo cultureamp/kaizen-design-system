@@ -11,11 +11,19 @@ export type FilterTriggerButtonProps = {
 export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
   selectedOptionLabels,
   label,
-}) => (
-  <TriggerButtonBase hasSelectedValues={selectedOptionLabels.length > 0}>
-    <span className={styles.label}>{`${label}: `}</span>
-    <span>{getTruncatedLabels(selectedOptionLabels)}</span>
-  </TriggerButtonBase>
-)
+}) => {
+  const hasSelectedValues = selectedOptionLabels.length > 0
+
+  return (
+    <TriggerButtonBase>
+      <span className={hasSelectedValues ? styles.hasSelectedValues : ""}>
+        {label}
+      </span>
+      {hasSelectedValues && (
+        <span>{`: ${getTruncatedLabels(selectedOptionLabels)}`}</span>
+      )}
+    </TriggerButtonBase>
+  )
+}
 
 FilterTriggerButton.displayName = "FilterTriggerButton"

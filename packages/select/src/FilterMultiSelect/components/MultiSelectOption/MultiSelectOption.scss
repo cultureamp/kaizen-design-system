@@ -11,6 +11,7 @@
   display: inline-grid;
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
+  padding-right: $spacing-xs;
 
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;

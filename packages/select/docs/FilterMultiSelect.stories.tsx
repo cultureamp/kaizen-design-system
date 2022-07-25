@@ -94,39 +94,36 @@ export const FilterBarDemo = args => {
   return (
     <>
       <div className={styles.row}>
-        {selectedGroups.map(({ name, id }) => (
-          <DemographicValueSelect
-            label={name}
-            id={id}
-            onRemove={() => {
-              focusAddFilter()
+        <div className={styles.filters}>
+          {selectedGroups.map(({ name, id }) => (
+            <DemographicValueSelect
+              label={name}
+              id={id}
+              onRemove={() => {
+                focusAddFilter()
 
-              // exclude demographic from both selectedGroups and selectedDemographicValues
-              removeFilter(id)
-              const { [id]: omitted, ...rest } = selectedDemographicValues
-              setSelectedDemographicValues(rest)
-            }}
-            onSelectionChange={selectedKeys => {
-              setSelectedDemographicValues({
-                ...selectedDemographicValues,
-                [id]: selectedKeys,
-              })
-            }}
+                // exclude demographic from both selectedGroups and selectedDemographicValues
+                removeFilter(id)
+                const { [id]: omitted, ...rest } = selectedDemographicValues
+                setSelectedDemographicValues(rest)
+              }}
+              onSelectionChange={selectedKeys => {
+                setSelectedDemographicValues({
+                  ...selectedDemographicValues,
+                  [id]: selectedKeys,
+                })
+              }}
+            />
+          ))}
+          <DemographicMenu
+            isAddFilterDisabled={selectedGroups.length >= groups.length}
+            addFilterButtonRef={addFilterButtonRef}
+            groups={groups}
+            isSelected={isSelected}
+            addFilter={addFilter}
           />
-        ))}
-        <DemographicMenu
-          isAddFilterDisabled={selectedGroups.length >= groups.length}
-          addFilterButtonRef={addFilterButtonRef}
-          groups={groups}
-          isSelected={isSelected}
-          addFilter={addFilter}
-        />
-        <Button
-          classNameOverride={styles.clearAllButton}
-          label="Clear All"
-          onClick={clearFilters}
-          secondary
-        />
+        </div>
+        <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
       <Paragraph variant={"body"}>
         Selected Values: {JSON.stringify(selectedDemographicValues)}

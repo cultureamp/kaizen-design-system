@@ -8,27 +8,17 @@ import styles from "./TriggerButtonBase.scss"
 
 export type TriggerButtonBaseProps = {
   children: React.ReactNode
-  hasSelectedValues?: boolean
 }
 
 export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
-  hasSelectedValues = false,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
-
-  const buttonStyle = classNames(
-    styles.button,
-    hasSelectedValues ? styles.hasSelectedValues : "",
-    menuTriggerState.isOpen ? styles.isOpen : ""
-  )
+  const { buttonProps, buttonRef } = useMenuTriggerContext()
 
   return (
-    <button {...buttonProps} ref={buttonRef} className={buttonStyle}>
+    <button {...buttonProps} ref={buttonRef} className={styles.button}>
       <span>{children}</span>
-      <span className={styles.iconWrapper}>
-        <Icon icon={chevronDown} role="presentation" />
-      </span>
+      <Icon icon={chevronDown} role="presentation" />
     </button>
   )
 }

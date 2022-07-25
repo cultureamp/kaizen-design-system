@@ -1,36 +1,29 @@
 import React from "react"
 import { Icon } from "@kaizen/component-library"
-import classNames from "classnames"
 import clear from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { FilterTriggerButton } from "../FilterTriggerButton"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonProps,
+} from "../FilterTriggerButton"
 import styles from "./RemovableFilterTrigger.scss"
 
 export type RemovableFilterTriggerProps = {
-  label: string
-  selectedOptionLabels: string[]
   onRemove: () => void
-}
+} & FilterTriggerButtonProps
 
 export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
-  label,
-  selectedOptionLabels,
   onRemove,
+  ...filterTriggerProps
 }) => {
-  const removeButtonLabel = `Remove ${label} filter`
+  const removeButtonLabel = `Remove ${filterTriggerProps.label} filter`
   return (
     <div className={styles.trigger}>
-      <FilterTriggerButton
-        label={label}
-        selectedOptionLabels={selectedOptionLabels}
-      />
+      <FilterTriggerButton {...filterTriggerProps} />
       <div className={styles.divider} />
-      <Tooltip text={removeButtonLabel}>
+      <Tooltip text={removeButtonLabel} position="below">
         <button
-          className={classNames(
-            styles.removeButton,
-            selectedOptionLabels.length > 0 ? styles.hasSelectedValues : ""
-          )}
+          className={styles.removeButton}
           aria-label={removeButtonLabel}
           onClick={() => onRemove()}
         >

@@ -35,19 +35,12 @@
   padding: $button-vertical-padding
     calc(#{$spacing-sm} - #{$border-solid-border-width});
 
+  background-color: $color-blue-100;
+
   &:hover,
   &:active,
   &:focus {
-    background-color: $color-blue-100;
-  }
-
-  &.hasSelectedValues {
-    background-color: $color-blue-100;
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: $color-blue-200;
-    }
+    background-color: $color-blue-200;
   }
 
   &:focus {
@@ -56,7 +49,7 @@
   }
 
   display: inline-flex;
-  gap: $spacing-xs;
+  gap: $spacing-sm;
   align-items: center;
 
   .iconWrapper {

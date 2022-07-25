@@ -5,9 +5,6 @@
 .button {
   @include button;
   border-radius: $border-solid-border-radius;
-}
 
-.hasSelectedValues,
-.isOpen {
-  background-color: $color-blue-100;
+  width: max-content;
 }

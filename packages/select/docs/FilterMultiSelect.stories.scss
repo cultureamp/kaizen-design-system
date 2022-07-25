@@ -1,17 +1,18 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .row {
-  display: flex;
-  flex-direction: row;
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  justify-content: center;
   align-items: center;
-  gap: $spacing-xs;
+  width: 100%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.09);
   border-radius: 7px;
   padding: $spacing-xs;
-}
 
-.clearAllButton {
-  position: absolute;
-  right: $spacing-xs;
-  top: $spacing-md;
+  .filters {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-xs;
+  }
 }
