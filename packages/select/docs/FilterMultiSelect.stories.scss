@@ -13,6 +13,7 @@
   .filters {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: $spacing-xs;
   }
 }
