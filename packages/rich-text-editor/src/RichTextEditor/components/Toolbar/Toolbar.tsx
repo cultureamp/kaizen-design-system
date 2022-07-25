@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { ToolbarSectionProps } from "../ToolbarSection"
-import styles from "./Toolbar.scss"
+import styles from "./Toolbar.module.scss"
 
 export interface ToolbarProps
   extends OverrideClassName<React.HTMLAttributes<HTMLElement>> {

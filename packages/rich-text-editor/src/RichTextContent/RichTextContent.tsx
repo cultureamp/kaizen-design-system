@@ -6,7 +6,7 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Node, Schema } from "prosemirror-model"
 import { EditorContentArray } from "../types"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
-import styles from "./RichTextContent.scss"
+import styles from "./RichTextContent.module.scss"
 
 export interface RichTextContentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
