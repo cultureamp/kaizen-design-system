@@ -17,7 +17,7 @@ import styles from "./GenericButton.scss"
 export type CustomButtonProps = {
   id?: string
   className: string
-  ref: Ref<any>
+  forwardRef: Ref<any>
   href?: string
   disabled?: boolean
   onClick?: (e: MouseEvent<any>) => void
@@ -135,7 +135,7 @@ const renderCustomComponent = (
     id={props.id}
     className={buttonClass(props)}
     disabled={props.disabled}
-    ref={ref}
+    forwardRef={ref}
     href={props.href}
     onClick={props.onClick}
     onFocus={props.onFocus}
