@@ -154,29 +154,6 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     ).toBeVisible()
   })
 
-  it("de-selects the option when clicks on a selected option", () => {
-    render(
-      <SelectionProviderWrapper
-        selectedKeys={new Set(["option-2-value-mock"])}
-      />
-    )
-    const option2 = screen.getByRole("option", {
-      name: "option-2-label-mock",
-      selected: true,
-    })
-
-    userEvent.click(option2)
-
-    waitFor(() =>
-      expect(
-        screen.getByRole("option", {
-          name: "option-2-label-mock",
-          selected: false,
-        })
-      )
-    )
-  })
-
   it("fires onSelectionChange when clicks on a option", () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
@@ -273,6 +250,29 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     userEvent.click(clear)
 
     waitFor(() => expect(spy).toHaveBeenCalledTimes(1))
+  })
+
+  it("de-selects the option when clicks on a selected option", () => {
+    render(
+      <SelectionProviderWrapper
+        selectedKeys={new Set(["option-2-value-mock"])}
+      />
+    )
+    const option2 = screen.getByRole("option", {
+      name: "option-2-label-mock",
+      selected: true,
+    })
+
+    userEvent.click(option2)
+
+    waitFor(() =>
+      expect(
+        screen.getByRole("option", {
+          name: "option-2-label-mock",
+          selected: false,
+        })
+      )
+    )
   })
 })
 
