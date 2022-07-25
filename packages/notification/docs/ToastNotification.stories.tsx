@@ -14,7 +14,7 @@ import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import styles from "./ToastNotification.stories.scss"
+import styles from "./ToastNotification.stories.module.scss"
 
 const withNavigation = (Story: React.FunctionComponent) => (
   <>
