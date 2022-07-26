@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React, { useCallback, useEffect, useState } from "react"
 import { usePopper } from "react-popper"
-import styles from "./styles.scss"
+import styles from "./MenuDropdown.module.scss"
 
 type MenuDropdownProps = {
   id?: string
