@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 import { Heading } from "../../../../../packages/typography"
-import styles from "../../StoryWrapper.scss"
+import styles from "../../StoryWrapper.module.scss"
 
 export interface StoryRowHeaderProps {
   gridColumns?: number
