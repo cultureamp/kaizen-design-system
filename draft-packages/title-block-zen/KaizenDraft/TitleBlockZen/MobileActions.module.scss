@@ -6,7 +6,7 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
-@import "./TitleBlockBreakpoints.scss";
+@import "./mixins";
 
 $expand-button-width: 3.75rem;
 $focus-spacing: 2px;

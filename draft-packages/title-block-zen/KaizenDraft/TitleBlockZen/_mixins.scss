@@ -17,7 +17,7 @@
   }
 }
 @mixin title-block-medium-and-small {
-  @media (max-width: $layout-breakpoints-large - 1px) {
+  @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
     @content;
   }
 }

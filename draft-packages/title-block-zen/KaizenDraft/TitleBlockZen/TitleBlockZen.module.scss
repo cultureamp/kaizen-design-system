@@ -5,8 +5,8 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "./TitleBlockBreakpoints.scss";
-@import "./decision-tokens.scss";
+@import "./mixins";
+@import "./variables";
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
@@ -481,20 +481,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   }
 }
 
-.mainActionsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
-  flex-shrink: 0;
-
-  @include ca-margin($start: calc(#{$ca-grid} / 2));
-
-  @include title-block-small {
-    display: none;
-  }
-}
-
+// This should be in SecondaryAction.module.scss,
+// but the variants prevent us from breaking this out.
 .secondaryActionsContainer {
   display: flex;
   align-items: flex-start;

@@ -1,6 +1,6 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "./TitleBlockBreakpoints.scss";
+@import "./mixins";
 
 .toolbar {
   display: flex;
