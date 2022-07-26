@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.scss";
+  composes: genericModal from "../Primitives/GenericModal.module.scss";
   min-width: 300px;
   max-width: 600px;
 }

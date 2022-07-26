@@ -1,10 +1,15 @@
+import React from "react"
+import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "@kaizen/button"
-import classnames from "classnames"
-import * as React from "react"
-import { GenericModal, ModalAccessibleLabel, ModalBody, ModalFooter } from ".."
-import ModalHeader from "../Primitives/ModalHeader"
-import styles from "./ContextModal.scss"
+import {
+  GenericModal,
+  ModalAccessibleLabel,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from ".."
+import styles from "./ContextModal.module.scss"
 
 export type ContextModalSecondaryActionProps =
   | {
