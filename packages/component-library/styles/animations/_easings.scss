@@ -1,9 +1,11 @@
-$ca-ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-$ca-ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-$ca-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-$ca-ease: $ca-ease-in-out;
-$ca-default: $ca-ease-in-out;
-$ca-linear: linear;
-$ca-bounce-in: cubic-bezier(0.485, 0.155, 0.24, 1.245);
-$ca-bounce-out: cubic-bezier(0.485, 0.155, 0.515, 0.845);
-$ca-bounce-in-out: cubic-bezier(0.76, -0.245, 0.24, 1.245);
+@import "~@kaizen/design-tokens/sass/animation";
+
+$ca-ease-in-out: $animation-easing-function-ease-in-out;
+$ca-ease-in: $animation-easing-function-ease-in;
+$ca-ease-out: $animation-easing-function-ease-out;
+$ca-ease: $animation-easing-function-ease-in-out;
+$ca-default: $animation-easing-function-ease-in-out;
+$ca-linear: $animation-easing-function-linear;
+$ca-bounce-in: $animation-easing-function-bounce-in;
+$ca-bounce-out: $animation-easing-function-bounce-out;
+$ca-bounce-in-out: $animation-easing-function-bounce-in-out;
