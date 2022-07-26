@@ -4,7 +4,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "./decision-tokens";
+@import "./variables";
 
 .base {
   background-color: $dt-color-background-default;
