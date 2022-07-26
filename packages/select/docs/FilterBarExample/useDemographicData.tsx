@@ -7,8 +7,10 @@ export const useDemographicData = () => {
   ]
 
   const [selectedGroupIds, setSelectedGroupIds] = useState<string[]>([])
-  const selectedGroups = demographics!.filter(({ id }) =>
-    selectedGroupIds.includes(id)
+
+  // reserve the selection order
+  const selectedGroups = selectedGroupIds.map(
+    groupId => demographics!.find(({ id }) => id === groupId)!
   )
 
   function isSelected(id: string) {
