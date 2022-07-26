@@ -5,7 +5,7 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "./decision-tokens.scss";
+@import "./variables";
 
 $caButton-border-width: $border-solid-border-width;
 $caButton-focus-border-width: $border-focus-ring-border-width;
