@@ -66,9 +66,11 @@
 }
 
 .isSelected {
+  font-weight: $typography-paragraph-bold-font-weight;
+
   &.icon {
     background-color: $color-gray-500;
-    color: white;
+    color: $color-white;
   }
 
   &:hover,
@@ -78,6 +80,4 @@
       background-color: $color-gray-600;
     }
   }
-
-  font-weight: 600;
 }

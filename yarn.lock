@@ -1559,6 +1559,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.6.2":
+  version "7.18.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
+  integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.12.7":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.16.0.tgz#d16a35ebf4cd74e202083356fab21dd89363ddd6"
@@ -2534,16 +2541,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kaizen/button@^1.2.16":
-  version "1.2.16"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-1.2.16.tgz#a66e56f421adb9f811036421d6b1afa06ab1ecac"
-  integrity sha512-qpfFKbUPSKM3Ya/lWOXvWKfAg+IjmEAI0sTSLojnJZXxk4smHs4NG7zLFTYWHx2Fp1P1M7rQp+XkbD2TVRumAw==
-  dependencies:
-    "@kaizen/component-library" "^15.0.5"
-    "@kaizen/draft-badge" "^1.12.2"
-    "@kaizen/loading-spinner" "^2.2.3"
-    classnames "^2.3.1"
-
 "@kaizen/component-library@12.2.0":
   version "12.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-12.2.0.tgz#8851ad3501d2df767940d83e9e3d23128d2ceb05"
@@ -2588,20 +2585,6 @@
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
 
-"@kaizen/component-library@^15.0.5":
-  version "15.0.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-15.0.5.tgz#976751c8c165c7a985f2b7f32f4561b1851e27e9"
-  integrity sha512-8Hu4xsU98ScuNL78swnoxR7een6fFHVcAUl6A09rXLwZH0HA39VO4ZX+Bm1x1P/r7eHUl0CsXepmnIiOV5yXOA==
-  dependencies:
-    "@kaizen/component-base" "^1.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
-    "@kaizen/hosted-assets" "^2.0.0"
-    "@types/classnames" "^2.3.0"
-    "@types/lodash" "^4.14.182"
-    "@types/uuid" "^3.4.10"
-    classnames "^2.3.1"
-    motion-ui cultureamp/motion-ui
-
 "@kaizen/draft-button@^5.4.1", "@kaizen/draft-button@^5.6.25":
   version "5.6.25"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
@@ -2612,34 +2595,6 @@
     "@kaizen/loading-spinner" "^2.1.2"
     "@types/classnames" "^2.3.0"
     classnames "^2.3.1"
-
-"@kaizen/draft-menu@^4.7.16":
-  version "4.7.16"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-menu/-/draft-menu-4.7.16.tgz#a0d34d6cd69c6b3c06c6e06a3443e55741064cf8"
-  integrity sha512-da7FtoE/FIvDDfUKiCA1OZNlBtIzyo6C5jGKUabf7eLoC2vGA76Z4JeY1gVgc8K3q7RCEpA3edOIhJoz95sLww==
-  dependencies:
-    "@kaizen/button" "^1.2.16"
-    "@kaizen/component-library" "^15.0.5"
-    "@kaizen/draft-divider" "^2.1.2"
-    "@popperjs/core" "^2.11.5"
-    "@types/classnames" "^2.3.0"
-    classnames "^2.3.1"
-    react-popper "^2.2.5"
-    uuid "^8.3.2"
-
-"@kaizen/draft-tooltip@^5.2.14":
-  version "5.2.14"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.2.14.tgz#e56a306b9b8debd2c59945004397df0e0b373761"
-  integrity sha512-iVgsFi/Mhkw6Fx4zBSyA7hBwAKGI9Bwm2wHsTqAaXkFudMuKc98jJIRfivJcNWSGSP0D7pHi2hXdCdj3nKhHKg==
-  dependencies:
-    "@kaizen/component-library" "^15.0.5"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
-    "@popperjs/core" "^2.11.5"
-    "@types/classnames" "^2.3.0"
-    classnames "^2.3.1"
-    react-popper "^2.2.5"
-    use-debounce "^8.0.1"
-    uuid "^8.3.2"
 
 "@kaizen/hosted-assets@^1.2.0":
   version "1.2.0"
@@ -19937,11 +19892,6 @@ use-callback-ref@^1.3.0:
   integrity sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==
   dependencies:
     tslib "^2.0.0"
-
-use-debounce@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.1.tgz#5f3e11b067bdf9f2c554a20b4764e38b48022664"
-  integrity sha512-6tGAFJKJ0qCalecaV7/gm/M6n238nmitNppvR89ff1yfwSFjwFKR7IQZzIZf1KZRQhqNireBzytzU6jgb29oVg==
 
 use-debounce@^8.0.1:
   version "8.0.2"

@@ -2,18 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "variables";
-@import "mixins";
-
-// reset user agent styles for button element type
-@mixin button-reset {
-  appearance: none;
-  background: transparent;
-  border: none;
-  font: inherit;
-  margin: 0;
-  transition: none; // override Murmur global styles :(
-}
+@import "../../mixins";
 
 .button {
   @include button-reset;
@@ -52,7 +41,7 @@
   align-items: center;
 
   // TODO: copied from Calendar button since the design is not settled
-  &[aria-disabled="true"] {
+  &.isDisabled {
     pointer-events: none;
     color: rgba($color-purple-800-rgb, 0.3);
     opacity: 1;

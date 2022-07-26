@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import React from "react"
 import { useSelectionContext } from "../../../provider"
 
@@ -7,7 +8,10 @@ export const SelectAllButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
   return (
     <button
-      className={styles.button}
+      className={classNames(
+        styles.button,
+        selectionState.selectionManager.isSelectAll ? styles.isDisabled : ""
+      )}
       aria-disabled={selectionState.selectionManager.isSelectAll}
       onClick={
         () =>

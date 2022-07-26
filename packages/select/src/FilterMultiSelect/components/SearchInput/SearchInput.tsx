@@ -3,7 +3,7 @@ import { InputSearch } from "@kaizen/draft-form"
 import { useSelectionContext } from "../../provider"
 
 export interface SearchInputProps {
-  label: string
+  label?: string
   id?: string
 }
 
@@ -21,7 +21,7 @@ export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
   return (
     <InputSearch
       id={id ?? useId()}
-      aria-label={label}
+      aria-label={label ?? "Filter options by search query"}
       secondary
       placeholder="Search…"
       value={searchQuery}

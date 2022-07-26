@@ -19,7 +19,10 @@ export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
   const removeButtonLabel = `Remove ${filterTriggerProps.label} filter`
   return (
     <div className={styles.trigger}>
-      <FilterTriggerButton {...filterTriggerProps} />
+      <FilterTriggerButton
+        ClassNameOverriden={styles.triggerButton}
+        {...filterTriggerProps}
+      />
       <div className={styles.divider} />
       <Tooltip text={removeButtonLabel} position="below">
         <button

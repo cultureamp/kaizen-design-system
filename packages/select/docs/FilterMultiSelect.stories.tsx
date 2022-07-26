@@ -4,12 +4,12 @@ import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
 import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   FilterMultiSelect,
   getSelectedOptionLabels,
-} from "../src/FilterMultiSelect/FilterMultiSelect"
+} from "../src/FilterMultiSelect"
 import styles from "./FilterMultiSelect.stories.scss"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
@@ -17,7 +17,7 @@ import { items } from "./MockData"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 
 export default {
-  title: `${CATEGORIES.components}/Select/Filter Multi-Select`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Filter Multi-Select`,
   component: FilterMultiSelect,
   parameters: {
     docs: {
@@ -56,7 +56,7 @@ export const DefaultKaizenSiteDemo = args => {
     >
       {() => (
         <>
-          <FilterMultiSelect.SearchInput label="Search label" />
+          <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
             {item => <FilterMultiSelect.Option key={item.key} item={item} />}
           </FilterMultiSelect.ListBox>
