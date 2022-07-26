@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.5...@kaizen/component-library@15.1.0) (2022-07-26)
+
+
+### Features
+
+* remove motion-ui dependancy and add vendor stylesheets ([#2866](https://github.com/cultureamp/kaizen-design-system/issues/2866)) ([43fd73d](https://github.com/cultureamp/kaizen-design-system/commit/43fd73dae4a9a438633d18e37e5d4cadf9774206))
+
+
+
+
+
 ## [15.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.4...@kaizen/component-library@15.0.5) (2022-07-22)
 
 **Note:** Version bump only for package @kaizen/component-library

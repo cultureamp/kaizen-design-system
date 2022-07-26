@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.14...@kaizen/draft-likert-scale-legacy@1.8.15) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
 ## [1.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.13...@kaizen/draft-likert-scale-legacy@1.8.14) (2022-07-22)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
