@@ -4,10 +4,7 @@
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/layers";
-
-// Sync with Tooltip.tsx
-$arrow-height: 7px;
-$arrow-width: 14px;
+@import "./variables";
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -184,4 +181,17 @@ $arrow-width: 14px;
 
 .displayInlineFlex {
   display: inline-flex;
+}
+
+.defaultHiddenState {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $anim-duration-ms ease-out;
+  will-change: opacity;
+  display: inline;
+}
+
+.visibleState {
+  opacity: 1;
+  pointer-events: initial;
 }
