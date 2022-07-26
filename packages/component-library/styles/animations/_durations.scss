@@ -1,6 +1,8 @@
-$ca-duration-instant: 0ms;
-$ca-duration-immediate: 100ms;
-$ca-duration-rapid: 200ms;
-$ca-duration-fast: 300ms;
-$ca-duration-slow: 400ms;
-$ca-duration-deliberate: 700ms;
+@import "~@kaizen/design-tokens/sass/animation";
+
+$ca-duration-instant: $animation-duration-instant;
+$ca-duration-immediate: $animation-duration-immediate;
+$ca-duration-rapid: $animation-duration-rapid;
+$ca-duration-fast: $animation-duration-fast;
+$ca-duration-slow: $animation-duration-slow;
+$ca-duration-deliberate: $animation-duration-deliberate;
