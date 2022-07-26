@@ -23,6 +23,8 @@
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
 
+  cursor: default;
+
   &:hover,
   &:active {
     background-color: $color-blue-100;
@@ -40,6 +42,14 @@
 
   &.isDisabled {
     opacity: 0.3;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .icon {
+      border-color: $color-gray-600;
+    }
   }
 }
 
@@ -59,6 +69,14 @@
   &.icon {
     background-color: $color-gray-500;
     color: white;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .icon {
+      background-color: $color-gray-600;
+    }
   }
 
   font-weight: 600;
