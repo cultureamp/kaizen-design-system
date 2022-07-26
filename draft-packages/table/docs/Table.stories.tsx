@@ -16,7 +16,7 @@ import {
 } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./Table.stories.scss"
+import styles from "./Table.stories.module.scss"
 
 const Container: React.FunctionComponent<{
   children: React.ReactNode
