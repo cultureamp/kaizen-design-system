@@ -11,7 +11,7 @@ import {
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { ItemType } from "../../FilterMultiSelect"
+import { ItemType } from "../../types"
 
 export interface RootProps
   extends MenuPopupProps,

@@ -8,7 +8,7 @@ import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
-import { ItemType } from "../../FilterMultiSelect"
+import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 jest.mock("react", () => ({

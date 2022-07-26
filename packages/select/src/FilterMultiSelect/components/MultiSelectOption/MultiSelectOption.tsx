@@ -9,7 +9,7 @@ import { Icon } from "@kaizen/component-library"
 import { Badge } from "@kaizen/draft-badge"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../FilterMultiSelect"
+import { ItemType } from "../../types"
 import styles from "./MultiSelectOption.scss"
 
 export interface MultiSelectOptionProps {

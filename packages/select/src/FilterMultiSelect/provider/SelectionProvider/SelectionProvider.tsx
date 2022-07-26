@@ -4,7 +4,7 @@ import { useListBox } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Item } from "@react-stately/collections"
-import { ItemType } from "../../FilterMultiSelect"
+import { ItemType } from "../../types"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
