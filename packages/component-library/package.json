@@ -37,8 +37,7 @@
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.182",
     "@types/uuid": "^3.4.10",
-    "classnames": "^2.3.1",
-    "motion-ui": "cultureamp/motion-ui"
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.16.0",
