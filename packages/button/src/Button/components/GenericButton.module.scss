@@ -1,7 +1,7 @@
 @import "../variables";
-@import "../Button.scss";
-@import "../IconButton.scss";
-@import "../PaginationButtons.scss";
+@import "../Button.module.scss";
+@import "../IconButton.module.scss";
+@import "../PaginationButtons.module.scss";
 
 .container {
   display: inline-block;

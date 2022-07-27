@@ -1,6 +1,6 @@
 import React from "react"
 import cx from "classnames"
-import styles from "./Pagination.scss"
+import styles from "./Pagination.module.scss"
 
 interface PageIndicatorProps {
   page: number

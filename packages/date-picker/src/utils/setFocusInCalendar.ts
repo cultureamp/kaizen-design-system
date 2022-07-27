@@ -1,4 +1,4 @@
-import calendarStyles from "../_primitives/Calendar/Calendar.scss"
+import calendarStyles from "../_primitives/Calendar/Calendar.module.scss"
 import { CalendarElement } from "../_primitives/Calendar"
 import { isInvalidDate } from "./isInvalidDate"
 

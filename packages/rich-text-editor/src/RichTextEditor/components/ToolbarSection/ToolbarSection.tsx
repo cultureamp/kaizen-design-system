@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./ToolbarSection.scss"
+import styles from "./ToolbarSection.module.scss"
 
 export interface ToolbarSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {

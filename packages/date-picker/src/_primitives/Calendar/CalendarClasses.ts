@@ -1,11 +1,10 @@
 /* eslint-disable camelcase */
 import { ClassNames } from "react-day-picker"
-import calendarStyles from "./Calendar.scss"
-import reactDayPickerStyles from "./react-day-picker.scss"
+import calendarStyles from "./Calendar.module.scss"
 
 export const defaultCalendarClasses: ClassNames = {
   root: calendarStyles.container,
-  day_hidden: reactDayPickerStyles["rdp-vhidden"],
+  vhidden: calendarStyles.vHidden,
   months: calendarStyles.months,
   month: calendarStyles.month,
   table: calendarStyles.table,

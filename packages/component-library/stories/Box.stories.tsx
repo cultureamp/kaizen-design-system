@@ -11,7 +11,7 @@ import {
 } from "@storybook/addon-docs"
 import { Box } from "../components/Box"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./Box.stories.scss"
+import styles from "./Box.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Box`,
