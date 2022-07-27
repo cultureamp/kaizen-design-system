@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
@@ -8,8 +8,7 @@ import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
-
-import styles from "./GenericModal.scss"
+import styles from "./GenericModal.module.scss"
 
 export interface GenericModalContainerProps {
   readonly isOpen: boolean

@@ -1,8 +1,7 @@
+import React from "react"
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
-import * as React from "react"
-
-import styles from "../styles.scss"
+import styles from "./MenuItem.module.scss"
 
 export type MenuItemProps = {
   label: string

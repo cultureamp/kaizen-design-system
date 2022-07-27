@@ -1,6 +1,6 @@
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
-import * as React from "react"
-import styles from "./styles.module.scss"
+import React from "react"
+import styles from "./FilterMenuButton.module.scss"
 import { FilterSplitButton } from "./FilterSplitButton"
 
 export interface FilterMenuButtonProps {

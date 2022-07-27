@@ -1,8 +1,7 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
 import { NON_REVERSED_VARIANTS, Variant } from "./TitleBlockZen"
-
-import styles from "./NavigationTabs.scss"
+import styles from "./NavigationTabs.module.scss"
 
 export type NavigationTabProps = {
   text: string

@@ -1,10 +1,7 @@
+import React from "react"
+import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-
-import classNames from "classnames"
-import * as React from "react"
-
-import styles from "./styles.scss"
 import { Size, Variant } from "./types"
 import {
   mapArrowVariantToClass,
@@ -14,6 +11,7 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+import styles from "./Popover.module.scss"
 
 export type Side = "top" | "bottom"
 

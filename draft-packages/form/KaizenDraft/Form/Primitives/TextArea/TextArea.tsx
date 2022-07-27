@@ -6,7 +6,7 @@ import React, {
 } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./TextArea.module.scss"
 
 export interface TextAreaProps
   extends OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>> {

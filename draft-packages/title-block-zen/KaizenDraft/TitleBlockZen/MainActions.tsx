@@ -1,6 +1,6 @@
+import React from "react"
 import { Button, IconButton } from "@kaizen/button"
 import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
-import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import Toolbar from "./Toolbar"
@@ -9,8 +9,7 @@ import {
   isMenuGroupNotButton,
   PrimaryActionProps,
 } from "./TitleBlockZen"
-
-import styles from "./TitleBlockZen.scss"
+import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
