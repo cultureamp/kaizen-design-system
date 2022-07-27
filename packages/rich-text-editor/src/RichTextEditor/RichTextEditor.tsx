@@ -62,19 +62,32 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
 
-  const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
-    EditorState.create({
-      doc: value
-        ? Node.fromJSON(schema, {
-            type: "doc",
-            content: value,
-          })
-        : null,
-      schema,
-      plugins: getPlugins(controls, schema),
-    }),
-    { "aria-labelledby": labelId, role: "textbox" }
-  )
+  const useRichTextEditorResult = (() => {
+    try {
+      return useRichTextEditor(
+        EditorState.create({
+          doc: value
+            ? Node.fromJSON(schema, {
+                type: "doc",
+                content: value,
+              })
+            : null,
+          schema,
+          plugins: getPlugins(controls, schema),
+        }),
+        { "aria-labelledby": labelId, role: "textbox" }
+      )
+    } catch {
+      return new Error("Something went wrong")
+    }
+  })()
+
+  if (useRichTextEditorResult instanceof Error) {
+    return <p>Something went wrong</p>
+  }
+
+  const [editorRef, editorState, dispatchTransaction] = useRichTextEditorResult
+
   const controlMap = buildControlMap(schema, editorState, controls)
 
   useEffect(() => {
