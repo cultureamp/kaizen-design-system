@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import classnames from "classnames"
 import { Paragraph } from "@kaizen/typography"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./InputRange.module.scss"
 
 export interface InputRangeProps
   extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {

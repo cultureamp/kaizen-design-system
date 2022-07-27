@@ -1,8 +1,6 @@
-import * as React from "react"
-
+import React from "react"
 import { Heading } from "@kaizen/typography"
 import { Negative } from "@kaizen/draft-illustration"
-
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -11,8 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
-import styles from "./RoadblockModal.scss"
+import styles from "./RoadblockModal.module.scss"
 
 export interface RoadblockModalProps {
   readonly isOpen: boolean

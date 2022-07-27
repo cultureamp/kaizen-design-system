@@ -6,7 +6,7 @@ import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./PageLayout.stories.scss"
+import styles from "./PageLayout.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Page Layout`,

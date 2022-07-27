@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./HeroCard.scss"
+import styles from "./HeroCard.module.scss"
 
 type BackgroundColors =
   | "wisteria700"

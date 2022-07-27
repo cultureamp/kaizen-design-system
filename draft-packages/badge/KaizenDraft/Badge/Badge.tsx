@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useLayoutEffect, useState } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Badge.module.scss"
 
 interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {

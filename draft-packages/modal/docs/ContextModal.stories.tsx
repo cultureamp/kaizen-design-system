@@ -8,7 +8,7 @@ import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./ContextModal.stories.scss"
+import styles from "./ContextModal.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
