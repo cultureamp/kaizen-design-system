@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.1.0...@kaizen/component-library@15.1.1) (2022-07-27)
+
+
+### Bug Fixes
+
+* add slide effect to animations ([#2875](https://github.com/cultureamp/kaizen-design-system/issues/2875)) ([e6e0159](https://github.com/cultureamp/kaizen-design-system/commit/e6e0159b5a5823ff311164d5cd0b3001ffa4c6b6))
+
+
+
+
+
 # [15.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.0.5...@kaizen/component-library@15.1.0) (2022-07-26)
 
 
