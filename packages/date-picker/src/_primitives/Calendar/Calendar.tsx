@@ -10,7 +10,7 @@ import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
 import { WeekStartsOn } from "../../types"
 import { defaultCalendarClasses } from "./CalendarClasses"
-import calendarStyles from "./Calendar.scss"
+import calendarStyles from "./Calendar.module.scss"
 
 export type CalendarElement = HTMLDivElement
 

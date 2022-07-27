@@ -4,7 +4,7 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "@kaizen/draft-form"
 import { EditorContentArray, RichTextContent } from "../../"
-import styles from "./EditableRichTextContent.scss"
+import styles from "./EditableRichTextContent.module.scss"
 
 export interface EditableRichTextContentProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick">> {
