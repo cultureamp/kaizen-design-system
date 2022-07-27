@@ -8,7 +8,7 @@ import {
   DropdownButton,
   DropdownButtonProps,
 } from "./components"
-import styles from "./SplitButton.scss"
+import styles from "./SplitButton.module.scss"
 
 type DataAttributes = { [key: `data-${string}`]: string | undefined }
 

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import styles from "./ProgressBar.scss"
+import styles from "./ProgressBar.module.scss"
 
 type Mood = "positive" | "informative" | "negative" | "cautionary"
 

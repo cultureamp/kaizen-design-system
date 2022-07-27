@@ -3,7 +3,7 @@ import { OverrideClassName } from "@kaizen/component-base"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { Calendar } from "../Calendar"
-import calendarWrapperStyles from "./CalendarWrapper.scss"
+import calendarWrapperStyles from "./CalendarWrapper.module.scss"
 
 interface CalendarWrapperProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

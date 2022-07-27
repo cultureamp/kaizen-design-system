@@ -6,7 +6,7 @@ import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg
 import { Icon } from "@kaizen/component-library"
 import { PageIndicator } from "./PageIndicator"
 import { TruncateIndicator } from "./TruncateIndicator"
-import styles from "./Pagination.scss"
+import styles from "./Pagination.module.scss"
 import { createRange } from "./utils"
 
 export interface PaginationProps
