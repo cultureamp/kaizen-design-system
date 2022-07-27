@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.7...@kaizen/rich-text-editor@1.15.8) (2022-07-27)
+
+
+### Bug Fixes
+
+* **rte:** fix bug where long strings overflow editor ([#2874](https://github.com/cultureamp/kaizen-design-system/issues/2874)) ([066a64a](https://github.com/cultureamp/kaizen-design-system/commit/066a64a558a0bc35775956f8ebc00673b9f9ac07))
+
+
+
+
+
 ## [1.15.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.6...@kaizen/rich-text-editor@1.15.7) (2022-07-26)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
