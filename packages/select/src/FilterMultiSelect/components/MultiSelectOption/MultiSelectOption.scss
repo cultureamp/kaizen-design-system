@@ -11,7 +11,8 @@
   display: inline-grid;
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
-  padding-right: $spacing-xs;
+  padding: 0 $spacing-xs;
+  margin-right: $spacing-sm;
 
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
@@ -26,8 +27,14 @@
   cursor: default;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     background-color: $color-blue-100;
+
+    .icon {
+      border-color: $color-gray-600;
+      background-color: $color-gray-200;
+    }
   }
 
   // TODO: move to focus ring (::after)
@@ -43,20 +50,12 @@
   &.isDisabled {
     opacity: 0.3;
   }
-
-  &:hover,
-  &:active,
-  &:focus {
-    .icon {
-      border-color: $color-gray-600;
-    }
-  }
 }
 
 .icon {
   line-height: 1;
-  height: calc(#{$spacing-md} - #{$border-solid-border-width});
-  width: calc(#{$spacing-md} - #{$border-solid-border-width});
+  height: calc(#{$spacing-md} - #{$border-solid-border-width} * 2);
+  width: calc(#{$spacing-md} - #{$border-solid-border-width} * 2);
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $color-gray-500;
   border-radius: $border-solid-border-radius;
