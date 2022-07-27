@@ -2,9 +2,6 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 // Should match the values for the Input component
 $input-height: 48px;
@@ -28,8 +25,11 @@ $focus-border-color: $color-blue-500;
 }
 
 @mixin base-font-style() {
-  @include kz-typography-paragraph-body;
-  @include ca-inherit-baseline;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
   color: $color-purple-800;
 }
 
@@ -62,8 +62,8 @@ $focus-border-color: $color-blue-500;
   }
 
   .valueContainer {
-    font-family: $ca-inter-font-family;
-    font-size: $ca-inter-font-base-size;
+    font-family: $typography-paragraph-body-font-family;
+    font-size: $typography-paragraph-body-font-size;
   }
 
   .loadingMessage {

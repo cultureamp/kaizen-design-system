@@ -34,7 +34,6 @@
   "dependencies": {
     "@kaizen/button": "^1.2.20",
     "@kaizen/component-library": "^15.1.2",
-    "@kaizen/deprecated-component-library-helpers": "^2.5.6",
     "@kaizen/draft-form": "^7.2.20",
     "@kaizen/draft-tag": "^3.1.20",
     "@types/classnames": "^2.3.0",
