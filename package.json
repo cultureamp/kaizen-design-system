@@ -1,9 +1,6 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "draft-packages/*"
-  ],
+  "workspaces": ["packages/*", "draft-packages/*"],
   "engines": {
     "node": ">=14.18.0"
   },
@@ -115,10 +112,12 @@
     "webpack": "^5.68.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.15"
+    "@types/react": "^18.0.15",
+    "commitizen": "^4.2.5"
   },
   "resolutionsComments": {
-    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
+    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want",
+    "commitizen": "cz-conventional-changelog v3.3.0 has a dependency on commitizen 4.2.4 which has vulnerabilities"
   },
   "config": {
     "commitizen": {
