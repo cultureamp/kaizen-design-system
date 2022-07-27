@@ -76,7 +76,7 @@
     "@typescript-eslint/parser": "^5.30.7",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.7.0",
-    "commitizen": "^4.2.4",
+    "commitizen": "^4.2.5",
     "css-loader": "^3.6.0",
     "cz-conventional-changelog": "3.3.0",
     "danger": "^11.1.1",
@@ -115,10 +115,12 @@
     "webpack": "^5.68.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.15"
+    "@types/react": "^18.0.15",
+    "commitizen": "^4.2.5"
   },
   "resolutionsComments": {
-    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
+    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want",
+    "commitizen": "cz-conventional-changelog v3.3.0 has a dependency on commitizen 4.2.4 which has vulnerabilities"
   },
   "config": {
     "commitizen": {
