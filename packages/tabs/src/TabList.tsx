@@ -1,7 +1,6 @@
 import { TabList as ReachTabList } from "@reach/tabs"
 import React, { ReactNode } from "react"
 import classnames from "classnames"
-// import styles from "./TabList.module.scss"
 import styles from "./TabList.module.scss"
 
 export interface TabListProps {
