@@ -30,6 +30,8 @@ export interface BaseRichTextEditorProps
    * The editable area will autogrow, so this only affects the component when the content doesn't exceed this height.
    */
   rows?: EditorRows
+  dataError?: React.ReactElement
+  onDataError?: () => void
 }
 
 interface RTEWithLabelText extends BaseRichTextEditorProps {
@@ -56,6 +58,8 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     classNameOverride,
     controls,
     rows = 3,
+    dataError = <p>Something went wrong</p>,
+    onDataError,
     ...restProps
   } = props
   const [schema] = useState<Schema>(createSchemaFromControls(controls))
@@ -83,7 +87,8 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   })()
 
   if (useRichTextEditorResult instanceof Error) {
-    return <p>Something went wrong</p>
+    onDataError && onDataError()
+    return dataError
   }
 
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditorResult
