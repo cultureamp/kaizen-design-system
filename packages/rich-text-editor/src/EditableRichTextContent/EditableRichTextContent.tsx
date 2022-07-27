@@ -14,6 +14,16 @@ export interface EditableRichTextContentProps
   isLabelHidden?: boolean
 }
 
+const handleEditableClick = (
+  e: MouseEvent<HTMLElement>,
+  onClick: (event: MouseEvent<HTMLElement>) => void
+) => {
+  if ((e.target as HTMLElement).hasAttribute("href")) {
+    return
+  }
+  return onClick(e)
+}
+
 export const EditableRichTextContent: React.VFC<
   EditableRichTextContentProps
 > = props => {
@@ -32,7 +42,7 @@ export const EditableRichTextContent: React.VFC<
       {/* Disabling these a11y linting errors because there is a <button> that mitigates these concerns. The onClick here is just an additional layer. */}
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
       <div
-        onClick={onClick}
+        onClick={e => handleEditableClick(e, onClick)}
         className={classnames(styles.editableContainer, classNameOverride)}
         {...restProps}
       >

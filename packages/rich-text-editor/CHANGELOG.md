@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.8...@kaizen/rich-text-editor@1.15.9) (2022-07-27)
+
+
+### Bug Fixes
+
+* add click handler to editor wrapper to bubble events ([#2872](https://github.com/cultureamp/kaizen-design-system/issues/2872)) ([cd8bfc5](https://github.com/cultureamp/kaizen-design-system/commit/cd8bfc593337b04de9083db4c5d274ac75341aa9))
+
+
+
+
+
 ## [1.15.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.7...@kaizen/rich-text-editor@1.15.8) (2022-07-27)
 
 
