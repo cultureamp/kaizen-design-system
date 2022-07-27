@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "5.1.20",
+  "version": "5.1.21",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/hosted-assets": "^2.0.0",
+    "classnames": "^2.3.1",
     "jszip": "^3.7.1",
     "lottie-web": "^5.7.14"
   },

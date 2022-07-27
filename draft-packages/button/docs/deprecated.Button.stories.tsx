@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { Heading } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
@@ -6,15 +7,14 @@ import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import React, { useState } from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, IconButton } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./styles.module.scss"
+import styles from "./deprecated.Button.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button (deprecated)`,
+  title: `${CATEGORIES.deprecated}/${SUB_CATEGORIES.button}/Button (deprecated)`,
   component: Button,
   args: {
     label: "Label",

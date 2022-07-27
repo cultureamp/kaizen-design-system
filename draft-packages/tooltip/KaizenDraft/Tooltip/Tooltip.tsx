@@ -1,12 +1,11 @@
-import { usePopper } from "react-popper"
 import React, { useEffect, useRef, useState } from "react"
-import ReactDOM from "react-dom"
 import classnames from "classnames"
+import ReactDOM from "react-dom"
+import { usePopper } from "react-popper"
 import { Placement } from "@popperjs/core"
-import tooltipStyles from "./Tooltip.scss"
-import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
+import styles from "./Tooltip.module.scss"
 
 type Position = "above" | "below" | "left" | "right"
 
@@ -118,35 +117,26 @@ const TooltipContent = ({
     <div
       ref={setPopperElement}
       className={classnames({
-        [tooltipStyles.tooltip]: true,
-        [animationStyles.defaultHiddenState]: true,
-        [animationStyles.visibleState]: isVisible && !isAnimIn,
+        [styles.tooltip]: true,
       })}
       style={popperStyles.popper}
       {...attributes.popper}
       role="tooltip"
       id={tooltipId}
     >
-      <div
-        className={classnames(
-          tooltipStyles.tooltipContent,
-          tooltipStyles[mood]
-        )}
-      >
+      <div className={classnames(styles.tooltipContent, styles[mood])}>
         {text}
       </div>
       <div
         ref={setArrowElement}
         className={classnames({
-          [tooltipStyles.arrow]: true,
+          [styles.arrow]: true,
         })}
         style={popperStyles.arrow}
       >
-        <div className={tooltipStyles.arrowInner}>
-          <div
-            className={classnames(tooltipStyles.arrowMain, tooltipStyles[mood])}
-          />
-          <div className={tooltipStyles.arrowShadow} />
+        <div className={styles.arrowInner}>
+          <div className={classnames(styles.arrowMain, styles[mood])} />
+          <div className={styles.arrowShadow} />
         </div>
       </div>
     </div>
@@ -210,11 +200,11 @@ const Tooltip = ({
         <div
           ref={setReferenceElement}
           className={classnames(classNameOverride, {
-            [tooltipStyles.displayInline]: displayToUse === "inline",
-            [tooltipStyles.displayBlock]: displayToUse === "block",
-            [tooltipStyles.displayInlineBlock]: displayToUse === "inline-block",
-            [tooltipStyles.displayFlex]: displayToUse === "flex",
-            [tooltipStyles.displayInlineFlex]: displayToUse === "inline-flex",
+            [styles.displayInline]: displayToUse === "inline",
+            [styles.displayBlock]: displayToUse === "block",
+            [styles.displayInlineBlock]: displayToUse === "inline-block",
+            [styles.displayFlex]: displayToUse === "flex",
+            [styles.displayInlineFlex]: displayToUse === "inline-flex",
           })}
           onMouseEnter={() => {
             setIsHover(true)

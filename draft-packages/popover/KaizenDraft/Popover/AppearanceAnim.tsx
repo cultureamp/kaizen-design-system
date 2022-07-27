@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import cx from "classnames"
 import { useDebouncedCallback } from "use-debounce"
-import styles from "./AppearanceAnim.scss"
+import styles from "./AppearanceAnim.module.scss"
 
 type Props = {
   children: React.ReactNode

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-empty-state",
-  "version": "5.1.22",
+  "version": "5.1.23",
   "description": "The draft Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.0",
     "@kaizen/component-library": "^15.1.1",
-    "@kaizen/draft-illustration": "^5.1.20",
+    "@kaizen/draft-illustration": "^5.1.21",
     "@kaizen/typography": "^2.2.3",
     "classnames": "^2.3.1"
   },

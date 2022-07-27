@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./RadioGroup.module.scss"
 
 export interface RadioGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

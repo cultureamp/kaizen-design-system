@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hero-card",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "The draft Hero card component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import { Container, Content, ContentProps } from "../../"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
-import styles from "./styles.scss"
+import styles from "./Skirt.module.scss"
 
 const spacing = 24
 const maxHeight = 222

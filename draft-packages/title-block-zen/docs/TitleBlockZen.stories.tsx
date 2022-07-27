@@ -12,9 +12,8 @@ import { withDesign } from "storybook-addon-designs"
 import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
-
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./TitleBlockZen.stories.scss"
+import styles from "./TitleBlockZen.stories.module.scss"
 
 const TESTING_VIEWPORTS = [320, 768, 1200]
 

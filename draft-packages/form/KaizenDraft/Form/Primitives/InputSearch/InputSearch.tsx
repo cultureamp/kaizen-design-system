@@ -5,7 +5,7 @@ import { Icon } from "@kaizen/component-library"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import search from "@kaizen/component-library/icons/search.icon.svg"
 import clear from "@kaizen/component-library/icons/clear.icon.svg"
-import styles from "./styles.scss"
+import styles from "./InputSearch.module.scss"
 
 export interface InputSearchProps
   extends OverrideClassName<
