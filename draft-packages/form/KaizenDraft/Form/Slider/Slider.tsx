@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
 import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./Slider.module.scss"
 
 export interface SliderFieldProps extends InputRangeProps {
   id: string

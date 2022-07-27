@@ -1,5 +1,5 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
 import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "@kaizen/button"
 import {
@@ -9,7 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-import styles from "./InputEditModal.scss"
+import styles from "./InputEditModal.module.scss"
 
 export interface InputEditModalProps {
   readonly isOpen: boolean

@@ -9,7 +9,7 @@ import {
   InputProps,
   Label,
 } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./TextField.module.scss"
 
 type OmittedInputProps =
   | "startIconAdornment"

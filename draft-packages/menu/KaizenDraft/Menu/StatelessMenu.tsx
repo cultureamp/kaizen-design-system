@@ -1,12 +1,6 @@
-import {
-  default as React,
-  useEffect,
-  useState,
-  SyntheticEvent,
-  useRef,
-} from "react"
+import React, { useEffect, useState, SyntheticEvent, useRef } from "react"
 import ReactDOM from "react-dom"
-import styles from "./styles.scss"
+import styles from "./StatelessMenu.module.scss"
 import MenuDropdown from "./MenuDropdown"
 
 export type StatelessMenuProps = {

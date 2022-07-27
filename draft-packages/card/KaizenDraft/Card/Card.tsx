@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Card.module.scss"
 
 export type CardVariants =
   | "default"

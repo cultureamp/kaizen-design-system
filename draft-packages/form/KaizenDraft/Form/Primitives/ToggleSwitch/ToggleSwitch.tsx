@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./ToggleSwitch.module.scss"
 
 export enum ToggledStatus {
   ON = "on",

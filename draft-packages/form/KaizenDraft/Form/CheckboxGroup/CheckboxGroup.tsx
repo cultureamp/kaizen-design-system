@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./CheckboxGroup.module.scss"
 
 export interface CheckboxGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

@@ -6,7 +6,7 @@ import {
   TileAction,
 } from "./components/GenericTile"
 import Action from "./components/Action"
-import styles from "./MultiActionTile.scss"
+import styles from "./MultiActionTile.module.scss"
 
 export interface MultiActionTileProps extends Omit<GenericTileProps, "footer"> {
   primaryAction: TileAction

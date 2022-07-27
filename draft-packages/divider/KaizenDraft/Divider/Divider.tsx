@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Divider.module.scss"
 
 export interface DividerProps
   extends OverrideClassName<HTMLAttributes<HTMLHRElement>> {
