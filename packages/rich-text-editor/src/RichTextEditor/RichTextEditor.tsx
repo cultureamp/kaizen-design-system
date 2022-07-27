@@ -82,7 +82,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
         { "aria-labelledby": labelId, role: "textbox" }
       )
     } catch {
-      return new Error("Something went wrong")
+      return new Error("Bad data error")
     }
   })()
 
