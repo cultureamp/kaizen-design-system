@@ -10,7 +10,7 @@ import {
   Label,
 } from "@kaizen/draft-form"
 import { getDescription } from "./utils/getDescription"
-import styles from "./DateInput.scss"
+import styles from "./DateInput.module.scss"
 
 type OmittedInputProps =
   | "startIconAdornment"

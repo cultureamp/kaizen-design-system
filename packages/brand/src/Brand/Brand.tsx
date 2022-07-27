@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
 import { assetUrl } from "@kaizen/hosted-assets"
-import styles from "./Brand.scss"
+import styles from "./Brand.module.scss"
 
 export interface BrandProps
   extends OverrideClassName<HTMLAttributes<HTMLElement>> {

@@ -17,7 +17,7 @@ import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
 import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"
-import styles from "./RichTextEditor.scss"
+import styles from "./RichTextEditor.module.scss"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 
 export interface BaseRichTextEditorProps

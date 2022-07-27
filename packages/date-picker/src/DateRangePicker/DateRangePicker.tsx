@@ -11,7 +11,7 @@ import { isDisabledDate } from "../utils/isDisabledDate"
 import { Calendar, CalendarProps } from "../_primitives/Calendar"
 import { DayOfWeek } from "../enums"
 import { CalendarWrapper } from "../_primitives/CalendarWrapper"
-import dateRangePickerStyles from "./DateRangePicker.scss"
+import dateRangePickerStyles from "./DateRangePicker.module.scss"
 
 export interface DateRangePickerProps {
   id: string

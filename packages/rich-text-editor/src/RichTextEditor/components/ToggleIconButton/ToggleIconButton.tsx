@@ -3,7 +3,7 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./ToggleIconButton.scss"
+import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
   extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
