@@ -6,18 +6,18 @@ import styles from "./FilterTriggerButton.scss"
 export type FilterTriggerButtonProps = {
   label: string
   selectedOptionLabels: string[]
-  ClassNameOverriden?: string
+  classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 
 export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
   selectedOptionLabels,
   label,
-  ClassNameOverriden,
+  classNameOverride,
 }) => {
   const hasSelectedValues = selectedOptionLabels.length > 0
 
   return (
-    <TriggerButtonBase ClassNameOverriden={ClassNameOverriden}>
+    <TriggerButtonBase classNameOverride={classNameOverride}>
       <span className={hasSelectedValues ? styles.hasSelectedValues : ""}>
         {label}
       </span>

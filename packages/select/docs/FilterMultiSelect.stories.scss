@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
 
 .row {
   display: inline-grid;
@@ -8,7 +9,7 @@
   align-items: center;
   width: 100%;
   box-shadow: $shadow-large-box-shadow;
-  border-radius: 7px;
+  border-radius: $border-solid-border-radius;
   padding: $spacing-xs;
 
   .filters {

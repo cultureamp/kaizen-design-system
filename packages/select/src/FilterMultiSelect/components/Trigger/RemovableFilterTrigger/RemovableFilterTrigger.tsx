@@ -20,7 +20,7 @@ export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
   return (
     <div className={styles.trigger}>
       <FilterTriggerButton
-        ClassNameOverriden={styles.triggerButton}
+        classNameOverride={styles.triggerButton}
         {...filterTriggerProps}
       />
       <div className={styles.divider} />

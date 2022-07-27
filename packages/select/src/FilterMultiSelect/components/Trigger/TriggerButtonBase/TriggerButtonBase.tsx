@@ -9,12 +9,12 @@ import styles from "./TriggerButtonBase.scss"
 
 export type TriggerButtonBaseProps = {
   children: React.ReactNode
-  ClassNameOverriden?: string
+  classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 
 export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
-  ClassNameOverriden,
+  classNameOverride,
 }) => {
   const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
 
@@ -22,7 +22,7 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
     <button
       {...buttonProps}
       ref={buttonRef}
-      className={classNames(styles.button, ClassNameOverriden)}
+      className={classNames(styles.button, classNameOverride)}
     >
       <span>{children}</span>
       <Icon

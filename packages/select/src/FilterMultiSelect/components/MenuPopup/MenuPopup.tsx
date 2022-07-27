@@ -27,7 +27,7 @@ export const MenuPopup: React.VFC<MenuPopupProps> = ({
   const { overlayProps } = useOverlay(
     {
       onClose,
-      isOpen: true,
+      isOpen: menuTriggerState.isOpen,
       isDismissable: true,
     },
     overlayRef
