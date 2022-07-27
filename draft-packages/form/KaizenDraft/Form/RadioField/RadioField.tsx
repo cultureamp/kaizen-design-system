@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Label, Radio, RadioProps } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./RadioField.module.scss"
 
 export interface RadioFieldProps extends RadioProps {
   children?: React.ReactNode // This should not exist, but it will be a breaking change to fix

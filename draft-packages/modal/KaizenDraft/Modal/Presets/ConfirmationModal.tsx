@@ -1,6 +1,5 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-
 import { Icon } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
 import {
@@ -10,11 +9,9 @@ import {
   Negative,
   Positive,
 } from "@kaizen/draft-illustration"
-
 import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
-
 import { ButtonProps } from "@kaizen/button"
 import {
   GenericModal,
@@ -24,8 +21,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
-import styles from "./ConfirmationModal.scss"
+import styles from "./ConfirmationModal.module.scss"
 
 export interface ConfirmationModalProps {
   readonly isOpen: boolean

@@ -1,5 +1,5 @@
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
 import ReactSelect, {
   components,
   Props as ReactSelectProps,
@@ -12,7 +12,7 @@ import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.s
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import styles from "./styles.react.scss"
+import styles from "./Select.module.scss"
 
 export type { OnChangeValue as ValueType } from "react-select"
 

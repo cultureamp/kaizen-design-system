@@ -14,7 +14,7 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
-import styles from "./styles.scss"
+import styles from "./Popover.module.scss"
 
 export interface PopoverProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

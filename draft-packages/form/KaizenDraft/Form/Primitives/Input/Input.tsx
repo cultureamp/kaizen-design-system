@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Input.module.scss"
 
 export type InputType = "text" | "email" | "password"
 export type InputStatus = "default" | "success" | "error" | "caution"
