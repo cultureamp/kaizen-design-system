@@ -1,9 +1,9 @@
+import React from "react"
+import classNames from "classnames"
 import { Button, ButtonProps } from "@kaizen/button"
 import { useMediaQueries } from "@kaizen/responsive"
-import classNames from "classnames"
-import * as React from "react"
 import GenericModalSection from "./GenericModalSection"
-import styles from "./ModalFooter.scss"
+import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
 

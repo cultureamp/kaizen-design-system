@@ -39,12 +39,12 @@ src/
       - Pancake/
         - index.ts
         - Pancake.tsx
-        - Pancake.scss
+        - Pancake.module.scss
         - Pancake.spec.tsx
       - Topping/
         - index.ts
         - Topping.tsx
-        - Topping.scss
+        - Topping.module.scss
         - Topping.spec.tsx
     hooks/
       - index.ts
@@ -56,10 +56,11 @@ src/
       - groupedFunctions.spec.ts
       - functionName.ts
       - functionName.spec.ts
+    - _mixins.scss
     - _variables.scss
     - index.ts
     - PancakeStack.tsx
-    - PancakeStack.scss
+    - PancakeStack.module.scss
     - PancakeStack.spec.tsx
 ```
 
@@ -95,11 +96,11 @@ See [template](#componenttsx-template) for component composition.
 
 ### Styles
 
-Style files should named to match the component name (eg. the Pancake component will be named `Pancake.scss`) and live in the same directory.
+Style files should named to match the component name (eg. the Pancake component will be named `Pancake.module.scss`) and live in the same directory.
 
 Keep these clean by separating styles for subcomponents in their own respective files.
 
-If you require scss variables to be shared between the parent and its children, add them to `_variables.scss` in the parent directory and import the file into the required stylesheets.
+If you require scss variables or mixins to be shared between the parent and its children, add them to `_variables.scss` or `_mixins.scss` in the parent directory and import the file into the required stylesheets. Note that these do not have `.module` as part of their extension as they should not contain any classes directly used by the component.
 
 ### Tests
 
@@ -116,7 +117,7 @@ A basic component will follow this template:
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./PancakeStack.scss"
+import styles from "./PancakeStack.module.scss"
 
 export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode

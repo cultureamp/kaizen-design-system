@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Checkbox, CheckboxProps, CheckedStatus, Label } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./CheckboxField.module.scss"
 
 export interface CheckboxFieldProps extends CheckboxProps {
   id?: string

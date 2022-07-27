@@ -7,7 +7,7 @@ import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
 import { ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./FilterMenuButton.stories.scss"
+import styles from "./FilterMenuButton.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC

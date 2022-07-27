@@ -8,7 +8,7 @@ import { Button } from "@kaizen/button"
 import { EmptyState } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./EmptyState.stories.scss"
+import styles from "./EmptyState.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 

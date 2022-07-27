@@ -10,7 +10,7 @@ import {
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import { Paragraph, Heading } from "@kaizen/typography"
-import styles from "./styles.scss"
+import styles from "./EmptyState.module.scss"
 
 const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
   positive: EmptyStatesPositive,

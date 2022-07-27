@@ -4,7 +4,7 @@ import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./LoadingPlaceholder.stories.scss"
+import styles from "./LoadingPlaceholder.stories.module.scss"
 
 const StoryContainer = ({ children }) => (
   <div className={styles.storyContainer}>{children}</div>

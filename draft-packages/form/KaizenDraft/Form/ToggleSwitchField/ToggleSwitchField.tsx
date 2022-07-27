@@ -7,7 +7,7 @@ import {
   ToggleSwitch,
   ToggleSwitchProps,
 } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./ToggleSwitchField.module.scss"
 
 export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
   id?: string

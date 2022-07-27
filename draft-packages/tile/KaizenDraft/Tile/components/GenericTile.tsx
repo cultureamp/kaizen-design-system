@@ -7,7 +7,7 @@ import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.ic
 import { IconButton } from "@kaizen/button"
 import { Heading, Paragraph, AllowedHeadingTags } from "@kaizen/typography"
 import Action from "./Action"
-import styles from "./GenericTile.scss"
+import styles from "./GenericTile.module.scss"
 
 export interface TileAction {
   label: string

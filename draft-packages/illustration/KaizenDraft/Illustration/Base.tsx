@@ -1,6 +1,7 @@
+import React from "react"
+import classnames from "classnames"
 import { assetUrl } from "@kaizen/hosted-assets"
-import * as React from "react"
-import styles from "./style.module.scss"
+import styles from "./Base.module.scss"
 
 export type BaseProps = {
   /**
@@ -35,31 +36,23 @@ export const Base = ({
   aspectRatio,
   ...otherProps
 }: BaseProps) => {
-  const className =
-    (classNameOverride ? classNameOverride : "") + " " + styles.wrapper
+  const className = classnames([styles.wrapper, classNameOverride])
 
-  const aspectClassName =
-    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
-
-  return (
-    <>
-      {aspectRatio ? (
-        <figure className={aspectClassName}>
-          <img
-            {...otherProps}
-            className={className}
-            alt={alt}
-            src={assetUrl(name)}
-          />
-        </figure>
-      ) : (
-        <img
-          {...otherProps}
-          className={className}
-          alt={alt}
-          src={assetUrl(name)}
-        />
-      )}
-    </>
+  return aspectRatio ? (
+    <figure
+      className={classnames([
+        styles.aspectRatioWrapper,
+        aspectRatio && styles[aspectRatio],
+      ])}
+    >
+      <img
+        {...otherProps}
+        className={className}
+        alt={alt}
+        src={assetUrl(name)}
+      />
+    </figure>
+  ) : (
+    <img {...otherProps} className={className} alt={alt} src={assetUrl(name)} />
   )
 }

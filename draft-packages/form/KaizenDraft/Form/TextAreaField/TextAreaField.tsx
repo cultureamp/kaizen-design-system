@@ -7,7 +7,7 @@ import {
   TextArea,
   TextAreaProps,
 } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./TextAreaField.module.scss"
 
 export interface TextAreaFieldProps
   extends Omit<TextAreaProps, "automationId"> {

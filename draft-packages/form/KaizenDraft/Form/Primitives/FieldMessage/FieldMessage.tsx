@@ -4,7 +4,7 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import { Paragraph } from "@kaizen/typography"
-import styles from "./styles.scss"
+import styles from "./FieldMessage.module.scss"
 
 const WarningIcon: React.VFC = () => (
   <span className={styles.warningIcon}>
