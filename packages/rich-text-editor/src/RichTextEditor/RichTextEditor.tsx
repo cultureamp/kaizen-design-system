@@ -89,7 +89,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       <div className={styles.editorWrapper}>
         {controls && (
           <Toolbar aria-controls={editorId} aria-label="Text formatting">
-            {Object.values(controlMap).map((section, index) => (
+            {controlMap.map((section, index) => (
               <ToolbarSection key={index}>
                 {section.map((controlConfig, controlKeyIndex) => (
                   <ToggleIconButton
