@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.0...@kaizen/rich-text-editor@1.16.1) (2022-07-28)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+# [1.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.14...@kaizen/rich-text-editor@1.16.0) (2022-07-28)
+
+
+### Features
+
+* Kds 607 avoid fatal error when rte data doesnt match schema ([#2879](https://github.com/cultureamp/kaizen-design-system/issues/2879)) ([b09436d](https://github.com/cultureamp/kaizen-design-system/commit/b09436d1d5b20d5783c644748772b591e0f9f008))
+
+
+
+
+
 ## [1.15.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.13...@kaizen/rich-text-editor@1.15.14) (2022-07-28)
 
 
