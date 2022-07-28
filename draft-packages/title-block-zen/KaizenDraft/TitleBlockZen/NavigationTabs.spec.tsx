@@ -1,22 +1,12 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import { fireEvent } from "@storybook/testing-library"
-import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
+import NavigationTab, { CustomNavigationTabProps } from "./NavigationTabs"
 
-/**
- *   text: string
-  href: string
-  active?: boolean
-  handleClick?: (event: React.MouseEvent) => void
-  variant?: Variant
-  id?: string
-  automationId?: string
-  component?: (props: Omit<NavigationTabProps, "component">) => JSX.Element
- */
-
-const CustomComponent = (props: Omit<NavigationTabProps, "component">) => (
+const CustomComponent = (props: CustomNavigationTabProps) => (
   <button
     onClick={props.handleClick}
+    className={props.className}
   >{`${props.href} - ${props.text} - ${props.active}`}</button>
 )
 
@@ -37,6 +27,7 @@ describe("NavigationTabs", () => {
       })
     ).toHaveAttribute("href", href)
   })
+
   describe("with a component prop", () => {
     it("renders the component passed with the navigation tab props", () => {
       const handleClick = jest.fn()
@@ -49,12 +40,15 @@ describe("NavigationTabs", () => {
           handleClick={handleClick}
           active
           component={CustomComponent}
+          variant="education"
         />
       )
 
       const button = screen.getByRole("button", {
         name: `${href} - ${text} - true`,
       })
+      expect(button).toHaveClass("linkAnchor", "active", "lightBackground")
+
       fireEvent.click(button)
       expect(handleClick).toBeCalledTimes(1)
     })
