@@ -12,6 +12,7 @@ import {
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
+import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
@@ -58,7 +59,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     classNameOverride,
     controls,
     rows = 3,
-    dataError = <p>Something went wrong</p>,
+    dataError = "Something went wrong",
     onDataError,
     ...restProps
   } = props
@@ -88,7 +89,11 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
 
   if (useRichTextEditorResult instanceof Error) {
     onDataError && onDataError()
-    return dataError
+    return (
+      <InlineNotification title="Error" type="negative">
+        {dataError}
+      </InlineNotification>
+    )
   }
 
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditorResult
