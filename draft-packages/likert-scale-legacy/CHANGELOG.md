@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.18...@kaizen/draft-likert-scale-legacy@1.9.0) (2022-07-28)
+
+
+### Features
+
+* **likert-scale-legacy:** add validation message support ([#2880](https://github.com/cultureamp/kaizen-design-system/issues/2880)) ([58e05b7](https://github.com/cultureamp/kaizen-design-system/commit/58e05b707d622c082ca0666f1a60a98eed2d99be))
+
+
+
+
+
 ## [1.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.17...@kaizen/draft-likert-scale-legacy@1.8.18) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy

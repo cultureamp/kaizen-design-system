@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.13...@kaizen/rich-text-editor@1.15.14) (2022-07-28)
+
+
+### Bug Fixes
+
+* update control map to filter empty control groups ([#2877](https://github.com/cultureamp/kaizen-design-system/issues/2877)) ([17a42c6](https://github.com/cultureamp/kaizen-design-system/commit/17a42c66a2152928baf821750714957829bbb249))
+
+
+
+
+
 ## [1.15.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.15.12...@kaizen/rich-text-editor@1.15.13) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

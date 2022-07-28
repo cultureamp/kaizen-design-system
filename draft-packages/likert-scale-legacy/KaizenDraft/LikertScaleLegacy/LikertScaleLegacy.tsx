@@ -1,6 +1,7 @@
 import React, { useState, createRef } from "react"
 import classnames from "classnames"
 import { Paragraph } from "@kaizen/typography"
+import { FieldMessage } from "@kaizen/draft-form"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
 import styles from "./LikertScaleLegacy.module.scss"
@@ -16,8 +17,8 @@ export interface LikertScaleProps {
   selectedItem: ScaleItem | null
   automationId?: string
   reversed?: boolean
-  validationError?: boolean
-  validationErrorId?: string
+  validationMessage?: string
+  status?: "default" | "error"
   onSelect: (value: ScaleItem | null) => void
 }
 
@@ -31,8 +32,8 @@ export const LikertScaleLegacy = ({
   reversed,
   automationId,
   onSelect,
-  validationError,
-  validationErrorId,
+  validationMessage,
+  status,
   labelId,
 }: LikertScaleProps) => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
@@ -96,6 +97,13 @@ export const LikertScaleLegacy = ({
     legend = selectedItem.label
   }
 
+  const shouldDisplayValidationMessage =
+    status !== "default" && validationMessage !== undefined
+
+  const validationMessageId = shouldDisplayValidationMessage
+    ? `${labelId}-field-validation-message`
+    : undefined
+
   return (
     <div
       className={classnames(styles.container, {
@@ -105,7 +113,7 @@ export const LikertScaleLegacy = ({
       aria-labelledby={labelId}
       role="radiogroup"
       tabIndex={-1}
-      aria-describedby={(validationError && validationErrorId) || undefined}
+      aria-describedby={validationMessageId}
       data-automation-id={automationId}
     >
       <div
@@ -182,6 +190,14 @@ export const LikertScaleLegacy = ({
           )
         })}
       </div>
+      {shouldDisplayValidationMessage && (
+        <FieldMessage
+          id={validationMessageId}
+          message={validationMessage}
+          status={status}
+          reversed={reversed}
+        />
+      )}
     </div>
   )
 }

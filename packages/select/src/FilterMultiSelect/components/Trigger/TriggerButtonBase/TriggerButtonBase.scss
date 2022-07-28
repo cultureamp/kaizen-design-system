@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "../mixins";
+
+.button {
+  @include button;
+  border-radius: $border-solid-border-radius;
+
+  width: max-content;
+}
