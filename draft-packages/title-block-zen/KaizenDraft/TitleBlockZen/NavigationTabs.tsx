@@ -11,29 +11,37 @@ export type NavigationTabProps = {
   variant?: Variant
   id?: string
   automationId?: string
+  component?: (props: Omit<NavigationTabProps, "component">) => JSX.Element
 }
 
 const isLight = (variant: Variant | undefined): boolean =>
   variant !== undefined && NON_REVERSED_VARIANTS.includes(variant)
 
-const NavigationTab = (props: NavigationTabProps) => (
-  <a
-    className={classnames(styles.linkAnchor, {
-      [styles.lightBackground]: isLight(props.variant),
-    })}
-    href={props.href}
-    onClick={props.handleClick}
-    id={props.id}
-    data-automation-id={props.automationId}
-  >
-    <div
-      className={classnames(styles.linkLabel, {
-        [styles.active]: props.active,
+const NavigationTab = (props: NavigationTabProps) => {
+  if (props.component) {
+    const { component: Component, ...otherProps } = props
+    return <Component {...otherProps} />
+  }
+
+  return (
+    <a
+      className={classnames(styles.linkAnchor, {
+        [styles.lightBackground]: isLight(props.variant),
       })}
+      href={props.href}
+      onClick={props.handleClick}
+      id={props.id}
+      data-automation-id={props.automationId}
     >
-      {props.text}
-    </div>
-  </a>
-)
+      <div
+        className={classnames(styles.linkLabel, {
+          [styles.active]: props.active,
+        })}
+      >
+        {props.text}
+      </div>
+    </a>
+  )
+}
 
 export default NavigationTab
