@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.3.8...@kaizen/draft-select@2.4.0) (2022-07-27)
+
+
+### Features
+
+* Create FilterMultiSelect component ([#2858](https://github.com/cultureamp/kaizen-design-system/issues/2858)) ([7033654](https://github.com/cultureamp/kaizen-design-system/commit/7033654d1357fa099b2cd83b63c227738dfb2906))
+
+
+
+
+
 ## [2.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.3.7...@kaizen/draft-select@2.3.8) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/draft-select
