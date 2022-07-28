@@ -25,11 +25,11 @@
   white-space: nowrap;
   margin-right: $spacing-md;
 
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      margin-left: $spacing-md;
-      margin-right: 0;
-    }
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    margin-left: $spacing-md;
+    margin-right: 0;
+  }
 
   &:hover {
     color: $color-white;
@@ -93,16 +93,16 @@
   &.active {
     color: $color-blue-500;
 
-      &::before {
-        background-color: $color-blue-500;
-        top: 3px;
+    &::before {
+      background-color: $color-blue-500;
+      top: 3px;
 
-        @include title-block-medium-and-small {
-          top: auto;
-          bottom: 0;
-          border-radius: $border-solid-border-radius $border-solid-border-radius
-            0 0;
-        }
+      @include title-block-medium-and-small {
+        top: auto;
+        bottom: 0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
+          0;
       }
+    }
   }
 }
