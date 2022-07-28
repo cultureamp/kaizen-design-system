@@ -90,7 +90,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   if (useRichTextEditorResult instanceof Error) {
     onDataError && onDataError()
     return (
-      <InlineNotification title="Error" type="negative">
+      <InlineNotification title="Error" type="negative" persistent>
         {dataError}
       </InlineNotification>
     )
