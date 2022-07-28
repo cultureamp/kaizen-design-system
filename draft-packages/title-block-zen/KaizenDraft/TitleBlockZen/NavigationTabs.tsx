@@ -27,19 +27,14 @@ const NavigationTab = (props: NavigationTabProps) => {
     <a
       className={classnames(styles.linkAnchor, {
         [styles.lightBackground]: isLight(props.variant),
+        [styles.active]: props.active,
       })}
       href={props.href}
       onClick={props.handleClick}
       id={props.id}
       data-automation-id={props.automationId}
     >
-      <div
-        className={classnames(styles.linkLabel, {
-          [styles.active]: props.active,
-        })}
-      >
-        {props.text}
-      </div>
+      {props.text}
     </a>
   )
 }
