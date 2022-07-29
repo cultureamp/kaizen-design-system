@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test"
 
-const storyPage =
-  "iframe.html?args=&id=components-rich-text-editor--default&viewMode=story"
+const iframePath = "iframe.html?args=&id="
+const storyId = "components-rich-text-editor-rich-text-editor--default"
 
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
-  await page.goto(storyPage)
+  await page.goto(`${iframePath}${storyId}`)
 })
 
 test.describe("Test list keyboard shortcuts", async () => {
