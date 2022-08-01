@@ -40,7 +40,7 @@ const CalendarExample = (
       mode="single"
       weekStartsOn={DayOfWeek.Sun}
       onDayChange={() => undefined}
-      defaultMonth={new Date("2022-09-05")}
+      defaultMonth={new Date("2021-09-05")}
       locale={enAU}
       {...props}
     />
@@ -62,15 +62,15 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="Disabled" gridColumns={3}>
         <CalendarExample
           disabledDays={[
-            new Date("2022-09-15"),
-            { after: new Date("2022-09-17") },
+            new Date("2021-09-15"),
+            { after: new Date("2021-09-17") },
           ]}
           id="disabled-default"
         />
         <CalendarExample
           disabledDays={[
-            new Date("2022-09-15"),
-            { after: new Date("2022-09-17") },
+            new Date("2021-09-15"),
+            { after: new Date("2021-09-17") },
           ]}
           id="disabled-focus"
         />
@@ -78,9 +78,9 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
 
       <StoryWrapper.RowHeader headings={["Default", "Hover", "Focus"]} />
       <StoryWrapper.Row rowTitle="Selected">
-        <CalendarExample value={new Date("2022-09-05")} id="selected-default" />
-        <CalendarExample value={new Date("2022-09-05")} id="selected-hover" />
-        <CalendarExample value={new Date("2022-09-05")} id="selected-focus" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-default" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-hover" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-focus" />
       </StoryWrapper.Row>
 
       <StoryWrapper.RowHeader
@@ -134,8 +134,8 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
   })
 
   const calendars = [
-    { row: "default", buttonDescription: "5th September (Monday)" },
-    { row: "selected", buttonDescription: "5th September (Monday)" },
+    { row: "default", buttonDescription: "5th September (Sunday)" },
+    { row: "selected", buttonDescription: "5th September (Sunday)" },
     { row: "navigation", buttonDescription: "Go to previous month" },
   ]
 
@@ -150,6 +150,6 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
 
   getElementWithinCalendar(
     "disabled-focus",
-    "15th September (Thursday)"
+    "15th September (Wednesday)"
   ).classList.add("focus-visible")
 }
