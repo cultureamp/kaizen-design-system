@@ -56,6 +56,22 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
+export const WithNoAnimationDelay = props => (
+  <div
+    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
+  >
+    <Tooltip {...props} text="Tooltip label" animationDuration={0}>
+      <Button label="Fast tooltip" />
+    </Tooltip>
+  </div>
+)
+WithNoAnimationDelay.storyName = "With no animation delay"
+WithNoAnimationDelay.parameters = {
+  info: {
+    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
+  },
+}
+
 export const StickerSheet = props => (
   <div
     style={{
