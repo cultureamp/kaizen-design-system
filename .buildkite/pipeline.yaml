@@ -71,14 +71,16 @@ steps:
           run: publish
 
   - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
+    key: "playwright-step"
     depends_on: "publish-step"
     plugins:
-      - docker#v3.8.0:
-          image: mcr.microsoft.com/playwright
+      - docker#v3.13.0:
+          image: mcr.microsoft.com/playwright:v1.24.0-focal
           workdir: /app
           propagate-environment: true
           environment:
             - KAIZEN_DOMAIN_NAME
-          artifact_paths: "./playwright_rec.tar.gz"
-          commands:
-            - npx playwright test
+    artifact_paths:
+      - "./playwright_rec.tar.gz"
+    commands:
+      - npx playwright test
