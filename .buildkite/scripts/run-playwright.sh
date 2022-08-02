@@ -1,5 +1,8 @@
+echo "---  Starting E2E test setup"
+
 #!/bin/sh
 set -e
+# set -e stops the execution of a script if a command or pipeline has an error
 
 # shellcheck source=setup-registry.sh
 . ".buildkite/scripts/helpers/setup-registry.sh"
@@ -8,7 +11,6 @@ echo "--- :yarnpkg: Install dependencies"
 yarn install --frozen-lockfile
 
 KAIZEN_DEV_BRANCH=""
-
 
 if [ "$KAIZEN_DOMAIN_NAME" = "dev.cultureamp.design" ]; then
     echo "On dev branch for ${BUILDKITE_BRANCH}"
