@@ -72,8 +72,7 @@ steps:
 
   - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
     key: "playwright-step"
-    timeout_in_minutes: 15
-    commands: ".buildkite/scripts/run-playwright.sh"
+    command: ".buildkite/scripts/run-playwright.sh"
     depends_on: "publish-step"
     plugins:
       - docker#v3.8.0:
