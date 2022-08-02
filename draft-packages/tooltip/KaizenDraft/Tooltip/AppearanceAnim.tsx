@@ -12,7 +12,6 @@ type AnimationProps = {
 
 // Sync with ./AppearanceAnim.scss
 const ANIM_DURATION_MS = 200
-const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't had a chance to finish yet
 
 export const AnimationContext = React.createContext<AnimationProps>({
   isVisible: false,
@@ -28,7 +27,6 @@ export const AnimationContext = React.createContext<AnimationProps>({
 export const AnimationProvider = ({
   isVisible,
   animationDuration = ANIM_DURATION_MS,
-  animationBuffer = ANIM_BUFFER,
   ...otherProps
 }) => {
   const [isAnimIn, setIsAnimIn] = useState(false)
@@ -40,7 +38,7 @@ export const AnimationProvider = ({
     () => {
       setIsAnimOut(false)
     },
-    animationDuration + animationBuffer,
+    animationDuration,
     { leading: false }
   )
 
