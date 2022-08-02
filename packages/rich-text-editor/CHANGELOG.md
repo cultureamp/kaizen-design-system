@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.3...@kaizen/rich-text-editor@1.16.4) (2022-08-02)
+
+
+### Bug Fixes
+
+* **rte:** darken the rte border on hover ([#2887](https://github.com/cultureamp/kaizen-design-system/issues/2887)) ([325984c](https://github.com/cultureamp/kaizen-design-system/commit/325984c51243fe03fbd7b8495a53094cf995eef1))
+
+
+
+
+
 ## [1.16.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.2...@kaizen/rich-text-editor@1.16.3) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
