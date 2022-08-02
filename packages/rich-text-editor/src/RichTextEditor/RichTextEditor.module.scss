@@ -53,7 +53,9 @@
   border-radius: $border-solid-border-radius;
   word-wrap: break-word;
 
-  &:hover {
+  &:hover,
+  &:focus-within
+  {
     border-color: $color-gray-600;
     .toolbar {
         border-color: $color-gray-600
