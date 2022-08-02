@@ -20,6 +20,7 @@ const config: PlaywrightTestConfig = {
       use: { ...devices["Desktop Chrome"] },
     },
   ],
+  outputDir: "./playwright/test-results",
 }
 
 export default config

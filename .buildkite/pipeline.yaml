@@ -81,6 +81,5 @@ steps:
           environment:
             - KAIZEN_DOMAIN_NAME
     artifact_paths:
-      - "./playwright_rec.tar.gz"
-    commands:
-      - npx playwright test
+      - "./playwright/test-results/*"
+    commands: ".buildkite/scripts/run-playwright.sh"
