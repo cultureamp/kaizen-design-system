@@ -111,7 +111,11 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
       <div className={styles.editorWrapper}>
         {controls && (
-          <Toolbar aria-controls={editorId} aria-label="Text formatting">
+          <Toolbar
+            aria-controls={editorId}
+            aria-label="Text formatting"
+            classNameOverride={styles.toolbar}
+          >
             {controlMap.map((section, index) => (
               <ToolbarSection key={index}>
                 {section.map((controlConfig, controlKeyIndex) => (
