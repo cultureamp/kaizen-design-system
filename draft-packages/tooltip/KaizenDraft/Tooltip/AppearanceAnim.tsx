@@ -10,7 +10,7 @@ type AnimationProps = {
   isVisible: boolean
 }
 
-const ANIM_DURATION_MS = 200
+const ANIM_DURATION_MS = 400
 
 export const AnimationContext = React.createContext<AnimationProps>({
   isVisible: false,
