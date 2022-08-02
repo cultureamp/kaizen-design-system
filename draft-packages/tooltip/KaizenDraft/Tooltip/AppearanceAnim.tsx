@@ -5,6 +5,8 @@ type AnimationProps = {
   isAnimIn?: boolean
   isAnimOut?: boolean
   prevIsOpen?: boolean
+  animationDuration?: number
+  animationBuffer?: number
   isVisible: boolean
 }
 
@@ -23,7 +25,12 @@ export const AnimationContext = React.createContext<AnimationProps>({
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-export const AnimationProvider = ({ isVisible, ...otherProps }) => {
+export const AnimationProvider = ({
+  isVisible,
+  animationDuration = ANIM_DURATION_MS,
+  animationBuffer = ANIM_BUFFER,
+  ...otherProps
+}) => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(false)
@@ -33,7 +40,7 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
     () => {
       setIsAnimOut(false)
     },
-    ANIM_DURATION_MS + ANIM_BUFFER,
+    animationDuration + animationBuffer,
     { leading: false }
   )
 
