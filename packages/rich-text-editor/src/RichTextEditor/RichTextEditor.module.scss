@@ -54,11 +54,10 @@
   word-wrap: break-word;
 
   &:hover,
-  &:focus-within
-  {
+  &:focus-within {
     border-color: $color-gray-600;
     .toolbar {
-        border-color: $color-gray-600
+      border-color: $color-gray-600;
     }
   }
 }
