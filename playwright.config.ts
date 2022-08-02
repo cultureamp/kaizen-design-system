@@ -5,7 +5,7 @@ const config: PlaywrightTestConfig = {
   testMatch: ["**/*.playwright.spec.ts?(x)"],
   webServer: {
     command: "yarn storybook",
-    url: process.env.KAIZEN_DOMAIN_NAME || "http://localhost:6006/",
+    url: process.env.KAIZEN_DEV_BRANCH || "http://localhost:6006/",
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },

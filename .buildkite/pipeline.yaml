@@ -72,14 +72,11 @@ steps:
 
   - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
     key: "playwright-step"
+    timeout_in_minutes: 15
+    commands: ".buildkite/scripts/run-playwright.sh"
     depends_on: "publish-step"
     plugins:
-      - docker#v3.13.0:
+      - docker#v3.8.0:
           image: mcr.microsoft.com/playwright:v1.24.0-focal
-          workdir: /app
-          propagate-environment: true
           environment:
             - KAIZEN_DOMAIN_NAME
-    artifact_paths:
-      - "./playwright/test-results/*"
-    commands: ".buildkite/scripts/run-playwright.sh"
