@@ -2,7 +2,11 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { within } from "@storybook/testing-library"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import {
+  CATEGORIES,
+  SUB_CATEGORIES,
+  SUB_COMPONENTS_FOLDER_NAME,
+} from "../../../storybook/constants"
 import { DayOfWeek } from "../src/enums"
 import { Calendar, CalendarProps } from "../src/_primitives/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -10,7 +14,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Primitives/Calendar`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendar`,
   component: Calendar,
   parameters: {
     docs: {
@@ -36,7 +40,7 @@ const CalendarExample = (
       mode="single"
       weekStartsOn={DayOfWeek.Sun}
       onDayChange={() => undefined}
-      defaultMonth={new Date(2022, 8, 5)}
+      defaultMonth={new Date("2021-09-05")}
       locale={enAU}
       {...props}
     />
@@ -48,39 +52,55 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
 }) => (
   <>
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader
-        headings={["Hover", "Focus", "Disabled", "Disabled Focus"]}
-      />
-      <StoryWrapper.Row rowTitle="Default">
+      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
+      <StoryWrapper.Row rowTitle="Default" gridColumns={3}>
         <CalendarExample id="default-hover" />
         <CalendarExample id="default-focus" />
+      </StoryWrapper.Row>
+
+      <StoryWrapper.RowHeader headings={["Default", "Focus"]} gridColumns={3} />
+      <StoryWrapper.Row rowTitle="Disabled" gridColumns={3}>
         <CalendarExample
           disabledDays={[
-            new Date(2022, 8, 15),
-            { after: new Date(2022, 8, 17) },
+            new Date("2021-09-15"),
+            { after: new Date("2021-09-17") },
           ]}
-          id="default-disabled"
+          id="disabled-default"
         />
         <CalendarExample
           disabledDays={[
-            new Date(2022, 8, 15),
-            { after: new Date(2022, 8, 17) },
+            new Date("2021-09-15"),
+            { after: new Date("2021-09-17") },
           ]}
-          id="default-disabled-focus"
+          id="disabled-focus"
         />
       </StoryWrapper.Row>
-    </StoryWrapper>
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Selected", "Hover", "Focus"]} />
+
+      <StoryWrapper.RowHeader headings={["Default", "Hover", "Focus"]} />
       <StoryWrapper.Row rowTitle="Selected">
-        <CalendarExample value={new Date(2022, 8, 5)} id="selected-selected" />
-        <CalendarExample value={new Date(2022, 8, 5)} id="selected-hover" />
-        <CalendarExample value={new Date(2022, 8, 5)} id="selected-focus" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-default" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-hover" />
+        <CalendarExample value={new Date("2021-09-05")} id="selected-focus" />
       </StoryWrapper.Row>
-    </StoryWrapper>
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} />
-      <StoryWrapper.Row rowTitle="Navigation Buttons">
+
+      <StoryWrapper.RowHeader
+        headings={["Default", "Selected"]}
+        gridColumns={3}
+      />
+      <StoryWrapper.Row rowTitle="Today" gridColumns={3}>
+        <CalendarExample
+          defaultMonth={new Date("2022-05-01")}
+          id="today-default"
+        />
+        <CalendarExample
+          defaultMonth={new Date("2022-05-01")}
+          id="today-selected"
+          value={new Date("2022-05-01")}
+        />
+      </StoryWrapper.Row>
+
+      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
+      <StoryWrapper.Row rowTitle="Navigation Buttons" gridColumns={3}>
         <CalendarExample id="navigation-hover" />
         <CalendarExample id="navigation-focus" />
       </StoryWrapper.Row>
@@ -105,23 +125,31 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
     })
   }
 
+  const todayCalendarIds = ["today-default", "today-selected"]
+
+  todayCalendarIds.forEach(id => {
+    getElementWithinCalendar(id, "1st May (Sunday)").classList.add(
+      "story__datepicker__calendar--day-today"
+    )
+  })
+
   const calendars = [
-    { row: "default", name: "5th September (Monday)" },
-    { row: "selected", name: "5th September (Monday)" },
-    { row: "navigation", name: "Go to previous month" },
+    { row: "default", buttonDescription: "5th September (Sunday)" },
+    { row: "selected", buttonDescription: "5th September (Sunday)" },
+    { row: "navigation", buttonDescription: "Go to previous month" },
   ]
 
-  calendars.forEach(({ row, name }) => {
-    getElementWithinCalendar(`${row}-hover`, name).classList.add(
+  calendars.forEach(({ row, buttonDescription }) => {
+    getElementWithinCalendar(`${row}-hover`, buttonDescription).classList.add(
       "story__datepicker__calendar--hover"
     )
-    getElementWithinCalendar(`${row}-focus`, name).classList.add(
+    getElementWithinCalendar(`${row}-focus`, buttonDescription).classList.add(
       "focus-visible"
     )
   })
 
   getElementWithinCalendar(
-    "default-disabled-focus",
-    "15th September (Thursday)"
+    "disabled-focus",
+    "15th September (Wednesday)"
   ).classList.add("focus-visible")
 }
