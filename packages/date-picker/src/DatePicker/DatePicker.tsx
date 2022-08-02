@@ -73,16 +73,16 @@ export interface DatePickerProps
   disabledDates?: Date[]
 
   /**
-   * Accepts an object with a from and to date. Disables any date
-   * inside of that range.
+   * Accepts an object with a `from` and `to` date. Disables any date
+   * inside of that range, including the specified dates.
    * disabledRange={ from: new Date(2022, 1, 12), to: new Date(2022, 1, 16) }
    */
   disabledRange?: DateRange
 
   /**
-   * Accepts an object with a before and after date. Disables any date
-   * outside of that range.
-   * { before: new Date(2022, 1, 12), after: new Date(2022, 1, 16) }
+   * Accepts an object with a `before` and `after` date. Disables any date
+   * inside of that range, excluding the specified dates.
+   * { after: new Date(2022, 1, 12), before: new Date(2022, 1, 16) }
    */
   disabledBeforeAfter?: DateInterval
 
@@ -109,11 +109,11 @@ export interface DatePickerProps
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status: FieldMessageStatus | undefined
+  status: DateInputProps["status"] | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage: string | React.ReactNode | undefined
+  validationMessage: DateInputProps["validationMessage"] | undefined
 }
 
 export type ValidationResponse = {

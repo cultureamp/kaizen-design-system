@@ -25,6 +25,7 @@ type OmittedInputProps =
   | "defaultInputValue"
   | "automationId"
   | "locale"
+  | "className" // This is deprecated in InputProps, but yet to be removed
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   buttonRef?: React.RefObject<HTMLButtonElement>
@@ -49,7 +50,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: string | React.ReactNode
+  validationMessage?: React.ReactNode
   locale: Locale
 }
 
