@@ -10,7 +10,6 @@ type AnimationProps = {
   isVisible: boolean
 }
 
-// Sync with ./AppearanceAnim.scss
 const ANIM_DURATION_MS = 200
 
 export const AnimationContext = React.createContext<AnimationProps>({
