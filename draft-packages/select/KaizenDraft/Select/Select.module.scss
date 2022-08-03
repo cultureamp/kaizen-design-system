@@ -139,11 +139,29 @@ $focus-border-color: $color-blue-500;
     @include base-font-style();
   }
 
+  .input {
+    color: $color-purple-800;
+    padding-right: 20px;
+  }
+
+  &.secondarySmall {
+    .input {
+      font-family: $typography-paragraph-extra-small-font-family;
+      font-weight: $typography-paragraph-extra-small-font-weight;
+      font-size: $typography-paragraph-extra-small-font-size;
+      line-height: $typography-paragraph-extra-small-line-height;
+      letter-spacing: $typography-paragraph-extra-small-letter-spacing;
+    }
+  }
+
   &.reversed {
     .singleValue {
       color: $color-white;
     }
     .singleValueOverrides {
+      color: $color-white;
+    }
+    .input {
       color: $color-white;
     }
   }
@@ -327,25 +345,6 @@ $focus-border-color: $color-blue-500;
     }
     .singleValue {
       max-width: 100%;
-    }
-  }
-
-  .input {
-    color: $color-purple-800;
-    padding-right: 20px;
-  }
-  &.reversed {
-    .input {
-      color: $color-white;
-    }
-  }
-  &.secondarySmall {
-    .input {
-      font-family: $typography-paragraph-extra-small-font-family;
-      font-weight: $typography-paragraph-extra-small-font-weight;
-      font-size: $typography-paragraph-extra-small-font-size;
-      line-height: $typography-paragraph-extra-small-line-height;
-      letter-spacing: $typography-paragraph-extra-small-letter-spacing;
     }
   }
 }
