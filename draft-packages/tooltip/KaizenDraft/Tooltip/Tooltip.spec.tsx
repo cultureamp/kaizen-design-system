@@ -9,7 +9,7 @@ afterEach(() => cleanup())
 
 describe("<Tooltip />", () => {
   describe("When no animationDuration prop is given", () => {
-    test("animationDuration prop is passed to AnimationProvider as undefined", () => {
+    it("animationDuration prop is passed to AnimationProvider as undefined", () => {
       render(<Tooltip text="Example" />)
       expect(AnimationProvider).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -20,7 +20,7 @@ describe("<Tooltip />", () => {
     })
   })
   describe("When animationDuration prop is given", () => {
-    test("animationDuration prop is passed to AnimationProvider", () => {
+    it("animationDuration prop is passed to AnimationProvider", () => {
       render(<Tooltip text="Example" animationDuration={1000} />)
       expect(AnimationProvider).toHaveBeenCalledWith(
         expect.objectContaining({
