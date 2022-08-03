@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.9...@kaizen/date-picker@5.6.10) (2022-08-03)
+
+
+### Bug Fixes
+
+* **date-picker:** remove unnecessary :not(.outside) selectors in Calendar styles ([#2890](https://github.com/cultureamp/kaizen-design-system/issues/2890)) ([c354d04](https://github.com/cultureamp/kaizen-design-system/commit/c354d042092ab35c5e4decfc565ea8d5663318e3))
+
+
+
+
+
 ## [5.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.8...@kaizen/date-picker@5.6.9) (2022-08-02)
 
 **Note:** Version bump only for package @kaizen/date-picker
