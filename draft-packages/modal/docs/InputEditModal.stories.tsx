@@ -51,6 +51,15 @@ const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
 
   const handleOpen = () => setIsOpen(true)
   const handleClose = () => setIsOpen(false)
+  const handlePrimaryAction = () => {
+    alert("Sorry to interrupt. This is a primary action.")
+  }
+  const handleSecondaryAction = () => {
+    alert("Sorry to interrupt. This is a secondary action.")
+  }
+  const handleDismiss = () => {
+    handleClose()
+  }
 
   const SELECT_OPTIONS = [
     { value: "Mindy", label: "Mindy" },
@@ -71,8 +80,9 @@ const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
       <InputEditModal
         {...args}
         isOpen={args.isOpen === undefined ? isOpen : args.isOpen}
-        onSubmit={handleClose}
-        onDismiss={handleClose}
+        onSubmit={handlePrimaryAction}
+        onConfirm={handleSecondaryAction}
+        onDismiss={handleDismiss}
       >
         <Box mb={1}>
           <ModalAccessibleDescription>
@@ -98,7 +108,8 @@ InputEditModalExample.storyName = "Input Edit Modal"
 InputEditModalExample.args = {
   mood: "positive",
   title: "Input-edit modal title",
-  submitLabel: "Submit label",
+  submitLabel: "Primary label",
+  dismissLabel: "Secondary label",
 }
 InputEditModalExample.parameters = {
   docs: { source: { type: "code" } },
