@@ -97,6 +97,12 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
           id="today-selected"
           value={new Date("2022-05-01")}
         />
+        <CalendarExample
+          defaultMonth={new Date("2022-05-01")}
+          id="today-disabled"
+          value={new Date("2022-05-01")}
+          disabledDays={[new Date("2022-05-01")]}
+        />
       </StoryWrapper.Row>
 
       <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
@@ -125,7 +131,7 @@ StickerSheetCalendar.play = ({ canvasElement }) => {
     })
   }
 
-  const todayCalendarIds = ["today-default", "today-selected"]
+  const todayCalendarIds = ["today-default", "today-selected", "today-disabled"]
 
   todayCalendarIds.forEach(id => {
     getElementWithinCalendar(id, "1st May (Sunday)").classList.add(

@@ -95,16 +95,18 @@ export default {
       control: "text",
     },
     disabledDates: {
-      options: ["None", "May2022"],
+      options: ["None", "Today", "May2022"],
       control: {
         type: "select",
         labels: {
           None: "undefined",
+          Today: "[new Date()]",
           May2022: '[new Date("2022-05-01"), new Date("2022-05-22")]',
         },
       },
       mapping: {
         None: undefined,
+        Today: [new Date()],
         May2022: [new Date("2022-05-01"), new Date("2022-05-22")],
       },
     },
