@@ -115,6 +115,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           ValueContainer,
           ClearIndicator,
           IndicatorSeparator: null,
+          Input,
         }}
         className={classes}
       />
@@ -239,8 +240,13 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
 const ValueContainer: typeof components.ValueContainer = props => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
+
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>
     <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
+)
+
+const Input: typeof components.Input = props => (
+  <components.Input {...props} className={styles.input} />
 )
