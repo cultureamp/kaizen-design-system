@@ -12,7 +12,7 @@ let mockReturnValue
 
 beforeEach(() => {
   mockReturnValue = jest.fn()
-  mockReturnValue.cancel = () => {}
+  mockReturnValue.cancel = () => undefined
   useDebouncedCallback.mockImplementation(() => mockReturnValue)
 })
 
