@@ -182,16 +182,3 @@
 .displayInlineFlex {
   display: inline-flex;
 }
-
-.defaultHiddenState {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity $anim-duration-ms ease-out;
-  will-change: opacity;
-  display: inline;
-}
-
-.visibleState {
-  opacity: 1;
-  pointer-events: initial;
-}

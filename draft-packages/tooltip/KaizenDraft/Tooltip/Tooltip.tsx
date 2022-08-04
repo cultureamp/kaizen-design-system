@@ -44,6 +44,7 @@ export type TooltipProps = {
    * regression testing.
    */
   isInitiallyVisible?: boolean
+  animationDuration?: number
 }
 
 const positionToPlacement = new Map<Position, Placement>([
@@ -155,6 +156,7 @@ const Tooltip = ({
   position = "above",
   classNameOverride,
   portalSelector,
+  animationDuration,
   isInitiallyVisible = false,
   mood = "default",
 }: TooltipProps) => {
@@ -195,7 +197,10 @@ const Tooltip = ({
   }, [portalSelectorElementRef, portalSelector])
 
   return (
-    <AnimationProvider isVisible={isHover || isFocus}>
+    <AnimationProvider
+      isVisible={isHover || isFocus}
+      animationDuration={animationDuration}
+    >
       <>
         <div
           ref={setReferenceElement}
