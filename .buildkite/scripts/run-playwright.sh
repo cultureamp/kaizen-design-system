@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-# set -e stops the execution of a script if a command or pipeline has an error
 
 # shellcheck source=setup-registry.sh
 . ".buildkite/scripts/helpers/setup-registry.sh"
