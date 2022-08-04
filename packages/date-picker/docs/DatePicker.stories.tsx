@@ -223,7 +223,7 @@ DefaultStory.args = {
   locale: "en-AU",
 }
 
-export const ValidationStory = props => {
+export const ValidationStory: Story = () => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
     new Date(2022, 4, 5)
   )
@@ -273,7 +273,6 @@ export const ValidationStory = props => {
         validationMessage={validationMessage}
         disabledBefore={new Date()}
         locale="en-AU"
-        {...props}
       />
       <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
         <Button onClick={submitRequest} label="Submit" />
