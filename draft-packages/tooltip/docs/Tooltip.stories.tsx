@@ -66,11 +66,6 @@ export const WithNoAnimationDelay = props => (
   </div>
 )
 WithNoAnimationDelay.storyName = "With no animation delay"
-WithNoAnimationDelay.parameters = {
-  info: {
-    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
-  },
-}
 
 export const StickerSheet = props => (
   <div

@@ -6,7 +6,6 @@ type AnimationProps = {
   isAnimOut?: boolean
   prevIsOpen?: boolean
   animationDuration?: number
-  animationBuffer?: number
   isVisible: boolean
 }
 

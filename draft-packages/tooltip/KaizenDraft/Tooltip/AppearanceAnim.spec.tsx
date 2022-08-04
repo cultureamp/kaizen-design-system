@@ -6,8 +6,6 @@ import "@testing-library/jest-dom"
 jest.mock("use-debounce")
 const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 
-afterEach(() => cleanup())
-
 let mockReturnValue
 
 beforeEach(() => {
