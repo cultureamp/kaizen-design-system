@@ -85,7 +85,7 @@ describe("<InputEditModal />", () => {
         onSubmit={handleSubmit}
         onDismiss={handleDismiss}
         onSecondaryAction={handleSecondaryAction}
-        dismissLabel="Secondary button"
+        secondaryLabel="Secondary button"
       >
         Example modal body
       </InputEditModalWrapper>

@@ -109,7 +109,7 @@ InputEditModalExample.args = {
   mood: "positive",
   title: "Input-edit modal title",
   submitLabel: "Primary label",
-  dismissLabel: "Secondary label",
+  secondaryLabel: "Secondary label",
 }
 InputEditModalExample.parameters = {
   docs: { source: { type: "code" } },

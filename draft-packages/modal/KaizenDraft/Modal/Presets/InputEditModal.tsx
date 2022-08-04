@@ -23,6 +23,7 @@ export interface InputEditModalProps {
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
+  readonly secondaryLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
   readonly submitWorking?: { label: string; labelHidden?: boolean }
@@ -44,6 +45,7 @@ const InputEditModal = ({
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
+  secondaryLabel,
   submitWorking,
   automationId,
   children,
@@ -63,7 +65,7 @@ const InputEditModal = ({
   const footerActions: ButtonProps[] = [
     { ...submitAction, ...workingProps },
     {
-      label: dismissLabel,
+      label: secondaryLabel || dismissLabel,
       onClick: onSecondaryAction || onDismiss,
       disabled: !!submitWorking,
     },
