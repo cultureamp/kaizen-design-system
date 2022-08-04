@@ -2596,6 +2596,20 @@
     "@types/classnames" "^2.3.0"
     classnames "^2.3.1"
 
+"@kaizen/draft-tooltip@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.3.0.tgz#22f4ab8f926a50628e0d3e3fe49165f8e5eed884"
+  integrity sha512-o0JF1LUU3h5+RYdBn+9xq9H3A88UTdtDH+K2nznRaPFKweQk+QMBPI1xhN+zgU+7QX3u7ahWGzAvr/Wa84ME2A==
+  dependencies:
+    "@kaizen/component-library" "^15.2.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
+    "@popperjs/core" "^2.11.5"
+    "@types/classnames" "^2.3.0"
+    classnames "^2.3.1"
+    react-popper "^2.2.5"
+    use-debounce "^8.0.1"
+    uuid "^8.3.2"
+
 "@kaizen/hosted-assets@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
