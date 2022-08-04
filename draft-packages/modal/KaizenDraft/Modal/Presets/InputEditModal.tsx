@@ -17,7 +17,7 @@ export interface InputEditModalProps {
   readonly mood: "positive" | "destructive"
   readonly title: string
   readonly onSubmit: () => void
-  readonly onConfirm?: () => void
+  readonly onSecondaryAction?: () => void
   readonly onDismiss: () => void
   readonly onAfterLeave?: () => void
   readonly localeDirection?: "rtl" | "ltr"
@@ -39,7 +39,7 @@ const InputEditModal = ({
   mood,
   title,
   onSubmit,
-  onConfirm,
+  onSecondaryAction,
   onAfterLeave,
   localeDirection = "ltr",
   submitLabel = "Submit",
@@ -64,7 +64,7 @@ const InputEditModal = ({
     { ...submitAction, ...workingProps },
     {
       label: dismissLabel,
-      onClick: onConfirm || onDismiss,
+      onClick: onSecondaryAction || onDismiss,
       disabled: !!submitWorking,
     },
   ]

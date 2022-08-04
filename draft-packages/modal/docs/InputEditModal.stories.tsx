@@ -81,7 +81,7 @@ const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
         {...args}
         isOpen={args.isOpen === undefined ? isOpen : args.isOpen}
         onSubmit={handlePrimaryAction}
-        onConfirm={handleSecondaryAction}
+        onSecondaryAction={handleSecondaryAction}
         onDismiss={handleDismiss}
       >
         <Box mb={1}>
