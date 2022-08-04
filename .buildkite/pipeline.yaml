@@ -70,15 +70,11 @@ steps:
       - docker-compose#v3.9.0:
           run: publish
 
-  - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
+  - name: ":playwright: Running Playwright tests on ${KAIZEN_DOMAIN_NAME}"
     command: ".buildkite/scripts/run-playwright.sh"
     timeout_in_minutes: 15
     depends_on: "publish-step"
-    agent_query_rules: ["queue=build-unrestricted"]
+    <<: *defaults
     plugins:
-      - docker#v3.8.0:
-          image: mcr.microsoft.com/playwright:v1.24.0-focal
-          propagate-environment: true
-          environment:
-            - KAIZEN_DOMAIN_NAME
-            - GITHUB_REGISTRY_TOKEN
+      - docker-compose#v3.9.0:
+          run: playwright

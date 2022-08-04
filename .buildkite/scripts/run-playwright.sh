@@ -1,5 +1,3 @@
-echo "---  Starting E2E test setup"
-
 #!/bin/sh
 set -e
 # set -e stops the execution of a script if a command or pipeline has an error
