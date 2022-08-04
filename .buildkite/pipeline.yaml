@@ -75,6 +75,4 @@ steps:
     timeout_in_minutes: 15
     depends_on: "publish-step"
     <<: *defaults
-    plugins:
-      - docker-compose#v3.9.0:
-          run: playwright
+    agent_query_rules: ["queue=build-unrestricted-large"]
