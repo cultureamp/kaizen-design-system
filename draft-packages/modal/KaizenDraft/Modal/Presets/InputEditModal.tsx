@@ -62,11 +62,13 @@ const InputEditModal = ({
       }
     : {}
 
+  const showSecondary = onSecondaryAction && secondaryLabel
+
   const footerActions: ButtonProps[] = [
     { ...submitAction, ...workingProps },
     {
-      label: secondaryLabel || dismissLabel,
-      onClick: onSecondaryAction || onDismiss,
+      label: showSecondary ? secondaryLabel : dismissLabel,
+      onClick: showSecondary ? onSecondaryAction : onDismiss,
       disabled: !!submitWorking,
     },
   ]
