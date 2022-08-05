@@ -14,7 +14,7 @@ if [ "$KAIZEN_DOMAIN_NAME" = "dev.cultureamp.design" ]; then
     KAIZEN_DEV_BRANCH="${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}/"
 
     echo "--- Running playwright tests on ${KAIZEN_DEV_BRANCH}"
-    yarn playwright
+    yarn playwright:ci
 else
     echo "Playwright tests only run on dev env"
 fi
