@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.11...@kaizen/date-picker@5.7.0) (2022-08-04)
+
+
+### Features
+
+* **date-picker:** add fallback date to focus on for calendar ([#2894](https://github.com/cultureamp/kaizen-design-system/issues/2894)) ([c26b6ec](https://github.com/cultureamp/kaizen-design-system/commit/c26b6ecec1bc6902068ca4db261f71be916da067))
+
+
+
+
+
 ## [5.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.10...@kaizen/date-picker@5.6.11) (2022-08-04)
 
 **Note:** Version bump only for package @kaizen/date-picker
