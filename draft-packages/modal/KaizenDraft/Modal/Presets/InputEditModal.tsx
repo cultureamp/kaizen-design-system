@@ -17,11 +17,13 @@ export interface InputEditModalProps {
   readonly mood: "positive" | "destructive"
   readonly title: string
   readonly onSubmit: () => void
+  readonly onSecondaryAction?: () => void
   readonly onDismiss: () => void
   readonly onAfterLeave?: () => void
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
+  readonly secondaryLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
   readonly submitWorking?: { label: string; labelHidden?: boolean }
@@ -38,10 +40,12 @@ const InputEditModal = ({
   mood,
   title,
   onSubmit,
+  onSecondaryAction,
   onAfterLeave,
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
+  secondaryLabel,
   submitWorking,
   automationId,
   children,
@@ -58,9 +62,15 @@ const InputEditModal = ({
       }
     : {}
 
+  const showSecondary = onSecondaryAction && secondaryLabel
+
   const footerActions: ButtonProps[] = [
     { ...submitAction, ...workingProps },
-    { label: dismissLabel, onClick: onDismiss, disabled: !!submitWorking },
+    {
+      label: showSecondary ? secondaryLabel : dismissLabel,
+      onClick: showSecondary ? onSecondaryAction : onDismiss,
+      disabled: !!submitWorking,
+    },
   ]
 
   return (
