@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.19...@kaizen/draft-tooltip@5.3.0) (2022-08-04)
+
+
+### Features
+
+* **tooltip:** allow consumer to override animation duration through … ([#2889](https://github.com/cultureamp/kaizen-design-system/issues/2889)) ([d6659ee](https://github.com/cultureamp/kaizen-design-system/commit/d6659ee78bd446a660b73da535e07ed118a427a2)), closes [#2887](https://github.com/cultureamp/kaizen-design-system/issues/2887) [#2888](https://github.com/cultureamp/kaizen-design-system/issues/2888) [#2890](https://github.com/cultureamp/kaizen-design-system/issues/2890)
+
+
+
+
+
 ## [5.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.18...@kaizen/draft-tooltip@5.2.19) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
