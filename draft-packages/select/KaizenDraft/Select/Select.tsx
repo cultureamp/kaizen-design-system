@@ -71,6 +71,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     label,
     validationMessage,
     description,
+    isSearchable,
   } = props
 
   // the default for fullWidth depends on the variant
@@ -95,6 +96,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     [styles.notFullWidth]: !fullWidth,
     [styles.disabled]: props.isDisabled,
     [styles.error]: status === "error",
+    [styles.searchable]: isSearchable !== false,
   })
   return (
     <>
