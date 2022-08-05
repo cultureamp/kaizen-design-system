@@ -38,7 +38,7 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
         text={label}
         display="inline-block"
         position="above"
-        animationDuration={0}
+        animationDuration={5}
       >
         <button
           ref={ref}
