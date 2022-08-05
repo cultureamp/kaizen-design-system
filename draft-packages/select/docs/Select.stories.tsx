@@ -122,6 +122,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               isDisabled
             />
           </StoryWrapper.Row>
+          <StoryWrapper.Row rowTitle="Non Searchable">
+            <Select
+              options={OPTIONS}
+              defaultValue={OPTIONS[9]}
+              placeholder="Edit survey"
+              isSearchable={false}
+            />
+            <Heading variant="heading-4" color="dark">
+              N/A
+            </Heading>
+            <Select
+              options={OPTIONS}
+              defaultValue={OPTIONS[9]}
+              placeholder="Edit survey"
+              isDisabled
+              isSearchable={false}
+            />
+          </StoryWrapper.Row>
         </StoryWrapper>
 
         <StoryWrapper>
@@ -178,6 +196,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           options={OPTIONS}
           defaultValue={OPTIONS[0]}
           isDisabled
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Secondary Small - non searchable">
+        <Select
+          reversed={isReversed}
+          variant="secondary-small"
+          options={OPTIONS}
+          defaultValue={OPTIONS[0]}
+          isSearchable={false}
+        />
+        <Select
+          reversed={isReversed}
+          variant="secondary-small"
+          options={OPTIONS}
+          defaultValue={OPTIONS[0]}
+          isDisabled
+          isSearchable={false}
         />
       </StoryWrapper.Row>
     </StoryWrapper>
