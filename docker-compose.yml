@@ -35,9 +35,3 @@ services:
     build:
       context: .
       dockerfile: .buildkite/dockerfiles/release.Dockerfile
-
-  playwright:
-    <<: *defaults
-    build:
-      context: .
-      dockerfile: .buildkite/dockerfiles/playwright.Dockerfile

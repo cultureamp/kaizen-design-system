@@ -75,8 +75,12 @@ steps:
     command: ".buildkite/scripts/run-playwright.sh"
     timeout_in_minutes: 15
     depends_on: "publish-step"
-    agent_query_rules: ["queue=build-unrestricted-large"]
     <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
-      - docker-compose#v3.9.0:
-          run: playwright
+      - docker#v3.13.0:
+          image: mcr.microsoft.com/playwright:v1.24.0-focal
+          propagate-environment: true
+          environment:
+            # list any non-buildkite env vars you want to propagate to the container
+            - MY_SPECIAL_TOKEN
