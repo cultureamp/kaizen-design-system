@@ -81,6 +81,3 @@ steps:
       - docker#v3.13.0:
           image: mcr.microsoft.com/playwright:v1.24.0-focal
           propagate-environment: true
-          environment:
-            # list any non-buildkite env vars you want to propagate to the container
-            - MY_SPECIAL_TOKEN

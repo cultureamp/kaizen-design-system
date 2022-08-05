@@ -1,18 +1,14 @@
 // playwright.config.ts
 import { type PlaywrightTestConfig, devices } from "@playwright/test"
 
+const LOCALHOST = "http://localhost:6006/"
+
 const config: PlaywrightTestConfig = {
   testMatch: ["**/*.playwright.spec.ts?(x)"],
-  webServer: {
-    command: "yarn storybook",
-    url: process.env.KAIZEN_DEV_BRANCH || "http://localhost:6006/",
-    timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
   retries: 1,
   use: {
-    baseURL: "http://localhost:6006/",
-    trace: "on-first-retry",
+    baseURL: process.env.KAIZEN_DEV_BRANCH || LOCALHOST,
+    trace: process.env.KAIZEN_DEV_BRANCH ? "on-first-retry" : "off",
   },
   projects: [
     {
@@ -21,6 +17,14 @@ const config: PlaywrightTestConfig = {
     },
   ],
   outputDir: "./playwright/test-results",
+}
+
+if (process.env.KAIZEN_DEV_BRANCH === undefined) {
+  config.webServer = {
+    command: "yarn storybook",
+    url: LOCALHOST,
+    timeout: 120 * 1000,
+  }
 }
 
 export default config
