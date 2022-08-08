@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.7.0...@kaizen/date-picker@5.8.0) (2022-08-08)
+
+
+### Features
+
+* **date-picker:** validate input on pressing Enter key ([#2897](https://github.com/cultureamp/kaizen-design-system/issues/2897)) ([58baa42](https://github.com/cultureamp/kaizen-design-system/commit/58baa420ca755ae074a76d1c12c42f453b29b6e3))
+
+
+
+
+
 # [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.11...@kaizen/date-picker@5.7.0) (2022-08-04)
 
 
