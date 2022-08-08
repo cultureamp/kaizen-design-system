@@ -7,7 +7,7 @@
   min-height: $spacing-lg;
   height: fit-content;
 
-  align-items: center;
+  align-items: flex-start;
   display: inline-grid;
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
