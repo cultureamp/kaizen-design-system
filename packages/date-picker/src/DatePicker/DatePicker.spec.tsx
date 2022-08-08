@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { DatePicker, ValidationResponse } from "./DatePicker"
+import { ValidationResponse } from "../types"
+import { DatePicker } from "./DatePicker"
 import { DatePickerProps } from "."
 
 const DatePickerWrapper = ({
@@ -53,7 +54,7 @@ describe("<DatePicker />", () => {
   })
 
   it("should pre-fill the input when an initial date is provided", () => {
-    render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
   })
 
@@ -114,7 +115,7 @@ describe("<DatePicker />", () => {
 describe("<DatePicker /> - Focus element", () => {
   describe("Click on input", () => {
     beforeEach(() => {
-      render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label")
       userEvent.click(input)
@@ -149,7 +150,7 @@ describe("<DatePicker /> - Focus element", () => {
 
   describe("Keydown arrow on input", () => {
     beforeEach(() => {
-      render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label")
       userEvent.tab()
@@ -179,7 +180,7 @@ describe("<DatePicker /> - Focus element", () => {
 
   describe("Click on calendar button", () => {
     beforeEach(() => {
-      render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
@@ -210,7 +211,7 @@ describe("<DatePicker /> - Focus element", () => {
 
   describe("Keydown enter on calendar button", () => {
     beforeEach(() => {
-      render(<DatePickerWrapper selectedDay={new Date("2022-03-1")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
