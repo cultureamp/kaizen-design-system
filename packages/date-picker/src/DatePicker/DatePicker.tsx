@@ -282,6 +282,14 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   }
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
+    if (e.key === "Enter") {
+      setIsOpen(false)
+      const parsedDate = parse(inputValue, DateFormat.Numeral, new Date(), {
+        locale,
+      })
+      handleDayChange(parsedDate, e.target.value)
+    }
+
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)

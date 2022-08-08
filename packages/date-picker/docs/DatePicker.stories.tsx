@@ -225,7 +225,7 @@ DefaultStory.args = {
 
 export const ValidationStory: Story = () => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
-    new Date(2022, 4, 5)
+    new Date("2022-05-05")
   )
   const [status, setStatus] = useState<FieldMessageStatus | undefined>()
   const [response, setResponse] = useState<ValidationResponse | undefined>()
@@ -248,35 +248,37 @@ export const ValidationStory: Story = () => {
     setValidationMessage(validationResponse.validationMessage)
   }
 
-  const submitRequest = () => {
-    // An example of a form submit request
+  const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    e.preventDefault()
+
     if (status === "error" || status === "caution") {
       setValidationMessage("There is an error")
       setStatus("error")
-      alert("Error")
-    } else {
-      alert("Success")
+      return alert("Error")
     }
+
+    alert("Success")
   }
 
   return (
     <>
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        selectedDay={selectedDate}
-        onDayChange={day => {
-          setValueDate(day)
-        }}
-        onValidate={handleValidation}
-        status={status}
-        validationMessage={validationMessage}
-        disabledBefore={new Date()}
-        locale="en-AU"
-      />
-      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-        <Button onClick={submitRequest} label="Submit" />
-      </div>
+      <form onSubmit={submitRequest}>
+        <DatePicker
+          id="datepicker-default"
+          labelText="Label"
+          selectedDay={selectedDate}
+          onDayChange={setValueDate}
+          onValidate={handleValidation}
+          status={status}
+          validationMessage={validationMessage}
+          disabledBefore={new Date()}
+          locale="en-AU"
+        />
+        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <Button type="submit" label="Submit" />
+        </div>
+      </form>
+
       <div>
         <Paragraph variant="body">
           NOTE: This story includes additional custom validation to provide some

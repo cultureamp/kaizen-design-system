@@ -83,6 +83,32 @@ describe("<DatePicker />", () => {
     })
     expect(arrowButton).toHaveFocus()
   })
+
+  it("should validate and close the calendar when the user presses the Enter key while focus is in the input", async () => {
+    render(<DatePickerWrapper disabledDates={[new Date("2022-05-01")]} />)
+
+    expect(
+      screen.queryByText("05/01/2022 is not available, try another date")
+    ).not.toBeInTheDocument()
+
+    const input = screen.getByLabelText("Input label")
+    userEvent.click(input)
+
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).toBeVisible()
+    })
+
+    userEvent.type(input, "05/01/2022")
+    userEvent.keyboard("{Enter}")
+
+    waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+    })
+    expect(input).toHaveFocus()
+    expect(
+      screen.getByText("05/01/2022 is not available, try another date")
+    ).toBeVisible()
+  })
 })
 
 describe("<DatePicker /> - Focus element", () => {
