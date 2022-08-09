@@ -1843,10 +1843,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.1.tgz#b6b8d81780b9a9f6459f4bfe9226ac6aefaefe87"
   integrity sha512-aG20vknL4/YjQF9BSV7ts4EWm/yrjagAN7OWBNmlbEOUiu0llj4OGrFoOKK3g2vey4/p2omKCoHrWtPxSwV3HA==
 
-"@cultureamp/rich-text-toolkit@^1.10.0":
-  version "1.10.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.10.0/449bf3cac959c66a1822b018e6fbd7b3cd1ad3c7afab833f19a2b14702ed5c95#b50a7ee0f98272d0c62b1bc905093a32a6db6e6c"
-  integrity sha512-mAofhOoZVdDztmafaa1u54SO6DZaiTL7B/QMtC28pHgZ6B7kccDy/0sdgiq3U30MC0h6P2nB+WZjRwVHTpYJ2g==
+"@cultureamp/rich-text-toolkit@^1.11.0":
+  version "1.11.0"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/1.11.0/2cdbe00397f6b54f3e5f775018fd9973abc176c1531711d443a63eb9c5e4642b#92441bde6927abc124331addbf32efe06cb7cb9a"
+  integrity sha512-rJUOGKrLLhBa++s2bmG+LaQvoJUTvX9m+/Big4z9NLS5SzWsYhsAvlTGUv7MJBtBFN7+bFxQDET/8N8JgD0gLQ==
   dependencies:
     "@kaizen/button" "^1.2.8"
     "@kaizen/component-library" "^14.3.4"
