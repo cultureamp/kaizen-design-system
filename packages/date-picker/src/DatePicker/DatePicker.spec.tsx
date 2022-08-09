@@ -264,18 +264,18 @@ describe("<DatePicker /> - Input format", () => {
 })
 
 describe("<DatePicker /> - Validation", () => {
-  it("displays the message when status is error", () => {
-    render(
-      <DatePickerWrapper
-        status="error"
-        validationMessage="Custom validation message"
-      />
-    )
-    expect(screen.getByTitle("Error message")).toBeInTheDocument()
-    expect(screen.getByText("Custom validation message")).toBeVisible()
-  })
-
   describe("Custom Validation", () => {
+    it("displays custom validation message when provided (overrides inbuilt validation)", () => {
+      render(
+        <DatePickerWrapper
+          status="error"
+          validationMessage="Custom validation message"
+        />
+      )
+      expect(screen.getByTitle("Error message")).toBeInTheDocument()
+      expect(screen.getByText("Custom validation message")).toBeVisible()
+    })
+
     it("does not show inbuilt validation message when onValidate is set", () => {
       const onValidate = jest.fn<void, [ValidationResponse]>()
       render(<DatePickerWrapper onValidate={onValidate} />)
