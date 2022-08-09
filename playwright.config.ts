@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
   testMatch: ["**/*.playwright.spec.ts?(x)"],
   retries: 1,
   use: {
-    baseURL: BASE_URL,
+    baseURL: `https://${BASE_URL}`,
   },
   projects: [
     {
