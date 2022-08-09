@@ -81,3 +81,7 @@ steps:
       - docker#v3.13.0:
           image: mcr.microsoft.com/playwright:v1.24.0-focal
           propagate-environment: true
+          environment:
+            - KAIZEN_DOMAIN_NAME
+            - BUILDKITE_BRANCH
+            - KAIZEN_DEV_BRANCH
