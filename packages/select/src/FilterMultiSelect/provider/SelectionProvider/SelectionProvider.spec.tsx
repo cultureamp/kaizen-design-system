@@ -72,19 +72,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
     })
 
     test("The listbox is labelled by the provided label", () => {
@@ -108,19 +108,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
     })
   })
 
@@ -132,19 +132,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
     })
   })
 })
@@ -235,19 +235,19 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
         name: "option-1-label-mock",
         selected: false,
       })
-    )
+    ).toBeVisible()
     expect(
       screen.getByRole("option", {
         name: "option-2-label-mock",
         selected: false,
       })
-    )
+    ).toBeVisible()
     expect(
       screen.getByRole("option", {
         name: "option-3-label-mock",
         selected: false,
       })
-    )
+    ).toBeVisible()
   })
 
   it("fires onSelectionChange when clicks on Clear all button", () => {
@@ -285,7 +285,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
         name: "option-2-label-mock",
         selected: false,
       })
-    )
+    ).toBeVisible()
   })
 })
 
@@ -293,7 +293,6 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   describe("Given no selectedKeys", () => {
     it("focuses on the frist option when tabs onto the list", () => {
       render(<SelectionProviderWrapper />)
-      const listBox = screen.getByRole("listbox")
       userEvent.tab()
 
       expect(
@@ -367,9 +366,6 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 
   it("selects the option when hits enter on a non-selected option", () => {
     render(<SelectionProviderWrapper />)
-    const option1 = screen.getByRole("option", {
-      name: "option-1-label-mock",
-    })
 
     userEvent.tab()
     userEvent.keyboard("{Enter}")
@@ -397,7 +393,7 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
         name: "option-2-label-mock",
         selected: false,
       })
-    )
+    ).toBeVisible()
   })
 
   it("fires onSelectionChange when hits enter on a option", () => {
