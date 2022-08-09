@@ -1,39 +1,21 @@
 import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FieldMessageStatus } from "@kaizen/draft-form"
 import { ValidationResponse } from "../types"
 import { DatePicker } from "./DatePicker"
 import { DatePickerProps } from "."
 
 const DatePickerWrapper = ({
-  status: propsStatus,
-  validationMessage: propsValidationMessage,
   selectedDay,
   ...restProps
 }: Partial<DatePickerProps>) => {
-  const [status, setStatus] = useState<FieldMessageStatus>(
-    propsStatus || "default"
-  )
-  const [validationMessage, setValidationMessage] = useState<React.ReactNode>(
-    propsValidationMessage
-  )
   const [selectedDate, setValueDate] = useState<Date | undefined>(selectedDay)
-
-  const handleValidation = (validationResponse: ValidationResponse) => {
-    validationResponse.status && setStatus(validationResponse.status)
-    validationResponse.validationMessage &&
-      setValidationMessage(validationResponse.validationMessage)
-  }
 
   return (
     <DatePicker
       id="test__date-picker"
       labelText="Input label"
-      onValidate={handleValidation}
       onDayChange={setValueDate}
-      status={status}
-      validationMessage={validationMessage}
       selectedDay={selectedDate}
       locale="en-US"
       {...restProps}
@@ -229,7 +211,7 @@ describe("<DatePicker /> - Focus element", () => {
       })
     })
 
-    it("shows focus within the calendar", async () => {
+    it("shows focus within the calendar", () => {
       const selectedDate = screen.getByRole("button", {
         name: "1st March (Tuesday)",
       })
@@ -282,15 +264,88 @@ describe("<DatePicker /> - Input format", () => {
 })
 
 describe("<DatePicker /> - Validation", () => {
+  it("displays the message when status is error", () => {
+    render(
+      <DatePickerWrapper
+        status="error"
+        validationMessage="Custom validation message"
+      />
+    )
+    expect(screen.getByTitle("Error message")).toBeInTheDocument()
+    expect(screen.getByText("Custom validation message")).toBeVisible()
+  })
+
   describe("Custom Validation", () => {
-    it("displays the message when status is error", () => {
+    it("does not show inbuilt validation message when onValidate is set", () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
+      render(<DatePickerWrapper onValidate={onValidate} />)
+      expect(screen.queryByTitle("Error message")).not.toBeInTheDocument()
+      expect(
+        screen.queryByText("Custom validation message")
+      ).not.toBeInTheDocument()
+    })
+
+    it("triggers validation when initial selected date is invalid", () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
       render(
         <DatePickerWrapper
-          status="error"
-          validationMessage="Custom validation message"
+          onValidate={onValidate}
+          selectedDay={new Date("potato")}
         />
       )
-      expect(screen.getByText("Custom validation message")).toBeVisible()
+      expect(onValidate).toBeCalledTimes(1)
+    })
+
+    it("triggers validation when initial selected date is disabled", () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
+      render(
+        <DatePickerWrapper
+          onValidate={onValidate}
+          disabledBefore={new Date("2022-05-15")}
+          selectedDay={new Date("2022-05-05")}
+        />
+      )
+      expect(onValidate).toBeCalledTimes(1)
+    })
+
+    it("does not trigger validation when initial selected date is empty", () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
+      render(
+        <DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />
+      )
+      expect(onValidate).toBeCalledTimes(0)
+    })
+
+    it("does not trigger validation when initial selected date is valid", () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
+      render(
+        <DatePickerWrapper
+          onValidate={onValidate}
+          selectedDay={new Date("2022-05-05")}
+        />
+      )
+      expect(onValidate).toBeCalledTimes(0)
+    })
+
+    it("triggers validation when selected date is updated to invalid", async () => {
+      const onValidate = jest.fn<void, [ValidationResponse]>()
+      render(
+        <DatePickerWrapper
+          onValidate={onValidate}
+          defaultMonth={new Date("2022-03-01")}
+        />
+      )
+      const input = screen.getByLabelText("Input label")
+      userEvent.click(input)
+      await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeVisible()
+      })
+      const dateToSelect = screen.getByRole("button", {
+        name: "6th March (Sunday)",
+      })
+      userEvent.click(dateToSelect)
+      // @TODO Fix to only run onValidate once
+      expect(onValidate).toBeCalledTimes(2)
     })
   })
 
@@ -298,6 +353,7 @@ describe("<DatePicker /> - Validation", () => {
     it("displays error message when selected day is invalid", () => {
       render(<DatePickerWrapper selectedDay={new Date("potato")} />)
       expect(screen.getByText("Date is invalid")).toBeVisible()
+      expect(screen.getByTitle("Error message")).toBeInTheDocument()
     })
 
     it("displays error message when selected day is disabled", () => {
