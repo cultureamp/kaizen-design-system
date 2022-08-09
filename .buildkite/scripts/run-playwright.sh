@@ -4,19 +4,17 @@ set -e
 # shellcheck source=setup-registry.sh
 . ".buildkite/scripts/helpers/setup-registry.sh"
 
-echo "--- :yarnpkg: Install dependencies"
-yarn install --frozen-lockfile
-
-KAIZEN_DEV_BRANCH=""
-
 if [ "$KAIZEN_DOMAIN_NAME" = "dev.cultureamp.design" ]; then
     echo "On dev branch for ${BUILDKITE_BRANCH}"
+
+    echo "--- :yarnpkg: Install Playwright dependencies"
+    yarn install --frozen-lockfile
+
     KAIZEN_DEV_BRANCH="${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}/"
 
-    echo "--- Running playwright tests on ${KAIZEN_DEV_BRANCH}"
-    yarn playwright:ci
+    echo "--- :playwright: Running playwright on ${KAIZEN_DEV_BRANCH}"
+    BASE_URL=KAIZEN_DEV_BRANCH npx playwright test
 else
-    echo "Playwright tests only run on dev env"
+    echo ":playwright: Playwright tests are only run on dev branches. Everything's good to go!"
 fi
 
-echo "E2E Playwright tests complete!"

@@ -5,8 +5,8 @@ const config: PlaywrightTestConfig = {
   testMatch: ["**/*.playwright.spec.ts?(x)"],
   retries: 1,
   use: {
-    baseURL: process.env.KAIZEN_DEV_BRANCH,
-    trace: process.env.KAIZEN_DEV_BRANCH ? "on-first-retry" : "off",
+    baseURL: process.env.BASE_URL,
+    trace: "on-first-retry",
   },
   projects: [
     {
