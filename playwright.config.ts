@@ -1,16 +1,13 @@
 // playwright.config.ts
 import { type PlaywrightTestConfig, devices } from "@playwright/test"
 
+const BASE_URL = process.env.URL
+
 const config: PlaywrightTestConfig = {
   testMatch: ["**/*.playwright.spec.ts?(x)"],
-  webServer: {
-    command: "yarn storybook",
-    url: "http://localhost:6006/",
-    timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
+  retries: 1,
   use: {
-    baseURL: "http://localhost:6006/",
+    baseURL: `https://${BASE_URL}`,
   },
   projects: [
     {
@@ -18,6 +15,7 @@ const config: PlaywrightTestConfig = {
       use: { ...devices["Desktop Chrome"] },
     },
   ],
+  outputDir: "./playwright/test-results",
 }
 
 export default config

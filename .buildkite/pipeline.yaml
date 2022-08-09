@@ -56,6 +56,7 @@ steps:
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    key: "publish-step"
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
@@ -68,3 +69,15 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
           run: publish
+
+  - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
+    key: "playwright-step"
+    command: ".buildkite/scripts/run-playwright.sh"
+    timeout_in_minutes: 15
+    depends_on: "publish-step"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+    plugins:
+      - docker#v3.13.0:
+          image: mcr.microsoft.com/playwright:v1.24.0-focal
+          propagate-environment: true
