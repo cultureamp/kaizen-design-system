@@ -70,17 +70,4 @@ test.describe("Test indentation", async () => {
 
     expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
   })
-
-  test.describe("This should fail", () => {
-    test("failing test", async ({ page }) => {
-      const editor = await page.locator('div[role="textbox"]')
-
-      await editor.click()
-      await editor.type("-")
-      await editor.press("Space")
-      await editor.press("Enter")
-      await editor.press("Enter")
-      expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
-    })
-  })
 })
