@@ -5,7 +5,7 @@ const storyId = "components-rich-text-editor-rich-text-editor--default"
 
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
-  await page.goto(`${iframePath}${storyId}`)
+  await page.goto(`./${iframePath}${storyId}`)
 })
 
 test.describe("Test list keyboard shortcuts", async () => {
