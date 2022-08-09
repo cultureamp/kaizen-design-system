@@ -2,7 +2,7 @@ import {
   Matcher,
   DateRange,
   DateInterval,
-} from "react-day-picker/src/types/Matchers"
+} from "react-day-picker/dist/types/Matchers"
 
 import { DayOfWeek } from "../enums"
 
