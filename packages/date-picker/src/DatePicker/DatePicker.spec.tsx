@@ -270,10 +270,12 @@ describe("<DatePicker /> - Validation", () => {
         <DatePickerWrapper
           status="error"
           validationMessage="Custom validation message"
+          selectedDay={new Date("potato")}
         />
       )
       expect(screen.getByTitle("Error message")).toBeInTheDocument()
       expect(screen.getByText("Custom validation message")).toBeVisible()
+      expect(screen.queryByText("Date is invalid")).not.toBeInTheDocument()
     })
 
     it("does not show inbuilt validation message when onValidate is set", () => {
