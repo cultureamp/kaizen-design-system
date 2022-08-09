@@ -82,6 +82,4 @@ steps:
           image: mcr.microsoft.com/playwright:v1.24.0-focal
           propagate-environment: true
           environment:
-            - KAIZEN_DOMAIN_NAME
-            - BUILDKITE_BRANCH
-            - KAIZEN_DEV_BRANCH
+            - BASE_URL: "${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}/"
