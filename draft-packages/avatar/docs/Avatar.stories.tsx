@@ -95,8 +95,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={[
             "Photo Personal",
-            "Intials Personal",
-            "Initals Generic",
+            "Initials Personal",
+            "Initials Generic",
             "Default User",
           ]}
         />
@@ -112,7 +112,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
+          headings={["Initials Unicode", "Initials Long", "Company Avatar"]}
         />
         {ROWS.map(({ title, size }) => (
           <StoryWrapper.Row key={title} rowTitle={title}>
