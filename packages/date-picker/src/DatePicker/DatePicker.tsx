@@ -103,17 +103,17 @@ export interface DatePickerProps
    */
   disabledDaysOfWeek?: DayOfWeek[]
   /**
-   * Callback when a date is attempted to be selected.
+   * Callback when a date is selected. Utilises internal validation if not set.
    */
-  onValidate: (validationResponse: ValidationResponse) => void
+  onValidate?: (validationResponse: ValidationResponse) => void
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status: DateInputProps["status"] | undefined
+  status?: DateInputProps["status"] | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage: DateInputProps["validationMessage"] | undefined
+  validationMessage?: DateInputProps["validationMessage"] | undefined
 }
 
 /**
@@ -133,6 +133,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   weekStartsOn,
   defaultMonth,
   selectedDay,
+  status,
+  validationMessage,
   onInputClick,
   onInputFocus,
   onInputChange,
@@ -146,11 +148,18 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState<string>("")
   const [isOpen, setIsOpen] = useState(false)
-  const locale = getLocale(propsLocale)
   const [lastTrigger, setLastTrigger] = useState<
     "inputFocus" | "inputKeydown" | "calendarButton"
   >()
+  const [inbuiltStatus, setInbuiltStatus] = useState<
+    DateInputProps["status"] | undefined
+  >()
+  const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
+    string | undefined
+  >()
 
+  const shouldUseInbuiltValidation = onValidate === undefined
+  const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
     disabledDates,
     disabledDaysOfWeek,
@@ -159,6 +168,15 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     disabledBefore,
     disabledAfter,
   })
+
+  const handleValidation = (validationResponse: ValidationResponse): void => {
+    if (shouldUseInbuiltValidation) {
+      setInbuiltStatus(validationResponse.status)
+      setInbuiltValidationMessage(validationResponse.validationMessage)
+    } else {
+      onValidate(validationResponse)
+    }
+  }
 
   const handleDayChange = (
     date: Date | undefined,
@@ -169,7 +187,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       newInputValue,
       disabledDays
     )
-    onValidate(validationResponse)
+    handleValidation(validationResponse)
     onDayChange(newDate)
   }
 
@@ -273,8 +291,9 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
         formattedDate,
         disabledDays
       )
+
       if (!validationResponse.isValidDate && !validationResponse.isEmpty) {
-        onValidate(validationResponse)
+        handleValidation(validationResponse)
       }
     }
   }, [])
@@ -303,6 +322,16 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           onKeyDown={handleKeyDown}
+          status={
+            status !== undefined || !shouldUseInbuiltValidation
+              ? status
+              : inbuiltStatus
+          }
+          validationMessage={
+            validationMessage !== undefined || !shouldUseInbuiltValidation
+              ? validationMessage
+              : inbuiltValidationMessage
+          }
           {...restDateInputProps}
         />
       </div>
