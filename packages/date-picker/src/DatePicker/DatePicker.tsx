@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { parse } from "date-fns"
 import { DateRange, DateInterval, DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
@@ -37,7 +37,6 @@ type OmittedDateInputProps =
 export interface DatePickerProps
   extends Omit<DateInputProps, OmittedDateInputProps> {
   id: string
-  buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputProps["onClick"]
   onInputFocus?: DateInputProps["onFocus"]
   onInputChange?: DateInputProps["onChange"]
@@ -122,7 +121,6 @@ export interface DatePickerProps
  */
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
-  buttonRef = useRef<HTMLButtonElement>(null),
   locale: propsLocale,
   disabledDates,
   disabledDaysOfWeek,
@@ -146,6 +144,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 }) => {
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const ref = useRef({ inputRef, buttonRef })
   const [inputValue, setInputValue] = useState<string>("")
   const [isOpen, setIsOpen] = useState(false)
   const [lastTrigger, setLastTrigger] = useState<
@@ -308,8 +308,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     >
       <div ref={containerRef}>
         <DateInput
-          inputRef={inputRef}
-          buttonRef={buttonRef}
+          ref={ref}
           id={id}
           calendarId={`${id}-calendar-dialog`}
           value={inputValue}
