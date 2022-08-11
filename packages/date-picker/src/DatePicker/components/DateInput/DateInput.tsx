@@ -9,6 +9,7 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
+import { isRefObject } from "../../../utils/isRefObject"
 import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.module.scss"
 
@@ -54,15 +55,10 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   locale: Locale
 }
 
-type DateInputRefs = {
+export type DateInputRefs = {
   inputRef?: React.RefObject<HTMLInputElement>
   buttonRef?: React.RefObject<HTMLButtonElement>
 }
-
-const isRefObject = (
-  ref: React.ForwardedRef<DateInputRefs>
-): ref is React.MutableRefObject<DateInputRefs> =>
-  ref !== null && "current" in ref
 
 export const DateInput = React.forwardRef<DateInputRefs, DateInputProps>(
   (
