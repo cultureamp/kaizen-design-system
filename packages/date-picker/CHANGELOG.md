@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.9.0...@kaizen/date-picker@5.9.1) (2022-08-11)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.8.2...@kaizen/date-picker@5.9.0) (2022-08-10)
+
+
+### Features
+
+* **date-picker:** render inbuilt validation when props not set ([#2903](https://github.com/cultureamp/kaizen-design-system/issues/2903)) ([1c31048](https://github.com/cultureamp/kaizen-design-system/commit/1c310483dbd83fab892d669711811e6a0648de6a))
+
+
+
+
+
 ## [5.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.8.1...@kaizen/date-picker@5.8.2) (2022-08-09)
 
 **Note:** Version bump only for package @kaizen/date-picker
