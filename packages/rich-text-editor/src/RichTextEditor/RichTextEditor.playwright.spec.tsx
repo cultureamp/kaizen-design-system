@@ -8,9 +8,10 @@ test.beforeEach(async ({ page }) => {
   await page.goto(`./${iframePath}${storyId}`)
 })
 
-test.describe("Test list keyboard shortcuts", async () => {
+test.describe("Keyboard shortcuts for lists", async () => {
   test("<ul> can be created", async ({ page }) => {
     const editor = await page.locator('div[role="textbox"]')
+    expect(await editor.locator("ul li").count()).toBe(0)
 
     await editor.click()
     await editor.type("-")
@@ -24,6 +25,7 @@ test.describe("Test list keyboard shortcuts", async () => {
 
   test("<ol> can be created", async ({ page }) => {
     const editor = await page.locator('div[role="textbox"]')
+    expect(await editor.locator("ul li").count()).toBe(0)
 
     await editor.click()
     await editor.type("1.")
@@ -36,7 +38,7 @@ test.describe("Test list keyboard shortcuts", async () => {
   })
 })
 
-test.describe("Test indentation", async () => {
+test.describe("Indentation of lists", async () => {
   test("indent can be decrease on list items", async ({ page }) => {
     const editor = await page.locator('div[role="textbox"]')
     const decreaseIndentBtn = await page.locator(
@@ -51,6 +53,7 @@ test.describe("Test indentation", async () => {
 
     expect(await page.$$('div[role="textbox"] ul')).toHaveLength(0)
   })
+
   test("indent can only be increased on the second list item and onwards", async ({
     page,
   }) => {
