@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
@@ -54,12 +54,17 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   locale: Locale
 }
 
-type refObjectType = {
-  inputRef: React.Ref<HTMLInputElement>
-  buttonRef: React.Ref<HTMLButtonElement>
+type DateInputRefs = {
+  inputRef?: React.RefObject<HTMLInputElement>
+  buttonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const DateInput = React.forwardRef<refObjectType, DateInputProps>(
+const isRefObject = (
+  ref: React.ForwardedRef<DateInputRefs>
+): ref is React.MutableRefObject<DateInputRefs> =>
+  ref !== null && "current" in ref
+
+export const DateInput = React.forwardRef<DateInputRefs, DateInputProps>(
   (
     {
       id,
@@ -77,9 +82,14 @@ export const DateInput = React.forwardRef<refObjectType, DateInputProps>(
       locale,
       ...inputProps
     },
-    ref: any
+    ref
   ) => {
-    const { inputRef, buttonRef } = ref.current
+    const fallbackInputRef = useRef<HTMLInputElement>(null)
+    const fallbackButtonRef = useRef<HTMLButtonElement>(null)
+    const customRefObject = isRefObject(ref) ? ref.current : null
+
+    const inputRef = customRefObject?.inputRef ?? fallbackInputRef
+    const buttonRef = customRefObject?.buttonRef ?? fallbackButtonRef
 
     const IconButton: React.ReactNode = (
       <button
