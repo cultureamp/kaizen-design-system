@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.21...@kaizen/draft-form@7.2.22) (2022-08-11)
+
+
+### Bug Fixes
+
+* use max-width on label ([#2908](https://github.com/cultureamp/kaizen-design-system/issues/2908)) ([c59c49b](https://github.com/cultureamp/kaizen-design-system/commit/c59c49b02f29afbb39971032a3865fb12623d1d7))
+
+
+
+
+
 ## [7.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.20...@kaizen/draft-form@7.2.21) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/draft-form
