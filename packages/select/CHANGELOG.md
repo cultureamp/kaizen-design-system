@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.6...@kaizen/select@1.1.7) (2022-08-12)
+
+
+### Bug Fixes
+
+* add index.ts to export all from src folder ([#2911](https://github.com/cultureamp/kaizen-design-system/issues/2911)) ([ecfc612](https://github.com/cultureamp/kaizen-design-system/commit/ecfc612ab3e4ebe8142ae7af7724463bea2d6c86))
+
+
+
+
+
 ## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.5...@kaizen/select@1.1.6) (2022-08-11)
 
 **Note:** Version bump only for package @kaizen/select
