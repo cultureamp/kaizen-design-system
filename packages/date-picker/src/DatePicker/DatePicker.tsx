@@ -159,8 +159,12 @@ export const DatePicker = React.forwardRef<DatePickerRefs, DatePickerProps>(
     // const containerRef = useRef<HTMLInputElement>(null)
     const customRefObject = isRefObject(ref) ? ref.current : null
     const containerRef = customRefObject?.containerRef ?? fallbackContainerRef
-    const inputRef = useRef<HTMLInputElement>(customRefObject?.inputRef?.current || null)
-    const buttonRef = useRef<HTMLButtonElement>(customRefObject?.buttonRef?.current || null)
+    const inputRef = useRef<HTMLInputElement>(
+      customRefObject?.inputRef?.current || null
+    )
+    const buttonRef = useRef<HTMLButtonElement>(
+      customRefObject?.buttonRef?.current || null
+    )
     const dateInputRefs = useRef({
       inputRef,
       buttonRef,
