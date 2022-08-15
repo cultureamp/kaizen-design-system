@@ -55,7 +55,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
       {item.rendered}
       {item.value.count && (
         <span id={countElementId}>
-          <Badge>{item.value.count}</Badge>
+          <Badge classNameOverride={styles.badge}>{item.value.count}</Badge>
           <VisuallyHidden> available</VisuallyHidden>
         </span>
       )}
