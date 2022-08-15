@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { ValidationResponse } from "../types"
@@ -400,5 +400,41 @@ describe("<DatePicker /> - Validation", () => {
         ).toBeVisible()
       })
     })
+  })
+})
+
+describe("<DatePicker /> - Refs", () => {
+  it("uses consumer buttonRef", () => {
+    const fn = jest.fn<void, [string | null | undefined]>()
+
+    const Wrapper = () => {
+      const buttonRef = useRef<HTMLButtonElement>(null)
+      const ref = useRef({ buttonRef })
+
+      const handleClick = () => {
+        console.log(ref)
+        fn(buttonRef.current?.ariaLabel)
+      }
+
+      return (
+        <>
+        <DatePicker
+          ref={ref}
+          id="test__date-picker"
+          labelText="Input label"
+          onDayChange={() => undefined}
+          selectedDay={undefined}
+          locale="en-US"
+        />
+        <button onClick={handleClick}>Click me</button>
+        </>
+      )
+    }
+
+    render(<Wrapper />)
+
+    userEvent.click(screen.getByText("Click me"))
+
+    expect(fn).toBeCalledWith("Choose date")
   })
 })
