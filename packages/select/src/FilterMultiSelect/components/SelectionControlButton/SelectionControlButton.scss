@@ -22,7 +22,8 @@
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
 
-  padding: 0;
+  //       8px       4px
+  padding: 0.5rem 0.25rem;
 
   &:hover,
   &:active,
