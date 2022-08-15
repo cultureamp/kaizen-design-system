@@ -1,4 +1,4 @@
-import React, { Key, useState } from "react"
+import React, { useState } from "react"
 import { ComponentMeta } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
