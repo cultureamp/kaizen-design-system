@@ -13,7 +13,7 @@ const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
-  title: `${CATEGORIES.components}/Filter Menu`,
+  title: `${CATEGORIES.deprecated}/Filter Menu`,
   component: FilterMenuButton,
   parameters: {
     docs: {
@@ -161,7 +161,6 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
-DefaultEmpty.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithChildrenSimpleFilter = SimpleFilterTemplate.bind({})
 DefaultWithChildrenSimpleFilter.storyName =
