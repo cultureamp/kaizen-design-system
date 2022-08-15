@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { Key, useState } from "react"
 import { ComponentMeta } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
@@ -98,6 +98,7 @@ export const FilterBarDemo = args => {
           {selectedGroups.map(({ name, id }) => (
             <DemographicValueSelect
               label={name}
+              selectedKeys={new Set(selectedDemographicValues[id])}
               id={id}
               onRemove={() => {
                 focusAddFilter()
