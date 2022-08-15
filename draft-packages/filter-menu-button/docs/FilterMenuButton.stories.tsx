@@ -161,7 +161,6 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
-DefaultEmpty.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithChildrenSimpleFilter = SimpleFilterTemplate.bind({})
 DefaultWithChildrenSimpleFilter.storyName =
