@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand-moment",
-  "version": "1.11.34",
+  "version": "1.11.36",
   "description": "The brand moment component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^9.0.5",
-    "@kaizen/draft-select": "^2.4.1",
+    "@kaizen/draft-select": "^2.4.3",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

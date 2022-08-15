@@ -5,7 +5,8 @@ import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { ComponentStory, Story } from "@storybook/react"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker, ValidationResponse } from "../src/DatePicker"
+import { DatePicker } from "../src/DatePicker"
+import { ValidationResponse } from "../src/types"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DayOfWeek } from "../src/enums"
 
@@ -192,23 +193,11 @@ export default {
 
 export const DefaultStory: ComponentStory<typeof DatePicker> = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()
-  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
-  const [validationMessage, setValidationMessage] = useState<
-    string | undefined
-  >()
-
-  const handleValidation = (validationResponse: ValidationResponse): void => {
-    setStatus(validationResponse.status)
-    setValidationMessage(validationResponse.validationMessage)
-  }
 
   return (
     <DatePicker
       {...props}
       onDayChange={setValueDate}
-      onValidate={handleValidation}
-      status={props.status || status}
-      validationMessage={props.validationMessage || validationMessage}
       selectedDay={props.selectedDay || selectedDate}
     />
   )
@@ -356,10 +345,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -367,10 +353,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -378,7 +361,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
             description={
               <>
@@ -391,8 +373,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </Paragraph>
               </>
             }
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -400,10 +380,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
             disabled
           />
@@ -412,10 +389,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="error"
-            validationMessage="Invalid Date"
             locale="en-AU"
           />
         </StoryWrapper.Row>
@@ -428,10 +402,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -439,10 +410,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-US"
           />
         </StoryWrapper.Row>
