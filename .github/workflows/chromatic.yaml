@@ -29,14 +29,14 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-           filters: |
-              packages:
-                - 'packages/**'
-              draft:
-                - 'draft-packages/**'
+          filters: |
+            packages:
+              - 'packages/**'
+            draft:
+              - 'draft-packages/**'
 
       # 👇 Adds Chromatic as a step in the workflow
-      
+
       # Run when push event and review state is approved
       - name: Publish to Chromatic - Merge Master into branch
         if: github.event.review.state == 'approved'
@@ -47,7 +47,7 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
-      
+
       # Run when 'package' or 'draft-packages' files where changes
       - name: Publish to Chromatic
         if: steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true'
@@ -58,4 +58,4 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
-          
+
