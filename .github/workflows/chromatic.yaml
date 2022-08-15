@@ -39,7 +39,7 @@ jobs:
 
       # Run when push event and review state is approved
       - name: Publish to Chromatic - Merge Master into branch
-        if: github.event.review.state == 'approved'
+        if: github.event.review.state == 'approved' && (github.ref == 'refs/heads/master' || contains(github.event.head_commit.message, "Merge branch 'master' into")
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
@@ -50,7 +50,7 @@ jobs:
 
       # Run when 'package' or 'draft-packages' files where changes
       - name: Publish to Chromatic
-        if: steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true'
+        if: (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true') || (github.event.action == 'labeled' && github.event.label.name == 'run chromatic')
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
