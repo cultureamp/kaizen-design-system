@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.7...@kaizen/select@1.1.8) (2022-08-15)
+
+
+### Bug Fixes
+
+* **multi-filter-select:** add padding to control buttons ([#2899](https://github.com/cultureamp/kaizen-design-system/issues/2899)) ([b95bce9](https://github.com/cultureamp/kaizen-design-system/commit/b95bce94d0bb8986c00e9bcf275d2daa8680ed63))
+
+
+
+
+
 ## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.6...@kaizen/select@1.1.7) (2022-08-12)
 
 
