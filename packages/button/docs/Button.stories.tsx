@@ -234,6 +234,6 @@ StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   controls: { disable: true },
-  backgrounds: { default: "Purple 700" },
+  // backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
