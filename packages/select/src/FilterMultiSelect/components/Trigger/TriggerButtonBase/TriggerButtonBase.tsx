@@ -24,10 +24,12 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
       ref={buttonRef}
       className={classNames(styles.button, classNameOverride)}
     >
-      <span>{children}</span>
+      {children}
+
       <Icon
         icon={menuTriggerState.isOpen ? chevronUp : chevronDown}
         role="presentation"
+        classNameOverride={styles.icon}
       />
     </button>
   )
