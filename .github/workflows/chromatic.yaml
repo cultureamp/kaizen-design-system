@@ -26,7 +26,9 @@ jobs:
       # run only if 'packages' files were changed
       - name: path filters test
         if: steps.filter.outputs.packages == 'true'
-        run: echo "packages/** or draft-packages/** has been updated. ${{github.event.head_commit.message}}, ${{github.event.review.state}}"
+        run: echo "packages/** or draft-packages/** has been updated"
+      - name: Setup for visual testing
+        run: echo "${{github.event.head_commit.message}}, ${{github.event.review.state}}"
   visual-testing:
     needs: paths-filter
     if: >
