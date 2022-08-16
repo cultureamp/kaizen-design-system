@@ -10,8 +10,30 @@ on:
   push:
 
 jobs:
+  paths-filter:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            packages:
+              - 'packages/**'
+              - 'draft-packages/**'
+      # run only if 'packages' files were changed
+      - name: path filters test
+        if: steps.filter.outputs.packages == 'true'
+        run: echo "packages/** or draft-packages/** has been updated"
   visual-testing:
-    if: (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') || github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
+    needs: paths-filter
+    if: >
+      (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
+      (github.event.review.state == 'approved' && needs.paths-filter.outputs.packages == 'true' ) ||
+      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
+      (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -26,22 +48,9 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            packages:
-              - 'packages/**'
-            draft:
-              - 'draft-packages/**'
 
       # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        if: >
-          (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-          github.event.review.state == 'approved' ||
-          (github.ref == 'refs/heads/master' && (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true')) ||
-          (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
