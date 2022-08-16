@@ -26,12 +26,12 @@ jobs:
       # run only if 'packages' files were changed
       - name: path filters test
         if: steps.filter.outputs.packages == 'true'
-        run: echo "packages/** or draft-packages/** has been updated"
+        run: echo "packages/** or draft-packages/** has been updated. ${{github.event.head_commit.message}}, ${{github.event.review.state}}"
   visual-testing:
     needs: paths-filter
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      github.event.review.state == 'approved' ||
+      (github.event.review.state == 'approved' && needs.paths-filter.outputs.packages == 'true' ) ||
       (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
       (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
     runs-on: ubuntu-latest
