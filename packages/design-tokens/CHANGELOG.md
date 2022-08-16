@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
+
+
+### Features
+
+* Preload fonts in ThemeProvider & handle default theme ([#2917](https://github.com/cultureamp/kaizen-design-system/issues/2917)) ([67e8efb](https://github.com/cultureamp/kaizen-design-system/commit/67e8efb09f0582ef9e14b408291f1916c7f21eea))
+
+
+
+
+
 ## [9.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.4...@kaizen/design-tokens@9.0.5) (2022-07-21)
 
 **Note:** Version bump only for package @kaizen/design-tokens

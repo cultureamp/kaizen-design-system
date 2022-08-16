@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.8...@kaizen/rich-text-editor@1.16.9) (2022-08-16)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.16.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.7...@kaizen/rich-text-editor@1.16.8) (2022-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @cultureamp/rich-text-toolkit to ^1.10.0 ([#2910](https://github.com/cultureamp/kaizen-design-system/issues/2910)) ([7fecb40](https://github.com/cultureamp/kaizen-design-system/commit/7fecb4056fc25bff2726317713f3deea6cafd910))
+
+
+
+
+
 ## [1.16.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.16.6...@kaizen/rich-text-editor@1.16.7) (2022-08-11)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

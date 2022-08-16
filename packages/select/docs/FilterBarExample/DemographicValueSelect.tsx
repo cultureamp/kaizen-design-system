@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { Key, useEffect, useState } from "react"
 import { Selection } from "@react-types/shared"
 import {
   FilterMultiSelect,
@@ -16,6 +16,7 @@ export interface DemograhicValueSelectProps {
   onRemove: () => void
   onSelectionChange: (selectedKeys: React.Key[]) => void
   id: string
+  selectedKeys: Set<Key>
 }
 
 export const DemographicValueSelect = ({
@@ -23,9 +24,8 @@ export const DemographicValueSelect = ({
   label,
   onRemove,
   onSelectionChange,
+  selectedKeys,
 }: DemograhicValueSelectProps) => {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set())
-
   // Mock data
   const demographicValues =
     id === "id-department"
@@ -47,7 +47,6 @@ export const DemographicValueSelect = ({
   }, [])
 
   const handleSelectionChange = (keys: Selection) => {
-    setSelectedKeys(keys)
     onSelectionChange(getSelectedOptionKeys(keys, demographicValueItems))
   }
 

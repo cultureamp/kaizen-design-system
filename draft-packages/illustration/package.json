@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "5.1.23",
+  "version": "5.1.24",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@kaizen/component-library": "^15.2.0",
-    "@kaizen/design-tokens": "^9.0.5",
+    "@kaizen/design-tokens": "^9.1.0",
     "@types/jszip": "^3.4.0",
     "rimraf": "^3.0.2"
   },
