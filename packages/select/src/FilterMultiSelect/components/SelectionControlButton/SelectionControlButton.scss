@@ -4,6 +4,8 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../../mixins";
 
+$focus-ring-offset: 1px;
+
 .button {
   @include button-reset;
 
@@ -15,6 +17,7 @@
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
+  position: relative;
 
   color: $color-blue-500;
 
@@ -33,10 +36,25 @@
     }
   }
 
-  // TODO: Replace it to use focus ring
   &:focus {
     outline: none;
+  }
+
+  &:global(.focus-visible)::after {
+    $focus-ring-offset: calc(
+      (#{$border-focus-ring-border-width} * 2) + 1px
+    );
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
+    top: calc(-1 * #{$focus-ring-offset});
+    left: calc(-1 * #{$focus-ring-offset});
+    right: calc(-1 * #{$focus-ring-offset});
+    bottom: calc(-1 * #{$focus-ring-offset});
   }
 
   display: inline-flex;
