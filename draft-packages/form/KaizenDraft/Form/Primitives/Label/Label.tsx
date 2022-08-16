@@ -1,7 +1,7 @@
 import React, { LabelHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Label.module.scss"
 
 type LabelType = "text" | "checkbox" | "toggle" | "radio"
 

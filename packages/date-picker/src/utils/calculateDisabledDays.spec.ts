@@ -1,4 +1,4 @@
-import { DayOfWeek } from "../DatePicker/enums"
+import { DayOfWeek } from "../enums"
 import { calculateDisabledDays } from "./calculateDisabledDays"
 
 const DISABLED_DATE__1 = new Date(2022, 3, 24)
@@ -13,8 +13,8 @@ const DISABLED_BEFORE = new Date(2022, 1, 16)
 const DISABLED_AFTER = new Date(2022, 1, 17)
 
 const DISABLED_BEFORE_AFTER = {
-  before: new Date(2022, 1, 14),
-  after: new Date(2022, 4, 16),
+  after: new Date(2022, 1, 14),
+  before: new Date(2022, 2, 16),
 }
 
 describe("calculateDisabledDays", () => {

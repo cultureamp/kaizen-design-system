@@ -2,7 +2,7 @@ import { Tab as ReachTab } from "@reach/tabs"
 import React, { ReactNode, useState, SyntheticEvent } from "react"
 import classnames from "classnames"
 import { Badge } from "@kaizen/draft-badge"
-import styles from "./styles.scss"
+import styles from "./Tab.module.scss"
 
 export interface TabProps {
   /**

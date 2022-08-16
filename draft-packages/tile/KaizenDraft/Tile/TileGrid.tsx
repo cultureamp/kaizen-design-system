@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { InformationTileProps } from "./InformationTile"
 import { MultiActionTileProps } from "./MultiActionTile"
-import styles from "./TileGrid.scss"
+import styles from "./TileGrid.module.scss"
 
 type TileProps = InformationTileProps | MultiActionTileProps
 

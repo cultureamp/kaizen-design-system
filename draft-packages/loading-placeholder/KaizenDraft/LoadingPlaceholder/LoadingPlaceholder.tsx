@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./LoadingPlaceholder.module.scss"
 
 export interface LoadingPlaceholderProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

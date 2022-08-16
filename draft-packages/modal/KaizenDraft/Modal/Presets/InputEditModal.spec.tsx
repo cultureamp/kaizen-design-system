@@ -74,4 +74,45 @@ describe("<InputEditModal />", () => {
     expect(handleSubmit).toHaveBeenCalledTimes(1)
     expect(handleDismiss).toHaveBeenCalledTimes(0)
   })
+
+  it("supports a secondary action when secondary-action and secondary-label both props are provided", () => {
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
+    const handleSecondaryAction = jest.fn()
+
+    const { getByText } = render(
+      <InputEditModalWrapper
+        onSubmit={handleSubmit}
+        onDismiss={handleDismiss}
+        onSecondaryAction={handleSecondaryAction}
+        secondaryLabel="Secondary button"
+      >
+        Example modal body
+      </InputEditModalWrapper>
+    )
+    fireEvent.click(getByText(/Secondary button/i))
+    expect(handleSubmit).toHaveBeenCalledTimes(0)
+    expect(handleDismiss).toHaveBeenCalledTimes(0)
+    expect(handleSecondaryAction).toHaveBeenCalledTimes(1)
+  })
+
+  it("dismiss works as usual when only one of the prop (secondary-action / secondary-label) is provided", () => {
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
+    const handleSecondaryAction = jest.fn()
+
+    const { getByText } = render(
+      <InputEditModalWrapper
+        onSubmit={handleSubmit}
+        onDismiss={handleDismiss}
+        onSecondaryAction={handleSecondaryAction}
+      >
+        Example modal body
+      </InputEditModalWrapper>
+    )
+    fireEvent.click(getByText(/Cancel/i))
+    expect(handleSubmit).toHaveBeenCalledTimes(0)
+    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    expect(handleSecondaryAction).toHaveBeenCalledTimes(0)
+  })
 })

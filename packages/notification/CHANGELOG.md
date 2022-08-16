@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.6...@kaizen/notification@0.10.7) (2022-08-16)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.5...@kaizen/notification@0.10.6) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.4...@kaizen/notification@0.10.5) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.3...@kaizen/notification@0.10.4) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.2...@kaizen/notification@0.10.3) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.1...@kaizen/notification@0.10.2) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.0...@kaizen/notification@0.10.1) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [0.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.17...@kaizen/notification@0.10.0) (2022-07-21)
+
+
+### Features
+
+* remove all deprecated styles ([#2862](https://github.com/cultureamp/kaizen-design-system/issues/2862)) ([dd1819b](https://github.com/cultureamp/kaizen-design-system/commit/dd1819b83750a0aaa43ef35b807a30cb4ef30c42))
+
+
+
+
+
+## [0.9.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.16...@kaizen/notification@0.9.17) (2022-07-20)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [0.9.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.15...@kaizen/notification@0.9.16) (2022-06-29)
+
+
+### Bug Fixes
+
+* Update styles to use import instead of require ([#2840](https://github.com/cultureamp/kaizen-design-system/issues/2840)) ([5b49adb](https://github.com/cultureamp/kaizen-design-system/commit/5b49adb5b0c9ebb952e9c5dce1219fc7a9930056))
+
+
+
+
+
 ## [0.9.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.9.14...@kaizen/notification@0.9.15) (2022-06-23)
 
 **Note:** Version bump only for package @kaizen/notification

@@ -16,4 +16,7 @@ export const SUB_CATEGORIES = {
   richTextEditor: "Rich Text Editor",
   loadingSkeleton: "Loading Skeleton",
   datePicker: "Date Picker",
+  select: "Select",
 }
+
+export const SUB_COMPONENTS_FOLDER_NAME = "Subcomponents"

@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.9.1...@kaizen/draft-likert-scale-legacy@1.9.2) (2022-08-11)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.9.0...@kaizen/draft-likert-scale-legacy@1.9.1) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.18...@kaizen/draft-likert-scale-legacy@1.9.0) (2022-07-28)
+
+
+### Features
+
+* **likert-scale-legacy:** add validation message support ([#2880](https://github.com/cultureamp/kaizen-design-system/issues/2880)) ([58e05b7](https://github.com/cultureamp/kaizen-design-system/commit/58e05b707d622c082ca0666f1a60a98eed2d99be))
+
+
+
+
+
+## [1.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.17...@kaizen/draft-likert-scale-legacy@1.8.18) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.16...@kaizen/draft-likert-scale-legacy@1.8.17) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.15...@kaizen/draft-likert-scale-legacy@1.8.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.14...@kaizen/draft-likert-scale-legacy@1.8.15) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.13...@kaizen/draft-likert-scale-legacy@1.8.14) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.12...@kaizen/draft-likert-scale-legacy@1.8.13) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.11...@kaizen/draft-likert-scale-legacy@1.8.12) (2022-06-29)
+
+
+### Bug Fixes
+
+* Update styles to use import instead of require ([#2840](https://github.com/cultureamp/kaizen-design-system/issues/2840)) ([5b49adb](https://github.com/cultureamp/kaizen-design-system/commit/5b49adb5b0c9ebb952e9c5dce1219fc7a9930056))
+
+
+
+
+
 ## [1.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.8.10...@kaizen/draft-likert-scale-legacy@1.8.11) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy

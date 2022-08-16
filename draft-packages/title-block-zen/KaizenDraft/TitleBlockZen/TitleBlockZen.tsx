@@ -1,3 +1,5 @@
+import React from "react"
+import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
 import {
@@ -9,8 +11,6 @@ import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
-import classNames from "classnames"
-import * as React from "react"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
@@ -19,7 +19,7 @@ import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
-import styles from "./TitleBlockZen.scss"
+import styles from "./TitleBlockZen.module.scss"
 
 /*
   This type exists to support omitting keys from a union or intersection type in a distributive manner. `Omit` out of the box will cause you to lose any union or intersection information about the type,

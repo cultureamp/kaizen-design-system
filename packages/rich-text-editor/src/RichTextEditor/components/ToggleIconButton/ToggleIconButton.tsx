@@ -3,7 +3,7 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./ToggleIconButton.scss"
+import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
   extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
@@ -34,7 +34,12 @@ export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
       ...nativeButtonProps
     } = props
     return (
-      <Tooltip text={label} display="inline-block" position="above">
+      <Tooltip
+        text={label}
+        display="inline-block"
+        position="above"
+        animationDuration={5}
+      >
         <button
           ref={ref}
           type="button"

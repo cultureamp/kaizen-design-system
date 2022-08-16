@@ -1,11 +1,12 @@
 import { ReactNode, createElement, HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 
 import styles from "./VisuallyHidden.module.scss"
 
 export type AllowedTags = "div" | "span"
 
 export interface VisuallyHiddenProps
-  extends Omit<HTMLAttributes<HTMLElement>, "className"> {
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: ReactNode
   /**
    * The HTML tag rendered by this component
@@ -15,9 +16,10 @@ export interface VisuallyHiddenProps
 
 export const VisuallyHidden: React.VFC<VisuallyHiddenProps> = ({
   children,
+  classNameOverride,
   tag = "span",
   ...otherProps
 }) => {
-  const className = styles.srOnly
+  const className = `${styles.srOnly} ${classNameOverride}`
   return createElement(tag, { ...otherProps, className }, children)
 }

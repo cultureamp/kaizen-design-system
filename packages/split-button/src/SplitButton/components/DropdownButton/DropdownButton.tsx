@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { BaseButton, BaseButtonProps } from "../BaseButton"
-import styles from "./DropdownButton.scss"
+import styles from "./DropdownButton.module.scss"
 
 export type DropdownButtonProps = Omit<BaseButtonProps, "label" | "icon">
 

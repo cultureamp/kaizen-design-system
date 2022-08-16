@@ -1,7 +1,6 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-
-import styles from "./styles.scss"
+import styles from "./Tabs.module.scss"
 
 interface Tab {
   readonly label: string

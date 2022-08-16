@@ -12,8 +12,9 @@ import { Schema, NodeType, MarkType } from "prosemirror-model"
 import { Command, toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
 import { markIsActive } from "@cultureamp/rich-text-toolkit"
-import { ToolbarItems, ToolbarControlTypes } from "./RichTextEditor"
+import { ToolbarItems, ToolbarControlTypes } from "../types"
 
+/** Configuration for individual controls */
 type ToolbarControl = {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
@@ -24,28 +25,85 @@ type ToolbarControl = {
     dispatch: ((tr: Transaction<any>) => void) | undefined
   ) => boolean
 }
+
+/** Toolbar controls mapped to a group */
 interface GroupedToolbarControls {
   [group: string]: ToolbarControl[]
 }
 
+/** An index for each control's group */
 type ControlGroupTypes = {
   [key in ToolbarControlTypes]?: string
 }
 
+/** Chains multiple commands to dispatch each transitions in sequential order */
+function chainTransactions(...commands: Command[]): Command {
+  return (state, dispatch): boolean => {
+    const updateStateAndDispatch = (tr: Transaction): void => {
+      state = state.apply(tr)
+      dispatch && dispatch(tr)
+    }
+    const lastCommand = commands.pop()
+
+    for (const command of commands) {
+      command(state, updateStateAndDispatch)
+    }
+
+    return lastCommand !== undefined && lastCommand(state, dispatch)
+  }
+}
+
+/** Dispatches a transaction to create initial p tag required for pm commands */
+function createInitialParagraph(
+  state: EditorState,
+  dispatch?: (tr: Transaction) => void
+) {
+  if (dispatch) {
+    const { tr, schema } = state
+
+    dispatch(tr.replaceSelectionWith(schema.nodes.paragraph.create()))
+    return true
+  }
+  return false
+}
+
+/** Create command for toggling Marks */
 function createToggleMarkCommand(mark: MarkType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
-  ) => toggleMark(mark)(state, dispatch)
+  ) => {
+    const docIsEmpty = state.doc.content.size === 0
+
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, toggleMark(mark))(
+        state,
+        dispatch
+      )
+    }
+    return toggleMark(mark)(state, dispatch)
+  }
 }
 
+/** Create command for toggling Lists */
 function createToggleListCommand(node: NodeType): Command {
   return (
     state: EditorState,
     dispatch: ((tr: Transaction) => void) | undefined
-  ) => wrapInList(node)(state, dispatch)
+  ) => {
+    const docIsEmpty = state.doc.content.size === 0
+
+    if (docIsEmpty) {
+      return chainTransactions(createInitialParagraph, wrapInList(node))(
+        state,
+        dispatch
+      )
+    }
+    return wrapInList(node)(state, dispatch)
+  }
 }
 
+/** Create command for reducing indents in a List */
 function createLiftListCommand(): Command {
   return (
     state: EditorState,
@@ -58,7 +116,7 @@ function createLiftListCommand(): Command {
   }
 }
 
-// increase list indent should only be available on the second list node of a list item (otherwise it should be disabled)
+/** Create command for indenting in a List */
 function createIndentListCommand(): Command {
   return (
     state: EditorState,
@@ -71,7 +129,7 @@ function createIndentListCommand(): Command {
   }
 }
 
-// If there is a valid list item its indent can be decrease or 'lifted'
+/** handler lift list disabled state */
 function liftListIsDisabled(state: EditorState): boolean {
   const { $from } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
@@ -80,7 +138,7 @@ function liftListIsDisabled(state: EditorState): boolean {
   return !isValidListItem
 }
 
-// If there is a valid list item and it is not the first in a list it can be indented
+/** handler indent list disabled state */
 function indentListIsDisabled(state: EditorState): boolean {
   const { $from, $to } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
@@ -98,7 +156,7 @@ function indentListIsDisabled(state: EditorState): boolean {
   return !range || range.startIndex === 0 ? true : false
 }
 
-// Creates an object used as an index to map the controls to respective groups
+/** Creates an object used as an index to map the controls to respective groups */
 const createControlGroupIndex = (controls: ToolbarItems[]) =>
   controls.reduce((groups, currentControl) => {
     if (!currentControl?.name) return groups
@@ -108,7 +166,7 @@ const createControlGroupIndex = (controls: ToolbarItems[]) =>
     }
   }, {})
 
-// Creates an initial object used to map button configuration into its respective groups
+/** Creates an initial object used to map button configuration into its respective groups */
 const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
   const uniqueGroups: string[] = Array.from(
     new Set(Object.values(controlGroupIndex))
@@ -129,17 +187,25 @@ const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
   return initialControlObject
 }
 
+/** Retrieves the name of the group a control belongs to */
 const getGroupIndex = (
   controlGroupIndex: ControlGroupTypes,
   controlType: string | undefined
-) => (controlType ? controlGroupIndex[controlType] : "ungrouped")
+): string => (controlType ? controlGroupIndex[controlType] : "ungrouped")
 
+/** Filters out empty control groups and returns a multi dimensional array  */
+const filterToolbarControls = (
+  groupedControls: GroupedToolbarControls
+): ToolbarControl[][] =>
+  Object.values(groupedControls).filter(controls => controls.length > 0)
+
+/** Builds an array of object used to map control configuration to rte toolbar buttons */
 export function buildControlMap(
   schema: Schema,
   editorState: EditorState,
   controls?: ToolbarItems[]
-) {
-  if (!controls) return {}
+): ToolbarControl[][] {
+  if (!controls) return []
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls =
     createInitialControls(controlGroupIndex)
@@ -235,5 +301,5 @@ export function buildControlMap(
     })
   }
 
-  return toolbarControls
+  return filterToolbarControls(toolbarControls)
 }

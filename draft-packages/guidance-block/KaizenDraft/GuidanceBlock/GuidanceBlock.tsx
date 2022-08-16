@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
@@ -8,7 +8,7 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
-import styles from "./GuidanceBlock.scss"
+import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
@@ -105,6 +105,22 @@ class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState
 > {
+  static defaultProps = {
+    layout: "default",
+    variant: "default",
+    withActionButtonArrow: true,
+    noMaxWidth: false,
+    illustrationType: "spot",
+    smallScreenTextAlignment: "center",
+  }
+
+  state = {
+    hidden: false,
+    removed: false,
+    mediaQueryLayout: "",
+  }
+  containerRef = React.createRef<HTMLDivElement>()
+
   constructor(props: GuidanceBlockProps) {
     super(props)
 
@@ -283,22 +299,6 @@ class GuidanceBlock extends React.Component<
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration
-
-  static defaultProps = {
-    layout: "default",
-    variant: "default",
-    withActionButtonArrow: true,
-    noMaxWidth: false,
-    illustrationType: "spot",
-    smallScreenTextAlignment: "center",
-  }
-
-  state = {
-    hidden: false,
-    removed: false,
-    mediaQueryLayout: "",
-  }
-  containerRef = React.createRef<HTMLDivElement>()
 }
 
 export default GuidanceBlock

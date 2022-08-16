@@ -1,7 +1,6 @@
-import * as React from "react"
+import React from "react"
 import classNames from "classnames"
-
-import styles from "./GenericModalSection.scss"
+import styles from "./GenericModalSection.module.scss"
 
 export interface GenericModalSectionProps {
   readonly inputEdit?: boolean
