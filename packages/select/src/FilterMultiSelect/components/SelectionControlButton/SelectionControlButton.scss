@@ -28,7 +28,9 @@
   &:hover,
   &:active,
   &:focus {
-    background-color: $color-blue-100;
+    &:not(.isDisabled) {
+      background-color: $color-blue-100;
+    }
   }
 
   // TODO: Replace it to use focus ring
