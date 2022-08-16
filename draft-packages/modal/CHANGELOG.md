@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.4.0...@kaizen/draft-modal@10.4.1) (2022-08-11)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [10.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.3.19...@kaizen/draft-modal@10.4.0) (2022-08-05)
+
+
+### Features
+
+* Add secondary action prop ([#2892](https://github.com/cultureamp/kaizen-design-system/issues/2892)) ([638517e](https://github.com/cultureamp/kaizen-design-system/commit/638517e6a05f4b5a578c10c3f071914ca425a7a4))
+
+
+
+
+
+## [10.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.3.18...@kaizen/draft-modal@10.3.19) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [10.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.3.17...@kaizen/draft-modal@10.3.18) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/draft-modal

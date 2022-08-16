@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.5.0...@kaizen/a11y@1.5.1) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.16...@kaizen/a11y@1.5.0) (2022-07-28)
+
+
+### Features
+
+* add classNameOverride to hidden wrapper ([#2883](https://github.com/cultureamp/kaizen-design-system/issues/2883)) ([884ab2b](https://github.com/cultureamp/kaizen-design-system/commit/884ab2b1f60b330d61e2a4888d43286e8c9c704b))
+
+
+
+
+
 ## [1.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.15...@kaizen/a11y@1.4.16) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/a11y

@@ -12,6 +12,7 @@ import {
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
+import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
 import { createSchemaFromControls } from "./schema"
 import { buildKeymap } from "./keymap"
@@ -30,6 +31,8 @@ export interface BaseRichTextEditorProps
    * The editable area will autogrow, so this only affects the component when the content doesn't exceed this height.
    */
   rows?: EditorRows
+  dataError?: React.ReactElement
+  onDataError?: () => void
 }
 
 interface RTEWithLabelText extends BaseRichTextEditorProps {
@@ -56,25 +59,45 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     classNameOverride,
     controls,
     rows = 3,
+    dataError = "Something went wrong",
+    onDataError,
     ...restProps
   } = props
   const [schema] = useState<Schema>(createSchemaFromControls(controls))
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
 
-  const [editorRef, editorState, dispatchTransaction] = useRichTextEditor(
-    EditorState.create({
-      doc: value
-        ? Node.fromJSON(schema, {
-            type: "doc",
-            content: value,
-          })
-        : null,
-      schema,
-      plugins: getPlugins(controls, schema),
-    }),
-    { "aria-labelledby": labelId, role: "textbox" }
-  )
+  const useRichTextEditorResult = (() => {
+    try {
+      return useRichTextEditor(
+        EditorState.create({
+          doc: value
+            ? Node.fromJSON(schema, {
+                type: "doc",
+                content: value,
+              })
+            : null,
+          schema,
+          plugins: getPlugins(controls, schema),
+        }),
+        { "aria-labelledby": labelId, role: "textbox" }
+      )
+    } catch {
+      return new Error("Bad data error")
+    }
+  })()
+
+  if (useRichTextEditorResult instanceof Error) {
+    onDataError && onDataError()
+    return (
+      <InlineNotification title="Error" type="negative" persistent>
+        {dataError}
+      </InlineNotification>
+    )
+  }
+
+  const [editorRef, editorState, dispatchTransaction] = useRichTextEditorResult
+
   const controlMap = buildControlMap(schema, editorState, controls)
 
   useEffect(() => {
@@ -88,8 +111,12 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
       <div className={styles.editorWrapper}>
         {controls && (
-          <Toolbar aria-controls={editorId} aria-label="Text formatting">
-            {Object.values(controlMap).map((section, index) => (
+          <Toolbar
+            aria-controls={editorId}
+            aria-label="Text formatting"
+            classNameOverride={styles.toolbar}
+          >
+            {controlMap.map((section, index) => (
               <ToolbarSection key={index}>
                 {section.map((controlConfig, controlKeyIndex) => (
                   <ToggleIconButton

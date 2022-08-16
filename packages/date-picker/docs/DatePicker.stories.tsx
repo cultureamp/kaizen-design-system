@@ -3,10 +3,12 @@ import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DatePicker, ValidationResponse } from "../src/DatePicker"
+import { DatePicker } from "../src/DatePicker"
+import { ValidationResponse } from "../src/types"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { DayOfWeek } from "../src/enums"
 
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
@@ -14,6 +16,9 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
   parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
     docs: {
       description: {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
@@ -21,36 +26,179 @@ export default {
     },
   },
   argTypes: {
+    buttonRef: {
+      control: "disabled",
+    },
+    inputRef: {
+      control: "disabled",
+    },
     locale: {
       options: SUPPORTED_LOCALES,
       control: { type: "radio" },
     },
+    weekStartsOn: {
+      options: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      control: {
+        type: "radio",
+        labels: {
+          Sun: "DayOfWeek.Sun",
+          Mon: "DayOfWeek.Mon",
+          Tue: "DayOfWeek.Tue",
+          Wed: "DayOfWeek.Wed",
+          Thu: "DayOfWeek.Thu",
+          Fri: "DayOfWeek.Fri",
+          Sat: "DayOfWeek.Sat",
+        },
+      },
+      mapping: {
+        Sun: DayOfWeek.Sun,
+        Mon: DayOfWeek.Mon,
+        Tue: DayOfWeek.Tue,
+        Wed: DayOfWeek.Wed,
+        Thu: DayOfWeek.Thu,
+        Fri: DayOfWeek.Fri,
+        Sat: DayOfWeek.Sat,
+      },
+    },
+    defaultMonth: {
+      options: ["Default", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          Default: "Default (undefined)",
+          May2022: "May 2022",
+        },
+      },
+      mapping: {
+        Default: undefined,
+        May2022: new Date("2022-05-01"),
+      },
+    },
+    selectedDay: {
+      options: ["None", "Today", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          May2022: "1st May 2022",
+        },
+      },
+      mapping: {
+        None: undefined,
+        Today: new Date(),
+        May2022: new Date("2022-05-01"),
+      },
+    },
+    validationMessage: {
+      control: "text",
+    },
+    description: {
+      control: "text",
+    },
+    disabledDates: {
+      options: ["None", "Today", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          Today: "[new Date()]",
+          May2022: '[new Date("2022-05-01"), new Date("2022-05-22")]',
+        },
+      },
+      mapping: {
+        None: undefined,
+        Today: [new Date()],
+        May2022: [new Date("2022-05-01"), new Date("2022-05-22")],
+      },
+    },
+    disabledRange: {
+      options: ["None", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          May2022:
+            '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
+        },
+      },
+      mapping: {
+        None: undefined,
+        May2022: { from: new Date("2022-05-01"), to: new Date("2022-05-12") },
+      },
+    },
+    disabledBeforeAfter: {
+      options: ["None", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          May2022:
+            '{ before: new Date("2022-05-30"), after: new Date("2022-05-15") }',
+        },
+      },
+      mapping: {
+        None: undefined,
+        May2022: {
+          before: new Date("2022-05-30"),
+          after: new Date("2022-05-15"),
+        },
+      },
+    },
+    disabledBefore: {
+      options: ["None", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          May2022: 'new Date("2022-05-16")',
+        },
+      },
+      mapping: {
+        None: undefined,
+        May2022: new Date("2022-05-16"),
+      },
+    },
+    disabledAfter: {
+      options: ["None", "May2022"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          May2022: 'new Date("2022-05-21")',
+        },
+      },
+      mapping: {
+        None: undefined,
+        May2022: new Date("2022-05-21"),
+      },
+    },
+    disabledDaysOfWeek: {
+      options: ["None", "Fridays", "Weekends"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          Fridays: "[DayOfWeek.Fri]",
+          Weekends: "[DayOfWeek.Sat, DayOfWeek.Sun]",
+        },
+      },
+      mapping: {
+        None: undefined,
+        Fridays: [DayOfWeek.Fri],
+        Weekends: [DayOfWeek.Sat, DayOfWeek.Sun],
+      },
+    },
   },
 }
 
-export const DefaultStory = props => {
+export const DefaultStory: ComponentStory<typeof DatePicker> = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()
-  const [status, setStatus] = useState<FieldMessageStatus | undefined>()
-  const [validationMessage, setValidationMessage] = useState<
-    string | undefined
-  >()
-
-  const handleValidation = (validationResponse: ValidationResponse): void => {
-    setStatus(validationResponse.status)
-    setValidationMessage(validationResponse.validationMessage)
-  }
 
   return (
     <DatePicker
-      id="datepicker-default"
-      labelText="Label"
-      selectedDay={selectedDate}
-      onDayChange={setValueDate}
-      onValidate={handleValidation}
-      status={status}
-      validationMessage={validationMessage}
-      locale="en-AU"
       {...props}
+      onDayChange={setValueDate}
+      selectedDay={props.selectedDay || selectedDate}
     />
   )
 }
@@ -58,10 +206,15 @@ DefaultStory.storyName = "Date Picker"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
+DefaultStory.args = {
+  id: "datepicker-default",
+  labelText: "Label",
+  locale: "en-AU",
+}
 
-export const ValidationStory = props => {
+export const ValidationStory: Story = () => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
-    new Date(2022, 4, 5)
+    new Date("2022-05-05")
   )
   const [status, setStatus] = useState<FieldMessageStatus | undefined>()
   const [response, setResponse] = useState<ValidationResponse | undefined>()
@@ -84,36 +237,37 @@ export const ValidationStory = props => {
     setValidationMessage(validationResponse.validationMessage)
   }
 
-  const submitRequest = () => {
-    // An example of a form submit request
+  const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    e.preventDefault()
+
     if (status === "error" || status === "caution") {
       setValidationMessage("There is an error")
       setStatus("error")
-      alert("Error")
-    } else {
-      alert("Success")
+      return alert("Error")
     }
+
+    alert("Success")
   }
 
   return (
     <>
-      <DatePicker
-        id="datepicker-default"
-        labelText="Label"
-        selectedDay={selectedDate}
-        onDayChange={day => {
-          setValueDate(day)
-        }}
-        onValidate={handleValidation}
-        status={status}
-        validationMessage={validationMessage}
-        disabledBefore={new Date()}
-        locale="en-AU"
-        {...props}
-      />
-      <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-        <Button onClick={submitRequest} label="Submit" />
-      </div>
+      <form onSubmit={submitRequest}>
+        <DatePicker
+          id="datepicker-default"
+          labelText="Label"
+          selectedDay={selectedDate}
+          onDayChange={setValueDate}
+          onValidate={handleValidation}
+          status={status}
+          validationMessage={validationMessage}
+          disabledBefore={new Date()}
+          locale="en-AU"
+        />
+        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <Button type="submit" label="Submit" />
+        </div>
+      </form>
+
       <div>
         <Paragraph variant="body">
           NOTE: This story includes additional custom validation to provide some
@@ -165,6 +319,7 @@ export const ValidationStory = props => {
 ValidationStory.storyName = "Validation"
 ValidationStory.parameters = {
   docs: { source: { type: "code" } },
+  controls: { disable: true },
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -190,10 +345,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={selectedDate}
             onDayChange={setValueDate}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -201,10 +353,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -212,7 +361,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
             description={
               <>
@@ -225,8 +373,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </Paragraph>
               </>
             }
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -234,10 +380,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={undefined}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
             disabled
           />
@@ -246,10 +389,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("potato")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="error"
-            validationMessage="Invalid Date"
             locale="en-AU"
           />
         </StoryWrapper.Row>
@@ -262,10 +402,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-AU"
           />
           <DatePicker
@@ -273,10 +410,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
             onDayChange={() => undefined}
-            onValidate={() => undefined}
             isReversed={isReversed}
-            status="default"
-            validationMessage={undefined}
             locale="en-US"
           />
         </StoryWrapper.Row>

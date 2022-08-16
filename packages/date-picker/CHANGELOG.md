@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.9.0...@kaizen/date-picker@5.9.1) (2022-08-11)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.8.2...@kaizen/date-picker@5.9.0) (2022-08-10)
+
+
+### Features
+
+* **date-picker:** render inbuilt validation when props not set ([#2903](https://github.com/cultureamp/kaizen-design-system/issues/2903)) ([1c31048](https://github.com/cultureamp/kaizen-design-system/commit/1c310483dbd83fab892d669711811e6a0648de6a))
+
+
+
+
+
+## [5.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.8.1...@kaizen/date-picker@5.8.2) (2022-08-09)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.8.0...@kaizen/date-picker@5.8.1) (2022-08-08)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.7.0...@kaizen/date-picker@5.8.0) (2022-08-08)
+
+
+### Features
+
+* **date-picker:** validate input on pressing Enter key ([#2897](https://github.com/cultureamp/kaizen-design-system/issues/2897)) ([58baa42](https://github.com/cultureamp/kaizen-design-system/commit/58baa420ca755ae074a76d1c12c42f453b29b6e3))
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.11...@kaizen/date-picker@5.7.0) (2022-08-04)
+
+
+### Features
+
+* **date-picker:** add fallback date to focus on for calendar ([#2894](https://github.com/cultureamp/kaizen-design-system/issues/2894)) ([c26b6ec](https://github.com/cultureamp/kaizen-design-system/commit/c26b6ecec1bc6902068ca4db261f71be916da067))
+
+
+
+
+
+## [5.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.10...@kaizen/date-picker@5.6.11) (2022-08-04)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.9...@kaizen/date-picker@5.6.10) (2022-08-03)
+
+
+### Bug Fixes
+
+* **date-picker:** remove unnecessary :not(.outside) selectors in Calendar styles ([#2890](https://github.com/cultureamp/kaizen-design-system/issues/2890)) ([c354d04](https://github.com/cultureamp/kaizen-design-system/commit/c354d042092ab35c5e4decfc565ea8d5663318e3))
+
+
+
+
+
+## [5.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.8...@kaizen/date-picker@5.6.9) (2022-08-02)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.7...@kaizen/date-picker@5.6.8) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [5.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.6.6...@kaizen/date-picker@5.6.7) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/date-picker

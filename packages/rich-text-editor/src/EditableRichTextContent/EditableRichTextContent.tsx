@@ -46,7 +46,7 @@ export const EditableRichTextContent: React.VFC<
         className={classnames(styles.editableContainer, classNameOverride)}
         {...restProps}
       >
-        <VisuallyHidden>
+        <VisuallyHidden classNameOverride={styles.hiddenButton}>
           <button
             type="button"
             onClick={onClick}

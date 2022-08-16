@@ -19,10 +19,7 @@
   border-color: $color-blue-500;
 }
 
-// Temporary solution for focus styling the content area
-// (the problem with this is that it shows this styling when focusing a link within the content
-.editableContainer:focus-within :global(.ProseMirror) {
-  background-color: $color-gray-200;
+.editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
   border: $border-focus-ring-border-width $border-focus-ring-border-style
     $color-blue-500;
 }
