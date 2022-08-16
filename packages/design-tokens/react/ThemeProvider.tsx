@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { ThemeManager, defaultTheme, Theme } from "../"
 
 export const ThemeContext = React.createContext<Theme>(defaultTheme)
@@ -11,28 +11,55 @@ export const ThemeProvider = ({
   themeManager,
   ...props
 }: {
-  themeManager: ThemeManager
+  themeManager?: ThemeManager
   children: React.ReactNode
 }) => {
+  const [themeManagerInstance] = useState(
+    () => themeManager || new ThemeManager(defaultTheme)
+  )
+
   const [theme, setTheme] = React.useState<Theme>(
-    themeManager.getCurrentTheme()
+    themeManagerInstance.getCurrentTheme()
   )
   React.useEffect(() => {
     let cancelled = false
     const listener = (newTheme: Theme) => {
       if (!cancelled) setTheme(newTheme)
     }
-    themeManager.addThemeChangeListener(listener)
+    themeManagerInstance.addThemeChangeListener(listener)
     return () => {
       cancelled = true
-      themeManager.removeThemeChangeListener(listener)
+      themeManagerInstance.removeThemeChangeListener(listener)
     }
   }, [])
 
   return (
-    <ThemeContext.Provider value={theme}>
-      {props.children}
-    </ThemeContext.Provider>
+    <>
+      <ThemeContext.Provider value={theme}>
+        {props.children}
+      </ThemeContext.Provider>
+      <link
+        rel="preload"
+        href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-bold.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="crossorigin"
+      />
+      <link
+        rel="preload"
+        href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-demi-bold.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="crossorigin"
+      />
+      <link
+        rel="preload"
+        href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="crossorigin"
+      />
+    </>
   )
 }
 
