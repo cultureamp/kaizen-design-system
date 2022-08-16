@@ -38,10 +38,10 @@ jobs:
       # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         if: >
-          github.event.action == 'labeled' && github.event.label.name == 'run chromatic' ||
-          github.event.review.state == 'approved' && (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true') ||
-          github.ref == 'refs/heads/master' && (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true') ||
-          github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')
+          (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
+          github.event.review.state == 'approved' ||
+          (github.ref == 'refs/heads/master' && (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true')) ||
+          (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
