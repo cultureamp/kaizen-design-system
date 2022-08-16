@@ -3,6 +3,9 @@ import React from "react"
 import styles from "./FilterMenuButton.module.scss"
 import { FilterSplitButton } from "./FilterSplitButton"
 
+/**
+ * @deprecated draft-packages FilterMenuButton is deprecated. Please use FilterMultiSelect from "@kaizen/select" instead.
+ */
 export interface FilterMenuButtonProps {
   /* The html id attribute of the container element. This is also used
    * to generate ids for sub elements such as the dropdown box (for
