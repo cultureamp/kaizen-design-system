@@ -36,10 +36,8 @@ jobs:
               - 'draft-packages/**'
 
       # 👇 Adds Chromatic as a step in the workflow
-
-      # Run when push event and review state is approved
       - name: Publish to Chromatic - Merge Master into branch
-        if: github.ref == 'refs/heads/master' || github.event.review.state == 'approved' || (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
+        if: github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
@@ -48,9 +46,8 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
 
-      # Run when 'package' or 'draft-packages' files where changes
       - name: Publish to Chromatic
-        if: (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true') || (github.event.action == 'labeled' && github.event.label.name == 'run chromatic')
+        if: (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') || github.ref == 'refs/heads/master' || github.event.review.state == 'approved' && (steps.changes.outputs.packages == 'true' || steps.changes.outputs.draft == 'true')
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
