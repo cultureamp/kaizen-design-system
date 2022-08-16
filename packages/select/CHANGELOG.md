@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.9...@kaizen/select@1.1.10) (2022-08-16)
+
+
+### Bug Fixes
+
+* FilterMultiSelect stories - FilterBar  ([#2915](https://github.com/cultureamp/kaizen-design-system/issues/2915)) ([e7188d6](https://github.com/cultureamp/kaizen-design-system/commit/e7188d690b0e86e3f1873445276a7ecb9f38120a))
+
+
+
+
+
 ## [1.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.1.8...@kaizen/select@1.1.9) (2022-08-15)
 
 
