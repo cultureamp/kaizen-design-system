@@ -95,6 +95,7 @@ export const FilterBarDemo = args => {
           {selectedGroups.map(({ name, id }) => (
             <DemographicValueSelect
               label={name}
+              selectedKeys={new Set(selectedDemographicValues[id])}
               id={id}
               onRemove={() => {
                 focusAddFilter()
