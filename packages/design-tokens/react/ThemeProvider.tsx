@@ -68,13 +68,6 @@ export const ThemeProvider = ({
       />
       <link
         rel="preload"
-        href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-light.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="crossorigin"
-      />
-      <link
-        rel="preload"
         href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/tiempos/tiempos-headline-bold.woff2"
         as="font"
         type="font/woff2"
