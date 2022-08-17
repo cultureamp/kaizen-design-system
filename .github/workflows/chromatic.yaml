@@ -27,7 +27,7 @@ jobs:
             packages:
               - 'packages/**'
               - 'draft-packages/**'
-      # run only if 'packages' files were changed
+      # run only when merging into master if 'packages' files were changed
       - name: path filters test
         if: steps.filter.outputs.packages == 'true'
         run: echo "packages/** or draft-packages/** has been updated"
@@ -48,7 +48,7 @@ jobs:
           APPROVALS: "1"
           ADD_LABEL: "approved"
       - name: Remove the approved label
-        if: steps.approved.outputs.isApproved == 'false' || steps.approved.outputs.isApproved == 'false'
+        if: steps.approved.outputs.isApproved == 'false'
         id: remove_label_approved
         uses: lightspeedretail/actions-label-prs@v1
         with:
