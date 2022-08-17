@@ -60,7 +60,7 @@ jobs:
         run: echo ${{ steps.approved.outputs.isApproved }}
 
   visual-testing:
-    needs: [label-pr]
+    needs: [label-pr, paths-filter]
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
       needs.label-pr.outputs.isApproved == 'true' ||
