@@ -16,7 +16,7 @@ on:
 jobs:
   label-pr:
     runs-on: ubuntu-latest
-    name: A job to label prs according with approvals
+    name: Label PR
     outputs:
       isApproved: ${{ steps.approved.outputs.isApproved }}
     steps:
@@ -30,11 +30,11 @@ jobs:
           APPROVALS: "1"
           ADD_LABEL: "approved"
       - name: Remove the approved label
+        if: steps.approved.outputs.isApproved == 'false'
         id: remove_label_approved
         uses: lightspeedretail/actions-label-prs@v1
         with:
           task: "label_pr_remove"
-        if: steps.approved.outputs.isApproved == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REMOVE_LABEL: "approved"
