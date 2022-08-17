@@ -11,7 +11,7 @@ import { EditorState, Transaction } from "prosemirror-state"
 import { Schema, NodeType, MarkType } from "prosemirror-model"
 import { Command, toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
-import { markIsActive } from "@cultureamp/rich-text-toolkit"
+import { markIsActive, listIsActive } from "@cultureamp/rich-text-toolkit"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 /** Configuration for individual controls */
@@ -209,6 +209,7 @@ export function buildControlMap(
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls =
     createInitialControls(controlGroupIndex)
+  const listNodes = [schema.nodes.bulletList, schema.nodes.orderedList]
 
   if (schema.marks.strong) {
     const type = schema.marks.strong
@@ -248,7 +249,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "bulletList")
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
-      isActive: false,
+      isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
       icon: bulletListIcon,
     })
@@ -259,7 +260,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "orderedList")
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
-      isActive: false,
+      isActive: listIsActive(editorState, type, listNodes),
       label: "Numbered List",
       icon: numberedListIcon,
     })
