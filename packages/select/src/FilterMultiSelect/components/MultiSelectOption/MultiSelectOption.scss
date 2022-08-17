@@ -12,6 +12,7 @@
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
   padding: 0 $spacing-xs;
+  align-items: flex-start;
 
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
