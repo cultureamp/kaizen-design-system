@@ -59,6 +59,12 @@ $focus-border-color: $color-blue-500;
       background-color: $color-gray-100;
       cursor: pointer;
     }
+
+    &:focus-within {
+      &::after {
+        @extend %focus-border;
+      }
+    }
   }
 
   .valueContainer {
