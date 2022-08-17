@@ -1,38 +1,50 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
+# Using this github action from https://github.com/lightspeedretail/actions-label-prs
 
 name: "chromatic"
 
 on:
   pull_request:
-    types: [labeled]
+    types: [labeled, synchronize]
   pull_request_review:
-    types: [submitted]
+    types: [submitted, dismissed]
   push:
+    paths:
+      - packages/**
+      - draft-packages/**
 
 jobs:
-  paths-filter:
+  label-pr:
     runs-on: ubuntu-latest
+    name: A job to label prs according with approvals
     outputs:
-      packages: ${{ steps.filter.outputs.packages }}
+      isApproved: ${{ steps.approved.outputs.isApproved }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2
-        id: filter
+      - name: Label a pr when approved
+        id: approved
+        uses: lightspeedretail/actions-label-prs@v1
         with:
-          filters: |
-            packages:
-              - 'packages/**'
-              - 'draft-packages/**'
-      # run only if 'packages' files were changed
-      - name: path filters test
-        if: steps.filter.outputs.packages == 'true'
-        run: echo "packages/** or draft-packages/** has been updated"
+          task: "label_pr_when_approved"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APPROVALS: "1"
+          ADD_LABEL: "approved"
+      - name: Remove the approved label
+        id: remove_label_approved
+        uses: lightspeedretail/actions-label-prs@v1
+        with:
+          task: "label_pr_remove"
+        if: steps.approved.outputs.isApproved == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REMOVE_LABEL: "approved"
+
   visual-testing:
-    needs: paths-filter
+    needs: [label-pr]
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      github.event.review.state == 'approved' ||
-      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' )
+      needs.label-pr.outputs.isApproved == 'true' ||
+      github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
