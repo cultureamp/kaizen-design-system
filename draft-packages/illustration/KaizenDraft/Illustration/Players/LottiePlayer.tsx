@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
+import classnames from "classnames"
 import lottie from "lottie-web"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { getAnimationData } from "../utils"
-import styles from "../style.module.scss"
 import { LottieAnimation } from "../types"
 import { BaseProps } from "../Base"
+import styles from "../Base.module.scss"
 
 export type AnimatedBaseProps = {
   /**
@@ -35,7 +36,7 @@ export const AnimatedBase = ({
   loop = false,
   alt,
   aspectRatio,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
 }: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
   const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
@@ -79,12 +80,6 @@ export const AnimatedBase = ({
     initialiseLottiePlayer()
   }, [asset])
 
-  const wrapper =
-    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
-    (aspectRatio ? aspectRatio : "") +
-    " " +
-    styles.wrapper
-
   const LoadingState = (
     /* Avoid jump when asset loads */
     <svg
@@ -100,7 +95,13 @@ export const AnimatedBase = ({
   const FailedState = <img src={assetUrl(fallback)} alt={alt} />
 
   return (
-    <figure className={wrapper}>
+    <figure
+      className={classnames([
+        styles.wrapper,
+        aspectRatio && styles[aspectRatio],
+        classNameOverride,
+      ])}
+    >
       <figcaption className={styles.visuallyHidden}>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}
       {playerLoaded === AssetStatus.Failed && FailedState}

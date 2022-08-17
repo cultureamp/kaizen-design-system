@@ -1,46 +1,45 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
+import {
+  FieldGroup,
+  Label,
+  ToggledStatus,
+  ToggleSwitch,
+  ToggleSwitchProps,
+} from "../Primitives"
+import styles from "./ToggleSwitchField.module.scss"
 
-import { FieldGroup, Label, ToggledStatus, ToggleSwitch } from ".."
-
-import styles from "./styles.scss"
-
-export interface ToggleSwitchFieldProps {
+export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
   id?: string
-  name?: string
   labelText: string | React.ReactNode
   labelPosition?: "start" | "end"
   toggledStatus?: ToggledStatus
-  onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   reversed?: boolean
   inline?: boolean
   fullWidth?: boolean
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-type ToggleSwitchField = React.FunctionComponent<ToggleSwitchFieldProps>
-
-const ToggleSwitchField: ToggleSwitchField = ({
+/**
+ * {@link https://cultureamp.design/components/toggle-switch-field/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-toggle-switch-field--default Storybook}
+ */
+export const ToggleSwitchField: React.VFC<ToggleSwitchFieldProps> = ({
   id = "",
-  name = "",
   labelText,
   labelPosition = "start",
   toggledStatus,
-  onToggle,
   disabled,
   reversed,
   inline,
   fullWidth,
-  onFocus,
-  onBlur,
+  ...restProps
 }) => (
   <FieldGroup
     id={`${id}-field-group`}
     inline={inline}
     automationId={`${id}-field-group`}
-    className={classnames(styles.container, {
+    classNameOverride={classnames(styles.container, {
       [styles.fullWidth]: fullWidth,
       [styles.on]: toggledStatus === ToggledStatus.ON,
     })}
@@ -62,14 +61,11 @@ const ToggleSwitchField: ToggleSwitchField = ({
           disabled={disabled}
           reversed={reversed}
           toggledStatus={toggledStatus}
-          name={name}
-          onToggle={onToggle}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          {...restProps}
         />
       </Label>
     </div>
   </FieldGroup>
 )
 
-export default ToggleSwitchField
+ToggleSwitchField.displayName = "ToggleSwitchField"

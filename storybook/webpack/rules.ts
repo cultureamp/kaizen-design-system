@@ -2,6 +2,7 @@
 import "../pre-build"
 import { resolve } from "path"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
+import { browsersList } from "./browserslist"
 
 const isEnabled = require("./isEnabled")
 
@@ -15,14 +16,22 @@ export const stylePreprocessors: RuleSetUseItem[] = [
   {
     loader: "postcss-loader",
     options: {
-      ident: "postcss",
-      plugins: () => [
-        require("postcss-flexbugs-fixes"),
-        require("postcss-preset-env")({
-          autoprefixer: { flexbox: "no-2009" },
-          stage: 3,
-        }),
-      ],
+      postcssOptions: {
+        plugins: [
+          require("postcss-flexbugs-fixes"),
+          [
+            require("postcss-preset-env"),
+            {
+              autoprefixer: {
+                flexbox: "no-2009",
+                grid: "no-autoplace",
+              },
+              browsers: browsersList,
+              stage: 3,
+            },
+          ],
+        ],
+      },
     },
   },
   {
@@ -71,56 +80,19 @@ export const svgIcons: RuleSetRule = {
     loader: "svgo-loader",
     options: {
       plugins: [
-        { removeTitle: true },
         {
-          convertColors: {
+          name: "removeTitle",
+          active: true,
+        },
+        {
+          name: "convertColors",
+          params: {
             currentColor: /black|#000|#000000/,
           },
         },
       ],
     },
   },
-}
-
-export const elm: RuleSetRule = {
-  test: /\.elm$/,
-  exclude: [/elm-stuff/, /node_modules/],
-  use: [
-    {
-      loader: "babel-loader",
-      options: {
-        plugins: [
-          "module:elm-css-modules-plugin",
-          ["module:babel-elm-assets-plugin", {}, "assets-plugin-generic"],
-          [
-            "module:babel-elm-assets-plugin",
-            {
-              // "author/project" is the default value if no "name" field is
-              // specified in elm.json. If we want to allow setting the name
-              // field in our workspaces, we'll need to update the plugin to
-              // support multiple possible package names.
-              package: "author/project",
-              module: "Icon.SvgAsset",
-              function: "svgAsset",
-            },
-            "assets-plugin-svg",
-          ],
-        ],
-      },
-    },
-    {
-      loader: "elm-hot-webpack-loader",
-    },
-    {
-      loader: resolve(__dirname, "elm-webpack-loader-fix.js"),
-      options: {
-        debug: isEnabled("ELM_DEBUG", process.env.ELM_DEBUG, false),
-        cwd: resolve(__dirname, "../.."),
-        pathToElm: resolve(__dirname, "../../node_modules/.bin/elm"),
-        forceWatch: true,
-      },
-    },
-  ],
 }
 
 export const removeSvgFromTest = (
@@ -134,6 +106,6 @@ export const removeSvgFromTest = (
 }
 
 export const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
-  exclude: /node_modules\/(?!(\@kaizen|\@cultureamp|elm-storybook)).*/,
+  exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
 })

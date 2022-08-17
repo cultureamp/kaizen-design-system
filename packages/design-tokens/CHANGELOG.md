@@ -3,6 +3,197 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
+
+
+### Features
+
+* Preload fonts in ThemeProvider & handle default theme ([#2917](https://github.com/cultureamp/kaizen-design-system/issues/2917)) ([67e8efb](https://github.com/cultureamp/kaizen-design-system/commit/67e8efb09f0582ef9e14b408291f1916c7f21eea))
+
+
+
+
+
+## [9.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.4...@kaizen/design-tokens@9.0.5) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [9.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.3...@kaizen/design-tokens@9.0.4) (2022-07-20)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [9.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.2...@kaizen/design-tokens@9.0.3) (2022-06-23)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [9.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.1...@kaizen/design-tokens@9.0.2) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [9.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.0...@kaizen/design-tokens@9.0.1) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.1.0...@kaizen/design-tokens@9.0.0) (2022-06-20)
+
+
+### Code Refactoring
+
+* remove zen theme from kds ([#2799](https://github.com/cultureamp/kaizen-design-system/issues/2799)) ([a3a26a5](https://github.com/cultureamp/kaizen-design-system/commit/a3a26a549ee3c37d159c2547d8e78d07e53f16ec))
+
+
+### BREAKING CHANGES
+
+* Remove exported zenTheme and config from `design-tokens` package
+
+
+
+
+
+# [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.3...@kaizen/design-tokens@8.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [8.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.2...@kaizen/design-tokens@8.0.3) (2022-05-12)
+
+
+### Bug Fixes
+
+* Enable noUncheckedIndexedAccess for design tokens and fix TS errors ([#2725](https://github.com/cultureamp/kaizen-design-system/issues/2725)) ([467bf1a](https://github.com/cultureamp/kaizen-design-system/commit/467bf1a0117d3961f5474f5c05854395072c5840))
+
+
+
+
+
+## [8.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.1...@kaizen/design-tokens@8.0.2) (2022-05-02)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [8.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.0...@kaizen/design-tokens@8.0.1) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.2...@kaizen/design-tokens@8.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [7.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.1...@kaizen/design-tokens@7.2.2) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [7.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.0...@kaizen/design-tokens@7.2.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* update small box shadow design token value ([#2666](https://github.com/cultureamp/kaizen-design-system/issues/2666)) ([3eb65c1](https://github.com/cultureamp/kaizen-design-system/commit/3eb65c16deea41bb3ecc18db32c843c346398976))
+
+
+
+
+
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
+
+
+### Features
+
+* Adjust box shadow values after design update ([#2624](https://github.com/cultureamp/kaizen-design-system/issues/2624)) ([eedd2f2](https://github.com/cultureamp/kaizen-design-system/commit/eedd2f2af6f4904d6a05a673f6d7a9b67211662c))
+
+
+
+
+
+## [7.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.3...@kaizen/design-tokens@7.1.4) (2022-03-23)
+
+
+### Bug Fixes
+
+* update heading 3 line height to match figma token update ([#2639](https://github.com/cultureamp/kaizen-design-system/issues/2639)) ([3a7807a](https://github.com/cultureamp/kaizen-design-system/commit/3a7807afe5b797db7311614e1ced9974b76b80fa))
+
+
+
+
+
+## [7.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.2...@kaizen/design-tokens@7.1.3) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [7.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.1...@kaizen/design-tokens@7.1.2) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [7.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.0...@kaizen/design-tokens@7.1.1) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 # [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.0.2...@kaizen/design-tokens@7.1.0) (2022-03-03)
 
 

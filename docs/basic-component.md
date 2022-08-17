@@ -2,6 +2,7 @@
 
 Recipe for creating a basic component.
 
+- [Intro](#intro)
 - [Component structure](#component-structure)
   - [Subcomponents](#subcomponents)
   - [Hooks and Utils](#hooks-and-utils)
@@ -13,6 +14,18 @@ Recipe for creating a basic component.
   - [Props](#props)
   - [The component](#the-component)
   - [Display name](#display-name)
+
+## Intro
+
+To generate a new component and package, new component within an existing package, or a subcomponent,
+run the following command and follow the prompts:
+```
+yarn plop
+```
+or run the following command to answer the name prop (replace `NewComponentName` with your component name):
+```
+yarn plop NewComponentName
+```
 
 ## Component structure
 
@@ -26,12 +39,12 @@ src/
       - Pancake/
         - index.ts
         - Pancake.tsx
-        - Pancake.scss
+        - Pancake.module.scss
         - Pancake.spec.tsx
       - Topping/
         - index.ts
         - Topping.tsx
-        - Topping.scss
+        - Topping.module.scss
         - Topping.spec.tsx
     hooks/
       - index.ts
@@ -43,10 +56,11 @@ src/
       - groupedFunctions.spec.ts
       - functionName.ts
       - functionName.spec.ts
+    - _mixins.scss
     - _variables.scss
     - index.ts
     - PancakeStack.tsx
-    - PancakeStack.scss
+    - PancakeStack.module.scss
     - PancakeStack.spec.tsx
 ```
 
@@ -82,11 +96,11 @@ See [template](#componenttsx-template) for component composition.
 
 ### Styles
 
-Style files should named to match the component name (eg. the Pancake component will be named `Pancake.scss`) and live in the same directory.
+Style files should named to match the component name (eg. the Pancake component will be named `Pancake.module.scss`) and live in the same directory.
 
 Keep these clean by separating styles for subcomponents in their own respective files.
 
-If you require scss variables to be shared between the parent and its children, add them to `_variables.scss` in the parent directory and import the file into the required stylesheets.
+If you require scss variables or mixins to be shared between the parent and its children, add them to `_variables.scss` or `_mixins.scss` in the parent directory and import the file into the required stylesheets. Note that these do not have `.module` as part of their extension as they should not contain any classes directly used by the component.
 
 ### Tests
 
@@ -102,11 +116,11 @@ A basic component will follow this template:
 // PancakeStack.tsx
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import styles from "./PancakeStack.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./PancakeStack.module.scss"
 
-export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, "className"> {
+export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  classNameOverride?: string
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
@@ -114,11 +128,11 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 
 export const PancakeStack: React.VFC<PancakeStackProps> = ({
   children,
-  classNameOverride,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
-  ...props
+  classNameOverride,
+  ...restProps
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
@@ -130,11 +144,13 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
   return (
     <div
-      className={classnames(styles.pancakeStack, classNameOverride, {
-        [styles.someClass]: isBooleanProp,
-      })}
+      className={classnames([
+        styles.pancakeStack,
+        classNameOverride,
+        isBooleanProp && styles.someClass,
+      ])}
       onSomething={handleCustomFunction}
-      {...props}
+      {...restProps}
     >
       {children}
       {doSomething(hasOptionalBooleanProp) && <SubComponent />}
@@ -149,10 +165,10 @@ PancakeStack.displayName = "PancakeStack"
 
 ```tsx
 import { HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 
-export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, "className"> {
+export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  classNameOverride?: string
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
@@ -162,19 +178,19 @@ export interface PancakeStackProps extends Omit<HTMLAttributes<HTMLDivElement>, 
 - Create and export an `interface` for your props in the format of `{PascalComponentName}Props`
   - You can restrict a prop's type signature by redeclaring it (eg. changing a prop from `string | undefined` to `string`)
   - If you need to change the type signature of an extended prop, ensure you `Omit` it otherwise it will become `never` (eg. changing a prop from `string | undefined` to `number`)
-- `Omit` `"className"` as we re-add it with the alias `classNameOverride`
+- Use our custom type `OverrideClassName` to replace `className` with the alias `classNameOverride`
   - The alias allows us to easier track usage (as ideally teams should not need to use this) and allows us to not be a bottleneck if the component does not meet their needs in the interim
   - Previously `classNameAndIHaveSpokenToDST`
-- Extend the native attributes of the closest HTML element of your component (eg. `<section>` will use `<div>` attributes)
+- Extend the native attributes of the HTML element of your component
 
 ```tsx
 // Extending <section>
 import { HTMLAttributes } from "react"
-export type SectionProps = Omit<HTMLAttributes<HTMLDivElement>, "className">
+export type SectionProps = OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 // Extending <button>
 import { ButtonHTMLAttributes } from "react"
-export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className">
+export type ButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>>
 ```
 
 - If your component is mainly extending another component, extend the props of that component and spread the props
@@ -184,13 +200,13 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "classNa
 ```tsx
 export interface NewComponentProps extends PancakeStackProps {}
 
-export const NewComponent: React.VFC<NewComponentProps> = ({ ...props }) => <PancakeStack {...props} />
+export const NewComponent: React.VFC<NewComponentProps> = props => <PancakeStack {...props} />
 ```
 
 - Declare the `children` prop if you require it
   - Usually it is `React.ReactNode`, however you can customise it to your needs
   - [ReactNode vs ReactElement vs JSX.Element](https://stackoverflow.com/questions/58123398/when-to-use-jsx-element-vs-reactnode-vs-reactelement)
-- Add `classNameOverride` to replace the omitted `className`
+- If you are extending third party props which contain `className`, wrap it in `OverrideClassName` to replace it with `classNameOverride`
 - Prefix boolean props with `is` or `has`
 - Declare a default value for optional boolean props
   - Unless you specifically have a need to differentiate between `false` and `undefined`, this allows you to have the type safety of only needing to cater for a boolean value in any usages (eg. in a util)
@@ -214,11 +230,11 @@ import React from "react"
 
 export const PancakeStack: React.VFC<PancakeStackProps> = ({
   children,
-  classNameOverride,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
-  ...props
+  classNameOverride,
+  ...restProps
 }) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
@@ -230,11 +246,13 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
   return (
     <div
-      className={classnames(styles.pancakeStack, classNameOverride, {
-        [styles.someClass]: isBooleanProp,
-      })}
+      className={classnames([
+        styles.pancakeStack,
+        classNameOverride,
+        isBooleanProp && styles.someClass,
+      ])}
       onSomething={handleCustomFunction}
-      {...props}
+      {...restProps}
     >
       {children}
       {doSomething(hasOptionalBooleanProp) && <SubComponent />}
@@ -245,9 +263,9 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 
 - Write and directly export a `React.VFC` (React VoidFunctionComponent)
   - **Do not** use `React.FC`
-    - This comes with `children?: React.ReactNode` as a default, and reduces type safety for your component as it will exist even if your component should not be taking `children`
+    - This comes with `children?: React.ReactNode` as a default in React 17 and below, and reduces type safety for your component as it will exist even if your component should not be taking `children`
     - When you want your component to accept `children`, declare it yourself within your props (this also increases readability as there is no need to guess whether the component should or shouldn't accept `children`)
-    - There is also a plan for [React 18 to no longer include `children` in `React.FC`](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46643#issuecomment-801487166) (deprecating `React.VFC`), which would create more clean up work for those relying on the inferred `children` (as opposed to a simple find and replace for `VFC`)
+    - While we are using React 18 ourselves, some of our consumers are still using React 17 or below, so until we stop supporting them, we will continue to use VFC
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
 - Always be explicit and include the expected generic type (eg. `useState<string>()`)

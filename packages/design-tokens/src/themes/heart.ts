@@ -128,10 +128,12 @@ export const heartTheme: Theme = {
   },
   shadow: {
     small: {
-      boxShadow: "0 0 6px rgba(53, 55, 74, 0.09)",
+      boxShadow:
+        "0px 3px 16px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1)",
     },
     large: {
-      boxShadow: "0 0 12px rgba(53, 55, 74, 0.19)",
+      boxShadow:
+        "0px 8px 40px rgba(0, 0, 0, 0.08), 0px 3px 9px rgba(0, 0, 0, 0.1)",
     },
   },
   spacing: {
@@ -213,7 +215,7 @@ export const heartTheme: Theme = {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
       fontWeight: 700,
       fontSize: "1.375rem",
-      lineHeight: "1.5rem",
+      lineHeight: "1.875rem",
       letterSpacing: "normal",
     },
     heading4: {

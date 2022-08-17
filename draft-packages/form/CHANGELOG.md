@@ -3,6 +3,410 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.21...@kaizen/draft-form@7.2.22) (2022-08-11)
+
+
+### Bug Fixes
+
+* use max-width on label ([#2908](https://github.com/cultureamp/kaizen-design-system/issues/2908)) ([c59c49b](https://github.com/cultureamp/kaizen-design-system/commit/c59c49b02f29afbb39971032a3865fb12623d1d7))
+
+
+
+
+
+## [7.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.20...@kaizen/draft-form@7.2.21) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.19...@kaizen/draft-form@7.2.20) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.18...@kaizen/draft-form@7.2.19) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.17...@kaizen/draft-form@7.2.18) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.16...@kaizen/draft-form@7.2.17) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.15...@kaizen/draft-form@7.2.16) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.14...@kaizen/draft-form@7.2.15) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.13...@kaizen/draft-form@7.2.14) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.12...@kaizen/draft-form@7.2.13) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.11...@kaizen/draft-form@7.2.12) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.10...@kaizen/draft-form@7.2.11) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.9...@kaizen/draft-form@7.2.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.8...@kaizen/draft-form@7.2.9) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.7...@kaizen/draft-form@7.2.8) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.6...@kaizen/draft-form@7.2.7) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.5...@kaizen/draft-form@7.2.6) (2022-06-06)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.4...@kaizen/draft-form@7.2.5) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.3...@kaizen/draft-form@7.2.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.2...@kaizen/draft-form@7.2.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.1...@kaizen/draft-form@7.2.2) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
+## [7.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.0...@kaizen/draft-form@7.2.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.8...@kaizen/draft-form@7.2.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [7.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.7...@kaizen/draft-form@7.1.8) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.6...@kaizen/draft-form@7.1.7) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.5...@kaizen/draft-form@7.1.6) (2022-05-16)
+
+
+### Bug Fixes
+
+* Kds 267 checkbox adds a div into span when clicked ([#2732](https://github.com/cultureamp/kaizen-design-system/issues/2732)) ([ab7ed2f](https://github.com/cultureamp/kaizen-design-system/commit/ab7ed2f26edf168d35938691ae2a2034adc1fbe1))
+
+
+
+
+
+## [7.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.4...@kaizen/draft-form@7.1.5) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.3...@kaizen/draft-form@7.1.4) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.2...@kaizen/draft-form@7.1.3) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.1...@kaizen/draft-form@7.1.2) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [7.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.1.0...@kaizen/draft-form@7.1.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.0.0...@kaizen/draft-form@7.1.0) (2022-04-14)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 5) ([#2632](https://github.com/cultureamp/kaizen-design-system/issues/2632)) ([a87ac09](https://github.com/cultureamp/kaizen-design-system/commit/a87ac09a1e9d398adeb84526df00c1d6a4ef0151))
+
+
+
+
+
+# [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.10...@kaizen/draft-form@7.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [6.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.9...@kaizen/draft-form@6.0.10) (2022-04-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.8...@kaizen/draft-form@6.0.9) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.7...@kaizen/draft-form@6.0.8) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.6...@kaizen/draft-form@6.0.7) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.5...@kaizen/draft-form@6.0.6) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.4...@kaizen/draft-form@6.0.5) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.3...@kaizen/draft-form@6.0.4) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.2...@kaizen/draft-form@6.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.1...@kaizen/draft-form@6.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [6.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@6.0.0...@kaizen/draft-form@6.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.13...@kaizen/draft-form@6.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.12...@kaizen/draft-form@5.6.13) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [5.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.11...@kaizen/draft-form@5.6.12) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [5.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@5.6.10...@kaizen/draft-form@5.6.11) (2022-03-11)
 
 **Note:** Version bump only for package @kaizen/draft-form

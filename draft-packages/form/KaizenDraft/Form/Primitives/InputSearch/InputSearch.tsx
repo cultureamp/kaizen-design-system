@@ -1,40 +1,36 @@
+import React, { InputHTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import classnames from "classnames"
-import React from "react"
 import search from "@kaizen/component-library/icons/search.icon.svg"
 import clear from "@kaizen/component-library/icons/clear.icon.svg"
-
-import styles from "./styles.scss"
+import styles from "./InputSearch.module.scss"
 
 export interface InputSearchProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "className" | "defaultValue"
+  extends OverrideClassName<
+    Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
   > {
   id: string
-  classNameAndIHaveSpokenToDST?: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
 }
 
-const InputSearch: React.FunctionComponent<InputSearchProps> = (
+export const InputSearch: React.VFC<InputSearchProps> = (
   props: InputSearchProps
 ) => {
   const {
-    id,
     value,
     onChange,
     onClear,
-    classNameAndIHaveSpokenToDST,
-    placeholder,
-    disabled = false,
+    classNameOverride,
+    disabled,
     reversed = false,
-    loading,
-    secondary,
-    ...genericInputProps
+    loading = false,
+    secondary = false,
+    ...restProps
   } = props
 
   return (
@@ -63,19 +59,18 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
       </div>
 
       <input
-        id={id}
         type="search"
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        onChange={onChange}
-        className={classnames(styles.input, styles.search, {
+        className={classnames(styles.input, styles.search, classNameOverride, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.disabled]: disabled,
           [styles.secondary]: secondary,
         })}
-        {...genericInputProps}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+        readOnly={onChange === undefined}
+        {...restProps}
       />
       {/* Inputs aren't able to have pseudo elements like ::after on them,
           so we have to create an element ourselves for the focus ring */}
@@ -97,4 +92,4 @@ const InputSearch: React.FunctionComponent<InputSearchProps> = (
   )
 }
 
-export default InputSearch
+InputSearch.displayName = "InputSearch"

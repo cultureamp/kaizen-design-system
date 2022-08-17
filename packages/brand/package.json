@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand",
-  "version": "1.2.2",
+  "version": "1.4.1",
   "description": "The brand component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,10 +31,11 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^16.9.0 || ^17.0.0"
-  },
   "dependencies": {
-    "@kaizen/hosted-assets": "^1.2.0"
+    "@kaizen/component-base": "^1.0.0",
+    "@kaizen/hosted-assets": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   }
 }

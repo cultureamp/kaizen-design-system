@@ -6,8 +6,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react"
-import * as React from "react"
-import { LottieAnimation } from "../types"
+import React from "react"
 import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 
@@ -85,13 +84,15 @@ describe("<AnimatedBase />", () => {
       )
       expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       const items = await screen.findAllByText(/Screen reader text/)
-      expect(items).toHaveLength(1)
+      await waitFor(() => {
+        expect(items).toHaveLength(1)
+      })
     })
   })
 
   describe("when the aspect ratio is set as a prop", () => {
-    it("should have aspect ratio class", () => {
-      const { container } = render(
+    it("should have aspect ratio class", async () => {
+      render(
         <AnimatedBase
           name=""
           aspectRatio="landscape"
@@ -99,21 +100,34 @@ describe("<AnimatedBase />", () => {
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
-      expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
-      expect(container.querySelector(".landscape")).toBeTruthy()
+      await waitFor(() => {
+        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+      })
+      await waitFor(() => {
+        const figureClassList =
+          document.getElementsByTagName("figure")[0].classList
+        expect(figureClassList.contains("landscape")).toBe(true)
+      })
     })
 
     describe("when the aspect ratio is NOT set as a prop", () => {
-      it("should not have aspect ratio class", () => {
-        const { container } = render(
+      it("should not have aspect ratio class", async () => {
+        render(
           <AnimatedBase
             name=""
             alt="Screen reader text"
             fallback="illustrations/heart/spot/moods-cautionary.svg"
           />
         )
-        expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
-        expect(container.querySelector(".landscape")).toBeFalsy()
+        await waitFor(() => {
+          expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
+        })
+
+        await waitFor(() => {
+          const figureClassList =
+            document.getElementsByTagName("figure")[0].classList
+          expect(figureClassList.contains("landscape")).toBe(false)
+        })
       })
     })
   })

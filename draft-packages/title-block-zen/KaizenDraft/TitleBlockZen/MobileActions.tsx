@@ -1,8 +1,8 @@
-import { Icon } from "@kaizen/component-library"
-import { ButtonProps } from "@kaizen/draft-button"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { Icon } from "@kaizen/component-library"
+import { ButtonProps } from "@kaizen/button"
+import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import {
@@ -14,7 +14,7 @@ import {
   TitleBlockMenuItemProps,
   convertSecondaryActionsToMenuItems,
 } from "./TitleBlockZen"
-import styles from "./MobileActions.scss"
+import styles from "./MobileActions.module.scss"
 
 const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
   "href" in action
@@ -412,7 +412,6 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
   state = {
     isOpen: false,
   }
-
   toggleDisplay() {
     this.setState({ isOpen: !this.state.isOpen })
   }

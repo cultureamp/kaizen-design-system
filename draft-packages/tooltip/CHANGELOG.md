@@ -3,6 +3,388 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.19...@kaizen/draft-tooltip@5.3.0) (2022-08-04)
+
+
+### Features
+
+* **tooltip:** allow consumer to override animation duration through … ([#2889](https://github.com/cultureamp/kaizen-design-system/issues/2889)) ([d6659ee](https://github.com/cultureamp/kaizen-design-system/commit/d6659ee78bd446a660b73da535e07ed118a427a2)), closes [#2887](https://github.com/cultureamp/kaizen-design-system/issues/2887) [#2888](https://github.com/cultureamp/kaizen-design-system/issues/2888) [#2890](https://github.com/cultureamp/kaizen-design-system/issues/2890)
+
+
+
+
+
+## [5.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.18...@kaizen/draft-tooltip@5.2.19) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.17...@kaizen/draft-tooltip@5.2.18) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.16...@kaizen/draft-tooltip@5.2.17) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.15...@kaizen/draft-tooltip@5.2.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.14...@kaizen/draft-tooltip@5.2.15) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.13...@kaizen/draft-tooltip@5.2.14) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.12...@kaizen/draft-tooltip@5.2.13) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.11...@kaizen/draft-tooltip@5.2.12) (2022-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.10...@kaizen/draft-tooltip@5.2.11) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.9...@kaizen/draft-tooltip@5.2.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.8...@kaizen/draft-tooltip@5.2.9) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.7...@kaizen/draft-tooltip@5.2.8) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.6...@kaizen/draft-tooltip@5.2.7) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.5...@kaizen/draft-tooltip@5.2.6) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.4...@kaizen/draft-tooltip@5.2.5) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.3...@kaizen/draft-tooltip@5.2.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.2...@kaizen/draft-tooltip@5.2.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.2.1...@kaizen/draft-tooltip@5.2.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.1.1...@kaizen/draft-tooltip@5.2.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.1.0...@kaizen/draft-tooltip@5.1.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.9...@kaizen/draft-tooltip@5.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [5.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.8...@kaizen/draft-tooltip@5.0.9) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.7...@kaizen/draft-tooltip@5.0.8) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.6...@kaizen/draft-tooltip@5.0.7) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.5...@kaizen/draft-tooltip@5.0.6) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.4...@kaizen/draft-tooltip@5.0.5) (2022-05-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency use-debounce to v8 ([#2707](https://github.com/cultureamp/kaizen-design-system/issues/2707)) ([27203c5](https://github.com/cultureamp/kaizen-design-system/commit/27203c53b49d8c2fbe4998412f12aadbe96c0140))
+
+
+
+
+
+## [5.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.3...@kaizen/draft-tooltip@5.0.4) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.2...@kaizen/draft-tooltip@5.0.3) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.1...@kaizen/draft-tooltip@5.0.2) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.0.0...@kaizen/draft-tooltip@5.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.9...@kaizen/draft-tooltip@5.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [4.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.8...@kaizen/draft-tooltip@4.0.9) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.7...@kaizen/draft-tooltip@4.0.8) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.6...@kaizen/draft-tooltip@4.0.7) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.5...@kaizen/draft-tooltip@4.0.6) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.4...@kaizen/draft-tooltip@4.0.5) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.3...@kaizen/draft-tooltip@4.0.4) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.2...@kaizen/draft-tooltip@4.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.1...@kaizen/draft-tooltip@4.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@4.0.0...@kaizen/draft-tooltip@4.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.7.11...@kaizen/draft-tooltip@4.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [3.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.7.10...@kaizen/draft-tooltip@3.7.11) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [3.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.7.9...@kaizen/draft-tooltip@3.7.10) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [3.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@3.7.8...@kaizen/draft-tooltip@3.7.9) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

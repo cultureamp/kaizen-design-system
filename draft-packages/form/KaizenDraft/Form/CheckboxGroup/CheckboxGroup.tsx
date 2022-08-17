@@ -1,31 +1,42 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-import { Label } from "../index"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Label } from "../Primitives"
+import styles from "./CheckboxGroup.module.scss"
 
-import styles from "./styles.scss"
-
-export type CheckboxGroupProps = {
-  automationId?: string
+export interface CheckboxGroupProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children?: React.ReactNode
   labelText: string | React.ReactNode
   noBottomMargin?: boolean
   reversed?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type CheckboxGroup = React.FunctionComponent<CheckboxGroupProps>
-
-const CheckboxGroup: CheckboxGroup = ({
-  automationId,
+/**
+ * {@link https://cultureamp.design/components/checkbox-group/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-checkbox-group--interactive-kaizen-site-demo Storybook}
+ */
+export const CheckboxGroup: React.VFC<CheckboxGroupProps> = ({
   children,
   labelText,
   noBottomMargin = false,
   reversed = false,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <div
     data-automation-id={automationId && `${automationId}-field-checkbox-group`}
-    className={classnames(styles.checkboxGroupContainer, {
+    className={classnames(styles.checkboxGroupContainer, classNameOverride, {
       [styles.noBottomMargin]: noBottomMargin,
       [styles.reversed]: reversed,
     })}
+    {...restProps}
   >
     <div className={styles.checkboxGroupLabel}>
       <Label
@@ -39,4 +50,4 @@ const CheckboxGroup: CheckboxGroup = ({
   </div>
 )
 
-export default CheckboxGroup
+CheckboxGroup.displayName = "CheckboxGroup"

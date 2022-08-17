@@ -2,7 +2,7 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -152,4 +152,3 @@ export const AutohideDemo = props => (
     <p>Content below the notification</p>
   </>
 )
-AutohideDemo.storyName = "Autohide Demo"

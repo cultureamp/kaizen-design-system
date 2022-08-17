@@ -2,11 +2,11 @@
 // into its own component since it's a generic
 // grouping component for buttons/dropdowns/etc
 
-import { ButtonProps } from "@kaizen/draft-button"
-import { MenuProps } from "@kaizen/draft-menu"
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
-import styles from "./Toolbar.scss"
+import { ButtonProps } from "@kaizen/button"
+import { MenuProps } from "@kaizen/draft-menu"
+import styles from "./Toolbar.module.scss"
 
 type ToolbarProps = {
   items?: Array<{

@@ -1,6 +1,6 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
-import Radio, { RadioFieldProps } from "./RadioField"
+import { RadioField, RadioFieldProps } from "./RadioField"
 
 afterEach(cleanup)
 
@@ -18,7 +18,7 @@ const defaultRadioFieldProps: RadioFieldProps = {
 const renderRadio = (props?: RadioFieldProps) => {
   const mergedRadioFieldProps = { ...defaultRadioFieldProps, ...props }
 
-  return render(<Radio {...mergedRadioFieldProps} />)
+  return render(<RadioField {...mergedRadioFieldProps} />)
 }
 describe("<Radio /> ", () => {
   it("has the disabled attribute applied if the disabled prop is true", () => {

@@ -10,6 +10,7 @@ type DropdownMenuProps = {
     left: number
     right: number
   } | null
+  children?: React.ReactNode
 }
 
 /**
@@ -28,6 +29,22 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
   componentWillUnmount() {
     document.removeEventListener("click", this.handleDocumentClick, false)
     window.removeEventListener("resize", this.handleDocumentResize, false)
+  }
+
+  render(): JSX.Element {
+    const { hideDropdownMenu, children } = this.props
+
+    return (
+      // Disabling instead of addressing because this component is deprecated
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+      <div
+        className={styles.menuContainer}
+        ref={this.menu}
+        onClick={() => hideDropdownMenu()}
+      >
+        {children}
+      </div>
+    )
   }
 
   positionMenu() {
@@ -65,22 +82,6 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
 
   handleDocumentResize = () => {
     this.props.hideDropdownMenu()
-  }
-
-  render(): JSX.Element {
-    const { hideDropdownMenu, children } = this.props
-
-    return (
-      // Disabling instead of addressing because this component is deprecated
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-      <div
-        className={styles.menuContainer}
-        ref={this.menu}
-        onClick={() => hideDropdownMenu()}
-      >
-        {children}
-      </div>
-    )
   }
 }
 

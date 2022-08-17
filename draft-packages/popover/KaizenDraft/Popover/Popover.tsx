@@ -1,10 +1,10 @@
-import { usePopper } from "react-popper"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-
+import React, { HTMLAttributes, useMemo, useState } from "react"
 import classNames from "classnames"
-import React, { useMemo, useState } from "react"
-import styles from "./styles.scss"
+import { usePopper } from "react-popper"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { Size, Variant, Placement } from "./types"
 import {
   mapArrowVariantToClass,
@@ -14,31 +14,40 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+import styles from "./Popover.module.scss"
 
-export type PopoverProps = {
-  readonly automationId?: string
-  readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
-  readonly variant?: Variant
-  readonly placement?: Placement
-  readonly size?: Size
-  readonly heading?: string
-  readonly dismissible?: boolean
-  readonly singleLine?: boolean
-  readonly children: React.ReactNode
-  /** For almost all intents and purposes, you should be using a pre-defined variant.
-   Please avoid using a custom icon unless you have a very good reason to do so. **/
-  readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
-  readonly referenceElement: HTMLElement | null
+export interface PopoverProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children: React.ReactNode
+  variant?: Variant
+  placement?: Placement
+  size?: Size
+  heading?: string
+  dismissible?: boolean
+  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
+  singleLine?: boolean
+  /**
+   * For almost all intents and purposes, you should be using a pre-defined variant.
+   * Please avoid using a custom icon unless you have a very good reason to do so.
+   */
+  customIcon?: React.SVGAttributes<SVGSymbolElement>
+  referenceElement: HTMLElement | null
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
-
-type PopoverModernType = React.FunctionComponent<PopoverProps>
 
 // Sync with styles.scss
 const arrowWidth = 14
 const arrowHeight = 7
 
-export const Popover: PopoverModernType = ({
-  automationId,
+/**
+ * {@link https://cultureamp.design/components/popover/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-popover--default-kaizen-site-demo Storybook}
+ */
+export const Popover: React.VFC<PopoverProps> = ({
   children,
   variant = "default",
   placement = "top",
@@ -49,7 +58,10 @@ export const Popover: PopoverModernType = ({
   singleLine = false,
   customIcon,
   referenceElement,
-}: PopoverProps) => {
+  automationId,
+  classNameOverride,
+  ...restProps
+}) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -103,8 +115,13 @@ export const Popover: PopoverModernType = ({
       ref={setPopperElement}
       style={popperStyles.popper}
       {...attributes.popper}
-      className={classNames(styles.root, mapSizeToClass(size))}
+      className={classNames(
+        styles.root,
+        mapSizeToClass(size),
+        classNameOverride
+      )}
       data-automation-id={automationId}
+      {...restProps}
     >
       <div className={mapVariantToBoxClass(variant)}>
         {heading && (
@@ -122,10 +139,7 @@ export const Popover: PopoverModernType = ({
                 />
               </span>
             )}
-            <Heading
-              variant="heading-6"
-              classNameAndIHaveSpokenToDST={styles.singleLine}
-            >
+            <Heading variant="heading-6" classNameOverride={styles.singleLine}>
               {heading}
             </Heading>
             {dismissible && (
@@ -137,7 +151,7 @@ export const Popover: PopoverModernType = ({
         )}
         <Paragraph
           variant="small"
-          classNameAndIHaveSpokenToDST={classNames(
+          classNameOverride={classNames(
             styles.container,
             mapLineVariant(singleLine)
           )}
@@ -157,6 +171,8 @@ export const Popover: PopoverModernType = ({
     </div>
   )
 }
+
+Popover.displayName = "Popover"
 
 type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
 

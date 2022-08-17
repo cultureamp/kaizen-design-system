@@ -1,26 +1,31 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./LoadingPlaceholder.module.scss"
 
-import styles from "./styles.scss"
-
-export interface LoadingPlaceholderProps {
-  readonly animated?: boolean
-  readonly centred?: boolean
-  readonly reversedDefault?: boolean
+export interface LoadingPlaceholderProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  animated?: boolean
+  centred?: boolean
+  reversedDefault?: boolean
   /**
-   * @deprecated reversedOcean is deprecated.
+   * **Deprecated**
+   * @deprecated
    */
-  readonly reversedOcean?: boolean
-  readonly tall?: boolean
-  readonly inheritBaseline?: boolean
-  readonly inline?: boolean
-  readonly noBottomMargin?: boolean
-  readonly width?: number
+  reversedOcean?: boolean
+  tall?: boolean
+  inheritBaseline?: boolean
+  inline?: boolean
+  noBottomMargin?: boolean
+  /**
+   * Width as a percentage.
+   */
+  width?: number
 }
-
-type LoadingPlaceholder = React.FunctionComponent<LoadingPlaceholderProps>
-
-const LoadingPlaceholder: LoadingPlaceholder = ({
+/**
+ * @deprecated LoadingPlaceholder is deprecated. Use "@kaizen/loading-skeleton" instead.
+ */
+export const LoadingPlaceholder: React.VFC<LoadingPlaceholderProps> = ({
   animated = true,
   centred,
   reversedDefault,
@@ -30,9 +35,11 @@ const LoadingPlaceholder: LoadingPlaceholder = ({
   inline,
   noBottomMargin,
   width = 100,
+  classNameOverride,
+  ...props
 }) => (
   <div
-    className={classnames(styles.base, {
+    className={classnames(styles.base, classNameOverride, {
       [styles.animated]: animated,
       [styles.centered]: centred,
       [styles.reversedDefault]: reversedDefault,
@@ -44,7 +51,6 @@ const LoadingPlaceholder: LoadingPlaceholder = ({
       [styles.noBottomMargin]: noBottomMargin,
     })}
     style={{ width: `${width}%` }}
+    {...props}
   />
 )
-
-export default LoadingPlaceholder

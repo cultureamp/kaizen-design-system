@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Button, IconButton } from "@kaizen/button"
 import isChromatic from "chromatic/isChromatic"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"

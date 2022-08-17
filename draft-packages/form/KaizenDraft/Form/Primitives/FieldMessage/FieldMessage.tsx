@@ -1,21 +1,12 @@
-import * as React from "react"
-import { Icon, Paragraph } from "@kaizen/component-library"
-import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import styles from "./styles.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import { Paragraph } from "@kaizen/typography"
+import styles from "./FieldMessage.module.scss"
 
-export type FieldMessageStatus = "default" | "success" | "error" | "caution"
-
-export type FieldMessageProps = {
-  id?: string
-  automationId?: string
-  message?: string | React.ReactNode
-  status?: FieldMessageStatus
-  reversed?: boolean
-  position?: "top" | "bottom"
-}
-
-const WarningIcon: React.FunctionComponent = () => (
+const WarningIcon: React.VFC = () => (
   <span className={styles.warningIcon}>
     <Icon
       icon={exclamationWhiteIcon}
@@ -26,13 +17,29 @@ const WarningIcon: React.FunctionComponent = () => (
   </span>
 )
 
-const FieldMessage: React.FunctionComponent<FieldMessageProps> = ({
-  id,
-  automationId,
+export type FieldMessageStatus = "default" | "success" | "error" | "caution"
+
+export interface FieldMessageProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  message?: string | React.ReactNode
+  status?: FieldMessageStatus
+  position?: "top" | "bottom"
+  reversed?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
+}
+
+export const FieldMessage: React.VFC<FieldMessageProps> = ({
   message,
   status = "default",
-  reversed = false,
   position = "bottom",
+  reversed = false,
+  classNameOverride,
+  automationId,
+  ...restProps
 }) => {
   const textColor =
     status === "default"
@@ -40,15 +47,16 @@ const FieldMessage: React.FunctionComponent<FieldMessageProps> = ({
         ? "white-reduced-opacity"
         : "dark-reduced-opacity"
       : "dark"
+
   return (
     <div
-      id={id}
       data-automation-id={automationId}
-      className={classnames(styles.message, styles[status], {
+      className={classnames(styles.message, styles[status], classNameOverride, {
         [styles.reversed]: reversed,
         [styles.positionBottom]: position === "bottom",
         [styles.positionTop]: position === "top",
       })}
+      {...restProps}
     >
       {(status === "error" || status === "caution") && <WarningIcon />}
       <div className={styles.message}>
@@ -60,4 +68,4 @@ const FieldMessage: React.FunctionComponent<FieldMessageProps> = ({
   )
 }
 
-export default FieldMessage
+FieldMessage.displayName = "FieldMessage"

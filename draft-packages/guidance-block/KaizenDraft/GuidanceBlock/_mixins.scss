@@ -1,0 +1,16 @@
+// reset user agent styles for button element type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
+
+@mixin guidance-block-under-480 {
+  @media (max-width: 480px) {
+    @content;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import styles from "../style.module.scss"
 import { canPlayWebm } from "../utils"
+import styles from "../Base.module.scss"
 
 export type VideoPlayerProps = {
   /**
@@ -76,6 +76,7 @@ export const VideoPlayer = ({
 
   useEffect(() => {
     if (!window) return
+
     const reducedMotionQuery = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     )
@@ -96,12 +97,11 @@ export const VideoPlayer = ({
   useEffect(() => {
     const { current: videoElement } = videoRef
     if (!videoElement) return
+
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      try {
-        videoElement.play()
-      } catch (e) {
+      videoElement.play().catch(e => {
         /*
          * An DOMException _may_ be raised by some browsers if we
          * programatically interact with the video before the
@@ -109,7 +109,7 @@ export const VideoPlayer = ({
          * we're going to catch this error without handling it. See:
          * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
          */
-      }
+      })
     }
     /**
      * Chrome seems to have an issue with changes to autoplay after the video
@@ -122,6 +122,7 @@ export const VideoPlayer = ({
     // Add event listeners for the video element
     const { current: videoElement } = videoRef
     if (!videoElement || !onEnded) return
+
     videoElement.addEventListener("ended", onEnded)
 
     return function cleanup() {
@@ -129,62 +130,40 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
-  const aspectClassName =
-    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
-
-  return (
-    <>
-      {aspectRatio ? (
-        <figure className={aspectClassName}>
-          <video
-            muted={true}
-            aria-hidden={true}
-            preload="metadata"
-            ref={videoRef}
-            width="100%"
-            data-testid="kz-video-player"
-            className={styles.wrapper}
-            loop={loop}
-            poster={assetUrl(`${fallback}.png`)}
-            autoPlay={prefersReducedMotion ? false : autoplay}
-            playsInline={true}
-          >
-            {/**
-             * This seems counter-intuitive, but webm support is codec specific.
-             * Only offer webm if we are positive the browser supports it.
-             * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-             */}
-            {canPlayWebm() && (
-              <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-            )}
-            <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-          </video>
-        </figure>
-      ) : (
-        <video
-          muted={true}
-          aria-hidden={true}
-          preload="metadata"
-          ref={videoRef}
-          width="100%"
-          data-testid="kz-video-player"
-          className={styles.wrapper}
-          loop={loop}
-          poster={assetUrl(`${fallback}.png`)}
-          autoPlay={prefersReducedMotion ? false : autoplay}
-          playsInline={true}
-        >
-          {/**
-           * This seems counter-intuitive, but webm support is codec specific.
-           * Only offer webm if we are positive the browser supports it.
-           * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-           */}
-          {canPlayWebm() && (
-            <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-          )}
-          <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-        </video>
+  const videoPlayer = (
+    <video
+      muted={true}
+      aria-hidden={true}
+      preload="metadata"
+      ref={videoRef}
+      width="100%"
+      data-testid="kz-video-player"
+      className={styles.wrapper}
+      loop={loop}
+      poster={assetUrl(`${fallback}.png`)}
+      autoPlay={prefersReducedMotion ? false : autoplay}
+      playsInline={true}
+      tabIndex={-1}
+    >
+      {/**
+       * This seems counter-intuitive, but webm support is codec specific.
+       * Only offer webm if we are positive the browser supports it.
+       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+       */}
+      {canPlayWebm() && (
+        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
       )}
-    </>
+      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
+    </video>
   )
+
+  if (aspectRatio) {
+    return (
+      <figure className={`${styles[aspectRatio]} ${styles.aspectRatioWrapper}`}>
+        {videoPlayer}
+      </figure>
+    )
+  }
+
+  return videoPlayer
 }

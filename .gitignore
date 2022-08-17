@@ -1,10 +1,7 @@
 node_modules
 yarn-*.log
 lerna-*.log
-/site/.cache/
-/site/public/
 /storybook/public/
-/elm-stuff/
 /packages/**/*.js
 /packages/**/*.js.map
 /packages/**/*.d.ts

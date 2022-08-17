@@ -1,12 +1,11 @@
-import { usePopper } from "react-popper"
 import React, { useEffect, useRef, useState } from "react"
-import ReactDOM from "react-dom"
 import classnames from "classnames"
+import ReactDOM from "react-dom"
+import { usePopper } from "react-popper"
 import { Placement } from "@popperjs/core"
-import tooltipStyles from "./Tooltip.scss"
-import animationStyles from "./AppearanceAnim.scss"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
+import styles from "./Tooltip.module.scss"
 
 type Position = "above" | "below" | "left" | "right"
 
@@ -22,7 +21,7 @@ export type TooltipProps = {
    * Unfortunately, the content needed to be wrapped in a div. This can sometimes
    * break the css layout. To get around this, we allow you to specify the css
    * display value directly. If you need to need to modify more values, feel free
-   * to use the `classNameAndIHaveSpokenToDST` prop, but avoid it if you can.
+   * to use the `classNameOverride` prop, but avoid it if you can.
    */
   display?: "block" | "inline" | "inline-block" | "flex" | "inline-flex"
   /**
@@ -32,7 +31,7 @@ export type TooltipProps = {
   position?: Position
   text: React.ReactNode
   children?: React.ReactNode
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
   mood?: Mood
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
@@ -45,6 +44,7 @@ export type TooltipProps = {
    * regression testing.
    */
   isInitiallyVisible?: boolean
+  animationDuration?: number
 }
 
 const positionToPlacement = new Map<Position, Placement>([
@@ -118,49 +118,45 @@ const TooltipContent = ({
     <div
       ref={setPopperElement}
       className={classnames({
-        [tooltipStyles.tooltip]: true,
-        [animationStyles.defaultHiddenState]: true,
-        [animationStyles.visibleState]: isVisible && !isAnimIn,
+        [styles.tooltip]: true,
       })}
       style={popperStyles.popper}
       {...attributes.popper}
       role="tooltip"
       id={tooltipId}
     >
-      <div
-        className={classnames(
-          tooltipStyles.tooltipContent,
-          tooltipStyles[mood]
-        )}
-      >
+      <div className={classnames(styles.tooltipContent, styles[mood])}>
         {text}
       </div>
       <div
         ref={setArrowElement}
         className={classnames({
-          [tooltipStyles.arrow]: true,
+          [styles.arrow]: true,
         })}
         style={popperStyles.arrow}
       >
-        <div className={tooltipStyles.arrowInner}>
-          <div
-            className={classnames(tooltipStyles.arrowMain, tooltipStyles[mood])}
-          />
-          <div className={tooltipStyles.arrowShadow} />
+        <div className={styles.arrowInner}>
+          <div className={classnames(styles.arrowMain, styles[mood])} />
+          <div className={styles.arrowShadow} />
         </div>
       </div>
     </div>
   ) : null
 }
 
+/**
+ * {@link https://cultureamp.design/components/tooltip/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tooltip--default-kaizen-site-demo Storybook}
+ */
 const Tooltip = ({
   children,
   text,
   inline,
   display = "block",
   position = "above",
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   portalSelector,
+  animationDuration,
   isInitiallyVisible = false,
   mood = "default",
 }: TooltipProps) => {
@@ -201,16 +197,19 @@ const Tooltip = ({
   }, [portalSelectorElementRef, portalSelector])
 
   return (
-    <AnimationProvider isVisible={isHover || isFocus}>
+    <AnimationProvider
+      isVisible={isHover || isFocus}
+      animationDuration={animationDuration}
+    >
       <>
         <div
           ref={setReferenceElement}
-          className={classnames(classNameAndIHaveSpokenToDST, {
-            [tooltipStyles.displayInline]: displayToUse === "inline",
-            [tooltipStyles.displayBlock]: displayToUse === "block",
-            [tooltipStyles.displayInlineBlock]: displayToUse === "inline-block",
-            [tooltipStyles.displayFlex]: displayToUse === "flex",
-            [tooltipStyles.displayInlineFlex]: displayToUse === "inline-flex",
+          className={classnames(classNameOverride, {
+            [styles.displayInline]: displayToUse === "inline",
+            [styles.displayBlock]: displayToUse === "block",
+            [styles.displayInlineBlock]: displayToUse === "inline-block",
+            [styles.displayFlex]: displayToUse === "flex",
+            [styles.displayInlineFlex]: displayToUse === "inline-flex",
           })}
           onMouseEnter={() => {
             setIsHover(true)

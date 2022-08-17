@@ -12,7 +12,6 @@ This document serves to orient you within the repository — to get you set up a
 
 - [Kaizen Design Tokens README](./packages/design-tokens/README.md)
 - [Kaizen Component Library README](./packages/component-library/README.md)
-- [Kaizen Site README](./site/README.md) (and <https://cultureamp.design>)
 - [Contributing guidelines](./CONTRIBUTING.md)
 
 ## Designers
@@ -46,7 +45,7 @@ To begin developing the design system locally, run the following from the reposi
 yarn install
 ```
 
-We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) and [Elm](https://elm-lang.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
+We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
 
 To run Storybook locally, run the following from the repository root:
 
@@ -56,11 +55,9 @@ yarn storybook
 
 (Having trouble running Storybook? Try running `yarn reset`, which includes `yarn clean` and `yarn install --force`!)
 
-To develop the site locally, please refer to the documentation in [the site package](./site/README.md).
-
 ## Branch previews
 
-While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment includes the Storybook build for that branch, along with any changes to documentation or the site.
+While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment is a Storybook build for that branch.
 
 For example, pushing the branch `louis/more-glitter` would make its documentation and Storybook build available at `dev.cultureamp.design/louis/more-glitter`.
 
@@ -72,9 +69,11 @@ Command | Summary
 :- | :-
 `yarn storybook` | Develop components locally using Storybook
 `STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
+`yarn commit` | Use commitizen to help you write your conventional commits
 `yarn compile` | Run all typechecks
 `yarn lint` | Run all linters
 `yarn lint:fix` | Run all linters, fixing violations
+`yarn plop` | Add a new component/subcomponent
 `yarn test` | Run all tests (using [Jest](https://jestjs.io/))
 `yarn reset` | Reinstall all dependencies
 

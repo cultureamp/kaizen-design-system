@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
@@ -8,8 +8,7 @@ import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
-
-import styles from "./GenericModal.scss"
+import styles from "./GenericModal.module.scss"
 
 export interface GenericModalContainerProps {
   readonly isOpen: boolean
@@ -17,6 +16,7 @@ export interface GenericModalContainerProps {
   readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
+  readonly onAfterLeave?: () => void
   readonly automationId?: string
 }
 
@@ -77,6 +77,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
+    this.props.onAfterLeave && this.props.onAfterLeave()
   }
 
   addEventHandlers() {
@@ -108,21 +109,6 @@ class GenericModal extends React.Component<GenericModalProps> {
       styles.pseudoScrollbar
     )
   }
-
-  escapeKeyHandler = (event: KeyboardEvent) => {
-    if (
-      event.key === "Escape" ||
-      event.key === "Esc" // IE11
-    )
-      this.props.onEscapeKeyup && this.props.onEscapeKeyup(event)
-  }
-
-  outsideModalClickHandler = (event: React.MouseEvent) => {
-    if (event.target === this.scrollLayer || event.target === this.modalLayer) {
-      this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
-    }
-  }
-
   ensureAccessiblityIsMet() {
     if (!this.modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
@@ -210,6 +196,20 @@ class GenericModal extends React.Component<GenericModalProps> {
       </Transition>,
       document.body
     )
+  }
+
+  escapeKeyHandler = (event: KeyboardEvent) => {
+    if (
+      event.key === "Escape" ||
+      event.key === "Esc" // IE11
+    )
+      this.props.onEscapeKeyup && this.props.onEscapeKeyup(event)
+  }
+
+  outsideModalClickHandler = (event: React.MouseEvent) => {
+    if (event.target === this.scrollLayer || event.target === this.modalLayer) {
+      this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
+    }
   }
 }
 

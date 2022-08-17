@@ -3,6 +3,343 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.17...@kaizen/draft-hero-card@2.1.18) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.16...@kaizen/draft-hero-card@2.1.17) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.15...@kaizen/draft-hero-card@2.1.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.14...@kaizen/draft-hero-card@2.1.15) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.13...@kaizen/draft-hero-card@2.1.14) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.12...@kaizen/draft-hero-card@2.1.13) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.11...@kaizen/draft-hero-card@2.1.12) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.10...@kaizen/draft-hero-card@2.1.11) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.9...@kaizen/draft-hero-card@2.1.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.8...@kaizen/draft-hero-card@2.1.9) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.7...@kaizen/draft-hero-card@2.1.8) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.6...@kaizen/draft-hero-card@2.1.7) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.5...@kaizen/draft-hero-card@2.1.6) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.4...@kaizen/draft-hero-card@2.1.5) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.3...@kaizen/draft-hero-card@2.1.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.2...@kaizen/draft-hero-card@2.1.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.1...@kaizen/draft-hero-card@2.1.2) (2022-05-30)
+
+
+### Bug Fixes
+
+* wrap scss calc variables with interpolated values ([#2759](https://github.com/cultureamp/kaizen-design-system/issues/2759)) ([a70fa29](https://github.com/cultureamp/kaizen-design-system/commit/a70fa293f39f126ee86a296d9b4ec6af66135966))
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.1.0...@kaizen/draft-hero-card@2.1.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.7...@kaizen/draft-hero-card@2.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [2.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.6...@kaizen/draft-hero-card@2.0.7) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.5...@kaizen/draft-hero-card@2.0.6) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.4...@kaizen/draft-hero-card@2.0.5) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.3...@kaizen/draft-hero-card@2.0.4) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.2...@kaizen/draft-hero-card@2.0.3) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.1...@kaizen/draft-hero-card@2.0.2) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@2.0.0...@kaizen/draft-hero-card@2.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.7...@kaizen/draft-hero-card@2.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [1.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.6...@kaizen/draft-hero-card@1.13.7) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.5...@kaizen/draft-hero-card@1.13.6) (2022-03-31)
+
+
+### Bug Fixes
+
+* Component-Base to become dependency not dev only [KDS-360] ([#2662](https://github.com/cultureamp/kaizen-design-system/issues/2662)) ([fa51e10](https://github.com/cultureamp/kaizen-design-system/commit/fa51e10158c8d2c7f5f5c45c74dc259c28795c39))
+
+
+
+
+
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.4...@kaizen/draft-hero-card@1.13.5) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.3...@kaizen/draft-hero-card@1.13.4) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.2...@kaizen/draft-hero-card@1.13.3) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.1...@kaizen/draft-hero-card@1.13.2) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.13.0...@kaizen/draft-hero-card@1.13.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.13...@kaizen/draft-hero-card@1.13.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 2) ([#2625](https://github.com/cultureamp/kaizen-design-system/issues/2625)) ([d1b46c4](https://github.com/cultureamp/kaizen-design-system/commit/d1b46c4acec9a940cf0b2134d6477903387e2b05))
+
+
+
+
+
+## [1.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.12...@kaizen/draft-hero-card@1.12.13) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.11...@kaizen/draft-hero-card@1.12.12) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.10...@kaizen/draft-hero-card@1.12.11) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.9...@kaizen/draft-hero-card@1.12.10) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
 ## [1.12.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.12.8...@kaizen/draft-hero-card@1.12.9) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card

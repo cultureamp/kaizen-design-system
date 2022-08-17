@@ -1,7 +1,7 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-import { Heading } from "@kaizen/component-library"
-import { ButtonProps } from "@kaizen/draft-button"
+import { Heading } from "@kaizen/typography"
+import { ButtonProps } from "@kaizen/button"
 import {
   GenericModal,
   ModalAccessibleLabel,
@@ -9,7 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-import styles from "./InputEditModal.scss"
+import styles from "./InputEditModal.module.scss"
 
 export interface InputEditModalProps {
   readonly isOpen: boolean
@@ -17,10 +17,13 @@ export interface InputEditModalProps {
   readonly mood: "positive" | "destructive"
   readonly title: string
   readonly onSubmit: () => void
+  readonly onSecondaryAction?: () => void
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
+  readonly secondaryLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
   readonly submitWorking?: { label: string; labelHidden?: boolean }
@@ -28,14 +31,21 @@ export interface InputEditModalProps {
 
 type InputEditModal = React.FunctionComponent<InputEditModalProps>
 
+/**
+ * {@link https://cultureamp.design/components/modal/#input-edit-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal-input-edit-modal--input-edit-modal-example Storybook}
+ */
 const InputEditModal = ({
   isOpen,
   mood,
   title,
   onSubmit,
+  onSecondaryAction,
+  onAfterLeave,
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
+  secondaryLabel,
   submitWorking,
   automationId,
   children,
@@ -52,9 +62,15 @@ const InputEditModal = ({
       }
     : {}
 
+  const showSecondary = onSecondaryAction && secondaryLabel
+
   const footerActions: ButtonProps[] = [
     { ...submitAction, ...workingProps },
-    { label: dismissLabel, onClick: onDismiss, disabled: !!submitWorking },
+    {
+      label: showSecondary ? secondaryLabel : dismissLabel,
+      onClick: showSecondary ? onSecondaryAction : onDismiss,
+      disabled: !!submitWorking,
+    },
   ]
 
   return (
@@ -62,6 +78,7 @@ const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal} dir={localeDirection}>
         <ModalHeader onDismiss={onDismiss}>

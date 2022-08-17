@@ -1,36 +1,29 @@
 import React from "react"
-
-import { InputSearch } from "../Primitives/InputSearch"
-import { FieldGroup, Label } from ".."
-export interface SearchFieldProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "className" | "defaultValue"
-  > {
+import { InputSearch, InputSearchProps, FieldGroup, Label } from "../Primitives"
+export interface SearchFieldProps extends InputSearchProps {
   id: string
   labelText: string
+  disabled?: boolean
   reversed?: boolean
-  loading?: boolean
   secondary?: boolean
-  onClear?: () => void
 }
 
-const SearchField: React.FunctionComponent<SearchFieldProps> = ({
+/**
+ * {@link https://cultureamp.design/components/search-field/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-form-search-field--default-kaizen-demo Storybook}
+ */
+export const SearchField: React.VFC<SearchFieldProps> = ({
   id,
-  disabled = false,
-  placeholder,
-  reversed = false,
-  loading,
-  secondary,
-  value,
   labelText,
-  onClear,
-  ...genericInputProps
+  disabled,
+  reversed = false,
+  secondary = false,
+  ...restProps
 }) => {
   const showVisibleLabel = !secondary
 
   return (
-    <FieldGroup inline={false}>
+    <FieldGroup>
       {showVisibleLabel && (
         <Label
           htmlFor={id}
@@ -42,17 +35,13 @@ const SearchField: React.FunctionComponent<SearchFieldProps> = ({
       <InputSearch
         aria-label={!showVisibleLabel ? labelText : undefined}
         id={id}
-        placeholder={placeholder}
         disabled={disabled}
-        value={value}
         reversed={reversed}
         secondary={secondary}
-        onClear={onClear}
-        loading={loading}
-        {...genericInputProps}
+        {...restProps}
       />
     </FieldGroup>
   )
 }
 
-export default SearchField
+SearchField.displayName = "SearchField"

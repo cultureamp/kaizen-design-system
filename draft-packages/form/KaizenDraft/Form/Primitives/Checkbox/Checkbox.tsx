@@ -1,93 +1,76 @@
+import React, { InputHTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
-import classnames from "classnames"
-import * as React from "react"
-
-import styles from "./styles.scss"
+import styles from "./Checkbox.module.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"
 
-export type CheckboxProps = {
-  id?: string
-  automationId?: string
+export interface CheckboxProps
+  extends OverrideClassName<
+    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "checked">
+  > {
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  disabled?: boolean
   reversed?: boolean
-  name?: string
-  tabIndex?: number
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
   value?: string
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type Input = React.FunctionComponent<CheckboxProps>
-
-const renderCheckOrMixedIcon = (status: CheckedStatus, reversed) => {
-  if (status === "on") {
-    return (
-      <div
-        className={classnames(styles.icon, {
-          [styles.reversed]: reversed,
-        })}
-      >
-        <Icon icon={checkIcon} role="presentation" inheritSize />
-      </div>
-    )
-  } else if (status === "mixed") {
-    return (
-      <div
-        className={classnames(styles.icon, {
-          [styles.reversed]: reversed,
-        })}
-      >
-        <Icon icon={minusIcon} role="presentation" inheritSize />
-      </div>
-    )
-  }
-  return
+const renderCheckOrMixedIcon = (
+  status: CheckedStatus,
+  reversed: boolean
+): React.ReactNode => {
+  if (status === "off") return
+  const icon = status === "on" ? checkIcon : minusIcon
+  return (
+    <span
+      className={classnames(styles.icon, {
+        [styles.reversed]: reversed,
+      })}
+    >
+      <Icon icon={icon} role="presentation" inheritSize />
+    </span>
+  )
 }
 
-const getCheckedFromStatus = (checkedStatus: CheckedStatus) =>
-  checkedStatus === "on" ? true : false
+const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
+  checkedStatus === "on"
 
-const Input: Input = ({
-  id,
-  automationId,
-  name,
-  checkedStatus = "off" as CheckedStatus,
+export const Checkbox: React.VFC<CheckboxProps> = ({
+  checkedStatus = "off",
   onCheck,
-  onFocus,
-  onBlur,
-  disabled = false,
   reversed = false,
-  tabIndex,
   value,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => (
   <span className={styles.container}>
     <input
-      type="checkbox"
-      id={id}
-      name={name}
-      tabIndex={tabIndex}
-      data-automation-id={automationId}
-      // This si only used as a handle for unit testing
-      data-indeterminate={checkedStatus === "mixed"}
-      className={classnames(styles.checkbox, {
-        [styles.reversed]: reversed,
-      })}
-      checked={getCheckedFromStatus(checkedStatus)}
-      onChange={onCheck}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      disabled={disabled}
-      value={value || checkedStatus}
       ref={node => {
         if (node) {
           node.indeterminate = checkedStatus === "mixed"
         }
       }}
+      data-automation-id={automationId}
+      // This is only used as a handle for unit testing
+      data-indeterminate={checkedStatus === "mixed"}
+      type="checkbox"
+      className={classnames(styles.checkbox, classNameOverride, {
+        [styles.reversed]: reversed,
+      })}
+      checked={getCheckedFromStatus(checkedStatus)}
+      onChange={onCheck}
+      value={value || checkedStatus}
+      readOnly={onCheck === undefined}
+      {...restProps}
     />
     <span
       className={classnames(styles.box, {
@@ -99,4 +82,4 @@ const Input: Input = ({
   </span>
 )
 
-export default Input
+Checkbox.displayName = "Checkbox"

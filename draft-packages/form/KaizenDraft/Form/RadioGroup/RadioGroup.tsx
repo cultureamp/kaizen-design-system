@@ -1,36 +1,42 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Label } from "../Primitives"
+import styles from "./RadioGroup.module.scss"
 
-import { Label } from "../index"
-
-import styles from "./styles.scss"
-
-export type RadioGroupProps = {
-  automationId?: string
+export interface RadioGroupProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children?: React.ReactNode
   labelText: string | React.ReactNode
   labelId?: string
   noBottomMargin?: boolean
   reversed?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type RadioGroup = React.FunctionComponent<RadioGroupProps>
-
-const RadioGroup: RadioGroup = ({
-  automationId = "",
+export const RadioGroup: React.VFC<RadioGroupProps> = ({
   children,
-  labelText = "",
+  labelText,
   labelId,
   noBottomMargin = false,
   reversed = false,
+  automationId = "",
+  classNameOverride,
+  ...restProps
 }) => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.radioGroupContainer, {
+    className={classnames(styles.radioGroupContainer, classNameOverride, {
       [styles.noBottomMargin]: noBottomMargin,
       [styles.reversed]: reversed,
     })}
     role="radiogroup"
     aria-labelledby={labelId}
+    {...restProps}
   >
     <div className={styles.radioGroupLabel}>
       <Label
@@ -45,4 +51,4 @@ const RadioGroup: RadioGroup = ({
   </div>
 )
 
-export default RadioGroup
+RadioGroup.displayName = "RadioGroup"

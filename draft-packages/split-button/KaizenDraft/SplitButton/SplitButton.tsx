@@ -1,5 +1,6 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import Dropdown from "./Dropdown"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
@@ -10,8 +11,8 @@ type ButtonCallback = (event: React.MouseEvent<HTMLButtonElement>) => void
 
 type Variant = "default" | "primary"
 
-export type SplitButtonProps = {
-  automationId?: string
+export interface SplitButtonProps
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick">> {
   label: string
   href?: string
   onClick?: AnchorCallback | ButtonCallback
@@ -21,18 +22,28 @@ export type SplitButtonProps = {
   dir?: Dir
   disabled?: boolean
   dropdownAltText: string // recommended text: "Open menu"
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
-  automationId,
+/**
+ * @deprecated Draft SplitButton is deprecated. Use "@kaizen/split-button" instead.
+ */
+export const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
+  label,
   href,
-  disabled,
   onClick,
   dropdownContent,
-  label,
-  dir = "ltr" as Dir,
-  dropdownAltText,
   variant = "default",
+  dir = "ltr",
+  disabled,
+  dropdownAltText,
+  automationId,
+  classNameOverride,
+  ...restProps
 }) => {
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
@@ -61,7 +72,12 @@ const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
       : null
 
   return (
-    <div className={styles.root} dir={dir} data-automation-id={automationId}>
+    <div
+      className={classnames(styles.root, classNameOverride)}
+      dir={dir}
+      data-automation-id={automationId}
+      {...restProps}
+    >
       <div
         className={styles.buttonsContainer}
         ref={dropdownButtonsContainerRef}
@@ -103,5 +119,3 @@ const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
     </div>
   )
 }
-
-export default SplitButton

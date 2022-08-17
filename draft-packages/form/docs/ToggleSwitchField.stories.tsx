@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -18,12 +18,7 @@ class ToggleStateContainer extends React.Component<
   state = {
     toggledStatus: this.props.initialToggledStatus,
   }
-  toggle = () => {
-    const { toggledStatus } = this.state
-    const newStatus =
-      toggledStatus === ToggledStatus.ON ? ToggledStatus.OFF : ToggledStatus.ON
-    this.setState({ toggledStatus: newStatus })
-  }
+
   render() {
     return (
       <div>
@@ -33,6 +28,13 @@ class ToggleStateContainer extends React.Component<
         })}
       </div>
     )
+  }
+
+  toggle = () => {
+    const { toggledStatus } = this.state
+    const newStatus =
+      toggledStatus === ToggledStatus.ON ? ToggledStatus.OFF : ToggledStatus.ON
+    this.setState({ toggledStatus: newStatus })
   }
 }
 

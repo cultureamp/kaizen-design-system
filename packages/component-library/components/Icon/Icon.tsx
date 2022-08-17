@@ -1,5 +1,6 @@
+import React, { SVGAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import { warn } from "../../util/console"
 import styles from "./Icon.module.scss"
 
@@ -7,26 +8,29 @@ type RolesType =
   | "img" // meaningful, title should be read aloud to users who can't see it
   | "presentation" // decorative, should be silent to users who can't see it
 
-type Icon = React.FunctionComponent<{
+export interface IconProps
+  extends OverrideClassName<SVGAttributes<SVGElement>> {
   icon: React.SVGAttributes<SVGSymbolElement>
   inheritSize?: boolean
   role?: RolesType
   title?: string
   desc?: string
-}>
+}
 
-const Icon: Icon = ({
+/**
+ * {@link https://cultureamp.design/components/icon/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-icon--meaningful-kaizen-site-demo Storybook}
+ */
+export const Icon: React.VFC<IconProps> = ({
   icon,
   inheritSize = false,
   role = "img",
   title = "",
   desc = "",
+  classNameOverride,
+  ...props
 }) => {
   const isMeaningfulImg = role === "img"
-
-  const classes = classnames(styles.icon, {
-    [styles.inheritSize]: inheritSize,
-  })
 
   if (isMeaningfulImg && !title) {
     warn(`
@@ -56,12 +60,15 @@ const Icon: Icon = ({
 
   return (
     <svg
-      className={classes}
+      className={classnames(styles.icon, classNameOverride, {
+        [styles.inheritSize]: inheritSize,
+      })}
       viewBox={icon.viewBox}
       // Work around IE11 making all SVGs focusable.
       // See http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4
       focusable="false"
       {...accessibilityProps}
+      {...props}
     >
       {renderTitle()}
       {renderDesc()}
@@ -69,5 +76,3 @@ const Icon: Icon = ({
     </svg>
   )
 }
-
-export default Icon

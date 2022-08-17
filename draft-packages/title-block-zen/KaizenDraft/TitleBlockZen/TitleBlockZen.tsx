@@ -1,15 +1,16 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import React from "react"
+import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   Avatar,
   GenericAvatarProps,
   CompanyAvatarProps,
 } from "@kaizen/draft-avatar"
-import { IconButton, ButtonProps } from "@kaizen/draft-button"
+import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
-import classNames from "classnames"
-import * as React from "react"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
@@ -18,7 +19,7 @@ import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
-import styles from "./TitleBlockZen.scss"
+import styles from "./TitleBlockZen.module.scss"
 
 /*
   This type exists to support omitting keys from a union or intersection type in a distributive manner. `Omit` out of the box will cause you to lose any union or intersection information about the type,
@@ -53,7 +54,7 @@ export interface TitleBlockProps {
   variant?: Variant
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element | AvatarProps
-  subtitle?: string
+  subtitle?: React.ReactNode
   sectionTitle?: string
   sectionTitleDescription?: string
   pageSwitcherSelect?: SelectProps
@@ -247,7 +248,10 @@ const renderAvatar = (
     </div>
   )
 
-const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
+const renderSubtitle = (
+  subtitle: React.ReactNode,
+  subtitleAutomationId: string
+) => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -272,7 +276,7 @@ const renderSectionTitle = (
           <Heading
             variant="heading-2"
             color={isReversed(variant) ? "white" : "dark"}
-            classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+            classNameOverride={styles.sectionTitleOverride}
             data-automation-id={sectionTitleAutomationId}
           >
             {sectionTitle}
@@ -407,6 +411,9 @@ const createTabletOverflowMenuItems = (
 }
 
 /**
+ * {@link https://cultureamp.design/components/title-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-title-block--default Storybook}
+ *
  * ### primaryAction
  *
  * The primary action (the "main" button in the top right) can either be a Button,
@@ -505,7 +512,8 @@ const TitleBlockZen = ({
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
           [styles.hasLongTitle]: title && title.length >= 30,
-          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
+          [styles.hasLongSubtitle]:
+            subtitle && typeof subtitle === "string" && subtitle.length >= 18,
           [styles.hasNavigationTabs]: hasNavigationTabs,
         })}
       >
@@ -538,9 +546,7 @@ const TitleBlockZen = ({
                         <Heading
                           variant="heading-1"
                           color={isReversed(variant) ? "white" : "dark"}
-                          classNameAndIHaveSpokenToDST={
-                            styles.titleTextOverride
-                          }
+                          classNameOverride={styles.titleTextOverride}
                           data-automation-id={titleAutomationId}
                         >
                           {title}

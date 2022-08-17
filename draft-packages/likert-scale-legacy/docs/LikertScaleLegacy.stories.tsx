@@ -1,12 +1,14 @@
 import React, { useState } from "react"
+import { Story } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Likert Scale`,
@@ -27,56 +29,39 @@ export default {
 
 const scale: Scale = [
   {
+    value: -1,
+    label: "Not rated",
+  },
+  {
     value: 1,
-    label: "Very poor",
+    label: "Strong Disagree",
   },
   {
     value: 2,
-    label: "Poor",
+    label: "Disagree",
   },
   {
     value: 3,
-    label: "Fair",
+    label: "Neither agree or disagree",
   },
   {
     value: 4,
-    label: "Good",
+    label: "Agree",
   },
   {
     value: 5,
-    label: "Very good",
+    label: "Strongly agree",
   },
 ]
 
-const labelId = "456"
-
-export const DefaultStory = () => {
+export const DefaultStory = args => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
+  const labelId = "456"
 
   return (
-    <div>
+    <>
       <div style={{ marginBottom: "40px" }} id={labelId}>
-        <Heading variant="heading-4">How would you rate this survey?</Heading>
-      </div>
-      <LikertScaleLegacy
-        scale={scale}
-        automationId="123"
-        labelId={labelId} // Intended to match the id of the label
-        selectedItem={selectedItem}
-        onSelect={item => setSelectedItem(item)}
-      />
-    </div>
-  )
-}
-DefaultStory.storyName = "Default"
-
-export const Reversed = () => {
-  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-
-  return (
-    <div>
-      <div style={{ marginBottom: "40px" }} id={labelId}>
-        <Heading variant="heading-4" color="white">
+        <Heading variant="heading-4" color="dark">
           How would you rate this survey?
         </Heading>
       </div>
@@ -86,10 +71,111 @@ export const Reversed = () => {
         labelId={labelId} // Intended to match the id of the label
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
-        reversed
+        {...args}
       />
-    </div>
+    </>
   )
 }
-Reversed.storyName = "Reversed"
-Reversed.parameters = { backgrounds: { default: "Purple 700" } }
+DefaultStory.storyName = "Likert Scale"
+DefaultStory.parameters = {
+  docs: { source: { type: "code" } },
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
+    <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
+      {heading}
+    </Heading>
+  )
+
+  return (
+    <StoryWrapper isReversed={isReversed}>
+      <SectionHeading heading="Likert Scale" />
+      <StoryWrapper.Row rowTitle="Not rated">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="1"
+          selectedItem={scale[0]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Strongly disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="1"
+          selectedItem={scale[1]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="2"
+          selectedItem={scale[2]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Neither agree or disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="3"
+          selectedItem={scale[3]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Agree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="4"
+          selectedItem={scale[4]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Strongly agree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="5"
+          selectedItem={scale[5]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+
+      <SectionHeading heading="Validation" />
+      <StoryWrapper.Row rowTitle="Error">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId="Error state"
+          selectedItem={scale[0]}
+          onSelect={() => undefined}
+          reversed={isReversed}
+          validationMessage="Error message here"
+          status="error"
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

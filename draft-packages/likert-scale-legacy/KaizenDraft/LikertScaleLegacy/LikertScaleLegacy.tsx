@@ -1,11 +1,10 @@
 import React, { useState, createRef } from "react"
-
 import classnames from "classnames"
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
+import { FieldMessage } from "@kaizen/draft-form"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
-
-const styles = require("./styles.module.scss")
+import styles from "./LikertScaleLegacy.module.scss"
 
 type ItemRefs = Array<{
   value: ScaleValue
@@ -18,19 +17,23 @@ export interface LikertScaleProps {
   selectedItem: ScaleItem | null
   automationId?: string
   reversed?: boolean
-  validationError?: boolean
-  validationErrorId?: string
+  validationMessage?: string
+  status?: "default" | "error"
   onSelect: (value: ScaleItem | null) => void
 }
 
+/**
+ * {@link https://cultureamp.design/components/likert-scale/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-likert-scale--default-story Storybook}
+ */
 export const LikertScaleLegacy = ({
   scale,
   selectedItem,
   reversed,
   automationId,
   onSelect,
-  validationError,
-  validationErrorId,
+  validationMessage,
+  status,
   labelId,
 }: LikertScaleProps) => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
@@ -94,6 +97,13 @@ export const LikertScaleLegacy = ({
     legend = selectedItem.label
   }
 
+  const shouldDisplayValidationMessage =
+    status !== "default" && validationMessage !== undefined
+
+  const validationMessageId = shouldDisplayValidationMessage
+    ? `${labelId}-field-validation-message`
+    : undefined
+
   return (
     <div
       className={classnames(styles.container, {
@@ -103,7 +113,7 @@ export const LikertScaleLegacy = ({
       aria-labelledby={labelId}
       role="radiogroup"
       tabIndex={-1}
-      aria-describedby={(validationError && validationErrorId) || undefined}
+      aria-describedby={validationMessageId}
       data-automation-id={automationId}
     >
       <div
@@ -180,6 +190,14 @@ export const LikertScaleLegacy = ({
           )
         })}
       </div>
+      {shouldDisplayValidationMessage && (
+        <FieldMessage
+          id={validationMessageId}
+          message={validationMessage}
+          status={status}
+          reversed={reversed}
+        />
+      )}
     </div>
   )
 }

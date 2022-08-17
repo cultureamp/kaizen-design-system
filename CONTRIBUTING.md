@@ -119,24 +119,6 @@ You can also clean up generated files in your `@kaizen/component-library` repo:
 
 `yarn clean`
 
-### Elm components stories
-
-Besides creating your Elm story on an Elm file, there is an extra step in order to make it appear on the storybook.
-
-You have to refer it on the component's JS story.
-
-```
--- MyComponent.tsx
-import { loadElmStories } from "elm-storybook"
-
-// JS stories
-
-loadElmStories("Elm/MyComponent", module, require("./MyComponent.elm"), [
-  "Your new story #1",
-  "Your new story #2",
-])
-```
-
 ## Releasing packages
 
 Automated releases to the npm public registry are triggered for all pull requests containing modifications to one or more npm packages (found in the `/packages/` directory). The information required to determine the version update for each release is taken from the title and content of the pull request.
@@ -240,3 +222,15 @@ Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANG
 ## Contributing components
 
 To learn more about contributing components, see the [Kaizen Site: components overview](https://cultureamp.design/components/overview).
+
+### Patterns
+
+Refer to the [docs folder](docs) for code guidelines and patterns.
+
+### Component generator
+
+To generate a new component and package, new component within an existing package, or a subcomponent,
+run the following command and follow the prompts:
+```
+yarn plop
+```

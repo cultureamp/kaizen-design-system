@@ -11,6 +11,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
   private theme: Theme
   private rootElement: HTMLElement | null = null
+
   constructor(
     theme: Theme,
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
@@ -52,11 +53,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       this.setRootElement(document.documentElement)
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
-        if (this.theme.themeKey === "zen") {
-          this.rootElement?.style.removeProperty(key)
-        } else {
-          this.rootElement?.style.setProperty(key, value)
-        }
+        this.rootElement?.style.setProperty(key, value)
       })
     }
   }

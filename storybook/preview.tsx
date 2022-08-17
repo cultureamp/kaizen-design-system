@@ -32,7 +32,6 @@ addParameters({
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
-        CATEGORIES.elm,
         CATEGORIES.deprecated,
       ],
     },

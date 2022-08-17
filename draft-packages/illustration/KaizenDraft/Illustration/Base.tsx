@@ -1,6 +1,7 @@
+import React from "react"
+import classnames from "classnames"
 import { assetUrl } from "@kaizen/hosted-assets"
-import * as React from "react"
-import styles from "./style.module.scss"
+import styles from "./Base.module.scss"
 
 export type BaseProps = {
   /**
@@ -19,7 +20,7 @@ export type BaseProps = {
    * Not recommended. A short-circuit for overriding styles in a pinch
    * @default ""
    */
-  classNameAndIHaveSpokenToDST?: string
+  classNameOverride?: string
 
   /**
    * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
@@ -31,37 +32,27 @@ export type BaseProps = {
 export const Base = ({
   name,
   alt,
-  classNameAndIHaveSpokenToDST,
+  classNameOverride,
   aspectRatio,
   ...otherProps
 }: BaseProps) => {
-  const className =
-    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
-    " " +
-    styles.wrapper
+  const className = classnames([styles.wrapper, classNameOverride])
 
-  const aspectClassName =
-    (aspectRatio ? styles[aspectRatio] : "") + " " + styles.aspectRatioWrapper
-
-  return (
-    <>
-      {aspectRatio ? (
-        <figure className={aspectClassName}>
-          <img
-            {...otherProps}
-            className={className}
-            alt={alt}
-            src={assetUrl(name)}
-          />
-        </figure>
-      ) : (
-        <img
-          {...otherProps}
-          className={className}
-          alt={alt}
-          src={assetUrl(name)}
-        />
-      )}
-    </>
+  return aspectRatio ? (
+    <figure
+      className={classnames([
+        styles.aspectRatioWrapper,
+        aspectRatio && styles[aspectRatio],
+      ])}
+    >
+      <img
+        {...otherProps}
+        className={className}
+        alt={alt}
+        src={assetUrl(name)}
+      />
+    </figure>
+  ) : (
+    <img {...otherProps} className={className} alt={alt} src={assetUrl(name)} />
   )
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
@@ -11,9 +12,8 @@ import { withDesign } from "storybook-addon-designs"
 import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
-
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./TitleBlockZen.stories.scss"
+import styles from "./TitleBlockZen.stories.module.scss"
 
 const TESTING_VIEWPORTS = [320, 768, 1200]
 
@@ -120,7 +120,6 @@ Default.args = {
     <NavigationTab text="Label" href="#" />,
   ],
 }
-Default.storyName = "Default"
 
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
@@ -267,6 +266,11 @@ export const AdminVariant = () => (
       title="Page title"
       variant="admin"
       sectionTitle="Default questions"
+      subtitle={
+        <Paragraph variant="body">
+          This is a <a href="/">link</a>
+        </Paragraph>
+      }
       sectionTitleDescription={
         "Default questions are surfaced automatically for " +
         "managers when requesting feedback about their teams from colleagues. " +
@@ -431,7 +435,6 @@ export const Engagement = () => (
     />
   </OffsetPadding>
 )
-Engagement.storyName = "Engagement"
 Engagement.parameters = { chromatic: { disable: false } }
 
 export const Performance = () => (
@@ -490,7 +493,6 @@ export const Performance = () => (
     />
   </OffsetPadding>
 )
-Performance.storyName = "Performance"
 Performance.parameters = { chromatic: { disable: false } }
 
 export const PerformanceWithAvatarProps = () => (
@@ -734,7 +736,7 @@ export const DefaultWithContent = () => (
       ]}
     />
     <Container>
-      <Content classNameAndIHaveSpokenToDST={styles.contentContainer}>
+      <Content classNameOverride={styles.contentContainer}>
         <Box my={2}>
           <Heading variant="heading-1">Placeholder heading</Heading>
         </Box>
@@ -1162,9 +1164,8 @@ export const DefaultCollapsedNavigationCard = () => (
     </Skirt>
   </OffsetPadding>
 )
-DefaultCollapsedNavigationCard.story = {
-  name: "Default (collapsed navigation with card)",
-}
+DefaultCollapsedNavigationCard.storyName =
+  "Default (collapsed navigation with card)"
 
 export const AdminVariantNavigation = () => (
   <OffsetPadding>

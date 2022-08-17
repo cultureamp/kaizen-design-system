@@ -1,18 +1,20 @@
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
-import ReactSelect, { components } from "react-select"
-import Async from "react-select/async"
-import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
-import { NamedProps as ReactSelectProps } from "react-select/src/Select"
-
+import ReactSelect, {
+  components,
+  Props as ReactSelectProps,
+  NoticeProps,
+} from "react-select"
+import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import styles from "./styles.react.scss"
+import styles from "./Select.module.scss"
 
-export type { ValueType } from "react-select"
+export type { OnChangeValue as ValueType } from "react-select"
 
 export interface SelectProps extends ReactSelectProps<any, boolean> {
   /**
@@ -27,6 +29,8 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
   label?: React.ReactNode
 
   validationMessage?: React.ReactNode
+
+  description?: React.ReactNode
 
   /**
    * Use a reversed colour scheme
@@ -50,6 +54,10 @@ export type VariantType = "default" | "secondary" | "secondary-small"
 
 export type StatusType = "default" | "error"
 
+/**
+ * {@link https://cultureamp.design/components/select/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-select--default-select-story Storybook}
+ */
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
@@ -62,6 +70,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     reversed = false,
     label,
     validationMessage,
+    description,
   } = props
 
   // the default for fullWidth depends on the variant
@@ -89,7 +98,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   })
   return (
     <>
-      {label ? <Label>{label}</Label> : null}
+      {label ? <Label reversed={reversed}>{label}</Label> : null}
       <ReactSelect
         {...props}
         ref={ref}
@@ -103,6 +112,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           SingleValue,
           MultiValue,
           IndicatorsContainer,
+          ValueContainer,
           ClearIndicator,
           IndicatorSeparator: null,
         }}
@@ -111,14 +121,15 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       {validationMessage ? (
         <FieldMessage message={validationMessage} status={status} />
       ) : null}
+      {description ? <FieldMessage message={description} /> : null}
     </>
   )
 })
 Select.displayName = "Select"
 
 interface AsyncProps
-  extends ReactAsyncSelectProps<any>,
-    ReactSelectProps<any, boolean> {}
+  extends ReactAsyncSelectProps<any, boolean, any>,
+    ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
   (props: AsyncProps, ref: React.Ref<any>) => (
@@ -135,8 +146,10 @@ export const AsyncSelect = React.forwardRef(
         SingleValue,
         MultiValue,
         IndicatorsContainer,
-        ClearIndicator: null,
+        ValueContainer,
+        ClearIndicator: undefined,
         IndicatorSeparator: null,
+        LoadingMessage,
       }}
       className={classNames(styles.specificityIncreaser, props.className)}
     />
@@ -157,17 +170,22 @@ const Control: typeof components.Control = props => (
 )
 
 const Placeholder: typeof components.Placeholder = props => (
-  <components.Placeholder {...props}>
+  <components.Placeholder {...props} className={styles.placeholderOverrides}>
     <span className={styles.placeholder}>{props.children}</span>
   </components.Placeholder>
 )
 
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
-  // Suppress typing issue - looks like the type defs are incorrect
-  // @ts-ignore
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
-    <Icon icon={chevronDownIcon} role="presentation" />
+    <Icon
+      icon={props.selectProps.menuIsOpen ? chevronUpIcon : chevronDownIcon}
+      role="presentation"
+    />
   </components.DropdownIndicator>
+)
+
+const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+  <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
 const Menu: typeof components.Menu = props => (
@@ -187,7 +205,7 @@ const Option: typeof components.Option = props => (
   </div>
 )
 
-const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
+const NoOptionsMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>
@@ -216,6 +234,10 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
     {...props}
     className={styles.indicatorsContainer}
   />
+)
+
+const ValueContainer: typeof components.ValueContainer = props => (
+  <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>

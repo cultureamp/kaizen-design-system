@@ -1,6 +1,7 @@
 import React from "react"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -45,13 +46,9 @@ export const DefaultStory = args => (
   </div>
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
-DefaultStory.argTypes = {
-  accessibilityLabel: {
-    defaultValue: "Loading comments",
-  },
-  size: {
-    defaultValue: "sm",
-  },
+DefaultStory.args = {
+  accessibilityLabel: "Loading comments",
+  size: "sm",
 }
 
 export const StickerSheet = () => (

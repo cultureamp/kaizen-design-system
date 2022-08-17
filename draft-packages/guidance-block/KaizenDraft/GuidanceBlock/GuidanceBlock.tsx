@@ -1,13 +1,14 @@
-import * as React from "react"
-import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import React from "react"
+import { Button, ButtonProps } from "@kaizen/button"
+import { Box, Icon } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
-import styles from "./GuidanceBlock.scss"
+import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
@@ -74,6 +75,18 @@ type WithTooltipProps = {
   tooltipProps?: TooltipProps
 }
 
+type CancelButtonProps = {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const CancelButton = ({ onClick }: CancelButtonProps) => (
+  <button className={styles.cancel} type="button" onClick={onClick}>
+    <span>
+      <Icon icon={closeIcon} role="img" title="close notification" />
+    </span>
+  </button>
+)
+
 const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
   tooltipProps,
   children,
@@ -84,6 +97,10 @@ const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
     <>{children}</>
   )
 
+/**
+ * {@link https://cultureamp.design/components/guidance-block/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-guidance-block--default-story Storybook}
+ */
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState
@@ -102,7 +119,6 @@ class GuidanceBlock extends React.Component<
     removed: false,
     mediaQueryLayout: "",
   }
-
   containerRef = React.createRef<HTMLDivElement>()
 
   constructor(props: GuidanceBlockProps) {
@@ -148,6 +164,78 @@ class GuidanceBlock extends React.Component<
     } else {
       this.setState({ mediaQueryLayout: "" })
     }
+  }
+
+  bannerClassName(props): string {
+    return classnames(
+      styles.banner,
+      styles[props.variant],
+      styles[props.layout],
+      {
+        [styles.hidden]: this.state.hidden,
+        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
+        [styles.noMaxWidth]: props.noMaxWidth,
+        [styles.hasSceneIllustration]: props.illustrationType === "scene",
+        [styles.smallScreenTextAlignment]:
+          props.smallScreenTextAlignment === "left",
+      }
+    )
+  }
+
+  marginTop(): string {
+    if (this.state.hidden && this.containerRef.current) {
+      return -this.containerRef.current.clientHeight + "px"
+    }
+
+    return "0"
+  }
+
+  render(): JSX.Element | null {
+    if (this.state.removed) {
+      return null
+    }
+
+    const {
+      actions,
+      illustration,
+      text,
+      persistent,
+      withActionButtonArrow,
+      noMaxWidth,
+      illustrationType,
+    } = this.props
+
+    return (
+      <div
+        className={this.bannerClassName(this.props)}
+        style={{
+          marginTop: this.marginTop(),
+        }}
+        ref={this.containerRef}
+        onTransitionEnd={this.onTransitionEnd}
+      >
+        <div className={styles.illustrationWrapper}>
+          <div className={styles.illustration}>
+            {this.renderIllustrationType(illustration, illustrationType)}
+          </div>
+        </div>
+        <div className={styles.descriptionAndActions}>
+          <div className={styles.descriptionContainer}>
+            <div className={styles.headingWrapper}>
+              <Heading tag="h3" variant="heading-3">
+                {text.title}
+              </Heading>
+            </div>
+            <Paragraph tag="p" variant="body">
+              {text.description}
+            </Paragraph>
+          </div>
+          {actions?.primary &&
+            this.renderActions(actions, withActionButtonArrow)}
+        </div>
+        {!persistent && <CancelButton onClick={this.dismissBanner} />}
+      </div>
+    )
   }
 
   renderActions = (
@@ -211,90 +299,6 @@ class GuidanceBlock extends React.Component<
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration
-
-  render(): JSX.Element | null {
-    if (this.state.removed) {
-      return null
-    }
-
-    const {
-      actions,
-      illustration,
-      text,
-      persistent,
-      withActionButtonArrow,
-      noMaxWidth,
-      illustrationType,
-    } = this.props
-
-    return (
-      <div
-        className={this.bannerClassName(this.props)}
-        style={{
-          marginTop: this.marginTop(),
-        }}
-        ref={this.containerRef}
-        onTransitionEnd={this.onTransitionEnd}
-      >
-        <div className={styles.illustrationWrapper}>
-          <div className={styles.illustration}>
-            {this.renderIllustrationType(illustration, illustrationType)}
-          </div>
-        </div>
-        <div className={styles.descriptionAndActions}>
-          <div className={styles.descriptionContainer}>
-            <div className={styles.headingWrapper}>
-              <Heading tag="h3" variant="heading-3">
-                {text.title}
-              </Heading>
-            </div>
-            <Paragraph tag="p" variant="body">
-              {text.description}
-            </Paragraph>
-          </div>
-          {actions?.primary &&
-            this.renderActions(actions, withActionButtonArrow)}
-        </div>
-        {!persistent && <CancelButton onClick={this.dismissBanner} />}
-      </div>
-    )
-  }
-
-  bannerClassName(props): string {
-    return classnames(
-      styles.banner,
-      styles[props.variant],
-      styles[props.layout],
-      {
-        [styles.hidden]: this.state.hidden,
-        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-        [styles.noMaxWidth]: props.noMaxWidth,
-        [styles.hasSceneIllustration]: props.illustrationType === "scene",
-        [styles.smallScreenTextAlignment]:
-          props.smallScreenTextAlignment === "left",
-      }
-    )
-  }
-
-  marginTop(): string {
-    if (this.state.hidden && this.containerRef.current) {
-      return -this.containerRef.current.clientHeight + "px"
-    }
-
-    return "0"
-  }
 }
-
-type CancelButtonProps = {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const CancelButton = ({ onClick }: CancelButtonProps) => (
-  <button className={styles.cancel} type="button" onClick={onClick}>
-    <span>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
-  </button>
-)
 
 export default GuidanceBlock

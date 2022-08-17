@@ -1,17 +1,23 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import React from "react"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
-import * as React from "react"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import styles from "./styles.scss"
+import styles from "./Table.module.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
+  children?: React.ReactNode
   variant?: "compact" | "default" | "data"
 }
+/**
+ * {@link https://cultureamp.design/components/table/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-table--default-kaizen-site-demo Storybook}
+ */
 export const TableContainer: TableContainer = ({
   variant = "compact",
   children,
@@ -34,10 +40,11 @@ export const TableContainer: TableContainer = ({
  */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
-type TableHeader = React.FunctionComponent<{
+type TableHeaderProps = {
   backgroundColor?: AllowedTableHeaderBackgroundColors
-}>
-export const TableHeader: TableHeader = ({
+  children?: React.ReactNode
+}
+export const TableHeader: React.VFC<TableHeaderProps> = ({
   backgroundColor,
   children,
   ...otherProps
@@ -56,8 +63,13 @@ export const TableHeader: TableHeader = ({
   )
 }
 
-type TableHeaderRow = React.FunctionComponent
-export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
+type TableHeaderRowProps = {
+  children?: React.ReactNode
+}
+export const TableHeaderRow: React.VFC<TableHeaderRowProps> = ({
+  children,
+  ...otherProps
+}) => (
   <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
@@ -243,7 +255,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     tooltipInfo != null ? (
       <Tooltip
         text={tooltipInfo}
-        classNameAndIHaveSpokenToDST={styles.headerRowCellTooltip}
+        classNameOverride={styles.headerRowCellTooltip}
       >
         {cellContents}
       </Tooltip>
@@ -291,7 +303,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
-type TableCard = React.FunctionComponent<{
+type TableCardProps = {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
@@ -300,8 +312,10 @@ type TableCard = React.FunctionComponent<{
   // rows. An example use case is when you might want to handle click events
   // at a cell level, instead of the full row level.
   forceHoverState?: boolean
-}>
-export const TableCard: TableCard = ({
+  children?: React.ReactNode
+}
+
+export const TableCard: React.VFC<TableCardProps> = ({
   children,
   expanded,
   expandedStyle = "well",
@@ -345,8 +359,13 @@ export const TableCard: TableCard = ({
  *
  * @param {*} { children, ...otherProps }
  */
-type TableRow = React.FunctionComponent
-export const TableRow: TableRow = ({ children, ...otherProps }) => (
+type TableRowProps = {
+  children?: React.ReactNode
+}
+export const TableRow: React.VFC<TableRowProps> = ({
+  children,
+  ...otherProps
+}) => (
   <div className={styles.row} role="row" {...otherProps}>
     {children}
   </div>
@@ -358,12 +377,13 @@ export const TableRow: TableRow = ({ children, ...otherProps }) => (
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCell = React.FunctionComponent<{
+type TableRowCellProps = {
   width?: number
   flex?: string
   href?: string
-}>
-export const TableRowCell: TableRowCell = ({
+  children?: React.ReactNode
+}
+export const TableRowCell: React.VFC<TableRowCellProps> = ({
   children,
   width,
   flex,

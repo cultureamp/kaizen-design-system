@@ -1,20 +1,32 @@
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-import * as React from "react"
-import styles from "./styles.module.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./Divider.module.scss"
 
-export interface DividerProps {
-  isReversed?: boolean
+export interface DividerProps
+  extends OverrideClassName<HTMLAttributes<HTMLHRElement>> {
   variant: "content" | "canvas" | "menuSeparator"
+  isReversed?: boolean
 }
 
-export const Divider = ({ isReversed = false, variant }: DividerProps) => (
+/**
+ * {@link https://cultureamp.design/components/divider/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-divider--default-story Storybook}
+ */
+export const Divider: React.VFC<DividerProps> = ({
+  variant,
+  isReversed = false,
+  classNameOverride,
+  ...props
+}) => (
   <hr
     aria-hidden="true"
-    className={classNames(styles.wrapper, {
+    className={classNames(styles.wrapper, classNameOverride, {
       [styles.reversed]: isReversed,
       [styles.content]: variant === "content",
       [styles.canvas]: variant === "canvas",
       [styles.menuSeparator]: variant === "menuSeparator",
     })}
+    {...props}
   />
 )

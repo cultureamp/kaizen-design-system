@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.12.2...@kaizen/draft-badge@1.12.3) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-badge
+
+
+
+
+
+## [1.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.12.1...@kaizen/draft-badge@1.12.2) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-badge
+
+
+
+
+
+## [1.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.12.0...@kaizen/draft-badge@1.12.1) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-badge
+
+
+
+
+
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.11.1...@kaizen/draft-badge@1.12.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.11.0...@kaizen/draft-badge@1.11.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-badge
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.10.4...@kaizen/draft-badge@1.11.0) (2022-03-17)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 1) ([#2622](https://github.com/cultureamp/kaizen-design-system/issues/2622)) ([204a75d](https://github.com/cultureamp/kaizen-design-system/commit/204a75d34a81616ea3cc8e4e1724f7f2f2985b93))
+
+
+
+
+
 ## [1.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.10.3...@kaizen/draft-badge@1.10.4) (2022-03-07)
 
 **Note:** Version bump only for package @kaizen/draft-badge

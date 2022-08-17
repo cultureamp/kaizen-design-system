@@ -1,6 +1,7 @@
-import * as React from "react"
-import cx from "classnames"
-import styles from "./styles.module.scss"
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./Card.module.scss"
 
 export type CardVariants =
   | "default"
@@ -11,46 +12,47 @@ export type CardVariants =
   | "assertive"
   | "highlight"
 
-export interface CardProps {
+export interface CardProps
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children?: React.ReactNode
   /**
-   * Not recommended. A short-circuit for overriding styles in a pinch.
-   * @default ""
-   */
-  classNameAndIHaveSpokenToDST?: string
-  /**
    * HTML elements that are allowed on Card.
-   * @default "div"
    */
   tag?: "div" | "article" | "header" | "main" | "section" | "li"
   /**
    * determines the card background colour on the card. It should match to the type of content being conveyed.
-   * @default "default"
    */
   variant?: CardVariants
   /**
    * Adds a larger box shadow to to the card container.
-   * @default "false"
    */
   isElevated?: boolean
 }
 
+/**
+ * {@link https://cultureamp.design/components/card/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/story/components-card--default-story Storybook}
+ */
 export const Card = ({
   children,
   tag = "div",
-  classNameAndIHaveSpokenToDST,
   variant = "default",
   isElevated = false,
-  ...otherProps
+  classNameOverride,
+  ...props
 }: CardProps) => {
   const Tag = tag
   return (
     <Tag
-      className={cx(styles.wrapper, styles[variant], {
-        classNameAndIHaveSpokenToDST,
-        [styles.elevated]: isElevated,
-      })}
-      {...otherProps}
+      className={classnames(
+        styles.wrapper,
+        styles[variant],
+        classNameOverride,
+        {
+          [styles.elevated]: isElevated,
+        }
+      )}
+      {...props}
     >
       {children}
     </Tag>

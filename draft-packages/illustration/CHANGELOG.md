@@ -3,6 +3,471 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.23...@kaizen/draft-illustration@5.1.24) (2022-08-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.22...@kaizen/draft-illustration@5.1.23) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.21...@kaizen/draft-illustration@5.1.22) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.20...@kaizen/draft-illustration@5.1.21) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.19...@kaizen/draft-illustration@5.1.20) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.18...@kaizen/draft-illustration@5.1.19) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.17...@kaizen/draft-illustration@5.1.18) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.16...@kaizen/draft-illustration@5.1.17) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.15...@kaizen/draft-illustration@5.1.16) (2022-07-20)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.14...@kaizen/draft-illustration@5.1.15) (2022-06-27)
+
+
+### Bug Fixes
+
+* Remove tab on scene illustrations [KDS-564] ([#2830](https://github.com/cultureamp/kaizen-design-system/issues/2830)) ([bee63df](https://github.com/cultureamp/kaizen-design-system/commit/bee63df288309afb3f21d430166ed4e68a539f91))
+
+
+
+
+
+## [5.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.13...@kaizen/draft-illustration@5.1.14) (2022-06-23)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.12...@kaizen/draft-illustration@5.1.13) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.11...@kaizen/draft-illustration@5.1.12) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.10...@kaizen/draft-illustration@5.1.11) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.9...@kaizen/draft-illustration@5.1.10) (2022-06-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.8...@kaizen/draft-illustration@5.1.9) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.7...@kaizen/draft-illustration@5.1.8) (2022-06-20)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.6...@kaizen/draft-illustration@5.1.7) (2022-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.5...@kaizen/draft-illustration@5.1.6) (2022-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.4...@kaizen/draft-illustration@5.1.5) (2022-06-07)
+
+
+### Bug Fixes
+
+* Catch the video element error ([#2775](https://github.com/cultureamp/kaizen-design-system/issues/2775)) ([341fd94](https://github.com/cultureamp/kaizen-design-system/commit/341fd9461bbfe534a871957c5cdd4a73ea7311ce))
+
+
+
+
+
+## [5.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.3...@kaizen/draft-illustration@5.1.4) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.2...@kaizen/draft-illustration@5.1.3) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.1...@kaizen/draft-illustration@5.1.2) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.1.0...@kaizen/draft-illustration@5.1.1) (2022-05-24)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.11...@kaizen/draft-illustration@5.1.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [5.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.10...@kaizen/draft-illustration@5.0.11) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.9...@kaizen/draft-illustration@5.0.10) (2022-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.8...@kaizen/draft-illustration@5.0.9) (2022-05-12)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.7...@kaizen/draft-illustration@5.0.8) (2022-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.6...@kaizen/draft-illustration@5.0.7) (2022-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.5...@kaizen/draft-illustration@5.0.6) (2022-05-02)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.4...@kaizen/draft-illustration@5.0.5) (2022-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.3...@kaizen/draft-illustration@5.0.4) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.2...@kaizen/draft-illustration@5.0.3) (2022-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.1...@kaizen/draft-illustration@5.0.2) (2022-04-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.0.0...@kaizen/draft-illustration@5.0.1) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.8...@kaizen/draft-illustration@5.0.0) (2022-04-13)
+
+
+### Features
+
+* remove elm related files, styles and config from Kaizen ([#2686](https://github.com/cultureamp/kaizen-design-system/issues/2686)) ([2fdf913](https://github.com/cultureamp/kaizen-design-system/commit/2fdf913dd4221d10e91cea2bb88208faf958efcc))
+
+
+### BREAKING CHANGES
+
+*     * remove .elm files
+    * remove Elm specific .scss files
+    * remove Elm specific package folders
+    * remove Elm config and devDependencies on Elm
+    * remove Elm specific classes and declarations from modal stylesheets
+    * update documentation on Elm
+
+
+
+
+
+## [4.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.7...@kaizen/draft-illustration@4.1.8) (2022-04-03)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.6...@kaizen/draft-illustration@4.1.7) (2022-04-01)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.5...@kaizen/draft-illustration@4.1.6) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.4...@kaizen/draft-illustration@4.1.5) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.3...@kaizen/draft-illustration@4.1.4) (2022-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.2...@kaizen/draft-illustration@4.1.3) (2022-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.1...@kaizen/draft-illustration@4.1.2) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.1.0...@kaizen/draft-illustration@4.1.1) (2022-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.5...@kaizen/draft-illustration@4.1.0) (2022-03-23)
+
+
+### Features
+
+* fix EmptyState chromatic snapshots ([#2610](https://github.com/cultureamp/kaizen-design-system/issues/2610)) ([ef63f12](https://github.com/cultureamp/kaizen-design-system/commit/ef63f12c3c96cc64deb9abb385d6a36b9d0061f8))
+
+
+
+
+
+## [4.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.4...@kaizen/draft-illustration@4.0.5) (2022-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.3...@kaizen/draft-illustration@4.0.4) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.2...@kaizen/draft-illustration@4.0.3) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.1...@kaizen/draft-illustration@4.0.2) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@4.0.0...@kaizen/draft-illustration@4.0.1) (2022-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.6.14...@kaizen/draft-illustration@4.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [3.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.6.13...@kaizen/draft-illustration@3.6.14) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [3.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.6.12...@kaizen/draft-illustration@3.6.13) (2022-03-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [3.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@3.6.11...@kaizen/draft-illustration@3.6.12) (2022-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

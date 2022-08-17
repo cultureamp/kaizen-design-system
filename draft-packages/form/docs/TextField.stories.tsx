@@ -1,12 +1,12 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import { TextField } from "@kaizen/draft-form"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
-const StoryContainer: React.FunctionComponent = ({ children }) => (
+const StoryContainer = ({ children }) => (
   <div
     style={{ display: "inline-flex", width: "100%", flexDirection: "column" }}
   >
@@ -14,7 +14,7 @@ const StoryContainer: React.FunctionComponent = ({ children }) => (
   </div>
 )
 
-const StoryColumn: React.FunctionComponent = ({ children }) => (
+const StoryColumn = ({ children }) => (
   <div
     style={{
       display: "grid",
@@ -25,7 +25,7 @@ const StoryColumn: React.FunctionComponent = ({ children }) => (
   </div>
 )
 
-const StoryGrid: React.FunctionComponent = ({ children }) => (
+const StoryGrid = ({ children }) => (
   <div
     style={{
       display: "grid",

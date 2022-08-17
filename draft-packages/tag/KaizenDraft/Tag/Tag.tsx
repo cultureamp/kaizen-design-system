@@ -1,12 +1,12 @@
+import React from "react"
+import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
-import classNames from "classnames"
-import * as React from "react"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-import styles from "./Tag.scss"
+import styles from "./Tag.module.scss"
 
 type Variant =
   | "default"
@@ -53,6 +53,10 @@ const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps) =>
     <Avatar {...imageElementOrAvatarProps} size="small" />
   )
 
+/**
+ * {@link https://cultureamp.design/components/tag/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tag--default-story Storybook}
+ */
 const Tag = (props: TagProps) => {
   const {
     children,

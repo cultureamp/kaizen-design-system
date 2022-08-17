@@ -22,27 +22,25 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "12.6.0",
+  "version": "15.2.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0 || ^17.0.0"
+    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.5.2",
-    "@kaizen/draft-button": "^5.6.12",
-    "@kaizen/hosted-assets": "^1.2.0",
+    "@kaizen/component-base": "^1.1.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.5.6",
+    "@kaizen/hosted-assets": "^2.0.0",
     "@types/classnames": "^2.3.0",
-    "@types/lodash": "^4.14.177",
+    "@types/lodash": "^4.14.182",
     "@types/uuid": "^3.4.10",
-    "classnames": "^2.3.1",
-    "motion-ui": "cultureamp/motion-ui"
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.11.3",
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
+    "@testing-library/dom": "^8.16.0",
     "rimraf": "^3.0.2"
   },
   "scripts": {

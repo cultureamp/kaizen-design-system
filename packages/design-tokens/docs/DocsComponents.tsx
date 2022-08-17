@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
 import LinkTo from "@storybook/addon-links/react"
@@ -12,7 +13,6 @@ import Highlight from "react-highlight"
 import { defaultTheme } from "../src/themes"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 import styles from "./styles.scss"
-import zenThemeSrc from "!!raw-loader!../src/themes/zen"
 import heartThemeSrc from "!!raw-loader!../src/themes/heart"
 import typographySass from "!!raw-loader!../sass/typography.scss"
 import colorsSass from "!!raw-loader!../sass/color.scss"
@@ -97,12 +97,6 @@ const TabbedCodeBlocks = ({
 const themesBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
 > = [
-  {
-    name: "Zen",
-    language: "typescript",
-    code: zenThemeSrc,
-    caption: <code>import {"{ zenTheme }"} from "@kaizen/design-tokens"</code>,
-  },
   {
     name: "Heart",
     language: "typescript",

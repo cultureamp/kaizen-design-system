@@ -1,3 +1,8 @@
+@import "./vendor/effects/fade";
+@import "./vendor/effects/slide";
+@import "./vendor/effects/zoom";
+@import "./vendor/util/args";
+
 @mixin ca-animation-pop($duration: $ca-duration-slow, $delay: null) {
   @include ca-animation(pop());
   animation-duration: $duration;
@@ -21,7 +26,6 @@
     $from: 1;
     $to: 0;
   }
-
   @include ca-animation(fade($from: $from, $to: $to));
   animation-duration: $duration;
   animation-delay: $delay;

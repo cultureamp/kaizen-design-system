@@ -1,8 +1,6 @@
-import * as React from "react"
-
-import { Heading } from "@kaizen/component-library"
+import React from "react"
+import { Heading } from "@kaizen/typography"
 import { Negative } from "@kaizen/draft-illustration"
-
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -11,13 +9,13 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
-import styles from "./RoadblockModal.scss"
+import styles from "./RoadblockModal.module.scss"
 
 export interface RoadblockModalProps {
   readonly isOpen: boolean
   readonly title: string
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly dismissLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
@@ -32,6 +30,7 @@ const RoadblockModal = ({
   isOpen,
   title,
   onDismiss,
+  onAfterLeave,
   dismissLabel = "Back",
   automationId,
   children,
@@ -41,6 +40,7 @@ const RoadblockModal = ({
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
     automationId={automationId}
+    onAfterLeave={onAfterLeave}
   >
     <div className={styles.modal}>
       <ModalHeader unpadded onDismiss={onDismiss}>

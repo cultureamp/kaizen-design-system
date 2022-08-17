@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading, Paragraph } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/typography"
 import {
   AccountBasics,
   Action,

@@ -14,7 +14,7 @@ import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import styles from "./ToastNotification.stories.scss"
+import styles from "./ToastNotification.stories.module.scss"
 
 const withNavigation = (Story: React.FunctionComponent) => (
   <>
@@ -35,7 +35,7 @@ const Triggers = ({
   return (
     <Container>
       <Content>
-        <Box py={1} classNameAndIHaveSpokenToDST={styles.triggerContainer}>
+        <Box py={1} classNameOverride={styles.triggerContainer}>
           <Box mr={0.25}>
             <Button
               label={`Show notification${local.length > 1 ? "s" : ""}`}
@@ -271,7 +271,7 @@ OverflowNotifications.storyName = "Overflow notifications"
 export const UpdatedNotification = () => (
   <Container>
     <Content>
-      <Box py={1} classNameAndIHaveSpokenToDST={styles.triggerContainer}>
+      <Box py={1} classNameOverride={styles.triggerContainer}>
         <Box mr={0.25}>
           <Button
             label={"Create initial notification"}

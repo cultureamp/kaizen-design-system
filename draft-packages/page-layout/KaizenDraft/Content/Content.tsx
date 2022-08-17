@@ -1,24 +1,13 @@
-import * as React from "react"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-import styles from "./styles.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./Content.module.scss"
 
-export interface ContentProps {
-  /**
-   * Uniquely identify this component for testing purposes
-   * @default ""
-   */
-  automationId?: string
+export interface ContentProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children?: React.ReactNode
-
-  /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
-   * @default ""
-   */
-  classNameAndIHaveSpokenToDST?: string
-
   /**
    * Not recommended. A short-circuit for dynamically overriding layout in a pinch
-   * @default ""
    */
   style?: Pick<
     React.CSSProperties,
@@ -42,46 +31,49 @@ export interface ContentProps {
     | "transformOrigin"
     | "transformStyle"
   >
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-export const Container = React.forwardRef(
-  (
-    {
-      automationId,
-      children,
-      classNameAndIHaveSpokenToDST,
-      style,
-    }: ContentProps,
-    ref: React.Ref<HTMLDivElement>
-  ) => (
+/**
+ * {@link https://cultureamp.design/components/page-layout/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-page-layout--default-story Storybook}
+ */
+export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
+  ({ children, style, automationId, classNameOverride, ...restProps }, ref) => (
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.container, classNameAndIHaveSpokenToDST)}
+      className={classNames(styles.container, classNameOverride)}
       style={style}
+      {...restProps}
     >
       {children}
     </div>
   )
 )
 
-export const Content = React.forwardRef(
-  (
-    {
-      automationId,
-      children,
-      classNameAndIHaveSpokenToDST,
-      style,
-    }: ContentProps,
-    ref: React.Ref<HTMLDivElement>
-  ) => (
+Container.displayName = "Container"
+
+/**
+ * {@link https://cultureamp.design/components/page-layout/ Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-page-layout--default-story Storybook}
+ */
+export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
+  ({ children, style, automationId, classNameOverride, ...restProps }, ref) => (
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.content, classNameAndIHaveSpokenToDST)}
+      className={classNames(styles.content, classNameOverride)}
       style={style}
+      {...restProps}
     >
       {children}
     </div>
   )
 )
+
+Content.displayName = "Content"

@@ -1,7 +1,7 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-
-import { Heading, Icon } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Heading } from "@kaizen/typography"
 import {
   Assertive,
   Cautionary,
@@ -9,12 +9,10 @@ import {
   Negative,
   Positive,
 } from "@kaizen/draft-illustration"
-
 import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
-
-import { ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/button"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -23,8 +21,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
-import styles from "./ConfirmationModal.scss"
+import styles from "./ConfirmationModal.module.scss"
 
 export interface ConfirmationModalProps {
   readonly isOpen: boolean
@@ -40,6 +37,7 @@ export interface ConfirmationModalProps {
   readonly title: string
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
+  readonly onAfterLeave?: () => void
   readonly confirmLabel?: string
   readonly dismissLabel?: string
   readonly confirmWorking?: { label: string; labelHidden?: boolean }
@@ -86,6 +84,10 @@ const getIcon = (mood: Mood, isProminent: boolean) => {
   }
 }
 
+/**
+ * {@link https://cultureamp.design/components/modal/#confirmation-modal Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--confirmation-modal-example Storybook}
+ */
 const ConfirmationModal = ({
   isOpen,
   isProminent = false,
@@ -93,6 +95,7 @@ const ConfirmationModal = ({
   mood,
   title,
   onConfirm,
+  onAfterLeave,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
   confirmWorking,
@@ -128,6 +131,7 @@ const ConfirmationModal = ({
       onEscapeKeyup={onDismiss}
       onOutsideModalClick={onDismiss}
       automationId={automationId}
+      onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal}>
         <ModalHeader onDismiss={onDismiss}>

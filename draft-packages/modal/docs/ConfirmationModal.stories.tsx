@@ -1,49 +1,29 @@
-import React from "react"
-import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/button"
-import { ConfirmationModal } from "@kaizen/draft-modal"
+import React, { useState } from "react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
+import { ComponentStory } from "@storybook/react"
+import { Button } from "@kaizen/button"
+import { ConfirmationModal } from "@kaizen/draft-modal"
+import { Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+
+const IS_CHROMATIC = isChromatic()
 
 // Add additional height to the stories when running in Chromatic only.
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
 const withMinHeight = Story => {
-  if (!isChromatic()) return <Story />
-  return (
-    <div style={{ minHeight: "100vh" }}>
-      <Story />
-    </div>
-  )
-}
-class ModalStateContainer extends React.Component<
-  {
-    isInitiallyOpen: boolean
-    children: (renderProps: {
-      open: () => void
-      close: () => void
-      isOpen: boolean
-    }) => React.ReactNode
-  },
-  { isOpen: boolean }
-> {
-  state = { isOpen: this.props.isInitiallyOpen }
-  open = () => this.setState({ isOpen: true })
-  close = () => this.setState({ isOpen: false })
-  render() {
-    return this.props.children({
-      open: this.open,
-      close: this.close,
-      isOpen: this.state.isOpen,
-    })
+  if (IS_CHROMATIC) {
+    return <div style={{ minHeight: "100vh" }}>{Story()}</div>
   }
+
+  return Story()
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal/Confirmation Modal`,
+  title: `${CATEGORIES.components}/Modal`,
   component: ConfirmationModal,
   args: {
     mood: "cautionary",
@@ -56,7 +36,7 @@ export default {
     },
     docs: {
       description: {
-        component: "import { ConfirmationModal } from @kaizen/draft-modal",
+        component: 'import { ConfirmationModal } from "@kaizen/draft-modal"',
       },
     },
     ...figmaEmbed(
@@ -69,26 +49,39 @@ export default {
   decorators: [withDesign, withMinHeight],
 }
 
-export const ConfirmationModals = args => (
-  <ModalStateContainer isInitiallyOpen={isChromatic()}>
-    {({ open, close, isOpen }) => (
-      <div>
-        <Button label="Open modal" onClick={open} />
-        <ConfirmationModal
-          isOpen={isOpen}
-          mood="cautionary"
-          title="Confirmation modal title"
-          onConfirm={close}
-          onDismiss={close}
-          confirmLabel="Label"
-          {...args}
-        >
-          <Paragraph variant="body">
-            Confirmation modals contain smaller pieces of content and can
-            provide additional information to aide the user.
-          </Paragraph>
-        </ConfirmationModal>
-      </div>
-    )}
-  </ModalStateContainer>
-)
+const ConfirmationModalTemplate: ComponentStory<
+  typeof ConfirmationModal
+> = args => {
+  const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
+
+  const handleOpen = () => setIsOpen(true)
+  const handleClose = () => setIsOpen(false)
+
+  return (
+    <>
+      <Button label="Open modal" onClick={handleOpen} />
+      <ConfirmationModal
+        {...args}
+        isOpen={args.isOpen === undefined ? isOpen : args.isOpen}
+        onConfirm={handleClose}
+        onDismiss={handleClose}
+      >
+        <Paragraph variant="body">
+          Confirmation modals contain smaller pieces of content and can provide
+          additional information to aide the user.
+        </Paragraph>
+      </ConfirmationModal>
+    </>
+  )
+}
+
+export const ConfirmationModalExample = ConfirmationModalTemplate.bind({})
+ConfirmationModalExample.storyName = "Confirmation Modal"
+ConfirmationModalExample.args = {
+  mood: "cautionary",
+  title: "Confirmation modal title",
+  confirmLabel: "Confirm label",
+}
+ConfirmationModalExample.parameters = {
+  docs: { source: { type: "code" } },
+}

@@ -1,18 +1,19 @@
 import React, { useState } from "react"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
 import { ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./FilterMenuButton.stories.scss"
+import styles from "./FilterMenuButton.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
-  title: `${CATEGORIES.components}/Filter Menu`,
+  title: `${CATEGORIES.deprecated}/Filter Menu`,
   component: FilterMenuButton,
   parameters: {
     docs: {
@@ -160,7 +161,6 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
-DefaultEmpty.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithChildrenSimpleFilter = SimpleFilterTemplate.bind({})
 DefaultWithChildrenSimpleFilter.storyName =
@@ -241,3 +241,11 @@ export const DefaultWithChildrenAdvancedFilter = () => {
 DefaultWithChildrenAdvancedFilter.storyName =
   "Default with children (Advanced filter)"
 DefaultWithChildrenAdvancedFilter.parameters = { chromatic: { disable: false } }
+
+export const AutoHideBehaviours = SimpleFilterTemplate.bind({})
+AutoHideBehaviours.args = {
+  autoHide: "outside-click-only",
+  id: "filter-menu-button--autohide",
+}
+
+AutoHideBehaviours.storyName = "Auto hide behaviours"

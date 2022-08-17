@@ -1,34 +1,38 @@
-import classnames from "classnames"
 import React, {
-  FunctionComponent,
   useState,
   useEffect,
   useRef,
   TextareaHTMLAttributes,
 } from "react"
-import styles from "./styles.scss"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./TextArea.module.scss"
 
 export interface TextAreaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  automationId?: string
-  reversed?: boolean
+  extends OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>> {
+  textAreaRef?: React.RefObject<HTMLTextAreaElement>
   status?: "default" | "error" | "caution"
   autogrow?: boolean
-  textAreaRef?: React.RefObject<HTMLTextAreaElement>
+  reversed?: boolean
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-export const TextArea: FunctionComponent<TextAreaProps> = ({
-  value,
-  defaultValue,
-  reversed = false,
-  rows = 3,
+export const TextArea: React.VFC<TextAreaProps> = ({
+  textAreaRef: propsTextAreaRef,
   status = "default",
   autogrow = false,
-  disabled = false,
+  reversed = false,
   automationId,
+  rows = 3,
+  defaultValue,
+  value,
+  disabled,
   onChange: propsOnChange,
-  textAreaRef: propsTextAreaRef,
-  ...genericTextAreaProps
+  ...restProps
 }) => {
   const [textAreaHeight, setTextAreaHeight] = useState<string>("auto")
   const [parentHeight, setParentHeight] = useState<string>("auto")
@@ -91,7 +95,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         ref={textAreaRef}
         style={getTextAreaStyle()}
         disabled={disabled}
-        {...genericTextAreaProps}
+        {...restProps}
       />
 
       {/* Textareas aren't able to have pseudo elements like ::after on them,
@@ -100,3 +104,5 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
     </div>
   )
 }
+
+TextArea.displayName = "TextArea"

@@ -1,8 +1,6 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
-
-import { FieldGroupProps } from "./FieldGroup"
-import { FieldGroup } from "."
+import { FieldGroup, FieldGroupProps } from "./index"
 
 afterEach(cleanup)
 
@@ -16,7 +14,7 @@ const renderFieldGroup = (props?: FieldGroupProps) => {
   return render(<FieldGroup {...mergedFieldGroupProps} />)
 }
 
-describe("<FieldMessage />", () => {
+describe("<FieldGroup />", () => {
   it("should render an `id` attribute", () => {
     const id = "someFieldGroupId"
     const { container } = renderFieldGroup()

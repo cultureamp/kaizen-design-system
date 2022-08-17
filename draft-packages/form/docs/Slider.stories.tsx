@@ -1,7 +1,8 @@
 import React from "react"
 import { Slider } from "@kaizen/draft-form"
 import { useState } from "@storybook/addons"
-import { Paragraph, Box } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { InputRange, Label } from "../KaizenDraft/Form"
 
@@ -37,7 +38,6 @@ export const Uncontrolled = () => (
     maxLabel="Fantastic"
   />
 )
-Uncontrolled.storyName = "Uncontrolled"
 Uncontrolled.parameters = { chromatic: { disable: false } }
 
 export const Controlled = () => {
@@ -53,9 +53,8 @@ export const Controlled = () => {
     />
   )
 }
-Controlled.storyName = "Controlled"
 
-export const LabelAboveSlider = () => (
+export const LabelAboveInput = () => (
   <Slider
     id="make-me-unique-4"
     labelText="Work overall"
@@ -66,8 +65,7 @@ export const LabelAboveSlider = () => (
     maxLabel="Fantastic"
   />
 )
-LabelAboveSlider.storyName = "Label above input"
-LabelAboveSlider.parameters = { chromatic: { disable: false } }
+LabelAboveInput.parameters = { chromatic: { disable: false } }
 
 export const CustomMinMaxLabels = () => (
   <Slider
@@ -106,7 +104,6 @@ export const Prominent = () => (
     maxLabel="Fantastic"
   />
 )
-Prominent.storyName = "Prominent"
 Prominent.parameters = { chromatic: { disable: false } }
 
 export const Disabled = () => (
@@ -120,7 +117,6 @@ export const Disabled = () => (
     maxLabel="Fantastic"
   />
 )
-Disabled.storyName = "Disabled"
 Disabled.parameters = { chromatic: { disable: false } }
 
 export const ReadOnly = () => (

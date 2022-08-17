@@ -3,7 +3,8 @@ import React from "react"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Icon, Paragraph, Heading } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { Paragraph, Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton } from "@kaizen/button"
 import { Tooltip } from "@kaizen/draft-tooltip"
@@ -54,6 +55,17 @@ DefaultKaizenSiteDemo.parameters = {
     text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
   },
 }
+
+export const WithNoAnimationDelay = props => (
+  <div
+    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
+  >
+    <Tooltip {...props} text="Tooltip label" animationDuration={0}>
+      <Button label="Fast tooltip" />
+    </Tooltip>
+  </div>
+)
+WithNoAnimationDelay.storyName = "With no animation delay"
 
 export const StickerSheet = props => (
   <div

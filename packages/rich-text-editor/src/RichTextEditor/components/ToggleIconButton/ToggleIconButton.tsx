@@ -2,35 +2,60 @@ import React from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
-import styles from "./ToggleIconButton.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
   /*
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
   isActive?: boolean
+  mood?:
+    | "default"
+    | "secondary"
+    | "primary"
+    | "destructive"
+    | "secondary-destructive"
 }
 
 export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
   React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
-    const { icon, label, isActive = false, ...nativeButtonProps } = props
+    const {
+      icon,
+      label,
+      isActive = false,
+      mood = "default",
+      disabled = false,
+      classNameOverride,
+      onClick,
+      ...nativeButtonProps
+    } = props
     return (
-      <Tooltip text={label} display="inline-block">
+      <Tooltip
+        text={label}
+        display="inline-block"
+        position="above"
+        animationDuration={5}
+      >
         <button
           ref={ref}
+          type="button"
           aria-pressed={isActive}
           aria-label={label}
-          className={classnames(styles.button, {
+          aria-disabled={disabled}
+          onMouseDown={e => e.preventDefault()}
+          onClick={!disabled ? onClick : undefined}
+          className={classnames(styles.button, classNameOverride, {
             [styles.active]: isActive,
+            [styles[mood]]: mood,
+            [styles.disabled]: disabled,
           })}
           {...nativeButtonProps}
         >
-          <div className={styles.iconWrapper}>
-            <Icon icon={icon} role="presentation" inheritSize />
-          </div>
+          <Icon icon={icon} role="presentation" />
         </button>
       </Tooltip>
     )

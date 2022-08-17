@@ -1,36 +1,36 @@
+import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
-
-import styles from "./styles.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./ToggleSwitch.module.scss"
 
 export enum ToggledStatus {
   ON = "on",
   OFF = "off",
 }
-export interface ToggleSwitchProps {
-  id?: string
-  automationId?: string
-  name?: string
+
+export interface ToggleSwitchProps
+  extends OverrideClassName<
+    Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">
+  > {
   toggledStatus?: ToggledStatus
-  onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  disabled?: boolean
+  /**
+   * Alias for `onChange`
+   */
+  onToggle?: React.ChangeEventHandler<HTMLInputElement>
   reversed?: boolean
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+  /**
+   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
+   * @deprecated
+   */
+  automationId?: string
 }
 
-type ToggleSwitch = React.FunctionComponent<ToggleSwitchProps>
-
-const ToggleSwitch: ToggleSwitch = ({
-  id,
-  automationId,
-  name,
+export const ToggleSwitch: React.VFC<ToggleSwitchProps> = ({
   toggledStatus,
   onToggle,
-  disabled,
   reversed,
-  onFocus,
-  onBlur,
+  automationId,
+  ...restProps
 }) => {
   const isOn = toggledStatus === ToggledStatus.ON
 
@@ -44,15 +44,11 @@ const ToggleSwitch: ToggleSwitch = ({
     >
       <input
         type="checkbox"
-        id={id}
-        name={name}
         data-automation-id={automationId}
         className={styles.checkbox}
         checked={isOn ? true : false}
         onChange={onToggle}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        disabled={disabled}
+        {...restProps}
       />
       <span className={styles.track}>
         <span className={styles.thumb} />
@@ -61,4 +57,4 @@ const ToggleSwitch: ToggleSwitch = ({
   )
 }
 
-export default ToggleSwitch
+ToggleSwitch.displayName = "ToggleSwitch"

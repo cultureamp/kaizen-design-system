@@ -21,6 +21,7 @@ module.exports = {
     "prettier",
     "plugin:ssr-friendly/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:storybook/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -178,11 +179,9 @@ module.exports = {
     "no-new-wrappers": "error",
     "no-return-await": "error",
     "no-sequences": "error",
-
     // The base no-shadow rule reports incorrect errors in typescript
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-
     "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
     "no-throw-literal": "error",

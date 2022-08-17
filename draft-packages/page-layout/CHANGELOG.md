@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.2.2...@kaizen/draft-page-layout@2.2.3) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.2.1...@kaizen/draft-page-layout@2.2.2) (2022-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.2.0...@kaizen/draft-page-layout@2.2.1) (2022-05-30)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.6...@kaizen/draft-page-layout@2.2.0) (2022-05-20)
+
+
+### Features
+
+* add compatibility for react-18 ([#2731](https://github.com/cultureamp/kaizen-design-system/issues/2731)) ([0051f4c](https://github.com/cultureamp/kaizen-design-system/commit/0051f4cee82895acc2c2f44fc7bf8063857de57e))
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.5...@kaizen/draft-page-layout@2.1.6) (2022-05-04)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.4...@kaizen/draft-page-layout@2.1.5) (2022-05-02)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.3...@kaizen/draft-page-layout@2.1.4) (2022-04-14)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.2...@kaizen/draft-page-layout@2.1.3) (2022-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.1...@kaizen/draft-page-layout@2.1.2) (2022-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.1.0...@kaizen/draft-page-layout@2.1.1) (2022-03-21)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.0.1...@kaizen/draft-page-layout@2.1.0) (2022-03-18)
+
+
+### Features
+
+* update components to extend HTML attributes with classNameOverride (part 3) ([#2629](https://github.com/cultureamp/kaizen-design-system/issues/2629)) ([4a549ec](https://github.com/cultureamp/kaizen-design-system/commit/4a549ecb4f253d0c7a7066dab66010347690dc18))
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@2.0.0...@kaizen/draft-page-layout@2.0.1) (2022-03-18)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.5...@kaizen/draft-page-layout@2.0.0) (2022-03-16)
+
+
+### Features
+
+* rename `classNameAndIHaveSpokenToDST` to `classNameOverride` ([#2623](https://github.com/cultureamp/kaizen-design-system/issues/2623)) ([0ad2710](https://github.com/cultureamp/kaizen-design-system/commit/0ad2710f5e4b9a9d6b5a40ae72741a88669792c1))
+
+
+### BREAKING CHANGES
+
+* `classNameAndIHaveSpokenToDST` renamed to `classNameOverride`
+
+
+
+
+
+## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.4...@kaizen/draft-page-layout@1.7.5) (2022-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-page-layout
+
+
+
+
+
 ## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.7.3...@kaizen/draft-page-layout@1.7.4) (2022-03-01)
 
 **Note:** Version bump only for package @kaizen/draft-page-layout

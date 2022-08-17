@@ -1,11 +1,12 @@
 import React from "react"
-import { Box, Paragraph } from "@kaizen/component-library"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./PageLayout.stories.scss"
+import styles from "./PageLayout.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Page Layout`,
@@ -58,8 +59,8 @@ DefaultStory.storyName = "Container/Content (default)"
 
 export const FullBleedBackgroundStory = () => (
   <OffsetPadding>
-    <Container classNameAndIHaveSpokenToDST={styles.pink}>
-      <Content classNameAndIHaveSpokenToDST={styles.white}>
+    <Container classNameOverride={styles.pink}>
+      <Content classNameOverride={styles.white}>
         <Paragraph variant="body">
           Call me Ishmael. Some years ago - never mind how long precisely -
           having little or no money in my purse, and nothing particular to

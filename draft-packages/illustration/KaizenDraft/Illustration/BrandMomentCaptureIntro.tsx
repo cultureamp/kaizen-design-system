@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { AnimatedSceneProps } from "./Scene"
 import { Base } from "./Base"
 import { VideoPlayer } from "./Players/VideoPlayer"
@@ -8,12 +8,12 @@ import { VideoPlayer } from "./Players/VideoPlayer"
  *  - An "initial" animation that is only ever played once, never looping
  *  - An "ambient" animation that can be looped, depending on the props passed into it
  */
-export const BrandMomentCaptureIntro = ({
+export const BrandMomentCaptureIntro: React.VFC<AnimatedSceneProps> = ({
   isAnimated,
   alt,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSceneProps) => {
+}) => {
   const [firstAnimationComplete, setFirstAnimationComplete] =
     React.useState(false)
 
@@ -51,3 +51,5 @@ export const BrandMomentCaptureIntro = ({
     />
   )
 }
+
+BrandMomentCaptureIntro.displayName = "BrandMomentCaptureIntro"
