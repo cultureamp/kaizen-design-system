@@ -32,7 +32,7 @@ jobs:
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
       github.event.review.state == 'approved' ||
-      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
+      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' )
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
