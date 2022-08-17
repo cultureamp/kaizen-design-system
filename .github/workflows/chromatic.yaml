@@ -15,6 +15,7 @@ on:
 
 jobs:
   label-pr:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     name: Label PR
     outputs:
@@ -30,7 +31,7 @@ jobs:
           APPROVALS: "1"
           ADD_LABEL: "approved"
       - name: Remove the approved label
-        if: steps.approved.outputs.isApproved == 'false'
+        if: steps.approved.outputs.isApproved == 'false' || steps.approved.outputs.isApproved == 'false'
         id: remove_label_approved
         uses: lightspeedretail/actions-label-prs@v1
         with:
@@ -38,6 +39,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REMOVE_LABEL: "approved"
+      - name: tests
+        run: echo ${{ steps.approved.outputs.isApproved }}
 
   visual-testing:
     needs: [label-pr]
