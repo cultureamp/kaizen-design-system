@@ -5,7 +5,7 @@ name: "chromatic"
 
 on:
   pull_request:
-    types: [labeled, synchronize]
+    types: [labeled]
   pull_request_review:
     types: [submitted, dismissed]
   push:
@@ -14,6 +14,23 @@ on:
       - draft-packages/**
 
 jobs:
+  paths-filter:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            packages:
+              - 'packages/**'
+              - 'draft-packages/**'
+      # run only if 'packages' files were changed
+      - name: path filters test
+        if: steps.filter.outputs.packages == 'true'
+        run: echo "packages/** or draft-packages/** has been updated"
   label-pr:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
@@ -47,7 +64,7 @@ jobs:
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
       needs.label-pr.outputs.isApproved == 'true' ||
-      github.ref == 'refs/heads/master'
+      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' )
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
