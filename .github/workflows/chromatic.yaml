@@ -27,15 +27,12 @@ jobs:
       - name: path filters test
         if: steps.filter.outputs.packages == 'true'
         run: echo "packages/** or draft-packages/** has been updated"
-      - name: Setup for visual testing
-        run: echo "${{github.event.head_commit.message}}, ${{startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')}}, ${{github.event.review.state}}"
   visual-testing:
     needs: paths-filter
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      (github.event.review.state == 'approved' && needs.paths-filter.outputs.packages == 'true' ) ||
+      github.event.review.state == 'approved' ||
       (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
-      (github.event.review.state == 'approved' && startsWith(github.event.head_commit.message, 'Merge branch ''master'' into'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
