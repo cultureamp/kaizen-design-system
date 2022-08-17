@@ -44,4 +44,13 @@ describe("setFocusInCalendar", () => {
     const dayToFocus = screen.getByRole("button", { name: todayFormatted })
     expect(dayToFocus).toHaveFocus()
   })
+
+  it("should focus on the first of the month when there is no selected day nor in the current month", () => {
+    render(<CalendarWrapper defaultMonth={new Date("2022-05-01")} />)
+
+    const dayToFocus = screen.getByRole("button", {
+      name: "1st May (Sunday)",
+    })
+    expect(dayToFocus).toHaveFocus()
+  })
 })

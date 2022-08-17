@@ -1,6 +1,7 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import React, { useState } from "react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { Selection } from "@react-types/shared"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
 import { MultiSelectOption } from "../../components/MultiSelectOption"
@@ -33,23 +34,34 @@ const itemsMock: ItemType[] = [
 
 const SelectionProviderWrapper = ({
   items = itemsMock,
+  selectedKeys,
+  onSelectionChange,
   ...props
-}: Partial<SelectionProviderProps>) => (
-  <SelectionProvider
-    selectionMode="multiple"
-    items={items}
-    label="selection-label-mock"
-    {...props}
-  >
-    <ListBox>
-      {item => <MultiSelectOption key={item.key} item={item} />}
-    </ListBox>
+}: Partial<SelectionProviderProps>) => {
+  const [selected, setSelected] = useState<Selection>(selectedKeys ?? new Set())
 
-    <SearchInput label="search-input-label-mock" />
-    <SelectAllButton />
-    <ClearButton />
-  </SelectionProvider>
-)
+  return (
+    <SelectionProvider
+      selectionMode="multiple"
+      items={items}
+      label="selection-label-mock"
+      selectedKeys={selected}
+      onSelectionChange={selection => {
+        setSelected(selection)
+        onSelectionChange && onSelectionChange(selection)
+      }}
+      {...props}
+    >
+      <ListBox>
+        {item => <MultiSelectOption key={item.key} item={item} />}
+      </ListBox>
+
+      <SearchInput label="search-input-label-mock" />
+      <SelectAllButton />
+      <ClearButton />
+    </SelectionProvider>
+  )
+}
 
 describe("<SelectionProviderWrapper /> - Visual content", () => {
   describe("Given no selectedKeys", () => {
@@ -60,19 +72,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
     })
 
     test("The listbox is labelled by the provided label", () => {
@@ -96,19 +108,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: false,
         })
-      )
+      ).toBeVisible()
     })
   })
 
@@ -120,19 +132,19 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
           name: "option-1-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-2-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
       expect(
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: true,
         })
-      )
+      ).toBeVisible()
     })
   })
 })
@@ -218,38 +230,41 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
 
     userEvent.click(clear)
 
-    waitFor(() => {
-      expect(
-        screen.getByRole("option", {
-          name: "option-1-label-mock",
-          selected: false,
-        })
-      )
-      expect(
-        screen.getByRole("option", {
-          name: "option-2-label-mock",
-          selected: false,
-        })
-      )
-      expect(
-        screen.getByRole("option", {
-          name: "option-3-label-mock",
-          selected: false,
-        })
-      )
-    })
+    expect(
+      screen.getByRole("option", {
+        name: "option-1-label-mock",
+        selected: false,
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+        selected: false,
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+        selected: false,
+      })
+    ).toBeVisible()
   })
 
-  it("fires onSelectionChange when clicks on Clear all button", async () => {
+  it("fires onSelectionChange when clicks on Clear all button", () => {
     const spy = jest.fn()
-    render(<SelectionProviderWrapper onSelectionChange={spy} />)
+    render(
+      <SelectionProviderWrapper
+        onSelectionChange={spy}
+        selectedKeys={new Set(["option-2-value-mock"])}
+      />
+    )
     const clear = screen.getByRole("button", {
       name: "Clear",
     })
 
     userEvent.click(clear)
 
-    waitFor(() => expect(spy).toHaveBeenCalledTimes(1))
+    expect(spy).toHaveBeenCalledTimes(1)
   })
 
   it("de-selects the option when clicks on a selected option", () => {
@@ -265,14 +280,12 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
 
     userEvent.click(option2)
 
-    waitFor(() =>
-      expect(
-        screen.getByRole("option", {
-          name: "option-2-label-mock",
-          selected: false,
-        })
-      )
-    )
+    expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+        selected: false,
+      })
+    ).toBeVisible()
   })
 })
 
@@ -280,7 +293,6 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   describe("Given no selectedKeys", () => {
     it("focuses on the frist option when tabs onto the list", () => {
       render(<SelectionProviderWrapper />)
-      const listBox = screen.getByRole("listbox")
       userEvent.tab()
 
       expect(
@@ -354,9 +366,6 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 
   it("selects the option when hits enter on a non-selected option", () => {
     render(<SelectionProviderWrapper />)
-    const option1 = screen.getByRole("option", {
-      name: "option-1-label-mock",
-    })
 
     userEvent.tab()
     userEvent.keyboard("{Enter}")
@@ -379,14 +388,12 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     userEvent.tab()
     userEvent.keyboard("{Enter}")
 
-    waitFor(() =>
-      expect(
-        screen.getByRole("option", {
-          name: "option-2-label-mock",
-          selected: false,
-        })
-      )
-    )
+    expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+        selected: false,
+      })
+    ).toBeVisible()
   })
 
   it("fires onSelectionChange when hits enter on a option", () => {
