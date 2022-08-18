@@ -95,33 +95,37 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
       <StoryWrapper.Row rowTitle="Default">
-        <RadioGroup labelText="Radio group label">
+        <RadioGroup labelText="Radio group label" reversed={isReversed}>
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
             value="radio-1"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
             value="radio-2"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
             value="radio-3"
+            reversed={isReversed}
           />
         </RadioGroup>
-        <RadioGroup labelText="Radio group label">
+        <RadioGroup labelText="Radio group label" reversed={isReversed}>
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-disabled-1"
             value="radio-1"
             disabled
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
@@ -129,6 +133,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="radio-disabled-2"
             value="radio-2"
             disabled
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
@@ -136,23 +141,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="radio-disabled-3"
             value="radio-3"
             disabled
+            reversed={isReversed}
           />
         </RadioGroup>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="No Bottom Margin">
         <div>
-          <RadioGroup labelText="Radio group label">
+          <RadioGroup labelText="Radio group label" reversed={isReversed}>
             <RadioField
               labelText="Label"
               name="radio"
               id="radio-no-mb-1"
               value="radio-1"
+              reversed={isReversed}
             />
             <RadioField
               labelText="Label"
               name="radio"
               id="radio-no-mb-2"
               value="radio-2"
+              reversed={isReversed}
             />
           </RadioGroup>
           <Label
@@ -161,6 +169,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             automationId="test_label"
             labelText="Next line"
             labelType="radio"
+            reversed={isReversed}
           />
         </div>
       </StoryWrapper.Row>
