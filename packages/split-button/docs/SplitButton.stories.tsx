@@ -23,10 +23,6 @@ const ACTION_BUTTON_PROPS__ANCHOR = {
   href: "//example.com",
 }
 
-const WrapperChromaticIgnore: React.VFC<{ children: React.ReactNode }> = ({
-  children,
-}) => <div data-chromatic="ignore">{children}</div>
-
 const DROPDOWN_CONTENT__ENABLED = (
   <MenuList>
     <MenuItem icon={editIcon} label="Menu Item 1" onClick={action("clicked")} />
@@ -185,26 +181,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper>
 
       {IS_CHROMATIC && (
-        <WrapperChromaticIgnore>
-          <StoryWrapper isReversed={isReversed}>
-            <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
-            <StoryWrapper.Row rowTitle="Dropdown open">
-              <SplitButton
-                isReversed={isReversed}
-                actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-                dropdownContent={DROPDOWN_CONTENT__ENABLED}
-                isDropdownInitOpen
-              />
-              <SplitButton
-                isReversed={isReversed}
-                actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-                dropdownContent={DROPDOWN_CONTENT__ENABLED}
-                dir="rtl"
-                isDropdownInitOpen
-              />
-            </StoryWrapper.Row>
-          </StoryWrapper>
-        </WrapperChromaticIgnore>
+        <StoryWrapper isReversed={isReversed} data-chromatic="ignore">
+          <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
+          <StoryWrapper.Row rowTitle="Dropdown open">
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              isDropdownInitOpen
+            />
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              dir="rtl"
+              isDropdownInitOpen
+            />
+          </StoryWrapper.Row>
+        </StoryWrapper>
       )}
     </>
   )
