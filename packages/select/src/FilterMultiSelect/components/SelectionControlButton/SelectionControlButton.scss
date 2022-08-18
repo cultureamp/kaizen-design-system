@@ -71,14 +71,10 @@ $focus-ring-offset: 1px;
         outline: none;
         border: 2px solid transparent;
       }
-      // show custom focus ring when :focus-visible
-      &:global(.focus-visible) {
-        color: rgba($color-purple-800-rgb, 0.3);
-        outline-offset: 1px;
-        background-color: transparent;
-        opacity: 1;
-        outline: $color-gray-300 $border-dashed-border-style
-          $border-focus-ring-border-width;
+
+      &:global(.focus-visible)::after {
+        border-style: $border-dashed-border-style;
+        border-color: $color-gray-400;
       }
     }
   }
