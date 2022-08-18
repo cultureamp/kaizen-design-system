@@ -7,11 +7,8 @@ on:
   pull_request:
     types: [labeled]
   pull_request_review:
-    types: [submitted, dismissed]
+    types: [submitted]
   push:
-    paths:
-      - packages/**
-      - draft-packages/**
 
 jobs:
   paths-filter:
@@ -27,44 +24,14 @@ jobs:
             packages:
               - 'packages/**'
               - 'draft-packages/**'
-      # run only when merging into master if 'packages' files were changed
-      - name: path filters test
-        if: steps.filter.outputs.packages == 'true'
-        run: echo "packages/** or draft-packages/** has been updated"
-  label-pr:
-    if: github.event_name != 'push'
-    runs-on: ubuntu-latest
-    name: Label PR
-    outputs:
-      isApproved: ${{ steps.approved.outputs.isApproved }}
-    steps:
-      - name: Label a pr when approved
-        id: approved
-        uses: lightspeedretail/actions-label-prs@v1
-        with:
-          task: "label_pr_when_approved"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APPROVALS: "1"
-          ADD_LABEL: "approved"
-      - name: Remove the approved label
-        if: steps.approved.outputs.isApproved == 'false'
-        id: remove_label_approved
-        uses: lightspeedretail/actions-label-prs@v1
-        with:
-          task: "label_pr_remove"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REMOVE_LABEL: "approved"
-      - name: tests
-        run: echo ${{ steps.approved.outputs.isApproved }}
 
   visual-testing:
-    needs: [label-pr, paths-filter]
+    needs: [paths-filter]
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      needs.label-pr.outputs.isApproved == 'true' ||
-      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' )
+      github.event.review.state == 'approved' ||
+      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
+      startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
