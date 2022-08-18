@@ -28,25 +28,17 @@ const WrapperChromaticIgnore: React.VFC<{ children: React.ReactNode }> = ({
 }) => <div data-chromatic="ignore">{children}</div>
 
 const DROPDOWN_CONTENT__ENABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem
-        icon={editIcon}
-        label="Menu Item 1"
-        onClick={action("clicked")}
-      />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" onClick={action("clicked")} />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 const DROPDOWN_CONTENT__ONE_DISABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem icon={editIcon} label="Menu Item 1" disabled />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" disabled />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 export default {
@@ -193,24 +185,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper>
 
       {IS_CHROMATIC && (
-        <StoryWrapper isReversed={isReversed}>
-          <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
-          <StoryWrapper.Row rowTitle="Dropdown open">
-            <SplitButton
-              isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              isDropdownInitOpen
-            />
-            <SplitButton
-              isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dir="rtl"
-              isDropdownInitOpen
-            />
-          </StoryWrapper.Row>
-        </StoryWrapper>
+        <WrapperChromaticIgnore>
+          <StoryWrapper isReversed={isReversed}>
+            <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
+            <StoryWrapper.Row rowTitle="Dropdown open">
+              <SplitButton
+                isReversed={isReversed}
+                actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
+                dropdownContent={DROPDOWN_CONTENT__ENABLED}
+                isDropdownInitOpen
+              />
+              <SplitButton
+                isReversed={isReversed}
+                actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
+                dropdownContent={DROPDOWN_CONTENT__ENABLED}
+                dir="rtl"
+                isDropdownInitOpen
+              />
+            </StoryWrapper.Row>
+          </StoryWrapper>
+        </WrapperChromaticIgnore>
       )}
     </>
   )
