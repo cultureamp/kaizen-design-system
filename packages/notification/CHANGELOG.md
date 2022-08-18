@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.7...@kaizen/notification@0.11.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 ## [0.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.10.6...@kaizen/notification@0.10.7) (2022-08-16)
 
 **Note:** Version bump only for package @kaizen/notification
