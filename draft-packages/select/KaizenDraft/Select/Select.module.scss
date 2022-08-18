@@ -105,7 +105,6 @@ $focus-border-color: $color-blue-500;
 
   .option {
     @include base-font-style();
-    border-radius: 4px;
     cursor: pointer;
     border-radius: $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
