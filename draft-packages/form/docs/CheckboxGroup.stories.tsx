@@ -155,101 +155,115 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
       <StoryWrapper.Row rowTitle="On">
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-on-1"
             checkedStatus="on"
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-on-2"
             checkedStatus="on"
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-on-disabled-1"
             checkedStatus="on"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-on-disabled-2"
             checkedStatus="on"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Off">
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-off-1"
             checkedStatus="off"
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-off-2"
             checkedStatus="off"
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-off-disabled-1"
             checkedStatus="off"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-off-disabled-2"
             checkedStatus="off"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Mixed">
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-mixed-1"
             checkedStatus="mixed"
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-mixed-2"
             checkedStatus="mixed"
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
-        <CheckboxGroup labelText="Checkbox Group Label">
+        <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
             id="checkbox-mixed-disabled-1"
             checkedStatus="mixed"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-mixed-disabled-2"
             checkedStatus="mixed"
             disabled
             labelText="Label"
+            reversed={isReversed}
           />
         </CheckboxGroup>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="No Bottom Margin">
         <div>
-          <CheckboxGroup labelText="Checkbox Group Label">
+          <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
             <CheckboxField
               id="checkbox-no-mb-1"
               checkedStatus="on"
               labelText="Label"
+              reversed={isReversed}
             />
             <CheckboxField
               id="checkbox-no-mb-2"
               checkedStatus="on"
               labelText="Label"
+              reversed={isReversed}
             />
           </CheckboxGroup>
           <Label
@@ -258,6 +272,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             automationId="test_label"
             labelText="Next line"
             labelType="checkbox"
+            reversed={isReversed}
           />
         </div>
       </StoryWrapper.Row>

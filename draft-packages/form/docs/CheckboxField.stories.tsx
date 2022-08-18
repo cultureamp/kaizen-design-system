@@ -55,12 +55,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
       <StoryWrapper.Row rowTitle="On">
-        <CheckboxField id="checkbox-on" checkedStatus="on" labelText="Label" />
+        <CheckboxField
+          id="checkbox-on"
+          checkedStatus="on"
+          labelText="Label"
+          reversed={isReversed}
+        />
         <CheckboxField
           id="checkbox-on-disabled"
           checkedStatus="on"
           labelText="Label"
           disabled
+          reversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Off">
@@ -68,12 +74,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="checkbox-off"
           checkedStatus="off"
           labelText="Label"
+          reversed={isReversed}
         />
         <CheckboxField
           id="checkbox-off-disabled"
           checkedStatus="off"
           labelText="Label"
           disabled
+          reversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Mixed">
@@ -81,12 +89,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="checkbox-mixed"
           checkedStatus="mixed"
           labelText="Label"
+          reversed={isReversed}
         />
         <CheckboxField
           id="checkbox-mixed-disabled"
           checkedStatus="mixed"
           labelText="Label"
           disabled
+          reversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="No Bottom Margin">
@@ -96,12 +106,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             checkedStatus="off"
             labelText="Label"
             noBottomMargin
+            reversed={isReversed}
           />
           <CheckboxField
             id="checkbox-no-mb-2"
             checkedStatus="off"
             labelText="Label"
             noBottomMargin
+            reversed={isReversed}
           />
         </div>
       </StoryWrapper.Row>
