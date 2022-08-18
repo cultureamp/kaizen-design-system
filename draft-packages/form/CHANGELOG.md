@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.22...@kaizen/draft-form@7.3.0) (2022-08-18)
+
+
+### Features
+
+* remove deprecated styles from checkbox ([#2924](https://github.com/cultureamp/kaizen-design-system/issues/2924)) ([9747a6f](https://github.com/cultureamp/kaizen-design-system/commit/9747a6fc73083ce85a1ee75a396e113b293ea2c2))
+
+
+
+
+
 ## [7.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.21...@kaizen/draft-form@7.2.22) (2022-08-11)
 
 
