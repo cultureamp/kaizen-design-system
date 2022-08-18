@@ -25,8 +25,8 @@ $focus-ring-offset: 1px;
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
 
-  //       8px       4px
-  padding: 0.5rem 0.25rem;
+  //       4px       8px
+  padding: 0.25rem 0.5rem;
 
   &:hover,
   &:active,
