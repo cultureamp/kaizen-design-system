@@ -131,7 +131,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper>
 
       <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Hoover", "Active", "Focus"]} />
+        <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
         <StoryWrapper.Row rowTitle="Action button">
           <SplitButton
             isReversed={isReversed}
