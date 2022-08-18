@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.2.22...@kaizen/split-button@1.2.23) (2022-08-18)
+
+
+### Bug Fixes
+
+* Splitbutton flaky test on chromatic ([#2921](https://github.com/cultureamp/kaizen-design-system/issues/2921)) ([0d23307](https://github.com/cultureamp/kaizen-design-system/commit/0d233079425eda9e97d4b5ee66d88f959a54a422))
+
+
+
+
+
 ## [1.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.2.21...@kaizen/split-button@1.2.22) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/split-button
