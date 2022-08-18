@@ -3,7 +3,6 @@ import { ComponentMeta, Story } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { withDesign } from "storybook-addon-designs"
-import isChromatic from "chromatic"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -11,8 +10,6 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
 import { SplitButton, SplitButtonProps } from "../"
 import { ActionButton, DropdownButton } from "../src/SplitButton/components"
-
-const IS_CHROMATIC = isChromatic()
 
 const ACTION_BUTTON_PROPS__BUTTON = {
   label: "Edit Survey",
@@ -23,30 +20,18 @@ const ACTION_BUTTON_PROPS__ANCHOR = {
   href: "//example.com",
 }
 
-const WrapperChromaticIgnore: React.VFC<{ children: React.ReactNode }> = ({
-  children,
-}) => <div data-chromatic="ignore">{children}</div>
-
 const DROPDOWN_CONTENT__ENABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem
-        icon={editIcon}
-        label="Menu Item 1"
-        onClick={action("clicked")}
-      />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" onClick={action("clicked")} />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 const DROPDOWN_CONTENT__ONE_DISABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem icon={editIcon} label="Menu Item 1" disabled />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" disabled />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 export default {
@@ -191,27 +176,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </StoryWrapper.Row>
       </StoryWrapper>
-
-      {IS_CHROMATIC && (
-        <StoryWrapper isReversed={isReversed}>
-          <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
-          <StoryWrapper.Row rowTitle="Dropdown open">
-            <SplitButton
-              isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              isDropdownInitOpen
-            />
-            <SplitButton
-              isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dir="rtl"
-              isDropdownInitOpen
-            />
-          </StoryWrapper.Row>
-        </StoryWrapper>
-      )}
     </>
   )
 }
