@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.4.0...@kaizen/draft-form@7.5.0) (2022-08-18)
+
+
+### Features
+
+* remove deprecated styles to radio field components ([#2925](https://github.com/cultureamp/kaizen-design-system/issues/2925)) ([abd6166](https://github.com/cultureamp/kaizen-design-system/commit/abd61668c5a7bf770ac9a277ae8f85dbfd30d676))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.3.0...@kaizen/draft-form@7.4.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 # [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.22...@kaizen/draft-form@7.3.0) (2022-08-18)
 
 

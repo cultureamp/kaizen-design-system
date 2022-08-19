@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.2.4...@kaizen/loading-spinner@2.3.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 ## [2.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.2.3...@kaizen/loading-spinner@2.2.4) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/loading-spinner
