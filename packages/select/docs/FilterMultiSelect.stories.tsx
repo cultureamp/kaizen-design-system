@@ -131,3 +131,43 @@ export const FilterBarDemo = args => {
 }
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
+
+export const DefaultKaizenSiteDemoWithoutScrollbar = args => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+
+  const handleSelectionChange = (keys: Selection) => {
+    keys && setSelectedKeys(keys)
+  }
+
+  return (
+    <FilterMultiSelect
+      label="Engineer"
+      onSelectionChange={handleSelectionChange}
+      selectedKeys={selectedKeys}
+      items={items.slice(0, 3)}
+      trigger={() => (
+        <FilterMultiSelect.TriggerButton
+          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          label="Engineer"
+        />
+      )}
+    >
+      {() => (
+        <>
+          <FilterMultiSelect.SearchInput />
+          <FilterMultiSelect.ListBox>
+            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+          </FilterMultiSelect.ListBox>
+          <FilterMultiSelect.MenuFooter>
+            <FilterMultiSelect.SelectAllButton />
+            <FilterMultiSelect.ClearButton />
+          </FilterMultiSelect.MenuFooter>
+        </>
+      )}
+    </FilterMultiSelect>
+  )
+}
+
+DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"

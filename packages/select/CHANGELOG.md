@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.2...@kaizen/select@1.2.3) (2022-08-19)
+
+
+### Bug Fixes
+
+* Kds 720 filter multi select padding issues ([#2918](https://github.com/cultureamp/kaizen-design-system/issues/2918)) ([c1f4ae5](https://github.com/cultureamp/kaizen-design-system/commit/c1f4ae50ba94d1d5925631e5f88b9a4c51cd0c8d))
+
+
+
+
+
 ## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.1...@kaizen/select@1.2.2) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/select

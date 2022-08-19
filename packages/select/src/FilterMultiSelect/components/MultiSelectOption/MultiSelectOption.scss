@@ -4,15 +4,13 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .option {
-  min-height: $spacing-lg;
   height: fit-content;
 
   align-items: flex-start;
   display: inline-grid;
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
-  padding: 0 $spacing-xs;
-  margin-right: $spacing-sm;
+  padding: $spacing-xs;
 
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
@@ -35,6 +33,9 @@
       border-color: $color-gray-600;
       background-color: $color-gray-200;
     }
+    .badge {
+      background-color: $color-white;
+    }
   }
 
   // TODO: move to focus ring (::after)
@@ -52,15 +53,24 @@
   }
 }
 
+$iconAndBadgeHeight: $spacing-md;
+
 .icon {
   line-height: 1;
-  height: calc(#{$spacing-md} - #{$border-solid-border-width} * 2);
-  width: calc(#{$spacing-md} - #{$border-solid-border-width} * 2);
+  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $color-gray-500;
   border-radius: $border-solid-border-radius;
   display: inline-flex;
   justify-content: center;
+  align-items: center;
+}
+
+.badgeContainer {
+  // Must be the same height as .icon, so they align vertically
+  height: $iconAndBadgeHeight;
+  display: flex;
   align-items: center;
 }
 
