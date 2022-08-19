@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/a11y",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "A collection of accessibility utils",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -22,21 +22,17 @@
     "!**/*.tsx",
     "**/*.d.ts",
     "!**/*.spec.*",
-    "!**/*.snap",
-    "!templates",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@kaizen/component-base": "^1.0.0",
-    "@kaizen/component-library": "^15.2.0"
+    "@kaizen/component-library": "^15.3.0"
   }
 }

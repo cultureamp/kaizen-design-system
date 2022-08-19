@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.0...@kaizen/draft-table@5.2.1) (2022-08-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.1.26...@kaizen/draft-table@5.2.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+## [5.1.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.1.25...@kaizen/draft-table@5.1.26) (2022-08-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [5.1.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.1.24...@kaizen/draft-table@5.1.25) (2022-08-11)
 
 **Note:** Version bump only for package @kaizen/draft-table
