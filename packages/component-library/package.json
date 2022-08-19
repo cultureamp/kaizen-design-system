@@ -17,8 +17,8 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!**/*.snap",
-    "!draft-templates",
-    "!stories",
+    "!draft-templates/**/*",
+    "!stories/**/*",
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,

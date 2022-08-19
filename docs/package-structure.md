@@ -93,11 +93,10 @@ The base package.json will look like this, where:
   },
   "files": [
     "**/*",
-    "**/*.d.ts",
     "!**/*.ts",
     "!**/*.tsx",
+    "**/*.d.ts", // This must be below `.ts` to override
     "!**/*.spec.*",
-    "!**/*.snap",
     "!docs",
     "!tsconfig.dist.json"
   ],
@@ -120,15 +119,18 @@ The base package.json will look like this, where:
 
 ### tsconfig.dist.json
 
+This config extends the dist file in the root. 
+
+It is important to have the `include` attribute set as files are included relative to the config file which has it (in this case, it would include files relative to the root of the repo, which includes all other packages).
+
+Like `include`, the `exclude` attribute will also look at files relative to the the file it was set, thus we want to avoid setting it in the root file.
+
+We exclude compiling the `.spec.ts(x)` files as we do not need to distribute test files.
+
 ```json
 {
   "extends": "../../tsconfig.dist.json",
-  "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "noEmit": false,
-    "sourceMap": true
-  },
-  "exclude": ["docs"]
+  "include": ["index.ts", "src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }
 ```

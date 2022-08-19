@@ -1,11 +1,5 @@
 {
   "extends": "../../tsconfig.dist.json",
   "include": ["components/**/*", "draft/**/*", "util/**/*", "index.ts"],
-  "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "noEmit": false,
-    "sourceMap": true
-  },
-  "exclude": ["docs"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }

@@ -22,10 +22,7 @@
     "!**/*.tsx",
     "**/*.d.ts",
     "!**/*.spec.*",
-    "!**/*.snap",
-    "!templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
