@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/typography",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Collection of Kaizen typography components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -23,16 +23,14 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.0",
+    "@kaizen/component-base": "^1.1.1",
     "classnames": "^2.3.1"
   },
   "devDependencies": {

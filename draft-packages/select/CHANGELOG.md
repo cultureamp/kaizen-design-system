@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.2...@kaizen/draft-select@2.5.3) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.1...@kaizen/draft-select@2.5.2) (2022-08-19)
+
+
+### Bug Fixes
+
+* Kds 618 select component missing focus states ([#2920](https://github.com/cultureamp/kaizen-design-system/issues/2920)) ([b44acd9](https://github.com/cultureamp/kaizen-design-system/commit/b44acd92fd65b4b54ba0fbf16ef037fda64ecd23))
+
+
+
+
+
 ## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.0...@kaizen/draft-select@2.5.1) (2022-08-18)
 
 **Note:** Version bump only for package @kaizen/draft-select
