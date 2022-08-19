@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.12.3...@kaizen/draft-badge@1.13.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 ## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.12.2...@kaizen/draft-badge@1.12.3) (2022-07-27)
 
 **Note:** Version bump only for package @kaizen/draft-badge

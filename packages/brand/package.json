@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "The brand component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,6 +33,6 @@
     "@kaizen/hosted-assets": "^2.0.0"
   },
   "peerDependencies": {
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }
