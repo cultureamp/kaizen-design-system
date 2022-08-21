@@ -4,6 +4,8 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../../mixins";
 
+$focus-ring-offset: 1px;
+
 .button {
   @include button-reset;
 
@@ -15,6 +17,7 @@
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
+  position: relative;
 
   color: $color-blue-500;
 
@@ -22,19 +25,34 @@
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
 
-  //       8px       4px
-  padding: 0.5rem 0.25rem;
+  //       4px       8px
+  padding: 0.25rem 0.5rem;
 
   &:hover,
   &:active,
   &:focus {
-    background-color: $color-blue-100;
+    &:not(.isDisabled) {
+      background-color: $color-blue-100;
+    }
   }
 
-  // TODO: Replace it to use focus ring
   &:focus {
     outline: none;
+  }
+
+  &:global(.focus-visible)::after {
+    $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
+    top: calc(-1 * #{$focus-ring-offset});
+    left: calc(-1 * #{$focus-ring-offset});
+    right: calc(-1 * #{$focus-ring-offset});
+    bottom: calc(-1 * #{$focus-ring-offset});
   }
 
   display: inline-flex;
@@ -53,14 +71,10 @@
         outline: none;
         border: 2px solid transparent;
       }
-      // show custom focus ring when :focus-visible
-      &:global(.focus-visible) {
-        color: rgba($color-purple-800-rgb, 0.3);
-        outline-offset: 1px;
-        background-color: transparent;
-        opacity: 1;
-        outline: $color-gray-300 $border-dashed-border-style
-          $border-focus-ring-border-width;
+
+      &:global(.focus-visible)::after {
+        border-style: $border-dashed-border-style;
+        border-color: $color-gray-400;
       }
     }
   }

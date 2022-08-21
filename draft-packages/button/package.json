@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-button",
-  "version": "6.1.18",
+  "version": "6.2.1",
   "description": "The draft Button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -22,19 +22,16 @@
     "!**/*.tsx",
     "**/*.d.ts",
     "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^15.2.0",
-    "@kaizen/draft-badge": "^1.12.3",
-    "@kaizen/loading-spinner": "^2.2.4",
+    "@kaizen/component-library": "^15.3.1",
+    "@kaizen/draft-badge": "^1.13.1",
+    "@kaizen/loading-spinner": "^2.3.1",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.1"
   },
@@ -43,6 +40,6 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

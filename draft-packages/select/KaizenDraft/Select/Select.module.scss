@@ -59,6 +59,12 @@ $focus-border-color: $color-blue-500;
       background-color: $color-gray-100;
       cursor: pointer;
     }
+
+    &:focus-within {
+      &::after {
+        @extend %focus-border;
+      }
+    }
   }
 
   .valueContainer {
@@ -99,13 +105,17 @@ $focus-border-color: $color-blue-500;
 
   .option {
     @include base-font-style();
-    border-radius: 4px;
     cursor: pointer;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: transparent;
   }
 
   .focusedOption {
     background-color: $color-blue-100;
     color: $color-blue-500;
+    border-color: $focus-border-color;
 
     &:active {
       background-color: $color-blue-100;

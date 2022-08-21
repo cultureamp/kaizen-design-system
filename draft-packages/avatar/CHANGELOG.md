@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.0...@kaizen/draft-avatar@2.8.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.19...@kaizen/draft-avatar@2.8.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 ## [2.7.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.7.18...@kaizen/draft-avatar@2.7.19) (2022-08-10)
 
 **Note:** Version bump only for package @kaizen/draft-avatar
