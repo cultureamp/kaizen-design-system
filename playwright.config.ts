@@ -8,6 +8,7 @@ const config: PlaywrightTestConfig = {
   retries: 1,
   use: {
     baseURL: `https://${BASE_URL}`,
+    trace: "on-first-retry",
   },
   projects: [
     {

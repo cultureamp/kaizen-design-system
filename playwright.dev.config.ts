@@ -15,11 +15,9 @@ const devConfig: PlaywrightTestConfig = {
 }
 
 if (devConfig) {
-  devConfig.retries = 1
   devConfig.use = {
     ...devConfig.use,
     baseURL: LOCALHOST,
-    trace: "on-first-retry",
   }
 }
 
