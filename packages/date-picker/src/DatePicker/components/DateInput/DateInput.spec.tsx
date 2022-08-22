@@ -101,7 +101,7 @@ describe("<DateInput />", () => {
         const ref = useRef({ buttonRef })
 
         const handleClick = () => {
-          fn(ref.current?.buttonRef.current?.getAttribute("aria-label"))
+          fn(buttonRef.current?.getAttribute("aria-label"))
         }
 
         return (
