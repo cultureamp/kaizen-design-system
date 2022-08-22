@@ -6,6 +6,7 @@ import styles from "../SelectionControlButton.scss"
 
 export const ClearButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
+
   return (
     <button
       className={classNames(

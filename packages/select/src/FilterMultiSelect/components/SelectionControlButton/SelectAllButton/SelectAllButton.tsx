@@ -16,7 +16,9 @@ export const SelectAllButton: React.VFC = () => {
       onClick={
         () =>
           !selectionState.selectionManager.isSelectAll &&
-          selectionState.selectionManager.selectAll()
+          selectionState.selectionManager.setSelectedKeys(
+            selectionState.collection.getKeys()
+          )
         // TODO: add annoucemnt here to inform all selected
       }
     >
