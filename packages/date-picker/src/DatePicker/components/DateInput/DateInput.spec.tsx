@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import { enUS } from "date-fns/locale"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import userEvent from "@testing-library/user-event"
 import { DateInput, DateInputProps } from "./DateInput"
 
 const defaultProps = {
@@ -88,6 +89,43 @@ describe("<DateInput />", () => {
       )
       const errorMessage = screen.queryByText("There is an error")
       expect(errorMessage).not.toBeInTheDocument()
+    })
+  })
+
+  describe("Refs", () => {
+    it("uses consumer buttonRef", () => {
+      const onButtonClick = jest.fn<void, [string | null | undefined]>()
+
+      const Wrapper = () => {
+        const buttonRef = useRef<HTMLButtonElement>(null)
+        const ref = useRef({ buttonRef })
+
+        const handleClick = () => {
+          onButtonClick(buttonRef.current?.getAttribute("aria-label"))
+        }
+
+        return (
+          <>
+            <DateInput
+              id="date-input-ref"
+              calendarId="cal-id"
+              isCalendarOpen={false}
+              labelText="label"
+              icon={dateStart}
+              onButtonClick={handleClick}
+              locale={enUS}
+              ref={ref}
+            />
+            <button onClick={handleClick}>Click me</button>
+          </>
+        )
+      }
+
+      render(<Wrapper />)
+
+      userEvent.click(screen.getByText("Click me"))
+
+      expect(onButtonClick).toBeCalledWith("Choose date")
     })
   })
 })
