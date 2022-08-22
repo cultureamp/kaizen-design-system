@@ -73,4 +73,15 @@ test.describe("Indentation of lists", async () => {
 
     expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
   })
+
+  test("This will fail", async ({ page }) => {
+    const editor = await page.locator('div[role="textbox"]')
+    const increaseIndentBtn = await page.locator(
+      '[aria-label="Increase indent"]'
+    )
+
+    await editor.click()
+    await editor.type("-")
+    expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
+  })
 })
