@@ -15,6 +15,7 @@
     "stylelint": "stylelint '**/*.scss'",
     "test": "jest",
     "playwright": "npx playwright test --config=playwright.dev.config.ts",
+    "playwright:ci": "npx playwright test",
     "playwright:debug": "PWDEBUG=1 npx playwright test --config=playwright.dev.config.ts",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "compile": "tsc",
