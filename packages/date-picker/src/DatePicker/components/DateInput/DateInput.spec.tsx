@@ -94,14 +94,14 @@ describe("<DateInput />", () => {
 
   describe("Refs", () => {
     it("uses consumer buttonRef", () => {
-      const fn = jest.fn<void, [string | null | undefined]>()
+      const onButtonClick = jest.fn<void, [string | null | undefined]>()
 
       const Wrapper = () => {
         const buttonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef({ buttonRef })
 
         const handleClick = () => {
-          fn(buttonRef.current?.getAttribute("aria-label"))
+          onButtonClick(buttonRef.current?.getAttribute("aria-label"))
         }
 
         return (
@@ -125,7 +125,7 @@ describe("<DateInput />", () => {
 
       userEvent.click(screen.getByText("Click me"))
 
-      expect(fn).toBeCalledWith("Choose date")
+      expect(onButtonClick).toBeCalledWith("Choose date")
     })
   })
 })
