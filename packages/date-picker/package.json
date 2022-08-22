@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.10.2",
+  "version": "5.10.3",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
