@@ -8,6 +8,7 @@ import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
+import dummyLists from "./dummyLists.json"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
@@ -29,13 +30,24 @@ EditableRichTextContentStory.args = {
   labelText: "Shared notes",
   isLabelHidden: false,
 }
+export const EditableRichTextContentWithListsStory = args => (
+  <InlineEditor {...args} />
+)
+EditableRichTextContentWithListsStory.storyName = "Lists"
+EditableRichTextContentWithListsStory.args = {
+  content: dummyLists,
+  labelText: "Shared notes",
+  isLabelHidden: false,
+}
 
 function InlineEditor(props: {
   content: EditorContentArray
   labelText: string
 }) {
   const [editMode, setEditMode] = useState<boolean>(false)
-  const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
+  const [rteData, setRTEData] = useState<EditorContentArray>(
+    props.content || dummyContent
+  )
   const handleContentClick = () => setEditMode(true)
   const handleCancel = () => setEditMode(false)
 
