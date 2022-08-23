@@ -1,8 +1,8 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .radioGroupLabel {
-  margin-bottom: calc(#{$ca-grid} / 2);
+  margin-bottom: $spacing-sm;
   label {
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
@@ -10,18 +10,18 @@
     }
   }
   &.reversed {
-    color: white;
+    color: $color-white;
   }
 }
 .radioGroupContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: calc(#{$ca-grid} / 2);
+  margin-bottom: $spacing-sm;
   &.noBottomMargin {
     margin-bottom: 0;
   }
 
   label {
-    width: 400px;
+    max-width: 400px;
   }
 }

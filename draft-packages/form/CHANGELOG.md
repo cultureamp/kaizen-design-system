@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.5.0...@kaizen/draft-form@7.5.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.4.0...@kaizen/draft-form@7.5.0) (2022-08-18)
+
+
+### Features
+
+* remove deprecated styles to radio field components ([#2925](https://github.com/cultureamp/kaizen-design-system/issues/2925)) ([abd6166](https://github.com/cultureamp/kaizen-design-system/commit/abd61668c5a7bf770ac9a277ae8f85dbfd30d676))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.3.0...@kaizen/draft-form@7.4.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+# [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.22...@kaizen/draft-form@7.3.0) (2022-08-18)
+
+
+### Features
+
+* remove deprecated styles from checkbox ([#2924](https://github.com/cultureamp/kaizen-design-system/issues/2924)) ([9747a6f](https://github.com/cultureamp/kaizen-design-system/commit/9747a6fc73083ce85a1ee75a396e113b293ea2c2))
+
+
+
+
+
+## [7.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.21...@kaizen/draft-form@7.2.22) (2022-08-11)
+
+
+### Bug Fixes
+
+* use max-width on label ([#2908](https://github.com/cultureamp/kaizen-design-system/issues/2908)) ([c59c49b](https://github.com/cultureamp/kaizen-design-system/commit/c59c49b02f29afbb39971032a3865fb12623d1d7))
+
+
+
+
+
 ## [7.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.2.20...@kaizen/draft-form@7.2.21) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/draft-form

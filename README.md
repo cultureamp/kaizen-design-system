@@ -74,6 +74,8 @@ Command | Summary
 `yarn lint` | Run all linters
 `yarn lint:fix` | Run all linters, fixing violations
 `yarn plop` | Add a new component/subcomponent
+`yarn playwright:` | Start storybook and run all Playwright tests 
+`yarn playwright:debug` | Start storybook and run all Playwright tests in debug mode 
 `yarn test` | Run all tests (using [Jest](https://jestjs.io/))
 `yarn reset` | Reinstall all dependencies
 
