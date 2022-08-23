@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import {
@@ -9,6 +9,7 @@ import {
   InputProps,
   Label,
 } from "@kaizen/draft-form"
+import { isRefObject } from "../../../utils/isRefObject"
 import { getDescription } from "./utils/getDescription"
 import styles from "./DateInput.module.scss"
 
@@ -26,9 +27,9 @@ type OmittedInputProps =
   | "automationId"
   | "locale"
   | "className" // This is deprecated in InputProps, but yet to be removed
+  | "inputRef"
 
 export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
-  buttonRef?: React.RefObject<HTMLButtonElement>
   id: string
   calendarId: string
   isCalendarOpen: boolean
@@ -54,88 +55,102 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
   locale: Locale
 }
 
-export const DateInput: React.VFC<DateInputProps> = ({
-  inputRef,
-  buttonRef,
-  id,
-  calendarId,
-  isCalendarOpen,
-  labelText,
-  description,
-  icon,
-  onButtonClick,
-  disabled,
-  isReversed = false,
-  status,
-  validationMessage,
-  value,
-  locale,
-  ...inputProps
-}) => {
-  const IconButton: React.ReactNode = (
-    <button
-      ref={buttonRef}
-      aria-disabled={disabled}
-      disabled={disabled}
-      onClick={onButtonClick}
-      type="button"
-      className={classnames([
-        styles.iconButton,
-        isCalendarOpen && styles.calendarActive,
-        disabled && styles.disabled,
-      ])}
-      aria-label={value ? `Change date, ${value}` : "Choose date"}
-    >
-      <Icon icon={icon} role="presentation" />
-    </button>
-  )
-
-  const descriptionId = `${id}-field-message`
-
-  const shouldShowValidationMessage = !disabled && validationMessage
-
-  return (
-    <FieldGroup inline={true}>
-      <Label
-        htmlFor={id}
-        labelText={labelText}
-        reversed={isReversed}
-        disabled={disabled}
-      />
-      <Input
-        inputRef={inputRef}
-        id={id}
-        role="combobox"
-        aria-expanded={isCalendarOpen}
-        aria-haspopup="dialog"
-        aria-controls={calendarId}
-        aria-describedby={descriptionId}
-        autoComplete="off"
-        value={value}
-        disabled={disabled}
-        reversed={isReversed}
-        endIconAdornment={IconButton}
-        status={status}
-        {...inputProps}
-      />
-      {shouldShowValidationMessage && (
-        <FieldMessage
-          message={validationMessage}
-          status={status}
-          reversed={isReversed}
-        />
-      )}
-      <div
-        className={classnames([styles.message, disabled && styles.disabled])}
-      >
-        <FieldMessage
-          id={descriptionId}
-          message={getDescription(description, locale)}
-          reversed={isReversed}
-        />
-      </div>
-    </FieldGroup>
-  )
+export type DateInputRefs = {
+  inputRef?: React.RefObject<HTMLInputElement>
+  buttonRef?: React.RefObject<HTMLButtonElement>
 }
 
+export const DateInput = React.forwardRef<DateInputRefs, DateInputProps>(
+  (
+    {
+      id,
+      calendarId,
+      isCalendarOpen,
+      labelText,
+      description,
+      icon,
+      onButtonClick,
+      disabled,
+      isReversed = false,
+      status,
+      validationMessage,
+      value,
+      locale,
+      ...inputProps
+    },
+    ref
+  ) => {
+    const fallbackInputRef = useRef<HTMLInputElement>(null)
+    const fallbackButtonRef = useRef<HTMLButtonElement>(null)
+    const customRefObject = isRefObject(ref) ? ref.current : null
+
+    const inputRef = customRefObject?.inputRef ?? fallbackInputRef
+    const buttonRef = customRefObject?.buttonRef ?? fallbackButtonRef
+
+    const IconButton: React.ReactNode = (
+      <button
+        ref={buttonRef}
+        aria-disabled={disabled}
+        disabled={disabled}
+        onClick={onButtonClick}
+        type="button"
+        className={classnames([
+          styles.iconButton,
+          isCalendarOpen && styles.calendarActive,
+          disabled && styles.disabled,
+        ])}
+        aria-label={value ? `Change date, ${value}` : "Choose date"}
+      >
+        <Icon icon={icon} role="presentation" />
+      </button>
+    )
+
+    const descriptionId = `${id}-field-message`
+
+    const shouldShowValidationMessage = !disabled && validationMessage
+
+    return (
+      <FieldGroup inline={true}>
+        <Label
+          htmlFor={id}
+          labelText={labelText}
+          reversed={isReversed}
+          disabled={disabled}
+        />
+        <Input
+          inputRef={inputRef}
+          id={id}
+          role="combobox"
+          aria-expanded={isCalendarOpen}
+          aria-haspopup="dialog"
+          aria-controls={calendarId}
+          aria-describedby={descriptionId}
+          autoComplete="off"
+          value={value}
+          disabled={disabled}
+          reversed={isReversed}
+          endIconAdornment={IconButton}
+          status={status}
+          {...inputProps}
+        />
+        {shouldShowValidationMessage && (
+          <FieldMessage
+            message={validationMessage}
+            status={status}
+            reversed={isReversed}
+          />
+        )}
+        <div
+          className={classnames([styles.message, disabled && styles.disabled])}
+        >
+          <FieldMessage
+            id={descriptionId}
+            message={getDescription(description, locale)}
+            reversed={isReversed}
+          />
+        </div>
+      </FieldGroup>
+    )
+  }
+)
 DateInput.displayName = "DateInput"

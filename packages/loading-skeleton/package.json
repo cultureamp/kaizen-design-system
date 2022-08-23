@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/loading-skeleton",
-  "version": "1.6.6",
+  "version": "1.7.1",
   "description": "A collection of loading placeholders that display a non-interactive preview of the app’s actual UI",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -22,18 +22,15 @@
     "!**/*.tsx",
     "**/*.d.ts",
     "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.0",
-    "@kaizen/typography": "^2.2.4",
+    "@kaizen/component-base": "^1.1.1",
+    "@kaizen/typography": "^2.3.1",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
@@ -42,6 +39,6 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

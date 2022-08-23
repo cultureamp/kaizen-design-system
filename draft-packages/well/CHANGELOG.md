@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.0...@kaizen/draft-well@4.2.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.1.18...@kaizen/draft-well@4.2.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
 ## [4.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.1.17...@kaizen/draft-well@4.1.18) (2022-08-01)
 
 **Note:** Version bump only for package @kaizen/draft-well

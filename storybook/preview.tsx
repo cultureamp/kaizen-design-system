@@ -1,11 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import { addParameters } from "@storybook/react"
 import React from "react"
-import {
-  defaultTheme,
-  ThemeProvider,
-  ThemeManager,
-} from "@kaizen/design-tokens"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
 
@@ -59,13 +55,11 @@ export const globalTypes = {
   },
 }
 
-export const themeManager = new ThemeManager(defaultTheme)
-
 export const decorators = [
   (Story: React.ComponentType) => (
-    <ThemeProvider themeManager={themeManager}>
+    <ThemeContext.Provider value={defaultTheme}>
       <Story />
-    </ThemeProvider>
+    </ThemeContext.Provider>
   ),
   (Story, props) => {
     const dir = props.args.textDirection ?? props.globals.textDirection
