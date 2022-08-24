@@ -10,13 +10,29 @@ jest.mock("../../../provider", () => ({
 
 describe("<SelectAllButton /> - interaction", () => {
   describe("Given not all options are selected", () => {
-    it("triggesrs selectionManager.selectAll() when clicks on the button", () => {
+    it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", () => {
       const spy = jest.fn()
+      const selectedAndFocused = "selectedAndFocused"
+      const filteredButNotSelected = "focusedButNotSelected"
+      const selectedButNotFocused = "selectedButNotFocused"
+      const selectedKeys = [selectedAndFocused, selectedButNotFocused]
+      const filteredKeys = [selectedAndFocused, filteredButNotSelected]
+      const expected = [
+        selectedAndFocused,
+        filteredButNotSelected,
+        selectedButNotFocused,
+      ]
+
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
+          collection: {
+            getKeys: () => filteredKeys,
+          },
           selectionManager: {
             isSelectAll: false,
-            selectAll: spy,
+            selectedKeys,
+            setSelectedKeys: spy,
+            isSelected: id => selectedKeys.includes(id),
           },
         },
       })
@@ -24,17 +40,27 @@ describe("<SelectAllButton /> - interaction", () => {
       userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith([...selectedKeys, ...filteredKeys])
     })
   })
 
-  describe("Given all options are selected", () => {
-    it("does not trigger selectionManager.selectAll() when clicks on the button", () => {
+  describe("Given all filtered options are selected", () => {
+    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", () => {
       const spy = jest.fn()
+      const selectedAndFocused1 = "selectedAndFocused1"
+      const selectedAndFocused2 = "selectedAndFocused2"
+      const selectedKeys = [selectedAndFocused1, selectedAndFocused2]
+      const filteredKeys = [selectedAndFocused1, selectedAndFocused2]
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
+          collection: {
+            getKeys: () => filteredKeys,
+          },
           selectionManager: {
             isSelectAll: true,
-            selectAll: spy,
+            selectedKeys,
+            setSelectedKeys: spy,
+            isSelected: id => selectedKeys.includes(id),
           },
         },
       })

@@ -23,11 +23,14 @@ export const ClearButton: React.VFC = () => {
       className={classNames(styles.button, isDisabled ? styles.isDisabled : "")}
       aria-disabled={isDisabled}
       onClick={
-        () =>
+        () => {
           !isDisabled &&
-          selectionState.selectionManager.setSelectedKeys(
-            selectedOptions.filter(option => !filteredOptions.includes(option))
-          )
+            selectionState.selectionManager.setSelectedKeys(
+              selectedOptions.filter(
+                option => !filteredOptions.includes(option)
+              )
+            )
+        }
         // TODO: add annoucemnt here to inform selection cleared
       }
     >
