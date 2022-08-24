@@ -6,6 +6,10 @@ import styles from "../SelectionControlButton.scss"
 
 export const SelectAllButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
+  const filteredOptions = Array.from(selectionState.collection.getKeys())
+  const selectedOptions = Array.from(
+    selectionState.selectionManager.selectedKeys
+  )
   return (
     <button
       className={classNames(
@@ -16,9 +20,10 @@ export const SelectAllButton: React.VFC = () => {
       onClick={
         () =>
           !selectionState.selectionManager.isSelectAll &&
-          selectionState.selectionManager.setSelectedKeys(
-            selectionState.collection.getKeys()
-          )
+          selectionState.selectionManager.setSelectedKeys([
+            ...selectedOptions,
+            ...filteredOptions,
+          ])
         // TODO: add annoucemnt here to inform all selected
       }
     >
