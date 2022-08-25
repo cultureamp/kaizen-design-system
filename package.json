@@ -1,6 +1,9 @@
 {
   "private": true,
-  "workspaces": ["packages/*", "draft-packages/*"],
+  "workspaces": [
+    "packages/*",
+    "draft-packages/*"
+  ],
   "engines": {
     "node": ">=14.18.0"
   },
