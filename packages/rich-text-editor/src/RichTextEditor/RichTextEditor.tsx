@@ -76,7 +76,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                 type: "doc",
                 content: value,
               })
-            : null,
+            : undefined,
           schema,
           plugins: getPlugins(controls, schema),
         }),

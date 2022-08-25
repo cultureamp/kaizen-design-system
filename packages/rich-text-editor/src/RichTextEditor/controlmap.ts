@@ -7,9 +7,9 @@ import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.
 import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 
-import { EditorState, Transaction } from "prosemirror-state"
+import { EditorState, Transaction, Command } from "prosemirror-state"
 import { Schema, NodeType, MarkType } from "prosemirror-model"
-import { Command, toggleMark } from "prosemirror-commands"
+import { toggleMark } from "prosemirror-commands"
 import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
 import { markIsActive, listIsActive } from "@cultureamp/rich-text-toolkit"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
@@ -21,8 +21,8 @@ type ToolbarControl = {
   isActive: boolean
   disabled?: boolean
   action: (
-    state: EditorState<any>,
-    dispatch: ((tr: Transaction<any>) => void) | undefined
+    state: EditorState,
+    dispatch: ((tr: Transaction) => void) | undefined
   ) => boolean
 }
 

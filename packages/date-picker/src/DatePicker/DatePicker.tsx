@@ -258,7 +258,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       const parsedDate = parse(inputValue, DateFormat.Numeral, new Date(), {
         locale,
       })
-      handleDayChange(parsedDate, e.target.value)
+      handleDayChange(parsedDate, e.currentTarget.value)
     }
 
     if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {

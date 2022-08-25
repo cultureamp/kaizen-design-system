@@ -28,8 +28,8 @@ const mac =
 export function buildKeymap(schema: Schema) {
   const keys: {
     [key: string]: (
-      state: EditorState<any>,
-      dispatch?: ((tr: Transaction<any>) => void) | undefined
+      state: EditorState,
+      dispatch?: ((tr: Transaction) => void) | undefined
     ) => boolean
   } = {
     "Mod-z": undo,
