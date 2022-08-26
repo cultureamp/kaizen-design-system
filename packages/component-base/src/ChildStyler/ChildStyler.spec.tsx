@@ -1,24 +1,37 @@
 import React, { HTMLAttributes } from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { OverrideClassName } from "../types"
-import { ChildStyler, ChildStylerProps } from "./ChildStyler"
+import { ChildStyler } from "./ChildStyler"
+import { TestChild } from "./TestComponents"
 
-const Child: React.VFC<OverrideClassName<HTMLAttributes<HTMLParagraphElement>>> = ({ classNameOverride, ...restProps}) => <p className={classNameOverride} {...restProps} />
+const IncompatibleChild: React.VFC<OverrideClassName<HTMLAttributes<HTMLParagraphElement>>> = ({ classNameOverride, ...restProps}) => <p className={classNameOverride} {...restProps} />
 
-const ChildStylerWrapper = (customProps?: Partial<ChildStylerProps>): JSX.Element => (
-  <ChildStyler>
-    {/* <div>hi</div> */}
-    {/* <Child classNameOverride="childClass" /> */}
-    <Child />
-  </ChildStyler>
-)
+// const ChildStylerWrapper = (customProps?: Partial<ChildStylerProps>): JSX.Element => (
+//   <>
+//   <ChildStyler children={<TestChild />} {...customProps} />
+//     {/* <div>hi</div> */}
+//     {/* <Child classNameOverride="childClass" /> */}
+//     {/* <TestChild /> */}
+//   {/* </ChildStyler> */}
+//   </>
+// )
 
 describe("<ChildStyler />", () => {
-  it("does something", () => {
-    // const { debug, container } = render(<Child />)
-    const { debug, container } = render(<ChildStylerWrapper />)
-    debug(container)
-    /** @todo: Fill in test case */
-    // expect(true).toBe(false)
+  it("passes in styles correctly to a compatible component", () => {
+    render(<ChildStyler><TestChild data-testid="test--testchild" /></ChildStyler>)
+    const element = screen.getByTestId("test--testchild")
+    expect(element).toHaveClass("testing")
+  })
+
+  it("does not apply styles to other components", () => {
+    render(<ChildStyler><IncompatibleChild data-testid="test--incompatiblechild" /></ChildStyler>)
+    const element = screen.getByTestId("test--incompatiblechild")
+    expect(element).not.toHaveClass("testing")
+  })
+
+  it("does not apply styles to other components", () => {
+    render(<ChildStyler><div data-testid="test--div" /></ChildStyler>)
+    const element = screen.getByTestId("test--div")
+    expect(element).not.toHaveClass("testing")
   })
 })

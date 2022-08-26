@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.testing {
+  background-color: lightblue;
+}
+
+$margin-size-list: (
+  "none": 0,
+  "1": 1px,
+  "xs": $spacing-xs,
+);
+
+@mixin margin-x-list {
+  @each $key, $value in $margin-size-list {
+    .margin-#{$key} { margin: $value; }
+    .margin-top-#{$key} { margin-top: $value; }
+    .margin-bottom-#{$key} { margin-bottom: $value; }
+    .margin-left-#{$key} { margin-left: $value; }
+    .margin-right-#{$key} { margin-right: $value; }
+  }
+}
+
+@include margin-x-list;

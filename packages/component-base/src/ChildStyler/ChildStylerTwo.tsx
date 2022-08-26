@@ -4,21 +4,22 @@ import { getMarginClassNames, StylerOptions } from "./utils"
 import { isUsingClassNameOverride } from "./typeguards"
 import styles from "./ChildStyler.module.scss"
 
-export interface ChildStylerProps extends StylerOptions {
+export interface ChildStylerTwoProps {
   children: React.ReactElement
+  options: StylerOptions
 }
 
-export const ChildStyler: React.VFC<ChildStylerProps> = ({ children, margin }) => isUsingClassNameOverride(children)
+export const ChildStylerTwo: React.VFC<ChildStylerTwoProps> = ({ children, options }) => isUsingClassNameOverride(children)
 ? Children.only(
   React.cloneElement(children, {
     ...children.props,
     classNameOverride: classnames(
       children.props.classNameOverride,
       styles.testing,
-      getMarginClassNames(margin)
+      getMarginClassNames(options.margin)
     ),
   })
   )
   : Children.only(children)
 
-ChildStyler.displayName = "ChildStyler"
+ChildStylerTwo.displayName = "ChildStylerTwo"

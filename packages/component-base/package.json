@@ -31,5 +31,8 @@
   },
   "peerDependencies": {
     "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@kaizen/typography": "^2.3.1"
   }
 }
