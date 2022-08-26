@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.3.3...@kaizen/draft-title-block-zen@7.4.0) (2022-08-26)
+
+
+### Features
+
+* Add custom component render prop to navigation tab of title block ([#2881](https://github.com/cultureamp/kaizen-design-system/issues/2881)) ([c7073e3](https://github.com/cultureamp/kaizen-design-system/commit/c7073e3685c5e081152a8485ebb1037609a0a193))
+
+
+
+
+
 ## [7.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.3.2...@kaizen/draft-title-block-zen@7.3.3) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
