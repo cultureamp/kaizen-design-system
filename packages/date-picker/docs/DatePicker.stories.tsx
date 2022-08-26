@@ -199,6 +199,7 @@ export const DefaultStory: ComponentStory<typeof DatePicker> = props => {
       {...props}
       onDayChange={setValueDate}
       selectedDay={props.selectedDay || selectedDate}
+      margin="xs"
     />
   )
 }

@@ -3,6 +3,8 @@ import { parse } from "date-fns"
 import { DateRange, DateInterval, DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import { ChildStyler } from "@kaizen/component-base"
+import { StylerOptions } from "@kaizen/component-base/src/ChildStyler/utils"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -35,7 +37,7 @@ type OmittedDateInputProps =
   | "locale"
 
 export interface DatePickerProps
-  extends Omit<DateInputProps, OmittedDateInputProps> {
+  extends Omit<DateInputProps, OmittedDateInputProps>, StylerOptions {
   id: string
   buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputProps["onClick"]
@@ -121,6 +123,7 @@ export interface DatePickerProps
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
 export const DatePicker: React.VFC<DatePickerProps> = ({
+  margin,
   id,
   buttonRef: propsButtonRef = useRef<HTMLButtonElement>(null),
   locale: propsLocale,
@@ -311,34 +314,36 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
       onEscapeKey={() => setIsOpen(false)}
       enabled={isOpen}
     >
-      <div ref={containerRef}>
-        <DateInput
-          ref={dateInputRefs}
-          id={id}
-          calendarId={`${id}-calendar-dialog`}
-          value={inputValue}
-          locale={locale}
-          isCalendarOpen={isOpen}
-          icon={dateStart}
-          onButtonClick={handleButtonClick}
-          onClick={handleInputClick}
-          onFocus={handleInputFocus}
-          onChange={handleInputChange}
-          onBlur={handleInputBlur}
-          onKeyDown={handleKeyDown}
-          status={
-            status !== undefined || !shouldUseInbuiltValidation
-              ? status
-              : inbuiltStatus
-          }
-          validationMessage={
-            validationMessage !== undefined || !shouldUseInbuiltValidation
-              ? validationMessage
-              : inbuiltValidationMessage
-          }
-          {...restDateInputProps}
-        />
-      </div>
+      <ChildStyler margin={margin}>
+        <div ref={containerRef}>
+          <DateInput
+            ref={dateInputRefs}
+            id={id}
+            calendarId={`${id}-calendar-dialog`}
+            value={inputValue}
+            locale={locale}
+            isCalendarOpen={isOpen}
+            icon={dateStart}
+            onButtonClick={handleButtonClick}
+            onClick={handleInputClick}
+            onFocus={handleInputFocus}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            onKeyDown={handleKeyDown}
+            status={
+              status !== undefined || !shouldUseInbuiltValidation
+                ? status
+                : inbuiltStatus
+            }
+            validationMessage={
+              validationMessage !== undefined || !shouldUseInbuiltValidation
+                ? validationMessage
+                : inbuiltValidationMessage
+            }
+            {...restDateInputProps}
+          />
+        </div>
+      </ChildStyler>
 
       {isOpen && (
         <CalendarWrapper referenceElement={containerRef.current}>
