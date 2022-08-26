@@ -8,17 +8,27 @@ export interface ChildStylerProps extends StylerOptions {
   children: React.ReactElement
 }
 
-export const ChildStyler: React.VFC<ChildStylerProps> = ({ children, margin }) => isUsingClassNameOverride(children)
-? Children.only(
-  React.cloneElement(children, {
-    ...children.props,
-    classNameOverride: classnames(
-      children.props.classNameOverride,
-      styles.testing,
-      getMarginClassNames(margin)
-    ),
-  })
-  )
-  : Children.only(children)
+export const ChildStyler: React.VFC<ChildStylerProps> = ({ children, margin }) => {
+  const classNames = classnames(styles.testing, getMarginClassNames(margin))
 
-ChildStyler.displayName = "ChildStyler"
+  return isUsingClassNameOverride(children)
+? Children.only(
+    React.cloneElement(children, {
+      ...children.props,
+      classNameOverride: classnames(
+        children.props.classNameOverride,
+        classNames
+      ),
+    })
+  )
+  // : Children.only(children)
+  : Children.only(
+    React.cloneElement(children, {
+      ...children.props,
+      className: classnames(
+        children.props.className,
+        classNames
+      ),
+    })
+  )
+}

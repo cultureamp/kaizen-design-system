@@ -1,11 +1,12 @@
 import React from "react"
 import { Paragraph } from "@kaizen/typography"
-import { AnotherTestChild, TestChild } from "./TestComponents"
+import { AnotherTestChild, ExampleChild, TestChild } from "./TestComponents"
 
 const COMPATIBLE_COMPONENTS: Array<React.JSXElementConstructor<any>> = [
   TestChild,
   AnotherTestChild,
-  Paragraph
+  Paragraph,
+  // ExampleChild
 ]
 
 export const isComponent = (element: string | React.JSXElementConstructor<any>): element is React.JSXElementConstructor<any> => element !== "string"

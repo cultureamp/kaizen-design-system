@@ -7,7 +7,8 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ChildStyler, OverrideClassName } from "../index"
 import { ChildStylerTwo } from "../src/ChildStyler/ChildStylerTwo"
-import { TestChild } from "../src/ChildStyler/TestComponents"
+import { ExampleChild, TestChild } from "../src/ChildStyler/TestComponents"
+import { StylerOptions } from "../src/ChildStyler/utils"
 
 export default {
   title: `${CATEGORIES.components}/ChildStyler`,
@@ -25,7 +26,6 @@ export default {
 } as ComponentMeta<typeof ChildStyler>
 
 const StoryChild: React.VFC<OverrideClassName<HTMLAttributes<HTMLParagraphElement>>> = ({ classNameOverride, ...restProps}) => <p className={classNameOverride} {...restProps} />
-// Child.displayName = "Kaizen__Child"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -102,6 +102,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <ChildStylerTwo options={{ margin: { top: "xs", left: "none" } }}>
         <Paragraph variant="body">Test Paragraph</Paragraph>
       </ChildStylerTwo>
+    </StoryWrapper.Row>
+
+    <StoryWrapper.Row rowTitle="In component">
+      <ExampleChild margin="xs" classNameOverride="OVERRIDE">Example child</ExampleChild>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
