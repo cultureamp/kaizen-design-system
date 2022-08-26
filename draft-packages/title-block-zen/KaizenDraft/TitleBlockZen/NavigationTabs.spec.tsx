@@ -28,7 +28,7 @@ describe("NavigationTabs", () => {
     ).toHaveAttribute("href", href)
   })
 
-  describe("with a component prop", () => {
+  describe("with a render prop", () => {
     it("renders the component passed with the navigation tab props", () => {
       const handleClick = jest.fn()
       const text = "I am also navigation tabs"
@@ -39,7 +39,7 @@ describe("NavigationTabs", () => {
           href={href}
           handleClick={handleClick}
           active
-          component={CustomComponent}
+          renderTab={CustomComponent}
           variant="education"
         />
       )

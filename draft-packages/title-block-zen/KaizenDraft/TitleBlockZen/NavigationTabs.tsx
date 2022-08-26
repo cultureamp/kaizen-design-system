@@ -18,7 +18,12 @@ export type NavigationTabProps = {
   variant?: Variant
   id?: string
   automationId?: string
-  component?: (props: CustomNavigationTabProps) => JSX.Element
+  /**
+   * Custom render for the tab. Commonly used to replace the link with a router link component.
+   * Props given to the NavigationTab component will be passed back, along with a decorated className.
+   * It is up to you to reapply them to your custom component.
+   */
+  renderTab?: (props: CustomNavigationTabProps) => JSX.Element
 }
 
 const isLight = (variant: Variant | undefined): boolean =>
@@ -30,8 +35,8 @@ const NavigationTab = (props: NavigationTabProps) => {
     [styles.active]: props.active,
   })
 
-  if (props.component) {
-    const { component: Component, ...otherProps } = props
+  if (props.renderTab) {
+    const { renderTab: Component, ...otherProps } = props
     return <Component {...otherProps} className={className} />
   }
 
