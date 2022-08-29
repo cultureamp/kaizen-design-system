@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.0...@kaizen/draft-title-block-zen@7.4.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* Update CustomNavigationTabProps ([#2933](https://github.com/cultureamp/kaizen-design-system/issues/2933)) ([cffcc71](https://github.com/cultureamp/kaizen-design-system/commit/cffcc71841bd367592613273c8e2c62788c7850c))
+
+
+
+
+
 # [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.3.3...@kaizen/draft-title-block-zen@7.4.0) (2022-08-26)
 
 
