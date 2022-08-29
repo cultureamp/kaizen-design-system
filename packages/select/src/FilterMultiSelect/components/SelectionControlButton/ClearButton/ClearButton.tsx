@@ -6,17 +6,31 @@ import styles from "../SelectionControlButton.scss"
 
 export const ClearButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
+  const filteredOptions = Array.from(selectionState.collection.getKeys())
+  const selectedOptions = Array.from(
+    selectionState.selectionManager.selectedKeys
+  )
+  const isDisabled =
+    filteredOptions.length === 0 ||
+    !Boolean(
+      filteredOptions.find(key =>
+        selectionState.selectionManager.isSelected(key)
+      )
+    )
+
   return (
     <button
-      className={classNames(
-        styles.button,
-        selectionState.selectionManager.isEmpty ? styles.isDisabled : ""
-      )}
-      aria-disabled={selectionState.selectionManager.isEmpty}
+      className={classNames(styles.button, isDisabled ? styles.isDisabled : "")}
+      aria-disabled={isDisabled}
       onClick={
-        () =>
-          !selectionState.selectionManager.isEmpty &&
-          selectionState.selectionManager.clearSelection()
+        () => {
+          !isDisabled &&
+            selectionState.selectionManager.setSelectedKeys(
+              selectedOptions.filter(
+                option => !filteredOptions.includes(option)
+              )
+            )
+        }
         // TODO: add annoucemnt here to inform selection cleared
       }
     >

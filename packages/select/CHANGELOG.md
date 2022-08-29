@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.3...@kaizen/select@1.2.4) (2022-08-29)
+
+
+### Bug Fixes
+
+* KDS-737 Only apply 'select all' and 'clear' to filtered items when using the search ([#2930](https://github.com/cultureamp/kaizen-design-system/issues/2930)) ([1365c95](https://github.com/cultureamp/kaizen-design-system/commit/1365c959f5b3cf13860451dcfaadae8e7fb2ac70))
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.2...@kaizen/select@1.2.3) (2022-08-19)
 
 
