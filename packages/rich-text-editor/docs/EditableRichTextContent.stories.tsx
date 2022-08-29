@@ -35,7 +35,9 @@ function InlineEditor(props: {
   labelText: string
 }) {
   const [editMode, setEditMode] = useState<boolean>(false)
-  const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
+  const [rteData, setRTEData] = useState<EditorContentArray>(
+    props.content || dummyContent
+  )
   const handleContentClick = () => setEditMode(true)
   const handleCancel = () => setEditMode(false)
 
