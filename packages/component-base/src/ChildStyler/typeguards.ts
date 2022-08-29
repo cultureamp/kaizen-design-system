@@ -9,10 +9,19 @@ const COMPATIBLE_COMPONENTS: Array<React.JSXElementConstructor<any>> = [
   // ExampleChild
 ]
 
-export const isComponent = (element: string | React.JSXElementConstructor<any>): element is React.JSXElementConstructor<any> => element !== "string"
-export const isCompatibleComponent = (child: React.ReactElement): boolean => isComponent(child.type) && COMPATIBLE_COMPONENTS.includes(child.type)
+export const isComponent = (
+  element: string | React.JSXElementConstructor<any>
+): element is React.JSXElementConstructor<any> => element !== "string"
+export const isCompatibleComponent = (child: React.ReactElement): boolean =>
+  isComponent(child.type) && COMPATIBLE_COMPONENTS.includes(child.type)
 
-export const isUsingClassNameOverride = (
-  child: React.ReactElement
-): child is React.ReactElement<{ classNameOverride?: string }> =>
-   React.isValidElement(child) && isCompatibleComponent(child)
+// export const isUsingClassNameOverride = (
+//   child: React.ReactElement
+// ): child is React.ReactElement<{ classNameOverride?: string }> =>
+//    React.isValidElement(child) && isCompatibleComponent(child)
+
+export const isUsingClassNameOverride = (child: any): boolean =>
+  //  React.isValidElement(child)
+  // &&
+  // isCompatibleComponent(child)
+  false

@@ -14,7 +14,7 @@ import { Paragraph } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
-  component: Box,
+  component: Paragraph,
   parameters: {
     chromatic: { disable: false },
     docs: {

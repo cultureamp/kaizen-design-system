@@ -9,17 +9,21 @@ export interface ChildStylerTwoProps {
   options: StylerOptions
 }
 
-export const ChildStylerTwo: React.VFC<ChildStylerTwoProps> = ({ children, options }) => isUsingClassNameOverride(children)
-? Children.only(
-  React.cloneElement(children, {
-    ...children.props,
-    classNameOverride: classnames(
-      children.props.classNameOverride,
-      styles.testing,
-      getMarginClassNames(options.margin)
-    ),
-  })
-  )
-  : Children.only(children)
+export const ChildStylerTwo: React.VFC<ChildStylerTwoProps> = ({
+  children,
+  options,
+}) =>
+  isUsingClassNameOverride(children)
+    ? Children.only(
+        React.cloneElement(children, {
+          ...children.props,
+          classNameOverride: classnames(
+            children.props.classNameOverride,
+            styles.testing,
+            getMarginClassNames(options.margin)
+          ),
+        })
+      )
+    : Children.only(children)
 
 ChildStylerTwo.displayName = "ChildStylerTwo"

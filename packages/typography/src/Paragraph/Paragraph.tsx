@@ -1,6 +1,6 @@
-import { createElement, HTMLAttributes } from "react"
+import React, { createElement, HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
+import { ChildStyler, OverrideClassName } from "@kaizen/component-base"
 import styles from "./Paragraph.module.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
@@ -53,6 +53,7 @@ export const Paragraph: React.VFC<ParagraphProps> = ({
   classNameOverride,
   ...restProps
 }) => {
+  const Tag = tag === undefined ? "p" : tag
   const className = classnames([
     styles.paragraph,
     styles[variant],
@@ -60,11 +61,18 @@ export const Paragraph: React.VFC<ParagraphProps> = ({
     classNameOverride,
   ])
 
-  return createElement(
-    tag === undefined ? "p" : tag,
-    { ...restProps, className },
-    children
+  return (
+    <ChildStyler>
+      <Tag className={className} {...restProps}>
+        {children}
+      </Tag>
+    </ChildStyler>
   )
+  // return createElement(
+  //   tag === undefined ? "p" : tag,
+  //   { ...restProps, className },
+  //   children
+  // )
 }
 
 Paragraph.displayName = "Paragraph"

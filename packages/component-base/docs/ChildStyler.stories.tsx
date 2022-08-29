@@ -16,16 +16,21 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { ChildStyler } from "@kaizen/component-base"',
+        component: 'import { ChildStyler } from "@kaizen/component-base"',
       },
     },
-    ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
+    ...figmaEmbed(
+      "REPLACE_THIS_WITH_FIGMA_URL"
+    ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof ChildStyler>
 
-const StoryChild: React.VFC<OverrideClassName<HTMLAttributes<HTMLParagraphElement>>> = ({ classNameOverride, ...restProps}) => <p className={classNameOverride} {...restProps} />
+const StoryChild: React.VFC<
+  OverrideClassName<HTMLAttributes<HTMLParagraphElement>>
+> = ({ classNameOverride, ...restProps }) => (
+  <p className={classNameOverride} {...restProps} />
+)
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -105,7 +110,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
 
     <StoryWrapper.Row rowTitle="In component">
-      <ExampleChild margin="xs" classNameOverride="OVERRIDE">Example child</ExampleChild>
+      <ExampleChild margin="xs" classNameOverride="OVERRIDE">
+        Example child
+      </ExampleChild>
     </StoryWrapper.Row>
   </StoryWrapper>
 )

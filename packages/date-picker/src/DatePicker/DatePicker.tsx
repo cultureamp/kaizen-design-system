@@ -37,7 +37,8 @@ type OmittedDateInputProps =
   | "locale"
 
 export interface DatePickerProps
-  extends Omit<DateInputProps, OmittedDateInputProps>, StylerOptions {
+  extends Omit<DateInputProps, OmittedDateInputProps>,
+    StylerOptions {
   id: string
   buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputProps["onClick"]

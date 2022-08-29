@@ -12,11 +12,21 @@ $margin-size-list: (
 
 @mixin margin-x-list {
   @each $key, $value in $margin-size-list {
-    .margin-#{$key} { margin: $value; }
-    .margin-top-#{$key} { margin-top: $value; }
-    .margin-bottom-#{$key} { margin-bottom: $value; }
-    .margin-left-#{$key} { margin-left: $value; }
-    .margin-right-#{$key} { margin-right: $value; }
+    .margin-#{$key} {
+      margin: $value;
+    }
+    .margin-top-#{$key} {
+      margin-top: $value;
+    }
+    .margin-bottom-#{$key} {
+      margin-bottom: $value;
+    }
+    .margin-left-#{$key} {
+      margin-left: $value;
+    }
+    .margin-right-#{$key} {
+      margin-right: $value;
+    }
   }
 }
 
