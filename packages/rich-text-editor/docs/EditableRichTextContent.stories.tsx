@@ -8,7 +8,6 @@ import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
-import dummyLists from "./dummyLists.json"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
@@ -27,15 +26,6 @@ export const EditableRichTextContentStory = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"
 EditableRichTextContentStory.args = {
   content: dummyContent,
-  labelText: "Shared notes",
-  isLabelHidden: false,
-}
-export const EditableRichTextContentWithListsStory = args => (
-  <InlineEditor {...args} />
-)
-EditableRichTextContentWithListsStory.storyName = "Lists"
-EditableRichTextContentWithListsStory.args = {
-  content: dummyLists,
   labelText: "Shared notes",
   isLabelHidden: false,
 }
