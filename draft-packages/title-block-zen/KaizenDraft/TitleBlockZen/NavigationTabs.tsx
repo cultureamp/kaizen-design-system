@@ -3,10 +3,7 @@ import classnames from "classnames"
 import { NON_REVERSED_VARIANTS, Variant } from "./TitleBlockZen"
 import styles from "./NavigationTabs.module.scss"
 
-export type CustomNavigationTabProps = Omit<
-  NavigationTabProps,
-  "component" | "variant"
-> & {
+export type CustomNavigationTabProps = Omit<NavigationTabProps, "renderTab"> & {
   className: string
 }
 
