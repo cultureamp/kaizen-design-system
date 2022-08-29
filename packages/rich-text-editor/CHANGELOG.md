@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.2...@kaizen/rich-text-editor@1.18.3) (2022-08-29)
+
+
+### Bug Fixes
+
+* add margin fix for list children selector ([#2929](https://github.com/cultureamp/kaizen-design-system/issues/2929)) ([822246d](https://github.com/cultureamp/kaizen-design-system/commit/822246da78dead5f2e47c68b8304d50a13d9692d))
+
+
+
+
+
 ## [1.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.1...@kaizen/rich-text-editor@1.18.2) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
