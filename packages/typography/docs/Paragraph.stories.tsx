@@ -23,8 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => <Paragraph {...args} />
+export const DefaultStory = args => <Paragraph {...args}>Paragraph</Paragraph>
 DefaultStory.storyName = "Paragraph"
+DefaultStory.args = { variant: "body" }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
