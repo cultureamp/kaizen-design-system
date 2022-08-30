@@ -8,7 +8,6 @@ export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { Heading } from "@kaizen/typography"',
@@ -22,7 +21,9 @@ export const Display0 = args => (
 )
 Display0.storyName = "Heading"
 Display0.args = { variant: "heading-1", color: "dark" }
-
+Display0.parameters = {
+  chromatic: { disable: false },
+}
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
