@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const Body = args => <Paragraph {...args}>Paragraph</Paragraph>
+export const Body = args => (
+  <Paragraph {...args}>The quick brown fox jumps over the lazy dog.</Paragraph>
+)
 Body.storyName = "Paragraph"
 Body.args = { variant: "body" }
 Body.parameters = {
@@ -38,41 +40,41 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader headings={["Default"]} />
       <StoryWrapper.Row rowTitle="Intro Lede">
         <Paragraph variant="intro-lede" color={isReversed ? "white" : "dark"}>
-          Paragraph
+          The quick brown fox jumps over the lazy dog.
         </Paragraph>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Body">
         <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
-          Paragraph
+          The quick brown fox jumps over the lazy dog.
         </Paragraph>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Body strong">
         <strong>
           <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
-            Paragraph
+            The quick brown fox jumps over the lazy dog.
           </Paragraph>
         </strong>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Small">
         <Paragraph variant="small" color={isReversed ? "white" : "dark"}>
-          Paragraph
+          The quick brown fox jumps over the lazy dog.
         </Paragraph>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Extra small">
         <Paragraph variant="extra-small" color={isReversed ? "white" : "dark"}>
-          Paragraph
+          The quick brown fox jumps over the lazy dog.
         </Paragraph>
       </StoryWrapper.Row>
       {!isReversed && (
         <>
           <StoryWrapper.Row rowTitle="Positive">
             <Paragraph variant="intro-lede" color="positive">
-              Paragraph
+              The quick brown fox jumps over the lazy dog.
             </Paragraph>
           </StoryWrapper.Row>
           <StoryWrapper.Row rowTitle="Negative">
             <Paragraph variant="intro-lede" color="negative">
-              Paragraph
+              The quick brown fox jumps over the lazy dog.
             </Paragraph>
           </StoryWrapper.Row>
         </>
