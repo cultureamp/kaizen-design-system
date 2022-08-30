@@ -26,6 +26,9 @@ export default {
 export const DefaultStory = args => <Paragraph {...args}>Paragraph</Paragraph>
 DefaultStory.storyName = "Paragraph"
 DefaultStory.args = { variant: "body" }
+DefaultStory.parameters = {
+  chromatic: { disable: true },
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
