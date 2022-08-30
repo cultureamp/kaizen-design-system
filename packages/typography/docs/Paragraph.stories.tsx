@@ -23,10 +23,10 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => <Paragraph {...args}>Paragraph</Paragraph>
-DefaultStory.storyName = "Paragraph"
-DefaultStory.args = { variant: "body" }
-DefaultStory.parameters = {
+export const Body = args => <Paragraph {...args}>Paragraph</Paragraph>
+Body.storyName = "Paragraph"
+Body.args = { variant: "body" }
+Body.parameters = {
   chromatic: { disable: true },
 }
 
