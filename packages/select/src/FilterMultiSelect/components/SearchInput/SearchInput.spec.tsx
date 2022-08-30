@@ -2,15 +2,11 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { useSelectionContext } from "../../provider"
+
 import { SearchInput } from "./"
 
 jest.mock("../../provider", () => ({
   useSelectionContext: jest.fn(),
-}))
-
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  useId: () => "id-mock", // To cover testing in React 16 and 17
 }))
 
 const SearchInputWrapper = () => <SearchInput label="label-mock" />
