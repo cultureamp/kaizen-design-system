@@ -1,4 +1,6 @@
-import React, { useId } from "react"
+import React, { useMemo } from "react"
+import { v4 } from "uuid"
+
 import { mergeProps } from "@react-aria/utils"
 import { useFocusRing } from "@react-aria/focus"
 import { Node } from "@react-types/shared"
@@ -31,7 +33,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
   // Determine whether we should show a keyboard
   // focus ring for accessibility
   const { isFocusVisible, focusProps } = useFocusRing()
-  const countElementId = useId()
+  const countElementId = useMemo(() => v4(), [])
 
   return (
     <li
