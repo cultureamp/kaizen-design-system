@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.4...@kaizen/select@1.2.5) (2022-08-30)
+
+
+### Bug Fixes
+
+* **component:** use uuid package instead of useId for compatibility with older React versions ([#2937](https://github.com/cultureamp/kaizen-design-system/issues/2937)) ([45a7bad](https://github.com/cultureamp/kaizen-design-system/commit/45a7bad63fda730dabb810d368c52d482ac35980))
+
+
+
+
+
 ## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.3...@kaizen/select@1.2.4) (2022-08-29)
 
 
