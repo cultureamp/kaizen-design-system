@@ -1,9 +1,17 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { Heading } from "../"
+import { Heading, Paragraph } from "../"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,
@@ -12,6 +20,17 @@ export default {
       description: {
         component: 'import { Heading } from "@kaizen/typography"',
       },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Documentation />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 }
@@ -21,15 +40,58 @@ export const Display0 = args => (
 )
 Display0.storyName = "Heading"
 Display0.args = { variant: "heading-1", color: "dark" }
-Display0.parameters = {
-  chromatic: { disable: false },
-}
+
+const Documentation = () => (
+  <Paragraph variant="body">
+    <ul>
+      <li>
+        The <code>variant</code> prop is required, but the <code>tag</code> prop
+        is not. If no <code>tag</code> prop is provided, <code>Heading</code>{" "}
+        will attempt to render the appropriate tag based on the chosen{" "}
+        <code>variant</code>. This cannot be relied on to give you the right tag
+        in 100% of cases, so we recommend manually choosing the appropriate tag
+        for your situation.
+      </li>
+      <li>
+        Use the <code>color</code> prop to change the text color. This prop is
+        typed to restrict values to a designer-approved palette. Do not modify
+        color by targeting the element via CSS from outside the{" "}
+        <code>Heading</code> component, because this causes problems in future
+        rebrands when our colors change.
+      </li>
+      <li>
+        <strong>Semantic, logical HTML should always take priority</strong> when
+        deciding which <code>tag</code> to use:
+        <ul>
+          <li>
+            Heading elements should never skip a level, e.g. an <code>h2</code>{" "}
+            followed by an <code>h4</code> should be avoided.
+          </li>
+          <li>
+            The main heading on the page that accurately summarizes the page
+            should be an <code>h1</code>.
+          </li>
+          <li>
+            A <code>Heading</code> should not have a bigger <code>tag</code>{" "}
+            than another visually smaller <code>Heading</code>.
+          </li>
+          <li>
+            <strong>
+              Illogical heading orders will cause pages to fail WCAG compliance
+              tests &amp; audits.
+            </strong>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </Paragraph>
+)
+
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Default"]} />
       <StoryWrapper.Row rowTitle="Display 0">
         <Heading variant="display-0" color={isReversed ? "white" : "dark"}>
           Let's create a better world of work
