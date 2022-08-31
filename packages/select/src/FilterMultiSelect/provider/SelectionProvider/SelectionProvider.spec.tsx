@@ -12,11 +12,6 @@ import {
 import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  useId: () => "id-mock", // To cover testing in React 16 and 17
-}))
-
 const itemsMock: ItemType[] = [
   {
     label: "option-1-label-mock",
