@@ -1,4 +1,5 @@
-import React, { useId } from "react"
+import React, { useMemo } from "react"
+import { v4 } from "uuid"
 import { InputSearch } from "@kaizen/draft-form"
 import { useSelectionContext } from "../../provider"
 
@@ -18,9 +19,11 @@ export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
     setSearchQuery("")
   }
 
+  const inputId = useMemo(() => id ?? v4(), [id])
+
   return (
     <InputSearch
-      id={id ?? useId()}
+      id={inputId}
       aria-label={label ?? "Filter options by search query"}
       secondary
       placeholder="Search…"
