@@ -93,36 +93,66 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   const fontColour = isReversed ? "white" : "dark"
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper isReversed={isReversed} hasColumnDivider hasRowDivider>
         <StoryWrapper.Row rowTitle="Display 0">
           <Heading variant="display-0" color={fontColour}>
             Let's create a better world of work
           </Heading>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 1">
-          <Heading variant="heading-1" color={fontColour}>
-            Have the courage to be vulnerable.
-          </Heading>
+          <>
+            <Heading variant="heading-1" color={fontColour}>
+              Have the courage to be vulnerable.
+            </Heading>
+            <Heading variant="heading-1" color={fontColour}>
+              Be authentic, ask for help, be willing to fail, create open
+              environments.
+            </Heading>
+          </>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 2">
-          <Heading variant="heading-2" color={fontColour}>
-            Learn faster through feedback.
-          </Heading>
+          <>
+            <Heading variant="heading-2" color={fontColour}>
+              Learn faster through feedback.
+            </Heading>
+            <Heading variant="heading-2" color={fontColour}>
+              Seek feedback, give feedback responsibly, respond constructively,
+              learn continuously.
+            </Heading>
+          </>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 3">
-          <Heading variant="heading-3" color={fontColour}>
-            Trust people to make decisions.
-          </Heading>
+          <>
+            <Heading variant="heading-3" color={fontColour}>
+              Trust people to make decisions.
+            </Heading>
+            <Heading variant="heading-3" color={fontColour}>
+              Provide constructive feedback, support decisions, be accountable,
+              delegate decisions.
+            </Heading>
+          </>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 4">
-          <Heading variant="heading-4" color={fontColour}>
-            Amplify others.
-          </Heading>
+          <>
+            <Heading variant="heading-4" color={fontColour}>
+              Amplify others.
+            </Heading>
+            <Heading variant="heading-4" color={fontColour}>
+              Recognise others, succeed together, grow others, create
+              opportunities.
+            </Heading>
+          </>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 5">
-          <Heading variant="heading-5" color={fontColour}>
-            An employee experience that people love.
-          </Heading>
+          <>
+            <Heading variant="heading-5" color={fontColour}>
+              An employee experience that people love.
+            </Heading>
+            <Heading variant="heading-5" color={fontColour}>
+              Get the employee engagement, performance and development tools and
+              insights you need to build a category-defining culture.
+            </Heading>
+          </>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 6">
           <Heading variant="heading-6" color={fontColour}>
@@ -131,7 +161,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         </StoryWrapper.Row>
       </StoryWrapper>
       {!isReversed ? (
-        <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper isReversed={isReversed} hasColumnDivider>
           <StoryWrapper.RowHeader
             headings={["Dark", "Dark Reduced Opacity", "Positive", "Negative"]}
           />
