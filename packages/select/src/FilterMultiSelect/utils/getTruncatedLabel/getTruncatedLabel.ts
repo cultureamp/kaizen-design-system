@@ -3,9 +3,10 @@ const CONNECTOR = ", "
 export const truncateByCharacterLimit = (
   labels: string[],
   limit: number,
-  i = 0
+  labelsTruncatedCount = 0
 ): string => {
-  const moreIndicator = i > 0 ? ` + ${i} more` : ""
+  const moreIndicator =
+    labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
   if (labels.length === 1) {
     return `${labels.join(CONNECTOR)}${moreIndicator}`
   }
@@ -14,8 +15,8 @@ export const truncateByCharacterLimit = (
   }
 
   const newLabels = labels.slice(0, labels.length - 1)
-  return truncateByCharacterLimit(newLabels, limit, i + 1)
+  return truncateByCharacterLimit(newLabels, limit, labelsTruncatedCount + 1)
 }
 
-export const getTruncatedLabels = (labels: string[], limit) =>
+export const getTruncatedLabels = (labels: string[], limit: number): string =>
   truncateByCharacterLimit(labels, limit)
