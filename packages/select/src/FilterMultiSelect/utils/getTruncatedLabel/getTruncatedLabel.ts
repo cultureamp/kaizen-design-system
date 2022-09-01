@@ -5,7 +5,7 @@ const truncateByCharacterLimit = (
   limit: number,
   labelsTruncatedCount = 0
 ): string => {
-  if (labels.length === 1 || labels.join("").length < limit) {
+  if (labels.length === 1 || labels.join("").replace(/,/g, "").length < limit) {
     const moreIndicator =
       labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
     return `${labels.join(CONNECTOR)}${moreIndicator}`
