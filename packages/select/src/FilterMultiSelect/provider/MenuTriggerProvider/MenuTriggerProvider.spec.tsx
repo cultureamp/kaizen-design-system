@@ -10,9 +10,15 @@ import {
 } from "./MenuTriggerProvider"
 
 const MenuTriggerProviderWrapper = ({
+  isOpen,
   defaultOpen,
+  onOpenChange,
 }: Partial<MenuTriggerProviderProps>) => (
-  <MenuTriggerProvider defaultOpen={defaultOpen}>
+  <MenuTriggerProvider
+    defaultOpen={defaultOpen}
+    isOpen={isOpen}
+    onOpenChange={onOpenChange}
+  >
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>
       <span>menu-content-mock</span>
@@ -30,23 +36,50 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
     expect(trigger).toBeVisible()
   })
 
-  it("does not show the menu initially", () => {
-    render(<MenuTriggerProviderWrapper />)
-    const menu = screen.queryByText("menu-content-mock")
-    expect(menu).not.toBeInTheDocument()
-  })
-
-  it("shows the menu when defaultOpen is set to true", () => {
-    render(<MenuTriggerProviderWrapper defaultOpen />)
-    const menu = screen.queryByText("menu-content-mock")
-    expect(menu).toBeVisible()
-  })
-
   it("makes sure the menu to be labelled by trigger", () => {
     render(<MenuTriggerProviderWrapper defaultOpen />)
     const menu = screen.getByLabelText("trigger-display-label-mock")
 
     expect(menu).toHaveTextContent("menu-content-mock")
+  })
+
+  describe("when uncontrolled", () => {
+    it("does not show the menu initially", () => {
+      render(<MenuTriggerProviderWrapper />)
+      const menu = screen.queryByText("menu-content-mock")
+      expect(menu).not.toBeInTheDocument()
+    })
+
+    it("shows the menu when defaultOpen is set to true", () => {
+      render(<MenuTriggerProviderWrapper defaultOpen />)
+      const menu = screen.queryByText("menu-content-mock")
+      expect(menu).toBeVisible()
+    })
+  })
+  describe("when controlled", () => {
+    it("shows the menu based on the isOpen prop", () => {
+      const { rerender } = render(<MenuTriggerProviderWrapper isOpen={true} />)
+
+      const menu = screen.queryByText("menu-content-mock")
+      expect(menu).toBeVisible()
+
+      rerender(<MenuTriggerProviderWrapper isOpen={false} />)
+      expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
+    })
+
+    it("fires the onOpenChange callback when the trigger is interacted", () => {
+      const onOpenChange = jest.fn()
+      render(
+        <MenuTriggerProviderWrapper isOpen={true} onOpenChange={onOpenChange} />
+      )
+
+      const trigger = screen.getByRole("button", {
+        name: "trigger-display-label-mock",
+      })
+      userEvent.click(trigger)
+      expect(onOpenChange).toBeCalledTimes(1)
+      expect(onOpenChange).toBeCalledWith(false)
+    })
   })
 })
 

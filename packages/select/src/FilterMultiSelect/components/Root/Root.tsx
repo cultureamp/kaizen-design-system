@@ -22,7 +22,9 @@ export interface RootProps
 }
 
 interface MenuTriggerProps {
+  isOpen?: boolean
   defaultOpen?: boolean
+  onOpenChange?: (isOpen: boolean) => void
 }
 
 interface MenuPopupProps {
@@ -48,9 +50,9 @@ export type FilterMultiSelectProps = RootProps
 export const Root: React.VFC<RootProps> = ({
   trigger,
   children,
-
+  isOpen,
   defaultOpen = false,
-
+  onOpenChange,
   isLoading,
   loadingSkeleton,
 
@@ -61,7 +63,7 @@ export const Root: React.VFC<RootProps> = ({
   selectionMode = "multiple",
   disabledKeys,
 }) => {
-  const menuTriggerProps = { defaultOpen }
+  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const selectionProps = {
     label,
