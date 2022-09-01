@@ -33,6 +33,7 @@ export const StoryRow: React.VFC<StoryRowProps> = ({
       <div
         className={classNames(styles.storyRowContainer, {
           [styles.columnDivider]: hasColumnDivider,
+          [styles.reversed]: isReversed,
         })}
         style={{
           gridTemplateColumns: `repeat(${gridColumns || childrenCount}, 1fr)`,

@@ -20,6 +20,12 @@ $grid-gap: 1.5rem;
       padding-bottom: 1.5rem;
     }
   }
+  .rowDivider.reversed & {
+    &:not(:last-child) {
+      border-bottom: 2px rgba($color-white-rgb, 0.1) solid;
+      padding-bottom: 1.5rem;
+    }
+  }
 }
 
 .topHeader {
@@ -50,6 +56,13 @@ $grid-gap: 1.5rem;
   .columnDivider * {
     &:not(:last-child) {
       border-right: 2px rgba($color-gray-600-rgb, 0.1) solid;
+      padding-right: 1.5rem;
+    }
+  }
+
+  .columnDivider.reversed * {
+    &:not(:last-child) {
+      border-right: 2px rgba($color-white-rgb, 0.1) solid;
       padding-right: 1.5rem;
     }
   }

@@ -93,14 +93,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   const fontColour = isReversed ? "white" : "dark"
   return (
     <>
-      <StoryWrapper isReversed={isReversed} hasColumnDivider hasRowDivider>
+      <StoryWrapper isReversed={isReversed} hasRowDivider>
         <StoryWrapper.Row rowTitle="Display 0">
           <Heading variant="display-0" color={fontColour}>
             Let's create a better world of work
           </Heading>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 1">
-          <>
+          <div>
             <Heading variant="heading-1" color={fontColour}>
               Have the courage to be vulnerable.
             </Heading>
@@ -108,10 +108,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               Be authentic, ask for help, be willing to fail, create open
               environments.
             </Heading>
-          </>
+          </div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 2">
-          <>
+          <div>
             <Heading variant="heading-2" color={fontColour}>
               Learn faster through feedback.
             </Heading>
@@ -119,10 +119,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               Seek feedback, give feedback responsibly, respond constructively,
               learn continuously.
             </Heading>
-          </>
+          </div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 3">
-          <>
+          <div>
             <Heading variant="heading-3" color={fontColour}>
               Trust people to make decisions.
             </Heading>
@@ -130,10 +130,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               Provide constructive feedback, support decisions, be accountable,
               delegate decisions.
             </Heading>
-          </>
+          </div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 4">
-          <>
+          <div>
             <Heading variant="heading-4" color={fontColour}>
               Amplify others.
             </Heading>
@@ -141,10 +141,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               Recognise others, succeed together, grow others, create
               opportunities.
             </Heading>
-          </>
+          </div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 5">
-          <>
+          <div>
             <Heading variant="heading-5" color={fontColour}>
               An employee experience that people love.
             </Heading>
@@ -152,7 +152,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               Get the employee engagement, performance and development tools and
               insights you need to build a category-defining culture.
             </Heading>
-          </>
+          </div>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 6">
           <Heading variant="heading-6" color={fontColour}>
@@ -181,7 +181,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           </StoryWrapper.Row>
         </StoryWrapper>
       ) : (
-        <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper isReversed={isReversed} hasColumnDivider>
           <StoryWrapper.RowHeader
             headings={["White", "White Reduced Opacity"]}
           />

@@ -42,6 +42,7 @@ export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
       className={classNames(styles.storyRowContainer, {
         [styles.noRowTitles]: hasNoRowTitles,
         [styles.rowDivider]: hasRowDivider,
+        [styles.reversed]: isReversed,
       })}
       style={{
         gridTemplateRows: `repeat(${childrenCount}, min-content)`,
