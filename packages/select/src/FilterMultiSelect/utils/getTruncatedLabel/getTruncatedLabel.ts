@@ -1,6 +1,6 @@
 const CONNECTOR = ", "
 
-export const truncateByCharacterLimit = (
+const truncateByCharacterLimit = (
   labels: string[],
   limit: number,
   labelsTruncatedCount = 0
