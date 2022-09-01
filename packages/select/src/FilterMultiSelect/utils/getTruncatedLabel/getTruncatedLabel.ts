@@ -5,12 +5,9 @@ const truncateByCharacterLimit = (
   limit: number,
   labelsTruncatedCount = 0
 ): string => {
-  const moreIndicator =
-    labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
-  if (labels.length === 1) {
-    return `${labels.join(CONNECTOR)}${moreIndicator}`
-  }
-  if (labels.join("").length < limit) {
+  if (labels.length === 1 || labels.join("").length < limit) {
+    const moreIndicator =
+      labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
     return `${labels.join(CONNECTOR)}${moreIndicator}`
   }
 

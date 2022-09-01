@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
 import { Button, ButtonRef } from "@kaizen/button"
@@ -30,25 +30,25 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterMultiSelect>
 
-export const DefaultKaizenSiteDemo = args => {
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof FilterMultiSelect
+> = args => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
 
-  const handleSelectionChange = (keys: Selection) => {
-    keys && setSelectedKeys(keys)
-  }
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
   return (
     <FilterMultiSelect
-      label="Engineer"
+      {...args}
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
       items={items}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-          label="Engineer"
+          {...args}
         />
       )}
     >
@@ -69,19 +69,20 @@ export const DefaultKaizenSiteDemo = args => {
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
-export const TruncatedLabels = args => {
+export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
   const [characterLimit, setCharacterLimit] = useState<number>(100)
 
-  const handleSelectionChange = (keys: Selection) => {
-    keys && setSelectedKeys(keys)
-  }
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
-  const handleCharacterLimitChange = e => {
-    setCharacterLimit(e.target.value)
+  const handleCharacterLimitChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = e => {
+    setCharacterLimit(+e.target.value)
   }
 
   return (
@@ -95,7 +96,7 @@ export const TruncatedLabels = args => {
           type="number"
           onChange={handleCharacterLimitChange}
           value={characterLimit}
-        ></input>
+        />
       </div>
       <FilterMultiSelect
         label="Engineer"
@@ -127,7 +128,7 @@ export const TruncatedLabels = args => {
   )
 }
 
-export const FilterBarDemo = args => {
+export const FilterBarDemo = () => {
   const {
     groups,
     selectedGroups,
@@ -190,7 +191,7 @@ export const FilterBarDemo = args => {
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
 
-export const DefaultKaizenSiteDemoWithoutScrollbar = args => {
+export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )

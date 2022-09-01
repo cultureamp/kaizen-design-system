@@ -7,6 +7,10 @@ export type FilterTriggerButtonProps = {
   label: string
   selectedOptionLabels: string[]
   classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
+  /**
+   * Character limit of the button label.
+   * It will always show the first selected label regardless if it exceeds the given character limit.
+   */
   characterLimit?: number
 }
 
