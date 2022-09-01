@@ -5,6 +5,7 @@ import { Selection } from "@react-types/shared"
 import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
+import { Label } from "@kaizen/draft-form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -68,6 +69,63 @@ export const DefaultKaizenSiteDemo = args => {
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+
+export const TruncatedLabels = args => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+  const [characterLimit, setCharacterLimit] = useState<number>(100)
+
+  const handleSelectionChange = (keys: Selection) => {
+    keys && setSelectedKeys(keys)
+  }
+
+  const handleCharacterLimitChange = e => {
+    setCharacterLimit(e.target.value)
+  }
+
+  return (
+    <>
+      <div style={{ marginBottom: "3rem" }}>
+        <Label
+          labelText="Update character limit: "
+          style={{ marginRight: "1rem" }}
+        />
+        <input
+          type="number"
+          onChange={handleCharacterLimitChange}
+          value={characterLimit}
+        ></input>
+      </div>
+      <FilterMultiSelect
+        label="Engineer"
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={items}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            label="Engineer"
+            characterLimit={characterLimit}
+          />
+        )}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+    </>
+  )
+}
 
 export const FilterBarDemo = args => {
   const {
