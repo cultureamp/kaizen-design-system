@@ -177,10 +177,16 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
+export type CustomBreadcrumbProps = Omit<Breadcrumb, "renderBreadcrumb"> & {
+  className: string
+  children: React.ReactNode
+}
+
 type Breadcrumb = {
   text: string
   path?: string
   handleClick?: (event: React.MouseEvent) => void
+  renderBreadcrumb?: (props: CustomBreadcrumbProps) => JSX.Element
 }
 
 const renderTag = (surveyStatus: SurveyStatus) => {
@@ -303,30 +309,51 @@ const renderBreadcrumb = (
   breadcrumbTextAutomationId: string,
   textDirection?: TextDirection
 ) => {
-  const { path, handleClick, text } = breadcrumb
+  const {
+    path,
+    handleClick,
+    text,
+    renderBreadcrumb: CustomBreadcrumb,
+  } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
+  const InnerContents = () => (
+    <>
+      <div className={styles.circle}>
+        <Icon icon={icon} role="presentation" />
+      </div>
+      <span
+        className={styles.breadcrumbTextLink}
+        data-automation-id={breadcrumbTextAutomationId}
+      >
+        <span className={styles.breadcrumbText}>{text}</span>
+      </span>
+    </>
+  )
+
+  if (CustomBreadcrumb) {
+    return (
+      <CustomBreadcrumb
+        path={path}
+        handleClick={handleClick}
+        text={text}
+        className={styles.breadcrumb}
+      >
+        <InnerContents />
+      </CustomBreadcrumb>
+    )
+  }
 
   const TagName = path ? "a" : "button"
 
   return (
-    <>
-      <TagName
-        {...(path && { href: path })}
-        className={styles.breadcrumb}
-        data-automation-id={breadcrumbAutomationId}
-        onClick={handleClick}
-      >
-        <div className={styles.circle}>
-          <Icon icon={icon} role="presentation" />
-        </div>
-        <span
-          className={styles.breadcrumbTextLink}
-          data-automation-id={breadcrumbTextAutomationId}
-        >
-          <span className={styles.breadcrumbText}>{text}</span>
-        </span>
-      </TagName>
-    </>
+    <TagName
+      {...(path && { href: path })}
+      className={styles.breadcrumb}
+      data-automation-id={breadcrumbAutomationId}
+      onClick={handleClick}
+    >
+      <InnerContents />
+    </TagName>
   )
 }
 

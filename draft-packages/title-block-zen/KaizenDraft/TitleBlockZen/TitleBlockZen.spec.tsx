@@ -1,16 +1,14 @@
 import "./matchMedia.mock"
 
 import { configure, fireEvent } from "@testing-library/dom"
-import { cleanup, render, waitFor, screen } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import * as React from "react"
-import { TitleBlockZen } from "./index"
+import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
 import "@testing-library/jest-dom"
 
 configure({
   testIdAttribute: "data-automation-id",
 })
-
-afterEach(() => cleanup())
 
 describe("<TitleBlockZen />", () => {
   describe("when the primary action is a button with only an href", () => {
@@ -773,6 +771,70 @@ describe("<TitleBlockZen />", () => {
           ).toBeTruthy()
         }
       })
+    })
+  })
+
+  describe("breadcrumb", () => {
+    it("renders a link when you pass a path prop", () => {
+      render(
+        <TitleBlockZen
+          title="Test Title"
+          breadcrumb={{
+            text: "Back",
+            path: "/path/to/somewhere",
+            handleClick: () => null,
+          }}
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      expect(screen.getByRole("link", { name: "Back" })).toBeInTheDocument()
+    })
+
+    it("renders a button when you don't pass a path prop", () => {
+      render(
+        <TitleBlockZen
+          title="Test Title"
+          breadcrumb={{
+            text: "Back",
+            handleClick: () => null,
+          }}
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      expect(screen.getByRole("button", { name: "Back" })).toBeInTheDocument()
+    })
+
+    it("renders a custom component when you pass a renderBreadcrumb prop", () => {
+      const mockFn = jest.fn()
+
+      const CustomComponent = (props: CustomBreadcrumbProps) => (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div data-automation-id="custom-component" onClick={props.handleClick}>
+          {props.children}
+        </div>
+      )
+
+      render(
+        <TitleBlockZen
+          title="Test Title"
+          breadcrumb={{
+            text: "Back",
+            handleClick: mockFn,
+            renderBreadcrumb: CustomComponent,
+          }}
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      const customElement = screen.getByTestId("custom-component")
+      expect(customElement).toHaveTextContent("Back")
+      fireEvent.click(customElement)
+      expect(mockFn).toBeCalled()
     })
   })
 })
