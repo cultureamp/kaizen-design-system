@@ -20,7 +20,7 @@ jest.mock("@react-aria/listbox", () => ({
 }))
 
 jest.mock("../../provider", () => ({
-  useSelectionContext: () => ({ selectionState: {} }),
+  useSelectionContext: () => ({ selectionState: { disabledKeys: [] } }),
 }))
 
 const itemMock: Node<ItemType> = {
@@ -76,6 +76,22 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
     it("shows icon check to indicate the option is selected", () => {
       const icon = screen.getByText("icon-mock")
       expect(icon).toBeVisible()
+    })
+  })
+
+  describe("Given item is disabled", () => {
+    beforeEach(() => {
+      ;(useOption as jest.Mock).mockReturnValue({
+        optionProps: {},
+        isSelected: false,
+        isDisabled: true,
+      })
+      render(<MultiSelectOptionWrapper />)
+    })
+
+    it("shows icon check to indicate the option is selected", () => {
+      const label = screen.getByText("label-mock")
+      console.log(label)
     })
   })
 
