@@ -68,8 +68,6 @@ export const Root: React.VFC<RootProps> = ({
     disabledKeys,
   }
 
-  console.log("selectionProps", selectionProps)
-
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
       <div>
