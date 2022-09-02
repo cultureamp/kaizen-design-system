@@ -36,6 +36,7 @@ interface SelectionProps {
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
+  disabledKeys?: Selection
 }
 
 export type FilterMultiSelectProps = RootProps
@@ -54,6 +55,7 @@ export const Root: React.VFC<RootProps> = ({
   selectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
+  disabledKeys,
 }) => {
   const menuTriggerProps = { defaultOpen }
   const menuPopupProps = { isLoading, loadingSkeleton }
@@ -63,7 +65,10 @@ export const Root: React.VFC<RootProps> = ({
     selectedKeys,
     onSelectionChange,
     selectionMode,
+    disabledKeys,
   }
+
+  console.log("selectionProps", selectionProps)
 
   return (
     <MenuTriggerProvider {...menuTriggerProps}>

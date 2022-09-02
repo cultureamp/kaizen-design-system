@@ -24,8 +24,14 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
-  const { optionProps, isSelected, isDisabled } = useOption(
-    { key: item.key },
+  const isDisabled = state.disabledKeys.has(item.key)
+  const isSelected = state.selectionManager.isSelected(item.key)
+  const { optionProps } = useOption(
+    {
+      key: item.key,
+      isDisabled,
+      isSelected,
+    },
     state,
     ref
   )

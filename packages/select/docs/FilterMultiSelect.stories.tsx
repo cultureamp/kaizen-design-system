@@ -44,6 +44,7 @@ export const DefaultKaizenSiteDemo = args => {
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
       items={items}
+      disabledKeys={new Set(["id-be"])}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
