@@ -36,6 +36,10 @@ interface SelectionProps {
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
+  /**
+   * Accepts a Set of item keys and disables them.
+   * e.g disabledKeys={new Set(["id-be"])}
+   */
   disabledKeys?: Selection
 }
 
