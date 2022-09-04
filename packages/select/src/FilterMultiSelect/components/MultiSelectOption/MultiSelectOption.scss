@@ -24,7 +24,7 @@
 
   cursor: default;
 
-  &:hover,
+  &:hover:not(.isDisabled),
   &:active,
   &:focus {
     background-color: $color-blue-100;
