@@ -52,7 +52,7 @@ export interface TitleBlockProps {
   children?: React.ReactNode
   title: string
   variant?: Variant
-  breadcrumb?: Breadcrumb
+  breadcrumb?: BreadcrumbType
   avatar?: JSX.Element | AvatarProps
   subtitle?: React.ReactNode
   sectionTitle?: string
@@ -177,18 +177,6 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-export type CustomBreadcrumbProps = Omit<BreadcrumbType, "render"> & {
-  className: string
-  children: React.ReactNode
-}
-
-type BreadcrumbType = {
-  text: string
-  path?: string
-  handleClick?: (event: React.MouseEvent) => void
-  render?: (props: CustomBreadcrumbProps) => JSX.Element
-}
-
 const renderTag = (surveyStatus: SurveyStatus) => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
 
@@ -303,17 +291,29 @@ const renderSectionTitle = (
   </div>
 )
 
+type BreadcrumbType = {
+  text: string
+  path?: string
+  handleClick?: (event: React.MouseEvent) => void
+  render?: (props: CustomBreadcrumbProps) => JSX.Element
+}
+
 interface BreadcrumbProps {
   breadcrumb: BreadcrumbType
-  breadcrumbAutomationId: string
-  breadcrumbTextAutomationId: string
+  automationId: string
+  textAutomationId: string
   textDirection?: TextDirection
-} 
+}
+
+export type CustomBreadcrumbProps = BreadcrumbProps & {
+  className: string
+  children: React.ReactNode
+}
 
 const Breadcrumb: React.VFC<BreadcrumbProps> = ({
   breadcrumb,
-  breadcrumbAutomationId,
-  breadcrumbTextAutomationId,
+  automationId,
+  textAutomationId,
   textDirection
 }) => {
   const {
@@ -330,7 +330,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
       </div>
       <span
         className={styles.breadcrumbTextLink}
-        data-automation-id={breadcrumbTextAutomationId}
+        data-automation-id={textAutomationId}
       >
         <span className={styles.breadcrumbText}>{text}</span>
       </span>
@@ -341,10 +341,11 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
     const CustomRender = render;
     return (
       <CustomRender
-        path={path}
-        handleClick={handleClick}
-        text={text}
+        breadcrumb={breadcrumb}
         className={styles.breadcrumb}
+        automationId={automationId}
+        textAutomationId={textAutomationId}
+        textDirection={textDirection}
       >
         <InnerContents />
       </CustomRender>
@@ -357,7 +358,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
     <TagName
       {...(path && { href: path })}
       className={styles.breadcrumb}
-      data-automation-id={breadcrumbAutomationId}
+      data-automation-id={automationId}
       onClick={handleClick}
     >
       <InnerContents />
@@ -559,8 +560,8 @@ const TitleBlockZen = ({
                 {breadcrumb &&
                   <Breadcrumb
                     breadcrumb={breadcrumb}
-                    breadcrumbAutomationId={automationId},
-                    breadcrumbTextAutomationId={textAutomationId},
+                    automationId={breadcrumbAutomationId}
+                    textAutomationId={breadcrumbTextAutomationId}
                     textDirection={textDirection}
                     />
                   )}
