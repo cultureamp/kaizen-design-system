@@ -56,7 +56,7 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
       const menu = screen.queryByText("menu-content-mock")
       expect(menu).toBeVisible()
 
-      rerender(<MenuTriggerProviderWrapper />)
+      rerender(<MenuTriggerProviderWrapper isOpen={false} />)
       expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
