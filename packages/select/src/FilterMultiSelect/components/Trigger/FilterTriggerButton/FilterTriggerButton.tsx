@@ -7,12 +7,19 @@ export type FilterTriggerButtonProps = {
   label: string
   selectedOptionLabels: string[]
   classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
+  /**
+   * @default 50
+   * Character limit of the button label.
+   * It will always show the first selected label regardless if it exceeds the given character limit.
+   */
+  labelCharacterLimitBeforeTruncate?: number
 }
 
 export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
   selectedOptionLabels,
   label,
   classNameOverride,
+  labelCharacterLimitBeforeTruncate = 50,
 }) => {
   const hasSelectedValues = selectedOptionLabels.length > 0
 
@@ -22,7 +29,10 @@ export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
         {label}
       </span>
       {hasSelectedValues && (
-        <span>{`: ${getTruncatedLabels(selectedOptionLabels)}`}</span>
+        <span>{`: ${getTruncatedLabels(
+          selectedOptionLabels,
+          labelCharacterLimitBeforeTruncate
+        )}`}</span>
       )}
     </TriggerButtonBase>
   )

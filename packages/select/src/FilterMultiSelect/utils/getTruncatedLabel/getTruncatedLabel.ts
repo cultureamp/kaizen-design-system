@@ -1,13 +1,19 @@
-const LABELS_TRUNCATED_LIMIT = 3
 const CONNECTOR = ", "
 
-// TODO: update it to use character limits instead of the number of labels
-export const getTruncatedLabels = (labels: string[]): string => {
-  if (labels.length <= LABELS_TRUNCATED_LIMIT) {
-    return labels.join(CONNECTOR)
+const truncateByCharacterLimit = (
+  labels: string[],
+  limit: number,
+  labelsTruncatedCount = 0
+): string => {
+  if (labels.length === 1 || labels.join("").replace(/,/g, "").length < limit) {
+    const moreIndicator =
+      labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
+    return `${labels.join(CONNECTOR)}${moreIndicator}`
   }
 
-  return `${[...labels].splice(0, LABELS_TRUNCATED_LIMIT).join(CONNECTOR)} +${
-    labels.length - LABELS_TRUNCATED_LIMIT
-  } more`
+  const newLabels = labels.slice(0, labels.length - 1)
+  return truncateByCharacterLimit(newLabels, limit, labelsTruncatedCount + 1)
 }
+
+export const getTruncatedLabels = (labels: string[], limit: number): string =>
+  truncateByCharacterLimit(labels, limit)
