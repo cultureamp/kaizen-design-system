@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.0.0...@kaizen/component-library@16.1.0) (2022-09-05)
+
+
+### Features
+
+* **add competency-library icon:** adds an icon for competency-library ([#2944](https://github.com/cultureamp/kaizen-design-system/issues/2944)) ([01fb0f9](https://github.com/cultureamp/kaizen-design-system/commit/01fb0f9b3ec8b222fc5895c33db5e3e5db2bf6ba))
+
+
+
+
+
 # [16.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.3.1...@kaizen/component-library@16.0.0) (2022-09-02)
 
 
