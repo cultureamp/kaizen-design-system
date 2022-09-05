@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.3.0...@kaizen/select@1.3.1) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.6...@kaizen/select@1.3.0) (2022-09-05)
+
+
+### Features
+
+* Kds 656 implement smarts to avoid really long select buttons ([#2940](https://github.com/cultureamp/kaizen-design-system/issues/2940)) ([d5b4baa](https://github.com/cultureamp/kaizen-design-system/commit/d5b4baab6cd81755f37166b80ef392c5cb030d9f))
+
+
+
+
+
 ## [1.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.5...@kaizen/select@1.2.6) (2022-09-02)
 
 **Note:** Version bump only for package @kaizen/select
