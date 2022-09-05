@@ -18,7 +18,7 @@ export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
   selectedOptionLabels,
   label,
   classNameOverride,
-  labelCharacterLimitBeforeTruncate = 100,
+  labelCharacterLimitBeforeTruncate = 50,
 }) => {
   const hasSelectedValues = selectedOptionLabels.length > 0
 
