@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.3...@kaizen/draft-title-block-zen@7.4.4) (2022-09-05)
+
+
+### Bug Fixes
+
+* Set distinct automation-ids for each usage of TitleBlock Toolbar ([#2945](https://github.com/cultureamp/kaizen-design-system/issues/2945)) ([0821a25](https://github.com/cultureamp/kaizen-design-system/commit/0821a25401bfcf9650218b18cb5e31b83fef1455))
+
+
+
+
+
 ## [7.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.2...@kaizen/draft-title-block-zen@7.4.3) (2022-09-05)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
