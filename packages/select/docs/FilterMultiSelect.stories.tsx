@@ -75,7 +75,7 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
-  const [characterLimit, setCharacterLimit] = useState<number>(100)
+  const [characterLimit, setCharacterLimit] = useState<number>(50)
 
   const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
