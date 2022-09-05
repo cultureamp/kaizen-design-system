@@ -4,6 +4,7 @@ import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
+  MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
 import { MenuPopup } from "../MenuPopup/MenuPopup"
 import {
@@ -21,11 +22,7 @@ export interface RootProps
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
 }
 
-interface MenuTriggerProps {
-  isOpen?: boolean
-  defaultOpen?: boolean
-  onOpenChange?: (isOpen: boolean) => void
-}
+type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
 
 interface MenuPopupProps {
   isLoading?: boolean
