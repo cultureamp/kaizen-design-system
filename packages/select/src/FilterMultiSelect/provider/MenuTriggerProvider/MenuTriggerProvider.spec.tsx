@@ -3,22 +3,15 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { TriggerButtonBase } from "../../components/Trigger/TriggerButtonBase"
 import { MenuPopup } from "../../components/MenuPopup"
-import { FilterTriggerButton } from "../../components/Trigger"
 import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
 } from "./MenuTriggerProvider"
 
-const MenuTriggerProviderWrapper = ({
-  isOpen,
-  defaultOpen,
-  onOpenChange,
-}: Partial<MenuTriggerProviderProps>) => (
-  <MenuTriggerProvider
-    defaultOpen={defaultOpen}
-    isOpen={isOpen}
-    onOpenChange={onOpenChange}
-  >
+const MenuTriggerProviderWrapper = (
+  props: Partial<MenuTriggerProviderProps>
+) => (
+  <MenuTriggerProvider {...props}>
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>
       <span>menu-content-mock</span>
@@ -58,20 +51,18 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
   })
   describe("when controlled", () => {
     it("shows the menu based on the isOpen prop", () => {
-      const { rerender } = render(<MenuTriggerProviderWrapper isOpen={true} />)
+      const { rerender } = render(<MenuTriggerProviderWrapper isOpen />)
 
       const menu = screen.queryByText("menu-content-mock")
       expect(menu).toBeVisible()
 
-      rerender(<MenuTriggerProviderWrapper isOpen={false} />)
+      rerender(<MenuTriggerProviderWrapper />)
       expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
     it("fires the onOpenChange callback when the trigger is interacted", () => {
-      const onOpenChange = jest.fn()
-      render(
-        <MenuTriggerProviderWrapper isOpen={true} onOpenChange={onOpenChange} />
-      )
+      const onOpenChange = jest.fn<void, [boolean]>()
+      render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
 
       const trigger = screen.getByRole("button", {
         name: "trigger-display-label-mock",
