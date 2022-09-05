@@ -14,17 +14,15 @@ type ToolbarProps = {
     node: React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>
   }>
   noGap?: boolean
+  automationId?: string
 }
 
-const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
+const Toolbar = ({ items, noGap = false, automationId }: ToolbarProps) => {
   if (!items || (items && items.length === 0)) {
     return <></>
   }
   return (
-    <div
-      className={styles.toolbar}
-      data-automation-id="title-block-main-actions-toolbar"
-    >
+    <div className={styles.toolbar} data-automation-id={automationId}>
       {items.map((item, i) => (
         <div
           className={classNames(styles.toolbarItem, {
