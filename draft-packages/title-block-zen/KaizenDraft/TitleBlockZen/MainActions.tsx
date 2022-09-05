@@ -176,7 +176,7 @@ const MainActions = ({
 
   return (
     <div className={styles.mainActionsContainer}>
-      <Toolbar items={items} />
+      <Toolbar items={items} automationId="title-block-main-actions-toolbar" />
     </div>
   )
 }
