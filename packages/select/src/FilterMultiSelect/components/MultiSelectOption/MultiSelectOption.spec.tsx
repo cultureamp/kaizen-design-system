@@ -79,6 +79,22 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
     })
   })
 
+  describe("Given item is disabled", () => {
+    beforeEach(() => {
+      ;(useOption as jest.Mock).mockReturnValue({
+        optionProps: {},
+        isSelected: false,
+        isDisabled: true,
+      })
+      render(<MultiSelectOptionWrapper />)
+    })
+
+    it("has a disabled class", () => {
+      const label = screen.getByLabelText("label-mock")
+      expect(label).toHaveClass("isDisabled")
+    })
+  })
+
   describe("Given count is provided", () => {
     beforeEach(() => {
       ;(useOption as jest.Mock).mockReturnValue({
