@@ -107,7 +107,7 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
             label="Engineer"
-            characterLimit={characterLimit}
+            labelCharacterLimitBeforeTruncate={characterLimit}
           />
         )}
       >
