@@ -1,10 +1,11 @@
 import React, { useState } from "react"
-import { ComponentMeta } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
 import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
+import { Label } from "@kaizen/draft-form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -29,25 +30,25 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterMultiSelect>
 
-export const DefaultKaizenSiteDemo = args => {
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof FilterMultiSelect
+> = args => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
 
-  const handleSelectionChange = (keys: Selection) => {
-    keys && setSelectedKeys(keys)
-  }
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
   return (
     <FilterMultiSelect
-      label="Engineer"
+      {...args}
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
       items={items}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-          label="Engineer"
+          label={args.label}
         />
       )}
     >
@@ -68,8 +69,66 @@ export const DefaultKaizenSiteDemo = args => {
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
-export const FilterBarDemo = args => {
+export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+  const [characterLimit, setCharacterLimit] = useState<number>(50)
+
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+
+  const handleCharacterLimitChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = e => {
+    setCharacterLimit(+e.target.value)
+  }
+
+  return (
+    <>
+      <div style={{ marginBottom: "3rem" }}>
+        <Label
+          labelText="Update character limit: "
+          style={{ marginRight: "1rem" }}
+        />
+        <input
+          type="number"
+          onChange={handleCharacterLimitChange}
+          value={characterLimit}
+        />
+      </div>
+      <FilterMultiSelect
+        label="Engineer"
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={items}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            label="Engineer"
+            labelCharacterLimitBeforeTruncate={characterLimit}
+          />
+        )}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+    </>
+  )
+}
+
+export const FilterBarDemo = () => {
   const {
     groups,
     selectedGroups,
@@ -132,7 +191,7 @@ export const FilterBarDemo = args => {
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
 
-export const DefaultKaizenSiteDemoWithoutScrollbar = args => {
+export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
