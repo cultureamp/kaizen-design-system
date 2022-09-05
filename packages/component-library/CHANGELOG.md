@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.3.1...@kaizen/component-library@16.0.0) (2022-09-02)
+
+
+### Bug Fixes
+
+* Remove unused %caIconBlockLayout scss var ([#2935](https://github.com/cultureamp/kaizen-design-system/issues/2935)) ([746223b](https://github.com/cultureamp/kaizen-design-system/commit/746223befac0312291eb9ab300921b0f31086e2a))
+
+
+### BREAKING CHANGES
+
+* This var is not being used within Kaizen. If your repo is importing it,
+replace it with your own `display: block` rule.
+
+
+
+
+
 ## [15.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@15.3.0...@kaizen/component-library@15.3.1) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/component-library
