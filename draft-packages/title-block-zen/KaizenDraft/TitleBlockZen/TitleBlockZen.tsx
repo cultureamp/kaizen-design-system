@@ -314,14 +314,9 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
   breadcrumb,
   automationId,
   textAutomationId,
-  textDirection
+  textDirection,
 }) => {
-  const {
-    path,
-    handleClick,
-    text,
-    render
-  } = breadcrumb
+  const { path, handleClick, text, render } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
   const InnerContents = () => (
     <>
@@ -338,7 +333,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
   )
 
   if (render) {
-    const CustomRender = render;
+    const CustomRender = render
     return (
       <CustomRender
         breadcrumb={breadcrumb}
@@ -557,14 +552,14 @@ const TitleBlockZen = ({
           <div className={styles.titleRowInner}>
             <div className={styles.titleRowInnerContent}>
               <div className={styles.titleAndAdjacent}>
-                {breadcrumb &&
+                {breadcrumb && (
                   <Breadcrumb
                     breadcrumb={breadcrumb}
                     automationId={breadcrumbAutomationId}
                     textAutomationId={breadcrumbTextAutomationId}
                     textDirection={textDirection}
-                    />
-                  )}
+                  />
+                )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
                     <div className={styles.hamburger}>
