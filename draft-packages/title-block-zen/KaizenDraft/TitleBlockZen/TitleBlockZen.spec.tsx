@@ -808,7 +808,7 @@ describe("<TitleBlockZen />", () => {
       expect(screen.getByRole("button", { name: "Back" })).toBeInTheDocument()
     })
 
-    it("renders a custom component when you pass a renderBreadcrumb prop", () => {
+    it("renders a custom component when you pass a 'render' prop", () => {
       const mockFn = jest.fn()
 
       const CustomComponent = (props: CustomBreadcrumbProps) => (
@@ -824,7 +824,7 @@ describe("<TitleBlockZen />", () => {
           breadcrumb={{
             text: "Back",
             handleClick: mockFn,
-            renderBreadcrumb: CustomComponent,
+            render: CustomComponent,
           }}
         >
           Example

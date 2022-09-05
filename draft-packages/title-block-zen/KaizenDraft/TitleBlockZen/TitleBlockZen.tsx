@@ -177,16 +177,16 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-export type CustomBreadcrumbProps = Omit<Breadcrumb, "renderBreadcrumb"> & {
+export type CustomBreadcrumbProps = Omit<BreadcrumbType, "render"> & {
   className: string
   children: React.ReactNode
 }
 
-type Breadcrumb = {
+type BreadcrumbType = {
   text: string
   path?: string
   handleClick?: (event: React.MouseEvent) => void
-  renderBreadcrumb?: (props: CustomBreadcrumbProps) => JSX.Element
+  render?: (props: CustomBreadcrumbProps) => JSX.Element
 }
 
 const renderTag = (surveyStatus: SurveyStatus) => {
@@ -304,7 +304,7 @@ const renderSectionTitle = (
 )
 
 interface BreadcrumbProps {
-  breadcrumb: Breadcrumb
+  breadcrumb: BreadcrumbType
   breadcrumbAutomationId: string
   breadcrumbTextAutomationId: string
   textDirection?: TextDirection
@@ -320,7 +320,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
     path,
     handleClick,
     text,
-    renderBreadcrumb: CustomBreadcrumb,
+    render
   } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
   const InnerContents = () => (
@@ -337,16 +337,17 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
     </>
   )
 
-  if (CustomBreadcrumb) {
+  if (render) {
+    const CustomRender = render;
     return (
-      <CustomBreadcrumb
+      <CustomRender
         path={path}
         handleClick={handleClick}
         text={text}
         className={styles.breadcrumb}
       >
         <InnerContents />
-      </CustomBreadcrumb>
+      </CustomRender>
     )
   }
 
