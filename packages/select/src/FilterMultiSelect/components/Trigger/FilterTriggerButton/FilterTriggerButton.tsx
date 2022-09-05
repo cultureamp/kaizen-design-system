@@ -11,14 +11,14 @@ export type FilterTriggerButtonProps = {
    * Character limit of the button label.
    * It will always show the first selected label regardless if it exceeds the given character limit.
    */
-  characterLimit?: number
+  labelCharacterLimitBeforeTruncate?: number
 }
 
 export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
   selectedOptionLabels,
   label,
   classNameOverride,
-  characterLimit = 100,
+  labelCharacterLimitBeforeTruncate = 100,
 }) => {
   const hasSelectedValues = selectedOptionLabels.length > 0
 
@@ -30,7 +30,7 @@ export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
       {hasSelectedValues && (
         <span>{`: ${getTruncatedLabels(
           selectedOptionLabels,
-          characterLimit
+          labelCharacterLimitBeforeTruncate
         )}`}</span>
       )}
     </TriggerButtonBase>
