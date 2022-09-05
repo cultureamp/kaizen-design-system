@@ -303,12 +303,19 @@ const renderSectionTitle = (
   </div>
 )
 
-const renderBreadcrumb = (
-  breadcrumb: Breadcrumb,
-  breadcrumbAutomationId: string,
-  breadcrumbTextAutomationId: string,
+interface BreadcrumbProps {
+  breadcrumb: Breadcrumb
+  breadcrumbAutomationId: string
+  breadcrumbTextAutomationId: string
   textDirection?: TextDirection
-) => {
+} 
+
+const Breadcrumb: React.VFC<BreadcrumbProps> = ({
+  breadcrumb,
+  breadcrumbAutomationId,
+  breadcrumbTextAutomationId,
+  textDirection
+}) => {
   const {
     path,
     handleClick,
@@ -549,11 +556,12 @@ const TitleBlockZen = ({
             <div className={styles.titleRowInnerContent}>
               <div className={styles.titleAndAdjacent}>
                 {breadcrumb &&
-                  renderBreadcrumb(
-                    breadcrumb,
-                    breadcrumbAutomationId,
-                    breadcrumbTextAutomationId,
-                    textDirection
+                  <Breadcrumb
+                    breadcrumb={breadcrumb}
+                    breadcrumbAutomationId={automationId},
+                    breadcrumbTextAutomationId={textAutomationId},
+                    textDirection={textDirection}
+                    />
                   )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
