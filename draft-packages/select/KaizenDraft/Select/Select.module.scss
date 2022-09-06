@@ -123,7 +123,11 @@ $focus-border-color: $color-blue-500;
   }
 
   .selectedOption {
-    background-color: $color-blue-100;
+    &:not(.focusedOption) {
+      background-color: transparent;
+    }
+    font-weight: $typography-paragraph-bold-font-weight;
+    color: $color-blue-500;
   }
 
   .disabledOption {
