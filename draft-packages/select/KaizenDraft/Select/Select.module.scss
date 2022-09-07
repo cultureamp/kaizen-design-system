@@ -116,6 +116,12 @@ $focus-border-color: $color-blue-500;
     background-color: $color-blue-100;
     color: $color-blue-500;
     border-color: $focus-border-color;
+    &.disabledOption {
+      border-style: $border-dashed-border-style;
+      border-width: $border-focus-ring-border-width;
+      border-color: $color-gray-500;
+      background: transparent;
+    }
 
     &:active {
       background-color: $color-blue-100;
