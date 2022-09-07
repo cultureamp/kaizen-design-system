@@ -48,7 +48,7 @@ export const Root: React.VFC<RootProps> = ({
   trigger,
   children,
   isOpen,
-  defaultOpen = false,
+  defaultOpen,
   onOpenChange,
   isLoading,
   loadingSkeleton,
