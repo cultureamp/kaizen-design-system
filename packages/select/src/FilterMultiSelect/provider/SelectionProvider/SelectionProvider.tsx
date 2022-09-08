@@ -3,7 +3,7 @@ import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
 import { ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { Item } from "@react-stately/collections"
+import { Item, Section } from "@react-stately/collections"
 import { ItemType } from "../../types"
 
 export interface SelectionProviderProps {
@@ -45,7 +45,14 @@ export function SelectionProvider(props: SelectionProviderProps) {
   // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...props,
-    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
+    children: item =>
+      item.children ? (
+        <Section title={item.label} key={item.value}>
+          <Item key={item.value}>{item.label}</Item>
+        </Section>
+      ) : (
+        <Item key={item.value}>{item.label}</Item>
+      ), // For initialising selection and determined item.renderer, can be only Item or Section
     filter: searchFilter,
   })
 

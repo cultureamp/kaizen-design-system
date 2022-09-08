@@ -57,7 +57,24 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            {
+              node =>
+                node.value.children ? (
+                  <li role="presentation">
+                    <span>title: {node.value.label}</span>
+                    <ul role="group">
+                      {node.value.children.map(c => (
+                        <li role="option" key={c.value}>
+                          {c.label}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <FilterMultiSelect.Option key={node.key} item={node} />
+                )
+              /* <FilterMultiSelect.Option key={item.key} item={item} />*/
+            }
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />

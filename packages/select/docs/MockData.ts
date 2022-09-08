@@ -1,7 +1,12 @@
 import { ItemType } from "../src/FilterMultiSelect"
 
 export const items: ItemType[] = [
-  { label: "Front-End", value: "id-fe", count: "1245" },
+  {
+    label: "Front-End",
+    value: "id-fe",
+    count: "1245",
+    children: [{ label: "child-1", value: "child-1" }],
+  },
   { label: "Back-End", value: "id-be", count: "4" },
   { label: "SRE", value: "id-sre" },
   { label: "Dev-ops", value: "id-devops" },

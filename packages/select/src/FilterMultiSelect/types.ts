@@ -3,6 +3,7 @@ export interface ItemType {
   label: string
   value: ValueType
   count?: string
+  children?: ItemType[]
 }
 
 // types from @react-aria/@react-stately/@react-types that consumer might use goes here
