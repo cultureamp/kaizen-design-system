@@ -9,14 +9,14 @@ export const getDescription = (
   if (React.isValidElement(description)) {
     return (
       <>
-        {description} (Format: {dateFormat})
+        {description} (Input format: {dateFormat})
       </>
     )
   }
 
   if (typeof description === "string" && description !== "") {
-    return `${description} (Format: ${dateFormat})`
+    return `${description} (Input format: ${dateFormat})`
   }
 
-  return `Format: ${dateFormat}`
+  return `Input format: ${dateFormat}`
 }
