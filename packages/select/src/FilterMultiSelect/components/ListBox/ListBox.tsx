@@ -20,6 +20,8 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     setIsOverflown(listElement.scrollHeight > listElement.clientHeight)
   }, [listRef])
 
+  console.log(selectionState.collection)
+
   return (
     <ul
       {...listBoxProps}

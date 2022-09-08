@@ -14,25 +14,23 @@ import { useSelectionContext } from "../../provider"
 import { ItemType } from "../../types"
 import styles from "./MultiSelectOption.scss"
 
-export interface MultiSelectOptionProps {
-  item: ItemType
+export interface MultiSelectOptionNodeProps {
+  item: Node<ItemType>
 }
 
-export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
+export const MultiSelectOptionNode: React.VFC<MultiSelectOptionNodeProps> = ({
   item,
 }) => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
   const { optionProps, isSelected, isDisabled } = useOption(
-    { key: item.value },
+    { key: item.key },
     state,
     ref
   )
 
-  console.log("OPTION")
-
-  // console.log(state, optionProps, isSelected, isDisabled)
+  // console.log("OPTION NODE")
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
@@ -49,8 +47,8 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
         isFocusVisible ? styles.isFocusVisible : "",
         isDisabled ? styles.isDisabled : ""
       )}
-      aria-label={item.label}
-      aria-describedby={item.count ? countElementId : undefined}
+      aria-label={item.value.label}
+      aria-describedby={item.value.count ? countElementId : undefined}
     >
       <span
         className={classNames(styles.icon, isSelected ? styles.isSelected : "")}
@@ -58,10 +56,10 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
-      {item.value}
-      {item.count && (
+      {item.rendered}
+      {item.value.count && (
         <span id={countElementId} className={styles.badgeContainer}>
-          <Badge classNameOverride={styles.badge}>{item.count}</Badge>
+          <Badge classNameOverride={styles.badge}>{item.value.count}</Badge>
           <VisuallyHidden> available</VisuallyHidden>
         </span>
       )}
@@ -69,4 +67,4 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
   )
 }
 
-MultiSelectOption.displayName = "MultiSelectOption"
+MultiSelectOptionNode.displayName = "MultiSelectOptionNode"

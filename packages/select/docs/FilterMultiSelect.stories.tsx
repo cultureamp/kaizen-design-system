@@ -6,6 +6,7 @@ import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
+import { Section } from "@react-stately/collections"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -57,23 +58,28 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {
-              node =>
-                node.value.children ? (
-                  <li role="presentation">
-                    <span>title: {node.value.label}</span>
-                    <ul role="group">
-                      {node.value.children.map(c => (
-                        <li role="option" key={c.value}>
-                          {c.label}
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <FilterMultiSelect.Option key={node.key} item={node} />
-                )
-              /* <FilterMultiSelect.Option key={item.key} item={item} />*/
+            {node =>
+              node.value.children ? (
+                // <FilterMultiSelect.Section section={node}>
+                //   {child => (
+                //     <FilterMultiSelect.Option
+                //       key={child.key}
+                //       item={child.value}
+                //     />
+                //   )}
+                // </FilterMultiSelect.Section>
+                <Section
+                  key={node.value.label}
+                  items={node.value.children}
+                  title={node.value.label}
+                >
+                  {child => (
+                    <FilterMultiSelect.Option key={child.value} item={child} />
+                  )}
+                </Section>
+              ) : (
+                <FilterMultiSelect.OptionNode key={node.key} item={node} />
+              )
             }
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
@@ -89,162 +95,162 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
-export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(
-    new Set(["id-fe"])
-  )
-  const [characterLimit, setCharacterLimit] = useState<number>(50)
+// export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
+//   const [selectedKeys, setSelectedKeys] = useState<Selection>(
+//     new Set(["id-fe"])
+//   )
+//   const [characterLimit, setCharacterLimit] = useState<number>(50)
 
-  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+//   const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
-  const handleCharacterLimitChange: React.ChangeEventHandler<
-    HTMLInputElement
-  > = e => {
-    setCharacterLimit(+e.target.value)
-  }
+//   const handleCharacterLimitChange: React.ChangeEventHandler<
+//     HTMLInputElement
+//   > = e => {
+//     setCharacterLimit(+e.target.value)
+//   }
 
-  return (
-    <>
-      <div style={{ marginBottom: "3rem" }}>
-        <Label
-          labelText="Update character limit: "
-          style={{ marginRight: "1rem" }}
-        />
-        <input
-          type="number"
-          onChange={handleCharacterLimitChange}
-          value={characterLimit}
-        />
-      </div>
-      <FilterMultiSelect
-        label="Engineer"
-        onSelectionChange={handleSelectionChange}
-        selectedKeys={selectedKeys}
-        items={items}
-        trigger={() => (
-          <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-            label="Engineer"
-            labelCharacterLimitBeforeTruncate={characterLimit}
-          />
-        )}
-      >
-        {() => (
-          <>
-            <FilterMultiSelect.SearchInput />
-            <FilterMultiSelect.ListBox>
-              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
-            </FilterMultiSelect.ListBox>
-            <FilterMultiSelect.MenuFooter>
-              <FilterMultiSelect.SelectAllButton />
-              <FilterMultiSelect.ClearButton />
-            </FilterMultiSelect.MenuFooter>
-          </>
-        )}
-      </FilterMultiSelect>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <div style={{ marginBottom: "3rem" }}>
+//         <Label
+//           labelText="Update character limit: "
+//           style={{ marginRight: "1rem" }}
+//         />
+//         <input
+//           type="number"
+//           onChange={handleCharacterLimitChange}
+//           value={characterLimit}
+//         />
+//       </div>
+//       <FilterMultiSelect
+//         label="Engineer"
+//         onSelectionChange={handleSelectionChange}
+//         selectedKeys={selectedKeys}
+//         items={items}
+//         trigger={() => (
+//           <FilterMultiSelect.TriggerButton
+//             selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+//             label="Engineer"
+//             labelCharacterLimitBeforeTruncate={characterLimit}
+//           />
+//         )}
+//       >
+//         {() => (
+//           <>
+//             <FilterMultiSelect.SearchInput />
+//             <FilterMultiSelect.ListBox>
+//               {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+//             </FilterMultiSelect.ListBox>
+//             <FilterMultiSelect.MenuFooter>
+//               <FilterMultiSelect.SelectAllButton />
+//               <FilterMultiSelect.ClearButton />
+//             </FilterMultiSelect.MenuFooter>
+//           </>
+//         )}
+//       </FilterMultiSelect>
+//     </>
+//   )
+// }
 
-export const FilterBarDemo = () => {
-  const {
-    groups,
-    selectedGroups,
-    addFilter,
-    clearFilters,
-    isSelected,
-    removeFilter,
-  } = useDemographicData()
+// export const FilterBarDemo = () => {
+//   const {
+//     groups,
+//     selectedGroups,
+//     addFilter,
+//     clearFilters,
+//     isSelected,
+//     removeFilter,
+//   } = useDemographicData()
 
-  const addFilterButtonRef = React.useRef<ButtonRef>()
-  const focusAddFilter = () => {
-    addFilterButtonRef.current?.focus()
-  }
+//   const addFilterButtonRef = React.useRef<ButtonRef>()
+//   const focusAddFilter = () => {
+//     addFilterButtonRef.current?.focus()
+//   }
 
-  const [selectedDemographicValues, setSelectedDemographicValues] = useState<{
-    [demographicId: string]: React.Key[]
-  }>({})
+//   const [selectedDemographicValues, setSelectedDemographicValues] = useState<{
+//     [demographicId: string]: React.Key[]
+//   }>({})
 
-  return (
-    <>
-      <div className={styles.row}>
-        <div className={styles.filters}>
-          {selectedGroups.map(({ name, id }) => (
-            <DemographicValueSelect
-              label={name}
-              selectedKeys={new Set(selectedDemographicValues[id])}
-              id={id}
-              onRemove={() => {
-                focusAddFilter()
+//   return (
+//     <>
+//       <div className={styles.row}>
+//         <div className={styles.filters}>
+//           {selectedGroups.map(({ name, id }) => (
+//             <DemographicValueSelect
+//               label={name}
+//               selectedKeys={new Set(selectedDemographicValues[id])}
+//               id={id}
+//               onRemove={() => {
+//                 focusAddFilter()
 
-                // exclude demographic from both selectedGroups and selectedDemographicValues
-                removeFilter(id)
-                const { [id]: omitted, ...rest } = selectedDemographicValues
-                setSelectedDemographicValues(rest)
-              }}
-              onSelectionChange={selectedKeys => {
-                setSelectedDemographicValues({
-                  ...selectedDemographicValues,
-                  [id]: selectedKeys,
-                })
-              }}
-            />
-          ))}
-          <DemographicMenu
-            isAddFilterDisabled={selectedGroups.length >= groups.length}
-            addFilterButtonRef={addFilterButtonRef}
-            groups={groups}
-            isSelected={isSelected}
-            addFilter={addFilter}
-          />
-        </div>
-        <Button label="Clear All" onClick={clearFilters} secondary />
-      </div>
-      <Paragraph variant={"body"}>
-        Selected Values: {JSON.stringify(selectedDemographicValues)}
-      </Paragraph>
-    </>
-  )
-}
+//                 // exclude demographic from both selectedGroups and selectedDemographicValues
+//                 removeFilter(id)
+//                 const { [id]: omitted, ...rest } = selectedDemographicValues
+//                 setSelectedDemographicValues(rest)
+//               }}
+//               onSelectionChange={selectedKeys => {
+//                 setSelectedDemographicValues({
+//                   ...selectedDemographicValues,
+//                   [id]: selectedKeys,
+//                 })
+//               }}
+//             />
+//           ))}
+//           <DemographicMenu
+//             isAddFilterDisabled={selectedGroups.length >= groups.length}
+//             addFilterButtonRef={addFilterButtonRef}
+//             groups={groups}
+//             isSelected={isSelected}
+//             addFilter={addFilter}
+//           />
+//         </div>
+//         <Button label="Clear All" onClick={clearFilters} secondary />
+//       </div>
+//       <Paragraph variant={"body"}>
+//         Selected Values: {JSON.stringify(selectedDemographicValues)}
+//       </Paragraph>
+//     </>
+//   )
+// }
 
-FilterBarDemo.storyName = "Advanced FilterBar Demo"
+// FilterBarDemo.storyName = "Advanced FilterBar Demo"
 
-export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(
-    new Set(["id-fe"])
-  )
+// export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
+//   const [selectedKeys, setSelectedKeys] = useState<Selection>(
+//     new Set(["id-fe"])
+//   )
 
-  const handleSelectionChange = (keys: Selection) => {
-    keys && setSelectedKeys(keys)
-  }
+//   const handleSelectionChange = (keys: Selection) => {
+//     keys && setSelectedKeys(keys)
+//   }
 
-  return (
-    <FilterMultiSelect
-      label="Engineer"
-      onSelectionChange={handleSelectionChange}
-      selectedKeys={selectedKeys}
-      items={items.slice(0, 3)}
-      trigger={() => (
-        <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-          label="Engineer"
-        />
-      )}
-    >
-      {() => (
-        <>
-          <FilterMultiSelect.SearchInput />
-          <FilterMultiSelect.ListBox>
-            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
-          </FilterMultiSelect.ListBox>
-          <FilterMultiSelect.MenuFooter>
-            <FilterMultiSelect.SelectAllButton />
-            <FilterMultiSelect.ClearButton />
-          </FilterMultiSelect.MenuFooter>
-        </>
-      )}
-    </FilterMultiSelect>
-  )
-}
+//   return (
+//     <FilterMultiSelect
+//       label="Engineer"
+//       onSelectionChange={handleSelectionChange}
+//       selectedKeys={selectedKeys}
+//       items={items.slice(0, 3)}
+//       trigger={() => (
+//         <FilterMultiSelect.TriggerButton
+//           selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+//           label="Engineer"
+//         />
+//       )}
+//     >
+//       {() => (
+//         <>
+//           <FilterMultiSelect.SearchInput />
+//           <FilterMultiSelect.ListBox>
+//             {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+//           </FilterMultiSelect.ListBox>
+//           <FilterMultiSelect.MenuFooter>
+//             <FilterMultiSelect.SelectAllButton />
+//             <FilterMultiSelect.ClearButton />
+//           </FilterMultiSelect.MenuFooter>
+//         </>
+//       )}
+//     </FilterMultiSelect>
+//   )
+// }
 
-DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
+// DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
