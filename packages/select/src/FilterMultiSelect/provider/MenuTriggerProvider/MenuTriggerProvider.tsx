@@ -9,7 +9,9 @@ import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
 
 export interface MenuTriggerProviderProps {
+  isOpen?: boolean
   defaultOpen?: boolean
+  onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
 }
 
@@ -26,11 +28,13 @@ const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
   {} as MenuTriggerProviderContextType
 )
 export function MenuTriggerProvider({
+  isOpen,
   defaultOpen,
+  onOpenChange,
   children,
 }: MenuTriggerProviderProps) {
   // Create state based on the incoming props to manage the open/close
-  const state = useMenuTriggerState({ defaultOpen })
+  const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const ref = React.createRef<HTMLButtonElement>()
