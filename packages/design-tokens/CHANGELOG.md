@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.1.0...@kaizen/design-tokens@10.0.0) (2022-09-07)
+
+
+### Bug Fixes
+
+* **design-tokens:** update $typography-paragraph-intro-lede ([#2946](https://github.com/cultureamp/kaizen-design-system/issues/2946)) ([7c6a056](https://github.com/cultureamp/kaizen-design-system/commit/7c6a056829d22dcd075a4dc50745362aa3d2817a)), closes [#2942](https://github.com/cultureamp/kaizen-design-system/issues/2942)
+
+
+### BREAKING CHANGES
+
+* **design-tokens:** Changes the $typography-paragraph-intro-lede-letter-spacing variable from -0.5px to 0px
+
+* chore: release [skip ci]
+
+ - @kaizen/draft-avatar@2.8.3
+ - @kaizen/draft-button@6.2.3
+ - @kaizen/draft-collapsible@3.2.3
+ - @kaizen/draft-empty-state@5.2.3
+ - @kaizen/draft-filter-menu-button@2.6.3
+ - @kaizen/draft-form@7.5.3
+ - @kaizen/draft-guidance-block@5.2.3
+ - @kaizen/draft-hero-card@2.2.3
+ - @kaizen/draft-illustration@5.2.3
+ - @kaizen/draft-likert-scale-legacy@1.10.4
+ - @kaizen/draft-loading-placeholder@2.2.3
+ - @kaizen/draft-menu@4.8.3
+ - @kaizen/draft-modal@10.5.4
+ - @kaizen/draft-popover@5.2.3
+ - @kaizen/draft-select@2.5.5
+ - @kaizen/draft-split-button@4.2.3
+ - @kaizen/draft-table@5.2.4
+ - @kaizen/draft-tabs@5.2.3
+ - @kaizen/draft-tag@3.2.3
+ - @kaizen/draft-tile@5.9.3
+ - @kaizen/draft-title-block-zen@7.4.3
+ - @kaizen/draft-tooltip@5.4.3
+ - @kaizen/draft-well@4.2.3
+ - @kaizen/a11y@1.6.3
+ - @kaizen/brand-moment@1.12.5
+ - @kaizen/button@1.3.3
+ - @kaizen/component-library@16.1.0
+ - @kaizen/date-picker@5.10.5
+ - @kaizen/notification@0.11.3
+ - @kaizen/pagination@1.6.3
+ - @kaizen/progress-bar@2.2.3
+ - @kaizen/rich-text-editor@1.18.5
+ - @kaizen/select@1.3.1
+ - @kaizen/split-button@1.3.3
+ - @kaizen/tabs@1.5.3
+
+
+
+
+
 # [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
 
 
