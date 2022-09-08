@@ -50,7 +50,9 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   }
   public applyCurrentTheme = () => {
     if (typeof window !== "undefined") {
-      this.setRootElement(document.documentElement)
+      this.setRootElement(
+        document.querySelector("#kaizen-root") ?? document.documentElement
+      )
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
         this.rootElement?.style.setProperty(key, value)
