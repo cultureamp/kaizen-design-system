@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.0...@kaizen/select@1.5.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* update react-aria button package to fix keydown click bug ([#2950](https://github.com/cultureamp/kaizen-design-system/issues/2950)) ([e4cd3f3](https://github.com/cultureamp/kaizen-design-system/commit/e4cd3f3e78106239c3cf41d95801a45e492dfc05))
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.4.1...@kaizen/select@1.5.0) (2022-09-08)
+
+
+### Features
+
+* Add control props to FilterMultiSelect Menu Trigger ([#2939](https://github.com/cultureamp/kaizen-design-system/issues/2939)) ([138f6c5](https://github.com/cultureamp/kaizen-design-system/commit/138f6c5b5fad1305756818c62f381155053c50cb))
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.4.0...@kaizen/select@1.4.1) (2022-09-07)
 
 **Note:** Version bump only for package @kaizen/select
