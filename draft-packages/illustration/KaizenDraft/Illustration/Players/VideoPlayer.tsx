@@ -101,15 +101,23 @@ export const VideoPlayer = ({
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      videoElement.play().catch(e => {
-        /*
-         * An DOMException _may_ be raised by some browsers if we
-         * programatically interact with the video before the
-         * user has interacted with the page. This is okay - so
-         * we're going to catch this error without handling it. See:
-         * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
+      try {
+        // Older browsers may not return a promise, so .play could return undefined
+        videoElement.play()?.catch(e => {
+          /*
+           * An DOMException _may_ be raised by some browsers if we
+           * programatically interact with the video before the
+           * user has interacted with the page. This is okay - so
+           * we're going to catch this error without handling it. See:
+           * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
+           */
+        })
+      } catch (e) {
+        /**
+         * Older browsers will raise a synchronous error because their first implementation
+         * of `.play` was not a promise.
          */
-      })
+      }
     }
     /**
      * Chrome seems to have an issue with changes to autoplay after the video
