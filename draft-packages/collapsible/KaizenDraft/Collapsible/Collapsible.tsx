@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
+import { IconButton } from "@kaizen/button"
 import { Heading } from "@kaizen/typography"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -97,9 +97,10 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         data-automation-id={automationId || `collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
-        <button
-          type="button"
-          id={buttonId}
+        {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+        jsx-a11y/no-static-element-interactions */}
+        <div
           className={classnames(styles.button, {
             [styles.defaultVariant]: open && variant === "default",
             [styles.clearVariant]: open && variant === "clear",
@@ -107,10 +108,8 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             [styles.open]: open,
           })}
           style={sticky && { top: sticky.top }}
-          onClick={this.handleClick}
-          aria-expanded={open}
-          aria-controls={sectionId}
-          data-automation-id={`collapsible-button-${id}`}
+          onClick={this.handleSectionToggle}
+          data-automation-id={`collapsible-header-${id}`}
         >
           {renderHeader !== undefined ? (
             renderHeader(title)
@@ -125,9 +124,19 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             </div>
           )}
           <div>
-            <Icon icon={open ? chevronUp : chevronDown} role="presentation" />
+            <IconButton
+              label="Toggle section"
+              icon={open ? chevronUp : chevronDown}
+              type="button"
+              aria-expanded={open}
+              aria-controls={sectionId}
+              data-automation-id={`collapsible-button-${id}`}
+              id={buttonId}
+              onClick={this.handleButtonPress}
+              classNameOverride={styles.chevronButton}
+            />
           </div>
-        </button>
+        </div>
         {(!lazyLoad || open) && (
           <AnimateHeight
             height={open ? "auto" : 0}
@@ -152,7 +161,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
   private getOpen = () =>
     this.props.controlled ? this.props.open : this.state.open
 
-  private handleClick = () => {
+  private handleSectionToggle = () => {
     const { onToggle, id, controlled } = this.props
     const open = this.getOpen()
 
@@ -163,5 +172,10 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         open: !open,
       })
     }
+  }
+
+  private handleButtonPress = (event: React.MouseEvent) => {
+    event.stopPropagation()
+    this.handleSectionToggle()
   }
 }

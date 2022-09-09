@@ -58,7 +58,7 @@ it("includes the 'sticky' class on buttons when the 'sticky' prop is specified",
     </CollapsibleGroup>
   )
 
-  const collapsibleContainer = getByTestId("collapsible-button-1")
+  const collapsibleContainer = getByTestId("collapsible-header-1")
 
   expect(collapsibleContainer.classList.contains("sticky")).toBeTruthy()
 })
@@ -112,7 +112,7 @@ it("gives precedence to renderHeader over title", () => {
     </Collapsible>
   )
 
-  const titleText = getByTestId("collapsible-button-1").querySelector("div")
+  const titleText = getByTestId("collapsible-header-1").querySelector("div")
 
   expect(titleText).toHaveTextContent("This title should be rendered")
   expect(
@@ -178,7 +178,7 @@ it("clear variant has correct class", () => {
     </CollapsibleGroup>
   )
 
-  const collapsibleContainer = getByTestId("collapsible-button-1")
+  const collapsibleContainer = getByTestId("collapsible-header-1")
 
   expect(collapsibleContainer.classList.contains("clearVariant")).toBeTruthy()
 })
@@ -195,7 +195,7 @@ it("default variant has correct class", () => {
     </CollapsibleGroup>
   )
 
-  const collapsibleContainer = getByTestId("collapsible-button-1")
+  const collapsibleContainer = getByTestId("collapsible-header-1")
 
   expect(collapsibleContainer.classList.contains("defaultVariant")).toBeTruthy()
 })

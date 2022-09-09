@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/border";
@@ -61,23 +62,21 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 
 .button {
   display: flex;
-  width: 100%;
   align-items: center;
   text-align: left;
   background-color: white;
   border: none;
   transition: background-color $ca-duration-rapid;
-
-  @include ca-padding(
-    $top: $ca-grid,
-    $end: $ca-grid,
-    $bottom: $ca-grid,
-    $start: $ca-grid
-  );
+  padding: $spacing-sm $spacing-md;
 
   &:hover {
     background-color: $heading-active-color;
   }
+}
+
+.chevronButton:hover {
+  // hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header
+  background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .title {
