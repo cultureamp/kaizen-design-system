@@ -97,6 +97,49 @@ export default {
   decorators: [withDesign],
 }
 
+export const DefaultStory = args => {
+  const [menuValue, setMenuValue] = React.useState<string>("Set default Value")
+
+  return (
+    <Menu
+      {...args}
+      button={
+        <Button label={menuValue} icon={chevronDown} iconPosition="end" />
+      }
+    >
+      <MenuList>
+        <MenuItem
+          onClick={e => {
+            e.preventDefault()
+            setMenuValue("Menu item with onClick")
+          }}
+          label="Menu item with onClick"
+        />
+        <MenuItem
+          href="/?path=/story/components-menu--default-story"
+          label="Menu item with href"
+        />
+        <MenuItem
+          action={e => {
+            e.preventDefault()
+            alert("This has been deprecated - use onClick")
+            alert("but for real though - use onClick")
+            alert("staaaaaaaaap")
+            setMenuValue("Menu item with action (deprecated)")
+          }}
+          label="Menu item with action (deprecated)"
+        />
+      </MenuList>
+    </Menu>
+  )
+}
+
+DefaultStory.args = {
+  menuVisible: false,
+}
+
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
+
 export const LabelAndIcon = () => (
   <Menu
     button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
