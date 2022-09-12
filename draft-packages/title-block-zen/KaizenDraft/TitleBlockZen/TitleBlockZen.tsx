@@ -295,6 +295,11 @@ type BreadcrumbType = {
   text: string
   path?: string
   handleClick?: (event: React.MouseEvent) => void
+  /**
+   * Custom render for the breadcrumb. Commonly used to replace the parent link with a router link component.
+   * Props given to the breadcrumb component will be passed back, along with a decorated className and children.
+   * It is up to you to reapply them to your custom component.
+   */
   render?: (props: CustomBreadcrumbProps) => JSX.Element
 }
 
