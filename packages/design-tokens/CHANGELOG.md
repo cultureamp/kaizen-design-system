@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.0...@kaizen/design-tokens@10.0.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* be able to specify root element applying theme ([#2951](https://github.com/cultureamp/kaizen-design-system/issues/2951)) ([6498509](https://github.com/cultureamp/kaizen-design-system/commit/6498509d7e198421657e640dbe9f953a918500f3))
+
+
+
+
+
 # [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.1.0...@kaizen/design-tokens@10.0.0) (2022-09-07)
 
 
