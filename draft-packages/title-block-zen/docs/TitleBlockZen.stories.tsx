@@ -1232,9 +1232,9 @@ export const RenderProps = () => {
           ),
         }}
         navigationTabs={[
-          <NavigationTab text="Label" href="#" active renderTab={CustomTab} />,
-          <NavigationTab text="Label" href="#" renderTab={CustomTab} />,
-          <NavigationTab text="Label" href="#" renderTab={CustomTab} />,
+          <NavigationTab text="Label" href="#" active render={CustomTab} />,
+          <NavigationTab text="Label" href="#" render={CustomTab} />,
+          <NavigationTab text="Label" href="#" render={CustomTab} />,
         ]}
       />
     </OffsetPadding>
