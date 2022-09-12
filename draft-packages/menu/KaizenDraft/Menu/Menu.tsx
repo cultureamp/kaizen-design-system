@@ -17,6 +17,11 @@ export type MenuProps = Omit<
    * @default: false
    */
   menuVisible?: boolean
+  /**
+   * The `button` prop acts as a select input but gives control of the props to the consumer.
+   * A common pattern is to pass in a Kaizen `<Button>` and update the `label` prop with useSate.
+   * It can also take any ReactElement with button props.
+   */
   button: React.ReactElement<ButtonPropsWithOptionalAria>
 }
 
