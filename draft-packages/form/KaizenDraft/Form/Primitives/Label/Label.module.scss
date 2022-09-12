@@ -87,7 +87,7 @@ $label-start-margin: 10px;
     order: -1; // place label before the control
     margin-right: $label-start-margin;
     margin-left: 0;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       margin-right: 0;
@@ -98,7 +98,7 @@ $label-start-margin: 10px;
   .appendedLabel {
     margin-right: 0;
     margin-left: $label-start-margin;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       margin-right: $label-start-margin;
