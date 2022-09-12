@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.2...@kaizen/select@1.5.3) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.1...@kaizen/select@1.5.2) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.0...@kaizen/select@1.5.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* update react-aria button package to fix keydown click bug ([#2950](https://github.com/cultureamp/kaizen-design-system/issues/2950)) ([e4cd3f3](https://github.com/cultureamp/kaizen-design-system/commit/e4cd3f3e78106239c3cf41d95801a45e492dfc05))
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.4.1...@kaizen/select@1.5.0) (2022-09-08)
+
+
+### Features
+
+* Add control props to FilterMultiSelect Menu Trigger ([#2939](https://github.com/cultureamp/kaizen-design-system/issues/2939)) ([138f6c5](https://github.com/cultureamp/kaizen-design-system/commit/138f6c5b5fad1305756818c62f381155053c50cb))
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.4.0...@kaizen/select@1.4.1) (2022-09-07)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.3.1...@kaizen/select@1.4.0) (2022-09-05)
+
+
+### Features
+
+* **filter-multi-select:** Allow disabled options ([#2942](https://github.com/cultureamp/kaizen-design-system/issues/2942)) ([6506161](https://github.com/cultureamp/kaizen-design-system/commit/6506161629bdca08f9739097ff48b7ec2f3c36bb))
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.3.0...@kaizen/select@1.3.1) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.6...@kaizen/select@1.3.0) (2022-09-05)
+
+
+### Features
+
+* Kds 656 implement smarts to avoid really long select buttons ([#2940](https://github.com/cultureamp/kaizen-design-system/issues/2940)) ([d5b4baa](https://github.com/cultureamp/kaizen-design-system/commit/d5b4baab6cd81755f37166b80ef392c5cb030d9f))
+
+
+
+
+
+## [1.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.5...@kaizen/select@1.2.6) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [1.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.4...@kaizen/select@1.2.5) (2022-08-30)
+
+
+### Bug Fixes
+
+* **component:** use uuid package instead of useId for compatibility with older React versions ([#2937](https://github.com/cultureamp/kaizen-design-system/issues/2937)) ([45a7bad](https://github.com/cultureamp/kaizen-design-system/commit/45a7bad63fda730dabb810d368c52d482ac35980))
+
+
+
+
+
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.3...@kaizen/select@1.2.4) (2022-08-29)
+
+
+### Bug Fixes
+
+* KDS-737 Only apply 'select all' and 'clear' to filtered items when using the search ([#2930](https://github.com/cultureamp/kaizen-design-system/issues/2930)) ([1365c95](https://github.com/cultureamp/kaizen-design-system/commit/1365c959f5b3cf13860451dcfaadae8e7fb2ac70))
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.2.2...@kaizen/select@1.2.3) (2022-08-19)
 
 

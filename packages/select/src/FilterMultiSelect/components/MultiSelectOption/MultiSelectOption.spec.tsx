@@ -23,11 +23,6 @@ jest.mock("../../provider", () => ({
   useSelectionContext: () => ({ selectionState: {} }),
 }))
 
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  useId: () => "id-mock", // To cover testing in React 16 and 17
-}))
-
 const itemMock: Node<ItemType> = {
   type: "type-mock",
   key: "key-mock",
@@ -81,6 +76,22 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
     it("shows icon check to indicate the option is selected", () => {
       const icon = screen.getByText("icon-mock")
       expect(icon).toBeVisible()
+    })
+  })
+
+  describe("Given item is disabled", () => {
+    beforeEach(() => {
+      ;(useOption as jest.Mock).mockReturnValue({
+        optionProps: {},
+        isSelected: false,
+        isDisabled: true,
+      })
+      render(<MultiSelectOptionWrapper />)
+    })
+
+    it("has a disabled class", () => {
+      const label = screen.getByLabelText("label-mock")
+      expect(label).toHaveClass("isDisabled")
     })
   })
 

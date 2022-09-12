@@ -122,7 +122,7 @@ export interface DatePickerProps
  */
 export const DatePicker: React.VFC<DatePickerProps> = ({
   id,
-  buttonRef = useRef<HTMLButtonElement>(null),
+  buttonRef: propsButtonRef = useRef<HTMLButtonElement>(null),
   locale: propsLocale,
   disabledDates,
   disabledDaysOfWeek,
@@ -146,6 +146,11 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
 }) => {
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)
+  const dateInputRefs = useRef({
+    inputRef,
+    buttonRef,
+  })
   const [inputValue, setInputValue] = useState<string>("")
   const [isOpen, setIsOpen] = useState(false)
   const [lastTrigger, setLastTrigger] = useState<
@@ -308,8 +313,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     >
       <div ref={containerRef}>
         <DateInput
-          inputRef={inputRef}
-          buttonRef={buttonRef}
+          ref={dateInputRefs}
           id={id}
           calendarId={`${id}-calendar-dialog`}
           value={inputValue}

@@ -118,7 +118,11 @@ const SecondaryActions = ({
 
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={toolbarItems} noGap />
+      <Toolbar
+        items={toolbarItems}
+        noGap
+        automationId="title-block-secondary-actions-toolbar"
+      />
     </div>
   )
 }

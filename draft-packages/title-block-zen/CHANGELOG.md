@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.5.1...@kaizen/draft-title-block-zen@7.5.2) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.5.0...@kaizen/draft-title-block-zen@7.5.1) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.5...@kaizen/draft-title-block-zen@7.5.0) (2022-09-08)
+
+
+### Features
+
+* Add render prop to breadcrumb ([#2941](https://github.com/cultureamp/kaizen-design-system/issues/2941)) ([ed80f6d](https://github.com/cultureamp/kaizen-design-system/commit/ed80f6d5add647bf320e138496a660a10d1ea011))
+
+
+
+
+
+## [7.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.4...@kaizen/draft-title-block-zen@7.4.5) (2022-09-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.3...@kaizen/draft-title-block-zen@7.4.4) (2022-09-05)
+
+
+### Bug Fixes
+
+* Set distinct automation-ids for each usage of TitleBlock Toolbar ([#2945](https://github.com/cultureamp/kaizen-design-system/issues/2945)) ([0821a25](https://github.com/cultureamp/kaizen-design-system/commit/0821a25401bfcf9650218b18cb5e31b83fef1455))
+
+
+
+
+
+## [7.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.2...@kaizen/draft-title-block-zen@7.4.3) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.1...@kaizen/draft-title-block-zen@7.4.2) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.4.0...@kaizen/draft-title-block-zen@7.4.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* Update CustomNavigationTabProps ([#2933](https://github.com/cultureamp/kaizen-design-system/issues/2933)) ([cffcc71](https://github.com/cultureamp/kaizen-design-system/commit/cffcc71841bd367592613273c8e2c62788c7850c))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.3.3...@kaizen/draft-title-block-zen@7.4.0) (2022-08-26)
+
+
+### Features
+
+* Add custom component render prop to navigation tab of title block ([#2881](https://github.com/cultureamp/kaizen-design-system/issues/2881)) ([c7073e3](https://github.com/cultureamp/kaizen-design-system/commit/c7073e3685c5e081152a8485ebb1037609a0a193))
+
+
+
+
+
 ## [7.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.3.2...@kaizen/draft-title-block-zen@7.3.3) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

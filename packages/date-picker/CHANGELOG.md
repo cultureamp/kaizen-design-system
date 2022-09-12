@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.11.1...@kaizen/date-picker@5.11.2) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.11.0...@kaizen/date-picker@5.11.1) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.6...@kaizen/date-picker@5.11.0) (2022-09-08)
+
+
+### Features
+
+* **date-picker:** update DatePicker description from "Format" to "Input format" ([#2906](https://github.com/cultureamp/kaizen-design-system/issues/2906)) ([95258bf](https://github.com/cultureamp/kaizen-design-system/commit/95258bf5e4a9347fcc38465c1f3a8c3cf9eee1df))
+
+
+
+
+
+## [5.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.5...@kaizen/date-picker@5.10.6) (2022-09-07)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.4...@kaizen/date-picker@5.10.5) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.3...@kaizen/date-picker@5.10.4) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.2...@kaizen/date-picker@5.10.3) (2022-08-22)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [5.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.10.1...@kaizen/date-picker@5.10.2) (2022-08-19)
 
 **Note:** Version bump only for package @kaizen/date-picker
