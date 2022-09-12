@@ -9,7 +9,7 @@ import {
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Label`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Label`,
   component: Label,
   parameters: {
     docs: {
