@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { NON_REVERSED_VARIANTS, Variant } from "./TitleBlockZen"
 import styles from "./NavigationTabs.module.scss"
 
-export type CustomNavigationTabProps = Omit<NavigationTabProps, "renderTab"> & {
+export type CustomNavigationTabProps = Omit<NavigationTabProps, "render"> & {
   className: string
 }
 
@@ -20,7 +20,7 @@ export type NavigationTabProps = {
    * Props given to the NavigationTab component will be passed back, along with a decorated className.
    * It is up to you to reapply them to your custom component.
    */
-  renderTab?: (props: CustomNavigationTabProps) => JSX.Element
+  render?: (props: CustomNavigationTabProps) => JSX.Element
 }
 
 const isLight = (variant: Variant | undefined): boolean =>
@@ -32,8 +32,8 @@ const NavigationTab = (props: NavigationTabProps) => {
     [styles.active]: props.active,
   })
 
-  if (props.renderTab) {
-    const { renderTab: Component, ...otherProps } = props
+  if (props.render) {
+    const { render: Component, ...otherProps } = props
     return <Component {...otherProps} className={className} />
   }
 

@@ -39,7 +39,7 @@ describe("NavigationTabs", () => {
           href={href}
           handleClick={handleClick}
           active
-          renderTab={CustomComponent}
+          render={CustomComponent}
           variant="education"
         />
       )
