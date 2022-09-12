@@ -11,9 +11,11 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
   private theme: Theme
   private rootElement: HTMLElement | null = null
+  private rootElementId: string
 
   constructor(
     theme: Theme,
+    rootElementId: string = "",
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
     apply: boolean = true
   ) {
@@ -22,15 +24,19 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       If you use `constructor( private theme: Theme, ...)` - theme becomes undefined within the class's methods.
     */
     this.theme = theme
+    this.rootElementId = rootElementId
     if (apply) this.applyCurrentTheme()
   }
 
   public getRootElement = () => this.rootElement
+  public getRootElementId = () => this.rootElementId
   public getCurrentTheme = () => this.theme
 
   public setRootElement = (element: HTMLElement) => {
     this.rootElement = element
   }
+  public setRootElementId = (rootElementId: string) =>
+    (this.rootElementId = rootElementId)
   public setAndApplyTheme = (theme: Theme, force?: boolean) => {
     if (!force) {
       if (this.theme === theme) return
@@ -50,7 +56,9 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   }
   public applyCurrentTheme = () => {
     if (typeof window !== "undefined") {
-      this.setRootElement(document.documentElement)
+      this.setRootElement(
+        document.getElementById(this.rootElementId) ?? document.documentElement
+      )
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
         this.rootElement?.style.setProperty(key, value)
