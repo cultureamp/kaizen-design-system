@@ -43,7 +43,6 @@ $label-start-margin: 10px;
 // This is to override bootstrap styles. Remove when appropriate
 .text,
 :global(.ideal-sans) .text {
-  position: static;
   font-family: $typography-heading-6-font-family;
   font-size: $typography-heading-6-font-size;
   line-height: $typography-heading-6-line-height;
@@ -53,7 +52,6 @@ $label-start-margin: 10px;
 
 %checkboxOrRadio,
 :global(.ideal-sans) %checkboxOrRadio {
-  position: static;
   display: flex;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
@@ -71,7 +69,6 @@ $label-start-margin: 10px;
 }
 
 .toggle {
-  position: static;
   display: flex;
   justify-content: space-between;
   align-items: center;
