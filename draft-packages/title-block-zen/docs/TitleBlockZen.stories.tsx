@@ -1197,3 +1197,46 @@ export const AdminVariantNavigation = () => (
   </OffsetPadding>
 )
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
+
+export const RenderProps = () => {
+  const CustomTab = props => (
+    // In real life, you'll likely use this to insert a router Link component
+    <a href={props.href} className={props.className}>
+      {props.text}
+    </a>
+  )
+  return (
+    <OffsetPadding>
+      <TitleBlockZen
+        title="Page title"
+        primaryAction={{
+          label: "Click Me",
+          icon: arrowForwardIcon,
+          iconPosition: "end",
+          href: "#",
+          component: props => (
+            // In real life, you'll likely use this to insert a router Link component
+            <a href={props.href} className={props.className}>
+              {props.children}
+            </a>
+          ),
+        }}
+        breadcrumb={{
+          path: "#",
+          text: "Back to home",
+          render: props => (
+            // In real life, you'll likely use this to insert a router Link component
+            <a href={props.breadcrumb.path} className={props.className}>
+              {props.children}
+            </a>
+          ),
+        }}
+        navigationTabs={[
+          <NavigationTab text="Label" href="#" active render={CustomTab} />,
+          <NavigationTab text="Label" href="#" render={CustomTab} />,
+          <NavigationTab text="Label" href="#" render={CustomTab} />,
+        ]}
+      />
+    </OffsetPadding>
+  )
+}

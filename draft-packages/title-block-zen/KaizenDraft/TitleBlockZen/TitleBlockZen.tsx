@@ -52,7 +52,7 @@ export interface TitleBlockProps {
   children?: React.ReactNode
   title: string
   variant?: Variant
-  breadcrumb?: Breadcrumb
+  breadcrumb?: BreadcrumbType
   avatar?: JSX.Element | AvatarProps
   subtitle?: React.ReactNode
   sectionTitle?: string
@@ -177,12 +177,6 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-type Breadcrumb = {
-  text: string
-  path?: string
-  handleClick?: (event: React.MouseEvent) => void
-}
-
 const renderTag = (surveyStatus: SurveyStatus) => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
 
@@ -297,36 +291,78 @@ const renderSectionTitle = (
   </div>
 )
 
-const renderBreadcrumb = (
-  breadcrumb: Breadcrumb,
-  breadcrumbAutomationId: string,
-  breadcrumbTextAutomationId: string,
+type BreadcrumbType = {
+  text: string
+  path?: string
+  handleClick?: (event: React.MouseEvent) => void
+  /**
+   * Custom render for the breadcrumb. Commonly used to replace the parent link with a router link component.
+   * Props given to the breadcrumb component will be passed back, along with a decorated className and children.
+   * It is up to you to reapply them to your custom component.
+   */
+  render?: (props: CustomBreadcrumbProps) => JSX.Element
+}
+
+interface BreadcrumbProps {
+  breadcrumb: BreadcrumbType
+  automationId: string
+  textAutomationId: string
   textDirection?: TextDirection
-) => {
-  const { path, handleClick, text } = breadcrumb
+}
+
+export type CustomBreadcrumbProps = BreadcrumbProps & {
+  className: string
+  children: React.ReactNode
+}
+
+const Breadcrumb: React.VFC<BreadcrumbProps> = ({
+  breadcrumb,
+  automationId,
+  textAutomationId,
+  textDirection,
+}) => {
+  const { path, handleClick, text, render } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
+  const InnerContents = () => (
+    <>
+      <div className={styles.circle}>
+        <Icon icon={icon} role="presentation" />
+      </div>
+      <span
+        className={styles.breadcrumbTextLink}
+        data-automation-id={textAutomationId}
+      >
+        <span className={styles.breadcrumbText}>{text}</span>
+      </span>
+    </>
+  )
+
+  if (render) {
+    const CustomRender = render
+    return (
+      <CustomRender
+        breadcrumb={breadcrumb}
+        className={styles.breadcrumb}
+        automationId={automationId}
+        textAutomationId={textAutomationId}
+        textDirection={textDirection}
+      >
+        <InnerContents />
+      </CustomRender>
+    )
+  }
 
   const TagName = path ? "a" : "button"
 
   return (
-    <>
-      <TagName
-        {...(path && { href: path })}
-        className={styles.breadcrumb}
-        data-automation-id={breadcrumbAutomationId}
-        onClick={handleClick}
-      >
-        <div className={styles.circle}>
-          <Icon icon={icon} role="presentation" />
-        </div>
-        <span
-          className={styles.breadcrumbTextLink}
-          data-automation-id={breadcrumbTextAutomationId}
-        >
-          <span className={styles.breadcrumbText}>{text}</span>
-        </span>
-      </TagName>
-    </>
+    <TagName
+      {...(path && { href: path })}
+      className={styles.breadcrumb}
+      data-automation-id={automationId}
+      onClick={handleClick}
+    >
+      <InnerContents />
+    </TagName>
   )
 }
 
@@ -521,13 +557,14 @@ const TitleBlockZen = ({
           <div className={styles.titleRowInner}>
             <div className={styles.titleRowInnerContent}>
               <div className={styles.titleAndAdjacent}>
-                {breadcrumb &&
-                  renderBreadcrumb(
-                    breadcrumb,
-                    breadcrumbAutomationId,
-                    breadcrumbTextAutomationId,
-                    textDirection
-                  )}
+                {breadcrumb && (
+                  <Breadcrumb
+                    breadcrumb={breadcrumb}
+                    automationId={breadcrumbAutomationId}
+                    textAutomationId={breadcrumbTextAutomationId}
+                    textDirection={textDirection}
+                  />
+                )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
                     <div className={styles.hamburger}>

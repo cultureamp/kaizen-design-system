@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.5...@kaizen/draft-illustration@5.2.6) (2022-09-12)
+
+
+### Bug Fixes
+
+* Extra catch around illustration video player ([#2953](https://github.com/cultureamp/kaizen-design-system/issues/2953)) ([c2c9e33](https://github.com/cultureamp/kaizen-design-system/commit/c2c9e3366498495ef2a6ad99927c1be2096c9913))
+
+
+
+
+
+## [5.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.4...@kaizen/draft-illustration@5.2.5) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.3...@kaizen/draft-illustration@5.2.4) (2022-09-07)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [5.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.2...@kaizen/draft-illustration@5.2.3) (2022-09-05)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

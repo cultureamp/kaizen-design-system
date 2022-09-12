@@ -116,6 +116,13 @@ $focus-border-color: $color-blue-500;
     background-color: $color-blue-100;
     color: $color-blue-500;
     border-color: $focus-border-color;
+    &.disabledOption {
+      color: $color-purple-800;
+      border-style: $border-dashed-border-style;
+      border-width: $border-focus-ring-border-width;
+      border-color: $color-gray-500;
+      background: transparent;
+    }
 
     &:active {
       background-color: $color-blue-100;
@@ -123,7 +130,11 @@ $focus-border-color: $color-blue-500;
   }
 
   .selectedOption {
-    background-color: $color-blue-100;
+    &:not(.focusedOption) {
+      background-color: transparent;
+    }
+    font-weight: $typography-paragraph-bold-font-weight;
+    color: $color-blue-500;
   }
 
   .disabledOption {

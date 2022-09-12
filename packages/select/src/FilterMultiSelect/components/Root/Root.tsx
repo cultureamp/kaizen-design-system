@@ -4,6 +4,7 @@ import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
+  MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
 import { MenuPopup } from "../MenuPopup/MenuPopup"
 import {
@@ -21,9 +22,7 @@ export interface RootProps
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
 }
 
-interface MenuTriggerProps {
-  defaultOpen?: boolean
-}
+type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
 
 interface MenuPopupProps {
   isLoading?: boolean
@@ -48,9 +47,9 @@ export type FilterMultiSelectProps = RootProps
 export const Root: React.VFC<RootProps> = ({
   trigger,
   children,
-
-  defaultOpen = false,
-
+  isOpen,
+  defaultOpen,
+  onOpenChange,
   isLoading,
   loadingSkeleton,
 
@@ -61,7 +60,7 @@ export const Root: React.VFC<RootProps> = ({
   selectionMode = "multiple",
   disabledKeys,
 }) => {
-  const menuTriggerProps = { defaultOpen }
+  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const selectionProps = {
     label,

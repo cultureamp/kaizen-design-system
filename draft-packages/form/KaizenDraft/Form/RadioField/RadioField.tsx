@@ -4,7 +4,6 @@ import { Label, Radio, RadioProps } from "../Primitives"
 import styles from "./RadioField.module.scss"
 
 export interface RadioFieldProps extends RadioProps {
-  children?: React.ReactNode // This should not exist, but it will be a breaking change to fix
   id: string
   labelText: string | React.ReactNode
   selectedStatus?: boolean
@@ -23,7 +22,6 @@ export interface RadioFieldProps extends RadioProps {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-radio-field--interactive-kaizen-site-demo Storybook}
  */
 export const RadioField: React.VFC<RadioFieldProps> = ({
-  children, // Not used
   id,
   labelText,
   selectedStatus = false,
