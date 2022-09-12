@@ -15,8 +15,8 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
 
   constructor(
     theme: Theme,
-    /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
     rootElementId: string = "",
+    /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
     apply: boolean = true
   ) {
     /*
