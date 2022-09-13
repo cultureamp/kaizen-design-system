@@ -86,8 +86,6 @@ $input-with-icon-padding: calc(
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
-    top: $top;
-    bottom: $bottom;
     right: auto;
     left: $spacing-sm;
 
