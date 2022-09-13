@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.8...@kaizen/draft-select@2.5.9) (2022-09-13)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.7...@kaizen/draft-select@2.5.8) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.6...@kaizen/draft-select@2.5.7) (2022-09-12)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [2.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.5...@kaizen/draft-select@2.5.6) (2022-09-07)
 
 

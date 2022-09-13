@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.1.0...@kaizen/draft-form@8.2.0) (2022-09-13)
+
+
+### Features
+
+* remove deprecated styles and add stories ([#2957](https://github.com/cultureamp/kaizen-design-system/issues/2957)) ([edba01b](https://github.com/cultureamp/kaizen-design-system/commit/edba01b79c2aba08711eab9a043e84162c801d28))
+
+
+
+
+
+# [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.0.0...@kaizen/draft-form@8.1.0) (2022-09-12)
+
+
+### Features
+
+* remove deprecated styles ([#2958](https://github.com/cultureamp/kaizen-design-system/issues/2958)) ([5914f55](https://github.com/cultureamp/kaizen-design-system/commit/5914f5548337021ad45eacb19025fdaa43eb5b41))
+
+
+
+
+
+# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.5.3...@kaizen/draft-form@8.0.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **radio-field:** remove children prop from RadioField ([#2956](https://github.com/cultureamp/kaizen-design-system/issues/2956)) ([5589652](https://github.com/cultureamp/kaizen-design-system/commit/5589652b05f489a5b90580fdb6638db0dadceedf))
+
+
+### BREAKING CHANGES
+
+* **radio-field:** children can no longer be passed to RadioField
+
+
+
+
+
 ## [7.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@7.5.2...@kaizen/draft-form@7.5.3) (2022-09-05)
 
 **Note:** Version bump only for package @kaizen/draft-form
