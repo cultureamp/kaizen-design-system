@@ -109,11 +109,11 @@ $border-solid-border-radius-curved: $input-height;
 
   .input[type="search"] {
     padding-right: $input-base-padding-horizontal;
-    padding-left: $spacing-md + $input-icon-size;
+    padding-left: calc(#{$spacing-md} + #{$input-icon-size});
 
     &[dir="rtl"],
     [dir="rtl"] & {
-      padding-right: $spacing-md + $input-icon-size;
+      padding-right: calc(#{$spacing-md} + #{$input-icon-size});
       padding-left: $input-base-padding-horizontal;
     }
   }
@@ -139,26 +139,26 @@ $border-solid-border-radius-curved: $input-height;
   }
 
   .input[type="search"] {
-    padding-right: $spacing-md + $input-icon-size;
+    padding-right: calc(#{$spacing-md} + #{$input-icon-size});
     padding-left: $input-base-padding-horizontal;
 
     &[dir="rtl"],
     [dir="rtl"] & {
       padding-right: $input-base-padding-horizontal;
-      padding-left: $spacing-md + $input-icon-size;
+      padding-left: calc(#{$spacing-md} + #{$input-icon-size});
     }
   }
 }
 
 .withStartIconAdornment.withEndIconAdornment {
   .input[type="search"] {
-    padding-right: $spacing-md + $input-icon-size;
-    padding-left: $spacing-md + $input-icon-size;
+    padding-right: calc(#{$spacing-md} + #{$input-icon-size});
+    padding-left: calc(#{$spacing-md} + #{$input-icon-size});
 
     &[dir="rtl"],
     [dir="rtl"] & {
-      padding-right: $spacing-md + $input-icon-size;
-      padding-left: $spacing-md + $input-icon-size;
+      padding-right: calc(#{$spacing-md} + #{$input-icon-size});
+      padding-left: calc(#{$spacing-md} + #{$input-icon-size});
     }
   }
 }
