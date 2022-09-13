@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.1.0...@kaizen/draft-form@8.2.0) (2022-09-13)
+
+
+### Features
+
+* remove deprecated styles and add stories ([#2957](https://github.com/cultureamp/kaizen-design-system/issues/2957)) ([edba01b](https://github.com/cultureamp/kaizen-design-system/commit/edba01b79c2aba08711eab9a043e84162c801d28))
+
+
+
+
+
 # [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.0.0...@kaizen/draft-form@8.1.0) (2022-09-12)
 
 
