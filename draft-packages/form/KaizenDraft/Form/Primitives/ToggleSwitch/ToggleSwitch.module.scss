@@ -1,15 +1,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/mixins/forms";
 @import "../../variables";
 
-$animation-timing: $ca-duration-immediate $ca-linear;
+$animation-timing: $animation-duration-immediate
+  $animation-easing-function-linear;
 $focus-ring-offset: 2px;
 
 .checkbox {
@@ -73,7 +70,14 @@ $focus-ring-offset: 2px;
 
   .thumb {
     position: relative;
-    @include ca-position($start: calc(#{$spacing-md} * 1.1));
+    right: auto;
+    left: calc(#{$spacing-md} * 1.1);
+
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      right: calc(#{$spacing-md} * 1.1);
+      left: auto;
+    }
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -87,7 +91,14 @@ $focus-ring-offset: 2px;
 .off {
   .thumb {
     position: relative;
-    @include ca-position($start: calc(#{$spacing-md} * -0.05));
+    right: auto;
+    left: calc(#{$spacing-md} * -0.05);
+
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      right: calc(#{$spacing-md} * -0.05);
+      left: auto;
+    }
   }
 }
 
