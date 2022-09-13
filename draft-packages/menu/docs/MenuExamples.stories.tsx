@@ -14,6 +14,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
@@ -33,139 +34,132 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => {
-  const [menuValue, setMenuValue] = React.useState<string>("Set default Value")
-
-  return (
-    <Menu
-      {...args}
-      button={
-        <Button label={menuValue} icon={chevronDown} iconPosition="end" />
-      }
-    >
-      <MenuList>
-        <MenuItem
-          onClick={e => {
-            e.preventDefault()
-            setMenuValue("Menu item with onClick")
-          }}
-          label="Menu item with onClick"
-        />
-        <MenuItem
-          href="/?path=/story/components-menu--default-story"
-          label="Menu item with href"
-        />
-        <MenuItem
-          action={e => {
-            e.preventDefault()
-            setMenuValue("Menu item with action (deprecated)")
-          }}
-          label="Menu item with action (deprecated)"
-        />
-      </MenuList>
-    </Menu>
-  )
-}
+export const DefaultStory = args => (
+  <Menu
+    {...args}
+    button={
+      <Button label={"Edit menu"} icon={chevronDown} iconPosition="end" />
+    }
+  >
+    <MenuList>
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to duplicate content")
+        }}
+        icon={duplicateIcon}
+        label="Duplicate item"
+      />
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to edit content")
+        }}
+        icon={editIcon}
+        label="Edit Item"
+      />
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to delete content")
+        }}
+        icon={trashIcon}
+        destructive
+        label="Delete item"
+      />
+    </MenuList>
+  </Menu>
+)
 
 DefaultStory.storyName = "Basic example"
 
-export const LabelAndIcon = () => (
-  <Menu
-    button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-    dropdownId="dropdown"
-  >
-    <MenuContentExample />
-  </Menu>
+export const IconExample = () => (
+  <StoryWrapper>
+    <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
+    <StoryWrapper.Row rowTitle="Variant">
+      <Menu button={<IconButton label={"Edit menu"} icon={meatballsIcon} />}>
+        <MenuContentExample />
+      </Menu>
+      <Menu
+        button={<IconButton primary label={"Edit menu"} icon={meatballsIcon} />}
+      >
+        <MenuContentExample />
+      </Menu>
+      <Menu
+        button={
+          <IconButton secondary label={"Edit menu"} icon={meatballsIcon} />
+        }
+      >
+        <MenuContentExample />
+      </Menu>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
+IconExample.storyName = "Icon button menus"
 
 export const AutoHideBehaviours = () => (
-  <>
-    <Box mb={1}>
-      <Paragraph variant="body">
-        Auto hide turned on (default behaviour):
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-        dropdownId="dropdown"
-        autoHide="on"
-      >
-        <MenuContentExample />
-      </Menu>
-    </Box>
-    <Box mb={1}>
-      <Paragraph variant="body">
-        Auto hide when clicking outside the menu, but not inside:
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-        dropdownId="dropdown"
-        autoHide="outside-click-only"
-      >
-        <MenuContentExample />
-      </Menu>
-    </Box>
-    <Box mb={1}>
-      <Paragraph variant="body">Auto hide turned off:</Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-        dropdownId="dropdown"
-        autoHide="off"
-      >
-        <MenuContentExample />
-      </Menu>
-    </Box>
-  </>
+  <StoryWrapper>
+    <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
+    <StoryWrapper.Row rowTitle="Behaviour">
+      <div>
+        <Menu
+          button={
+            <Button label="Label" icon={chevronDown} iconPosition="end" />
+          }
+          dropdownId="dropdown"
+          autoHide="on"
+        >
+          <MenuContentExample />
+        </Menu>
+        <Box mt={1}>
+          <Paragraph variant="body">
+            <strong>autoHide="on"</strong> menu will close when clicking inside
+            or outside the menu
+          </Paragraph>
+        </Box>
+      </div>
+      <div>
+        <Menu
+          button={
+            <Button label="Label" icon={chevronDown} iconPosition="end" />
+          }
+          dropdownId="dropdown"
+          autoHide="outside-click-only"
+        >
+          <MenuContentExample />
+        </Menu>
+        <Box mt={1}>
+          <Paragraph variant="body">
+            <strong>autoHide="outside-click-only"</strong> menu will close when
+            clicking outside the menu, but not inside the menu
+          </Paragraph>
+        </Box>
+      </div>
+      <div>
+        <Menu
+          button={
+            <Button label="Label" icon={chevronDown} iconPosition="end" />
+          }
+          dropdownId="dropdown"
+          autoHide="off"
+        >
+          <MenuContentExample />
+        </Menu>
+        <Box mt={1}>
+          <Paragraph variant="body">
+            <strong>autoHide="off"</strong> menu will closes only when button is
+            pressed
+          </Paragraph>
+        </Box>
+      </div>
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
 
-AutoHideBehaviours.storyName = "Auto hide behaviours"
+AutoHideBehaviours.storyName = "Auto hide behaviors"
 
-export const LabelAndIconReversed = () => (
-  <Menu
-    button={
-      <Button label="Label" icon={chevronDown} iconPosition="end" reversed />
-    }
-  >
-    <MenuContentExample />
-  </Menu>
-)
-
-LabelAndIconReversed.storyName = "Label and Icon (reversed)"
-LabelAndIconReversed.parameters = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-export const DefaultMeatball = () => (
-  <Menu button={<IconButton label="" icon={meatballsIcon} />} align="right">
-    <MenuContentExample />
-  </Menu>
-)
-
-DefaultMeatball.storyName = "Default (Meatball)"
-
-export const DefaultKebab = () => (
-  <Menu button={<IconButton label="" icon={kebabIcon} />} align="right">
-    <MenuContentExample />
-  </Menu>
-)
-
-DefaultKebab.storyName = "Default (Kebab)"
-
-export const LabelAndIconBottom = () => (
-  <Menu button={<Button label="Label" icon={chevronDown} iconPosition="end" />}>
-    <MenuContentExample />
-  </Menu>
-)
-
-LabelAndIconBottom.storyName = "Label and Icon (bottom of screen)"
-LabelAndIconBottom.parameters = {
-  viewport: { defaultViewport: "mobile1" },
-}
-
-const StatelessMenuExample = props => {
+export const DefaultStatelessMenu = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
   const toggleMenu = () => {
@@ -177,16 +171,18 @@ const StatelessMenuExample = props => {
   }
 
   return (
-    <div>
-      <Button
-        secondary={true}
-        onClick={() => toggleMenu()}
-        label="Toggle Menu"
-      />
-      <Button secondary={true} onClick={() => hideMenu()} label="Hide Menu" />
+    <>
       <Paragraph variant="body">
-        I'm {isMenuVisible ? "open!" : "closed!"}
+        Menu status: {isMenuVisible ? "open" : "closed"}
       </Paragraph>
+      <Box py={1}>
+        <Button
+          secondary={true}
+          onClick={() => toggleMenu()}
+          label="Toggle menu"
+        />
+        <Button secondary={true} onClick={() => hideMenu()} label="Hide menu" />
+      </Box>
       <StatelessMenu
         isMenuVisible={isMenuVisible}
         toggleMenuDropdown={toggleMenu}
@@ -203,38 +199,33 @@ const StatelessMenuExample = props => {
       >
         <MenuContentExample />
       </StatelessMenu>
-    </div>
+      <Box pt={1}>
+        <Paragraph variant="body">
+          Use the StatelessMenu component if you need to{" "}
+          <a href="https://reactjs.org/docs/lifting-state-up.html">
+            lift state
+          </a>{" "}
+          from the Menu component. This gives the flexibility to be able to
+          control the state of the dropdown however you like and respond to
+          state changes, but it requires more work to configure. It can be used
+          instead of `Menu` if this level of flexibility is required. This
+          component is used in the FilterDrawer component. View the source code{" "}
+          <a
+            href={
+              "https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx"
+            }
+          >
+            here
+          </a>
+          .
+        </Paragraph>
+      </Box>
+    </>
   )
 }
 
-export const DefaultStatelessMenu = () => (
-  <>
-    <Box p={1}>
-      <StatelessMenuExample />
-    </Box>
-    <Box p={1}>
-      <Paragraph variant="body">
-        Use the StatelessMenu component if you need to{" "}
-        <a href="https://reactjs.org/docs/lifting-state-up.html">lift state</a>{" "}
-        from the Menu component. This gives the flexibility to be able to
-        control the state of the dropdown however you like and respond to state
-        changes, but it requires more work to configure. It can be used instead
-        of `Menu` if this level of flexibility is required. This component is
-        used in the FilterDrawer component. View the source code{" "}
-        <a
-          href={
-            "https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx"
-          }
-        >
-          here
-        </a>
-        .
-      </Paragraph>
-    </Box>
-  </>
-)
-
-DefaultStatelessMenu.storyName = "StatelessMenu (example usage)"
+DefaultStatelessMenu.storyName =
+  "Exposed menu state with <StatelessMenu/> component"
 
 export const DropdownWidthContain = () => (
   <Menu
@@ -242,94 +233,17 @@ export const DropdownWidthContain = () => (
     dropdownWidth="contain"
   >
     <div style={{ width: "500px" }}>
-      The dropdown is as wide as this 500px div
+      The dropdown is as wide as specified value in its first container (500px
+      in this instance).
     </div>
   </Menu>
 )
 
-DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
-
-export const MenuPositioning = () => (
-  <>
-    <div
-      style={{
-        position: "absolute",
-        top: "10px",
-        left: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near the top of page. Resize your browser so it's about
-        300px high. Note that the menu still shows below the menu button.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuContentExample />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        top: "10px",
-        right: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near right of the page. If there is no room to the right,
-        it push the menu to the left.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuContentExample />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "10px",
-        left: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near the bottom of the page. If there is no room below, it
-        will display above the menu button.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuContentExample />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "10px",
-        right: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near the bottom right of the page. If there is no room to
-        the right or bottom, it push the menu to the left and above.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuContentExample />
-      </Menu>
-    </div>
-  </>
-)
-
-MenuPositioning.storyName = "Menu positioning"
+DropdownWidthContain.storyName =
+  "Flexible dropdown container width with dropdownWidth prop"
 
 export const MenuWithActiveItem = () => (
-  <Box mt={2} mx={2}>
+  <>
     <Box mb={1}>
       <Paragraph variant="body">
         Menus don't usually have "active" items, since they are just a
@@ -341,19 +255,19 @@ export const MenuWithActiveItem = () => (
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     >
       <MenuList>
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
         <MenuItem
-          action="https://www.cultureamp.com/"
+          href="https://www.cultureamp.com/"
           label="Menu link"
           isActive
         />
-        <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
       </MenuList>
     </Menu>
-  </Box>
+  </>
 )
 
-MenuWithActiveItem.storyName = "Menu with active item"
+MenuWithActiveItem.storyName = "Displaying active menu items in Menu"
 
 export const OverflowScroll = () => (
   <>
@@ -371,26 +285,58 @@ export const OverflowScroll = () => (
         </Menu>
       </div>
     </div>
-    <p>
+    <Paragraph variant="body">
       Scroll the panel above, and open the menu. Notice that the dropdown does
       not get cropped.
-    </p>
+    </Paragraph>
   </>
 )
 
-OverflowScroll.storyName = "overflow: scroll"
+OverflowScroll.storyName =
+  "Menu behavior with overflow: scroll parent container"
 
 export const ContentAndList = () => (
-  <Menu
-    button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-    dropdownId="dropdown"
-  >
-    <div>Custom content</div>
-    <MenuList>
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-      <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
-    </MenuList>
-  </Menu>
+  <>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      dropdownId="dropdown"
+    >
+      <div>
+        <strong>Custom content</strong>
+      </div>
+      <ul>
+        <li>
+          <a href="/">Custom anchor link</a>
+        </li>
+        <li>
+          <a href="/">Custom anchor link</a>
+        </li>
+        <li>
+          <a href="/">Custom anchor link</a>
+        </li>
+      </ul>
+      <MenuList heading="Menu primitives">
+        <MenuItem
+          href="https://www.cultureamp.com/"
+          label="MenuItem primitive link"
+        />
+        <MenuItem
+          href="https://www.cultureamp.com/"
+          label="MenuItem primitive link"
+        />
+        <MenuItem
+          href="https://www.cultureamp.com/"
+          label="MenuItem primitive link"
+        />
+      </MenuList>
+    </Menu>
+    <Box mt={1}>
+      <Paragraph variant="body">
+        This can be beneficial if you are using the React Router or the Next.js
+        Link component or have custom content needed in the menu
+      </Paragraph>
+    </Box>
+  </>
 )
-ContentAndList.storyName = "Custom content and list"
+ContentAndList.storyName =
+  "Using custom content or non-Menu primitives within a Menu"

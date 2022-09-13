@@ -4,6 +4,9 @@ import { withDesign } from "storybook-addon-designs"
 
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
+import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 
 import { Button, IconButton } from "@kaizen/button"
 import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
@@ -29,40 +32,56 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => {
-  const [menuValue, setMenuValue] = useState<string>("Set default Value")
-
-  return (
-    <Menu
-      {...args}
-      button={
-        <Button label={menuValue} icon={chevronDown} iconPosition="end" />
-      }
-    >
-      <MenuList>
-        <MenuItem
-          onClick={e => {
-            e.preventDefault()
-            setMenuValue("Menu item with onClick")
-          }}
-          label="Menu item with onClick"
-        />
-        <MenuItem
-          href="/?path=/story/components-menu--default-story"
-          label="Menu item with href"
-        />
+export const DefaultStory = args => (
+  <Menu
+    {...args}
+    button={
+      <Button label={"Edit menu"} icon={chevronDown} iconPosition="end" />
+    }
+  >
+    <MenuList>
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to duplicate content")
+        }}
+        icon={duplicateIcon}
+        label="Duplicate item"
+      />
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to edit content")
+        }}
+        icon={editIcon}
+        label="Edit Item"
+      />
+      <MenuItem
+        onClick={e => {
+          e.preventDefault()
+          alert("onClick function to delete content")
+        }}
+        icon={trashIcon}
+        destructive
+        label="Delete item"
+      />
+      <MenuItem
+        href="https://cultureamp.design/components/menu/"
+        label="Learn more about Menu"
+      />
+      <MenuList heading="Deprecated props">
         <MenuItem
           action={e => {
             e.preventDefault()
-            alert("This has been deprecated - use onClick")
-            setMenuValue("Menu item with action (deprecated)")
+            alert("action prop has has been deprecated - use onClick")
           }}
-          label="Menu item with action (deprecated)"
+          disabled
+          label="action prop (deprecated)"
         />
       </MenuList>
-    </Menu>
-  )
-}
+    </MenuList>
+  </Menu>
+)
 
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
