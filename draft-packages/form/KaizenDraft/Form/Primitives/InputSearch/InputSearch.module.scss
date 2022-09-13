@@ -92,7 +92,7 @@ $border-solid-border-radius-curved: $input-height;
     @include vertically-center-icon;
     right: auto;
     left: $spacing-sm;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       right: $spacing-sm;
@@ -109,7 +109,7 @@ $border-solid-border-radius-curved: $input-height;
   .input[type="search"] {
     padding-right: $input-base-padding-horizontal;
     padding-left: $spacing-md + $input-icon-size;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       padding-right: $spacing-md + $input-icon-size;
@@ -123,7 +123,7 @@ $border-solid-border-radius-curved: $input-height;
     @include vertically-center-icon;
     right: $spacing-sm;
     left: auto;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       right: auto;
@@ -140,7 +140,7 @@ $border-solid-border-radius-curved: $input-height;
   .input[type="search"] {
     padding-right: $spacing-md + $input-icon-size;
     padding-left: $input-base-padding-horizontal;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       padding-right: $input-base-padding-horizontal;
@@ -153,7 +153,7 @@ $border-solid-border-radius-curved: $input-height;
   .input[type="search"] {
     padding-right: $spacing-md + $input-icon-size;
     padding-left: $spacing-md + $input-icon-size;
-  
+
     &[dir="rtl"],
     [dir="rtl"] & {
       padding-right: $spacing-md + $input-icon-size;
