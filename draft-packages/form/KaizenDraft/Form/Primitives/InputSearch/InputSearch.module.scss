@@ -1,13 +1,11 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
 @import "../../mixins";
 @import "../mixins";
 
 $input-height: 48px;
-$input-base-padding-horizontal: calc(#{$ca-grid} / 2);
+$input-base-padding-horizontal: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
@@ -92,7 +90,14 @@ $border-solid-border-radius-curved: $input-height;
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
-    @include ca-position($start: calc(#{$ca-grid} / 2));
+    right: auto;
+    left: $spacing-sm;
+  
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      right: $spacing-sm;
+      left: auto;
+    }
   }
 
   &.withDisabled {
@@ -102,17 +107,28 @@ $border-solid-border-radius-curved: $input-height;
   }
 
   .input[type="search"] {
-    @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
-      $end: $input-base-padding-horizontal
-    );
+    padding-right: $input-base-padding-horizontal;
+    padding-left: $spacing-md + $input-icon-size;
+  
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      padding-right: $spacing-md + $input-icon-size;
+      padding-left: $input-base-padding-horizontal;
+    }
   }
 }
 
 .withEndIconAdornment {
   .endIconAdornment {
     @include vertically-center-icon;
-    @include ca-position($end: calc(#{$ca-grid} / 2));
+    right: $spacing-sm;
+    left: auto;
+  
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      right: auto;
+      left: $spacing-sm;
+    }
   }
 
   &.isDisabled {
@@ -122,19 +138,27 @@ $border-solid-border-radius-curved: $input-height;
   }
 
   .input[type="search"] {
-    @include ca-padding(
-      $start: $input-base-padding-horizontal,
-      $end: $ca-grid + $input-icon-size
-    );
+    padding-right: $spacing-md + $input-icon-size;
+    padding-left: $input-base-padding-horizontal;
+  
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      padding-right: $input-base-padding-horizontal;
+      padding-left: $spacing-md + $input-icon-size;
+    }
   }
 }
 
 .withStartIconAdornment.withEndIconAdornment {
   .input[type="search"] {
-    @include ca-padding(
-      $start: $ca-grid + $input-icon-size,
-      $end: $ca-grid + $input-icon-size
-    );
+    padding-right: $spacing-md + $input-icon-size;
+    padding-left: $spacing-md + $input-icon-size;
+  
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      padding-right: $spacing-md + $input-icon-size;
+      padding-left: $spacing-md + $input-icon-size;
+    }
   }
 }
 
@@ -340,7 +364,7 @@ $border-solid-border-radius-curved: $input-height;
   }
 
   &.error:not(:focus) {
-    border-color: $ca-palette-input-validation-negative;
+    border-color: $color-red-200;
 
     @include form-input-placeholder {
       opacity: $search-input-placeholder-opacity;

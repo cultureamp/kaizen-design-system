@@ -1,31 +1,33 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/typography";
+
 
 $input-placeholder-line-height: 2.9rem;
 
 @mixin form-input-placeholder() {
   &::-webkit-input-placeholder {
     @include kz-typography-paragraph-body($size: 16);
-    @include ca-inherit-baseline;
+    position: static;
     @content;
   }
 
   &:-moz-placeholder {
     @include kz-typography-paragraph-body($size: 16);
-    @include ca-inherit-baseline;
+    position: static;
     line-height: $input-placeholder-line-height;
     @content;
   }
 
   &::-moz-placeholder {
     @include kz-typography-paragraph-body($size: 16);
-    @include ca-inherit-baseline;
+    position: static;
     line-height: $input-placeholder-line-height;
     @content;
   }
 
   &:-ms-input-placeholder {
     @include kz-typography-paragraph-body($size: 16);
-    @include ca-inherit-baseline;
+    position: static;
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -44,5 +46,5 @@ $input-placeholder-line-height: 2.9rem;
   outline: 0;
   box-sizing: border-box;
   @include kz-typography-paragraph-body($size: 16);
-  @include ca-inherit-baseline;
+  position: static;
 }
