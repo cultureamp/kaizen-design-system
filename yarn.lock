@@ -4442,7 +4442,7 @@
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/api@6.5.12":
+"@storybook/api@6.5.12", "@storybook/api@^6.5.12":
   version "6.5.12"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.5.12.tgz#7cc82087fc9298be03f15bf4ab9c4aab294b3bac"
   integrity sha512-DuUZmMlQxkFNU9Vgkp9aNfCkAongU76VVmygvCuSpMVDI9HQ2lG0ydL+ppL4XKoSMCCoXTY6+rg4hJANnH+1AQ==
@@ -4465,7 +4465,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/api@6.5.9", "@storybook/api@^6.5.9":
+"@storybook/api@6.5.9":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.5.9.tgz#303733214c9de0422d162f7c54ae05d088b89bf9"
   integrity sha512-9ylztnty4Y+ALU/ehW3BML9czjCAFsWvrwuCi6UgcwNjswwjSX3VRLhfD1KT3pl16ho//95LgZ0LnSwROCcPOA==
