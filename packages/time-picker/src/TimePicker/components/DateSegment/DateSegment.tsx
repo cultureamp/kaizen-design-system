@@ -16,7 +16,6 @@ export const DateSegment = ({
 }) => {
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
-
   return (
     <div
       {...segmentProps}
@@ -25,7 +24,7 @@ export const DateSegment = ({
         segment.isPlaceholder ? styles.placeholder : ""
       }`}
     >
-      {segment.text}
+      {segment.isPlaceholder ? "00" : segment.text}
     </div>
   )
 }

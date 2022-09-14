@@ -7,7 +7,7 @@
 }
 
 .segment.placeholder {
-  color: var(--react-spectrum-datepicker-placeholder-color);
+  color: rgba($color-purple-800-rgb, 0.7);
 }
 
 .segment:focus {
