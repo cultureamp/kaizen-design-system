@@ -5,6 +5,7 @@ import {
   DismissButton,
 } from "@react-aria/overlays"
 import { FocusScope } from "@react-aria/focus"
+import styles from "./Popover.module.scss"
 
 export const Popover: React.FunctionComponent<
   AriaOverlayProps & { children: React.ReactNode }
@@ -28,17 +29,10 @@ export const Popover: React.FunctionComponent<
   // to allow screen reader users to dismiss the popup easily.
   return (
     <FocusScope restoreFocus>
-      <div
-        {...overlayProps}
-        ref={ref}
-        style={{
-          position: "absolute",
-
-          marginTop: 4,
-        }}
-      >
+      <div {...overlayProps} ref={ref} className={styles.popover}>
         {children}
-        <DismissButton onDismiss={onClose} />
+        {/* FIXME: This causes a crash due to i18n within package getting imported wrong during compile */}
+        {/* <DismissButton onDismiss={onClose} /> */}
       </div>
     </FocusScope>
   )

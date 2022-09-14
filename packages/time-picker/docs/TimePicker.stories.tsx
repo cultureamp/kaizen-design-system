@@ -12,16 +12,19 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { TimePicker } from "@kaizen/time-picker"',
+        component: 'import { TimePicker } from "@kaizen/time-picker"',
       },
     },
-    ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
+    ...figmaEmbed(
+      "REPLACE_THIS_WITH_FIGMA_URL"
+    ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
 
-export const DefaultStory: ComponentStory<typeof TimePicker> = args => <TimePicker {...args} />
+export const DefaultStory: ComponentStory<typeof TimePicker> = args => (
+  <TimePicker {...args} />
+)
 DefaultStory.storyName = "TimePicker"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -30,12 +33,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
     <StoryWrapper.Row rowTitle="ROW 1">
-      <TimePicker exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 1 props */}
-      <TimePicker exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 1 props */}
+      <TimePicker locale="en-GB" /> {/** @todo: Add column 1 + row 1 props */}
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="ROW 2">
-      <TimePicker exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 2 props */}
-      <TimePicker exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 2 props */}
+      <TimePicker locale="en-GB" /> {/** @todo: Add column 1 + row 2 props */}
+      <TimePicker locale="en-GB" /> {/** @todo: Add column 2 + row 2 props */}
     </StoryWrapper.Row>
   </StoryWrapper>
 )

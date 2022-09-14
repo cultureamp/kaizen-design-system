@@ -1,6 +1,7 @@
 import React from "react"
 import { useMenuItem } from "@react-aria/menu"
 import { TreeState } from "@react-stately/tree"
+import styles from "./MenuItem.module.scss"
 // import { TIME_OPTION } from "@Utils/time"
 
 // import { Node } from "./types"
@@ -20,25 +21,9 @@ export const MenuItem = ({
     ref
   )
   return (
-    <li
-      {...menuItemProps}
-      ref={ref}
-      style={{
-        background: isFocused ? "#e6f6ff" : "transparent",
-        color: isFocused ? "#0168b3" : "#2f2438",
-        padding: "6px calc(0.75rem - 2px)",
-        margin: "0 0.375rem",
-        minHeight: " calc(1.75 * 1.5rem)",
-        display: "flex",
-        alignItems: "center",
-        outline: "none",
-        cursor: "default",
-        borderRadius: 4,
-        justifyContent: "space-between",
-      }}
-    >
+    <li {...menuItemProps} ref={ref} className={styles.menuItem}>
       {item.rendered}
     </li>
   )
 }
-MenuItem.name = "MenuItem"
+MenuItem.displayName = "MenuItem"

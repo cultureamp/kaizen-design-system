@@ -17,13 +17,14 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
-import styles from "./style.scss"
+import styles from "./TimePicker.module.scss"
 
 export type TimePickerProps = TimeFieldStateOptions & AriaMenuTriggerProps
 
 export const TimePicker: React.VFC<TimePickerProps> = (
   props: TimePickerProps
 ) => {
+  // TODO: this should take a custom locale
   const { locale } = useLocale()
   const state = useTimeFieldState({
     ...props,

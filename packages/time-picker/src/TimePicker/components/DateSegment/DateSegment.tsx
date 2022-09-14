@@ -5,7 +5,7 @@ import {
   DateFieldState,
 } from "@react-stately/datepicker"
 
-import styles from "./style.scss"
+import styles from "./DateSegment.module.scss"
 
 export const DateSegment = ({
   segment,
@@ -29,4 +29,4 @@ export const DateSegment = ({
     </div>
   )
 }
-DateSegment.name = "DateSegment"
+DateSegment.displayName = "DateSegment"
