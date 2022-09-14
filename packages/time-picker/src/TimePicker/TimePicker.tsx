@@ -15,6 +15,7 @@ import {
 
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import classNames from "classnames"
 import { getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
@@ -46,43 +47,51 @@ export const TimePicker: React.VFC<TimePickerProps> = (
     <div className={styles.wrapper}>
       {/* <span {...labelProps}>{props.label}</span> */}
       <Label>{props.label}</Label>
-      <div className={styles.fieldWrapper}>
-        <div {...fieldProps} ref={ref} className={styles.field}>
-          {state.segments.map((segment, i) => (
-            <DateSegment key={i} segment={segment} state={state} />
-          ))}
-          {/* TODO: Validation states */}
-        </div>
+
+      <div
+        {...fieldProps}
+        ref={ref}
+        className={classNames(styles.input, {
+          [styles.isDisabled]: state.isDisabled,
+        })}
+      >
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
         <div className={styles.focusRing} />
-        <Button {...menuTriggerProps} ref={buttonRef}>
+        <Button
+          {...menuTriggerProps}
+          isDisabled={state.isDisabled}
+          ref={buttonRef}
+        >
           <Icon icon={menuState.isOpen ? chevronUp : chevronDown} />
         </Button>
-        {menuState.isOpen && (
-          <Popover isOpen={menuState.isOpen} onClose={menuState.close}>
-            <Menu
-              {...menuProps}
-              onAction={key => {
-                const splitTime = key.toString().split(":")
-                props.onChange &&
-                  props.onChange(
-                    new CalendarDateTime(
-                      // @ts-expect-error not sure why how to fix below
-                      2022,
-                      8,
-                      13,
-                      splitTime[0],
-                      splitTime[1]
-                    )
-                  )
-              }}
-            >
-              {options.map(option => (
-                <Item key={option.value}>{option.label}</Item>
-              ))}
-            </Menu>
-          </Popover>
-        )}
       </div>
+      {menuState.isOpen && (
+        <Popover isOpen={menuState.isOpen} onClose={menuState.close}>
+          <Menu
+            {...menuProps}
+            onAction={key => {
+              const splitTime = key.toString().split(":")
+              props.onChange &&
+                props.onChange(
+                  new CalendarDateTime(
+                    // @ts-expect-error not sure why how to fix below
+                    2022,
+                    8,
+                    13,
+                    splitTime[0],
+                    splitTime[1]
+                  )
+                )
+            }}
+          >
+            {options.map(option => (
+              <Item key={option.value}>{option.label}</Item>
+            ))}
+          </Menu>
+        </Popover>
+      )}
     </div>
   )
 }

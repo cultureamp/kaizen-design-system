@@ -38,7 +38,7 @@ $input-disabled-border-alpha: 50%;
   @include base-font-style();
 }
 
-.field {
+.input {
   display: inline-flex;
   align-items: center;
   background-color: transparent;
@@ -57,12 +57,14 @@ $input-disabled-border-alpha: 50%;
   }
 }
 
-.fieldWrapper {
-  position: relative;
-  width: 100%;
+.isDisabled {
+  pointer-events: none;
+  background-color: transparent;
+  border-color: $color-gray-500;
+  opacity: 0.3;
 }
 
-.fieldWrapper:focus-within {
+.input:focus-within {
   .focusRing {
     $focus-ring-offset: 3px;
     position: absolute;
@@ -77,8 +79,8 @@ $input-disabled-border-alpha: 50%;
     bottom: -$focus-ring-offset;
     pointer-events: none;
   }
-  .field {
-    border-color: $color-gray-600;
-    background-color: $color-gray-200;
-  }
+  // .field {
+  //   border-color: $color-gray-600;
+  //   background-color: $color-gray-200;
+  // }
 }
