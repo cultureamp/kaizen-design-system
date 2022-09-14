@@ -16,9 +16,9 @@
   border-style: $border-focus-ring-border-style;
   border-color: transparent;
   justify-content: space-between;
-  &:focus {
-    // background-color: $color-blue-100;
-    // color: $color-blue-500;
-    border-color: $focus-border-color;
-  }
+}
+.menuItem:focus {
+  background-color: $color-blue-100;
+  color: $color-blue-500;
+  // border-color: $focus-border-color;
 }
