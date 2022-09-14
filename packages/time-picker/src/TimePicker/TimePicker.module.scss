@@ -1,22 +1,10 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
 
 // General purpose tokens
-$dt-color-form-border-color: $color-gray-500;
-$dt-color-form-border-color-focus: $color-blue-500;
-$dt-color-form-border-color-hover: $color-gray-600;
-$dt-color-form-border-color-reversed-focus: $color-blue-300;
-$dt-color-form-text-color: $color-purple-800;
-$dt-color-form-text-color-reversed: $color-white;
-$dt-color-form-text-color-label: rgba($color-purple-800-rgb, 0.75);
-$dt-color-form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
-$dt-color-form-color-icon-reversed: $color-gray-600;
-$dt-color-form-text-color-placeholder: rgba($color-purple-800-rgb, 0.7);
+
 $input-placeholder-line-height: 2.9rem;
 $input-height: 48px;
 $input-base-padding-horizontal: calc(#{$ca-grid} / 2);
@@ -25,49 +13,12 @@ $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
-@mixin form-input-placeholder() {
-  //   &::-webkit-input-placeholder {
-  //     @include kz-typography-paragraph-body($size: 16);
-  //     @include ca-inherit-baseline;
-  //     @content;
-  //   }
-
-  //   &:-moz-placeholder {
-  //     @include kz-typography-paragraph-body($size: 16);
-  //     @include ca-inherit-baseline;
-  //     line-height: $input-placeholder-line-height;
-  //     @content;
-  //   }
-
-  //   &::-moz-placeholder {
-  //     @include kz-typography-paragraph-body($size: 16);
-  //     @include ca-inherit-baseline;
-  //     line-height: $input-placeholder-line-height;
-  //     @content;
-  //   }
-
-  //   &:-ms-input-placeholder {
-  //     @include kz-typography-paragraph-body($size: 16);
-  //     @include ca-inherit-baseline;
-  //     line-height: $input-placeholder-line-height;
-  //     @content;
-  //   }
-}
-
 @mixin form-input-focus-state {
-  //   &:focus:not([disabled]),
-  //   &:hover:focus:not([disabled]),
-  //   &:hover:not([disabled]) {
-  //     @content;
-  //   }
-}
-
-// Simple form input css reset
-@mixin form-input-reset() {
-  outline: 0;
-  box-sizing: border-box;
-  @include kz-typography-paragraph-body($size: 16);
-  @include ca-inherit-baseline;
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]),
+  &:hover:not([disabled]) {
+    @content;
+  }
 }
 
 @mixin base-font-style() {
@@ -100,11 +51,10 @@ $input-disabled-border-alpha: 50%;
   height: $input-height;
   width: 100%;
   box-sizing: border-box;
-  //   margin-bottom: 2px;
-}
-
-.field:focus-within {
-  border-color: $color-gray-600;
+  @include form-input-focus-state {
+    border-color: $color-gray-600;
+    background-color: $color-gray-200;
+  }
 }
 
 .fieldWrapper {
@@ -126,5 +76,9 @@ $input-disabled-border-alpha: 50%;
     right: -$focus-ring-offset;
     bottom: -$focus-ring-offset;
     pointer-events: none;
+  }
+  .field {
+    border-color: $color-gray-600;
+    background-color: $color-gray-200;
   }
 }

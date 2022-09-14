@@ -1,11 +1,23 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layers";
+
 .menuContainer {
   margin: 0;
   list-style: none;
   width: 100%;
-  border-radius: 7px;
+  z-index: $ca-z-index-dropdown;
+  box-sizing: border-box;
   position: absolute;
-  background-color: white;
-  padding: 0.375rem 0;
+  background: $color-white;
+  padding: $spacing-xs 0;
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.1);
   right: 0;
+  border: 6px $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
+  text-align: left;
+  max-height: 300;
 }
