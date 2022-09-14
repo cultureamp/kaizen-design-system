@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "@kaizen/component-library": "^16.1.0",
-    "@kaizen/design-tokens": "^10.0.2",
     "@types/jszip": "^3.4.0",
     "rimraf": "^3.0.2"
   },
