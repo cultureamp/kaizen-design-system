@@ -1,9 +1,9 @@
 import React from "react"
 import { useTreeState, TreeProps } from "@react-stately/tree"
 import { AriaMenuOptions, useMenu } from "@react-aria/menu"
-// import { TIME_OPTION } from "@Utils/time"
-
 import { MenuItem } from "../MenuItem"
+import styles from "./Menu.module.scss"
+// import { TIME_OPTION } from "@Utils/time"
 
 export const Menu = (props: AriaMenuOptions<any> & TreeProps<any>) => {
   // Create menu state based on the incoming props
@@ -14,19 +14,7 @@ export const Menu = (props: AriaMenuOptions<any> & TreeProps<any>) => {
   const { menuProps } = useMenu(props, state, ref)
 
   return (
-    <ul
-      {...menuProps}
-      ref={ref}
-      style={{
-        margin: 0,
-        listStyle: "none",
-        width: 246,
-        borderRadius: 7,
-        backgroundColor: "white",
-        padding: "0.375rem 0",
-        boxShadow: "0px 3px 9px rgba(0, 0, 0, 0.1)",
-      }}
-    >
+    <ul {...menuProps} ref={ref} className={styles.menuContainer}>
       {/* @ts-ignore */}
       {[...state.collection].map(item => (
         <MenuItem key={item.key} item={item} state={state} />
@@ -34,4 +22,4 @@ export const Menu = (props: AriaMenuOptions<any> & TreeProps<any>) => {
     </ul>
   )
 }
-Menu.name = "Menu"
+Menu.displayName = "Menu"

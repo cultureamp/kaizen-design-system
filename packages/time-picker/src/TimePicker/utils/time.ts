@@ -1,19 +1,26 @@
 // import moment from "moment"
 
+import { Time } from "@internationalized/date"
+
 export type TIME_OPTION = {
   label: string
   value: string
 }
 
-export const getTimeOption = (hours: number, minutes: number) => ({
-  //   value: moment({ hours, minutes }).format("HH:mm"),
-  //   label: moment({ hours, minutes }).format("LT"),
-})
+// FIXME: This is pretty ugly
+const convert24To12HourTime = (time: Time) =>
+  `${time.hour % 12 || 12}:${time.toString().split(":")[1]} ${
+    time.hour >= 12 ? "PM" : "AM"
+  }`
 
-export const getAllTimeOptions = () => [{ value: "", label: "" }]
-//   const timeOptions: TIME_OPTION[] = []
-//   const hours = [...Array(24).keys()]
-//   hours.forEach(h =>
-//     [0, 30].forEach(m => timeOptions.push(getTimeOption(h, m)))
-//   )
-//   return timeOptions
+export const getAllTimeOptions = () =>
+  Array.from(Array(24).keys()).reduce((options, hour) => {
+    ;[0, 30].forEach(increment => {
+      const time = new Time(hour, increment)
+      options.push({
+        value: time.toString(),
+        label: convert24To12HourTime(time),
+      })
+    })
+    return options
+  }, [] as TIME_OPTION[])

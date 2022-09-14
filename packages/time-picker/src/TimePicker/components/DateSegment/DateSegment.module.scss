@@ -1,3 +1,20 @@
-.dateSegment {
-  color: red;
+@import "~@kaizen/design-tokens/sass/color";
+
+.segment {
+  padding: 0 2px;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  //   font-family: $typography-paragraph-body-font-family, "Inter", "Noto Sans",
+  //     Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;
+}
+
+.segment.placeholder {
+  color: var(--react-spectrum-datepicker-placeholder-color);
+}
+
+.segment:focus {
+  color: white;
+  background: $color-blue-500;
+  outline: none;
+  border-radius: 2px;
 }

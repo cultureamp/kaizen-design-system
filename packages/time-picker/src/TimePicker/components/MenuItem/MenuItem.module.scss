@@ -1,3 +1,24 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
 .menuItem {
-  color: red;
+  color: #2f2438;
+  background: transparent;
+  padding: 6px calc(0.75rem - 2px);
+  margin: 0 0.375rem;
+  min-height: calc(1.75 * 1.5rem);
+  display: flex;
+  align-items: center;
+  outline: none;
+  cursor: default;
+  border-radius: $border-focus-ring-border-radius;
+  border-width: $border-focus-ring-border-width;
+  border-style: $border-focus-ring-border-style;
+  border-color: transparent;
+  justify-content: space-between;
+  &:focus {
+    // background-color: $color-blue-100;
+    // color: $color-blue-500;
+    border-color: $focus-border-color;
+  }
 }
