@@ -244,7 +244,7 @@ export const heartTheme: Theme = {
       fontWeight: 400,
       fontSize: "1.25rem",
       lineHeight: "1.875rem",
-      letterSpacing: "-0.5px",
+      letterSpacing: "0",
     },
     paragraphBody: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
