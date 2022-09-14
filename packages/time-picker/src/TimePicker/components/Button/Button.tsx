@@ -1,5 +1,6 @@
 import React, { ForwardedRef } from "react"
 import { useButton, AriaButtonProps } from "@react-aria/button"
+import { Icon } from "@kaizen/component-library"
 import styles from "./Button.module.scss"
 
 export const Button = React.forwardRef(

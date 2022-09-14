@@ -1,12 +1,15 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .menuItem {
   color: #2f2438;
   background: transparent;
-  padding: 6px calc(0.75rem - 2px);
-  margin: 0 0.375rem;
-  min-height: calc(1.75 * 1.5rem);
+  padding: 6px calc(#{$spacing-sm} - 2px);
+  margin: 0 $spacing-xs;
+  min-height: calc(1.75 * #{$spacing-md});
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   outline: none;
@@ -16,6 +19,13 @@
   border-style: $border-focus-ring-border-style;
   border-color: transparent;
   justify-content: space-between;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  text-decoration: none;
+  color: $color-purple-800;
 }
 .menuItem:focus {
   background-color: $color-blue-100;
