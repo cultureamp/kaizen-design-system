@@ -1,5 +1,7 @@
+$input-height: 48px;
+
 .popover {
   position: absolute;
-  margin-top: 4px;
+  top: calc($input-height + 8px);
   width: 100%;
 }

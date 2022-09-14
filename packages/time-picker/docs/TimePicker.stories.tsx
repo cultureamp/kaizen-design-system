@@ -26,6 +26,9 @@ export const DefaultStory: ComponentStory<typeof TimePicker> = args => (
   <TimePicker {...args} />
 )
 DefaultStory.storyName = "TimePicker"
+DefaultStory.args = {
+  isDisabled: false,
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
