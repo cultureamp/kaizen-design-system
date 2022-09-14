@@ -1,7 +1,7 @@
 import { Icon } from "@kaizen/component-library"
 import { Label } from "@kaizen/draft-form"
 import React, { useMemo, useRef } from "react"
-import { CalendarDateTime, Time } from "@internationalized/date"
+import { CalendarDateTime } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
 import { useMenuTrigger, AriaMenuTriggerProps } from "@react-aria/menu"
