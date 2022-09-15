@@ -64,6 +64,10 @@ $input-disabled-border-alpha: 50%;
   opacity: 0.3;
 }
 
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
+}
+
 .input:focus-within {
   .focusRing {
     $focus-ring-offset: 3px;
