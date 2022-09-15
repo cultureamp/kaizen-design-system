@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-import { Label } from "@kaizen/draft-form"
+import { FieldMessage, Label } from "@kaizen/draft-form"
 import React, { useMemo, useRef } from "react"
 import { CalendarDateTime } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
@@ -20,39 +20,52 @@ import { getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 
-export type TimePickerProps = TimeFieldStateOptions & AriaMenuTriggerProps
+export type StatusType = "default" | "error"
 
-export const TimePicker: React.VFC<TimePickerProps> = (
-  props: TimePickerProps
-) => {
+export type TimePickerProps = Exclude<
+  TimeFieldStateOptions,
+  "errorMessage" | "validationState"
+> &
+  AriaMenuTriggerProps & {
+    status?: StatusType
+    validationMessage?: React.ReactNode
+  }
+
+export const TimePicker: React.VFC<TimePickerProps> = ({
+  status = "default",
+  validationMessage,
+  ...rest
+}: TimePickerProps) => {
   // TODO: this should take a custom locale
   const { locale } = useLocale()
   const state = useTimeFieldState({
-    ...props,
+    ...rest,
     locale,
+    validationState: status === "default" ? "valid" : "invalid",
   })
 
-  const menuState = useMenuTriggerState(props)
+  const menuState = useMenuTriggerState(rest)
 
   const ref = React.useRef(null)
-  const { fieldProps } = useTimeField(props, state, ref)
+  const { fieldProps } = useTimeField(rest, state, ref)
   const buttonRef = useRef(null)
   const { menuTriggerProps, menuProps } = useMenuTrigger<TIME_OPTION>(
     {},
     menuState,
     buttonRef
   )
+
   const options = useMemo(() => getAllTimeOptions(), [])
   return (
     <div className={styles.wrapper}>
-      {/* <span {...labelProps}>{props.label}</span> */}
-      <Label>{props.label}</Label>
+      <Label>{rest.label}</Label>
 
       <div
         {...fieldProps}
         ref={ref}
         className={classNames(styles.input, {
           [styles.isDisabled]: state.isDisabled,
+          [styles.error]: state.validationState === "invalid",
         })}
       >
         {state.segments.map((segment, i) => (
@@ -67,14 +80,17 @@ export const TimePicker: React.VFC<TimePickerProps> = (
           <Icon icon={menuState.isOpen ? chevronUp : chevronDown} />
         </Button>
       </div>
+      {validationMessage ? (
+        <FieldMessage message={validationMessage} status={status} />
+      ) : null}
       {menuState.isOpen && (
         <Popover isOpen={menuState.isOpen} onClose={menuState.close}>
           <Menu
             {...menuProps}
             onAction={key => {
               const splitTime = key.toString().split(":")
-              props.onChange &&
-                props.onChange(
+              rest.onChange &&
+                rest.onChange(
                   new CalendarDateTime(
                     // @ts-expect-error not sure why how to fix below
                     2022,
