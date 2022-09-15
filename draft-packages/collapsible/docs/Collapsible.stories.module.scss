@@ -1,15 +1,15 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
 
 .listItem {
   @include ca-padding(
-    $top: $ca-grid,
-    $end: $ca-grid,
-    $bottom: $ca-grid,
-    $start: $ca-grid
+    $top: $spacing-md,
+    $end: $spacing-md,
+    $bottom: $spacing-md,
+    $start: $spacing-md
   );
 
   & + .listItem {
-    border-top: 1px solid $ca-border-color;
+    border-top: 1px $border-solid-border-style $border-solid-border-color;
   }
 }

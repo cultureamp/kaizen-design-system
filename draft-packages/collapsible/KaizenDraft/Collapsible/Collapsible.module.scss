@@ -2,9 +2,8 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/animation";
 
 $heading-active-color: #f2f2f3;
 // ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
@@ -13,7 +12,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
 .container {
-  background-color: white;
+  background-color: $color-white;
   box-shadow: $shadow-small-box-shadow;
   border-radius: $border-borderless-border-radius;
 }
@@ -26,7 +25,15 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 
 .separated {
   & + .separated {
-    @include ca-margin($top: $ca-grid * 0.3);
+    margin-top: calc(#{$spacing-md} * 0.3);
+    margin-right: 0;
+    margin-left: 0;
+
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   .header {
@@ -39,7 +46,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 // is open we remove the rounded edge as the content sits beneath and needs to be straight.
 .groupItem {
   & + .groupItem {
-    border-top: 1px solid $border-color;
+    border-top: 1px $border-solid-border-style $border-color;
   }
 
   &:first-of-type > .header {
@@ -64,13 +71,19 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   display: flex;
   align-items: center;
   text-align: left;
-  background-color: white;
+  background-color: $color-white;
   border: none;
   transition: background-color $ca-duration-rapid;
   padding-top: $spacing-sm;
   padding-bottom: $spacing-sm;
   padding-left: $spacing-md;
   padding-right: $spacing-sm;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+  }
 
   &:hover {
     background-color: $heading-active-color;
@@ -97,7 +110,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .clearVariant {
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px $border-solid-border-style $border-color;
 }
 
 .sticky {
@@ -107,12 +120,16 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .section {
-  @include ca-padding(
-    $top: $ca-grid,
-    $end: $ca-grid,
-    $bottom: $ca-grid,
-    $start: $ca-grid
-  );
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+  }
 }
 
 .noPadding {
