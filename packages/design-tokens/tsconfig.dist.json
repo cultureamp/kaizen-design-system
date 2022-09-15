@@ -8,8 +8,7 @@
     "declarationMap": true,
     "declaration": true,
     "target": "es5",
-    "module": "CommonJS",
-    "noUncheckedIndexedAccess": true
+    "module": "CommonJS"
   },
   "include": ["index.ts"],
   "exclude": ["**/*.spec.ts"]

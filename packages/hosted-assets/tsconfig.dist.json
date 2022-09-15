@@ -6,7 +6,6 @@
     "noEmit": false,
     "allowJs": false,
     "sourceMap": true,
-    "declaration": true,
-    "noUncheckedIndexedAccess": true
+    "declaration": true
   }
 }
