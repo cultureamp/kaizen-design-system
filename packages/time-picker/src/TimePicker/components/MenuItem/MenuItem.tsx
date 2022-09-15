@@ -1,17 +1,16 @@
 import React from "react"
 import { useMenuItem } from "@react-aria/menu"
 import { TreeState } from "@react-stately/tree"
+import { TIME_OPTION } from "../../utils"
 import styles from "./MenuItem.module.scss"
-// import { TIME_OPTION } from "@Utils/time"
-
-// import { Node } from "./types"
+import { Node } from "./types"
 
 export const MenuItem = ({
   item,
   state,
 }: {
-  item: any
-  state: TreeState<any>
+  item: Node<TIME_OPTION>
+  state: TreeState<TIME_OPTION>
 }) => {
   // Get props for the menu item element
   const ref = React.useRef(null)
