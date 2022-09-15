@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.1...@kaizen/design-tokens@10.0.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* **design-tokens/heart:** update intro-lede letter spacing ([#2959](https://github.com/cultureamp/kaizen-design-system/issues/2959)) ([4fc79c4](https://github.com/cultureamp/kaizen-design-system/commit/4fc79c43e9273d0a9999545524d2aa379d6eef78))
+
+
+
+
+
 ## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.0...@kaizen/design-tokens@10.0.1) (2022-09-12)
 
 

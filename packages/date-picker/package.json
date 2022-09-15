@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.11.4",
+  "version": "5.11.7",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "12.2.0",
-    "@kaizen/draft-form": "^8.2.0",
+    "@kaizen/draft-form": "^8.3.1",
     "@popperjs/core": "^2.11.5",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
@@ -40,11 +40,10 @@
     "react-popper": "^2.2.5"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^10.0.1",
     "@types/classnames": "^2.3.1"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }
