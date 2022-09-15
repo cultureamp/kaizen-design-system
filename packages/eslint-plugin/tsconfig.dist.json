@@ -9,7 +9,8 @@
     "declarationMap": true,
     "declaration": true,
     "target": "es5",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "noUncheckedIndexedAccess": true
   },
   "include": ["src", "types"]
 }
