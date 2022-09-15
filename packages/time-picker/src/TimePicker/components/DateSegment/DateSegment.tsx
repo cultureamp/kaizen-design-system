@@ -24,7 +24,10 @@ export const DateSegment = ({
         segment.isPlaceholder ? styles.placeholder : ""
       }`}
     >
-      {segment.isPlaceholder ? "00" : segment.text}
+      {segment.text}
+      {/* {segment.isPlaceholder && segment.type !== "dayPeriod"
+        ? "00"
+        : segment.text} */}
     </div>
   )
 }

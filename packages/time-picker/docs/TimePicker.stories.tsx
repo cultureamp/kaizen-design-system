@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { CalendarDateTime } from "@internationalized/date"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -22,13 +23,19 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
 
-export const DefaultStory: ComponentStory<typeof TimePicker> = args => (
-  <TimePicker {...args} />
-)
+export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
+  const [value, setValue] = useState<Date>(new Date())
+  return (
+    <div>
+      <TimePicker {...args} value={value} onChange={setValue} />
+    </div>
+  )
+}
 DefaultStory.storyName = "TimePicker"
 DefaultStory.args = {
   isDisabled: false,
   status: "default",
+  id: "time-picker-input",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -37,11 +44,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
     <StoryWrapper.Row rowTitle="ROW 1">
-      <TimePicker locale="en-GB" /> {/** @todo: Add column 1 + row 1 props */}
+      {/* <TimePicker locale="en-GB" id='row-1-id' /> * @todo: Add column 1 + row 1 props */}
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="ROW 2">
-      <TimePicker locale="en-GB" /> {/** @todo: Add column 1 + row 2 props */}
-      <TimePicker locale="en-GB" /> {/** @todo: Add column 2 + row 2 props */}
+      {/* <TimePicker locale="en-GB" /> * @todo: Add column 1 + row 2 props */}
+      {/* <TimePicker locale="en-GB" /> * @todo: Add column 2 + row 2 props */}
     </StoryWrapper.Row>
   </StoryWrapper>
 )
