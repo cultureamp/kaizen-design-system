@@ -17,6 +17,9 @@ export type MenuProps = Omit<
    * @default: false
    */
   menuVisible?: boolean
+  /**
+   * Takes any ReactElement with button props but is most commonly used with a Kaizen `<Button>` or `<IconButton>` component.
+   */
   button: React.ReactElement<ButtonPropsWithOptionalAria>
 }
 
