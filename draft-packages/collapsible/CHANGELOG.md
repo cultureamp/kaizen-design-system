@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.4...@kaizen/draft-collapsible@3.3.0) (2022-09-16)
+
+
+### Features
+
+* **Collapsible:** Use an IconButton for header toggle (a11y improvement) ([#2954](https://github.com/cultureamp/kaizen-design-system/issues/2954)) ([05f3af9](https://github.com/cultureamp/kaizen-design-system/commit/05f3af920aa78182ca6c95e1eddc92171ef662b0))
+
+
+
+
+
 ## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.3...@kaizen/draft-collapsible@3.2.4) (2022-09-14)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible
