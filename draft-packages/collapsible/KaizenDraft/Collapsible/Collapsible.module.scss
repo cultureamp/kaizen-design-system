@@ -19,7 +19,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .single {
-  .button {
+  .header {
     border-radius: $border-borderless-border-radius;
   }
 }
@@ -29,7 +29,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
     @include ca-margin($top: $ca-grid * 0.3);
   }
 
-  .button {
+  .header {
     border-radius: $border-borderless-border-radius;
   }
 }
@@ -42,25 +42,25 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
     border-top: 1px solid $border-color;
   }
 
-  &:first-of-type > .button {
+  &:first-of-type > .header {
     border-top-left-radius: $border-borderless-border-radius;
     border-top-right-radius: $border-borderless-border-radius;
   }
 
-  &:last-of-type > .button:not(.open) {
+  &:last-of-type > .header:not(.open) {
     border-bottom-left-radius: $border-borderless-border-radius;
     border-bottom-right-radius: $border-borderless-border-radius;
   }
 }
 
-// Round the bottom corners of the button so when the container is open, the
-// button background is not rounded on the corners and flush with the content beneath.
-.open .button {
+// Round the bottom corners of the header so when the container is open, the
+// header background is not rounded on the corners and flush with the content beneath.
+.open .header {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.button {
+.header {
   display: flex;
   align-items: center;
   text-align: left;

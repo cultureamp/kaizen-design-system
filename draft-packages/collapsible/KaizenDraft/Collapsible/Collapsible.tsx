@@ -101,7 +101,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
         jsx-a11y/no-static-element-interactions */}
         <div
-          className={classnames(styles.button, {
+          className={classnames(styles.header, {
             [styles.defaultVariant]: open && variant === "default",
             [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
