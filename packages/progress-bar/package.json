@@ -36,6 +36,6 @@
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "^16.1.1",
     "@kaizen/typography": "^2.3.2",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.2"
   }
 }
