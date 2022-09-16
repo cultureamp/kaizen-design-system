@@ -44,7 +44,7 @@
     "@react-aria/menu": "^3.6.1",
     "@react-aria/overlays": "^3.9.1",
     "@react-aria/select": "^3.7.1",
-    "@react-aria/utils": "^3.13.1",
+    "@react-aria/utils": "^3.13.3",
     "@react-stately/collections": "^3.4.1",
     "@react-stately/list": "^3.5.1",
     "@react-stately/menu": "^3.3.1",
