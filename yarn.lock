@@ -3980,6 +3980,17 @@
     "@react-stately/utils" "^3.5.0"
     "@react-types/shared" "^3.13.1"
 
+"@react-stately/list@^3.5.3":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.5.3.tgz#4a9473194f2a9465ec8bfe6b201036b90d0d52bf"
+  integrity sha512-qO8RhtXKdXKWqoJiwB+iw18SwY4NlMoDGX08wnesIz10blWyBotx81uR6C53Z7pAlbm4jUSO8KlJ9ACvhy/6Mg==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.4.3"
+    "@react-stately/selection" "^3.10.3"
+    "@react-stately/utils" "^3.5.1"
+    "@react-types/shared" "^3.14.1"
+
 "@react-stately/menu@^3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.3.1.tgz#8d9c9e1ba2bbb7e31cb41bf8f4a5fae2e85c9e25"
