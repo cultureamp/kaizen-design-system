@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/animation";
 
-$heading-active-color: #f2f2f3;
+$heading-active-color: $color-gray-200;
 // ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
 $border-color: rgba($color-gray-600-rgb, 0.2);
 
@@ -120,16 +120,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .section {
-  padding-top: $spacing-md;
-  padding-bottom: $spacing-md;
-  padding-right: $spacing-md;
-  padding-left: $spacing-md;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
-  }
+  padding: $spacing-md;
 }
 
 .noPadding {

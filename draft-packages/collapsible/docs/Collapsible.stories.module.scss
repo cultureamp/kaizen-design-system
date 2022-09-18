@@ -2,16 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 
 .listItem {
-  padding-top: $spacing-md;
-  padding-bottom: $spacing-md;
-  padding-right: $spacing-md;
-  padding-left: $spacing-md;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
-  }
+  padding: $spacing-md;
 
   & + .listItem {
     border-top: 1px $border-solid-border-style $border-solid-border-color;
