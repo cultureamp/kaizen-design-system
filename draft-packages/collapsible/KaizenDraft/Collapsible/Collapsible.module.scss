@@ -28,12 +28,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
     margin-top: calc(#{$spacing-md} * 0.3);
     margin-right: 0;
     margin-left: 0;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      margin-right: 0;
-      margin-left: 0;
-    }
   }
 
   .header {
@@ -78,12 +72,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   padding-bottom: $spacing-sm;
   padding-left: $spacing-md;
   padding-right: $spacing-sm;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
-  }
 
   &:hover {
     background-color: $heading-active-color;
