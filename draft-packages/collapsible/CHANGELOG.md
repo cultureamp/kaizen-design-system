@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.3.0...@kaizen/draft-collapsible@3.4.0) (2022-09-19)
+
+
+### Features
+
+* **collapsible:** remove deprecated styles from stylesheets ([#2970](https://github.com/cultureamp/kaizen-design-system/issues/2970)) ([bfe0ea1](https://github.com/cultureamp/kaizen-design-system/commit/bfe0ea132794e53dc518649660a2c6748df426fd))
+
+
+
+
+
 # [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.4...@kaizen/draft-collapsible@3.3.0) (2022-09-16)
 
 
