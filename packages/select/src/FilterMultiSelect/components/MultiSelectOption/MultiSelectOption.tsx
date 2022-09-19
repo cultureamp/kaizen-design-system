@@ -53,8 +53,8 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
       >
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>
-      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
-      {item.value}
+      {/* can also be item.label since 'rendered' is defined as item.label in SelectionProvider*/}
+      {item.label}
       {item.count && (
         <span id={countElementId} className={styles.badgeContainer}>
           <Badge classNameOverride={styles.badge}>{item.count}</Badge>

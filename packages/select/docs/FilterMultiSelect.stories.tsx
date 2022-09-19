@@ -81,8 +81,6 @@ export const GroupedItems: ComponentStory<typeof FilterMultiSelect> = args => {
 
   const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
-  console.log(selectedKeys)
-
   return (
     <FilterMultiSelect
       {...args}

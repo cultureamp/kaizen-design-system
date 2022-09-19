@@ -30,7 +30,7 @@ export const groupedItems: ItemType[] = [
     value: "id-fe",
     count: "1245",
     children: [
-      { label: "child-1", value: "child-1" },
+      { label: "Child One", value: "child-1" },
       { label: "Back-End", value: "id-be", count: "4" },
       { label: "SRE", value: "id-sre" },
       { label: "Dev-ops", value: "id-devops" },
@@ -46,6 +46,7 @@ export const groupedItems: ItemType[] = [
       { label: "Engineer-type-5", value: "id-type-5" },
     ],
   },
+  { label: "Engineer-type-6", value: "id-type-6" },
 ]
 export const selectedGroupedItems: ItemType[] = [
   {

@@ -9,11 +9,15 @@ export const getSelectedOptionLabels = (
     return []
   }
 
+  const flattenedItems = items
+    .map(item => (item.children ? item.children : item))
+    .flat()
+
   if (keys === "all") {
-    return items.map(item => item.label)
+    return flattenedItems.map(item => item.label)
   }
 
   return Array.from(keys)
-    .map(key => items.find(item => item.value === key)?.label ?? "")
+    .map(key => flattenedItems.find(item => item.value === key)?.label ?? "")
     .filter(item => item !== "")
 }
