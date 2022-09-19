@@ -9,7 +9,9 @@ export const SelectAllButton: React.VFC = () => {
   const selectedOptions = Array.from(
     selectionState.selectionManager.selectedKeys
   )
-  const disabledOptions = Array.from(selectionState.disabledKeys)
+  const disabledOptions = selectionState.disabledKeys
+    ? Array.from(selectionState.disabledKeys)
+    : []
   const filteredOptions = Array.from(
     selectionState.collection.getKeys()
   ).filter(key => !disabledOptions.includes(key))
