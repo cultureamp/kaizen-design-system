@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import { Node } from "@react-types/shared"
+import React from "react"
 import classNames from "classnames"
 import { useListBoxSection } from "@react-aria/listbox"
 import { useSeparator } from "@react-aria/separator"

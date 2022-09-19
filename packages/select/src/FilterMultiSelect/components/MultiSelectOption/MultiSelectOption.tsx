@@ -3,7 +3,6 @@ import { v4 } from "uuid"
 
 import { mergeProps } from "@react-aria/utils"
 import { useFocusRing } from "@react-aria/focus"
-import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
 import classNames from "classnames"
 import check from "@kaizen/component-library/icons/check.icon.svg"
