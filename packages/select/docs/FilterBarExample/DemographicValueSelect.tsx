@@ -74,7 +74,9 @@ export const DemographicValueSelect = ({
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            {node => (
+              <FilterMultiSelect.OptionNode key={node.key} item={node} />
+            )}
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />

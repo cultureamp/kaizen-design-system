@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { Selection } from "@react-types/shared"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
-import { MultiSelectOption } from "../../components/MultiSelectOption"
+import { MultiSelectOptionNode } from "../../components/MultiSelectOptionNode"
 import {
   ClearButton,
   SelectAllButton,
@@ -48,7 +48,7 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <ListBox>
-        {item => <MultiSelectOption key={item.key} item={item} />}
+        {item => <MultiSelectOptionNode key={item.key} item={item} />}
       </ListBox>
 
       <SearchInput label="search-input-label-mock" />

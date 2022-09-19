@@ -5,7 +5,10 @@ import { render, screen } from "@testing-library/react"
 import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
 import { ItemType } from "../../types"
-import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
+import {
+  MultiSelectOptionNode,
+  MultiSelectOptionNodeProps,
+} from "./MultiSelectOptionNode"
 
 jest.mock("@kaizen/component-library", () => ({
   Icon: () => <span>icon-mock</span>,
@@ -36,7 +39,7 @@ const itemMock: Node<ItemType> = {
 
 const MultiSelectOptionWrapper = ({
   item = itemMock,
-}: Partial<MultiSelectOptionProps>) => <MultiSelectOption item={item} />
+}: Partial<MultiSelectOptionNodeProps>) => <MultiSelectOptionNode item={item} />
 
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {

@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react"
 import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
 import { ItemType } from "../../types"
-import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
+import { MultiSelectOption, MultiSelectOptionProps } from "../MultiSelectOption"
 
 jest.mock("@kaizen/component-library", () => ({
   Icon: () => <span>icon-mock</span>,
@@ -23,15 +23,10 @@ jest.mock("../../provider", () => ({
   useSelectionContext: () => ({ selectionState: {} }),
 }))
 
-const itemMock: Node<ItemType> = {
-  type: "type-mock",
-  key: "key-mock",
-  value: { label: "label-mock", value: "value-mock" },
-  level: 0,
-  hasChildNodes: false,
-  childNodes: [],
-  rendered: <>rendered-mock</>,
-  textValue: "",
+const itemMock: ItemType = {
+  label: "label-mock",
+  value: "value-mock",
+  count: "count-mock",
 }
 
 const MultiSelectOptionWrapper = ({
@@ -49,7 +44,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
       render(<MultiSelectOptionWrapper />)
     })
     it("shows the provided rendered node", () => {
-      const option = screen.getByText("rendered-mock")
+      const option = screen.getByText("label-mock")
       expect(option).toBeVisible()
     })
     it("does not show icon check to indicate the option is unselected", () => {
@@ -102,14 +97,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
         isSelected: false,
         isDisabled: false,
       })
-      render(
-        <MultiSelectOptionWrapper
-          item={{
-            ...itemMock,
-            value: { ...itemMock.value, count: "count-mock" },
-          }}
-        />
-      )
+      render(<MultiSelectOptionWrapper item={itemMock} />)
     })
 
     it("shows the count in the badge", () => {
