@@ -10,12 +10,15 @@ import styles from "./DateSegment.module.scss"
 export const DateSegment = ({
   segment,
   state,
+  onClick,
 }: {
-  segment: DateSegmentType
+  segment: any
   state: DateFieldState
+  onClick?: () => void
 }) => {
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
+
   return (
     <div
       {...segmentProps}

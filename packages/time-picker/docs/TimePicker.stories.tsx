@@ -36,6 +36,7 @@ DefaultStory.args = {
   isDisabled: false,
   status: "default",
   id: "time-picker-input",
+  label: "Launch time",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
