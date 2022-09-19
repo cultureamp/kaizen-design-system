@@ -30,8 +30,6 @@ export const MultiSelectOptionNode: React.VFC<MultiSelectOptionNodeProps> = ({
     ref
   )
 
-  // console.log("OPTION NODE")
-
   // Determine whether we should show a keyboard
   // focus ring for accessibility
   const { isFocusVisible, focusProps } = useFocusRing()

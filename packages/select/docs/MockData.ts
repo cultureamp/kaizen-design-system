@@ -5,6 +5,30 @@ export const items: ItemType[] = [
     label: "Front-End",
     value: "id-fe",
     count: "1245",
+  },
+  { label: "Back-End", value: "id-be", count: "4" },
+  { label: "SRE", value: "id-sre" },
+  { label: "Dev-ops", value: "id-devops" },
+  { label: "Others", value: "id-others" },
+  {
+    label: "Engineer-type-1 has a really really long label",
+    value: "id-type-1",
+  },
+  {
+    label: "Engineer-type-2 also has a really really long label",
+    value: "id-type-2",
+    count: "156",
+  },
+  { label: "Engineer-type-3", value: "id-type-3" },
+  { label: "Engineer-type-4", value: "id-type-4" },
+  { label: "Engineer-type-5", value: "id-type-5" },
+]
+
+export const groupedItems: ItemType[] = [
+  {
+    label: "Front-End",
+    value: "id-fe",
+    count: "1245",
     children: [
       { label: "child-1", value: "child-1" },
       { label: "Back-End", value: "id-be", count: "4" },
@@ -23,24 +47,26 @@ export const items: ItemType[] = [
     ],
   },
 ]
-
-export const options: ItemType[] = [
+export const selectedGroupedItems: ItemType[] = [
   {
-    label: "Australian",
-    value: "aus-2",
+    label: "Selected Items",
+    value: "selected",
+    count: "5",
     children: [
-      { value: 2, label: "Koala" },
-      { value: 3, label: "Kangaroo" },
-      { value: 4, label: "Platypus" },
+      { label: "child-1", value: "child-1" },
+      { label: "Back-End", value: "id-be", count: "4" },
+      { label: "SRE", value: "id-sre" },
+      { label: "Dev-ops", value: "id-devops" },
+      { label: "Others", value: "id-others" },
     ],
   },
   {
-    label: "American",
-    value: "ame-2",
+    label: "",
+    value: "gr-2",
     children: [
-      { value: 6, label: "Bald Eagle" },
-      { value: 7, label: "Bison" },
-      { value: 8, label: "Skunk" },
+      { label: "Engineer-type-3", value: "id-type-3" },
+      { label: "Engineer-type-4", value: "id-type-4" },
+      { label: "Engineer-type-5", value: "id-type-5" },
     ],
   },
 ]

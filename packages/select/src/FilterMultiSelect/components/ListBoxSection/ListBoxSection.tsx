@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useListBoxSection } from "@react-aria/listbox"
+import { useSeparator } from "@react-aria/separator"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
-import { FilterMultiSelect } from "../../FilterMultiSelect"
-import styles from "./ListBox.scss"
+import styles from "./ListBoxSection.scss"
 
 export interface ListBoxSectionProps {
   section: ItemType
@@ -23,41 +23,26 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
     "aria-label": section["aria-label"],
   })
 
-  // const { separatorProps } = useSeparator({
-  //   elementType: "li",
-  // })
+  const { separatorProps } = useSeparator({
+    elementType: "li",
+  })
 
   return (
     <>
       {section.value !== state.collection.getFirstKey() && (
-        <li
-          // {...separatorProps}
-          style={{
-            borderTop: "1px solid gray",
-            margin: "2px 5px",
-          }}
-        />
+        <li {...separatorProps} />
       )}
       <li {...itemProps}>
         {section.label && (
-          <span
-            {...headingProps}
-            style={{
-              fontWeight: "bold",
-              fontSize: "1.1em",
-              padding: "2px 5px",
-            }}
-          >
+          <span {...headingProps} className={classNames(styles.sectionLabel)}>
             {section.label}
           </span>
         )}
+
         <ul
           {...listBoxProps}
           {...groupProps}
-          style={{
-            padding: 0,
-            listStyle: "none",
-          }}
+          className={classNames(styles.section)}
         >
           {section.children &&
             Array.from(section.children).map(node => children(node))}
