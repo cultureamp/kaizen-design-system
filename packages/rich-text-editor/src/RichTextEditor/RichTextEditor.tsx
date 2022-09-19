@@ -1,16 +1,16 @@
 import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
 import { v4 } from "uuid"
 import classnames from "classnames"
-import { history } from "prosemirror-history"
-import { keymap } from "prosemirror-keymap"
-import { Node, Schema } from "prosemirror-model"
-import { EditorState } from "prosemirror-state"
-import { Label } from "@kaizen/draft-form"
-import { baseKeymap } from "prosemirror-commands"
 import {
+  ProseMirrorCommands,
+  ProseMirrorState,
+  ProseMirrorModel,
+  ProseMirrorKeymap,
+  ProseMirrorHistory,
   useRichTextEditor,
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
+import { Label } from "@kaizen/draft-form"
 import { OverrideClassName } from "@kaizen/component-base"
 import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
@@ -63,20 +63,22 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     onDataError,
     ...restProps
   } = props
-  const [schema] = useState<Schema>(createSchemaFromControls(controls))
+  const [schema] = useState<ProseMirrorModel.Schema>(
+    createSchemaFromControls(controls)
+  )
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
 
   const useRichTextEditorResult = (() => {
     try {
       return useRichTextEditor(
-        EditorState.create({
+        ProseMirrorState.EditorState.create({
           doc: value
-            ? Node.fromJSON(schema, {
+            ? ProseMirrorModel.Node.fromJSON(schema, {
                 type: "doc",
                 content: value,
               })
-            : null,
+            : undefined,
           schema,
           plugins: getPlugins(controls, schema),
         }),
@@ -148,14 +150,17 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   )
 }
 
-function getPlugins(controls: ToolbarItems[] | undefined, schema: Schema) {
+function getPlugins(
+  controls: ToolbarItems[] | undefined,
+  schema: ProseMirrorModel.Schema
+) {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []
   const plugins = [
-    history(),
-    keymap(buildKeymap(schema)),
-    keymap(baseKeymap),
+    ProseMirrorHistory.history(),
+    ProseMirrorKeymap.keymap(buildKeymap(schema)),
+    ProseMirrorKeymap.keymap(ProseMirrorCommands.baseKeymap),
     buildInputRules(schema),
   ]
 
