@@ -47,8 +47,8 @@ export function SelectionProvider(props: SelectionProviderProps) {
     ...props,
     children: item =>
       item.children ? (
-        <Section title={item.label} key={item.value}>
-          <Item key={item.value}>{item.label}</Item>
+        <Section title={item.label} key={item.value} items={item.children}>
+          {child => <Item key={child.value}>{child.label}</Item>}
         </Section>
       ) : (
         <Item key={item.value}>{item.label}</Item>

@@ -30,7 +30,7 @@ export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
     ref
   )
 
-  console.log("OPTION")
+  console.log("OPTION, ", item)
 
   // console.log(state, optionProps, isSelected, isDisabled)
 

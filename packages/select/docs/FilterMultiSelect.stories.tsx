@@ -6,13 +6,13 @@ import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
-import { Section } from "@react-stately/collections"
+import { Item, Section } from "@react-stately/collections"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
-import { items } from "./MockData"
+import { items, options } from "./MockData"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 
 export default {
@@ -49,7 +49,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       disabledKeys={new Set(["id-be"])}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, options)}
           label={args.label}
         />
       )}
@@ -60,23 +60,11 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <FilterMultiSelect.ListBox>
             {node =>
               node.value.children ? (
-                // <FilterMultiSelect.Section section={node}>
-                //   {child => (
-                //     <FilterMultiSelect.Option
-                //       key={child.key}
-                //       item={child.value}
-                //     />
-                //   )}
-                // </FilterMultiSelect.Section>
-                <Section
-                  key={node.value.label}
-                  items={node.value.children}
-                  title={node.value.label}
-                >
+                <FilterMultiSelect.Section section={node.value}>
                   {child => (
                     <FilterMultiSelect.Option key={child.value} item={child} />
                   )}
-                </Section>
+                </FilterMultiSelect.Section>
               ) : (
                 <FilterMultiSelect.OptionNode key={node.key} item={node} />
               )

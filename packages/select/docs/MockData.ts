@@ -24,6 +24,27 @@ export const items: ItemType[] = [
   },
 ]
 
+export const options: ItemType[] = [
+  {
+    label: "Australian",
+    value: "aus-2",
+    children: [
+      { value: 2, label: "Koala" },
+      { value: 3, label: "Kangaroo" },
+      { value: 4, label: "Platypus" },
+    ],
+  },
+  {
+    label: "American",
+    value: "ame-2",
+    children: [
+      { value: 6, label: "Bald Eagle" },
+      { value: 7, label: "Bison" },
+      { value: 8, label: "Skunk" },
+    ],
+  },
+]
+
 export const departmentDemographicValues = [
   {
     demographicValueId: "id-fe",

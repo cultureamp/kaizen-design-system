@@ -8,8 +8,8 @@ import { FilterMultiSelect } from "../../FilterMultiSelect"
 import styles from "./ListBox.scss"
 
 export interface ListBoxSectionProps {
-  section: Node<ItemType>
-  children: (item: Node<ItemType>) => React.ReactNode
+  section: ItemType
+  children: (item: ItemType) => React.ReactNode
 }
 
 export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
@@ -19,7 +19,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
   const { selectionState: state, listBoxProps } = useSelectionContext()
 
   const { itemProps, headingProps, groupProps } = useListBoxSection({
-    heading: section.rendered,
+    heading: section.label,
     "aria-label": section["aria-label"],
   })
 
@@ -29,7 +29,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
 
   return (
     <>
-      {section.key !== state.collection.getFirstKey() && (
+      {section.value !== state.collection.getFirstKey() && (
         <li
           // {...separatorProps}
           style={{
@@ -39,7 +39,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
         />
       )}
       <li {...itemProps}>
-        {section.rendered && (
+        {section.label && (
           <span
             {...headingProps}
             style={{
@@ -48,7 +48,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
               padding: "2px 5px",
             }}
           >
-            {section.rendered}
+            {section.label}
           </span>
         )}
         <ul
@@ -59,8 +59,8 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
             listStyle: "none",
           }}
         >
-          {section.childNodes &&
-            Array.from(section.childNodes).map(node => children(node))}
+          {section.children &&
+            Array.from(section.children).map(node => children(node))}
         </ul>
       </li>
     </>
