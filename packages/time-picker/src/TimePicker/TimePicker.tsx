@@ -36,9 +36,10 @@ export interface TimePickerProps
   > {
   id: string
   label: string
-  // if Value takes a date, it returns a date. Else returns time string?
   onChange: (_: Date) => void
+  timeZone?: string
   value?: Date | undefined
+  dropdownIncrements?: number
   status?: StatusType
   validationMessage?: React.ReactNode
 }
@@ -51,20 +52,38 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   value,
   onChange,
   label,
+  timeZone,
+  dropdownIncrements,
   ...rest
 }: TimePickerProps) => {
   // TODO: this should take a custom locale
   const { locale } = useLocale()
-  const handleOnChange = (timeValue: TimeValue) =>
-    onChange(
-      new Date(
-        value.getFullYear(),
-        value.getMonth(),
-        value.getDate(),
-        timeValue.hour,
-        timeValue.minute
+
+  const handleOnChange = (timeValue: TimeValue) => {
+    if (value) {
+      onChange(
+        new Date(
+          value.getFullYear(),
+          value.getMonth(),
+          value.getDate(),
+          timeValue.hour,
+          timeValue.minute
+        )
       )
-    )
+    } else {
+      const { getFullYear, getMonth, getDate } = new Date()
+      onChange(
+        new Date(
+          getFullYear(),
+          getMonth(),
+          getDate(),
+          timeValue.hour,
+          timeValue.minute
+        )
+      )
+    }
+  }
+
   const state = useTimeFieldState({
     ...rest,
     value: value
@@ -93,7 +112,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     inputRef
   )
 
-  const options = useMemo(() => getAllTimeOptions(), [])
+  const options = useMemo(
+    () =>
+      getAllTimeOptions({ locale, timeZone, increments: dropdownIncrements }),
+    []
+  )
 
   return (
     <>
@@ -144,20 +167,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           <Menu
             {...menuProps}
             onAction={key => {
-              const time = parseTime(key.toString())
-              state.setValue(
-                new CalendarDateTime(
-                  value.getFullYear(),
-                  value.getMonth(),
-                  value.getDate(),
-                  time.hour,
-                  time.minute
-                )
-              )
+              state.setValue(options[key].value)
             }}
           >
-            {options.map(option => (
-              <Item key={option.value}>{option.label}</Item>
+            {Object.keys(options).map(option => (
+              <Item key={option}>{options[option].label}</Item>
             ))}
           </Menu>
         </Popover>
