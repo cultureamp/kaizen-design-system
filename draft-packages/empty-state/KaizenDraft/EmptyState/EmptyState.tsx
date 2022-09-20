@@ -63,7 +63,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   loop = false,
   automationId,
   classNameOverride,
-  headingVariant: headingVariant = "heading-3",
+  headingVariant,
   ...props
 }) => {
   const IllustrationComponent = ILLUSTRATIONS[illustrationType]
@@ -97,7 +97,11 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
-          <Heading variant={headingVariant} classNameOverride={styles.heading}>
+          <Heading
+            variant={headingVariant ? headingVariant : "heading-3"}
+            tag={headingVariant ? undefined : "div"}
+            classNameOverride={styles.heading}
+          >
             {headingText}
           </Heading>
           <Paragraph variant="body" classNameOverride={styles.description}>
