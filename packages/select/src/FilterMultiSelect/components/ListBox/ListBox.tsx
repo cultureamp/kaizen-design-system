@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
 import styles from "./ListBox.scss"
 
 export interface ListBoxProps {
-  children: (item: Node<ItemType>) => React.ReactNode
+  children: (item: Node<ItemType | ItemGroupType>) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {

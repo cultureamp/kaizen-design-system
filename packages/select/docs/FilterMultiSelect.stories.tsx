@@ -103,7 +103,7 @@ export const GroupedItems: ComponentStory<typeof FilterMultiSelect> = args => {
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
             {node =>
-              node.value.children ? (
+              "children" in node.value ? (
                 <FilterMultiSelect.Section section={node.value}>
                   {child => (
                     <FilterMultiSelect.Option key={child.value} item={child} />

@@ -1,9 +1,9 @@
 import { Selection } from "@react-types/shared"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
 
 export const getSelectedOptionLabels = (
   keys?: Selection,
-  items?: ItemType[]
+  items?: ItemType[] | ItemGroupType[]
 ): string[] => {
   if (!keys || !items) {
     return []

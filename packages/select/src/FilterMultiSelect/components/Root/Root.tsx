@@ -12,7 +12,7 @@ import {
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
 
 export interface RootProps
   extends MenuPopupProps,
@@ -31,7 +31,7 @@ interface MenuPopupProps {
 
 interface SelectionProps {
   label: string // provide A11y context for listbox
-  items?: ItemType[]
+  items?: ItemType[] | ItemGroupType[]
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode

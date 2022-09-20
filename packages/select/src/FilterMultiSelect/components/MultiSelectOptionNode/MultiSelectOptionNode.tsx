@@ -11,11 +11,11 @@ import { Icon } from "@kaizen/component-library"
 import { Badge } from "@kaizen/draft-badge"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
 import styles from "./MultiSelectOptionNode.scss"
 
 export interface MultiSelectOptionNodeProps {
-  item: Node<ItemType>
+  item: Node<ItemType | ItemGroupType>
 }
 
 export const MultiSelectOptionNode: React.VFC<MultiSelectOptionNodeProps> = ({

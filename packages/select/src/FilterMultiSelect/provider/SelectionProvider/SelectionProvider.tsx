@@ -1,15 +1,17 @@
 import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
 import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
-import { ListState, useListState } from "@react-stately/list"
+import { ListProps, ListState, useListState } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Item, Section } from "@react-stately/collections"
-import { ItemType } from "../../types"
+import { ItemType, ItemGroupType } from "../../types"
+
+type ItemTestType = ItemType[] | ItemGroupType[]
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
   children: React.ReactNode // control how menu should look like
-  items?: ItemType[]
+  items?: ItemTestType
   onSelectionChange?: (keys: Selection) => void
   selectedKeys?: Selection
   disabledKeys?: Selection
@@ -19,7 +21,7 @@ export interface SelectionProviderProps {
 export interface SelectionProviderContextType {
   listBoxProps: HTMLAttributes<HTMLElement>
   labelProps: HTMLAttributes<HTMLElement>
-  selectionState: ListState<ItemType>
+  selectionState: ListState<ItemType | ItemGroupType>
   listRef: React.RefObject<HTMLUListElement>
   searchQuery?: string
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>
@@ -33,7 +35,9 @@ export function SelectionProvider(props: SelectionProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("")
 
   const searchFilter = useCallback(
-    (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
+    (
+      nodes: Iterable<Node<ItemType | ItemGroupType>>
+    ): Iterable<Node<ItemType | ItemGroupType>> =>
       searchQuery
         ? Array.from(nodes).filter(f =>
             f.textValue.toLowerCase().includes(searchQuery.toLowerCase())
@@ -43,10 +47,10 @@ export function SelectionProvider(props: SelectionProviderProps) {
   )
 
   // Create state based on the incoming props to manage the selection
-  const state = useListState({
+  const state: ListState<ItemType | ItemGroupType> = useListState({
     ...props,
     children: item =>
-      item.children ? (
+      "children" in item ? (
         <Section title={item.label} key={item.value} items={item.children}>
           {child => <Item key={child.value}>{child.label}</Item>}
         </Section>
@@ -54,7 +58,7 @@ export function SelectionProvider(props: SelectionProviderProps) {
         <Item key={item.value}>{item.label}</Item>
       ), // For initialising selection and determined item.renderer, can be only Item or Section
     filter: searchFilter,
-  })
+  } as ListProps<ItemType | ItemGroupType>)
 
   // Get A11y attributes and events for the listbox
   const ref = React.createRef<HTMLUListElement>()

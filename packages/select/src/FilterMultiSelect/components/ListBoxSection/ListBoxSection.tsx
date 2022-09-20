@@ -3,11 +3,11 @@ import classNames from "classnames"
 import { useListBoxSection } from "@react-aria/listbox"
 import { useSeparator } from "@react-aria/separator"
 import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
 import styles from "./ListBoxSection.scss"
 
 export interface ListBoxSectionProps {
-  section: ItemType
+  section: ItemGroupType
   children: (item: ItemType) => React.ReactNode
 }
 

@@ -1,4 +1,4 @@
-import { ItemType } from "../src/FilterMultiSelect"
+import { ItemGroupType, ItemType } from "../src/FilterMultiSelect"
 
 export const items: ItemType[] = [
   {
@@ -24,7 +24,7 @@ export const items: ItemType[] = [
   { label: "Engineer-type-5", value: "id-type-5" },
 ]
 
-export const groupedItems: ItemType[] = [
+export const groupedItems: ItemGroupType[] = [
   {
     label: "Front-End",
     value: "id-fe",
@@ -39,30 +39,6 @@ export const groupedItems: ItemType[] = [
   },
   {
     label: "Group 2",
-    value: "gr-2",
-    children: [
-      { label: "Engineer-type-3", value: "id-type-3" },
-      { label: "Engineer-type-4", value: "id-type-4" },
-      { label: "Engineer-type-5", value: "id-type-5" },
-    ],
-  },
-  { label: "Engineer-type-6", value: "id-type-6" },
-]
-export const selectedGroupedItems: ItemType[] = [
-  {
-    label: "Selected Items",
-    value: "selected",
-    count: "5",
-    children: [
-      { label: "child-1", value: "child-1" },
-      { label: "Back-End", value: "id-be", count: "4" },
-      { label: "SRE", value: "id-sre" },
-      { label: "Dev-ops", value: "id-devops" },
-      { label: "Others", value: "id-others" },
-    ],
-  },
-  {
-    label: "",
     value: "gr-2",
     children: [
       { label: "Engineer-type-3", value: "id-type-3" },
