@@ -12,13 +12,7 @@ export type TIME_OPTION = {
   value: CalendarDateTime
 }
 
-// FIXME: This is pretty ugly
-const convert24To12HourTime = (time: Time) =>
-  `${time.hour % 12 || 12}:${time.toString().split(":")[1]} ${
-    time.hour >= 12 ? "PM" : "AM"
-  }`
-
-type GetAllTimeOptionConfig = {
+type GetAllTimeOptionsConfig = {
   locale: string
   timeZone?: string
   increments?: number
@@ -27,10 +21,10 @@ export const getAllTimeOptions = ({
   locale,
   timeZone = getLocalTimeZone(),
   increments = 30,
-}: GetAllTimeOptionConfig) =>
+}: GetAllTimeOptionsConfig) =>
   Array.from(Array(24).keys()).reduce((options, hour) => {
+    // Generates an arbitrary date
     const today = new Date()
-
     Array.from(Array(60 / increments).keys()).forEach(increment => {
       const calendarDateTime = new CalendarDateTime(
         today.getFullYear(),

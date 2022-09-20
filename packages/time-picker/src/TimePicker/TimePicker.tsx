@@ -71,12 +71,12 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         )
       )
     } else {
-      const { getFullYear, getMonth, getDate } = new Date()
+      const today = new Date()
       onChange(
         new Date(
-          getFullYear(),
-          getMonth(),
-          getDate(),
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate(),
           timeValue.hour,
           timeValue.minute
         )
@@ -155,7 +155,8 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             // FIXME: Requires better type guarding
             !(
               (element.id && element.id === id) ||
-              element.className.includes("DateSegment") ||
+              (element.className &&
+                element.className.includes("DateSegment")) ||
               element.className.includes("dropdownIndicator") ||
               element.getAttribute("role") === "spinbutton" ||
               element.getAttribute("role") === "presentation"
@@ -166,9 +167,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         >
           <Menu
             {...menuProps}
-            onAction={key => {
-              state.setValue(options[key].value)
-            }}
+            onAction={key => handleOnChange(options[key].value)}
           >
             {Object.keys(options).map(option => (
               <Item key={option}>{options[option].label}</Item>
