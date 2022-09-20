@@ -9,7 +9,9 @@ import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
-import { ItemType } from "../../types"
+import { ItemGroupType, ItemType } from "../../types"
+import { MultiSelectOption } from "../../components/MultiSelectOption"
+import { ListBoxSection } from "../../components/ListBoxSection"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -26,6 +28,28 @@ const itemsMock: ItemType[] = [
     value: "option-3-value-mock",
   },
 ]
+const itemsGroupMock: ItemGroupType[] = [
+  {
+    label: "group-1-heading-label-mock",
+    value: "group-1-heading-label-mock",
+    children: [
+      {
+        label: "group-option-1-child-label-mock",
+        value: "group-option-1-child-value-mock",
+      },
+    ],
+  },
+  {
+    label: "group-2-heading-label-mock",
+    value: "group-2-heading-label-mock",
+    children: [
+      {
+        label: "group-option-2-child-label-mock",
+        value: "group-option-2-child-value-mock",
+      },
+    ],
+  },
+]
 
 const SelectionProviderWrapper = ({
   items = itemsMock,
@@ -34,7 +58,6 @@ const SelectionProviderWrapper = ({
   ...props
 }: Partial<SelectionProviderProps>) => {
   const [selected, setSelected] = useState<Selection>(selectedKeys ?? new Set())
-
   return (
     <SelectionProvider
       selectionMode="multiple"
@@ -48,9 +71,16 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <ListBox>
-        {item => <MultiSelectOptionNode key={item.key} item={item} />}
+        {node =>
+          "children" in node.value ? (
+            <ListBoxSection section={node.value}>
+              {child => <MultiSelectOption key={child.value} item={child} />}
+            </ListBoxSection>
+          ) : (
+            <MultiSelectOptionNode key={node.key} item={node} />
+          )
+        }
       </ListBox>
-
       <SearchInput label="search-input-label-mock" />
       <SelectAllButton />
       <ClearButton />
@@ -138,6 +168,27 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
         screen.getByRole("option", {
           name: "option-3-label-mock",
           selected: true,
+        })
+      ).toBeVisible()
+    })
+  })
+})
+describe("<SelectionProviderWrapper /> - Grouped Items", () => {
+  describe("Given item groups", () => {
+    it("shows all the items and their children items", () => {
+      render(<SelectionProviderWrapper items={itemsGroupMock} />)
+      expect(screen.getByLabelText("group-1-heading-label-mock"))
+      expect(
+        screen.getByRole("option", {
+          name: "group-option-1-child-label-mock",
+          selected: false,
+        })
+      ).toBeVisible()
+      expect(screen.getByLabelText("group-2-heading-label-mock"))
+      expect(
+        screen.getByRole("option", {
+          name: "group-option-2-child-label-mock",
+          selected: false,
         })
       ).toBeVisible()
     })
