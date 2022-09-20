@@ -9,7 +9,7 @@ import {
   EmptyStatesPositive,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Paragraph, Heading } from "@kaizen/typography"
+import { Paragraph, Heading, HeadingVariants } from "@kaizen/typography"
 import styles from "./EmptyState.module.scss"
 
 const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
@@ -39,6 +39,7 @@ export interface EmptyStateProps
   headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
+  headingVariant?: HeadingVariants
   /**
    * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
    * @deprecated
@@ -62,6 +63,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   loop = false,
   automationId,
   classNameOverride,
+  headingVariant: headingVariant = "heading-3",
   ...props
 }) => {
   const IllustrationComponent = ILLUSTRATIONS[illustrationType]
@@ -95,11 +97,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
-          <Heading
-            variant="heading-3"
-            classNameOverride={styles.heading}
-            tag="div"
-          >
+          <Heading variant={headingVariant} classNameOverride={styles.heading}>
             {headingText}
           </Heading>
           <Paragraph variant="body" classNameOverride={styles.description}>
