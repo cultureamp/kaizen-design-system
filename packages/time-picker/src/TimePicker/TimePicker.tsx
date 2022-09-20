@@ -56,34 +56,20 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   dropdownIncrements,
   ...rest
 }: TimePickerProps) => {
-  // TODO: this should take a custom locale
   const { locale } = useLocale()
 
   const handleOnChange = (timeValue: TimeValue) => {
-    if (value) {
-      onChange(
-        new Date(
-          value.getFullYear(),
-          value.getMonth(),
-          value.getDate(),
-          timeValue.hour,
-          timeValue.minute
-        )
+    const today = new Date()
+    onChange(
+      new Date(
+        (value ?? today).getFullYear(),
+        (value ?? today).getMonth(),
+        (value ?? today).getDate(),
+        timeValue.hour,
+        timeValue.minute
       )
-    } else {
-      const today = new Date()
-      onChange(
-        new Date(
-          today.getFullYear(),
-          today.getMonth(),
-          today.getDate(),
-          timeValue.hour,
-          timeValue.minute
-        )
-      )
-    }
+    )
   }
-
   const state = useTimeFieldState({
     ...rest,
     value: value
@@ -97,7 +83,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       : undefined,
     onChange: handleOnChange,
     isDisabled,
-    locale,
+    locale: rest.locale ?? locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
 

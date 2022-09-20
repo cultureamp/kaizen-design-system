@@ -25,7 +25,6 @@ export default {
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
   const [value, setValue] = useState<Date | undefined>(undefined)
-  console.log("VALUE", value)
   return (
     <div>
       <TimePicker {...args} value={value} onChange={setValue} />
@@ -39,6 +38,8 @@ DefaultStory.args = {
   id: "time-picker-input",
   label: "Launch time",
   dropdownIncrements: 15,
+  locale: "en-AU",
+  timeZone: "Australia/Melbourne",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
