@@ -1,10 +1,15 @@
 // import moment from "moment"
 
-import { Time } from "@internationalized/date"
+import {
+  CalendarDateTime,
+  DateFormatter,
+  getLocalTimeZone,
+  Time,
+} from "@internationalized/date"
 
 export type TIME_OPTION = {
   label: string
-  value: string
+  value: CalendarDateTime
 }
 
 // FIXME: This is pretty ugly
@@ -13,14 +18,35 @@ const convert24To12HourTime = (time: Time) =>
     time.hour >= 12 ? "PM" : "AM"
   }`
 
-export const getAllTimeOptions = () =>
+type GetAllTimeOptionConfig = {
+  locale: string
+  timeZone?: string
+  increments?: number
+}
+export const getAllTimeOptions = ({
+  locale,
+  timeZone = getLocalTimeZone(),
+  increments = 30,
+}: GetAllTimeOptionConfig) =>
   Array.from(Array(24).keys()).reduce((options, hour) => {
-    ;[0, 30].forEach(increment => {
-      const time = new Time(hour, increment)
-      options.push({
-        value: time.toString(),
-        label: convert24To12HourTime(time),
-      })
+    const today = new Date()
+
+    Array.from(Array(60 / increments).keys()).forEach(increment => {
+      const calendarDateTime = new CalendarDateTime(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate(),
+        hour,
+        increment * increments
+      )
+      const formattedTime = new DateFormatter(locale, {
+        timeStyle: "short",
+      }).format(calendarDateTime.toDate(timeZone))
+
+      options[formattedTime] = {
+        label: formattedTime,
+        value: calendarDateTime,
+      }
     })
     return options
-  }, [] as TIME_OPTION[])
+  }, {} as Record<string, TIME_OPTION>)

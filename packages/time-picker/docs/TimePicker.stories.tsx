@@ -24,7 +24,7 @@ export default {
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<Date>(new Date())
+  const [value, setValue] = useState<Date | undefined>()
   return (
     <div>
       <TimePicker {...args} value={value} onChange={setValue} />
@@ -37,6 +37,7 @@ DefaultStory.args = {
   status: "default",
   id: "time-picker-input",
   label: "Launch time",
+  dropdownIncrements: 15,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
