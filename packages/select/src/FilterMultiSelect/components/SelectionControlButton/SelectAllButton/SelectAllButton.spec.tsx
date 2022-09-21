@@ -12,16 +12,11 @@ describe("<SelectAllButton /> - interaction", () => {
   describe("Given not all options are selected", () => {
     it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", () => {
       const spy = jest.fn()
-      const selectedAndFocused = "selectedAndFocused"
+      const selectedAndFiltered = "selectedAndFiltered"
       const filteredButNotSelected = "focusedButNotSelected"
-      const selectedButNotFocused = "selectedButNotFocused"
-      const selectedKeys = [selectedAndFocused, selectedButNotFocused]
-      const filteredKeys = [selectedAndFocused, filteredButNotSelected]
-      const expected = [
-        selectedAndFocused,
-        filteredButNotSelected,
-        selectedButNotFocused,
-      ]
+      const selectedButNotFiltered = "selectedButNotFiltered"
+      const selectedKeys = [selectedAndFiltered, selectedButNotFiltered]
+      const filteredKeys = [selectedAndFiltered, filteredButNotSelected]
 
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
@@ -47,10 +42,10 @@ describe("<SelectAllButton /> - interaction", () => {
   describe("Given all filtered options are selected", () => {
     it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", () => {
       const spy = jest.fn()
-      const selectedAndFocused1 = "selectedAndFocused1"
-      const selectedAndFocused2 = "selectedAndFocused2"
-      const selectedKeys = [selectedAndFocused1, selectedAndFocused2]
-      const filteredKeys = [selectedAndFocused1, selectedAndFocused2]
+      const selectedAndFiltered1 = "selectedAndFiltered1"
+      const selectedAndFiltered2 = "selectedAndFocused2"
+      const selectedKeys = [selectedAndFiltered1, selectedAndFiltered2]
+      const filteredKeys = [selectedAndFiltered1, selectedAndFiltered2]
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
           collection: {
@@ -68,6 +63,41 @@ describe("<SelectAllButton /> - interaction", () => {
       userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(0)
+    })
+  })
+
+  describe("Given some options are disabled", () => {
+    it("triggers selectionManager.setSelectedKeys() on non-disabled options", () => {
+      const spy = jest.fn()
+      const filtered = "filtered"
+      const filteredAndSelected = "filteredAndSelected"
+      const filteredAndDisabled = "filteredAndDisabled"
+      const selectedKeys = [filteredAndSelected]
+      const filteredKeys = [filtered, filteredAndSelected, filteredAndDisabled]
+      const disabledKeys = [filteredAndDisabled]
+
+      ;(useSelectionContext as jest.Mock).mockReturnValue({
+        selectionState: {
+          disabledKeys,
+          collection: {
+            getKeys: () => filteredKeys,
+          },
+          selectionManager: {
+            isSelectAll: false,
+            selectedKeys,
+            setSelectedKeys: spy,
+            isSelected: id => selectedKeys.includes(id),
+          },
+        },
+      })
+      render(<SelectAllButton />)
+      userEvent.click(screen.getByRole("button"))
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith(
+        expect.arrayContaining([filtered, filteredAndSelected])
+      )
+      expect(spy).not.toHaveBeenCalledWith(expect.arrayContaining(disabledKeys))
     })
   })
 })
