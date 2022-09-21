@@ -31,6 +31,10 @@ export interface TimePickerProps
   id: string
   label: string
   onChange: (date: Date) => void
+
+  /**
+   * Supply timeZone in TZ database name, i.e. "Australia/Melbourne"
+   */
   timeZone?: string
   value?: Date | undefined
   dropdownIncrements?: number
@@ -84,7 +88,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   const menuState = useMenuTriggerState({})
 
   const inputRef = React.useRef(null)
-  const { fieldProps } = useTimeField({ ...restProps }, state, inputRef)
+  const { fieldProps } = useTimeField({ ...restProps, label }, state, inputRef)
 
   const { menuProps, menuTriggerProps } = useMenuTrigger<TIME_OPTION>(
     { isDisabled },
@@ -94,8 +98,12 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   const options = useMemo(
     () =>
-      getAllTimeOptions({ locale, timeZone, increments: dropdownIncrements }),
-    []
+      getAllTimeOptions({
+        locale: restProps.locale ?? locale,
+        timeZone,
+        increments: dropdownIncrements,
+      }),
+    [locale, timeZone, dropdownIncrements]
   )
 
   return (
@@ -107,6 +115,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           {...fieldProps}
           id={id}
           aria-label={label}
+          data-testid="timepicker-input"
           ref={inputRef}
           onClick={() => menuState.open()}
           className={classNames(styles.input, {
@@ -145,6 +154,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         >
           <Menu
             {...menuProps}
+            data-testid="timepicker-menu"
             onAction={key => handleOnChange(options[key].value)}
           >
             {Object.keys(options).map(option => (

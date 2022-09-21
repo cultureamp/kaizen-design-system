@@ -1,15 +1,15 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import { Button, ButtonProps } from "./Button"
+import { Button } from "./Button"
 
-const ButtonWrapper = (customProps?: Partial<ButtonProps>): JSX.Element => (
+const ButtonWrapper = (customProps?): JSX.Element => (
   <Button
     exampleRequiredString="Hello!" /** @todo: Add default values for your required props (override them with customProps if needed) */
     {...customProps}
   />
 )
 
-describe("<Button />", () => {
+describe.skip("<Button />", () => {
   it("does something", () => {
     render(<ButtonWrapper />)
     /** @todo: Fill in test case */
