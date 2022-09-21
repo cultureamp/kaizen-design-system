@@ -38,11 +38,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
           </span>
         )}
 
-        <ul
-          {...listBoxProps}
-          {...groupProps}
-          className={classNames(styles.section)}
-        >
+        <ul {...groupProps} className={classNames(styles.section)}>
           {section.children &&
             Array.from(section.children).map(node => children(node))}
         </ul>
