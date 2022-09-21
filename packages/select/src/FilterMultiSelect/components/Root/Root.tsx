@@ -58,7 +58,7 @@ export const Root: React.VFC<RootProps> = ({
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
     items
-      ?.filter(item => item.disabled === true)
+      ?.filter(item => item.isDisabled === true)
       .map(disabledItem => disabledItem.value)
   )
   const selectionProps = {

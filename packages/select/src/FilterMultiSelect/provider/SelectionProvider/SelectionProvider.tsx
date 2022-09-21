@@ -13,6 +13,7 @@ export interface SelectionProviderProps {
   onSelectionChange?: (keys: Selection) => void
   selectedKeys?: Selection
   label: string
+  disabledKeys?: Selection
 }
 
 export interface SelectionProviderContextType {
