@@ -114,8 +114,8 @@ export const TextField: React.VFC<TextFieldProps> = ({
           })}
         >
           <FieldMessage
-            id={`${id}-field-validation-message`}
-            automationId={`${id}-field-validation-message`}
+            id={validationMessageAria}
+            automationId={validationMessageAria}
             message={validationMessage}
             status={status}
             reversed={reversed}
