@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.9...@kaizen/select@1.6.0) (2022-09-21)
+
+
+### Features
+
+* update selectAllButton to not include disabled keys ([#2978](https://github.com/cultureamp/kaizen-design-system/issues/2978)) ([c2aa299](https://github.com/cultureamp/kaizen-design-system/commit/c2aa299cc450a1e01273347c19a634fa827610f1))
+
+
+
+
+
 ## [1.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.8...@kaizen/select@1.5.9) (2022-09-15)
 
 **Note:** Version bump only for package @kaizen/select
