@@ -17,6 +17,15 @@ type GetAllTimeOptionsConfig = {
   timeZone?: string
   increments?: number
 }
+
+export const DATE_FORMATTER_CONFIG = {
+  hour: "2-digit",
+  minute: "2-digit",
+} as const
+
+export const formatDateToTime = (date: Date, locale) =>
+  new DateFormatter(locale, DATE_FORMATTER_CONFIG).format(date)
+
 export const getAllTimeOptions = ({
   locale,
   timeZone = getLocalTimeZone(),
@@ -33,9 +42,10 @@ export const getAllTimeOptions = ({
         hour,
         increment * increments
       )
-      const formattedTime = new DateFormatter(locale, {
-        timeStyle: "short",
-      }).format(calendarDateTime.toDate(timeZone))
+      const formattedTime = formatDateToTime(
+        calendarDateTime.toDate(timeZone),
+        locale
+      )
 
       options[formattedTime] = {
         label: formattedTime,

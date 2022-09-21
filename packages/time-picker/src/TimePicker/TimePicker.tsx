@@ -54,7 +54,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   dropdownIncrements,
   ...restProps
 }: TimePickerProps) => {
-  const { locale } = useLocale()
+  const locale = restProps.locale ?? useLocale().locale
 
   const handleOnChange = (timeValue: TimeValue): void => {
     const today = new Date()
@@ -81,7 +81,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       : undefined,
     onChange: handleOnChange,
     isDisabled,
-    locale: restProps.locale ?? locale,
+    locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
 
@@ -99,7 +99,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   const options = useMemo(
     () =>
       getAllTimeOptions({
-        locale: restProps.locale ?? locale,
+        locale,
         timeZone,
         increments: dropdownIncrements,
       }),
@@ -127,7 +127,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             <DateSegment key={i} segment={segment} state={state} />
           ))}
           <div className={styles.focusRing} />
-          <Button {...menuTriggerProps} aria-label={`${id} dropdown`}>
+          <Button
+            {...menuTriggerProps}
+            aria-label={`${id} dropdown`}
+            data-testid="timepicker-button"
+          >
             <Icon
               role="presentation"
               icon={menuState.isOpen ? chevronUp : chevronDown}

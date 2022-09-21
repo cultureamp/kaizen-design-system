@@ -5,6 +5,8 @@ import {
   DateFieldState,
 } from "@react-stately/datepicker"
 
+import { DateFormatter } from "@internationalized/date"
+import { DATE_FORMATTER_CONFIG, formatDateToTime } from "../../utils"
 import styles from "./DateSegment.module.scss"
 
 export const DateSegment = ({
@@ -17,6 +19,14 @@ export const DateSegment = ({
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
+  const renderText = () => {
+    if (segment.isPlaceholder || segment.type !== "hour") {
+      return segment.text
+    } else {
+      // This is to start hours with a leading 0. There didn't seem to be a way to config this out of the box
+      return state.formatValue({ hour: "2-digit" }).split(":")[0]
+    }
+  }
   return (
     <div
       {...segmentProps}
@@ -25,7 +35,7 @@ export const DateSegment = ({
         segment.isPlaceholder ? styles.placeholder : ""
       }`}
     >
-      {segment.text}
+      {renderText()}
       {/* {segment.isPlaceholder && segment.type !== "dayPeriod"
         ? "00"
         : segment.text} */}
