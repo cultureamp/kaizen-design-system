@@ -35,11 +35,6 @@ interface SelectionProps {
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
-  /**
-   * Accepts a Set of item keys and disables them.
-   * e.g disabledKeys={new Set(["id-be"])}
-   */
-  disabledKeys?: Selection
 }
 
 export type FilterMultiSelectProps = RootProps
@@ -58,10 +53,14 @@ export const Root: React.VFC<RootProps> = ({
   selectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
-  disabledKeys,
 }) => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
+  const disabledKeys: Selection = new Set(
+    items
+      ?.filter(item => item.disabled === true)
+      .map(disabledItem => disabledItem.value)
+  )
   const selectionProps = {
     label,
     items,
