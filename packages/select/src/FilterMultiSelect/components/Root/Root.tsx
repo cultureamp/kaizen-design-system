@@ -31,7 +31,7 @@ interface MenuPopupProps {
 
 interface SelectionProps {
   label: string // provide A11y context for listbox
-  items?: ItemType[]
+  items: ItemType[]
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
