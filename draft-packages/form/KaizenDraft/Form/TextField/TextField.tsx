@@ -114,7 +114,7 @@ export const TextField: React.VFC<TextFieldProps> = ({
           })}
         >
           <FieldMessage
-            id={`${id}-field-message`}
+            id={`${id}-field-validation-message`}
             automationId={`${id}-field-validation-message`}
             message={validationMessage}
             status={status}
