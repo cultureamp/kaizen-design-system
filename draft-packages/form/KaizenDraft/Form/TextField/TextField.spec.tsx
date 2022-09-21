@@ -34,7 +34,7 @@ describe("<TextField />", () => {
       />
     )
     expect(
-      container.querySelector(`#${defaultProps.id}-field-message`)
+      container.querySelector(`#${defaultProps.id}-field-validation-message`)
     ).toHaveClass("error")
   })
 })
