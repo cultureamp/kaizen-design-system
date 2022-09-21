@@ -7,7 +7,7 @@ import {
 import { FocusScope } from "@react-aria/focus"
 import styles from "./Popover.module.scss"
 
-export const Popover: React.FunctionComponent<
+export const Popover: React.VFC<
   AriaOverlayProps & { children: React.ReactNode }
 > = ({ isOpen, onClose, children, shouldCloseOnInteractOutside }) => {
   const ref = React.useRef(null)
