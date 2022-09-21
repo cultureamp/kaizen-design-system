@@ -52,7 +52,7 @@
   "dependencies": {
     "@types/color-string": "^1.5.2",
     "@types/lodash.kebabcase": "^4.1.7",
-    "color-string": "^1.8.2",
+    "color-string": "^1.9.1",
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
