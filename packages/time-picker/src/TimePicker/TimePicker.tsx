@@ -1,13 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
-import React, { useMemo, useRef } from "react"
-import {
-  CalendarDate,
-  CalendarDateTime,
-  parseTime,
-  Time,
-} from "@internationalized/date"
+import React, { useMemo } from "react"
+import { CalendarDateTime } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
 import { useMenuTrigger, AriaMenuTriggerProps } from "@react-aria/menu"
@@ -36,7 +31,7 @@ export interface TimePickerProps
   > {
   id: string
   label: string
-  onChange: (_: Date) => void
+  onChange: (date: Date) => void
   timeZone?: string
   value?: Date | undefined
   dropdownIncrements?: number
@@ -54,11 +49,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   label,
   timeZone,
   dropdownIncrements,
-  ...rest
+  ...restProps
 }: TimePickerProps) => {
   const { locale } = useLocale()
 
-  const handleOnChange = (timeValue: TimeValue) => {
+  const handleOnChange = (timeValue: TimeValue): void => {
     const today = new Date()
     onChange(
       new Date(
@@ -71,7 +66,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     )
   }
   const state = useTimeFieldState({
-    ...rest,
+    ...restProps,
     value: value
       ? new CalendarDateTime(
           value.getFullYear(),
@@ -83,14 +78,14 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       : undefined,
     onChange: handleOnChange,
     isDisabled,
-    locale: rest.locale ?? locale,
+    locale: restProps.locale ?? locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
 
   const menuState = useMenuTriggerState({})
 
   const inputRef = React.useRef(null)
-  const { fieldProps } = useTimeField({ ...rest }, state, inputRef)
+  const { fieldProps } = useTimeField({ ...restProps }, state, inputRef)
 
   const { menuProps, menuTriggerProps } = useMenuTrigger<TIME_OPTION>(
     { isDisabled },
@@ -114,9 +109,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           id={id}
           aria-label={label}
           ref={inputRef}
-          onClick={e => {
-            menuState.open()
-          }}
+          onClick={() => menuState.open()}
           className={classNames(styles.input, {
             [styles.isDisabled]: state.isDisabled,
             [styles.error]: state.validationState === "invalid",

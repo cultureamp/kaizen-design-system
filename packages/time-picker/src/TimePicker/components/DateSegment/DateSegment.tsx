@@ -10,11 +10,9 @@ import styles from "./DateSegment.module.scss"
 export const DateSegment = ({
   segment,
   state,
-  onClick,
 }: {
-  segment: any
+  segment: DateSegmentType
   state: DateFieldState
-  onClick?: () => void
 }) => {
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
