@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
 import React, { useMemo } from "react"
 import { CalendarDateTime } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
-import { useMenuTrigger, AriaMenuTriggerProps } from "@react-aria/menu"
+import { useMenuTrigger } from "@react-aria/menu"
 
 import { Item } from "@react-stately/collections"
 import { useMenuTriggerState } from "@react-stately/menu"
@@ -103,7 +102,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     <>
       <Label>{label}</Label>
       <div className={styles.wrapper}>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
         <div
           {...fieldProps}
           id={id}
