@@ -13,10 +13,10 @@
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "devDependencies": {
-    "@types/eslint": "^8.4.5",
-    "eslint": "^8.22.0"
+    "@types/eslint": "^8.4.6",
+    "eslint": "^8.23.1"
   },
   "peerDependencies": {
-    "eslint": "^8.22.0"
+    "eslint": "^8.23.1"
   }
 }
