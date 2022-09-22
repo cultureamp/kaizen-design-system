@@ -19,7 +19,5 @@ $labelAndSectionSpacing: $spacing-xs;
   list-style: none;
   padding: 0;
   display: grid;
-  max-height: 210px;
-  overflow-y: auto;
   margin-left: $labelAndSectionSpacing;
 }
