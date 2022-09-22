@@ -6,16 +6,21 @@ import styles from "../SelectionControlButton.scss"
 
 export const SelectAllButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
-  const filteredOptions = Array.from(selectionState.collection.getKeys())
   const selectedOptions = Array.from(
     selectionState.selectionManager.selectedKeys
   )
+  const disabledOptions = selectionState.disabledKeys
+    ? Array.from(selectionState.disabledKeys)
+    : []
+  const filteredOptions = Array.from(
+    selectionState.collection.getKeys()
+  ).filter(key => !disabledOptions.includes(key))
+
   return (
     <button
-      className={classNames(
-        styles.button,
-        selectionState.selectionManager.isSelectAll ? styles.isDisabled : ""
-      )}
+      className={classNames(styles.button, {
+        [styles.isDisabled]: selectionState.selectionManager.isSelectAll,
+      })}
       aria-disabled={selectionState.selectionManager.isSelectAll}
       onClick={
         () =>
