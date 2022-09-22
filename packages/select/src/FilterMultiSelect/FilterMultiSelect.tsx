@@ -1,4 +1,5 @@
 import { ListBox } from "./components/ListBox"
+import { ListBoxSection } from "./components/ListBoxSection"
 import { MenuFooter, MenuLoadingSkeleton } from "./components/MenuLayout"
 import { MultiSelectOption } from "./components/MultiSelectOption"
 import { Root } from "./components/Root"
@@ -17,6 +18,7 @@ export const FilterMultiSelect = Object.assign(Root, {
   RemovableTrigger: RemovableFilterTrigger,
   SearchInput,
   ListBox,
+  ListBoxSection,
   Option: MultiSelectOption,
   SelectAllButton,
   ClearButton,

@@ -58,7 +58,38 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+              {/* {item => <FilterMultiSelect.Option key={item.key} item={item} />} */}
+
+              {(disabledItems, selectedItems, unselectedItems) => (
+                <>
+                  <FilterMultiSelect.ListBoxSection section={selectedItems}>
+                    {selectedItem => (
+                      <FilterMultiSelect.Option
+                        key={selectedItem.key}
+                        item={selectedItem}
+                      />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  <FilterMultiSelect.ListBoxSection section={unselectedItems}>
+                    {unselectedItem => (
+                      <FilterMultiSelect.Option
+                        key={unselectedItem.key}
+                        item={unselectedItem}
+                      />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  <FilterMultiSelect.ListBoxSection section={disabledItems}>
+                    {disabledItem => (
+                      <FilterMultiSelect.Option
+                        key={disabledItem.key}
+                        item={disabledItem}
+                      />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                </>
+              )}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
