@@ -12,8 +12,8 @@ export interface SelectionProviderProps {
   items?: ItemType[]
   onSelectionChange?: (keys: Selection) => void
   selectedKeys?: Selection
-  disabledKeys?: Selection
   label: string
+  disabledKeys?: Selection
 }
 
 export interface SelectionProviderContextType {

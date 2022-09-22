@@ -2,8 +2,8 @@ import { ItemType } from "../src/FilterMultiSelect"
 
 export const items: ItemType[] = [
   { label: "Front-End", value: "id-fe", count: "1245" },
-  { label: "Back-End", value: "id-be", count: "4" },
-  { label: "SRE", value: "id-sre" },
+  { label: "Back-End", value: "id-be", count: "4", isDisabled: true },
+  { label: "SRE", value: "id-sre", count: "4", isDisabled: true },
   { label: "Dev-ops", value: "id-devops" },
   { label: "Others", value: "id-others" },
   {
@@ -16,7 +16,12 @@ export const items: ItemType[] = [
     count: "156",
   },
   { label: "Engineer-type-3", value: "id-type-3" },
-  { label: "Engineer-type-4", value: "id-type-4" },
+  {
+    label: "Engineer-type-4",
+    value: "id-type-4",
+    count: "4",
+    isDisabled: true,
+  },
   { label: "Engineer-type-5", value: "id-type-5" },
 ]
 
