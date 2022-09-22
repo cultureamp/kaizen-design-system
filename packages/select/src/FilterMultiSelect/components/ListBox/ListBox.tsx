@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef, useCallback } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useSelectionContext } from "../../provider/SelectionProvider"
@@ -33,6 +33,18 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
 
+  const itemsRef = useRef({ selectedItems, disabledItems, unselectedItems })
+
+  const renderChildren = useCallback(
+    () =>
+      children(
+        itemsRef.current.disabledItems,
+        itemsRef.current.selectedItems,
+        itemsRef.current.unselectedItems
+      ),
+    [itemsRef.current]
+  )
+
   return (
     <ul
       {...listBoxProps}
@@ -42,11 +54,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {/* {Array.from(selectionState.collection).map(item =>
-        // pass item to render children
-        children(item)
-      )} */}
-      {children(disabledItems, selectedItems, unselectedItems)}
+      {renderChildren()}
     </ul>
   )
 }
