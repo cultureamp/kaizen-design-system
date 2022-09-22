@@ -33,17 +33,17 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
 
-  const itemsRef = useRef({ selectedItems, disabledItems, unselectedItems })
+  // const itemsRef = useRef({ selectedItems, disabledItems, unselectedItems })
 
-  const renderChildren = useCallback(
-    () =>
-      children(
-        itemsRef.current.disabledItems,
-        itemsRef.current.selectedItems,
-        itemsRef.current.unselectedItems
-      ),
-    [itemsRef.current]
-  )
+  // const renderChildren = useCallback(
+  //   () =>
+  //     children(
+  //       itemsRef.current.disabledItems,
+  //       itemsRef.current.selectedItems,
+  //       itemsRef.current.unselectedItems
+  //     ),
+  //   [itemsRef.current]
+  // )
 
   return (
     <ul
@@ -54,7 +54,8 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {renderChildren()}
+      {children(selectedItems, unselectedItems, disabledItems)}
+      {/* {renderChildren()} */}
     </ul>
   )
 }
