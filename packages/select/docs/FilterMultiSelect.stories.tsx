@@ -6,6 +6,7 @@ import { Button, ButtonRef } from "@kaizen/button"
 import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -40,32 +41,37 @@ export const DefaultKaizenSiteDemo: ComponentStory<
   const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
 
   return (
-    <FilterMultiSelect
-      {...args}
-      onSelectionChange={handleSelectionChange}
-      selectedKeys={selectedKeys}
-      items={items}
-      disabledKeys={new Set(["id-be"])}
-      trigger={() => (
-        <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-          label={args.label}
-        />
-      )}
-    >
-      {() => (
-        <>
-          <FilterMultiSelect.SearchInput />
-          <FilterMultiSelect.ListBox>
-            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
-          </FilterMultiSelect.ListBox>
-          <FilterMultiSelect.MenuFooter>
-            <FilterMultiSelect.SelectAllButton />
-            <FilterMultiSelect.ClearButton />
-          </FilterMultiSelect.MenuFooter>
-        </>
-      )}
-    </FilterMultiSelect>
+    <>
+      <FilterMultiSelect
+        {...args}
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={items}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            label={args.label}
+          />
+        )}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+      <Paragraph variant={"body"}>
+        Items:{" "}
+        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+      </Paragraph>
+    </>
   )
 }
 
@@ -183,8 +189,13 @@ export const FilterBarDemo = () => {
         </div>
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
+
       <Paragraph variant={"body"}>
-        Selected Values: {JSON.stringify(selectedDemographicValues)}
+        Selected Values:{" "}
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(selectedDemographicValues, null, "\t")}
+        />
       </Paragraph>
     </>
   )

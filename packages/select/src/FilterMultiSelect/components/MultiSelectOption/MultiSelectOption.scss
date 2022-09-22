@@ -28,13 +28,12 @@
   &:active,
   &:focus {
     background-color: $color-blue-100;
-
+    .badge {
+      background-color: $color-white;
+    }
     .icon {
       border-color: $color-gray-600;
       background-color: $color-gray-200;
-    }
-    .badge {
-      background-color: $color-white;
     }
   }
 
@@ -51,6 +50,14 @@
   &.isDisabled {
     opacity: 0.3;
     background: none;
+    &:hover {
+      .icon {
+        border-color: $color-gray-500;
+      }
+      .badge {
+        background-color: $color-gray-300;
+      }
+    }
   }
 }
 
