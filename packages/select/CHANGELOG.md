@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.6.0...@kaizen/select@2.0.0) (2022-09-22)
+
+
+### Bug Fixes
+
+* **filterMultiSelect:** Kds 825 refactor disabled keys to be part of the data structure ([#2984](https://github.com/cultureamp/kaizen-design-system/issues/2984)) ([a777944](https://github.com/cultureamp/kaizen-design-system/commit/a77794498833c5c99c6cf32ffa01a147ceb35b0f))
+
+
+### BREAKING CHANGES
+
+* **filterMultiSelect:** **Remove disabledKeys prop and update itemType type**
+
+- `disabledKeys` prop has been removed.
+- `itemType` type now includes the `isDisabled` property to specify whether a single item is disabled.
+- `item` prop on FilterMultiSelect is now required.
+* feat: update disabled keys to function
+
+* feat: update disabled to isDisabled
+
+* feat: update disabled hover styles
+
+* feat: remove listbox bottom margin
+
+* feat: Make items prop required
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.9...@kaizen/select@1.6.0) (2022-09-21)
+
+
+### Features
+
+* update selectAllButton to not include disabled keys ([#2978](https://github.com/cultureamp/kaizen-design-system/issues/2978)) ([c2aa299](https://github.com/cultureamp/kaizen-design-system/commit/c2aa299cc450a1e01273347c19a634fa827610f1))
+
+
+
+
+
 ## [1.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@1.5.8...@kaizen/select@1.5.9) (2022-09-15)
 
 **Note:** Version bump only for package @kaizen/select
