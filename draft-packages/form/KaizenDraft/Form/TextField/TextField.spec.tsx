@@ -34,7 +34,49 @@ describe("<TextField />", () => {
       />
     )
     expect(
-      container.querySelector(`#${defaultProps.id}-field-message`)
+      container.querySelector(`#${defaultProps.id}-field-validation-message`)
     ).toHaveClass("error")
+  })
+  it("renders correct aria-describedby when only description provided", () => {
+    render(<TextField {...defaultProps} description="Description text" />)
+    screen.getByRole("textbox", {
+      description: "Description text",
+    })
+  })
+  it("renders correct aria-describedby when only validation message provided", () => {
+    render(
+      <TextField
+        {...defaultProps}
+        description={undefined}
+        validationMessage="Error message"
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "Error message",
+    })
+  })
+  it("renders correct aria-describedby when both description and validation message provided", () => {
+    render(
+      <TextField
+        {...defaultProps}
+        description="Description text"
+        validationMessage="Error message"
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "Description text Error message",
+    })
+  })
+  it("renders empty aria-describedby when no description or validation message provided", () => {
+    render(
+      <TextField
+        {...defaultProps}
+        description={undefined}
+        validationMessage={undefined}
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "",
+    })
   })
 })
