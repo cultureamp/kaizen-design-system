@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.1...@kaizen/draft-form@8.3.2) (2022-09-26)
+
+
+### Bug Fixes
+
+* correct ID on validation message used for describedBy on text field ([#2983](https://github.com/cultureamp/kaizen-design-system/issues/2983)) ([ad4ae22](https://github.com/cultureamp/kaizen-design-system/commit/ad4ae22ce0b7a5a83e34b1c78cd28d061dee2f4a))
+
+
+
+
+
 ## [8.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.0...@kaizen/draft-form@8.3.1) (2022-09-14)
 
 **Note:** Version bump only for package @kaizen/draft-form
