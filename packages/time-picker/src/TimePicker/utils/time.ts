@@ -4,52 +4,65 @@ import {
   CalendarDateTime,
   DateFormatter,
   getLocalTimeZone,
+  now,
+  parseZonedDateTime,
   Time,
+  ZonedDateTime,
 } from "@internationalized/date"
 
 export type TIME_OPTION = {
   label: string
-  value: CalendarDateTime
+  value: ZonedDateTime
 }
 
 type GetAllTimeOptionsConfig = {
   locale: string
-  timeZone?: string
+  timeZone: string
+  utcOffset: number
   increments?: number
+  date?: Date
 }
 
 export const DATE_FORMATTER_CONFIG = {
-  hour: "2-digit",
-  minute: "2-digit",
-} as const
+  timeStyle: "short",
+} as Intl.DateTimeFormatOptions
 
-export const formatDateToTime = (date: Date, locale) =>
-  new DateFormatter(locale, DATE_FORMATTER_CONFIG).format(date)
+export const formatDateToTime = (date: Date, locale, timeZone): string =>
+  new Intl.DateTimeFormat(locale, {
+    ...DATE_FORMATTER_CONFIG,
+    timeZone,
+  }).format(date)
 
 export const getAllTimeOptions = ({
   locale,
-  timeZone = getLocalTimeZone(),
+  timeZone,
   increments = 30,
+  utcOffset,
+  date,
 }: GetAllTimeOptionsConfig) =>
   Array.from(Array(24).keys()).reduce((options, hour) => {
-    // Generates an arbitrary date
-    const today = new Date()
+    // Generates an arbitrary date. Needs to take timezone
+    const today = now(timeZone).toDate()
     Array.from(Array(60 / increments).keys()).forEach(increment => {
-      const calendarDateTime = new CalendarDateTime(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate(),
+      // can't use new Time constructor, as that prevents proper visual time formatting
+      const zonedDateTime = new ZonedDateTime(
+        (date ?? today).getFullYear(),
+        (date ?? today).getMonth(),
+        (date ?? today).getDate(),
+        timeZone,
+        utcOffset,
         hour,
         increment * increments
       )
       const formattedTime = formatDateToTime(
-        calendarDateTime.toDate(timeZone),
-        locale
+        zonedDateTime.toDate(),
+        locale,
+        timeZone
       )
 
       options[formattedTime] = {
         label: formattedTime,
-        value: calendarDateTime,
+        value: zonedDateTime,
       }
     })
     return options

@@ -1,7 +1,13 @@
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
 import React, { useMemo } from "react"
-import { CalendarDateTime } from "@internationalized/date"
+import {
+  getLocalTimeZone,
+  now,
+  parseAbsolute,
+  ZonedDateTime,
+} from "@internationalized/date"
+import { toDate } from "@internationalized/date/src/conversion"
 import { useTimeField } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
 import { useMenuTrigger } from "@react-aria/menu"
@@ -23,6 +29,7 @@ import { TimeValue } from "./types"
 
 export type StatusType = "default" | "error"
 
+const isZonedDateTimeObject = (obj): obj is ZonedDateTime => "toDate" in obj
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
@@ -31,12 +38,11 @@ export interface TimePickerProps
   id: string
   label: string
   onChange: (date: Date) => void
-
+  value?: Date | undefined
   /**
-   * Supply timeZone in TZ database name, i.e. "Australia/Melbourne"
+   * Supply timeZone in IANA format, i.e. "Australia/Melbourne"
    */
   timeZone?: string
-  value?: Date | undefined
   dropdownIncrements?: number
   status?: StatusType
   validationMessage?: React.ReactNode
@@ -50,41 +56,44 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   value,
   onChange,
   label,
-  timeZone,
+  timeZone = getLocalTimeZone(),
+  locale,
   dropdownIncrements,
   ...restProps
 }: TimePickerProps) => {
-  const locale = restProps.locale ?? useLocale().locale
+  const utcOffset = now(timeZone).offset
 
   const handleOnChange = (timeValue: TimeValue): void => {
-    const today = new Date()
-    onChange(
-      new Date(
+    // onChange does not fire until user interacts with all placeholders
+    // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
+    // if user interacts with MenuItems, it has to be CalendarDateTime or ZonedDateTime, as Time objects cannot be formatted properly to display in a list
+    // console.log("STATE", state.dateValue, timeValue)
+    if (isZonedDateTimeObject(timeValue)) {
+      onChange(timeValue.toDate())
+    } else {
+      const today = now(timeZone).toDate()
+      const date = new ZonedDateTime(
         (value ?? today).getFullYear(),
         (value ?? today).getMonth(),
-        (value ?? today).getDate(),
+        (value ?? today).getDay(),
+        timeZone,
+        utcOffset,
         timeValue.hour,
         timeValue.minute
-      )
-    )
+      ).toDate()
+      onChange(date)
+    }
   }
+
   const state = useTimeFieldState({
     ...restProps,
-    value: value
-      ? new CalendarDateTime(
-          value.getFullYear(),
-          value.getMonth(),
-          value.getDate(),
-          value.getHours(),
-          value.getMinutes()
-        )
-      : undefined,
+    value: value ? parseAbsolute(value.toISOString(), timeZone) : undefined,
     onChange: handleOnChange,
     isDisabled,
+    hideTimeZone: true,
     locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
-
   const menuState = useMenuTriggerState({})
 
   const inputRef = React.useRef(null)
@@ -95,12 +104,13 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     menuState,
     inputRef
   )
-
   const options = useMemo(
     () =>
       getAllTimeOptions({
         locale,
         timeZone,
+        utcOffset,
+        date: value,
         increments: dropdownIncrements,
       }),
     [locale, timeZone, dropdownIncrements]
@@ -159,6 +169,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           <Menu
             {...menuProps}
             data-testid="timepicker-menu"
+            // state.setValue doesn't work unless value is undefined
             onAction={key => handleOnChange(options[key].value)}
           >
             {Object.keys(options).map(option => (
