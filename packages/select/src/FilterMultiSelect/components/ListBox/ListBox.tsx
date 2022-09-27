@@ -33,17 +33,17 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
 
-  // const itemsRef = useRef({ selectedItems, disabledItems, unselectedItems })
+  const [itemsState, setItemsState] = useState({
+    selectedItems,
+    unselectedItems,
+    disabledItems,
+  })
 
-  // const renderChildren = useCallback(
-  //   () =>
-  //     children(
-  //       itemsRef.current.disabledItems,
-  //       itemsRef.current.selectedItems,
-  //       itemsRef.current.unselectedItems
-  //     ),
-  //   [itemsRef.current]
-  // )
+  // Only update rendering of items when filtering.
+  // Avoids re-ordering of items when making a selection
+  useEffect(() => {
+    setItemsState({ selectedItems, disabledItems, unselectedItems })
+  }, [selectionState.collection.size])
 
   return (
     <ul
@@ -54,8 +54,11 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {children(selectedItems, unselectedItems, disabledItems)}
-      {/* {renderChildren()} */}
+      {children(
+        itemsState.selectedItems,
+        itemsState.unselectedItems,
+        itemsState.disabledItems
+      )}
     </ul>
   )
 }
