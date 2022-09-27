@@ -12,6 +12,7 @@ const TimePickerWrapper = (
       locale="en-GB"
       id="id"
       label="label"
+      timeZone="Australia/Melbourne"
       value={value}
       onChange={setValue}
       {...customProps}
@@ -74,6 +75,6 @@ it("changes value when selecting a menu item", () => {
   fireEvent.click(screen.getByTestId("timepicker-input"))
   fireEvent.click(screen.getByText("01:30"))
   // FIXME: There should actually be a leading 0, i.e. 01
-  expect(screen.getAllByRole("spinbutton")[0].textContent).toEqual("01")
+  expect(screen.getAllByRole("spinbutton")[0].textContent).toEqual("1")
   expect(screen.getAllByRole("spinbutton")[1].textContent).toEqual("30")
 })

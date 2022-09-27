@@ -24,7 +24,7 @@ export const DateSegment = ({
       return segment.text
     } else {
       // This is to start hours with a leading 0. There didn't seem to be a way to config this out of the box
-      return state.formatValue({ hour: "2-digit" }).split(":")[0]
+      return state.dateValue.getHours()
     }
   }
   return (
@@ -35,7 +35,8 @@ export const DateSegment = ({
         segment.isPlaceholder ? styles.placeholder : ""
       }`}
     >
-      {renderText()}
+      {segment.text}
+      {/* {renderText()} */}
       {/* {segment.isPlaceholder && segment.type !== "dayPeriod"
         ? "00"
         : segment.text} */}
