@@ -37,7 +37,7 @@
     "date-fns": "^2.29.3",
     "react-day-picker": "^8.0.7",
     "react-focus-on": "^3.6.0",
-    "react-popper": "^2.2.5"
+    "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1"
