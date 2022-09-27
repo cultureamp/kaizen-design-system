@@ -74,7 +74,7 @@ steps:
     key: "playwright-step"
     command: ".buildkite/scripts/run-playwright.sh"
     timeout_in_minutes: 15
-    branches: "!master"
+    branches: "!master !canary"
     depends_on: "publish-step"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
