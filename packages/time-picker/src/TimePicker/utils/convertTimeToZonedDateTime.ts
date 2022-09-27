@@ -11,7 +11,7 @@ export const convertTimeToZonedDateTime = ({
   minutes: number
   timeZone: string
 }): ZonedDateTime => {
-  // using this instead of Date() so we
+  // using this instead of new Date().getTimezoneOffset as ZonedDateTime constructor measures offset different
   const today = now(timeZone)
   const todayDate = today.toDate()
   return new ZonedDateTime(

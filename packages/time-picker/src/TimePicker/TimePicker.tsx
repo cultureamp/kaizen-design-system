@@ -1,3 +1,4 @@
+import { time } from "console"
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
 import React, { useMemo } from "react"
@@ -26,6 +27,7 @@ import { getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 import { TimeValue } from "./types"
+import { convertTimeToZonedDateTime } from "./utils/convertTimeToZonedDateTime"
 
 export type StatusType = "default" | "error"
 
@@ -72,16 +74,12 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       onChange(timeValue.toDate())
     } else {
       const today = now(timeZone).toDate()
-      const date = new ZonedDateTime(
-        (value ?? today).getFullYear(),
-        (value ?? today).getMonth(),
-        (value ?? today).getDay(),
+      const date = convertTimeToZonedDateTime({
+        date: value ?? today,
+        hour: timeValue.hour,
+        minutes: timeValue.minute,
         timeZone,
-        utcOffset,
-        timeValue.hour,
-        timeValue.minute
-      ).toDate()
-      // TODO?  am I converting too many times??
+      }).toDate()
       onChange(date)
     }
   }
@@ -110,7 +108,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       getAllTimeOptions({
         locale,
         timeZone,
-        utcOffset,
         date: value,
         increments: dropdownIncrements,
       }),
