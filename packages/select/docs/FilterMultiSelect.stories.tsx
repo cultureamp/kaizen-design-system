@@ -20,6 +20,7 @@ export default {
   component: FilterMultiSelect,
   parameters: {
     docs: {
+      source: { type: "code" },
       description: {
         component: 'import { FilterMultiSelect } from "@kaizen/select".',
       },
@@ -96,10 +97,6 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           </>
         )}
       </FilterMultiSelect>
-      <Paragraph variant={"body"}>
-        Items:{" "}
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
-      </Paragraph>
     </>
   )
 }
