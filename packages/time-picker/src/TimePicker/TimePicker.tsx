@@ -81,6 +81,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         timeValue.hour,
         timeValue.minute
       ).toDate()
+      // TODO?  am I converting too many times??
       onChange(date)
     }
   }
