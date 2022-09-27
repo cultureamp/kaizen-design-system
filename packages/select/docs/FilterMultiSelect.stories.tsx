@@ -51,7 +51,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         trigger={() => (
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-            label="Engineer"
+            label={args.label}
           />
         )}
       >
@@ -59,7 +59,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {(selectedItems, unselectedItems, disabledItems) => (
+              {({ selectedItems, unselectedItems, disabledItems }) => (
                 <>
                   <FilterMultiSelect.ListBoxSection section={selectedItems}>
                     {selectedItem => (
@@ -102,7 +102,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-// DefaultKaizenSiteDemo.args = { label: "Engineer" }
+DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
 // export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
 //   const [selectedKeys, setSelectedKeys] = useState<Selection>(

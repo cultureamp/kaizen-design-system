@@ -6,11 +6,11 @@ import { ItemType } from "../../types"
 import styles from "./ListBox.scss"
 
 export interface ListBoxProps {
-  children: (
-    disabledItems: Array<Node<ItemType>>,
-    selectedItems: Array<Node<ItemType>>,
+  children: (items: {
+    selectedItems: Array<Node<ItemType>>
     unselectedItems: Array<Node<ItemType>>
-  ) => React.ReactNode
+    disabledItems: Array<Node<ItemType>>
+  }) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
@@ -54,11 +54,11 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {children(
-        itemsState.selectedItems,
-        itemsState.unselectedItems,
-        itemsState.disabledItems
-      )}
+      {children({
+        selectedItems: itemsState.selectedItems,
+        unselectedItems: itemsState.unselectedItems,
+        disabledItems: itemsState.disabledItems,
+      })}
     </ul>
   )
 }
