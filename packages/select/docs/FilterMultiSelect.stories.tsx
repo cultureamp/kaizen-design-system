@@ -50,7 +50,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         trigger={() => (
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-            label={args.label}
+            label="Engineer"
           />
         )}
       >
