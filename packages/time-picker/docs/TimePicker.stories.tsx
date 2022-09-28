@@ -24,10 +24,15 @@ export default {
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<Date | undefined>(undefined)
+  const [value, setValue] = useState<Date | undefined>(new Date())
   return (
     <div>
-      <TimePicker {...args} value={value} onChange={setValue} />
+      <TimePicker
+        {...args}
+        value={value}
+        onChange={setValue}
+        validationMessage="noooo"
+      />
     </div>
   )
 }

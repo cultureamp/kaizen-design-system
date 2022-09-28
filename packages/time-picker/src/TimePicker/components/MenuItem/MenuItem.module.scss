@@ -4,7 +4,6 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .menuItem {
-  color: #2f2438;
   background: transparent;
   padding: 6px calc(#{$spacing-sm} - 2px);
   margin: 0 $spacing-xs;
@@ -27,7 +26,19 @@
   text-decoration: none;
   color: $color-purple-800;
 }
+// TODO: onHover changes focus. Will need to look into this
 .menuItem:focus {
   background-color: $color-blue-100;
   color: $color-blue-500;
+  // TODO: Check if there's a token for this
+  border-width: 2px;
+  border-color: $color-blue-500;
 }
+.isSelected {
+  font-weight: 600;
+  color: $color-blue-500;
+}
+// .menuItem:hover {
+//   background-color: green;
+//   color: $color-blue-500;
+// }
