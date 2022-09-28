@@ -5,8 +5,6 @@ import {
   DateFieldState,
 } from "@react-stately/datepicker"
 
-import { DateFormatter } from "@internationalized/date"
-import { DATE_FORMATTER_CONFIG, formatDateToTime } from "../../utils"
 import styles from "./DateSegment.module.scss"
 
 export const DateSegment = ({

@@ -1,16 +1,13 @@
-import { time } from "console"
+import React, { useMemo } from "react"
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
-import React, { useMemo } from "react"
 import {
   getLocalTimeZone,
   now,
   parseAbsolute,
   ZonedDateTime,
 } from "@internationalized/date"
-import { toDate } from "@internationalized/date/src/conversion"
 import { useTimeField } from "@react-aria/datepicker"
-import { useLocale } from "@react-aria/i18n"
 import { useMenuTrigger } from "@react-aria/menu"
 
 import { Item } from "@react-stately/collections"
@@ -40,7 +37,7 @@ export interface TimePickerProps
   id: string
   label: string
   onChange: (date: Date) => void
-  value?: Date | undefined
+  value: Date | undefined
   /**
    * Supply timeZone in IANA format, i.e. "Australia/Melbourne"
    */
@@ -61,10 +58,9 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   timeZone = getLocalTimeZone(),
   locale,
   dropdownIncrements,
+
   ...restProps
 }: TimePickerProps) => {
-  const utcOffset = now(timeZone).offset
-
   const handleOnChange = (timeValue: TimeValue): void => {
     // onChange does not fire until user interacts with all placeholders
     // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
@@ -146,9 +142,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             />
           </Button>
         </div>
-        {validationMessage ? (
-          <FieldMessage message={validationMessage} status={status} />
-        ) : null}
         <Popover
           shouldCloseOnInteractOutside={element =>
             // FIXME: Requires better type guarding
@@ -176,6 +169,9 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           </Menu>
         </Popover>
       </div>
+      {validationMessage && status === "error" && (
+        <FieldMessage message={validationMessage} status={status} />
+      )}
     </>
   )
 }

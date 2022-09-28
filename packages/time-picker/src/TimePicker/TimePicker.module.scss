@@ -14,7 +14,7 @@ $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
 @mixin form-input-focus-state {
-  &:focus:not([disabled]),
+  // &:focus:not([disabled]),
   &:hover:focus:not([disabled]),
   &:hover:not([disabled]) {
     @content;
@@ -31,14 +31,18 @@ $input-disabled-border-alpha: 50%;
 }
 
 .wrapper {
+  @include base-font-style();
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: flex-start;
-  @include base-font-style();
 }
 
 .input {
+  // @include form-input-focus-state {
+  //   border-color: $color-gray-600;
+  //   background-color: $color-gray-200;
+  // }
   display: inline-flex;
   align-items: center;
   background-color: transparent;
@@ -51,7 +55,9 @@ $input-disabled-border-alpha: 50%;
   height: $input-height;
   width: 100%;
   box-sizing: border-box;
-  @include form-input-focus-state {
+  // FIXME: The border doesn't work on focus
+  &:focus,
+  &:hover {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
@@ -83,10 +89,6 @@ $input-disabled-border-alpha: 50%;
     bottom: -$focus-ring-offset;
     pointer-events: none;
   }
-  // .field {
-  //   border-color: $color-gray-600;
-  //   background-color: $color-gray-200;
-  // }
 }
 .dropdownIndicator {
   display: flex;

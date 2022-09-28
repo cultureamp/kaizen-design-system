@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { TimePicker, TimePickerProps } from "./TimePicker"
 
-const TimePickerWrapper = (
-  customProps?: Partial<TimePickerProps>
-): JSX.Element => {
-  const [value, setValue] = useState<Date | undefined>(undefined)
+const TimePickerWrapper = ({
+  value: propsValue,
+  ...customProps
+}: Partial<TimePickerProps>): JSX.Element => {
+  const [value, setValue] = useState<Date | undefined>(propsValue)
 
   return (
     <TimePicker
@@ -77,4 +78,54 @@ it("changes value when selecting a menu item", () => {
   // FIXME: There should actually be a leading 0, i.e. 01
   expect(screen.getAllByRole("spinbutton")[0].textContent).toEqual("1")
   expect(screen.getAllByRole("spinbutton")[1].textContent).toEqual("30")
+})
+
+describe("spin button functionality", () => {
+  const pressArrowKey = (
+    direction: "ArrowUp" | "ArrowDown",
+    element: HTMLElement
+  ) =>
+    fireEvent.keyDown(element, {
+      key: direction,
+      code: direction,
+    })
+
+  it("changes hour on key press", () => {
+    render(<TimePickerWrapper />)
+    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
+    pressArrowKey("ArrowUp", hourSpinner)
+    expect(hourSpinner).toHaveTextContent("0")
+    pressArrowKey("ArrowUp", hourSpinner)
+    expect(hourSpinner).toHaveTextContent("1")
+    pressArrowKey("ArrowUp", hourSpinner)
+    expect(hourSpinner).toHaveTextContent("2")
+    pressArrowKey("ArrowDown", hourSpinner)
+    expect(hourSpinner).toHaveTextContent("1")
+  })
+  it("changes minutes on key press", () => {
+    render(<TimePickerWrapper />)
+    const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+    pressArrowKey("ArrowUp", minuteSpinner)
+    pressArrowKey("ArrowUp", minuteSpinner)
+    expect(minuteSpinner).toHaveTextContent("01")
+    pressArrowKey("ArrowUp", minuteSpinner)
+    expect(minuteSpinner).toHaveTextContent("02")
+    pressArrowKey("ArrowDown", minuteSpinner)
+    expect(minuteSpinner).toHaveTextContent("01")
+  })
+
+  it("changes segments orthogonally", () => {
+    render(
+      <TimePickerWrapper
+        value={new Date(2022, 8, 8, 4, 44)}
+        timeZone="Africa/Abidjan"
+      />
+    )
+    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
+    const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+    pressArrowKey("ArrowUp", hourSpinner)
+    pressArrowKey("ArrowDown", minuteSpinner)
+    expect(hourSpinner.textContent).toEqual("5")
+    expect(minuteSpinner.textContent).toEqual("43")
+  })
 })
