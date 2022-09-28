@@ -23,10 +23,11 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     }
     setIsOverflown(listElement.scrollHeight > listElement.clientHeight)
   }, [listRef])
-  // TODO Move to util functions
-  const items = selectionState.collection
-  const disabledKeys = selectionState.disabledKeys
-  const selectedKeys = selectionState.selectionManager.selectedKeys
+  const {
+    collection: items,
+    disabledKeys,
+    selectionManager: { selectedKeys },
+  } = selectionState
   const disabledItems = Array.from(disabledKeys).map(key => items.getItem(key))
   const selectedItems = Array.from(selectedKeys).map(key => items.getItem(key))
   const unselectedItems = Array.from(items).filter(
