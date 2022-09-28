@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { TimePicker, TimePickerProps } from "./TimePicker"
 
+const mockSetValue = jest.fn()
+const UTC_ZERO_TIMEZONE = "Africa/Abidjan"
 const TimePickerWrapper = ({
   value: propsValue,
   ...customProps
@@ -48,26 +50,26 @@ describe("component formats time appropriate to locale", () => {
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      "12:00 am"
-    )
+    expect(
+      screen.getByTestId("timepicker-menu").firstChild?.textContent
+    ).toEqual("12:00 am")
   })
   it("shows time in a h:mm A format for en-US", () => {
     render(<TimePickerWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      "12:00 AM"
-    )
+    expect(
+      screen.getByTestId("timepicker-menu").firstChild?.textContent
+    ).toEqual("12:00 AM")
   })
   it("shows time in a HH:MM format for en-GB", () => {
     render(<TimePickerWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
     expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      "00:00"
-    )
+    expect(
+      screen.getByTestId("timepicker-menu").firstChild?.textContent
+    ).toEqual("00:00")
   })
 })
 
@@ -115,10 +117,11 @@ describe("spin button functionality", () => {
   })
 
   it("changes segments orthogonally", () => {
+    // tests whether changing minute changes hour
     render(
       <TimePickerWrapper
         value={new Date(2022, 8, 8, 4, 44)}
-        timeZone="Africa/Abidjan"
+        timeZone={UTC_ZERO_TIMEZONE}
       />
     )
     const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
@@ -128,4 +131,19 @@ describe("spin button functionality", () => {
     expect(hourSpinner.textContent).toEqual("5")
     expect(minuteSpinner.textContent).toEqual("43")
   })
+})
+
+it("uses the correct date when firing onChange", () => {
+  render(
+    <TimePickerWrapper
+      value={new Date(2022, 8, 8, 4, 44)}
+      timeZone={UTC_ZERO_TIMEZONE}
+      onChange={mockSetValue}
+    />
+  )
+  fireEvent.click(screen.getByTestId("timepicker-button"))
+  fireEvent.click(screen.getByText("00:00"))
+  expect(mockSetValue).toHaveBeenCalledWith(
+    new Date("2022-09-08T00:00:00.000Z")
+  )
 })
