@@ -4,6 +4,14 @@ import { TimePicker, TimePickerProps } from "./TimePicker"
 
 const mockSetValue = jest.fn()
 const UTC_ZERO_TIMEZONE = "Africa/Abidjan"
+
+const pressArrowKey =
+  (direction: "ArrowUp" | "ArrowDown") => (element: HTMLElement) =>
+    fireEvent.keyDown(element, {
+      key: direction,
+      code: direction,
+    })
+
 const TimePickerWrapper = ({
   value: propsValue,
   ...customProps
@@ -83,36 +91,27 @@ it("changes value when selecting a menu item", () => {
 })
 
 describe("spin button functionality", () => {
-  const pressArrowKey = (
-    direction: "ArrowUp" | "ArrowDown",
-    element: HTMLElement
-  ) =>
-    fireEvent.keyDown(element, {
-      key: direction,
-      code: direction,
-    })
-
   it("changes hour on key press", () => {
     render(<TimePickerWrapper />)
     const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
-    pressArrowKey("ArrowUp", hourSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
     expect(hourSpinner).toHaveTextContent("0")
-    pressArrowKey("ArrowUp", hourSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
     expect(hourSpinner).toHaveTextContent("1")
-    pressArrowKey("ArrowUp", hourSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
     expect(hourSpinner).toHaveTextContent("2")
-    pressArrowKey("ArrowDown", hourSpinner)
+    pressArrowKey("ArrowDown")(hourSpinner)
     expect(hourSpinner).toHaveTextContent("1")
   })
   it("changes minutes on key press", () => {
     render(<TimePickerWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
-    pressArrowKey("ArrowUp", minuteSpinner)
-    pressArrowKey("ArrowUp", minuteSpinner)
+    pressArrowKey("ArrowUp")(minuteSpinner)
+    pressArrowKey("ArrowUp")(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent("01")
-    pressArrowKey("ArrowUp", minuteSpinner)
+    pressArrowKey("ArrowUp")(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent("02")
-    pressArrowKey("ArrowDown", minuteSpinner)
+    pressArrowKey("ArrowDown")(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent("01")
   })
 
@@ -126,24 +125,40 @@ describe("spin button functionality", () => {
     )
     const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
     const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
-    pressArrowKey("ArrowUp", hourSpinner)
-    pressArrowKey("ArrowDown", minuteSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
+    pressArrowKey("ArrowDown")(minuteSpinner)
     expect(hourSpinner.textContent).toEqual("5")
     expect(minuteSpinner.textContent).toEqual("43")
   })
 })
 
-it("uses the correct date when firing onChange", () => {
-  render(
-    <TimePickerWrapper
-      value={new Date(2022, 8, 8, 4, 44)}
-      timeZone={UTC_ZERO_TIMEZONE}
-      onChange={mockSetValue}
-    />
-  )
-  fireEvent.click(screen.getByTestId("timepicker-button"))
-  fireEvent.click(screen.getByText("00:00"))
-  expect(mockSetValue).toHaveBeenCalledWith(
-    new Date("2022-09-08T00:00:00.000Z")
-  )
+describe("onChange uses correct date", () => {
+  it("uses the correct date when using menu items", () => {
+    render(
+      <TimePickerWrapper
+        value={new Date(2022, 8, 8, 4, 44)}
+        timeZone={UTC_ZERO_TIMEZONE}
+        onChange={mockSetValue}
+      />
+    )
+    fireEvent.click(screen.getByTestId("timepicker-button"))
+    fireEvent.click(screen.getByText("00:00"))
+    expect(mockSetValue).toHaveBeenCalledWith(
+      new Date("2022-09-08T00:00:00.000Z")
+    )
+  })
+  it("uses the correct date when iteracting with spinner buttons", () => {
+    render(
+      <TimePickerWrapper
+        value={new Date(2022, 8, 8, 4, 44)}
+        timeZone={UTC_ZERO_TIMEZONE}
+        onChange={mockSetValue}
+      />
+    )
+    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
+    pressArrowKey("ArrowUp")(hourSpinner)
+    expect(mockSetValue).toHaveBeenCalledWith(
+      new Date("2022-09-08T05:44:00.000Z")
+    )
+  })
 })
