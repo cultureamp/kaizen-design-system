@@ -55,11 +55,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {children({
-        selectedItems: itemsState.selectedItems,
-        unselectedItems: itemsState.unselectedItems,
-        disabledItems: itemsState.disabledItems,
-      })}
+      {children(itemsState)}
     </ul>
   )
 }
