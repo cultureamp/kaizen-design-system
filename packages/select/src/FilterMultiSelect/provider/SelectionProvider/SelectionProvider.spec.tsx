@@ -10,6 +10,7 @@ import {
   SelectAllButton,
 } from "../../components/SelectionControlButton"
 import { ItemType } from "../../types"
+import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -48,7 +49,36 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <ListBox>
-        {item => <MultiSelectOption key={item.key} item={item} />}
+        {({ selectedItems, unselectedItems, disabledItems }) => (
+          <>
+            <FilterMultiSelect.ListBoxSection section={selectedItems}>
+              {selectedItem => (
+                <FilterMultiSelect.Option
+                  key={selectedItem.key}
+                  item={selectedItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+
+            <FilterMultiSelect.ListBoxSection section={unselectedItems}>
+              {unselectedItem => (
+                <FilterMultiSelect.Option
+                  key={unselectedItem.key}
+                  item={unselectedItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+
+            <FilterMultiSelect.ListBoxSection section={disabledItems}>
+              {disabledItem => (
+                <FilterMultiSelect.Option
+                  key={disabledItem.key}
+                  item={disabledItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+          </>
+        )}
       </ListBox>
 
       <SearchInput label="search-input-label-mock" />
