@@ -242,56 +242,83 @@ export const FilterBarDemo = () => {
         </div>
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
-      {/*
+
       <Paragraph variant={"body"}>
         Selected Values:{" "}
         <CodeBlock
           language="json"
           code={JSON.stringify(selectedDemographicValues, null, "\t")}
         />
-      </Paragraph> */}
+      </Paragraph>
     </>
   )
 }
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
 
-// export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
-//   const [selectedKeys, setSelectedKeys] = useState<Selection>(
-//     new Set(["id-fe"])
-//   )
+export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
 
-//   const handleSelectionChange = (keys: Selection) => {
-//     keys && setSelectedKeys(keys)
-//   }
+  const handleSelectionChange = (keys: Selection) => {
+    keys && setSelectedKeys(keys)
+  }
 
-//   return (
-//     <FilterMultiSelect
-//       label="Engineer"
-//       onSelectionChange={handleSelectionChange}
-//       selectedKeys={selectedKeys}
-//       items={items.slice(0, 3)}
-//       trigger={() => (
-//         <FilterMultiSelect.TriggerButton
-//           selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
-//           label="Engineer"
-//         />
-//       )}
-//     >
-//       {() => (
-//         <>
-//           <FilterMultiSelect.SearchInput />
-//           <FilterMultiSelect.ListBox>
-//             {item => <FilterMultiSelect.Option key={item.key} item={item} />}
-//           </FilterMultiSelect.ListBox>
-//           <FilterMultiSelect.MenuFooter>
-//             <FilterMultiSelect.SelectAllButton />
-//             <FilterMultiSelect.ClearButton />
-//           </FilterMultiSelect.MenuFooter>
-//         </>
-//       )}
-//     </FilterMultiSelect>
-//   )
-// }
+  return (
+    <FilterMultiSelect
+      label="Engineer"
+      onSelectionChange={handleSelectionChange}
+      selectedKeys={selectedKeys}
+      items={items.slice(0, 3)}
+      trigger={() => (
+        <FilterMultiSelect.TriggerButton
+          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          label="Engineer"
+        />
+      )}
+    >
+      {() => (
+        <>
+          <FilterMultiSelect.SearchInput />
+          <FilterMultiSelect.ListBox>
+            {({ selectedItems, unselectedItems, disabledItems }) => (
+              <>
+                <FilterMultiSelect.ListBoxSection section={selectedItems}>
+                  {selectedItem => (
+                    <FilterMultiSelect.Option
+                      key={selectedItem.key}
+                      item={selectedItem}
+                    />
+                  )}
+                </FilterMultiSelect.ListBoxSection>
+                <FilterMultiSelect.ListBoxSection section={unselectedItems}>
+                  {selectedItem => (
+                    <FilterMultiSelect.Option
+                      key={selectedItem.key}
+                      item={selectedItem}
+                    />
+                  )}
+                </FilterMultiSelect.ListBoxSection>
+                <FilterMultiSelect.ListBoxSection section={disabledItems}>
+                  {selectedItem => (
+                    <FilterMultiSelect.Option
+                      key={selectedItem.key}
+                      item={selectedItem}
+                    />
+                  )}
+                </FilterMultiSelect.ListBoxSection>
+              </>
+            )}
+          </FilterMultiSelect.ListBox>
+          <FilterMultiSelect.MenuFooter>
+            <FilterMultiSelect.SelectAllButton />
+            <FilterMultiSelect.ClearButton />
+          </FilterMultiSelect.MenuFooter>
+        </>
+      )}
+    </FilterMultiSelect>
+  )
+}
 
-// DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
+DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
