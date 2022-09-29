@@ -10,7 +10,7 @@ import {
 import { I18nProvider } from "@react-aria/i18n"
 import { useTimeField } from "@react-aria/datepicker"
 import { useMenuTrigger } from "@react-aria/menu"
-
+import { useKeyboard } from "@react-aria/interactions"
 import { Item } from "@react-stately/collections"
 import { useMenuTriggerState } from "@react-stately/menu"
 import {
@@ -117,16 +117,31 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     .formatToParts(new Date())
     .find(segment => segment.type === "timeZoneName")?.value
 
-  const options = useMemo(
-    () =>
-      getAllTimeOptions({
-        locale,
-        timeZone,
-        date: value,
-        increments: dropdownIncrements,
-      }),
-    [locale, timeZone, dropdownIncrements, value]
+  const [filteredOptions, setFilteredOptions] = React.useState(
+    getAllTimeOptions({
+      locale,
+      timeZone,
+      date: value,
+      increments: dropdownIncrements,
+    })
   )
+  const { keyboardProps } = useKeyboard({
+    onKeyUp: e => {
+      const typedInput = (
+        inputRef.current as HTMLDivElement | null
+      )?.innerText.split(/\n|\r/g)
+      setFilteredOptions(
+        getAllTimeOptions({
+          locale,
+          timeZone,
+          date: value,
+          increments: dropdownIncrements,
+          typedInput,
+        })
+      )
+    },
+  })
+
   return (
     <>
       <Label data-testid="timepicker-label">{`${label} ${
@@ -136,6 +151,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
         <div
           {...fieldProps}
+          {...keyboardProps}
           id={id}
           aria-label={label}
           data-testid="timepicker-input"
@@ -186,10 +202,10 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             selectionMode="single"
             data-testid="timepicker-menu"
             // state.setValue doesn't work unless value is undefined
-            onAction={key => handleOnChange(options[key].value)}
+            onAction={key => handleOnChange(filteredOptions[key].value)}
           >
-            {Object.keys(options).map(option => (
-              <Item key={option}>{options[option].label}</Item>
+            {Object.keys(filteredOptions).map(option => (
+              <Item key={option}>{filteredOptions[option]?.label}</Item>
             ))}
           </Menu>
         </Popover>

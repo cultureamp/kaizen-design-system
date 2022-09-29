@@ -13,6 +13,7 @@ type GetAllTimeOptionsConfig = {
   timeZone: string
   increments?: number
   date: Date | undefined | null
+  typedInput?: string[]
 }
 
 export const DATE_FORMATTER_CONFIG = {
@@ -30,8 +31,21 @@ export const getAllTimeOptions = ({
   timeZone,
   increments = 30,
   date,
-}: GetAllTimeOptionsConfig) =>
-  Array.from(Array(24).keys()).reduce((options, hour) => {
+  typedInput = [],
+}: GetAllTimeOptionsConfig) => {
+  const replaceNan = (aNum: string) => {
+    if (!parseInt(aNum, 10)) {
+      return ".."
+    }
+    return aNum
+  }
+
+  const matchRegex = new RegExp(
+    `${replaceNan(typedInput[0])}${typedInput[1]}${replaceNan(typedInput[2])} ${
+      typedInput[3]
+    }`
+  )
+  return Array.from(Array(24).keys()).reduce((options, hour) => {
     // Generates an arbitrary date. Needs to take timezone
     const today = now(timeZone).toDate()
     Array.from(Array(60 / increments).keys()).forEach(increment => {
@@ -48,10 +62,13 @@ export const getAllTimeOptions = ({
         timeZone
       )
 
-      options[formattedTime] = {
-        label: formattedTime,
-        value: zonedDateTime,
+      if (typedInput.length == 0 || matchRegex.test(formattedTime)) {
+        options[formattedTime] = {
+          label: formattedTime,
+          value: zonedDateTime,
+        }
       }
     })
     return options
   }, {} as Record<string, TIME_OPTION>)
+}
