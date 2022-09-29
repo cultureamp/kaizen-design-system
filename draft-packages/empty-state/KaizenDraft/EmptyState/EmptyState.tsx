@@ -9,7 +9,7 @@ import {
   EmptyStatesPositive,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Paragraph, Heading, HeadingVariants } from "@kaizen/typography"
+import { Paragraph, Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./EmptyState.module.scss"
 
 const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
@@ -36,10 +36,14 @@ export interface EmptyStateProps
   id?: string
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
-  headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
-  headingVariant?: HeadingVariants
+  headingProps?: HeadingProps
+  /**
+   * **Deprecated:** Use headingProps
+   * @deprecated
+   */
+  headingText?: string | React.ReactNode
   /**
    * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
    * @deprecated
@@ -57,13 +61,17 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   illustrationType = "informative",
   layoutContext = "sidebarAndContent",
   headingText,
+  headingProps = {
+    variant: "heading-3",
+    tag: "div",
+    color: "dark",
+  },
   bodyText,
   straightCorners,
   isAnimated = true,
   loop = false,
   automationId,
   classNameOverride,
-  headingVariant,
   ...props
 }) => {
   const IllustrationComponent = ILLUSTRATIONS[illustrationType]
@@ -98,11 +106,12 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
           <Heading
-            variant={headingVariant ? headingVariant : "heading-3"}
-            tag={headingVariant ? undefined : "div"}
+            variant={headingProps.variant}
             classNameOverride={styles.heading}
+            tag={headingProps.tag}
+            color={headingProps.color}
           >
-            {headingText}
+            {headingProps.children || headingText}
           </Heading>
           <Paragraph variant="body" classNameOverride={styles.description}>
             {bodyText}

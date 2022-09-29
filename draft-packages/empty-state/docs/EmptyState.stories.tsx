@@ -142,3 +142,17 @@ StraightCorners.args = {
   straightCorners: true,
 }
 StraightCorners.parameters = { chromatic: { disable: false } }
+
+export const CustomHeading = EmptyStateTemplate.bind({})
+CustomHeading.storyName = "Custom heading level"
+CustomHeading.args = {
+  children: "Button (chevron right)",
+  bodyText:
+    "Customise heading level so that the correct semantic heading level can be used for your page.",
+  illustrationType: "positive",
+  headingProps: {
+    variant: "heading-2",
+    children: "Custom heading level",
+  },
+}
+CustomHeading.parameters = { chromatic: { disable: false } }
