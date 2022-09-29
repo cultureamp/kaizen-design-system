@@ -20,7 +20,7 @@ import {
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
-import { getAllTimeOptions, TIME_OPTION } from "./utils"
+import { formatDateToTime, getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 import { TimeValue } from "./types"
@@ -61,6 +61,10 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   ...restProps
 }: TimePickerProps) => {
+  const selectedKey = value
+    ? new Set([formatDateToTime(value, locale, timeZone)])
+    : undefined
+
   const handleOnChange = (timeValue: TimeValue): void => {
     // onChange does not fire until user interacts with all placeholders
     // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
@@ -121,7 +125,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   return (
     <>
       <Label data-testid="timepicker-label">{`${label} ${
-        restProps.hideTimeZone ? "" : `(${timeZoneLabel})`
+        restProps.hideTimeZone && timeZoneLabel ? "" : `(${timeZoneLabel})`
       }`}</Label>
       <div className={styles.wrapper}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
@@ -169,6 +173,8 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         >
           <Menu
             {...menuProps}
+            selectedKeys={selectedKey}
+            selectionMode="single"
             data-testid="timepicker-menu"
             // state.setValue doesn't work unless value is undefined
             onAction={key => handleOnChange(options[key].value)}
