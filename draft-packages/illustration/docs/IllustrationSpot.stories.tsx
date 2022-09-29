@@ -126,6 +126,7 @@ import {
   Behaviour,
   Learn,
   Templates,
+  CalendarSync,
 } from ".."
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
@@ -680,6 +681,10 @@ export const AllSpotIllustrations = () => {
     {
       Component: ChangeAgents,
       name: "Change Agents",
+    },
+    {
+      Component: CalendarSync,
+      name: "Calendar Sync",
     },
   ]
 
