@@ -24,7 +24,7 @@ export default {
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<Date | undefined>(new Date())
+  const [value, setValue] = useState<Date | undefined>(undefined)
   return (
     <div>
       <TimePicker

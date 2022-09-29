@@ -28,7 +28,9 @@ import { convertTimeToZonedDateTime } from "./utils/convertTimeToZonedDateTime"
 
 export type StatusType = "default" | "error"
 
-const isZonedDateTimeObject = (obj): obj is ZonedDateTime => "toDate" in obj
+const isZonedDateTimeObject = (
+  timeValue: TimeValue
+): timeValue is ZonedDateTime => "toDate" in timeValue
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
@@ -61,10 +63,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   ...restProps
 }: TimePickerProps) => {
-  const selectedKey = value
-    ? new Set([formatDateToTime(value, locale, timeZone)])
-    : undefined
-
   const handleOnChange = (timeValue: TimeValue): void => {
     // onChange does not fire until user interacts with all placeholders
     // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
@@ -86,7 +84,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   const state = useTimeFieldState({
     ...restProps,
-    value: value ? parseAbsolute(value.toISOString(), timeZone) : undefined,
+    // @ts-expect-error controlled values should not be undefined and library throws warning if such is supplied for value,
+    // however library does not allow for null values despite handling properly
+    // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/utils/src/useControlledState.ts#L23
+    // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/datepicker/src/useTimeFieldState.ts
+    value: value ? parseAbsolute(value.toISOString(), timeZone) : null,
     onChange: handleOnChange,
     isDisabled,
     hideTimeZone: true,
@@ -173,7 +175,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         >
           <Menu
             {...menuProps}
-            selectedKeys={selectedKey}
+            selectedKeys={
+              value
+                ? new Set([formatDateToTime(value, locale, timeZone)])
+                : undefined
+            }
             selectionMode="single"
             data-testid="timepicker-menu"
             // state.setValue doesn't work unless value is undefined
