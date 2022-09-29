@@ -99,6 +99,14 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     menuState,
     inputRef
   )
+
+  const timeZoneLabel = Intl.DateTimeFormat(locale, {
+    timeZoneName: "short",
+    timeZone,
+  })
+    .formatToParts(new Date())
+    .find(segment => segment.type === "timeZoneName")?.value
+
   const options = useMemo(
     () =>
       getAllTimeOptions({
@@ -112,7 +120,9 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   return (
     <>
-      <Label>{label}</Label>
+      <Label data-testid="timepicker-label">{`${label} ${
+        restProps.hideTimeZone ? "" : `(${timeZoneLabel})`
+      }`}</Label>
       <div className={styles.wrapper}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
         <div

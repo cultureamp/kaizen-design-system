@@ -45,6 +45,7 @@ DefaultStory.args = {
   dropdownIncrements: 15,
   locale: "en-AU",
   timeZone: "Australia/Melbourne",
+  hideTimeZone: true,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

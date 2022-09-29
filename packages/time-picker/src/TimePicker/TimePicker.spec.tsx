@@ -162,3 +162,8 @@ describe("onChange uses correct date", () => {
     )
   })
 })
+
+it("shows timezone in label if not hiding timezone ", () => {
+  render(<TimePickerWrapper hideTimeZone={false} locale="en-au" />)
+  expect(screen.getByTestId("timepicker-label")).toHaveTextContent("(AEST)")
+})
