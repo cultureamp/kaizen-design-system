@@ -309,34 +309,11 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ selectedItems, unselectedItems, disabledItems }) => (
-              <>
-                <FilterMultiSelect.ListBoxSection section={selectedItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
-                  )}
-                </FilterMultiSelect.ListBoxSection>
-                <FilterMultiSelect.ListBoxSection section={unselectedItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
-                  )}
-                </FilterMultiSelect.ListBoxSection>
-                <FilterMultiSelect.ListBoxSection section={disabledItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
-                  )}
-                </FilterMultiSelect.ListBoxSection>
-              </>
-            )}
+            {({ allItems }) =>
+              allItems.map(item => (
+                <FilterMultiSelect.Option key={item.key} item={item} />
+              ))
+            }
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />
