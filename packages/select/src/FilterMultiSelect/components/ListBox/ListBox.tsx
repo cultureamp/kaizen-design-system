@@ -10,6 +10,7 @@ export interface ListBoxProps {
     selectedItems: Array<Node<ItemType>>
     unselectedItems: Array<Node<ItemType>>
     disabledItems: Array<Node<ItemType>>
+    allItems: Array<Node<ItemType>>
   }) => React.ReactNode
 }
 
@@ -33,17 +34,24 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
   const unselectedItems = Array.from(items).filter(
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
+  const allItems = Array.from(items)
 
   const [itemsState, setItemsState] = useState({
     selectedItems,
     unselectedItems,
     disabledItems,
+    allItems,
   })
 
   // Only update rendering of items when filtering.
   // Avoids re-ordering of items when making a selection
   useEffect(() => {
-    setItemsState({ selectedItems, disabledItems, unselectedItems })
+    setItemsState({
+      selectedItems,
+      disabledItems,
+      unselectedItems,
+      allItems,
+    })
   }, [selectionState.collection.size])
 
   return (

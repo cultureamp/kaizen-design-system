@@ -59,6 +59,55 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+      <Paragraph variant={"body"}>
+        Items:{" "}
+        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+      </Paragraph>
+    </>
+  )
+}
+
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.args = { label: "Engineer" }
+
+export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+
+  return (
+    <>
+      <FilterMultiSelect
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={items}
+        label="Engineer"
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            label={"Engineer"}
+          />
+        )}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
               {({ selectedItems, unselectedItems, disabledItems }) => (
                 <>
                   <FilterMultiSelect.ListBoxSection section={selectedItems}>
@@ -97,12 +146,13 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           </>
         )}
       </FilterMultiSelect>
+      <Paragraph variant={"body"}>
+        Items:{" "}
+        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+      </Paragraph>
     </>
   )
 }
-
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
 export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
@@ -148,34 +198,11 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ selectedItems, unselectedItems, disabledItems }) => (
-                <>
-                  <FilterMultiSelect.ListBoxSection section={selectedItems}>
-                    {selectedItem => (
-                      <FilterMultiSelect.Option
-                        key={selectedItem.key}
-                        item={selectedItem}
-                      />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-                  <FilterMultiSelect.ListBoxSection section={unselectedItems}>
-                    {selectedItem => (
-                      <FilterMultiSelect.Option
-                        key={selectedItem.key}
-                        item={selectedItem}
-                      />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-                  <FilterMultiSelect.ListBoxSection section={disabledItems}>
-                    {selectedItem => (
-                      <FilterMultiSelect.Option
-                        key={selectedItem.key}
-                        item={selectedItem}
-                      />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-                </>
-              )}
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
