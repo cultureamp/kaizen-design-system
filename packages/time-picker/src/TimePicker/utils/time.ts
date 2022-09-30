@@ -26,6 +26,13 @@ export const formatDateToTime = (date: Date, locale, timeZone): string =>
     timeZone,
   }).format(date)
 
+const replaceNan = (aNum: string) => {
+  if (!parseInt(aNum, 10)) {
+    return ".."
+  }
+  return aNum
+}
+
 export const getAllTimeOptions = ({
   locale,
   timeZone,
@@ -33,16 +40,9 @@ export const getAllTimeOptions = ({
   date,
   typedInput = [],
 }: GetAllTimeOptionsConfig) => {
-  const replaceNan = (aNum: string) => {
-    if (!parseInt(aNum, 10)) {
-      return ".."
-    }
-    return aNum
-  }
-
   const matchRegex = new RegExp(
-    `${replaceNan(typedInput[0])}${typedInput[1]}${replaceNan(typedInput[2])} ${
-      typedInput[3]
+    `${replaceNan(typedInput[0])}${typedInput[1]}${replaceNan(typedInput[2])}${
+      typedInput[3] ? " " + typedInput[3] : ""
     }`
   )
   return Array.from(Array(24).keys()).reduce((options, hour) => {
