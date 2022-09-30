@@ -33,12 +33,15 @@
 .cancelLabel {
   @extend %ca-notification__cancel__label;
 }
-
-.notificationTitle {
-  padding-right: 6px;
+.toastTitle {
   top: 0.38em;
   position: relative;
 }
+.notificationTitle {
+  padding-right: 6px;
+  align-self: center;
+}
+  
 // Animation
 
 .hidden {

@@ -215,7 +215,9 @@ const NotificationHeading = ({ titleProp, headingProps, style }) => {
         variant="heading-6"
         tag={style === "toast" ? "h6" : "div"}
         color="dark"
-        classNameOverride={styles.notificationTitle}
+        classNameOverride={
+          style === "toast" ? styles.toastTitle : styles.notificationTitle
+        }
       >
         {titleProp}
       </Heading>
