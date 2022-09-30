@@ -381,3 +381,4 @@ const createSpotIllustration =
 /* prettier-ignore */ export const ValueAdd = createSpotIllustration("miscellaneous-value-add.svg")
 /* prettier-ignore */ export const Recommendation = createSpotIllustration("miscellaneous-recommendation.svg")
 /* prettier-ignore */ export const Objective = createSpotIllustration("miscellaneous-objective.svg")
+/* prettier-ignore */ export const CalendarSync = createSpotIllustration("miscellaneous-calendar-sync.svg")
