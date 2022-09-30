@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Custom heading level is applied 1`] = `
+<div
+  class="notification positive inline hidden"
+  data-automation-class="generic-notification positive inline"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="heading heading-6 notificationTitle dark small"
+    >
+      Error
+    </div>
+    <div
+      class="text"
+    >
+      Something has gone wrong
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Persistent versions of the notifications work 1`] = `
 <div
   class="notification negative inline hidden"
@@ -23,11 +60,11 @@ exports[`Persistent versions of the notifications work 1`] = `
   <div
     class="textContainer"
   >
-    <h6
-      class="title"
+    <div
+      class="heading heading-6 notificationTitle dark small"
     >
       Error
-    </h6>
+    </div>
     <div
       class="text"
     >
@@ -60,11 +97,11 @@ exports[`The basic notification renders correctly 1`] = `
   <div
     class="textContainer"
   >
-    <h6
-      class="title"
+    <div
+      class="heading heading-6 notificationTitle dark small"
     >
       Warning
-    </h6>
+    </div>
     <div
       class="text"
     >
