@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.9...@kaizen/draft-illustration@5.3.0) (2022-09-29)
+
+
+### Features
+
+* Added new “Calendar Sync” spot illustration ([#2989](https://github.com/cultureamp/kaizen-design-system/issues/2989)) ([75b32ba](https://github.com/cultureamp/kaizen-design-system/commit/75b32bab0b494c42eb40b2744149fb97cc1cb526))
+
+
+
+
+
+## [5.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.8...@kaizen/draft-illustration@5.2.9) (2022-09-29)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [5.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.2.7...@kaizen/draft-illustration@5.2.8) (2022-09-14)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
