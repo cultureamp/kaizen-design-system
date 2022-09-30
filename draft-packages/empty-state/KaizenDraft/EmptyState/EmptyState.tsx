@@ -61,11 +61,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   illustrationType = "informative",
   layoutContext = "sidebarAndContent",
   headingText,
-  headingProps = {
-    variant: "heading-3",
-    tag: "div",
-    color: "dark",
-  },
+  headingProps,
   bodyText,
   straightCorners,
   isAnimated = true,
@@ -105,14 +101,17 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
-          <Heading
-            variant={headingProps.variant}
-            classNameOverride={styles.heading}
-            tag={headingProps.tag}
-            color={headingProps.color}
-          >
-            {headingProps.children || headingText}
-          </Heading>
+          {headingProps ? (
+            <Heading classNameOverride={styles.heading} {...headingProps} />
+          ) : (
+            <Heading
+              variant="heading-3"
+              classNameOverride={styles.heading}
+              tag="div"
+            >
+              {headingText}
+            </Heading>
+          )}
           <Paragraph variant="body" classNameOverride={styles.description}>
             {bodyText}
           </Paragraph>
