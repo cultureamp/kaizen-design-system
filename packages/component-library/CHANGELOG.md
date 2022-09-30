@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.1...@kaizen/component-library@16.1.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* rename competency-library svg to include .icon ([#2990](https://github.com/cultureamp/kaizen-design-system/issues/2990)) ([faff275](https://github.com/cultureamp/kaizen-design-system/commit/faff27573b9b32d86bdee79ea86073dc00f18859))
+
+
+
+
+
 ## [16.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.0...@kaizen/component-library@16.1.1) (2022-09-14)
 
 **Note:** Version bump only for package @kaizen/component-library

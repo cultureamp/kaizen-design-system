@@ -34,6 +34,15 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
   disabled,
   ...restProps
 }) => {
+  const validationMessageAria = validationMessage
+    ? `${id}-field-validation-message`
+    : ""
+  const descriptionAria = description ? `${id}-field-message` : ""
+  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
+    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
+    ""
+  )
+
   const renderDescriptionOnTop = variant === "prominent"
   const renderDescription = (position: "top" | "bottom") => {
     if (!description) return null
@@ -44,7 +53,7 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
         })}
       >
         <FieldMessage
-          id={`${id}-field-message`}
+          id={descriptionAria}
           automationId={`${id}-field-description`}
           message={description}
           reversed={reversed}
@@ -83,12 +92,13 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
         reversed={reversed}
         status={status}
         disabled={disabled}
+        aria-describedby={ariaDescribedBy}
         {...restProps}
       />
       {!disabled && validationMessage && (
         <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-validation-message`}
+          id={validationMessageAria}
+          automationId={validationMessageAria}
           message={validationMessage}
           status={status}
           reversed={reversed}
