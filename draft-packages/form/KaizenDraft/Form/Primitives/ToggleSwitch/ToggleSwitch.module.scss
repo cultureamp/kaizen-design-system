@@ -7,7 +7,7 @@
 
 $animation-timing: $animation-duration-immediate
   $animation-easing-function-linear;
-$focus-ring-offset: 2px;
+$focus-ring-offset: 1px;
 
 .checkbox {
   @include form-input-visually-hidden();
@@ -31,7 +31,7 @@ $focus-ring-offset: 2px;
   .checkbox:hover:focus:not([disabled]) + & {
     border-color: transparent;
     outline: 2px solid $color-blue-500;
-    outline-offset: 2px;
+    outline-offset: $focus-ring-offset;
     background-color: $color-gray-500;
   }
 
