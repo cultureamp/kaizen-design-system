@@ -12,3 +12,5 @@ lerna-*.log
 .DS_Store
 dist
 .cache
+.yalc
+yalc.loc

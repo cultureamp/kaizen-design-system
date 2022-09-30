@@ -1,12 +1,13 @@
-import { NodeSpec, Schema } from "prosemirror-model"
 import {
+  ProseMirrorModel,
   nodes as coreNodes,
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
+
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
-export const defaultNodes: NodeSpec = {
+export const defaultNodes: ProseMirrorModel.NodeSpec = {
   doc: coreNodes.doc,
   paragraph: coreNodes.paragraph,
   text: coreNodes.text,
@@ -28,7 +29,7 @@ export const createSchemaWithAll = () => createSchema(TOOLBAR_CONTROLS)
 
 function createSchema(controls?: ToolbarControlTypes[]) {
   if (!controls) {
-    return new Schema({
+    return new ProseMirrorModel.Schema({
       nodes: defaultNodes,
     })
   }
@@ -62,7 +63,7 @@ function createSchema(controls?: ToolbarControlTypes[]) {
     newMarks["link"] = coreMarks.link
   }
 
-  return new Schema({
+  return new ProseMirrorModel.Schema({
     nodes: newNodes,
     marks: newMarks,
   })

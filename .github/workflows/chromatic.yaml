@@ -24,13 +24,14 @@ jobs:
             packages:
               - 'packages/**'
               - 'draft-packages/**'
+              - 'storybook/**'
 
   visual-testing:
     needs: [paths-filter]
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
       github.event.review.state == 'approved' ||
-      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true' ) ||
+      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true') ||
       startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')
     runs-on: ubuntu-latest
     steps:
@@ -47,12 +48,21 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 👇 Adds Chromatic as a step in the workflow
+      - name: Build Storybook
+        run: |
+          yarn storybook:build --webpack-stats-json
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
-        # Chromatic GitHub Action options
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: "./storybook/public"
+          onlyChanged: "!(master)"
+          externals: |
+            [
+              "**/!(*.module).scss",
+              "packages/button/src/Button/*.scss",
+              "packages/component-library/components/Spacing/Base.module.scss"
+            ]
           autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
