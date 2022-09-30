@@ -225,5 +225,4 @@ const NotificationHeading = ({ titleProp, headingProps, style }) => {
   } else return null
 }
 
-
 export default GenericNotification
