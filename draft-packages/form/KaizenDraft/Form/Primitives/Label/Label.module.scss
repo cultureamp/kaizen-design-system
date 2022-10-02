@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "../../variables";
 
-$label-start-margin: 10px;
+$label-start-margin: $spacing-xs;
 
 .label,
 :global(.ideal-sans) .label {
