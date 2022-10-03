@@ -299,8 +299,7 @@ $focus-border-color: $color-blue-500;
 
   &.notFullWidth {
     .control {
-      display: inline-block;
-      // ideally this would be inline-flex, but that causes problems in IE11
+      display: inline-flex;
       max-width: 100%;
 
       > div {
@@ -315,13 +314,6 @@ $focus-border-color: $color-blue-500;
         flex-wrap: nowrap;
         display: flex;
       }
-    }
-
-    .indicatorsContainer {
-      position: absolute; // absolute positioning is required due to IE11 and not
-      // being able to use inline-flex
-      right: 0;
-      top: 0;
     }
 
     .singleValueOverrides {
