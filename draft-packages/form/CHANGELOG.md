@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.3...@kaizen/draft-form@8.3.4) (2022-10-02)
+
+
+### Bug Fixes
+
+* **draft-form:** Label margin should be 6px and not 10px ([#2980](https://github.com/cultureamp/kaizen-design-system/issues/2980)) ([8500add](https://github.com/cultureamp/kaizen-design-system/commit/8500add45d8399cd97894177e62c2f29b1ef4560))
+
+
+
+
+
 ## [8.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.2...@kaizen/draft-form@8.3.3) (2022-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-form
