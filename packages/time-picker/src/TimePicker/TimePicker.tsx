@@ -5,6 +5,7 @@ import {
   getLocalTimeZone,
   now,
   parseAbsolute,
+  Time,
   ZonedDateTime,
 } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
@@ -30,7 +31,7 @@ export type StatusType = "default" | "error"
 
 const isZonedDateTimeObject = (
   timeValue: TimeValue
-): timeValue is ZonedDateTime => "toDate" in timeValue
+): timeValue is ZonedDateTime => timeValue && "toDate" in timeValue
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
@@ -38,8 +39,8 @@ export interface TimePickerProps
   > {
   id: string
   label: string
-  onChange: (date: Date) => void
-  value: Date | undefined
+  onChange: (date: Date | null) => void
+  value: Date | undefined | null
   /**
    * Supply timeZone in IANA format, i.e. "Australia/Melbourne"
    */
@@ -63,11 +64,14 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
   ...restProps
 }: TimePickerProps) => {
-  const handleOnChange = (timeValue: TimeValue): void => {
+  const handleOnChange = (timeValue: TimeValue | null): void => {
+    if (timeValue === null) {
+      onChange(null)
+      return
+    }
     // onChange does not fire until user interacts with all placeholders
     // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
     // if user interacts with MenuItems, it has to be CalendarDateTime or ZonedDateTime, as Time objects cannot be formatted properly to display in a list
-    // console.log("STATE", state.dateValue, timeValue)
     if (isZonedDateTimeObject(timeValue)) {
       onChange(timeValue.toDate())
     } else {
@@ -161,8 +165,8 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         <Popover
           shouldCloseOnInteractOutside={element =>
             // FIXME: Requires better type guarding
+            !element ||
             !(
-              !element ||
               (element.id && element.id === id) ||
               (element.className &&
                 element.className.includes("DateSegment")) ||

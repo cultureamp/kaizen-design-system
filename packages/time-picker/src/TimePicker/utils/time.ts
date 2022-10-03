@@ -12,7 +12,7 @@ type GetAllTimeOptionsConfig = {
   locale: string
   timeZone: string
   increments?: number
-  date?: Date
+  date: Date | undefined | null
 }
 
 export const DATE_FORMATTER_CONFIG = {

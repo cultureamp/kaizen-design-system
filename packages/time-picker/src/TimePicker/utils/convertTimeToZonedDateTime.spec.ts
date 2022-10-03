@@ -1,7 +1,9 @@
 import { now, ZonedDateTime } from "@internationalized/date"
 import { convertTimeToZonedDateTime } from "./convertTimeToZonedDateTime"
 
-const TIME_ZONE = "Australia/Melbourne"
+const TIME_ZONE = "Australia/Perth"
+
+const addLeadingZero = (num: number) => (num > 9 ? `${num}` : `0${num}`)
 
 describe("convertTimeToZonedDateTime", () => {
   it("returns expected ZonedDateTime when the date is defined", () => {
@@ -15,7 +17,7 @@ describe("convertTimeToZonedDateTime", () => {
       2022,
       1,
       8,
-      "Australia/Melbourne",
+      "Australia/Perth",
       now(TIME_ZONE).offset,
       4,
       56
@@ -23,7 +25,7 @@ describe("convertTimeToZonedDateTime", () => {
 
     expect(result).toStrictEqual(expectedResult)
     expect(result.toString()).toStrictEqual(
-      "2022-01-08T04:56:00+10:00[Australia/Melbourne]"
+      "2022-01-08T04:56:00+08:00[Australia/Perth]"
     )
   })
 
@@ -47,10 +49,11 @@ describe("convertTimeToZonedDateTime", () => {
       4,
       56
     )
-
     expect(result).toStrictEqual(expectedResult)
     expect(result.toString()).toStrictEqual(
-      `${year}-0${month}-${day}T04:56:00+10:00[Australia/Melbourne]`
+      `${year}-${addLeadingZero(month)}-${addLeadingZero(
+        day
+      )}T04:56:00+08:00[Australia/Perth]`
     )
   })
 
