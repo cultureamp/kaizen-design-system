@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/notification",
-  "version": "0.11.8",
+  "version": "1.0.1",
   "description": "Collection of notification components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
