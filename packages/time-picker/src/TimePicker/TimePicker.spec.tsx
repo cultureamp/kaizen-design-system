@@ -16,14 +16,14 @@ const TimePickerWrapper = ({
   value: propsValue,
   ...customProps
 }: Partial<TimePickerProps>): JSX.Element => {
-  const [value, setValue] = useState<Date | undefined>(propsValue)
+  const [value, setValue] = useState<Date | undefined | null>(propsValue)
 
   return (
     <TimePicker
       locale="en-GB"
       id="id"
       label="label"
-      timeZone="Australia/Melbourne"
+      timeZone="Australia/Perth"
       value={value}
       onChange={setValue}
       {...customProps}
@@ -165,5 +165,26 @@ describe("onChange uses correct date", () => {
 
 it("shows timezone in label if not hiding timezone ", () => {
   render(<TimePickerWrapper hideTimeZone={false} locale="en-au" />)
-  expect(screen.getByTestId("timepicker-label")).toHaveTextContent("(AEST)")
+  // TODO: How do we accurately write tests to reflect DST?
+  expect(screen.getByTestId("timepicker-label")).toHaveTextContent("(AWST)")
+})
+
+it("allows uers to backspace to remove values", () => {
+  render(
+    <TimePickerWrapper
+      value={new Date(2022, 8, 8, 4, 44)}
+      timeZone={UTC_ZERO_TIMEZONE}
+      // onChange={mockSetValue}
+    />
+  )
+  const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+  fireEvent.keyDown(minuteSpinner, {
+    key: "Backspace",
+    code: "Backspace",
+  })
+  fireEvent.keyDown(minuteSpinner, {
+    key: "Backspace",
+    code: "Backspace",
+  })
+  expect(minuteSpinner.textContent).toBe("––")
 })
