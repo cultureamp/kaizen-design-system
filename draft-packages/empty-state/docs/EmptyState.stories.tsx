@@ -51,7 +51,10 @@ const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
 export const DefaultKaizenSiteDemo = EmptyStateTemplate.bind({})
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = {
-  headingText: "Empty state title",
+  headingProps: {
+    variant: "heading-3",
+    children: "Empty state title",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
 }
@@ -59,7 +62,10 @@ DefaultKaizenSiteDemo.args = {
 export const Positive = EmptyStateTemplate.bind({})
 Positive.args = {
   children: "Button (chevron right)",
-  headingText: "Positive empty state",
+  headingProps: {
+    variant: "heading-3",
+    children: "Positive empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "positive",
@@ -78,7 +84,10 @@ Informative.parameters = { chromatic: { disable: false } }
 export const Action = EmptyStateTemplate.bind({})
 Action.args = {
   children: "Button (chevron right)",
-  headingText: "Action empty state",
+  headingProps: {
+    variant: "heading-3",
+    children: "Action empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "action",
@@ -87,7 +96,10 @@ Action.parameters = { chromatic: { disable: false } }
 
 export const Neutral = EmptyStateTemplate.bind({})
 Neutral.args = {
-  headingText: "Neutral empty state",
+  headingProps: {
+    variant: "heading-3",
+    children: "Neutral empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "neutral",
@@ -97,7 +109,10 @@ Neutral.parameters = { chromatic: { disable: false } }
 export const Negative = EmptyStateTemplate.bind({})
 Negative.args = {
   children: "Button (chevron right)",
-  headingText: "Negative empty state",
+  headingProps: {
+    variant: "heading-3",
+    children: "Negative empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "negative",
@@ -124,7 +139,10 @@ RtlAction.argTypes = {
 }
 RtlAction.args = {
   children: "Button (chevron left)",
-  headingText: "Empty state title",
+  headingProps: {
+    variant: "heading-3",
+    children: "Empty state title",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "action",
@@ -135,10 +153,29 @@ export const StraightCorners = EmptyStateTemplate.bind({})
 StraightCorners.storyName = "Straight corners"
 StraightCorners.args = {
   children: "Button (chevron right)",
-  headingText: "Empty state title",
+  headingProps: {
+    variant: "heading-3",
+    children: "Straight corners empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "action",
   straightCorners: true,
 }
 StraightCorners.parameters = { chromatic: { disable: false } }
+
+export const CustomHeading = EmptyStateTemplate.bind({})
+CustomHeading.storyName = "Custom heading"
+CustomHeading.args = {
+  children: "Button (chevron right)",
+  bodyText:
+    "Customise heading level so that the correct semantic heading level can be used for your page.",
+  illustrationType: "neutral",
+  headingProps: {
+    variant: "heading-3",
+    children: "Custom heading empty state",
+    tag: "h2",
+    color: "dark-reduced-opacity",
+  },
+}
+CustomHeading.parameters = { chromatic: { disable: false } }
