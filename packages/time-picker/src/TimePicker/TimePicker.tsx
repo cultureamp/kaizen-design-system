@@ -162,6 +162,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           shouldCloseOnInteractOutside={element =>
             // FIXME: Requires better type guarding
             !(
+              !element ||
               (element.id && element.id === id) ||
               (element.className &&
                 element.className.includes("DateSegment")) ||
