@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "10.5.18",
+  "version": "10.5.19",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "<=1.5.0",
-    "@kaizen/button": "^1.3.5",
+    "@kaizen/button": "^2.0.0",
     "@kaizen/component-library": "^16.1.2",
     "@kaizen/deprecated-component-library-helpers": "^2.5.7",
     "@kaizen/draft-divider": "^2.2.2",
