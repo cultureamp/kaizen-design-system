@@ -2,22 +2,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
-$labelAndSectionSpacing: $spacing-xs;
-
-.sectionLabel {
-  color: rgba($color-purple-800-rgb, 0.7);
-  font-family: $typography-heading-6-font-family;
-  font-size: $typography-heading-6-font-size;
-  font-weight: $typography-heading-6-font-weight;
-  line-height: $typography-heading-6-line-height;
-  letter-spacing: $typography-heading-6-letter-spacing;
-  padding: $labelAndSectionSpacing;
-  align-items: flex-start;
-}
-
-.section {
-  list-style: none;
-  padding: 0;
+.listBoxSection {
   display: grid;
-  margin-left: $labelAndSectionSpacing;
 }

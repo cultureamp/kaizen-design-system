@@ -1,6 +1,7 @@
 import React from "react"
 import { Node } from "@react-types/shared"
 import { ItemType } from "../../types"
+import styles from "./ListBoxSection.scss"
 
 export interface ListBoxSectionProps {
   items: Array<Node<ItemType>>
@@ -17,7 +18,7 @@ export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
   sectionName,
   children,
 }) => (
-  <div aria-label={sectionName}>
+  <div aria-label={sectionName} className={styles.listBoxSection}>
     {Array.from(items).map(node => node != undefined && children(node))}
   </div>
 )
