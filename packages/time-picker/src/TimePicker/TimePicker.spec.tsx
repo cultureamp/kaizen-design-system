@@ -58,26 +58,26 @@ describe("component formats time appropriate to locale", () => {
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(
-      screen.getByTestId("timepicker-menu").firstChild?.textContent
-    ).toEqual("12:00 am")
+    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
+      /^12:00 am$/
+    )
   })
   it("shows time in a h:mm A format for en-US", () => {
     render(<TimePickerWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(
-      screen.getByTestId("timepicker-menu").firstChild?.textContent
-    ).toEqual("12:00 AM")
+    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
+      /^12:00 AM$/
+    )
   })
   it("shows time in a HH:MM format for en-GB", () => {
     render(<TimePickerWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
     expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
     fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(
-      screen.getByTestId("timepicker-menu").firstChild?.textContent
-    ).toEqual("00:00")
+    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
+      /^00:00$/
+    )
   })
 })
 
@@ -86,8 +86,8 @@ it("changes value when selecting a menu item", () => {
   fireEvent.click(screen.getByTestId("timepicker-input"))
   fireEvent.click(screen.getByText("01:30"))
   // FIXME: There should actually be a leading 0, i.e. 01
-  expect(screen.getAllByRole("spinbutton")[0].textContent).toEqual("1")
-  expect(screen.getAllByRole("spinbutton")[1].textContent).toEqual("30")
+  expect(screen.getAllByRole("spinbutton")[0]).toHaveTextContent(/^1$/)
+  expect(screen.getAllByRole("spinbutton")[1]).toHaveTextContent(/^30$/)
 })
 
 describe("spin button functionality", () => {
@@ -95,24 +95,24 @@ describe("spin button functionality", () => {
     render(<TimePickerWrapper />)
     const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(hourSpinner).toHaveTextContent("0")
+    expect(hourSpinner).toHaveTextContent(/^0$/)
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(hourSpinner).toHaveTextContent("1")
+    expect(hourSpinner).toHaveTextContent(/^1$/)
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(hourSpinner).toHaveTextContent("2")
+    expect(hourSpinner).toHaveTextContent(/^2$/)
     pressArrowKey("ArrowDown")(hourSpinner)
-    expect(hourSpinner).toHaveTextContent("1")
+    expect(hourSpinner).toHaveTextContent(/^1$/)
   })
   it("changes minutes on key press", () => {
     render(<TimePickerWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
     pressArrowKey("ArrowUp")(minuteSpinner)
     pressArrowKey("ArrowUp")(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent("01")
+    expect(minuteSpinner).toHaveTextContent(/^01$/)
     pressArrowKey("ArrowUp")(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent("02")
+    expect(minuteSpinner).toHaveTextContent(/^02$/)
     pressArrowKey("ArrowDown")(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent("01")
+    expect(minuteSpinner).toHaveTextContent(/^01$/)
   })
 
   it("changes segments orthogonally", () => {
@@ -127,8 +127,8 @@ describe("spin button functionality", () => {
     const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
     pressArrowKey("ArrowUp")(hourSpinner)
     pressArrowKey("ArrowDown")(minuteSpinner)
-    expect(hourSpinner.textContent).toEqual("5")
-    expect(minuteSpinner.textContent).toEqual("43")
+    expect(hourSpinner).toHaveTextContent(/^5$/)
+    expect(minuteSpinner).toHaveTextContent(/^43$/)
   })
 })
 
@@ -186,5 +186,5 @@ it("allows uers to backspace to remove values", () => {
     key: "Backspace",
     code: "Backspace",
   })
-  expect(minuteSpinner.textContent).toBe("––")
+  expect(minuteSpinner).toHaveTextContent(/^––$/)
 })

@@ -14,12 +14,13 @@ export const convertTimeToZonedDateTime = ({
   // using this instead of new Date().getTimezoneOffset as ZonedDateTime constructor measures offset different
   const today = now(timeZone)
   const todayDate = today.toDate()
+  const timeZoneOffset = today.offset
   return new ZonedDateTime(
     (date ?? todayDate).getFullYear(),
     (date ?? todayDate).getMonth() + 1,
     (date ?? todayDate).getDate(),
     timeZone,
-    today.offset,
+    timeZoneOffset,
     hour,
     minutes
   )
