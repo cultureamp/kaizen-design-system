@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/eslint-plugin",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "main": "dist/src/index.js",
   "license": "MIT",
   "files": [
