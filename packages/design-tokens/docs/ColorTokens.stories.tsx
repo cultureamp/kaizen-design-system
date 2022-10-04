@@ -4,7 +4,7 @@ import { Heading } from "@kaizen/typography"
 import { Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import colorString from "color-string"
-import { useTheme } from "../react"
+import { useTheme } from "../src/react"
 
 export default {
   title: "Design Tokens/Color Tokens",

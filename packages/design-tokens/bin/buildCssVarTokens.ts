@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import { format } from "prettier"
 import * as yargs from "yargs"
-import { defaultTheme } from "../"
+import { defaultTheme } from "../src"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 
 const { jsonOutput, cssOutput } = yargs

@@ -14,9 +14,7 @@
     "tokens",
     "sass",
     "less",
-    "index.ts",
     "src",
-    "react",
     "dist",
     "!**/*.spec.*",
     "!docs"
