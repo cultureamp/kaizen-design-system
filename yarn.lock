@@ -2687,6 +2687,15 @@
   resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
   integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
 
+"@kaizen/notification@^0.11.8":
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/@kaizen/notification/-/notification-0.11.8.tgz#f83f4be9f66be04d0a5aa8485809ecac0b56caad"
+  integrity sha512-EWiPJAeUOeqrp1n1BhvJmFoGsYWFm4a6nmC8V4GbTK3SEocvqVXV7/lKgeM6RvTgm5TjBcyPjitqAdo0RP9yfg==
+  dependencies:
+    "@kaizen/component-library" "^16.1.2"
+    classnames "^2.3.1"
+    uuid "^8.3.2"
+
 "@kaizen/react-deprecate-warning@^1.1.6":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
@@ -5582,10 +5591,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17", "@types/react@^18.0.15":
-  version "18.0.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.15.tgz#d355644c26832dc27f3e6cbf0c4f4603fc4ab7fe"
-  integrity sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==
+"@types/react@*", "@types/react@^17", "@types/react@^18.0.21":
+  version "18.0.21"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.21.tgz#b8209e9626bb00a34c76f55482697edd2b43cc67"
+  integrity sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
