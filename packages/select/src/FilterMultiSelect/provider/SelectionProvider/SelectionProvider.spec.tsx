@@ -51,7 +51,10 @@ const SelectionProviderWrapper = ({
       <ListBox>
         {({ selectedItems, unselectedItems, disabledItems }) => (
           <>
-            <FilterMultiSelect.ListBoxSection section={selectedItems}>
+            <FilterMultiSelect.ListBoxSection
+              items={selectedItems}
+              sectionName="selectedItems"
+            >
               {selectedItem => (
                 <FilterMultiSelect.Option
                   key={selectedItem.key}
@@ -60,7 +63,10 @@ const SelectionProviderWrapper = ({
               )}
             </FilterMultiSelect.ListBoxSection>
 
-            <FilterMultiSelect.ListBoxSection section={unselectedItems}>
+            <FilterMultiSelect.ListBoxSection
+              items={unselectedItems}
+              sectionName="selectedItems"
+            >
               {unselectedItem => (
                 <FilterMultiSelect.Option
                   key={unselectedItem.key}
@@ -69,7 +75,10 @@ const SelectionProviderWrapper = ({
               )}
             </FilterMultiSelect.ListBoxSection>
 
-            <FilterMultiSelect.ListBoxSection section={disabledItems}>
+            <FilterMultiSelect.ListBoxSection
+              items={disabledItems}
+              sectionName="disabledItems"
+            >
               {disabledItem => (
                 <FilterMultiSelect.Option
                   key={disabledItem.key}
