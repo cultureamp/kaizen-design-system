@@ -1,7 +1,6 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/mixins/forms";
 
 // General purpose tokens
 
@@ -12,14 +11,6 @@ $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
-
-@mixin form-input-focus-state {
-  // &:focus:not([disabled]),
-  &:hover:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    @content;
-  }
-}
 
 @mixin base-font-style() {
   font-family: $typography-paragraph-body-font-family;
@@ -39,10 +30,6 @@ $input-disabled-border-alpha: 50%;
 }
 
 .input {
-  // @include form-input-focus-state {
-  //   border-color: $color-gray-600;
-  //   background-color: $color-gray-200;
-  // }
   display: inline-flex;
   align-items: center;
   background-color: transparent;
