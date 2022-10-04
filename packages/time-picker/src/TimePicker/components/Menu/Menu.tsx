@@ -14,7 +14,7 @@ export const Menu = (
 
   return (
     <ul {...menuProps} ref={ref} className={styles.menuContainer}>
-      {[...Array.from(state.collection)].map(item => (
+      {Array.from(state.collection, item => (
         <MenuItem key={item.key} item={item} state={state} />
       ))}
     </ul>
