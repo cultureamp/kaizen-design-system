@@ -1,12 +1,12 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 // General purpose tokens
 
 $input-placeholder-line-height: 2.9rem;
 $input-height: 48px;
-$input-base-padding-horizontal: calc(#{$ca-grid} / 2);
 $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
@@ -38,7 +38,7 @@ $input-disabled-border-alpha: 50%;
   border-radius: $border-solid-border-radius;
   font-size: 1rem;
   line-height: 1.5;
-  padding: 0 $input-base-padding-horizontal;
+  padding: 0 $spacing-sm;
   height: $input-height;
   width: 100%;
   box-sizing: border-box;
