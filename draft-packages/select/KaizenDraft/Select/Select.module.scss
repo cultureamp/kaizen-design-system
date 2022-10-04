@@ -170,6 +170,40 @@ $focus-border-color: $color-blue-500;
     }
   }
 
+  &.default {
+    &.reversed {
+      .control {
+        background: transparent;
+        color: $color-white;
+        border-color: $color-white;
+        border-radius: $border-borderless-border-radius;
+
+        &:hover {
+          background: rgba($color-white-rgb, 0.2);
+        }
+
+        &.disabled {
+          opacity: 0.3;
+        }
+      }
+
+      .dropdownIndicator {
+        color: $color-white;
+      }
+
+      .placeholder {
+        color: $color-white;
+      }
+
+      &.error {
+        .control {
+          border: $border-solid-border-width $border-solid-border-style
+            $color-red-300;
+        }
+      }
+    }
+  }
+
   &.secondary,
   &.secondarySmall {
     &.default {
