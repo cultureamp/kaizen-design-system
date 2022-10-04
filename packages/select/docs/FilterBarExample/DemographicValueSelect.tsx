@@ -77,27 +77,18 @@ export const DemographicValueSelect = ({
             {({ selectedItems, unselectedItems, disabledItems }) => (
               <>
                 <FilterMultiSelect.ListBoxSection section={selectedItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
+                  {item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
                 <FilterMultiSelect.ListBoxSection section={unselectedItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
+                  {item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
                 <FilterMultiSelect.ListBoxSection section={disabledItems}>
-                  {selectedItem => (
-                    <FilterMultiSelect.Option
-                      key={selectedItem.key}
-                      item={selectedItem}
-                    />
+                  {item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
               </>

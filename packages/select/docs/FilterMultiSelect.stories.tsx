@@ -111,29 +111,28 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
               {({ selectedItems, unselectedItems, disabledItems }) => (
                 <>
                   <FilterMultiSelect.ListBoxSection section={selectedItems}>
-                    {selectedItem => (
-                      <FilterMultiSelect.Option
-                        key={selectedItem.key}
-                        item={selectedItem}
-                      />
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
 
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
                   <FilterMultiSelect.ListBoxSection section={unselectedItems}>
-                    {unselectedItem => (
-                      <FilterMultiSelect.Option
-                        key={unselectedItem.key}
-                        item={unselectedItem}
-                      />
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
 
+                  {disabledItems.length > 0 &&
+                    (selectedItems.length > 0 ||
+                      unselectedItems.length > 0) && (
+                      <FilterMultiSelect.SectionDivider />
+                    )}
                   <FilterMultiSelect.ListBoxSection section={disabledItems}>
-                    {disabledItem => (
-                      <FilterMultiSelect.Option
-                        key={disabledItem.key}
-                        item={disabledItem}
-                      />
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
                 </>
