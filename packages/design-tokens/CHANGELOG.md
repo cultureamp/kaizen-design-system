@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.2...@kaizen/design-tokens@10.0.3) (2022-10-04)
+
+
+### Bug Fixes
+
+* **design-tokens:** update dist structure ([#2971](https://github.com/cultureamp/kaizen-design-system/issues/2971)) ([c2b8548](https://github.com/cultureamp/kaizen-design-system/commit/c2b8548f3e0c126faf7e022f4d3f0db9ac60874c))
+
+
+
+
+
 ## [10.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.1...@kaizen/design-tokens@10.0.2) (2022-09-14)
 
 

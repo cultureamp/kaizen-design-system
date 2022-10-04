@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ThemeManager, defaultTheme, Theme } from "../"
+import { ThemeManager, defaultTheme, Theme } from ".."
 
 export const ThemeContext = React.createContext<Theme>(defaultTheme)
 
