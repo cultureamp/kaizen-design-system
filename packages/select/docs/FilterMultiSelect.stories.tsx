@@ -111,7 +111,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
               {({ selectedItems, unselectedItems, disabledItems }) => (
                 <>
                   <FilterMultiSelect.ListBoxSection
-                    section={selectedItems}
+                    items={selectedItems}
                     sectionName="Selected items"
                   >
                     {item => (
@@ -123,7 +123,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                     <FilterMultiSelect.SectionDivider />
                   )}
                   <FilterMultiSelect.ListBoxSection
-                    section={unselectedItems}
+                    items={unselectedItems}
                     sectionName="Unselected items"
                   >
                     {item => (
@@ -137,7 +137,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                       <FilterMultiSelect.SectionDivider />
                     )}
                   <FilterMultiSelect.ListBoxSection
-                    section={disabledItems}
+                    items={disabledItems}
                     sectionName="Disabled items"
                   >
                     {item => (
