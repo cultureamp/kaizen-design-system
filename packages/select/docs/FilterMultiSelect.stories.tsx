@@ -110,7 +110,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
             <FilterMultiSelect.ListBox>
               {({ selectedItems, unselectedItems, disabledItems }) => (
                 <>
-                  <FilterMultiSelect.ListBoxSection section={selectedItems}>
+                  <FilterMultiSelect.ListBoxSection
+                    section={selectedItems}
+                    sectionName="Selected items"
+                  >
                     {item => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
@@ -119,7 +122,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                   {unselectedItems.length > 0 && selectedItems.length > 0 && (
                     <FilterMultiSelect.SectionDivider />
                   )}
-                  <FilterMultiSelect.ListBoxSection section={unselectedItems}>
+                  <FilterMultiSelect.ListBoxSection
+                    section={unselectedItems}
+                    sectionName="Unselected items"
+                  >
                     {item => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
@@ -130,7 +136,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                       unselectedItems.length > 0) && (
                       <FilterMultiSelect.SectionDivider />
                     )}
-                  <FilterMultiSelect.ListBoxSection section={disabledItems}>
+                  <FilterMultiSelect.ListBoxSection
+                    section={disabledItems}
+                    sectionName="Disabled items"
+                  >
                     {item => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
