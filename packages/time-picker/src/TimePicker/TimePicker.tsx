@@ -153,7 +153,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           <div className={styles.focusRing} />
           <Button
             {...menuTriggerProps}
-            aria-label={`${id} dropdown`}
+            aria-label={`${label} dropdown`}
             data-testid="timepicker-button"
           >
             <Icon
