@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@5.2.11...@kaizen/draft-empty-state@5.3.0) (2022-10-03)
+
+
+### Features
+
+* heading tag for EmptyState component ([#2982](https://github.com/cultureamp/kaizen-design-system/issues/2982)) ([d9ea2af](https://github.com/cultureamp/kaizen-design-system/commit/d9ea2afa6ab650f1f0472bbb642518a138d6443f))
+
+
+
+
+
 ## [5.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@5.2.10...@kaizen/draft-empty-state@5.2.11) (2022-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

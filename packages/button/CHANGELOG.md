@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.3.5...@kaizen/button@2.0.0) (2022-10-04)
+
+
+### Bug Fixes
+
+* **button:** Remove ref from custom component render to avoid forwardRef console warnings ([#2997](https://github.com/cultureamp/kaizen-design-system/issues/2997)) ([5eeca19](https://github.com/cultureamp/kaizen-design-system/commit/5eeca19d65295aeba9a8de58a924ff95d1d77c91))
+
+
+### BREAKING CHANGES
+
+* **button:** Ref is no longer passed through when using the 'component' render prop. I don't think anyone is using this. If your TS build passes then there's nothing to worry about.
+
+
+
+
+
 ## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@1.3.4...@kaizen/button@1.3.5) (2022-09-30)
 
 **Note:** Version bump only for package @kaizen/button

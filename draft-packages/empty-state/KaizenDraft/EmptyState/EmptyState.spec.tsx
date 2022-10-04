@@ -1,4 +1,4 @@
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, screen } from "@testing-library/react"
 import * as React from "react"
 
 import { EmptyStateProps } from "./EmptyState"
@@ -101,6 +101,19 @@ describe("<EmptyState />", () => {
       const { getByText } = render(<EmptyState {...props} />)
 
       expect(getByText("EmptyStatesAction_Component")).toBeTruthy()
+    })
+
+    it("renders the correct heading level based on tag provided", () => {
+      const props: EmptyStateProps = {
+        ...defaultProps,
+        headingProps: {
+          variant: "heading-3",
+          children: "Custom heading",
+          tag: "h2",
+        },
+      }
+      render(<EmptyState {...props} />)
+      expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
     })
   })
 })
