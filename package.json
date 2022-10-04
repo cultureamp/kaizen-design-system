@@ -62,7 +62,7 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/node-logger": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
-    "@playwright/test": "^1.24.1",
+    "@playwright/test": "^1.26.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-12": "npm:@testing-library/react@^12.1.5",

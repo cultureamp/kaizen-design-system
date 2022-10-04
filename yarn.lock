@@ -2687,6 +2687,15 @@
   resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
   integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
 
+"@kaizen/notification@^0.11.8":
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/@kaizen/notification/-/notification-0.11.8.tgz#f83f4be9f66be04d0a5aa8485809ecac0b56caad"
+  integrity sha512-EWiPJAeUOeqrp1n1BhvJmFoGsYWFm4a6nmC8V4GbTK3SEocvqVXV7/lKgeM6RvTgm5TjBcyPjitqAdo0RP9yfg==
+  dependencies:
+    "@kaizen/component-library" "^16.1.2"
+    classnames "^2.3.1"
+    uuid "^8.3.2"
+
 "@kaizen/react-deprecate-warning@^1.1.6":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
@@ -3621,13 +3630,13 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
-"@playwright/test@^1.24.1":
-  version "1.24.1"
-  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.24.1.tgz#b70f5cd0909530e17c7610918b45f4af156f16c4"
-  integrity sha512-VJ9qekMis7Oze2Q/Vb+w1g2aPaJFRdl5vhTS6h82kG89Jb8trlU2WHY7oYzNRjvFPoVUMcWXiblH2bWcbEax/A==
+"@playwright/test@^1.26.1":
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.26.1.tgz#73ada4e70f618bca69ba7509c4ba65b5a41c4b10"
+  integrity sha512-bNxyZASVt2adSZ9gbD7NCydzcb5JaI0OR9hc7s+nmPeH604gwp0zp17NNpwXY4c8nvuBGQQ9oGDx72LE+cUWvw==
   dependencies:
     "@types/node" "*"
-    playwright-core "1.24.1"
+    playwright-core "1.26.1"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   version "0.5.7"
@@ -15603,10 +15612,10 @@ pkg-dir@^5.0.0:
   dependencies:
     find-up "^5.0.0"
 
-playwright-core@1.24.1:
-  version "1.24.1"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.24.1.tgz#032eefaa8f674a4253a6c35a86787f2cbfcd8829"
-  integrity sha512-1RoSDe/oTQS1Ct7Pb8i+vcFKbKYpmVIBXk0IUiD8RvCUMnNl7EJF1OSQ9E8TZ5RYamWkW2Psir9e8Doyz1FnhQ==
+playwright-core@1.26.1:
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.26.1.tgz#a162f476488312dcf12638d97685144de6ada512"
+  integrity sha512-hzFchhhxnEiPc4qVPs9q2ZR+5eKNifY2hQDHtg1HnTTUuphYCBP8ZRb2si+B1TR7BHirgXaPi48LIye5SgrLAA==
 
 plop@^3.1.1:
   version "3.1.1"
