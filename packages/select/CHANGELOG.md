@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.0.4...@kaizen/select@2.1.0) (2022-10-05)
+
+
+### Features
+
+* Kds 657/float selected items ([#2986](https://github.com/cultureamp/kaizen-design-system/issues/2986)) ([b528680](https://github.com/cultureamp/kaizen-design-system/commit/b528680e61f28421ac806c75b594af10bdf80427))
+
+
+
+
+
 ## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.0.3...@kaizen/select@2.0.4) (2022-10-04)
 
 **Note:** Version bump only for package @kaizen/select
