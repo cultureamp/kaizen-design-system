@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { I18nProvider } from "@react-aria/i18n"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -23,16 +24,11 @@ export default {
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<Date | undefined | null>(undefined)
+  const [value, setValue] = useState<Date | undefined | null>(null)
   return (
-    <div>
-      <TimePicker
-        {...args}
-        value={value}
-        onChange={setValue}
-        validationMessage="noooo"
-      />
-    </div>
+    <I18nProvider locale={args.locale}>
+      <TimePicker {...args} value={value} onChange={setValue} />
+    </I18nProvider>
   )
 }
 DefaultStory.storyName = "TimePicker"
@@ -42,7 +38,7 @@ DefaultStory.args = {
   id: "time-picker-input",
   label: "Launch time",
   dropdownIncrements: 15,
-  locale: "en-AU",
+  locale: "ko-KR",
   timeZone: "Australia/Melbourne",
   hideTimeZone: true,
 }

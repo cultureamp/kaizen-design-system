@@ -17,14 +17,6 @@ export const DateSegment = ({
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
-  const renderText = () => {
-    if (segment.isPlaceholder || segment.type !== "hour") {
-      return segment.text
-    } else {
-      // This is to start hours with a leading 0. There didn't seem to be a way to config this out of the box
-      return state.dateValue.getHours()
-    }
-  }
   return (
     <div
       {...segmentProps}
@@ -34,10 +26,6 @@ export const DateSegment = ({
       }`}
     >
       {segment.text}
-      {/* {renderText()} */}
-      {/* {segment.isPlaceholder && segment.type !== "dayPeriod"
-        ? "00"
-        : segment.text} */}
     </div>
   )
 }
