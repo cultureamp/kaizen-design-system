@@ -35,7 +35,7 @@ const isNumber = (aNum: string) => {
 const getDateRegEx = (segments: DateSegment[] | undefined) => {
   let regex = ""
   if (segments) {
-    for (const [, { type, text, isPlaceholder }] of Object.entries(segments)) {
+    for (const { type, text, isPlaceholder } of segments) {
       if ((type === "literal" || type === "dayPeriod") && !isPlaceholder) {
         regex += text
       } else {
