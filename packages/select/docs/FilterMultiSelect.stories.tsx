@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
 import { Button, ButtonRef } from "@kaizen/button"
@@ -20,6 +20,7 @@ export default {
   component: FilterMultiSelect,
   parameters: {
     docs: {
+      source: { type: "code" },
       description: {
         component: 'import { FilterMultiSelect } from "@kaizen/select".',
       },
@@ -58,7 +59,11 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -77,6 +82,85 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
+
+export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+
+  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+
+  return (
+    <>
+      <FilterMultiSelect
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={items}
+        label="Engineer"
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            label={"Engineer"}
+          />
+        )}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({ selectedItems, unselectedItems, disabledItems }) => (
+                <>
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  {disabledItems.length > 0 &&
+                    (selectedItems.length > 0 ||
+                      unselectedItems.length > 0) && (
+                      <FilterMultiSelect.SectionDivider />
+                    )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={disabledItems}
+                    sectionName="Disabled items"
+                  >
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                </>
+              )}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+      <Paragraph variant={"body"}>
+        Items:{" "}
+        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+      </Paragraph>
+    </>
+  )
+}
 
 export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
@@ -122,7 +206,11 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -229,7 +317,11 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+            {({ allItems }) =>
+              allItems.map(item => (
+                <FilterMultiSelect.Option key={item.key} item={item} />
+              ))
+            }
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />

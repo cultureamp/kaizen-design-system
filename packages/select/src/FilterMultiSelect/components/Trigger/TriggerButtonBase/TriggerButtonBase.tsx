@@ -5,7 +5,7 @@ import { Icon } from "@kaizen/component-library"
 
 import classNames from "classnames"
 import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
-import styles from "./TriggerButtonBase.scss"
+import styles from "./TriggerButtonBase.module.scss"
 
 export type TriggerButtonBaseProps = {
   children: React.ReactNode
