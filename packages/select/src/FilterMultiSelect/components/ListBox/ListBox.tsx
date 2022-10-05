@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useSelectionContext } from "../../provider/SelectionProvider"

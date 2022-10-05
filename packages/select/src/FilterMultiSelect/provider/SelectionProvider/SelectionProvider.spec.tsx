@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event"
 import { Selection } from "@react-types/shared"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
-import { MultiSelectOption } from "../../components/MultiSelectOption"
 import {
   ClearButton,
   SelectAllButton,
