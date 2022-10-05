@@ -1,7 +1,7 @@
 import React from "react"
 import { Node } from "@react-types/shared"
 import { ItemType } from "../../types"
-import styles from "./ListBoxSection.scss"
+import styles from "./ListBoxSection.module.scss"
 
 export interface ListBoxSectionProps {
   items: Array<Node<ItemType>>

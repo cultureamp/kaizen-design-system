@@ -3,7 +3,7 @@ import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
-import styles from "./ListBox.scss"
+import styles from "./ListBox.module.scss"
 
 export interface ListBoxProps {
   children: (items: {
