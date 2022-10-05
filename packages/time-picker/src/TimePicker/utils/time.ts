@@ -26,7 +26,7 @@ export const formatDateToTime = (date: Date, locale, timeZone): string =>
   }).format(date)
 
 const isNumber = (aNum: string) => {
-  if (!parseInt(aNum, 10)) {
+  if (isNaN(parseInt(aNum, 10))) {
     return false
   }
   return true
@@ -35,19 +35,14 @@ const isNumber = (aNum: string) => {
 const getDateRegEx = (segments: DateSegment[] | undefined) => {
   let regex = ""
   if (segments) {
-    segments.forEach(({ type, text }, index: number) => {
-      // if literal, check that the next segment has a number text before adding literal to regex
-      if (
-        type === "literal" &&
-        index + 1 < segments.length &&
-        isNumber(segments[index + 1].text)
-      ) {
+    for (const [, { type, text, isPlaceholder }] of Object.entries(segments)) {
+      if ((type === "literal" || type === "dayPeriod") && !isPlaceholder) {
         regex += text
-        // else, add the non-literal if it is a valid number
-      } else if (type !== "literal" && isNumber(text)) {
-        regex += text
+      } else {
+        if (isNumber(text)) regex += text
+        else break
       }
-    })
+    }
   }
   return new RegExp(`${regex}.*`)
 }
