@@ -136,7 +136,7 @@ describe("onChange uses correct date", () => {
   it("uses the correct date when using menu items", () => {
     render(
       <TimePickerWrapper
-        value={new Date(2022, 8, 8, 4, 44)}
+        value={new Date(2022, 8, 8, 0, 0)}
         timeZone={UTC_ZERO_TIMEZONE}
         onChange={mockSetValue}
       />
