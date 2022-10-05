@@ -36,12 +36,14 @@ const getDateRegEx = (segments: DateSegment[] | undefined) => {
   let regex = ""
   if (segments) {
     segments.forEach(({ type, text }, index: number) => {
+      // if literal, check that the next segment has a number text before adding literal to regex
       if (
         type === "literal" &&
         index + 1 < segments.length &&
         isNumber(segments[index + 1].text)
       ) {
         regex += text
+        // else, add the non-literal if it is a valid number
       } else if (type !== "literal" && isNumber(text)) {
         regex += text
       }
