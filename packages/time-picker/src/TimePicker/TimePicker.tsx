@@ -121,24 +121,24 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     getAllTimeOptions({
       locale,
       timeZone,
-      date: value,
+      date: state,
       increments: dropdownIncrements,
     })
   )
   const { keyboardProps } = useKeyboard({
     onKeyUp: e => {
-      const typedInput = (
-        inputRef.current as HTMLDivElement | null
-      )?.innerText.split(/\n|\r/g)
-      setFilteredOptions(
-        getAllTimeOptions({
-          locale,
-          timeZone,
-          date: value,
-          increments: dropdownIncrements,
-          typedInput,
-        })
-      )
+      const options = getAllTimeOptions({
+        locale,
+        timeZone,
+        date: state,
+        increments: dropdownIncrements,
+      })
+      setFilteredOptions(options)
+      if (Object.keys(options).length === 0) {
+        menuState.close()
+      } else {
+        menuState.open()
+      }
     },
   })
 
