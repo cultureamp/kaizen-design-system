@@ -5,9 +5,9 @@ import {
   getLocalTimeZone,
   now,
   parseAbsolute,
-  Time,
   ZonedDateTime,
 } from "@internationalized/date"
+import { I18nProvider } from "@react-aria/i18n"
 import { useTimeField } from "@react-aria/datepicker"
 import { useMenuTrigger } from "@react-aria/menu"
 
@@ -49,7 +49,7 @@ export interface TimePickerProps
   status?: StatusType
   validationMessage?: React.ReactNode
 }
-
+// https:// react-spectrum.adobe.com/react-aria/useFocusRing.html
 export const TimePicker: React.VFC<TimePickerProps> = ({
   status = "default",
   validationMessage,
@@ -127,7 +127,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       }),
     [locale, timeZone, dropdownIncrements, value]
   )
-
   return (
     <>
       <Label data-testid="timepicker-label">{`${label} ${
@@ -164,7 +163,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         </div>
         <Popover
           shouldCloseOnInteractOutside={element =>
-            // FIXME: Requires better type guarding
             !element ||
             !(
               (element.id && element.id === id) ||
