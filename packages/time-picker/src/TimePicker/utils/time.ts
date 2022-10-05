@@ -44,7 +44,7 @@ const getDateRegEx = (segments: DateSegment[] | undefined) => {
       }
     }
   }
-  return new RegExp(`${regex}.*`)
+  return new RegExp(`^${regex}.*`)
 }
 
 export const getAllTimeOptions = ({
