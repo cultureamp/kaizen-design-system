@@ -125,21 +125,23 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       increments: dropdownIncrements,
     })
   )
+
+  const updateOptions = () => {
+    const options = getAllTimeOptions({
+      locale,
+      timeZone,
+      date: state,
+      increments: dropdownIncrements,
+    })
+    setFilteredOptions(options)
+    if (Object.keys(options).length === 0) {
+      menuState.close()
+    } else {
+      menuState.open()
+    }
+  }
   const { keyboardProps } = useKeyboard({
-    onKeyUp: e => {
-      const options = getAllTimeOptions({
-        locale,
-        timeZone,
-        date: state,
-        increments: dropdownIncrements,
-      })
-      setFilteredOptions(options)
-      if (Object.keys(options).length === 0) {
-        menuState.close()
-      } else {
-        menuState.open()
-      }
-    },
+    onKeyUp: e => updateOptions(),
   })
 
   return (
@@ -156,7 +158,10 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
           aria-label={label}
           data-testid="timepicker-input"
           ref={inputRef}
-          onClick={() => menuState.open()}
+          onClick={() => {
+            updateOptions()
+            menuState.open()
+          }}
           className={classNames(styles.input, {
             [styles.isDisabled]: state.isDisabled,
             [styles.error]: state.validationState === "invalid",
