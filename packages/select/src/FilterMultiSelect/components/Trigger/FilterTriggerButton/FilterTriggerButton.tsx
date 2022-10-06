@@ -1,7 +1,7 @@
 import React from "react"
 import { getTruncatedLabels } from "../../../utils"
 import { TriggerButtonBase } from "../TriggerButtonBase"
-import styles from "./FilterTriggerButton.module.scss"
+import styles from "./FilterTriggerButton.scss"
 
 export type FilterTriggerButtonProps = {
   label: string

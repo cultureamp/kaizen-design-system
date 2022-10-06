@@ -1,7 +1,7 @@
 import React from "react"
 import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import { MenuFooter } from "../MenuFooter"
-import styles from "./MenuLoadingSkeleton.module.scss"
+import styles from "./MenuLoadingSkeleton.scss"
 
 export const MenuLoadingSkeleton = (
   <div>

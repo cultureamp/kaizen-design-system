@@ -4,12 +4,12 @@ import userEvent from "@testing-library/user-event"
 import { Selection } from "@react-types/shared"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
+import { MultiSelectOption } from "../../components/MultiSelectOption"
 import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
 import { ItemType } from "../../types"
-import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -48,45 +48,7 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <ListBox>
-        {({ selectedItems, unselectedItems, disabledItems }) => (
-          <>
-            <FilterMultiSelect.ListBoxSection
-              items={selectedItems}
-              sectionName="selectedItems"
-            >
-              {selectedItem => (
-                <FilterMultiSelect.Option
-                  key={selectedItem.key}
-                  item={selectedItem}
-                />
-              )}
-            </FilterMultiSelect.ListBoxSection>
-
-            <FilterMultiSelect.ListBoxSection
-              items={unselectedItems}
-              sectionName="selectedItems"
-            >
-              {unselectedItem => (
-                <FilterMultiSelect.Option
-                  key={unselectedItem.key}
-                  item={unselectedItem}
-                />
-              )}
-            </FilterMultiSelect.ListBoxSection>
-
-            <FilterMultiSelect.ListBoxSection
-              items={disabledItems}
-              sectionName="disabledItems"
-            >
-              {disabledItem => (
-                <FilterMultiSelect.Option
-                  key={disabledItem.key}
-                  item={disabledItem}
-                />
-              )}
-            </FilterMultiSelect.ListBoxSection>
-          </>
-        )}
+        {item => <MultiSelectOption key={item.key} item={item} />}
       </ListBox>
 
       <SearchInput label="search-input-label-mock" />
