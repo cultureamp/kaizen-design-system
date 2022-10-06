@@ -1,4 +1,4 @@
-import { act, configure, render, waitFor } from "@testing-library/react"
+import { act, configure, render, waitFor, screen } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
@@ -18,7 +18,7 @@ describe("<ToastNotificationsListContainer />", () => {
     expect(registerCallback).toHaveBeenCalledTimes(1)
   })
 
-  it("renders notifications added through the setNotifications callback", () => {
+  it("renders notifications added through the setNotifications callback", async () => {
     let callback: (notifications: ToastNotification[]) => void | undefined
     const registerCallback = jest.fn(cb => (callback = cb))
     const removeToastNotification = jest.fn()
@@ -40,7 +40,7 @@ describe("<ToastNotificationsListContainer />", () => {
         },
       ])
     })
-    expect(getByRole("heading").textContent).toEqual("Title goes here")
+    await screen.findByText("Title goes here")
   })
 
   it("calls removeToastNotification when a notification is hidden", async () => {
