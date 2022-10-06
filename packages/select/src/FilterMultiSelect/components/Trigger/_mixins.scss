@@ -54,9 +54,6 @@
       right: calc(-1 * #{$focus-ring-offset});
       bottom: calc(-1 * #{$focus-ring-offset});
     }
-    // outline: $border-focus-ring-border-width $border-focus-ring-border-style
-    //   $color-blue-500;
-    // outline-offset: 1px;
   }
 
   display: inline-flex;

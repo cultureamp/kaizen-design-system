@@ -38,6 +38,7 @@
     }
   }
 
+  &.isFocused,
   &:focus-visible,
   &:global(.js-focus-visible) &:global(.focus-visible) {
     background-color: $color-blue-100;
