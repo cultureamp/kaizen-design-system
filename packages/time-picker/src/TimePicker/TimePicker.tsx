@@ -1,13 +1,7 @@
 import React, { useMemo } from "react"
 import { Icon } from "@kaizen/component-library"
 import { FieldMessage, Label } from "@kaizen/draft-form"
-import {
-  getLocalTimeZone,
-  now,
-  parseAbsolute,
-  ZonedDateTime,
-} from "@internationalized/date"
-import { I18nProvider } from "@react-aria/i18n"
+import { getLocalTimeZone, Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useMenuTrigger } from "@react-aria/menu"
 
@@ -21,17 +15,20 @@ import {
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
-import { formatDateToTime, getAllTimeOptions, TIME_OPTION } from "./utils"
+import { generateLocalisedTime, getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 import { TimeValue } from "./types"
-import { convertTimeToZonedDateTime } from "./utils/convertTimeToZonedDateTime"
 
 export type StatusType = "default" | "error"
 
-const isZonedDateTimeObject = (
-  timeValue: TimeValue
-): timeValue is ZonedDateTime => timeValue && "toDate" in timeValue
+export type ValueType = {
+  /**
+   * Supply hour in 24 hour format
+   */
+  hour: number | undefined
+  minutes: number | undefined
+}
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
@@ -39,8 +36,8 @@ export interface TimePickerProps
   > {
   id: string
   label: string
-  onChange: (date: Date | null) => void
-  value: Date | undefined | null
+  onChange: (value: ValueType | null) => void
+  value: ValueType | undefined | null
   /**
    * Supply timeZone in IANA format, i.e. "Australia/Melbourne"
    */
@@ -61,7 +58,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   timeZone = getLocalTimeZone(),
   locale,
   dropdownIncrements,
-
   ...restProps
 }: TimePickerProps) => {
   const handleOnChange = (timeValue: TimeValue | null): void => {
@@ -69,30 +65,15 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       onChange(null)
       return
     }
-    // onChange does not fire until user interacts with all placeholders
-    // if user interacts with spin buttons, timeValue is Time type, which cannot be converted directly into Date object
-    // if user interacts with MenuItems, it has to be CalendarDateTime or ZonedDateTime, as Time objects cannot be formatted properly to display in a list
-    if (isZonedDateTimeObject(timeValue)) {
-      onChange(timeValue.toDate())
-    } else {
-      const today = now(timeZone).toDate()
-      const date = convertTimeToZonedDateTime({
-        date: value ?? today,
-        hour: timeValue.hour,
-        minutes: timeValue.minute,
-        timeZone,
-      }).toDate()
-      onChange(date)
-    }
+    onChange({ hour: timeValue.hour, minutes: timeValue.minute })
   }
-
   const state = useTimeFieldState({
     ...restProps,
     // @ts-expect-error controlled values should not be undefined and library throws warning if such is supplied for value,
     // however library does not allow for null values despite handling properly
     // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/utils/src/useControlledState.ts#L23
     // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/datepicker/src/useTimeFieldState.ts
-    value: value ? parseAbsolute(value.toISOString(), timeZone) : null,
+    value: value ? new Time(value.hour, value.minutes) : null,
     onChange: handleOnChange,
     isDisabled,
     hideTimeZone: true,
@@ -121,8 +102,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     () =>
       getAllTimeOptions({
         locale,
-        timeZone,
-        date: value,
         increments: dropdownIncrements,
       }),
     [locale, timeZone, dropdownIncrements, value]
@@ -180,7 +159,13 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             {...menuProps}
             selectedKeys={
               value
-                ? new Set([formatDateToTime(value, locale, timeZone)])
+                ? new Set([
+                    generateLocalisedTime({
+                      hour: value.hour,
+                      minutes: value.minutes,
+                      locale,
+                    }),
+                  ])
                 : undefined
             }
             selectionMode="single"
