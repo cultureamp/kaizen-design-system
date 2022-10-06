@@ -40,11 +40,11 @@ const getDateRegEx = (segments: DateSegment[] | undefined) => {
         regex += text
       } else {
         if (isNumber(text)) regex += text
-        else break
+        else regex += text.replace(/./g, ".")
       }
     }
   }
-  return new RegExp(`^${regex}.*`)
+  return new RegExp(`^${regex}`)
 }
 
 export const getAllTimeOptions = ({
