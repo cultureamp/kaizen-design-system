@@ -10,7 +10,7 @@ const devConfig: PlaywrightTestConfig = {
   webServer: {
     command: "yarn storybook",
     url: LOCALHOST,
-    timeout: 120 * 1000,
+    timeout: 120 * 1000000,
   },
 }
 

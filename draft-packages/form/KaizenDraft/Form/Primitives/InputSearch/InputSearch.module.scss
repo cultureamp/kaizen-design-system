@@ -17,6 +17,12 @@ $border-solid-border-radius-curved: $input-height;
 
 .wrapper {
   position: relative;
+
+  // We are overriding the cancel button with a custom component, this hides the native
+  // browser cancel button.
+  ::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
 }
 
 .withLoading .startIconAdornment {
@@ -401,12 +407,6 @@ $border-solid-border-radius-curved: $input-height;
       opacity: $input-disabled-opacity;
     }
   }
-}
-
-// We are overriding the cancel button with a custom component, this hides the native
-// browser cancel button.
-::-webkit-search-cancel-button {
-  -webkit-appearance: none;
 }
 
 .cancelButton {

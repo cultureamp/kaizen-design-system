@@ -73,4 +73,47 @@ test.describe("Indentation of lists", async () => {
 
     expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
   })
+
+  test("Some rando test", async ({ page }) => {
+    const editor = await page.locator('div[role="textbox"]')
+    const increaseIndentBtn = await page.locator(
+      '[aria-label="Increase indent"]'
+    )
+
+    await editor.click()
+    await editor.type("-")
+    await editor.press("Space")
+    await editor.type("By the pricking of my thumbs")
+    await expect(increaseIndentBtn).not.toBeEnabled()
+    await editor.press("Enter")
+    await editor.type("Something wicked this way comes")
+    await increaseIndentBtn.click()
+
+    expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
+  })
+  test("indent can only be increased on the second list item and onwards", async ({
+    page,
+  }) => {
+    const editor = await page.locator('div[role="textbox"]')
+    const increaseIndentBtn = await page.locator(
+      '[aria-label="Increase indent"]'
+    )
+    // Click [aria-label="Numbered List"]
+    await page.locator('[aria-label="Numbered List"]').click()
+    // Click div[role="textbox"] p
+    await page.locator('div[role="textbox"] p').click()
+    // Press Enter
+    await page.locator('div[role="textbox"]').press("Enter")
+    // Press Enter
+    await page
+      .locator('div[role="textbox"]:has-text("the quick brown fox")')
+      .press("Enter")
+    // Press Enter with modifiers
+    await page
+      .locator('div[role="textbox"]:has-text("the quick brown foxzsdcsdsd")')
+      .press("Shift+Enter")
+    // Click html
+    await page.locator("html").click()
+    expect(await page.$$('div[role="textbox"] ul')).toHaveLength(2)
+  })
 })
