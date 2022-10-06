@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.4...@kaizen/draft-form@8.3.5) (2022-10-06)
+
+
+### Bug Fixes
+
+* **draft-form:** move InputSearch global cancel button styles under .input class ([#3007](https://github.com/cultureamp/kaizen-design-system/issues/3007)) ([961fb50](https://github.com/cultureamp/kaizen-design-system/commit/961fb50f66f585966d13aad115ee26da4af66b86))
+
+
+
+
+
 ## [8.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.3...@kaizen/draft-form@8.3.4) (2022-10-02)
 
 
