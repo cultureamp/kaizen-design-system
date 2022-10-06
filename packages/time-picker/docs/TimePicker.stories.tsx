@@ -44,17 +44,88 @@ DefaultStory.args = {
   hideTimeZone: true,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
-    <StoryWrapper.Row rowTitle="ROW 1">
-      {/* <TimePicker locale="en-GB" id='row-1-id' /> * @todo: Add column 1 + row 1 props */}
+const StickerSheetTemplate: Story = () => (
+  <StoryWrapper>
+    <StoryWrapper.RowHeader
+      headings={["Default", "Selected Value", "Disabled", "Error"]}
+    />
+    <StoryWrapper.Row rowTitle="Input">
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          locale="en-GB"
+          id="timepicker-default"
+          value={undefined}
+          label="Label"
+          hideTimeZone
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          locale="en-GB"
+          id="timepicker-selected"
+          value={{ hour: 1, minutes: 30 }}
+          label="Label"
+          hideTimeZone
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          locale="en-GB"
+          isDisabled
+          id="timepicker-disabled"
+          value={{ hour: 1, minutes: 30 }}
+          label="Label"
+          hideTimeZone
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          locale="en-GB"
+          validationMessage="Date is invalid"
+          status="error"
+          id="timepicker-error"
+          hideTimeZone
+          value={{ hour: 1, minutes: 30 }}
+          label="Label"
+          onChange={() => undefined}
+        />
+      </I18nProvider>
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="ROW 2">
-      {/* <TimePicker locale="en-GB" /> * @todo: Add column 1 + row 2 props */}
-      {/* <TimePicker locale="en-GB" /> * @todo: Add column 2 + row 2 props */}
+    <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
+    <StoryWrapper.Row rowTitle="Localisation">
+      <I18nProvider locale={"en-US"}>
+        <TimePicker
+          locale="en-US"
+          id="timepicker-en-US"
+          hideTimeZone
+          value={undefined}
+          label="Label"
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          locale="en-GB"
+          id="timepicker-en-GB"
+          hideTimeZone
+          value={undefined}
+          label="Label"
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"zh-HANS-SG"}>
+        <TimePicker
+          locale="zh-HANS-SG"
+          id="timepicker-zh-HANS-SG"
+          hideTimeZone
+          value={undefined}
+          label="Label"
+          onChange={() => undefined}
+        />
+      </I18nProvider>
     </StoryWrapper.Row>
   </StoryWrapper>
 )
@@ -63,15 +134,6 @@ export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
-  controls: { disable: true },
-}
-
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
-  chromatic: { disable: false },
-  backgrounds: { default: "Purple 700" },
   controls: { disable: true },
 }
 

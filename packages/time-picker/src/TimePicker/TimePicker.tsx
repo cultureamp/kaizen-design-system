@@ -107,7 +107,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     [locale, dropdownIncrements]
   )
   return (
-    <>
+    <div>
       <Label data-testid="timepicker-label">{`${label} ${
         restProps.hideTimeZone && timeZoneLabel ? "" : `(${timeZoneLabel})`
       }`}</Label>
@@ -182,7 +182,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       {validationMessage && status === "error" && (
         <FieldMessage message={validationMessage} status={status} />
       )}
-    </>
+    </div>
   )
 }
 
