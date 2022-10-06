@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { TimePicker, TimePickerProps } from "./TimePicker"
+import { TimePicker, TimePickerProps, ValueType } from "./TimePicker"
 
 const mockSetValue = jest.fn()
 const UTC_ZERO_TIMEZONE = "Africa/Abidjan"
@@ -16,7 +16,7 @@ const TimePickerWrapper = ({
   value: propsValue,
   ...customProps
 }: Partial<TimePickerProps>): JSX.Element => {
-  const [value, setValue] = useState<Date | undefined | null>(propsValue)
+  const [value, setValue] = useState<undefined | ValueType | null>(propsValue)
 
   return (
     <TimePicker
@@ -86,8 +86,12 @@ it("changes value when selecting a menu item", () => {
   fireEvent.click(screen.getByTestId("timepicker-input"))
   fireEvent.click(screen.getByText("01:30"))
   // FIXME: There should actually be a leading 0, i.e. 01
-  expect(screen.getAllByRole("spinbutton")[0]).toHaveTextContent(/^1$/)
-  expect(screen.getAllByRole("spinbutton")[1]).toHaveTextContent(/^30$/)
+  expect(screen.getByRole("spinbutton", { name: "hour" })).toHaveTextContent(
+    /^1$/
+  )
+  expect(screen.getByRole("spinbutton", { name: "minute" })).toHaveTextContent(
+    /^30$/
+  )
 })
 
 describe("spin button functionality", () => {
@@ -119,7 +123,7 @@ describe("spin button functionality", () => {
     // tests whether changing minute changes hour
     render(
       <TimePickerWrapper
-        value={new Date(2022, 8, 8, 4, 44)}
+        value={{ hour: 4, minutes: 44 }}
         timeZone={UTC_ZERO_TIMEZONE}
       />
     )
@@ -136,30 +140,26 @@ describe("onChange uses correct date", () => {
   it("uses the correct date when using menu items", () => {
     render(
       <TimePickerWrapper
-        value={new Date(2022, 8, 8, 4, 44)}
+        value={{ hour: 4, minutes: 44 }}
         timeZone={UTC_ZERO_TIMEZONE}
         onChange={mockSetValue}
       />
     )
     fireEvent.click(screen.getByTestId("timepicker-button"))
-    fireEvent.click(screen.getByText("00:00"))
-    expect(mockSetValue).toHaveBeenCalledWith(
-      new Date("2022-09-08T00:00:00.000Z")
-    )
+    fireEvent.click(screen.getByText("01:30"))
+    expect(mockSetValue).toHaveBeenCalledWith({ hour: 1, minutes: 30 })
   })
   it("uses the correct date when iteracting with spinner buttons", () => {
     render(
       <TimePickerWrapper
-        value={new Date(2022, 8, 8, 4, 44)}
+        value={{ hour: 4, minutes: 44 }}
         timeZone={UTC_ZERO_TIMEZONE}
         onChange={mockSetValue}
       />
     )
     const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(mockSetValue).toHaveBeenCalledWith(
-      new Date("2022-09-08T05:44:00.000Z")
-    )
+    expect(mockSetValue).toHaveBeenCalledWith({ hour: 5, minutes: 44 })
   })
 })
 
@@ -172,11 +172,11 @@ it("shows timezone in label if not hiding timezone ", () => {
 it("allows uers to backspace to remove values", () => {
   render(
     <TimePickerWrapper
-      value={new Date(2022, 8, 8, 4, 44)}
+      value={{ hour: 4, minutes: 44 }}
       timeZone={UTC_ZERO_TIMEZONE}
-      // onChange={mockSetValue}
     />
   )
+  const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
   const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
   fireEvent.keyDown(minuteSpinner, {
     key: "Backspace",
@@ -187,4 +187,5 @@ it("allows uers to backspace to remove values", () => {
     code: "Backspace",
   })
   expect(minuteSpinner).toHaveTextContent(/^––$/)
+  expect(hourSpinner).toHaveTextContent(/^4$/)
 })

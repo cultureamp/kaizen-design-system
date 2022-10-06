@@ -104,7 +104,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         locale,
         increments: dropdownIncrements,
       }),
-    [locale, timeZone, dropdownIncrements, value]
+    [locale, dropdownIncrements]
   )
   return (
     <>
