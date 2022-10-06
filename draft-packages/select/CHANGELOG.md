@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.15...@kaizen/draft-select@2.6.0) (2022-10-05)
+
+
+### Features
+
+* add default reverse, not full width support and rm ie11 styles ([#2993](https://github.com/cultureamp/kaizen-design-system/issues/2993)) ([b547520](https://github.com/cultureamp/kaizen-design-system/commit/b547520569840bea4cf86caf239d5c32d793477f))
+
+
+
+
+
 ## [2.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.14...@kaizen/draft-select@2.5.15) (2022-10-04)
 
 **Note:** Version bump only for package @kaizen/draft-select
