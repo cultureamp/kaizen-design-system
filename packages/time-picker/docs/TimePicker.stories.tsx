@@ -6,6 +6,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimePicker } from "../index"
+import { ValueType } from "../src/TimePicker"
 
 export default {
   title: `${CATEGORIES.components}/TimePicker`,
@@ -24,7 +25,7 @@ export default {
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<Date | undefined | null>(null)
+  const [value, setValue] = useState<undefined | ValueType | null>(undefined)
   return (
     <I18nProvider locale={args.locale}>
       <TimePicker {...args} value={value} onChange={setValue} />
