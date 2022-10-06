@@ -1,4 +1,5 @@
 @import "../styles";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .notification {
   @extend %ca-notification;
@@ -33,13 +34,11 @@
 .cancelLabel {
   @extend %ca-notification__cancel__label;
 }
-.toastTitle {
-  top: 0.38em;
-  position: relative;
-}
 .notificationTitle {
+  top: 0.42em;
+  position: relative;
   padding-right: 6px;
-  align-self: center;
+  line-height: $typography-heading-6-line-height;
 }
 
 // Animation
