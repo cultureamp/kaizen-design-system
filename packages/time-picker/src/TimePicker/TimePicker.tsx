@@ -121,7 +121,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     }, {} as Record<string, TIME_OPTION>)
   }, [locale, dropdownIncrements, state])
 
-  console.log("SEGMENTS", state.segments)
   return (
     <div>
       <Label data-testid="timepicker-label">{`${label} ${
