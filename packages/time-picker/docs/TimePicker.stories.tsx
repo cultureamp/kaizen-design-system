@@ -3,11 +3,13 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { I18nProvider } from "@react-aria/i18n"
 import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimePicker } from "../index"
 import { ValueType } from "../src/TimePicker"
 
+// TODO optimise locale options
+// provide a subset in either radio/select options
+// document the prop to say it can accept any valid string
 export default {
   title: `${CATEGORIES.components}/TimePicker`,
   component: TimePicker,
@@ -17,9 +19,6 @@ export default {
         component: 'import { TimePicker } from "@kaizen/time-picker"',
       },
     },
-    ...figmaEmbed(
-      "REPLACE_THIS_WITH_FIGMA_URL"
-    ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
@@ -39,9 +38,8 @@ DefaultStory.args = {
   id: "time-picker-input",
   label: "Launch time",
   dropdownIncrements: 15,
-  locale: "ko-KR",
-  timeZone: "Australia/Melbourne",
-  hideTimeZone: true,
+  locale: "en-US",
+  dropdownButtonAriaLabel: "Toggle dropdown button",
 }
 
 const StickerSheetTemplate: Story = () => (
@@ -52,21 +50,21 @@ const StickerSheetTemplate: Story = () => (
     <StoryWrapper.Row rowTitle="Input">
       <I18nProvider locale={"en-GB"}>
         <TimePicker
+          dropdownButtonAriaLabel="Toggle dropdown button"
           locale="en-GB"
           id="timepicker-default"
           value={undefined}
           label="Label"
-          hideTimeZone
           onChange={() => undefined}
         />
       </I18nProvider>
       <I18nProvider locale={"en-GB"}>
         <TimePicker
           locale="en-GB"
+          dropdownButtonAriaLabel="Toggle dropdown button"
           id="timepicker-selected"
           value={{ hour: 1, minutes: 30 }}
           label="Label"
-          hideTimeZone
           onChange={() => undefined}
         />
       </I18nProvider>
@@ -77,7 +75,7 @@ const StickerSheetTemplate: Story = () => (
           id="timepicker-disabled"
           value={{ hour: 1, minutes: 30 }}
           label="Label"
-          hideTimeZone
+          dropdownButtonAriaLabel="Toggle dropdown button"
           onChange={() => undefined}
         />
       </I18nProvider>
@@ -87,8 +85,8 @@ const StickerSheetTemplate: Story = () => (
           validationMessage="Date is invalid"
           status="error"
           id="timepicker-error"
-          hideTimeZone
           value={{ hour: 1, minutes: 30 }}
+          dropdownButtonAriaLabel="Toggle dropdown button"
           label="Label"
           onChange={() => undefined}
         />
@@ -100,7 +98,7 @@ const StickerSheetTemplate: Story = () => (
         <TimePicker
           locale="en-US"
           id="timepicker-en-US"
-          hideTimeZone
+          dropdownButtonAriaLabel="Toggle dropdown button"
           value={undefined}
           label="Label"
           onChange={() => undefined}
@@ -110,7 +108,7 @@ const StickerSheetTemplate: Story = () => (
         <TimePicker
           locale="en-GB"
           id="timepicker-en-GB"
-          hideTimeZone
+          dropdownButtonAriaLabel="Toggle dropdown button"
           value={undefined}
           label="Label"
           onChange={() => undefined}
@@ -120,7 +118,7 @@ const StickerSheetTemplate: Story = () => (
         <TimePicker
           locale="zh-HANS-SG"
           id="timepicker-zh-HANS-SG"
-          hideTimeZone
+          dropdownButtonAriaLabel="Toggle dropdown button"
           value={undefined}
           label="Label"
           onChange={() => undefined}
