@@ -12,9 +12,6 @@ export const Menu = (
   const ref = React.useRef(null)
   const { menuProps } = useMenu(props, state, ref)
 
-  if (state.collection.size === 0) {
-    return null
-  }
   return (
     <ul {...menuProps} ref={ref} className={styles.menuContainer}>
       {Array.from(state.collection, item => (
