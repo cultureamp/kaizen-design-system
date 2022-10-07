@@ -2,11 +2,11 @@ import React from "react"
 import { useTreeState, TreeProps } from "@react-stately/tree"
 import { AriaMenuOptions, useMenu } from "@react-aria/menu"
 import { MenuItem } from "../MenuItem"
-import { TIME_OPTION } from "../../utils"
+import { TimeOption } from "../../types"
 import styles from "./Menu.module.scss"
 
 export const Menu = (
-  props: AriaMenuOptions<TIME_OPTION> & TreeProps<TIME_OPTION>
+  props: AriaMenuOptions<TimeOption> & TreeProps<TimeOption>
 ) => {
   const state = useTreeState(props)
   const ref = React.useRef(null)

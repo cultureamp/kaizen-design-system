@@ -15,10 +15,11 @@ import {
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
-import { generateLocalisedTime, getAllTimeOptions, TIME_OPTION } from "./utils"
+import { Heading } from "@kaizen/typography"
+import { generateLocalisedTime, getAllTimeOptions } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
-import { TimeValue } from "./types"
+import { TimeOption, TimeValue } from "./types"
 import { generateInputRegexString } from "./utils/generateInputRegexString"
 
 export type StatusType = "default" | "error"
@@ -33,16 +34,18 @@ export type ValueType = {
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
-    "errorMessage" | "validationState" | "value" | "onChange" | "label"
+    | "errorMessage"
+    | "validationState"
+    | "value"
+    | "onChange"
+    | "label"
+    | "hideTimeZone"
   > {
   id: string
   label: string
+  dropdownButtonAriaLabel: string
   onChange: (value: ValueType | null) => void
   value: ValueType | undefined | null
-  /**
-   * Supply timeZone in IANA format, i.e. "Australia/Melbourne"
-   */
-  timeZone?: string
   dropdownIncrements?: number
   status?: StatusType
   validationMessage?: React.ReactNode
@@ -56,18 +59,18 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   value,
   onChange,
   label,
-  timeZone = getLocalTimeZone(),
   locale,
+  dropdownButtonAriaLabel,
   dropdownIncrements,
   ...restProps
-}: TimePickerProps) => {
+}) => {
   const handleOnChange = (timeValue: TimeValue | null): void => {
     if (timeValue === null) {
-      onChange(null)
-      return
+      return onChange(null)
     }
     onChange({ hour: timeValue.hour, minutes: timeValue.minute })
   }
+
   const state = useTimeFieldState({
     ...restProps,
     // @ts-expect-error controlled values should not be undefined and library throws warning if such is supplied for value,
@@ -81,58 +84,53 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
+
   const menuState = useMenuTriggerState({})
 
   const inputRef = React.useRef(null)
-  const { fieldProps } = useTimeField({ ...restProps, label }, state, inputRef)
+  const { fieldProps, labelProps } = useTimeField(
+    { ...restProps, label },
+    state,
+    inputRef
+  )
 
-  const { menuProps, menuTriggerProps } = useMenuTrigger<TIME_OPTION>(
+  const { menuProps, menuTriggerProps } = useMenuTrigger<TimeOption>(
     { isDisabled },
     menuState,
     inputRef
   )
 
-  const timeZoneLabel = Intl.DateTimeFormat(locale, {
-    timeZoneName: "short",
-    timeZone,
-  })
-    .formatToParts(new Date())
-    .find(segment => segment.type === "timeZoneName")?.value
-
-  const options = useMemo(() => {
+  const options: Record<string, TimeOption> = useMemo(() => {
     const allOptions = getAllTimeOptions({
       locale,
       increments: dropdownIncrements,
     })
 
+    // TODO pull this out into a filter util function
     if (!state.segments) {
       return allOptions
     }
 
-    const regexMatcher = new RegExp(
-      `^${generateInputRegexString(state.segments)}`
-    )
+    const regexMatcher = generateInputRegexString(state.segments)
 
     return Object.keys(allOptions).reduce((filteredOptions, optionKey) => {
       if (regexMatcher.test(optionKey)) {
         filteredOptions[optionKey] = allOptions[optionKey]
       }
       return filteredOptions
-    }, {} as Record<string, TIME_OPTION>)
+    }, {} as Record<string, TimeOption>)
   }, [locale, dropdownIncrements, state])
 
   return (
     <div>
-      <Label data-testid="timepicker-label">{`${label} ${
-        restProps.hideTimeZone && timeZoneLabel ? "" : `(${timeZoneLabel})`
-      }`}</Label>
+      <Heading tag="div" variant="heading-6" {...labelProps}>
+        {label}
+      </Heading>
       <div className={styles.wrapper}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
         <div
           {...fieldProps}
           id={id}
-          aria-label={label}
-          data-testid="timepicker-input"
           ref={inputRef}
           onClick={() => menuState.open()}
           className={classNames(styles.input, {
@@ -144,11 +142,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             <DateSegment key={i} segment={segment} state={state} />
           ))}
           <div className={styles.focusRing} />
-          <Button
-            {...menuTriggerProps}
-            aria-label={`${label} dropdown`}
-            data-testid="timepicker-button"
-          >
+          <Button {...menuTriggerProps} aria-label={dropdownButtonAriaLabel}>
             <Icon
               role="presentation"
               icon={menuState.isOpen ? chevronUp : chevronDown}
@@ -184,8 +178,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
                 : undefined
             }
             selectionMode="single"
-            data-testid="timepicker-menu"
-            // state.setValue doesn't work unless value is undefined
             onAction={key => handleOnChange(options[key].value)}
           >
             {Object.keys(options).map(option => (
