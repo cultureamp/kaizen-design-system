@@ -1,7 +1,7 @@
 import React, { useMemo } from "react"
 import { Icon } from "@kaizen/component-library"
-import { FieldMessage, Label } from "@kaizen/draft-form"
-import { getLocalTimeZone, Time } from "@internationalized/date"
+import { FieldMessage } from "@kaizen/draft-form"
+import { Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useMenuTrigger } from "@react-aria/menu"
 
@@ -12,10 +12,10 @@ import {
   TimeFieldStateOptions,
 } from "@react-stately/datepicker"
 
+import { Heading } from "@kaizen/typography"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
-import { Heading } from "@kaizen/typography"
 import { generateLocalisedTime, getAllTimeOptions } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
