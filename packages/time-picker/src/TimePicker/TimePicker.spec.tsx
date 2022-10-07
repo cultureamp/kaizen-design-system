@@ -139,11 +139,7 @@ describe("spin button functionality", () => {
 describe("onChange uses correct date", () => {
   it("uses the correct date when using menu items", () => {
     render(
-      <TimePickerWrapper
-        value={{ hour: 4, minutes: 44 }}
-        timeZone={UTC_ZERO_TIMEZONE}
-        onChange={mockSetValue}
-      />
+      <TimePickerWrapper timeZone={UTC_ZERO_TIMEZONE} onChange={mockSetValue} />
     )
     fireEvent.click(screen.getByTestId("timepicker-button"))
     fireEvent.click(screen.getByText("01:30"))

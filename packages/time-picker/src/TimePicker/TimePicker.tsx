@@ -167,7 +167,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
               element.getAttribute("role") === "presentation"
             )
           }
-          isOpen={menuState.isOpen}
+          isOpen={Object.keys(options).length > 0 && menuState.isOpen}
           onClose={menuState.close}
         >
           <Menu
