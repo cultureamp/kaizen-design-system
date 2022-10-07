@@ -114,7 +114,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     )
 
     return Object.keys(allOptions).reduce((filteredOptions, optionKey) => {
-      if (regexMatcher.test(allOptions[optionKey].label)) {
+      if (regexMatcher.test(optionKey)) {
         filteredOptions[optionKey] = allOptions[optionKey]
       }
       return filteredOptions
