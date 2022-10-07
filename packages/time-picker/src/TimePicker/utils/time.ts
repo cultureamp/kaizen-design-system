@@ -1,19 +1,15 @@
-// import moment from "moment"
-
 import { Time } from "@internationalized/date"
 import { ValueType } from "../"
+import { TimeOption } from "../types"
 
-export type TIME_OPTION = {
-  label: string
-  value: Time
-}
+// TODO split utils into their own files
 
 type GetAllTimeOptionsConfig = {
   locale: string
   increments?: number
 }
 
-export const DATE_FORMATTER_CONFIG = {
+const DATE_FORMATTER_CONFIG = {
   timeStyle: "short",
 } as Intl.DateTimeFormatOptions
 
@@ -38,7 +34,7 @@ export const generateLocalisedTime = ({
 export const getAllTimeOptions = ({
   locale,
   increments = 30,
-}: GetAllTimeOptionsConfig) =>
+}: GetAllTimeOptionsConfig): Record<string, TimeOption> =>
   Array.from(Array(24).keys()).reduce((options, hour) => {
     Array.from(Array(60 / increments).keys()).forEach(increment => {
       const minutes = increment * increments
@@ -51,4 +47,4 @@ export const getAllTimeOptions = ({
       }
     })
     return options
-  }, {} as Record<string, TIME_OPTION>)
+  }, {} as Record<string, TimeOption>)

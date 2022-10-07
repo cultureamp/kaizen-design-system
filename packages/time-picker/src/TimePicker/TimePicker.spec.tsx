@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { TimePicker, TimePickerProps, ValueType } from "./TimePicker"
 
-const mockSetValue = jest.fn()
-const UTC_ZERO_TIMEZONE = "Africa/Abidjan"
+const mockOnChange = jest.fn()
+const LABEL = "Launch Time Label"
+const DROPDOWN_ARIA_LABEL = "Toggle dropdown button"
 
 const pressArrowKey =
   (direction: "ArrowUp" | "ArrowDown") => (element: HTMLElement) =>
@@ -22,8 +23,8 @@ const TimePickerWrapper = ({
     <TimePicker
       locale="en-GB"
       id="id"
-      label="label"
-      timeZone="Australia/Perth"
+      label={LABEL}
+      dropdownButtonAriaLabel={DROPDOWN_ARIA_LABEL}
       value={value}
       onChange={setValue}
       {...customProps}
@@ -34,21 +35,21 @@ const TimePickerWrapper = ({
 describe("the menu opens and closes properly", () => {
   it("opens the menu when the input is pressed", () => {
     render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu")).toBeInTheDocument()
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    expect(screen.getByText("00:00")).toBeInTheDocument()
   })
   it("toggles the menu on button press", () => {
     render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByTestId("timepicker-button"))
-    expect(screen.getByTestId("timepicker-menu")).toBeInTheDocument()
-    fireEvent.click(screen.getByTestId("timepicker-button"))
-    expect(screen.queryByTestId("timepicker-menu")).toBeFalsy()
+    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
+    expect(screen.getByText("00:00")).toBeInTheDocument()
+    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
+    expect(screen.queryByText("00:00")).toBeFalsy()
   })
   it("closes the menu on a menu item press", () => {
     render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByTestId("timepicker-button"))
+    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
     fireEvent.click(screen.getByText("00:00"))
-    expect(screen.queryByTestId("timepicker-menu")).toBeFalsy()
+    expect(screen.queryByText("00:00")).toBeFalsy()
   })
 })
 
@@ -57,47 +58,43 @@ describe("component formats time appropriate to locale", () => {
     render(<TimePickerWrapper locale="en-AU" />)
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
-    fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      /^12:00 am$/
-    )
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    expect(screen.getByText("12:00 am")).toBeInTheDocument()
   })
   it("shows time in a h:mm A format for en-US", () => {
     render(<TimePickerWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
-    fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      /^12:00 AM$/
-    )
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    expect(screen.getByText("12:00 AM")).toBeInTheDocument()
   })
   it("shows time in a HH:MM format for en-GB", () => {
     render(<TimePickerWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
     expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
-    fireEvent.click(screen.getByTestId("timepicker-input"))
-    expect(screen.getByTestId("timepicker-menu").firstChild).toHaveTextContent(
-      /^00:00$/
-    )
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    expect(screen.getByText("00:00")).toBeInTheDocument()
   })
 })
 
 it("changes value when selecting a menu item", () => {
   render(<TimePickerWrapper />)
-  fireEvent.click(screen.getByTestId("timepicker-input"))
+  fireEvent.click(screen.getByRole("group", { name: LABEL }))
   fireEvent.click(screen.getByText("01:30"))
   // FIXME: There should actually be a leading 0, i.e. 01
-  expect(screen.getByRole("spinbutton", { name: "hour" })).toHaveTextContent(
-    /^1$/
-  )
-  expect(screen.getByRole("spinbutton", { name: "minute" })).toHaveTextContent(
-    /^30$/
-  )
+  expect(
+    screen.getByRole("spinbutton", { name: `${LABEL} hour` })
+  ).toHaveTextContent(/^1$/)
+  expect(
+    screen.getByRole("spinbutton", { name: `${LABEL} minute` })
+  ).toHaveTextContent(/^30$/)
 })
 
 describe("spin button functionality", () => {
   it("changes hour on key press", () => {
     render(<TimePickerWrapper />)
-    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
     pressArrowKey("ArrowUp")(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^0$/)
     pressArrowKey("ArrowUp")(hourSpinner)
@@ -109,7 +106,9 @@ describe("spin button functionality", () => {
   })
   it("changes minutes on key press", () => {
     render(<TimePickerWrapper />)
-    const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+    const minuteSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} minute`,
+    })
     pressArrowKey("ArrowUp")(minuteSpinner)
     pressArrowKey("ArrowUp")(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent(/^01$/)
@@ -121,14 +120,13 @@ describe("spin button functionality", () => {
 
   it("changes segments orthogonally", () => {
     // tests whether changing minute changes hour
-    render(
-      <TimePickerWrapper
-        value={{ hour: 4, minutes: 44 }}
-        timeZone={UTC_ZERO_TIMEZONE}
-      />
-    )
-    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
-    const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+    render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
+    const minuteSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} minute`,
+    })
     pressArrowKey("ArrowUp")(hourSpinner)
     pressArrowKey("ArrowDown")(minuteSpinner)
     expect(hourSpinner).toHaveTextContent(/^5$/)
@@ -138,42 +136,32 @@ describe("spin button functionality", () => {
 
 describe("onChange uses correct date", () => {
   it("uses the correct date when using menu items", () => {
-    render(
-      <TimePickerWrapper timeZone={UTC_ZERO_TIMEZONE} onChange={mockSetValue} />
-    )
-    fireEvent.click(screen.getByTestId("timepicker-button"))
+    render(<TimePickerWrapper onChange={mockOnChange} />)
+    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
     fireEvent.click(screen.getByText("01:30"))
-    expect(mockSetValue).toHaveBeenCalledWith({ hour: 1, minutes: 30 })
+    expect(mockOnChange).toHaveBeenCalledWith({ hour: 1, minutes: 30 })
   })
   it("uses the correct date when iteracting with spinner buttons", () => {
     render(
       <TimePickerWrapper
         value={{ hour: 4, minutes: 44 }}
-        timeZone={UTC_ZERO_TIMEZONE}
-        onChange={mockSetValue}
+        onChange={mockOnChange}
       />
     )
-    const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(mockSetValue).toHaveBeenCalledWith({ hour: 5, minutes: 44 })
+    expect(mockOnChange).toHaveBeenCalledWith({ hour: 5, minutes: 44 })
   })
 })
 
-it("shows timezone in label if not hiding timezone ", () => {
-  render(<TimePickerWrapper hideTimeZone={false} locale="en-au" />)
-  // TODO: How do we accurately write tests to reflect DST?
-  expect(screen.getByTestId("timepicker-label")).toHaveTextContent("(AWST)")
-})
-
 it("allows uers to backspace to remove values", () => {
-  render(
-    <TimePickerWrapper
-      value={{ hour: 4, minutes: 44 }}
-      timeZone={UTC_ZERO_TIMEZONE}
-    />
-  )
-  const hourSpinner = screen.getByRole("spinbutton", { name: "hour" })
-  const minuteSpinner = screen.getByRole("spinbutton", { name: "minute" })
+  render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
+  const hourSpinner = screen.getByRole("spinbutton", { name: `${LABEL} hour` })
+  const minuteSpinner = screen.getByRole("spinbutton", {
+    name: `${LABEL} minute`,
+  })
   fireEvent.keyDown(minuteSpinner, {
     key: "Backspace",
     code: "Backspace",
