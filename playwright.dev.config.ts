@@ -1,6 +1,5 @@
 // playwright.config.ts
 import { type PlaywrightTestConfig } from "@playwright/test"
-
 import config from "./playwright.config"
 
 const LOCALHOST = "http://localhost:6006/"
@@ -10,7 +9,8 @@ const devConfig: PlaywrightTestConfig = {
   webServer: {
     command: "yarn storybook",
     url: LOCALHOST,
-    timeout: 120 * 1000,
+    timeout: 120 * 1000000,
+    reuseExistingServer: true,
   },
 }
 
