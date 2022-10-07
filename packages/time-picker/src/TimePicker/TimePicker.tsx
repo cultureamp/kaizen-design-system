@@ -19,6 +19,7 @@ import { generateLocalisedTime, getAllTimeOptions, TIME_OPTION } from "./utils"
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 import { TimeValue } from "./types"
+import { generateInputRegexString } from "./utils/generateInputRegexString"
 
 export type StatusType = "default" | "error"
 
@@ -98,14 +99,29 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     .formatToParts(new Date())
     .find(segment => segment.type === "timeZoneName")?.value
 
-  const options = useMemo(
-    () =>
-      getAllTimeOptions({
-        locale,
-        increments: dropdownIncrements,
-      }),
-    [locale, dropdownIncrements]
-  )
+  const options = useMemo(() => {
+    const allOptions = getAllTimeOptions({
+      locale,
+      increments: dropdownIncrements,
+    })
+
+    if (!state.segments) {
+      return allOptions
+    }
+
+    const regexMatcher = new RegExp(
+      `^${generateInputRegexString(state.segments)}`
+    )
+
+    return Object.keys(allOptions).reduce((filteredOptions, optionKey) => {
+      if (regexMatcher.test(allOptions[optionKey].label)) {
+        filteredOptions[optionKey] = allOptions[optionKey]
+      }
+      return filteredOptions
+    }, {} as Record<string, TIME_OPTION>)
+  }, [locale, dropdownIncrements, state])
+
+  console.log("SEGMENTS", state.segments)
   return (
     <div>
       <Label data-testid="timepicker-label">{`${label} ${
