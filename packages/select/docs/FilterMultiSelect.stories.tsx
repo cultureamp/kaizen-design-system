@@ -363,6 +363,7 @@ export const WithCustomOnSearchInputChange: ComponentStory<
                 ))
               }
             </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.LoadMoreButton label="Load more" />
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
               <FilterMultiSelect.ClearButton />
