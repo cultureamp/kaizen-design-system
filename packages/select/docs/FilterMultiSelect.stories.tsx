@@ -334,3 +334,42 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
 }
 
 DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
+
+export const WithCustomOnSearchInputChange: ComponentStory<
+  typeof FilterMultiSelect
+> = args => {
+  const [searchState, setSearchState] = useState("")
+
+  return (
+    <>
+      <FilterMultiSelect
+        {...args}
+        items={items}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={[]}
+            label={searchState ? `Searching for ${searchState}` : "Search me"}
+          />
+        )}
+        onSearchInputChange={searchInput => setSearchState(searchInput)}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+    </>
+  )
+}
