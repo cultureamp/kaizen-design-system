@@ -16,21 +16,14 @@ import { Heading } from "@kaizen/typography"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
-import { generateLocalisedTime, getAllTimeOptions } from "./utils"
+
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
-import { TimeOption, TimeValue } from "./types"
-import { generateInputRegexString } from "./utils/generateInputRegexString"
+import { StatusType, TimeOption, TimeValue, ValueType } from "./types"
+import { generateFilteredTimeOptions } from "./utils/filterTimeOptions"
+import { getAllTimeOptions } from "./utils/getAllTimeOptions"
+import { formatToLocalisedTime } from "./utils/formatToLocalisedTime"
 
-export type StatusType = "default" | "error"
-
-export type ValueType = {
-  /**
-   * Supply hour in 24 hour format
-   */
-  hour: number | undefined
-  minutes: number | undefined
-}
 export interface TimePickerProps
   extends Omit<
     TimeFieldStateOptions,
@@ -50,7 +43,6 @@ export interface TimePickerProps
   status?: StatusType
   validationMessage?: React.ReactNode
 }
-// https:// react-spectrum.adobe.com/react-aria/useFocusRing.html
 export const TimePicker: React.VFC<TimePickerProps> = ({
   status = "default",
   validationMessage,
@@ -106,19 +98,11 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
       increments: dropdownIncrements,
     })
 
-    // TODO pull this out into a filter util function
     if (!state.segments) {
       return allOptions
+    } else {
+      return generateFilteredTimeOptions(allOptions, state.segments)
     }
-
-    const regexMatcher = generateInputRegexString(state.segments)
-
-    return Object.keys(allOptions).reduce((filteredOptions, optionKey) => {
-      if (regexMatcher.test(optionKey)) {
-        filteredOptions[optionKey] = allOptions[optionKey]
-      }
-      return filteredOptions
-    }, {} as Record<string, TimeOption>)
   }, [locale, dropdownIncrements, state])
 
   return (
@@ -151,14 +135,16 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         </div>
         <Popover
           shouldCloseOnInteractOutside={element =>
+            // TODO: fix clicking on svg causes console error
+
             !element ||
             !(
               (element.id && element.id === id) ||
+              element.getAttribute("role") === "presentation" ||
               (element.className &&
                 element.className.includes("DateSegment")) ||
               element.className.includes("dropdownIndicator") ||
-              element.getAttribute("role") === "spinbutton" ||
-              element.getAttribute("role") === "presentation"
+              element.getAttribute("role") === "spinbutton"
             )
           }
           isOpen={Object.keys(options).length > 0 && menuState.isOpen}
@@ -169,7 +155,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             selectedKeys={
               value
                 ? new Set([
-                    generateLocalisedTime({
+                    formatToLocalisedTime({
                       hour: value.hour,
                       minutes: value.minutes,
                       locale,

@@ -94,7 +94,7 @@ const StickerSheetTemplate: Story = () => (
     </StoryWrapper.Row>
     <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
     <StoryWrapper.Row rowTitle="Localisation">
-      <I18nProvider locale={"en-US"}>
+      <I18nProvider locale="en-US">
         <TimePicker
           locale="en-US"
           id="timepicker-en-US"

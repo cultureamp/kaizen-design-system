@@ -1,13 +1,12 @@
 import { DateSegment } from "@react-stately/datepicker"
 
-export const generateInputRegexString = (segments: DateSegment[]): RegExp => {
+export const generateRegexFromInput = (segments: DateSegment[]): RegExp => {
   const regexString = segments
     .map(segment => {
       if (segment.isPlaceholder || segment.type === "literal") {
         if (segment.type === "hour") {
           return ".{1,2}"
         }
-
         // replaces all placeholder text characters with regex match any characters
         return Array.from(Array(segment.text.length).keys())
           .map(() => ".")
