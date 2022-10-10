@@ -1,10 +1,10 @@
 import { Time } from "@internationalized/date"
-import { TimeOption } from "../types"
+import { IncrementValues, TimeOption } from "../types"
 import { formatToLocalisedTime } from "./formatToLocalisedTime"
 
 type GetAllTimeOptionsConfig = {
   locale: string
-  increments?: number
+  increments?: IncrementValues
 }
 
 export const getAllTimeOptions = ({

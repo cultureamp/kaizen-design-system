@@ -14,3 +14,5 @@ export type ValueType = {
   hour: number | undefined
   minutes: number | undefined
 }
+
+export type IncrementValues = 5 | 10 | 15 | 30 | 60
