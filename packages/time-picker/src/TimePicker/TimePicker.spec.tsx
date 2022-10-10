@@ -171,7 +171,7 @@ it("allows uers to backspace to remove values", () => {
     key: "Backspace",
     code: "Backspace",
   })
-  expect(minuteSpinner).toHaveTextContent(/^––$/)
+  expect(minuteSpinner).toHaveTextContent(/^--$/)
   expect(hourSpinner).toHaveTextContent(/^4$/)
 })
 

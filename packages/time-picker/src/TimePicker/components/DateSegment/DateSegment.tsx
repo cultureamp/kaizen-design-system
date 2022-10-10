@@ -19,7 +19,7 @@ export const DateSegment = ({
 
   const renderText = () => {
     if (segment.isPlaceholder) {
-      return "––"
+      return "--"
     } else {
       return segment.text
     }
