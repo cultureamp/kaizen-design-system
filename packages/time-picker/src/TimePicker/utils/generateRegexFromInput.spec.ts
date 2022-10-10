@@ -1,5 +1,5 @@
 import { DateSegment } from "@react-stately/datepicker"
-import { generateInputRegexString } from "./generateInputRegexString"
+import { generateRegexFromInput } from "./generateRegexFromInput"
 
 const cnLabel = "上午10:00"
 
@@ -101,13 +101,13 @@ const generateMockCNSegments = (
 describe("english locale", () => {
   it("matches a fully typed in type", () => {
     const mockSegments = generateMockENSegments("1", "30", "AM")
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test("1:30 AM")).toBeTruthy()
     expect(regexMatcher.test("1:30 PM")).toBeFalsy()
   })
   it("matches a partially typed in time", () => {
     const mockSegments = generateMockENSegments("1", undefined, undefined)
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test("1:30 AM")).toBeTruthy()
     expect(regexMatcher.test("12:30 AM")).toBeTruthy()
     expect(regexMatcher.test("1:30 PM")).toBeTruthy()
@@ -116,13 +116,13 @@ describe("english locale", () => {
 
   it("matches a time with only minutes typed in", () => {
     const mockSegments = generateMockENSegments(undefined, "30", undefined)
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test("12:30 AM")).toBeTruthy()
     expect(regexMatcher.test("1:30 PM")).toBeTruthy()
   })
   it("does not match a time in the wrong time period", () => {
     const mockSegments = generateMockENSegments("1", "30", "PM")
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test("")).toBeFalsy()
   })
 })
@@ -131,12 +131,12 @@ describe("english locale", () => {
 describe("chinese locale", () => {
   it("matches fully typed in time", () => {
     const mockSegments = generateMockCNSegments("上午", "10", "00")
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test(cnLabel)).toBeTruthy()
   })
   it("matches partially typed in time", () => {
     const mockSegments = generateMockCNSegments("上午", undefined, undefined)
-    const regexMatcher = generateInputRegexString(mockSegments)
+    const regexMatcher = generateRegexFromInput(mockSegments)
     expect(regexMatcher.test(cnLabel)).toBeTruthy()
   })
 })

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { TimePicker, TimePickerProps, ValueType } from "./TimePicker"
+import { TimePicker, TimePickerProps } from "./TimePicker"
+import { ValueType } from "./types"
 
 const mockOnChange = jest.fn()
 const LABEL = "Launch Time Label"
