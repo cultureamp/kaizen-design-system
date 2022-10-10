@@ -1,9 +1,8 @@
 import React, { ForwardedRef, RefObject } from "react"
 import { useButton, AriaButtonProps } from "@react-aria/button"
-import { Icon } from "@kaizen/component-library"
 import styles from "./Button.module.scss"
 
-export const Button = React.forwardRef(
+export const DropdownButton = React.forwardRef(
   (props: AriaButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { buttonProps } = useButton(
       props,
@@ -17,4 +16,4 @@ export const Button = React.forwardRef(
   }
 )
 
-Button.displayName = "Button"
+DropdownButton.displayName = "DropdownButton"

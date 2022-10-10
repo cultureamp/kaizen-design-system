@@ -17,7 +17,7 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import classNames from "classnames"
 
-import { DateSegment, Menu, Button, Popover } from "./components"
+import { DateSegment, Menu, DropdownButton, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
 import {
   IncrementValues,
@@ -46,7 +46,6 @@ export interface TimePickerProps
    * Aria label for the dropdown button. A suggested label is 'Toggle dropdown menu'
    */
   dropdownButtonAriaLabel: string
-
   /**
    * TODO: add description here
    */
@@ -142,12 +141,15 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             <DateSegment key={i} segment={segment} state={state} />
           ))}
           <div className={styles.focusRing} />
-          <Button {...menuTriggerProps} aria-label={dropdownButtonAriaLabel}>
+          <DropdownButton
+            {...menuTriggerProps}
+            aria-label={dropdownButtonAriaLabel}
+          >
             <Icon
               role="presentation"
               icon={menuState.isOpen ? chevronUp : chevronDown}
             />
-          </Button>
+          </DropdownButton>
         </div>
         <Popover
           shouldCloseOnInteractOutside={element =>
