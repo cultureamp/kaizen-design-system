@@ -58,6 +58,7 @@ export interface TimePickerProps
   dropdownIncrements?: IncrementValues
   status?: StatusType
   validationMessage?: React.ReactNode
+  isDropdownMenuOpen?: boolean
 }
 export const TimePicker: React.VFC<TimePickerProps> = ({
   status = "default",
@@ -70,6 +71,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
   locale,
   dropdownButtonAriaLabel,
   dropdownIncrements,
+  isDropdownMenuOpen,
   ...restProps
 }) => {
   const handleOnChange = (timeValue: TimeValue | null): void => {
@@ -93,7 +95,7 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     validationState: status === "default" ? "valid" : "invalid",
   })
 
-  const menuState = useMenuTriggerState({})
+  const menuState = useMenuTriggerState({ isOpen: isDropdownMenuOpen })
 
   const inputRef = React.useRef(null)
   const { fieldProps, labelProps } = useTimeField(

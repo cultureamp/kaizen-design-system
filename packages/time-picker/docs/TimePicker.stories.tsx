@@ -48,11 +48,28 @@ DefaultStory.args = {
 const StickerSheetTemplate: Story = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader
-      headings={["Default", "Selected Value", "Disabled", "Error"]}
+      headings={[
+        "Default",
+        "Dropdown Menu Open",
+        "Selected Value",
+        "Disabled",
+        "Error",
+      ]}
     />
     <StoryWrapper.Row rowTitle="Input">
       <I18nProvider locale={"en-GB"}>
         <TimePicker
+          dropdownButtonAriaLabel="Toggle dropdown button"
+          locale="en-GB"
+          id="timepicker-default"
+          value={undefined}
+          label="Label"
+          onChange={() => undefined}
+        />
+      </I18nProvider>
+      <I18nProvider locale={"en-GB"}>
+        <TimePicker
+          isDropdownMenuOpen
           dropdownButtonAriaLabel="Toggle dropdown button"
           locale="en-GB"
           id="timepicker-default"
