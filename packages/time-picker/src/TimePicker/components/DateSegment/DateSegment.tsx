@@ -17,13 +17,6 @@ export const DateSegment = ({
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
-  const renderText = () => {
-    if (segment.isPlaceholder) {
-      return "--"
-    } else {
-      return segment.text
-    }
-  }
   return (
     <div
       {...segmentProps}
@@ -32,7 +25,7 @@ export const DateSegment = ({
         segment.isPlaceholder ? styles.placeholder : ""
       }`}
     >
-      {renderText()}
+      {segment.isPlaceholder ? "--" : segment.text}
     </div>
   )
 }

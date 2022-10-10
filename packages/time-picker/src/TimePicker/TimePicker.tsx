@@ -46,6 +46,11 @@ export interface TimePickerProps
    * Aria label for the dropdown button. A suggested label is 'Toggle dropdown menu'
    */
   dropdownButtonAriaLabel: string
+
+  /**
+   * TODO: add description here
+   */
+  locale: string
   onChange: (value: ValueType | null) => void
   value: ValueType | undefined | null
   /**
@@ -112,9 +117,8 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
 
     if (!state.segments) {
       return allOptions
-    } else {
-      return generateFilteredTimeOptions(allOptions, state.segments)
     }
+    return generateFilteredTimeOptions(allOptions, state.segments)
   }, [locale, dropdownIncrements, state])
 
   return (
@@ -151,9 +155,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
             !(
               (element.id && element.id === id) ||
               element.getAttribute("role") === "presentation" ||
-              (element.className &&
-                element.className.includes("DateSegment")) ||
-              element.className.includes("dropdownIndicator") ||
               element.getAttribute("role") === "spinbutton"
             )
           }
@@ -188,5 +189,3 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     </div>
   )
 }
-
-TimePicker.displayName = "TimePicker"
