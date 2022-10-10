@@ -174,3 +174,42 @@ it("allows uers to backspace to remove values", () => {
   expect(minuteSpinner).toHaveTextContent(/^––$/)
   expect(hourSpinner).toHaveTextContent(/^4$/)
 })
+
+describe("the dropdown menu shows right options based on user input", () => {
+  it("shows filtered time options if user just inputs hour", () => {
+    render(<TimePickerWrapper locale="en-AU" />)
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
+
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    pressArrowKey("ArrowUp")(hourSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
+    expect(screen.getByText(/^12:00 am/)).toBeInTheDocument()
+    expect(screen.getByText(/^10:30 am/)).toBeInTheDocument()
+    expect(screen.getByText(/^1:30 pm/)).toBeInTheDocument()
+    expect(screen.queryByText(/^2:00 pm/)).not.toBeInTheDocument()
+  })
+  it("shows dropdown option if user enters in full time that corresponds with an option", () => {
+    render(<TimePickerWrapper locale="en-AU" />)
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
+    const minuteSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} minute`,
+    })
+    const dayPeriodSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} AM/PM`,
+    })
+    fireEvent.click(screen.getByRole("group", { name: LABEL }))
+    pressArrowKey("ArrowUp")(hourSpinner)
+    pressArrowKey("ArrowUp")(hourSpinner)
+    pressArrowKey("ArrowUp")(minuteSpinner)
+    pressArrowKey("ArrowUp")(dayPeriodSpinner)
+    screen.debug
+    expect(screen.getByText(/^1:00 am/)).toBeInTheDocument()
+    expect(screen.queryByText(/^2:00 am/)).not.toBeInTheDocument()
+    // FIXME? 12:00 shows here. should here?
+    // expect(screen.queryByText(/^12:00 am/)).not.toBeInTheDocument()
+  })
+})
