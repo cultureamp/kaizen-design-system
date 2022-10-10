@@ -8,7 +8,7 @@ export const generateFilteredTimeOptions = (
 ) =>
   Object.keys(allOptions).reduce((filteredOptions, optionKey) => {
     if (generateRegexFromInput(segments).test(optionKey)) {
-      filteredOptions[optionKey] = allOptions[optionKey]
+      return { ...filteredOptions, [optionKey]: allOptions[optionKey] }
     }
     return filteredOptions
   }, {} as Record<string, TimeOption>)

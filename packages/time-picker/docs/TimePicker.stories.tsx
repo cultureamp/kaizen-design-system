@@ -19,7 +19,7 @@ export default {
   },
   argTypes: {
     locale: {
-      options: ["en-US", "en-AU", "en-GB", "zh-HANS"],
+      options: ["en-US", "en-AU", "en-GB", "zh-Hant"],
       control: { type: "radio" },
     },
   },

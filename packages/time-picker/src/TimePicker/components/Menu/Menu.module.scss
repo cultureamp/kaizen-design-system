@@ -7,14 +7,12 @@
 .menuContainer {
   margin: 0;
   list-style: none;
-  width: 100%;
   z-index: $ca-z-index-dropdown;
   box-sizing: border-box;
   position: absolute;
   background: $color-white;
   padding: $spacing-xs 0;
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.1);
-  right: 0;
   border-radius: $border-solid-border-radius;
   box-shadow: $shadow-large-box-shadow;
   text-align: left;
