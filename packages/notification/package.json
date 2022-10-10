@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/notification",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Collection of notification components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,8 +35,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
-    "@kaizen/typography": "^2.3.2"
+    "@kaizen/typography": "^2.3.2",
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
