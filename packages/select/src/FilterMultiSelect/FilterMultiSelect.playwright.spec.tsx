@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 test.describe("Selecting an unselected option", async () => {
   test("Selects the option", async ({ page }) => {
     // Click trigger button
-    await page.locator("text=Engineer: Front-End").click()
+    await page.locator("role=button").click()
 
     // const devOpsOption = await page.locator('[aria-label="Dev-ops"]')
     const devOpsOption = page.locator('[aria-label="Dev-ops"]')
@@ -25,7 +25,7 @@ test.describe("Selecting an unselected option", async () => {
 test.describe("Deselecting a selected option", async () => {
   test("Selects the option", async ({ page }) => {
     // Click trigger button
-    await page.locator("text=Engineer: Front-End").click()
+    await page.locator("role=button").click()
 
     const frontEndOption = await page.locator("text=Front-End1245 available")
     await frontEndOption.click()
@@ -38,7 +38,7 @@ test.describe("Deselecting a selected option", async () => {
 test.describe("Filtering by text", async () => {
   test("Keeps text matches, and filters out non-matches", async ({ page }) => {
     // Click trigger button
-    await page.locator("text=Engineer: Front-End").click()
+    await page.locator("role=button").click()
     // Enter text "dev" in search field
     await page.locator('[placeholder="Search…"]').fill("dev")
 
