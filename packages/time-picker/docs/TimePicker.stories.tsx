@@ -5,11 +5,8 @@ import { I18nProvider } from "@react-aria/i18n"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimePicker } from "../index"
-import { ValueType } from "../src/TimePicker"
+import { ValueType } from "../src/TimePicker/types"
 
-// TODO optimise locale options
-// provide a subset in either radio/select options
-// document the prop to say it can accept any valid string
 export default {
   title: `${CATEGORIES.components}/TimePicker`,
   component: TimePicker,
@@ -18,6 +15,12 @@ export default {
       description: {
         component: 'import { TimePicker } from "@kaizen/time-picker"',
       },
+    },
+  },
+  argTypes: {
+    locale: {
+      options: ["en-US", "en-AU", "en-GB", "zh-HANS"],
+      control: { type: "radio" },
     },
   },
   decorators: [withDesign],

@@ -1,8 +1,6 @@
 import { DateSegment } from "@react-stately/datepicker"
 import { generateRegexFromInput } from "./generateRegexFromInput"
 
-const cnLabel = "上午10:00"
-
 const generateMockENSegments = (
   hour: string | undefined,
   minute: string | undefined,
@@ -132,11 +130,11 @@ describe("chinese locale", () => {
   it("matches fully typed in time", () => {
     const mockSegments = generateMockCNSegments("上午", "10", "00")
     const regexMatcher = generateRegexFromInput(mockSegments)
-    expect(regexMatcher.test(cnLabel)).toBeTruthy()
+    expect(regexMatcher.test("上午10:00")).toBeTruthy()
   })
   it("matches partially typed in time", () => {
     const mockSegments = generateMockCNSegments("上午", undefined, undefined)
     const regexMatcher = generateRegexFromInput(mockSegments)
-    expect(regexMatcher.test(cnLabel)).toBeTruthy()
+    expect(regexMatcher.test("上午10:00")).toBeTruthy()
   })
 })

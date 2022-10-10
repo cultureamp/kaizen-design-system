@@ -19,7 +19,13 @@ import classNames from "classnames"
 
 import { DateSegment, Menu, Button, Popover } from "./components"
 import styles from "./TimePicker.module.scss"
-import { StatusType, TimeOption, TimeValue, ValueType } from "./types"
+import {
+  IncrementValues,
+  StatusType,
+  TimeOption,
+  TimeValue,
+  ValueType,
+} from "./types"
 import { generateFilteredTimeOptions } from "./utils/filterTimeOptions"
 import { getAllTimeOptions } from "./utils/getAllTimeOptions"
 import { formatToLocalisedTime } from "./utils/formatToLocalisedTime"
@@ -36,10 +42,16 @@ export interface TimePickerProps
   > {
   id: string
   label: string
+  /**
+   * Aria label for the dropdown button. A suggested label is 'Toggle dropdown menu'
+   */
   dropdownButtonAriaLabel: string
   onChange: (value: ValueType | null) => void
   value: ValueType | undefined | null
-  dropdownIncrements?: number
+  /**
+   * Minute increments to show in the dropdown menu
+   */
+  dropdownIncrements?: IncrementValues
   status?: StatusType
   validationMessage?: React.ReactNode
 }
@@ -135,8 +147,6 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
         </div>
         <Popover
           shouldCloseOnInteractOutside={element =>
-            // TODO: fix clicking on svg causes console error
-
             !element ||
             !(
               (element.id && element.id === id) ||
