@@ -20,7 +20,7 @@ Happy linting! 💖
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "playwright.env": {
-    "isDev": true
+    "IS_DEV": true
   },
   "playwright.reuseBrowser": true
 }
