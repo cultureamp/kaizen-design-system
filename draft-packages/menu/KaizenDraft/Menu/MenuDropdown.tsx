@@ -39,7 +39,7 @@ const MenuDropdown = ({
         {
           name: "offset",
           options: {
-            offset: [0, 6], // value used from the $kz-var-spacing-xs scss variable,
+            offset: [0, 6], // value used from the $spacing-xs scss variable,
           },
         },
         {
