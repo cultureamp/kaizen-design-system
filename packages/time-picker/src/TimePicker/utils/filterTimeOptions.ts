@@ -1,6 +1,5 @@
 import { DateSegment } from "@react-stately/datepicker"
 import { TimeOption } from "../types"
-// import { generateRegexFromInput } from "./generateRegexFromInput"
 
 export const doesOptionMatchInput = (
   segments: DateSegment[],
