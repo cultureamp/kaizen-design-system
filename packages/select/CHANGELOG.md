@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.1.1...@kaizen/select@4.0.0) (2022-10-06)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** manually change @kaizen/select to next major version ([#3009](https://github.com/cultureamp/kaizen-design-system/issues/3009)) ([187bacb](https://github.com/cultureamp/kaizen-design-system/commit/187bacb0fd5e9bf8e7f80e33f7f0da05a71f0968))
+
+
+### BREAKING CHANGES
+
+* **filter-multi-select:** was accidentally released, without triggering a major version bump
+
+
+
+
+
 ## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.1.0...@kaizen/select@2.1.1) (2022-10-06)
 
 **Note:** Version bump only for package @kaizen/select
