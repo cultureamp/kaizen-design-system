@@ -27,6 +27,12 @@ export interface TabsProps {
   }) => React.ReactNode
 }
 
+/**
+ * **Deprecated:** If you were using this for page navigation, that design pattern is something we want to move away from.
+ * Reach out to the Kaizen team if you want to discuss further.
+ * Otherwise use @kaizen/tabs for the tabs pattern as defined by W3C WAI ARIA (switchable content areas rather than page navigation).
+ * @deprecated
+ */
 const Tabs = ({
   orientation = "horizontal",
   textDirection = "ltr",
