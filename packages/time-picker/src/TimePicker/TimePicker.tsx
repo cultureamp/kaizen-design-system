@@ -4,6 +4,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { useMenuTrigger } from "@react-aria/menu"
+import { I18nProvider } from "@react-aria/i18n"
 
 import { Item } from "@react-stately/collections"
 import { useMenuTriggerState } from "@react-stately/menu"
@@ -60,7 +61,7 @@ export interface TimePickerProps
   validationMessage?: React.ReactNode
   isDropdownMenuOpen?: boolean
 }
-export const TimePicker: React.VFC<TimePickerProps> = ({
+const TimePickerComponent: React.VFC<TimePickerProps> = ({
   status = "default",
   validationMessage,
   id,
@@ -193,3 +194,12 @@ export const TimePicker: React.VFC<TimePickerProps> = ({
     </div>
   )
 }
+TimePickerComponent.displayName = "TimePickerComponent"
+
+export const TimePicker: React.VFC<TimePickerProps> = props => (
+  <I18nProvider locale={props.locale}>
+    <TimePickerComponent {...props} />
+  </I18nProvider>
+)
+
+TimePicker.displayName = "TimePicker"
