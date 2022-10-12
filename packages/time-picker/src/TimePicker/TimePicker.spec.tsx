@@ -5,7 +5,6 @@ import { ValueType } from "./types"
 
 const mockOnChange = jest.fn()
 const LABEL = "Launch Time Label"
-const DROPDOWN_ARIA_LABEL = "Toggle dropdown button"
 
 const pressArrowKey =
   (direction: "ArrowUp" | "ArrowDown") => (element: HTMLElement) =>
@@ -25,7 +24,6 @@ const TimePickerWrapper = ({
       locale="en-GB"
       id="id"
       label={LABEL}
-      dropdownButtonAriaLabel={DROPDOWN_ARIA_LABEL}
       value={value}
       onChange={setValue}
       {...customProps}
@@ -33,61 +31,21 @@ const TimePickerWrapper = ({
   )
 }
 
-describe("the menu opens and closes properly", () => {
-  it("opens the menu when the input is pressed", () => {
-    render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    expect(screen.getByText("00:00")).toBeInTheDocument()
-  })
-  it("toggles the menu on button press", () => {
-    render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
-    expect(screen.getByText("00:00")).toBeInTheDocument()
-    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
-    expect(screen.queryByText("00:00")).toBeFalsy()
-  })
-  it("closes the menu on a menu item press", () => {
-    render(<TimePickerWrapper />)
-    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
-    fireEvent.click(screen.getByText("00:00"))
-    expect(screen.queryByText("00:00")).toBeFalsy()
-  })
-})
-
 describe("component formats time appropriate to locale", () => {
   it("shows time in a h:mm a format for en-AU locale", () => {
     render(<TimePickerWrapper locale="en-AU" />)
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    expect(screen.getByText("12:00 am")).toBeInTheDocument()
   })
   it("shows time in a h:mm A format for en-US", () => {
     render(<TimePickerWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    expect(screen.getByText("12:00 AM")).toBeInTheDocument()
   })
   it("shows time in a HH:MM format for en-GB", () => {
     render(<TimePickerWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
     expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    expect(screen.getByText("00:00")).toBeInTheDocument()
   })
-})
-
-it("changes value when selecting a menu item", () => {
-  render(<TimePickerWrapper />)
-  fireEvent.click(screen.getByRole("group", { name: LABEL }))
-  fireEvent.click(screen.getByText("01:30"))
-  // FIXME: There should actually be a leading 0, i.e. 01
-  expect(
-    screen.getByRole("spinbutton", { name: `${LABEL} hour` })
-  ).toHaveTextContent(/^1$/)
-  expect(
-    screen.getByRole("spinbutton", { name: `${LABEL} minute` })
-  ).toHaveTextContent(/^30$/)
 })
 
 describe("spin button functionality", () => {
@@ -136,12 +94,6 @@ describe("spin button functionality", () => {
 })
 
 describe("onChange uses correct date", () => {
-  it("uses the correct date when using menu items", () => {
-    render(<TimePickerWrapper onChange={mockOnChange} />)
-    fireEvent.click(screen.getByRole("button", { name: DROPDOWN_ARIA_LABEL }))
-    fireEvent.click(screen.getByText("01:30"))
-    expect(mockOnChange).toHaveBeenCalledWith({ hour: 1, minutes: 30 })
-  })
   it("uses the correct date when iteracting with spinner buttons", () => {
     render(
       <TimePickerWrapper
@@ -173,43 +125,4 @@ it("allows uers to backspace to remove values", () => {
   })
   expect(minuteSpinner).toHaveTextContent(/^--$/)
   expect(hourSpinner).toHaveTextContent(/^4$/)
-})
-
-describe("the dropdown menu shows right options based on user input", () => {
-  it("shows filtered time options if user just inputs hour", () => {
-    render(<TimePickerWrapper locale="en-AU" />)
-    const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
-    })
-
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    pressArrowKey("ArrowUp")(hourSpinner)
-    pressArrowKey("ArrowUp")(hourSpinner)
-    expect(screen.getByText(/^12:00 am/)).toBeInTheDocument()
-    expect(screen.getByText(/^10:30 am/)).toBeInTheDocument()
-    expect(screen.getByText(/^1:30 pm/)).toBeInTheDocument()
-    expect(screen.queryByText(/^2:00 pm/)).not.toBeInTheDocument()
-  })
-  it("shows dropdown option if user enters in full time that corresponds with an option", () => {
-    render(<TimePickerWrapper locale="en-AU" />)
-    const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
-    })
-    const minuteSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} minute`,
-    })
-    const dayPeriodSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} AM/PM`,
-    })
-    fireEvent.click(screen.getByRole("group", { name: LABEL }))
-    pressArrowKey("ArrowUp")(hourSpinner)
-    pressArrowKey("ArrowUp")(hourSpinner)
-    pressArrowKey("ArrowUp")(minuteSpinner)
-    pressArrowKey("ArrowUp")(dayPeriodSpinner)
-    screen.debug
-    expect(screen.getByText(/^1:00 am/)).toBeInTheDocument()
-    expect(screen.queryByText(/^2:00 am/)).not.toBeInTheDocument()
-    // FIXME? 12:00 shows here. should here?
-    // expect(screen.queryByText(/^12:00 am/)).not.toBeInTheDocument()
-  })
 })

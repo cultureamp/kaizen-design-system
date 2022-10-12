@@ -22,6 +22,7 @@ export default {
       options: ["en-US", "en-AU", "en-GB", "zh-Hant"],
       control: { type: "radio" },
     },
+    control: { type: "radio" },
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
@@ -43,9 +44,7 @@ DefaultStory.args = {
   status: "default",
   id: "time-picker-input",
   label: "Launch time",
-  dropdownIncrements: 15,
   locale: "en-US",
-  dropdownButtonAriaLabel: "Toggle dropdown button",
 }
 
 const StickerSheetTemplate: Story = () => (
@@ -61,17 +60,6 @@ const StickerSheetTemplate: Story = () => (
     />
     <StoryWrapper.Row rowTitle="Input">
       <TimePicker
-        dropdownButtonAriaLabel="Toggle dropdown button"
-        locale="en-GB"
-        id="timepicker-default"
-        value={undefined}
-        label="Label"
-        onChange={() => undefined}
-      />
-
-      <TimePicker
-        isDropdownMenuOpen
-        dropdownButtonAriaLabel="Toggle dropdown button"
         locale="en-GB"
         id="timepicker-default"
         value={undefined}
@@ -81,7 +69,14 @@ const StickerSheetTemplate: Story = () => (
 
       <TimePicker
         locale="en-GB"
-        dropdownButtonAriaLabel="Toggle dropdown button"
+        id="timepicker-default"
+        value={undefined}
+        label="Label"
+        onChange={() => undefined}
+      />
+
+      <TimePicker
+        locale="en-GB"
         id="timepicker-selected"
         value={{ hour: 1, minutes: 30 }}
         label="Label"
@@ -94,7 +89,6 @@ const StickerSheetTemplate: Story = () => (
         id="timepicker-disabled"
         value={{ hour: 1, minutes: 30 }}
         label="Label"
-        dropdownButtonAriaLabel="Toggle dropdown button"
         onChange={() => undefined}
       />
 
@@ -104,7 +98,6 @@ const StickerSheetTemplate: Story = () => (
         status="error"
         id="timepicker-error"
         value={{ hour: 1, minutes: 30 }}
-        dropdownButtonAriaLabel="Toggle dropdown button"
         label="Label"
         onChange={() => undefined}
       />
@@ -114,7 +107,6 @@ const StickerSheetTemplate: Story = () => (
       <TimePicker
         locale="en-US"
         id="timepicker-en-US"
-        dropdownButtonAriaLabel="Toggle dropdown button"
         value={undefined}
         label="Label"
         onChange={() => undefined}
@@ -122,7 +114,6 @@ const StickerSheetTemplate: Story = () => (
       <TimePicker
         locale="en-GB"
         id="timepicker-en-GB"
-        dropdownButtonAriaLabel="Toggle dropdown button"
         value={undefined}
         label="Label"
         onChange={() => undefined}
@@ -130,7 +121,6 @@ const StickerSheetTemplate: Story = () => (
       <TimePicker
         locale="zh-HANS-SG"
         id="timepicker-zh-HANS-SG"
-        dropdownButtonAriaLabel="Toggle dropdown button"
         value={undefined}
         label="Label"
         onChange={() => undefined}
