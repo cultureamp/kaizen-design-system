@@ -20,12 +20,9 @@ export default ({ config }: { config: Configuration }) => {
 
   // Storybook's base config applies file-loader to svgs
   config.module.rules = config.module.rules.map(removeSvgFromTest)
-
-  config.module.rules.push(
-    ...[babel, styles].map(excludeExternalModules),
-    svgs,
-    svgIcons
-  )
+  const jsRule = excludeExternalModules(babel)
+  const styleRules = styles.map(excludeExternalModules)
+  config.module.rules.push(jsRule, ...styleRules, svgs, svgIcons)
 
   config.resolve.extensions.push(".ts", ".tsx")
 
