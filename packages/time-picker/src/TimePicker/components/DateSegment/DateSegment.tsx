@@ -16,7 +16,6 @@ export const DateSegment = ({
 }) => {
   const ref = React.useRef(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
-
   return (
     <div
       {...segmentProps}

@@ -68,11 +68,14 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
 
   const inputRef = React.useRef(null)
   const { fieldProps, labelProps } = useTimeField(
-    { ...restProps, label },
+    {
+      ...restProps,
+      label,
+      isDisabled,
+    },
     state,
     inputRef
   )
-
   return (
     <div>
       <Heading tag="div" variant="heading-6" {...labelProps}>
@@ -96,7 +99,11 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
         </div>
       </div>
       {validationMessage && status === "error" && (
-        <FieldMessage message={validationMessage} status={status} />
+        <FieldMessage
+          id="time-picker-validation-message"
+          message={validationMessage}
+          status={status}
+        />
       )}
     </div>
   )

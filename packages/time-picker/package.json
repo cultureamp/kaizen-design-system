@@ -38,13 +38,9 @@
     "@react-aria/datepicker": "^3.1.1",
     "@react-aria/focus": "^3.8.0",
     "@react-aria/i18n": "^3.6.0",
-    "@react-aria/menu": "^3.6.1",
     "@react-aria/overlays": "^3.10.1",
     "@react-stately/collections": "^3.4.3",
     "@react-stately/datepicker": "^3.0.2",
-    "@react-stately/menu": "^3.4.1",
-    "@react-stately/overlays": "^3.4.1",
-    "@react-stately/tree": "^3.3.3",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
