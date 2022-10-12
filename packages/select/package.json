@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

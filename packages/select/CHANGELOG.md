@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.1...@kaizen/select@4.0.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** strip items of undefined values ([#3015](https://github.com/cultureamp/kaizen-design-system/issues/3015)) ([30f567a](https://github.com/cultureamp/kaizen-design-system/commit/30f567a374e1e7facb7b0192fabb292ae45224a1))
+
+
+
+
+
 ## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.0...@kaizen/select@4.0.1) (2022-10-11)
 
 **Note:** Version bump only for package @kaizen/select
