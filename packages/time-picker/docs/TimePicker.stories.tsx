@@ -18,34 +18,26 @@ export default {
   },
   argTypes: {
     locale: {
-      options: ["en-US", "en-AU", "en-GB", "zh-Hant"],
+      options: ["en-US", "en-AU", "en-GB", "fr-CA", "zh-Hant"],
       control: { type: "radio" },
     },
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
 
 export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
-  const [value, setValue] = useState<undefined | ValueType | null>(undefined)
-  return (
-    <TimePicker
-      {...args}
-      value={value}
-      onChange={setValue}
-      locale={args.locale}
-    />
-  )
+  const [value, setValue] = useState<ValueType | null>(null)
+  return <TimePicker {...args} value={value} onChange={setValue} />
 }
 DefaultStory.storyName = "TimePicker"
 DefaultStory.args = {
-  isDisabled: false,
-  status: "default",
   id: "time-picker-input",
   label: "Launch time",
   locale: "en-US",
+  isDisabled: false,
+  status: "default",
 }
 
 const StickerSheetTemplate: Story = () => (
@@ -55,7 +47,7 @@ const StickerSheetTemplate: Story = () => (
       <TimePicker
         locale="en-GB"
         id="timepicker-default"
-        value={undefined}
+        value={null}
         label="Label"
         onChange={() => undefined}
       />
@@ -84,21 +76,21 @@ const StickerSheetTemplate: Story = () => (
       <TimePicker
         locale="en-US"
         id="timepicker-en-US"
-        value={undefined}
+        value={null}
         label="Label"
         onChange={() => undefined}
       />
       <TimePicker
         locale="en-GB"
         id="timepicker-en-GB"
-        value={undefined}
+        value={null}
         label="Label"
         onChange={() => undefined}
       />
       <TimePicker
         locale="zh-HANS-SG"
         id="timepicker-zh-HANS-SG"
-        value={undefined}
+        value={null}
         label="Label"
         onChange={() => undefined}
       />
@@ -112,5 +104,3 @@ StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }
-
-/** @todo: Add extra stories to showcase props which don't appear in sticker sheets */

@@ -3,30 +3,19 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 
-// General purpose tokens
-
-$input-placeholder-line-height: 2.9rem;
 $input-height: 48px;
-$input-placeholder-opacity: 0.5;
-$input-disabled-background: $color-gray-300;
-$input-disabled-opacity: 0.3;
-$input-disabled-border-alpha: 50%;
 
-@mixin base-font-style() {
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
   line-height: $typography-paragraph-body-line-height;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   color: $color-purple-800;
-}
-
-.wrapper {
-  @include base-font-style();
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .input {
@@ -36,40 +25,32 @@ $input-disabled-border-alpha: 50%;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   border-radius: $border-solid-border-radius;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
   padding: 0 $spacing-sm;
   height: $input-height;
   width: 100%;
   box-sizing: border-box;
-  // FIXME: The border doesn't work on focus
-  &:focus-within,
-  &:hover {
+
+  &:hover,
+  &:focus-within {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
 }
 
-.isDisabled {
-  pointer-events: none;
-  background-color: transparent;
-  border-color: $color-gray-500;
-  opacity: 0.3;
-}
-
-.error {
-  border: $border-solid-border-width $border-solid-border-style $color-red-500;
-}
-
 .input:focus-within {
+  // DateSegment
   [role="spinbutton"] {
     background-color: $color-white;
+
     &:focus {
       color: white;
       background: $color-blue-500;
       outline: none;
     }
   }
+
   .focusRing {
     $focus-ring-offset: 3px;
     position: absolute;
@@ -85,21 +66,14 @@ $input-disabled-border-alpha: 50%;
     pointer-events: none;
   }
 }
-.dropdownIndicator {
-  display: flex;
-  position: absolute;
-  right: 0;
-  padding: 8px;
-  top: 0;
-  bottom: 0;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  background: transparent;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
-  border-radius: $border-borderless-border-radius;
-  color: $color-purple-700;
-  opacity: 0.7;
-  outline: none;
+
+.isDisabled {
+  pointer-events: none;
+  background-color: transparent;
+  border-color: $color-gray-500;
+  opacity: 0.3;
+}
+
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
 }

@@ -1,48 +1,66 @@
 import React from "react"
-import { FieldMessage } from "@kaizen/draft-form"
 import { Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { I18nProvider } from "@react-aria/i18n"
-
 import {
   useTimeFieldState,
   TimeFieldStateOptions,
 } from "@react-stately/datepicker"
-
-import { Heading } from "@kaizen/typography"
 import classNames from "classnames"
-
-import { DateSegment } from "./components"
-import styles from "./TimePicker.module.scss"
+import { OverrideClassName } from "@kaizen/component-base"
+import { FieldMessage } from "@kaizen/draft-form"
+import { Heading } from "@kaizen/typography"
+import { DateSegment } from "./components/DateSegment"
 import { StatusType, TimeValue, ValueType } from "./types"
+import styles from "./TimePicker.module.scss"
+
+type OmittedTimePickerProps =
+  | "errorMessage"
+  | "validationState"
+  | "value"
+  | "onChange"
+  | "label"
+  | "hideTimeZone"
 
 export interface TimePickerProps
-  extends Omit<
-    TimeFieldStateOptions,
-    | "errorMessage"
-    | "validationState"
-    | "value"
-    | "onChange"
-    | "label"
-    | "hideTimeZone"
+  extends OverrideClassName<
+    Omit<TimeFieldStateOptions, OmittedTimePickerProps>
   > {
   id: string
+  /**
+   * Field label.
+   */
   label: string
+  /**
+   * Accepts any valid locale code (https://npm.io/package/locale-codes).
+   */
   locale: string
   onChange: (value: ValueType | null) => void
-  value: ValueType | undefined | null
+  value: ValueType | null
   status?: StatusType
   validationMessage?: React.ReactNode
 }
+
+// This needed to be placed directly below the props because
+// the prop descriptions wouldn't show in Storybook otherwise.
+export const TimePicker: React.VFC<TimePickerProps> = props => (
+  <I18nProvider locale={props.locale}>
+    <TimePickerComponent {...props} />
+  </I18nProvider>
+)
+
+TimePicker.displayName = "TimePicker"
+
 const TimePickerComponent: React.VFC<TimePickerProps> = ({
-  status = "default",
-  validationMessage,
   id,
-  isDisabled,
-  value,
-  onChange,
   label,
   locale,
+  onChange,
+  value,
+  status = "default",
+  validationMessage,
+  isDisabled,
+  classNameOverride,
   ...restProps
 }) => {
   const handleOnChange = (timeValue: TimeValue | null): void => {
@@ -79,7 +97,7 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
     inputRef
   )
   return (
-    <div>
+    <div className={classNameOverride}>
       <Heading tag="div" variant="heading-6" {...labelProps}>
         {label}
       </Heading>
@@ -89,10 +107,11 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
           {...fieldProps}
           id={id}
           ref={inputRef}
-          className={classNames(styles.input, {
-            [styles.isDisabled]: state.isDisabled,
-            [styles.error]: state.validationState === "invalid",
-          })}
+          className={classNames(
+            styles.input,
+            state.isDisabled && styles.isDisabled,
+            state.validationState === "invalid" && styles.error
+          )}
         >
           {state.segments.map((segment, i) => (
             <DateSegment key={i} segment={segment} state={state} />
@@ -110,12 +129,5 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
     </div>
   )
 }
+
 TimePickerComponent.displayName = "TimePickerComponent"
-
-export const TimePicker: React.VFC<TimePickerProps> = props => (
-  <I18nProvider locale={props.locale}>
-    <TimePickerComponent {...props} />
-  </I18nProvider>
-)
-
-TimePicker.displayName = "TimePicker"

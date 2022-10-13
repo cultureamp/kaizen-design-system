@@ -14,10 +14,10 @@ const pressArrowKey =
     })
 
 const TimePickerWrapper = ({
-  value: propsValue,
+  value: propsValue = null,
   ...customProps
 }: Partial<TimePickerProps>): JSX.Element => {
-  const [value, setValue] = useState<undefined | ValueType | null>(propsValue)
+  const [value, setValue] = useState<ValueType | null>(propsValue)
 
   return (
     <TimePicker
