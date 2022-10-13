@@ -29,8 +29,12 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     disabledKeys,
     selectionManager: { selectedKeys },
   } = selectionState
-  const disabledItems = Array.from(disabledKeys).map(key => items.getItem(key))
-  const selectedItems = Array.from(selectedKeys).map(key => items.getItem(key))
+  const disabledItems = Array.from(disabledKeys)
+    .map(key => items.getItem(key))
+    .filter(item => item !== undefined)
+  const selectedItems = Array.from(selectedKeys)
+    .map(key => items.getItem(key))
+    .filter(item => item !== undefined)
   const unselectedItems = Array.from(items).filter(
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )

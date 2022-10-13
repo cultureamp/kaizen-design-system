@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.3...@kaizen/design-tokens@10.0.4) (2022-10-13)
+
+
+### Bug Fixes
+
+* remove incorrect design tokens type location ([#3019](https://github.com/cultureamp/kaizen-design-system/issues/3019)) ([fc99c3f](https://github.com/cultureamp/kaizen-design-system/commit/fc99c3f140eebeb60fd7354b959f4245bca86194))
+
+
+
+
+
 ## [10.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.2...@kaizen/design-tokens@10.0.3) (2022-10-04)
 
 
