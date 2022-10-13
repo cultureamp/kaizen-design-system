@@ -37,10 +37,12 @@ describe("component formats time appropriate to locale", () => {
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
+
   it("shows time in a h:mm A format for en-US", () => {
     render(<TimePickerWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
+
   it("shows time in a HH:MM format for en-GB", () => {
     render(<TimePickerWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
@@ -63,6 +65,7 @@ describe("spin button functionality", () => {
     pressArrowKey("ArrowDown")(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^1$/)
   })
+
   it("changes minutes on key press", () => {
     render(<TimePickerWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", {
@@ -91,38 +94,56 @@ describe("spin button functionality", () => {
     expect(hourSpinner).toHaveTextContent(/^5$/)
     expect(minuteSpinner).toHaveTextContent(/^43$/)
   })
+
+  it("allows uers to backspace to remove values", () => {
+    render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
+    const hourSpinner = screen.getByRole("spinbutton", { name: `${LABEL} hour` })
+    const minuteSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} minute`,
+    })
+    fireEvent.keyDown(minuteSpinner, {
+      key: "Backspace",
+      code: "Backspace",
+    })
+    fireEvent.keyDown(minuteSpinner, {
+      key: "Backspace",
+      code: "Backspace",
+    })
+    expect(minuteSpinner).toHaveTextContent(/^--$/)
+    expect(hourSpinner).toHaveTextContent(/^4$/)
+  })
 })
 
-describe("onChange uses correct date", () => {
-  it("uses the correct date when iteracting with spinner buttons", () => {
+describe("onChange", () => {
+  it("returns correct time from 12 hour format display", () => {
     render(
       <TimePickerWrapper
-        value={{ hour: 4, minutes: 44 }}
+        value={{ hour: 16, minutes: 44 }}
         onChange={mockOnChange}
+        locale="en-AU"
       />
     )
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
+    expect(hourSpinner).toHaveTextContent("4")
     pressArrowKey("ArrowUp")(hourSpinner)
-    expect(mockOnChange).toHaveBeenCalledWith({ hour: 5, minutes: 44 })
+    expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
   })
-})
 
-it("allows uers to backspace to remove values", () => {
-  render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
-  const hourSpinner = screen.getByRole("spinbutton", { name: `${LABEL} hour` })
-  const minuteSpinner = screen.getByRole("spinbutton", {
-    name: `${LABEL} minute`,
+  it("returns correct time from 24 hour format display", () => {
+    render(
+      <TimePickerWrapper
+        value={{ hour: 16, minutes: 44 }}
+        onChange={mockOnChange}
+        locale="en-GB"
+      />
+    )
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
+    expect(hourSpinner).toHaveTextContent("16")
+    pressArrowKey("ArrowUp")(hourSpinner)
+    expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
   })
-  fireEvent.keyDown(minuteSpinner, {
-    key: "Backspace",
-    code: "Backspace",
-  })
-  fireEvent.keyDown(minuteSpinner, {
-    key: "Backspace",
-    code: "Backspace",
-  })
-  expect(minuteSpinner).toHaveTextContent(/^--$/)
-  expect(hourSpinner).toHaveTextContent(/^4$/)
 })
