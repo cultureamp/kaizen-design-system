@@ -23,9 +23,12 @@ export const DateSegment = ({
       ref={ref}
       className={classNames(styles.segment, {
         [styles.literal]: segment.type === "literal",
+        [styles.placeholder]: segment.isPlaceholder,
       })}
     >
-      {segment.isPlaceholder ? "--" : segment.text}
+      {segment.isPlaceholder && segment.type !== "dayPeriod"
+        ? "--"
+        : segment.text}
     </div>
   )
 }
