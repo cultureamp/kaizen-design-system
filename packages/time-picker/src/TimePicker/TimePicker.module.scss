@@ -5,6 +5,10 @@
 
 $input-height: 48px;
 
+// Classnames to simulate pseudo states in storybook
+$story-className--timepicker-hover: ":global(.story__timepicker-hover)";
+$story-className--timepicker-focus: ":global(.story__timepicker-focus)";
+
 .wrapper {
   position: relative;
   display: flex;
@@ -33,13 +37,16 @@ $input-height: 48px;
   box-sizing: border-box;
 
   &:hover,
-  &:focus-within {
+  #{$story-className--timepicker-hover} &,
+  &:focus-within,
+  #{$story-className--timepicker-focus} & {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
 }
 
-.input:focus-within {
+.input:focus-within,
+#{$story-className--timepicker-focus} .input {
   // DateSegment
   [role="spinbutton"] {
     background-color: $color-white;

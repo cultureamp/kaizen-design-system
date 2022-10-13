@@ -97,7 +97,9 @@ describe("spin button functionality", () => {
 
   it("allows uers to backspace to remove values", () => {
     render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
-    const hourSpinner = screen.getByRole("spinbutton", { name: `${LABEL} hour` })
+    const hourSpinner = screen.getByRole("spinbutton", {
+      name: `${LABEL} hour`,
+    })
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })

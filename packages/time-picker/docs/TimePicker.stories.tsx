@@ -40,63 +40,93 @@ DefaultStory.args = {
   status: "default",
 }
 
-const StickerSheetTemplate: Story = () => (
-  <StoryWrapper>
-    <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
-    <StoryWrapper.Row rowTitle="Input">
-      <TimePicker
-        locale="en-GB"
-        id="timepicker-default"
-        value={null}
-        label="Label"
-        onChange={() => undefined}
-      />
+const StickerSheetTemplate: Story = () => {
+  const [valueDefault, setValueDefault] = useState<ValueType | null>(null)
+  const [valueError, setValueError] = useState<ValueType | null>({
+    hour: 1,
+    minutes: 30,
+  })
+  const [valueEnUS, setValueEnUS] = useState<ValueType | null>(null)
+  const [valueEnGB, setValueEnGB] = useState<ValueType | null>(null)
+  const [valueZh, setValueZh] = useState<ValueType | null>(null)
 
-      <TimePicker
-        locale="en-GB"
-        isDisabled
-        id="timepicker-disabled"
-        value={{ hour: 1, minutes: 30 }}
-        label="Label"
-        onChange={() => undefined}
-      />
+  return (
+    <StoryWrapper>
+      <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
+      <StoryWrapper.Row rowTitle="Input">
+        <TimePicker
+          id="timepicker-default"
+          label="Label (en-AU)"
+          locale="en-AU"
+          value={valueDefault}
+          onChange={setValueDefault}
+        />
+        <TimePicker
+          id="timepicker-disabled"
+          label="Label (en-AU)"
+          locale="en-AU"
+          value={{ hour: 1, minutes: 30 }}
+          onChange={() => undefined}
+          isDisabled
+        />
+        <TimePicker
+          id="timepicker-error"
+          label="Label (en-AU)"
+          locale="en-AU"
+          value={valueError}
+          onChange={setValueError}
+          status="error"
+          validationMessage="Date is invalid"
+        />
+      </StoryWrapper.Row>
 
-      <TimePicker
-        locale="en-GB"
-        validationMessage="Date is invalid"
-        status="error"
-        id="timepicker-error"
-        value={{ hour: 1, minutes: 30 }}
-        label="Label"
-        onChange={() => undefined}
-      />
-    </StoryWrapper.Row>
-    <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
-    <StoryWrapper.Row rowTitle="Localisation">
-      <TimePicker
-        locale="en-US"
-        id="timepicker-en-US"
-        value={null}
-        label="Label"
-        onChange={() => undefined}
-      />
-      <TimePicker
-        locale="en-GB"
-        id="timepicker-en-GB"
-        value={null}
-        label="Label"
-        onChange={() => undefined}
-      />
-      <TimePicker
-        locale="zh-HANS-SG"
-        id="timepicker-zh-HANS-SG"
-        value={null}
-        label="Label"
-        onChange={() => undefined}
-      />
-    </StoryWrapper.Row>
-  </StoryWrapper>
-)
+      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
+      <StoryWrapper.Row rowTitle="Pseudo states" gridColumns={3}>
+        <TimePicker
+          id="timepicker-hover"
+          label="Label"
+          locale="en-AU"
+          value={{ hour: 1, minutes: 30 }}
+          onChange={() => undefined}
+          classNameOverride="story__timepicker-hover"
+        />
+        <TimePicker
+          id="timepicker-focus"
+          label="Label"
+          locale="en-AU"
+          value={{ hour: 1, minutes: 30 }}
+          onChange={() => undefined}
+          classNameOverride="story__timepicker-focus"
+        />
+      </StoryWrapper.Row>
+
+      <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
+      <StoryWrapper.Row rowTitle="Localisation">
+        <TimePicker
+          id="timepicker-en-US"
+          label="Label"
+          locale="en-US"
+          value={valueEnUS}
+          onChange={setValueEnUS}
+        />
+        <TimePicker
+          id="timepicker-en-GB"
+          label="Label"
+          locale="en-GB"
+          value={valueEnGB}
+          onChange={setValueEnGB}
+        />
+        <TimePicker
+          id="timepicker-zh-HANS-SG"
+          label="Label"
+          locale="zh-HANS-SG"
+          value={valueZh}
+          onChange={setValueZh}
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  )
+}
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
