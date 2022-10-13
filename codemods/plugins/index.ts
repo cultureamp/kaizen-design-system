@@ -1,2 +1,2 @@
 export { transformCaGrid } from "./replace-ca-grid"
-export { transformKzParagraph } from "./replace-kz-paragraph"
+export { transformKzTypography } from "./replace-kz-typography"

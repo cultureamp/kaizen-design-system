@@ -1,12 +1,12 @@
 import fs from "fs"
-import postcss, { AcceptedPlugin, Plugin } from "postcss"
+import postcss, { AcceptedPlugin } from "postcss"
 import glob from "glob"
 
-import { transformCaGrid, transformKzParagraph } from "./plugins"
+import { transformCaGrid, transformKzTypography } from "./plugins"
 
 // Define a helper function to execute the transform.
 const transform = async () => {
-  const plugins: AcceptedPlugin[] = [transformKzParagraph]
+  const plugins: AcceptedPlugin[] = [transformKzTypography]
   // Initializes a PostCSS processor, passing plugins to be included.
   // Plugins in this instance are all the transforms we're goign to be passing in
   const processor = postcss(plugins)
@@ -14,9 +14,6 @@ const transform = async () => {
   const files = glob.sync(
     `${process.env.ROOT_FOLDER}/**/*.scss` || "./src/**/*.scss"
   )
-
-  console.log("files >>>", files)
-  console.log("path >>>", process.env.ROOT_FOLDER)
 
   const filePromises = files.map(async file => {
     // Read the file and convert it to a string.
