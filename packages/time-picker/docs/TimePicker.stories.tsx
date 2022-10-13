@@ -92,7 +92,7 @@ const StickerSheetTemplate: Story = () => {
         />
         <TimePicker
           id="timepicker-focus"
-          label="Label"
+          label="Label (focus on hour)"
           locale="en-AU"
           value={{ hour: 1, minutes: 30 }}
           onChange={() => undefined}

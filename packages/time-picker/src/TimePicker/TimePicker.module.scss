@@ -45,6 +45,12 @@ $story-className--timepicker-focus: ":global(.story__timepicker-focus)";
   }
 }
 
+%dateSegmentFocus {
+  color: white;
+  background: $color-blue-500;
+  outline: none;
+}
+
 .input:focus-within,
 #{$story-className--timepicker-focus} .input {
   // DateSegment
@@ -52,9 +58,7 @@ $story-className--timepicker-focus: ":global(.story__timepicker-focus)";
     background-color: $color-white;
 
     &:focus {
-      color: white;
-      background: $color-blue-500;
-      outline: none;
+      @extend %dateSegmentFocus;
     }
   }
 
@@ -71,6 +75,12 @@ $story-className--timepicker-focus: ":global(.story__timepicker-focus)";
     right: -$focus-ring-offset;
     bottom: -$focus-ring-offset;
     pointer-events: none;
+  }
+}
+
+#{$story-className--timepicker-focus} .input {
+  [role="spinbutton"]:first-of-type {
+    @extend %dateSegmentFocus;
   }
 }
 
