@@ -1,18 +1,17 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 .segment {
-  padding: 0 2px;
-  font-variant-numeric: tabular-nums;
+  padding: 0 4px;
   text-align: end;
+  background-color: $color-gray-300;
+  border-radius: 3px;
+  color: $color-purple-800;
 }
 
 .placeholder {
-  color: rgba($color-purple-800-rgb, 0.4);
+  color: rgba($color-purple-800-rgb, 0.7);
 }
 
-.segment:focus {
-  color: white;
-  background: $color-blue-500;
-  outline: none;
-  border-radius: 2px;
+.literal {
+  background: none;
 }

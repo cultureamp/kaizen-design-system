@@ -43,7 +43,7 @@ $input-disabled-border-alpha: 50%;
   width: 100%;
   box-sizing: border-box;
   // FIXME: The border doesn't work on focus
-  &:focus,
+  &:focus-within,
   &:hover {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
@@ -62,6 +62,14 @@ $input-disabled-border-alpha: 50%;
 }
 
 .input:focus-within {
+  [role="spinbutton"] {
+    background-color: $color-white;
+    &:focus {
+      color: white;
+      background: $color-blue-500;
+      outline: none;
+    }
+  }
   .focusRing {
     $focus-ring-offset: 3px;
     position: absolute;

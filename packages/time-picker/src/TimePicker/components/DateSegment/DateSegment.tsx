@@ -5,6 +5,7 @@ import {
   DateFieldState,
 } from "@react-stately/datepicker"
 
+import classNames from "classnames"
 import styles from "./DateSegment.module.scss"
 
 export const DateSegment = ({
@@ -20,9 +21,9 @@ export const DateSegment = ({
     <div
       {...segmentProps}
       ref={ref}
-      className={`${styles.segment} ${
-        segment.isPlaceholder ? styles.placeholder : ""
-      }`}
+      className={classNames(styles.segment, {
+        [styles.literal]: segment.type === "literal",
+      })}
     >
       {segment.isPlaceholder ? "--" : segment.text}
     </div>

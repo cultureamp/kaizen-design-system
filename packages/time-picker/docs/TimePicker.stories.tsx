@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { I18nProvider } from "@react-aria/i18n"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimePicker } from "../index"
