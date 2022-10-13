@@ -19,7 +19,6 @@
     "!**/*.spec.*",
     "!docs"
   ],
-  "types": "dist/**/*.d.ts",
   "main": "dist/index.js",
   "private": false,
   "license": "MIT",
