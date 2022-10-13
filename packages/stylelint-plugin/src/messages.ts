@@ -87,3 +87,6 @@ export const deprecatedComponentLibraryTypeImport =
 
 export const deprecatedComponentLibraryLayoutImport =
   "@kaizen/component-library/styles/layout.scss has been deprecated"
+
+export const spacingTokensMustBeUsedMessage =
+  "$ca-grid should longer be used. Replace with $spacing-medium from @kaizen/design-tokens"
