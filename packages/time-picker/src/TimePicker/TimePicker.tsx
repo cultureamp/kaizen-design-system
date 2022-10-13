@@ -65,6 +65,7 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
     locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
+  const descriptionId = `${id}-field-message`
 
   const inputRef = React.useRef(null)
   const { fieldProps, labelProps } = useTimeField(
@@ -72,6 +73,7 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
       ...restProps,
       label,
       isDisabled,
+      "aria-describedby": descriptionId,
     },
     state,
     inputRef
@@ -100,7 +102,7 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
       </div>
       {validationMessage && status === "error" && (
         <FieldMessage
-          id="time-picker-validation-message"
+          id={descriptionId}
           message={validationMessage}
           status={status}
         />

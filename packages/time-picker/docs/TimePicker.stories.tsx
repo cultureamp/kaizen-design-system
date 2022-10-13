@@ -22,8 +22,10 @@ export default {
       options: ["en-US", "en-AU", "en-GB", "zh-Hant"],
       control: { type: "radio" },
     },
-    control: { type: "radio" },
+    status: { control: { type: "radio" }, options: ["default", "error"] },
+    validationMessage: { control: "text" },
   },
+
   decorators: [withDesign],
 } as ComponentMeta<typeof TimePicker>
 
@@ -49,36 +51,12 @@ DefaultStory.args = {
 
 const StickerSheetTemplate: Story = () => (
   <StoryWrapper>
-    <StoryWrapper.RowHeader
-      headings={[
-        "Default",
-        "Dropdown Menu Open",
-        "Selected Value",
-        "Disabled",
-        "Error",
-      ]}
-    />
+    <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
     <StoryWrapper.Row rowTitle="Input">
       <TimePicker
         locale="en-GB"
         id="timepicker-default"
         value={undefined}
-        label="Label"
-        onChange={() => undefined}
-      />
-
-      <TimePicker
-        locale="en-GB"
-        id="timepicker-default"
-        value={undefined}
-        label="Label"
-        onChange={() => undefined}
-      />
-
-      <TimePicker
-        locale="en-GB"
-        id="timepicker-selected"
-        value={{ hour: 1, minutes: 30 }}
         label="Label"
         onChange={() => undefined}
       />
