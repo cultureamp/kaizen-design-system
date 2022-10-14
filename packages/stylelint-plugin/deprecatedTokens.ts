@@ -1514,5 +1514,4 @@ export const deprecatedTokenReplacements = new Map([
     "kz-var-id-typography-button-secondary-letter-spacing",
     "typography-button-secondary-letter-spacing-id",
   ],
-  ["ca-grid", "spacing-medium"],
 ])
