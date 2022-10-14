@@ -6,6 +6,7 @@ import {
   DateFieldState,
 } from "@react-stately/datepicker"
 import styles from "./DateSegment.module.scss"
+import { generateSegmentDisplayText } from "./utils/generateSegmentDisplayText"
 
 export interface DateSegmentProps {
   segment: DateSegmentType
@@ -30,9 +31,7 @@ export const DateSegment: React.VFC<DateSegmentProps> = ({
         segment.type === "dayPeriod" && styles.dayPeriod
       )}
     >
-      {segment.isPlaceholder && segment.type !== "dayPeriod"
-        ? "--"
-        : segment.text}
+      {generateSegmentDisplayText(segment)}
     </div>
   )
 }
