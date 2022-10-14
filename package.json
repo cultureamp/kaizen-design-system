@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@storybook/addons": "^6.5.12",
-    "@storybook/api": "^6.5.9",
+    "@storybook/api": "^6.5.12",
     "@storybook/components": "^6.5.9",
     "@storybook/core-events": "^6.5.9",
     "@storybook/react": "^6.5.9",
