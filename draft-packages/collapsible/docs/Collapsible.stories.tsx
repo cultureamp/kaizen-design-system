@@ -79,12 +79,14 @@ export const SingleCollapsibleCustomHeader = () => (
       variant="default"
       renderHeader={title => (
         <>
-          <Icon icon={translationIcon} />
-          <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>
-            <Paragraph tag="span" variant="body">
-              {title}
-            </Paragraph>
-          </div>
+          <span style={{ width: "100%", height: "100%", background: "red" }}>
+            <Icon icon={translationIcon} />
+            <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>
+              <Paragraph tag="span" variant="body">
+                {title}
+              </Paragraph>
+            </div>
+          </span>
         </>
       )}
     >

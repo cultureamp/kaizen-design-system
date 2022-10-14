@@ -1,4 +1,5 @@
-import { Root, AtRule, Plugin } from "postcss"
+import { inspect } from "util"
+import postcss, { Root, AtRule, Plugin } from "postcss"
 import { Options, RuleDefinition } from "../types"
 import { spacingTokensMustBeUsedMessage } from "../messages"
 
@@ -8,9 +9,13 @@ export const transformCaGrid: Plugin = {
   postcssPlugin: "Transform Plugin",
   Declaration(decl) {
     if (decl.value.match(/(?:\$ca-grid\b(?!:|-))/)) {
-      decl.value = decl.value.replace(/(?:\$ca-grid)/, "$spacing-medium")
+      decl.value = decl.value.replace(/(?:\$ca-grid)/, "$spacing-md")
     }
   },
+}
+
+const replaceImport = (stylesheedRootNode: Root) => {
+  stylesheedRootNode.walkAtRules(rule => {})
 }
 
 export const spacingTokensMustBeUsed: RuleDefinition = {
@@ -19,18 +24,16 @@ export const spacingTokensMustBeUsed: RuleDefinition = {
     walkVariables(
       stylesheedRootNode,
       ({ variable, variableNode, parsedValue, postcssNode }) => {
-        console.log("walking the node", variable)
+        console.log("walking the node")
 
         if (
           postcssNode.type === "decl" &&
           postcssNode.value.match(/(?:\$ca-grid\b(?!:|-))/)
         ) {
-          console.log("found a match for $ca-grid")
-
           if (options.fix) {
             postcssNode.value = postcssNode.value.replace(
               /(?:\$ca-grid)/,
-              "$spacing-medium"
+              "$spacing-md"
             )
           } else {
             options.reporter({
