@@ -25,7 +25,7 @@ export const DateSegment: React.VFC<DateSegmentProps> = ({
       {...segmentProps}
       ref={ref}
       className={classNames(
-        styles.segment,
+        styles.timeSegment,
         segment.type === "literal" && styles.literal,
         segment.isPlaceholder && styles.placeholder,
         segment.type === "dayPeriod" && styles.dayPeriod

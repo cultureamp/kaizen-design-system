@@ -1,11 +1,30 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-.segment {
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+
+// Classnames to simulate pseudo states in storybook
+$story-className--timesegment-hover: ":global(.story__timepicker-hover) &:first-child";
+$story-className--timesegment-focus: ":global(.story__timepicker-focus) &:first-child";
+
+$selectors--timesegment-hover: "&:hover, #{$story-className--timesegment-hover}";
+$selectors--timesegment-focus: "&:focus-visible, #{$polyfill--focus-visible}, #{$story-className--timesegment-focus}";
+
+.timeSegment {
   padding: 0 4px;
   text-align: end;
   background-color: $color-gray-300;
   border-radius: 3px;
   color: $color-purple-800;
+
+  #{$selectors--timesegment-hover} {
+    background-color: $color-white;
+  }
+
+  #{$selectors--timesegment-focus} {
+    color: white;
+    background: $color-blue-500;
+    outline: none;
+  }
 }
 
 .placeholder {
@@ -13,7 +32,10 @@
 }
 
 .literal {
-  background: none;
+  &,
+  #{$selectors--timesegment-hover} {
+    background: none;
+  }
 }
 
 .dayPeriod {

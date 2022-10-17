@@ -84,9 +84,9 @@ const StickerSheetTemplate: Story = () => {
       <StoryWrapper.Row rowTitle="Pseudo states" gridColumns={3}>
         <TimePicker
           id="timepicker-hover"
-          label="Label"
+          label="Label (hover on hour)"
           locale="en-AU"
-          value={{ hour: 1, minutes: 30 }}
+          value={{ hour: 22, minutes: 30 }}
           onChange={() => undefined}
           classNameOverride="story__timepicker-hover"
         />
@@ -94,7 +94,7 @@ const StickerSheetTemplate: Story = () => {
           id="timepicker-focus"
           label="Label (focus on hour)"
           locale="en-AU"
-          value={{ hour: 1, minutes: 30 }}
+          value={{ hour: 22, minutes: 30 }}
           onChange={() => undefined}
           classNameOverride="story__timepicker-focus"
         />
