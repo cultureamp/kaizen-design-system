@@ -9,6 +9,14 @@ $story-className--timesegment-focus: ":global(.story__timepicker-focus) &:first-
 $selectors--timesegment-hover: "&:hover, #{$story-className--timesegment-hover}";
 $selectors--timesegment-focus: "&:focus-visible, #{$polyfill--focus-visible}, #{$story-className--timesegment-focus}";
 
+// Chrome has a bug where `contenteditable` elements receive focus from external clicks.
+// This (in combination with the invisible character &#8203;) creates boundaries
+// for the element.
+// https://stackoverflow.com/a/34445203
+.timeSegmentWrapper {
+  white-space: nowrap;
+}
+
 .timeSegment {
   padding: 0 4px;
   text-align: end;

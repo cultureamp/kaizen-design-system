@@ -18,18 +18,22 @@ export const TimeSegment: React.VFC<TimeSegmentProps> = ({
   const { segmentProps } = useDateSegment(segment, state, ref)
 
   return (
-    <div
-      {...segmentProps}
-      ref={ref}
-      className={classNames(
-        styles.timeSegment,
-        segment.type === "literal" && styles.literal,
-        segment.isPlaceholder && styles.placeholder,
-        segment.type === "dayPeriod" && styles.dayPeriod
-      )}
-    >
-      {generateSegmentDisplayText(segment)}
-    </div>
+    <span className={styles.timeSegmentWrapper}>
+      &#8203;
+      <div
+        {...segmentProps}
+        ref={ref}
+        className={classNames(
+          styles.timeSegment,
+          segment.type === "literal" && styles.literal,
+          segment.isPlaceholder && styles.placeholder,
+          segment.type === "dayPeriod" && styles.dayPeriod
+        )}
+      >
+        {generateSegmentDisplayText(segment)}
+      </div>
+      &#8203;
+    </span>
   )
 }
 
