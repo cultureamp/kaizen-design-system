@@ -7,11 +7,17 @@ const mockOnChange = jest.fn()
 const LABEL = "Launch Time Label"
 
 const pressArrowKey =
-  (direction: "ArrowUp" | "ArrowDown") => (element: HTMLElement) =>
+  (direction: "ArrowUp" | "ArrowDown") =>
+  (element: HTMLElement): void => {
     fireEvent.keyDown(element, {
       key: direction,
       code: direction,
     })
+  }
+
+const pressArrowUpKey: (element: HTMLElement) => void = pressArrowKey("ArrowUp")
+const pressArrowDownKey: (element: HTMLElement) => void =
+  pressArrowKey("ArrowDown")
 
 const TimePickerWrapper = ({
   value: propsValue = null,
@@ -56,13 +62,16 @@ describe("spin button functionality", () => {
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
-    pressArrowKey("ArrowUp")(hourSpinner)
+    pressArrowUpKey(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^0$/)
-    pressArrowKey("ArrowUp")(hourSpinner)
+
+    pressArrowUpKey(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^1$/)
-    pressArrowKey("ArrowUp")(hourSpinner)
+
+    pressArrowUpKey(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^2$/)
-    pressArrowKey("ArrowDown")(hourSpinner)
+
+    pressArrowDownKey(hourSpinner)
     expect(hourSpinner).toHaveTextContent(/^1$/)
   })
 
@@ -71,12 +80,14 @@ describe("spin button functionality", () => {
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
-    pressArrowKey("ArrowUp")(minuteSpinner)
-    pressArrowKey("ArrowUp")(minuteSpinner)
+    pressArrowUpKey(minuteSpinner)
+    pressArrowUpKey(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent(/^01$/)
-    pressArrowKey("ArrowUp")(minuteSpinner)
+
+    pressArrowUpKey(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent(/^02$/)
-    pressArrowKey("ArrowDown")(minuteSpinner)
+
+    pressArrowDownKey(minuteSpinner)
     expect(minuteSpinner).toHaveTextContent(/^01$/)
   })
 
@@ -89,8 +100,8 @@ describe("spin button functionality", () => {
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
-    pressArrowKey("ArrowUp")(hourSpinner)
-    pressArrowKey("ArrowDown")(minuteSpinner)
+    pressArrowUpKey(hourSpinner)
+    pressArrowDownKey(minuteSpinner)
     expect(hourSpinner).toHaveTextContent(/^5$/)
     expect(minuteSpinner).toHaveTextContent(/^43$/)
   })
@@ -129,7 +140,8 @@ describe("onChange", () => {
       name: `${LABEL} hour`,
     })
     expect(hourSpinner).toHaveTextContent("4")
-    pressArrowKey("ArrowUp")(hourSpinner)
+
+    pressArrowUpKey(hourSpinner)
     expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
   })
 
@@ -145,7 +157,8 @@ describe("onChange", () => {
       name: `${LABEL} hour`,
     })
     expect(hourSpinner).toHaveTextContent("16")
-    pressArrowKey("ArrowUp")(hourSpinner)
+
+    pressArrowUpKey(hourSpinner)
     expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
   })
 })
