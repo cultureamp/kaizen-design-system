@@ -1,5 +1,5 @@
-import { DateSegment } from "@react-stately/datepicker"
 import { generateSegmentDisplayText } from "./generateSegmentDisplayText"
+
 describe("generateSegmentDisplayText", () => {
   it("displays dashes if is placeholder but not a day period", () =>
     expect(

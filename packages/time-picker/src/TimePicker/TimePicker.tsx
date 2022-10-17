@@ -10,7 +10,7 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { FieldMessage } from "@kaizen/draft-form"
 import { Heading } from "@kaizen/typography"
-import { DateSegment } from "./components/DateSegment"
+import { TimeSegment } from "./components/TimeSegment"
 import { StatusType, TimeValue, ValueType } from "./types"
 import styles from "./TimePicker.module.scss"
 
@@ -114,7 +114,7 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
           )}
         >
           {state.segments.map((segment, i) => (
-            <DateSegment key={i} segment={segment} state={state} />
+            <TimeSegment key={i} segment={segment} state={state} />
           ))}
           <div className={styles.focusRing} />
         </div>

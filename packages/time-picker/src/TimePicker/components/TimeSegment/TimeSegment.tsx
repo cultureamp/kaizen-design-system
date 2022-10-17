@@ -1,19 +1,16 @@
 import React from "react"
 import { useDateSegment } from "@react-aria/datepicker"
+import { DateSegment, DateFieldState } from "@react-stately/datepicker"
 import classNames from "classnames"
-import {
-  DateSegment as DateSegmentType,
-  DateFieldState,
-} from "@react-stately/datepicker"
-import styles from "./DateSegment.module.scss"
+import styles from "./TimeSegment.module.scss"
 import { generateSegmentDisplayText } from "./utils/generateSegmentDisplayText"
 
-export interface DateSegmentProps {
-  segment: DateSegmentType
+export interface TimeSegmentProps {
+  segment: DateSegment
   state: DateFieldState
 }
 
-export const DateSegment: React.VFC<DateSegmentProps> = ({
+export const TimeSegment: React.VFC<TimeSegmentProps> = ({
   segment,
   state,
 }) => {
@@ -36,4 +33,4 @@ export const DateSegment: React.VFC<DateSegmentProps> = ({
   )
 }
 
-DateSegment.displayName = "DateSegment"
+TimeSegment.displayName = "TimeSegment"
