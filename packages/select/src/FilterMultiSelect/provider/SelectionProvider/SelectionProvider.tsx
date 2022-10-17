@@ -29,7 +29,7 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
   {} as SelectionProviderContextType
 )
 
-export function SelectionProvider(props: SelectionProviderProps) {
+export const SelectionProvider = (props: SelectionProviderProps) => {
   const [searchQuery, setSearchQuery] = useState<string>("")
 
   const searchFilter = useCallback(
@@ -80,3 +80,5 @@ export function SelectionProvider(props: SelectionProviderProps) {
 export const useSelectionContext = () => useContext(SelectionContext)
 
 export const SelectionConsumer = SelectionContext.Consumer
+
+SelectionProvider.displayName = "SelectionProvider"
