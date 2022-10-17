@@ -3911,13 +3911,6 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
-"@react-types/button@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.5.1.tgz#152113ea1ca0f4dadf16130dcb7043385e8a29c9"
-  integrity sha512-GxTikDKfuztu1r0LWHmqG1AD5yM9F6WFzwAYgLltn8B7RshzpJcYSfpYsh1e64z84YJpEoj+DD8XGGSc0p/rvw==
-  dependencies:
-    "@react-types/shared" "^3.13.1"
-
 "@react-types/button@^3.6.2":
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.6.2.tgz#72d617deb0f76bd01a570ef28306ac1482c58a67"
@@ -3967,11 +3960,6 @@
   integrity sha512-lbiv7XUEdByluILjEAYVZic2uq4pU0BzW+qZ+sBCYn7v8q2hxXP7T0C6OamzfgXokQHhJ6247JDk7kugqXKL4Q==
   dependencies:
     "@react-types/shared" "^3.15.0"
-
-"@react-types/shared@^3.13.1":
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.13.1.tgz#eda5e3744971606f753baf7879136bf8e3f707ab"
-  integrity sha512-EHQqILDJeDvnloy5VV9lnnEjpCMwH1ghptCfa/lz9Ht9nwco3qGCvUABkWyND7yU1Adt3A/1oJxhpRUu3eTlyg==
 
 "@react-types/shared@^3.15.0":
   version "3.15.0"
