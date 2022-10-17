@@ -34,7 +34,7 @@
     "@storybook/core-events": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "@storybook/theming": "^6.5.12",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "focus-visible": "^5.2.0",
     "identity-obj-proxy": "^3.0.0",
     "lodash.isempty": "^4.4.0",

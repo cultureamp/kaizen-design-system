@@ -33,7 +33,7 @@
     "@kaizen/component-library": "^16.1.2",
     "@kaizen/deprecated-component-library-helpers": "^2.5.7",
     "@types/classnames": "^2.3.0",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
