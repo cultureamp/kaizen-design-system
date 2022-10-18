@@ -27,3 +27,5 @@ export const FilterMultiSelect = Object.assign(Root, {
   MenuFooter, // For layout
   MenuLoadingSkeleton, // Menu Loading Skeleton example
 })
+
+FilterMultiSelect.displayName = "FilterMultiSelect"
