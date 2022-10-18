@@ -1,9 +1,8 @@
-import { inspect } from "util"
-import postcss, { Root, AtRule, Plugin } from "postcss"
+import { Root, Plugin } from "postcss"
 import { Options, RuleDefinition } from "../types"
 import { spacingTokensMustBeUsedMessage } from "../messages"
 
-import { walkDeclsWithKaizenTokens, walkVariables } from "../util/walkers"
+import { walkVariables } from "../util/walkers"
 
 export const transformCaGrid: Plugin = {
   postcssPlugin: "Transform Plugin",
@@ -14,36 +13,37 @@ export const transformCaGrid: Plugin = {
   },
 }
 
-const replaceImport = (stylesheedRootNode: Root) => {
-  stylesheedRootNode.walkAtRules(rule => {})
-}
-
 export const spacingTokensMustBeUsed: RuleDefinition = {
   name: "spacing-tokens-must-be-used",
   ruleFunction: (stylesheedRootNode: Root, options: Options) => {
-    walkVariables(
-      stylesheedRootNode,
-      ({ variable, variableNode, parsedValue, postcssNode }) => {
-        console.log("walking the node")
-
-        if (
-          postcssNode.type === "decl" &&
-          postcssNode.value.match(/(?:\$ca-grid\b(?!:|-))/)
-        ) {
-          if (options.fix) {
-            postcssNode.value = postcssNode.value.replace(
-              /(?:\$ca-grid)/,
-              "$spacing-md"
-            )
-          } else {
-            options.reporter({
-              message: spacingTokensMustBeUsedMessage,
-              node: postcssNode,
-              autofixAvailable: options.language === "scss",
-            })
-          }
+    walkVariables(stylesheedRootNode, ({ postcssNode }) => {
+      if (
+        postcssNode.type === "decl" &&
+        postcssNode.value.match(/(?:\$ca-grid\b(?!:|-))/)
+      ) {
+        if (options.fix) {
+          const parentNode = postcssNode.root()
+          postcssNode.value = postcssNode.value.replace(
+            /(?:\$ca-grid)/,
+            "$spacing-md"
+          )
+          parentNode?.walkAtRules("import", rule => {
+            if (
+              rule.params.match(
+                /(?:"~@kaizen\/component-library\/styles\/grid")/
+              )
+            ) {
+              rule.params = "~@kaizen/design-tokens/sass/spacing"
+            }
+          })
+        } else {
+          options.reporter({
+            message: spacingTokensMustBeUsedMessage,
+            node: postcssNode,
+            autofixAvailable: options.language === "scss",
+          })
         }
       }
-    )
+    })
   },
 }
