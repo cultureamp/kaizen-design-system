@@ -7,6 +7,7 @@ import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { useInfiniteQuery } from "@tanstack/react-query"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -335,23 +336,68 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
 
 DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
 
-export const WithCustomOnSearchInputChange: ComponentStory<
-  typeof FilterMultiSelect
-> = args => {
+export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
+  const [open, setOpen] = useState(false)
+  const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
+  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useInfiniteQuery(
+      ["startrek-sg1", searchState],
+      ({ pageParam = 1 }) =>
+        fetch(
+          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+        ).then(res => res.json()) as Promise<{
+          results: Array<{ name: string; url: string }>
+          next: string
+        }>,
+      {
+        enabled: open,
+        keepPreviousData: true,
+        getNextPageParam: lastPage => {
+          if (!lastPage.next) return undefined
+          const url = new URL(lastPage.next)
+          const params = new URLSearchParams(url.searchParams)
+          return params.get("page")
+        },
+      }
+    )
+
+  const people = React.useMemo(
+    () =>
+      data?.pages
+        .flat(1)
+        .map(res => res.results)
+        .flat(1)
+        .map(person => ({ label: person.name, value: person.url })) || [],
+    [data]
+  )
 
   return (
     <>
       <FilterMultiSelect
         {...args}
-        items={items}
+        isLoading={isLoading}
+        loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
+        items={people}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={[]}
-            label={searchState ? `Searching for ${searchState}` : "Search me"}
+            selectedOptionLabels={getSelectedOptionLabels(
+              new Set(selectedPeople),
+              people
+            )}
+            label={"People"}
           />
         )}
         onSearchInputChange={searchInput => setSearchState(searchInput)}
+        onOpenChange={isOpen => setOpen(isOpen)}
+        onSelectionChange={keys => {
+          if (keys === "all") {
+            return
+          }
+          setSelectedPeople(Array.from(keys) as string[])
+        }}
+        isOpen={open}
+        selectedKeys={new Set(selectedPeople)}
       >
         {() => (
           <>
@@ -363,7 +409,14 @@ export const WithCustomOnSearchInputChange: ComponentStory<
                 ))
               }
             </FilterMultiSelect.ListBox>
-            <FilterMultiSelect.LoadMoreButton label="Load more" />
+            {hasNextPage && (
+              <FilterMultiSelect.LoadMoreButton
+                label={"View more"}
+                workingLabel={"Loading…"}
+                working={isFetchingNextPage}
+                onClick={() => fetchNextPage()}
+              />
+            )}
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
               <FilterMultiSelect.ClearButton />
