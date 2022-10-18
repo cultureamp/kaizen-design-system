@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.2...@kaizen/select@4.0.3) (2022-10-18)
+
+
+### Bug Fixes
+
+* **filtermultiselect:** fix console warnings ([#3027](https://github.com/cultureamp/kaizen-design-system/issues/3027)) ([dddda5c](https://github.com/cultureamp/kaizen-design-system/commit/dddda5cc248aa0780f02d3fe49d7a1ddd345e89c))
+
+
+
+
+
 ## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.1...@kaizen/select@4.0.2) (2022-10-12)
 
 
