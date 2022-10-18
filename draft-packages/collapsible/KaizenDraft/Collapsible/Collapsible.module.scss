@@ -100,6 +100,29 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   border-bottom: 1px $border-solid-border-style $border-color;
 }
 
+.expertAdvice {
+  background-color: $color-purple-100;
+  border: 1px $border-solid-border-style $color-purple-300;
+  color: $color-purple-800;
+}
+
+.expertAdvice:hover { 
+  border-color: $color-purple-500;
+}
+
+.expertAdviceHeader {
+  background-color: $color-purple-100;
+}
+
+.expertAdviceHeader:hover {
+  background-color: $color-purple-100;
+  color: $color-purple-700;
+}
+
+.expertAdviceHeading { 
+  color: $color-purple-700;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
