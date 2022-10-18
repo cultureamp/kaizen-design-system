@@ -505,3 +505,41 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
     })
   })
 })
+
+describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
+  it("renders only items passed", () => {
+    const { rerender } = render(<SelectionProviderWrapper />)
+    expect(
+      screen.getByRole("option", {
+        name: "option-1-label-mock",
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+      })
+    ).toBeVisible()
+
+    rerender(<SelectionProviderWrapper items={itemsMock.slice(2)} />)
+    expect(
+      screen.queryByRole("option", {
+        name: "option-1-label-mock",
+      })
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole("option", {
+        name: "option-2-label-mock",
+      })
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+      })
+    ).toBeVisible()
+  })
+})
