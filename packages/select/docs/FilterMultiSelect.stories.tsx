@@ -72,10 +72,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           </>
         )}
       </FilterMultiSelect>
-      <Paragraph variant={"body"}>
-        Items:{" "}
+      <div style={{ marginTop: 4 }}>
+        <Paragraph variant="body">Items: </Paragraph>{" "}
         <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
-      </Paragraph>
+      </div>
     </>
   )
 }
@@ -154,10 +154,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
           </>
         )}
       </FilterMultiSelect>
-      <Paragraph variant={"body"}>
-        Items:{" "}
+      <div style={{ marginTop: 4 }}>
+        <Paragraph variant={"body"}>Items: </Paragraph>
         <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
-      </Paragraph>
+      </div>
     </>
   )
 }
@@ -278,7 +278,7 @@ export const FilterBarDemo = () => {
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
 
-      <Paragraph variant={"body"}>
+      <Paragraph variant="body">
         Selected Values:{" "}
         <CodeBlock
           language="json"
