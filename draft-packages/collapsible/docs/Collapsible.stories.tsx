@@ -242,4 +242,5 @@ export const CollapsibleExpertAdviceVariant = () => (
     </Collapsible>
   </Box>
 )
-CollapsibleExpertAdviceVariant.storyName = "Collapsible Expert Advice variant"
+CollapsibleExpertAdviceVariant.storyName =
+  "Single collapsible (Expert Advice variant)"
