@@ -1,4 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
+import "./tailwind.scss"
 import { addParameters } from "@storybook/react"
 import React from "react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
