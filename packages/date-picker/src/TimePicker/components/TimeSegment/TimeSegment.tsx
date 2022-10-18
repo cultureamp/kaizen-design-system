@@ -17,6 +17,10 @@ export const TimeSegment: React.VFC<TimeSegmentProps> = ({
   const ref = React.useRef<HTMLDivElement>(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
+  // Chrome has a bug where `contenteditable` elements receive focus from external clicks.
+  // This (in combination with the invisible character &#8203;) creates boundaries
+  // for the element.
+  // https://stackoverflow.com/a/34445203
   return (
     <span className={styles.timeSegmentWrapper}>
       &#8203;
