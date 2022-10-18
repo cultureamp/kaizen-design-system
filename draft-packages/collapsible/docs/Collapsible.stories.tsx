@@ -235,7 +235,7 @@ export const CollapsibleExpertAdviceVariant = () => (
     <Collapsible
       id="collapsible-single"
       open
-      title="Single collapsible"
+      title="Expert advice collapsible"
       variant="expertAdvice"
     >
       <Paragraph variant="body">{lipsum}</Paragraph>
