@@ -4,6 +4,7 @@ import React from "react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
+import "./tailwind.css"
 
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
@@ -14,6 +15,7 @@ require("focus-visible")
 require("normalize.css")
 
 require("@kaizen/component-library/styles/fonts.scss")
+
 require("./global.scss")
 
 addParameters({

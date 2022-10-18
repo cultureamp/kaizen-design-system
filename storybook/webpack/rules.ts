@@ -216,8 +216,8 @@ export const makeTailwindRootRule = (tailwindRoot: string) =>
   })
 
 export const styles = [
-  makeVanillaCssRule("tailwind-root.css"),
+  makeVanillaCssRule("tailwind.css"),
   makeSassRule(),
-  makeTailwindRootRule("tailwind-root.css"),
-  makeTailwindRule("tailwind-root.css"),
+  makeTailwindRule("tailwind.css"),
+  makeTailwindRule("tailwind.css"),
 ]
