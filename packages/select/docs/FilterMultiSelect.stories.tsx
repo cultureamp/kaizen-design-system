@@ -7,7 +7,6 @@ import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { Box } from "@kaizen/component-library/components/Box"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -73,10 +72,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           </>
         )}
       </FilterMultiSelect>
-      <Box mt={4}>
-        <Paragraph variant={"body"}>Items: </Paragraph>{" "}
+      <div style={{ marginTop: 4 }}>
+        <Paragraph variant="body">Items: </Paragraph>{" "}
         <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
-      </Box>
+      </div>
     </>
   )
 }
@@ -155,10 +154,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
           </>
         )}
       </FilterMultiSelect>
-      <Box mt={4}>
+      <div style={{ marginTop: 4 }}>
         <Paragraph variant={"body"}>Items: </Paragraph>
         <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
-      </Box>
+      </div>
     </>
   )
 }
@@ -279,7 +278,7 @@ export const FilterBarDemo = () => {
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
 
-      <Paragraph variant={"body"}>
+      <Paragraph variant="body">
         Selected Values:{" "}
         <CodeBlock
           language="json"
