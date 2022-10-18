@@ -229,3 +229,17 @@ export const CollapsibleGroupCallbackOnOpenClose = () => (
 )
 CollapsibleGroupCallbackOnOpenClose.storyName =
   "Collapsible group (callback on open/close)"
+
+export const CollapsibleExpertAdviceVariant = () => (
+  <Box m={1}>
+    <Collapsible
+      id="collapsible-single"
+      open
+      title="Single collapsible"
+      variant="expertAdvice"
+    >
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </Box>
+)
+CollapsibleExpertAdviceVariant.storyName = "Collapsible Expert Advice variant"
