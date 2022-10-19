@@ -31,7 +31,7 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/draft-card": "^3.2.2",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
