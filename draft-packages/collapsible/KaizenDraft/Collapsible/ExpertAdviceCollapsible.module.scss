@@ -1,0 +1,26 @@
+.expertAdvice {
+    background-color: $color-purple-100;
+    border: 1px $border-solid-border-style $color-purple-300;
+    color: $color-purple-800;
+    >div{
+        background-color: inherit;
+    }
+  }
+  
+  .expertAdvice:hover { 
+    border-color: $color-purple-500;
+  }
+  
+  .expertAdviceHeader {
+    background-color: $color-purple-100;
+  }
+  
+  .expertAdviceHeader:hover {
+    background-color: $color-purple-100;
+    color: $color-purple-700;
+  }
+  
+  .expertAdviceHeading { 
+    color: $color-purple-700;
+  }
+    

@@ -9,7 +9,7 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { Sticky } from "./CollapsibleGroup"
 import styles from "./Collapsible.module.scss"
 
-type Variant = "default" | "clear" | "expertAdvice"
+type Variant = "default" | "clear"
 
 export interface CollapsibleProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -93,7 +93,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           [styles.separated]: separated,
           [styles.open]: open,
           [styles.single]: !group,
-          [styles.expertAdvice]: variant === "expertAdvice",
         })}
         data-automation-id={automationId || `collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
@@ -107,7 +106,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
             [styles.open]: open,
-            [styles.expertAdviceHeader]: variant === "expertAdvice",
           })}
           style={sticky && { top: sticky.top }}
           onClick={this.handleSectionToggle}
@@ -120,13 +118,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
               className={styles.title}
               data-automation-id={`collapsible-button-title-${id}`}
             >
-              <Heading
-                variant="heading-4"
-                tag="span"
-                classNameOverride={classnames({
-                  [styles.expertAdviceHeading]: variant === "expertAdvice",
-                })}
-              >
+              <Heading variant="heading-4" tag="span">
                 {title}
               </Heading>
             </div>
