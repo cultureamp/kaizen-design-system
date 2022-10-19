@@ -26,17 +26,34 @@
   padding: $button-vertical-padding
     calc(#{$spacing-sm} - #{$border-solid-border-width});
 
+  position: relative;
+
   background-color: $color-blue-100;
 
   &:hover,
-  &:active,
-  &:focus {
+  &:active {
     background-color: $color-blue-200;
   }
 
   &:focus {
     outline: none;
-    border-color: $color-blue-500;
+  }
+
+  #{$selectors--button-focus} {
+    background-color: $color-blue-200;
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+      border-radius: $border-focus-ring-border-radius;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
+    }
   }
 
   display: inline-flex;
