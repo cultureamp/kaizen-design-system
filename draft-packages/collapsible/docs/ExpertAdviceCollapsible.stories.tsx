@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { Collapsible } from "@kaizen/draft-collapsible"
+import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 
@@ -20,7 +20,7 @@ arcu quam a sapien. Donec in viverra urna.`
 
 export default {
   title: `${CATEGORIES.components}/Collapsible/Expert Advice Collapsible`,
-  component: Collapsible,
+  component: ExpertAdviceCollapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
@@ -32,11 +32,11 @@ export default {
   },
 }
 
-export const ExpertAdviceCollapsible = () => (
+export const DefaultStory = () => (
   <Box m={1}>
-    <Collapsible id="collapsible-single" open title="Expert advice collapsible">
+    <ExpertAdviceCollapsible id="123" title="Expert advice collapsible">
       <Paragraph variant="body">{lipsum}</Paragraph>
-    </Collapsible>
+    </ExpertAdviceCollapsible>
   </Box>
 )
-ExpertAdviceCollapsible.storyName = "Single Expert Advice Collapsible"
+DefaultStory.storyName = "Single Expert Advice Collapsible"

@@ -1,44 +1,14 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
-import { IconButton } from "@kaizen/button"
-import { Heading, HeadingProps } from "@kaizen/typography"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import React from "react"
+import { Heading } from "@kaizen/typography"
 import { Icon } from "@kaizen/component-library"
-import { Sticky } from "./CollapsibleGroup"
 import styles from "./ExpertAdviceCollapsible.module.scss"
-import { Collapsible } from "./Collapsible"
+import { Collapsible, CollapsibleProps } from "./Collapsible"
 import ExpertAdviceIcon from "./ExpertAdvice.icon.svg"
 
-export interface ExpertAdviceCollapsibleProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  id: string
-  children: JSX.Element | JSX.Element[] | string
-  title: string
-  renderHeader?: (title: string) => JSX.Element | JSX.Element[]
-  open?: boolean
-  group?: boolean
-  separated?: boolean
-  sticky?: Sticky
-  noSectionPadding?: boolean
-  /**
-   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
-   * @deprecated
-   */
-  automationId?: string
-  onToggle?: (open: boolean, id: string) => void
-  /**
-   * By default, the header will change background colour when open. When the variant
-   * is set to 'clear', it will not have a background but a border-bottom will appear
-   * to separate the heading from the content.
-   */
-  lazyLoad?: boolean
-  /**
-   * Disables internal `open` state, allowing it to be controlled in the usage.
-   */
-  controlled?: boolean
-}
+export type ExpertAdviceCollapsibleProps = Omit<
+  CollapsibleProps,
+  "renderHeader"
+>
 
 /**
  * {@link https://cultureamp.design/components/collapsible/ Guidance} |
@@ -50,10 +20,16 @@ export const ExpertAdviceCollapsible: React.VFC<
 > = props => (
   <Collapsible
     {...props}
+    noSectionPadding
+    classNameOverride={styles.expertAdviceContainer}
     renderHeader={() => (
       <>
-        <Icon role="presentation" icon={ExpertAdviceIcon} />
-        <div>
+        <div className={styles.expertAdviceHeader}>
+          <Icon
+            classNameOverride={styles.expertAdviceIcon}
+            role="presentation"
+            icon={ExpertAdviceIcon}
+          />
           <Heading
             variant="heading-4"
             tag="span"
@@ -64,5 +40,7 @@ export const ExpertAdviceCollapsible: React.VFC<
         </div>
       </>
     )}
-  ></Collapsible>
+  >
+    <div className={styles.expertAdviceSection}>{props.children}</div>
+  </Collapsible>
 )
