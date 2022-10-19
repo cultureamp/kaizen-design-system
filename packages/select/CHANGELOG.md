@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.4...@kaizen/select@4.1.0) (2022-10-19)
+
+
+### Features
+
+* **filtermultiselect:** update focus to use polyfill ([#3005](https://github.com/cultureamp/kaizen-design-system/issues/3005)) ([bb21754](https://github.com/cultureamp/kaizen-design-system/commit/bb2175430c777ba6c953c761125523f24661d3e6))
+
+
+
+
+
 ## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.3...@kaizen/select@4.0.4) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/select
