@@ -12,7 +12,7 @@ export type ExpertAdviceCollapsibleProps = Omit<
 
 /**
  * {@link https://cultureamp.design/components/collapsible/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible--single-collapsible-kaizen-site-demo Storybook}
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible-expert-advice-collapsible--default-story Storybook}
  */
 
 export const ExpertAdviceCollapsible: React.VFC<
