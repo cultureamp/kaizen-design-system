@@ -6,7 +6,7 @@ import { IconButton } from "@kaizen/button"
 import { Heading } from "@kaizen/typography"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import { Sticky } from "./CollapsibleGroup"
+import { Sticky } from "../CollapsibleGroup/CollapsibleGroup"
 import styles from "./Collapsible.module.scss"
 
 type Variant = "default" | "clear"

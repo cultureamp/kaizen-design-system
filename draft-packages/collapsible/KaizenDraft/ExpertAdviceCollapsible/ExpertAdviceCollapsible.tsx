@@ -7,7 +7,7 @@ import ExpertAdviceIcon from "./ExpertAdvice.icon.svg"
 
 export type ExpertAdviceCollapsibleProps = Omit<
   CollapsibleProps,
-  "renderHeader"
+  "renderHeader" | "variant" | "group" | "separated"
 >
 
 /**
@@ -29,6 +29,7 @@ export const ExpertAdviceCollapsible: React.VFC<
             classNameOverride={styles.expertAdviceIcon}
             role="presentation"
             icon={ExpertAdviceIcon}
+            data-automation-id="expert-advice-icon"
           />
           <Heading
             variant="heading-4"
