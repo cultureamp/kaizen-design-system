@@ -3,16 +3,16 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { TimePicker } from "../index"
-import { ValueType } from "../src/TimePicker/types"
+import { TimeField } from "../index"
+import { ValueType } from "../src/TimeField/types"
 
 export default {
-  title: `${CATEGORIES.components}/TimePicker`,
-  component: TimePicker,
+  title: `${CATEGORIES.components}/TimeField`,
+  component: TimeField,
   parameters: {
     docs: {
       description: {
-        component: 'import { TimePicker } from "@kaizen/time-picker"',
+        component: 'import { TimeField } from "@kaizen/time-picker"',
       },
     },
   },
@@ -25,13 +25,13 @@ export default {
     validationMessage: { control: "text" },
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof TimePicker>
+} as ComponentMeta<typeof TimeField>
 
-export const DefaultStory: ComponentStory<typeof TimePicker> = args => {
+export const DefaultStory: ComponentStory<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)
-  return <TimePicker {...args} value={value} onChange={setValue} />
+  return <TimeField {...args} value={value} onChange={setValue} />
 }
-DefaultStory.storyName = "TimePicker"
+DefaultStory.storyName = "TimeField"
 DefaultStory.args = {
   id: "time-picker-input",
   label: "Launch time",
@@ -54,14 +54,14 @@ const StickerSheetTemplate: Story = () => {
     <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
       <StoryWrapper.Row rowTitle="Input">
-        <TimePicker
+        <TimeField
           id="timepicker-default"
           label="Label (en-AU)"
           locale="en-AU"
           value={valueDefault}
           onChange={setValueDefault}
         />
-        <TimePicker
+        <TimeField
           id="timepicker-disabled"
           label="Label (en-AU)"
           locale="en-AU"
@@ -69,7 +69,7 @@ const StickerSheetTemplate: Story = () => {
           onChange={() => undefined}
           isDisabled
         />
-        <TimePicker
+        <TimeField
           id="timepicker-error"
           label="Label (en-AU)"
           locale="en-AU"
@@ -82,7 +82,7 @@ const StickerSheetTemplate: Story = () => {
 
       <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
       <StoryWrapper.Row rowTitle="Pseudo states" gridColumns={3}>
-        <TimePicker
+        <TimeField
           id="timepicker-hover"
           label="Label (hover on hour)"
           locale="en-AU"
@@ -90,7 +90,7 @@ const StickerSheetTemplate: Story = () => {
           onChange={() => undefined}
           classNameOverride="story__timepicker-hover"
         />
-        <TimePicker
+        <TimeField
           id="timepicker-focus"
           label="Label (focus on hour)"
           locale="en-AU"
@@ -102,21 +102,21 @@ const StickerSheetTemplate: Story = () => {
 
       <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
       <StoryWrapper.Row rowTitle="Localisation">
-        <TimePicker
+        <TimeField
           id="timepicker-en-US"
           label="Label"
           locale="en-US"
           value={valueEnUS}
           onChange={setValueEnUS}
         />
-        <TimePicker
+        <TimeField
           id="timepicker-en-GB"
           label="Label"
           locale="en-GB"
           value={valueEnGB}
           onChange={setValueEnGB}
         />
-        <TimePicker
+        <TimeField
           id="timepicker-zh-HANS-SG"
           label="Label"
           locale="zh-HANS-SG"

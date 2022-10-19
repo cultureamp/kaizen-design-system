@@ -12,9 +12,9 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { Heading } from "@kaizen/typography"
 import { TimeSegment } from "./components/TimeSegment"
 import { StatusType, TimeValue, ValueType } from "./types"
-import styles from "./TimePicker.module.scss"
+import styles from "./TimeField.module.scss"
 
-type OmittedTimePickerProps =
+type OmittedTimeFieldProps =
   | "errorMessage"
   | "validationState"
   | "value"
@@ -22,9 +22,9 @@ type OmittedTimePickerProps =
   | "label"
   | "hideTimeZone"
 
-export interface TimePickerProps
+export interface TimeFieldProps
   extends OverrideClassName<
-    Omit<TimeFieldStateOptions, OmittedTimePickerProps>
+    Omit<TimeFieldStateOptions, OmittedTimeFieldProps>
   > {
   id: string
   /**
@@ -43,15 +43,15 @@ export interface TimePickerProps
 
 // This needed to be placed directly below the props because
 // the prop descriptions wouldn't show in Storybook otherwise.
-export const TimePicker: React.VFC<TimePickerProps> = props => (
+export const TimeField: React.VFC<TimeFieldProps> = props => (
   <I18nProvider locale={props.locale}>
-    <TimePickerComponent {...props} />
+    <TimeFieldComponent {...props} />
   </I18nProvider>
 )
 
-TimePicker.displayName = "TimePicker"
+TimeField.displayName = "TimeField"
 
-const TimePickerComponent: React.VFC<TimePickerProps> = ({
+const TimeFieldComponent: React.VFC<TimeFieldProps> = ({
   id,
   label,
   locale,
@@ -130,4 +130,4 @@ const TimePickerComponent: React.VFC<TimePickerProps> = ({
   )
 }
 
-TimePickerComponent.displayName = "TimePickerComponent"
+TimeFieldComponent.displayName = "TimeFieldComponent"
