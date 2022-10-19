@@ -15,13 +15,13 @@ arcu quam a sapien. Donec in viverra urna.`
 
 export default {
   title: `${CATEGORIES.components}/Collapsible/Collapsible Group`,
-  component: Collapsible,
+  component: CollapsibleGroup,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
       description: {
         component:
-          'import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";',
+          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },

@@ -26,7 +26,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";',
+          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },

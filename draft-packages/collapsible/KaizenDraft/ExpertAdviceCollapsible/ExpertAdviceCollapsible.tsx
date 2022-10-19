@@ -1,8 +1,8 @@
 import React from "react"
 import { Heading } from "@kaizen/typography"
 import { Icon } from "@kaizen/component-library"
+import { Collapsible, CollapsibleProps } from ".."
 import styles from "./ExpertAdviceCollapsible.module.scss"
-import { Collapsible, CollapsibleProps } from "./Collapsible"
 import ExpertAdviceIcon from "./ExpertAdvice.icon.svg"
 
 export type ExpertAdviceCollapsibleProps = Omit<
