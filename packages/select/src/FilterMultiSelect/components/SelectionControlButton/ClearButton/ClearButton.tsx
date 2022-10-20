@@ -2,7 +2,7 @@ import classNames from "classnames"
 import React from "react"
 import { useSelectionContext } from "../../../provider"
 
-import styles from "../SelectionControlButton.scss"
+import styles from "../SelectionControlButton.module.scss"
 
 export const ClearButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
@@ -31,7 +31,7 @@ export const ClearButton: React.VFC = () => {
               )
             )
         }
-        // TODO: add annoucemnt here to inform selection cleared
+        // TODO: add announcement here to inform selection cleared
       }
     >
       Clear
