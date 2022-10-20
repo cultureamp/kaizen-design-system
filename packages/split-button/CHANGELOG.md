@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.9...@kaizen/split-button@1.3.10) (2022-10-20)
+
+
+### Bug Fixes
+
+* **splitbutton:** fixing font css for murmur ([#3034](https://github.com/cultureamp/kaizen-design-system/issues/3034)) ([34e15a0](https://github.com/cultureamp/kaizen-design-system/commit/34e15a0f7bfc4716e437bc962bda8965028a0f52))
+
+
+
+
+
 ## [1.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.8...@kaizen/split-button@1.3.9) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/split-button
