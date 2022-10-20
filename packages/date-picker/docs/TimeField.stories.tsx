@@ -12,7 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { TimeField } from "@kaizen/time-picker"',
+        component: 'import { TimeField } from "@kaizen/date-picker"',
       },
     },
   },
@@ -33,7 +33,7 @@ export const DefaultStory: ComponentStory<typeof TimeField> = args => {
 }
 DefaultStory.storyName = "TimeField"
 DefaultStory.args = {
-  id: "time-picker-input",
+  id: "time-field-input",
   label: "Launch time",
   locale: "en-US",
   isDisabled: false,
