@@ -55,14 +55,14 @@ const StickerSheetTemplate: Story = () => {
       <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
       <StoryWrapper.Row rowTitle="Input">
         <TimeField
-          id="timepicker-default"
+          id="timefield-default"
           label="Label (en-AU)"
           locale="en-AU"
           value={valueDefault}
           onChange={setValueDefault}
         />
         <TimeField
-          id="timepicker-disabled"
+          id="timefield-disabled"
           label="Label (en-AU)"
           locale="en-AU"
           value={{ hour: 1, minutes: 30 }}
@@ -70,7 +70,7 @@ const StickerSheetTemplate: Story = () => {
           isDisabled
         />
         <TimeField
-          id="timepicker-error"
+          id="timefield-error"
           label="Label (en-AU)"
           locale="en-AU"
           value={valueError}
@@ -83,41 +83,41 @@ const StickerSheetTemplate: Story = () => {
       <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
       <StoryWrapper.Row rowTitle="Pseudo states" gridColumns={3}>
         <TimeField
-          id="timepicker-hover"
+          id="timefield-hover"
           label="Label (hover on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
           onChange={() => undefined}
-          classNameOverride="story__timepicker-hover"
+          classNameOverride="story__timefield-hover"
         />
         <TimeField
-          id="timepicker-focus"
+          id="timefield-focus"
           label="Label (focus on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
           onChange={() => undefined}
-          classNameOverride="story__timepicker-focus"
+          classNameOverride="story__timefield-focus"
         />
       </StoryWrapper.Row>
 
       <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
       <StoryWrapper.Row rowTitle="Localisation">
         <TimeField
-          id="timepicker-en-US"
+          id="timefield-en-US"
           label="Label"
           locale="en-US"
           value={valueEnUS}
           onChange={setValueEnUS}
         />
         <TimeField
-          id="timepicker-en-GB"
+          id="timefield-en-GB"
           label="Label"
           locale="en-GB"
           value={valueEnGB}
           onChange={setValueEnGB}
         />
         <TimeField
-          id="timepicker-zh-HANS-SG"
+          id="timefield-zh-HANS-SG"
           label="Label"
           locale="zh-HANS-SG"
           value={valueZh}
