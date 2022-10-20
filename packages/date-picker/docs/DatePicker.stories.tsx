@@ -9,6 +9,7 @@ import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DayOfWeek } from "../src/enums"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
@@ -24,6 +25,9 @@ export default {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
+    ),
   },
   argTypes: {
     buttonRef: {
