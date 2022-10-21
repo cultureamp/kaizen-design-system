@@ -1,26 +1,30 @@
-import { render } from "@testing-library/react"
-import { configure, queryByTestId } from "@testing-library/dom"
 import * as React from "react"
+import { render, screen } from "@testing-library/react"
 import { ExpertAdviceCollapsible } from ".."
 
-configure({ testIdAttribute: "data-automation-id" })
-
-it("renders the title as a heading", () => {
-  const { getByTestId } = render(
+it("renders children", () => {
+  render(
     <ExpertAdviceCollapsible id="1" title="This title should be rendered">
       Expert advice collapsible component
     </ExpertAdviceCollapsible>
   )
-  const titleText = getByTestId("collapsible-header-1").querySelector("div")
-  expect(titleText).toHaveTextContent("This title should be rendered")
+  screen.getByText("This title should be rendered")
 })
 
 it("renders an icon in the header", () => {
-  const { getByTestId } = render(
+  render(
     <ExpertAdviceCollapsible id="2" title="Expert advice collapsible icon">
       Expert advice collapsible component
     </ExpertAdviceCollapsible>
   )
-  const icon = getByTestId("expert-advice-icon")
-  expect(icon).toBeInTheDocument()
+  screen.getByRole("img", { name: "Collective Intelligence" })
+})
+
+it("renders children", () => {
+  render(
+    <ExpertAdviceCollapsible id="2" title="Expert advice collapsible children">
+      Expert advice collapsible component
+    </ExpertAdviceCollapsible>
+  )
+  screen.getByRole("region")
 })
