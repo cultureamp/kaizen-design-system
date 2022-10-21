@@ -30,12 +30,13 @@ export const Default = args => {
       <Box pt={1}>
         <InlineNotification
           type="cautionary"
-          title="Security Hint"
+          title="Security hint"
           hideCloseIcon
         >
           Our Rich Text Editor deals with user input which can potentially
-          include malicious content (e.g. XSS, injection attacks). It should
-          always be treated with great care when processing or displaying again.
+          include malicious content (e.g. XSS, injection attacks). The data
+          returned by the RTE should hence always be treated with appropriate
+          caution when being processed or rendered by your application.
         </InlineNotification>
       </Box>
     </>
