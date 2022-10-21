@@ -25,6 +25,7 @@
     &:active,
     &#{$story-className--active} {
       z-index: 2;
+      text-decoration: unset; // override Murmur global styles :(
     }
 
     &:active,
@@ -48,9 +49,10 @@
 }
 
 .themeDefault {
+  $default-text-color: $color-purple-800
   background-color: $color-white;
   border-color: $color-gray-500;
-  color: $color-purple-800;
+  color: $default-text-color;
 
   &:not(:disabled) {
     &:hover,
@@ -62,6 +64,7 @@
     &#{$story-className__focus} {
       background-color: $color-gray-200;
       border-color: $color-gray-600;
+      color: $default-text-color; // override Murmur global styles :(
     }
 
     &:focus-visible,
@@ -73,9 +76,10 @@
 }
 
 .themeReversed {
+  $reversed-text-color: $color-white
   background-color: transparent;
   border-color: rgba($color-white-rgb, 0.65);
-  color: $color-white;
+  color: $reversed-text-color;
 
   &:not(:disabled) {
     &:hover,
@@ -87,6 +91,7 @@
     &#{$story-className__focus} {
       background-color: rgba($color-white-rgb, 0.1);
       border-color: $color-white;
+      color: $reversed-text-color; // override Murmur global styles :(
     }
 
     &:focus-visible,
