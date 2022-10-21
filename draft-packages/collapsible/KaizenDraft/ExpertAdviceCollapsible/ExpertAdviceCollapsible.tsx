@@ -28,6 +28,7 @@ export const ExpertAdviceCollapsible: React.VFC<
             classNameOverride={styles.expertAdviceIcon}
             alt="Collective Intelligence"
             variant="collective-intelligence"
+            reversed
           />
           <Heading
             variant="heading-4"
