@@ -1,9 +1,8 @@
 import React from "react"
 import { Heading } from "@kaizen/typography"
-import { Icon } from "@kaizen/component-library"
 import { Collapsible, CollapsibleProps } from ".."
+import { Brand } from "../../../../packages/brand"
 import styles from "./ExpertAdviceCollapsible.module.scss"
-import ExpertAdviceIcon from "./ExpertAdvice.icon.svg"
 
 export type ExpertAdviceCollapsibleProps = Omit<
   CollapsibleProps,
@@ -25,11 +24,10 @@ export const ExpertAdviceCollapsible: React.VFC<
     renderHeader={() => (
       <>
         <div className={styles.expertAdviceHeader}>
-          <Icon
+          <Brand
             classNameOverride={styles.expertAdviceIcon}
-            role="presentation"
-            icon={ExpertAdviceIcon}
-            data-automation-id="expert-advice-icon"
+            alt="Collective Intelligence"
+            variant="collective-intelligence"
           />
           <Heading
             variant="heading-4"
