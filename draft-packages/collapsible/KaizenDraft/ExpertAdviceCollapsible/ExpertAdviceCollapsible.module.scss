@@ -10,11 +10,11 @@ $heading-active-color: $color-purple-100;
   color: $color-purple-800;
   > div {
     &:first-of-type {
+      background-color: $color-purple-100;
+      border-radius: $border-borderless-border-radius;
+      &:hover {
         background-color: $color-purple-100;
-        border-radius: $border-borderless-border-radius;
-        &:hover {
-        background-color: $color-purple-100;
-        }
+      }
     }
   }
 }
@@ -36,9 +36,9 @@ $heading-active-color: $color-purple-100;
 }
 
 .expertAdviceIcon {
-    margin-inline-end: $spacing-sm;
-    width: 1.75rem;
-    height: 1.75rem;
+  margin-inline-end: $spacing-sm;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .expertAdviceHeading {
@@ -46,5 +46,5 @@ $heading-active-color: $color-purple-100;
 }
 
 .expertAdviceSection {
-    padding: 0 $spacing-md $spacing-md; 
+  padding: 0 $spacing-md $spacing-md;
 }
