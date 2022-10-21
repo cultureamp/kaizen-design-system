@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { RichTextEditor, EditorContentArray } from "@kaizen/rich-text-editor"
+import { Box } from "@kaizen/component-library"
+import { InlineNotification } from "@kaizen/notification"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 import dummyMalformedContent from "./dummyMalformedContent.json"
@@ -19,11 +21,24 @@ export default {
 export const Default = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
   return (
-    <RichTextEditor
-      value={rteData}
-      onChange={data => setRTEData(data)}
-      {...args}
-    />
+    <>
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        {...args}
+      />
+      <Box pt={1}>
+        <InlineNotification
+          type="cautionary"
+          title="Security Hint"
+          hideCloseIcon
+        >
+          Our Rich Text Editor deals with user input which can potentially
+          include malicious content (e.g. XSS, injection attacks). It should
+          always be treated with great care when processing or displaying again.
+        </InlineNotification>
+      </Box>
+    </>
   )
 }
 
