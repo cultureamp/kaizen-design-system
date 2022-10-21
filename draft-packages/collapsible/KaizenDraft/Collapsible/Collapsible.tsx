@@ -14,7 +14,7 @@ type Variant = "default" | "clear"
 export interface CollapsibleProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
-  children: React.ReactNode
+  children: JSX.Element | JSX.Element[] | string
   title: string
   renderHeader?: (title: string) => JSX.Element | JSX.Element[]
   open?: boolean
