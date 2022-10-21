@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "4.0.4",
+  "version": "4.1.2",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,8 +35,8 @@
     "@kaizen/draft-badge": "^1.13.3",
     "@kaizen/draft-divider": "^2.2.3",
     "@kaizen/draft-form": "^8.3.6",
-    "@kaizen/draft-menu": "^4.8.9",
-    "@kaizen/draft-tooltip": "^5.4.6",
+    "@kaizen/draft-menu": "^4.8.10",
+    "@kaizen/draft-tooltip": "^5.4.7",
     "@kaizen/loading-skeleton": "^1.7.3",
     "@kaizen/typography": "^2.3.3",
     "@react-aria/button": "^3.6.2",

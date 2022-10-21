@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.1...@kaizen/select@4.1.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* Added .module. to SCSS file in FilterMultiSelect to fix Next.js issue [KDS-905] ([#3036](https://github.com/cultureamp/kaizen-design-system/issues/3036)) ([cfdb20e](https://github.com/cultureamp/kaizen-design-system/commit/cfdb20e1876fc68b3a00ccf99256842a73eb2c1c))
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.0...@kaizen/select@4.1.1) (2022-10-20)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.4...@kaizen/select@4.1.0) (2022-10-19)
+
+
+### Features
+
+* **filtermultiselect:** update focus to use polyfill ([#3005](https://github.com/cultureamp/kaizen-design-system/issues/3005)) ([bb21754](https://github.com/cultureamp/kaizen-design-system/commit/bb2175430c777ba6c953c761125523f24661d3e6))
+
+
+
+
+
 ## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.3...@kaizen/select@4.0.4) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/select
