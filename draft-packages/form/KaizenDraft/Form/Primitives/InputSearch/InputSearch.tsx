@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react"
+import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
@@ -32,7 +32,12 @@ export const InputSearch: React.VFC<InputSearchProps> = (
     secondary = false,
     ...restProps
   } = props
+  const inputRef = useRef<HTMLInputElement>(null)
 
+  const handleOnClear = (): void => {
+    inputRef.current?.focus()
+    onClear && onClear()
+  }
   return (
     <div
       className={classnames(
@@ -59,6 +64,7 @@ export const InputSearch: React.VFC<InputSearchProps> = (
       </div>
 
       <input
+        ref={inputRef}
         type="search"
         className={classnames(styles.input, styles.search, classNameOverride, {
           [styles.default]: !reversed,
@@ -82,7 +88,7 @@ export const InputSearch: React.VFC<InputSearchProps> = (
             type="button"
             className={styles.cancelButton}
             aria-label="clear"
-            onClick={onClear}
+            onClick={handleOnClear}
           >
             <Icon icon={clear} role="presentation" />
           </button>
