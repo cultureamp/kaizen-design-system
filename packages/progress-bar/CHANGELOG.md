@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.2.6...@kaizen/progress-bar@2.3.0) (2022-10-24)
+
+
+### Features
+
+* **progressBar:** add reversed text styling ([#3042](https://github.com/cultureamp/kaizen-design-system/issues/3042)) ([1957e3d](https://github.com/cultureamp/kaizen-design-system/commit/1957e3def3163ec2cab2294ac23a19cab316ac9b))
+
+
+
+
+
 ## [2.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.2.5...@kaizen/progress-bar@2.2.6) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/progress-bar
