@@ -7,7 +7,7 @@ import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { useInfiniteQuery } from "@tanstack/react-query"
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -340,6 +340,7 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
   const [open, setOpen] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
+  const queryClient = useQueryClient()
   const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
     useInfiniteQuery(
       ["startrek-sg1", searchState],
@@ -362,13 +363,24 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
       }
     )
 
-  const people = React.useMemo(
+  /**
+   * We need access to the previously fetched people. If a user has selected a
+   * particular person and then searched to no longer return that person, we have
+   * only the selected keys to work with, no renderable values.
+   */
+  const cachedPeople = queryClient
+    .getQueriesData<{
+      pages: { results: Array<{ name: string; url: string }> }
+    }>(["startrek-sg1"])
+    .flatMap(([, cachedData]) => cachedData?.pages ?? [])
+    .flatMap(page => page.results)
+    .map(item => ({ label: item.name, value: item.url }))
+
+  const currentPeople = React.useMemo(
     () =>
       data?.pages
-        .flat(1)
-        .map(res => res.results)
-        .flat(1)
-        .map(person => ({ label: person.name, value: person.url })) || [],
+        .flatMap(res => res.results)
+        .flatMap(person => ({ label: person.name, value: person.url })) || [],
     [data]
   )
 
@@ -378,12 +390,12 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
         {...args}
         isLoading={isLoading}
         loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
-        items={people}
+        items={currentPeople}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(
               new Set(selectedPeople),
-              people
+              cachedPeople
             )}
             label={"People"}
           />
