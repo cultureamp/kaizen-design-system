@@ -49,7 +49,7 @@
 }
 
 .themeDefault {
-  $default-text-color: $color-purple-800
+  $default-text-color: $color-purple-800;
   background-color: $color-white;
   border-color: $color-gray-500;
   color: $default-text-color;
@@ -76,7 +76,7 @@
 }
 
 .themeReversed {
-  $reversed-text-color: $color-white
+  $reversed-text-color: $color-white;
   background-color: transparent;
   border-color: rgba($color-white-rgb, 0.65);
   color: $reversed-text-color;
