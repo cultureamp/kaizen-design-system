@@ -6,8 +6,8 @@
 $input-height: 48px;
 
 // Classnames to simulate pseudo states in storybook
-$story-className--timepicker-hover: ":global(.story__timepicker-hover)";
-$story-className--timepicker-focus: ":global(.story__timepicker-focus)";
+$story-className--timefield-hover: ":global(.story__timefield-hover)";
+$story-className--timefield-focus: ":global(.story__timefield-focus)";
 
 .wrapper {
   position: relative;
@@ -37,16 +37,16 @@ $story-className--timepicker-focus: ":global(.story__timepicker-focus)";
   box-sizing: border-box;
 
   &:hover,
-  #{$story-className--timepicker-hover} &,
+  #{$story-className--timefield-hover} &,
   &:focus-within,
-  #{$story-className--timepicker-focus} & {
+  #{$story-className--timefield-focus} & {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
 }
 
 .input:focus-within,
-#{$story-className--timepicker-focus} .input {
+#{$story-className--timefield-focus} .input {
   .focusRing {
     $focus-ring-offset: 3px;
     position: absolute;
