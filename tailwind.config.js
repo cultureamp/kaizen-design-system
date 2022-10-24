@@ -1,12 +1,12 @@
-const kaizenPresets = require("./packages/design-tokens/tailwind/tailwindPresets")
+// ts-check
+// will pull from dist folder until published to kaizen
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [kaizenPresets],
-  content: ["./**/*.tsx", "./**/*.ts"],
-  important: "#root",
-  plugins: [],
+  content: ["./**/*.{ts,tsx}"],
+  presets: [require("@kaizen/design-tokens").TailwindPreset],
   theme: {
     extend: {},
   },
+  plugins: [],
 }
