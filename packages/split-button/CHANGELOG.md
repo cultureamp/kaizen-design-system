@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.11...@kaizen/split-button@1.3.12) (2022-10-24)
+
+
+### Bug Fixes
+
+* **splitbutton:** explicitly setting the text color and text-decoration on hover ([#3041](https://github.com/cultureamp/kaizen-design-system/issues/3041)) ([5afa013](https://github.com/cultureamp/kaizen-design-system/commit/5afa01375d8b9d302a407263c736201058441f04))
+
+
+
+
+
 ## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.10...@kaizen/split-button@1.3.11) (2022-10-20)
 
 **Note:** Version bump only for package @kaizen/split-button
