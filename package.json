@@ -31,7 +31,7 @@
     "@storybook/addons": "^6.5.13",
     "@storybook/api": "^6.5.13",
     "@storybook/components": "^6.5.13",
-    "@storybook/core-events": "^6.5.12",
+    "@storybook/core-events": "^6.5.13",
     "@storybook/react": "^6.5.12",
     "@storybook/theming": "^6.5.12",
     "classnames": "^2.3.2",
