@@ -60,7 +60,7 @@
     "@storybook/addon-links": "^6.5.13",
     "@storybook/builder-webpack5": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.13",
-    "@storybook/node-logger": "^6.5.12",
+    "@storybook/node-logger": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "@playwright/test": "^1.24.1",
     "@testing-library/jest-dom": "^5.16.4",
