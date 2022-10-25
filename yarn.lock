@@ -3706,24 +3706,34 @@
     "@reach/utils" "0.16.0"
     tslib "^2.3.0"
 
-"@reach/descendants@0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@reach/descendants/-/descendants-0.16.1.tgz#fa3d89c0503565369707f32985d87eef61985d9f"
-  integrity sha512-3WZgRnD9O4EORKE31rrduJDiPFNMOjUkATx0zl192ZxMq3qITe4tUj70pS5IbJl/+v9zk78JwyQLvA1pL7XAPA==
+"@reach/auto-id@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.18.0.tgz#4b97085cd1cf1360a9bedc6e9c78e97824014f0d"
+  integrity sha512-XwY1IwhM7mkHZFghhjiqjQ6dstbOdpbFLdggeke75u8/8icT8uEHLbovFUgzKjy9qPvYwZIB87rLiR8WdtOXCg==
   dependencies:
-    "@reach/utils" "0.16.0"
-    tslib "^2.3.0"
+    "@reach/utils" "0.18.0"
 
-"@reach/tabs@^0.16.4":
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/@reach/tabs/-/tabs-0.16.4.tgz#7da85e46f64052bdd1c0f9582f900e379b098ac5"
-  integrity sha512-4EK+1U0OoLfg2tJ1BSZf6/tx0hF5vlXKxY7qB//bPWtlIh9Xfp/aSDIdspFf3xS8MjtKeb6IVmo5UAxDMq85ZA==
+"@reach/descendants@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/descendants/-/descendants-0.18.0.tgz#16fe52a5154da262994b0b8768baff4f670922d1"
+  integrity sha512-GXUxnM6CfrX5URdnipPIl3Tlc6geuz4xb4n61y4tVWXQX1278Ra9Jz9DMRN8x4wheHAysvrYwnR/SzAlxQzwtA==
   dependencies:
-    "@reach/auto-id" "0.16.0"
-    "@reach/descendants" "0.16.1"
-    "@reach/utils" "0.16.0"
-    prop-types "^15.7.2"
-    tslib "^2.3.0"
+    "@reach/utils" "0.18.0"
+
+"@reach/polymorphic@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/polymorphic/-/polymorphic-0.18.0.tgz#2fe42007a774e06cdbc8e13e0d46f2dc30f2f1ed"
+  integrity sha512-N9iAjdMbE//6rryZZxAPLRorzDcGBnluf7YQij6XDLiMtfCj1noa7KyLpEc/5XCIB/EwhX3zCluFAwloBKdblA==
+
+"@reach/tabs@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/tabs/-/tabs-0.18.0.tgz#f2e789d445d61a371eace9415841502729d099c9"
+  integrity sha512-gTRJzStWJJtgMhn9FDEmKogAJMcqNaGZx0i1SGoTdVM+D29DBhVeRdO8qEg+I2l2k32DkmuZxG/Mrh+GZTjczQ==
+  dependencies:
+    "@reach/auto-id" "0.18.0"
+    "@reach/descendants" "0.18.0"
+    "@reach/polymorphic" "0.18.0"
+    "@reach/utils" "0.18.0"
 
 "@reach/utils@0.16.0":
   version "0.16.0"
@@ -3732,6 +3742,11 @@
   dependencies:
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
+
+"@reach/utils@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.18.0.tgz#4f3cebe093dd436eeaff633809bf0f68f4f9d2ee"
+  integrity sha512-KdVMdpTgDyK8FzdKO9SCpiibuy/kbv3pwgfXshTI6tEcQT1OOwj7BAksnzGC0rPz0UholwC+AgkqEl3EJX3M1A==
 
 "@react-aria/button@^3.6.2":
   version "3.6.2"
