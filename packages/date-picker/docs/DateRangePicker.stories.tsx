@@ -7,6 +7,7 @@ import { DateRangePicker } from "../src/DateRangePicker"
 import { Calendar } from "../src/_primitives/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker`,
@@ -17,6 +18,9 @@ export default {
         component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
+    ),
   },
 }
 
