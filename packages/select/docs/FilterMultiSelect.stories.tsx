@@ -415,20 +415,23 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <FilterMultiSelect.Option key={item.key} item={item} />
-                ))
-              }
+              {({ allItems }) => (
+                <>
+                  {allItems.map(item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  ))}
+                  {hasNextPage && (
+                    <FilterMultiSelect.LoadMoreButton
+                      label={"View more"}
+                      workingLabel={"Loading…"}
+                      working={isFetchingNextPage}
+                      onClick={() => fetchNextPage()}
+                    />
+                  )}
+                </>
+              )}
             </FilterMultiSelect.ListBox>
-            {hasNextPage && (
-              <FilterMultiSelect.LoadMoreButton
-                label={"View more"}
-                workingLabel={"Loading…"}
-                working={isFetchingNextPage}
-                onClick={() => fetchNextPage()}
-              />
-            )}
+
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
               <FilterMultiSelect.ClearButton />
