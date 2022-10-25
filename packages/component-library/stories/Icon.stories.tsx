@@ -91,7 +91,37 @@ const StickerSheetTemplate: Story = () => {
 
   return (
     <div>
-      <Heading variant="heading-3">Logo</Heading>
+      <Paragraph variant="body">
+        To import an icon use this import statement and replace the file name
+        with the name under the icon
+      </Paragraph>
+      <Paragraph
+        style={{
+          paddingBottom: "2rem",
+          paddingTop: "2rem",
+        }}
+        variant="body"
+      >
+        Example:
+      </Paragraph>
+      <code
+        style={{
+          borderLeft: "5px solid",
+          backgroundColor: "#E5E5E5",
+        }}
+      >
+        import <strong>draft</strong> from "@kaizen/component-library/icons/
+        <strong>writing</strong>.icon.svg"
+      </code>
+
+      <Heading
+        style={{
+          paddingTop: "2rem",
+        }}
+        variant="heading-3"
+      >
+        Logo
+      </Heading>
       {logoIcons.map((props, i) => (
         <IconExampleTile
           icon={logoIcons[i][1]}
