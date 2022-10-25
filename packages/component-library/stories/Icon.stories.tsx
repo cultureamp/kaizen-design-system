@@ -48,10 +48,10 @@ export const MeaningfulKaizenSiteDemo = () => (
 )
 MeaningfulKaizenSiteDemo.storyName = "Icon"
 
-const IconExampleTile = ({ icon, name }) => (
+const IconExampleTile = ({ icon, figmaName, filename }) => (
   <div
     style={{
-      width: "150px",
+      width: "200px",
       display: "inline-flex",
       flexWrap: "wrap",
       flexDirection: "column",
@@ -66,7 +66,8 @@ const IconExampleTile = ({ icon, name }) => (
     >
       <Icon icon={icon} role="presentation" />
     </div>
-    <Paragraph variant="small">{name}</Paragraph>
+    <Paragraph variant="body">{figmaName}</Paragraph>
+    <code style={{ opacity: "0.7" }}>{filename}</code>
   </div>
 )
 
@@ -82,14 +83,20 @@ const StickerSheetTemplate: Story = () => {
   const performanceIcons = [...Object.entries(Performance)]
   const effectivenessIcons = [...Object.entries(Effectiveness)]
   const miscellaneousIcons = [...Object.entries(Miscellaneous)]
+
+  const getFileName = (id: string) => {
+    const filename = id.replace(".icon", "")
+    return filename.replace("ca-icon-", "")
+  }
+
   return (
     <div>
       <Heading variant="heading-3">Logo</Heading>
       {logoIcons.map((props, i) => (
         <IconExampleTile
           icon={logoIcons[i][1]}
-          {...props}
-          name={logoIcons[i][0]}
+          figmaName={logoIcons[i][0]}
+          filename={getFileName(logoIcons[i][1].id)}
           key={logoIcons[i][0]}
         />
       ))}
@@ -97,8 +104,8 @@ const StickerSheetTemplate: Story = () => {
       {actionIcons.map((props, i) => (
         <IconExampleTile
           icon={actionIcons[i][1]}
-          {...props}
-          name={actionIcons[i][0]}
+          figmaName={actionIcons[i][0]}
+          filename={getFileName(actionIcons[i][1].id)}
           key={actionIcons[i][0]}
         />
       ))}
@@ -106,8 +113,8 @@ const StickerSheetTemplate: Story = () => {
       {formationalIcons.map((props, i) => (
         <IconExampleTile
           icon={formationalIcons[i][1]}
-          {...props}
-          name={formationalIcons[i][0]}
+          figmaName={formationalIcons[i][0]}
+          filename={getFileName(formationalIcons[i][1].id)}
           key={formationalIcons[i][0]}
         />
       ))}
@@ -115,8 +122,8 @@ const StickerSheetTemplate: Story = () => {
       {usersIcons.map((props, i) => (
         <IconExampleTile
           icon={usersIcons[i][1]}
-          {...props}
-          name={usersIcons[i][0]}
+          figmaName={usersIcons[i][0]}
+          filename={getFileName(usersIcons[i][1].id)}
           key={usersIcons[i][0]}
         />
       ))}
@@ -124,8 +131,8 @@ const StickerSheetTemplate: Story = () => {
       {surveyIcons.map((props, i) => (
         <IconExampleTile
           icon={surveyIcons[i][1]}
-          {...props}
-          name={surveyIcons[i][0]}
+          figmaName={surveyIcons[i][0]}
+          filename={getFileName(surveyIcons[i][1].id)}
           key={surveyIcons[i][0]}
         />
       ))}
@@ -133,8 +140,8 @@ const StickerSheetTemplate: Story = () => {
       {viewsIcons.map((props, i) => (
         <IconExampleTile
           icon={viewsIcons[i][1]}
-          {...props}
-          name={viewsIcons[i][0]}
+          figmaName={viewsIcons[i][0]}
+          filename={getFileName(viewsIcons[i][1].id)}
           key={viewsIcons[i][0]}
         />
       ))}
@@ -142,8 +149,8 @@ const StickerSheetTemplate: Story = () => {
       {directionalIcons.map((props, i) => (
         <IconExampleTile
           icon={directionalIcons[i][1]}
-          {...props}
-          name={directionalIcons[i][0]}
+          figmaName={directionalIcons[i][0]}
+          filename={getFileName(directionalIcons[i][1].id)}
           key={directionalIcons[i][0]}
         />
       ))}
@@ -151,8 +158,8 @@ const StickerSheetTemplate: Story = () => {
       {sentimentIcons.map((props, i) => (
         <IconExampleTile
           icon={sentimentIcons[i][1]}
-          {...props}
-          name={sentimentIcons[i][0]}
+          figmaName={sentimentIcons[i][0]}
+          filename={getFileName(sentimentIcons[i][1].id)}
           key={sentimentIcons[i][0]}
         />
       ))}
@@ -160,8 +167,8 @@ const StickerSheetTemplate: Story = () => {
       {performanceIcons.map((props, i) => (
         <IconExampleTile
           icon={performanceIcons[i][1]}
-          {...props}
-          name={performanceIcons[i][0]}
+          figmaName={performanceIcons[i][0]}
+          filename={getFileName(performanceIcons[i][1].id)}
           key={performanceIcons[i][0]}
         />
       ))}
@@ -169,8 +176,8 @@ const StickerSheetTemplate: Story = () => {
       {effectivenessIcons.map((props, i) => (
         <IconExampleTile
           icon={effectivenessIcons[i][1]}
-          {...props}
-          name={effectivenessIcons[i][0]}
+          figmaName={effectivenessIcons[i][0]}
+          filename={getFileName(effectivenessIcons[i][1].id)}
           key={effectivenessIcons[i][0]}
         />
       ))}
@@ -178,8 +185,8 @@ const StickerSheetTemplate: Story = () => {
       {miscellaneousIcons.map((props, i) => (
         <IconExampleTile
           icon={miscellaneousIcons[i][1]}
-          {...props}
-          name={miscellaneousIcons[i][0]}
+          figmaName={miscellaneousIcons[i][0]}
+          filename={getFileName(miscellaneousIcons[i][1].id)}
           key={miscellaneousIcons[i][0]}
         />
       ))}
