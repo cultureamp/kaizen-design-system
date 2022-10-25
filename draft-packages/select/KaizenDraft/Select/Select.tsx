@@ -87,6 +87,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           Placeholder,
           DropdownIndicator,
           Menu,
+          GroupHeading,
           Option,
           NoOptionsMessage,
           Input,
@@ -172,6 +173,13 @@ const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
 
 const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
+)
+
+const GroupHeading: typeof components.GroupHeading = props => (
+  <components.GroupHeading
+    {...props}
+    className={classNames(styles.groupHeading)}
+  />
 )
 
 const Option: typeof components.Option = props => (
