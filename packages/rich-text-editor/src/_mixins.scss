@@ -1,5 +1,6 @@
 @import "@kaizen/design-tokens/sass/spacing";
 @import "@kaizen/design-tokens/sass/typography";
+@import "@kaizen/design-tokens/sass/color";
 
 @mixin contentStyles {
   font-family: $typography-paragraph-body-font-family;
@@ -29,6 +30,14 @@
       p {
         margin-top: 0;
       }
+    }
+  }
+
+  a {
+    color: $color-blue-500;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 
