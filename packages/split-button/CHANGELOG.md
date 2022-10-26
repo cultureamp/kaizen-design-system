@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.13...@kaizen/split-button@1.3.14) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/split-button
+
+
+
+
+
+## [1.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.12...@kaizen/split-button@1.3.13) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/split-button
+
+
+
+
+
 ## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/split-button@1.3.11...@kaizen/split-button@1.3.12) (2022-10-24)
 
 

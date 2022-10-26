@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { TimePicker, TimePickerProps } from "./TimePicker"
+import { TimeField, TimeFieldProps } from "./TimeField"
 import { ValueType } from "./types"
 
 const mockOnChange = jest.fn()
@@ -19,14 +19,14 @@ const pressArrowUpKey: (element: HTMLElement) => void = pressArrowKey("ArrowUp")
 const pressArrowDownKey: (element: HTMLElement) => void =
   pressArrowKey("ArrowDown")
 
-const TimePickerWrapper = ({
+const TimeFieldWrapper = ({
   value: propsValue = null,
   ...customProps
-}: Partial<TimePickerProps>): JSX.Element => {
+}: Partial<TimeFieldProps>): JSX.Element => {
   const [value, setValue] = useState<ValueType | null>(propsValue)
 
   return (
-    <TimePicker
+    <TimeField
       locale="en-GB"
       id="id"
       label={LABEL}
@@ -39,18 +39,18 @@ const TimePickerWrapper = ({
 
 describe("component formats time appropriate to locale", () => {
   it("shows time in a h:mm a format for en-AU locale", () => {
-    render(<TimePickerWrapper locale="en-AU" />)
+    render(<TimeFieldWrapper locale="en-AU" />)
     // There should be 3 spin buttons - hour, minutes, and period
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
 
   it("shows time in a h:mm A format for en-US", () => {
-    render(<TimePickerWrapper locale="en-US" />)
+    render(<TimeFieldWrapper locale="en-US" />)
     expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
 
   it("shows time in a HH:MM format for en-GB", () => {
-    render(<TimePickerWrapper locale="en-GB" />)
+    render(<TimeFieldWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
     expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
   })
@@ -58,7 +58,7 @@ describe("component formats time appropriate to locale", () => {
 
 describe("spin button functionality", () => {
   it("changes hour on key press", () => {
-    render(<TimePickerWrapper />)
+    render(<TimeFieldWrapper />)
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
@@ -76,7 +76,7 @@ describe("spin button functionality", () => {
   })
 
   it("changes minutes on key press", () => {
-    render(<TimePickerWrapper />)
+    render(<TimeFieldWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
@@ -93,7 +93,7 @@ describe("spin button functionality", () => {
 
   it("changes segments orthogonally", () => {
     // tests whether changing minute changes hour
-    render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
+    render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
@@ -107,7 +107,7 @@ describe("spin button functionality", () => {
   })
 
   it("allows uers to backspace to remove values", () => {
-    render(<TimePickerWrapper value={{ hour: 4, minutes: 44 }} />)
+    render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
@@ -130,7 +130,7 @@ describe("spin button functionality", () => {
 describe("onChange", () => {
   it("returns correct time from 12 hour format display", () => {
     render(
-      <TimePickerWrapper
+      <TimeFieldWrapper
         value={{ hour: 16, minutes: 44 }}
         onChange={mockOnChange}
         locale="en-AU"
@@ -147,7 +147,7 @@ describe("onChange", () => {
 
   it("returns correct time from 24 hour format display", () => {
     render(
-      <TimePickerWrapper
+      <TimeFieldWrapper
         value={{ hour: 16, minutes: 44 }}
         onChange={mockOnChange}
         locale="en-GB"

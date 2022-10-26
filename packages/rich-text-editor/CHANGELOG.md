@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.23...@kaizen/rich-text-editor@1.18.24) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.18.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.22...@kaizen/rich-text-editor@1.18.23) (2022-10-25)
+
+
+### Bug Fixes
+
+* styles for link for RTE and RTC ([#3045](https://github.com/cultureamp/kaizen-design-system/issues/3045)) ([b704437](https://github.com/cultureamp/kaizen-design-system/commit/b7044372610fc869a1b2726e333781e3373b83ec))
+
+
+
+
+
+## [1.18.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.21...@kaizen/rich-text-editor@1.18.22) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.18.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.20...@kaizen/rich-text-editor@1.18.21) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 ## [1.18.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.18.19...@kaizen/rich-text-editor@1.18.20) (2022-10-20)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

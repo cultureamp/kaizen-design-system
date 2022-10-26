@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.0...@kaizen/draft-select@2.7.1) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.4...@kaizen/draft-select@2.7.0) (2022-10-25)
+
+
+### Features
+
+* **select:** add group heading styling ([#3046](https://github.com/cultureamp/kaizen-design-system/issues/3046)) ([485b861](https://github.com/cultureamp/kaizen-design-system/commit/485b861f540f0876334970392c84d4415e00c08d))
+
+
+
+
+
+## [2.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.3...@kaizen/draft-select@2.6.4) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.2...@kaizen/draft-select@2.6.3) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [2.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.1...@kaizen/draft-select@2.6.2) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/draft-select

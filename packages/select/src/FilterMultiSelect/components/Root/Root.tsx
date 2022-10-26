@@ -35,6 +35,7 @@ interface SelectionProps {
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
+  onSearchInputChange?: (searchInput: string) => void
 }
 
 export type FilterMultiSelectProps = RootProps
@@ -53,6 +54,7 @@ export const Root: React.VFC<RootProps> = ({
   selectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
+  onSearchInputChange,
 }) => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
@@ -68,6 +70,7 @@ export const Root: React.VFC<RootProps> = ({
     onSelectionChange,
     selectionMode,
     disabledKeys,
+    onSearchInputChange,
   }
 
   return (
