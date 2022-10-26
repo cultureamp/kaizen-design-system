@@ -104,6 +104,10 @@ export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
 )
 
 Loading.args = { label: "Engineer" }
+Loading.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
