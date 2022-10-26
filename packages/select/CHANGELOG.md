@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.0...@kaizen/select@4.2.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **FilterMultiSelect:** Fix loading skeleton spacing ([#3050](https://github.com/cultureamp/kaizen-design-system/issues/3050)) ([ffbb2d7](https://github.com/cultureamp/kaizen-design-system/commit/ffbb2d7c66c7069effc31766d10552007547297a))
+
+
+
+
+
 # [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.5...@kaizen/select@4.2.0) (2022-10-26)
 
 
