@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.8...@kaizen/pagination@1.6.9) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
 ## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.7...@kaizen/pagination@1.6.8) (2022-10-24)
 
 **Note:** Version bump only for package @kaizen/pagination
