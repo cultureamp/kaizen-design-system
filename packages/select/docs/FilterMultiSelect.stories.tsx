@@ -83,6 +83,28 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
+export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
+  <>
+    <FilterMultiSelect
+      {...args}
+      items={items}
+      isLoading
+      isOpen
+      loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
+      trigger={() => (
+        <FilterMultiSelect.TriggerButton
+          selectedOptionLabels={["Front-End"]}
+          label={args.label}
+        />
+      )}
+    >
+      {() => <></>}
+    </FilterMultiSelect>
+  </>
+)
+
+Loading.args = { label: "Engineer" }
+
 export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
