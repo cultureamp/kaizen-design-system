@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react"
 import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
 import * as React from "react"
-import { Collapsible, CollapsibleGroup } from "./"
+import { Collapsible, CollapsibleGroup } from ".."
 
 configure({ testIdAttribute: "data-automation-id" })
 
