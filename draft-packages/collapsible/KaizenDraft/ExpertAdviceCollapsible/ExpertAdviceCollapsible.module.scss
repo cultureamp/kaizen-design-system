@@ -2,8 +2,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 
-$heading-active-color: $color-purple-100;
-
 .expertAdviceContainer {
   background-color: $color-purple-100;
   border: 2px $border-solid-border-style $color-purple-300;
@@ -31,23 +29,17 @@ $heading-active-color: $color-purple-100;
   display: flex;
 }
 
-.expertAdviceHeader:hover {
-  background-color: $color-purple-100;
-  color: $color-purple-700;
+.expertAdviceHeading {
+  color: $color-purple-600;
+  .expertAdviceContainer:hover & {
+    color: $color-purple-700;
+  }
 }
 
 .expertAdviceIcon {
   margin-inline-end: $spacing-sm;
   width: 1.75rem;
   height: 1.75rem;
-}
-
-.expertAdviceHeading {
-  color: $color-purple-600;
-}
-
-.expertAdviceHeading:hover {
-  color: $color-purple-700;
 }
 
 .expertAdviceSection {
