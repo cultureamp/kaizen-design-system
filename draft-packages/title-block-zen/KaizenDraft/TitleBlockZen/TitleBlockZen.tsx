@@ -547,6 +547,7 @@ const TitleBlockZen = ({
           [styles.hasPageSwitcherSelect]: Boolean(pageSwitcherSelect),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
+          [styles.collapseNavigationArea]: collapseNavigationArea,
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]:
             subtitle && typeof subtitle === "string" && subtitle.length >= 18,
