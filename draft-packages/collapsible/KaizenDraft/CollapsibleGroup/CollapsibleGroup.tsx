@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { CollapsibleProps } from "./Collapsible"
+import { CollapsibleProps } from ".."
 import styles from "./CollapsibleGroup.module.scss"
 
 export type Sticky = {
