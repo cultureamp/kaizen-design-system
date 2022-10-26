@@ -7,6 +7,7 @@ import { Paragraph } from "@kaizen/typography"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Label } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./FilterMultiSelect.stories.scss"
@@ -334,3 +335,110 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
 }
 
 DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
+
+export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
+  const [open, setOpen] = useState(false)
+  const [selectedPeople, setSelectedPeople] = useState<string[]>([])
+  const [searchState, setSearchState] = useState("")
+  const queryClient = useQueryClient()
+  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useInfiniteQuery(
+      ["startrek-sg1", searchState],
+      ({ pageParam = 1 }) =>
+        fetch(
+          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+        ).then(res => res.json()) as Promise<{
+          results: Array<{ name: string; url: string }>
+          next: string
+        }>,
+      {
+        enabled: open,
+        keepPreviousData: true,
+        getNextPageParam: lastPage => {
+          if (!lastPage.next) return undefined
+          const url = new URL(lastPage.next)
+          const params = new URLSearchParams(url.searchParams)
+          return params.get("page")
+        },
+      }
+    )
+
+  /**
+   * We need access to the previously fetched people. If a user has selected a
+   * particular person and then searched to no longer return that person, we have
+   * only the selected keys to work with, no renderable values.
+   */
+  const cachedPeople = queryClient
+    .getQueriesData<{
+      pages: { results: Array<{ name: string; url: string }> }
+    }>(["startrek-sg1"])
+    .flatMap(([, cachedData]) => cachedData?.pages ?? [])
+    .flatMap(page => page.results)
+    .map(item => ({ label: item.name, value: item.url }))
+
+  const currentPeople = React.useMemo(
+    () =>
+      data?.pages
+        .flatMap(res => res.results)
+        .flatMap(person => ({ label: person.name, value: person.url })) || [],
+    [data]
+  )
+
+  return (
+    <>
+      <FilterMultiSelect
+        {...args}
+        isLoading={isLoading}
+        loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
+        items={currentPeople}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(
+              new Set(selectedPeople),
+              cachedPeople
+            )}
+            label={"People"}
+          />
+        )}
+        onSearchInputChange={searchInput => setSearchState(searchInput)}
+        onOpenChange={isOpen => setOpen(isOpen)}
+        onSelectionChange={keys => {
+          if (keys === "all") {
+            return
+          }
+          setSelectedPeople(Array.from(keys) as string[])
+        }}
+        isOpen={open}
+        selectedKeys={new Set(selectedPeople)}
+      >
+        {() => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({ allItems }) => (
+                <>
+                  {allItems.map(item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  ))}
+                  {hasNextPage && (
+                    <FilterMultiSelect.LoadMoreButton
+                      label={"View more"}
+                      workingLabel={"Loading…"}
+                      working={isFetchingNextPage}
+                      onClick={() => fetchNextPage()}
+                    />
+                  )}
+                </>
+              )}
+            </FilterMultiSelect.ListBox>
+
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+    </>
+  )
+}
