@@ -13,6 +13,7 @@ import {
   FilterTriggerButton,
   RemovableFilterTrigger,
 } from "./components/Trigger"
+import { LoadMoreButton } from "./components/LoadMoreButton"
 
 export const FilterMultiSelect = Object.assign(Root, {
   TriggerButton: FilterTriggerButton,
@@ -26,6 +27,7 @@ export const FilterMultiSelect = Object.assign(Root, {
   ClearButton,
   MenuFooter, // For layout
   MenuLoadingSkeleton, // Menu Loading Skeleton example
+  LoadMoreButton,
 })
 
 FilterMultiSelect.displayName = "FilterMultiSelect"
