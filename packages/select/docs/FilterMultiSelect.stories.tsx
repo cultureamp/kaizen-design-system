@@ -87,7 +87,6 @@ export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
   <>
     <FilterMultiSelect
       {...args}
-      items={items}
       isLoading
       isOpen
       loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
