@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "4.1.4",
+  "version": "4.2.1",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,14 +29,14 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/a11y": "^1.6.7",
-    "@kaizen/button": "^2.0.2",
-    "@kaizen/component-library": "^16.1.4",
+    "@kaizen/a11y": "^1.6.8",
+    "@kaizen/button": "^2.0.3",
+    "@kaizen/component-library": "^16.1.5",
     "@kaizen/draft-badge": "^1.13.3",
     "@kaizen/draft-divider": "^2.2.3",
-    "@kaizen/draft-form": "^8.3.8",
-    "@kaizen/draft-menu": "^4.8.11",
-    "@kaizen/draft-tooltip": "^5.4.8",
+    "@kaizen/draft-form": "^8.3.9",
+    "@kaizen/draft-menu": "^4.8.12",
+    "@kaizen/draft-tooltip": "^5.4.9",
     "@kaizen/loading-skeleton": "^1.7.3",
     "@kaizen/typography": "^2.3.3",
     "@react-aria/button": "^3.6.2",
