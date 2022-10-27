@@ -1,0 +1,49 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$cell-border-radius: 3px;
+
+.month {
+  padding: $spacing-md calc(#{$spacing-md} / 2);
+
+  &:first-child {
+    padding-inline-start: $spacing-md;
+  }
+
+  &:last-child {
+    padding-inline-end: $spacing-md;
+  }
+}
+
+.monthWithDivider {
+  padding: $spacing-md;
+
+  &:first-child {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: $color-gray-300;
+  }
+}
+
+.nav {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  color: $color-purple-800;
+
+  .captionEnd & {
+    flex-direction: row-reverse;
+  }
+}
+
+.dayRangeStart,
+.dayRangeEnd {
+  background-color: $color-blue-500;
+  color: $color-white;
+}
+
+.dayRangeMiddle {
+  background-color: $color-blue-100;
+  color: $color-blue-500;
+}
