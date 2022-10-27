@@ -8,11 +8,3 @@
   padding: 0;
   border: none;
 }
-
-@mixin input-icon($color, $reversed) {
-  color: $color;
-
-  .isReversed & {
-    color: $reversed;
-  }
-}
