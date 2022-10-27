@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.0...@kaizen/draft-collapsible@3.5.1) (2022-10-27)
+
+
+### Bug Fixes
+
+* **deps:** import brand as package ([#3053](https://github.com/cultureamp/kaizen-design-system/issues/3053)) ([4b97d43](https://github.com/cultureamp/kaizen-design-system/commit/4b97d43ea7f3e78669df778c5a868a31911e87e5))
+
+
+
+
+
 # [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.5...@kaizen/draft-collapsible@3.5.0) (2022-10-26)
 
 

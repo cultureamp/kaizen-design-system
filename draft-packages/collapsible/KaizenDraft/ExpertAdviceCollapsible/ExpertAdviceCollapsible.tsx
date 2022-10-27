@@ -1,7 +1,7 @@
 import React from "react"
 import { Heading } from "@kaizen/typography"
+import { Brand } from "@kaizen/brand"
 import { Collapsible, CollapsibleProps } from ".."
-import { Brand } from "../../../../packages/brand"
 import styles from "./ExpertAdviceCollapsible.module.scss"
 
 export type ExpertAdviceCollapsibleProps = Omit<
