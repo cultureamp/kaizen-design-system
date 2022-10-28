@@ -14,19 +14,15 @@ $avatar-lg: 4.5rem;
   padding: 0;
 
   &.small {
-    margin-inline-start: calc(#{$avatar-sm} / 2);
+    margin-left: calc(#{$avatar-sm} / 2);
   }
 
   &.medium {
-    margin-inline-start: calc(#{$avatar-md} / 2);
+    margin-left: calc(#{$avatar-md} / 2);
   }
 
   &.large {
-    margin-inline-start: calc(#{$avatar-lg} / 2);
-  }
-
-  [dir="rtl"] & {
-    margin-inline-start: 0;
+    margin-left: calc(#{$avatar-lg} / 2);
   }
 }
 
@@ -41,6 +37,20 @@ $avatar-lg: 4.5rem;
   }
 
   .large & {
+    margin-left: calc(#{$avatar-lg} / -2);
+  }
+}
+
+.AvatarGroupItemCounter {
+  [dir="rtl"] .small & {
+    margin-left: calc(#{$avatar-sm} / -2);
+  }
+
+  [dir="rtl"] .medium & {
+    margin-left: calc(#{$avatar-md} / -2);
+  }
+
+  [dir="rtl"] .large & {
     margin-left: calc(#{$avatar-lg} / -2);
   }
 }
