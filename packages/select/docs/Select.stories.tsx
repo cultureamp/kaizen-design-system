@@ -36,7 +36,6 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
         onSelectionChange={handleSelectionChange}
         selectedKey={selectedKey}
         items={items}
-        label={args.label}
         trigger={() => (
           <Select.TriggerButton
             selectedOptionLabel={getSelectedOptionLabel(selectedKey, items)}
@@ -44,19 +43,13 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
         )}
       >
         {() => (
-          <>
-            <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
-              }
-            </Select.ListBox>
-          </>
+          <Select.ListBox>
+            {({ allItems }) =>
+              allItems.map(item => <Select.Option key={item.key} item={item} />)
+            }
+          </Select.ListBox>
         )}
       </Select>
     </>
   )
 }
-
-DefaultKaizenSiteDemo.args = { label: "Label" }
