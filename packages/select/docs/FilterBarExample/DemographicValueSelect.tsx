@@ -49,7 +49,7 @@ export const DemographicValueSelect = ({
   const handleSelectionChange = (keys: Selection) => {
     onSelectionChange(getSelectedOptionKeys(keys, demographicValueItems))
   }
-  FilterMultiSelect.MenuLoadingSkeleton
+
   return (
     <FilterMultiSelect
       defaultOpen
