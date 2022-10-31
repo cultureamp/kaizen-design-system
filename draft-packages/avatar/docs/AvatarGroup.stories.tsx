@@ -82,9 +82,10 @@ DefaultStory.args = {
   avatars: AVATARS,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: Story<{
+  isReversed: boolean
+  avatars?: AvatarList
+}> = ({ isReversed, avatars = AVATARS }) => {
   const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [
     { title: "Large", size: "large" },
     { title: "Medium", size: "medium" },
@@ -96,7 +97,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader headings={["Default"]} />
       {ROWS.map(({ title, size }) => (
         <StoryWrapper.Row key={title} rowTitle={title}>
-          <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+          <AvatarGroup maxVisible={2} avatars={avatars} size={size} />
         </StoryWrapper.Row>
       ))}
     </StoryWrapper>
@@ -114,3 +115,21 @@ StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }
+
+const StickerSheetTemplateComponent = StickerSheetTemplate.bind({})
+StickerSheetTemplateComponent.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetRtl = () => (
+  <div dir="rtl">
+    <StickerSheetTemplateComponent isReversed={false} />
+  </div>
+)
+StickerSheetRtl.storyName = "Sticker Sheet (RTL)"
+
+const twoAvatars: AvatarList = [EXAMPLE_USER_1, EXAMPLE_USER_2]
+export const StickerSheetRtlWithTwoAvatars = () => (
+  <div dir="rtl">
+    <StickerSheetTemplateComponent isReversed={false} avatars={twoAvatars} />
+  </div>
+)
+StickerSheetRtlWithTwoAvatars.storyName = "Sticker Sheet (Two avatars, RTL)"
