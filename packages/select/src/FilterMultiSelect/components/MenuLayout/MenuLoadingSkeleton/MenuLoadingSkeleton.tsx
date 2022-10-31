@@ -4,7 +4,7 @@ import classNames from "classnames"
 import { MenuFooter } from "../MenuFooter"
 import styles from "./MenuLoadingSkeleton.module.scss"
 
-export const MenuLoadingSkeleton = (
+export const MenuLoadingSkeleton = () => (
   <>
     <div className={classNames(styles.loadingContainer)}>
       <LoadingInput classNameOverride={styles.loadingInput} />
