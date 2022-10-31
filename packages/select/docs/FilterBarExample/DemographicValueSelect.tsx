@@ -49,12 +49,12 @@ export const DemographicValueSelect = ({
   const handleSelectionChange = (keys: Selection) => {
     onSelectionChange(getSelectedOptionKeys(keys, demographicValueItems))
   }
-
+  FilterMultiSelect.MenuLoadingSkeleton
   return (
     <FilterMultiSelect
       defaultOpen
       isLoading={isLoading}
-      loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
+      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
       label={label}
       items={demographicValueItems}
       selectedKeys={selectedKeys}
