@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.3...@kaizen/select@4.2.4) (2022-11-01)
+
+
+### Bug Fixes
+
+* Revert "fix: Change MenuLoadingSkeleton to component ([#3058](https://github.com/cultureamp/kaizen-design-system/issues/3058))" ([#3060](https://github.com/cultureamp/kaizen-design-system/issues/3060)) ([ee996cb](https://github.com/cultureamp/kaizen-design-system/commit/ee996cbb2b049d14fc50ad407f48ec4695fcfa91))
+
+
+
+
+
 ## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.2...@kaizen/select@4.2.3) (2022-11-01)
 
 
