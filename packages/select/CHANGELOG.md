@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.3...@kaizen/select@4.2.4) (2022-11-01)
+
+
+### Bug Fixes
+
+* Revert "fix: Change MenuLoadingSkeleton to component ([#3058](https://github.com/cultureamp/kaizen-design-system/issues/3058))" ([#3060](https://github.com/cultureamp/kaizen-design-system/issues/3060)) ([ee996cb](https://github.com/cultureamp/kaizen-design-system/commit/ee996cbb2b049d14fc50ad407f48ec4695fcfa91))
+
+
+
+
+
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.2...@kaizen/select@4.2.3) (2022-11-01)
+
+
+### Bug Fixes
+
+* Change MenuLoadingSkeleton to component ([#3058](https://github.com/cultureamp/kaizen-design-system/issues/3058)) ([a160eae](https://github.com/cultureamp/kaizen-design-system/commit/a160eae9c316af3f19a2db1f0c0dcc8178137114))
+
+
+
+
+
+## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.1...@kaizen/select@4.2.2) (2022-10-31)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.0...@kaizen/select@4.2.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **FilterMultiSelect:** Fix loading skeleton spacing ([#3050](https://github.com/cultureamp/kaizen-design-system/issues/3050)) ([ffbb2d7](https://github.com/cultureamp/kaizen-design-system/commit/ffbb2d7c66c7069effc31766d10552007547297a))
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.5...@kaizen/select@4.2.0) (2022-10-26)
+
+
+### Features
+
+* Add 'control' to FilterMultiSelect search input ([#3030](https://github.com/cultureamp/kaizen-design-system/issues/3030)) ([321564c](https://github.com/cultureamp/kaizen-design-system/commit/321564cea04451c4bbc49119ad93abca0ec2e124))
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.4...@kaizen/select@4.1.5) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
 ## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.3...@kaizen/select@4.1.4) (2022-10-24)
 
 **Note:** Version bump only for package @kaizen/select

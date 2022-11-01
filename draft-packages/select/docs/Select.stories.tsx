@@ -55,6 +55,46 @@ DefaultSelectStory.args = {
   status: "default",
 }
 
+export const GroupedStory: ComponentStory<typeof Select> = args => {
+  const COLOUR_OPTIONS = [
+    { value: "blue", label: "blue" },
+    { value: "red", label: "red", isDisabled: true },
+    { value: "green", label: "green" },
+  ]
+
+  const FLAVOUR_OPTIONS = [
+    { value: "vanilla", label: "Vanilla" },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+  ]
+
+  const GROUPED_OPTIONS = [
+    {
+      label: "Colours",
+      options: COLOUR_OPTIONS,
+    },
+    {
+      label: "Flavours",
+      options: FLAVOUR_OPTIONS,
+    },
+  ]
+  return (
+    <Select
+      options={GROUPED_OPTIONS}
+      defaultValue={COLOUR_OPTIONS[0]}
+      {...args}
+    />
+  )
+}
+GroupedStory.storyName = "Grouped Options"
+GroupedStory.args = {
+  label: "Label",
+  placeholder: "Placeholder",
+  fullWidth: true,
+  reversed: false,
+  status: "default",
+}
+
 export const DefaultAsyncSelectStory: ComponentStory<
   typeof AsyncSelect
 > = args => {

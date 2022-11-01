@@ -4,6 +4,7 @@ import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { ComponentStory, Story } from "@storybook/react"
+import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
@@ -24,6 +25,9 @@ export default {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
+    ),
   },
   argTypes: {
     buttonRef: {
