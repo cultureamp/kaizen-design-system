@@ -1,7 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { HumanityAtWork, Informative } from "@kaizen/draft-illustration"
+import {
+  BrandMomentPositiveOutro,
+  Informative,
+} from "@kaizen/draft-illustration"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
@@ -83,7 +86,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Scene (scene)">
       <LoadingGraphic size="scene" isReversed={isReversed} />
-      <HumanityAtWork alt="humanity-at-work" />
+      <BrandMomentPositiveOutro alt="positive-outro" />
     </StoryWrapper.Row>
   </StoryWrapper>
 )
