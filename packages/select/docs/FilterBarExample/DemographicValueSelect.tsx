@@ -54,7 +54,7 @@ export const DemographicValueSelect = ({
     <FilterMultiSelect
       defaultOpen
       isLoading={isLoading}
-      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
+      loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
       label={label}
       items={demographicValueItems}
       selectedKeys={selectedKeys}

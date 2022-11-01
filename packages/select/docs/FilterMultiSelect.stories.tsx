@@ -90,7 +90,7 @@ export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
       {...args}
       isLoading
       isOpen
-      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
+      loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={["Front-End"]}
@@ -414,7 +414,7 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
       <FilterMultiSelect
         {...args}
         isLoading={isLoading}
-        loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
+        loadingSkeleton={FilterMultiSelect.MenuLoadingSkeleton}
         items={currentPeople}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
