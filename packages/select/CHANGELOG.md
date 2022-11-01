@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.5...@kaizen/select@5.0.0) (2022-11-01)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** update MenuLoadingSkeleton to be a component ([#3061](https://github.com/cultureamp/kaizen-design-system/issues/3061)) ([2994d0f](https://github.com/cultureamp/kaizen-design-system/commit/2994d0f1f8373275fe57fb1aa297a8eb859cde74))
+
+
+### BREAKING CHANGES
+
+* **filter-multi-select:** FilterMultiSelect's loadingSkeleton prop no-longer accepts a variable with JSX. It
+must be a React Functional Component.
+
+
+
+
+
 ## [4.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.4...@kaizen/select@4.2.5) (2022-11-01)
 
 **Note:** Version bump only for package @kaizen/select
