@@ -441,24 +441,105 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 })
 
 describe("<SelectionProviderWrapper /> - Search Filtering", () => {
-  it("shows only the matched options", () => {
-    render(<SelectionProviderWrapper />)
-    const searchInput = screen.getByRole("searchbox")
-    userEvent.type(searchInput, "1")
+  describe("With no onSearchInputChange callback", () => {
+    it("shows only the matched options", () => {
+      render(<SelectionProviderWrapper />)
+      const searchInput = screen.getByRole("searchbox")
+      userEvent.type(searchInput, "1")
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).not.toBeInTheDocument()
+    })
+  })
+  describe("With a onSearchInputChange callback", () => {
+    it("Does not filter the matched options", () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      userEvent.type(searchInput, searchString)
+
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).toBeVisible()
+    })
+    it("Calls back to the consumer with the search text", () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      userEvent.type(searchInput, searchString)
+
+      expect(onSearchInputChange).toBeCalledTimes(1)
+      expect(onSearchInputChange).toBeCalledWith(searchString)
+    })
+  })
+})
+
+describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
+  it("renders only items passed", () => {
+    const { rerender } = render(<SelectionProviderWrapper />)
     expect(
       screen.getByRole("option", {
         name: "option-1-label-mock",
       })
     ).toBeVisible()
     expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+      })
+    ).toBeVisible()
+
+    rerender(<SelectionProviderWrapper items={itemsMock.slice(2)} />)
+    expect(
+      screen.queryByRole("option", {
+        name: "option-1-label-mock",
+      })
+    ).not.toBeInTheDocument()
+    expect(
       screen.queryByRole("option", {
         name: "option-2-label-mock",
       })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole("option", {
+      screen.getByRole("option", {
         name: "option-3-label-mock",
       })
-    ).not.toBeInTheDocument()
+    ).toBeVisible()
   })
 })

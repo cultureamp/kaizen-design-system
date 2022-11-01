@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Collapsible"
+export * from "./KaizenDraft"
