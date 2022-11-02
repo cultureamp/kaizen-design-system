@@ -22,8 +22,6 @@ import {
   CompanyValues,
   ConnectTheDots,
   CultureLab,
-  DataCatching,
-  HumanityAtWork,
   TermsAgreement,
   Programs,
   PerformanceCompanySettings,
@@ -291,14 +289,6 @@ const MISCELLANEOUS_COMPONENTS: SceneComponents = [
   {
     Component: CultureLab,
     heading: "Culture Lab",
-  },
-  {
-    Component: DataCatching,
-    heading: "Data Catching",
-  },
-  {
-    Component: HumanityAtWork,
-    heading: "Humanity At Work",
   },
   {
     Component: TermsAgreement,
