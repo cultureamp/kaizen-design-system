@@ -85,7 +85,8 @@ DefaultStory.args = {
 const StickerSheetTemplate: Story<{
   isReversed: boolean
   avatars?: AvatarList
-}> = ({ isReversed, avatars = AVATARS }) => {
+  dir?: "rtl" | "ltr"
+}> = ({ isReversed, avatars = AVATARS, dir = "rlt" }) => {
   const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [
     { title: "Large", size: "large" },
     { title: "Medium", size: "medium" },
@@ -94,12 +95,14 @@ const StickerSheetTemplate: Story<{
 
   return (
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Default"]} />
-      {ROWS.map(({ title, size }) => (
-        <StoryWrapper.Row key={title} rowTitle={title}>
-          <AvatarGroup maxVisible={2} avatars={avatars} size={size} />
-        </StoryWrapper.Row>
-      ))}
+      <div dir={dir}>
+        <StoryWrapper.RowHeader headings={["Default"]} />
+        {ROWS.map(({ title, size }) => (
+          <StoryWrapper.Row key={title} rowTitle={title}>
+            <AvatarGroup maxVisible={2} avatars={avatars} size={size} />
+          </StoryWrapper.Row>
+        ))}
+      </div>
     </StoryWrapper>
   )
 }
@@ -116,20 +119,16 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
 }
 
-const StickerSheetTemplateComponent = StickerSheetTemplate.bind({})
-StickerSheetTemplateComponent.parameters = { chromatic: { disable: false } }
-
-export const StickerSheetRtl = () => (
-  <div dir="rtl">
-    <StickerSheetTemplateComponent isReversed={false} />
-  </div>
-)
+export const StickerSheetRtl = StickerSheetTemplate.bind({})
 StickerSheetRtl.storyName = "Sticker Sheet (RTL)"
+StickerSheetRtl.parameters = { chromatic: { disable: false } }
+StickerSheetRtl.args = { dir: "rtl" }
 
 const twoAvatars: AvatarList = [EXAMPLE_USER_1, EXAMPLE_USER_2]
-export const StickerSheetRtlWithTwoAvatars = () => (
-  <div dir="rtl">
-    <StickerSheetTemplateComponent isReversed={false} avatars={twoAvatars} />
-  </div>
-)
+export const StickerSheetRtlWithTwoAvatars = StickerSheetTemplate.bind({})
 StickerSheetRtlWithTwoAvatars.storyName = "Sticker Sheet (Two avatars, RTL)"
+StickerSheetRtlWithTwoAvatars.parameters = { chromatic: { disable: false } }
+StickerSheetRtlWithTwoAvatars.args = {
+  avatars: twoAvatars,
+  dir: "rtl",
+}
