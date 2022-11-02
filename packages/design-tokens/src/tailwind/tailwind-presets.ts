@@ -38,6 +38,8 @@ const preset = {
     fontFamily: {
       body: defaultTheme.typography.paragraphBody.fontFamily,
       heading: defaultTheme.typography.heading1.fontFamily,
+      data: defaultTheme.typography.dataLarge.fontFamily,
+      display: defaultTheme.typography.display0.fontFamily,
     },
     fontSize: {
       display: defaultTheme.typography.display0.fontSize,
@@ -60,11 +62,38 @@ const preset = {
     },
     // font weights could have specific tokens (current don't)
     fontWeight: {
-      normal: 400,
-      medium: 500,
-      semibold: 600,
-      bold: 700,
-      extrabold: 800,
+      normal: "400",
+      medium: "500",
+      semibold: "600",
+      bold: "700",
+      extrabold: "800",
+      "weight-paragraph": "400",
+      "weight-paragraph-bold": "600",
+      "weight-data": "700",
+      "weight-heading": "700",
+      "weight-display": "800",
+    },
+    lineHeight: {
+      display: defaultTheme.typography.display0.lineHeight,
+      "heading-1": defaultTheme.typography.heading1.lineHeight,
+      "heading-2": defaultTheme.typography.heading2.lineHeight,
+      "heading-3": defaultTheme.typography.heading3.lineHeight,
+      "heading-4": defaultTheme.typography.heading4.lineHeight,
+      "heading-5": defaultTheme.typography.heading5.lineHeight,
+      "heading-6": defaultTheme.typography.heading6.lineHeight,
+      paragraph: defaultTheme.typography.paragraphBody.lineHeight,
+      "paragraph-lede": defaultTheme.typography.paragraphIntroLede.lineHeight,
+      "paragraph-sm": defaultTheme.typography.paragraphSmall.lineHeight,
+      "paragraph-xs": defaultTheme.typography.paragraphExtraSmall.lineHeight,
+      "data-lg": defaultTheme.typography.dataLarge.lineHeight,
+      "data-md": defaultTheme.typography.dataMedium.lineHeight,
+      "data-sm": defaultTheme.typography.dataSmall.lineHeight,
+      "data-units-lg": defaultTheme.typography.dataLargeUnits.lineHeight,
+      "data-units-md": defaultTheme.typography.dataMediumUnits.lineHeight,
+      "data-units-sm": defaultTheme.typography.dataSmallUnits.lineHeight,
+    },
+    letterSpacing: {
+      normal: "normal",
     },
     // A mix of layout styles
     maxWidth: {
