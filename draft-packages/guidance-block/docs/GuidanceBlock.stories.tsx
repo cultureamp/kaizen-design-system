@@ -2,10 +2,10 @@ import React from "react"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
-  HumanityAtWork,
   SkillsCoachManagerHub,
   SkillsCoachEssentialFeedback,
   Communication,
+  BrandMomentPositiveOutro,
 } from "@kaizen/draft-illustration"
 import { Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
@@ -89,7 +89,7 @@ DefaultStory.argTypes = {
     options: ["spot", "scene"],
     mapping: {
       spot: <Informative alt="" />,
-      scene: <HumanityAtWork alt="" />,
+      scene: <BrandMomentPositiveOutro alt="" />,
     },
     description:
       "This takes a scene scene or spot element, ie: `<Informative />`. This radio button implementation is a storybook only representation to toggle between the two illustration styles.",
@@ -289,7 +289,7 @@ export const StickerSheet = () => (
       Scene Illustration
     </Heading>
     <GuidanceBlock
-      illustration={<HumanityAtWork alt="" />}
+      illustration={<BrandMomentPositiveOutro alt="" />}
       illustrationType="scene"
       text={GUIDANCE_BLOCK_TEXT}
       actions={{
@@ -501,7 +501,7 @@ export const AspectRatio = () => (
       <GuidanceBlock
         layout="stacked"
         illustrationType="scene"
-        illustration={<HumanityAtWork alt="" />}
+        illustration={<BrandMomentPositiveOutro alt="" />}
         text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
@@ -560,7 +560,7 @@ export const AspectRatio = () => (
       <GuidanceBlock
         layout="stacked"
         illustrationType="scene"
-        illustration={<HumanityAtWork alt="" />}
+        illustration={<BrandMomentPositiveOutro alt="" />}
         text={GUIDANCE_BLOCK_TEXT}
         actions={{
           primary: {
