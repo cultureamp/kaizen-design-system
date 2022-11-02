@@ -2,7 +2,6 @@ import React, { HTMLAttributes, useContext, Key } from "react"
 import { useListBox } from "@react-aria/listbox"
 import {
   SingleSelectListState,
-  useListState,
   useSingleSelectListState,
 } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
@@ -15,6 +14,7 @@ export interface SelectionProviderProps {
   onSelectionChange?: (key: Key) => any
   selectedKey?: Key | null
   label: string
+  id: string
 }
 
 export interface SelectionProviderContextType {
@@ -22,6 +22,7 @@ export interface SelectionProviderContextType {
   labelProps: HTMLAttributes<HTMLElement>
   selectionState: SingleSelectListState<ItemType>
   listRef: React.RefObject<HTMLUListElement>
+  id: string
 }
 
 const SelectionContext = React.createContext<SelectionProviderContextType>(
@@ -55,6 +56,7 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
         labelProps,
         selectionState: state,
         listRef: ref,
+        id: props.id,
       }}
     >
       <VisuallyHidden {...labelProps}>{otherProps.label}</VisuallyHidden>

@@ -7,7 +7,6 @@ import React, {
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
 import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
-
 export interface MenuTriggerProviderProps {
   isOpen?: boolean
   defaultOpen?: boolean
@@ -38,7 +37,11 @@ export function MenuTriggerProvider({
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const ref = React.createRef<HTMLButtonElement>()
-  const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref)
+  const { menuTriggerProps, menuProps } = useMenuTrigger(
+    { type: "listbox" },
+    state,
+    ref
+  )
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton(menuTriggerProps, ref)

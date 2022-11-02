@@ -33,6 +33,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
     <>
       <Select
         {...args}
+        id="single-select"
         onSelectionChange={handleSelectionChange}
         selectedKey={selectedKey}
         items={items}
@@ -52,4 +53,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
       </Select>
     </>
   )
+}
+
+DefaultKaizenSiteDemo.storyName = "Select"
+DefaultKaizenSiteDemo.args = { label: "label" }
+DefaultKaizenSiteDemo.parameters = {
+  chromatic: { disable: false },
 }

@@ -5,7 +5,6 @@ import { FocusScope } from "@react-aria/focus"
 import { mergeProps } from "@react-aria/utils"
 import { useMenuTriggerContext } from "../../provider"
 import styles from "./MenuPopup.module.scss"
-
 export interface MenuPopupProps {
   children: React.ReactNode
 }

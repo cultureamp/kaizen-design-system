@@ -1,5 +1,6 @@
 import React, { Key } from "react"
 import { Label } from "@kaizen/draft-form"
+import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
@@ -13,7 +14,6 @@ import {
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
 import { MenuPopup } from "../MenuPopup"
-
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
@@ -22,15 +22,17 @@ export interface RootProps extends MenuTriggerProps, SelectionProps {
 type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
 
 interface SelectionProps {
+  id: string // provide A11y context for label
   label: string // provide A11y context for listbox
   items: ItemType[]
   selectedKey?: Key | null
   onSelectionChange?: (key: Key) => void
 }
 
-export type FilterMultiSelectProps = RootProps
+export type SelectProps = RootProps
 
 export const Root: React.VFC<RootProps> = ({
+  id,
   trigger,
   children,
   isOpen,
@@ -44,6 +46,7 @@ export const Root: React.VFC<RootProps> = ({
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
 
   const selectionProps = {
+    id,
     label,
     items,
     selectedKey,
@@ -52,9 +55,12 @@ export const Root: React.VFC<RootProps> = ({
 
   return (
     <>
-      <Label>{label}</Label>
+      <Label htmlFor={id} aria-label={label}>
+        {label}
+      </Label>
       <MenuTriggerProvider {...menuTriggerProps}>
         <div>
+          <HiddenSelectWrapper items={items} label={label} name={id} />
           <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
           <MenuPopup>
             <SelectionProvider {...selectionProps}>

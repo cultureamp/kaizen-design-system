@@ -14,7 +14,7 @@ export interface ListBoxProps {
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
-  const { listBoxProps, listRef, selectionState } = useSelectionContext()
+  const { listBoxProps, listRef, selectionState, id } = useSelectionContext()
   const [isOverflown, setIsOverflown] = useState(false)
   useEffect(() => {
     const listElement = listRef.current
@@ -41,6 +41,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
   return (
     <ul
       {...listBoxProps}
+      id={id}
       ref={listRef}
       className={classNames([styles.listBox, isOverflown && styles.overflown])}
     >
