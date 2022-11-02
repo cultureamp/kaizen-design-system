@@ -12,6 +12,7 @@ export interface MenuTriggerProviderProps {
   defaultOpen?: boolean
   onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
+  isDisabled?: boolean
 }
 
 export interface MenuTriggerProviderContextType {
@@ -31,6 +32,7 @@ export function MenuTriggerProvider({
   defaultOpen,
   onOpenChange,
   children,
+  isDisabled,
 }: MenuTriggerProviderProps) {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
@@ -38,13 +40,12 @@ export function MenuTriggerProvider({
   // Get A11y attributes and events for the menu trigger and menu elements
   const ref = React.createRef<HTMLButtonElement>()
   const { menuTriggerProps, menuProps } = useMenuTrigger(
-    { type: "listbox" },
+    { type: "listbox", isDisabled },
     state,
     ref
   )
-
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
-  const { buttonProps } = useButton(menuTriggerProps, ref)
+  const { buttonProps } = useButton({ ...menuTriggerProps, isDisabled }, ref)
 
   // Fix the issue when default open and close by keyboard, then focus is lost
   useEffect(() => {

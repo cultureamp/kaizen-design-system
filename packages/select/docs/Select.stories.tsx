@@ -1,16 +1,20 @@
 import React, { useState, Key } from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Select } from "../src/Select/Select"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { getSelectedOptionLabel } from "../src/Select/utils"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { items } from "./MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select New`,
   component: Select,
   parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
     docs: {
       source: { type: "code" },
       description: {
@@ -24,7 +28,7 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof Select>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
+export const DefaultStory: ComponentStory<typeof Select> = props => {
   const [selectedKey, setSelectedKey] = useState<Key | null>("id-fe")
 
   const handleSelectionChange = (key: Key) => setSelectedKey(key)
@@ -32,8 +36,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
   return (
     <>
       <Select
-        {...args}
-        id="single-select"
+        {...props}
         onSelectionChange={handleSelectionChange}
         selectedKey={selectedKey}
         items={items}
@@ -55,8 +58,92 @@ export const DefaultKaizenSiteDemo: ComponentStory<typeof Select> = args => {
   )
 }
 
-DefaultKaizenSiteDemo.storyName = "Select"
-DefaultKaizenSiteDemo.args = { label: "label" }
-DefaultKaizenSiteDemo.parameters = {
+DefaultStory.storyName = "Select"
+DefaultStory.args = { label: "label", id: "single-select" }
+DefaultStory.parameters = {
   chromatic: { disable: false },
+  docs: { source: { type: "code" } },
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base"]} />
+      <StoryWrapper.Row rowTitle="Default">
+        <Select
+          id="select-default"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={items}
+          trigger={() => <Select.TriggerButton selectedOptionLabel={null} />}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Selected">
+        <Select
+          id="select-selected"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={items}
+          trigger={() => (
+            <Select.TriggerButton
+              selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Disabled">
+        <Select
+          isDisabled
+          id="select-disabled"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={items}
+          trigger={() => (
+            <Select.TriggerButton
+              selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
 }
