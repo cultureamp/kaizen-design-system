@@ -60,6 +60,14 @@
       border-color: $color-gray-600;
     }
   }
+
+  &.error {
+    border-color: $color-red-500;
+  }
+
+  &.caution {
+    border-color: $color-yellow-600;
+  }
 }
 
 @for $i from 1 through 20 {

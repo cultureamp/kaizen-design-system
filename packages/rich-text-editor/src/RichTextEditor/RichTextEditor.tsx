@@ -10,7 +10,7 @@ import {
   useRichTextEditor,
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
-import { Label } from "@kaizen/draft-form"
+import { FieldMessage, Label } from "@kaizen/draft-form"
 import { OverrideClassName } from "@kaizen/component-base"
 import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
@@ -33,6 +33,15 @@ export interface BaseRichTextEditorProps
   rows?: EditorRows
   dataError?: React.ReactElement
   onDataError?: () => void
+  status?: "default" | "error" | "caution"
+  /**
+   * A descriptive message for `error` or `caution` states
+   */
+  validationMessage?: string | React.ReactNode
+  /**
+   * A description that provides context
+   */
+  description?: string | React.ReactNode
 }
 
 interface RTEWithLabelText extends BaseRichTextEditorProps {
@@ -61,6 +70,9 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     rows = 3,
     dataError = "Something went wrong",
     onDataError,
+    validationMessage,
+    description,
+    status,
     ...restProps
   } = props
   const [schema] = useState<ProseMirrorModel.Schema>(
@@ -107,11 +119,21 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
 
+  const validationMessageAria = validationMessage
+    ? `${editorId}-rte-validation-message`
+    : ""
+  const descriptionAria = description ? `${editorId}-rte-description` : ""
+
+  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
+    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
+    ""
+  )
+
   return (
     <>
       {!labelledBy && labelText && <Label id={labelId} labelText={labelText} />}
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
-      <div className={styles.editorWrapper}>
+      <div className={classnames(styles.editorWrapper, styles[`${status}`])}>
         {controls && (
           <Toolbar
             aria-controls={editorId}
@@ -143,9 +165,27 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
             classNameOverride,
             { [styles.hasToolbar]: controls != null && controls.length > 0 }
           )}
+          aria-describedby={ariaDescribedBy}
           {...restProps}
         />
       </div>
+
+      {validationMessage && (
+        <FieldMessage
+          id={validationMessageAria}
+          automationId={validationMessageAria}
+          message={validationMessage}
+          status={status}
+        />
+      )}
+
+      {description && (
+        <FieldMessage
+          id={descriptionAria}
+          automationId={descriptionAria}
+          message={description}
+        />
+      )}
     </>
   )
 }
