@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
   AvatarGroup,
@@ -73,7 +73,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => <AvatarGroup {...args} />
+export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => <AvatarGroup {...args} />
 
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
@@ -84,9 +84,7 @@ DefaultStory.args = {
 
 const StickerSheetTemplate: Story<{
   isReversed: boolean
-  avatars?: AvatarList
-  dir?: "rtl" | "ltr"
-}> = ({ isReversed, avatars = AVATARS, dir = "rlt" }) => {
+}> = ({ isReversed }) => {
   const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [
     { title: "Large", size: "large" },
     { title: "Medium", size: "medium" },
@@ -95,21 +93,47 @@ const StickerSheetTemplate: Story<{
 
   return (
     <StoryWrapper isReversed={isReversed}>
-      <div dir={dir}>
-        <StoryWrapper.RowHeader headings={["Default"]} />
-        {ROWS.map(({ title, size }) => (
-          <StoryWrapper.Row key={title} rowTitle={title}>
-            <AvatarGroup maxVisible={2} avatars={avatars} size={size} />
-          </StoryWrapper.Row>
-        ))}
-      </div>
+      <StoryWrapper.RowHeader
+        headings={[
+          "With counter",
+          "Without counter",
+          "With counter (RTL)",
+          "Without counter (RTL)",
+        ]}
+      />
+      {ROWS.map(({ title, size }) => (
+        <StoryWrapper.Row key={title} rowTitle={title}>
+          <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+
+          <AvatarGroup
+            maxVisible={2}
+            avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
+            size={size}
+          />
+
+          <div dir="rtl">
+            <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+          </div>
+
+          <div dir="rtl">
+            <AvatarGroup
+              maxVisible={2}
+              avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
+              size={size}
+            />
+          </div>
+        </StoryWrapper.Row>
+      ))}
     </StoryWrapper>
   )
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -117,18 +141,5 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
-}
-
-export const StickerSheetRtl = StickerSheetTemplate.bind({})
-StickerSheetRtl.storyName = "Sticker Sheet (RTL)"
-StickerSheetRtl.parameters = { chromatic: { disable: false } }
-StickerSheetRtl.args = { dir: "rtl" }
-
-const twoAvatars: AvatarList = [EXAMPLE_USER_1, EXAMPLE_USER_2]
-export const StickerSheetRtlWithTwoAvatars = StickerSheetTemplate.bind({})
-StickerSheetRtlWithTwoAvatars.storyName = "Sticker Sheet (Two avatars, RTL)"
-StickerSheetRtlWithTwoAvatars.parameters = { chromatic: { disable: false } }
-StickerSheetRtlWithTwoAvatars.args = {
-  avatars: twoAvatars,
-  dir: "rtl",
+  controls: { disable: true },
 }
