@@ -39,7 +39,6 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
         {...props}
         onSelectionChange={handleSelectionChange}
         selectedKey={selectedKey}
-        items={items}
         trigger={() => (
           <Select.TriggerButton
             selectedOptionLabel={getSelectedOptionLabel(selectedKey, items)}
@@ -59,7 +58,7 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
 }
 
 DefaultStory.storyName = "Select"
-DefaultStory.args = { label: "label", id: "single-select" }
+DefaultStory.args = { label: "label", id: "single-select", items }
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
