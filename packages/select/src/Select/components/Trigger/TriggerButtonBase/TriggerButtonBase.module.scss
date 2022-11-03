@@ -5,6 +5,7 @@
 .button {
   @include button;
   border-radius: $border-solid-border-radius;
+  margin-top: $spacing-xs;
 }
 
 .fullWidth {

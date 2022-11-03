@@ -1,5 +1,6 @@
 import React, { Key } from "react"
 import { Label } from "@kaizen/draft-form"
+import classnames from "classnames"
 import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
 import {
   MenuTriggerConsumer,
@@ -17,6 +18,7 @@ import { MenuPopup } from "../MenuPopup"
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
+  description?: React.ReactNode
 }
 
 type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
@@ -44,6 +46,7 @@ export const Root: React.VFC<RootProps> = ({
   onSelectionChange,
   isDisabled,
   isFullWidth,
+  description,
 }) => {
   const menuTriggerProps = {
     isOpen,
@@ -51,6 +54,7 @@ export const Root: React.VFC<RootProps> = ({
     onOpenChange,
     isDisabled,
     isFullWidth,
+    description,
   }
 
   const selectionProps = {

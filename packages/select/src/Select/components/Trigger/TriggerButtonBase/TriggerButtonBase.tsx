@@ -4,6 +4,7 @@ import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { Icon } from "@kaizen/component-library"
 
 import classNames from "classnames"
+import { FieldMessage } from "@kaizen/draft-form"
 import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
 import styles from "./TriggerButtonBase.module.scss"
 
@@ -16,26 +17,33 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
   classNameOverride,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
+  const { buttonProps, buttonRef, menuTriggerState, isFullWidth, description } =
     useMenuTriggerContext()
 
   return (
-    <button
-      {...buttonProps}
-      ref={buttonRef}
-      className={classNames([
-        styles.button,
-        isFullWidth && styles.fullWidth,
-        classNameOverride,
-      ])}
-    >
-      {children}
-      <Icon
-        icon={menuTriggerState.isOpen ? chevronUp : chevronDown}
-        role="presentation"
-        classNameOverride={styles.icon}
-      />
-    </button>
+    <>
+      <button
+        {...buttonProps}
+        ref={buttonRef}
+        className={classNames([
+          styles.button,
+          isFullWidth && styles.fullWidth,
+          classNameOverride,
+        ])}
+      >
+        {children}
+        <Icon
+          icon={menuTriggerState.isOpen ? chevronUp : chevronDown}
+          role="presentation"
+          classNameOverride={styles.icon}
+        />
+      </button>
+      {description && (
+        <div className={classNames(styles.message)}>
+          <FieldMessage id={`${description}`} message={description} />
+        </div>
+      )}
+    </>
   )
 }
 

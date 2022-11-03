@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs"
 import { Select } from "../src/Select/Select"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { getSelectedOptionLabel } from "../src/Select/utils"
+import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { items } from "./MockData"
 
@@ -41,6 +41,7 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
         selectedKey={selectedKey}
         trigger={() => (
           <Select.TriggerButton
+            placeholder="Select an option"
             selectedOptionLabel={getSelectedOptionLabel(selectedKey, items)}
           />
         )}
@@ -63,6 +64,7 @@ DefaultStory.args = {
   id: "single-select",
   items,
   isFullWidth: true,
+  description: "This is a decription",
 }
 DefaultStory.parameters = {
   chromatic: { disable: false },
@@ -81,7 +83,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={items}
-          trigger={() => <Select.TriggerButton selectedOptionLabel={null} />}
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
         >
           {() => (
             <Select.ListBox>
@@ -102,6 +109,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={items}
           trigger={() => (
             <Select.TriggerButton
+              placeholder="Select an option"
               selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
             />
           )}
@@ -126,6 +134,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={items}
           trigger={() => (
             <Select.TriggerButton
+              placeholder="Select an option"
               selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
             />
           )}
