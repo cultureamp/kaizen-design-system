@@ -35,7 +35,7 @@ export default {
 
 const FloatingCalenderWrapperExample = ({
   children,
-  rowHeight = 330,
+  rowHeight = 300,
 }: Partial<
   FloatingCalendarWrapperProps & { rowHeight: number }
 >): JSX.Element => {
@@ -44,7 +44,7 @@ const FloatingCalenderWrapperExample = ({
 
   return (
     <>
-      <div ref={setReferenceElement} style={{ height: `${rowHeight}px` }} />
+      <div ref={setReferenceElement} style={{ paddingTop: "24px", marginBottom: `${rowHeight}px` }} />
       <FloatingCalendarWrapper
         referenceElement={referenceElement}
         popperOptions={{
@@ -52,7 +52,7 @@ const FloatingCalenderWrapperExample = ({
             {
               name: "offset",
               options: {
-                offset: [24, -(rowHeight - 24)],
+                offset: [24, 0],
               },
             },
           ],
@@ -70,7 +70,7 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Default">
-        <FloatingCalenderWrapperExample rowHeight={84}>
+        <FloatingCalenderWrapperExample rowHeight={24}>
           FloatingCalendarWrapper
           <br />
           Content goes in here.
