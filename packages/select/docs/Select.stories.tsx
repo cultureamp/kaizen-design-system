@@ -58,7 +58,12 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
 }
 
 DefaultStory.storyName = "Select"
-DefaultStory.args = { label: "label", id: "single-select", items }
+DefaultStory.args = {
+  label: "label",
+  id: "single-select",
+  items,
+  isFullWidth: true,
+}
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },

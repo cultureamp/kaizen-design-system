@@ -43,8 +43,15 @@ export const Root: React.VFC<RootProps> = ({
   selectedKey,
   onSelectionChange,
   isDisabled,
+  isFullWidth,
 }) => {
-  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, isDisabled }
+  const menuTriggerProps = {
+    isOpen,
+    defaultOpen,
+    onOpenChange,
+    isDisabled,
+    isFullWidth,
+  }
 
   const selectionProps = {
     id,
