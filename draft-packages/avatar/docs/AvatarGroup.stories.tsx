@@ -73,7 +73,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => <AvatarGroup {...args} />
+export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => (
+  <AvatarGroup {...args} />
+)
 
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
@@ -82,9 +84,9 @@ DefaultStory.args = {
   avatars: AVATARS,
 }
 
-const StickerSheetTemplate: Story<{
-  isReversed: boolean
-}> = ({ isReversed }) => {
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
   const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [
     { title: "Large", size: "large" },
     { title: "Medium", size: "medium" },
