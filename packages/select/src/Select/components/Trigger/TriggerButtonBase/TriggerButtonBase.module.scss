@@ -14,4 +14,11 @@
 
 .icon {
   margin-left: $spacing-sm; // TODO: Confirm spacing with design
+  color: $color-gray-500;
+}
+
+.button:hover .icon,
+.button:active .icon,
+.button:focus .icon {
+  color: $color-gray-600;
 }

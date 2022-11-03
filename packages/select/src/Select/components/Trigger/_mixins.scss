@@ -27,32 +27,36 @@
   color: $color-purple-800;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
-  &:hover,
-  &:active {
-    background-color: $color-gray-200;
-    border-color: $color-gray-600;
-  }
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background-color: $color-gray-200;
+      border-color: $color-gray-600;
+    }
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+      outline: none;
+    }
 
-  #{$selectors--button-focus} {
-    background-color: $color-gray-200;
-    border-color: $color-gray-600;
+    &.isFocusVisible {
+      background-color: $color-gray-200;
+      border-color: $color-gray-600;
 
-    &::after {
-      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-      content: "";
-      position: absolute;
-      background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
-        $color-blue-500;
-      border-radius: $border-focus-ring-border-radius;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
+      &::after {
+        $focus-ring-offset: calc(
+          (#{$border-focus-ring-border-width} * 2) + 1px
+        );
+        content: "";
+        position: absolute;
+        background: transparent;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style
+          $color-blue-500;
+        border-radius: $border-focus-ring-border-radius;
+        top: calc(-1 * #{$focus-ring-offset});
+        left: calc(-1 * #{$focus-ring-offset});
+        right: calc(-1 * #{$focus-ring-offset});
+        bottom: calc(-1 * #{$focus-ring-offset});
+      }
     }
   }
 

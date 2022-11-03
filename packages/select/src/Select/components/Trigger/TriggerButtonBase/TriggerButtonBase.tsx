@@ -4,6 +4,8 @@ import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { Icon } from "@kaizen/component-library"
 
 import classNames from "classnames"
+import { useFocusRing } from "@react-aria/focus"
+import { mergeProps } from "@react-aria/utils"
 import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
 import styles from "./TriggerButtonBase.module.scss"
 
@@ -19,15 +21,18 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
     useMenuTriggerContext()
 
+  const { isFocusVisible, focusProps } = useFocusRing()
+
   return (
     <>
       <button
-        {...buttonProps}
+        {...mergeProps(buttonProps, focusProps)}
         ref={buttonRef}
         className={classNames([
           styles.button,
           isFullWidth && styles.fullWidth,
           classNameOverride,
+          isFocusVisible && styles.isFocusVisible,
         ])}
       >
         {children}

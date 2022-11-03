@@ -33,13 +33,13 @@ export const Option: React.VFC<OptionProps> = ({ item }) => {
       ])}
       aria-label={item.value.label}
     >
+      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
+      {item.rendered}
       <span
         className={classNames([styles.icon, isSelected && styles.isSelected])}
       >
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>
-      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
-      {item.rendered}
     </li>
   )
 }

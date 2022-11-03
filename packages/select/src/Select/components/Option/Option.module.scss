@@ -8,7 +8,7 @@
 
   align-items: flex-start;
   display: inline-grid;
-  grid-template-columns: $spacing-md 1fr auto;
+  grid-template-columns: auto $spacing-md;
   gap: $spacing-xs;
   padding: $spacing-xs;
   position: relative;
@@ -30,8 +30,7 @@
   }
 
   &:hover,
-  &:active,
-  &:focus {
+  &:active {
     background-color: $color-blue-100;
     color: $color-blue-500;
     .icon {
@@ -39,10 +38,9 @@
     }
   }
 
-  &.isFocused,
-  &:focus-visible,
-  &:global(.js-focus-visible) &:global(.focus-visible) {
+  &.isFocusVisible {
     background-color: $color-blue-100;
+    color: $color-blue-500;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
       content: "";
@@ -56,6 +54,9 @@
       right: calc(-1 * #{$focus-ring-offset});
       bottom: calc(-1 * #{$focus-ring-offset});
       z-index: 1; // show border when sibling option is hovered
+    }
+    .icon {
+      color: $color-blue-500;
     }
   }
 }
