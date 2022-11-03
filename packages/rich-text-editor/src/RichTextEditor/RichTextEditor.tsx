@@ -72,7 +72,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     onDataError,
     validationMessage,
     description,
-    status,
+    status = "default",
     ...restProps
   } = props
   const [schema] = useState<ProseMirrorModel.Schema>(
@@ -124,16 +124,13 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     : ""
   const descriptionAria = description ? `${editorId}-rte-description` : ""
 
-  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
-    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
-  )
+  const ariaDescribedBy = `${validationMessageAria} ${descriptionAria}`
 
   return (
     <>
       {!labelledBy && labelText && <Label id={labelId} labelText={labelText} />}
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
-      <div className={classnames(styles.editorWrapper, styles[`${status}`])}>
+      <div className={classnames(styles.editorWrapper, styles[status])}>
         {controls && (
           <Toolbar
             aria-controls={editorId}
