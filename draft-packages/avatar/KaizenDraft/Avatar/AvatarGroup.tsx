@@ -39,7 +39,7 @@ const renderCounter = (remainingAvatars: number) => {
           ? `are ${remainingAvatars} other members`
           : `is ${remainingAvatars} other member`
       } of this group`}
-      className={styles.AvatarGroupItemCounter}
+      className={styles.AvatarGroupItem}
     >
       <span className={styles.AvatarCounter} aria-hidden={true}>
         {`+${remainingAvatars}`}
