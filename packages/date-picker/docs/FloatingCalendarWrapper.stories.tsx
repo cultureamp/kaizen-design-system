@@ -35,7 +35,7 @@ export default {
 
 const FloatingCalenderWrapperExample = ({
   children,
-  rowHeight = 320,
+  rowHeight = 330,
 }: Partial<
   FloatingCalendarWrapperProps & { rowHeight: number }
 >): JSX.Element => {
@@ -70,7 +70,7 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Default">
-        <FloatingCalenderWrapperExample rowHeight={54}>
+        <FloatingCalenderWrapperExample rowHeight={84}>
           FloatingCalendarWrapper
           <br />
           Content goes in here.
@@ -105,6 +105,9 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
           />
         </FloatingCalenderWrapperExample>
       </StoryWrapper.Row>
+
+      {/* Excess height for Chromatic */}
+      <div style={{ height: "50px" }} />
     </StoryWrapper>
   </>
 )
