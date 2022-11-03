@@ -4,7 +4,6 @@ import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { Icon } from "@kaizen/component-library"
 
 import classNames from "classnames"
-import { FieldMessage } from "@kaizen/draft-form"
 import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
 import styles from "./TriggerButtonBase.module.scss"
 
@@ -17,7 +16,7 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
   classNameOverride,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState, isFullWidth, description } =
+  const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
     useMenuTriggerContext()
 
   return (
@@ -38,11 +37,6 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
           classNameOverride={styles.icon}
         />
       </button>
-      {description && (
-        <div className={classNames(styles.message)}>
-          <FieldMessage id={`${description}`} message={description} />
-        </div>
-      )}
     </>
   )
 }

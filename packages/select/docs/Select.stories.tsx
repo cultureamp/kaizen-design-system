@@ -64,7 +64,7 @@ DefaultStory.args = {
   id: "single-select",
   items,
   isFullWidth: true,
-  description: "This is a decription",
+  description: "This is a description",
 }
 DefaultStory.parameters = {
   chromatic: { disable: false },
