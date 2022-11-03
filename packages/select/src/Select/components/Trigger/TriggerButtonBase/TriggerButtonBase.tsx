@@ -16,13 +16,18 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
   classNameOverride,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
+  const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
+    useMenuTriggerContext()
 
   return (
     <button
       {...buttonProps}
       ref={buttonRef}
-      className={classNames(styles.button, classNameOverride)}
+      className={classNames([
+        styles.button,
+        isFullWidth && styles.fullWidth,
+        classNameOverride,
+      ])}
     >
       {children}
       <Icon

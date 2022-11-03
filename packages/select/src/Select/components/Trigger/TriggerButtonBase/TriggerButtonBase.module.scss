@@ -5,6 +5,9 @@
 .button {
   @include button;
   border-radius: $border-solid-border-radius;
+}
+
+.fullWidth {
   width: 100%;
 }
 
