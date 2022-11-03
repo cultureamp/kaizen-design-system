@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.5...@kaizen/component-library@16.1.6) (2022-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/uuid to v8 ([#3024](https://github.com/cultureamp/kaizen-design-system/issues/3024)) ([6615034](https://github.com/cultureamp/kaizen-design-system/commit/66150341d521ae46cfc2dbdee45a53e8a4d8a312))
+
+
+
+
+
 ## [16.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.4...@kaizen/component-library@16.1.5) (2022-10-26)
 
 **Note:** Version bump only for package @kaizen/component-library

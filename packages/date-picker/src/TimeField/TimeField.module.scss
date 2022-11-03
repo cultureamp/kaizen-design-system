@@ -25,7 +25,7 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
 .input {
   display: inline-flex;
   align-items: center;
-  background-color: transparent;
+  background-color: $color-white;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   border-radius: $border-solid-border-radius;

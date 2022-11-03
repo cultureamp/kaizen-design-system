@@ -7,41 +7,34 @@ $avatar-sm: 1.25rem;
 $avatar-md: 3rem;
 $avatar-lg: 4.5rem;
 
+@mixin overlap($size) {
+  margin-inline-start: calc(#{$size} / -2);
+
+  [dir="rtl"] & {
+    margin-left: 0;
+  }
+}
+
 .AvatarGroup {
   display: inline-flex;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  &.small {
-    margin-inline-start: calc(#{$avatar-sm} / 2);
-  }
-
-  &.medium {
-    margin-inline-start: calc(#{$avatar-md} / 2);
-  }
-
-  &.large {
-    margin-inline-start: calc(#{$avatar-lg} / 2);
-  }
-
-  [dir="rtl"] & {
-    margin-inline-start: 0;
-  }
 }
 
-.AvatarGroupItem,
-.AvatarCounter {
-  .small & {
-    margin-left: calc(#{$avatar-sm} / -2);
-  }
+.AvatarGroupItem {
+  + .AvatarGroupItem {
+    .small & {
+      @include overlap($avatar-sm);
+    }
 
-  .medium & {
-    margin-left: calc(#{$avatar-md} / -2);
-  }
+    .medium & {
+      @include overlap($avatar-md);
+    }
 
-  .large & {
-    margin-left: calc(#{$avatar-lg} / -2);
+    .large & {
+      @include overlap($avatar-lg);
+    }
   }
 }
 
