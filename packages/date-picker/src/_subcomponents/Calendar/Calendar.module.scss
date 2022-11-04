@@ -1,0 +1,191 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../mixins";
+
+$rdp-cell-size: 40px;
+
+.root {
+  display: inline-flex;
+}
+
+.months {
+  display: flex;
+}
+
+.buttonReset {
+  @include button-reset;
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+    border: 2px solid transparent;
+  }
+}
+
+.caption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 $spacing-xs;
+}
+
+.captionLabel {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  font-family: $typography-heading-4-font-family;
+  font-size: $typography-heading-4-font-size;
+  font-weight: $typography-heading-5-font-weight;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+  color: $color-purple-800;
+}
+
+.navButton {
+  display: inherit;
+  padding: 0.25rem $spacing-xs;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+
+  &:hover,
+  &:global(.story__datepicker__calendar--hover) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  &:focus-visible,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    outline-offset: 1px;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  margin: 0;
+  max-width: calc(#{$rdp-cell-size} * 7);
+}
+
+.tbody {
+  border: 0;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+}
+
+.weekday {
+  padding: 0.5em;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  color: $color-purple-800;
+}
+
+.cell {
+  width: $rdp-cell-size;
+  height: $rdp-cell-size;
+  padding: 0;
+  text-align: center;
+}
+
+.day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: $rdp-cell-size;
+  max-width: $rdp-cell-size;
+  height: $rdp-cell-size;
+  margin: 0;
+  border: 2px solid transparent;
+  padding: calc(#{$spacing-md} / 3) 0.625rem;
+  color: $color-purple-800;
+
+  &:hover,
+  &:global(.story__datepicker__calendar--hover) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  &:focus-visible,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    outline-offset: 1px;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+}
+
+.dayToday,
+:global(.story__datepicker__calendar--day-today) {
+  color: $color-blue-500;
+  font-weight: bold;
+}
+
+.daySelected {
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  &:hover,
+  &:global(.story__datepicker__calendar--hover),
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    background-color: $color-blue-400;
+    color: $color-white;
+  }
+}
+
+.dayDisabled {
+  background: none;
+  pointer-events: none;
+  color: rgba($color-purple-800-rgb, 0.3);
+  opacity: 1;
+
+  &:focus-visible,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    color: rgba($color-purple-800-rgb, 0.3);
+    outline-offset: 1px;
+    background-color: transparent;
+    opacity: 1;
+    outline: $color-gray-300 $border-dashed-border-style
+      $border-focus-ring-border-width;
+  }
+}
+
+.vHidden {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0;
+}
