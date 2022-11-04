@@ -1,5 +1,4 @@
 import React from "react"
-import isChromatic from "chromatic"
 import { Story } from "@storybook/react"
 import {
   CATEGORIES,
@@ -12,8 +11,6 @@ import {
   FloatingCalendarWrapper,
   FloatingCalendarWrapperProps,
 } from "../src/_subcomponents/FloatingCalendarWrapper"
-
-const IS_CHROMATIC = isChromatic()
 
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
@@ -49,7 +46,7 @@ const FloatingCalenderWrapperExample = ({
     <>
       <div
         ref={setReferenceElement}
-        style={{ paddingTop: "24px", marginBottom: `${rowHeight}px` }}
+        style={{ paddingBottom: "24px", marginTop: `${rowHeight}px` }}
       />
       <FloatingCalendarWrapper
         referenceElement={referenceElement}
@@ -62,6 +59,7 @@ const FloatingCalenderWrapperExample = ({
               },
             },
           ],
+          placement: "top-start",
         }}
       >
         {children}
@@ -76,7 +74,7 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Default">
-        <FloatingCalenderWrapperExample rowHeight={24}>
+        <FloatingCalenderWrapperExample rowHeight={54}>
           FloatingCalendarWrapper
           <br />
           Content goes in here.
@@ -111,14 +109,6 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
           />
         </FloatingCalenderWrapperExample>
       </StoryWrapper.Row>
-
-      {IS_CHROMATIC && (
-        <StoryWrapper.Row rowTitle="Chromatic only">
-          <FloatingCalenderWrapperExample rowHeight={24}>
-            Chromatic only
-          </FloatingCalenderWrapperExample>
-        </StoryWrapper.Row>
-      )}
     </StoryWrapper>
   </>
 )
