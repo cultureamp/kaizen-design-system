@@ -112,7 +112,13 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
         </FloatingCalenderWrapperExample>
       </StoryWrapper.Row>
 
-      {IS_CHROMATIC && <div style={{ height: "50px" }}>Gap for Chromatic</div>}
+      {IS_CHROMATIC && (
+        <StoryWrapper.Row rowTitle="Chromatic only">
+          <FloatingCalenderWrapperExample rowHeight={24}>
+            Chromatic only
+          </FloatingCalenderWrapperExample>
+        </StoryWrapper.Row>
+      )}
     </StoryWrapper>
   </>
 )
