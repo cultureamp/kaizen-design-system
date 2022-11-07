@@ -30,13 +30,20 @@ export default {
 
 export const DefaultStory: ComponentStory<typeof Select> = props => {
   const [selectedKey, setSelectedKey] = useState<Key | null>("id-fe")
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const handleSelectionChange = (key: Key) => setSelectedKey(key)
+  const handleSelectionChange = (key: Key) => {
+    setSelectedKey(key)
+    setIsOpen(!isOpen)
+  }
+  const handleOpenChange = () => setIsOpen(!isOpen)
 
   return (
     <>
       <Select
         {...props}
+        isOpen={isOpen}
+        onOpenChange={handleOpenChange}
         onSelectionChange={handleSelectionChange}
         selectedKey={selectedKey}
         trigger={() => (

@@ -8,6 +8,10 @@
   display: grid;
   max-height: 310px;
   overflow-y: auto;
+
+  &.focus {
+    outline: none;
+  }
 }
 
 .overflown {
