@@ -49,7 +49,10 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
         trigger={() => (
           <Select.TriggerButton
             placeholder="Select an option"
-            selectedOptionLabel={getSelectedOptionLabel(selectedKey, items)}
+            selectedOptionLabel={getSelectedOptionLabel(
+              selectedKey,
+              singleItems
+            )}
           />
         )}
       >
@@ -69,7 +72,7 @@ DefaultStory.storyName = "Select"
 DefaultStory.args = {
   label: "label",
   id: "single-select",
-  singleItems,
+  items: singleItems,
   isFullWidth: true,
   description: "This is a description",
 }
@@ -117,7 +120,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
-              selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
+              selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
             />
           )}
         >
@@ -142,7 +145,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
-              selectedOptionLabel={getSelectedOptionLabel("id-fe", items)}
+              selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
             />
           )}
         >
