@@ -6,7 +6,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { items } from "./MockData"
+import { singleItems } from "./MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select New`,
@@ -69,7 +69,7 @@ DefaultStory.storyName = "Select"
 DefaultStory.args = {
   label: "label",
   id: "single-select",
-  items,
+  singleItems,
   isFullWidth: true,
   description: "This is a description",
 }
@@ -89,7 +89,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-default"
           label="label"
           onSelectionChange={() => undefined}
-          items={items}
+          items={singleItems}
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
@@ -113,7 +113,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-selected"
           label="label"
           onSelectionChange={() => undefined}
-          items={items}
+          items={singleItems}
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
@@ -138,7 +138,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-disabled"
           label="label"
           onSelectionChange={() => undefined}
-          items={items}
+          items={singleItems}
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
