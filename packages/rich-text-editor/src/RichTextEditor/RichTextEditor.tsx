@@ -37,11 +37,11 @@ export interface BaseRichTextEditorProps
   /**
    * A descriptive message for `error` or `caution` states
    */
-  validationMessage?: string | React.ReactNode
+  validationMessage?: React.ReactNode
   /**
    * A description that provides context
    */
-  description?: string | React.ReactNode
+  description?: React.ReactNode
 }
 
 interface RTEWithLabelText extends BaseRichTextEditorProps {
@@ -170,18 +170,13 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
       {validationMessage && (
         <FieldMessage
           id={validationMessageAria}
-          automationId={validationMessageAria}
           message={validationMessage}
           status={status}
         />
       )}
 
       {description && (
-        <FieldMessage
-          id={descriptionAria}
-          automationId={descriptionAria}
-          message={description}
-        />
+        <FieldMessage id={descriptionAria} message={description} />
       )}
     </>
   )
