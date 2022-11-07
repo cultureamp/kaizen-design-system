@@ -87,6 +87,11 @@ export const VideoPlayer = ({
       )
       setPrefersReducedMotion(matches)
     }
+
+    const isUnsupportedSafari =
+      window.matchMedia("").addEventListener === undefined
+    if (isUnsupportedSafari) return
+
     reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
 
     return function cleanup() {
