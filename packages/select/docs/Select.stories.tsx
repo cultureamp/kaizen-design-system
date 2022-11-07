@@ -145,7 +145,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
-              selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
+              selectedOptionLabel={null}
             />
           )}
         >
