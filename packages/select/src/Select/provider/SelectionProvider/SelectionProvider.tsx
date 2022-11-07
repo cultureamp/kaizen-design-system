@@ -14,7 +14,6 @@ export interface SelectionProviderProps {
   onSelectionChange?: (key: Key) => any
   selectedKey?: Key | null
   label: string
-  id: string
 }
 
 export interface SelectionProviderContextType {
@@ -22,7 +21,6 @@ export interface SelectionProviderContextType {
   labelProps: HTMLAttributes<HTMLElement>
   selectionState: SingleSelectListState<ItemType>
   listRef: React.RefObject<HTMLUListElement>
-  id: string
 }
 
 const SelectionContext = React.createContext<SelectionProviderContextType>(
@@ -30,11 +28,12 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
 )
 
 export const SelectionProvider = (props: SelectionProviderProps) => {
-  const { ...otherProps } = props
+  const { onSelectionChange, ...otherProps } = props
 
   // Create state based on the incoming props to manage the selection
   const state = useSingleSelectListState({
     ...otherProps,
+    onSelectionChange,
     children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
   })
 
@@ -42,7 +41,7 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
   const ref = React.createRef<HTMLUListElement>()
   const { listBoxProps, labelProps } = useListBox(
     {
-      autoFocus: true,
+      ...otherProps,
       disallowEmptySelection: true,
     },
     state,
@@ -56,11 +55,9 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
         labelProps,
         selectionState: state,
         listRef: ref,
-        id: props.id,
       }}
     >
       <VisuallyHidden {...labelProps}>{otherProps.label}</VisuallyHidden>
-      <VisuallyHidden>{otherProps.label}</VisuallyHidden>
       {otherProps.children}
     </SelectionContext.Provider>
   )
