@@ -4,10 +4,10 @@ import { ItemType } from "../../types"
 export const getSelectedOptionLabel = (
   selectedKey?: Key | null,
   items?: ItemType[]
-): string => {
+): string | null => {
   if (!selectedKey || !items) {
-    return ""
+    return null
   }
 
-  return items.find(item => item.value === selectedKey)?.label ?? ""
+  return items.find(item => item.value === selectedKey)?.label ?? null
 }

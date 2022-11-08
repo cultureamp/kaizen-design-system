@@ -13,7 +13,7 @@ import {
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
-import { MenuPopup } from "../MenuPopup"
+import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
 
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
@@ -74,11 +74,11 @@ export const Root: React.VFC<RootProps> = ({
         <div>
           <HiddenSelectWrapper items={items} label={label} name={id} />
           <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-          <MenuPopup>
+          <FloatingSelectWrapper>
             <SelectionProvider {...selectionProps}>
               <SelectionConsumer>{children}</SelectionConsumer>
             </SelectionProvider>
-          </MenuPopup>
+          </FloatingSelectWrapper>
         </div>
       </MenuTriggerProvider>
       {description && (

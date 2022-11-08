@@ -4,12 +4,14 @@ import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { FocusScope } from "@react-aria/focus"
 import { mergeProps } from "@react-aria/utils"
 import { useMenuTriggerContext } from "../../provider"
-import styles from "./MenuPopup.module.scss"
-export interface MenuPopupProps {
+import styles from "./FloatingSelectWrapper.module.scss"
+export interface FloatingSelectWrapperProps {
   children: React.ReactNode
 }
 
-export const MenuPopup: React.VFC<MenuPopupProps> = ({ children }) => {
+export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
+  children,
+}) => {
   const { menuTriggerState, menuProps } = useMenuTriggerContext()
 
   const onClose = () => {
@@ -49,4 +51,4 @@ export const MenuPopup: React.VFC<MenuPopupProps> = ({ children }) => {
   )
 }
 
-MenuPopup.displayName = "MenuPopup"
+FloatingSelectWrapper.displayName = "FloatingSelectWrapper"
