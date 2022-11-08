@@ -6,6 +6,7 @@ export const singleItems: ItemType[] = [
   { label: "SRE", value: "id-sre" },
   { label: "Dev-ops", value: "id-devops" },
   { label: "Others", value: "id-others" },
+  { label: "SuperlongItem", value: "id-long" },
 ]
 
 export const items: ItemType[] = [

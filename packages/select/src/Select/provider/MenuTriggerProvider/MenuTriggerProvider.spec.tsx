@@ -7,11 +7,12 @@ import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
 } from "./MenuTriggerProvider"
+import { singleItems } from "../../../../docs/MockData"
 
 const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
 ) => (
-  <MenuTriggerProvider {...props}>
+  <MenuTriggerProvider {...props} items={singleItems}>
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <FloatingSelectWrapper>
       <span>menu-content-mock</span>

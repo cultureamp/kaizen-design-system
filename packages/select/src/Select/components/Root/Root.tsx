@@ -55,6 +55,7 @@ export const Root: React.VFC<RootProps> = ({
     isDisabled,
     isFullWidth,
     description,
+    items,
   }
 
   const selectionProps = {
