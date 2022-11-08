@@ -62,11 +62,31 @@
   }
 
   &.error {
-    border-color: $color-red-500;
+    &,
+    .toolbar {
+      border-color: $color-red-500;
+    }
+
+    &:hover {
+      &,
+      .toolbar {
+        border-color: $color-red-600;
+      }
+    }
   }
 
   &.caution {
-    border-color: $color-yellow-600;
+    &,
+    .toolbar {
+      border-color: $color-yellow-600;
+    }
+
+    &:hover {
+      &,
+      .toolbar {
+        border-color: $color-yellow-700;
+      }
+    }
   }
 }
 

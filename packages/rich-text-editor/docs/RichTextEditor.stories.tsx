@@ -96,11 +96,20 @@ WithBadData.args = {
 export const WithDescriptionAndValidationMessage = args => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
   return (
-    <RichTextEditor
-      value={rteData}
-      onChange={data => setRTEData(data)}
-      {...args}
-    />
+    <>
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        status="error"
+        {...args}
+      />
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        status="caution"
+        {...args}
+      />
+    </>
   )
 }
 
@@ -117,7 +126,6 @@ WithDescriptionAndValidationMessage.args = {
     { name: "bulletList", group: "list" },
     { name: "link", group: "link" },
   ],
-  status: "error",
   validationMessage: "something went wrong",
   description: "A description for RTE",
 }
