@@ -73,7 +73,7 @@ DefaultStory.args = {
   label: "label",
   id: "single-select",
   items: singleItems,
-  isFullWidth: true,
+  isFullWidth: false,
   description: "This is a description",
 }
 DefaultStory.parameters = {

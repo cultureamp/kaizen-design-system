@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { FocusScope } from "@react-aria/focus"
 import { mergeProps } from "@react-aria/utils"
@@ -12,8 +12,9 @@ export interface FloatingSelectWrapperProps {
 export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
   children,
 }) => {
-  const { menuTriggerState, menuProps } = useMenuTriggerContext()
-
+  const { menuTriggerState, menuProps, buttonRef, isFullWidth } =
+    useMenuTriggerContext()
+  const [width, setWidth] = useState<number>(295)
   const onClose = () => {
     menuTriggerState.close()
   }
@@ -29,6 +30,22 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
     overlayRef
   )
 
+  const setWidthBasedOnButton = () => {
+    if (buttonRef.current != null) {
+      setWidth(buttonRef.current.clientWidth)
+    }
+  }
+
+  if (isFullWidth) {
+    useEffect(() => {
+      window.addEventListener("resize", setWidthBasedOnButton)
+    })
+
+    useEffect(() => {
+      setWidthBasedOnButton()
+    }, [menuTriggerState.isOpen])
+  }
+
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
   // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
   // In addition, add hidden <DismissButton> components at the start and end of the list
@@ -38,6 +55,7 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
       {...mergeProps(overlayProps, menuProps)}
       ref={overlayRef}
       className={styles.menuPopup}
+      style={{ width: `${width}px` }}
     >
       <FocusScope contain autoFocus restoreFocus>
         <DismissButton onDismiss={onClose} />
