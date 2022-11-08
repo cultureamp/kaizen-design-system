@@ -86,7 +86,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 }) => (
   <>
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Base"]} />
+      <StoryWrapper.RowHeader headings={["Base", "Selected"]} />
       <StoryWrapper.Row rowTitle="Default">
         <Select
           id="select-default"
@@ -110,42 +110,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             </Select.ListBox>
           )}
         </Select>
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Selected">
         <Select
           id="select-selected"
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          selectedKey={"id-fe"}
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
               selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
-            />
-          )}
-        >
-          {() => (
-            <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
-              }
-            </Select.ListBox>
-          )}
-        </Select>
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Disabled">
-        <Select
-          isDisabled
-          id="select-disabled"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleItems}
-          trigger={() => (
-            <Select.TriggerButton
-              placeholder="Select an option"
-              selectedOptionLabel={null}
             />
           )}
         >
