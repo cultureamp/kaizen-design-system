@@ -133,64 +133,6 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     userEvent.click(option1)
     expect(spy).toHaveBeenCalledTimes(1)
   })
-
-  it("selects all options when clicks on Select all button", () => {
-    render(<SelectionProviderWrapper />)
-    const selectAll = screen.getByRole("button", {
-      name: "Select all",
-    })
-
-    userEvent.click(selectAll)
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-1-label-mock",
-        selected: true,
-      })
-    ).toBeVisible()
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-2-label-mock",
-        selected: true,
-      })
-    ).toBeVisible()
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-3-label-mock",
-        selected: true,
-      })
-    ).toBeVisible()
-  })
-
-  it("fires onSelectionChange when clicks on Select all button", () => {
-    const spy = jest.fn()
-    render(<SelectionProviderWrapper onSelectionChange={spy} />)
-    const selectAll = screen.getByRole("button", {
-      name: "Select all",
-    })
-
-    userEvent.click(selectAll)
-    expect(spy).toHaveBeenCalledTimes(1)
-  })
-
-  it("de-selects the option when clicks on a selected option", () => {
-    render(<SelectionProviderWrapper selectedKey="option-2-value-mock" />)
-    const option2 = screen.getByRole("option", {
-      name: "option-2-label-mock",
-      selected: true,
-    })
-
-    userEvent.click(option2)
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-2-label-mock",
-        selected: false,
-      })
-    ).toBeVisible()
-  })
 })
 
 describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
@@ -222,7 +164,7 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     userEvent.keyboard("{ArrowDown}")
 
     expect(
-      screen.getByRole("option", { name: "option-3-label-mock" })
+      screen.getByRole("option", { name: "option-2-label-mock" })
     ).toHaveFocus()
   })
 
@@ -266,20 +208,6 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
       screen.getByRole("option", {
         name: "option-1-label-mock",
         selected: true,
-      })
-    ).toBeVisible()
-  })
-
-  it("de-selects the option when hits enter on a selected option", () => {
-    render(<SelectionProviderWrapper selectedKey="option-2-value-mock" />)
-
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-2-label-mock",
-        selected: false,
       })
     ).toBeVisible()
   })
