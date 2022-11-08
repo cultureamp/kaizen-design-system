@@ -29,4 +29,20 @@ describe("Dropdown", () => {
       expect(screen.getByText("Item")).toBeInTheDocument()
     })
   })
+
+  it("shows menu & handles onClick set by the consumer when clicking on the button", async () => {
+    const handleClick = render(<div>Button clicked</div>)
+    render(
+      <Menu button={<Button label="Button" onClick={() => handleClick} />}>
+        <div>Item</div>
+      </Menu>
+    )
+    expect(screen.queryByText("Item")).toBeFalsy()
+    const button = screen.getByText("Button")
+    fireEvent.click(button)
+    await waitFor(() => {
+      expect(screen.getByText("Button clicked")).toBeInTheDocument()
+      expect(screen.getByText("Item")).toBeInTheDocument()
+    })
+  })
 })
