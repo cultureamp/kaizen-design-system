@@ -31,18 +31,21 @@ describe("Dropdown", () => {
   })
 
   it("shows menu & handles onClick set by the consumer when clicking on the button", async () => {
-    const handleClick = render(<div>Button clicked</div>)
+    const onButtonClick = jest.fn<void, []>()
+
     render(
-      <Menu button={<Button label="Button" onClick={() => handleClick} />}>
+      <Menu button={<Button label="Button" onClick={onButtonClick} />}>
         <div>Item</div>
       </Menu>
     )
-    expect(screen.queryByText("Item")).toBeFalsy()
+
+    expect(screen.queryByText("Item")).not.toBeInTheDocument()
+
     const button = screen.getByText("Button")
-    fireEvent.click(button)
+    userEvent.click(button)
+
     await waitFor(() => {
-      expect(screen.getByText("Button clicked")).toBeInTheDocument()
-      expect(screen.getByText("Item")).toBeInTheDocument()
+      expect(screen.getByText("Item")).toBeVisible()
+      expect(onButtonClick).toBeCalled()
     })
-  })
 })
