@@ -14,8 +14,12 @@
   width: 0px
 }
 
-.boxWithBorder {
+.box {
   width: 100px;
   height: 100px;
+}
+
+.boxWithBorder {
+  @extend .box;
   border: 1px solid black;
 }
