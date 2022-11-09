@@ -5,9 +5,9 @@ const dummyText2 = "Berechnung"
 
 describe("calculateTextWidth", () => {
   it("returns the longest string", () => {
-    expect(calculateTextWidth(dummyText1)).toEqual(500)
+    expect(calculateTextWidth(dummyText1)).toEqual(65)
   })
   it("returns one longest string when there are 2 of the same length", () => {
-    expect(calculateTextWidth(dummyText2)).toEqual(200)
+    expect(calculateTextWidth(dummyText2)).toEqual(57)
   })
 })
