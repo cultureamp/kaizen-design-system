@@ -33,9 +33,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <div>font-{fontFamilyClassName}</div>
-              <div>{fontFamilyValue}</div>
-              <div style={{ fontFamily: fontFamilyValue }}>Aa</div>
+              <p>font-{fontFamilyClassName}</p>
+              <p>{fontFamilyValue}</p>
+              <p style={{ fontFamily: fontFamilyValue }}>Aa</p>
             </StoryWrapper.Row>
           </>
         )

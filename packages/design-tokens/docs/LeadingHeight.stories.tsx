@@ -34,14 +34,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <div>leading-{leadingHeightClassName}</div>
-              <div>{leadingHeightValue}</div>
-              <div
+              <p>leading-{leadingHeightClassName}</p>
+              <p>{leadingHeightValue}</p>
+              <p
                 style={{ lineHeight: leadingHeightValue }}
                 className={styles.wrappedText}
               >
                 Tutant Meenage Neetle Teetles
-              </div>
+              </p>
             </StoryWrapper.Row>
           </>
         )
