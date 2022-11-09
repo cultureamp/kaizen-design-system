@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.5.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.28...@kaizen/draft-modal@10.5.29) (2022-11-09)
+
+
+### Bug Fixes
+
+* **KDS-967:** Allow Context Modal to not need image ([#3071](https://github.com/cultureamp/kaizen-design-system/issues/3071)) ([29270b0](https://github.com/cultureamp/kaizen-design-system/commit/29270b04427281b1b91d04fc95994f5fc0da69de))
+
+
+
+
+
 ## [10.5.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.27...@kaizen/draft-modal@10.5.28) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-modal
