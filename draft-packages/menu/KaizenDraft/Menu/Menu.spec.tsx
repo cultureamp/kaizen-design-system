@@ -2,6 +2,7 @@ import { Button } from "@kaizen/button"
 import { fireEvent } from "@testing-library/dom"
 import { render, screen, waitFor } from "@testing-library/react"
 import * as React from "react"
+import userEvent from "@testing-library/user-event"
 import Menu from "./Menu"
 
 describe("Dropdown", () => {
@@ -48,4 +49,5 @@ describe("Dropdown", () => {
       expect(screen.getByText("Item")).toBeVisible()
       expect(onButtonClick).toBeCalled()
     })
+  })
 })
