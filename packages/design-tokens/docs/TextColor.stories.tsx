@@ -1,7 +1,9 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import { Divider } from "@kaizen/draft-divider"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
+import styles from "./styles.module.scss"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
@@ -38,15 +40,36 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   return (
     <>
       <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
+        <StoryWrapper.RowHeader
+          headings={[
+            "Class",
+            "Properties",
+            "Example",
+            "Example (dark background)",
+          ]}
+        />
         {colors.map(({ colorName, colorValue }) => (
-          <StoryWrapper.Row rowTitle="">
-            <div>{colorName}</div>
-            <div>{colorValue}</div>
-            {/* TODO: Figure out why colorValue can't be used as a TW class here */}
-            {/* (too dynamic? Constructing a similar {colorName, colorValue}[] array and looping over it works, but not the one declared above) */}
-            <div style={{ color: colorValue }}>Aa</div>
-          </StoryWrapper.Row>
+          <>
+            <Divider variant="canvas" />
+            <StoryWrapper.Row rowTitle="">
+              <p>{colorName}</p>
+              <p>{colorValue}</p>
+              {/* TODO: Figure out why colorValue can't be used as a TW class here */}
+              {/* (too dynamic? Constructing a similar {colorName, colorValue}[] array and looping over it works, but not the one declared above) */}
+              <p
+                className={styles.textColorExample}
+                style={{ color: colorValue }}
+              >
+                Aa
+              </p>
+              <p
+                className={styles.textColorExampleDark}
+                style={{ color: colorValue }}
+              >
+                Aa
+              </p>
+            </StoryWrapper.Row>
+          </>
         ))}
       </StoryWrapper>
     </>

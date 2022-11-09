@@ -1,0 +1,15 @@
+.textColorExample {
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+  width: fit-content;
+}
+
+.textColorExampleDark {
+  @extend .textColorExample;
+  background: black;
+}
+
+.wrappedText {
+  width: 0px
+}
