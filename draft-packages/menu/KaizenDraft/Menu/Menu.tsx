@@ -54,7 +54,19 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       // to unexpected behaviour, and it doesn't self document. Hence, the switch
       // to the render function. It would be nice if the `Menu` component also
       // used this pattern, but it's probably not worth the time and effort.
-      renderButton={props => React.cloneElement(button, props)}
+      renderButton={props =>
+        React.cloneElement(button, {
+          ...props,
+          onClick: (e: React.MouseEvent<Element, MouseEvent>) => {
+            props.onClick(e)
+            button.props.onClick?.(e)
+          },
+          onMouseDown: (e: React.MouseEvent<Element, MouseEvent>) => {
+            props.onMouseDown(e)
+            button.props.onMouseDown?.(e)
+          },
+        })
+      }
     />
   )
 }
