@@ -68,12 +68,13 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   const portalSelectorElementRef = useRef<Element | null>(null)
 
   const menuButton = renderButton({
-    onClick: (e: any) => {
+    onClick: (e: React.MouseEvent<Element, MouseEvent>) => {
       e.preventDefault()
       e.stopPropagation()
       toggleMenuDropdown()
     },
-    onMouseDown: (e: any) => e.preventDefault(),
+    onMouseDown: (e: React.MouseEvent<Element, MouseEvent>) =>
+      e.preventDefault(),
     "aria-haspopup": true,
     "aria-expanded": isMenuVisible,
   })
