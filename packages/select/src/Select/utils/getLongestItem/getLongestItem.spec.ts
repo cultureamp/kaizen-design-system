@@ -1,17 +1,21 @@
 import { ItemType } from "../../types"
 import { getLongestItem } from "./getLongestItem"
 
-export const singleItems: ItemType[] = [
+const singleItems: ItemType[] = [
   { label: "Front-End", value: "id-fe" },
   { label: "Back-End", value: "id-be" },
   { label: "SRE", value: "id-sre" },
   { label: "Dev-ops", value: "id-devops" },
   { label: "Others", value: "id-others" },
   { label: "SuperlongItem", value: "id-long" },
+  { label: "SuperSameItem", value: "id-same" },
 ]
 
 describe("getLongestItem", () => {
-  it("only contains selected disabled dates", () => {
+  it("returns the longest string", () => {
     expect(getLongestItem(singleItems)).toEqual("SuperlongItem")
+  })
+  it("returns one longest string when there are 2 of the same length", () => {
+    expect(getLongestItem(singleItems)).toEqual("SuperSameItem")
   })
 })

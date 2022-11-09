@@ -9,7 +9,7 @@ import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
 import { ItemType } from "../../types"
 import { getLongestItem } from "../../utils/getLongestItem/getLongestItem"
-import { calculateTextWidth } from "../../utils/calculateTextWidth"
+import { calculateTextWidth } from "../../utils/calculateTextWidth/calculateTextWidth"
 
 export interface MenuTriggerProviderProps {
   isOpen?: boolean

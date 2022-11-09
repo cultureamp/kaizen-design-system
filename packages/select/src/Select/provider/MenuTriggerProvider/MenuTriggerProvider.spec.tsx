@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { TriggerButtonBase } from "../../components/Trigger/TriggerButtonBase"
 import { FloatingSelectWrapper } from "../../components/FloatingSelectWrapper"
+import { singleItems } from "../../../../docs/MockData"
 import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
 } from "./MenuTriggerProvider"
-import { singleItems } from "../../../../docs/MockData"
 
 const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
