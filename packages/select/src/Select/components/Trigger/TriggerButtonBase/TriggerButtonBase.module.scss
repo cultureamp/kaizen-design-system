@@ -1,11 +1,18 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../mixins";
+@import "../variables";
 
 .button {
   @include button;
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
+
+  #{$selectors--button-active} .icon,
+  #{$selectors--button-hover} .icon,
+  #{$selectors--button-focus} .icon {
+    color: $color-gray-600;
+  }
 }
 
 .fullWidth {
@@ -15,10 +22,4 @@
 .icon {
   margin-left: $spacing-sm; // TODO: Confirm spacing with design
   color: $color-gray-500;
-}
-
-.button:hover .icon,
-.button:active .icon,
-.button:focus .icon {
-  color: $color-gray-600;
 }

@@ -86,7 +86,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 }) => (
   <>
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Base", "Selected"]} />
+      <StoryWrapper.RowHeader
+        headings={["Base", "Selected", "Hover", "Focus"]}
+      />
       <StoryWrapper.Row rowTitle="Default">
         <Select
           id="select-default"
@@ -120,6 +122,54 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <Select.TriggerButton
               placeholder="Select an option"
               selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+        <Select
+          id="select-hovered"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          selectedKey={null}
+          trigger={() => (
+            <Select.TriggerButton
+              classNameOverride="story__button-hover"
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+        <Select
+          id="select-focused"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          selectedKey={null}
+          trigger={() => (
+            <Select.TriggerButton
+              classNameOverride="story__button-focus"
+              placeholder="Select an option"
+              selectedOptionLabel={null}
             />
           )}
         >
