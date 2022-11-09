@@ -50,4 +50,23 @@ describe("Dropdown", () => {
       expect(onButtonClick).toBeCalled()
     })
   })
+  it("shows menu & handles onMouseDown set by the consumer when mousing down on the button", async () => {
+    const onMouseDown = jest.fn<void, []>()
+
+    render(
+      <Menu button={<Button label="Button" onMouseDown={onMouseDown} />}>
+        <div>Item</div>
+      </Menu>
+    )
+
+    expect(screen.queryByText("Item")).not.toBeInTheDocument()
+
+    const button = screen.getByText("Button")
+    userEvent.click(button)
+
+    await waitFor(() => {
+      expect(screen.getByText("Item")).toBeVisible()
+      expect(onMouseDown).toBeCalled()
+    })
+  })
 })
