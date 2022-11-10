@@ -30,21 +30,20 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
     overlayRef
   )
 
-  const setWidthBasedOnButton = () => {
-    if (buttonRef.current != null) {
-      setWidth(buttonRef.current.clientWidth)
+  const setWidthBasedOnButton = (): void => {
+    if (isFullWidth && buttonRef.current != null) {
+      return setWidth(buttonRef.current.clientWidth)
     }
+    return setWidth(295)
   }
 
-  if (isFullWidth) {
-    useEffect(() => {
-      window.addEventListener("resize", setWidthBasedOnButton)
-    })
+  useEffect(() => {
+    window.addEventListener("resize", setWidthBasedOnButton)
+  })
 
-    useEffect(() => {
-      setWidthBasedOnButton()
-    }, [menuTriggerState.isOpen])
-  }
+  useEffect(() => {
+    setWidthBasedOnButton()
+  }, [menuTriggerState.isOpen])
 
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
   // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
