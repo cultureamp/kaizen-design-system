@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.9...@kaizen/date-picker@5.12.10) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.8...@kaizen/date-picker@5.12.9) (2022-11-04)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.7...@kaizen/date-picker@5.12.8) (2022-11-02)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.6...@kaizen/date-picker@5.12.7) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.5...@kaizen/date-picker@5.12.6) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.4...@kaizen/date-picker@5.12.5) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.3...@kaizen/date-picker@5.12.4) (2022-10-24)
+
+
+### Bug Fixes
+
+* **renamed timepicker to timefield:** using patch as it only has 1 consuming team ([#3033](https://github.com/cultureamp/kaizen-design-system/issues/3033)) ([0165560](https://github.com/cultureamp/kaizen-design-system/commit/016556051391a3536b0bb0b36e2179f84eeda6cd))
+
+
+
+
+
+## [5.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.2...@kaizen/date-picker@5.12.3) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.1...@kaizen/date-picker@5.12.2) (2022-10-20)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.0...@kaizen/date-picker@5.12.1) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.11.11...@kaizen/date-picker@5.12.0) (2022-10-18)
+
+
+### Features
+
+* **timepicker:** add timepicker component ([#3017](https://github.com/cultureamp/kaizen-design-system/issues/3017)) ([225f85d](https://github.com/cultureamp/kaizen-design-system/commit/225f85dd0a2b33791320cc56b3d53a50fbfb5d2b))
+
+
+
+
+
+## [5.11.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.11.10...@kaizen/date-picker@5.11.11) (2022-10-06)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [5.11.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.11.9...@kaizen/date-picker@5.11.10) (2022-10-02)
 
 **Note:** Version bump only for package @kaizen/date-picker

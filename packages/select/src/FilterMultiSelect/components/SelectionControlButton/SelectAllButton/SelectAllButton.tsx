@@ -2,7 +2,7 @@ import classNames from "classnames"
 import React from "react"
 import { useSelectionContext } from "../../../provider"
 
-import styles from "../SelectionControlButton.scss"
+import styles from "../SelectionControlButton.module.scss"
 
 export const SelectAllButton: React.VFC = () => {
   const { selectionState } = useSelectionContext()
@@ -29,7 +29,7 @@ export const SelectAllButton: React.VFC = () => {
             ...selectedOptions,
             ...filteredOptions,
           ])
-        // TODO: add annoucemnt here to inform all selected
+        // TODO: add announcement here to inform all selected
       }
     >
       Select all

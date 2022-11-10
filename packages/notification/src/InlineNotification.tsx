@@ -1,3 +1,4 @@
+import { HeadingProps } from "@kaizen/typography"
 import * as React from "react"
 import GenericNotification, {
   NotificationType,
@@ -5,7 +6,6 @@ import GenericNotification, {
 
 type Props = {
   type: NotificationType
-  title: string
   children?: React.ReactNode
   autohide?: boolean
   autohideDelay?: "short" | "long"
@@ -15,6 +15,12 @@ type Props = {
   automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
+  headingProps?: HeadingProps
+  /**
+   * **Deprecated:** Use headingProps
+   * @deprecated
+   */
+  title?: string
 }
 
 /**

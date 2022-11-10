@@ -103,6 +103,16 @@ $focus-border-color: $color-blue-500;
     }
   }
 
+  .groupHeading {
+    font-family: $typography-heading-6-font-family;
+    font-weight: $typography-heading-6-font-weight;
+    font-size: $typography-heading-6-font-size;
+    line-height: $typography-heading-6-line-height;
+    letter-spacing: $typography-heading-6-letter-spacing;
+    text-transform: capitalize;
+    color: rgba($color-purple-800-rgb, 0.7);
+  }
+
   .option {
     @include base-font-style();
     cursor: pointer;
@@ -157,12 +167,50 @@ $focus-border-color: $color-blue-500;
     .singleValueOverrides {
       color: $color-white;
     }
+
+    .input {
+      color: $color-white;
+    }
   }
 
   &.error {
     .control {
       border: $border-solid-border-width $border-solid-border-style
         $color-red-500;
+    }
+  }
+
+  &.default {
+    &.reversed {
+      .control {
+        background: transparent;
+        color: $color-white;
+        border-color: $color-white;
+        border-radius: $border-borderless-border-radius;
+
+        &:hover {
+          background: rgba($color-white-rgb, 0.2);
+        }
+
+        &.disabled {
+          opacity: 0.3;
+        }
+      }
+
+      .dropdownIndicator {
+        color: $color-white;
+      }
+
+      .placeholder {
+        color: $color-white;
+      }
+
+      &.error {
+        .control {
+          border: $border-solid-border-width $border-solid-border-style
+            $color-red-300;
+        }
+      }
     }
   }
 
@@ -299,8 +347,7 @@ $focus-border-color: $color-blue-500;
 
   &.notFullWidth {
     .control {
-      display: inline-block;
-      // ideally this would be inline-flex, but that causes problems in IE11
+      display: inline-flex;
       max-width: 100%;
 
       > div {
@@ -317,13 +364,6 @@ $focus-border-color: $color-blue-500;
       }
     }
 
-    .indicatorsContainer {
-      position: absolute; // absolute positioning is required due to IE11 and not
-      // being able to use inline-flex
-      right: 0;
-      top: 0;
-    }
-
     .singleValueOverrides {
       overflow: hidden;
       position: static;
@@ -331,11 +371,8 @@ $focus-border-color: $color-blue-500;
       top: 0px;
       transform: none;
       max-width: 100%;
-      padding-right: 30px;
     }
-    .placeholderOverrides {
-      padding-right: 30px;
-    }
+
     .singleValue {
       max-width: 100%;
     }

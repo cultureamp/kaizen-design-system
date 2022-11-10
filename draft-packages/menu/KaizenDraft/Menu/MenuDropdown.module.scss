@@ -1,14 +1,13 @@
-@import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "./variables";
 
 $menu-container-width: 248px;
+$dropdown-index: 1000;
 
 .menuContainer {
-  z-index: $ca-z-index-dropdown;
+  z-index: $dropdown-index;
   box-sizing: border-box;
   background: $color-white;
   color: $color-purple-800;

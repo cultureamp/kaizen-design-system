@@ -184,6 +184,7 @@ export const Negative = () => (
         automationId: "notification1",
         type: "negative",
         title: "No network connection",
+        autohide: false,
         message: (
           <>
             Check your connection and try again. <a href="/">Refresh</a>.

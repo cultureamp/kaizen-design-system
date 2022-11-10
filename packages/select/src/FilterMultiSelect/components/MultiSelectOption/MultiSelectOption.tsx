@@ -12,7 +12,7 @@ import { Badge } from "@kaizen/draft-badge"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { useSelectionContext } from "../../provider"
 import { ItemType } from "../../types"
-import styles from "./MultiSelectOption.scss"
+import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {
   item: Node<ItemType>

@@ -2,6 +2,7 @@ import React, { useMemo } from "react"
 import { v4 } from "uuid"
 import { InputSearch } from "@kaizen/draft-form"
 import { useSelectionContext } from "../../provider"
+import styles from "./SearchInput.module.scss"
 
 export interface SearchInputProps {
   label?: string
@@ -22,15 +23,17 @@ export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
   const inputId = useMemo(() => id ?? v4(), [id])
 
   return (
-    <InputSearch
-      id={inputId}
-      aria-label={label ?? "Filter options by search query"}
-      secondary
-      placeholder="Search…"
-      value={searchQuery}
-      onChange={handleChange}
-      onClear={handleClear}
-    />
+    <div className={styles.inputSearchContainer}>
+      <InputSearch
+        id={inputId}
+        aria-label={label ?? "Filter options by search query"}
+        secondary
+        placeholder="Search…"
+        value={searchQuery}
+        onChange={handleChange}
+        onClear={handleClear}
+      />
+    </div>
   )
 }
 

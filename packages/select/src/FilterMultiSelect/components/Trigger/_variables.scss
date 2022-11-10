@@ -2,3 +2,9 @@
 @import "~@kaizen/design-tokens/sass/border";
 
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+
+// Polyfill
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+
+// Combined pseudo state classes
+$selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";

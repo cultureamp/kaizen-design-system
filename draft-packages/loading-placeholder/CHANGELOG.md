@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.9...@kaizen/draft-loading-placeholder@2.2.10) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [2.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.8...@kaizen/draft-loading-placeholder@2.2.9) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [2.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.7...@kaizen/draft-loading-placeholder@2.2.8) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [2.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.6...@kaizen/draft-loading-placeholder@2.2.7) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [2.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.5...@kaizen/draft-loading-placeholder@2.2.6) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
 ## [2.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@2.2.4...@kaizen/draft-loading-placeholder@2.2.5) (2022-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder

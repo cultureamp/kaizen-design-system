@@ -7,6 +7,7 @@ import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.sv
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
+import { Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
@@ -27,6 +28,7 @@ type Props = {
   automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
+  headingProps?: HeadingProps
 }
 
 type State = {
@@ -37,7 +39,6 @@ type State = {
 class GenericNotification extends React.Component<Props, State> {
   static defaultProps = {
     persistent: false,
-
     autohide: false,
     autohideDelay: "short",
   }
@@ -107,8 +108,11 @@ class GenericNotification extends React.Component<Props, State> {
           <Icon icon={this.iconType()} role="presentation" inheritSize />
         </div>
         <div className={this.textContainerClassName()}>
-          {this.props.title && (
-            <h6 className={styles.title}>{this.props.title}</h6>
+          {this.props.style !== "global" && (
+            <NotificationHeading
+              titleProp={this.props.title}
+              headingProps={this.props.headingProps}
+            />
           )}
           {this.props.children && (
             <div className={styles.text}>{this.props.children}</div>
@@ -191,5 +195,31 @@ const CancelButton = ({ onClick }: CancelButtonProps) => (
     </span>
   </button>
 )
+
+const NotificationHeading = ({ titleProp, headingProps }) => {
+  if (headingProps) {
+    return (
+      <Heading
+        variant={headingProps.variant || "heading-6"}
+        tag={headingProps.tag || "div"}
+        color={headingProps.color || "dark"}
+        classNameOverride={styles.notificationTitle}
+      >
+        {headingProps.children}
+      </Heading>
+    )
+  } else if (titleProp) {
+    return (
+      <Heading
+        variant="heading-6"
+        tag="div"
+        color="dark"
+        classNameOverride={styles.notificationTitle}
+      >
+        {titleProp}
+      </Heading>
+    )
+  } else return null
+}
 
 export default GenericNotification

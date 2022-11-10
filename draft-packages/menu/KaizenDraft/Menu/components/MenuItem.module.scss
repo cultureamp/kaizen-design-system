@@ -1,8 +1,6 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "../variables";
 
 .menuListItem {
   display: flex;
@@ -16,7 +14,7 @@
   background: none;
   border: 2px transparent solid;
   text-align: left;
-  padding: 6px calc(#{$side-padding} - 2px);
+  padding: 6px calc(#{$spacing-sm} - 2px);
   margin: 0 $spacing-xs;
   min-height: calc(1.75 * #{$spacing-md});
   border-radius: 4px;
@@ -93,8 +91,7 @@
 }
 
 .menuItem__Icon {
-  @include ca-margin($end: calc(#{$spacing-md} / 3));
-
+  margin-inline-end: calc(#{$spacing-md} / 3);
   display: flex;
   align-self: flex-start;
   transform: translateY(0.2em);

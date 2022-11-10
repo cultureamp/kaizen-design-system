@@ -122,7 +122,7 @@ const ContextModal = ({
               [styles.landscapeContentlayout]: layout === "landscape",
             })}
           >
-            <div className={styles.image}>{image}</div>
+            {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>
               {children}
               {onConfirm != null && (

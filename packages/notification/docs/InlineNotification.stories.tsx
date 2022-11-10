@@ -2,7 +2,7 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/typography"
+import { Heading, HeadingProps } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -30,6 +30,22 @@ export const DefaultKaizenDemo = props => (
   </InlineNotification>
 )
 DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
+
+const customHeadingProps: HeadingProps = {
+  variant: "heading-6",
+  tag: "h2",
+  children: "Custom",
+}
+export const CustomHeadingLevel = props => (
+  <InlineNotification
+    type="positive"
+    headingProps={customHeadingProps}
+    {...props}
+  >
+    New user data
+  </InlineNotification>
+)
+CustomHeadingLevel.storyName = "Custom heading level"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.10...@kaizen/pagination@1.6.11) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.9...@kaizen/pagination@1.6.10) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.8...@kaizen/pagination@1.6.9) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.7...@kaizen/pagination@1.6.8) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.6...@kaizen/pagination@1.6.7) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.5...@kaizen/pagination@1.6.6) (2022-10-18)
+
+
+### Bug Fixes
+
+* **pagination:** Update ellipse color to purple 800, 70% ([#3028](https://github.com/cultureamp/kaizen-design-system/issues/3028)) ([ae97871](https://github.com/cultureamp/kaizen-design-system/commit/ae97871ba2e47e1862fead41e520a69f11001644))
+
+
+
+
+
 ## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.4...@kaizen/pagination@1.6.5) (2022-09-30)
 
 **Note:** Version bump only for package @kaizen/pagination

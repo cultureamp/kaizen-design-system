@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.10...@kaizen/draft-form@8.3.11) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.9...@kaizen/draft-form@8.3.10) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.8...@kaizen/draft-form@8.3.9) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.7...@kaizen/draft-form@8.3.8) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.6...@kaizen/draft-form@8.3.7) (2022-10-24)
+
+
+### Bug Fixes
+
+* **searchfield:** update onClear to return focus to input ([#3043](https://github.com/cultureamp/kaizen-design-system/issues/3043)) ([5efd41c](https://github.com/cultureamp/kaizen-design-system/commit/5efd41c6fca7040e9b2529378dcf1989c1286f67))
+
+
+
+
+
+## [8.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.5...@kaizen/draft-form@8.3.6) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.4...@kaizen/draft-form@8.3.5) (2022-10-06)
+
+
+### Bug Fixes
+
+* **draft-form:** move InputSearch global cancel button styles under .input class ([#3007](https://github.com/cultureamp/kaizen-design-system/issues/3007)) ([961fb50](https://github.com/cultureamp/kaizen-design-system/commit/961fb50f66f585966d13aad115ee26da4af66b86))
+
+
+
+
+
 ## [8.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.3...@kaizen/draft-form@8.3.4) (2022-10-02)
 
 

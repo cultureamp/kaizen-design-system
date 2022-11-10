@@ -2,9 +2,15 @@
 import { addParameters } from "@storybook/react"
 import React from "react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
 
+const queryClient = new QueryClient()
+
+const withQueryProvider = Story => (
+  <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
+)
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -69,4 +75,5 @@ export const decorators = [
       </div>
     )
   },
+  withQueryProvider,
 ]

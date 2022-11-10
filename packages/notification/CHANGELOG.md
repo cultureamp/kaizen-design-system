@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.4...@kaizen/notification@1.1.5) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.3...@kaizen/notification@1.1.4) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.2...@kaizen/notification@1.1.3) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.1...@kaizen/notification@1.1.2) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.0...@kaizen/notification@1.1.1) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.0.1...@kaizen/notification@1.1.0) (2022-10-10)
+
+
+### Features
+
+* use headingProps in notification to control heading level ([#2991](https://github.com/cultureamp/kaizen-design-system/issues/2991)) ([17b6685](https://github.com/cultureamp/kaizen-design-system/commit/17b6685f2b7a0d6e62731837547e0c4f3b56f329))
+
+
+
+
+
 ## [1.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@0.11.8...@kaizen/notification@1.0.1) (2022-10-03)
 
 **Note:** Version bump only for package @kaizen/notification

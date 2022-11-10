@@ -68,3 +68,5 @@ export function MenuTriggerProvider({
 export const useMenuTriggerContext = () => useContext(MenuTriggerContext)
 
 export const MenuTriggerConsumer = MenuTriggerContext.Consumer
+
+MenuTriggerContext.displayName = "MenuTriggerContext"

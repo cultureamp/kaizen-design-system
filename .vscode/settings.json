@@ -18,5 +18,9 @@ Happy linting! 💖
   "editor.formatOnSave": true,
   "javascript.suggestionActions.enabled": false,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "playwright.env": {
+    "IS_DEV": true
+  },
+  "playwright.reuseBrowser": true
 }

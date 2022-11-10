@@ -3,6 +3,100 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.4...@kaizen/draft-select@2.7.5) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.3...@kaizen/draft-select@2.7.4) (2022-11-03)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.2...@kaizen/draft-select@2.7.3) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.1...@kaizen/draft-select@2.7.2) (2022-10-31)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.0...@kaizen/draft-select@2.7.1) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.4...@kaizen/draft-select@2.7.0) (2022-10-25)
+
+
+### Features
+
+* **select:** add group heading styling ([#3046](https://github.com/cultureamp/kaizen-design-system/issues/3046)) ([485b861](https://github.com/cultureamp/kaizen-design-system/commit/485b861f540f0876334970392c84d4415e00c08d))
+
+
+
+
+
+## [2.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.3...@kaizen/draft-select@2.6.4) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.2...@kaizen/draft-select@2.6.3) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.1...@kaizen/draft-select@2.6.2) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.6.0...@kaizen/draft-select@2.6.1) (2022-10-06)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.15...@kaizen/draft-select@2.6.0) (2022-10-05)
+
+
+### Features
+
+* add default reverse, not full width support and rm ie11 styles ([#2993](https://github.com/cultureamp/kaizen-design-system/issues/2993)) ([b547520](https://github.com/cultureamp/kaizen-design-system/commit/b547520569840bea4cf86caf239d5c32d793477f))
+
+
+
+
+
 ## [2.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.5.14...@kaizen/draft-select@2.5.15) (2022-10-04)
 
 **Note:** Version bump only for package @kaizen/draft-select

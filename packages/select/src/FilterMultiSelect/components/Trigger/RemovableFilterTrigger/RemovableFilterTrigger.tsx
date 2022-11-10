@@ -6,7 +6,7 @@ import {
   FilterTriggerButton,
   FilterTriggerButtonProps,
 } from "../FilterTriggerButton"
-import styles from "./RemovableFilterTrigger.scss"
+import styles from "./RemovableFilterTrigger.module.scss"
 
 export type RemovableFilterTriggerProps = {
   onRemove: () => void

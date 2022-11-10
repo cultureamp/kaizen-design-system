@@ -4,12 +4,12 @@ import userEvent from "@testing-library/user-event"
 import { Selection } from "@react-types/shared"
 import { SearchInput } from "../../components/SearchInput"
 import { ListBox } from "../../components/ListBox"
-import { MultiSelectOption } from "../../components/MultiSelectOption"
 import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
 import { ItemType } from "../../types"
+import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -48,7 +48,45 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <ListBox>
-        {item => <MultiSelectOption key={item.key} item={item} />}
+        {({ selectedItems, unselectedItems, disabledItems }) => (
+          <>
+            <FilterMultiSelect.ListBoxSection
+              items={selectedItems}
+              sectionName="selectedItems"
+            >
+              {selectedItem => (
+                <FilterMultiSelect.Option
+                  key={selectedItem.key}
+                  item={selectedItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+
+            <FilterMultiSelect.ListBoxSection
+              items={unselectedItems}
+              sectionName="selectedItems"
+            >
+              {unselectedItem => (
+                <FilterMultiSelect.Option
+                  key={unselectedItem.key}
+                  item={unselectedItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+
+            <FilterMultiSelect.ListBoxSection
+              items={disabledItems}
+              sectionName="disabledItems"
+            >
+              {disabledItem => (
+                <FilterMultiSelect.Option
+                  key={disabledItem.key}
+                  item={disabledItem}
+                />
+              )}
+            </FilterMultiSelect.ListBoxSection>
+          </>
+        )}
       </ListBox>
 
       <SearchInput label="search-input-label-mock" />
@@ -403,24 +441,105 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 })
 
 describe("<SelectionProviderWrapper /> - Search Filtering", () => {
-  it("shows only the matched options", () => {
-    render(<SelectionProviderWrapper />)
-    const searchInput = screen.getByRole("searchbox")
-    userEvent.type(searchInput, "1")
+  describe("With no onSearchInputChange callback", () => {
+    it("shows only the matched options", () => {
+      render(<SelectionProviderWrapper />)
+      const searchInput = screen.getByRole("searchbox")
+      userEvent.type(searchInput, "1")
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).not.toBeInTheDocument()
+    })
+  })
+  describe("With a onSearchInputChange callback", () => {
+    it("Does not filter the matched options", () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      userEvent.type(searchInput, searchString)
+
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).toBeVisible()
+    })
+    it("Calls back to the consumer with the search text", () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      userEvent.type(searchInput, searchString)
+
+      expect(onSearchInputChange).toBeCalledTimes(1)
+      expect(onSearchInputChange).toBeCalledWith(searchString)
+    })
+  })
+})
+
+describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
+  it("renders only items passed", () => {
+    const { rerender } = render(<SelectionProviderWrapper />)
     expect(
       screen.getByRole("option", {
         name: "option-1-label-mock",
       })
     ).toBeVisible()
     expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+      })
+    ).toBeVisible()
+
+    rerender(<SelectionProviderWrapper items={itemsMock.slice(2)} />)
+    expect(
+      screen.queryByRole("option", {
+        name: "option-1-label-mock",
+      })
+    ).not.toBeInTheDocument()
+    expect(
       screen.queryByRole("option", {
         name: "option-2-label-mock",
       })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole("option", {
+      screen.getByRole("option", {
         name: "option-3-label-mock",
       })
-    ).not.toBeInTheDocument()
+    ).toBeVisible()
   })
 })

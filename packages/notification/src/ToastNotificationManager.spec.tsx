@@ -50,9 +50,7 @@ describe("ToastNotificationsManager", () => {
       })
     })
 
-    expect(
-      getByTestId(document.body, "first").querySelector("h6")?.textContent
-    ).toBe("First render")
+    expect(screen.getByTestId("first")).toHaveTextContent("First render")
 
     await act(async () => {
       addToastNotification({
@@ -69,7 +67,7 @@ describe("ToastNotificationsManager", () => {
     expect(queryByTestId(document.body, "first")).not.toBeInTheDocument
     const elementSecond = screen.getByTestId("second")
 
-    expect(elementSecond.querySelector("h6")?.textContent).toBe("Second render")
+    expect(elementSecond).toHaveTextContent("Second render")
   })
 
   it("removes individual notifications by ID", async () => {
@@ -87,7 +85,7 @@ describe("ToastNotificationsManager", () => {
     })
 
     const element = screen.getByTestId("remove-me")
-    expect(element.querySelector("h6")?.textContent).toBe("Remove me")
+    expect(element).toHaveTextContent("Remove me")
 
     await act(async () => {
       removeToastNotification(id)

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-form",
-  "version": "8.3.4",
+  "version": "8.3.11",
   "description": "The draft Form component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,12 +31,12 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-base": "^1.1.1",
-    "@kaizen/component-library": "^16.1.2",
+    "@kaizen/component-library": "^16.1.7",
     "@kaizen/deprecated-component-library-helpers": "^2.5.7",
-    "@kaizen/loading-spinner": "^2.3.2",
-    "@kaizen/typography": "^2.3.2",
+    "@kaizen/loading-spinner": "^2.3.3",
+    "@kaizen/typography": "^2.3.3",
     "@types/classnames": "^2.3.0",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"

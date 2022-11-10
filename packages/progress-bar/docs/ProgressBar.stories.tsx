@@ -30,6 +30,7 @@ DefaultStory.args = {
   mood: "positive",
   isAnimating: true,
   label: "25%",
+  isReversed: false,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -41,9 +42,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         value={25}
         max={100}
         mood="positive"
-        isAnimating={true}
+        isAnimating
         label="25%"
         subtext="Subtext"
+        isReversed={isReversed}
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle={"Informative"}>
@@ -51,9 +53,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         value={25}
         max={100}
         mood="informative"
-        isAnimating={true}
+        isAnimating
         label="25%"
         subtext="Subtext"
+        isReversed={isReversed}
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle={"Negative"}>
@@ -61,9 +64,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         value={25}
         max={100}
         mood="negative"
-        isAnimating={true}
+        isAnimating
         label="25%"
         subtext="Subtext"
+        isReversed={isReversed}
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle={"Cautionary"}>
@@ -71,9 +75,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         value={25}
         max={100}
         mood="cautionary"
-        isAnimating={true}
+        isAnimating
         label="25%"
         subtext="Subtext"
+        isReversed={isReversed}
       />
     </StoryWrapper.Row>
   </StoryWrapper>

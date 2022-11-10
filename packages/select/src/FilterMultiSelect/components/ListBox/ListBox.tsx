@@ -3,10 +3,15 @@ import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
-import styles from "./ListBox.scss"
+import styles from "./ListBox.module.scss"
 
 export interface ListBoxProps {
-  children: (item: Node<ItemType>) => React.ReactNode
+  children: (items: {
+    selectedItems: Array<Node<ItemType>>
+    unselectedItems: Array<Node<ItemType>>
+    disabledItems: Array<Node<ItemType>>
+    allItems: Array<Node<ItemType>>
+  }) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
@@ -19,6 +24,39 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     }
     setIsOverflown(listElement.scrollHeight > listElement.clientHeight)
   }, [listRef])
+  const {
+    collection: items,
+    disabledKeys,
+    selectionManager: { selectedKeys },
+  } = selectionState
+  const disabledItems = Array.from(disabledKeys)
+    .map(key => items.getItem(key))
+    .filter(item => item !== undefined)
+  const selectedItems = Array.from(selectedKeys)
+    .map(key => items.getItem(key))
+    .filter(item => item !== undefined)
+  const unselectedItems = Array.from(items).filter(
+    item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
+  )
+  const allItems = Array.from(items)
+
+  const [itemsState, setItemsState] = useState({
+    selectedItems,
+    unselectedItems,
+    disabledItems,
+    allItems,
+  })
+
+  // Only update rendering of items when filtering.
+  // Avoids re-ordering of items when making a selection
+  useEffect(() => {
+    setItemsState({
+      selectedItems,
+      disabledItems,
+      unselectedItems,
+      allItems,
+    })
+  }, [selectionState.collection.size])
 
   return (
     <ul
@@ -29,10 +67,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {Array.from(selectionState.collection).map(item =>
-        // pass item to render children
-        children(item)
-      )}
+      {children(itemsState)}
     </ul>
   )
 }

@@ -3,6 +3,226 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.1...@kaizen/select@5.0.2) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.0...@kaizen/select@5.0.1) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.5...@kaizen/select@5.0.0) (2022-11-01)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** update MenuLoadingSkeleton to be a component ([#3061](https://github.com/cultureamp/kaizen-design-system/issues/3061)) ([2994d0f](https://github.com/cultureamp/kaizen-design-system/commit/2994d0f1f8373275fe57fb1aa297a8eb859cde74))
+
+
+### BREAKING CHANGES
+
+* **filter-multi-select:** FilterMultiSelect's loadingSkeleton prop no-longer accepts a variable with JSX. It
+must be a React Functional Component.
+
+
+
+
+
+## [4.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.4...@kaizen/select@4.2.5) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.3...@kaizen/select@4.2.4) (2022-11-01)
+
+
+### Bug Fixes
+
+* Revert "fix: Change MenuLoadingSkeleton to component ([#3058](https://github.com/cultureamp/kaizen-design-system/issues/3058))" ([#3060](https://github.com/cultureamp/kaizen-design-system/issues/3060)) ([ee996cb](https://github.com/cultureamp/kaizen-design-system/commit/ee996cbb2b049d14fc50ad407f48ec4695fcfa91))
+
+
+
+
+
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.2...@kaizen/select@4.2.3) (2022-11-01)
+
+
+### Bug Fixes
+
+* Change MenuLoadingSkeleton to component ([#3058](https://github.com/cultureamp/kaizen-design-system/issues/3058)) ([a160eae](https://github.com/cultureamp/kaizen-design-system/commit/a160eae9c316af3f19a2db1f0c0dcc8178137114))
+
+
+
+
+
+## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.1...@kaizen/select@4.2.2) (2022-10-31)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.2.0...@kaizen/select@4.2.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **FilterMultiSelect:** Fix loading skeleton spacing ([#3050](https://github.com/cultureamp/kaizen-design-system/issues/3050)) ([ffbb2d7](https://github.com/cultureamp/kaizen-design-system/commit/ffbb2d7c66c7069effc31766d10552007547297a))
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.5...@kaizen/select@4.2.0) (2022-10-26)
+
+
+### Features
+
+* Add 'control' to FilterMultiSelect search input ([#3030](https://github.com/cultureamp/kaizen-design-system/issues/3030)) ([321564c](https://github.com/cultureamp/kaizen-design-system/commit/321564cea04451c4bbc49119ad93abca0ec2e124))
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.4...@kaizen/select@4.1.5) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.3...@kaizen/select@4.1.4) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.2...@kaizen/select@4.1.3) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.1...@kaizen/select@4.1.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* Added .module. to SCSS file in FilterMultiSelect to fix Next.js issue [KDS-905] ([#3036](https://github.com/cultureamp/kaizen-design-system/issues/3036)) ([cfdb20e](https://github.com/cultureamp/kaizen-design-system/commit/cfdb20e1876fc68b3a00ccf99256842a73eb2c1c))
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.1.0...@kaizen/select@4.1.1) (2022-10-20)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.4...@kaizen/select@4.1.0) (2022-10-19)
+
+
+### Features
+
+* **filtermultiselect:** update focus to use polyfill ([#3005](https://github.com/cultureamp/kaizen-design-system/issues/3005)) ([bb21754](https://github.com/cultureamp/kaizen-design-system/commit/bb2175430c777ba6c953c761125523f24661d3e6))
+
+
+
+
+
+## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.3...@kaizen/select@4.0.4) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.2...@kaizen/select@4.0.3) (2022-10-18)
+
+
+### Bug Fixes
+
+* **filtermultiselect:** fix console warnings ([#3027](https://github.com/cultureamp/kaizen-design-system/issues/3027)) ([dddda5c](https://github.com/cultureamp/kaizen-design-system/commit/dddda5cc248aa0780f02d3fe49d7a1ddd345e89c))
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.1...@kaizen/select@4.0.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** strip items of undefined values ([#3015](https://github.com/cultureamp/kaizen-design-system/issues/3015)) ([30f567a](https://github.com/cultureamp/kaizen-design-system/commit/30f567a374e1e7facb7b0192fabb292ae45224a1))
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@4.0.0...@kaizen/select@4.0.1) (2022-10-11)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.1.1...@kaizen/select@4.0.0) (2022-10-06)
+
+
+### Bug Fixes
+
+* **filter-multi-select:** manually change @kaizen/select to next major version ([#3009](https://github.com/cultureamp/kaizen-design-system/issues/3009)) ([187bacb](https://github.com/cultureamp/kaizen-design-system/commit/187bacb0fd5e9bf8e7f80e33f7f0da05a71f0968))
+
+
+### BREAKING CHANGES
+
+* **filter-multi-select:** was accidentally released, without triggering a major version bump
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.1.0...@kaizen/select@2.1.1) (2022-10-06)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.0.4...@kaizen/select@2.1.0) (2022-10-05)
+
+
+### Features
+
+* Kds 657/float selected items ([#2986](https://github.com/cultureamp/kaizen-design-system/issues/2986)) ([b528680](https://github.com/cultureamp/kaizen-design-system/commit/b528680e61f28421ac806c75b594af10bdf80427))
+
+
+
+
+
 ## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@2.0.3...@kaizen/select@2.0.4) (2022-10-04)
 
 **Note:** Version bump only for package @kaizen/select

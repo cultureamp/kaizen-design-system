@@ -23,11 +23,11 @@ exports[`Persistent versions of the notifications work 1`] = `
   <div
     class="textContainer"
   >
-    <h6
-      class="title"
+    <div
+      class="heading heading-6 notificationTitle dark small"
     >
       Error
-    </h6>
+    </div>
     <div
       class="text"
     >
@@ -60,11 +60,11 @@ exports[`The basic notification renders correctly 1`] = `
   <div
     class="textContainer"
   >
-    <h6
-      class="title"
+    <div
+      class="heading heading-6 notificationTitle dark small"
     >
       Warning
-    </h6>
+    </div>
     <div
       class="text"
     >
