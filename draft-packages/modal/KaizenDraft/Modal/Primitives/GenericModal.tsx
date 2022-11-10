@@ -3,7 +3,8 @@ import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import { warn } from "@kaizen/component-library/util/console"
 import { Transition } from "@headlessui/react"
-import uuid from "uuid"
+import { v4 } from "uuid"
+
 import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
@@ -27,8 +28,8 @@ export interface GenericModalProps
 const MODAL_TRANSITION_TIMEOUT = 350
 
 const GenericModalContainer = (props: GenericModalContainerProps) => {
-  const labelledByID = uuid()
-  const describedByID = uuid()
+  const labelledByID = v4()
+  const describedByID = v4()
   return (
     <ModalAccessibleContext.Provider
       value={{
