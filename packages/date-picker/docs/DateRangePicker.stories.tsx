@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Story } from "@storybook/react"
-import { DateRange } from "react-day-picker"
 import { enAU } from "date-fns/locale"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { DateRangePicker } from "../src/DateRangePicker"
-import { Calendar } from "../src/_primitives/Calendar"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { DateRange } from "../src/types"
+import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -59,26 +59,19 @@ const DateRangePickerTemplate: Story = props => {
   )
 }
 
-const CalendarRangeTemplate: Story = props => {
+const LegacyCalendarRangeTemplate: Story = props => {
   const selectedDateRange = {
     from: undefined,
     to: undefined,
   }
 
-  const modifiers: DateRange = {
-    from: selectedDateRange?.from,
-    to: selectedDateRange?.to,
-  }
-
   return (
-    <Calendar
-      mode="range"
+    <LegacyCalendarRange
       id="calendar-dialog"
       onDayChange={() => undefined}
       weekStartsOn={0}
       defaultMonth={new Date(2022, 2)}
       selectedRange={selectedDateRange}
-      modifiers={modifiers}
       locale={enAU}
       {...props}
     />
@@ -117,12 +110,12 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Selected Range Dates", "Disabled Dates"]}
         />
-        <StoryWrapper.Row rowTitle="Date Range Calendar">
-          <CalendarRangeTemplate
+        <StoryWrapper.Row rowTitle="Date Range Calendar (Legacy)">
+          <LegacyCalendarRangeTemplate
             modifiers={modifiers}
             selectedRange={selectedDateRange}
           />
-          <CalendarRangeTemplate
+          <LegacyCalendarRangeTemplate
             disabledDays={[
               new Date(2022, 1, 15),
               { after: new Date(2022, 1, 17) },
@@ -138,4 +131,7 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const DateRangePickerStickerSheet =
   DateRangePickerStickerSheetTemplate.bind({})
 DateRangePickerStickerSheet.storyName = "Sticker Sheet"
-DateRangePickerStickerSheet.parameters = { chromatic: { disable: false } }
+DateRangePickerStickerSheet.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

@@ -1,40 +1,29 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
-import "@testing-library/jest-dom"
 import { enUS } from "date-fns/locale"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import userEvent from "@testing-library/user-event"
-import { DateInput, DateInputProps } from "./DateInput"
+import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
-const defaultProps = {
-  id: "text-field-test",
-  labelText: "Label",
-  icon: dateStart,
-  isCalendarOpen: false,
+const defaultProps: DateInputFieldProps = {
+  id: "test__date-input-field",
+  labelText: "Bacon expiry",
   onButtonClick: jest.fn<void, []>(),
   onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
-  calendarId: "calendar-dialog",
   value: undefined,
   locale: enUS,
 }
 
-const DateInputWrapper = (props: Partial<DateInputProps>) => (
-  <DateInput {...defaultProps} {...props} />
+const DateInputFieldWrapper = (props: Partial<DateInputFieldProps>) => (
+  <DateInputField {...defaultProps} {...props} />
 )
 
-describe("<DateInput />", () => {
+describe("<DateInputField />", () => {
   describe("Input", () => {
-    it("has the role of combobox", () => {
-      render(<DateInputWrapper />)
-      expect(
-        screen.getByRole("combobox", { name: "Label" })
-      ).toBeInTheDocument()
-    })
-
     it("associates the description with the input", () => {
-      render(<DateInputWrapper />)
+      render(<DateInputFieldWrapper />)
       expect(
-        screen.getByRole("combobox", {
+        screen.getByRole("textbox", {
+          name: "Bacon expiry",
           description: "Input format: mm/dd/yyyy",
         })
       ).toBeInTheDocument()
@@ -43,7 +32,7 @@ describe("<DateInput />", () => {
 
   describe("Icon button", () => {
     it("has helpful label", () => {
-      render(<DateInputWrapper />)
+      render(<DateInputFieldWrapper />)
       expect(
         screen.getByRole("button", { name: "Choose date" })
       ).toBeInTheDocument()
@@ -51,7 +40,7 @@ describe("<DateInput />", () => {
 
     it("has helpful label showing the current date when one is selected", () => {
       render(
-        <DateInputWrapper value="Mar 1, 2022" onChange={() => undefined} />
+        <DateInputFieldWrapper value="Mar 1, 2022" onChange={() => undefined} />
       )
       expect(
         screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
@@ -61,8 +50,8 @@ describe("<DateInput />", () => {
 
   describe("States", () => {
     it("disables both input and icon button", () => {
-      render(<DateInputWrapper disabled />)
-      const input = screen.getByRole("combobox", { name: "Label" })
+      render(<DateInputFieldWrapper disabled />)
+      const input = screen.getByRole("textbox", { name: "Bacon expiry" })
       const calendarButton = screen.getByRole("button", { name: "Choose date" })
       expect(input).toBeDisabled()
       expect(calendarButton).toBeDisabled()
@@ -72,7 +61,7 @@ describe("<DateInput />", () => {
   describe("Validation", () => {
     it("shows validation message", () => {
       render(
-        <DateInputWrapper
+        <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
         />
@@ -83,7 +72,7 @@ describe("<DateInput />", () => {
 
     it("does not show validation message when field is disabled", () => {
       render(
-        <DateInputWrapper
+        <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
           disabled
@@ -95,28 +84,31 @@ describe("<DateInput />", () => {
   })
 
   describe("Refs", () => {
-    it("uses consumer buttonRef", () => {
-      const onButtonClick = jest.fn<void, [string | null | undefined]>()
+    it("correctly passes through input and button refs", () => {
+      const onButtonClick = jest.fn<
+        void,
+        [string | null | undefined, string | null | undefined]
+      >()
 
       const Wrapper = () => {
+        const inputRef = useRef<HTMLInputElement>(null)
         const buttonRef = useRef<HTMLButtonElement>(null)
-        const ref = useRef({ buttonRef })
+        const ref = useRef({ inputRef, buttonRef })
 
-        const handleClick = () => {
-          onButtonClick(buttonRef.current?.getAttribute("aria-label"))
-        }
+        const handleClick = () =>
+          onButtonClick(
+            inputRef.current?.id,
+            buttonRef.current?.getAttribute("aria-label")
+          )
 
         return (
           <>
-            <DateInput
-              id="date-input-ref"
-              calendarId="cal-id"
-              isCalendarOpen={false}
-              labelText="label"
-              icon={dateStart}
-              onButtonClick={handleClick}
-              locale={enUS}
+            <DateInputField
               ref={ref}
+              id="test__date-input-field--ref"
+              labelText="Adventure time"
+              onButtonClick={jest.fn<void, []>()}
+              locale={enUS}
             />
             <button onClick={handleClick}>Click me</button>
           </>
@@ -126,8 +118,10 @@ describe("<DateInput />", () => {
       render(<Wrapper />)
 
       userEvent.click(screen.getByText("Click me"))
-
-      expect(onButtonClick).toBeCalledWith("Choose date")
+      expect(onButtonClick).toBeCalledWith(
+        "test__date-input-field--ref",
+        "Choose date"
+      )
     })
   })
 })
