@@ -6,7 +6,7 @@
   margin-top: 0;
   margin-bottom: 0;
   display: grid;
-  max-height: 21rem;
+  max-height: 21.5rem;
   overflow-y: auto;
 
   &.focus {
@@ -15,5 +15,5 @@
 }
 
 .overflown {
-  margin-right: $spacing-xs;
+  margin-right: 0;
 }

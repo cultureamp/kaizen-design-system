@@ -8,9 +8,11 @@
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
 
-  #{$selectors--button-active} .icon,
-  #{$selectors--button-hover} .icon,
-  #{$selectors--button-focus} .icon {
+  &:hover .icon,
+  &:global(.story__button-hover) .icon,
+  &:active .icon,
+  &:global(.story__button-active) .icon,
+  &:focus-visible .icon {
     color: $color-gray-600;
   }
 }

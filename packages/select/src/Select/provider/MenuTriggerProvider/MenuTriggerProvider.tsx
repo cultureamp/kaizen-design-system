@@ -8,9 +8,6 @@ import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
 import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
 import { ItemType } from "../../types"
-import { getLongestItem } from "../../utils/getLongestItem/getLongestItem"
-import { calculateTextWidth } from "../../utils/calculateTextWidth/calculateTextWidth"
-
 export interface MenuTriggerProviderProps {
   isOpen?: boolean
   defaultOpen?: boolean
@@ -28,7 +25,6 @@ export interface MenuTriggerProviderContextType {
   menuTriggerState: MenuTriggerState
   buttonRef: React.RefObject<HTMLButtonElement>
   isFullWidth: boolean
-  longestItemWidth: number | undefined
 }
 
 const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
@@ -56,9 +52,6 @@ export function MenuTriggerProvider({
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton({ ...menuTriggerProps, isDisabled }, ref)
 
-  const longestItem = getLongestItem(items)
-  const longestItemWidth = calculateTextWidth(longestItem)
-
   // Fix the issue when default open and close by keyboard, then focus is lost
   useEffect(() => {
     if (state.isOpen === false) {
@@ -75,7 +68,6 @@ export function MenuTriggerProvider({
         menuTriggerState: state,
         buttonRef: ref,
         isFullWidth,
-        longestItemWidth,
       }}
     >
       {children}

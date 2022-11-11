@@ -6,11 +6,11 @@
 .option {
   height: fit-content;
 
-  align-items: flex-start;
+  align-items: center;
   display: inline-grid;
   grid-template-columns: auto $spacing-md;
   gap: $spacing-xs;
-  padding: $spacing-xs;
+  padding: 0.5rem $spacing-xs 0.5rem $spacing-sm;
   position: relative;
 
   font-family: $typography-paragraph-body-font-family;
@@ -21,7 +21,7 @@
 
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
-  border-radius: $border-solid-border-radius;
+  border-radius: 4px;
 
   cursor: default;
 

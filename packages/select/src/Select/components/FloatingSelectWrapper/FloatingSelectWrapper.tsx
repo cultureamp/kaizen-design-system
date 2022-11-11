@@ -14,7 +14,7 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
 }) => {
   const { menuTriggerState, menuProps, buttonRef, isFullWidth } =
     useMenuTriggerContext()
-  const [width, setWidth] = useState<number>(295)
+  const [width, setWidth] = useState<number>(200)
   const onClose = () => {
     menuTriggerState.close()
   }
@@ -34,7 +34,7 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
     if (isFullWidth && buttonRef.current != null) {
       return setWidth(buttonRef.current.clientWidth)
     }
-    return setWidth(295)
+    return setWidth(200)
   }
 
   useEffect(() => {

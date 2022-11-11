@@ -18,13 +18,8 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
   children,
   classNameOverride,
 }) => {
-  const {
-    buttonProps,
-    buttonRef,
-    menuTriggerState,
-    isFullWidth,
-    longestItemWidth,
-  } = useMenuTriggerContext()
+  const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
+    useMenuTriggerContext()
 
   const { isFocusVisible, focusProps } = useFocusRing()
 
@@ -39,10 +34,6 @@ export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
           classNameOverride,
           isFocusVisible && styles.isFocusVisible,
         ])}
-        style={{
-          minWidth:
-            longestItemWidth != undefined ? `${longestItemWidth}px` : undefined,
-        }}
       >
         {children}
         <Icon

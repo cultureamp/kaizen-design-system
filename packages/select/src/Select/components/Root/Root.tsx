@@ -1,5 +1,6 @@
 import React, { Key } from "react"
 import { Label, FieldMessage } from "@kaizen/draft-form"
+import classnames from "classnames"
 import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
 import {
   MenuTriggerConsumer,
@@ -14,7 +15,7 @@ import {
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
 import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
-
+import labelStyles from "./labelStyles.module.scss"
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
@@ -68,7 +69,13 @@ export const Root: React.VFC<RootProps> = ({
 
   return (
     <div>
-      <Label htmlFor={id} aria-label={label}>
+      <Label
+        htmlFor={id}
+        aria-label={label}
+        classNameOverride={classnames([
+          !isFullWidth && labelStyles.notFullWidth,
+        ])}
+      >
         {label}
       </Label>
       <MenuTriggerProvider {...menuTriggerProps}>

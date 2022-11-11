@@ -11,9 +11,10 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: $button-vertical-padding
-    calc(#{$spacing-sm} - #{$border-solid-border-width});
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) $spacing-sm
+    calc(#{$spacing-sm} - #{$border-solid-border-width}) 0.875rem;
   height: $spacing-xl;
+  min-width: 200px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
