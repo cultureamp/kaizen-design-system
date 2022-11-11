@@ -92,3 +92,40 @@ WithBadData.args = {
     { name: "link", group: "link" },
   ],
 }
+
+export const WithDescriptionAndValidationMessage = args => {
+  const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
+  return (
+    <>
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        status="error"
+        {...args}
+      />
+      <RichTextEditor
+        value={rteData}
+        onChange={data => setRTEData(data)}
+        status="caution"
+        {...args}
+      />
+    </>
+  )
+}
+
+WithDescriptionAndValidationMessage.storyName =
+  "With description and validation message"
+WithDescriptionAndValidationMessage.args = {
+  labelText: "Label",
+  rows: 3,
+  controls: [
+    { name: "bold", group: "inline" },
+    { name: "italic", group: "inline" },
+    { name: "underline", group: "inline" },
+    { name: "orderedList", group: "list" },
+    { name: "bulletList", group: "list" },
+    { name: "link", group: "link" },
+  ],
+  validationMessage: "something went wrong",
+  description: "A description for RTE",
+}

@@ -1,17 +1,19 @@
 import React, { useState } from "react"
+import { ComponentStory, Story } from "@storybook/react"
+import { action } from "@storybook/addon-actions"
 import { Paragraph } from "@kaizen/typography"
 import { Button } from "@kaizen/button"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { ComponentStory, Story } from "@storybook/react"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { DayOfWeek } from "../src/enums"
-
-const SUPPORTED_LOCALES = ["en-US", "en-AU"]
+import { datePickerLocaleControls } from "./controls/localeControls"
+import { defaultMonthControls } from "./controls/defaultMonthControls"
+import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
+import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
@@ -30,53 +32,15 @@ export default {
     ),
   },
   argTypes: {
+    ...datePickerLocaleControls,
+    ...defaultMonthControls,
+    ...disabledDayMatchersControls,
+    ...weekStartsOnControls,
     buttonRef: {
       control: "disabled",
     },
     inputRef: {
       control: "disabled",
-    },
-    locale: {
-      options: SUPPORTED_LOCALES,
-      control: { type: "radio" },
-    },
-    weekStartsOn: {
-      options: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      control: {
-        type: "radio",
-        labels: {
-          Sun: "DayOfWeek.Sun",
-          Mon: "DayOfWeek.Mon",
-          Tue: "DayOfWeek.Tue",
-          Wed: "DayOfWeek.Wed",
-          Thu: "DayOfWeek.Thu",
-          Fri: "DayOfWeek.Fri",
-          Sat: "DayOfWeek.Sat",
-        },
-      },
-      mapping: {
-        Sun: DayOfWeek.Sun,
-        Mon: DayOfWeek.Mon,
-        Tue: DayOfWeek.Tue,
-        Wed: DayOfWeek.Wed,
-        Thu: DayOfWeek.Thu,
-        Fri: DayOfWeek.Fri,
-        Sat: DayOfWeek.Sat,
-      },
-    },
-    defaultMonth: {
-      options: ["Default", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          Default: "Default (undefined)",
-          May2022: "May 2022",
-        },
-      },
-      mapping: {
-        Default: undefined,
-        May2022: new Date("2022-05-01"),
-      },
     },
     selectedDay: {
       options: ["None", "Today", "May2022"],
@@ -99,97 +63,16 @@ export default {
     description: {
       control: "text",
     },
-    disabledDates: {
-      options: ["None", "Today", "May2022"],
+    onValidate: {
+      options: [undefined, "Actions"],
       control: {
-        type: "select",
+        type: "radio",
         labels: {
-          None: "undefined",
-          Today: "[new Date()]",
-          May2022: '[new Date("2022-05-01"), new Date("2022-05-22")]',
+          Actions: "Log in Actions",
         },
       },
       mapping: {
-        None: undefined,
-        Today: [new Date()],
-        May2022: [new Date("2022-05-01"), new Date("2022-05-22")],
-      },
-    },
-    disabledRange: {
-      options: ["None", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          May2022:
-            '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
-        },
-      },
-      mapping: {
-        None: undefined,
-        May2022: { from: new Date("2022-05-01"), to: new Date("2022-05-12") },
-      },
-    },
-    disabledBeforeAfter: {
-      options: ["None", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          May2022:
-            '{ before: new Date("2022-05-30"), after: new Date("2022-05-15") }',
-        },
-      },
-      mapping: {
-        None: undefined,
-        May2022: {
-          before: new Date("2022-05-30"),
-          after: new Date("2022-05-15"),
-        },
-      },
-    },
-    disabledBefore: {
-      options: ["None", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          May2022: 'new Date("2022-05-16")',
-        },
-      },
-      mapping: {
-        None: undefined,
-        May2022: new Date("2022-05-16"),
-      },
-    },
-    disabledAfter: {
-      options: ["None", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          May2022: 'new Date("2022-05-21")',
-        },
-      },
-      mapping: {
-        None: undefined,
-        May2022: new Date("2022-05-21"),
-      },
-    },
-    disabledDaysOfWeek: {
-      options: ["None", "Fridays", "Weekends"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          Fridays: "[DayOfWeek.Fri]",
-          Weekends: "[DayOfWeek.Sat, DayOfWeek.Sun]",
-        },
-      },
-      mapping: {
-        None: undefined,
-        Fridays: [DayOfWeek.Fri],
-        Weekends: [DayOfWeek.Sat, DayOfWeek.Sun],
+        Actions: action("onValidate"),
       },
     },
   },
@@ -214,6 +97,7 @@ DefaultStory.args = {
   id: "datepicker-default",
   labelText: "Label",
   locale: "en-AU",
+  onValidate: undefined,
 }
 
 export const ValidationStory: Story = () => {
@@ -398,6 +282,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </StoryWrapper.Row>
       </StoryWrapper>
+
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader headings={["en-AU", "en-US"]} />
         <StoryWrapper.Row rowTitle="Localisation">

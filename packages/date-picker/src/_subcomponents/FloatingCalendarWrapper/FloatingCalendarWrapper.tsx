@@ -2,18 +2,22 @@ import React, { HTMLAttributes, useState } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
-import { Calendar } from "../Calendar"
-import calendarWrapperStyles from "./CalendarWrapper.module.scss"
+import { Options } from "@popperjs/core"
+import calendarWrapperStyles from "./FloatingCalendarWrapper.module.scss"
 
-interface CalendarWrapperProps
+export interface FloatingCalendarWrapperProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  children: React.ReactElement<typeof Calendar>
+  children: React.ReactNode
   referenceElement: HTMLElement | null
+  popperOptions?: Partial<Options>
 }
 
-export const CalendarWrapper: React.VFC<CalendarWrapperProps> = ({
+export const FloatingCalendarWrapper: React.VFC<
+  FloatingCalendarWrapperProps
+> = ({
   children,
   referenceElement,
+  popperOptions,
   classNameOverride,
   ...restProps
 }) => {
@@ -35,6 +39,7 @@ export const CalendarWrapper: React.VFC<CalendarWrapperProps> = ({
       ],
       placement: "bottom-start",
       strategy: "fixed",
+      ...popperOptions,
     }
   )
 
@@ -47,9 +52,13 @@ export const CalendarWrapper: React.VFC<CalendarWrapperProps> = ({
         calendarWrapperStyles.calendarWrapper,
         classNameOverride
       )}
+      role="dialog"
+      aria-modal="true"
       {...restProps}
     >
       {children}
     </div>
   )
 }
+
+FloatingCalendarWrapper.displayName = "FloatingCalendarWrapper"

@@ -3,19 +3,19 @@ import { ValidationResponse } from "../types"
 import { isDisabledDate } from "./isDisabledDate"
 import { isInvalidDate } from "./isInvalidDate"
 
-type ValidateDateResponse = {
+export type ValidateDateResponse = {
   validationResponse: ValidationResponse
   newDate: Date | undefined
 }
 
 export const validateDate = (
   date: Date | undefined,
-  newInputValue?: string,
+  inputValue: string | undefined,
   disabledDays?: Matcher[]
 ): ValidateDateResponse => {
   const baseResponse = {
     date,
-    inputValue: newInputValue,
+    inputValue,
     status: undefined,
     validationMessage: undefined,
     isInvalid: false,
@@ -39,8 +39,8 @@ export const validateDate = (
       validationResponse: {
         ...baseResponse,
         status: "error",
-        validationMessage: newInputValue
-          ? `${newInputValue} is an invalid date`
+        validationMessage: inputValue
+          ? `${inputValue} is an invalid date`
           : "Date is invalid",
         isInvalid: true,
       },
@@ -53,12 +53,13 @@ export const validateDate = (
       validationResponse: {
         ...baseResponse,
         status: "error",
-        validationMessage: `${newInputValue} is not available, try another date`,
+        validationMessage: `${inputValue} is not available, try another date`,
         isDisabled: true,
       },
       newDate: undefined,
     }
   }
+
   return {
     validationResponse: {
       ...baseResponse,
