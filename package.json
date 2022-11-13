@@ -93,7 +93,7 @@
     "eslint-plugin-storybook": "^0.6.7",
     "jest": "^27.5.1",
     "jest-canvas-mock": "^2.4.0",
-    "jest-circus": "^27.5.1",
+    "jest-circus": "^27.4.2",
     "jest-static-stubs": "^0.0.1",
     "lerna": "3.22.1",
     "node-fetch": "^2.6.7",
@@ -113,7 +113,7 @@
     "stylelint": "^13.13.1",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "~3.0.3",
-    "ts-jest": "^29.0.3",
+    "ts-jest": "^27.1.5",
     "typescript": "^4.8.4",
     "typescript-plugin-css-modules": "^3.4.0",
     "webpack": "^5.75.0"
