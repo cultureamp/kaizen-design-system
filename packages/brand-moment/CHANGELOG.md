@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.33...@kaizen/brand-moment@1.12.34) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
 ## [1.12.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.32...@kaizen/brand-moment@1.12.33) (2022-11-13)
 
 **Note:** Version bump only for package @kaizen/brand-moment
