@@ -441,30 +441,6 @@ export const CultureLab: React.VFC<SceneProps> = ({
 )
 CultureLab.displayName = "CultureLab"
 
-export const DataCatching: React.VFC<SceneProps> = ({
-  enableAspectRatio,
-  ...props
-}) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/heart/scene/miscellaneous-data-catching.svg"
-  />
-)
-DataCatching.displayName = "DataCatching"
-
-export const HumanityAtWork: React.VFC<SceneProps> = ({
-  enableAspectRatio,
-  ...props
-}) => (
-  <Base
-    aspectRatio={enableAspectRatio ? "landscape" : undefined}
-    {...props}
-    name="illustrations/heart/scene/miscellaneous-humanity-at-work.svg"
-  />
-)
-HumanityAtWork.displayName = "HumanityAtWork"
-
 export const TermsAgreement: React.VFC<SceneProps> = ({
   enableAspectRatio,
   ...props
