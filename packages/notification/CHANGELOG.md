@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.5...@kaizen/notification@1.1.6) (2022-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v9 ([#3025](https://github.com/cultureamp/kaizen-design-system/issues/3025)) ([46c513c](https://github.com/cultureamp/kaizen-design-system/commit/46c513c8b84fd48e57f2bf3f7802a06c018366ce))
+
+
+
+
+
 ## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.1.4...@kaizen/notification@1.1.5) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/notification

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.12...@kaizen/draft-tooltip@5.4.13) (2022-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v9 ([#3025](https://github.com/cultureamp/kaizen-design-system/issues/3025)) ([46c513c](https://github.com/cultureamp/kaizen-design-system/commit/46c513c8b84fd48e57f2bf3f7802a06c018366ce))
+
+
+
+
+
 ## [5.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.11...@kaizen/draft-tooltip@5.4.12) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

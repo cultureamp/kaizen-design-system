@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@5.2.21...@kaizen/draft-guidance-block@6.0.0) (2022-11-13)
+
+
+### Bug Fixes
+
+* **scene:** remove HumanityAtWork illustration ([#3063](https://github.com/cultureamp/kaizen-design-system/issues/3063)) ([b461926](https://github.com/cultureamp/kaizen-design-system/commit/b46192688ef04874550a0b3ed1302ab2b88cce2a))
+
+
+### BREAKING CHANGES
+
+* **scene:** HumanityAtWork illustration is no longer exported from Scene component.
+
+* fix(scene): remove DataCatching scene
+
+This illustration was never intended for production use
+* **scene:** DataCatching scene is no longer exported
+
+* fix(scene): remove DataCatching & HumanityAtWork components from IllustrationScene stories
+
+* test(draft-illustration): update snapshot tests after removing illustrations
+
+
+
+
+
+## [5.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@5.2.20...@kaizen/draft-guidance-block@5.2.21) (2022-11-10)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [5.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@5.2.19...@kaizen/draft-guidance-block@5.2.20) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

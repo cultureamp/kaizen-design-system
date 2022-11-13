@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.2...@kaizen/select@5.0.3) (2022-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v9 ([#3025](https://github.com/cultureamp/kaizen-design-system/issues/3025)) ([46c513c](https://github.com/cultureamp/kaizen-design-system/commit/46c513c8b84fd48e57f2bf3f7802a06c018366ce))
+
+
+
+
+
 ## [5.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.1...@kaizen/select@5.0.2) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/select
