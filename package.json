@@ -5,7 +5,7 @@
     "draft-packages/*"
   ],
   "engines": {
-    "node": ">=v14.21.1"
+    "node": ">=v18.12.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
@@ -70,8 +70,13 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^13.5.0",
     "@types/classnames": "^2.3.1",
+<<<<<<< HEAD
     "@types/jest": "^29.2.2",
     "@types/node": "^17.0.45",
+=======
+    "@types/jest": "^27.5.2",
+    "@types/node": "^18.11.9",
+>>>>>>> ab930a587 (chore(deps): update node.js to v18)
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
