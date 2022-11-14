@@ -2740,15 +2740,6 @@
   resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
   integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
 
-"@kaizen/notification@^0.11.8":
-  version "0.11.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/notification/-/notification-0.11.8.tgz#f83f4be9f66be04d0a5aa8485809ecac0b56caad"
-  integrity sha512-EWiPJAeUOeqrp1n1BhvJmFoGsYWFm4a6nmC8V4GbTK3SEocvqVXV7/lKgeM6RvTgm5TjBcyPjitqAdo0RP9yfg==
-  dependencies:
-    "@kaizen/component-library" "^16.1.2"
-    classnames "^2.3.1"
-    uuid "^8.3.2"
-
 "@kaizen/react-deprecate-warning@^1.1.6":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
@@ -20439,11 +20430,6 @@ uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
-  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 uuid@^9.0.0:
   version "9.0.0"
