@@ -49,7 +49,7 @@ steps:
       queue: build-unrestricted
     plugins:
       - docker#v3.8.0:
-          image: node:14
+          image: node:16
           environment:
             - GITHUB_REGISTRY_TOKEN
 
