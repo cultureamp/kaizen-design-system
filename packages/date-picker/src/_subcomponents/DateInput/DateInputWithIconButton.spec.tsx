@@ -27,7 +27,12 @@ describe("<DateInputWithIconButton />", () => {
     })
 
     it("has helpful label showing the current date when one is selected", () => {
-      render(<DateInputWithIconButtonWrapper value="Mar 1, 2022" />)
+      render(
+        <DateInputWithIconButtonWrapper
+          value="Mar 1, 2022"
+          onChange={() => undefined}
+        />
+      )
       expect(
         screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
       ).toBeInTheDocument()

@@ -4,11 +4,6 @@ import React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
-const tick = () => new Promise(res => setImmediate(res))
-const advanceTimersByTime = async time =>
-  jest.advanceTimersByTime(time) && tick()
-// ^ taken from https://stackoverflow.com/questions/66391541/jest-advancetimersbytime-doesnt-work-when-i-try-to-test-my-retry-util-function
-
 afterEach(() => {
   jest.runAllTimers()
 })
@@ -86,10 +81,10 @@ describe("<GenericNotification />", () => {
     expect(container.querySelector(".hidden")).toBeTruthy()
     expect(container.querySelector(".hidden")).toBeInTheDocument()
 
-    // // After 4s, it should still be visible
     await act(async () => {
-      await advanceTimersByTime(4999)
+      jest.advanceTimersByTime(4999)
     })
+
     expect(container.querySelector(".hidden")).not.toBeInTheDocument()
 
     await waitFor(() => {
