@@ -50,7 +50,7 @@ describe("<DateInputWithIconButton />", () => {
   })
 
   describe("Refs", () => {
-    it("correctly passes through input and button refs", () => {
+    it("correctly passes through input and button refs", async () => {
       const onButtonClick = jest.fn<
         void,
         [string | null | undefined, string | null | undefined]
@@ -82,7 +82,7 @@ describe("<DateInputWithIconButton />", () => {
 
       render(<Wrapper />)
 
-      userEvent.click(screen.getByText("Click me"))
+      await userEvent.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
         "Choose date"
