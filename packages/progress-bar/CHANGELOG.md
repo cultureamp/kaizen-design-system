@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.4...@kaizen/progress-bar@2.3.5) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
 ## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.3...@kaizen/progress-bar@2.3.4) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/progress-bar
