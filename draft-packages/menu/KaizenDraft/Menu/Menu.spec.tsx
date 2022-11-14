@@ -43,7 +43,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    userEvent.click(button)
+    await userEvent.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()
@@ -62,7 +62,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    userEvent.click(button)
+    await userEvent.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()
