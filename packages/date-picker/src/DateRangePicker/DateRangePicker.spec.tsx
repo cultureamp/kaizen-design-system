@@ -42,7 +42,7 @@ describe("<DateRangePicker />", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
     const button = screen.getByRole("button")
-    userEvent.click(button)
+    await userEvent.click(button)
 
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).toBeInTheDocument()
@@ -55,9 +55,9 @@ describe("<DateRangePicker />", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
     const button = screen.getByRole("button")
-    await waitFor(() => {
+    await waitFor(async () => {
       button.focus()
-      userEvent.keyboard("{enter}")
+      await userEvent.keyboard("{enter}")
     })
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
