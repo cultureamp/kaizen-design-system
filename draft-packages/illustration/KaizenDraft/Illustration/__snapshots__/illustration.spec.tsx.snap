@@ -110,16 +110,6 @@ exports[`<Illustration /> Scene CultureLab should exist and render an alt tag 1`
 </div>
 `;
 
-exports[`<Illustration /> Scene DataCatching should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class="wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-data-catching.svg"
-  />
-</div>
-`;
-
 exports[`<Illustration /> Scene EmptyStatesAction should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -186,16 +176,6 @@ exports[`<Illustration /> Scene EngagementSurveySummaryMale should exist and ren
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-survey-summary-male.svg"
-  />
-</div>
-`;
-
-exports[`<Illustration /> Scene HumanityAtWork should exist and render an alt tag 1`] = `
-<div>
-  <img
-    alt="My accessible title"
-    class="wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-humanity-at-work.svg"
   />
 </div>
 `;

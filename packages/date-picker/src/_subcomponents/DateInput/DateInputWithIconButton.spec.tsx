@@ -27,7 +27,12 @@ describe("<DateInputWithIconButton />", () => {
     })
 
     it("has helpful label showing the current date when one is selected", () => {
-      render(<DateInputWithIconButtonWrapper value="Mar 1, 2022" />)
+      render(
+        <DateInputWithIconButtonWrapper
+          value="Mar 1, 2022"
+          onChange={() => undefined}
+        />
+      )
       expect(
         screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
       ).toBeInTheDocument()
@@ -45,7 +50,7 @@ describe("<DateInputWithIconButton />", () => {
   })
 
   describe("Refs", () => {
-    it("correctly passes through input and button refs", () => {
+    it("correctly passes through input and button refs", async () => {
       const onButtonClick = jest.fn<
         void,
         [string | null | undefined, string | null | undefined]
@@ -77,7 +82,7 @@ describe("<DateInputWithIconButton />", () => {
 
       render(<Wrapper />)
 
-      userEvent.click(screen.getByText("Click me"))
+      await userEvent.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
         "Choose date"

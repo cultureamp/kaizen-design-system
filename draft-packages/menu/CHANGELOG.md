@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.16...@kaizen/draft-menu@4.8.17) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.15...@kaizen/draft-menu@4.8.16) (2022-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v9 ([#3025](https://github.com/cultureamp/kaizen-design-system/issues/3025)) ([46c513c](https://github.com/cultureamp/kaizen-design-system/commit/46c513c8b84fd48e57f2bf3f7802a06c018366ce))
+
+
+
+
+
 ## [4.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.14...@kaizen/draft-menu@4.8.15) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-menu

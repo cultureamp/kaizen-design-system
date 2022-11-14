@@ -65,10 +65,9 @@ describe("<AnimatedBase />", () => {
       expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       expect(screen.getByTestId("lottie-player")).toBeInTheDocument()
       expect(document.getElementsByTagName("img")).toHaveLength(0)
-      await waitForElementToBeRemoved(await screen.getByTestId("loading")).then(
-        () => {
-          expect(document.getElementsByTagName("img")).toHaveLength(1)
-        }
+      await waitForElementToBeRemoved(screen.getByTestId("loading"))
+      await waitFor(() =>
+        expect(document.getElementsByTagName("img")).toHaveLength(1)
       )
     })
   })

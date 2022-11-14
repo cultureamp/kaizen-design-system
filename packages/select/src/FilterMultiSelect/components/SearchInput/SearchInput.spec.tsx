@@ -22,7 +22,7 @@ describe("<SearchInput /> - interaction", () => {
     })
   })
 
-  it("triggers setSearchQuery with input value when user types the input", () => {
+  it("triggers setSearchQuery with input value when user types the input", async () => {
     const spy = jest.fn()
     ;(useSelectionContext as jest.Mock).mockReturnValue({
       setSearchQuery: spy,
@@ -30,12 +30,12 @@ describe("<SearchInput /> - interaction", () => {
 
     render(<SearchInputWrapper />)
     const search = screen.getByRole("searchbox")
-    userEvent.type(search, "want to search this text")
+    await userEvent.type(search, "want to search this text")
 
     expect(spy).toHaveBeenLastCalledWith("want to search this text")
   })
 
-  it("triggers setSearchQuery with input value when clear the input", () => {
+  it("triggers setSearchQuery with input value when clear the input", async () => {
     const spy = jest.fn()
     ;(useSelectionContext as jest.Mock).mockReturnValue({
       searchQuery: "search-query-mock",
@@ -44,7 +44,7 @@ describe("<SearchInput /> - interaction", () => {
 
     render(<SearchInputWrapper />)
     const clearButton = screen.getByRole("button")
-    userEvent.click(clearButton)
+    await userEvent.click(clearButton)
 
     expect(spy).toHaveBeenLastCalledWith("")
   })
