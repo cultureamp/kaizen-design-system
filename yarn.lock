@@ -1964,11 +1964,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz#1bfafe4b7ed0f3e4105837e056e0a89b108ebe36"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
-"@cultureamp/frontend-ci-scripts@^0.6.4":
-  version "0.6.4"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-ci-scripts/0.6.4/93619ccf216fd432662aa96337f89e9776107f42#93619ccf216fd432662aa96337f89e9776107f42"
-  integrity sha512-wcjYloTAtZ3NjYGDPmGGc4m3TvKHIjDWmpyWTKSDWs2/fHeMINVhLCZDqK0qa+Y2yk+6FSHsEfC4C9WivxzBuA==
-
 "@cultureamp/rich-text-toolkit@^2.0.0":
   version "2.0.0"
   resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.0/3782e700674cf4e5d3b244371c106b2f02188efd#3782e700674cf4e5d3b244371c106b2f02188efd"
