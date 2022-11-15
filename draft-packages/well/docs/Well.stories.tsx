@@ -1,5 +1,4 @@
 import React from "react"
-import { Box } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
@@ -8,23 +7,23 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = () => (
-  <Box p={1}>
+  <div style={{ padding: "1rem" }}>
     <Heading tag="h3" variant="heading-3">
       Heading
     </Heading>
-    <Box my={1}>
+    <div style={{ paddingBottom: "1rem", paddingTop: "1rem" }}>
       <Paragraph tag="p" variant="body">
         This is just a sentence to fill the content area so that you have
         something to look at.
       </Paragraph>
-    </Box>
+    </div>
     <TextField
       id="blerg"
       labelText="Example text field"
       inputValue=""
       onChange={() => undefined}
     />
-  </Box>
+  </div>
 )
 
 export default {
