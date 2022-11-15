@@ -9,7 +9,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c storybook",
-    "storybook:build": "build-storybook -c storybook -o storybook/public --no-manager-cache",
+    "storybook:build": "build-storybook --docs -c storybook -o storybook/public --no-manager-cache",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "stylelint": "stylelint '**/*.scss'",
