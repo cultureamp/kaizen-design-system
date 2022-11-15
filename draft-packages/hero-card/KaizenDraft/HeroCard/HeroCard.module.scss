@@ -1,16 +1,18 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/design-tokens/sass/typography";
 
 $badge__height: 80px;
 $left-content__width: 221px;
 
 .root {
-  @include kz-typography-paragraph-body;
-  @include ca-inherit-baseline;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
   display: flex;
   // this box shadow should change to small once the Zen look is adopted
   box-shadow: $shadow-large-box-shadow;
@@ -26,7 +28,7 @@ $left-content__width: 221px;
   display: flex;
   border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   color: $color-white;
-  padding: calc(#{$ca-grid} / 2) calc(#{$ca-grid} * 2);
+  padding: $spacing-sm $spacing-xl;
   flex-direction: column;
   flex-shrink: 0;
   align-items: flex-start;
@@ -74,14 +76,20 @@ $left-content__width: 221px;
 }
 
 .title {
-  @include kz-typography-heading-3;
-  @include ca-inherit-baseline;
-  @include ca-margin($top: 0, $bottom: $ca-grid);
+  font-family: $typography-heading-3-font-family;
+  font-size: $typography-heading-3-font-size;
+  font-weight: $typography-heading-3-font-weight;
+  line-height: $typography-heading-3-line-height;
+  letter-spacing: $typography-heading-3-letter-spacing;
+  margin-bottom: $spacing-md;
 }
 
 .badge {
-  @include kz-typography-heading-3;
-  @include ca-inherit-baseline;
+  font-family: $typography-heading-3-font-family;
+  font-size: $typography-heading-3-font-size;
+  font-weight: $typography-heading-3-font-weight;
+  line-height: $typography-heading-3-line-height;
+  letter-spacing: $typography-heading-3-letter-spacing;
   display: flex;
   font-size: 42px;
   border-radius: 50%;
@@ -93,6 +101,6 @@ $left-content__width: 221px;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: $ca-grid;
-  left: $ca-grid * 1.2;
+  top: $spacing-md;
+  left: calc(#{$spacing-md} * 1.2);
 }

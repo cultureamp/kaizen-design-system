@@ -14,7 +14,7 @@ const renderContent = () => (
       height: "300px",
     }}
   >
-    <p style={{ margin: "0" }}>
+    <p style={{ margin: "0 0 0.75rem 0" }}>
       Understand diversity and inclusion in your organization with this set of
       people science backed survey questions. Preview the questions to get a
       feel for what the participants will see.
