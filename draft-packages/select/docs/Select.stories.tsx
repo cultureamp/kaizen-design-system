@@ -53,6 +53,8 @@ DefaultSelectStory.args = {
   fullWidth: true,
   reversed: false,
   status: "default",
+  isClearable: false,
+  isSearchable: false,
 }
 
 export const GroupedStory: ComponentStory<typeof Select> = args => {

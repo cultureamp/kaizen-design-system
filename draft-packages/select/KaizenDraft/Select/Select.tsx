@@ -220,7 +220,10 @@ const MultiValue: typeof components.MultiValue = props => (
 )
 
 const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
-  <components.IndicatorsContainer {...props} />
+  <components.IndicatorsContainer
+    {...props}
+    className={styles.indicatorsContainer}
+  />
 )
 
 const Input: typeof components.Input = props => (
