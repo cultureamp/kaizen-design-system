@@ -5,7 +5,7 @@ import * as yargs from "yargs"
 import { defaultTheme } from "../src"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 
-const { jsonOutput, cssOutput } = yargs
+const output = yargs
   .option("jsonOutput", {
     description:
       "The directory which JSON builds should be written to. Defaults to `./tokens` in your current working directory",
@@ -23,7 +23,9 @@ const { jsonOutput, cssOutput } = yargs
 const formatJson = (jsonString: string) =>
   format(jsonString, { parser: "json" })
 
-const run = () => {
+const run = async () => {
+  // as of v17 returns a promise
+  const { jsonOutput, cssOutput } = await output
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
