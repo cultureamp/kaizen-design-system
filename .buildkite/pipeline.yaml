@@ -43,16 +43,6 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
-  - name: ":nodesecurity: Audit JS Dependencies"
-    command: .buildkite/scripts/audit-js.sh
-    agents:
-      queue: build-unrestricted
-    plugins:
-      - docker#v3.8.0:
-          image: node:14
-          environment:
-            - GITHUB_REGISTRY_TOKEN
-
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
