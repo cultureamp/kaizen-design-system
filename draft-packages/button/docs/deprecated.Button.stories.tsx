@@ -26,7 +26,7 @@ export default {
     docs: {
       description: {
         component:
-          'This component is now deprecated. Please use Button from "@kaizen/button" instead.',
+          '⛔️ This component is now deprecated. Please use Button from "@kaizen/button" instead.',
       },
     },
     ...figmaEmbed(
