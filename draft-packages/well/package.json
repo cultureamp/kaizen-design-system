@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-well",
-  "version": "4.2.11",
+  "version": "4.3.0",
   "description": "The draft well component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
