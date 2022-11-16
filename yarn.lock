@@ -4230,20 +4230,6 @@
     "@react-stately/utils" "^3.5.1"
     "@react-types/overlays" "^3.6.5"
 
-"@react-stately/select@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.3.2.tgz#c2e1e72a6f67e7a79a9e6ffbed75ca1847248d98"
-  integrity sha512-/C9fW7HT+V9XnmSTiZZqH5cn+ifY9vdXvIKDbUyna98lFHtDgn7i/UvD5edunOGY0qqSMIO3kJ6/BiNg+gpn6Q==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-stately/collections" "^3.4.4"
-    "@react-stately/list" "^3.5.4"
-    "@react-stately/menu" "^3.4.2"
-    "@react-stately/selection" "^3.11.0"
-    "@react-stately/utils" "^3.5.1"
-    "@react-types/select" "^3.6.4"
-    "@react-types/shared" "^3.15.0"
-
 "@react-stately/select@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.3.3.tgz#d042c88a63e9d4c6718a45034ea27789cbd34819"
@@ -4413,13 +4399,6 @@
   integrity sha512-IeWcF+YTucCYYHagNh8fZLH6R4YUONO1VHY57WJyIHwMy0qgEaKSQCwq72VO1fQJ0ySZgOgm31FniOyKkg6+eQ==
   dependencies:
     "@react-types/shared" "^3.16.0"
-
-"@react-types/select@^3.6.4":
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/@react-types/select/-/select-3.6.4.tgz#47ddd3d114b030089e96fc97d6895b1408f85c43"
-  integrity sha512-lbiv7XUEdByluILjEAYVZic2uq4pU0BzW+qZ+sBCYn7v8q2hxXP7T0C6OamzfgXokQHhJ6247JDk7kugqXKL4Q==
-  dependencies:
-    "@react-types/shared" "^3.15.0"
 
 "@react-types/select@^3.6.5":
   version "3.6.5"
