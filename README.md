@@ -1,6 +1,6 @@
 # Kaizen Design System
 
-[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=master)](https://buildkite.com/culture-amp/kaizen-design-system)
+[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=main)](https://buildkite.com/culture-amp/kaizen-design-system)
 
 Kaizen is Culture Amp's public design system. It accelerates Culture Amp's designers and engineers as they collaborate on creating world-class products. Visit [cultureamp.design](https://cultureamp.design) to learn more.
 
@@ -36,7 +36,7 @@ To learn more, see the designer section of the [Contributing guidelines](./CONTR
 ## Getting started
 
 ### Setup
-Set up access to private Culture Amp packages on your laptop. You will need to update `~.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://github.com/cultureamp/node-packages/blob/master/how-to-setup-a-project-to-use-private-cultureamp-packages.md). 
+Set up access to private Culture Amp packages on your laptop. You will need to update `~.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://github.com/cultureamp/node-packages/blob/main/how-to-setup-a-project-to-use-private-cultureamp-packages.md). 
 
 ### Installation
 To begin developing the design system locally, run the following from the repository root:

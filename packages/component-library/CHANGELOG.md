@@ -214,7 +214,7 @@ replace it with your own `display: block` rule.
 
 ### BREAKING CHANGES
 
-* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/master/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
+* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/main/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
 
 
 
@@ -1547,7 +1547,7 @@ import KaizenDraft.Button.Button as Button
 
 ### Features
 
-* point legacy Open Sans vars at Inter (release canary PR to master) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
+* point legacy Open Sans vars at Inter (release canary PR to main) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
 
 
 

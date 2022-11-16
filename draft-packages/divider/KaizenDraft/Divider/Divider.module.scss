@@ -11,7 +11,7 @@ $dt-content-border-color: rgba($color-gray-600-rgb, 0.1);
   margin: 0;
   border-radius: $border-solid-border-radius;
   // This is here to protect against a global style in a consumer.
-  // https://github.com/cultureamp/murmur/blob/master/app/assets/stylesheets/legacy/modules/_body.scss
+  // https://github.com/cultureamp/murmur/blob/main/app/assets/stylesheets/legacy/modules/_body.scss
   visibility: visible;
 }
 
