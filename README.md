@@ -36,7 +36,7 @@ To learn more, see the designer section of the [Contributing guidelines](./CONTR
 ## Getting started
 
 ### Setup
-Set up access to private Culture Amp packages on your laptop. You will need to update `~.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://github.com/cultureamp/node-packages/blob/main/how-to-setup-a-project-to-use-private-cultureamp-packages.md). 
+Set up access to private Culture Amp packages on your laptop. You will need to update `~.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://github.com/cultureamp/node-packages/blob/master/how-to-setup-a-project-to-use-private-cultureamp-packages.md). 
 
 ### Installation
 To begin developing the design system locally, run the following from the repository root:
