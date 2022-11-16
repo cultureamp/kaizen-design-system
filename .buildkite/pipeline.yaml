@@ -70,5 +70,5 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.24.0-focal
+          image: mcr.microsoft.com/playwright:v1.27.1-focal
           propagate-environment: true
