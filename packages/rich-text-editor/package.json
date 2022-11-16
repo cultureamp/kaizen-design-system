@@ -29,13 +29,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/rich-text-toolkit": "^2.0.0",
     "@kaizen/a11y": "^1.6.11",
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "^16.1.8",
     "@kaizen/draft-form": "^8.3.12",
     "@kaizen/draft-tooltip": "^5.4.14",
     "@kaizen/notification": "^1.1.7",
+    "@kaizen/rich-text-toolkit": "^1.0.0",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },
