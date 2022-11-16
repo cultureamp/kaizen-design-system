@@ -214,7 +214,7 @@ replace it with your own `display: block` rule.
 
 ### BREAKING CHANGES
 
-* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/main/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
+* Heading and Paragraph have been moved to the @kaizen/typography package. See https://github.com/cultureamp/node-packages/tree/master/packages/jscodeshift for a codemod to bulk replace the imports in your repo.
 
 
 
