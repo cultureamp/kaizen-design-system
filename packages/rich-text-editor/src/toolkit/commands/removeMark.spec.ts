@@ -1,4 +1,3 @@
-import { describe, expect, it, jest } from "@jest/globals"
 import { findByText, getByText, waitFor } from "@testing-library/dom"
 import { createRichTextEditor } from "../core/create"
 import { simulateSelectionByText } from "./fixtures/helpers"

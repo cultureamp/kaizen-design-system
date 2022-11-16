@@ -1,4 +1,3 @@
-import { describe, expect, it, jest } from "@jest/globals"
 import { findByText, queryByText } from "@testing-library/dom"
 import { Command, EditorState, Transaction } from "prosemirror-state"
 import { createRichTextEditor } from "./create"

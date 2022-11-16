@@ -1,4 +1,3 @@
-import { describe, expect, it, jest } from "@jest/globals"
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "../core/create"
