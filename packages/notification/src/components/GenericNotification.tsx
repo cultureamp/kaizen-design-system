@@ -1,5 +1,5 @@
-import classnames from "classnames"
 import * as React from "react"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"

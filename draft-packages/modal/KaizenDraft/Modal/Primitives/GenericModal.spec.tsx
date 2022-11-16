@@ -1,3 +1,4 @@
+import * as React from "react"
 import {
   render,
   fireEvent,
@@ -5,7 +6,6 @@ import {
   waitFor,
   screen,
 } from "@testing-library/react"
-import * as React from "react"
 import GenericModal from "./GenericModal"
 import ModalAccessibleLabel from "./ModalAccessibleLabel"
 

@@ -1,7 +1,7 @@
 import React from "react"
-import { AnimatedSceneProps } from "./Scene"
 import { Base } from "./Base"
 import { VideoPlayer } from "./Players/VideoPlayer"
+import { AnimatedSceneProps } from "./Scene"
 
 /**
  * This component is a snowflake. It plays two assets one after the other:

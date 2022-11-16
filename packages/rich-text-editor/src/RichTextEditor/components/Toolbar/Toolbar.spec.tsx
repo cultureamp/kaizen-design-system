@@ -3,8 +3,8 @@ import { render, screen, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import { ToolbarSection } from "../ToolbarSection"
 import { ToggleIconButton } from "../ToggleIconButton"
+import { ToolbarSection } from "../ToolbarSection"
 import { Toolbar } from "./"
 
 const ExampleToolbar = () => (

@@ -1,14 +1,14 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   BrandMomentPositiveOutro,
   Informative,
 } from "@kaizen/draft-illustration"
-import { GuidanceBlock } from "@kaizen/draft-guidance-block"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   LoadingGraphic,
   LoadingHeading,

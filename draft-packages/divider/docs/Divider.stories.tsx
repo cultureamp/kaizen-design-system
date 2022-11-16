@@ -1,13 +1,13 @@
 import React from "react"
-import { Divider } from "@kaizen/draft-divider"
 import { Story } from "@storybook/react"
-import { Card } from "@kaizen/draft-card"
-import { Box } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
+import { Box } from "@kaizen/component-library"
+import { Card } from "@kaizen/draft-card"
+import { Divider } from "@kaizen/draft-divider"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Divider`,

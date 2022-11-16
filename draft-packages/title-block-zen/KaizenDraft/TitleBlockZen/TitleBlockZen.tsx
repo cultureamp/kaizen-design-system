@@ -1,20 +1,20 @@
 import React from "react"
 import classNames from "classnames"
+import { IconButton, ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
+import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import {
   Avatar,
   GenericAvatarProps,
   CompanyAvatarProps,
 } from "@kaizen/draft-avatar"
-import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
-import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import { useMediaQueries } from "@kaizen/responsive"
+import { Heading } from "@kaizen/typography"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"

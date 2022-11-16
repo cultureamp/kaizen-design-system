@@ -1,8 +1,8 @@
-import { Button } from "@kaizen/button"
+import * as React from "react"
 import { fireEvent } from "@testing-library/dom"
 import { render, screen, waitFor } from "@testing-library/react"
-import * as React from "react"
 import userEvent from "@testing-library/user-event"
+import { Button } from "@kaizen/button"
 import Menu from "./Menu"
 
 describe("Dropdown", () => {

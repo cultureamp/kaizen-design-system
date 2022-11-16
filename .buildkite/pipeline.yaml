@@ -14,7 +14,7 @@ steps:
   - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 30
-    branches: "master"
+    branches: "main"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
@@ -64,11 +64,11 @@ steps:
     key: "playwright-step"
     command: ".buildkite/scripts/run-playwright.sh"
     timeout_in_minutes: 15
-    branches: "!master !canary"
+    branches: "!main !canary"
     depends_on: "publish-step"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.24.0-focal
+          image: mcr.microsoft.com/playwright:v1.27.1-focal
           propagate-environment: true

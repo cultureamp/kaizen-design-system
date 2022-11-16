@@ -1,6 +1,3 @@
-import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/loading-spinner"
-import classNames from "classnames"
 import React, {
   forwardRef,
   Ref,
@@ -10,7 +7,10 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
+import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { ButtonProps } from "../Button"
 import styles from "./GenericButton.module.scss"
 

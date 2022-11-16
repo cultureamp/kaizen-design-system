@@ -1,5 +1,5 @@
-import { cleanup, render, fireEvent } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, fireEvent } from "@testing-library/react"
 import RoadblockModal, { RoadblockModalProps } from "./RoadblockModal"
 import "./matchMedia.mock"
 

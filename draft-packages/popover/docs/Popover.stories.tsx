@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
-import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/typography"
-import { Button, IconButton } from "@kaizen/button"
 import isChromatic from "chromatic/isChromatic"
+import { withDesign } from "storybook-addon-designs"
+import { Button, IconButton } from "@kaizen/button"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
+import { Heading } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 const DEFAULT_IS_OPEN: boolean = isChromatic()

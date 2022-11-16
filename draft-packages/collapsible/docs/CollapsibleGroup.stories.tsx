@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

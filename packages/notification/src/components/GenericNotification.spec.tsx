@@ -1,6 +1,6 @@
-import { act, render } from "@testing-library/react"
-import { fireEvent, waitFor } from "@testing-library/dom"
 import React from "react"
+import { fireEvent, waitFor } from "@testing-library/dom"
+import { act, render } from "@testing-library/react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 

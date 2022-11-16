@@ -1,7 +1,7 @@
 import React from "react"
 import { Icon } from "../../../packages/component-library"
-import { Paragraph } from "../../../packages/typography"
 import companyLogo from "../../../packages/component-library/icons/ca-monogram.icon.svg"
+import { Paragraph } from "../../../packages/typography"
 import styles from "./Footer.module.scss"
 
 export const Footer: React.VFC = () => (

@@ -3,6 +3,7 @@ import { Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -53,7 +54,6 @@ import {
   AnimatedSceneProps,
   SceneProps,
 } from ".."
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const IS_CHROMATIC = isChromatic()
 

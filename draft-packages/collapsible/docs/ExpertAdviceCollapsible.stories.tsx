@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
 import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 

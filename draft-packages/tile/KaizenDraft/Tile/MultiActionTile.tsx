@@ -1,11 +1,11 @@
 import React from "react"
 import { Box } from "@kaizen/component-library"
+import Action from "./components/Action"
 import {
   GenericTile,
   GenericTileProps,
   TileAction,
 } from "./components/GenericTile"
-import Action from "./components/Action"
 import styles from "./MultiActionTile.module.scss"
 
 export interface MultiActionTileProps extends Omit<GenericTileProps, "footer"> {

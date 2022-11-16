@@ -1,11 +1,11 @@
 import React from "react"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
-import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { withDesign } from "storybook-addon-designs"
-import { Container, Content, Skirt, SkirtCard } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
+import { Box } from "@kaizen/component-library"
+import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { Container, Content, Skirt, SkirtCard } from ".."
 import styles from "./PageLayout.stories.module.scss"
 
 export default {
