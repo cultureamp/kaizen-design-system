@@ -8,6 +8,7 @@ lerna-*.log
 /packages/**/*.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
+!packages/rich-text-editor/src/toolkit/plugins/LinkManager/types.d.ts
 /playwright/test-results
 .DS_Store
 dist
