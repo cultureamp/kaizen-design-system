@@ -1,0 +1,41 @@
+import { CATEGORIES, SUB_CATEGORIES, SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title={`${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toolkit`} />
+
+# Rich Text Toolkit
+
+
+A collection of helpers for building a rich text editor (WYSIWYG) with [ProseMirror](https://prosemirror.net/).
+
+If you only need basic rich text editing functions (bold, italics, lists, links)—take a look at the [Kaizen Rich Text Editor](/story/components-rich-text-editor-rich-text-editor--default), which uses these helpers to create a plug-and-play component.
+
+## Install
+
+`import { useRichTextEditor } from "@kaizen/rich-text-editor/toolkit"`
+
+## Architecture
+
+### Core
+
+Contains the essential functionality to build out the RTE, Including:
+- React Hook to initialize Rich Text Editor
+    - The `useRichTextEditor` hook creates an instance of the RTE, binds it to the DOM and allows it to update its state within the React lifecycle
+- Helpers to create the editor view
+    - `createRichTextEditor` creates a new instance of the RTE that can dispatch commands and transactions.
+
+### Commands
+
+Contains any function that is used to dispatch or help dispatch an editing action within the Rich Text Editor. These either extend or simplified the API for [Commands](https://prosemirror.net/docs/ref/#state.Command) from the ProseMirror package 
+
+### Plugins
+
+Plugins are used to add or extend functionality to the rich text editor. They are an encapsulated bundle of functions that may influence the state and the view that contains it.
+
+You can learn more about ProseMirror's Plugin System over [here](https://prosemirror.net/docs/ref/#state.Plugin_System).
+
+### Schema
+
+Contains the schema for both nodes and marks. As ProseMirror is opinionated in how it handles the two types we have opted to keep them in separate files. When adding new nodes or marks, please add them into the appropriate schema file.
+- [Nodes](https://prosemirror.net/docs/ref/#model.Node) - An element in the DOM tree
+- [Marks](https://prosemirror.net/docs/ref/#model.Mark) - A piece of information that can be attached to a node
