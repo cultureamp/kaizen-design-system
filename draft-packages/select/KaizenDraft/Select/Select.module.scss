@@ -333,6 +333,10 @@ $focus-border-color: $color-blue-500;
       }
     }
 
+    .indicatorsContainer {
+      z-index: 1;
+    }
+
     .dropdownIndicator {
       padding-top: 0;
       padding-bottom: 0;
