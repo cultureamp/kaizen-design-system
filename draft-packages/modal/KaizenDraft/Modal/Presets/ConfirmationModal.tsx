@@ -164,7 +164,7 @@ const ConfirmationModal = ({
         </ModalHeader>
         <ModalBody>
           <div
-            className={classnames(styles.body, {
+            className={classnames({
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}
