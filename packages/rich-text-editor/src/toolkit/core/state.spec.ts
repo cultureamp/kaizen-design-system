@@ -1,17 +1,17 @@
-import { EditorState } from "prosemirror-state"
-import { Node } from "prosemirror-model"
-import {
-  createDocNode,
-  createDocNodeFromContent,
-  createEditorState,
-} from "./state"
 import { describe, expect, it } from "@jest/globals"
+import { Node } from "prosemirror-model"
+import { EditorState } from "prosemirror-state"
 import {
   testDocNode,
   testDocNodeContentJSON,
   testDocNodeJSON,
   testSchema,
 } from "./fixtures/testState"
+import {
+  createDocNode,
+  createDocNodeFromContent,
+  createEditorState,
+} from "./state"
 
 describe("createDoc", () => {
   it("creates a Node from a document definition", () => {

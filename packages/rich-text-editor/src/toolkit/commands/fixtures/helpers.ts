@@ -13,8 +13,7 @@ import { findChildrenByType } from "prosemirror-utils"
 export const mockRangeForBoundingRect = (document.createRange = () => {
   const range = new Range()
 
-  range.getBoundingClientRect = () => {
-    return {
+  range.getBoundingClientRect = () => ({
       x: 0,
       y: 0,
       bottom: 0,
@@ -24,16 +23,13 @@ export const mockRangeForBoundingRect = (document.createRange = () => {
       top: 0,
       width: 0,
       toJSON: () => {},
-    }
-  }
+    })
 
-  range.getClientRects = () => {
-    return {
+  range.getClientRects = () => ({
       item: index => null,
       length: 0,
       *[Symbol.iterator]() {},
-    }
-  }
+    })
 
   return range
 })
@@ -46,7 +42,7 @@ export const mockRangeForBoundingRect = (document.createRange = () => {
 export const simulateRangeSelection =
   (anchorPositionStart: number = 0, anchorPositionEnd: number = 2) =>
   (state: EditorState, dispatch?: (tx: Transaction) => void) => {
-    let { tr } = state
+    const { tr } = state
 
     tr.setSelection(
       new TextSelection(
@@ -71,7 +67,7 @@ export const getStartNode = (state: EditorState) => {
 export const simulateSelectionOfCurrentElement =
   (selectEntireElement: boolean = false) =>
   (state: EditorState, dispatch: (tx: Transaction) => void) => {
-    let { tr } = state
+    const { tr } = state
     let endPos = tr.selection.from + 1
 
     const startNode = getStartNode(state)
@@ -113,7 +109,7 @@ const getNodeByText = (state: EditorState, selectedText: string) => {
 export const simulateSelectionByText =
   (selectedText: string) =>
   (state: EditorState, dispatch?: (tx: Transaction) => void) => {
-    let { tr } = state
+    const { tr } = state
 
     const startNode = getNodeByText(state, selectedText)
     const startPos = startNode.pos

@@ -1,6 +1,6 @@
-import { createRichTextEditor } from "../core/create"
 import { describe, expect, it, jest } from "@jest/globals"
 import { getByRole, getByText, waitFor } from "@testing-library/dom"
+import { createRichTextEditor } from "../core/create"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { updateMark } from "./updateMark"

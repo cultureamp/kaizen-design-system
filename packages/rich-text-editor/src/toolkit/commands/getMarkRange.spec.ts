@@ -1,10 +1,10 @@
+import { describe, expect, it, jest } from "@jest/globals"
+import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "../core/create"
-import { describe, expect, it, jest } from "@jest/globals"
-import { getMarkRange } from "./getMarkRange"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks } from "./fixtures/test-state"
-import { waitFor } from "@testing-library/dom"
+import { getMarkRange } from "./getMarkRange"
 
 describe("getMarkRange", () => {
   const onChange = jest.fn()

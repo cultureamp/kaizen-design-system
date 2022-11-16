@@ -1,7 +1,7 @@
-import { CommandOrTransaction } from "../types"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "../create"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { CommandOrTransaction } from "../types"
 
 type Options = {
   editable: boolean
@@ -91,13 +91,11 @@ export function useRichTextEditor(
   )
 
   // Tear down ProseMirror when the consuming component is unmounted
-  useEffect(() => {
-    return () => {
+  useEffect(() => () => {
       if (destroyEditorRef.current) {
         destroyEditorRef.current()
       }
-    }
-  }, [destroyEditorRef])
+    }, [destroyEditorRef])
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]
 }

@@ -1,6 +1,6 @@
 import { NodeSpec } from "prosemirror-model"
-import { bulletList, listItem, orderedList } from "prosemirror-schema-list"
 import { nodes as proseNodes } from "prosemirror-schema-basic"
+import { bulletList, listItem, orderedList } from "prosemirror-schema-list"
 
 // We use camel case names instead of ProseMirror's snake case, so we remove any snake case properties here before spreading
 const { hard_break, horizontal_rule, code_block, ...proseNodesNoSnakeCase } =

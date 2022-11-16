@@ -1,10 +1,10 @@
+import { TOOLBAR_CONTROLS } from "../constants"
 import {
   ProseMirrorModel,
   nodes as coreNodes,
   marks as coreMarks,
 } from "../toolkit"
 
-import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 export const defaultNodes: ProseMirrorModel.NodeSpec = {

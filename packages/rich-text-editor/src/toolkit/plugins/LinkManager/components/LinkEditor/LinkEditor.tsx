@@ -1,7 +1,7 @@
+import React, { ReactElement, useState } from "react"
+import { SelectionPosition } from "../../types"
 import { LinkModal } from "../LinkModal"
 import { LinkPopover } from "../LinkPopover"
-import { SelectionPosition } from "../../types"
-import React, { ReactElement, useState } from "react"
 
 export type LinkEditorAttrs = {
   href: string | null

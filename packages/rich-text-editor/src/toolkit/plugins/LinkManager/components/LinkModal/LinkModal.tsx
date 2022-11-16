@@ -1,7 +1,7 @@
-import { InputEditModal } from "@kaizen/draft-modal"
-import { TextField } from "@kaizen/draft-form"
-import { ValidationResponse, validateLink } from "../../validation"
 import React, { useRef, useState } from "react"
+import { TextField } from "@kaizen/draft-form"
+import { InputEditModal } from "@kaizen/draft-modal"
+import { ValidationResponse, validateLink } from "../../validation"
 
 interface LinkModalProps {
   onSubmit: (href: string) => void

@@ -1,5 +1,5 @@
-import { MarkRange } from "../core/types"
 import { MarkType, ResolvedPos } from "prosemirror-model"
+import { MarkRange } from "../core/types"
 
 // Note: this doesn't handle selections _across_ nodes.
 // At the time of writing the implication of this is on links: they cannot span across multiple nodes.

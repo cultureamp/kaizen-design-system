@@ -1,7 +1,7 @@
-import { Command, EditorState, Transaction } from "prosemirror-state"
-import { createRichTextEditor } from "./create"
 import { describe, expect, it, jest } from "@jest/globals"
 import { findByText, queryByText } from "@testing-library/dom"
+import { Command, EditorState, Transaction } from "prosemirror-state"
+import { createRichTextEditor } from "./create"
 import { testEditorState } from "./fixtures/testState"
 
 describe("createRichTextEditor", () => {
@@ -195,7 +195,7 @@ describe("createRichTextEditor", () => {
   })
 
   it("aria-labelledby is present", async () => {
-    let editable = true
+    const editable = true
     const node = document.createElement("div")
     const onChange = jest.fn()
     const noopCommand = (

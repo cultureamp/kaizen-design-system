@@ -1,7 +1,7 @@
-import { LinkEditorProps } from "./components"
-import Nanobus from "nanobus"
 import React, { ElementType, useEffect, useState } from "react"
 import ReactDOM from "react-dom"
+import Nanobus from "nanobus"
+import { LinkEditorProps } from "./components"
 
 function Wrapper({
   emitter,

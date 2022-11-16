@@ -1,10 +1,10 @@
+import { describe, expect, it, jest } from "@jest/globals"
+import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "../core/create"
-import { describe, expect, it, jest } from "@jest/globals"
-import { listIsActive } from "./listIsActive"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWitList, testSchema } from "./fixtures/test-state"
-import { waitFor } from "@testing-library/dom"
+import { listIsActive } from "./listIsActive"
 
 describe("listIsActive", () => {
   const onChange = jest.fn()

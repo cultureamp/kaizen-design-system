@@ -24,7 +24,7 @@ export type Doc = {
   content: DocContent
 }
 
-export type DocContent = Record<string, any>[]
+export type DocContent = Array<Record<string, any>>
 
 /**
  * Overload the EditorView` from ProseMirror to allow for the dispatch

@@ -1,6 +1,6 @@
-import { CommandFactory, MarkRange } from "../core/types"
-import { EditorState, Transaction } from "prosemirror-state"
 import { MarkType } from "prosemirror-model"
+import { EditorState, Transaction } from "prosemirror-state"
+import { CommandFactory, MarkRange } from "../core/types"
 import { getMarkRange } from "./getMarkRange"
 
 /** Remove part or all of the Mark from the current selection */

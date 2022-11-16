@@ -1,6 +1,6 @@
-import { Doc, DocContent } from "./types"
-import { EditorState, Plugin } from "prosemirror-state"
 import { Node, Schema } from "prosemirror-model"
+import { EditorState, Plugin } from "prosemirror-state"
+import { Doc, DocContent } from "./types"
 
 /**
  * createEditorState
@@ -10,7 +10,7 @@ import { Node, Schema } from "prosemirror-model"
 export function createEditorState(
   schema: Schema,
   doc: Node | undefined,
-  plugins: Array<Plugin> = []
+  plugins: Plugin[] = []
 ): EditorState {
   return EditorState.create({
     doc,
