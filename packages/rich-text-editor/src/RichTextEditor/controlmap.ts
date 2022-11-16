@@ -14,7 +14,7 @@ import {
   ProseMirrorSchemaList,
   markIsActive,
   listIsActive,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 /** Configuration for individual controls */

@@ -9,7 +9,7 @@ import {
   ProseMirrorHistory,
   useRichTextEditor,
   createLinkManager,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 import { FieldMessage, Label } from "@kaizen/draft-form"
 import { OverrideClassName } from "@kaizen/component-base"
 import { InlineNotification } from "@kaizen/notification"

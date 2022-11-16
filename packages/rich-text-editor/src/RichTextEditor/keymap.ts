@@ -5,7 +5,7 @@ import {
   ProseMirrorSchemaList,
   ProseMirrorHistory,
   ProseMirrorInputrules,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 
 const {
   chainCommands,

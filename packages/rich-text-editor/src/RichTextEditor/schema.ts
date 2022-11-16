@@ -2,7 +2,7 @@ import {
   ProseMirrorModel,
   nodes as coreNodes,
   marks as coreMarks,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"

@@ -3,7 +3,7 @@ import {
   ProseMirrorModel,
   orderedListRule,
   bulletListRule,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 
 export function buildInputRules(schema: ProseMirrorModel.Schema) {
   const { smartQuotes, ellipsis, emDash, inputRules } = ProseMirrorInputrules
