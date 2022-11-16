@@ -3756,14 +3756,6 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
-"@reach/auto-id@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.16.0.tgz#dfabc3227844e8c04f8e6e45203a8e14a8edbaed"
-  integrity sha512-5ssbeP5bCkM39uVsfQCwBBL+KT8YColdnMN5/Eto6Rj7929ql95R3HZUOkKIvj7mgPtEb60BLQxd1P3o6cjbmg==
-  dependencies:
-    "@reach/utils" "0.16.0"
-    tslib "^2.3.0"
-
 "@reach/auto-id@0.18.0":
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.18.0.tgz#4b97085cd1cf1360a9bedc6e9c78e97824014f0d"
@@ -3792,14 +3784,6 @@
     "@reach/descendants" "0.18.0"
     "@reach/polymorphic" "0.18.0"
     "@reach/utils" "0.18.0"
-
-"@reach/utils@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.16.0.tgz#5b0777cf16a7cab1ddd4728d5d02762df0ba84ce"
-  integrity sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q==
-  dependencies:
-    tiny-warning "^1.0.3"
-    tslib "^2.3.0"
 
 "@reach/utils@0.18.0":
   version "0.18.0"
@@ -17530,12 +17514,10 @@ react-clientside-effect@^1.2.6:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-react-day-picker@^8.0.7:
-  version "8.0.7"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.0.7.tgz#6f2fb98b33a6f7e1a4e03d557bd78fffeb21ccda"
-  integrity sha512-isrLVhWpfdsxtG8YarHh5c0erL5aV1nrfolR/yK3KGTUqb7UGiCFnleBSH/Bv45tNpC2CZNFne01dsQEiocjYw==
-  dependencies:
-    "@reach/auto-id" "0.16.0"
+react-day-picker@^8.3.6:
+  version "8.3.6"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.3.6.tgz#21c0d625ff18d807d7b9f428c70b980c4869936d"
+  integrity sha512-yCfiDZqyxgRBeRlkhflBJXtgBlDx/+OE69/qVFZJkTrLUazdVysWiVGT9fnseoqRw1loMkk0gOZVc5FHqb8Tug==
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
@@ -19979,11 +19961,6 @@ tiny-glob@^0.2.9:
   dependencies:
     globalyzer "0.1.0"
     globrex "^0.1.2"
-
-tiny-warning@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
-  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
 tinycolor2@^1.4.2:
   version "1.4.2"
