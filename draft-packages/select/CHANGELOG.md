@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.6...@kaizen/draft-select@2.8.0) (2022-11-16)
+
+
+### Features
+
+* allow indicators container to be clickable above select ([#3095](https://github.com/cultureamp/kaizen-design-system/issues/3095)) ([963c650](https://github.com/cultureamp/kaizen-design-system/commit/963c650f343993b0657180c23f0811ab9456004c))
+
+
+
+
+
 ## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.7.5...@kaizen/draft-select@2.7.6) (2022-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-select
