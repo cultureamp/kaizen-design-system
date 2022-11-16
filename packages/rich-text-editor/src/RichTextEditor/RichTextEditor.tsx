@@ -1,4 +1,9 @@
 import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
+import classnames from "classnames"
+import { v4 } from "uuid"
+import { OverrideClassName } from "@kaizen/component-base"
+import { FieldMessage, Label } from "@kaizen/draft-form"
+import { InlineNotification } from "@kaizen/notification"
 import {
   ProseMirrorCommands,
   ProseMirrorState,
@@ -7,12 +12,7 @@ import {
   ProseMirrorHistory,
   useRichTextEditor,
   createLinkManager,
-} from "@cultureamp/rich-text-toolkit"
-import classnames from "classnames"
-import { v4 } from "uuid"
-import { OverrideClassName } from "@kaizen/component-base"
-import { FieldMessage, Label } from "@kaizen/draft-form"
-import { InlineNotification } from "@kaizen/notification"
+} from "../toolkit"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
 import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"

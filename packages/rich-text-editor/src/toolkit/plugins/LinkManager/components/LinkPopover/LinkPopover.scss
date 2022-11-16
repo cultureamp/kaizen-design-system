@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.popoverContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popoverLink {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paragraphFlex {
+  display: inline-flex;
+}
+
+.popoverActions {
+  border-left: 1px solid rgba($color-gray-600-rgb, 0.1);
+}

@@ -1,11 +1,3 @@
-import {
-  ProseMirrorState,
-  ProseMirrorModel,
-  ProseMirrorCommands,
-  ProseMirrorSchemaList,
-  markIsActive,
-  listIsActive,
-} from "@cultureamp/rich-text-toolkit"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
@@ -14,6 +6,14 @@ import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
+import {
+  ProseMirrorState,
+  ProseMirrorModel,
+  ProseMirrorCommands,
+  ProseMirrorSchemaList,
+  markIsActive,
+  listIsActive,
+} from "../toolkit"
 
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 

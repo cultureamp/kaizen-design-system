@@ -29,7 +29,6 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@cultureamp/rich-text-toolkit": "^2.0.0",
     "@kaizen/a11y": "^1.6.11",
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "^16.1.8",

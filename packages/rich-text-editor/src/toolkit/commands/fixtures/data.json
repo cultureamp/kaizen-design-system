@@ -1,0 +1,102 @@
+{
+  "testDocNodeContentWithMarksJSON": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [{ "type": "strong" }],
+          "text": "Example Strong Mark"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [{ "type": "em" }],
+          "text": "Example Italic Mark"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "https://cultureamp.design",
+                "_metadata": null,
+                "target": "_blank",
+                "rel": "noreferrer"
+              }
+            }
+          ],
+          "text": "Example Link Mark"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            { "type": "strong" },
+            {
+              "type": "link",
+              "attrs": {
+                "href": "https://google.com",
+                "_metadata": null,
+                "target": "_blank",
+                "rel": "noreferrer"
+              }
+            }
+          ],
+          "text": "Mixed Mark Link Example"
+        }
+      ]
+    }
+  ],
+  "testDocNodeContentWithListsJSON": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [{ "type": "strong" }],
+          "text": "Example content"
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "content": [
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [{ "type": "text", "text": "Bullet List Item Node" }]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDocNodeContentJSON": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Example content"
+        }
+      ]
+    }
+  ]
+}

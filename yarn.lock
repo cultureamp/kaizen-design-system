@@ -1990,29 +1990,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz#1bfafe4b7ed0f3e4105837e056e0a89b108ebe36"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
-"@cultureamp/rich-text-toolkit@^2.0.0":
-  version "2.0.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.0/3782e700674cf4e5d3b244371c106b2f02188efd#3782e700674cf4e5d3b244371c106b2f02188efd"
-  integrity sha512-o9lvtRB/108uTBEon64ovM0QnbwUKmX5zUfeJ38gqPODdDnrfsdQt87qvjXuIgtZFRrpljUt5FJpcwhTdKNqEw==
-  dependencies:
-    "@kaizen/button" "^1.2.8"
-    "@kaizen/component-library" "^14.3.4"
-    "@kaizen/draft-modal" "^10.3.1"
-    "@kaizen/draft-popover" "^5.1.6"
-    "@kaizen/typography" "^2.2.1"
-    lodash.debounce "^4.0.8"
-    nanobus "^4.5.0"
-    prosemirror-commands "^1.3.0"
-    prosemirror-history "^1.3.0"
-    prosemirror-inputrules "^1.2.0"
-    prosemirror-keymap "^1.2.0"
-    prosemirror-model "^1.18.1"
-    prosemirror-schema-basic "^1.2.0"
-    prosemirror-schema-list "^1.2.1"
-    prosemirror-state "^1.4.1"
-    prosemirror-utils "^1.0.0-0"
-    prosemirror-view "^1.27.2"
-
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
@@ -2696,16 +2673,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kaizen/button@^1.2.8":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-1.3.5.tgz#6110cf27316cd6fbb360b20f99a30b0c6deeb838"
-  integrity sha512-4m8yTPL2rD0syisZWIGXdqVDnJFNVjKBrx5qhln+HyMdSYL86bz7D/PH1tDjWMqkL3eQ3GWWaEXhudb+47Oxgw==
-  dependencies:
-    "@kaizen/component-library" "^16.1.2"
-    "@kaizen/draft-badge" "^1.13.2"
-    "@kaizen/loading-spinner" "^2.3.2"
-    classnames "^2.3.1"
-
 "@kaizen/component-library@12.2.0":
   version "12.2.0"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-12.2.0.tgz#8851ad3501d2df767940d83e9e3d23128d2ceb05"
@@ -2732,20 +2699,6 @@
     "@kaizen/hosted-assets" "^1.2.0"
     "@types/classnames" "^2.3.0"
     "@types/lodash" "^4.14.181"
-    "@types/uuid" "^3.4.10"
-    classnames "^2.3.1"
-    motion-ui cultureamp/motion-ui
-
-"@kaizen/component-library@^14.3.4":
-  version "14.3.6"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-14.3.6.tgz#bbc8beb7af1bd619de0e3e8c4c292050683bcd28"
-  integrity sha512-7fXTOOLuGIgsE+SmsfCCyWQfFlkhsgv0i5Va3FwSPBdO5RSkCmnxOHxNRFGydkQ0vAiBYTJmGKlXl8aGdC43dg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
-    "@kaizen/hosted-assets" "^2.0.0"
-    "@types/classnames" "^2.3.0"
-    "@types/lodash" "^4.14.182"
     "@types/uuid" "^3.4.10"
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
@@ -5664,7 +5617,7 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
   integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
 
-"@types/lodash@^4.14.167", "@types/lodash@^4.14.182":
+"@types/lodash@^4.14.167":
   version "4.14.182"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.182.tgz#05301a4d5e62963227eaafe0ce04dd77c54ea5c2"
   integrity sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==
@@ -16991,7 +16944,7 @@ property-information@^5.0.0, property-information@^5.3.0:
   dependencies:
     xtend "^4.0.0"
 
-prosemirror-commands@^1.3.0:
+prosemirror-commands@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.3.1.tgz#926c88801eebaa50363d4658850b41406d375a31"
   integrity sha512-XTporPgoECkOQACVw0JTe3RZGi+fls3/byqt+tXwGTkD7qLuB4KdVrJamDMJf4kfKga3uB8hZ+kUUyZ5oWpnfg==
