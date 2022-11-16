@@ -4,7 +4,7 @@ import {
   ProseMirrorState,
   ProseMirrorModel,
   useRichTextEditor,
-} from "@cultureamp/rich-text-toolkit"
+} from "@kaizen/rich-text-toolkit"
 import { OverrideClassName } from "@kaizen/component-base"
 import { EditorContentArray } from "../types"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
