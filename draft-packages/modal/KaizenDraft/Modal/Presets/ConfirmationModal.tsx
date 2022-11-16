@@ -1,7 +1,10 @@
 import React from "react"
 import classnames from "classnames"
+import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import {
   Assertive,
   Cautionary,
@@ -9,10 +12,7 @@ import {
   Negative,
   Positive,
 } from "@kaizen/draft-illustration"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
-import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
-import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
-import { ButtonProps } from "@kaizen/button"
+import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleDescription,

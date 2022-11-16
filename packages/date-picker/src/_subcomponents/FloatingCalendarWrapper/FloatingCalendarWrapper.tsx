@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, useState } from "react"
-import { OverrideClassName } from "@kaizen/component-base"
+import { Options } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
-import { Options } from "@popperjs/core"
+import { OverrideClassName } from "@kaizen/component-base"
 import calendarWrapperStyles from "./FloatingCalendarWrapper.module.scss"
 
 export interface FloatingCalendarWrapperProps

@@ -1,8 +1,8 @@
 import React from "react"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { withDesign } from "storybook-addon-designs"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
-import { withDesign } from "storybook-addon-designs"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 

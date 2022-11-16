@@ -1,11 +1,11 @@
 import React from "react"
-import { GlobalNotification } from "@kaizen/notification"
-import { Box } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
+import { Box } from "@kaizen/component-library"
 import { Divider } from "@kaizen/draft-divider"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { GlobalNotification } from "@kaizen/notification"
+import { Heading } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Global Notification`,

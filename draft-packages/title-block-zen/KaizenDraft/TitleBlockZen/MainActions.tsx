@@ -1,14 +1,14 @@
 import React from "react"
 import { Button, IconButton } from "@kaizen/button"
-import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import Toolbar from "./Toolbar"
+import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
 } from "./TitleBlockZen"
+import Toolbar from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {

@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
 import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import { Icon } from "@kaizen/component-library"
 import { PageIndicator } from "./PageIndicator"
 import { TruncateIndicator } from "./TruncateIndicator"
-import styles from "./Pagination.module.scss"
 import { createRange } from "./utils"
+import styles from "./Pagination.module.scss"
 
 export interface PaginationProps
   extends OverrideClassName<HTMLAttributes<HTMLElement>> {

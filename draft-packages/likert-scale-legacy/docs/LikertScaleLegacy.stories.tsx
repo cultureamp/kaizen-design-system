@@ -6,9 +6,9 @@ import {
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Likert Scale`,

@@ -1,5 +1,4 @@
 import React from "react"
-import { Paragraph } from "@kaizen/typography"
 import {
   Title,
   Subtitle,
@@ -9,8 +8,9 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
-import { Box } from "../components/Box"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { Box } from "../components/Box"
 import styles from "./Box.stories.module.scss"
 
 export default {

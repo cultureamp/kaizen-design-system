@@ -1,5 +1,5 @@
-import { TabList as ReachTabList } from "@reach/tabs"
 import React, { ReactNode } from "react"
+import { TabList as ReachTabList } from "@reach/tabs"
 import classnames from "classnames"
 import styles from "./TabList.module.scss"
 

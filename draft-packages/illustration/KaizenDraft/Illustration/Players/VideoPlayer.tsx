@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { canPlayWebm } from "../utils"
 import styles from "../Base.module.scss"
+import { canPlayWebm } from "../utils"
 
 export type VideoPlayerProps = {
   /**

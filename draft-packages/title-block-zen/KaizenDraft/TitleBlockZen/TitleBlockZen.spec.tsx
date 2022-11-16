@@ -1,8 +1,8 @@
 import "./matchMedia.mock"
 
+import * as React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen } from "@testing-library/react"
-import * as React from "react"
 import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
 import "@testing-library/jest-dom"
 

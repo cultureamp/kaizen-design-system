@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import { ClassNames } from "react-day-picker"
 import calendarStyles from "./Calendar.module.scss"
-import calendarSingleStyles from "./CalendarSingle.module.scss"
 import calendarRangeStyles from "./CalendarRange.module.scss"
+import calendarSingleStyles from "./CalendarSingle.module.scss"
 
 const baseCalendarClasses: ClassNames = {
   vhidden: calendarStyles.vHidden,

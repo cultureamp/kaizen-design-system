@@ -1,5 +1,5 @@
-import { useTheme } from "@kaizen/design-tokens"
 import React from "react"
+import { useTheme } from "@kaizen/design-tokens"
 
 export const App = () => {
   const theme = useTheme()

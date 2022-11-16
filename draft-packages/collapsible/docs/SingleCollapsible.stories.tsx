@@ -1,8 +1,8 @@
 import React from "react"
 import { Icon, Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
-import { Collapsible } from "@kaizen/draft-collapsible"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
+import { Collapsible } from "@kaizen/draft-collapsible"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 

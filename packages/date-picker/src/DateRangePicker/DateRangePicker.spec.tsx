@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "react-day-picker"
-import { formatDateRangeValue } from "./utils/formatDateRangeValue"
 import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
+import { formatDateRangeValue } from "./utils/formatDateRangeValue"
 
 const DateRangePickerWrapper = ({
   ...restProps

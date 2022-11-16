@@ -1,8 +1,8 @@
-import { cleanup, render } from "@testing-library/react"
-import { fireEvent, waitFor } from "@testing-library/dom"
-import { act } from "react-test-renderer"
 import * as React from "react"
+import { fireEvent, waitFor } from "@testing-library/dom"
+import { cleanup, render } from "@testing-library/react"
 import * as ReactTestUtils from "react-dom/test-utils"
+import { act } from "react-test-renderer"
 import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
 

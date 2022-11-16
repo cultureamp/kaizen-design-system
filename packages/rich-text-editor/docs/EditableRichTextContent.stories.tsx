@@ -1,11 +1,11 @@
 import React, { useState } from "react"
+import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
 import {
   EditableRichTextContent,
   RichTextEditor,
   EditorContentArray,
 } from "@kaizen/rich-text-editor"
-import { Button } from "@kaizen/button"
-import { Box } from "@kaizen/component-library"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 

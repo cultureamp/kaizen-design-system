@@ -1,10 +1,12 @@
 import React from "react"
-import { Paragraph } from "@kaizen/typography"
+import { withDesign } from "storybook-addon-designs"
 import { IconButton, Button } from "@kaizen/button"
-import { CheckboxField } from "@kaizen/draft-form"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { withDesign } from "storybook-addon-designs"
+import { CheckboxField } from "@kaizen/draft-form"
+import { Paragraph } from "@kaizen/typography"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   TableCard,
   TableContainer,
@@ -14,8 +16,6 @@ import {
   TableRow,
   TableRowCell,
 } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Table.stories.module.scss"
 
 const Container: React.FunctionComponent<{

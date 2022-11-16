@@ -1,9 +1,9 @@
 // A11y and interaction are tested in SelectionProvider.spec, hence not covered here
 
 import React from "react"
-import { render, screen } from "@testing-library/react"
-import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
+import { Node } from "@react-types/shared"
+import { render, screen } from "@testing-library/react"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 

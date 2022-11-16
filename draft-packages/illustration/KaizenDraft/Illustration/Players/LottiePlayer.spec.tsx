@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/extend-expect"
+import React from "react"
 import {
   cleanup,
   render,
@@ -6,7 +7,6 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react"
-import React from "react"
 import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 

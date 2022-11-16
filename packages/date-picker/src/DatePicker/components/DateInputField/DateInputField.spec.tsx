@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
-import { enUS } from "date-fns/locale"
 import userEvent from "@testing-library/user-event"
+import { enUS } from "date-fns/locale"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
 const defaultProps: DateInputFieldProps = {

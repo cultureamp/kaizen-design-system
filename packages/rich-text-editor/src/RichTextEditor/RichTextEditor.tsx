@@ -1,6 +1,4 @@
 import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
-import { v4 } from "uuid"
-import classnames from "classnames"
 import {
   ProseMirrorCommands,
   ProseMirrorState,
@@ -10,16 +8,18 @@ import {
   useRichTextEditor,
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
-import { FieldMessage, Label } from "@kaizen/draft-form"
+import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
+import { FieldMessage, Label } from "@kaizen/draft-form"
 import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
-import { createSchemaFromControls } from "./schema"
-import { buildKeymap } from "./keymap"
 import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"
-import styles from "./RichTextEditor.module.scss"
+import { buildKeymap } from "./keymap"
+import { createSchemaFromControls } from "./schema"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
+import styles from "./RichTextEditor.module.scss"
 
 export interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {

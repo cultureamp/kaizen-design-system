@@ -1,6 +1,4 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import {
   Title,
   Subtitle,
@@ -10,10 +8,12 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
-import { Paragraph } from "../src/Paragraph/Paragraph"
+import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
