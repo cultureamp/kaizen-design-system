@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import isChromatic from "chromatic/isChromatic"
 import { ComponentStory } from "@storybook/react"
+import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
 

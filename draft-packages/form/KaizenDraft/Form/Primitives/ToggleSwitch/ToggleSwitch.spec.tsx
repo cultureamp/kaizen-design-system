@@ -1,5 +1,5 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { ToggledStatus, ToggleSwitchProps } from "./ToggleSwitch"
 import { ToggleSwitch } from "."
 import "@testing-library/jest-dom"

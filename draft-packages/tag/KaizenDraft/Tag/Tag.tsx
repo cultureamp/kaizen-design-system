@@ -1,11 +1,11 @@
 import React from "react"
 import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
-import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import styles from "./Tag.module.scss"
 
 type Variant =

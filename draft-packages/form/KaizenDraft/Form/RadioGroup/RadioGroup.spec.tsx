@@ -1,6 +1,6 @@
 import React from "react"
-import { RadioField } from "@kaizen/draft-form"
 import { cleanup, render } from "@testing-library/react"
+import { RadioField } from "@kaizen/draft-form"
 import { RadioGroup } from "./index"
 
 afterEach(cleanup)

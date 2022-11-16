@@ -1,13 +1,13 @@
 import React, { useState } from "react"
+import { ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
-import { ComponentStory } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ContextModal.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()

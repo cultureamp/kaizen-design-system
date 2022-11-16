@@ -6,13 +6,13 @@ import {
   MenuTriggerProviderContextType,
   MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
-import { MenuPopup } from "../MenuPopup/MenuPopup"
 import {
   SelectionConsumer,
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
+import { MenuPopup } from "../MenuPopup/MenuPopup"
 
 export interface RootProps
   extends MenuPopupProps,

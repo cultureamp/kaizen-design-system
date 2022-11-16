@@ -1,14 +1,14 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { withDesign } from "storybook-addon-designs"
-import { Story } from "@storybook/react"
-import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import { Heading } from "@kaizen/typography"
-import { Button, ButtonProps } from ".."
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { Button, ButtonProps } from ".."
 
 const IS_CHROMATIC = isChromatic()
 

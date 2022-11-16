@@ -1,6 +1,6 @@
 import React from "react"
-import { withDesign } from "storybook-addon-designs"
 import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
 import {
   CATEGORIES,
   SUB_CATEGORIES,

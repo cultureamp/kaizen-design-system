@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { v4 } from "uuid"
+import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 import {
   AddToastNotification,
   ClearToastNotifications,
@@ -8,7 +9,6 @@ import {
   ToastNotification,
   ToastNotificationWithOptionals,
 } from "./types"
-import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 
 type ToastNotificationApi = {
   addToastNotification: AddToastNotification

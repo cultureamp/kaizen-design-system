@@ -1,8 +1,8 @@
 import React from "react"
-import { Tooltip } from "@kaizen/draft-tooltip"
-import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import { Tooltip } from "@kaizen/draft-tooltip"
 import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
