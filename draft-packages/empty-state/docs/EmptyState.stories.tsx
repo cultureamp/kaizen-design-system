@@ -1,13 +1,13 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import isChromatic from "chromatic"
+import { withDesign } from "storybook-addon-designs"
+import { Button } from "@kaizen/button"
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
-import { Button } from "@kaizen/button"
-import { EmptyState } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { EmptyState } from ".."
 import styles from "./EmptyState.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()

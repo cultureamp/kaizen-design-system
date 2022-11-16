@@ -1,5 +1,5 @@
-import { Tab as ReachTab } from "@reach/tabs"
 import React, { ReactNode, useState, SyntheticEvent } from "react"
+import { Tab as ReachTab } from "@reach/tabs"
 import classnames from "classnames"
 import { Badge } from "@kaizen/draft-badge"
 import styles from "./Tab.module.scss"

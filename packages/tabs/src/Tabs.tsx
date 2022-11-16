@@ -1,5 +1,5 @@
-import { Tabs as ReachTabs, TabsKeyboardActivation } from "@reach/tabs"
 import React, { ReactNode } from "react"
+import { Tabs as ReachTabs, TabsKeyboardActivation } from "@reach/tabs"
 
 export interface TabsProps {
   /**

@@ -1,5 +1,9 @@
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
+import { Container, Content } from "@kaizen/draft-page-layout"
 import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import {
   addToastNotification,
@@ -7,13 +11,9 @@ import {
   clearToastNotifications,
   ToastNotification,
 } from "@kaizen/notification"
-import { Box } from "@kaizen/component-library"
-import { Container, Content } from "@kaizen/draft-page-layout"
 import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
-import { withDesign } from "storybook-addon-designs"
-import { v4 } from "uuid"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
 const withNavigation = (Story: React.FunctionComponent) => (

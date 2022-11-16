@@ -1,8 +1,8 @@
-import calendarStyles from "../_subcomponents/Calendar/Calendar.module.scss"
 import {
   CalendarSingleElement,
   CalendarRangeElement,
 } from "../_subcomponents/Calendar"
+import calendarStyles from "../_subcomponents/Calendar/Calendar.module.scss"
 import { isInvalidDate } from "./isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>

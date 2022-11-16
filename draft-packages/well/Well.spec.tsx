@@ -1,5 +1,5 @@
-import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
 
 import { WellProps } from "./Well"
 import { Well } from "."

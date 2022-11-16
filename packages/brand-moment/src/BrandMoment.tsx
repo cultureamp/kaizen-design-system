@@ -1,12 +1,12 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { Button, ButtonProps } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Box } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
-import { Button, ButtonProps } from "@kaizen/button"
-import { useMediaQueries } from "@kaizen/responsive"
 import { SceneProps } from "@kaizen/draft-illustration"
 import { assetUrl } from "@kaizen/hosted-assets"
-import classnames from "classnames"
+import { useMediaQueries } from "@kaizen/responsive"
+import { Heading, Paragraph } from "@kaizen/typography"
 import styles from "./BrandMoment.scss"
 
 export interface BrandMomentProps

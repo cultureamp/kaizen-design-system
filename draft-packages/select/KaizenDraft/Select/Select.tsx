@@ -6,11 +6,11 @@ import ReactSelect, {
   NoticeProps,
 } from "react-select"
 import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
-import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./Select.module.scss"
 

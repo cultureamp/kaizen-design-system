@@ -1,5 +1,5 @@
-import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
 import { ThemeManager } from "../ThemeManager"
+import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
 import { heartTheme } from "../themes"
 import { Theme } from "../types"
 

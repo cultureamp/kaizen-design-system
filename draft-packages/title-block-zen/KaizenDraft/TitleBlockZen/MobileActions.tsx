@@ -1,10 +1,10 @@
 import React from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
 import { ButtonProps } from "@kaizen/button"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,

@@ -1,7 +1,7 @@
-import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import * as SpotIllustrations from "./Spot"
+import { cleanup, render } from "@testing-library/react"
 import * as SceneIllustrations from "./Scene"
+import * as SpotIllustrations from "./Spot"
 
 let spy = jest.spyOn(global.console, "warn")
 

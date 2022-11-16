@@ -1,19 +1,19 @@
-import { Label } from "@kaizen/draft-form"
 import React, { RefObject, useRef, useState } from "react"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import cx from "classnames"
-import { Icon } from "@kaizen/component-library"
-import { FocusOn } from "react-focus-on"
-import { DateRange, isMatch } from "react-day-picker"
 import { enUS } from "date-fns/locale"
-import { calculateDisabledDays } from "../utils/calculateDisabledDays"
-import { isDisabledDate } from "../utils/isDisabledDate"
+import { DateRange, isMatch } from "react-day-picker"
+import { FocusOn } from "react-focus-on"
+import { Icon } from "@kaizen/component-library"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import { Label } from "@kaizen/draft-form"
 import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
 } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
 import { DisabledDayMatchers } from "../types"
+import { calculateDisabledDays } from "../utils/calculateDisabledDays"
+import { isDisabledDate } from "../utils/isDisabledDate"
 import dateRangePickerStyles from "./DateRangePicker.module.scss"
 
 export interface DateRangePickerProps extends DisabledDayMatchers {

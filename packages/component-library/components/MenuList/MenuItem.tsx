@@ -1,7 +1,7 @@
 /* !!! This component is deprecated. Please do not use for new code  !!! */
 
-import classNames from "classnames"
 import * as React from "react"
+import classNames from "classnames"
 import { Icon } from "../Icon"
 
 import styles from "./Menu.module.scss"
