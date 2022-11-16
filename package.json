@@ -105,7 +105,7 @@
     "postcss": "^8.4.19",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.0.1",
-    "postcss-preset-env": "^7.8.2",
+    "postcss-preset-env": "^7.8.3",
     "prettier": "^2.7.1",
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^18.2.0",
