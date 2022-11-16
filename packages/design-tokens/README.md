@@ -63,4 +63,4 @@ All values in tokens are represented as rem, em or px.
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/cultureamp/kaizen-design-system/blob/master/packages/design-tokens/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/design-tokens/CONTRIBUTING.md)

@@ -1,7 +1,7 @@
 name: Add branch preview link to a PR comment
 
 # Note about "status" events:
-# - The workflow must be merged to master, a status on a commit in any branch will still run the workflow found on master
+# - The workflow must be merged to main, a status on a commit in any branch will still run the workflow found on main
 # - "status" events (like those from buildkite) are different to "check" events from Github actions.
 # - You can check for a specific status using it's context. Find it using the API:
 #     curl \

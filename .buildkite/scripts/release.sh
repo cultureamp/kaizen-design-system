@@ -45,7 +45,7 @@ setup_npm() {
 }
 
 release() {
-  git checkout master && git pull
+  git checkout main && git pull
 
   yarn install --frozen-lockfile
 
@@ -78,9 +78,9 @@ main() {
   setup_github
   setup_npm
 
-  if [ "$BUILDKITE_BRANCH" = master ]; then
+  if [ "$BUILDKITE_BRANCH" = main ]; then
 
-    echo "Branch: master"
+    echo "Branch: main"
 
     echo "Releasing packages..."
     release
@@ -93,7 +93,7 @@ main() {
     release_canary
 
     echo "Resetting canary branch..."
-    git reset --hard master
+    git reset --hard main
     git push --force --no-verify
 
   fi

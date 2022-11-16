@@ -1547,7 +1547,7 @@ import KaizenDraft.Button.Button as Button
 
 ### Features
 
-* point legacy Open Sans vars at Inter (release canary PR to master) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
+* point legacy Open Sans vars at Inter (release canary PR to main) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
 
 
 
