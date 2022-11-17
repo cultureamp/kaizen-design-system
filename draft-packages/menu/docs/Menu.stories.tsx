@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 
@@ -12,7 +12,7 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
+import { Menu, MenuList, MenuItem } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
