@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.9.0...@kaizen/draft-select@2.9.1) (2022-11-17)
+
+
+### Bug Fixes
+
+* update select reversed clearable styles ([#3108](https://github.com/cultureamp/kaizen-design-system/issues/3108)) ([df868a9](https://github.com/cultureamp/kaizen-design-system/commit/df868a9771cfe4a36d72056c99fd063303690aa7))
+
+
+
+
+
 # [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.8.0...@kaizen/draft-select@2.9.0) (2022-11-16)
 
 

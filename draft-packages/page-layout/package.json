@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-page-layout",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "The draft content block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
