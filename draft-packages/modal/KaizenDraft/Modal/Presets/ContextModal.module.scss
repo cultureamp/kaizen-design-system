@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.module.scss";
+  composes: genericmodal from "../Primitives/GenericModal.module.scss";
   min-width: 300px;
   max-width: 840px;
 
@@ -15,8 +15,10 @@
 .header {
   color: $color-purple-800;
   text-align: left;
+
   &.padded {
     padding: $spacing-md;
+
     @media (min-width: $layout-breakpoints-medium) {
       padding: $spacing-md $spacing-lg;
     }
@@ -25,6 +27,7 @@
 
 .footer {
   white-space: initial;
+
   @media (min-width: $layout-breakpoints-medium) {
     white-space: nowrap;
   }
@@ -42,6 +45,7 @@
 .portraitContentlayout {
   padding: $spacing-md;
   display: block;
+
   @media (min-width: $layout-breakpoints-medium) {
     display: grid;
     max-width: 800px;
@@ -56,6 +60,7 @@
   display: flex;
   padding: $spacing-md;
   flex-direction: column;
+
   @media (min-width: $layout-breakpoints-medium) {
     padding: $spacing-md $spacing-lg;
   }
@@ -68,7 +73,8 @@
   }
 
   .content {
-    padding-left: 0rem;
+    padding-left: 0;
+
     @media (min-width: $layout-breakpoints-medium) {
       max-width: 100%;
     }

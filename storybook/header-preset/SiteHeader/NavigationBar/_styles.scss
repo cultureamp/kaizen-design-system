@@ -5,7 +5,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "@kaizen/component-library/styles/responsive";
-@import "./decision-tokens.scss";
+@import "./decision-tokens";
 
 $ca-navigation-bar__height: $layout-navigation-bar-height;
 $ca-navigation-bar__animation-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -13,12 +13,10 @@ $ca-navigation-bar__animation-timing: 150ms;
 $ca-navigation-bar__link-item-indicator-height: 3px;
 $ca-navigation-bar__link-item-margin: $spacing-xs;
 $ca-weight-medium: 500;
-
 $link-margin: $spacing-xs;
 
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
-
   @include ca-type-reverse;
 
   // fill parent
@@ -29,9 +27,7 @@ $link-margin: $spacing-xs;
   // center child
   align-items: center;
   justify-content: center;
-
   border-radius: $border-solid-border-radius;
-
   color: rgba($color-white-rgb, 0.8);
   padding: 0;
   text-decoration: none;
@@ -50,7 +46,8 @@ $link-margin: $spacing-xs;
   .linkText::before {
     content: "";
     display: block;
-    transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
+    transform:
+      translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
       translateY(-100%);
     height: $ca-navigation-bar__link-item-indicator-height;
     width: 100%;
@@ -59,7 +56,8 @@ $link-margin: $spacing-xs;
     left: 0;
     right: 0;
     background-color: white;
-    transition: transform $ca-navigation-bar__animation-ease
+    transition:
+      transform $ca-navigation-bar__animation-ease
       $ca-navigation-bar__animation-timing;
   }
 
@@ -73,6 +71,7 @@ $link-margin: $spacing-xs;
   }
 
   @include ca-type-inter-heading;
+
   position: static;
   top: 0;
 }

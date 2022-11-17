@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  bottom: 0;
   overflow: hidden;
   padding-bottom: 0;
   padding-top: 160px + 12px;
@@ -20,6 +19,7 @@
   @media (max-width: ($layout-breakpoints-large - 1px)) {
     padding-top: 108px;
   }
+
   @media (max-width: ($layout-breakpoints-medium - 1px)) {
     left: $spacing-md;
   }

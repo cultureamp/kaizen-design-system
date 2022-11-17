@@ -14,6 +14,7 @@ $placeholder-opacity: 0.7;
 
 .button {
   @include button-reset;
+
   position: relative;
   display: flex;
   align-items: center;
@@ -40,7 +41,8 @@ $placeholder-opacity: 0.7;
   }
 
   &:global(.focus-visible):not([disabled]) {
-    outline: $color-blue-500 $border-focus-ring-border-style
+    outline:
+      $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     outline-offset: 1px;
   }
@@ -83,6 +85,7 @@ $placeholder-opacity: 0.7;
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
+
     color: $color-purple-800;
     opacity: $disabled-opacity;
     right: auto;

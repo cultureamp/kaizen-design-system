@@ -12,8 +12,8 @@
   }
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: inherit;
   }
 
@@ -42,7 +42,12 @@
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family:
+      source-code-pro,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Courier New",
       monospace;
   }
 }

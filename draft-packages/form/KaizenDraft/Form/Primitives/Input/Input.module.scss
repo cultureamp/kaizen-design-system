@@ -22,6 +22,7 @@ $input-with-icon-padding: calc(
 
 .input {
   @include form-input-reset;
+
   background-color: transparent;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style transparent;
@@ -58,6 +59,7 @@ $input-with-icon-padding: calc(
 
 .input:focus + .focusRing {
   $focus-ring-offset: 3px;
+
   position: absolute;
   background: transparent;
   border-radius: $border-focus-ring-border-radius;
@@ -86,6 +88,7 @@ $input-with-icon-padding: calc(
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
+
     right: auto;
     left: $spacing-sm;
 
@@ -117,6 +120,7 @@ $input-with-icon-padding: calc(
 .withEndIconAdornment {
   .endIconAdornment {
     @include vertically-center-icon;
+
     right: $spacing-sm;
     left: auto;
 
@@ -204,6 +208,7 @@ $input-with-icon-padding: calc(
     }
   }
 }
+
 ///////////////////////////////////////////////////
 // THEMES
 ///////////////////////////////////////////////////
@@ -238,7 +243,7 @@ $input-with-icon-padding: calc(
     }
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     border-color: $color-gray-500;
 
     &:disabled {
@@ -285,7 +290,7 @@ $input-with-icon-padding: calc(
     border-color: $color-blue-300;
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     border-color: rgba($color-white-rgb, 0.65);
 
     &:disabled {

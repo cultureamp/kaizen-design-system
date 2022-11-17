@@ -4,6 +4,7 @@
 
 .grid {
   display: grid;
+
   // the more we shave off the width here,
   // the less the tiles will grow when they lose one from the row
   grid-template-columns: repeat(auto-fill, minmax($tileWidth - 40px, 1fr));

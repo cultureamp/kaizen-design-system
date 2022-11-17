@@ -11,6 +11,7 @@
 $expand-button-width: 3.75rem;
 $focus-spacing: 2px;
 $focus-ring-border-width: 2px;
+
 // ^should be $border-focus-ring-border-width but CSS vars makes this hard
 $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
@@ -62,6 +63,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   display: flex;
   justify-content: center;
   align-items: center;
+
   @include ca-margin($end: calc(#{$ca-grid} / 2));
 
   .drawerHandleLabelText + & {
@@ -71,9 +73,9 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
 .mobileActionsPrimaryLabel {
   @include ca-padding($start: $ca-grid * 0.75);
+
   text-align: left;
   text-decoration: none;
-
   color: $color-white;
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
@@ -88,7 +90,6 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   position: relative;
   justify-content: flex-start;
   align-items: center;
-  background-color: transparent;
   height: 100%;
   border: 0;
   box-sizing: border-box;
@@ -105,6 +106,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2));
+
       content: "";
       position: absolute;
       background: transparent;
@@ -182,6 +184,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   align-items: center;
   height: 100%;
   position: absolute;
+
   @include ca-position($end: 20px);
 }
 
@@ -189,9 +192,11 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   0% {
     transform: translateY(100%);
   }
+
   50% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   }

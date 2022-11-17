@@ -16,11 +16,12 @@
 }
 
 .visuallyHidden {
-  @include sr-only();
+  @include sr-only;
 }
 
 .spinner {
-  animation: spinner $animation-duration-deliberate
+  animation:
+    spinner $animation-duration-deliberate
     $animation-easing-function-ease-in-out infinite;
 }
 

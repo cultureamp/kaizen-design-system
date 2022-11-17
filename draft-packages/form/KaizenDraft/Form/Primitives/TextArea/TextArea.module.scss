@@ -14,6 +14,7 @@ $input-disabled-border-alpha: 50%;
 
 .textarea {
   @include form-input-reset;
+
   border-radius: $border-solid-border-radius;
   width: 100%;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
@@ -34,6 +35,7 @@ $input-disabled-border-alpha: 50%;
 
 .textarea:focus + .focusRing {
   $focus-ring-offset: 3px;
+
   position: absolute;
   background: transparent;
   border-radius: $border-focus-ring-border-radius;
@@ -57,7 +59,7 @@ $input-disabled-border-alpha: 50%;
     border-color: $color-blue-500;
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     &:disabled {
       border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
     }

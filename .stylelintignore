@@ -1,1 +1,2 @@
 packages/design-tokens/**/*.scss
+storybook/**/*.scss

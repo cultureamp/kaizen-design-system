@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
-@import "./decision-tokens.scss";
+@import "./decision-tokens";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "@kaizen/component-library/styles/responsive";
@@ -28,6 +28,7 @@
 .links {
   display: inline-flex;
   flex: 1 0 0;
+
   @include ca-margin($start: $spacing-xl);
 
   > ul {

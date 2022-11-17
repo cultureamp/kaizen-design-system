@@ -32,7 +32,9 @@ $notification-slide-right: transform 300ms ease-out;
     width: 100%;
     min-height: 46px;
     padding: $notification-vertical-padding $spacing-sm;
-    transition: $notification-fade-out, $notification-pop-up,
+    transition:
+      $notification-fade-out,
+      $notification-pop-up,
       $notification-collapse-height;
   }
 
@@ -41,7 +43,9 @@ $notification-slide-right: transform 300ms ease-out;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
     padding: $notification-vertical-padding 10px;
-    transition: $notification-fade-out, $notification-slide-right,
+    transition:
+      $notification-fade-out,
+      $notification-slide-right,
       $notification-collapse-height-delayed;
     will-change: transform;
   }
@@ -116,6 +120,7 @@ $notification-slide-right: transform 300ms ease-out;
       transition-timing-function: ease-in;
       transform: translateY(-50%);
     }
+
     &%ca-notification---toast {
       // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
       // We want it moving the fastest when it is the furthest off screen.
@@ -165,6 +170,7 @@ $notification-slide-right: transform 300ms ease-out;
 
   %ca-notification---global & {
     $size: calc(#{$spacing-md} * 1.25);
+
     width: $size;
     height: $size;
     padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
@@ -226,6 +232,7 @@ $notification-slide-right: transform 300ms ease-out;
   letter-spacing: $typography-heading-6-letter-spacing;
   margin: 0;
   padding-right: 6px;
+
   // overriding Bootstrap style that changes h6s to text-transform: uppercase
   text-transform: none;
   color: inherit;
@@ -250,6 +257,7 @@ $notification-slide-right: transform 300ms ease-out;
     font-size: $typography-paragraph-small-font-size;
     line-height: $typography-paragraph-small-line-height;
     letter-spacing: $typography-paragraph-small-letter-spacing;
+
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
     margin-top: $spacing-xs;
@@ -293,7 +301,8 @@ $notification-slide-right: transform 300ms ease-out;
 
 %ca-notification__cancel {
   @include button-reset;
-  composes: interactiveIconWrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+
+  composes: interactiveiconwrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   color: $color-purple-800;
   transform: none;
 
@@ -337,6 +346,7 @@ $notification-slide-right: transform 300ms ease-out;
     margin-right: 0;
     margin-left: $spacing-sm;
   }
+
   // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
   line-height: 0;
   float: right;

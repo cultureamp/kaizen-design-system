@@ -15,6 +15,7 @@
 
   .removeButton {
     @include button;
+
     width: $spacing-xl;
     justify-content: center;
     border-top-left-radius: 0;

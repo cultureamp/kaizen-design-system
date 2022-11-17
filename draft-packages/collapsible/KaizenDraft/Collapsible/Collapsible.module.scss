@@ -5,6 +5,7 @@
 @import "~@kaizen/design-tokens/sass/animation";
 
 $heading-active-color: $color-gray-200;
+
 // ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
 $border-color: rgba($color-gray-600-rgb, 0.2);
 
@@ -101,7 +102,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .sticky {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 10;
 }

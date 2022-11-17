@@ -66,7 +66,8 @@ $rdp-cell-size: 40px;
   &:focus-visible,
   :global(.js-focus-visible) &:global(.focus-visible) {
     outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
+    outline:
+      $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     background-color: $color-blue-100;
     color: $color-blue-500;
@@ -129,7 +130,8 @@ $rdp-cell-size: 40px;
   &:focus-visible,
   :global(.js-focus-visible) &:global(.focus-visible) {
     outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
+    outline:
+      $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     background-color: $color-blue-100;
     color: $color-blue-500;
@@ -166,19 +168,16 @@ $rdp-cell-size: 40px;
     outline-offset: 1px;
     background-color: transparent;
     opacity: 1;
-    outline: $color-gray-300 $border-dashed-border-style
+    outline:
+      $color-gray-300 $border-dashed-border-style
       $border-focus-ring-border-width;
   }
 }
 
 .vHidden {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
   background: transparent;
-  border: 0;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   position: absolute;
   top: 0;

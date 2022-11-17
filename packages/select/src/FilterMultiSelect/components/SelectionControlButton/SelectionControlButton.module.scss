@@ -11,16 +11,13 @@ $focus-ring-offset: 1px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
   position: relative;
-
   color: $color-blue-500;
-
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
@@ -42,6 +39,7 @@ $focus-ring-offset: 1px;
 
   &:global(.focus-visible)::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;

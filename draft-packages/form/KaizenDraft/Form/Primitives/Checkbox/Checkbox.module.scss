@@ -6,12 +6,12 @@
 $checkbox-size: 24px;
 $icon-size: 24px;
 $focus-ring-offset: 2px;
-
 $dt-color-checkbox-background-color-checked: $color-gray-500;
 
 // override bootstrap styles
 .checkbox.checkbox {
-  @include form-input-visually-hidden();
+  @include form-input-visually-hidden;
+
   width: $checkbox-size;
   height: $checkbox-size;
   margin: 0;
@@ -23,6 +23,7 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
   // .icon is inside .box so .box's border-box rule means
   // .icon sits to the right of .box's left-side border
   left: calc(-1 * #{$border-solid-border-width});
@@ -110,7 +111,7 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .checkbox:not([checked]):not([disabled]):hover + & {
+    .checkbox:not([checked], [disabled]):hover + & {
       border-color: $color-white;
       background: rgba($color-white-rgb, 0.1);
     }

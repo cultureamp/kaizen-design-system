@@ -2,7 +2,6 @@
 // @return {Map} A keyframes map that can be used with the `generate-keyframes()` mixin.
 @function pop() {
   $keyframes: ();
-
   $keyframes: (
     name: "pop",
     0: (
@@ -26,7 +25,6 @@
 // @return {Map} A keyframes map that can be used with the `generate-keyframes()` mixin.
 @function pulsate() {
   $keyframes: ();
-
   $keyframes: (
     name: "pulsate",
     0: (

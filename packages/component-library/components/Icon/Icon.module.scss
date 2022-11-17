@@ -27,17 +27,20 @@
 
 .interactiveIconWrapper {
   cursor: pointer;
+
   .icon {
     opacity: 0.7;
     transition: $animation-duration-fast opacity;
   }
+
   &:disabled,
   &.disabled {
     .icon {
       opacity: 0.3;
     }
   }
-  &:not(:disabled):not(.disabled) {
+
+  &:not(:disabled, .disabled) {
     &:hover,
     &:focus,
     &.hover {
@@ -45,6 +48,7 @@
         opacity: 1;
       }
     }
+
     &:active,
     &.active {
       .icon {
@@ -57,10 +61,12 @@
 // On dark backgrounds, icons are fully opaque by default and half opacity when active.
 // Hover and disabled states are the same.
 .reversedInteractiveIconWrapper {
-  composes: interactiveIconWrapper;
+  composes: interactiveiconwrapper;
+
   .icon {
     opacity: 1;
   }
+
   &:not(:disabled, .disabled) {
     &:active,
     &.active {

@@ -12,7 +12,8 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 
 .menuList {
   background: white;
-  border: $border-solid-border-width $border-solid-border-style
+  border:
+    $border-solid-border-width $border-solid-border-style
     $color-purple-200;
   box-shadow: $shadow-small-box-shadow;
   line-height: 40px;
@@ -28,21 +29,22 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 .header__title {
   @include kz-typography-heading-6;
   @include ca-inherit-baseline;
+
   display: block;
 }
 
 .menuItem {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-  composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
+
+  composes: interactiveiconwrapper from "../Icon/Icon.module.scss";
   background: transparent;
   color: $color-purple-800;
   cursor: pointer;
   text-align: left;
-
-  transition: $ca-duration-immediate background-color ease,
+  transition:
+    $ca-duration-immediate background-color ease,
     $ca-duration-immediate color ease;
-
   padding: 10px $side-padding;
   text-decoration: none;
   display: flex;
@@ -57,6 +59,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   &:focus {
     background: $color-gray-100;
     color: $color-blue-500;
+
     // override Murmur global styles :(
     text-decoration: none;
 
@@ -72,6 +75,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 
 .menuItem--destructive {
   color: $color-red-600;
+
   .menuItem__Icon {
     color: $color-red-600;
   }
@@ -94,6 +98,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   .hoverIcon & {
     opacity: 0;
   }
+
   .menuItem--active &,
   .hoverIcon:hover &,
   .hoverIcon:focus & {

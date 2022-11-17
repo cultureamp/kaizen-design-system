@@ -57,6 +57,7 @@ $small: $spacing-md;
   padding: $spacing-xs;
   min-width: unset;
 }
+
 .dot.large {
   background-color: $color-green-300;
   padding: 1.875rem;
@@ -79,26 +80,30 @@ $small: $spacing-md;
 
 $badge-duration-timing: ($animation-duration-slow / 2)
   $animation-easing-function-ease-in;
-
 $badge-transition: transform $badge-duration-timing,
   background-color $badge-duration-timing;
 
 .animation {
   display: inherit;
+
   .badge {
     transition: $badge-transition;
     transform-origin: center;
     transform: scale3d(1, 1, 1);
   }
+
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
+
     &.dark {
       background-color: rgba($color-purple-700-rgb, 0.2);
     }
+
     &.active {
       background-color: $color-blue-500;
       color: $color-white;
     }
+
     &.dot {
       background-color: $color-green-300;
     }

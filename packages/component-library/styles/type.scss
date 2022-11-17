@@ -11,8 +11,7 @@ $ca-weight-medium: 500;
 $ca-weight-semibold: 500; // Note: in Sketch, semibold is 600. But murmur has an existing value of semibold=500 that is heavily used.
 
 // Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
-$ca-inter-font-family: "Inter", "Noto Sans", Helvetica, Arial, sans-serif;
-
+$ca-inter-font-family: "Inter", "Noto Sans", helvetica, arial, sans-serif;
 $ca-inter-font-base-size: 1rem; /* 16px */
 $ca-inter-font-descender-height: 0.14;
 
@@ -28,12 +27,12 @@ $ca-ideal-sans-font-base-size: 1rem; /* 16px */
 $ca-ideal-sans-font-descender-height: 0.14;
 
 // Locale-specific fonts
-$ca-ideal-locale-ar-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
+$ca-ideal-locale-ar-font-family: "Ideal Sans A", "Ideal Sans B", tahoma,
   sans-serif;
-$ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
+$ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", tahoma,
   sans-serif;
-$ca-inter-locale-ar-font-family: "Inter", Tahoma, sans-serif;
-$ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
+$ca-inter-locale-ar-font-family: "Inter", tahoma, sans-serif;
+$ca-inter-locale-he-font-family: "Inter", tahoma, sans-serif;
 $ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
 $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
@@ -52,13 +51,17 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $letter-spacing: normal
 ) {
   @include deprecate-legacy-typography-mixins;
+
   font-family: $family;
+
   html:lang(he) & {
     font-family: $ca-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-locale-ar-font-family;
   }
+
   font-weight: $weight;
   letter-spacing: $letter-spacing;
 
@@ -66,11 +69,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
   $line-height-ratio: $absolute-line-height / $font-size; // unitless number
   $line-spacing: $line-height-ratio - 1;
+
   font-size: $font-size;
   line-height: $line-height-ratio;
-
   position: relative;
   top: #{$descender-height + $line-spacing / 2}em;
+
   // If `position: relative` creates issues, we could alternatively use a transform,
   // though this creates a new stacking context which can break z-index based layers:
   // transform: translateY(#{$descender-height + $line-spacing / 2}em);
@@ -80,18 +84,22 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 // Creates whitespace for the contained text to shift “into”
 @mixin ca-type-block($display: block) {
   @include deprecate-legacy-typography-mixins;
+
   display: $display;
   padding-bottom: $ca-grid / 2;
 }
 
 @mixin ca-inherit-baseline {
   @include deprecate-legacy-typography-mixins;
+
   position: static;
 }
 
 @mixin ca-type-reverse {
   @include deprecate-legacy-typography-mixins;
+
   color: white;
+
   // Without these non-standard anti-aliasing properties, white Ideal Sans on a dark background appears to have a heavier font weight
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -101,33 +109,23 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-title($args...) {
   @include ca-type(
-    $size-ratio: 12/7,
+    $size-ratio: 12 / 7,
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-medium,
     $args...
   );
 }
 
-@mixin ca-type-ideal-small-bold($args...) {
-  @include ca-type-ideal-small;
-  font-weight: $ca-weight-semibold;
-}
-
-@mixin ca-type-inter-small-bold($args...) {
-  @include ca-type-inter-small;
-  font-weight: 600;
-}
-
 @mixin ca-type-display($args...) {
-  @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type($size-ratio: 10 / 7, $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-heading($args...) {
-  @include ca-type($size-ratio: 8/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type($size-ratio: 8 / 7, $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-lede($args...) {
-  @include ca-type($size-ratio: 8/7, $args...);
+  @include ca-type($size-ratio: 8 / 7, $args...);
 }
 
 @mixin ca-type-body($args...) {
@@ -139,11 +137,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-small($args...) {
-  @include ca-type($size-ratio: 6/7, $args...);
+  @include ca-type($size-ratio: 6 / 7, $args...);
 }
 
 @mixin ca-type-labels-and-legends($args...) {
-  @include ca-type($size-ratio: 6/7, $letter-spacing: 0.04em, $args...);
+  @include ca-type($size-ratio: 6 / 7, $letter-spacing: 0.04em, $args...);
+
   text-transform: uppercase;
 }
 
@@ -166,9 +165,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-ideal-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-ideal-locale-ar-font-family;
   }
@@ -231,12 +232,14 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-ideal-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-medium,
     $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
+
   text-transform: uppercase;
 }
 
@@ -247,10 +250,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-ideal-control-action($size: 16, $args...) {
   @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -279,9 +284,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-inter-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-inter-locale-ar-font-family;
   }
@@ -344,12 +351,14 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-inter-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-inter(
     $size: $size,
     $weight: 600,
     $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
+
   text-transform: uppercase;
 }
 
@@ -360,10 +369,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-inter-control-action($size: 16, $args...) {
   @include ca-type-inter($size: $size, $weight: 500, $args...);
+
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -375,8 +386,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin debug-vertical-rhythm-grid() {
   @include deprecate-legacy-typography-mixins;
+
   position: relative;
-  &:after {
+
+  &::after {
     content: "";
     position: absolute;
     top: 0;
@@ -392,6 +405,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-align-start() {
   @include deprecate-legacy-typography-mixins;
+
   text-align: left; // fallback for IE and Edge
   text-align: start;
 
@@ -404,6 +418,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-align-end() {
   @include deprecate-legacy-typography-mixins;
+
   text-align: right; // fallback for IE and Edge
   text-align: end;
 

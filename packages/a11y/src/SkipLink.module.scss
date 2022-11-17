@@ -7,7 +7,7 @@
  * _Most_ of these styles have been copied over from the generic button
  * in @kaizen/button. Although the appearance closely resembles reversed primary
  * button, some necessary modifications to make this component visuallyHidden and
- * other slight visual tweaks did not make this appropriate for reuse. 
+ * other slight visual tweaks did not make this appropriate for reuse.
  */
 $caButton-height: $spacing-xl;
 $caButton-verticalPadding: calc(#{$spacing-sm} - #{$border-solid-border-width});
@@ -29,13 +29,13 @@ $caButtonIcon-height: 20px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
   line-height: $typography-button-primary-line-height;
   letter-spacing: $typography-button-primary-letter-spacing;
   display: inline-flex;
+
   // ^inline-flex is used over (block) flex here to fix an edge case where the parent element is display:grid
   //  and this element is an <a>, causing the element to be full width.
   align-items: center;
@@ -44,14 +44,12 @@ $caButtonIcon-height: 20px;
   border: $border-solid-border-width $border-solid-border-style;
   border-radius: $border-solid-border-radius;
   position: relative;
-  text-align: center;
   cursor: pointer;
   text-align: center;
   overflow: visible; // Required for the focus ring on IE11
-
   text-decoration: none;
-
-  padding: $caButton-verticalPadding
+  padding:
+    $caButton-verticalPadding
     calc(#{$spacing-md} - #{$border-solid-border-width});
 }
 
@@ -59,9 +57,11 @@ $caButtonIcon-height: 20px;
   background: $color-white;
   border-color: $border-borderless-border-color;
   color: $color-purple-800;
+
   // show custom focus ring when :focus-visible
   &:global(.focus-visible)::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;
@@ -77,8 +77,9 @@ $caButtonIcon-height: 20px;
 }
 
 .skipLinkContainer {
-  @include button();
-  @include primary();
+  @include button;
+  @include primary;
+
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;

@@ -19,6 +19,7 @@ $reverse-variant-color: $color-blue-100;
 
 .footerLink {
   padding: 0 $spacing-sm;
+
   @media (max-width: $layout-breakpoints-medium) {
     padding: 0;
   }
@@ -39,6 +40,7 @@ $reverse-variant-color: $color-blue-100;
 
   // consistency with the other items in the footer
   text-decoration: underline;
+
   &:hover {
     text-decoration: none;
   }

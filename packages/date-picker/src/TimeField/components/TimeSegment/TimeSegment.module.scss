@@ -1,13 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 $polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
-
 $className--timesegment-wrapper: ".timeSegmentWrapper";
 
 // Classnames to simulate pseudo states in storybook
 $story-className--timesegment-hover: ":global(.story__timefield-hover) #{$className--timesegment-wrapper}:first-child &";
 $story-className--timesegment-focus: ":global(.story__timefield-focus) #{$className--timesegment-wrapper}:first-child &";
-
 $selectors--timesegment-hover: "&:hover, #{$story-className--timesegment-hover}";
 $selectors--timesegment-focus: "&:focus-visible, #{$polyfill--focus-visible}, #{$story-className--timesegment-focus}";
 

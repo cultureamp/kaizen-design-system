@@ -21,7 +21,6 @@
 $block-height: 35px;
 $desktop-rater-width: 220px;
 $desktop-rater-height: 63px;
-
 $first: $color-yellow-300;
 $second: $color-yellow-400;
 $third: $color-orange-400;
@@ -29,7 +28,7 @@ $fourth: $color-orange-500;
 $fifth: $color-red-500;
 
 @mixin pop {
-  -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
+  animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
 }
 
 @mixin fill($height) {
@@ -44,7 +43,7 @@ $fifth: $color-red-500;
       border-bottom-right-radius: $height;
     }
 
-    &:after {
+    &::after {
       border-top-left-radius: $height;
       border-bottom-left-radius: $height;
 
@@ -68,7 +67,7 @@ $fifth: $color-red-500;
       border-bottom-left-radius: $height;
     }
 
-    &:after {
+    &::after {
       border-top-right-radius: $height;
       border-bottom-right-radius: $height;
 
@@ -85,11 +84,12 @@ $fifth: $color-red-500;
 @keyframes pop {
   0% {
     opacity: 0.5;
-    -webkit-transform: scale(1);
+    transform: scale(1);
   }
+
   100% {
     opacity: 0;
-    -webkit-transform: scale(1.78);
+    transform: scale(1.78);
   }
 }
 
@@ -119,9 +119,7 @@ $fifth: $color-red-500;
     outline: none;
   }
 
-  .reversed:not(.rated)
-    :global([data-focus-visible-added]).likertItem:focus
-    .likertItemFill {
+  .reversed:not(.rated) :global([data-focus-visible-added]).likertItem:focus .likertItemFill {
     outline-color: $color-blue-300;
   }
 
@@ -131,7 +129,8 @@ $fifth: $color-red-500;
 
   :global([data-focus-visible-added]).likertItem .likertItemFill {
     outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
+    outline:
+      $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
   }
 
@@ -172,6 +171,7 @@ $fifth: $color-red-500;
   }
 
   @include fill($block-height);
+
   font-size: 1px;
   line-height: 1;
   padding: 0;
@@ -184,6 +184,7 @@ $fifth: $color-red-500;
     margin-right: 2px;
     margin-left: 0;
   }
+
   &:last-child {
     margin-left: 2px;
     margin-right: 0;
@@ -193,31 +194,40 @@ $fifth: $color-red-500;
   &.selected {
     .field1 {
       background-color: $first;
-      &:after {
+
+      &::after {
         background-color: $first;
       }
     }
+
     .field2 {
       background-color: $second;
-      &:after {
+
+      &::after {
         background-color: $second;
       }
     }
+
     .field3 {
       background-color: $third;
-      &:after {
+
+      &::after {
         background-color: $third;
       }
     }
+
     .field4 {
       background-color: $fourth;
-      &:after {
+
+      &::after {
         background-color: $fourth;
       }
     }
+
     .field5 {
       background-color: $fifth;
-      &:after {
+
+      &::after {
         background-color: $fifth;
       }
     }
@@ -232,7 +242,8 @@ $fifth: $color-red-500;
   &:hover {
     transition: background 0s, border-color 0s;
   }
-  &:after {
+
+  &::after {
     content: " ";
     display: block;
     height: 100%;
@@ -240,7 +251,7 @@ $fifth: $color-red-500;
     pointer-events: none;
   }
 
-  &.pop:after {
+  &.pop::after {
     @include pop;
   }
 }

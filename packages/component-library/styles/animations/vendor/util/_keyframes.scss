@@ -52,8 +52,9 @@ $-mui-custom: 0;
   @each $prop, $value in $map or () {
     // Some keyframe maps store transforms as quoted strings
     @if type-of($value) == "string" {
-      $value: unquote($value);
+      $value: $value;
     }
+
     #{$prop}: $value;
   }
 }

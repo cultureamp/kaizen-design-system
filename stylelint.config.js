@@ -1,5 +1,8 @@
 module.exports = {
-  extends: ["./packages/stylelint-plugin/dev-config.js"],
+  extends: [
+    "stylelint-config-recommended-scss",
+    "./packages/stylelint-plugin/dev-config.js",
+  ],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,
@@ -9,6 +12,12 @@ module.exports = {
     "comment-no-empty": true,
     "no-duplicate-selectors": true,
     "font-family-no-duplicate-names": true,
+    // TODO: Fix this if sticking with SCSS, because we need to fix the order.
+    "no-descending-specificity": null,
+    "property-no-unknown": null,
+    "annotation-no-unknown": null,
+    "scss/operator-no-newline-after": null,
+    "scss/operator-no-unspaced": null,
     /**
      * "selector-pseudo-class-no-unknown": true
      * https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown

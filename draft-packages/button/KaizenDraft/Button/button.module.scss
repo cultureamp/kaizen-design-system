@@ -57,6 +57,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     background: $color-blue-500;
     color: $color-white;
     border-color: $border-borderless-border-color;
@@ -82,6 +83,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     background: $color-green-300;
     border-color: $border-borderless-border-color;
     color: $color-purple-800;
@@ -116,6 +118,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     background: transparent;
     border-color: $border-borderless-border-color;
     color: $color-blue-500;
@@ -143,6 +146,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     color: $color-red-600;
   }
 }
@@ -156,13 +160,13 @@ $caButton-verticalPaddingForm: calc(
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
   line-height: $typography-button-primary-line-height;
   letter-spacing: $typography-button-primary-letter-spacing;
   display: inline-flex;
+
   // ^inline-flex is used over (block) flex here to fix an edge case where the parent element is display:grid
   //  and this element is an <a>, causing the element to be full width.
   align-items: center;
@@ -171,7 +175,6 @@ $caButton-verticalPaddingForm: calc(
   border: $border-solid-border-width $border-solid-border-style;
   border-radius: $border-solid-border-radius;
   position: relative;
-  text-align: center;
   cursor: pointer;
   text-align: center;
   overflow: visible; // Required for the focus ring on IE11
@@ -183,7 +186,6 @@ $caButton-verticalPaddingForm: calc(
   }
 
   // Enabled (to restrict application of hover/focus/active styles)
-  //
   // We can't just used :enabled here, because we want to be able to apply these
   // styles to non-form elements, such as hyperlinks. :not(:disabled) is
   // equivalent to :enabled on form elements, but also allows these styles to be
@@ -221,6 +223,7 @@ $caButton-verticalPaddingForm: calc(
         $focus-ring-offset: calc(
           (#{$border-focus-ring-border-width} * 2) + 1px
         );
+
         content: "";
         position: absolute;
         background: transparent;
@@ -239,6 +242,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     opacity: 0.3;
     background: $color-white;
     border-color: $dt-color-border-color-disabled;
@@ -279,6 +283,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     color: $color-white;
     background: $color-red-500;
     border-color: $color-red-500;
@@ -318,6 +323,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled,
   &.working {
     @include working-state;
+
     opacity: 0.3;
     border-color: rgba($color-white-rgb, 0.5);
     color: $color-white;
@@ -343,6 +349,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled,
     &.working {
       @include working-state;
+
       background: $color-green-300;
       border-color: $border-borderless-border-color;
       color: $color-purple-800;
@@ -372,6 +379,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled,
     &.working {
       @include working-state;
+
       background: transparent;
       border-color: $border-borderless-border-color;
       color: $color-white;
@@ -397,6 +405,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled,
     &.working {
       @include working-state;
+
       background: $color-red-300;
       border-color: $border-borderless-border-color;
       color: $color-purple-800;
@@ -408,7 +417,6 @@ $caButton-verticalPaddingForm: calc(
   height: 100%;
   display: flex;
   align-items: center;
-
   padding: $caButton-verticalPadding
     calc(#{$spacing-md} - #{$border-solid-border-width});
 
@@ -478,12 +486,14 @@ $caButton-verticalPaddingForm: calc(
 
 %caButtonAdditionalContentWrapper {
   display: inherit;
+
   &:not(:last-child) {
     @include ca-margin($end: 0.5em, $start: null);
   }
 }
 %caButtonIconButton {
   width: $caButton-height;
+
   // Reset for various states and variants
   &:not(:disabled),
   &:disabled {
@@ -497,6 +507,7 @@ $caButton-verticalPaddingForm: calc(
 
       &%caButtonReversed {
         color: $color-purple-800;
+
         &%caButtonPrimary {
           %caButtonContent {
             color: $color-purple-800;
@@ -505,8 +516,10 @@ $caButton-verticalPaddingForm: calc(
         }
       }
     }
+
     &.working {
       @include working-state;
+
       height: $caButtonIcon-height;
     }
   }
@@ -546,6 +559,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled,
     &.working {
       @include working-state;
+
       opacity: 0.3;
       color: $color-white;
       background: transparent;
@@ -581,6 +595,7 @@ $caButton-verticalPaddingForm: calc(
       &:disabled,
       &.working {
         @include working-state;
+
         color: $color-purple-800;
         background: $color-red-300;
         border-color: $color-red-300;
@@ -599,6 +614,7 @@ $caButton-verticalPaddingForm: calc(
     justify-content: center;
     width: 100%;
     padding: 0;
+
     // IE 10/11 workaround to fix vertical centering of icon
     margin: calc(
         (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$border-solid-border-width}
@@ -636,6 +652,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled,
     &.working {
       @include working-state;
+
       color: $color-white;
       background: $color-red-500;
       border-color: $color-red-500;

@@ -9,7 +9,6 @@
   $str: quote($str);
   $length: str_length($str);
   $safe-chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
-
   $ret: "";
   $delimited: false;
 

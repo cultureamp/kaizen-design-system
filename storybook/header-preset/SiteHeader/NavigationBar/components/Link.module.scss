@@ -4,7 +4,7 @@
 @import "@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "@kaizen/component-library/styles/grid";
 @import "@kaizen/component-library/styles/responsive";
-@import "../decision-tokens.scss";
+@import "../decision-tokens";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;

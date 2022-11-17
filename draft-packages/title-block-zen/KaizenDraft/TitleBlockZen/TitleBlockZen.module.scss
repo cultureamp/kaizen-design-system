@@ -119,6 +119,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
       transform: translateY(-0.38333em);
     }
   }
+
   transform: translateY(-0.0833333em);
 }
 
@@ -175,6 +176,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     line-height: $typography-heading-2-line-height;
     letter-spacing: $typography-heading-2-letter-spacing;
   }
+
   @include title-block-under-1366 {
     font-family: $typography-heading-2-font-family;
     font-weight: $typography-heading-2-font-weight;
@@ -183,6 +185,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     letter-spacing: $typography-heading-2-letter-spacing;
     padding: 2px 0;
   }
+
   .hasLongTitle & {
     @include title-block-under-1366 {
       font-family: $typography-heading-3-font-family;
@@ -210,6 +213,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   overflow: hidden;
   height: $ca-grid * 2;
   width: $ca-grid * 2;
+
   @include ca-margin($end: calc(#{$ca-grid} / 2));
 
   > * {
@@ -232,6 +236,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .hamburger {
   display: none;
+
   @include ca-margin($end: $spacing-xs);
 
   @include title-block-medium-and-small {
@@ -308,6 +313,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     line-height: $typography-heading-3-line-height;
     letter-spacing: $typography-heading-3-letter-spacing;
   }
+
   @include title-block-medium-and-small {
     font-family: $typography-heading-4-font-family;
     font-weight: $typography-heading-4-font-weight;
@@ -367,6 +373,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .tag {
   @include ca-margin($start: calc(#{$ca-grid} / 2));
+
   display: flex;
   align-items: center;
 
@@ -381,6 +388,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .pageSwitcherSelectNextToTitle {
   @include ca-margin($start: calc(#{$ca-grid} / 2));
+
   flex-shrink: 0;
   width: 10 * $ca-grid;
 }
@@ -401,6 +409,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .navigationTabsContainerCollapsed {
   height: $tab-container-height-default-collapsed;
+
   @include title-block-medium-and-small {
     height: $tab-container-height-medium-and-small-collapsed;
   }
@@ -461,7 +470,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowLeft {
-  composes: navigationTabEdgeShadow;
+  composes: navigationtabedgeshadow;
   transform: rotate(90deg);
   left: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -472,7 +481,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowRight {
-  composes: navigationTabEdgeShadow;
+  composes: navigationtabedgeshadow;
   transform: rotate(-90deg);
   right: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -489,6 +498,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   align-items: flex-start;
   justify-content: flex-end;
   padding: (calc(#{$ca-grid} / 2)) 0;
+
   @include ca-margin($start: $ca-grid * 1.5);
 
   // To be removed eventually – the Dropdown does not
@@ -517,7 +527,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .breadcrumb {
-  composes: buttonReset;
+  composes: buttonreset;
   cursor: pointer;
   display: flex;
   position: absolute;
@@ -525,9 +535,11 @@ $tab-container-height-medium-and-small-collapsed: 0;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
+
   @include ca-position(
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
+
   align-self: normal;
 
   &:hover .breadcrumbTextLink {
@@ -536,8 +548,10 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
+
     @include ca-margin($end: calc(#{$ca-grid} / 2));
     @include ca-position($start: 0);
+
     transform: translateY(0);
   }
 
@@ -570,8 +584,11 @@ $tab-container-height-medium-and-small-collapsed: 0;
   // We are using visually hidden here instead of display:none so that a screen reader
   // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
   @include visually-hidden;
+
   z-index: $ca-z-index-sticky - 1;
+
   @include ca-position($start: -2 * $ca-grid);
+
   position: absolute;
 
   @include title-block-under-1645 {
@@ -589,6 +606,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     @include visually-hidden-reset;
+
     // ^be careful of this mixin unsetting values you need
     // e.g. I needed to set position:absolute again below
     position: absolute;
@@ -615,6 +633,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .breadcrumb:hover,
 .breadcrumbText {
   color: $color-white;
+
   .educationVariant &,
   .adminVariant & {
     color: $color-purple-800;
@@ -623,6 +642,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .circle {
   $border-width: 3px;
+
   flex: 0 0 $breadcrumb-circle-width;
   box-sizing: border-box;
   width: $breadcrumb-circle-width;
@@ -667,14 +687,16 @@ $tab-container-height-medium-and-small-collapsed: 0;
     display: none;
     opacity: 0;
   }
+
   1% {
     display: block;
     opacity: 0;
     transform: translateX(-30px);
   }
+
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }
 
@@ -683,13 +705,15 @@ $tab-container-height-medium-and-small-collapsed: 0;
     display: none;
     opacity: 0;
   }
+
   1% {
     display: block;
     opacity: 0;
     transform: translateX(30px);
   }
+
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }

@@ -75,6 +75,7 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-runnable-track {
     @include track;
+
     margin: $spacing-sm 0;
   }
 
@@ -84,9 +85,11 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-thumb {
     @include thumb;
-    -webkit-appearance: none;
+
+    appearance: none;
     margin-top: ($thumb-height-with-border/2) * -1;
   }
+
   &::-moz-range-thumb {
     @include thumb;
   }
@@ -94,12 +97,14 @@ input[type="range"].ratingScaleRange {
   &.hideThumb::-webkit-slider-thumb {
     @include hiddenThumb;
   }
+
   &.hideThumb::-moz-range-thumb {
     @include hiddenThumb;
   }
 
   &::-ms-track {
     @include track;
+
     color: transparent;
     border-width: $thumb-width 0;
     border-color: transparent;
@@ -168,7 +173,7 @@ input[type="range"].ratingScaleRange {
 // (such as a, button, input, etc) they must become visible when they receive
 // keyboard focus. Otherwise, a sighted keyboard user would have to try and
 // figure out where their visible focus indicator had gone to.
-.visuallyHidden:not(:focus):not(:active) {
+.visuallyHidden:not(:focus, :active) {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   position: absolute;

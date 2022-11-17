@@ -8,7 +8,7 @@
 $dt-roadblock-header-background: $color-orange-100;
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.module.scss";
+  composes: genericmodal from "../Primitives/GenericModal.module.scss";
   min-width: 300px;
   max-width: 600px;
 }

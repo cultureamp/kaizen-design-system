@@ -20,6 +20,7 @@ $ca-breakpoint-small-mobile: 375px;
       font-size: 1.625rem;
       line-height: 2rem;
     }
+
     @include ca-media-small-mobile {
       font-size: 1.5rem;
       line-height: 1.875rem;
@@ -42,6 +43,7 @@ $ca-breakpoint-small-mobile: 375px;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible)::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
       content: "";
       position: absolute;
       background: transparent;

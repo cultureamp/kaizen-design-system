@@ -13,6 +13,7 @@
 
 .tab {
   @include ca-inherit-baseline;
+
   font-family: $typography-heading-4-font-family;
   font-size: $typography-heading-4-font-size;
   line-height: $typography-heading-4-line-height;
@@ -44,11 +45,13 @@
       background-color: $color-blue-100;
       font-weight: $typography-heading-4-font-weight;
 
-      &:after {
+      &::after {
         content: "";
         position: absolute;
         background: transparent;
+
         $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
+
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
         border-color: $color-blue-500;
@@ -68,7 +71,6 @@
   border-top-right-radius: $border-borderless-border-radius;
   padding: 0 $ca-grid * 0.75;
   height: 3 * $ca-grid;
-
   top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
   // we need to make this position: relative, for the absolutely positioned underline.
 
@@ -77,25 +79,27 @@
   justify-content: center;
   min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
 
-  :global(.js-focus-visible) &:global(.focus-visible):after {
-    border-radius: $border-borderless-border-radius
+  :global(.js-focus-visible) &:global(.focus-visible)::after {
+    border-radius:
+      $border-borderless-border-radius
       $border-borderless-border-radius 0 0;
   }
 }
 
 .horizontalTabActive {
   composes: tab;
-  composes: horizontalTab;
+  composes: horizontaltab;
   font-weight: $typography-heading-4-font-weight;
   color: $color-blue-500;
 
   &::before {
     $underline-height: 5px;
+
     content: "";
     display: block;
     border-top-left-radius: $underline-height;
     border-top-right-radius: $underline-height;
-    background-color: currentColor;
+    background-color: currentcolor;
     height: $underline-height;
     width: 100%;
     position: absolute;
@@ -107,7 +111,7 @@
 
 .horizontalTabDisabled {
   composes: tab;
-  composes: horizontalTab;
+  composes: horizontaltab;
   cursor: inherit;
   opacity: 0.3;
   font-weight: normal;
@@ -143,7 +147,7 @@
     padding-left: $spacing-sm;
   }
 
-  :global(.js-focus-visible) &:global(.focus-visible):after {
+  :global(.js-focus-visible) &:global(.focus-visible)::after {
     border-radius: $border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }
@@ -151,13 +155,13 @@
 
 .verticalTabActive {
   composes: tab;
-  composes: verticalTab;
+  composes: verticaltab;
   color: $color-blue-500;
 }
 
 .verticalTabDisabled {
   composes: tab;
-  composes: verticalTab;
+  composes: verticaltab;
   cursor: inherit;
   opacity: 0.3;
 

@@ -10,7 +10,6 @@ $input-base-padding-horizontal: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
-
 $search-input-placeholder-opacity: 0.7;
 $search-input-disabled-icon-opacity: 0.8;
 $border-solid-border-radius-curved: $input-height;
@@ -26,6 +25,7 @@ $border-solid-border-radius-curved: $input-height;
 // [type="search"] is required to override performance-ui global materialize CSS >:|
 .input[type="search"] {
   @include form-input-reset;
+
   background-color: transparent;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style transparent;
@@ -61,12 +61,13 @@ $border-solid-border-radius-curved: $input-height;
   }
 
   &::-webkit-search-cancel-button {
-    -webkit-appearance: none;
+    appearance: none;
   }
 }
 
 .input[type="search"]:focus + .focusRing {
   $focus-ring-offset: 3px;
+
   position: absolute;
   background: transparent;
   border-radius: $border-solid-border-radius-curved;
@@ -95,6 +96,7 @@ $border-solid-border-radius-curved: $input-height;
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
+
     right: auto;
     left: $spacing-sm;
 
@@ -126,6 +128,7 @@ $border-solid-border-radius-curved: $input-height;
 .withEndIconAdornment {
   .endIconAdornment {
     @include vertically-center-icon;
+
     right: $spacing-sm;
     left: auto;
 
@@ -381,7 +384,7 @@ $border-solid-border-radius-curved: $input-height;
 .input[type="search"].reversed.secondary {
   color: $color-white;
   border: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
 
   @include form-input-placeholder {
     color: $color-white;

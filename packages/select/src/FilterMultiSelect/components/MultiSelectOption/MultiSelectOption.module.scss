@@ -5,33 +5,31 @@
 
 .option {
   height: fit-content;
-
   align-items: flex-start;
   display: inline-grid;
   grid-template-columns: $spacing-md 1fr auto;
   gap: $spacing-xs;
   padding: $spacing-xs;
   position: relative;
-
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   font-weight: $typography-paragraph-body-font-weight;
   line-height: $typography-paragraph-body-line-height;
-
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
-
   cursor: default;
 
   &:hover,
   &:active,
   &:focus {
     background-color: $color-blue-100;
+
     .badge {
       background-color: $color-white;
     }
+
     .icon {
       border-color: $color-gray-600;
       background-color: $color-gray-200;
@@ -42,12 +40,15 @@
   &:focus-visible,
   &:global(.js-focus-visible) &:global(.focus-visible) {
     background-color: $color-blue-100;
+
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
       content: "";
       position: absolute;
       background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
+      border:
+        $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
       border-radius: $border-focus-ring-border-radius;
       top: calc(-1 * #{$focus-ring-offset});
@@ -65,10 +66,12 @@
   &.isDisabled {
     opacity: 0.3;
     background: none;
+
     &:hover {
       .icon {
         border-color: $color-gray-500;
       }
+
       .badge {
         background-color: $color-gray-300;
       }

@@ -35,10 +35,11 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 }
 
 @mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
-  @if ($start == null and $end != null) {
+  @if not $start and $end {
     $start: auto;
   }
-  @if ($end == null and $start != null) {
+
+  @if not $end and $start {
     $end: auto;
   }
 

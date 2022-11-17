@@ -6,11 +6,11 @@
 // Should match the values for the Input component
 $input-height: 48px;
 $input-placeholder-opacity: 0.5;
-
 $focus-border-color: $color-blue-500;
 
 %focus-border {
   $focus-ring-offset: calc((#{$border-focus-ring-border-width} * -2) - 1px);
+
   content: "";
   position: absolute;
   background: transparent;
@@ -40,6 +40,7 @@ $focus-border-color: $color-blue-500;
 
   .dropdownIndicator {
     color: rgba($color-purple-800-rgb, 0.7);
+
     &:hover {
       color: rgba($color-purple-800-rgb, 0.7);
     }
@@ -49,8 +50,10 @@ $focus-border-color: $color-blue-500;
     &.disabled {
       opacity: 0.3;
     }
+
     min-height: $input-height;
-    border: $border-solid-border-width $border-solid-border-style
+    border:
+      $border-solid-border-width $border-solid-border-style
       $color-gray-500;
     border-radius: $border-solid-border-radius;
 
@@ -77,7 +80,7 @@ $focus-border-color: $color-blue-500;
   }
 
   .loadingMessage {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   .focusedControl {
@@ -89,7 +92,8 @@ $focus-border-color: $color-blue-500;
   }
 
   .placeholder {
-    @include base-font-style();
+    @include base-font-style;
+
     opacity: $input-placeholder-opacity;
   }
 
@@ -118,7 +122,8 @@ $focus-border-color: $color-blue-500;
   }
 
   .option {
-    @include base-font-style();
+    @include base-font-style;
+
     cursor: pointer;
     border-radius: $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
@@ -130,6 +135,7 @@ $focus-border-color: $color-blue-500;
     background-color: $color-blue-100;
     color: $color-blue-500;
     border-color: $focus-border-color;
+
     &.disabledOption {
       color: $color-purple-800;
       border-style: $border-dashed-border-style;
@@ -147,6 +153,7 @@ $focus-border-color: $color-blue-500;
     &:not(.focusedOption) {
       background-color: transparent;
     }
+
     font-weight: $typography-paragraph-bold-font-weight;
     color: $color-blue-500;
   }
@@ -157,17 +164,18 @@ $focus-border-color: $color-blue-500;
   }
 
   .noOptionsMessage {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   .singleValue {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   &.reversed {
     .singleValue {
       color: $color-white;
     }
+
     .singleValueOverrides {
       color: $color-white;
     }
@@ -179,7 +187,8 @@ $focus-border-color: $color-blue-500;
 
   &.error {
     .control {
-      border: $border-solid-border-width $border-solid-border-style
+      border:
+        $border-solid-border-width $border-solid-border-style
         $color-red-500;
     }
   }
@@ -211,7 +220,8 @@ $focus-border-color: $color-blue-500;
 
       &.error {
         .control {
-          border: $border-solid-border-width $border-solid-border-style
+          border:
+            $border-solid-border-width $border-solid-border-style
             $color-red-300;
         }
       }
@@ -223,7 +233,8 @@ $focus-border-color: $color-blue-500;
     &.default {
       .control {
         background: transparent;
-        border: $border-borderless-border-width $border-borderless-border-style
+        border:
+          $border-borderless-border-width $border-borderless-border-style
           $border-borderless-border-color;
         border-radius: $border-borderless-border-radius;
 
@@ -257,7 +268,8 @@ $focus-border-color: $color-blue-500;
       .control {
         background: rgba($color-white-rgb, 0.1);
         color: $color-white;
-        border: $border-borderless-border-width $border-borderless-border-style
+        border:
+          $border-borderless-border-width $border-borderless-border-style
           $border-borderless-border-color;
         border-radius: $border-borderless-border-radius;
 
@@ -376,7 +388,7 @@ $focus-border-color: $color-blue-500;
       overflow: hidden;
       position: static;
       white-space: nowrap;
-      top: 0px;
+      top: 0;
       transform: none;
       max-width: 100%;
     }

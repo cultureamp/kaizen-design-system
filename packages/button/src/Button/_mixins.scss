@@ -17,11 +17,11 @@
     #{$selectors--button-hover},
     #{$selectors--button-active},
     #{$selectors--button-focus} {
-      @if ($background-color != undefined) {
+      @if $background-color != undefined {
         background-color: $background-color;
       }
 
-      @if ($border-color != undefined) {
+      @if $border-color != undefined {
         border-color: $border-color;
       }
     }

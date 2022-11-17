@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.module.scss";
+  composes: genericmodal from "../Primitives/GenericModal.module.scss";
   min-width: 300px;
   max-width: 600px;
 }
@@ -20,6 +20,7 @@
 
   &.padded {
     padding: $ca-grid $ca-grid * 1.5;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $ca-grid;
     }
@@ -31,6 +32,7 @@
 
   &.padded {
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $ca-grid;
     }

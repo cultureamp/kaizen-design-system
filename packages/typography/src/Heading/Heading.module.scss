@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "../fonts.scss";
+@import "../fonts";
 
 .heading {
   margin: 0;
@@ -60,6 +60,7 @@
   font-size: $typography-heading-6-font-size;
   line-height: $typography-heading-6-line-height;
   letter-spacing: $typography-heading-6-letter-spacing;
+
   // override Murmur global styles :(
   text-transform: none;
 }
@@ -88,6 +89,7 @@
   &.small {
     color: $color-green-600;
   }
+
   &.large {
     color: $color-green-500;
   }

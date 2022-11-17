@@ -5,7 +5,6 @@
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
 $arrow-height: 7px;
-
 $large-width: 450px;
 
 @mixin button-reset {
@@ -50,13 +49,14 @@ $large-width: 450px;
   width: 220px;
   position: absolute;
   left: 50%;
+
   // also see the component file under getRootStyle, which will transform the element
 }
 
 %box {
   background: $color-white;
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0 7px rgb(0 0 0 / 10%));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: left;
@@ -75,6 +75,7 @@ $informative-box-border-color: $color-blue-300;
 
 .informativeBox {
   @extend %box;
+
   background: $color-blue-100;
   border-color: $informative-box-border-color;
 }
@@ -87,6 +88,7 @@ $positive-box-border-color: $color-green-300;
 
 .positiveBox {
   @extend %box;
+
   background: $color-green-100;
   border-color: $positive-box-border-color;
 }
@@ -99,6 +101,7 @@ $negative-box-border-color: $color-red-300;
 
 .negativeBox {
   @extend %box;
+
   background: $color-red-100;
   border-color: $negative-box-border-color;
 }
@@ -109,6 +112,7 @@ $negative-box-border-color: $color-red-300;
 
 .cautionaryBox {
   @extend %box;
+
   background: $color-yellow-100;
   border-color: $color-yellow-400;
 }
@@ -154,6 +158,7 @@ $negative-box-border-color: $color-red-300;
 
 .close {
   @include button-reset;
+
   position: absolute;
   right: 0;
   margin-left: auto;
@@ -166,7 +171,8 @@ $negative-box-border-color: $color-red-300;
 
   &:global(.focus-visible) {
     color: $color-purple-800;
-    outline: $color-blue-500 $border-focus-ring-border-style
+    outline:
+      $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     outline-offset: calc(-1 * #{$border-focus-ring-border-width});
     border-radius: $border-borderless-border-radius;
@@ -179,6 +185,7 @@ $negative-box-border-color: $color-red-300;
 
 .arrowWrapper {
   position: absolute;
+
   // Needed by popper, so it measures the size of the arrow correctly
   width: $arrow-width;
   height: $arrow-height;
@@ -218,6 +225,7 @@ $negative-box-border-color: $color-red-300;
     transform: rotate(270deg);
   }
 }
+
 .arrowSideRight,
 [data-popper-placement^="right"] .arrowWrapper {
   left: 0;
@@ -258,6 +266,7 @@ $negative-box-border-color: $color-red-300;
 
 .singleLine {
   text-overflow: ellipsis;
+
   /* white-space and overflow are required for text-overflow to do anything */
   white-space: nowrap;
   overflow: hidden;

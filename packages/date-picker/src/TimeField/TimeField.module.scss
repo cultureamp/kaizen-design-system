@@ -49,6 +49,7 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
 #{$story-className--timefield-focus} .input {
   .focusRing {
     $focus-ring-offset: 3px;
+
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;

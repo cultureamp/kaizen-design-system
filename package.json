@@ -114,6 +114,8 @@
     "storybook-addon-designs": "^6.3.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.15.0",
+    "stylelint-config-recommended-scss": "^8.0.0",
+    "stylelint-config-css-modules": "^4.1.0",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "~3.0.3",
     "ts-jest": "^29.0.3",

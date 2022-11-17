@@ -15,9 +15,22 @@
   $timing: null,
   $delay: null
 ) {
-  $from: if($from != null, $from, if($state == in, 0, 1));
-  $to: if($to != null, $to, if($state == in, 1, 0));
-  $scale: zoom($from, $to);
+  $internalFrom: null;
+  $internalTo: null;
+
+  @if not $from {
+    $internalFrom: $from;
+  } @else {
+    $internalFrom: if($state == in, 0, 1);
+  }
+
+  @if $to {
+    $internalTo: $to;
+  } @else {
+    $internalTo: if($state == in, 0, 1);
+  }
+
+  $scale: zoom($internalFrom, $internalTo);
 
   @include transition-start($state) {
     @include transition-basics($duration, $timing, $delay);

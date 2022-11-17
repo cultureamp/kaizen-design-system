@@ -7,10 +7,12 @@
 
 .editor > :global(.ProseMirror) {
   @include contentStyles;
+
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);
   position: relative;
-  transition: background-color $animation-duration-immediate,
+  transition:
+    background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
 
   &:hover,
@@ -25,11 +27,13 @@
 
   &:global(.focus-visible)::after {
     $focus-ring-offset: 5px;
+
     content: "";
     pointer-events: none;
     position: absolute;
     background: transparent;
-    border-radius: 2px 2px $border-focus-ring-border-radius
+    border-radius:
+      2px 2px $border-focus-ring-border-radius
       $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
@@ -42,8 +46,8 @@
 }
 
 .editor.hasToolbar > :global(.ProseMirror) {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .editorWrapper {
@@ -56,6 +60,7 @@
   &:hover,
   &:focus-within {
     border-color: $color-gray-600;
+
     .toolbar {
       border-color: $color-gray-600;
     }

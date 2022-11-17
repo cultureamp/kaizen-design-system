@@ -13,7 +13,7 @@
   $direction: up;
   $timing: $ca-bounce-in;
 
-  @if ($state == out) {
+  @if $state == out {
     $direction: down;
     $timing: $ca-bounce-out;
   }
@@ -34,7 +34,7 @@
 ) {
   $timing: $ca-bounce-in;
 
-  @if ($state == out) {
+  @if $state == out {
     $timing: $ca-bounce-out;
   }
 
@@ -61,11 +61,13 @@
 
   @for $i from 1 through length($defaultProperties) {
     $p: null;
+
     @if $i <= length($transition) {
       $p: nth($transition, $i);
     } @else {
       $p: nth($defaultProperties, $i);
     }
+
     $unfoldedTransition: append($unfoldedTransition, $p);
   }
 
@@ -80,7 +82,7 @@
   @each $transition in $transitions {
     $unfoldedTransitions: append(
       $unfoldedTransitions,
-      unfoldTransition($transition),
+      unfoldtransition($transition),
       comma
     );
   }
