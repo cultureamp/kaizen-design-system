@@ -3,11 +3,11 @@ import { Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DateRangePicker } from "../src/DateRangePicker"
-import { DateRange } from "../src/types"
-import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
-import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { DateRangePicker } from "../src/DateRangePicker"
+import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
+import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
+import { DateRange } from "../src/types"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker`,

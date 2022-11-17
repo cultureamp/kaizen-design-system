@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { SearchField } from "@kaizen/draft-form"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Search Field`,

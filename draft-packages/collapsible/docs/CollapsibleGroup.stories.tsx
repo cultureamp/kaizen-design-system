@@ -1,7 +1,8 @@
 import React from "react"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
+import { Story } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
+import { Paragraph } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
@@ -27,118 +28,109 @@ export default {
   },
 }
 
-export const CollapsibleGroupDefault = () => (
-  <Box m={1}>
-    <CollapsibleGroup>
-      <Collapsible id="collapsible-separate-1" open title="First panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-2" title="Second panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-3" title="Third panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-    </CollapsibleGroup>
-  </Box>
+export const CollapsibleGroupDefault = args => (
+  <CollapsibleGroup {...args}>
+    <Collapsible id="collapsible-separate-1" open title="First panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-2" title="Second panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-3" title="Third panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </CollapsibleGroup>
 )
-CollapsibleGroupDefault.storyName = "Collapsible group"
+CollapsibleGroupDefault.storyName = "Collapsible Group"
 
-export const CollapsibleGroupVariantClear = () => (
-  <Box m={1}>
-    <CollapsibleGroup>
-      <Collapsible
-        variant="clear"
-        id="collapsible-separate-1"
-        open
-        title="First panel"
-      >
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible
-        variant="clear"
-        id="collapsible-separate-2"
-        title="Second panel"
-      >
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible
-        variant="clear"
-        id="collapsible-separate-3"
-        title="Third panel"
-      >
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-    </CollapsibleGroup>
-  </Box>
+const CollapsibleGroupVariantClear = () => (
+  <CollapsibleGroup>
+    <Collapsible
+      variant="clear"
+      id="collapsible-separate-1"
+      open
+      title="First panel"
+    >
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible
+      variant="clear"
+      id="collapsible-separate-2"
+      title="Second panel"
+    >
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible
+      variant="clear"
+      id="collapsible-separate-3"
+      title="Third panel"
+    >
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </CollapsibleGroup>
 )
-CollapsibleGroupVariantClear.storyName = "Collapsible group (clear variant)"
-CollapsibleGroupVariantClear.parameters = { chromatic: { disable: false } }
+const CollapsibleGroupSeparated = () => (
+  <CollapsibleGroup separated>
+    <Collapsible id="collapsible-separate-1" open title="First panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-2" title="Second panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-3" title="Third panel">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </CollapsibleGroup>
+)
 
-export const CollapsibleGroupSeparated = () => (
-  <Box m={1}>
-    <CollapsibleGroup separated>
-      <Collapsible id="collapsible-separate-1" open title="First panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-2" title="Second panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-3" title="Third panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-    </CollapsibleGroup>
-  </Box>
+const CollapsibleGroupStickyHeaders = () => (
+  <CollapsibleGroup separated sticky={{ top: "0" }}>
+    <Collapsible id="collapsible-separate-1" title="First panel" open>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-2" title="Second panel" open>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+    <Collapsible id="collapsible-separate-3" title="Third panel" open>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </CollapsibleGroup>
 )
-CollapsibleGroupSeparated.storyName = "Collapsible group (separated)"
-CollapsibleGroupSeparated.parameters = { chromatic: { disable: false } }
 
-export const CollapsibleGroupStickyHeaders = () => (
-  <div style={{ margin: "4rem", width: "40rem" }}>
-    <CollapsibleGroup separated sticky={{ top: "0" }}>
-      <Collapsible id="collapsible-separate-1" title="First panel" open>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-2" title="Second panel" open>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-3" title="Third panel" open>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-4" title="Forth panel" open>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-5" title="Fifth panel" open>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-    </CollapsibleGroup>
-  </div>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Collapsible Group"]} />
+    <StoryWrapper.Row rowTitle="Clear">
+      <CollapsibleGroupVariantClear />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Sticky Header">
+      <CollapsibleGroupStickyHeaders />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Separated">
+      <CollapsibleGroupSeparated />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-CollapsibleGroupStickyHeaders.storyName = "Collapsible group (sticky headers)"
 
-export const CollapsibleGroupCallbackOnOpenClose = () => (
-  <Box m={1}>
-    <CollapsibleGroup onToggle={() => undefined}>
-      <Collapsible id="collapsible-separate-1" open title="First panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-2" title="Second panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-      <Collapsible id="collapsible-separate-3" title="Third panel">
-        <Paragraph variant="body">{lipsum}</Paragraph>
-      </Collapsible>
-    </CollapsibleGroup>
-  </Box>
-)
-CollapsibleGroupCallbackOnOpenClose.storyName =
-  "Collapsible group (callback on open/close)"
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

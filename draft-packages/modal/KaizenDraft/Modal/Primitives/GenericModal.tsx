@@ -1,9 +1,9 @@
 import React from "react"
 import { createPortal } from "react-dom"
-import FocusLock from "react-focus-lock"
-import { warn } from "@kaizen/component-library/util/console"
 import { Transition } from "@headlessui/react"
+import FocusLock from "react-focus-lock"
 import { v4 } from "uuid"
+import { warn } from "@kaizen/component-library/util/console"
 
 import {
   ModalAccessibleContext,

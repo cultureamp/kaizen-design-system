@@ -72,6 +72,10 @@ $focus-border-color: $color-blue-500;
     font-size: $typography-paragraph-body-font-size;
   }
 
+  .indicatorsContainer {
+    z-index: 1;
+  }
+
   .loadingMessage {
     @include base-font-style();
   }
@@ -327,6 +331,10 @@ $focus-border-color: $color-blue-500;
         margin-left: 0;
         margin-right: 0;
       }
+    }
+
+    .indicatorsContainer {
+      z-index: 1;
     }
 
     .dropdownIndicator {

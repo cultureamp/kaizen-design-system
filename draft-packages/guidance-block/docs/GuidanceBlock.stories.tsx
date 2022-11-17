@@ -1,16 +1,20 @@
 import React from "react"
+import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
   SkillsCoachManagerHub,
   SkillsCoachEssentialFeedback,
   Communication,
+  EmptyStatesPositive,
   BrandMomentPositiveOutro,
 } from "@kaizen/draft-illustration"
 import { Heading } from "@kaizen/typography"
-import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
 const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
@@ -96,224 +100,131 @@ DefaultStory.argTypes = {
   },
 }
 
-export const Moods = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
-    <Heading tag="h2" variant="heading-4">
-      Positive
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="positive"
-    />
-    <Heading tag="h2" variant="heading-4">
-      Negative
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="negative"
-    />
-    <Heading tag="h2" variant="heading-4">
-      Informative
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="informative"
-    />
-    <Heading tag="h2" variant="heading-4">
-      Cautionary
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="cautionary"
-    />
-    <Heading tag="h2" variant="heading-4">
-      Assertive
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="assertive"
-    />
-    <Heading tag="h2" variant="heading-4">
-      Prominent
-    </Heading>
-    <GuidanceBlock
-      persistent
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        },
-      }}
-      variant="prominent"
-    />
-  </div>
-)
-Moods.parameters = { chromatic: { disable: false } }
+const PROPS: GuidanceBlockProps = {
+  persistent: true,
+  illustration: <Informative alt="" />,
+  text: GUIDANCE_BLOCK_TEXT,
+  actions: {
+    primary: {
+      label: "Action",
+      onClick: () => {
+        alert("tada: 🎉")
+      },
+    },
+  },
+}
 
-export const StickerSheet = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
-    <Heading tag="h2" variant="heading-4">
-      Default
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      Actions
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Empty State"]} />
+    <StoryWrapper.Row rowTitle="Positive">
+      <GuidanceBlock variant="positive" {...PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Informative">
+      <GuidanceBlock variant="informative" {...PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Assertive">
+      <GuidanceBlock variant="assertive" {...PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary">
+      <GuidanceBlock variant="cautionary" {...PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative">
+      <GuidanceBlock variant="negative" {...PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="No arrow">
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        text={GUIDANCE_BLOCK_TEXT}
+        withActionButtonArrow={false}
+        actions={{
+          primary: {
+            label: "Learn more",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
           },
-        },
-        secondary: {
-          label: "Dismiss",
-          href: "#",
-        },
-      }}
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      No arrow
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      withActionButtonArrow={false}
-      actions={{
-        primary: {
-          label: "Learn more",
-          onClick: () => {
-            alert("tada: 🎉")
+          secondary: {
+            label: "Dismiss",
+            href: "#",
           },
-        },
-        secondary: {
-          label: "Dismiss",
-          href: "#",
-        },
-      }}
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      Tooltip
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={{
-        title: "Informative guidance block title",
-        description:
-          "Providing further details to suggest a path forward or promote a feature that allows the user" +
-          " to progress with confidence.",
-      }}
-      actions={{
-        primary: {
-          label: "Learn more",
-          onClick: () => {
-            alert("tada: 🎉")
+        }}
+        persistent
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Tooltip">
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        text={{
+          title: "Informative guidance block title",
+          description:
+            "Providing further details to suggest a path forward or promote a feature that allows the user" +
+            " to progress with confidence.",
+        }}
+        actions={{
+          primary: {
+            label: "Learn more",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+            tooltip: {
+              text: "Opens in a new tab",
+              mood: "cautionary",
+            },
+            icon: ICON_EXTERNAL_LINK,
           },
-          tooltip: {
-            text: "Opens in a new tab",
-            mood: "cautionary",
+          secondary: {
+            label: "Dismiss",
+            href: "#",
           },
-          icon: ICON_EXTERNAL_LINK,
-        },
-        secondary: {
-          label: "Dismiss",
-          href: "#",
-        },
-      }}
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      Scene Illustration
-    </Heading>
-    <GuidanceBlock
-      illustration={<BrandMomentPositiveOutro alt="" />}
-      illustrationType="scene"
-      text={GUIDANCE_BLOCK_TEXT}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
+        }}
+        persistent
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Scene Illustration">
+      <GuidanceBlock
+        illustration={<EmptyStatesPositive alt="" />}
+        illustrationType="scene"
+        text={GUIDANCE_BLOCK_TEXT}
+        actions={{
+          primary: {
+            label: "Action",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
           },
-        },
-      }}
-      persistent
-    />
-    <Heading tag="h2" variant="heading-4">
-      No Max Width
-    </Heading>
-    <GuidanceBlock
-      illustration={<Informative alt="" />}
-      text={GUIDANCE_BLOCK_TEXT}
-      noMaxWidth
-      persistent
-    />
-  </div>
+        }}
+        persistent
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="No Max Width">
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        text={GUIDANCE_BLOCK_TEXT}
+        noMaxWidth
+        persistent
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
-StickerSheet.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const Layouts = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>

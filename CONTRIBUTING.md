@@ -72,7 +72,7 @@ To update a component in code:
 
 ### Design tokens
 
-See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
+See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/generator) package.
 
 ### Browser and device support
 
@@ -131,7 +131,7 @@ To release a new version of a package, create a pull request that:
 - Has a conventional pull request title ([see below](#conventional-commit))
 - If there is only one commit, it has a commit message which matches the pull request title
 
-Once that pull request is merged into master, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
+Once that pull request is merged into main, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
 
 ### Semantic Versioning
 
@@ -149,7 +149,7 @@ All npm packages follow strict semantic versioning (or _semver_). Semantic versi
 
 ### Conventional Commit
 
-Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the master branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
+Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the main branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
 
 This workflow requires that all pull requests have a title formatted as follows:
 
@@ -183,7 +183,7 @@ However, **two commit types have special meaning** for the purpose of versioning
 
 #### Breaking changes
 
-In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
+In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to main. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
 
 Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, with any additional notes in the commit body.
 

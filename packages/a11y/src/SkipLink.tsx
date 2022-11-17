@@ -1,6 +1,6 @@
 import * as React from "react"
-import skipWhite from "@kaizen/component-library/icons/skip.icon.svg"
 import { Icon } from "@kaizen/component-library"
+import skipWhite from "@kaizen/component-library/icons/skip.icon.svg"
 import styles from "./SkipLink.module.scss"
 
 export interface SkipLinkProps {

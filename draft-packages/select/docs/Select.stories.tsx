@@ -1,12 +1,12 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { withDesign } from "storybook-addon-designs"
 import { Label } from "@kaizen/draft-form"
+import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const OPTIONS = [
   { value: "Mindy", label: "Mindy" },
@@ -53,6 +53,8 @@ DefaultSelectStory.args = {
   fullWidth: true,
   reversed: false,
   status: "default",
+  isClearable: false,
+  isSearchable: false,
 }
 
 export const GroupedStory: ComponentStory<typeof Select> = args => {

@@ -1,9 +1,9 @@
-import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import * as React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { IconButton } from ".."
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { IconButton } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button (deprecated)`,

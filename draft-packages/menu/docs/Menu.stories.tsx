@@ -1,18 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 
+import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 
-import { Button, IconButton } from "@kaizen/button"
-import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { Menu, MenuList, MenuItem } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {

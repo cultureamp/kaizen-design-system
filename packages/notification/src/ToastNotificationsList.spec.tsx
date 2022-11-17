@@ -1,6 +1,6 @@
-import { act, configure, render, waitFor, screen } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
+import { fireEvent } from "@testing-library/dom"
+import { act, configure, render, waitFor, screen } from "@testing-library/react"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 import { ToastNotification } from "./types"
 

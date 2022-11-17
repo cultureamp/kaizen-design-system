@@ -1,5 +1,5 @@
-import { ButtonProps } from "@kaizen/button"
 import React, { useState } from "react"
+import { ButtonProps } from "@kaizen/button"
 import StatelessMenu, { StatelessMenuProps } from "./StatelessMenu"
 
 type ButtonPropsWithOptionalAria = ButtonProps & {

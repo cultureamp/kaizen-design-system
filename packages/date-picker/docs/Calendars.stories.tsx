@@ -1,6 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -11,7 +12,6 @@ import {
   CalendarSingle,
   CalendarSingleProps,
 } from "../src/_subcomponents/Calendar"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,

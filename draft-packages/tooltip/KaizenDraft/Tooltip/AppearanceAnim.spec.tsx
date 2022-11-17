@@ -1,5 +1,5 @@
-import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
 import useDebounce from "use-debounce"
 import { AnimationProvider } from "./AppearanceAnim"
 import "@testing-library/jest-dom"

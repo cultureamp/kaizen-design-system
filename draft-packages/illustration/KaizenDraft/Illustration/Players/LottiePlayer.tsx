@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import lottie from "lottie-web"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { getAnimationData } from "../utils"
-import { LottieAnimation } from "../types"
 import { BaseProps } from "../Base"
 import styles from "../Base.module.scss"
+import { LottieAnimation } from "../types"
+import { getAnimationData } from "../utils"
 
 export type AnimatedBaseProps = {
   /**

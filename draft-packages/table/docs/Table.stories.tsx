@@ -1,10 +1,14 @@
 import React from "react"
-import { Paragraph } from "@kaizen/typography"
-import { IconButton, Button } from "@kaizen/button"
-import { CheckboxField } from "@kaizen/draft-form"
+import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
+import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { withDesign } from "storybook-addon-designs"
+import { CheckboxField } from "@kaizen/draft-form"
+import { Paragraph } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   TableCard,
   TableContainer,
@@ -14,8 +18,6 @@ import {
   TableRow,
   TableRowCell,
 } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Table.stories.module.scss"
 
 const Container: React.FunctionComponent<{
@@ -158,11 +160,11 @@ export const DefaultKaizenSiteDemo = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const Multiline = () => (
+const Multiline = isReversed => (
   <Container>
     <TableContainer>
       <TableHeader>
-        <ExampleTableHeaderRow />
+        <ExampleTableHeaderRow reversed={isReversed} />
       </TableHeader>
       <TableCard>
         <ExampleTableRow multiline expandable={false} />
@@ -176,36 +178,12 @@ export const Multiline = () => (
     </TableContainer>
   </Container>
 )
-Multiline.parameters = { chromatic: { disable: false } }
-
-export const Reversed = () => (
-  <Container>
-    <TableContainer>
-      <TableHeader>
-        <ExampleTableHeaderRow reversed={true} />
-      </TableHeader>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-    </TableContainer>
-  </Container>
-)
-Reversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-}
 
 export const DataVariant = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
-        <ExampleTableHeaderRow />
+        <ExampleTableHeaderRow reversed={false} />
       </TableHeader>
       <TableCard>
         <ExampleTableRow expandable={false} />
@@ -221,57 +199,7 @@ export const DataVariant = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
-export const Clickable = () => (
-  <Container>
-    <TableContainer>
-      <TableHeader>
-        <ExampleTableHeaderRow checkable />
-      </TableHeader>
-      <TableCard onClick={() => alert("clicked!")}>
-        <ExampleTableRow
-          expandable={false}
-          description="Button row with onClick callback"
-        />
-      </TableCard>
-      <TableCard href="//cultureamp.com">
-        <ExampleTableRow
-          expandable={false}
-          description="Anchor row with route"
-        />
-      </TableCard>
-      <TableCard forceHoverState>
-        <ExampleTableRow
-          expandable={false}
-          description="Row with hover state only"
-        />
-      </TableCard>
-      <TableCard forceHoverState>
-        <TableRow>
-          <TableRowCell width={4 / 12}>
-            <CheckboxField
-              labelText="Row with cell-only anchor"
-              noBottomMargin
-            />
-          </TableRowCell>
-          <TableRowCell width={4 / 12} href="//cultureamp.com">
-            <Paragraph variant="body">(Anchor on this cell)</Paragraph>
-          </TableRowCell>
-          <TableRowCell width={2 / 12} href="//cultureamp.com">
-            <Paragraph variant="body">(Anchor on this cell)</Paragraph>
-          </TableRowCell>
-          <TableRowCell width={2 / 12}>
-            <Button
-              label="Button"
-              onClick={() => alert("Clicked the button, not the anchor")}
-            />
-          </TableRowCell>
-        </TableRow>
-      </TableCard>
-    </TableContainer>
-  </Container>
-)
-
-export const ExpandedPopout = () => {
+const ExpandedPopout = isReversed => {
   const [expandedId, setExpandedId] = React.useState<string | null>("second")
   const toggleExpanded = id => {
     if (expandedId === id) {
@@ -284,7 +212,7 @@ export const ExpandedPopout = () => {
     <Container>
       <TableContainer>
         <TableHeader>
-          <ExampleTableHeaderRow checkable />
+          <ExampleTableHeaderRow checkable reversed={isReversed} />
         </TableHeader>
         {["first", "second", "third"].map(id => {
           const expanded = expandedId === id
@@ -322,9 +250,8 @@ export const ExpandedPopout = () => {
     </Container>
   )
 }
-ExpandedPopout.parameters = { chromatic: { disable: false } }
 
-export const NoHeader = () => (
+const Compact = () => (
   <Container>
     <TableContainer>
       <TableCard>
@@ -339,9 +266,8 @@ export const NoHeader = () => (
     </TableContainer>
   </Container>
 )
-NoHeader.parameters = { chromatic: { disable: false } }
 
-export const ExtraSpacing = () => (
+const Default = () => (
   <Container>
     <TableContainer variant="default">
       <TableCard>
@@ -356,8 +282,6 @@ export const ExtraSpacing = () => (
     </TableContainer>
   </Container>
 )
-ExtraSpacing.storyName = "Default Variant (Extra Spacing)"
-ExtraSpacing.parameters = { chromatic: { disable: false } }
 
 export const HeaderAlignmentAndWrapping = () => (
   <Container>
@@ -520,55 +444,38 @@ export const AnchorLink = () => (
   </Container>
 )
 
-export const HeaderRowHover = () => (
-  <Container style={{ marginTop: "200px" }}>
-    <TableContainer>
-      <TableHeader>
-        <TableHeaderRow>
-          <TableHeaderRowCell
-            sorting="descending"
-            onClick={() => alert("Sort!")}
-            labelText="Resource name"
-            width={4 / 12}
-            wrapping="wrap"
-            sortingArrowsOnHover="descending"
-          />
-          <TableHeaderRowCell
-            onClick={() => alert("Sort!")}
-            labelText="Supplementary information"
-            width={4 / 12}
-            wrapping="wrap"
-            sortingArrowsOnHover="descending"
-            align="center"
-          />
-          <TableHeaderRowCell
-            labelText="Date"
-            width={2 / 12}
-            onClick={() => alert("Sort!")}
-            wrapping="wrap"
-            sortingArrowsOnHover="descending"
-            align="end"
-            tooltipInfo="This is a tooltip"
-          />
-          <TableHeaderRowCell
-            labelText="Comments"
-            width={2 / 12}
-            onClick={() => alert("Sort!")}
-            wrapping="wrap"
-            sortingArrowsOnHover="descending"
-            align="end"
-          />
-        </TableHeaderRow>
-      </TableHeader>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-      <TableCard>
-        <ExampleTableRow expandable={false} />
-      </TableCard>
-    </TableContainer>
-  </Container>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Default"]} />
+    <StoryWrapper.Row rowTitle="Compact">
+      <Compact />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Default">
+      <Default />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Multiline">
+      <Multiline />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Expanded popout">
+      <ExpandedPopout isReversed={isReversed} />
+    </StoryWrapper.Row>
+  </StoryWrapper>
 )
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

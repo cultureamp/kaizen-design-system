@@ -1,5 +1,5 @@
-import { HeadingProps } from "@kaizen/typography"
 import * as React from "react"
+import { HeadingProps } from "@kaizen/typography"
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"

@@ -1,10 +1,10 @@
 import React from "react"
-import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
-import { withDesign } from "storybook-addon-designs"
 import { Story } from "@storybook/react"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { withDesign } from "storybook-addon-designs"
+import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 type RenderProps = {
   selectedOption: string

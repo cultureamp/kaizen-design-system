@@ -1,10 +1,10 @@
 import React from "react"
 import classNames from "classnames"
+import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import {
   StoryRowHeader,
   StoryRowHeaderProps,
 } from "./components/StoryRowHeader"
-import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import styles from "./StoryWrapper.module.scss"
 
 type ReversibleSubcomponents = StoryRowHeaderProps | StoryRowProps
