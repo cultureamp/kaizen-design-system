@@ -42,7 +42,7 @@ describe("<DatePicker />", () => {
 
   it("allows you to tab through input, button and calendar", async () => {
     render(<DatePickerWrapper />)
-    const input = await screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label")
 
     await userEvent.tab()
     expect(input).toHaveFocus()
@@ -346,8 +346,8 @@ describe("<DatePicker /> - Validation", () => {
         name: "6th March (Sunday)",
       })
       await userEvent.click(dateToSelect)
-      // @TODO Fix to only run onValidate once
-      expect(onValidate).toBeCalledTimes(2)
+
+      expect(onValidate).toBeCalledTimes(1)
     })
   })
 
