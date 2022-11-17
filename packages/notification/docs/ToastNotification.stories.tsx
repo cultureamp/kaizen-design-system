@@ -1,4 +1,6 @@
 import * as React from "react"
+import { Story } from "@storybook/react"
+import isChromatic from "chromatic"
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
@@ -16,11 +18,13 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
-const withNavigation = (Story: React.FunctionComponent) => (
+const IS_CHROMATIC = isChromatic()
+
+const withNavigation = (StoryChild: React.FunctionComponent) => (
   <>
     <div style={{ margin: "-1rem", minHeight: "150px" }}>
       <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
-      <Story />
+      <StoryChild />
     </div>
   </>
 )
@@ -81,172 +85,27 @@ export default {
   decorators: [withDesign, withNavigation],
 }
 
-export const PositiveKaizenSiteDemo = () => {
+export const PositiveKaizenSiteDemo = args => {
   React.useEffect(() => {
-    addToastNotification({
-      type: "positive",
-      title: "Success",
-      automationId: "notification1",
-      message: (
-        <>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </>
-      ),
-    })
+    addToastNotification({ ...args })
   })
   return <></>
 }
 
-PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
+PositiveKaizenSiteDemo.args = {
+  type: "positive",
+  title: "Success",
+  automationId: "notification1",
+  message: (
+    <>
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      <a href="/">Manage users is now available</a>
+    </>
+  ),
+  autohide: false,
+}
 
-export const PositiveAutohide = () => (
-  <Triggers
-    notifications={[
-      {
-        type: "positive",
-        title: "Success",
-        automationId: "notification1",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-PositiveAutohide.storyName = "Positive, Autohide"
-
-export const PositiveAutohideHideCloseIcon = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "positive",
-        title: "Success",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-        persistent: true,
-      },
-    ]}
-  />
-)
-
-PositiveAutohideHideCloseIcon.storyName = "Positive, Autohide, Hide Close Icon"
-
-export const Informative = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "informative",
-        title: "Informative",
-        message: (
-          <>
-            New user data is currently being processed. We’ll let you know when
-            the process is completed. <a href="/">Manage users</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const Cautionary = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "cautionary",
-        title: "Warning",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has uploaded with
-            some minor issues. <a href="/">View issues</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const Negative = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "negative",
-        title: "No network connection",
-        autohide: false,
-        message: (
-          <>
-            Check your connection and try again. <a href="/">Refresh</a>.
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const MultipleNotifications = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "positive",
-        title: "Success",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-      },
-      {
-        automationId: "notification2",
-        type: "informative",
-        title: "Informative",
-        message: (
-          <>
-            New user data is currently being processed. We’ll let you know when
-            the process is completed. <a href="/">Manage users</a>
-          </>
-        ),
-        persistent: true,
-      },
-      {
-        automationId: "notification3",
-        type: "cautionary",
-        title: "Warning",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has uploaded with
-            some minor issues. <a href="/">View issues</a>
-          </>
-        ),
-      },
-      {
-        automationId: "notification4",
-        type: "negative",
-        title: "No network connection",
-        message: (
-          <>
-            Check your connection and try again. <a href="/">Refresh</a>.
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-MultipleNotifications.storyName = "Multiple notifications"
+PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
 export const OverflowNotifications = () => {
   const seed = Math.random() * 1000
@@ -315,3 +174,63 @@ export const UpdatedNotification = () => (
   </Container>
 )
 UpdatedNotification.storyName = "Updated notification"
+
+const StickerSheetTemplate: Story = () => {
+  React.useEffect(() => {
+    addToastNotification({
+      type: "positive",
+      title: "Positive",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data, imported by mackenzie@hooli.com has successfully
+          uploaded. <a href="/">Manage users is now available</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "informative",
+      title: "Informative",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data is currently being processed. We’ll let you know when
+          the process is completed. <a href="/">Manage users</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "cautionary",
+      title: "Cautionary",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data, imported by mackenzie@hooli.com has uploaded with some
+          minor issues. <a href="/">View issues</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "negative",
+      title: "Negative",
+      automationId: "notification1",
+      message: (
+        <>
+          Check your connection and try again. <a href="/">Refresh</a>.
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+  })
+  return <></>
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
