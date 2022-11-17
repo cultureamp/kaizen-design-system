@@ -1,6 +1,6 @@
-import { ThemeProvider } from "@kaizen/design-tokens"
-import { render } from "react-dom"
 import React from "react"
+import { render } from "react-dom"
+import { ThemeProvider } from "@kaizen/design-tokens"
 import { themeManager } from "./themeManager"
 import { App } from "./useThemeExample.docsExample"
 

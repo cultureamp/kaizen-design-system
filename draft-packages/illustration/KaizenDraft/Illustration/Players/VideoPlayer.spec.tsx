@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/extend-expect"
-import { cleanup, render, screen } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, screen } from "@testing-library/react"
 import { VideoPlayer } from "./VideoPlayer"
 
 afterEach(cleanup)

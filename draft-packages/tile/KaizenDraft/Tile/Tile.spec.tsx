@@ -1,12 +1,12 @@
 import * as React from "react"
 
+import { cleanup, render } from "@testing-library/react"
 import {
   InformationTile,
   MultiActionTile,
   TileAction,
   TileInformation,
 } from "@kaizen/draft-tile"
-import { cleanup, render } from "@testing-library/react"
 import { GenericTileProps } from "./components/GenericTile"
 
 const primaryAction: TileAction = {

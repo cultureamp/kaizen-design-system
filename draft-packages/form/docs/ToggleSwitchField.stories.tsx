@@ -1,7 +1,7 @@
 import React from "react"
-import { Heading } from "@kaizen/typography"
-import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
+import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
+import { Heading } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 

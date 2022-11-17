@@ -1,9 +1,9 @@
-import { cleanup, render } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
+import { fireEvent } from "@testing-library/dom"
+import { cleanup, render } from "@testing-library/react"
 
-import styles from "./styles.scss"
 import { Tabs } from "."
+import styles from "./styles.scss"
 
 afterEach(cleanup)
 

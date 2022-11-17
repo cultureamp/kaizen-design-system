@@ -2,9 +2,9 @@ import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/loading-spinner"
-import search from "@kaizen/component-library/icons/search.icon.svg"
 import clear from "@kaizen/component-library/icons/clear.icon.svg"
+import search from "@kaizen/component-library/icons/search.icon.svg"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import styles from "./InputSearch.module.scss"
 
 export interface InputSearchProps

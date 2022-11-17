@@ -1,7 +1,7 @@
 import React from "react"
+import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 

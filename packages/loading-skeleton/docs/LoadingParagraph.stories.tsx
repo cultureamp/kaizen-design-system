@@ -2,10 +2,10 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingParagraph } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { LoadingParagraph } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Paragraph`,

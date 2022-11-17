@@ -1,12 +1,12 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 import { CalendarRange, CalendarSingle } from "../src/_subcomponents/Calendar"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   FloatingCalendarWrapper,
   FloatingCalendarWrapperProps,

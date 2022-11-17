@@ -4,9 +4,9 @@ import React, {
   useContext,
   useEffect,
 } from "react"
-import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
-import { useMenuTrigger } from "@react-aria/menu"
 import { useButton } from "@react-aria/button"
+import { useMenuTrigger } from "@react-aria/menu"
+import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
 
 export interface MenuTriggerProviderProps {
   isOpen?: boolean

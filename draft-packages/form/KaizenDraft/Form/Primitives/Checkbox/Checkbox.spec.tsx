@@ -1,6 +1,6 @@
-import { cleanup, render } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
+import { fireEvent } from "@testing-library/dom"
+import { cleanup, render } from "@testing-library/react"
 
 import { CheckboxProps, CheckedStatus } from "./Checkbox"
 import { Checkbox } from "."

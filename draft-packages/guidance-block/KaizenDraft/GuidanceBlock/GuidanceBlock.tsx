@@ -1,13 +1,13 @@
 import React from "react"
+import classnames from "classnames"
+import Media from "react-media"
 import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Icon } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import classnames from "classnames"
-import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
-import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
+import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
+import { Heading, Paragraph } from "@kaizen/typography"
 import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {

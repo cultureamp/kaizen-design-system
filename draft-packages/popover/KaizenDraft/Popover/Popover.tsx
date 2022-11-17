@@ -5,7 +5,6 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { Size, Variant, Placement } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -14,6 +13,7 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+import { Size, Variant, Placement } from "./types"
 import styles from "./Popover.module.scss"
 
 export interface PopoverProps

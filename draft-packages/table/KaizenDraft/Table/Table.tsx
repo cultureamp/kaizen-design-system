@@ -1,12 +1,12 @@
 import React from "react"
-import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
-import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>

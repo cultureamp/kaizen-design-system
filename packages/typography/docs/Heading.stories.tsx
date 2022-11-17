@@ -1,5 +1,4 @@
 import React from "react"
-import { Story } from "@storybook/react"
 import {
   Title,
   Subtitle,
@@ -9,9 +8,10 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
+import { Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading, Paragraph } from "../"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,

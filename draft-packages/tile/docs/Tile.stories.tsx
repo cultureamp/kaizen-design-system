@@ -1,4 +1,8 @@
 import React from "react"
+import { withDesign } from "storybook-addon-designs"
+import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
+import { Coaching } from "@kaizen/draft-illustration"
+import { Tag } from "@kaizen/draft-tag"
 import {
   MultiActionTile,
   TileInformation,
@@ -6,13 +10,9 @@ import {
   InformationTile,
   TileGrid,
 } from "@kaizen/draft-tile"
-import { Coaching } from "@kaizen/draft-illustration"
-import { Tag } from "@kaizen/draft-tag"
 import { Paragraph } from "@kaizen/typography"
-import { withDesign } from "storybook-addon-designs"
-import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Tile`,
