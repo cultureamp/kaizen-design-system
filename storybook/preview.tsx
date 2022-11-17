@@ -1,10 +1,10 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import { addParameters } from "@storybook/react"
 import React from "react"
-import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 
 const queryClient = new QueryClient()
 
@@ -23,6 +23,7 @@ require("@kaizen/component-library/styles/fonts.scss")
 require("./global.scss")
 
 addParameters({
+  viewMode: "docs",
   backgrounds: {
     default: "White",
     values: backgrounds,
