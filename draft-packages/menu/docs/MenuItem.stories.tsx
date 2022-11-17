@@ -1,5 +1,4 @@
 import React from "react"
-import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
   CATEGORIES,
