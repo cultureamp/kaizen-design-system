@@ -179,11 +179,11 @@ const Multiline = isReversed => (
   </Container>
 )
 
-export const DataVariant = isReversed => (
+export const DataVariant = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
-        <ExampleTableHeaderRow reversed={isReversed} />
+        <ExampleTableHeaderRow reversed={false} />
       </TableHeader>
       <TableCard>
         <ExampleTableRow expandable={false} />
