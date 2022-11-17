@@ -3836,31 +3836,6 @@
     "@react-types/shared" "^3.16.0"
     clsx "^1.1.1"
 
-"@react-aria/focus@^3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.9.0.tgz#fa4478eebdc3c199a0529470f1d7b36608ef0d10"
-  integrity sha512-DwesjEjWjFfwAwzv9qeqkyKZNPAYmPa3UrygxzmXeKEg2JpaACGZPxRcmT2EFJFEDbX8daQDEeRGyLO49o5agg==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.12.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
-    clsx "^1.1.1"
-
-"@react-aria/i18n@^3.6.1":
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.6.1.tgz#b97e78e3ec040a5ca08d166033f2d358ef1af4c5"
-  integrity sha512-kAetWsj9HOqwaqLhmFU2udhZ+4QGGYkQOgGBJYdrB7GfLZQ1GPBlZjv3QFdkX4oSf/k9cFqgftxvVQQDYZLOew==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@internationalized/date" "^3.0.1"
-    "@internationalized/message" "^3.0.9"
-    "@internationalized/number" "^3.1.1"
-    "@internationalized/string" "^3.0.0"
-    "@react-aria/ssr" "^3.3.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
-
 "@react-aria/i18n@^3.6.2":
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.6.2.tgz#74fa50f4b13ca7efe7738fd1960732a076ed049d"
@@ -3874,15 +3849,6 @@
     "@react-aria/ssr" "^3.4.0"
     "@react-aria/utils" "^3.14.1"
     "@react-types/shared" "^3.16.0"
-
-"@react-aria/interactions@^3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.12.0.tgz#b16a392c3dc23351c8fd33a16cef0ef93dc4682d"
-  integrity sha512-KcKurjPZwme9ggvGQjbjqZtZtuyXipTBVMHUah9a3+Dz7vXxhRg5vFaEdM79oQnNsrGFW5xS6SKBehl/JG6BMw==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
 
 "@react-aria/interactions@^3.13.0":
   version "3.13.0"
@@ -3943,23 +3909,6 @@
     "@react-types/button" "^3.7.0"
     "@react-types/menu" "^3.7.3"
     "@react-types/shared" "^3.16.0"
-
-"@react-aria/overlays@^3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.11.0.tgz#9ecab7fbaf88b7c315215d55a3eb1ae1aa5b78f2"
-  integrity sha512-NqLqxSiEW9AuUPcEHCIp2lHH1moNxlkP0CkuUMkT2/T5MCPm/Iq+uD53VSR+NyeCWU/aGH3ykj2kq9NSITJkOA==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/focus" "^3.9.0"
-    "@react-aria/i18n" "^3.6.1"
-    "@react-aria/interactions" "^3.12.0"
-    "@react-aria/ssr" "^3.3.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-aria/visually-hidden" "^3.5.0"
-    "@react-stately/overlays" "^3.4.2"
-    "@react-types/button" "^3.6.2"
-    "@react-types/overlays" "^3.6.4"
-    "@react-types/shared" "^3.15.0"
 
 "@react-aria/overlays@^3.12.0":
   version "3.12.0"
@@ -4023,30 +3972,12 @@
     "@react-types/button" "^3.7.0"
     "@react-types/shared" "^3.16.0"
 
-"@react-aria/ssr@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.3.0.tgz#25e81daf0c7a270a4a891159d8d984578e4512d8"
-  integrity sha512-yNqUDuOVZIUGP81R87BJVi/ZUZp/nYOBXbPsRe7oltJOfErQZD+UezMpw4vM2KRz18cURffvmC8tJ6JTeyDtaQ==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-
 "@react-aria/ssr@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.4.0.tgz#a2b9a170214f56e41d3c4c933d0d8fcffa07a12a"
   integrity sha512-qzuGk14/fUyUAoW/EBwgFcuMkVNXJVGlezTgZ1HovpCZ+p9844E7MUFHE7CuzFzPEIkVeqhBNIoIu+VJJ8YCOA==
   dependencies:
     "@babel/runtime" "^7.6.2"
-
-"@react-aria/utils@^3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.14.0.tgz#87877e89e959c8b6299da953ec3a7167de2192c3"
-  integrity sha512-DHgmwNBNEhnb6DEYYAfbt99wprBqJJOBBeIpQ2g3+pxwlw4BZ+v4Qr+rDD0ZibWV0mYzt8zOhZ9StpId7iTF0Q==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/ssr" "^3.3.0"
-    "@react-stately/utils" "^3.5.1"
-    "@react-types/shared" "^3.15.0"
-    clsx "^1.1.1"
 
 "@react-aria/utils@^3.14.1":
   version "3.14.1"
@@ -4057,17 +3988,6 @@
     "@react-aria/ssr" "^3.4.0"
     "@react-stately/utils" "^3.5.1"
     "@react-types/shared" "^3.16.0"
-    clsx "^1.1.1"
-
-"@react-aria/visually-hidden@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.5.0.tgz#aa8669545464cdb6a4b2ba47c9695d1405864a06"
-  integrity sha512-tF/kCZCGv1yebwgH21cKbhjSV5CmB5/SAHOUM5YkO5V/lIFjaPtywcamIPI8F0JSfrwGF/Z9EqvqBxvIYGRlCA==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.12.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
     clsx "^1.1.1"
 
 "@react-aria/visually-hidden@^3.6.0":
