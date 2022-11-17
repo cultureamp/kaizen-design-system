@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+
 // LOGO
 import caMonogram from "../icons/ca-monogram.icon.svg"
 

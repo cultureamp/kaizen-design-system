@@ -1,13 +1,13 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { Heading } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
-import { DirectionalLink, PaginationLink } from ".."
+import { Heading } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
 import { PaginationLinkProps } from "../src/Button/PaginationLink"
+import { DirectionalLink, PaginationLink } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Pagination Buttons`,

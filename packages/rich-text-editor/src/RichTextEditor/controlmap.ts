@@ -1,12 +1,3 @@
-import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
-import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
-import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
-import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.icon.svg"
-import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
-import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
-
 import {
   ProseMirrorState,
   ProseMirrorModel,
@@ -15,6 +6,15 @@ import {
   markIsActive,
   listIsActive,
 } from "@cultureamp/rich-text-toolkit"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
+import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
+import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
+import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.icon.svg"
+import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
+import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
+import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
+import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
+
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 /** Configuration for individual controls */

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react"
-import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { enAU } from "date-fns/locale"
+import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { OverrideClassName } from "@kaizen/component-base"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { calendarRangeClasses } from "./CalendarClasses"
 import { IconLeft } from "./components/IconLeft"
 import { IconRight } from "./components/IconRight"
-import { calendarRangeClasses } from "./CalendarClasses"
 
 export type CalendarRangeElement = HTMLDivElement
 

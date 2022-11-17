@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, screen } from "@testing-library/react"
 
 import { EmptyStateProps } from "./EmptyState"
 import { EmptyState } from "."

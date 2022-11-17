@@ -1,7 +1,7 @@
-import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import React from "react"
-import styles from "./FilterMenuButton.module.scss"
+import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import { FilterSplitButton } from "./FilterSplitButton"
+import styles from "./FilterMenuButton.module.scss"
 
 /**
  * @deprecated draft-packages FilterMenuButton is deprecated. Please use FilterMultiSelect from "@kaizen/select" instead.

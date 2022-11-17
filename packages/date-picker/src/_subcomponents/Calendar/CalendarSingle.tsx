@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react"
-import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { enAU } from "date-fns/locale"
+import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { OverrideClassName } from "@kaizen/component-base"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { calendarSingleClasses } from "./CalendarClasses"
 import { IconLeft } from "./components/IconLeft"
 import { IconRight } from "./components/IconRight"
 import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
-import { calendarSingleClasses } from "./CalendarClasses"
 
 export type CalendarSingleElement = HTMLDivElement
 

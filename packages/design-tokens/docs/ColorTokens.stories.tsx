@@ -1,9 +1,9 @@
 import React from "react"
+import { Story } from "@storybook/react"
+import colorString from "color-string"
+import flatMap from "lodash.flatmap"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import { Story } from "@storybook/react"
-import flatMap from "lodash.flatmap"
-import colorString from "color-string"
 import { useTheme } from "../src/react"
 
 export default {

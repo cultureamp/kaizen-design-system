@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
+import isChromatic from "chromatic/isChromatic"
+import { withDesign } from "storybook-addon-designs"
+import { Button, IconButton } from "@kaizen/button"
+import { Icon } from "@kaizen/component-library"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Icon } from "@kaizen/component-library"
-import { Paragraph, Heading } from "@kaizen/typography"
-import { withDesign } from "storybook-addon-designs"
-import { Button, IconButton } from "@kaizen/button"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import isChromatic from "chromatic/isChromatic"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { Paragraph, Heading } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const openTooltipInChromatic = (story, config) => {
   if (isChromatic()) config.args.isInitiallyVisible = true

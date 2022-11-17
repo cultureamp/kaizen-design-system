@@ -1,15 +1,15 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   AvatarGroup,
   AvatarGroupSize,
   AvatarList,
   AvatarGroupAvatarProps,
 } from "../KaizenDraft/Avatar/AvatarGroup"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const EXAMPLE_USER_1: AvatarGroupAvatarProps = {
   fullName: "Adirana Appleseed",

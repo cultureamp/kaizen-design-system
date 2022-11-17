@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
-import { Card } from "@kaizen/draft-card"
 import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
+import { Card } from "@kaizen/draft-card"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { Tabs, TabList, TabPanels, TabPanel, Tab } from "../index"
 

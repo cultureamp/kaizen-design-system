@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
+import { BrandMoment } from "@kaizen/brand-moment"
+import { Box } from "@kaizen/component-library"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
+import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
+import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
 } from "@kaizen/draft-illustration"
-import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
-import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
-import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
-import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
-import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
-import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { BrandMoment } from "@kaizen/brand-moment"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
   MinimalBasic,

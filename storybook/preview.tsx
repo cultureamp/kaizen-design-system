@@ -1,7 +1,11 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import { addParameters } from "@storybook/react"
 import React from "react"
+<<<<<<< HEAD
+=======
+import { addParameters } from "@storybook/react"
+>>>>>>> eee9d8fd3624a0861cf89541c74f5bbd6d1ae58f
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"

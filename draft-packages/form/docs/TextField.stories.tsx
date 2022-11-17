@@ -1,10 +1,10 @@
 import React from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Heading } from "@kaizen/typography"
-import { TextField } from "@kaizen/draft-form"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { TextField } from "@kaizen/draft-form"
+import { Heading } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }) => (
   <div

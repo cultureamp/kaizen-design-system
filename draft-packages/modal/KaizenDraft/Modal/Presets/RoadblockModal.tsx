@@ -1,6 +1,6 @@
 import React from "react"
-import { Heading } from "@kaizen/typography"
 import { Negative } from "@kaizen/draft-illustration"
+import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleDescription,

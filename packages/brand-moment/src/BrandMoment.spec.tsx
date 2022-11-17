@@ -1,8 +1,8 @@
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
-import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
+import { Box } from "@kaizen/component-library"
 import { BrandMomentError } from "@kaizen/draft-illustration"
+import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "./BrandMoment"
 
 afterEach(cleanup)

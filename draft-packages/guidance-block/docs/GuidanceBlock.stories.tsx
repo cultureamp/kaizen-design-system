@@ -1,4 +1,5 @@
 import React from "react"
+import { withDesign } from "storybook-addon-designs"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
@@ -8,9 +9,8 @@ import {
   BrandMomentPositiveOutro,
 } from "@kaizen/draft-illustration"
 import { Heading } from "@kaizen/typography"
-import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
