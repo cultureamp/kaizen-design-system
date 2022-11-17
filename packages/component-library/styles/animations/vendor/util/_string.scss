@@ -6,7 +6,7 @@
 /// @param {String} $delimiter ['-'] - Character to use instead of unsupported characters.
 /// @return {String} - Safe string usable everywhere in CSS.
 @function -mui-string-safe($str, $delimiter: "-") {
-  $str: quote($str);
+  $str: string.quote($str);
   $length: str_length($str);
   $safe-chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
   $ret: "";

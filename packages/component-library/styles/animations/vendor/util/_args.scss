@@ -4,7 +4,7 @@
 /// @access private
 @function -mui-process-args($args...) {
   @if length($args) == 1 {
-    $arg: nth($args, 1);
+    $arg: list.nth($args, 1);
 
     @if -mui-is-function($arg) {
       @return -mui-safe-call($arg);

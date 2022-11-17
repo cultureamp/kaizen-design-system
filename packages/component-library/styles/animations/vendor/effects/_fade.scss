@@ -3,7 +3,7 @@
 /// @param {Number} $to [1] - Opacity to end at.
 /// @return {Map} A keyframes map that can be used with the `generate-keyframes()` mixin.
 @function fade($from: 0, $to: 1) {
-  $type: type-of($from);
+  $type: meta.type-of($from);
   $keyframes: ();
 
   @if $type == "string" {

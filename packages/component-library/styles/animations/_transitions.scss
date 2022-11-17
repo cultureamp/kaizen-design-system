@@ -63,12 +63,12 @@
     $p: null;
 
     @if $i <= length($transition) {
-      $p: nth($transition, $i);
+      $p: list.nth($transition, $i);
     } @else {
-      $p: nth($defaultProperties, $i);
+      $p: list.nth($defaultProperties, $i);
     }
 
-    $unfoldedTransition: append($unfoldedTransition, $p);
+    $unfoldedTransition: list.append($unfoldedTransition, $p);
   }
 
   @return $unfoldedTransition;
@@ -80,7 +80,7 @@
   $unfoldedTransitions: ();
 
   @each $transition in $transitions {
-    $unfoldedTransitions: append(
+    $unfoldedTransitions: list.append(
       $unfoldedTransitions,
       unfoldtransition($transition),
       comma
