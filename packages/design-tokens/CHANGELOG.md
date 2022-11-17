@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.9...@kaizen/design-tokens@10.0.10) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 ## [10.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.8...@kaizen/design-tokens@10.0.9) (2022-11-14)
 
 **Note:** Version bump only for package @kaizen/design-tokens
