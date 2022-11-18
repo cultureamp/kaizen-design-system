@@ -1,0 +1,95 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "mixins";
+@import "variables";
+
+.styledButton {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  text-align: left;
+
+  border-width: $border-solid-border-width;
+  border-style: $border-solid-border-style;
+  border-radius: 7px;
+
+  #{$selectors--button-active} {
+    transform: translateY(1px);
+  }
+
+  #{$selectors--button-focus} {
+    outline-width: $border-solid-border-width;
+    outline-style: $border-solid-border-style;
+    outline-color: $color-blue-500;
+    outline-offset: 1px;
+  }
+}
+
+%button-base--primary {
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) calc(#{$spacing-md} - #{$border-solid-border-width});
+  font-family: $typography-button-primary-font-family;
+  font-weight: $typography-button-primary-font-weight;
+  font-size: $typography-button-primary-font-size;
+  line-height: $typography-button-primary-line-height;
+  letter-spacing: $typography-button-primary-letter-spacing;
+}
+
+.default {
+  @extend %button-base--primary;
+  border-color: $color-gray-500;
+  background-color: $color-white;
+  color: $color-purple-800;
+
+  @include enabled-pseudo-states-variant(
+    $background-color: $color-gray-200, 
+    $border-color: $color-gray-600
+  );
+}
+
+.primary {
+  @extend %button-base--primary;
+  border-color: $border-borderless-border-color;
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  @include enabled-pseudo-states-variant(
+    $background-color: $color-blue-600, 
+  );
+}
+
+%button-base--secondary {
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+  border-color: $border-borderless-border-color;
+  background-color: transparent;
+}
+
+.secondary {
+  @extend %button-base--secondary;
+  color: $color-blue-500;
+
+  @include enabled-pseudo-states-variant(
+    $background-color: $color-blue-100, 
+  );
+}
+
+.secondaryDestructive {
+  @extend %button-base--secondary;
+  color: $color-red-600;
+
+  @include enabled-pseudo-states-variant(
+    $background-color: $color-red-100, 
+  );
+}

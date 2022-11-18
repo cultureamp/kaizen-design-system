@@ -1,0 +1,12 @@
+$button-height: 48px;
+
+.styledIconButton {
+  height: $button-height;
+  width: $button-height;
+  justify-content: center;
+  padding: unset;
+}
+
+.default {
+  border-color: transparent;
+}

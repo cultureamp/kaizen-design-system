@@ -7,3 +7,6 @@ export type {
   CustomButtonProps,
 } from "./src/Button/components/GenericButton"
 export type { ButtonProps } from "./src/Button/Button"
+
+
+export * from "./src/StyledButton"

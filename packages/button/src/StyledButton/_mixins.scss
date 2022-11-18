@@ -1,0 +1,29 @@
+@import "variables";
+
+// reset user agent styles for button element type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
+
+@mixin enabled-pseudo-states-variant(
+  $background-color: undefined,
+  $border-color: undefined
+) {
+  #{$selectors--button-hover},
+  #{$selectors--button-active},
+  #{$selectors--button-focus} {
+    @if ($background-color != undefined) {
+      background-color: $background-color;
+    }
+
+    @if ($border-color != undefined) {
+      border-color: $border-color;
+    }
+  }
+}
