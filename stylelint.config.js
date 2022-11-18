@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     "stylelint-config-recommended-scss",
+    "stylelint-config-css-modules",
     "./packages/stylelint-plugin/dev-config.js",
   ],
   rules: {
