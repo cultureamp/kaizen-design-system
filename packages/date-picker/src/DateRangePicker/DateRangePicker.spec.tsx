@@ -71,13 +71,17 @@ describe("<DateRangePicker />", () => {
     userEvent.click(button)
 
     await waitFor(() => {
-      const selectedFromDate = screen.getByText("6th March (Sunday)")
+      const selectedFromDate = screen.getByRole("button", {
+        name: "6th March (Sunday)",
+      })
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
     await waitFor(() => {
-      const selectedToDate = screen.getByText("16th March (Wednesday)")
+      const selectedToDate = screen.getByRole("button", {
+        name: "16th March (Wednesday)",
+      })
       selectedToDate.parentElement && selectedToDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
@@ -98,13 +102,17 @@ describe("<DateRangePicker />", () => {
     userEvent.click(button)
 
     await waitFor(() => {
-      const selectedFromDate = screen.getByText("6th March (Sunday)")
+      const selectedFromDate = screen.getByRole("button", {
+        name: "6th March (Sunday)",
+      })
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
     await waitFor(() => {
-      const selectedToDate = screen.getByText("16th March (Wednesday)")
+      const selectedToDate = screen.getByRole("button", {
+        name: "16th March (Wednesday)",
+      })
       selectedToDate.parentElement && selectedToDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
@@ -119,13 +127,17 @@ describe("<DateRangePicker />", () => {
     userEvent.click(button)
 
     await waitFor(() => {
-      const selectedFromDate = screen.getByText("6th March (Sunday)")
+      const selectedFromDate = screen.getByRole("button", {
+        name: "6th March (Sunday)",
+      })
       selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
       userEvent.keyboard("{enter}")
     })
 
     await waitFor(() => {
-      const selectedToDate = screen.getByText("1st March (Tuesday)")
+      const selectedToDate = screen.getByRole("button", {
+        name: "1st March (Tuesday)",
+      })
       selectedToDate.parentElement && selectedToDate.parentElement.focus()
       userEvent.keyboard("{enter}")
       expect(screen.queryByRole("dialog")).toBeInTheDocument()
