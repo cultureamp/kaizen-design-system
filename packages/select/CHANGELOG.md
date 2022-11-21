@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.6...@kaizen/select@5.1.0) (2022-11-21)
+
+
+### Features
+
+* add isLoading to SearchInput and story ([#3112](https://github.com/cultureamp/kaizen-design-system/issues/3112)) ([b5db2bc](https://github.com/cultureamp/kaizen-design-system/commit/b5db2bc6ab3e7a289ab97b402ac0185b88da7098))
+
+
+
+
+
 ## [5.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.5...@kaizen/select@5.0.6) (2022-11-18)
 
 **Note:** Version bump only for package @kaizen/select
