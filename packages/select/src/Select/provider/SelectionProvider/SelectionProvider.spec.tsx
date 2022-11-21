@@ -1,8 +1,8 @@
 import React, { Key, useState } from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ItemType } from "../../types"
 import { Select } from "../../Select"
+import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -107,7 +107,7 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
 })
 
 describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
-  it("selects the option when clicks on a non-selected option", () => {
+  it("selects the option when clicks on a non-selected option", async () => {
     render(<SelectionProviderWrapper />)
     const option1 = screen.getByRole("option", {
       name: "option-1-label-mock",
@@ -115,111 +115,124 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
 
     userEvent.click(option1)
 
-    expect(
-      screen.getByRole("option", {
-        name: "option-1-label-mock",
-        selected: true,
-      })
-    ).toBeVisible()
+    await waitFor(() => {
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+          selected: true,
+        })
+      ).toBeVisible()
+    })
   })
 
-  it("fires onSelectionChange when clicks on a option", () => {
+  it("fires onSelectionChange when clicks on a option", async () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
     const option1 = screen.getByRole("option", {
       name: "option-1-label-mock",
     })
 
-    userEvent.click(option1)
-    expect(spy).toHaveBeenCalledTimes(1)
+    await userEvent.click(option1)
+    await waitFor(() => {
+      expect(spy).toHaveBeenCalledTimes(1)
+    })
   })
 })
 
 describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   describe("Given no selectedKeys", () => {
-    it("focuses on the frist option when tabs onto the list", () => {
+    it("focuses on the frist option when tabs onto the list", async () => {
       render(<SelectionProviderWrapper />)
-      userEvent.tab()
-
-      expect(
-        screen.getByRole("option", { name: "option-1-label-mock" })
-      ).toHaveFocus()
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(
+          screen.getByRole("option", { name: "option-1-label-mock" })
+        ).toHaveFocus()
+      })
     })
   })
 
   describe("Given selectedKey is option-2-value-mock", () => {
-    it("focuses the frist selected option when tabs onto the list", () => {
+    it("focuses the first selected option when tabs onto the list", async () => {
       render(<SelectionProviderWrapper selectedKey="option-2-value-mock" />)
-      userEvent.tab()
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(
+          screen.getByRole("option", { name: "option-2-label-mock" })
+        ).toHaveFocus()
+      })
+    })
+  })
 
+  it("moves the focus down when hits arrow down key", async () => {
+    render(<SelectionProviderWrapper />)
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowDown}")
+    await waitFor(() => {
       expect(
         screen.getByRole("option", { name: "option-2-label-mock" })
       ).toHaveFocus()
     })
   })
 
-  it("moves the focus down when hits arrow down key", () => {
-    render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
-
-    expect(
-      screen.getByRole("option", { name: "option-2-label-mock" })
-    ).toHaveFocus()
-  })
-
-  it("keeps the focus at the last element when hits arrow down key on it", () => {
+  it("keeps the focus at the last element when hits arrow down key on it", async () => {
     render(<SelectionProviderWrapper selectedKey="option-3-value-mock" />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
-
-    expect(
-      screen.getByRole("option", { name: "option-3-label-mock" })
-    ).toHaveFocus()
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowDown}")
+    await waitFor(() => {
+      expect(
+        screen.getByRole("option", { name: "option-3-label-mock" })
+      ).toHaveFocus()
+    })
   })
 
-  it("moves the focus up when hits arrow up key", () => {
+  it("moves the focus up when hits arrow up key", async () => {
     render(<SelectionProviderWrapper selectedKey="option-3-value-mock" />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
-
-    expect(
-      screen.getByRole("option", { name: "option-2-label-mock" })
-    ).toHaveFocus()
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowUp}")
+    await waitFor(() => {
+      expect(
+        screen.getByRole("option", { name: "option-2-label-mock" })
+      ).toHaveFocus()
+    })
   })
 
-  it("keeps the focus ring at the first element when hits arrow up key on it", () => {
+  it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
     render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
-
-    expect(
-      screen.getByRole("option", { name: "option-1-label-mock" })
-    ).toHaveFocus()
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowUp}")
+    await waitFor(() => {
+      expect(
+        screen.getByRole("option", { name: "option-1-label-mock" })
+      ).toHaveFocus()
+    })
   })
 
-  it("selects the option when hits enter on a non-selected option", () => {
+  it("selects the option when hits enter on a non-selected option", async () => {
     render(<SelectionProviderWrapper />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
-
-    expect(
-      screen.getByRole("option", {
-        name: "option-1-label-mock",
-        selected: true,
-      })
-    ).toBeVisible()
+    await userEvent.tab()
+    await userEvent.keyboard("{Enter}")
+    await userEvent.keyboard("{Enter}")
+    await waitFor(() => {
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+          selected: true,
+        })
+      ).toBeVisible()
+    })
   })
 
-  it("fires onSelectionChange when hits enter on a option", () => {
+  it("fires onSelectionChange when hits enter on a option", async () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
-
-    expect(spy).toHaveBeenCalledTimes(1)
+    await userEvent.tab()
+    await userEvent.keyboard("{Enter}")
+    await waitFor(() => {
+      expect(spy).toHaveBeenCalledTimes(1)
+    })
   })
 })
 

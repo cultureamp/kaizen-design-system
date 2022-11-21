@@ -1,11 +1,11 @@
 import React, { HTMLAttributes, useContext, Key } from "react"
 import { useListBox } from "@react-aria/listbox"
+import { Item } from "@react-stately/collections"
 import {
   SingleSelectListState,
   useSingleSelectListState,
 } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { Item } from "@react-stately/collections"
 import { ItemType } from "../../types"
 
 export interface SelectionProviderProps {

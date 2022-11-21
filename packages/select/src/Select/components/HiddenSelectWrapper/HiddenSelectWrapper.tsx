@@ -1,7 +1,7 @@
 import React from "react"
 import { HiddenSelect } from "@react-aria/select"
-import { useSelectState } from "@react-stately/select"
 import { Item } from "@react-stately/collections"
+import { useSelectState } from "@react-stately/select"
 import { useMenuTriggerContext } from "../../provider"
 import { ItemType } from "../../types"
 

@@ -1,7 +1,6 @@
 import React, { Key } from "react"
-import { Label, FieldMessage } from "@kaizen/draft-form"
 import classnames from "classnames"
-import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
@@ -15,6 +14,7 @@ import {
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
 import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
+import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
 import labelStyles from "./labelStyles.module.scss"
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode

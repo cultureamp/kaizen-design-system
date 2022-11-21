@@ -1,11 +1,11 @@
 import React, { useState, Key } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Select } from "../src/Select/Select"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { Select } from "../src/Select/Select"
 import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { singleItems } from "./MockData"
 
 export default {

@@ -1,5 +1,5 @@
-import classnames from "classnames"
 import React, { Key } from "react"
+import classnames from "classnames"
 import { TriggerButtonBase } from "../TriggerButtonBase"
 import styles from "./SingleTriggerButton.module.scss"
 
