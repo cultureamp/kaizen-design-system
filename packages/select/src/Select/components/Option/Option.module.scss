@@ -30,7 +30,8 @@
   }
 
   &:hover,
-  &:active {
+  &:active,
+  &:global(.story__option-hover) {
     background-color: $color-blue-100;
     color: $color-blue-500;
     .icon {
@@ -38,7 +39,8 @@
     }
   }
 
-  &.isFocusVisible {
+  &.isFocusVisible,
+  &:global(.story__option-focus) {
     background-color: $color-blue-100;
     color: $color-blue-500;
     &::after {

@@ -12,9 +12,10 @@ import styles from "./Option.module.scss"
 
 export interface OptionProps {
   item: Node<ItemType>
+  classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 
-export const Option: React.VFC<OptionProps> = ({ item }) => {
+export const Option: React.VFC<OptionProps> = ({ item, classNameOverride }) => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
@@ -30,6 +31,7 @@ export const Option: React.VFC<OptionProps> = ({ item }) => {
         styles.option,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
+        classNameOverride,
       ])}
       aria-label={item.value.label}
     >

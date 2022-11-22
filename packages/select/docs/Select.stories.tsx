@@ -117,11 +117,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
-          selectedKey={"id-fe"}
+          selectedKey={"id-sre"}
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
-              selectedOptionLabel={getSelectedOptionLabel("id-fe", singleItems)}
+              selectedOptionLabel={getSelectedOptionLabel(
+                "id-sre",
+                singleItems
+              )}
             />
           )}
         >
@@ -178,6 +181,170 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               {({ allItems }) =>
                 allItems.map(item => (
                   <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Full Width">
+        <Select
+          id="select-full-width"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          isFullWidth
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Custom Width (50%)">
+        <div style={{ width: "50%" }}>
+          <Select
+            id="select-custom-width"
+            label="label"
+            onSelectionChange={() => undefined}
+            items={singleItems}
+            isFullWidth
+            trigger={() => (
+              <Select.TriggerButton
+                placeholder="Select an option"
+                selectedOptionLabel={null}
+              />
+            )}
+          >
+            {() => (
+              <Select.ListBox>
+                {({ allItems }) =>
+                  allItems.map(item => (
+                    <Select.Option key={item.key} item={item} />
+                  ))
+                }
+              </Select.ListBox>
+            )}
+          </Select>
+        </div>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Dropdown">
+        <Select
+          id="select-dropdown-default"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          isOpen
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+        <Select
+          id="select-dropdown-selected"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          selectedKey={"id-sre"}
+          isOpen
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={getSelectedOptionLabel(
+                "id-sre",
+                singleItems
+              )}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option key={item.key} item={item} />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+        <Select
+          id="select-dropdown-hovered"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          selectedKey={null}
+          isOpen
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option
+                    key={item.key}
+                    item={item}
+                    classNameOverride={
+                      item.key === "id-sre" ? "story__option-hover" : undefined
+                    }
+                  />
+                ))
+              }
+            </Select.ListBox>
+          )}
+        </Select>
+        <Select
+          id="select-dropdown-focused"
+          label="label"
+          onSelectionChange={() => undefined}
+          items={singleItems}
+          selectedKey={null}
+          isOpen
+          trigger={() => (
+            <Select.TriggerButton
+              placeholder="Select an option"
+              selectedOptionLabel={null}
+            />
+          )}
+        >
+          {() => (
+            <Select.ListBox>
+              {({ allItems }) =>
+                allItems.map(item => (
+                  <Select.Option
+                    key={item.key}
+                    item={item}
+                    classNameOverride={
+                      item.key === "id-sre" ? "story__option-focus" : undefined
+                    }
+                  />
                 ))
               }
             </Select.ListBox>
