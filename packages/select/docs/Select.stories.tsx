@@ -29,8 +29,8 @@ export default {
 } as ComponentMeta<typeof Select>
 
 export const DefaultStory: ComponentStory<typeof Select> = props => {
-  const [selectedKey, setSelectedKey] = useState<Key | null>("id-fe")
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [selectedKey, setSelectedKey] = useState<Key | null>()
+  const [isOpen, setIsOpen] = useState<boolean>()
 
   const handleSelectionChange = (key: Key) => {
     setSelectedKey(key)
@@ -39,32 +39,27 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
   const handleOpenChange = () => setIsOpen(!isOpen)
 
   return (
-    <>
-      <Select
-        {...props}
-        isOpen={isOpen}
-        onOpenChange={handleOpenChange}
-        onSelectionChange={handleSelectionChange}
-        selectedKey={selectedKey}
-        trigger={() => (
-          <Select.TriggerButton
-            placeholder="Select an option"
-            selectedOptionLabel={getSelectedOptionLabel(
-              selectedKey,
-              singleItems
-            )}
-          />
-        )}
-      >
-        {() => (
-          <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        )}
-      </Select>
-    </>
+    <Select
+      {...props}
+      isOpen={isOpen}
+      onOpenChange={handleOpenChange}
+      onSelectionChange={handleSelectionChange}
+      selectedKey={props.selectedKey && selectedKey}
+      trigger={() => (
+        <Select.TriggerButton
+          placeholder="Select an option"
+          selectedOptionLabel={getSelectedOptionLabel(selectedKey, singleItems)}
+        />
+      )}
+    >
+      {() => (
+        <Select.ListBox>
+          {({ allItems }) =>
+            allItems.map(item => <Select.Option key={item.key} item={item} />)
+          }
+        </Select.ListBox>
+      )}
+    </Select>
   )
 }
 
@@ -73,8 +68,10 @@ DefaultStory.args = {
   label: "label",
   id: "single-select",
   items: singleItems,
+  selectedKey: undefined,
   isFullWidth: false,
   description: "This is a description",
+  isDisabled: false,
 }
 DefaultStory.parameters = {
   chromatic: { disable: false },
@@ -95,6 +92,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           trigger={() => (
             <Select.TriggerButton
               placeholder="Select an option"
@@ -117,6 +115,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={"id-sre"}
           trigger={() => (
             <Select.TriggerButton
@@ -143,6 +142,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={null}
           trigger={() => (
             <Select.TriggerButton
@@ -167,6 +167,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={null}
           trigger={() => (
             <Select.TriggerButton
@@ -193,6 +194,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           isFullWidth
           trigger={() => (
             <Select.TriggerButton
@@ -219,6 +221,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             label="label"
             onSelectionChange={() => undefined}
             items={singleItems}
+            description="This is a description"
             isFullWidth
             trigger={() => (
               <Select.TriggerButton
@@ -245,6 +248,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           isOpen
           trigger={() => (
             <Select.TriggerButton
@@ -268,6 +272,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={"id-sre"}
           isOpen
           trigger={() => (
@@ -295,6 +300,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={null}
           isOpen
           trigger={() => (
@@ -325,6 +331,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
+          description="This is a description"
           selectedKey={null}
           isOpen
           trigger={() => (
