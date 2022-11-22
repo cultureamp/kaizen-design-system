@@ -1,4 +1,4 @@
-import React, { Key, useState } from "react"
+import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Select } from "../../Select"
@@ -26,7 +26,9 @@ const SelectionProviderWrapper = ({
   onSelectionChange,
   ...props
 }: Partial<SelectionProviderProps>) => {
-  const [selected, setSelected] = useState<Key | null>(selectedKey ?? null)
+  const [selected, setSelected] = useState<
+    SelectionProviderProps["selectedKey"]
+  >(selectedKey ?? null)
 
   return (
     <SelectionProvider

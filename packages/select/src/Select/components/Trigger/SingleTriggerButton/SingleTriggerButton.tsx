@@ -1,11 +1,12 @@
-import React, { Key } from "react"
+import React from "react"
 import classnames from "classnames"
+import { RootProps } from "../../Root"
 import { TriggerButtonBase } from "../TriggerButtonBase"
 import styles from "./SingleTriggerButton.module.scss"
 
 export type SingleTriggerButtonProps = {
   placeholder: string
-  selectedOptionLabel: Key | null
+  selectedOptionLabel: RootProps["selectedKey"]
   classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 

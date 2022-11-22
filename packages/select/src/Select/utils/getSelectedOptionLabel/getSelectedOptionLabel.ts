@@ -1,8 +1,8 @@
-import { Key } from "react"
+import { RootProps } from "../../components/Root"
 import { ItemType } from "../../types"
 
 export const getSelectedOptionLabel = (
-  selectedKey?: Key | null,
+  selectedKey?: RootProps["selectedKey"],
   items?: ItemType[]
 ): string | null => {
   if (!selectedKey || !items) {

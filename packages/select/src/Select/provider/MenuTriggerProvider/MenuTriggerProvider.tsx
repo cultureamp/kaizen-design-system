@@ -37,7 +37,6 @@ export function MenuTriggerProvider({
   children,
   isDisabled = false,
   isFullWidth = false,
-  items,
 }: MenuTriggerProviderProps) {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })

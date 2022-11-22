@@ -6,13 +6,13 @@ import {
   useSingleSelectListState,
 } from "@react-stately/list"
 import { VisuallyHidden } from "@kaizen/a11y"
+import { RootProps } from "../../components/Root"
 import { ItemType } from "../../types"
-
 export interface SelectionProviderProps {
   children: React.ReactNode // control how menu should look like
   items?: ItemType[]
-  onSelectionChange?: (key: Key) => any
-  selectedKey?: Key | null
+  onSelectionChange?: RootProps["onSelectionChange"]
+  selectedKey?: RootProps["selectedKey"]
   label: string
 }
 

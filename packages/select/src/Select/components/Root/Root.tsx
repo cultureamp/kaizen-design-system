@@ -1,4 +1,5 @@
-import React, { Key } from "react"
+import React from "react"
+import { SingleSelection } from "@react-types/shared"
 import classnames from "classnames"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import {
@@ -28,8 +29,8 @@ interface SelectionProps {
   id: string // provide A11y context for label
   label: string // provide A11y context for listbox
   items: ItemType[]
-  selectedKey?: Key | null
-  onSelectionChange?: (key: Key) => void
+  selectedKey?: SingleSelection["selectedKey"]
+  onSelectionChange?: SingleSelection["onSelectionChange"]
 }
 
 export type SelectProps = RootProps
@@ -90,9 +91,7 @@ export const Root: React.VFC<RootProps> = ({
         </div>
       </MenuTriggerProvider>
       {description && (
-        <div>
-          <FieldMessage id={`${description}`} message={description} />
-        </div>
+        <FieldMessage id={`${description}`} message={description} />
       )}
     </div>
   )
