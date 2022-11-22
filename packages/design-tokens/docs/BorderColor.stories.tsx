@@ -1,9 +1,9 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/design-tokens"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
-import { kaizenTailwindTheme } from "@kaizen/design-tokens"
 // the old way
 // const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 // the new way
