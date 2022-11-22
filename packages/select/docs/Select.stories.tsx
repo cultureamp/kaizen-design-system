@@ -44,7 +44,7 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
       isOpen={isOpen}
       onOpenChange={handleOpenChange}
       onSelectionChange={handleSelectionChange}
-      selectedKey={props.selectedKey && selectedKey}
+      selectedKey={selectedKey}
       trigger={() => (
         <Select.TriggerButton
           placeholder="Placeholder"
@@ -68,11 +68,11 @@ DefaultStory.args = {
   label: "label",
   id: "single-select",
   items: singleItems,
-  selectedKey: undefined,
   isFullWidth: false,
   description: "This is a description",
   isDisabled: false,
 }
+
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
@@ -242,13 +242,145 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           </Select>
         </div>
       </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Dropdown">
+    </StoryWrapper>
+
+    <div style={{ height: "550px", marginTop: "4rem" }}>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Base", "Selected", "Hover", "Focus"]}
+        />
+        <StoryWrapper.Row rowTitle="Dropdown">
+          <Select
+            id="select-dropdown-default"
+            label="label"
+            onSelectionChange={() => undefined}
+            items={singleItems}
+            description="This is a description"
+            isOpen
+            trigger={() => (
+              <Select.TriggerButton
+                placeholder="Placeholder"
+                selectedOptionLabel={null}
+              />
+            )}
+          >
+            {() => (
+              <Select.ListBox>
+                {({ allItems }) =>
+                  allItems.map(item => (
+                    <Select.Option key={item.key} item={item} />
+                  ))
+                }
+              </Select.ListBox>
+            )}
+          </Select>
+          <Select
+            id="select-dropdown-selected"
+            label="label"
+            onSelectionChange={() => undefined}
+            items={singleItems}
+            description="This is a description"
+            selectedKey={"id-sre"}
+            isOpen
+            trigger={() => (
+              <Select.TriggerButton
+                placeholder="Placeholder"
+                selectedOptionLabel={getSelectedOptionLabel(
+                  "id-sre",
+                  singleItems
+                )}
+              />
+            )}
+          >
+            {() => (
+              <Select.ListBox>
+                {({ allItems }) =>
+                  allItems.map(item => (
+                    <Select.Option key={item.key} item={item} />
+                  ))
+                }
+              </Select.ListBox>
+            )}
+          </Select>
+          <Select
+            id="select-dropdown-hovered"
+            label="label"
+            onSelectionChange={() => undefined}
+            items={singleItems}
+            description="This is a description"
+            selectedKey={null}
+            isOpen
+            trigger={() => (
+              <Select.TriggerButton
+                placeholder="Placeholder"
+                selectedOptionLabel={null}
+              />
+            )}
+          >
+            {() => (
+              <Select.ListBox>
+                {({ allItems }) =>
+                  allItems.map(item => (
+                    <Select.Option
+                      key={item.key}
+                      item={item}
+                      classNameOverride={
+                        item.key === "id-sre"
+                          ? "story__option-hover"
+                          : undefined
+                      }
+                    />
+                  ))
+                }
+              </Select.ListBox>
+            )}
+          </Select>
+          <Select
+            id="select-dropdown-focused"
+            label="label"
+            onSelectionChange={() => undefined}
+            items={singleItems}
+            description="This is a description"
+            selectedKey={null}
+            isOpen
+            trigger={() => (
+              <Select.TriggerButton
+                placeholder="Placeholder"
+                selectedOptionLabel={null}
+              />
+            )}
+          >
+            {() => (
+              <Select.ListBox>
+                {({ allItems }) =>
+                  allItems.map(item => (
+                    <Select.Option
+                      key={item.key}
+                      item={item}
+                      classNameOverride={
+                        item.key === "id-sre"
+                          ? "story__option-focus"
+                          : undefined
+                      }
+                    />
+                  ))
+                }
+              </Select.ListBox>
+            )}
+          </Select>
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </div>
+
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
         <Select
           id="select-dropdown-default"
           label="label"
           onSelectionChange={() => undefined}
           items={singleItems}
           description="This is a description"
+          isFullWidth
           isOpen
           trigger={() => (
             <Select.TriggerButton
@@ -262,96 +394,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               {({ allItems }) =>
                 allItems.map(item => (
                   <Select.Option key={item.key} item={item} />
-                ))
-              }
-            </Select.ListBox>
-          )}
-        </Select>
-        <Select
-          id="select-dropdown-selected"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleItems}
-          description="This is a description"
-          selectedKey={"id-sre"}
-          isOpen
-          trigger={() => (
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={getSelectedOptionLabel(
-                "id-sre",
-                singleItems
-              )}
-            />
-          )}
-        >
-          {() => (
-            <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
-              }
-            </Select.ListBox>
-          )}
-        </Select>
-        <Select
-          id="select-dropdown-hovered"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleItems}
-          description="This is a description"
-          selectedKey={null}
-          isOpen
-          trigger={() => (
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          )}
-        >
-          {() => (
-            <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-hover" : undefined
-                    }
-                  />
-                ))
-              }
-            </Select.ListBox>
-          )}
-        </Select>
-        <Select
-          id="select-dropdown-focused"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleItems}
-          description="This is a description"
-          selectedKey={null}
-          isOpen
-          trigger={() => (
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          )}
-        >
-          {() => (
-            <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-focus" : undefined
-                    }
-                  />
                 ))
               }
             </Select.ListBox>
