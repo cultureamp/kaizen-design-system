@@ -47,7 +47,7 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
       selectedKey={props.selectedKey && selectedKey}
       trigger={() => (
         <Select.TriggerButton
-          placeholder="Select an option"
+          placeholder="Placeholder"
           selectedOptionLabel={getSelectedOptionLabel(selectedKey, singleItems)}
         />
       )}
@@ -95,7 +95,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -119,7 +119,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           selectedKey={"id-sre"}
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={getSelectedOptionLabel(
                 "id-sre",
                 singleItems
@@ -147,7 +147,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           trigger={() => (
             <Select.TriggerButton
               classNameOverride="story__button-hover"
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -172,7 +172,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           trigger={() => (
             <Select.TriggerButton
               classNameOverride="story__button-focus"
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -198,7 +198,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           isFullWidth
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -225,7 +225,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             isFullWidth
             trigger={() => (
               <Select.TriggerButton
-                placeholder="Select an option"
+                placeholder="Placeholder"
                 selectedOptionLabel={null}
               />
             )}
@@ -252,7 +252,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           isOpen
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -277,7 +277,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           isOpen
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={getSelectedOptionLabel(
                 "id-sre",
                 singleItems
@@ -305,7 +305,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           isOpen
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
@@ -336,7 +336,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           isOpen
           trigger={() => (
             <Select.TriggerButton
-              placeholder="Select an option"
+              placeholder="Placeholder"
               selectedOptionLabel={null}
             />
           )}
