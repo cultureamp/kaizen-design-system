@@ -56,7 +56,7 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
       className={styles.menuPopup}
       style={{
         width: width != null ? `${width}px` : undefined,
-        minWidth: !isFullWidth ? "180px" : undefined,
+        minWidth: !isFullWidth ? "248px" : undefined,
       }}
     >
       <FocusScope contain autoFocus restoreFocus>
