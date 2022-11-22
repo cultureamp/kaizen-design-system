@@ -16,7 +16,7 @@ import {
 import { ItemType } from "../../types"
 import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
 import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
-import labelStyles from "./labelStyles.module.scss"
+import rootStyles from "./rootStyles.module.scss"
 export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
@@ -74,13 +74,13 @@ export const Root: React.VFC<RootProps> = ({
         htmlFor={id}
         aria-label={label}
         classNameOverride={classnames([
-          !isFullWidth && labelStyles.notFullWidth,
+          !isFullWidth && rootStyles.notFullWidth,
         ])}
       >
         {label}
       </Label>
       <MenuTriggerProvider {...menuTriggerProps}>
-        <div>
+        <div className={rootStyles.container}>
           <HiddenSelectWrapper items={items} label={label} name={id} />
           <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
           <FloatingSelectWrapper>
