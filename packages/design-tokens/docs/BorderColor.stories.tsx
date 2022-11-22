@@ -3,8 +3,10 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
-
-const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
+import { kaizenTailwindTheme } from "@kaizen/design-tokens"
+// the old way
+// const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
+// the new way
 
 export default {
   title: "TAILWIND/Borders/Border Color",
@@ -25,13 +27,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        TailwindPreset.theme.borderColor as { [key: string]: string }
-      ).map(presetData => {
+        kaizenTailwindTheme.borderColor as { [key: string]: string }
+      ).map((presetData, index) => {
         const [borderColorClassName, borderColorValue] = presetData
         if (!borderColorValue) return <></>
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p>border-{borderColorClassName}</p>
@@ -41,7 +43,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 className={styles.boxWithBorder}
               />
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>
