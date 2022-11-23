@@ -6,7 +6,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
-  title: "TAILWIND/Typography/Font Family",
+  title: "Tailwind/Typography/Font Family",
   component: <div>Hello</div>,
   parameters: {
     docs: {

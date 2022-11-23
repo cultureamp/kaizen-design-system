@@ -5,7 +5,7 @@ import { Card } from "@kaizen/draft-card"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Design Tokens/Tailwind",
+  title: "Tailwind",
   parameters: {
     docs: {
       description: {
@@ -58,7 +58,7 @@ DefaultKaizenSiteDemo.args = { title: "Tailwind title example" }
 
 export const TailwindPsuedoStates = () => (
   <div className="p-sm">
-    <h1 className="flex flex-col items-center text-size-heading-1 font-weight-heading font-family-heading text-white ">
+    <h1 className="flex flex-col items-center text-size-heading-1 font-weight-heading font-family-heading text-purple-700">
       Tailwind Psuedo states
     </h1>
     <div className="flex">
@@ -83,3 +83,37 @@ export const TailwindPsuedoStates = () => (
 )
 
 TailwindPsuedoStates.storyName = "Tailwind psuedo selectors"
+
+export const TailwindMediaQueries = () => (
+  <div className="p-sm">
+    <h1 className="flex flex-col items-center text-size-heading-1 font-weight-heading font-family-heading text-purple-700">
+      Tailwind media queries
+    </h1>
+    <h2 className="text-size-heading-2 font-weight-heading font-family-heading text-purple-700">
+      Min width queries
+    </h2>
+    <div className="flex flex-col  media-min-lg:flex-row">
+      <div className="mx-sm bg-orange-400 p-lg inline-flex"></div>
+      <p className="font-family-paragraph font-weight-paragraph text-purple-800">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
+        nostrum accusamus nam ducimus excepturi officiis eos, suscipit
+        temporibus fugit officia exercitationem ipsum eveniet, voluptatem dolore
+        dolor voluptatum eum. Optio.≈
+      </p>
+    </div>
+    <h2 className="text-size-heading-2 font-weight-heading font-family-heading text-purple-700">
+      Max width queries
+    </h2>
+    <div className="flex media-max-[600px]:flex-col ">
+      <div className="mx-sm bg-orange-400 p-lg inline-flex media-max-[600px]:bg-blue-400"></div>
+      <p className="font-family-paragraph font-weight-paragraph text-purple-800">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
+        nostrum accusamus nam ducimus excepturi officiis eos, suscipit
+        temporibus fugit officia exercitationem ipsum eveniet, voluptatem dolore
+        dolor voluptatum eum. Optio.≈
+      </p>
+    </div>
+  </div>
+)
+
+TailwindMediaQueries.storyName = "Tailwind media queries"

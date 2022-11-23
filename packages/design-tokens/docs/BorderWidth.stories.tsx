@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
-  title: "TAILWIND/Borders/Border Width",
+  title: "Tailwind/Borders/Border Width",
   component: <div>Hello</div>,
   parameters: {
     docs: {

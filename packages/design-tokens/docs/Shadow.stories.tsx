@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
-  title: "TAILWIND/Effects/Shadow",
+  title: "Tailwind/Effects/Shadow",
   component: <div>Hello</div>,
   parameters: {
     docs: {

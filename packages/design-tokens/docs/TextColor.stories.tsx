@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
-  title: "TAILWIND/Typography/Text Color",
+  title: "Tailwind/Typography/Text Color",
   component: <div>Hello</div>,
   parameters: {
     docs: {

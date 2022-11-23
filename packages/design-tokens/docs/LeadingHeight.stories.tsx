@@ -7,7 +7,7 @@ import styles from "./styles.module.scss"
 const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
-  title: "TAILWIND/Typography/Leading Height",
+  title: "Tailwind/Typography/Leading Height",
   component: <div>Hello</div>,
   parameters: {
     docs: {
