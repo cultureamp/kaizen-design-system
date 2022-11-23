@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { singleItems } from "../../../../docs/MockData"
 import { FloatingSelectWrapper } from "../../components/FloatingSelectWrapper"
-import { TriggerButtonBase } from "../../components/Trigger/TriggerButtonBase"
+import { SingleTriggerButton } from "../../components/Trigger/SingleTriggerButton"
 import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
@@ -13,7 +13,10 @@ const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
 ) => (
   <MenuTriggerProvider {...props} items={singleItems}>
-    <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
+    <SingleTriggerButton
+      placeholder="Placeholder"
+      selectedOptionLabel={"trigger-display-label-mock"}
+    ></SingleTriggerButton>
     <FloatingSelectWrapper>
       <span>menu-content-mock</span>
       <button>menu-content-button-mock</button>
@@ -26,6 +29,25 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
     render(<MenuTriggerProviderWrapper />)
     const trigger = screen.getByRole("button", {
       name: "trigger-display-label-mock",
+    })
+    expect(trigger).toBeVisible()
+  })
+
+  it("shows the trigger with placeholder when no option is selected", () => {
+    render(
+      <MenuTriggerProvider items={singleItems}>
+        <SingleTriggerButton
+          placeholder="Placeholder"
+          selectedOptionLabel={null}
+        ></SingleTriggerButton>
+        <FloatingSelectWrapper>
+          <span>menu-content-mock</span>
+          <button>menu-content-button-mock</button>
+        </FloatingSelectWrapper>
+      </MenuTriggerProvider>
+    )
+    const trigger = screen.getByRole("button", {
+      name: "Placeholder",
     })
     expect(trigger).toBeVisible()
   })
