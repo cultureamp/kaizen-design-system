@@ -3,23 +3,19 @@ import { SingleSelection } from "@react-types/shared"
 import classnames from "classnames"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import {
-  MenuTriggerConsumer,
   MenuTriggerProvider,
-  MenuTriggerProviderContextType,
   MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
 import {
-  SelectionConsumer,
   SelectionProvider,
-  SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
 import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
 import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
 import rootStyles from "./rootStyles.module.scss"
 export interface RootProps extends MenuTriggerProps, SelectionProps {
-  trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
-  children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
+  trigger: React.ReactNode
+  children: React.ReactNode // the content of the menu
   description?: React.ReactNode
 }
 
@@ -82,10 +78,10 @@ export const Root: React.VFC<RootProps> = ({
       <MenuTriggerProvider {...menuTriggerProps}>
         <div className={rootStyles.container}>
           <HiddenSelectWrapper items={items} label={label} name={id} />
-          <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
+          {trigger}
           <FloatingSelectWrapper>
             <SelectionProvider {...selectionProps}>
-              <SelectionConsumer>{children}</SelectionConsumer>
+              {children}
             </SelectionProvider>
           </FloatingSelectWrapper>
         </div>
