@@ -1,4 +1,8 @@
 import { ThemeConfig } from "tailwindcss/types/config"
+// import * as twDefaultTheme from "tailwindcss/defaultTheme"
+// with this we can import spacing tokens into spacing tokens like so
+// ...twDefaultTheme.spacing,
+
 import { defaultTheme } from "../"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
@@ -6,6 +10,7 @@ export interface KaizenTailwindPreset {
   theme: KaizenTailwindTheme
 }
 
+// Note: changing any token will require to to run build:ts from the root `design-tokens`
 export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   colors: {
     transparent: "transparent",
@@ -114,7 +119,10 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   },
   // we will probably want to review viewport sizing
   screens: {
-    ...defaultTheme.layout.breakpoints,
+    "media-min-md": defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
+    "media-min-lg": defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
+    "media-max-md": { max: defaultTheme.layout.breakpoints.medium }, // => @media (max-width: 768px) { ... }
+    "media-max-lg": { max: defaultTheme.layout.breakpoints.large }, // => @media (min-width: 1080px) { ... }
   },
 }
 
