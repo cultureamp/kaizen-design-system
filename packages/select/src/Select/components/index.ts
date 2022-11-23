@@ -1,1 +1,1 @@
-export type { TriggerButtonBaseProps } from "./Trigger"
+export type { SingleTriggerButtonProps } from "./Trigger"
