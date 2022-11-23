@@ -19,7 +19,7 @@ export interface OptionProps
 export const Option: React.VFC<OptionProps> = ({ item, classNameOverride }) => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
-  const ref = React.createRef<HTMLLIElement>()
+  const ref = React.useRef<HTMLLIElement>(null)
 
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
   const { isFocusVisible, focusProps } = useFocusRing()

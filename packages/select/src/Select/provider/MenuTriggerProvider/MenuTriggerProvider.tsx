@@ -42,7 +42,7 @@ export function MenuTriggerProvider({
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
   // Get A11y attributes and events for the menu trigger and menu elements
-  const ref = React.createRef<HTMLButtonElement>()
+  const ref = React.useRef<HTMLButtonElement>(null)
   const { menuTriggerProps, menuProps } = useMenuTrigger(
     { type: "listbox", isDisabled },
     state,
