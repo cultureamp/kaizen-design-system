@@ -11,17 +11,21 @@ export interface FilterTriggerButtonProps
 export const FilterTriggerButton = forwardRef<
   HTMLButtonElement,
   FilterTriggerButtonProps
->(({ label, selectedValue, ...restProps }, ref) => (
-  <TriggerButtonBase ref={ref} {...restProps}>
-    {selectedValue ? (
-      <>
-        <span className={styles.hasSelectedValues}>{label}:&nbsp;</span>
-        <span>{selectedValue}</span>
-      </>
-    ) : (
-      <span>{label}</span>
-    )}
-  </TriggerButtonBase>
-))
+>(({ label, selectedValue, ...restProps }, ref) => {
+  const hasSelectedValue = selectedValue && selectedValue !== ""
+
+  return (
+    <TriggerButtonBase ref={ref} {...restProps}>
+      {hasSelectedValue ? (
+        <>
+          <span className={styles.hasSelectedValues}>{label}:&nbsp;</span>
+          <span>{selectedValue}</span>
+        </>
+      ) : (
+        <span>{label}</span>
+      )}
+    </TriggerButtonBase>
+  )
+})
 
 FilterTriggerButton.displayName = "FilterTriggerButton"

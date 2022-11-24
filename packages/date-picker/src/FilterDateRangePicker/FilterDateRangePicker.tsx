@@ -7,6 +7,7 @@ import { DateRange, DisabledDayMatchers, SupportedLocales } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { getLocale } from "../utils/getLocale"
 import { FilterTriggerButton } from "./components/Trigger"
+import { formatDateRange } from "./utils/formatDateRange"
 
 export interface FilterDateRangePickerProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
@@ -73,7 +74,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
         aria-haspopup="dialog"
         isOpen={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        selectedValue={`${selectedRange?.from?.toDateString()} - ${selectedRange?.to?.toDateString()}`}
+        selectedValue={formatDateRange(selectedRange, locale)}
       />
 
       {isOpen && (

@@ -31,6 +31,21 @@ describe("<FilterDateRangePicker />", () => {
   })
 
   describe("Filter button", () => {
+    it("should show the selected range in the button", () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-11-25"),
+          }}
+        />
+      )
+      const filterButton = screen.getByRole("button", {
+        name: "Open filter - Dates: 1 May 2022 - 25 Nov 2022",
+      })
+      expect(filterButton).toBeVisible()
+    })
+
     it("should show the calendar when the filter button is clicked", async () => {
       render(
         <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
