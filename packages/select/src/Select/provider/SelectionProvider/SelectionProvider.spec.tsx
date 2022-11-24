@@ -42,7 +42,7 @@ const SelectionProviderWrapper = ({
       {...props}
     >
       <Select.ListBox>
-        {({ allItems }) =>
+        {allItems =>
           allItems.map(item => <Select.Option key={item.key} item={item} />)
         }
       </Select.ListBox>

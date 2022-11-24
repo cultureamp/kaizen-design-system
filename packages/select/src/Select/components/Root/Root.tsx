@@ -6,9 +6,7 @@ import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
-import {
-  SelectionProvider,
-} from "../../provider/SelectionProvider"
+import { SelectionProvider } from "../../provider/SelectionProvider"
 import { ItemType } from "../../types"
 import { FloatingSelectWrapper } from "../FloatingSelectWrapper"
 import { HiddenSelectWrapper } from "../HiddenSelectWrapper/HiddenSelectWrapper"
