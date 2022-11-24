@@ -8,10 +8,7 @@ import {
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import {
-  FilterTriggerButton,
-  FilterTriggerButtonProps,
-} from "../src/FilterDateRangePicker/components/Trigger"
+import { FilterTriggerButton } from "../src/FilterDateRangePicker/components/Trigger"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Button`,
@@ -45,27 +42,39 @@ const StickerSheetTemplate: Story = () => (
         headings={["Base", "Has selected value", "Open"]}
       />
       <StoryWrapper.Row rowTitle="Default">
-        <FilterTriggerButton label="Desserts" />
-        <FilterTriggerButton label="Desserts" selectedValue="Cake" />
-        <FilterTriggerButton label="Desserts" isOpen />
+        <div>
+          <FilterTriggerButton label="Desserts" />
+        </div>
+        <div>
+          <FilterTriggerButton label="Desserts" selectedValue="Cake" />
+        </div>
+        <div>
+          <FilterTriggerButton label="Desserts" isOpen />
+        </div>
       </StoryWrapper.Row>
     </StoryWrapper>
 
     <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
       <StoryWrapper.Row rowTitle="Pseudo states">
-        <FilterTriggerButton
-          label="Desserts"
-          classNameOverride="story__filter-button--hover"
-        />
-        <FilterTriggerButton
-          label="Desserts"
-          classNameOverride="story__filter-button--active"
-        />
-        <FilterTriggerButton
-          label="Desserts"
-          classNameOverride="story__filter-button--focus"
-        />
+        <div>
+          <FilterTriggerButton
+            label="Desserts"
+            classNameOverride="story__filter-button--hover"
+          />
+        </div>
+        <div>
+          <FilterTriggerButton
+            label="Desserts"
+            classNameOverride="story__filter-button--active"
+          />
+        </div>
+        <div>
+          <FilterTriggerButton
+            label="Desserts"
+            classNameOverride="story__filter-button--focus"
+          />
+        </div>
       </StoryWrapper.Row>
     </StoryWrapper>
   </>

@@ -69,23 +69,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   return (
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Default">
-        <FilterDateRangePicker
-          id="stickersheet--filter-drp--default"
-          label="Dates"
-          locale="en-AU"
-          selectedRange={rangeDefault}
-          onRangeChange={setRangeDefault}
-        />
+        <div>
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default"
+            label="Dates"
+            locale="en-AU"
+            selectedRange={rangeDefault}
+            onRangeChange={setRangeDefault}
+          />
+        </div>
       </StoryWrapper.Row>
 
       <StoryWrapper.Row rowTitle="Existing value">
-        <FilterDateRangePicker
-          id="stickersheet--filter-drp--existing"
-          label="Dates"
-          locale="en-AU"
-          selectedRange={rangeExisting}
-          onRangeChange={setRangeExisting}
-        />
+        <div>
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--existing"
+            label="Dates"
+            locale="en-AU"
+            selectedRange={rangeExisting}
+            onRangeChange={setRangeExisting}
+          />
+        </div>
       </StoryWrapper.Row>
     </StoryWrapper>
   )
