@@ -68,6 +68,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     <>
       <FilterTriggerButton
         ref={buttonRef}
+        id={id}
         label={label}
         aria-haspopup="dialog"
         isOpen={isOpen}
@@ -76,11 +77,14 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       />
 
       {isOpen && (
-        <FloatingCalendarWrapper referenceElement={buttonRef.current}>
-          <FocusOn
-            scrollLock={false}
-            onClickOutside={() => setIsOpen(false)}
-            onEscapeKey={() => setIsOpen(false)}
+        <FocusOn
+          scrollLock={false}
+          onClickOutside={() => setIsOpen(false)}
+          onEscapeKey={() => setIsOpen(false)}
+        >
+          <FloatingCalendarWrapper
+            referenceElement={buttonRef.current}
+            aria-label={label}
           >
             <CalendarRange
               defaultMonth={defaultMonth}
@@ -89,8 +93,8 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
               selected={selectedRange}
               onSelect={handleCalendarSelectRange}
             />
-          </FocusOn>
-        </FloatingCalendarWrapper>
+          </FloatingCalendarWrapper>
+        </FocusOn>
       )}
     </>
   )
