@@ -1,4 +1,4 @@
-import { Matcher } from "react-day-picker/dist/types/Matchers"
+import { Matcher } from "react-day-picker"
 import { DisabledDayMatchers } from "../types"
 
 export const calculateDisabledDays = ({

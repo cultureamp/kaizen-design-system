@@ -1,11 +1,11 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { InlineNotification } from "@kaizen/notification"
 import { withDesign } from "storybook-addon-designs"
+import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
@@ -143,7 +143,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -151,6 +154,7 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  controls: { disable: true },
 }
 
 export const AutohideDemo = props => (

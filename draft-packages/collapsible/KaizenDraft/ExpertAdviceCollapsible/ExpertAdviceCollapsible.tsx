@@ -1,6 +1,6 @@
 import React from "react"
-import { Heading } from "@kaizen/typography"
 import { Brand } from "@kaizen/brand"
+import { Heading } from "@kaizen/typography"
 import { Collapsible, CollapsibleProps } from ".."
 import styles from "./ExpertAdviceCollapsible.module.scss"
 

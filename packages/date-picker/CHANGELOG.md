@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.13...@kaizen/date-picker@5.12.14) (2022-11-18)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.12...@kaizen/date-picker@5.12.13) (2022-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-day-picker to ^8.3.6 ([#3107](https://github.com/cultureamp/kaizen-design-system/issues/3107)) ([b3d062b](https://github.com/cultureamp/kaizen-design-system/commit/b3d062bf278db7ac82b5b5cdc8d1f56e1cad2eff))
+
+
+
+
+
+## [5.12.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.11...@kaizen/date-picker@5.12.12) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.10...@kaizen/date-picker@5.12.11) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [5.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.12.9...@kaizen/date-picker@5.12.10) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/date-picker

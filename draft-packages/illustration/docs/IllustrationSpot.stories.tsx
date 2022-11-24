@@ -1,5 +1,6 @@
 import React from "react"
 import { Heading, Paragraph } from "@kaizen/typography"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   AccountBasics,
   Action,
@@ -128,7 +129,6 @@ import {
   Templates,
   CalendarSync,
 } from ".."
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Spot`,

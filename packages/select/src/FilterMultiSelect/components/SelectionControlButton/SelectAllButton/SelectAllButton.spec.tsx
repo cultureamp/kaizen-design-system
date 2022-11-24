@@ -10,7 +10,7 @@ jest.mock("../../../provider", () => ({
 
 describe("<SelectAllButton /> - interaction", () => {
   describe("Given not all options are selected", () => {
-    it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", () => {
+    it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", async () => {
       const spy = jest.fn()
       const selectedAndFiltered = "selectedAndFiltered"
       const filteredButNotSelected = "focusedButNotSelected"
@@ -32,7 +32,7 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      userEvent.click(screen.getByRole("button"))
+      await userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith([...selectedKeys, ...filteredKeys])
@@ -40,7 +40,7 @@ describe("<SelectAllButton /> - interaction", () => {
   })
 
   describe("Given all filtered options are selected", () => {
-    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", () => {
+    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
       const spy = jest.fn()
       const selectedAndFiltered1 = "selectedAndFiltered1"
       const selectedAndFiltered2 = "selectedAndFocused2"
@@ -60,14 +60,14 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      userEvent.click(screen.getByRole("button"))
+      await userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(0)
     })
   })
 
   describe("Given some options are disabled", () => {
-    it("triggers selectionManager.setSelectedKeys() on non-disabled options", () => {
+    it("triggers selectionManager.setSelectedKeys() on non-disabled options", async () => {
       const spy = jest.fn()
       const filtered = "filtered"
       const filteredAndSelected = "filteredAndSelected"
@@ -91,7 +91,7 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      userEvent.click(screen.getByRole("button"))
+      await userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith(

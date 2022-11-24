@@ -7,7 +7,7 @@ project's original TSLint configuration.
 
 We recommend eventually switching this configuration to extend from
 the recommended rulesets in typescript-eslint. 
-https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FAQs.md
+https://github.com/typescript-eslint/tslint-to-eslint-config/blob/main/docs/FAQs.md
 
 Happy linting! 💖
 */

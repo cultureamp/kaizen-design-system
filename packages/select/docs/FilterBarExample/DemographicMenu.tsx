@@ -1,8 +1,7 @@
+import React from "react"
 import { Button, ButtonRef } from "@kaizen/button"
 import addWhiteIcon from "@kaizen/component-library/icons/add-white.icon.svg"
 import { Menu, MenuItem, MenuList } from "@kaizen/draft-menu"
-
-import React from "react"
 
 export interface DemographicMenuProps {
   isAddFilterDisabled: boolean

@@ -1,12 +1,12 @@
 import React from "react"
-import { withDesign } from "storybook-addon-designs"
 import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
+import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import {
   CATEGORIES,
   SUB_CATEGORIES,

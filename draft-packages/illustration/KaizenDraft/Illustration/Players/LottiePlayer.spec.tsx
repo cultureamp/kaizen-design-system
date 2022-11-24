@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/extend-expect"
+import React from "react"
 import {
   cleanup,
   render,
@@ -6,7 +7,6 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react"
-import React from "react"
 import * as utils from "../utils"
 import { AnimatedBase } from "./LottiePlayer"
 
@@ -65,10 +65,9 @@ describe("<AnimatedBase />", () => {
       expect(mockedGetAnimationData.getAnimationData).toHaveBeenCalled()
       expect(screen.getByTestId("lottie-player")).toBeInTheDocument()
       expect(document.getElementsByTagName("img")).toHaveLength(0)
-      await waitForElementToBeRemoved(await screen.getByTestId("loading")).then(
-        () => {
-          expect(document.getElementsByTagName("img")).toHaveLength(1)
-        }
+      await waitForElementToBeRemoved(screen.getByTestId("loading"))
+      await waitFor(() =>
+        expect(document.getElementsByTagName("img")).toHaveLength(1)
       )
     })
   })

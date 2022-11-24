@@ -1,13 +1,13 @@
-import stylelint from "stylelint"
 import { Root } from "postcss"
-import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
+import stylelint from "stylelint"
 import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
+import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
 import { noInvalidUseOfTokens } from "./rules/no-invalid-use-of-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
+import { preferColorTokens } from "./rules/prefer-color-tokens"
 import { useDeprecatedComponentLibraryHelpersScssImports } from "./rules/use-deprecated-component-library-helpers-scss-imports"
 import { Options } from "./types"
-import { preferColorTokens } from "./rules/prefer-color-tokens"
 
 type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
 

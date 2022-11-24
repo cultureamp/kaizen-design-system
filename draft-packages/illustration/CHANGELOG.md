@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@6.0.1...@kaizen/draft-illustration@6.0.2) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [6.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@6.0.0...@kaizen/draft-illustration@6.0.1) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.3.8...@kaizen/draft-illustration@6.0.0) (2022-11-13)
+
+
+### Bug Fixes
+
+* **scene:** remove HumanityAtWork illustration ([#3063](https://github.com/cultureamp/kaizen-design-system/issues/3063)) ([b461926](https://github.com/cultureamp/kaizen-design-system/commit/b46192688ef04874550a0b3ed1302ab2b88cce2a))
+
+
+### BREAKING CHANGES
+
+* **scene:** HumanityAtWork illustration is no longer exported from Scene component.
+
+* fix(scene): remove DataCatching scene
+
+This illustration was never intended for production use
+* **scene:** DataCatching scene is no longer exported
+
+* fix(scene): remove DataCatching & HumanityAtWork components from IllustrationScene stories
+
+* test(draft-illustration): update snapshot tests after removing illustrations
+
+
+
+
+
 ## [5.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@5.3.7...@kaizen/draft-illustration@5.3.8) (2022-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

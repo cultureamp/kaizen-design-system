@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
-import { enUS } from "date-fns/locale"
 import userEvent from "@testing-library/user-event"
+import { enUS } from "date-fns/locale"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
 const defaultProps: DateInputFieldProps = {
@@ -84,7 +84,7 @@ describe("<DateInputField />", () => {
   })
 
   describe("Refs", () => {
-    it("correctly passes through input and button refs", () => {
+    it("correctly passes through input and button refs", async () => {
       const onButtonClick = jest.fn<
         void,
         [string | null | undefined, string | null | undefined]
@@ -117,7 +117,7 @@ describe("<DateInputField />", () => {
 
       render(<Wrapper />)
 
-      userEvent.click(screen.getByText("Click me"))
+      await userEvent.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
         "Choose date"

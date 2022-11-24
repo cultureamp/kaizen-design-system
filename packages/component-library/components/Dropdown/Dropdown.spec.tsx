@@ -1,5 +1,5 @@
-import { cleanup, render, screen, fireEvent } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, screen, fireEvent } from "@testing-library/react"
 import Dropdown from "./Dropdown"
 
 afterEach(cleanup)

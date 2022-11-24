@@ -1,11 +1,14 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { HumanityAtWork, Informative } from "@kaizen/draft-illustration"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
+import {
+  BrandMomentPositiveOutro,
+  Informative,
+} from "@kaizen/draft-illustration"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   LoadingGraphic,
   LoadingHeading,
@@ -105,7 +108,7 @@ const ExampleUsageTemplate: Story = () => {
           graphic={<LoadingGraphic size="scene" />}
         />
         <GuidanceBlock
-          illustration={<HumanityAtWork alt="humanity-at-work" />}
+          illustration={<BrandMomentPositiveOutro alt="positive-outro" />}
           text={GUIDANCE_BLOCK_TEXT}
           actions={GUIDANCE_BLOCK_ACTION}
           illustrationType="scene"

@@ -1,7 +1,7 @@
-import { mapLeafsOfObject } from "@kaizen/design-tokens"
 import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
 import postcssValueParser from "postcss-value-parser"
+import { mapLeafsOfObject } from "@kaizen/design-tokens"
 import { CSSVariable, KaizenToken } from "../types"
 import { normaliseColor } from "./colors"
 

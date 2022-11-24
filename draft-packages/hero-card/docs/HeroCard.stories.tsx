@@ -1,7 +1,7 @@
 import React from "react"
+import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -14,7 +14,7 @@ const renderContent = () => (
       height: "300px",
     }}
   >
-    <p style={{ margin: "0" }}>
+    <p style={{ margin: "0 0 0.75rem 0" }}>
       Understand diversity and inclusion in your organization with this set of
       people science backed survey questions. Preview the questions to get a
       feel for what the participants will see.

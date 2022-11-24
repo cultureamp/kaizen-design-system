@@ -1,6 +1,6 @@
 import React from "react"
-import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import classNames from "classnames"
+import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import { MenuFooter } from "../MenuFooter"
 import styles from "./MenuLoadingSkeleton.module.scss"
 

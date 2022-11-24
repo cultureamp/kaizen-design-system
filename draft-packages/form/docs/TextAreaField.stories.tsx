@@ -1,9 +1,9 @@
 import React from "react"
-import { TextAreaField } from "@kaizen/draft-form"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,

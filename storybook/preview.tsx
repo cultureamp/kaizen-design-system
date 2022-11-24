@@ -1,9 +1,9 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
-import { addParameters } from "@storybook/react"
 import React from "react"
-import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { addParameters } from "@storybook/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
 

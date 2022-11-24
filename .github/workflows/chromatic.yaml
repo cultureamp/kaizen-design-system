@@ -31,8 +31,8 @@ jobs:
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
       github.event.review.state == 'approved' ||
-      (github.ref == 'refs/heads/master' && needs.paths-filter.outputs.packages == 'true') ||
-      startsWith(github.event.head_commit.message, 'Merge branch ''master'' into')
+      (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
+      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -58,11 +58,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./storybook/public"
-          onlyChanged: "!(master)"
+          onlyChanged: "!(main)"
           externals: |
             [
               "**/!(*.module).scss",
               "packages/button/src/Button/*.scss",
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
-          autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
+          autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)

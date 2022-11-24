@@ -1,9 +1,9 @@
 import React from "react"
+import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { Icon } from "@kaizen/component-library"
 
-import classNames from "classnames"
 import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
 import styles from "./TriggerButtonBase.module.scss"
 

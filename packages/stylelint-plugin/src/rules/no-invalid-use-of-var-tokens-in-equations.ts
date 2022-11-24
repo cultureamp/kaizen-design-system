@@ -5,8 +5,8 @@ import {
   negatedKaizenVariableMessage,
   tokenNotInterpolatedInCalcMessage,
 } from "../messages"
-import { isOperator } from "../util/patterns"
 import { Options, RuleDefinition } from "../types"
+import { isOperator } from "../util/patterns"
 import {
   isVariable,
   parseVariable,

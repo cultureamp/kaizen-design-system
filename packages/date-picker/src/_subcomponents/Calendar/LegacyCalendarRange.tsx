@@ -1,13 +1,16 @@
 import React from "react"
-import { DayPicker, DateRange } from "react-day-picker"
-import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
-import { Matcher } from "react-day-picker/dist/types/Matchers"
+import {
+  DayPicker,
+  DateRange,
+  DayClickEventHandler,
+  Matcher,
+} from "react-day-picker"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { legacyCalendarRangeClasses } from "./CalendarClasses"
 import { IconLeft } from "./components/IconLeft"
 import { IconRight } from "./components/IconRight"
 import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
-import { legacyCalendarRangeClasses } from "./CalendarClasses"
 
 export type LegacyCalendarRangeElement = HTMLDivElement
 

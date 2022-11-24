@@ -1,11 +1,8 @@
+import { DateInterval, DateRange } from "react-day-picker"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { DateInterval, DateRange } from "react-day-picker/dist/types/Matchers"
 import { DayOfWeek } from "./enums"
 
-export type {
-  DateInterval,
-  DateRange,
-} from "react-day-picker/dist/types/Matchers"
+export type { DateInterval, DateRange }
 
 export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 

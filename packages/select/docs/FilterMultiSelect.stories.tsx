@@ -1,20 +1,20 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { Selection } from "@react-types/shared"
-import { Button, ButtonRef } from "@kaizen/button"
-import { Paragraph } from "@kaizen/typography"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
-import { Label } from "@kaizen/draft-form"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
+import { withDesign } from "storybook-addon-designs"
+import { Button, ButtonRef } from "@kaizen/button"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { Label } from "@kaizen/draft-form"
+import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import styles from "./FilterMultiSelect.stories.scss"
-import { useDemographicData } from "./FilterBarExample/useDemographicData"
-import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
-import { items } from "./MockData"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
+import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
+import { useDemographicData } from "./FilterBarExample/useDemographicData"
+import { items } from "./MockData"
+import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Filter Multi-Select`,
@@ -366,27 +366,33 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
   const queryClient = useQueryClient()
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfiniteQuery(
-      ["startrek-sg1", searchState],
-      ({ pageParam = 1 }) =>
-        fetch(
-          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
-        ).then(res => res.json()) as Promise<{
-          results: Array<{ name: string; url: string }>
-          next: string
-        }>,
-      {
-        enabled: open,
-        keepPreviousData: true,
-        getNextPageParam: lastPage => {
-          if (!lastPage.next) return undefined
-          const url = new URL(lastPage.next)
-          const params = new URLSearchParams(url.searchParams)
-          return params.get("page")
-        },
-      }
-    )
+  const {
+    data,
+    isLoading,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+    isRefetching,
+  } = useInfiniteQuery(
+    ["startrek-sg1", searchState],
+    ({ pageParam = 1 }) =>
+      fetch(
+        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+      ).then(res => res.json()) as Promise<{
+        results: Array<{ name: string; url: string }>
+        next: string
+      }>,
+    {
+      enabled: open,
+      keepPreviousData: true,
+      getNextPageParam: lastPage => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get("page")
+      },
+    }
+  )
 
   /**
    * We need access to the previously fetched people. If a user has selected a
@@ -438,7 +444,9 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
       >
         {() => (
           <>
-            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.SearchInput
+              isLoading={isRefetching && searchState !== ""}
+            />
             <FilterMultiSelect.ListBox>
               {({ allItems }) => (
                 <>

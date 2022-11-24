@@ -1,5 +1,5 @@
-import { TabPanels as ReachTabPanels } from "@reach/tabs"
 import React, { ReactNode } from "react"
+import { TabPanels as ReachTabPanels } from "@reach/tabs"
 export interface TabPanelsProps {
   children: ReactNode
 }

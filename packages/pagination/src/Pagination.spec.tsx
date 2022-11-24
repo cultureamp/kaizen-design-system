@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import React from "react"
+import { fireEvent } from "@testing-library/dom"
+import { render, screen } from "@testing-library/react"
 import { Pagination } from "./Pagination"
 
 const defaultProps = {

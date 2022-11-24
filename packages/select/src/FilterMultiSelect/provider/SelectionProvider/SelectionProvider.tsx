@@ -1,9 +1,9 @@
 import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
-import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
-import { ListState, useListState } from "@react-stately/list"
-import { VisuallyHidden } from "@kaizen/a11y"
 import { Item } from "@react-stately/collections"
+import { ListState, useListState } from "@react-stately/list"
+import { SelectionMode, Node, Selection } from "@react-types/shared"
+import { VisuallyHidden } from "@kaizen/a11y"
 import { ItemType } from "../../types"
 
 export interface SelectionProviderProps {

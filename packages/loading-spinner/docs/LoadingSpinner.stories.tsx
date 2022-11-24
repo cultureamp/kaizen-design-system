@@ -1,11 +1,11 @@
 import React from "react"
-import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
 import { withDesign } from "storybook-addon-designs"
+import { Box } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Loading Spinner`,
