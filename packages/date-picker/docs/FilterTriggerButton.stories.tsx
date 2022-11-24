@@ -7,7 +7,6 @@ import {
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { FilterTriggerButton } from "../src/FilterDateRangePicker/components/Trigger"
 
 export default {
@@ -20,9 +19,6 @@ export default {
           "This is a subcomponent - use DatePicker or DateRangePicker.",
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14512%3A404"
-    ),
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterTriggerButton>

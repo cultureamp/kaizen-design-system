@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import { FilterDateRangePicker } from "../src/FilterDateRangePicker"
 import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
@@ -21,6 +22,9 @@ export default {
           'import { FilterDateRangePicker } from "@kaizen/date-picker"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=45526%3A98760&t=67y0ZhpSLd5K7Rpn-4"
+    ),
   },
   args: {
     label: "Dates",
