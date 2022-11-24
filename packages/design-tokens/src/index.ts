@@ -3,7 +3,6 @@ export * from "./themes"
 export * from "./types"
 export * from "./ThemeManager"
 export * from "./react"
-export * from "./tailwind"
 
 export { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
 export { makeCSSVariableTheme } from "./lib/makeCssVariableTheme"

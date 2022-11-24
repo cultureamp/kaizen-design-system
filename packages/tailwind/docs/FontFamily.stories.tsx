@@ -1,15 +1,11 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import styles from "./styles.module.scss"
-import { kaizenTailwindTheme } from "@kaizen/design-tokens"
-// the old way
-// const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
-// the new way
 
 export default {
-  title: "Tailwind/Borders/Border Color",
+  title: "Tailwind/Typography/Font Family",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -27,23 +23,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.borderColor as { [key: string]: string }
-      ).map((presetData, index) => {
-        const [borderColorClassName, borderColorValue] = presetData
-        if (!borderColorValue) return <></>
+        kaizenTailwindTheme.fontFamily as { [key: string]: string }
+      ).map(presetData => {
+        const [fontFamilyClassName, fontFamilyValue] = presetData
+        if (!fontFamilyValue) return <></>
 
         return (
-          <React.Fragment key={index}>
+          <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>border-{borderColorClassName}</p>
-              <p>{borderColorValue}</p>
-              <div
-                style={{ borderColor: borderColorValue }}
-                className={styles.boxWithBorder}
-              />
+              <p>font-{fontFamilyClassName}</p>
+              <p>{fontFamilyValue}</p>
+              <p style={{ fontFamily: fontFamilyValue }}>Aa</p>
             </StoryWrapper.Row>
-          </React.Fragment>
+          </>
         )
       })}
     </StoryWrapper>

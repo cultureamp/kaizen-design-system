@@ -1,9 +1,7 @@
+import * as twDefaultTheme from "tailwindcss/defaultTheme"
 import { ThemeConfig } from "tailwindcss/types/config"
-// import * as twDefaultTheme from "tailwindcss/defaultTheme"
-// with this we can import spacing tokens into spacing tokens like so
-// ...twDefaultTheme.spacing,
 
-import { defaultTheme } from "../"
+import { defaultTheme } from "@kaizen/design-tokens"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
 export interface KaizenTailwindPreset {
@@ -21,6 +19,7 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   },
   spacing: {
     ...defaultTheme.spacing,
+    ...twDefaultTheme.spacing,
   },
   boxShadow: {
     none: "none",

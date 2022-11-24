@@ -1,13 +1,16 @@
 import React from "react"
 import { Story } from "@storybook/react"
+// import { kaizenTailwindTheme } from "@kaizen/design-tokens"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
-
-const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
+// the old way
+// import { kaizenTailwindTheme } from "@kaizen/tailwind"
+// the new way
 
 export default {
-  title: "Tailwind/Effects/Shadow",
+  title: "Tailwind/Borders/Border Color",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -25,20 +28,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        TailwindPreset.theme.boxShadow as { [key: string]: string }
-      ).map(presetData => {
-        const [shadowClassName, shadowValue] = presetData
-        if (!shadowValue) return <></>
+        kaizenTailwindTheme.borderColor as { [key: string]: string }
+      ).map((presetData, index) => {
+        const [borderColorClassName, borderColorValue] = presetData
+        if (!borderColorValue) return <></>
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>shadow-{shadowClassName}</p>
-              <p>{shadowValue}</p>
-              <div style={{ boxShadow: shadowValue }} className={styles.box} />
+              <p>border-{borderColorClassName}</p>
+              <p>{borderColorValue}</p>
+              <div
+                style={{ borderColor: borderColorValue }}
+                className={styles.boxWithBorder}
+              />
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>

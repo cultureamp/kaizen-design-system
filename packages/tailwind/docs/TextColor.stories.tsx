@@ -4,7 +4,7 @@ import { Divider } from "@kaizen/draft-divider"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 import styles from "./styles.module.scss"
-const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 
 export default {
   title: "Tailwind/Typography/Text Color",
@@ -22,7 +22,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const colors: Array<{ colorName: string; colorValue: string }> = []
-  Object.entries(TailwindPreset.theme.colors).forEach(colorGroup => {
+  Object.entries(kaizenTailwindTheme.colors).forEach(colorGroup => {
     const [colorName, colorValue] = colorGroup
     if (typeof colorValue === "string") {
       colors.push({ colorName: `text-${colorName}`, colorValue })

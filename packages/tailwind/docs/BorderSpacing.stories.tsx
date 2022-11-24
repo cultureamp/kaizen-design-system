@@ -1,10 +1,9 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
-
-const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
 
 export default {
   title: "Tailwind/Borders/Border Spacing",
@@ -25,7 +24,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        TailwindPreset.theme.spacing as { [key: string]: string }
+        kaizenTailwindTheme.spacing as { [key: string]: string }
       ).map(presetData => {
         const [borderSpacingClassName, borderSpacingValue] = presetData
         if (!borderSpacingValue) return <></>

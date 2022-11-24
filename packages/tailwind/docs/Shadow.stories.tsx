@@ -4,10 +4,10 @@ import { Divider } from "@kaizen/draft-divider"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
 
-const TailwindPreset = require("@kaizen/design-tokens").TailwindPreset
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 
 export default {
-  title: "Tailwind/Typography/Leading Height",
+  title: "Tailwind/Effects/Shadow",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -25,23 +25,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        TailwindPreset.theme.lineHeight as { [key: string]: string }
+        kaizenTailwindTheme.boxShadow as { [key: string]: string }
       ).map(presetData => {
-        const [leadingHeightClassName, leadingHeightValue] = presetData
-        if (!leadingHeightValue) return <></>
+        const [shadowClassName, shadowValue] = presetData
+        if (!shadowValue) return <></>
 
         return (
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>leading-{leadingHeightClassName}</p>
-              <p>{leadingHeightValue}</p>
-              <p
-                style={{ lineHeight: leadingHeightValue }}
-                className={styles.wrappedText}
-              >
-                Tutant Meenage Neetle Teetles
-              </p>
+              <p>shadow-{shadowClassName}</p>
+              <p>{shadowValue}</p>
+              <div style={{ boxShadow: shadowValue }} className={styles.box} />
             </StoryWrapper.Row>
           </>
         )
