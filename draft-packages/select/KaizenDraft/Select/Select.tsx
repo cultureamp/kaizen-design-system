@@ -234,7 +234,7 @@ const ValueContainer: typeof components.ValueContainer = props => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
-  <components.ClearIndicator {...props}>
+  <components.ClearIndicator {...props} className={styles.clearIndicator}>
     <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
 )

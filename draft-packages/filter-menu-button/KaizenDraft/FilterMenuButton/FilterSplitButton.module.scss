@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 // The styling and mixin in this file originally comes from @kaizen/draft-button styles.module.scss and I modify it to suit with the `SplitButton` for `FilterMenuButton`.
 
@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  min-height: $ca-grid * 2;
+  min-height: $spacing-xl;
   position: relative;
   text-align: center;
   cursor: pointer;
@@ -43,8 +43,8 @@
   @include button-reset;
   @include button-base;
 
-  padding-right: $ca-grid * 0.75;
-  padding-left: $ca-grid * 0.75;
+  padding-right: calc(#{$spacing-md} * 0.75);
+  padding-left: calc(#{$spacing-md} * 0.75);
   border-top-left-radius: $border-solid-border-radius;
   border-bottom-left-radius: $border-solid-border-radius;
 
@@ -110,7 +110,7 @@
 
 .filterName {
   font-weight: $typography-button-primary-font-weight;
-  margin-right: $ca-grid / 3;
+  margin-right: calc(#{$spacing-md} / 3);
 }
 
 .metadata {
