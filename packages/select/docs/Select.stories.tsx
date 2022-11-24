@@ -53,8 +53,8 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
       }
     >
       <Select.ListBox>
-        {({ allItems }) =>
-          allItems.map(item => <Select.Option key={item.key} item={item} />)
+        {items =>
+          items.map(item => <Select.Option key={item.key} item={item} />)
         }
       </Select.ListBox>
     </Select>
@@ -99,10 +99,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           }
         >
           <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
-                <Select.Option key={item.key} item={item} />
-              ))
+            {items =>
+              items.map(item => <Select.Option key={item.key} item={item} />)
             }
           </Select.ListBox>
         </Select>
@@ -124,10 +122,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           }
         >
           <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
-                <Select.Option key={item.key} item={item} />
-              ))
+            {items =>
+              items.map(item => <Select.Option key={item.key} item={item} />)
             }
           </Select.ListBox>
         </Select>
@@ -147,10 +143,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           }
         >
           <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
-                <Select.Option key={item.key} item={item} />
-              ))
+            {items =>
+              items.map(item => <Select.Option key={item.key} item={item} />)
             }
           </Select.ListBox>
         </Select>
@@ -170,14 +164,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           }
         >
           <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
-                <Select.Option key={item.key} item={item} />
-              ))
+            {items =>
+              items.map(item => <Select.Option key={item.key} item={item} />)
             }
           </Select.ListBox>
-        </Select >
-      </StoryWrapper.Row >
+        </Select>
+      </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
         <Select
           id="select-full-width"
@@ -194,14 +186,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           }
         >
           <Select.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
-                <Select.Option key={item.key} item={item} />
-              ))
+            {items =>
+              items.map(item => <Select.Option key={item.key} item={item} />)
             }
           </Select.ListBox>
         </Select>
-      </StoryWrapper.Row >
+      </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Custom Width (50%)">
         <div style={{ width: "50%" }}>
           <Select
@@ -219,16 +209,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
           >
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
+              {items =>
+                items.map(item => <Select.Option key={item.key} item={item} />)
               }
             </Select.ListBox>
           </Select>
         </div>
       </StoryWrapper.Row>
-    </StoryWrapper >
+    </StoryWrapper>
 
     <div style={{ height: "550px", marginTop: "4rem" }}>
       <StoryWrapper isReversed={isReversed}>
@@ -251,10 +239,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
           >
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
+              {items =>
+                items.map(item => <Select.Option key={item.key} item={item} />)
               }
             </Select.ListBox>
           </Select>
@@ -277,10 +263,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
           >
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
+              {items =>
+                items.map(item => <Select.Option key={item.key} item={item} />)
               }
             </Select.ListBox>
           </Select>
@@ -300,15 +284,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
           >
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {items =>
+                items.map(item => (
                   <Select.Option
                     key={item.key}
                     item={item}
                     classNameOverride={
-                      item.key === "id-sre"
-                        ? "story__option-hover"
-                        : undefined
+                      item.key === "id-sre" ? "story__option-hover" : undefined
                     }
                   />
                 ))
@@ -331,15 +313,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             }
           >
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {items =>
+                items.map(item => (
                   <Select.Option
                     key={item.key}
                     item={item}
                     classNameOverride={
-                      item.key === "id-sre"
-                        ? "story__option-focus"
-                        : undefined
+                      item.key === "id-sre" ? "story__option-focus" : undefined
                     }
                   />
                 ))
@@ -369,16 +349,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         >
           {
             <Select.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
-                  <Select.Option key={item.key} item={item} />
-                ))
+              {items =>
+                items.map(item => <Select.Option key={item.key} item={item} />)
               }
             </Select.ListBox>
           }
         </Select>
       </StoryWrapper.Row>
-    </StoryWrapper >
+    </StoryWrapper>
   </>
 )
 

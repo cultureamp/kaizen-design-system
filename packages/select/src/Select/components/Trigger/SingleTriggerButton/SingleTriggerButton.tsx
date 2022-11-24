@@ -39,7 +39,7 @@ export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
         classNameOverride,
       ])}
     >
-      {<span>{selectedOptionLabel ?? placeholder}</span>}
+      <span>{selectedOptionLabel ?? placeholder}</span>
       <Icon
         icon={menuTriggerState.isOpen ? chevronUp : chevronDown}
         role="presentation"

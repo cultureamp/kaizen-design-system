@@ -6,45 +6,21 @@ import { ItemType } from "../../types"
 import styles from "./ListBox.module.scss"
 
 export interface ListBoxProps {
-  children: (items: {
-    selectedItems: Array<Node<ItemType>>
-    unselectedItems: Array<Node<ItemType>>
-    allItems: Array<Node<ItemType>>
-  }) => React.ReactNode
+  children: (items: Array<Node<ItemType>>) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
   const { listBoxProps, listRef, selectionState } = useSelectionContext()
-  const [isOverflown, setIsOverflown] = useState(false)
-  useEffect(() => {
-    const listElement = listRef.current
-    if (!listElement) {
-      return
-    }
-    setIsOverflown(listElement.scrollHeight > listElement.clientHeight)
-  }, [listRef])
 
-  const {
-    collection: items,
-    selectionManager: { selectedKeys },
-  } = selectionState
-
-  const selectedItems = Array.from(selectedKeys)
-    .map(key => items.getItem(key))
-    .filter(item => item !== undefined)
-
-  const unselectedItems = Array.from(items).filter(
-    item => !selectedKeys.has(item.key)
-  )
-  const allItems = Array.from(items)
+  const items = Array.from(selectionState.collection)
 
   return (
     <ul
       {...listBoxProps}
       ref={listRef}
-      className={classNames([styles.listBox, isOverflown && styles.overflown])}
+      className={classNames([styles.listBox])}
     >
-      {children({ selectedItems, unselectedItems, allItems })}
+      {children(items)}
     </ul>
   )
 }
