@@ -75,7 +75,12 @@ export const Root: React.VFC<RootProps> = ({
         {label}
       </Label>
       <MenuTriggerProvider {...menuTriggerProps}>
-        <div className={classnames([rootStyles.container, !isFullWidth && rootStyles.notFullWidth])}>
+        <div
+          className={classnames([
+            rootStyles.container,
+            !isFullWidth && rootStyles.notFullWidth,
+          ])}
+        >
           <HiddenSelectWrapper items={items} label={label} name={id} />
           {trigger}
           <FloatingSelectWrapper>
