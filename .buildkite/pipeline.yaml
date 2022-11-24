@@ -70,5 +70,11 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.27.1-focal
+          image: mcr.microsoft.com/playwright:v1.28.0-focal
           propagate-environment: true
+
+  - name: "LinearB: Record deployment time"
+    command: bin/ci_noop
+    branches: "main"
+    plugins:
+      - cultureamp/linearb-cycle-time#v1.1.1: ~

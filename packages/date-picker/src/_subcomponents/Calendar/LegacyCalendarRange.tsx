@@ -1,7 +1,10 @@
 import React from "react"
-import { DayPicker, DateRange } from "react-day-picker"
-import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
-import { Matcher } from "react-day-picker/dist/types/Matchers"
+import {
+  DayPicker,
+  DateRange,
+  DayClickEventHandler,
+  Matcher,
+} from "react-day-picker"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
 import { legacyCalendarRangeClasses } from "./CalendarClasses"

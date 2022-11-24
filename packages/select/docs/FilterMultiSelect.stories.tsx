@@ -366,27 +366,33 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
   const queryClient = useQueryClient()
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfiniteQuery(
-      ["startrek-sg1", searchState],
-      ({ pageParam = 1 }) =>
-        fetch(
-          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
-        ).then(res => res.json()) as Promise<{
-          results: Array<{ name: string; url: string }>
-          next: string
-        }>,
-      {
-        enabled: open,
-        keepPreviousData: true,
-        getNextPageParam: lastPage => {
-          if (!lastPage.next) return undefined
-          const url = new URL(lastPage.next)
-          const params = new URLSearchParams(url.searchParams)
-          return params.get("page")
-        },
-      }
-    )
+  const {
+    data,
+    isLoading,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+    isRefetching,
+  } = useInfiniteQuery(
+    ["startrek-sg1", searchState],
+    ({ pageParam = 1 }) =>
+      fetch(
+        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+      ).then(res => res.json()) as Promise<{
+        results: Array<{ name: string; url: string }>
+        next: string
+      }>,
+    {
+      enabled: open,
+      keepPreviousData: true,
+      getNextPageParam: lastPage => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get("page")
+      },
+    }
+  )
 
   /**
    * We need access to the previously fetched people. If a user has selected a
@@ -438,7 +444,9 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
       >
         {() => (
           <>
-            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.SearchInput
+              isLoading={isRefetching && searchState !== ""}
+            />
             <FilterMultiSelect.ListBox>
               {({ allItems }) => (
                 <>
