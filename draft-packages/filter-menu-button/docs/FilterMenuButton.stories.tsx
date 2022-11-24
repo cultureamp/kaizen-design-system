@@ -19,7 +19,7 @@ export default {
     docs: {
       description: {
         component:
-          '⛔️ This component is now deprecated. Please use FilterMultiSelect from "@kaizen/select" instead.',
+          'import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"',
       },
     },
   },
