@@ -12,7 +12,7 @@ export interface FloatingSelectWrapperProps {
 export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
   children,
 }) => {
-  const { menuTriggerState, menuProps, isFullWidth } = useMenuTriggerContext()
+  const { menuTriggerState, menuProps } = useMenuTriggerContext()
   const onClose = () => {
     menuTriggerState.close()
   }
@@ -37,14 +37,9 @@ export const FloatingSelectWrapper: React.VFC<FloatingSelectWrapperProps> = ({
       {...mergeProps(overlayProps, menuProps)}
       ref={overlayRef}
       className={styles.menuPopup}
-      style={{
-        width: isFullWidth ? "100%" : undefined,
-        minWidth: !isFullWidth ? "248px" : undefined,
-      }}
     >
       <FocusScope contain autoFocus restoreFocus>
         <DismissButton onDismiss={onClose} />
-
         {children}
         <DismissButton onDismiss={onClose} />
       </FocusScope>

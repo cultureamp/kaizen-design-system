@@ -15,6 +15,7 @@ export interface RootProps extends MenuTriggerProps, SelectionProps {
   trigger: React.ReactNode
   children: React.ReactNode // the content of the menu
   description?: React.ReactNode
+  isFullWidth?: boolean
 }
 
 type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
@@ -74,7 +75,7 @@ export const Root: React.VFC<RootProps> = ({
         {label}
       </Label>
       <MenuTriggerProvider {...menuTriggerProps}>
-        <div className={rootStyles.container}>
+        <div className={classnames([rootStyles.container, !isFullWidth && rootStyles.notFullWidth])}>
           <HiddenSelectWrapper items={items} label={label} name={id} />
           {trigger}
           <FloatingSelectWrapper>

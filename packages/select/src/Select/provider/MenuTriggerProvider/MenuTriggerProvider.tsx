@@ -14,7 +14,6 @@ export interface MenuTriggerProviderProps {
   onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
   isDisabled?: boolean
-  isFullWidth?: boolean
   items: ItemType[]
 }
 
@@ -24,7 +23,6 @@ export interface MenuTriggerProviderContextType {
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
   menuTriggerState: MenuTriggerState
   buttonRef: React.RefObject<HTMLButtonElement>
-  isFullWidth: boolean
 }
 
 const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
@@ -36,7 +34,6 @@ export function MenuTriggerProvider({
   onOpenChange,
   children,
   isDisabled = false,
-  isFullWidth = false,
 }: MenuTriggerProviderProps) {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
@@ -66,7 +63,6 @@ export function MenuTriggerProvider({
         buttonProps,
         menuTriggerState: state,
         buttonRef: ref,
-        isFullWidth,
       }}
     >
       {children}

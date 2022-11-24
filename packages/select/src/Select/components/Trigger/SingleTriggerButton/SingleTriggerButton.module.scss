@@ -8,6 +8,7 @@
   @include button;
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
+  width: 100%;
 
   &:hover .icon,
   &:global(.story__button-hover) .icon,
@@ -19,10 +20,6 @@
 
   &.placeholder {
     color: rgb($color-purple-800-rgb, 0.7);
-  }
-
-  &.fullWidth {
-    width: 100%;
   }
 }
 

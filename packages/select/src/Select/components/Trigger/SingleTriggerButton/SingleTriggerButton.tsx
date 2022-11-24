@@ -22,8 +22,7 @@ export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
   classNameOverride,
   placeholder,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState, isFullWidth } =
-    useMenuTriggerContext()
+  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
 
   const { isFocusVisible, focusProps } = useFocusRing()
 
@@ -33,7 +32,6 @@ export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
       ref={buttonRef}
       className={classnames([
         styles.button,
-        isFullWidth && styles.fullWidth,
         selectedOptionLabel === null && styles.placeholder,
         isFocusVisible && styles.isFocusVisible,
         classNameOverride,
