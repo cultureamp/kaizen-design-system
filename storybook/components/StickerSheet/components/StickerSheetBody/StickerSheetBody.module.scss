@@ -1,0 +1,5 @@
+@import "../mixins";
+
+.stickerSheetBody {
+  @extend %stickerSheetTableHeading;
+}

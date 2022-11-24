@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+%stickerSheetTableHeading {
+  th {
+    padding: $spacing-sm;
+    text-align: left;
+    font-family: $typography-heading-5-font-family;
+    font-weight: $typography-heading-5-font-weight;
+    font-size: $typography-heading-5-font-size;
+    line-height: $typography-heading-5-line-height;
+    letter-spacing: $typography-heading-5-letter-spacing;
+    color: $color-purple-800;
+  }
+
+  &.isReversed {
+    th {
+      color: $color-white;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.stickerSheet + .stickerSheet {
+  .stickerSheetSectionHeading {
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.stickerSheetTable {
+  width: 100%;
+  margin-left: calc(-1 * #{$spacing-sm});
+}
