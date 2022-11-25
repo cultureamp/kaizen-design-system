@@ -126,14 +126,14 @@ export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTML
   onCustomFunction: () => void
 }
 
-export const PancakeStack: React.VFC<PancakeStackProps> = ({
+export const PancakeStack = ({
   children,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
   classNameOverride,
   ...restProps
-}) => {
+}: PancakeStackProps) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
   const handleCustomFunction = (): boolean => {
@@ -228,14 +228,14 @@ export const NewComponent: React.VFC<NewComponentProps> = props => <PancakeStack
 ```tsx
 import React from "react"
 
-export const PancakeStack: React.VFC<PancakeStackProps> = ({
+export const PancakeStack = ({
   children,
   isBooleanProp,
   hasOptionalBooleanProp = false,
   onCustomFunction,
   classNameOverride,
   ...restProps
-}) => {
+}: PancakeStackProps) => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
   const handleCustomFunction = (): boolean => {
@@ -261,11 +261,8 @@ export const PancakeStack: React.VFC<PancakeStackProps> = ({
 }
 ```
 
-- Write and directly export a `React.VFC` (React VoidFunctionComponent)
-  - **Do not** use `React.FC`
-    - This comes with `children?: React.ReactNode` as a default in React 17 and below, and reduces type safety for your component as it will exist even if your component should not be taking `children`
-    - When you want your component to accept `children`, declare it yourself within your props (this also increases readability as there is no need to guess whether the component should or shouldn't accept `children`)
-    - While we are using React 18 ourselves, some of our consumers are still using React 17 or below, so until we stop supporting them, we will continue to use VFC
+- Directly type all your arguments (eg. `const MyComponent = ({ ... }: MyComponentTypes) => {}`)
+  - **Do not** utilise `React.FC` or `React.VFC` as these are no longer supported in React 18+.
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
 - Always be explicit and include the expected generic type (eg. `useState<string>()`)
