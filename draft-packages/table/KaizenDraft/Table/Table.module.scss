@@ -192,6 +192,10 @@ $row-height-data-variant: 48px;
   &.expanded {
     width: calc(100% + #{$spacing-md});
   }
+
+  &:hover {
+    background-color: $color-gray-100;
+  }
 }
 
 .rowCell {
