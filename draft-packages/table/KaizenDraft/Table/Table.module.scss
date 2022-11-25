@@ -193,6 +193,7 @@ $row-height-data-variant: 48px;
     width: calc(100% + #{$spacing-md});
   }
 
+  &:focus,
   &:hover {
     background-color: $color-gray-100;
   }
