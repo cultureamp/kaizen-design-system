@@ -199,6 +199,47 @@ export const DataVariant = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
+export const LinkVariant = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell labelText="Header A" width={1 / 3} />
+          <TableHeaderRowCell labelText="Header B" width={1 / 3} />
+          <TableHeaderRowCell labelText="Header C" width={1 / 3} />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard onClick={() => alert("Clicked!")}>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">This row has an onClick</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard href="#?foo=bar">
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">This row has a href</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+LinkVariant.parameters = { chromatic: { disable: false } }
+
 const ExpandedPopout = isReversed => {
   const [expandedId, setExpandedId] = React.useState<string | null>("second")
   const toggleExpanded = id => {
