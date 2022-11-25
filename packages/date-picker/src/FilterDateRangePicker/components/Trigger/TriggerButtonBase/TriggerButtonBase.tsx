@@ -1,6 +1,5 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react"
 import classNames from "classnames"
-import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -24,7 +23,6 @@ export const TriggerButtonBase = forwardRef<
     aria-expanded={isOpen}
     {...restProps}
   >
-    <VisuallyHidden>{isOpen ? "Close" : "Open"} filter -</VisuallyHidden>
     {children}
     <Icon
       icon={isOpen ? chevronUp : chevronDown}

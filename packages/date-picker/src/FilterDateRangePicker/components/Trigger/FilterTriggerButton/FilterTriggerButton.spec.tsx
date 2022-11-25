@@ -9,15 +9,11 @@ const FilterTriggerButtonWrapper = (
 describe("<FilterTriggerButton />", () => {
   it("should only show the label when there is no value", () => {
     render(<FilterTriggerButtonWrapper />)
-    expect(
-      screen.getByRole("button", { name: "Open filter - Desserts" })
-    ).toBeVisible()
+    expect(screen.getByRole("button", { name: "Desserts" })).toBeVisible()
   })
 
   it("should show the label and selected value when defined", () => {
     render(<FilterTriggerButtonWrapper selectedValue="Cake" />)
-    expect(
-      screen.getByRole("button", { name: "Open filter - Desserts: Cake" })
-    ).toBeVisible()
+    expect(screen.getByRole("button", { name: "Desserts: Cake" })).toBeVisible()
   })
 })

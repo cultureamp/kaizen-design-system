@@ -11,7 +11,7 @@ const TriggerButtonBaseWrapper = (props: Partial<TriggerButtonBaseProps>) => (
 describe("<TriggerButtonBase />", () => {
   it("has the required attributes when not expanded", () => {
     render(<TriggerButtonBaseWrapper />)
-    const button = screen.getByRole("button", { name: "Open filter - Pancake" })
+    const button = screen.getByRole("button", { name: "Pancake" })
     expect(button).toHaveAttribute("aria-haspopup", "true")
     expect(button).toHaveAttribute("aria-expanded", "false")
   })
@@ -19,7 +19,7 @@ describe("<TriggerButtonBase />", () => {
   it("has the required attributes when expanded", () => {
     render(<TriggerButtonBaseWrapper isOpen />)
     const button = screen.getByRole("button", {
-      name: "Close filter - Pancake",
+      name: "Pancake",
     })
     expect(button).toHaveAttribute("aria-haspopup", "true")
     expect(button).toHaveAttribute("aria-expanded", "true")

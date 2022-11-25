@@ -41,7 +41,7 @@ describe("<FilterDateRangePicker />", () => {
         />
       )
       const filterButton = screen.getByRole("button", {
-        name: "Open filter - Dates: 1 May 2022 - 25 Nov 2022",
+        name: "Dates: 1 May 2022 - 25 Nov 2022",
       })
       expect(filterButton).toBeVisible()
     })
@@ -53,7 +53,7 @@ describe("<FilterDateRangePicker />", () => {
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
       const filterButton = screen.getByRole("button", {
-        name: "Open filter - Dates",
+        name: "Dates",
       })
       userEvent.click(filterButton)
       await waitFor(() => {
