@@ -1,0 +1,49 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../variables";
+@import "../../../../mixins";
+
+.filterButtonBase {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  padding: $spacing-sm;
+
+  border-width: 0;
+  border-radius: $border-solid-border-radius;
+
+  background-color: $color-blue-100;
+
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+  color: $color-blue-500;
+
+  #{$selectors--filter-button--hover},
+  #{$selectors--filter-button--active} {
+    z-index: 2;
+  }
+
+  #{$selectors--filter-button--hover},
+  #{$selectors--filter-button--active},
+  #{$selectors--filter-button--focus} {
+    background-color: $color-blue-200;
+  }
+
+  #{$selectors--filter-button--focus} {
+    z-index: 3;
+    outline-width: $border-solid-border-width;
+    outline-style: $border-solid-border-style;
+    outline-offset: 1px;
+  }
+}
