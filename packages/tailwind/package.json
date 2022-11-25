@@ -1,12 +1,12 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Kaizen tailwind components",
   "scripts": {
-    "build:ts": "tsc --project tsconfig.dist.json",
-    "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
+    "build:ts": "tsc --project tsconfig.dist.json",
     "build:watch": "yarn clean && yarn prepublish --watch",
+    "prepublish": "tsc --project tsconfig.dist.json",
     "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

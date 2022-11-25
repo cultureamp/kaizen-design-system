@@ -125,8 +125,6 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   },
 }
 
-export const kaizenTailwindPreset: KaizenTailwindPreset = {
+export const TailwindPreset: KaizenTailwindPreset = {
   theme: kaizenTailwindTheme,
 }
-
-module.exports.TailwindPreset = kaizenTailwindPreset

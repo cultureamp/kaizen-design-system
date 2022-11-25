@@ -1,9 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
+const prefix = "text-"
 
 export default {
   title: "Tailwind/Typography/Text Font Size",
@@ -11,7 +12,9 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `<p className="${prefix}${
+          kaizenTailwindTheme.fontSize as { [key: string]: string }
+        }"></p>`,
       },
     },
   },

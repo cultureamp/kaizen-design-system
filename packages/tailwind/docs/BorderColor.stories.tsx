@@ -1,21 +1,20 @@
 import React from "react"
 import { Story } from "@storybook/react"
-// import { kaizenTailwindTheme } from "@kaizen/design-tokens"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
-// the old way
-// import { kaizenTailwindTheme } from "@kaizen/tailwind"
-// the new way
+
+const prefix = "border-"
 
 export default {
   title: "Tailwind/Borders/Border Color",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `<p className="${prefix}${
+          kaizenTailwindTheme.borderColor as { [key: string]: string }
+        }"></p>`,
       },
     },
   },
@@ -52,5 +51,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Border color"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
