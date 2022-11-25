@@ -35,41 +35,17 @@ const StickerSheetTemplate: Story = () => (
   <div style={{ paddingBottom: "1rem" }}>
     <StoryWrapper>
       <StoryWrapper.RowHeader
-        headings={["Base", "Has selected value", "Open"]}
+        headings={["Closed", "Open", "Has selected value"]}
       />
       <StoryWrapper.Row rowTitle="Default">
         <div>
           <FilterTriggerButton label="Desserts" />
         </div>
         <div>
-          <FilterTriggerButton label="Desserts" selectedValue="Cake" />
-        </div>
-        <div>
           <FilterTriggerButton label="Desserts" isOpen />
         </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
-
-    <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
-      <StoryWrapper.Row rowTitle="Pseudo states">
         <div>
-          <FilterTriggerButton
-            label="Desserts"
-            classNameOverride="story__filter-button--hover"
-          />
-        </div>
-        <div>
-          <FilterTriggerButton
-            label="Desserts"
-            classNameOverride="story__filter-button--active"
-          />
-        </div>
-        <div>
-          <FilterTriggerButton
-            label="Desserts"
-            classNameOverride="story__filter-button--focus"
-          />
+          <FilterTriggerButton label="Desserts" selectedValue="Cake" />
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
