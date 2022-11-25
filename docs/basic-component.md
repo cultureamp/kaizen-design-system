@@ -261,7 +261,7 @@ export const PancakeStack = ({
 }
 ```
 
-- Directly type all your arguments (eg. `const MyComponent = ({ ... }: MyComponentTypes) => {}`)
+- Directly type all your arguments (eg. `const MyComponent = ({ ... }: MyComponentTypes): void => {}`)
   - **Do not** utilise `React.FC` or `React.VFC` as these are no longer supported in React 18+.
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
