@@ -16,14 +16,16 @@ export const FilterTriggerButton = forwardRef<
 
   return (
     <TriggerButtonBase ref={ref} {...restProps}>
-      {hasSelectedValue ? (
-        <>
-          <span className={styles.hasSelectedValues}>{label}:&nbsp;</span>
-          <span>{selectedValue}</span>
-        </>
-      ) : (
-        <span>{label}</span>
-      )}
+      <span>
+        {hasSelectedValue ? (
+          <>
+            <span className={styles.hasSelectedValues}>{label}:&nbsp;</span>
+            <span>{selectedValue}</span>
+          </>
+        ) : (
+          label
+        )}
+      </span>
     </TriggerButtonBase>
   )
 })

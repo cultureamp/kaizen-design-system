@@ -18,17 +18,13 @@ export const TriggerButtonBase = forwardRef<
 >(({ children, classNameOverride, isOpen = false, ...restProps }, ref) => (
   <button
     ref={ref}
-    className={classNames(styles.button, classNameOverride)}
+    className={classNames(styles.triggerButtonBase, classNameOverride)}
     aria-haspopup="true"
     aria-expanded={isOpen}
     {...restProps}
   >
     {children}
-    <Icon
-      icon={isOpen ? chevronUp : chevronDown}
-      role="presentation"
-      classNameOverride={styles.icon}
-    />
+    <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
   </button>
 ))
 
