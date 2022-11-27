@@ -11,4 +11,4 @@ $story-className--button-focus: ":global(.story__button-focus)";
 // Combined pseudo state classes
 $selectors--button-hover: "&:hover, &#{$story-className--button-hover}";
 $selectors--button-active: "&:active, &#{$story-className--button-active}";
-$selectors--button-focus: "&:focus-visible, &#{$story-className--button-focus}";
+$selectors--button-focus: "&#{$story-className--button-focus}";
