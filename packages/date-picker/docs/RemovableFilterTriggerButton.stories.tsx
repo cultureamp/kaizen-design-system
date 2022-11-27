@@ -7,12 +7,11 @@ import {
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
-import { FilterButtonBase } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonBase"
-import { FilterButtonGroup } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
+import { RemovableFilterTriggerButton } from "../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Group`,
-  component: FilterButtonGroup,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Removable Filter Trigger Button`,
+  component: RemovableFilterTriggerButton,
   parameters: {
     docs: {
       description: {
@@ -22,45 +21,29 @@ export default {
     },
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof FilterButtonGroup>
+} as ComponentMeta<typeof RemovableFilterTriggerButton>
 
-export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
-  <FilterButtonGroup {...args} />
-)
-DefaultStory.storyName = "Filter Button Group"
+export const DefaultStory: ComponentStory<
+  typeof RemovableFilterTriggerButton
+> = args => <RemovableFilterTriggerButton {...args} />
+DefaultStory.storyName = "Removable Filter Trigger Button"
 DefaultStory.args = {
-  children: (
-    <>
-      <FilterButtonBase>First</FilterButtonBase>
-      <FilterButtonBase>Last</FilterButtonBase>
-    </>
-  ),
+  label: "Label",
 }
-
-const Abc: React.VFC<{ children: any, classNameOverride?: string }> = props => <div className={props.classNameOverride}>{props.children}</div>
 
 const StickerSheetTemplate: Story = () => (
   <>
     <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Group of 2", "Group of 3"]} />
+      <StoryWrapper.RowHeader headings={["Group of 2"]} />
       <StoryWrapper.Row rowTitle="Default">
-        <FilterButtonGroup>
-          <FilterButtonBase>First</FilterButtonBase>
-          <Abc><FilterButtonBase>Last</FilterButtonBase></Abc>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterButtonBase>First</FilterButtonBase>
-          <FilterButtonBase>Last</FilterButtonBase>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterButtonBase>First</FilterButtonBase>
-          <FilterButtonBase>Middle</FilterButtonBase>
-          <FilterButtonBase>Last</FilterButtonBase>
-        </FilterButtonGroup>
+        <RemovableFilterTriggerButton
+          label="Remove"
+          onRemove={() => undefined}
+        />
       </StoryWrapper.Row>
     </StoryWrapper>
 
-    <StoryWrapper>
+    {/* <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
       <StoryWrapper.Row rowTitle="First">
         <FilterButtonGroup>
@@ -210,7 +193,7 @@ const StickerSheetTemplate: Story = () => (
           </FilterButtonGroup>
         </div>
       </StoryWrapper.Row>
-    </StoryWrapper>
+    </StoryWrapper> */}
   </>
 )
 

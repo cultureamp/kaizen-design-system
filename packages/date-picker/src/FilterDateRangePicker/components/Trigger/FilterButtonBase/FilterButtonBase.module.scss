@@ -15,6 +15,7 @@
   display: inline-flex;
   align-items: center;
 
+  height: 48px;
   padding: $spacing-sm;
 
   border-width: 0;
@@ -45,10 +46,12 @@
   }
 
   #{$selectors--filter-button--focus} {
+    outline: none;
+    
     &::after {
-      $focus-ring-offset: calc(
-        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
-      );
+      $focus-ring-offset: calc(-1 * calc(
+        #{$border-focus-ring-border-width} + 1px
+      ));
 
       content: "";
       z-index: 3;

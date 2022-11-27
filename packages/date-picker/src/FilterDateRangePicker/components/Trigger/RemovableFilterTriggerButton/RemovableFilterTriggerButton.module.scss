@@ -1,0 +1,43 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.removeableFilterTriggerButton {
+  display: inline-flex;
+}
+
+.triggerButton {
+  border-radius: 0;
+  border-start-start-radius: $border-solid-border-radius;
+  border-end-start-radius: $border-solid-border-radius;
+
+  [dir="ltr"] [dir="rtl"] & {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.removeButton {
+  margin-inline-start: -1px;
+  border-radius: 0;
+  border-start-end-radius: $border-solid-border-radius;
+  border-end-end-radius: $border-solid-border-radius;
+
+  [dir="ltr"] [dir="rtl"] & {
+    margin-left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &::before {
+    content: "";
+    z-index: 3;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border-inline-start: 1px solid $color-blue-300;
+
+    [dir="ltr"] [dir="rtl"] & {
+      border-left: 0;
+    }
+  }
+}
