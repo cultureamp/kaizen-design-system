@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,6 +31,7 @@
   "dependencies": {
     "@kaizen/a11y": "^1.6.13",
     "@kaizen/button": "^2.0.8",
+    "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "^16.1.10",
     "@kaizen/draft-badge": "^1.13.3",
     "@kaizen/draft-divider": "^2.2.3",

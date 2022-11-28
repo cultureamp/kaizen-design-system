@@ -1,0 +1,59 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "variables";
+@import "../../../mixins";
+
+@mixin button {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  height: $spacing-xl;
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $border-borderless-border-color;
+
+  background-color: $color-blue-100;
+
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+  color: $color-blue-500;
+
+  #{$selectors--filter-button--hover},
+  #{$selectors--filter-button--active},
+  #{$selectors--filter-button--focus} {
+    background-color: $color-blue-200;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  #{$selectors--filter-button--focus} {
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
+      );
+      content: "";
+      position: absolute;
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-radius: $border-focus-ring-border-radius;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
+  }
+}
