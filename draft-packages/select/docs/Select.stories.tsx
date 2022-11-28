@@ -26,7 +26,7 @@ const OPTIONS = [
 ]
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select Legacy`,
   component: Select,
   parameters: {
     docs: {
