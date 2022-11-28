@@ -9,6 +9,9 @@ export interface KaizenTailwindPreset {
 }
 
 // Note: changing any token will require to to run build:ts from the root `design-tokens`
+// TODO: Use `satisfies` keyword once our storybook supports it.
+// This will allow us to satisfy Partial<ThemeConfig> without broadening the constraints on kaizenTailwindTheme.
+// We can then remove type guards and type casting in BorderSpacing.stories.tsx etc.
 export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   colors: {
     transparent: "transparent",
