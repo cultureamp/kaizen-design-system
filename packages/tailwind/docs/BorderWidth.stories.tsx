@@ -48,5 +48,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Border Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

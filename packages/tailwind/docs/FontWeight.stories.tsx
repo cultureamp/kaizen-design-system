@@ -1,9 +1,8 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: "Tailwind/Typography/Font Weight",
@@ -45,5 +44,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Font Weight"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
