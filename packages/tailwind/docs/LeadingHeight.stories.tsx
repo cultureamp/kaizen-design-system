@@ -1,13 +1,12 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
+import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
 
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
-
 export default {
-  title: "Tailwind/Typography/Leading Height",
+  title: "Tailwind/Typography/Line Height",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -51,5 +50,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Line Height"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

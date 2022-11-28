@@ -7,7 +7,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 const prefix = "text-"
 
 export default {
-  title: "Tailwind/Typography/Text Font Size",
+  title: "Tailwind/Typography/Font Size",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -48,5 +48,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Font Size"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
