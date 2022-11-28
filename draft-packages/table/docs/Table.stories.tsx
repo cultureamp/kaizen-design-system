@@ -199,6 +199,46 @@ export const DataVariant = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
+export const CondensedVariant = () => (
+  <Container>
+    <TableContainer variant="condensed">
+      <TableHeader>
+        <ExampleTableHeaderRow reversed={false} />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+CondensedVariant.parameters = { chromatic: { disable: false } }
+
+export const NoSpacingVariant = () => (
+  <Container>
+    <TableContainer variant="noSpacing">
+      <TableHeader>
+        <ExampleTableHeaderRow reversed={false} />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+NoSpacingVariant.parameters = { chromatic: { disable: false } }
+
 export const LinkVariant = () => (
   <Container>
     <TableContainer>

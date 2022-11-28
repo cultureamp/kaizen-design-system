@@ -12,7 +12,7 @@ import styles from "./Table.module.scss"
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
-  variant?: "compact" | "default" | "data"
+  variant?: "compact" | "default" | "data" | "condensed" | "noSpacing"
 }
 /**
  * {@link https://cultureamp.design/components/table/ Guidance} |
@@ -27,6 +27,8 @@ export const TableContainer: TableContainer = ({
     role="table"
     className={classNames(styles.container, {
       [styles.defaultSpacing]: variant === "default",
+      [styles.condensedSpacing]: variant === "condensed",
+      [styles.noSpacing]: variant === "noSpacing",
       [styles.dataVariant]: variant === "data",
     })}
     {...otherProps}
