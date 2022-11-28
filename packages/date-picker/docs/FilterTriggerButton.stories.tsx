@@ -32,7 +32,7 @@ DefaultStory.args = {
 }
 
 const StickerSheetTemplate: Story = () => (
-  <>
+  <div style={{ paddingBottom: "1rem" }}>
     <StoryWrapper>
       <StoryWrapper.RowHeader
         headings={["Base", "Has selected value", "Open"]}
@@ -73,7 +73,7 @@ const StickerSheetTemplate: Story = () => (
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
-  </>
+  </div>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

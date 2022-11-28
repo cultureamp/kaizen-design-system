@@ -36,9 +36,24 @@
     background-color: $color-blue-200;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   #{$selectors--filter-button--focus} {
-    outline-width: $border-solid-border-width;
-    outline-style: $border-solid-border-style;
-    outline-offset: 1px;
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
+      );
+      content: "";
+      position: absolute;
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-radius: $border-focus-ring-border-radius;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
   }
 }
