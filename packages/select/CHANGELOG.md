@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.1.1...@kaizen/select@5.2.0) (2022-11-28)
+
+
+### Features
+
+* **Select:** Kds 925 basic single select ([#3068](https://github.com/cultureamp/kaizen-design-system/issues/3068)) ([a8a36e0](https://github.com/cultureamp/kaizen-design-system/commit/a8a36e0da7c07db7f5ab8646c4386a36edb83d9e))
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.1.0...@kaizen/select@5.1.1) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
 # [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.6...@kaizen/select@5.1.0) (2022-11-21)
 
 
