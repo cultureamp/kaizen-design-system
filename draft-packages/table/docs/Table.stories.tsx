@@ -142,7 +142,7 @@ export default {
 
 export const DefaultKaizenSiteDemo = () => (
   <Container>
-    <TableContainer>
+    <TableContainer variant="noSpacing">
       <TableHeader>
         <ExampleTableHeaderRow checkable />
       </TableHeader>
