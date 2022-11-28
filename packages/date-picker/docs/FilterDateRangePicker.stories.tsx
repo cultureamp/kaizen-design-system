@@ -59,6 +59,7 @@ DefaultStory.parameters = {
 }
 DefaultStory.args = {
   id: "filter-drp--default",
+  onRemoveFilter: undefined,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

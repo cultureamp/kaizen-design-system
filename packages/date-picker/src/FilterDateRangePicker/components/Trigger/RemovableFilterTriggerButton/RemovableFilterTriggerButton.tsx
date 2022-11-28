@@ -16,7 +16,9 @@ export interface RemovableFilterTriggerButtonProps
   // extends Omit<FilterTriggerButtonProps, "children"> {
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
 
-  onRemove: React.MouseEventHandler<HTMLButtonElement>
+  // onRemove: React.MouseEventHandler<HTMLButtonElement>
+  triggerButtonProps: FilterTriggerButtonProps
+  removeButtonProps: Omit<FilterButtonBaseProps, "children">
 }
 
 export type RemovableFilterTriggerButtonRefs = {
@@ -29,7 +31,7 @@ export const RemovableFilterTriggerButton = forwardRef<
   RemovableFilterTriggerButtonProps
 >(
   (
-    { onRemove, label, classNameOverride, ...restProps },
+    { triggerButtonProps, removeButtonProps, classNameOverride, ...restProps },
     ref
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
@@ -37,18 +39,13 @@ export const RemovableFilterTriggerButton = forwardRef<
     const removeButtonRef = customRefObject?.removeButtonRef
 
     return (
-      <div className={styles.removeableFilterTriggerButton}>
+      <div className={styles.removeableFilterTriggerButton} {...restProps}>
         <FilterTriggerButton
           ref={triggerButtonRef}
-          label={label}
-          classNameOverride={classnames(
-            styles.triggerButton,
-            classNameOverride,
-          )}
-          {...restProps}
+          {...triggerButtonProps}
         />
-        <Tooltip text={`Remove filter ${label}`} position="below">
-          <FilterButtonBase ref={removeButtonRef} onClick={onRemove} classNameOverride={styles.removeButton}>
+        <Tooltip text={`Remove filter ${triggerButtonProps?.label}`} position="below">
+          <FilterButtonBase ref={removeButtonRef} {...removeButtonProps} classNameOverride={styles.removeButton}>
             <Icon icon={iconClear} role="presentation" />
           </FilterButtonBase>
         </Tooltip>
