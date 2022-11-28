@@ -50,7 +50,7 @@
       background: transparent;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
-      border-radius: $border-focus-ring-border-radius;
+      border-radius: 4px;
       top: calc(-1 * #{$focus-ring-offset});
       left: calc(-1 * #{$focus-ring-offset});
       right: calc(-1 * #{$focus-ring-offset});
