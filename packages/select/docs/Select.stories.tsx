@@ -9,7 +9,7 @@ import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLab
 import { singleItems } from "./MockData"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select New`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
   component: Select,
   parameters: {
     actions: {

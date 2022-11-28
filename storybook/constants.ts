@@ -17,6 +17,7 @@ export const SUB_CATEGORIES = {
   loadingSkeleton: "Loading Skeleton",
   datePicker: "Date Picker",
   select: "Select",
+  selectLegacy: "Select (Legacy)",
   menu: "Menu",
 }
 
