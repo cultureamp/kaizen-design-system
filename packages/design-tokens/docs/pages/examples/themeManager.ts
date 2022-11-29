@@ -1,4 +1,3 @@
-import { ThemeManager } from "../../../src/ThemeManager"
-import { defaultTheme } from "../../../src/themes"
+import { ThemeManager, defaultTheme } from "@kaizen/design-tokens"
 
 export const themeManager = new ThemeManager(defaultTheme)
