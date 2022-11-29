@@ -35,7 +35,7 @@
     "@kaizen/component-library": "^16.1.10",
     "@kaizen/typography": "^2.3.3",
     "classnames": "^2.3.2",
-    "react-animate-height": "^3.0.5"
+    "react-animate-height": "^3.1.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.0",
