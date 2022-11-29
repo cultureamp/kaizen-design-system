@@ -3,7 +3,9 @@ import { StickerSheetRowProps } from "../StickerSheetRow"
 
 export interface StickerSheetBodyProps
   extends HTMLAttributes<HTMLTableSectionElement> {
-  children: React.ReactElement<StickerSheetRowProps> | Array<React.ReactElement<StickerSheetRowProps>>
+  children:
+    | React.ReactElement<StickerSheetRowProps>
+    | Array<React.ReactElement<StickerSheetRowProps>>
   isReversed?: boolean
 }
 
