@@ -1,4 +1,5 @@
-import React from "react"
+import React, { TableHTMLAttributes } from "react"
+import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import {
   StickerSheetBody,
@@ -19,7 +20,8 @@ const isReversibleSubcomponent = (
   React.isValidElement<ReversibleSubcomponents>(child) &&
   (child.type === StickerSheetHeader || child.type === StickerSheetBody)
 
-export interface StickerSheetProps {
+export interface StickerSheetProps
+  extends TableHTMLAttributes<HTMLTableElement> {
   children: React.ReactNode
   heading?: string
   isReversed?: boolean
@@ -35,17 +37,25 @@ export const StickerSheet: React.VFC<StickerSheetProps> & Subcomponents = ({
   children,
   heading,
   isReversed = false,
+  className,
+  ...restProps
 }) => (
   <div className={styles.stickerSheet}>
-    <Heading
-      variant="heading-3"
-      tag="h1"
-      color={isReversed ? "white" : "dark"}
-      classNameOverride={styles.stickerSheetSectionHeading}
+    {heading && (
+      <Heading
+        variant="heading-3"
+        tag="h1"
+        color={isReversed ? "white" : "dark"}
+        classNameOverride={styles.stickerSheetSectionHeading}
+      >
+        {heading}
+      </Heading>
+    )}
+
+    <table
+      className={classnames(styles.stickerSheetTable, className)}
+      {...restProps}
     >
-      {heading}
-    </Heading>
-    <table className={styles.stickerSheetTable}>
       {React.Children.map(children, child => {
         if (isReversibleSubcomponent(child)) {
           return React.cloneElement(child, {

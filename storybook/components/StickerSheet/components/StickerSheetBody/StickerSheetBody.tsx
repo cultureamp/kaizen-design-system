@@ -1,23 +1,24 @@
-import React from "react"
-import classnames from "classnames"
-import styles from "./StickerSheetBody.module.scss"
+import React, { HTMLAttributes } from "react"
+import { StickerSheetRowProps } from "../StickerSheetRow"
 
-export interface StickerSheetBodyProps {
-  children: React.ReactNode
+export interface StickerSheetBodyProps
+  extends HTMLAttributes<HTMLTableSectionElement> {
+  children: React.ReactElement<StickerSheetRowProps> | Array<React.ReactElement<StickerSheetRowProps>>
   isReversed?: boolean
 }
 
 export const StickerSheetBody: React.VFC<StickerSheetBodyProps> = ({
   children,
   isReversed = false,
+  ...restProps
 }) => (
-  <tbody
-    className={classnames(
-      styles.stickerSheetBody,
-      isReversed && styles.isReversed
+  <tbody {...restProps}>
+    {React.Children.map(children, child =>
+      React.cloneElement(child, {
+        isReversed,
+        ...child.props,
+      })
     )}
-  >
-    {children}
   </tbody>
 )
 
