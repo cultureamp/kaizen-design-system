@@ -4,7 +4,7 @@ import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { SelectState } from "@react-stately/select"
 import { ItemType } from "../../types"
-import styles from "./FloatingSelectWrapper.module.scss"
+import styles from "./Overlay.module.scss"
 
 export interface OverlayProps {
   children: React.ReactNode
