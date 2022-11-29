@@ -2,17 +2,17 @@ import React, { forwardRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { FilterBaseButton, FilterBaseButtonProps } from "../FilterBaseButton"
 
-export interface FilterTooltipButtonProps extends FilterBaseButtonProps {
+export interface FilterBaseTooltipButtonProps extends FilterBaseButtonProps {
   tooltipText: string
 }
 
-export const FilterTooltipButton = forwardRef<
+export const FilterBaseTooltipButton = forwardRef<
   HTMLButtonElement,
-  FilterTooltipButtonProps
+  FilterBaseTooltipButtonProps
 >(({ tooltipText, ...restProps }, ref) => (
   <Tooltip text={tooltipText} position="below">
     <FilterBaseButton ref={ref} {...restProps} />
   </Tooltip>
 ))
 
-FilterTooltipButton.displayName = "FilterTooltipButton"
+FilterBaseTooltipButton.displayName = "FilterBaseTooltipButton"

@@ -8,8 +8,8 @@ import {
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 import { FilterBaseButton } from "../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
+import { FilterBaseTooltipButton } from "../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 import { FilterButtonGroup } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
-import { FilterTooltipButton } from "../src/FilterDateRangePicker/components/Trigger/FilterTooltipButton"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Group`,
@@ -40,7 +40,9 @@ const StickerSheetTemplate: Story = () => (
       <StoryWrapper.Row rowTitle="Default">
         <FilterButtonGroup>
           <FilterBaseButton>First</FilterBaseButton>
-          <FilterTooltipButton tooltipText="Tooltip">Last</FilterTooltipButton>
+          <FilterBaseTooltipButton tooltipText="Tooltip">
+            Last
+          </FilterBaseTooltipButton>
         </FilterButtonGroup>
         <FilterButtonGroup>
           <FilterBaseButton>First</FilterBaseButton>
