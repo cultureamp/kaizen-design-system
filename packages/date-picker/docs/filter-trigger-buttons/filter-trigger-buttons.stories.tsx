@@ -29,7 +29,8 @@ export default {
 }
 
 const StickerSheetTemplate: Story = () => (
-  <div style={{ paddingBottom: "1rem" }}>
+  // For Chromatic
+  <div style={{ paddingBottom: "2rem" }}>
     <StoryWrapper>
       <StoryWrapper.RowHeader
         headings={["Closed", "Open", "Has selected value"]}

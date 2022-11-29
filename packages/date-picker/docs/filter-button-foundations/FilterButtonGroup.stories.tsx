@@ -17,8 +17,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          "This is a subcomponent - use DatePicker or DateRangePicker.",
+        component: "This is a container component to group filter buttons.",
       },
     },
   },
@@ -34,16 +33,13 @@ export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
 DefaultStory.storyName = "Filter Button Group"
 
 const StickerSheetTemplate: Story = () => (
-  <>
+  // For Chromatic
+  <div style={{ paddingBottom: "1rem" }}>
     <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Group of 2", "Group of 3"]} />
+      <StoryWrapper.RowHeader
+        headings={["Group of 2", "Group of 3", "With tooltip"]}
+      />
       <StoryWrapper.Row rowTitle="Default">
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseTooltipButton tooltipText="Tooltip">
-            Last
-          </FilterBaseTooltipButton>
-        </FilterButtonGroup>
         <FilterButtonGroup>
           <FilterBaseButton>First</FilterBaseButton>
           <FilterBaseButton>Last</FilterBaseButton>
@@ -52,6 +48,15 @@ const StickerSheetTemplate: Story = () => (
           <FilterBaseButton>First</FilterBaseButton>
           <FilterBaseButton>Middle</FilterBaseButton>
           <FilterBaseButton>Last</FilterBaseButton>
+        </FilterButtonGroup>
+        <FilterButtonGroup>
+          <FilterBaseButton>First</FilterBaseButton>
+          <FilterBaseTooltipButton
+            tooltipText="Tooltip"
+            isTooltipInitiallyVisible
+          >
+            Last
+          </FilterBaseTooltipButton>
         </FilterButtonGroup>
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -207,7 +212,7 @@ const StickerSheetTemplate: Story = () => (
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
-  </>
+  </div>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

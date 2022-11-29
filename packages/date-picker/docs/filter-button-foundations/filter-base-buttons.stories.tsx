@@ -28,40 +28,43 @@ export default {
 }
 
 const StickerSheetTemplate: Story = () => (
-  <StoryWrapper>
-    <StoryWrapper.RowHeader headings={["Base", "Hover", "Active", "Focus"]} />
-    <StoryWrapper.Row rowTitle="Filter Base Button">
-      <div>
-        <FilterBaseButton>Label</FilterBaseButton>
-      </div>
-      <div>
-        <FilterBaseButton classNameOverride="story__filter-button--hover">
-          Label
-        </FilterBaseButton>
-      </div>
-      <div>
-        <FilterBaseButton classNameOverride="story__filter-button--active">
-          Label
-        </FilterBaseButton>
-      </div>
-      <div>
-        <FilterBaseButton classNameOverride="story__filter-button--focus">
-          Label
-        </FilterBaseButton>
-      </div>
-    </StoryWrapper.Row>
+  // For Chromatic
+  <div style={{ paddingBottom: "2rem" }}>
+    <StoryWrapper>
+      <StoryWrapper.RowHeader headings={["Base", "Hover", "Active", "Focus"]} />
+      <StoryWrapper.Row rowTitle="Filter Base Button">
+        <div>
+          <FilterBaseButton>Label</FilterBaseButton>
+        </div>
+        <div>
+          <FilterBaseButton classNameOverride="story__filter-button--hover">
+            Label
+          </FilterBaseButton>
+        </div>
+        <div>
+          <FilterBaseButton classNameOverride="story__filter-button--active">
+            Label
+          </FilterBaseButton>
+        </div>
+        <div>
+          <FilterBaseButton classNameOverride="story__filter-button--focus">
+            Label
+          </FilterBaseButton>
+        </div>
+      </StoryWrapper.Row>
 
-    <StoryWrapper.Row rowTitle="Filter Base Tooltip Button">
-      <div>
-        <FilterBaseTooltipButton
-          tooltipText="Tooltip"
-          isTooltipInitiallyVisible
-        >
-          Label
-        </FilterBaseTooltipButton>
-      </div>
-    </StoryWrapper.Row>
-  </StoryWrapper>
+      <StoryWrapper.Row rowTitle="Filter Base Tooltip Button">
+        <div>
+          <FilterBaseTooltipButton
+            tooltipText="Tooltip"
+            isTooltipInitiallyVisible
+          >
+            Label
+          </FilterBaseTooltipButton>
+        </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </div>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
