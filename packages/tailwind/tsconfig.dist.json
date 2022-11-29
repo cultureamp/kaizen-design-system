@@ -10,5 +10,5 @@
     "target": "es5",
     "module": "CommonJS",
     "noUncheckedIndexedAccess": false
-  },
+  }
 }

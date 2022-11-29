@@ -22,7 +22,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const colors: Array<{ colorName: string; colorValue: string }> = []
-  Object.entries(kaizenTailwindTheme.colors).forEach(colorGroup => {
+  Object.entries(
+    kaizenTailwindTheme.colors as { [key: string]: string }
+  ).forEach(colorGroup => {
     const [colorName, colorValue] = colorGroup
     if (typeof colorValue === "string") {
       colors.push({ colorName: `text-${colorName}`, colorValue })

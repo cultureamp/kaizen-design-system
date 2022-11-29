@@ -23,7 +23,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.fontFamily as { [key: string]: string }
+        kaizenTailwindTheme.fontFamily as { [key: string]: string[] }
       ).map(presetData => {
         const [fontFamilyClassName, fontFamilyValue] = presetData
         if (!fontFamilyValue) return <></>
@@ -34,7 +34,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <StoryWrapper.Row rowTitle="">
               <p>font-{fontFamilyClassName}</p>
               <p>{fontFamilyValue}</p>
-              <p style={{ fontFamily: fontFamilyValue }}>Aa</p>
+              <p style={{ fontFamily: fontFamilyValue[0] }}>Aa</p>
             </StoryWrapper.Row>
           </>
         )
