@@ -1,40 +1,36 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
-import { FilterBaseButton } from "../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
+} from "../../../../storybook/constants"
+import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
+import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Base`,
-  component: FilterBaseButton,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Base Buttons`,
+  subcomponents: {
+    FilterBaseButton,
+    FilterBaseTooltipButton,
+  },
   parameters: {
     docs: {
       description: {
         component:
-          "This is a subcomponent - use DatePicker or DateRangePicker.",
+          "This is a subcomponent - use FilterTriggerButton or RemovableFilterTriggerButton.",
       },
     },
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof FilterBaseButton>
-
-export const DefaultStory: ComponentStory<typeof FilterBaseButton> = args => (
-  <FilterBaseButton {...args} />
-)
-DefaultStory.storyName = "Filter Button Base"
-DefaultStory.args = {
-  children: "Label",
 }
 
 const StickerSheetTemplate: Story = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Base", "Hover", "Active", "Focus"]} />
-    <StoryWrapper.Row rowTitle="Default">
+    <StoryWrapper.Row rowTitle="Filter Base Button">
       <div>
         <FilterBaseButton>Label</FilterBaseButton>
       </div>
@@ -52,6 +48,17 @@ const StickerSheetTemplate: Story = () => (
         <FilterBaseButton classNameOverride="story__filter-button--focus">
           Label
         </FilterBaseButton>
+      </div>
+    </StoryWrapper.Row>
+
+    <StoryWrapper.Row rowTitle="Filter Base Tooltip Button">
+      <div>
+        <FilterBaseTooltipButton
+          tooltipText="Tooltip"
+          isTooltipInitiallyVisible
+        >
+          Label
+        </FilterBaseTooltipButton>
       </div>
     </StoryWrapper.Row>
   </StoryWrapper>
