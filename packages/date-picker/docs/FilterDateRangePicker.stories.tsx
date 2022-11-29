@@ -83,8 +83,21 @@ DefaultStory.args = {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const [rangeDefault, setRangeDefault] = useState<DateRange | undefined>()
-  const [rangeExisting, setRangeExisting] = useState<DateRange | undefined>({
+  const [rangeDefaultBase, setRangeDefaultBase] = useState<
+    DateRange | undefined
+  >()
+  const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+    DateRange | undefined
+  >({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
+  const [rangeRemovableBase, setRangeRemovableBase] = useState<
+    DateRange | undefined
+  >()
+  const [rangeRemovableExisting, setRangeRemovableExisting] = useState<
+    DateRange | undefined
+  >({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
@@ -98,8 +111,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="stickersheet--filter-drp--default--base"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeDefault}
-            onRangeChange={setRangeDefault}
+            selectedRange={rangeDefaultBase}
+            onRangeChange={setRangeDefaultBase}
           />
         </div>
         <div>
@@ -107,8 +120,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="stickersheet--filter-drp--default--existing"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeExisting}
-            onRangeChange={setRangeExisting}
+            selectedRange={rangeDefaultExisting}
+            onRangeChange={setRangeDefaultExisting}
           />
         </div>
       </StoryWrapper.Row>
@@ -119,8 +132,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="stickersheet--filter-drp--removable--base"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeDefault}
-            onRangeChange={setRangeDefault}
+            selectedRange={rangeRemovableBase}
+            onRangeChange={setRangeRemovableBase}
             onRemoveFilter={() => undefined}
           />
         </div>
@@ -129,8 +142,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="stickersheet--filter-drp--removable--existing"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeExisting}
-            onRangeChange={setRangeExisting}
+            selectedRange={rangeRemovableExisting}
+            onRangeChange={setRangeRemovableExisting}
             onRemoveFilter={() => undefined}
           />
         </div>
