@@ -6,3 +6,7 @@
     margin-bottom: $spacing-sm;
   }
 }
+
+.stickerSheetTable {
+  margin-left: calc(-1 * #{$spacing-sm});
+}
