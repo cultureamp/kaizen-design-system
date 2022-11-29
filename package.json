@@ -104,7 +104,7 @@
     "plop": "^3.1.1",
     "postcss": "^8.4.19",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^7.0.1",
+    "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.3",
     "prettier": "^2.8.0",
     "raw-loader": "^4.0.2",
