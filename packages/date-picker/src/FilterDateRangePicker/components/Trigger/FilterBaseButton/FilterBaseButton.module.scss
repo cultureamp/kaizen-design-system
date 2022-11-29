@@ -49,17 +49,13 @@
     outline: none;
 
     &::after {
-      $focus-ring-offset: calc(
-        -1 * calc(#{$border-focus-ring-border-width} + 1px)
-      );
-
       content: "";
       z-index: 3;
       position: absolute;
-      top: $focus-ring-offset;
-      bottom: $focus-ring-offset;
-      left: $focus-ring-offset;
-      right: $focus-ring-offset;
+      top: $focus-ring-offset-outer;
+      bottom: $focus-ring-offset-outer;
+      left: $focus-ring-offset-outer;
+      right: $focus-ring-offset-outer;
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
