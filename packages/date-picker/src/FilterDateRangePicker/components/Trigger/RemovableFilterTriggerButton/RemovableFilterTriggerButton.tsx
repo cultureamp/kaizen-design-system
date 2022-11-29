@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
+import { DataAttributes } from "../../../../types"
 import { isRefObject } from "../../../../utils/isRefObject"
 import {
   FilterBaseTooltipButton,
@@ -14,8 +15,9 @@ import {
 
 export interface RemovableFilterTriggerButtonProps
   extends Omit<FilterButtonGroupProps, "children"> {
-  triggerButtonProps: FilterTriggerButtonProps
-  removeButtonProps: Partial<Omit<FilterBaseTooltipButtonProps, "children">>
+  triggerButtonProps: FilterTriggerButtonProps & DataAttributes
+  removeButtonProps: Partial<Omit<FilterBaseTooltipButtonProps, "children">> &
+    DataAttributes
 }
 
 export type RemovableFilterTriggerButtonRefs = {

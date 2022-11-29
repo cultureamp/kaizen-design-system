@@ -3,7 +3,12 @@ import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { CalendarRange, CalendarRangeProps } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
-import { DateRange, DisabledDayMatchers, SupportedLocales } from "../types"
+import {
+  DataAttributes,
+  DateRange,
+  DisabledDayMatchers,
+  SupportedLocales,
+} from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { getLocale } from "../utils/getLocale"
 import {
@@ -78,7 +83,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     handleDateRangeChange(range)
   }
 
-  const triggerButtonProps: FilterTriggerButtonProps = {
+  const triggerButtonProps: FilterTriggerButtonProps & DataAttributes = {
     id,
     label,
     "aria-haspopup": "dialog",
