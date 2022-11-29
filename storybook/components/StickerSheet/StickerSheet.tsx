@@ -1,5 +1,4 @@
 import React, { TableHTMLAttributes } from "react"
-import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import {
   StickerSheetBody,
@@ -37,7 +36,6 @@ export const StickerSheet: React.VFC<StickerSheetProps> & Subcomponents = ({
   children,
   heading,
   isReversed = false,
-  className,
   ...restProps
 }) => (
   <div className={styles.stickerSheet}>
@@ -52,10 +50,7 @@ export const StickerSheet: React.VFC<StickerSheetProps> & Subcomponents = ({
       </Heading>
     )}
 
-    <table
-      className={classnames(styles.stickerSheetTable, className)}
-      {...restProps}
-    >
+    <table {...restProps}>
       {React.Children.map(children, child => {
         if (isReversibleSubcomponent(child)) {
           return React.cloneElement(child, {

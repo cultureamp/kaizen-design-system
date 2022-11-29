@@ -115,7 +115,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
+          headingsWidth="10rem"
           hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
@@ -201,7 +203,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StickerSheet isReversed={isReversed} heading="Working / With Icon">
         <StickerSheet.Header
           headings={["Working", "Working (Focus)", "Icon Left", "Icon Right"]}
+          headingsWidth="10rem"
           hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (

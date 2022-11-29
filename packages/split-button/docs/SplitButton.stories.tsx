@@ -117,11 +117,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StickerSheet isReversed={isReversed}>
+      <StickerSheet isReversed={isReversed} heading="Split Button">
         <StickerSheet.Header
           headings={["Base", "Disabled"]}
           hasVerticalHeadings
-          verticalHeadingsWidth="17rem"
+          verticalHeadingsWidth="10rem"
         />
         <StickerSheet.Body>
           {ROWS_MAP.map(({ rowTitle, ...props }) => (

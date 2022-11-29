@@ -4,6 +4,7 @@ import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
 export interface StickerSheetHeaderProps
   extends HTMLAttributes<HTMLTableSectionElement> {
   headings: string[]
+  headingsWidth?: number | string
   isReversed?: boolean
   hasVerticalHeadings?: boolean
   verticalHeadingsWidth?: number | string
@@ -11,6 +12,7 @@ export interface StickerSheetHeaderProps
 
 export const StickerSheetHeader: React.VFC<StickerSheetHeaderProps> = ({
   headings,
+  headingsWidth,
   isReversed = false,
   hasVerticalHeadings = false,
   verticalHeadingsWidth = "7rem",
@@ -20,7 +22,11 @@ export const StickerSheetHeader: React.VFC<StickerSheetHeaderProps> = ({
     <tr>
       {hasVerticalHeadings && <th style={{ width: verticalHeadingsWidth }} />}
       {headings.map(heading => (
-        <StickerSheetTableHeading isReversed={isReversed}>
+        <StickerSheetTableHeading
+          key={heading}
+          isReversed={isReversed}
+          style={{ width: headingsWidth }}
+        >
           {heading}
         </StickerSheetTableHeading>
       ))}
