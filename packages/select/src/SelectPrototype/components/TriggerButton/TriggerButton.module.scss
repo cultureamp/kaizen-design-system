@@ -1,0 +1,29 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
+@import "./variables";
+
+.button {
+  @include button;
+  border-radius: $border-solid-border-radius;
+  margin-top: $spacing-xs;
+  width: 100%;
+
+  &:hover .icon,
+  &:global(.story__button-hover) .icon,
+  &:active .icon,
+  &:global(.story__button-active) .icon,
+  &:focus-visible .icon {
+    color: $color-gray-600;
+  }
+
+  &.placeholder {
+    color: rgb($color-purple-800-rgb, 0.7);
+  }
+}
+
+.icon {
+  margin-left: $spacing-sm; // TODO: Confirm spacing with design
+  color: $color-gray-500;
+}
