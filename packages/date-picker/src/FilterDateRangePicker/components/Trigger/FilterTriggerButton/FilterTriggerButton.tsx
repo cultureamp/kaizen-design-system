@@ -3,11 +3,11 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { FilterButtonBase, FilterButtonBaseProps } from "../FilterButtonBase"
+import { FilterBaseButton, FilterBaseButtonProps } from "../FilterBaseButton"
 import styles from "./FilterTriggerButton.module.scss"
 
 export interface FilterTriggerButtonProps
-  extends Omit<FilterButtonBaseProps, "children"> {
+  extends Omit<FilterBaseButtonProps, "children"> {
   label: string
   selectedValue?: string
   isOpen?: boolean
@@ -24,7 +24,7 @@ export const FilterTriggerButton = forwardRef<
     const hasSelectedValue = selectedValue && selectedValue !== ""
 
     return (
-      <FilterButtonBase
+      <FilterBaseButton
         ref={ref}
         classNameOverride={classnames(
           styles.filterTriggerButton,
@@ -45,7 +45,7 @@ export const FilterTriggerButton = forwardRef<
           )}
         </span>
         <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
-      </FilterButtonBase>
+      </FilterBaseButton>
     )
   }
 )

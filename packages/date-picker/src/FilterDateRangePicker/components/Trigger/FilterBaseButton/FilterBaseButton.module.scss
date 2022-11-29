@@ -5,7 +5,7 @@
 @import "../variables";
 @import "../../../../mixins";
 
-.filterButtonBase {
+.filterBaseButton {
   @include button-reset;
 
   -webkit-font-smoothing: antialiased;

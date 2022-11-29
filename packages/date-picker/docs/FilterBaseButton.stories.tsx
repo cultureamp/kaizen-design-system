@@ -7,11 +7,11 @@ import {
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
-import { FilterButtonBase } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonBase"
+import { FilterBaseButton } from "../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Base`,
-  component: FilterButtonBase,
+  component: FilterBaseButton,
   parameters: {
     docs: {
       description: {
@@ -21,10 +21,10 @@ export default {
     },
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof FilterButtonBase>
+} as ComponentMeta<typeof FilterBaseButton>
 
-export const DefaultStory: ComponentStory<typeof FilterButtonBase> = args => (
-  <FilterButtonBase {...args} />
+export const DefaultStory: ComponentStory<typeof FilterBaseButton> = args => (
+  <FilterBaseButton {...args} />
 )
 DefaultStory.storyName = "Filter Button Base"
 DefaultStory.args = {
@@ -36,22 +36,22 @@ const StickerSheetTemplate: Story = () => (
     <StoryWrapper.RowHeader headings={["Base", "Hover", "Active", "Focus"]} />
     <StoryWrapper.Row rowTitle="Default">
       <div>
-        <FilterButtonBase>Label</FilterButtonBase>
+        <FilterBaseButton>Label</FilterBaseButton>
       </div>
       <div>
-        <FilterButtonBase classNameOverride="story__filter-button--hover">
+        <FilterBaseButton classNameOverride="story__filter-button--hover">
           Label
-        </FilterButtonBase>
+        </FilterBaseButton>
       </div>
       <div>
-        <FilterButtonBase classNameOverride="story__filter-button--active">
+        <FilterBaseButton classNameOverride="story__filter-button--active">
           Label
-        </FilterButtonBase>
+        </FilterBaseButton>
       </div>
       <div>
-        <FilterButtonBase classNameOverride="story__filter-button--focus">
+        <FilterBaseButton classNameOverride="story__filter-button--focus">
           Label
-        </FilterButtonBase>
+        </FilterBaseButton>
       </div>
     </StoryWrapper.Row>
   </StoryWrapper>

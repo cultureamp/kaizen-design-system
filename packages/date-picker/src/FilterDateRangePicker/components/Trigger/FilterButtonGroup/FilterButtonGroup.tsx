@@ -1,14 +1,14 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { FilterButtonBaseProps } from "../FilterButtonBase"
+import { FilterBaseButtonProps } from "../FilterBaseButton"
 import styles from "./FilterButtonGroup.module.scss"
 
 export interface FilterButtonGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children:
-    | React.ReactElement<FilterButtonBaseProps>
-    | Array<React.ReactElement<FilterButtonBaseProps>>
+    | React.ReactElement<FilterBaseButtonProps>
+    | Array<React.ReactElement<FilterBaseButtonProps>>
 }
 
 export const FilterButtonGroup: React.VFC<FilterButtonGroupProps> = ({

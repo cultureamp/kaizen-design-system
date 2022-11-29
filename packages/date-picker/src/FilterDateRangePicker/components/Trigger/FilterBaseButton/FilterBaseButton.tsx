@@ -1,24 +1,24 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./FilterButtonBase.module.scss"
+import styles from "./FilterBaseButton.module.scss"
 
-export interface FilterButtonBaseProps
+export interface FilterBaseButtonProps
   extends OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>> {
   children: React.ReactNode
 }
 
-export const FilterButtonBase = forwardRef<
+export const FilterBaseButton = forwardRef<
   HTMLButtonElement,
-  FilterButtonBaseProps
+  FilterBaseButtonProps
 >(({ children, classNameOverride, ...restProps }, ref) => (
   <button
     ref={ref}
-    className={classNames(styles.filterButtonBase, classNameOverride)}
+    className={classNames(styles.filterBaseButton, classNameOverride)}
     {...restProps}
   >
     {children}
   </button>
 ))
 
-FilterButtonBase.displayName = "FilterButtonBase"
+FilterBaseButton.displayName = "FilterBaseButton"

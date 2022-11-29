@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { FilterButtonBase, FilterButtonBaseProps } from "../FilterButtonBase"
+import { FilterBaseButton, FilterBaseButtonProps } from "../FilterBaseButton"
 
-export interface FilterTooltipButtonProps extends FilterButtonBaseProps {
+export interface FilterTooltipButtonProps extends FilterBaseButtonProps {
   tooltipText: string
 }
 
@@ -11,7 +11,7 @@ export const FilterTooltipButton = forwardRef<
   FilterTooltipButtonProps
 >(({ tooltipText, ...restProps }, ref) => (
   <Tooltip text={tooltipText} position="below">
-    <FilterButtonBase ref={ref} {...restProps} />
+    <FilterBaseButton ref={ref} {...restProps} />
   </Tooltip>
 ))
 
