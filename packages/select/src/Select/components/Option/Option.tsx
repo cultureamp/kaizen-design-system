@@ -7,7 +7,7 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { useSelectionContext } from "../../provider"
+import { useSelectContext } from "../../provider/SelectProvider"
 import { ItemType } from "../../types"
 import styles from "./Option.module.scss"
 
@@ -17,7 +17,7 @@ export interface OptionProps
 }
 
 export const Option: React.VFC<OptionProps> = ({ item, classNameOverride }) => {
-  const { selectionState: state } = useSelectionContext()
+  const { state } = useSelectContext()
   // Get props for the option element
   const ref = React.useRef<HTMLLIElement>(null)
 

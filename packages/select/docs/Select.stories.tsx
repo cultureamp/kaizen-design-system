@@ -5,7 +5,6 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Select } from "../src/Select/Select"
-import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
 import { singleItems } from "./MockData"
 
 export default {
@@ -34,7 +33,6 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
 
   const handleSelectionChange = (key: Key) => {
     setSelectedKey(key)
-    setIsOpen(!isOpen)
   }
   const handleOpenChange = () => setIsOpen(!isOpen)
 
@@ -45,12 +43,7 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
       onOpenChange={handleOpenChange}
       onSelectionChange={handleSelectionChange}
       selectedKey={selectedKey}
-      trigger={
-        <Select.TriggerButton
-          placeholder="Placeholder"
-          selectedOptionLabel={getSelectedOptionLabel(selectedKey, singleItems)}
-        />
-      }
+      trigger={<Select.TriggerButton placeholder="Placeholder" />}
     >
       <Select.ListBox>
         {items =>
@@ -91,12 +84,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           onSelectionChange={() => undefined}
           items={singleItems}
           description="This is a description"
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
+          trigger={<Select.TriggerButton placeholder="Placeholder" />}
         >
           <Select.ListBox>
             {items =>
@@ -111,15 +99,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleItems}
           description="This is a description"
           selectedKey={"id-sre"}
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={getSelectedOptionLabel(
-                "id-sre",
-                singleItems
-              )}
-            />
-          }
+          trigger={<Select.TriggerButton placeholder="Placeholder" />}
         >
           <Select.ListBox>
             {items =>
@@ -138,7 +118,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <Select.TriggerButton
               classNameOverride="story__button-hover"
               placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
           }
         >
@@ -159,7 +138,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <Select.TriggerButton
               classNameOverride="story__button-focus"
               placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
           }
         >
@@ -178,12 +156,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleItems}
           description="This is a description"
           isFullWidth
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
+          trigger={<Select.TriggerButton placeholder="Placeholder" />}
         >
           <Select.ListBox>
             {items =>
@@ -201,12 +174,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleItems}
             description="This is a description"
             isFullWidth
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
+            trigger={<Select.TriggerButton placeholder="Placeholder" />}
           >
             <Select.ListBox>
               {items =>
@@ -231,12 +199,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleItems}
             description="This is a description"
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
+            trigger={<Select.TriggerButton placeholder="Placeholder" />}
           >
             <Select.ListBox>
               {items =>
@@ -252,15 +215,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={"id-sre"}
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={getSelectedOptionLabel(
-                  "id-sre",
-                  singleItems
-                )}
-              />
-            }
+            trigger={<Select.TriggerButton placeholder="Placeholder" />}
           >
             <Select.ListBox>
               {items =>
@@ -276,12 +231,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={null}
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
+            trigger={<Select.TriggerButton placeholder="Placeholder" />}
           >
             <Select.ListBox>
               {items =>
@@ -305,12 +255,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={null}
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
+            trigger={<Select.TriggerButton placeholder="Placeholder" />}
           >
             <Select.ListBox>
               {items =>
@@ -340,12 +285,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           isFullWidth
           isOpen
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
+          trigger={<Select.TriggerButton placeholder="Placeholder" />}
         >
           {
             <Select.ListBox>

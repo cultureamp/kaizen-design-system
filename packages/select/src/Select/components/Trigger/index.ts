@@ -1,1 +1,1 @@
-export * from "./SingleTriggerButton"
+export * from "./TriggerButton"

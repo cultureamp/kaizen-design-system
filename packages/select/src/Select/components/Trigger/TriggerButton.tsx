@@ -1,30 +1,27 @@
 import React, { HTMLAttributes } from "react"
 import { useFocusRing } from "@react-aria/focus"
 import { mergeProps } from "@react-aria/utils"
+import { SelectProps } from "@react-stately/select"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { useMenuTriggerContext } from "../../../provider/MenuTriggerProvider"
-import { RootProps } from "../../Root"
+import { useSelectContext } from "../../provider/SelectProvider"
+import styles from "./TriggerButton.module.scss"
 
-import styles from "./SingleTriggerButton.module.scss"
-
-export interface SingleTriggerButtonProps
+export interface TriggerButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder: string
-  selectedOptionLabel: RootProps["selectedKey"]
 }
 
-export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
-  selectedOptionLabel,
+export const TriggerButton: React.VFC<TriggerButtonProps> = ({
   classNameOverride,
   placeholder,
 }) => {
-  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
-
+  const { buttonProps, buttonRef, state, valueProps } = useSelectContext()
   const { isFocusVisible, focusProps } = useFocusRing()
+  const value = state?.selectedItem?.rendered
 
   return (
     <button
@@ -32,14 +29,14 @@ export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
       ref={buttonRef}
       className={classnames([
         styles.button,
-        selectedOptionLabel === null && styles.placeholder,
+        value === null && styles.placeholder,
         isFocusVisible && styles.isFocusVisible,
         classNameOverride,
       ])}
     >
-      <span>{selectedOptionLabel ?? placeholder}</span>
+      <span {...valueProps}>{value ?? placeholder}</span>
       <Icon
-        icon={menuTriggerState.isOpen ? chevronUp : chevronDown}
+        icon={state.isOpen ? chevronUp : chevronDown}
         role="presentation"
         classNameOverride={styles.icon}
       />
@@ -47,4 +44,4 @@ export const SingleTriggerButton: React.VFC<SingleTriggerButtonProps> = ({
   )
 }
 
-SingleTriggerButton.displayName = "SingleTriggerButton"
+TriggerButton.displayName = "TriggerButton"
