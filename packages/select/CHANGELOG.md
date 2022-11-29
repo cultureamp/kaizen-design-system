@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.0...@kaizen/select@5.2.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* **FilterMultiSelect:** Improve list box spacing ([#3127](https://github.com/cultureamp/kaizen-design-system/issues/3127)) ([bea8607](https://github.com/cultureamp/kaizen-design-system/commit/bea86072ad56cbb1fb0cbce4dfe999fbbdbb8732))
+
+
+
+
+
 # [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.1.1...@kaizen/select@5.2.0) (2022-11-28)
 
 
