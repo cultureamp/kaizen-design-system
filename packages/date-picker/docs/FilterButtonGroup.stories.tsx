@@ -9,6 +9,7 @@ import {
 } from "../../../storybook/constants"
 import { FilterButtonBase } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonBase"
 import { FilterButtonGroup } from "../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
+import { FilterTooltipButton } from "../src/FilterDateRangePicker/components/Trigger/FilterTooltipButton"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Group`,
@@ -25,19 +26,12 @@ export default {
 } as ComponentMeta<typeof FilterButtonGroup>
 
 export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
-  <FilterButtonGroup {...args} />
+  <FilterButtonGroup {...args}>
+    <FilterButtonBase>First</FilterButtonBase>
+    <FilterButtonBase>Last</FilterButtonBase>
+  </FilterButtonGroup>
 )
 DefaultStory.storyName = "Filter Button Group"
-DefaultStory.args = {
-  children: (
-    <>
-      <FilterButtonBase>First</FilterButtonBase>
-      <FilterButtonBase>Last</FilterButtonBase>
-    </>
-  ),
-}
-
-const Abc: React.VFC<{ children: any, classNameOverride?: string }> = props => <div className={props.classNameOverride}>{props.children}</div>
 
 const StickerSheetTemplate: Story = () => (
   <>
@@ -46,7 +40,7 @@ const StickerSheetTemplate: Story = () => (
       <StoryWrapper.Row rowTitle="Default">
         <FilterButtonGroup>
           <FilterButtonBase>First</FilterButtonBase>
-          <Abc><FilterButtonBase>Last</FilterButtonBase></Abc>
+          <FilterTooltipButton tooltipText="Tooltip">Last</FilterTooltipButton>
         </FilterButtonGroup>
         <FilterButtonGroup>
           <FilterButtonBase>First</FilterButtonBase>

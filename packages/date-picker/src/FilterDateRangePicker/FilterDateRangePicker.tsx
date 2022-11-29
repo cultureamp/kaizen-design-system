@@ -6,7 +6,11 @@ import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapp
 import { DateRange, DisabledDayMatchers, SupportedLocales } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { getLocale } from "../utils/getLocale"
-import { FilterTriggerButton, FilterTriggerButtonProps, RemovableFilterTriggerButton } from "./components/Trigger"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonProps,
+  RemovableFilterTriggerButton,
+} from "./components/Trigger"
 import { formatDateRange } from "./utils/formatDateRange"
 
 export interface FilterDateRangePickerProps
@@ -47,9 +51,13 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   onRemoveFilter,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef(onRemoveFilter ? {
-    triggerButtonRef: buttonRef,
-  } : null)
+  const removableButtonRefs = useRef(
+    onRemoveFilter
+      ? {
+          triggerButtonRef: buttonRef,
+        }
+      : null
+  )
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const locale = getLocale(propsLocale)
@@ -76,25 +84,22 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     "aria-haspopup": "dialog",
     onClick: () => setIsOpen(!isOpen),
     isOpen,
-    selectedValue: formatDateRange(selectedRange, locale)
+    selectedValue: formatDateRange(selectedRange, locale),
   }
 
   return (
     <>
-    {onRemoveFilter ? (
-      <RemovableFilterTriggerButton
-        ref={removableButtonRefs}
-        triggerButtonProps={triggerButtonProps}
-        removeButtonProps={{
-          onClick: () => undefined,
-        }}
-      />
-    ) : (
-      <FilterTriggerButton
-        ref={buttonRef}
-        {...triggerButtonProps}
-      />
-    )}
+      {onRemoveFilter ? (
+        <RemovableFilterTriggerButton
+          ref={removableButtonRefs}
+          triggerButtonProps={triggerButtonProps}
+          removeButtonProps={{
+            onClick: () => undefined,
+          }}
+        />
+      ) : (
+        <FilterTriggerButton ref={buttonRef} {...triggerButtonProps} />
+      )}
 
       {isOpen && (
         <FocusOn

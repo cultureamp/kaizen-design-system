@@ -1,24 +1,21 @@
-import React, { forwardRef, HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
+import React, { forwardRef } from "react"
 import { Icon } from "@kaizen/component-library"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
-import { Tooltip } from "@kaizen/draft-tooltip"
 import { isRefObject } from "../../../../utils/isRefObject"
-import { FilterButtonBase, FilterButtonBaseProps } from "../FilterButtonBase"
 import { FilterButtonGroup, FilterButtonGroupProps } from "../FilterButtonGroup"
-import { FilterTriggerButton, FilterTriggerButtonProps } from "../FilterTriggerButton"
-import styles from "./RemovableFilterTriggerButton.module.scss"
+import {
+  FilterTooltipButton,
+  FilterTooltipButtonProps,
+} from "../FilterTooltipButton"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonProps,
+} from "../FilterTriggerButton"
 
 export interface RemovableFilterTriggerButtonProps
-  // extends Omit<FilterTriggerButtonProps, "children"> {
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-
-  // onRemove: React.MouseEventHandler<HTMLButtonElement>
+  extends Omit<FilterButtonGroupProps, "children"> {
   triggerButtonProps: FilterTriggerButtonProps
-  removeButtonProps: Omit<FilterButtonBaseProps, "children">
+  removeButtonProps: Partial<Omit<FilterTooltipButtonProps, "children">>
 }
 
 export type RemovableFilterTriggerButtonRefs = {
@@ -29,28 +26,27 @@ export type RemovableFilterTriggerButtonRefs = {
 export const RemovableFilterTriggerButton = forwardRef<
   RemovableFilterTriggerButtonRefs,
   RemovableFilterTriggerButtonProps
->(
-  (
-    { triggerButtonProps, removeButtonProps, classNameOverride, ...restProps },
-    ref
-  ) => {
-    const customRefObject = isRefObject(ref) ? ref.current : null
-    const triggerButtonRef = customRefObject?.triggerButtonRef
-    const removeButtonRef = customRefObject?.removeButtonRef
+>(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
+  const customRefObject = isRefObject(ref) ? ref.current : null
+  const triggerButtonRef = customRefObject?.triggerButtonRef
+  const removeButtonRef = customRefObject?.removeButtonRef
 
-    return (
-      <div className={styles.removeableFilterTriggerButton} {...restProps}>
-        <FilterTriggerButton
-          ref={triggerButtonRef}
-          {...triggerButtonProps}
-        />
-        <Tooltip text={`Remove filter ${triggerButtonProps?.label}`} position="below">
-          <FilterButtonBase ref={removeButtonRef} {...removeButtonProps} classNameOverride={styles.removeButton}>
-            <Icon icon={iconClear} role="presentation" />
-          </FilterButtonBase>
-        </Tooltip>
-      </div>
-    )
+  const removeButtonLabel =
+    removeButtonProps?.tooltipText ??
+    `Remove filter - ${triggerButtonProps?.label}`
+
+  return (
+    <FilterButtonGroup {...restProps}>
+      <FilterTriggerButton ref={triggerButtonRef} {...triggerButtonProps} />
+      <FilterTooltipButton
+        ref={removeButtonRef}
+        {...removeButtonProps}
+        tooltipText={removeButtonLabel}
+      >
+        <Icon icon={iconClear} title={removeButtonLabel} />
+      </FilterTooltipButton>
+    </FilterButtonGroup>
+  )
 })
 
 RemovableFilterTriggerButton.displayName = "RemovableFilterTriggerButton"
