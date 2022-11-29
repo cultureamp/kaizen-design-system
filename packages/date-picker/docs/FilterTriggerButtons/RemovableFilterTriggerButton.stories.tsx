@@ -5,27 +5,26 @@ import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
-import { RemovableFilterTriggerButton } from "../src/FilterDateRangePicker/components/Trigger"
+} from "../../../../storybook/constants"
+import { RemovableFilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Removable Filter Trigger Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
   component: RemovableFilterTriggerButton,
   parameters: {
     docs: {
       description: {
-        component:
-          "This is a subcomponent - use DatePicker or DateRangePicker.",
+        component: "This is a subcomponent - use FilterDateRangePicker.",
       },
     },
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof RemovableFilterTriggerButton>
 
-export const DefaultStory: ComponentStory<
+export const RemovableFilterTriggerButtonStory: ComponentStory<
   typeof RemovableFilterTriggerButton
 > = args => <RemovableFilterTriggerButton {...args} />
-DefaultStory.storyName = "Removable Filter Trigger Button"
-DefaultStory.args = {
+RemovableFilterTriggerButtonStory.storyName = "Removable Filter Trigger Button"
+RemovableFilterTriggerButtonStory.args = {
   triggerButtonProps: { label: "Label" },
 }
