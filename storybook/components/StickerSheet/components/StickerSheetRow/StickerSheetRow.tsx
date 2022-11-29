@@ -17,7 +17,10 @@ export const StickerSheetRow: React.VFC<StickerSheetRowProps> = ({
 }) => (
   <tr {...restProps}>
     {rowTitle && (
-      <StickerSheetTableHeading isReversed={isReversed}>
+      <StickerSheetTableHeading
+        isReversed={isReversed}
+        className={styles.rowTitle}
+      >
         {rowTitle}
       </StickerSheetTableHeading>
     )}
