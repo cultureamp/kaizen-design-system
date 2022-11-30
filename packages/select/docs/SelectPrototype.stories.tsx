@@ -20,7 +20,7 @@ export default {
       },
     },
     ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A25645"
     ),
   },
   decorators: [withDesign],
@@ -50,20 +50,16 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
           <Select.TriggerButton {...triggerProps} placeholder="Placeholder" />
         )}
       >
-        {listBoxProps => (
-          <Select.ListBox {...listBoxProps}>
-            {({ items, state }) =>
-              items.map(item => (
-                <Select.Option
-                  key={item.key}
-                  item={item}
-                  state={state}
-                  data-testid="hello"
-                />
-              ))
-            }
-          </Select.ListBox>
-        )}
+        {({ items, state }) =>
+          items.map(item => (
+            <Select.Option
+              key={item.key}
+              item={item}
+              state={state}
+              data-testid="hello"
+            />
+          ))
+        }
       </Select>
 
       {/* Minimum */}
