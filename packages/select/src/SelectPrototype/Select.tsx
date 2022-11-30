@@ -8,11 +8,10 @@ import {
 } from "@react-stately/select"
 import { Node } from "@react-types/shared"
 import classnames from "classnames"
-import { VisuallyHidden } from "@kaizen/a11y"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 
-import { ListBox, ListBoxProps } from "./components/ListBox"
-import { Option, OptionProps } from "./components/Option"
+import { ListBox } from "./components/ListBox"
+import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { ItemType, State } from "./types"
@@ -33,7 +32,7 @@ export interface SelectProps
   isFullWidth?: boolean
   name: string
   id: string
-  trigger?: (triggerProps: TriggerButtonProps) => React.ReactNode
+  trigger?: (triggerProps: TriggerButtonProps, ref) => React.ReactNode
   children?: (optionsProps: OptionsProps) => React.ReactNode
 }
 
@@ -70,12 +69,10 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   return (
     <div className={classnames([!isFullWidth && selectStyles.notFullWidth])}>
       <Label {...labelProps}>{label}</Label>
-      {/* <VisuallyHidden {...labelProps}>{label}</VisuallyHidden> */}
-      {/* TODO hidden select value not working. expected ? */}
       <HiddenSelect {...props} state={state} triggerRef={buttonRef} />
 
       <div className={classnames([selectStyles.container])}>
-        {trigger({ triggerProps, buttonRef, valueProps, state })}
+        {trigger({ triggerProps, valueProps, state }, buttonRef)}
 
         {state.isOpen && (
           <Overlay state={state}>
