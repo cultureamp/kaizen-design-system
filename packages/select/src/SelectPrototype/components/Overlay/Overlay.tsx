@@ -2,14 +2,12 @@
 import React from "react"
 import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { SelectState } from "@react-stately/select"
-import { ItemType } from "../../types"
+import { State } from "../../types"
 import styles from "./Overlay.module.scss"
 
-export interface OverlayProps {
+export type OverlayProps = {
   children: React.ReactNode
-  state: SelectState<ItemType>
-}
+} & State
 
 export const Overlay: React.VFC<OverlayProps> = ({ children, state }) => {
   // Handle events that should cause the menu to close,

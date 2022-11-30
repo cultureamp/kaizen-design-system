@@ -1,21 +1,17 @@
-import React, { Children } from "react"
+import React from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
-import { SelectState } from "@react-stately/select"
 import { Node } from "@react-types/shared"
-import classNames from "classnames"
-import { ItemType } from "../../types"
+import { ItemType, State } from "../../types"
 import { Option } from "../Option/Option"
 import styles from "./ListBox.module.scss"
 
-type OptionsProps = {
+type OptionsProps = State & {
   items: Array<Node<ItemType>>
-  state: SelectState<ItemType>
 }
 
-export interface ListBoxProps {
-  children?: (optionsProps: OptionsProps) => React.ReactNode
-  state: SelectState<ItemType>
+export type ListBoxProps = State & {
   menuProps: AriaListBoxOptions<ItemType>
+  children?: (optionsProps: OptionsProps) => React.ReactNode
 }
 
 export const ListBox: React.VFC<ListBoxProps> = ({
@@ -34,10 +30,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({
   const items = Array.from(state.collection)
 
   return (
-    <ul {...listBoxProps} ref={ref} className={classNames([styles.listBox])}>
-      {/* {Array.from(state.collection).map(item => (
-        <Option key={item.key} state={state} item={item} />
-      ))} */}
+    <ul {...listBoxProps} ref={ref} className={styles.listBox}>
       {children({ items, state })}
     </ul>
   )

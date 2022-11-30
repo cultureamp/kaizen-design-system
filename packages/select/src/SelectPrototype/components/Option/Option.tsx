@@ -2,19 +2,18 @@ import React, { HTMLAttributes } from "react"
 import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
-import { SelectState } from "@react-stately/select"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { ItemType } from "../../types"
+import { ItemType, State } from "../../types"
 import styles from "./Option.module.scss"
 
 export type OptionProps = OverrideClassName<HTMLAttributes<HTMLLIElement>> &
-  HTMLAttributes<HTMLLIElement> & {
+  HTMLAttributes<HTMLLIElement> &
+  State & {
     item: Node<ItemType>
-    state: SelectState<ItemType>
   }
 
 export const Option = ({

@@ -2,7 +2,6 @@ import React, { HTMLAttributes } from "react"
 import { AriaButtonProps, useButton } from "@react-aria/button"
 import { useFocusRing } from "@react-aria/focus"
 import { mergeProps } from "@react-aria/utils"
-import { SelectState } from "@react-stately/select"
 import { DOMAttributes, FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -10,20 +9,19 @@ import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 
-import { ItemType } from "../../types"
+import { State } from "../../types"
 import styles from "./TriggerButton.module.scss"
 
-export interface TriggerButtonProps
-  extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
-  placeholder?: string
-  triggerProps: AriaButtonProps<"button">
-  valueProps: DOMAttributes<FocusableElement>
-  buttonRef: React.RefObject<HTMLButtonElement>
-  state: SelectState<ItemType>
-}
+export type TriggerButtonProps = State &
+  OverrideClassName<HTMLAttributes<HTMLButtonElement>> & {
+    placeholder?: string
+    triggerProps: AriaButtonProps<"button">
+    valueProps: DOMAttributes<FocusableElement>
+    buttonRef: React.RefObject<HTMLButtonElement>
+  }
 
 export const TriggerButton: React.VFC<TriggerButtonProps> = ({
-  placeholder,
+  placeholder = "Select",
   state,
   classNameOverride,
   triggerProps,

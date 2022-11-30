@@ -25,14 +25,11 @@ type SubComponentProps = {
 
 export interface SelectProps
   extends Omit<AriaSelectProps<ItemType>, "children"> {
-  trigger?: (props: TriggerButtonProps) => React.ReactNode
-  children?: (listBoxProps: ListBoxProps) => React.ReactNode
-  description?: React.ReactNode
   isFullWidth?: boolean
-  isDisabled?: boolean
-  label: string
-  name?: string
+  name: string
   id: string
+  trigger?: (triggerProps: TriggerButtonProps) => React.ReactNode
+  children?: (listBoxProps: ListBoxProps) => React.ReactNode
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = props => {
@@ -40,9 +37,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
     label,
     description,
     isFullWidth,
-    trigger = triggerProps => (
-      <TriggerButton {...triggerProps} placeholder="Placeholder" />
-    ),
+    trigger = triggerProps => <TriggerButton {...triggerProps} />,
     children = listBoxProps => <ListBox {...listBoxProps} />,
   } = props
 
@@ -67,9 +62,11 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   return (
     <div className={classnames([!isFullWidth && selectStyles.notFullWidth])}>
       <Label {...labelProps}>{label}</Label>
+
       <div className={classnames([selectStyles.container])}>
         <HiddenSelect {...props} state={state} triggerRef={buttonRef} />
         {trigger({ triggerProps, buttonRef, valueProps, state })}
+
         {state.isOpen && (
           <Overlay state={state}>
             <VisuallyHidden {...labelProps}>{label}</VisuallyHidden>
