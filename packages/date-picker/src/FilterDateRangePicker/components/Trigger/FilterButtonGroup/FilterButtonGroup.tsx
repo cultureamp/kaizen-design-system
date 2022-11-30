@@ -20,6 +20,7 @@ export const FilterButtonGroup: React.VFC<FilterButtonGroupProps> = ({
 
   return (
     <div
+      role="group"
       className={classnames(styles.filterButtonGroup, classNameOverride)}
       {...restProps}
     >
