@@ -11,13 +11,18 @@ import check from "@kaizen/component-library/icons/check.icon.svg"
 import { ItemType } from "../../types"
 import styles from "./Option.module.scss"
 
-export interface OptionProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  item: Node<ItemType>
-  state: SelectState<ItemType>
-}
+export type OptionProps = OverrideClassName<HTMLAttributes<HTMLLIElement>> &
+  HTMLAttributes<HTMLLIElement> & {
+    item: Node<ItemType>
+    state: SelectState<ItemType>
+  }
 
-export const Option = ({ item, classNameOverride, state }: OptionProps) => {
+export const Option = ({
+  item,
+  classNameOverride,
+  state,
+  ...props
+}: OptionProps) => {
   const ref = React.useRef<HTMLLIElement>(null)
 
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
@@ -25,7 +30,7 @@ export const Option = ({ item, classNameOverride, state }: OptionProps) => {
 
   return (
     <li
-      {...mergeProps(optionProps, focusProps)}
+      {...mergeProps(optionProps, focusProps, props)}
       ref={ref}
       className={classNames([
         styles.option,
@@ -35,7 +40,6 @@ export const Option = ({ item, classNameOverride, state }: OptionProps) => {
       ])}
       aria-label={item.textValue}
     >
-      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
       <span
         className={classNames([styles.icon, isSelected && styles.isSelected])}

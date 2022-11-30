@@ -44,6 +44,7 @@ export const TriggerButton: React.VFC<TriggerButtonProps> = ({
         isFocusVisible && styles.isFocusVisible,
         classNameOverride,
       ])}
+      disabled={triggerProps.isDisabled}
     >
       <span {...valueProps}>{value ?? placeholder}</span>
       <Icon

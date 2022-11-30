@@ -21,6 +21,10 @@
   &.placeholder {
     color: rgb($color-purple-800-rgb, 0.7);
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .icon {
