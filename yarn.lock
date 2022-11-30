@@ -9016,10 +9016,10 @@ eslint-plugin-sort-imports-es6-autofix@^0.6.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-sort-imports-es6-autofix/-/eslint-plugin-sort-imports-es6-autofix-0.6.0.tgz#b8cd8639d7a54cefce6b17898b102fd5ec31e52b"
   integrity sha512-2NVaBGF9NN+727Fyq+jJYihdIeegjXeUUrZED9Q8FVB8MsV3YQEyXG96GVnXqWt0pmn7xfCZOZf3uKnIhBrfeQ==
 
-eslint-plugin-ssr-friendly@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ssr-friendly/-/eslint-plugin-ssr-friendly-1.0.6.tgz#eb7633ab7e51720ebac6dc590bcaf8e28aecd8c6"
-  integrity sha512-O1S/0Q8FYTl1c4vwIr0cg59u37mL5qe7sxpMzjdIo2v8l0LjCugU699trmkgOheQINTq7R9yhfCo6YaAb4tYUQ==
+eslint-plugin-ssr-friendly@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ssr-friendly/-/eslint-plugin-ssr-friendly-1.2.0.tgz#7dea4a32dc603f8a33ee97f7472a2ce8785cb917"
+  integrity sha512-py+DI+upyWdcm2fS+gBHSXME4HiZ6GRlLz+4c8GMXiUi8huIP83RaQeOPccBsu9aKEIZiXAblaxYjIHUnrIpAQ==
   dependencies:
     globals "^13.8.0"
 
