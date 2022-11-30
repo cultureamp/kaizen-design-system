@@ -11,6 +11,7 @@ import {
 } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { getLocale } from "../utils/getLocale"
+import { DateRangeInputField } from "./components/DateRangeInputField"
 import {
   FilterTriggerButton,
   FilterTriggerButtonProps,
@@ -116,6 +117,16 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
             referenceElement={buttonRef.current}
             aria-label={label}
           >
+            <DateRangeInputField
+              id={`${id}--input`}
+              inputRangeStartProps={{
+                labelText: "Date from",
+              }}
+              inputRangeEndProps={{
+                labelText: "Date to",
+              }}
+              locale={locale}
+            />
             <CalendarRange
               defaultMonth={defaultMonth}
               disabled={disabledDays}
