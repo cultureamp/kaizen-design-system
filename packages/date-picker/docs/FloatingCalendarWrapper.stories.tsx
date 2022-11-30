@@ -74,7 +74,7 @@ const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Default">
-        <FloatingCalenderWrapperExample rowHeight={54}>
+        <FloatingCalenderWrapperExample rowHeight={102}>
           FloatingCalendarWrapper
           <br />
           Content goes in here.

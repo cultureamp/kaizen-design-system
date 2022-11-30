@@ -1,9 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .calendarWrapper {
   background-color: $color-white;
   z-index: 1010;
   box-shadow: $shadow-large-box-shadow;
   border-radius: 7px;
+  padding: $spacing-md;
 }

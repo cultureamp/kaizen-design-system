@@ -4,7 +4,33 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "../../mixins";
 
+$button-border-radius: 3px;
 $rdp-cell-size: 40px;
+
+%focus-ring {
+  $focus-ring-offset: calc(
+    -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
+  );
+  content: "";
+  position: absolute;
+  top: $focus-ring-offset;
+  bottom: $focus-ring-offset;
+  left: $focus-ring-offset;
+  right: $focus-ring-offset;
+  border-radius: $button-border-radius;
+}
+
+%focus-ring--enabled {
+  @extend %focus-ring;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $color-blue-500;
+}
+
+%focus-ring--disabled {
+  @extend %focus-ring;
+  border: $border-focus-ring-border-width $border-dashed-border-style
+    $color-gray-300;
+}
 
 .root {
   display: inline-flex;
@@ -20,11 +46,15 @@ $rdp-cell-size: 40px;
 
 .button {
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: $button-border-radius;
 
   &:focus {
     outline: none;
     border: 2px solid transparent;
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 }
 
@@ -53,6 +83,7 @@ $rdp-cell-size: 40px;
 }
 
 .navButton {
+  position: relative;
   display: inherit;
   padding: 0.25rem $spacing-xs;
   border: $border-solid-border-width $border-solid-border-style transparent;
@@ -65,11 +96,12 @@ $rdp-cell-size: 40px;
 
   &:focus-visible,
   :global(.js-focus-visible) &:global(.focus-visible) {
-    outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
     background-color: $color-blue-100;
     color: $color-blue-500;
+
+    &::after {
+      @extend %focus-ring--enabled;
+    }
   }
 }
 
@@ -107,8 +139,8 @@ $rdp-cell-size: 40px;
 }
 
 .day {
+  position: relative;
   display: flex;
-  overflow: hidden;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -128,11 +160,12 @@ $rdp-cell-size: 40px;
 
   &:focus-visible,
   :global(.js-focus-visible) &:global(.focus-visible) {
-    outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
     background-color: $color-blue-100;
     color: $color-blue-500;
+
+    &::after {
+      @extend %focus-ring--enabled;
+    }
   }
 }
 
@@ -163,11 +196,12 @@ $rdp-cell-size: 40px;
   &:focus-visible,
   :global(.js-focus-visible) &:global(.focus-visible) {
     color: rgba($color-purple-800-rgb, 0.3);
-    outline-offset: 1px;
     background-color: transparent;
     opacity: 1;
-    outline: $color-gray-300 $border-dashed-border-style
-      $border-focus-ring-border-width;
+
+    &::after {
+      @extend %focus-ring--disabled;
+    }
   }
 }
 
