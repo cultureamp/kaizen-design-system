@@ -6,7 +6,7 @@ import {
   DateInputWithIconButtonProps,
   DateInputWithIconButtonRefs,
 } from "../../../_subcomponents/DateInput/DateInputWithIconButton"
-import { getDescription } from "./utils/getDescription"
+import { formatInputDescription } from "../../../utils/formatInputDescription"
 import styles from "./DateInputField.module.scss"
 
 export interface DateInputFieldProps extends DateInputWithIconButtonProps {
@@ -67,7 +67,7 @@ export const DateInputField = React.forwardRef<
         <div className={classnames(disabled && styles.disabled)}>
           <FieldMessage
             id={descriptionId}
-            message={getDescription(description, locale)}
+            message={formatInputDescription(description, locale)}
             reversed={isReversed}
           />
         </div>
