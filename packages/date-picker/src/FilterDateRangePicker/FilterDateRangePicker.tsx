@@ -22,6 +22,7 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
+import { handleDateRangeInputChange } from "./handlers/handleDateRangeInputChange"
 import { formatDateRange } from "./utils/formatDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
@@ -126,6 +127,22 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     selectedValue: formatDateRange(selectedRange, locale),
   }
 
+  const handleInputRangeStartChange: InputRangeStartProps["onChange"] = e => {
+    handleDateRangeInputChange({
+      onNewInputValue: setInputRangeStartValue,
+      newValue: e.currentTarget.value,
+    })
+    inputRangeStartProps?.onChange?.(e)
+  }
+
+  const handleInputRangeEndChange: InputRangeEndProps["onChange"] = e => {
+    handleDateRangeInputChange({
+      onNewInputValue: setInputRangeEndValue,
+      newValue: e.currentTarget.value,
+    })
+    inputRangeEndProps?.onChange?.(e)
+  }
+
   return (
     <div
       className={classnames(
@@ -161,14 +178,16 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
               inputRangeStartProps={{
                 labelText: "Date from",
                 value: inputRangeStartValue,
-                onChange: e => setInputRangeStartValue(e.currentTarget.value),
                 ...inputRangeStartProps,
+                // The below props extend the values from inputRangeStartProps, therefore must be below the spread
+                onChange: handleInputRangeStartChange,
               }}
               inputRangeEndProps={{
                 labelText: "Date to",
                 value: inputRangeEndValue,
-                onChange: e => setInputRangeEndValue(e.currentTarget.value),
                 ...inputRangeEndProps,
+                // The below props extend the values from inputRangeEndProps, therefore must be below the spread
+                onChange: handleInputRangeEndChange,
               }}
               locale={locale}
             />
