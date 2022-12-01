@@ -1,6 +1,6 @@
 import { format } from "date-fns"
-import { Matcher } from "react-day-picker"
 import { DateFormat } from "../enums"
+import { Matcher } from "../types"
 import { isDisabledDate } from "./isDisabledDate"
 import { isInvalidDate } from "./isInvalidDate"
 

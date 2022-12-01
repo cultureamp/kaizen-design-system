@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.1...@kaizen/draft-table@5.3.2) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.0...@kaizen/draft-table@5.3.1) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.25...@kaizen/draft-table@5.3.0) (2022-11-27)
+
+
+### Features
+
+* On hover add a gray-100 background colour to TableCard with href or onClick. ([#3119](https://github.com/cultureamp/kaizen-design-system/issues/3119)) ([7e39c80](https://github.com/cultureamp/kaizen-design-system/commit/7e39c80500e98c80d6d2740975c2050ed04e66bf))
+
+
+
+
+
+## [5.2.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.24...@kaizen/draft-table@5.2.25) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [5.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.23...@kaizen/draft-table@5.2.24) (2022-11-17)
 
 **Note:** Version bump only for package @kaizen/draft-table

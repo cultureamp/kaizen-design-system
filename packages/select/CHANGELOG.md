@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.3...@kaizen/select@5.2.4) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [5.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.2...@kaizen/select@5.2.3) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.1...@kaizen/select@5.2.2) (2022-12-01)
+
+
+### Bug Fixes
+
+* Export new Select component from package root ([#3134](https://github.com/cultureamp/kaizen-design-system/issues/3134)) ([88cac4c](https://github.com/cultureamp/kaizen-design-system/commit/88cac4c10fa0d0ec3c59685659a5dee4b42ab667))
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.0...@kaizen/select@5.2.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* **FilterMultiSelect:** Improve list box spacing ([#3127](https://github.com/cultureamp/kaizen-design-system/issues/3127)) ([bea8607](https://github.com/cultureamp/kaizen-design-system/commit/bea86072ad56cbb1fb0cbce4dfe999fbbdbb8732))
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.1.1...@kaizen/select@5.2.0) (2022-11-28)
+
+
+### Features
+
+* **Select:** Kds 925 basic single select ([#3068](https://github.com/cultureamp/kaizen-design-system/issues/3068)) ([a8a36e0](https://github.com/cultureamp/kaizen-design-system/commit/a8a36e0da7c07db7f5ab8646c4386a36edb83d9e))
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.1.0...@kaizen/select@5.1.1) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
 # [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.0.6...@kaizen/select@5.1.0) (2022-11-21)
 
 
