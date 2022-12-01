@@ -94,10 +94,10 @@ describe("<FilterDateRangePicker />", () => {
       render(<FilterDateRangePickerWrapper />)
       await openFilter()
 
-      const inputFrom = screen.getByLabelText("Date from")
-      const inputTo = screen.getByLabelText("Date to")
-      expect(inputFrom).toHaveValue("")
-      expect(inputTo).toHaveValue("")
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+      expect(inputRangeStart).toHaveValue("")
+      expect(inputRangeEnd).toHaveValue("")
     })
 
     it("should pre-fill the inputs when date range is provided", async () => {
@@ -111,10 +111,50 @@ describe("<FilterDateRangePicker />", () => {
       )
       await openFilter()
 
-      const inputFrom = screen.getByLabelText("Date from")
-      const inputTo = screen.getByLabelText("Date to")
-      expect(inputFrom).toHaveValue("1 May 2022")
-      expect(inputTo).toHaveValue("22 May 2022")
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+      expect(inputRangeStart).toHaveValue("1 May 2022")
+      expect(inputRangeEnd).toHaveValue("22 May 2022")
+    })
+
+    it("allows customing the input labels", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-05-22"),
+          }}
+          inputRangeStartProps={{ labelText: "Start date" }}
+          inputRangeEndProps={{ labelText: "End date" }}
+        />
+      )
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Start date")
+      const inputRangeEnd = screen.getByLabelText("End date")
+      expect(inputRangeStart).toHaveValue("1 May 2022")
+      expect(inputRangeEnd).toHaveValue("22 May 2022")
+    })
+
+    it("allows adding extra onChange functionality", async () => {
+      const onStartChange = jest.fn<void, []>()
+      const onEndChange = jest.fn<void, []>()
+
+      render(
+        <FilterDateRangePickerWrapper
+          inputRangeStartProps={{ onChange: onStartChange }}
+          inputRangeEndProps={{ onChange: onEndChange }}
+        />
+      )
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+
+      await userEvent.type(inputRangeStart, "cheese")
+      expect(onStartChange).toHaveBeenCalled()
+      await userEvent.type(inputRangeEnd, "burger")
+      expect(onEndChange).toHaveBeenCalled()
     })
   })
 })
