@@ -79,4 +79,51 @@ describe("<FilterDateRangePicker />", () => {
       expect(removeButton).toBeVisible()
     })
   })
+
+  describe("Inputs", () => {
+    it("should have empty inputs when a date range is not provided", async () => {
+      render(
+        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
+      )
+
+      const filterButton = screen.getByRole("button", {
+        name: "Dates",
+      })
+      userEvent.click(filterButton)
+      await waitFor(() => {
+        expect(screen.getByText("May 2022")).toBeVisible()
+      })
+
+      const inputFrom = screen.getByLabelText("Date from")
+      const inputTo = screen.getByLabelText("Date to")
+      expect(inputFrom).toHaveValue("")
+      expect(inputTo).toHaveValue("")
+    })
+
+    it("should pre-fill the inputs when date range is provided", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-05-22"),
+          }}
+        />
+      )
+
+      const filterButton = screen.getByRole("button", {
+        name: "Dates: 1 May 2022 - 22 May 2022",
+      })
+      userEvent.click(filterButton)
+      await waitFor(() => {
+        expect(screen.getByText("May 2022")).toBeVisible()
+      })
+
+      const inputFrom = screen.getByLabelText("Date from")
+      const inputTo = screen.getByLabelText("Date to")
+      expect(inputFrom).toHaveValue("1 May 2022")
+      expect(inputTo).toHaveValue("22 May 2022")
+
+      expect(screen.getByText("May 2022")).toBeVisible()
+    })
+  })
 })

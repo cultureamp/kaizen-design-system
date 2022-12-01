@@ -105,7 +105,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
-  const [rangeOpen, setRangeOpen] = useState<DateRange | undefined>()
+  const [rangeOpen, setRangeOpen] = useState<DateRange | undefined>({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
 
   return (
     <div style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
@@ -158,10 +161,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Open">
           <div>
             <FilterDateRangePicker
+              data-testid="test__stickersheet--filter-drp--open"
               id="stickersheet--filter-drp--open"
               label="Open"
               locale="en-AU"
-              defaultMonth={new Date("2022-05-01")}
               selectedRange={rangeOpen}
               onRangeChange={setRangeOpen}
             />
@@ -181,6 +184,8 @@ StickerSheetDefault.parameters = {
 
 StickerSheetDefault.play = ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const filterButtonOpen = canvas.getByRole("button", { name: "Open" })
+  const filterButtonOpen = canvas
+    .getByTestId("test__stickersheet--filter-drp--open")
+    .getElementsByTagName("button")[0]
   userEvent.click(filterButtonOpen)
 }

@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, useRef, useState } from "react"
+import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { CalendarRange, CalendarRangeProps } from "../_subcomponents/Calendar"
@@ -10,6 +11,7 @@ import {
   SupportedLocales,
 } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
+import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
 import { DateRangeInputField } from "./components/DateRangeInputField"
 import {
@@ -18,6 +20,7 @@ import {
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
 import { formatDateRange } from "./utils/formatDateRange"
+import styles from "./FilterDateRangePicker.module.scss"
 
 export interface FilterDateRangePickerProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
@@ -55,6 +58,8 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   disabledBefore,
   disabledAfter,
   onRemoveFilter,
+  classNameOverride,
+  ...restProps
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const removableButtonRefs = useRef(
@@ -76,6 +81,17 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     disabledAfter,
   })
 
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<string>(
+    selectedRange?.from
+      ? formatDateAsText(selectedRange.from, disabledDays, locale)
+      : ""
+  )
+  const [inputRangeEndValue, setInputRangeEndValue] = useState<string>(
+    selectedRange?.to
+      ? formatDateAsText(selectedRange.to, disabledDays, locale)
+      : ""
+  )
+
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
   }
@@ -94,7 +110,13 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   }
 
   return (
-    <>
+    <div
+      className={classnames(
+        styles.filterDateRangePickerContainer,
+        classNameOverride
+      )}
+      {...restProps}
+    >
       {onRemoveFilter ? (
         <RemovableFilterTriggerButton
           ref={removableButtonRefs}
@@ -121,9 +143,13 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
               id={`${id}--input`}
               inputRangeStartProps={{
                 labelText: "Date from",
+                value: inputRangeStartValue,
+                onChange: e => setInputRangeStartValue(e.currentTarget.value),
               }}
               inputRangeEndProps={{
                 labelText: "Date to",
+                value: inputRangeEndValue,
+                onChange: e => setInputRangeEndValue(e.currentTarget.value),
               }}
               locale={locale}
             />
@@ -137,7 +163,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
           </FloatingCalendarWrapper>
         </FocusOn>
       )}
-    </>
+    </div>
   )
 }
 
