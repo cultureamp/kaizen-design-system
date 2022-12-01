@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.1...@kaizen/select@5.2.2) (2022-12-01)
+
+
+### Bug Fixes
+
+* Export new Select component from package root ([#3134](https://github.com/cultureamp/kaizen-design-system/issues/3134)) ([88cac4c](https://github.com/cultureamp/kaizen-design-system/commit/88cac4c10fa0d0ec3c59685659a5dee4b42ab667))
+
+
+
+
+
 ## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.0...@kaizen/select@5.2.1) (2022-11-29)
 
 
