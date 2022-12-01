@@ -63,11 +63,19 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }) => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -143,8 +151,18 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ selectedItems, unselectedItems, disabledItems }) => (
+              {({
+                selectedItems,
+                unselectedItems,
+                disabledItems,
+                hasNoItems,
+              }) => (
                 <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )}
                   <FilterMultiSelect.ListBoxSection
                     items={selectedItems}
                     sectionName="Selected items"
@@ -247,11 +265,18 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }) => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -361,11 +386,18 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
+            {({ allItems, hasNoItems }) => {
+              if (hasNoItems) {
+                return (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                )
+              }
+              return allItems.map(item => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
-            }
+            }}
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />

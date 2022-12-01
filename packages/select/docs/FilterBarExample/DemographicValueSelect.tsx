@@ -1,5 +1,6 @@
 import React, { Key, useEffect, useState } from "react"
 import { Selection } from "@react-types/shared"
+import { Paragraph } from "@kaizen/typography"
 import {
   FilterMultiSelect,
   getSelectedOptionKeys,
@@ -74,8 +75,18 @@ export const DemographicValueSelect = ({
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ selectedItems, unselectedItems, disabledItems }) => (
+            {({
+              selectedItems,
+              unselectedItems,
+              disabledItems,
+              hasNoItems,
+            }) => (
               <>
+                {hasNoItems && (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                )}
                 <FilterMultiSelect.ListBoxSection
                   items={selectedItems}
                   sectionName="Selected items"
