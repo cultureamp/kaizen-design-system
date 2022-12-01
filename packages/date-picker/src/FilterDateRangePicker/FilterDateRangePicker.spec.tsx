@@ -156,5 +156,30 @@ describe("<FilterDateRangePicker />", () => {
       await userEvent.type(inputRangeEnd, "burger")
       expect(onEndChange).toHaveBeenCalled()
     })
+
+    it("allows adding extra onFocus functionality", async () => {
+      const onStartFocus = jest.fn<void, []>()
+      const onEndFocus = jest.fn<void, []>()
+
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-05-22"),
+          }}
+          inputRangeStartProps={{ onFocus: onStartFocus }}
+          inputRangeEndProps={{ onFocus: onEndFocus }}
+        />
+      )
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+
+      await userEvent.click(inputRangeStart)
+      expect(onStartFocus).toHaveBeenCalled()
+      await userEvent.click(inputRangeEnd)
+      expect(onEndFocus).toHaveBeenCalled()
+    })
   })
 })

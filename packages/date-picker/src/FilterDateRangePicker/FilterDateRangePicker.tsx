@@ -23,6 +23,7 @@ import {
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
 import { handleDateRangeInputChange } from "./handlers/handleDateRangeInputChange"
+import { handleDateRangeInputFocus } from "./handlers/handleDateRangeInputFocus"
 import { formatDateRange } from "./utils/formatDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
@@ -143,6 +144,24 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     inputRangeEndProps?.onChange?.(e)
   }
 
+  const handleInputRangeStartFocus: InputRangeStartProps["onFocus"] = e => {
+    handleDateRangeInputFocus({
+      date: selectedRange?.from,
+      onNewInputValue: setInputRangeStartValue,
+      locale,
+    })
+    inputRangeStartProps?.onFocus?.(e)
+  }
+
+  const handleInputRangeEndFocus: InputRangeEndProps["onFocus"] = e => {
+    handleDateRangeInputFocus({
+      date: selectedRange?.to,
+      onNewInputValue: setInputRangeEndValue,
+      locale,
+    })
+    inputRangeEndProps?.onFocus?.(e)
+  }
+
   return (
     <div
       className={classnames(
@@ -181,6 +200,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 ...inputRangeStartProps,
                 // The below props extend the values from inputRangeStartProps, therefore must be below the spread
                 onChange: handleInputRangeStartChange,
+                onFocus: handleInputRangeStartFocus,
               }}
               inputRangeEndProps={{
                 labelText: "Date to",
@@ -188,6 +208,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 ...inputRangeEndProps,
                 // The below props extend the values from inputRangeEndProps, therefore must be below the spread
                 onChange: handleInputRangeEndChange,
+                onFocus: handleInputRangeEndFocus,
               }}
               locale={locale}
             />
