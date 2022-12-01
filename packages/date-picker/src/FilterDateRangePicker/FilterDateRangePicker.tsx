@@ -13,7 +13,10 @@ import {
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
-import { DateRangeInputField } from "./components/DateRangeInputField"
+import {
+  DateRangeInputField,
+  DateRangeInputFieldProps,
+} from "./components/DateRangeInputField"
 import {
   FilterTriggerButton,
   FilterTriggerButtonProps,
@@ -21,6 +24,12 @@ import {
 } from "./components/Trigger"
 import { formatDateRange } from "./utils/formatDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
+
+type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
+type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
+
+type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
+  DataAttributes
 
 export interface FilterDateRangePickerProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
@@ -42,6 +51,8 @@ export interface FilterDateRangePickerProps
    */
   onRangeChange: (range: DateRange | undefined) => void
   onRemoveFilter?: () => void
+  inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
+  inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
 }
 
 export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
@@ -58,6 +69,8 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   disabledBefore,
   disabledAfter,
   onRemoveFilter,
+  inputRangeStartProps,
+  inputRangeEndProps,
   classNameOverride,
   ...restProps
 }) => {
@@ -81,12 +94,16 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     disabledAfter,
   })
 
-  const [inputRangeStartValue, setInputRangeStartValue] = useState<string>(
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<
+    InputRangeStartProps["value"]
+  >(
     selectedRange?.from
       ? formatDateAsText(selectedRange.from, disabledDays, locale)
       : ""
   )
-  const [inputRangeEndValue, setInputRangeEndValue] = useState<string>(
+  const [inputRangeEndValue, setInputRangeEndValue] = useState<
+    InputRangeEndProps["value"]
+  >(
     selectedRange?.to
       ? formatDateAsText(selectedRange.to, disabledDays, locale)
       : ""
@@ -145,11 +162,13 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 labelText: "Date from",
                 value: inputRangeStartValue,
                 onChange: e => setInputRangeStartValue(e.currentTarget.value),
+                ...inputRangeStartProps,
               }}
               inputRangeEndProps={{
                 labelText: "Date to",
                 value: inputRangeEndValue,
                 onChange: e => setInputRangeEndValue(e.currentTarget.value),
+                ...inputRangeEndProps,
               }}
               locale={locale}
             />
