@@ -4,13 +4,16 @@ import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
+const prefix = "font-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.fontFamily || []
+)
 export default {
   title: "Tailwind/Typography/Font Family",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -22,21 +25,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.fontFamily as { [key: string]: string }
-      ).map(presetData => {
+      {classKeyVal.map((presetData, index) => {
         const [fontFamilyClassName, fontFamilyValue] = presetData
-        if (!fontFamilyValue) return <></>
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p>font-{fontFamilyClassName}</p>
               <p>{fontFamilyValue}</p>
-              <p style={{ fontFamily: fontFamilyValue }}>Aa</p>
+              <p style={{ fontFamily: fontFamilyValue[0] }}>Aa</p>
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>
@@ -44,5 +44,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.storyName = "Font Family"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

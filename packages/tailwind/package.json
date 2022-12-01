@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/tailwind",
   "version": "0.0.1",
-  "description": "Kaizen tailwind components",
+  "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "yarn clean && yarn prepublish",
     "build:ts": "tsc --project tsconfig.dist.json",
@@ -18,14 +18,12 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
+    "src",
+    "dist",
     "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "!docs"
   ],
+  "main": "dist/index.js",
   "author": "",
   "private": false,
   "license": "MIT",
