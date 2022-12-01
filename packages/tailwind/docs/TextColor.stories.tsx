@@ -3,16 +3,19 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-
 import styles from "./styles.module.scss"
+
+const prefix = "text-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.colors || []
+)
 
 export default {
   title: "Tailwind/Typography/Text Color",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -22,9 +25,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const colors: Array<{ colorName: string; colorValue: string }> = []
-  Object.entries(
-    kaizenTailwindTheme.colors as { [key: string]: string }
-  ).forEach(colorGroup => {
+  classKeyVal.forEach(colorGroup => {
     const [colorName, colorValue] = colorGroup
     if (typeof colorValue === "string") {
       colors.push({ colorName: `text-${colorName}`, colorValue })
@@ -50,8 +51,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             "Example (dark background)",
           ]}
         />
-        {colors.map(({ colorName, colorValue }) => (
-          <>
+        {colors.map(({ colorName, colorValue }, index) => (
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p>{colorName}</p>
@@ -71,7 +72,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 Aa
               </p>
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         ))}
       </StoryWrapper>
     </>

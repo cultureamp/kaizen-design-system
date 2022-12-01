@@ -5,13 +5,17 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
 
+const prefix = "leading-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.lineHeight || []
+)
+
 export default {
   title: "Tailwind/Typography/Line Height",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -23,14 +27,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.lineHeight as { [key: string]: string }
-      ).map(presetData => {
+      {classKeyVal.map((presetData, index) => {
         const [leadingHeightClassName, leadingHeightValue] = presetData
-        if (!leadingHeightValue) return <></>
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p>leading-{leadingHeightClassName}</p>
@@ -42,7 +43,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 Tutant Meenage Neetle Teetles
               </p>
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>

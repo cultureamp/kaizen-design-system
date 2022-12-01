@@ -9,7 +9,7 @@ export interface KaizenTailwindPreset {
 }
 
 // Note: changing any token will require to to run build:ts from the root `design-tokens`
-export const kaizenTailwindTheme: Partial<ThemeConfig> = {
+export const kaizenTailwindTheme: KaizenTailwindTheme = {
   colors: {
     transparent: "transparent",
     current: "currentColor",
@@ -30,6 +30,7 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
     none: "0px",
     default: "7px",
     "focus-ring": "10px",
+    full: "100%",
   },
   borderWidth: {
     "width-none": "0px",
@@ -42,6 +43,7 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
     "color-solid": `${defaultTheme.border.solid.borderColor}`,
     "color-transparent": `${defaultTheme.border.borderless.borderColor}`,
     "color-focus-ring": defaultTheme.color.blue[600],
+    ...defaultTheme.color,
   },
   fontFamily: {
     "family-paragraph": [`${defaultTheme.typography.paragraphBody.fontFamily}`],
@@ -70,16 +72,16 @@ export const kaizenTailwindTheme: Partial<ThemeConfig> = {
   },
   // font weights could have specific tokens (current don't)
   fontWeight: {
-    normal: "400",
-    medium: "500",
-    semibold: "600",
-    bold: "700",
-    extrabold: "800",
     "weight-paragraph": "400",
     "weight-paragraph-bold": "600",
     "weight-data": "700",
     "weight-heading": "700",
     "weight-display": "800",
+    "weight-normal": "400",
+    "weight-medium": "500",
+    "weight-semibold": "600",
+    "weight-bold": "700",
+    "weight-extrabold": "800",
   },
   lineHeight: {
     "height-display": `${defaultTheme.typography.display0.lineHeight}`,

@@ -3,18 +3,22 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { flattenEntries } from "./helpers/flatten-entries"
 import styles from "./styles.module.scss"
 
 const prefix = "border-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.borderColor || []
+)
+
+const classEntries = flattenEntries(kaizenTailwindTheme?.borderColor || {})
 
 export default {
   title: "Tailwind/Borders/Border Color",
   parameters: {
     docs: {
       description: {
-        component: `<p className="${prefix}${
-          kaizenTailwindTheme.borderColor as { [key: string]: string }
-        }"></p>`,
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -24,13 +28,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
+    {console.log("classEntries", classEntries)}
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.borderColor as { [key: string]: string }
-      ).map((presetData, index) => {
+      {classEntries.map((presetData, index) => {
         const [borderColorClassName, borderColorValue] = presetData
-        if (!borderColorValue) return <></>
 
         return (
           <React.Fragment key={index}>

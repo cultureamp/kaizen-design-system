@@ -5,16 +5,16 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const prefix = "text-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.fontSize || []
+)
 
 export default {
   title: "Tailwind/Typography/Font Size",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: `<p className="${prefix}${
-          kaizenTailwindTheme.fontSize as { [key: string]: string }
-        }"></p>`,
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -26,21 +26,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.fontSize as { [key: string]: string }
-      ).map(presetData => {
+      {classKeyVal.map((presetData, index) => {
         const [fontSizeName, fontSizeValue] = presetData
-        if (!fontSizeValue) return <></>
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p>text-{fontSizeName}</p>
               <p>{fontSizeValue}</p>
               <p style={{ fontSize: fontSizeValue }}>Aa</p>
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>

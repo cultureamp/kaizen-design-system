@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react"
+import React from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from "@kaizen/draft-card"
 import { figmaEmbed } from "../../../storybook/helpers"
