@@ -1,5 +1,6 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
@@ -84,36 +85,38 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = React.FunctionComponent<{
-  labelText: string
-  automationId?: string
-  onClick?:
-    | ((e: React.MouseEvent<HTMLButtonElement>) => any)
-    | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
-  href?: string
-  width?: number
-  flex?: string
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  checkable?: boolean
-  checkedStatus?: CheckedStatus
-  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  reversed?: boolean
-  /**
-   * This boolean would show a "sort by" icon in the table cell header.
-   * The problem was that the arrow was pointing in the descending direction only.
-   * Please use `sorting` prop instead.
-   * @deprecated
-   */
-  active?: boolean
-  /**
-   * Shows an up or down arrow, to show that the column is sorted.
-   */
-  sorting?: "ascending" | "descending"
-  wrapping?: "nowrap" | "wrap"
-  align?: "start" | "center" | "end"
-  tooltipInfo?: string
-  sortingArrowsOnHover?: "ascending" | "descending" | undefined
-}>
+type TableHeaderRowCell = OverrideClassName<React.FunctionComponent> &
+  React.FunctionComponent<{
+    labelText: string
+    automationId?: string
+    onClick?:
+      | ((e: React.MouseEvent<HTMLButtonElement>) => any)
+      | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+    href?: string
+    width?: number
+    flex?: string
+    icon?: React.SVGAttributes<SVGSymbolElement>
+    checkable?: boolean
+    checkedStatus?: CheckedStatus
+    onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+    reversed?: boolean
+    /**
+     * This boolean would show a "sort by" icon in the table cell header.
+     * The problem was that the arrow was pointing in the descending direction only.
+     * Please use `sorting` prop instead.
+     * @deprecated
+     */
+    active?: boolean
+    /**
+     * Shows an up or down arrow, to show that the column is sorted.
+     */
+    sorting?: "ascending" | "descending"
+    wrapping?: "nowrap" | "wrap"
+    align?: "start" | "center" | "end"
+    tooltipInfo?: string
+    classNameOverride?: string
+    sortingArrowsOnHover?: "ascending" | "descending" | undefined
+  }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   labelText,
   automationId,
@@ -140,6 +143,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   // if set, this will show the arrow in the direction provided
   // when the header cell is hovered over.
   sortingArrowsOnHover,
+  classNameOverride,
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
@@ -218,6 +222,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
+        classNameOverride,
       })}
       href={href}
       onClick={
@@ -235,6 +240,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
+        classNameOverride,
       })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={() => updateHoverState(true)}
@@ -248,7 +254,11 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div className={styles.headerRowCellNoButton}>{cellContents}</div>
+    <div
+      className={classNames(styles.headerRowCellNoButton, classNameOverride)}
+    >
+      {cellContents}
+    </div>
   )
 
   cellContents =
@@ -377,7 +387,8 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCellProps = {
+interface TableRowCellProps
+  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
   width?: number
   flex?: string
   href?: string
@@ -388,6 +399,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
   width,
   flex,
   href,
+  classNameOverride,
   ...otherProps
 }) =>
   href != null ? (
@@ -398,7 +410,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       href={href}
       {...otherProps}
     >
@@ -411,7 +423,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       {...otherProps}
     >
       {children}
