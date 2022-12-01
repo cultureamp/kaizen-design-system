@@ -466,8 +466,17 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
               isLoading={isRefetching && searchState !== ""}
             />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) => (
+              {({ allItems, hasNoItems }) => (
                 <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found for{" "}
+                      <Paragraph variant="extra-small" tag="span" color="dark">
+                        {searchState}
+                      </Paragraph>
+                      .
+                    </FilterMultiSelect.NoResults>
+                  )}
                   {allItems.map(item => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   ))}

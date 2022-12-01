@@ -11,6 +11,7 @@ export interface ListBoxProps {
     unselectedItems: Array<Node<ItemType>>
     disabledItems: Array<Node<ItemType>>
     allItems: Array<Node<ItemType>>
+    hasNoItems: boolean
   }) => React.ReactNode
 }
 
@@ -45,6 +46,7 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     unselectedItems,
     disabledItems,
     allItems,
+    hasNoItems: allItems.length <= 0,
   })
 
   // Only update rendering of items when filtering.
@@ -55,8 +57,19 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
       disabledItems,
       unselectedItems,
       allItems,
+      hasNoItems: allItems.length <= 0,
     })
   }, [selectionState.collection.size])
+
+  if (allItems.length <= 0) {
+    return (
+      <>
+        <div>{children(itemsState)}</div>
+        {/* This ul with the ref needs to exist otherwise it fatals */}
+        <ul ref={listRef} className={styles.hidden} />
+      </>
+    )
+  }
 
   return (
     <ul
