@@ -107,13 +107,16 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
   // A mix of layout styles
   maxWidth: {
+    ...twDefaultTheme.maxWidth,
     content: defaultTheme.layout.contentMaxWidth,
     "content-with-side": defaultTheme.layout.contentMaxWidthWithSidebar,
   },
   width: {
+    ...twDefaultTheme.width,
     "content-side-margin": defaultTheme.layout.contentSideMargin,
   },
   height: {
+    ...twDefaultTheme.height,
     "mobile-actions-drawer-height":
       defaultTheme.layout.mobileActionsDrawerHeight,
     "navigation-bar-height": defaultTheme.layout.navigationBarHeight,

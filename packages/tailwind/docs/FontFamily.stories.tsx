@@ -36,7 +36,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <p>{fontFamilyValue}</p>
               <p style={{ fontFamily: fontFamilyValue[0] }}>Aa</p>
             </StoryWrapper.Row>
-            /
           </React.Fragment>
         )
       })}

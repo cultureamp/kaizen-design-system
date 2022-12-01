@@ -7,18 +7,17 @@ import { flattenEntries } from "./helpers/flatten-entries"
 import styles from "./styles.module.scss"
 
 const prefix = "border-"
-const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.borderColor || []
+const classEntries = flattenEntries(
+  prefix,
+  kaizenTailwindTheme?.borderColor || {}
 )
-
-const classEntries = flattenEntries(kaizenTailwindTheme?.borderColor || {})
 
 export default {
   title: "Tailwind/Borders/Border Color",
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classEntries[0].className}"`,
       },
     },
   },
@@ -28,26 +27,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
-    {console.log("classEntries", classEntries)}
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {classEntries.map((presetData, index) => {
-        const [borderColorClassName, borderColorValue] = presetData
-
-        return (
-          <React.Fragment key={index}>
-            <Divider variant="canvas" />
-            <StoryWrapper.Row rowTitle="">
-              <p>border-{borderColorClassName}</p>
-              <p>{borderColorValue}</p>
-              <div
-                style={{ borderColor: borderColorValue }}
-                className={styles.boxWithBorder}
-              />
-            </StoryWrapper.Row>
-          </React.Fragment>
-        )
-      })}
+      {classEntries.map(({ className, classValue }, index) => (
+        <React.Fragment key={index}>
+          <Divider variant="canvas" />
+          <StoryWrapper.Row rowTitle="">
+            <p>{className}</p>
+            <p>{classValue}</p>
+            <div
+              style={{ borderColor: classValue }}
+              className={styles.boxWithBorder}
+            />
+          </StoryWrapper.Row>
+        </React.Fragment>
+      ))}
     </StoryWrapper>
   </>
 )
