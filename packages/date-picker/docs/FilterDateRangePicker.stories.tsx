@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
+import { within, userEvent } from "@storybook/testing-library"
+import isChromatic from "chromatic"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -9,6 +11,8 @@ import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
+
+const IS_CHROMATIC = isChromatic()
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker`,
@@ -101,54 +105,70 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
+  const [rangeOpen, setRangeOpen] = useState<DateRange | undefined>()
 
   return (
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Base", "With existing value"]} />
-      <StoryWrapper.Row rowTitle="Default">
-        <div>
-          <FilterDateRangePicker
-            id="stickersheet--filter-drp--default--base"
-            label="Dates"
-            locale="en-AU"
-            selectedRange={rangeDefaultBase}
-            onRangeChange={setRangeDefaultBase}
-          />
-        </div>
-        <div>
-          <FilterDateRangePicker
-            id="stickersheet--filter-drp--default--existing"
-            label="Dates"
-            locale="en-AU"
-            selectedRange={rangeDefaultExisting}
-            onRangeChange={setRangeDefaultExisting}
-          />
-        </div>
-      </StoryWrapper.Row>
+    <div style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader headings={["Base", "With existing value"]} />
+        <StoryWrapper.Row rowTitle="Default">
+          <div>
+            <FilterDateRangePicker
+              id="stickersheet--filter-drp--default--base"
+              label="Dates"
+              locale="en-AU"
+              selectedRange={rangeDefaultBase}
+              onRangeChange={setRangeDefaultBase}
+            />
+          </div>
+          <div>
+            <FilterDateRangePicker
+              id="stickersheet--filter-drp--default--existing"
+              label="Dates"
+              locale="en-AU"
+              selectedRange={rangeDefaultExisting}
+              onRangeChange={setRangeDefaultExisting}
+            />
+          </div>
+        </StoryWrapper.Row>
 
-      <StoryWrapper.Row rowTitle="Removable">
-        <div>
-          <FilterDateRangePicker
-            id="stickersheet--filter-drp--removable--base"
-            label="Dates"
-            locale="en-AU"
-            selectedRange={rangeRemovableBase}
-            onRangeChange={setRangeRemovableBase}
-            onRemoveFilter={() => undefined}
-          />
-        </div>
-        <div>
-          <FilterDateRangePicker
-            id="stickersheet--filter-drp--removable--existing"
-            label="Dates"
-            locale="en-AU"
-            selectedRange={rangeRemovableExisting}
-            onRangeChange={setRangeRemovableExisting}
-            onRemoveFilter={() => undefined}
-          />
-        </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
+        <StoryWrapper.Row rowTitle="Removable">
+          <div>
+            <FilterDateRangePicker
+              id="stickersheet--filter-drp--removable--base"
+              label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovableBase}
+              onRangeChange={setRangeRemovableBase}
+              onRemoveFilter={() => undefined}
+            />
+          </div>
+          <div>
+            <FilterDateRangePicker
+              id="stickersheet--filter-drp--removable--existing"
+              label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovableExisting}
+              onRangeChange={setRangeRemovableExisting}
+              onRemoveFilter={() => undefined}
+            />
+          </div>
+        </StoryWrapper.Row>
+
+        <StoryWrapper.Row rowTitle="Open">
+          <div>
+            <FilterDateRangePicker
+              id="stickersheet--filter-drp--open"
+              label="Open"
+              locale="en-AU"
+              defaultMonth={new Date("2022-05-01")}
+              selectedRange={rangeOpen}
+              onRangeChange={setRangeOpen}
+            />
+          </div>
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </div>
   )
 }
 
@@ -157,4 +177,10 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+
+StickerSheetDefault.play = ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const filterButtonOpen = canvas.getByRole("button", { name: "Open" })
+  userEvent.click(filterButtonOpen)
 }
