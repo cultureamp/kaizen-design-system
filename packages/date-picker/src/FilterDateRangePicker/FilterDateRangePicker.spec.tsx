@@ -4,6 +4,15 @@ import userEvent from "@testing-library/user-event"
 import { DateRange } from "../types"
 import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
 
+// For testing within the open filter
+const openFilter = async () => {
+  const filterButton = screen.getByRole("button", { expanded: false })
+  await userEvent.click(filterButton)
+  await waitFor(() => {
+    expect(screen.getByLabelText("Go to previous month")).toBeVisible()
+  })
+}
+
 const FilterDateRangePickerWrapper = ({
   selectedRange,
   ...restProps
@@ -55,7 +64,7 @@ describe("<FilterDateRangePicker />", () => {
       const filterButton = screen.getByRole("button", {
         name: "Dates",
       })
-      userEvent.click(filterButton)
+      await userEvent.click(filterButton)
       await waitFor(() => {
         expect(screen.getByText("May 2022")).toBeVisible()
       })
@@ -82,17 +91,8 @@ describe("<FilterDateRangePicker />", () => {
 
   describe("Inputs", () => {
     it("should have empty inputs when a date range is not provided", async () => {
-      render(
-        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
-      )
-
-      const filterButton = screen.getByRole("button", {
-        name: "Dates",
-      })
-      userEvent.click(filterButton)
-      await waitFor(() => {
-        expect(screen.getByText("May 2022")).toBeVisible()
-      })
+      render(<FilterDateRangePickerWrapper />)
+      await openFilter()
 
       const inputFrom = screen.getByLabelText("Date from")
       const inputTo = screen.getByLabelText("Date to")
@@ -109,21 +109,12 @@ describe("<FilterDateRangePicker />", () => {
           }}
         />
       )
-
-      const filterButton = screen.getByRole("button", {
-        name: "Dates: 1 May 2022 - 22 May 2022",
-      })
-      userEvent.click(filterButton)
-      await waitFor(() => {
-        expect(screen.getByText("May 2022")).toBeVisible()
-      })
+      await openFilter()
 
       const inputFrom = screen.getByLabelText("Date from")
       const inputTo = screen.getByLabelText("Date to")
       expect(inputFrom).toHaveValue("1 May 2022")
       expect(inputTo).toHaveValue("22 May 2022")
-
-      expect(screen.getByText("May 2022")).toBeVisible()
     })
   })
 })
