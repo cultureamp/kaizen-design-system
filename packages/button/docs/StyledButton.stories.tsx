@@ -133,8 +133,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
           <StoryWrapper.Row isReversed={isReversed} rowTitle="">
             <StyledButton isReversed={isReversed} variant={variant} isDisabled>
-              <button>Button</button>
-              {/* <button disabled>Button</button> */}
+              <button disabled>Button</button>
             </StyledButton>
 
             <StyledButton isReversed={isReversed} variant={variant} isWorking>
