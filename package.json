@@ -62,7 +62,7 @@
     "@storybook/addon-essentials": "^6.5.14",
     "@storybook/addon-links": "^6.5.14",
     "@storybook/builder-webpack5": "^6.5.14",
-    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/node-logger": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "@tanstack/react-query": "^4.19.0",
