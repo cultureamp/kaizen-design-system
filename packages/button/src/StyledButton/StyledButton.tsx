@@ -21,12 +21,14 @@ interface BaseStyledButtonProps extends OverrideClassName<unknown> {
   isReversed?: boolean
   isWorking?: boolean
   contentsPropName?: string
+  isDisabled?: boolean
 }
 
 export const getStyledButtonClassNames = ({
   variant,
   isReversed,
   isWorking,
+  isDisabled,
   classNameOverride,
 }: BaseStyledButtonProps) =>
   classnames(
@@ -34,6 +36,7 @@ export const getStyledButtonClassNames = ({
     styles[variant],
     isReversed && styles.isReversed,
     isWorking && styles.isWorking,
+    isDisabled && styles.isDisabled,
     classNameOverride
   )
 
