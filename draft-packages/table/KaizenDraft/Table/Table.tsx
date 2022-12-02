@@ -10,6 +10,13 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
+export interface BaseTableProps
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "onChange">> {
+  width?: number
+  flex?: string
+  href?: string
+}
+
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
@@ -85,39 +92,38 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = OverrideClassName<React.FunctionComponent> &
-  React.FunctionComponent<{
-    labelText: string
-    automationId?: string
-    onClick?:
-      | ((e: React.MouseEvent<HTMLButtonElement>) => any)
-      | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
-    href?: string
-    width?: number
-    flex?: string
-    icon?: React.SVGAttributes<SVGSymbolElement>
-    checkable?: boolean
-    checkedStatus?: CheckedStatus
-    onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
-    reversed?: boolean
-    /**
-     * This boolean would show a "sort by" icon in the table cell header.
-     * The problem was that the arrow was pointing in the descending direction only.
-     * Please use `sorting` prop instead.
-     * @deprecated
-     */
-    active?: boolean
-    /**
-     * Shows an up or down arrow, to show that the column is sorted.
-     */
-    sorting?: "ascending" | "descending"
-    wrapping?: "nowrap" | "wrap"
-    align?: "start" | "center" | "end"
-    tooltipInfo?: string
-    classNameOverride?: string
-    sortingArrowsOnHover?: "ascending" | "descending" | undefined
-  }>
-export const TableHeaderRowCell: TableHeaderRowCell = ({
+interface TableHeaderRowCell extends BaseTableProps {
+  labelText: string
+  automationId?: string
+  onClick?:
+    | ((e: React.MouseEvent<HTMLButtonElement>) => any)
+    | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  checkable?: boolean
+  checkedStatus?: CheckedStatus
+  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  reversed?: boolean
+  /**
+   * This boolean would show a "sort by" icon in the table cell header.
+   * The problem was that the arrow was pointing in the descending direction only.
+   * Please use `sorting` prop instead.
+   * @deprecated
+   */
+  active?: boolean
+  /**
+   * Shows an up or down arrow, to show that the column is sorted.
+   */
+  sorting?: "ascending" | "descending"
+  wrapping?: "nowrap" | "wrap"
+  align?: "start" | "center" | "end"
+  tooltipInfo?: string
+  classNameOverride?: string
+  sortingArrowsOnHover?: "ascending" | "descending" | undefined
+}
+
+type TableHeaderRowCellProps = TableHeaderRowCell
+
+export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
   labelText,
   automationId,
   onClick,
@@ -387,13 +393,12 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-interface TableRowCellProps
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
-  width?: number
-  flex?: string
-  href?: string
+interface TableRowCell extends BaseTableProps {
   children?: React.ReactNode
 }
+
+type TableRowCellProps = TableRowCell
+
 export const TableRowCell: React.VFC<TableRowCellProps> = ({
   children,
   width,
