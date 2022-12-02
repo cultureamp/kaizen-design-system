@@ -1,6 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import styles from "./StyledButton.module.scss"
 
@@ -16,7 +17,41 @@ const WorkingContents = ({ contents }: { contents: React.ReactNode }) => (
     />
   </>
 )
-interface BaseStyledButtonProps extends OverrideClassName<unknown> {
+
+interface ButtonIconProps {
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  iconPosition?: "start" | "end"
+}
+
+interface ButtonContentsProps extends ButtonIconProps {
+  contents: React.ReactNode
+}
+
+const ButtonContents: React.VFC<ButtonContentsProps> = ({
+  contents,
+  icon,
+  iconPosition = "start",
+}) => {
+  if (!icon) return <>{contents}</>
+
+  return (
+    <span
+      className={classnames(
+        styles.buttonContents,
+        iconPosition === "end" && styles.iconPositionEnd
+      )}
+    >
+      <span className={styles.iconContainer}>
+        <Icon icon={icon} role="presentation" />
+      </span>
+      <span>{contents}</span>
+    </span>
+  )
+}
+
+interface BaseStyledButtonProps
+  extends ButtonIconProps,
+    OverrideClassName<unknown> {
   variant: "default" | "primary" | "secondary" | "secondaryDestructive"
   isReversed?: boolean
   isWorking?: boolean
@@ -49,6 +84,8 @@ export const StyledButton: React.VFC<StyledButtonProps> = ({
   children,
   isWorking,
   contentsPropName = "children",
+  icon,
+  iconPosition = "start",
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
@@ -56,13 +93,21 @@ export const StyledButton: React.VFC<StyledButtonProps> = ({
     ...restProps,
   })
 
+  const buttonContents = (
+    <ButtonContents
+      contents={children.props[contentsPropName]}
+      icon={icon}
+      iconPosition={iconPosition}
+    />
+  )
+
   return React.Children.only(
     React.cloneElement(children, {
       ...children.props,
       [contentsPropName]: isWorking ? (
-        <WorkingContents contents={children.props[contentsPropName]} />
+        <WorkingContents contents={buttonContents} />
       ) : (
-        children.props[contentsPropName]
+        buttonContents
       ),
       className: classnames(
         className,

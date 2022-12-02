@@ -167,6 +167,31 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <LabelButton label="Label" />
             </StyledButton>
           </StoryWrapper.Row>
+
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+            <div>
+              <StyledButton
+                isReversed={isReversed}
+                variant={variant}
+                icon={addIcon}
+              >
+                <button>
+                  Button qwerty qwerty qwerty qwerty qwerty qwerty
+                </button>
+              </StyledButton>
+            </div>
+
+            <div>
+              <StyledButton
+                isReversed={isReversed}
+                variant={variant}
+                icon={arrowRight}
+                iconPosition="end"
+              >
+                <button>Button</button>
+              </StyledButton>
+            </div>
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
 

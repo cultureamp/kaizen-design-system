@@ -66,6 +66,20 @@
   left: calc(50% - 12px);
 }
 
+.buttonContents {
+  display: flex;
+  align-items: center; // I can't make this at the top, otherwise single-line is not centred
+  gap: 0.5rem; // We don't have a token for this :')
+}
+
+.iconPositionEnd {
+  flex-direction: row-reverse;
+}
+
+.iconContainer {
+  display: flex;
+}
+
 %button-base--primary {
   padding: calc(#{$spacing-sm} - #{$border-solid-border-width})
     calc(#{$spacing-md} - #{$border-solid-border-width});
