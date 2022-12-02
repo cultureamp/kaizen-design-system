@@ -5,16 +5,20 @@ import styles from "./StyledButton.module.scss"
 
 interface BaseStyledButtonProps extends OverrideClassName<unknown> {
   variant: "default" | "primary" | "secondary" | "secondaryDestructive"
+  isReversed?: boolean
 }
 
 export const getStyledButtonClassNames = ({
   variant,
+  isReversed,
   classNameOverride,
-}: BaseStyledButtonProps) => classnames(
-  styles.styledButton,
-  styles[variant],
-  classNameOverride,
-)
+}: BaseStyledButtonProps) =>
+  classnames(
+    styles.styledButton,
+    styles[variant],
+    isReversed && styles.isReversed,
+    classNameOverride
+  )
 
 // V1: Using children
 export interface StyledButtonProps extends BaseStyledButtonProps {
@@ -26,7 +30,7 @@ export const StyledButton: React.VFC<StyledButtonProps> = ({
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
-    ...restProps
+    ...restProps,
   })
 
   return React.Children.only(
@@ -36,7 +40,7 @@ export const StyledButton: React.VFC<StyledButtonProps> = ({
         className,
         children.props.className,
         children.props.classNameOverride
-      )
+      ),
     })
   )
 }
@@ -51,7 +55,7 @@ export const StyledButton2: React.VFC<StyledButtonProps2> = ({
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
-    ...restProps
+    ...restProps,
   })
 
   return React.cloneElement(element, {
@@ -60,6 +64,6 @@ export const StyledButton2: React.VFC<StyledButtonProps2> = ({
       className,
       element.props.className,
       element.props.classNameOverride
-    )
+    ),
   })
 }

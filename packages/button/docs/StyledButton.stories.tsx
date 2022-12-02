@@ -36,25 +36,25 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory: ComponentStory<typeof StyledButton2> = args => <StyledButton2 {...args} />
+export const DefaultStory: ComponentStory<typeof StyledButton2> = args => (
+  <StyledButton2 {...args} />
+)
 DefaultStory.storyName = "StyledButton2"
 DefaultStory.args = {
   variant: "default",
-  element: <button>Button</button>
+  element: <button>Button</button>,
 }
 
-type CustomButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>>
+type CustomButtonProps = OverrideClassName<
+  ButtonHTMLAttributes<HTMLButtonElement>
+>
 
 const CustomButton: React.VFC<CustomButtonProps> = ({
   classNameOverride,
   ...restProps
-}) => (
-  <button className={classNameOverride} {...restProps} />
-)
+}) => <button className={classNameOverride} {...restProps} />
 
-const AddIcon = () => (
-  <Icon icon={addIcon} title="Add" />
-)
+const AddIcon = () => <Icon icon={addIcon} title="Add" />
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -76,143 +76,220 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <SectionHeading heading="StyledButton" />
       <StoryWrapper.RowHeader
-        headings={["Default", "Hover", "Active", "Focus", "Disabled", "className", "classNameOverride"]}
+        isReversed={isReversed}
+        headings={[
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "className",
+          "classNameOverride",
+        ]}
       />
       {VARIANTS.map(variant => (
         <React.Fragment key={variant}>
-        <StoryWrapper.Row rowTitle={variant}>
-          <StyledButton variant={variant}>
-            <button>Button</button>
-          </StyledButton>
+          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+            <StyledButton isReversed={isReversed} variant={variant}>
+              <button>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant} classNameOverride="story__StyledButton--hover">
-            <button>Button</button>
-          </StyledButton>
+            <StyledButton
+              isReversed={isReversed}
+              variant={variant}
+              classNameOverride="story__StyledButton--hover"
+            >
+              <button>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant} classNameOverride="story__StyledButton--active">
-            <button>Button</button>
-          </StyledButton>
+            <StyledButton
+              isReversed={isReversed}
+              variant={variant}
+              classNameOverride="story__StyledButton--active"
+            >
+              <button>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant} classNameOverride="story__StyledButton--focus">
-            <button>Button</button>
-          </StyledButton>
+            <StyledButton
+              isReversed={isReversed}
+              variant={variant}
+              classNameOverride="story__StyledButton--focus"
+            >
+              <button>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant}>
-            <button disabled>Button</button>
-          </StyledButton>
+            <StyledButton isReversed={isReversed} variant={variant}>
+              <button disabled>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant}>
-            <button className={styles.red}>Button</button>
-          </StyledButton>
+            <StyledButton isReversed={isReversed} variant={variant}>
+              <button className={styles.red}>Button</button>
+            </StyledButton>
 
-          <StyledButton variant={variant}>
-            <CustomButton classNameOverride={styles.red}>Button</CustomButton>
-          </StyledButton>
-        </StoryWrapper.Row>
+            <StyledButton isReversed={isReversed} variant={variant}>
+              <CustomButton classNameOverride={styles.red}>Button</CustomButton>
+            </StyledButton>
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
 
       <SectionHeading heading="StyledButton2" />
       <StoryWrapper.RowHeader
-        headings={["Default", "Hover", "Active", "Focus", "Disabled", "className", "classNameOverride"]}
+        isReversed={isReversed}
+        headings={[
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "className",
+          "classNameOverride",
+        ]}
       />
       {VARIANTS.map(variant => (
         <React.Fragment key={variant}>
-        <StoryWrapper.Row rowTitle={variant}>
-          <StyledButton2
-            element={<button>Button</button>}
-            variant={variant}
-          />
+          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button>Button</button>}
+              variant={variant}
+            />
 
-          <StyledButton2
-            element={<button>Button</button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--hover"
-          />
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button>Button</button>}
+              variant={variant}
+              classNameOverride="story__StyledButton--hover"
+            />
 
-          <StyledButton2
-            element={<button>Button</button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--active"
-          />
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button>Button</button>}
+              variant={variant}
+              classNameOverride="story__StyledButton--active"
+            />
 
-          <StyledButton2
-            element={<button>Button</button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--focus"
-          />
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button>Button</button>}
+              variant={variant}
+              classNameOverride="story__StyledButton--focus"
+            />
 
-          <StyledButton2
-            element={<button disabled>Button</button>}
-            variant={variant}
-          />
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button disabled>Button</button>}
+              variant={variant}
+            />
 
-          <StyledButton2
-            element={<button className={styles.red}>Button</button>}
-            variant={variant}
-          />
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button className={styles.red}>Button</button>}
+              variant={variant}
+            />
 
-          <StyledButton2
-            element={<CustomButton classNameOverride={styles.red}>Button</CustomButton>}
-            variant={variant}
-          />
-        </StoryWrapper.Row>
+            <StyledButton2
+              isReversed={isReversed}
+              element={
+                <CustomButton classNameOverride={styles.red}>
+                  Button
+                </CustomButton>
+              }
+              variant={variant}
+            />
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
 
       <SectionHeading heading="StyledIconButton" />
       <StoryWrapper.RowHeader
-        headings={["Default", "Hover", "Active", "Focus", "Disabled", "className", "classNameOverride"]}
+        isReversed={isReversed}
+        headings={[
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "className",
+          "classNameOverride",
+        ]}
       />
       {VARIANTS.map(variant => (
         <React.Fragment key={variant}>
-        <StoryWrapper.Row rowTitle={variant}>
-          <StyledIconButton
-            element={<button><AddIcon /></button>}
-            variant={variant}
-          />
+          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+            />
 
-          <StyledIconButton
-            element={<button><AddIcon /></button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--hover"
-          />
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+              classNameOverride="story__StyledButton--hover"
+            />
 
-          <StyledIconButton
-            element={<button><AddIcon /></button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--active"
-          />
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+              classNameOverride="story__StyledButton--active"
+            />
 
-          <StyledIconButton
-            element={<button><AddIcon /></button>}
-            variant={variant}
-            classNameOverride="story__StyledButton--focus"
-          />
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+              classNameOverride="story__StyledButton--focus"
+            />
 
-          <StyledIconButton
-            element={<button disabled><AddIcon /></button>}
-            variant={variant}
-          />
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button disabled>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+            />
 
-          <StyledIconButton
-            element={
-            <button className={styles.red}>
-              <AddIcon />
-            </button>
-            }
-            variant={variant}
-          />
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button className={styles.red}>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+            />
 
-          <StyledIconButton
-            element={
-            <CustomButton classNameOverride={styles.red}>
-              <AddIcon />
-            </CustomButton>
-            }
-            variant={variant}
-          />
-        </StoryWrapper.Row>
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <CustomButton classNameOverride={styles.red}>
+                  <AddIcon />
+                </CustomButton>
+              }
+              variant={variant}
+            />
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
     </StoryWrapper>
@@ -226,11 +303,11 @@ StickerSheetDefault.parameters = {
   controls: { disable: true },
 }
 
-// export const StickerSheetReversed = StickerSheetTemplate.bind({})
-// StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-// StickerSheetReversed.args = { isReversed: true }
-// StickerSheetReversed.parameters = {
-//   controls: { disable: true },
-//   backgrounds: { default: "Purple 700" },
-//   chromatic: { disable: false },
-// }
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  controls: { disable: true },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}

@@ -1,12 +1,16 @@
-$button-height: 48px;
+@import "./mixins";
+
+$button-size: 48px;
 
 .styledIconButton {
-  height: $button-height;
-  width: $button-height;
+  height: $button-size;
+  width: $button-size;
   justify-content: center;
   padding: unset;
 }
 
 .default {
   border-color: transparent;
+
+  @include enabled-pseudo-states-variant($border-color: transparent);
 }

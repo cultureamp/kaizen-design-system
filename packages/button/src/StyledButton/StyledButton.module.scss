@@ -56,7 +56,8 @@
 }
 
 %button-base--primary {
-  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) calc(#{$spacing-md} - #{$border-solid-border-width});
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width})
+    calc(#{$spacing-md} - #{$border-solid-border-width});
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
@@ -71,9 +72,20 @@
   color: $color-purple-800;
 
   @include enabled-pseudo-states-variant(
-    $background-color: $color-gray-200, 
+    $background-color: $color-gray-200,
     $border-color: $color-gray-600
   );
+
+  &.isReversed {
+    background-color: transparent;
+    border-color: rgba($color-white-rgb, 0.65);
+    color: $color-white;
+
+    @include enabled-pseudo-states-variant(
+      rgba($color-white-rgb, 0.1),
+      $color-white
+    );
+  }
 }
 
 .primary {
@@ -82,9 +94,18 @@
   background-color: $color-blue-500;
   color: $color-white;
 
-  @include enabled-pseudo-states-variant(
-    $background-color: $color-blue-600, 
-  );
+  @include enabled-pseudo-states-variant($background-color: $color-blue-600);
+
+  &.isReversed {
+    border-color: $border-borderless-border-color;
+    background-color: $color-green-300;
+    color: $color-purple-800;
+
+    @include enabled-pseudo-states-variant(
+      $color-green-400,
+      $border-borderless-border-color
+    );
+  }
 }
 
 %button-base--secondary {
@@ -102,16 +123,22 @@
   @extend %button-base--secondary;
   color: $color-blue-500;
 
-  @include enabled-pseudo-states-variant(
-    $background-color: $color-blue-100, 
-  );
+  @include enabled-pseudo-states-variant($background-color: $color-blue-100);
+
+  &.isReversed {
+    border-color: $border-borderless-border-color;
+    color: $color-white;
+
+    @include enabled-pseudo-states-variant(
+      rgba($color-white-rgb, 0.2),
+      $border-borderless-border-color
+    );
+  }
 }
 
 .secondaryDestructive {
   @extend %button-base--secondary;
   color: $color-red-600;
 
-  @include enabled-pseudo-states-variant(
-    $background-color: $color-red-100, 
-  );
+  @include enabled-pseudo-states-variant($background-color: $color-red-100);
 }

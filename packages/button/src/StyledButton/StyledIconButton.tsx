@@ -9,19 +9,19 @@ export const StyledIconButton: React.VFC<StyledIconButtonProps> = ({
   variant,
   classNameOverride,
   ...restProps
-}) =>
-
-   <StyledButton2
+}) => (
+  <StyledButton2
     variant={variant}
     classNameOverride={classnames(
       styles.styledIconButton,
       variant === "default" && styles.default,
-      classNameOverride,
+      classNameOverride
     )}
     {...restProps}
   />
+)
 
-  // return React.cloneElement(element, {
-  //   ...element.props,
-  //   className
-  // })
+// return React.cloneElement(element, {
+//   ...element.props,
+//   className
+// })
