@@ -1,12 +1,26 @@
 import React from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import styles from "./StyledButton.module.scss"
 
+const WorkingContents = ({ contents }: { contents: React.ReactNode }) => (
+  <>
+    <div className={styles.hidden} aria-hidden="true">
+      {contents}
+    </div>
+    <LoadingSpinner
+      accessibilityLabel=""
+      size="sm"
+      classNameOverride={styles.loadingSpinner}
+    />
+  </>
+)
 interface BaseStyledButtonProps extends OverrideClassName<unknown> {
   variant: "default" | "primary" | "secondary" | "secondaryDestructive"
   isReversed?: boolean
   isWorking?: boolean
+  contentsPropName?: string
 }
 
 export const getStyledButtonClassNames = ({
@@ -30,15 +44,23 @@ export interface StyledButtonProps extends BaseStyledButtonProps {
 
 export const StyledButton: React.VFC<StyledButtonProps> = ({
   children,
+  isWorking,
+  contentsPropName = "children",
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
+    isWorking,
     ...restProps,
   })
 
   return React.Children.only(
     React.cloneElement(children, {
       ...children.props,
+      [contentsPropName]: isWorking ? (
+        <WorkingContents contents={children.props[contentsPropName]} />
+      ) : (
+        children.props[contentsPropName]
+      ),
       className: classnames(
         className,
         children.props.className,
@@ -55,14 +77,22 @@ export interface StyledButtonProps2 extends BaseStyledButtonProps {
 
 export const StyledButton2: React.VFC<StyledButtonProps2> = ({
   element,
+  isWorking,
+  contentsPropName = "children",
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
+    isWorking,
     ...restProps,
   })
 
   return React.cloneElement(element, {
     ...element.props,
+    [contentsPropName]: isWorking ? (
+      <WorkingContents contents={element.props[contentsPropName]} />
+    ) : (
+      element.props[contentsPropName]
+    ),
     className: classnames(
       className,
       element.props.className,

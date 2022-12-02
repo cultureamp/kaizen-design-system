@@ -48,16 +48,21 @@
       border-color: $color-blue-500;
     }
   }
-
-  &:disabled {
-    pointer-events: none;
-    opacity: 0.3;
-  }
 }
 
 .isWorking {
   pointer-events: none;
   opacity: 0.3;
+}
+
+.hidden {
+  display: contents;
+  visibility: hidden;
+}
+
+.loadingSpinner {
+  position: absolute;
+  left: calc(50% - 12px);
 }
 
 %button-base--primary {

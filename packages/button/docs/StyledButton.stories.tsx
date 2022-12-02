@@ -54,6 +54,21 @@ const CustomButton: React.VFC<CustomButtonProps> = ({
   ...restProps
 }) => <button className={classNameOverride} {...restProps} />
 
+type LabelButtonProps = Omit<
+  OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>>,
+  "children"
+> & { label: React.ReactNode }
+
+const LabelButton: React.VFC<LabelButtonProps> = ({
+  label,
+  classNameOverride,
+  ...restProps
+}) => (
+  <button className={classNameOverride} {...restProps}>
+    {label}
+  </button>
+)
+
 const AddIcon = () => <Icon icon={addIcon} title="Add" />
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -78,13 +93,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader
         isReversed={isReversed}
         headings={[
-          "Default",
-          "Hover",
-          "Active",
-          "Focus",
-          "Disabled",
-          "className",
-          "classNameOverride",
+          "Default / Disabled",
+          "Hover / Working",
+          "Active / className",
+          "Focus / classNameOverride",
         ]}
       />
       {VARIANTS.map(variant => (
@@ -117,9 +129,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             >
               <button>Button</button>
             </StyledButton>
+          </StoryWrapper.Row>
 
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
             <StyledButton isReversed={isReversed} variant={variant}>
               <button disabled>Button</button>
+            </StyledButton>
+
+            <StyledButton isReversed={isReversed} variant={variant} isWorking>
+              <button>Button</button>
             </StyledButton>
 
             <StyledButton isReversed={isReversed} variant={variant}>
@@ -130,6 +148,25 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <CustomButton classNameOverride={styles.red}>Button</CustomButton>
             </StyledButton>
           </StoryWrapper.Row>
+
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+            <StyledButton
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+            >
+              <LabelButton label="Label" />
+            </StyledButton>
+
+            <StyledButton
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+              isWorking
+            >
+              <LabelButton label="Label" />
+            </StyledButton>
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
 
@@ -137,13 +174,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader
         isReversed={isReversed}
         headings={[
-          "Default",
-          "Hover",
-          "Active",
-          "Focus",
-          "Disabled",
-          "className",
-          "classNameOverride",
+          "Default / Disabled",
+          "Hover / Working",
+          "Active / className",
+          "Focus / classNameOverride",
         ]}
       />
       {VARIANTS.map(variant => (
@@ -175,11 +209,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               variant={variant}
               classNameOverride="story__StyledButton--focus"
             />
+          </StoryWrapper.Row>
+
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
+            <StyledButton2
+              isReversed={isReversed}
+              element={<button disabled>Button</button>}
+              variant={variant}
+            />
 
             <StyledButton2
               isReversed={isReversed}
               element={<button disabled>Button</button>}
               variant={variant}
+              isWorking
             />
 
             <StyledButton2
@@ -198,6 +241,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               variant={variant}
             />
           </StoryWrapper.Row>
+
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+            <StyledButton2
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+              element={<LabelButton label="Label" />}
+            />
+
+            <StyledButton2
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+              element={<LabelButton label="Label" />}
+              isWorking
+            />
+          </StoryWrapper.Row>
         </React.Fragment>
       ))}
 
@@ -205,13 +265,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader
         isReversed={isReversed}
         headings={[
-          "Default",
-          "Hover",
-          "Active",
-          "Focus",
-          "Disabled",
-          "className",
-          "classNameOverride",
+          "Default / Disabled",
+          "Hover / Working",
+          "Active / className",
+          "Focus / classNameOverride",
         ]}
       />
       {VARIANTS.map(variant => (
@@ -259,7 +316,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               variant={variant}
               classNameOverride="story__StyledButton--focus"
             />
+          </StoryWrapper.Row>
 
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
             <StyledIconButton
               isReversed={isReversed}
               element={
@@ -268,6 +327,17 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </button>
               }
               variant={variant}
+            />
+
+            <StyledIconButton
+              isReversed={isReversed}
+              element={
+                <button>
+                  <AddIcon />
+                </button>
+              }
+              variant={variant}
+              isWorking
             />
 
             <StyledIconButton
@@ -288,6 +358,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 </CustomButton>
               }
               variant={variant}
+            />
+          </StoryWrapper.Row>
+
+          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+            <StyledIconButton
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+              element={<LabelButton label={<AddIcon />} />}
+            />
+
+            <StyledIconButton
+              isReversed={isReversed}
+              variant={variant}
+              contentsPropName="label"
+              element={<LabelButton label={<AddIcon />} />}
+              isWorking
             />
           </StoryWrapper.Row>
         </React.Fragment>
