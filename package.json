@@ -28,7 +28,7 @@
     "plop": "plop"
   },
   "dependencies": {
-    "@storybook/addons": "^6.5.13",
+    "@storybook/addons": "^6.5.14",
     "@storybook/api": "^6.5.13",
     "@storybook/components": "^6.5.13",
     "@storybook/core-events": "^6.5.13",
