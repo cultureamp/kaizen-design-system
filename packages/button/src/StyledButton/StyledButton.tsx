@@ -6,9 +6,9 @@ import styles from "./StyledButton.module.scss"
 
 const WorkingContents = ({ contents }: { contents: React.ReactNode }) => (
   <>
-    <div className={styles.hidden} aria-hidden="true">
+    <span className={styles.hidden} aria-hidden="true">
       {contents}
-    </div>
+    </span>
     <LoadingSpinner
       accessibilityLabel=""
       size="sm"
