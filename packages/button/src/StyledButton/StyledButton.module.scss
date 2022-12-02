@@ -11,6 +11,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  position: relative;
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -19,17 +20,38 @@
 
   border-width: $border-solid-border-width;
   border-style: $border-solid-border-style;
-  border-radius: 7px;
+  border-radius: $border-solid-border-radius;
 
   #{$selectors--button-active} {
     transform: translateY(1px);
   }
 
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
   #{$selectors--button-focus} {
-    outline-width: $border-solid-border-width;
-    outline-style: $border-solid-border-style;
-    outline-color: $color-blue-500;
-    outline-offset: 1px;
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-solid-border-width} * 2) + 1px)
+      );
+      position: absolute;
+      content: "";
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: $border-focus-ring-border-radius;
+      border-color: $color-blue-500;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
   }
 }
 
