@@ -55,6 +55,11 @@
   }
 }
 
+.isWorking {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 %button-base--primary {
   padding: calc(#{$spacing-sm} - #{$border-solid-border-width})
     calc(#{$spacing-md} - #{$border-solid-border-width});

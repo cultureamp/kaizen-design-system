@@ -6,17 +6,20 @@ import styles from "./StyledButton.module.scss"
 interface BaseStyledButtonProps extends OverrideClassName<unknown> {
   variant: "default" | "primary" | "secondary" | "secondaryDestructive"
   isReversed?: boolean
+  isWorking?: boolean
 }
 
 export const getStyledButtonClassNames = ({
   variant,
   isReversed,
+  isWorking,
   classNameOverride,
 }: BaseStyledButtonProps) =>
   classnames(
     styles.styledButton,
     styles[variant],
     isReversed && styles.isReversed,
+    isWorking && styles.isWorking,
     classNameOverride
   )
 
