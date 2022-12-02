@@ -388,7 +388,7 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        instead of just "1".
  */
 interface TableRowCellProps
-  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   width?: number
   flex?: string
   href?: string
