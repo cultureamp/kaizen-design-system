@@ -85,38 +85,37 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = OverrideClassName<React.FunctionComponent> &
-  React.FunctionComponent<{
-    labelText: string
-    automationId?: string
-    onClick?:
-      | ((e: React.MouseEvent<HTMLButtonElement>) => any)
-      | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
-    href?: string
-    width?: number
-    flex?: string
-    icon?: React.SVGAttributes<SVGSymbolElement>
-    checkable?: boolean
-    checkedStatus?: CheckedStatus
-    onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
-    reversed?: boolean
-    /**
-     * This boolean would show a "sort by" icon in the table cell header.
-     * The problem was that the arrow was pointing in the descending direction only.
-     * Please use `sorting` prop instead.
-     * @deprecated
-     */
-    active?: boolean
-    /**
-     * Shows an up or down arrow, to show that the column is sorted.
-     */
-    sorting?: "ascending" | "descending"
-    wrapping?: "nowrap" | "wrap"
-    align?: "start" | "center" | "end"
-    tooltipInfo?: string
-    classNameOverride?: string
-    sortingArrowsOnHover?: "ascending" | "descending" | undefined
-  }>
+type TableHeaderRowCell = React.FunctionComponent<{
+  labelText: string
+  automationId?: string
+  onClick?:
+    | ((e: React.MouseEvent<HTMLButtonElement>) => any)
+    | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+  href?: string
+  width?: number
+  flex?: string
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  checkable?: boolean
+  checkedStatus?: CheckedStatus
+  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  reversed?: boolean
+  /**
+   * This boolean would show a "sort by" icon in the table cell header.
+   * The problem was that the arrow was pointing in the descending direction only.
+   * Please use `sorting` prop instead.
+   * @deprecated
+   */
+  active?: boolean
+  /**
+   * Shows an up or down arrow, to show that the column is sorted.
+   */
+  sorting?: "ascending" | "descending"
+  wrapping?: "nowrap" | "wrap"
+  align?: "start" | "center" | "end"
+  tooltipInfo?: string
+  classNameOverride?: string
+  sortingArrowsOnHover?: "ascending" | "descending" | undefined
+}>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   labelText,
   automationId,
