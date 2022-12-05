@@ -13,7 +13,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
-import { items } from "./MockData"
+import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
@@ -48,10 +48,13 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         {...args}
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={args.label}
           />
         )}
@@ -75,7 +78,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -121,11 +127,14 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
       <FilterMultiSelect
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         label="Engineer"
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={"Engineer"}
           />
         )}
@@ -182,7 +191,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant={"body"}>Items: </Paragraph>
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -219,10 +231,13 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
         label="Engineer"
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label="Engineer"
             labelCharacterLimitBeforeTruncate={characterLimit}
           />
@@ -331,10 +346,13 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
       label="Engineer"
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
-      items={items.slice(0, 3)}
+      items={mockItems.slice(0, 3)}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          selectedOptionLabels={getSelectedOptionLabels(
+            selectedKeys,
+            mockItems
+          )}
           label="Engineer"
         />
       )}
