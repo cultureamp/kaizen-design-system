@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.1...@kaizen/draft-select@2.10.2) (2022-12-02)
+
+
+### Bug Fixes
+
+* Resolving clearing issue of legacy multi-select [KDS-1030] ([#3140](https://github.com/cultureamp/kaizen-design-system/issues/3140)) ([df0a9f9](https://github.com/cultureamp/kaizen-design-system/commit/df0a9f9d3f644b57cd1b1cb066cf1263cdee6bfe))
+
+
+
+
+
 ## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.0...@kaizen/draft-select@2.10.1) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-select
