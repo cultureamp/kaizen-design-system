@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { singleMockItems } from "../../../../docs/MockData"
-import { FloatingSelectWrapper } from "../../components/FloatingSelectWrapper"
+import { singleItems } from "../../../../docs/MockData"
+import { FloatingSelectWrapper } from "../../components/Overlay"
 import { SingleTriggerButton } from "../../components/Trigger/SingleTriggerButton"
 import {
   MenuTriggerProvider,

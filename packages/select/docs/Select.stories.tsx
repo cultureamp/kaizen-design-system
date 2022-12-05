@@ -1,12 +1,11 @@
-import React, { useState, Key } from "react"
+import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Select } from "../src/Select/Select"
-import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
-import { singleMockItems } from "./MockData"
+import { singleItems } from "./MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -28,41 +27,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof Select>
 
-export const DefaultStory: ComponentStory<typeof Select> = props => {
-  const [selectedKey, setSelectedKey] = useState<Key | null>()
-  const [isOpen, setIsOpen] = useState<boolean>()
-
-  const handleSelectionChange = (key: Key) => {
-    setSelectedKey(key)
-    setIsOpen(!isOpen)
-  }
-  const handleOpenChange = () => setIsOpen(!isOpen)
-
-  return (
-    <Select
-      {...props}
-      isOpen={isOpen}
-      onOpenChange={handleOpenChange}
-      onSelectionChange={handleSelectionChange}
-      selectedKey={selectedKey}
-      trigger={
-        <Select.TriggerButton
-          placeholder="Placeholder"
-          selectedOptionLabel={getSelectedOptionLabel(
-            selectedKey,
-            singleMockItems
-          )}
-        />
-      }
-    >
-      <Select.ListBox>
-        {items =>
-          items.map(item => <Select.Option key={item.key} item={item} />)
-        }
-      </Select.ListBox>
-    </Select>
-  )
-}
+export const DefaultStory: ComponentStory<typeof Select> = props => (
+  <Select {...props} />
+)
 
 DefaultStory.storyName = "Select"
 DefaultStory.args = {
@@ -94,19 +61,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+        />
         <Select
           id="select-selected"
           label="label"
@@ -114,22 +69,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={"id-sre"}
-          trigger={
+          trigger={triggerProps => (
             <Select.TriggerButton
+              {...triggerProps}
+              classNameOverride="story__button-selected"
               placeholder="Placeholder"
-              selectedOptionLabel={getSelectedOptionLabel(
-                "id-sre",
-                singleMockItems
-              )}
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        />
         <Select
           id="select-hovered"
           label="label"
@@ -137,20 +84,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
-          trigger={
+          trigger={triggerProps => (
             <Select.TriggerButton
+              {...triggerProps}
               classNameOverride="story__button-hover"
               placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        ></Select>
         <Select
           id="select-focused"
           label="label"
@@ -158,20 +99,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
-          trigger={
+          trigger={triggerProps => (
             <Select.TriggerButton
+              {...triggerProps}
               classNameOverride="story__button-focus"
               placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        ></Select>
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
         <Select
@@ -181,19 +116,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           isFullWidth
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+        />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Custom Width (50%)">
         <div style={{ width: "50%" }}>
@@ -204,19 +127,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleMockItems}
             description="This is a description"
             isFullWidth
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
+          />
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -234,19 +145,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleMockItems}
             description="This is a description"
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
+          />
           <Select
             id="select-dropdown-selected"
             label="label"
@@ -255,22 +154,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={"id-sre"}
             isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={getSelectedOptionLabel(
-                  "id-sre",
-                  singleMockItems
-                )}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
+          />
           <Select
             id="select-dropdown-hovered"
             label="label"
@@ -279,26 +163,25 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={null}
             isOpen
-            trigger={
+            trigger={triggerProps => (
               <Select.TriggerButton
+                {...triggerProps}
                 placeholder="Placeholder"
-                selectedOptionLabel={null}
               />
-            }
+            )}
           >
-            <Select.ListBox>
-              {items =>
-                items.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-hover" : undefined
-                    }
-                  />
-                ))
-              }
-            </Select.ListBox>
+            {({ items, state }) =>
+              items.map(item => (
+                <Select.Option
+                  key={item.key}
+                  item={item}
+                  state={state}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-hover" : undefined
+                  }
+                />
+              ))
+            }
           </Select>
           <Select
             id="select-dropdown-focused"
@@ -308,26 +191,25 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={null}
             isOpen
-            trigger={
+            trigger={triggerProps => (
               <Select.TriggerButton
+                {...triggerProps}
                 placeholder="Placeholder"
-                selectedOptionLabel={null}
               />
-            }
+            )}
           >
-            <Select.ListBox>
-              {items =>
-                items.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-focus" : undefined
-                    }
-                  />
-                ))
-              }
-            </Select.ListBox>
+            {({ items, state }) =>
+              items.map(item => (
+                <Select.Option
+                  key={item.key}
+                  item={item}
+                  state={state}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-focus" : undefined
+                  }
+                />
+              ))
+            }
           </Select>
         </StoryWrapper.Row>
       </StoryWrapper>
@@ -343,21 +225,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           isFullWidth
           isOpen
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          {
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          }
-        </Select>
+        />
       </StoryWrapper.Row>
     </StoryWrapper>
   </>
