@@ -5068,13 +5068,6 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/experimental-utils@^5.3.0":
-  version "5.45.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-5.45.0.tgz#b59fea61a855cb2b1fdbd0fb45934a844f4bf870"
-  integrity sha512-DnRQg5+3uHHt/gaifTjwg9OKbg9/TWehfJzYHQIDJboPEbF897BKDE/qoqMhW7nf0jWRV1mwVXTaUvtB1/9Gwg==
-  dependencies:
-    "@typescript-eslint/utils" "5.45.0"
-
 "@typescript-eslint/parser@^5.45.0":
   version "5.45.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.45.0.tgz#b18a5f6b3cf1c2b3e399e9d2df4be40d6b0ddd0e"
@@ -5121,7 +5114,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.45.0":
+"@typescript-eslint/utils@5.45.0", "@typescript-eslint/utils@^5.45.0":
   version "5.45.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.45.0.tgz#9cca2996eee1b8615485a6918a5c763629c7acf5"
   integrity sha512-OUg2JvsVI1oIee/SwiejTot2OxwU8a7UfTFMOdlhD2y+Hl6memUSL4s98bpUTo8EpVEr0lmwlU7JSu/p2QpSvA==
@@ -8905,13 +8898,13 @@ eslint-plugin-ssr-friendly@^1.2.0:
   dependencies:
     globals "^13.8.0"
 
-eslint-plugin-storybook@^0.6.7:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-storybook/-/eslint-plugin-storybook-0.6.7.tgz#85e81f4d5d7af541d6abe5657f4f8b8dfb69b83e"
-  integrity sha512-lcUsB+3PesKWXwwEHGSTCijKWDXuQ4ITVbnsSDMXRCR/cjGtHZIEcy2pp/Eh7nfWA/GZrDPpK97DsTWEzyN6Bw==
+eslint-plugin-storybook@^0.6.8:
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-storybook/-/eslint-plugin-storybook-0.6.8.tgz#49b76aa577267267b14056838f7dc2b22de748d1"
+  integrity sha512-57vyICs19ODx0ql+shM0hKFn4Nvwcrdw29KJbj6QKGZ+Y47aDws/lvBx65++F0vpEsr0lkZljSdUbxWjIP2+Rw==
   dependencies:
     "@storybook/csf" "^0.0.1"
-    "@typescript-eslint/experimental-utils" "^5.3.0"
+    "@typescript-eslint/utils" "^5.45.0"
     requireindex "^1.1.0"
     ts-dedent "^2.2.0"
 
