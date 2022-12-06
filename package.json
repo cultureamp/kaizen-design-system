@@ -1,9 +1,6 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "draft-packages/*"
-  ],
+  "workspaces": ["packages/*", "draft-packages/*"],
   "engines": {
     "node": ">=v16.13.1"
   },
@@ -77,7 +74,6 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/eslint-plugin-tslint": "^5.45.1",
     "@typescript-eslint/parser": "^5.45.1",
     "babel-loader": "^9.1.0",
     "chromatic": "^6.11.4",

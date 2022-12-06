@@ -74,8 +74,18 @@ export const DemographicValueSelect = ({
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ selectedItems, unselectedItems, disabledItems }) => (
+            {({
+              selectedItems,
+              unselectedItems,
+              disabledItems,
+              hasNoItems,
+            }) => (
               <>
+                {hasNoItems && (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                )}
                 <FilterMultiSelect.ListBoxSection
                   items={selectedItems}
                   sectionName="Selected items"
