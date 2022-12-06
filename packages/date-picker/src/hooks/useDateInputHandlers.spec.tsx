@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent, useState } from "react"
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
@@ -11,7 +11,15 @@ const onDateChange = jest.fn<void, [Date | undefined]>()
 
 const Wrapper: React.VFC<
   Partial<DateInputProps & { disabledDays?: Matcher[] | undefined }>
-> = ({ value = "", onChange, onFocus, onBlur, disabledDays, ...restProps }) => {
+> = ({
+  value = "",
+  onChange,
+  onFocus,
+  onBlur,
+  onKeyDown,
+  disabledDays,
+  ...restProps
+}) => {
   const [inputValue, setInputValue] = useState<DateInputProps["value"]>(value)
   const handlers = useDateInputHandlers({
     locale: enAU,
@@ -21,6 +29,7 @@ const Wrapper: React.VFC<
     onChange,
     onFocus,
     onBlur,
+    onKeyDown,
   })
 
   return (
@@ -153,6 +162,36 @@ describe("useDateInputHandlers", () => {
       await userEvent.tab()
       await waitFor(() => {
         expect(onBlur).toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe("onKeyDown - Enter", () => {
+    it("returns a date when date is valid", async () => {
+      render(<Wrapper />)
+      const input = getDateInput()
+      await userEvent.type(input, "01/05/2022{Enter}")
+      await waitFor(() => {
+        expect(onDateChange).toBeCalledWith(new Date("2022-05-01"))
+      })
+    })
+
+    it("returns undefined when date is invalid", async () => {
+      render(<Wrapper />)
+      const input = getDateInput()
+      await userEvent.type(input, "potato{Enter}")
+      await waitFor(() => {
+        expect(onDateChange).toBeCalledWith(undefined)
+      })
+    })
+
+    it("calls custom onKeyDown when provided", async () => {
+      const onKeyDown = jest.fn<void, [KeyboardEvent]>()
+      render(<Wrapper onKeyDown={onKeyDown} />)
+      const input = getDateInput()
+      await userEvent.type(input, "{Enter}")
+      await waitFor(() => {
+        expect(onKeyDown).toHaveBeenCalled()
       })
     })
   })
