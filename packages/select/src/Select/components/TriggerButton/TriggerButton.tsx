@@ -8,7 +8,6 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-
 import { isRefObject } from "../../../../../date-picker/src/utils/isRefObject"
 import { State } from "../../types"
 import styles from "./TriggerButton.module.scss"
@@ -35,14 +34,14 @@ export const TriggerButton = React.forwardRef<
     buttonRef
   ) => {
     const value = state?.selectedItem?.rendered
-
-    const { buttonProps } = useButton(triggerProps, useObjectRef(buttonRef))
+    const ref = useObjectRef(buttonRef)
+    const { buttonProps } = useButton(triggerProps, ref)
     const { isFocusVisible, focusProps } = useFocusRing()
 
     return (
       <button
         {...mergeProps(buttonProps, focusProps)}
-        ref={buttonRef}
+        ref={ref}
         className={classnames([
           styles.button,
           value === null && styles.placeholder,

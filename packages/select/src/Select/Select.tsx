@@ -29,21 +29,26 @@ export interface SelectProps
   extends Omit<AriaSelectProps<ItemType>, "children"> {
   isFullWidth?: boolean
   id: string
-  trigger?: (triggerProps: TriggerButtonProps, ref) => React.ReactNode
+  trigger?: (
+    triggerProps: TriggerButtonProps,
+    ref: React.RefObject<HTMLButtonElement>
+  ) => React.ReactNode
   children?: (optionsProps: OptionsProps) => React.ReactNode
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = props => {
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
+
   const {
     label,
     description,
     isFullWidth,
-    trigger = triggerProps => <TriggerButton {...triggerProps} />,
+    trigger = triggerProps => (
+      <TriggerButton {...triggerProps} ref={buttonRef} />
+    ),
     children = ({ items }) =>
       items.map(item => <Option key={item.key} item={item} state={state} />),
   } = props
-
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
 
   const selectChildren = item => <Item key={item.value}>{item.label}</Item>
 
@@ -57,16 +62,21 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   const items = Array.from(state.collection)
 
   // Fix the issue when default open and close by keyboard, then focus is lost
-  useEffect(() => {
-    if (state.isOpen === false) {
-      buttonRef.current?.focus()
-    }
-  }, [state.isOpen])
+  // useEffect(() => {
+  //   if (state.isOpen === false) {
+  //     buttonRef.current?.focus()
+  //   }
+  // }, [state.isOpen])
 
   return (
     <div className={classnames([!isFullWidth && selectStyles.notFullWidth])}>
       <Label {...labelProps}>{label}</Label>
-      <HiddenSelect {...props} state={state} triggerRef={buttonRef} />
+      <HiddenSelect
+        label={label}
+        name={props.id}
+        state={state}
+        triggerRef={buttonRef}
+      />
 
       <div className={classnames([selectStyles.container])}>
         {trigger({ triggerProps, valueProps, state }, buttonRef)}
