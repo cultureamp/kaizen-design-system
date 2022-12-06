@@ -62,11 +62,11 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   const items = Array.from(state.collection)
 
   // Fix the issue when default open and close by keyboard, then focus is lost
-  // useEffect(() => {
-  //   if (state.isOpen === false) {
-  //     buttonRef.current?.focus()
-  //   }
-  // }, [state.isOpen])
+  useEffect(() => {
+    if (state.isOpen === false) {
+      buttonRef.current?.focus()
+    }
+  }, [state.isOpen])
 
   return (
     <div className={classnames([!isFullWidth && selectStyles.notFullWidth])}>
