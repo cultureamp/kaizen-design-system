@@ -1,4 +1,5 @@
 export const CATEGORIES = {
+  introduction: "Introduction",
   components: "Components",
   helpers: "Helpers",
   designTokens: "Design Tokens",
