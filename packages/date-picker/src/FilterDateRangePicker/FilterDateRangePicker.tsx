@@ -4,6 +4,7 @@ import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { CalendarRange, CalendarRangeProps } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
+import { useDateInputHandlers } from "../hooks/useDateInputHandlers"
 import {
   DataAttributes,
   DateRange,
@@ -22,7 +23,6 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { handleDateRangeInputChange } from "./handlers/handleDateRangeInputChange"
 import { handleDateRangeInputFocus } from "./handlers/handleDateRangeInputFocus"
 import { formatDateRange } from "./utils/formatDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
@@ -103,6 +103,11 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       ? formatDateAsText(selectedRange.from, disabledDays, locale)
       : ""
   )
+  const inputRangeStartHandlers = useDateInputHandlers({
+    setInputValue: setInputRangeStartValue,
+    ...inputRangeStartProps,
+  })
+
   const [inputRangeEndValue, setInputRangeEndValue] = useState<
     InputRangeEndProps["value"]
   >(
@@ -110,6 +115,10 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       ? formatDateAsText(selectedRange.to, disabledDays, locale)
       : ""
   )
+  const inputRangeEndHandlers = useDateInputHandlers({
+    setInputValue: setInputRangeEndValue,
+    ...inputRangeEndProps,
+  })
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
@@ -126,22 +135,6 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     onClick: () => setIsOpen(!isOpen),
     isOpen,
     selectedValue: formatDateRange(selectedRange, locale),
-  }
-
-  const handleInputRangeStartChange: InputRangeStartProps["onChange"] = e => {
-    handleDateRangeInputChange({
-      onNewInputValue: setInputRangeStartValue,
-      newValue: e.currentTarget.value,
-    })
-    inputRangeStartProps?.onChange?.(e)
-  }
-
-  const handleInputRangeEndChange: InputRangeEndProps["onChange"] = e => {
-    handleDateRangeInputChange({
-      onNewInputValue: setInputRangeEndValue,
-      newValue: e.currentTarget.value,
-    })
-    inputRangeEndProps?.onChange?.(e)
   }
 
   const handleInputRangeStartFocus: InputRangeStartProps["onFocus"] = e => {
@@ -199,7 +192,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 value: inputRangeStartValue,
                 ...inputRangeStartProps,
                 // The below props extend the values from inputRangeStartProps, therefore must be below the spread
-                onChange: handleInputRangeStartChange,
+                ...inputRangeStartHandlers,
                 onFocus: handleInputRangeStartFocus,
               }}
               inputRangeEndProps={{
@@ -207,7 +200,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 value: inputRangeEndValue,
                 ...inputRangeEndProps,
                 // The below props extend the values from inputRangeEndProps, therefore must be below the spread
-                onChange: handleInputRangeEndChange,
+                ...inputRangeEndHandlers,
                 onFocus: handleInputRangeEndFocus,
               }}
               locale={locale}
