@@ -40,13 +40,14 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
   const allItems = Array.from(items)
+  const hasNoItems = allItems.length === 0
 
   const [itemsState, setItemsState] = useState({
     selectedItems,
     unselectedItems,
     disabledItems,
     allItems,
-    hasNoItems: allItems.length <= 0,
+    hasNoItems,
   })
 
   // Only update rendering of items when filtering.
@@ -57,11 +58,11 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
       disabledItems,
       unselectedItems,
       allItems,
-      hasNoItems: allItems.length <= 0,
+      hasNoItems,
     })
   }, [selectionState.collection.size])
 
-  if (allItems.length <= 0) {
+  if (hasNoItems) {
     return (
       <>
         <div>{children(itemsState)}</div>
