@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "../types"
@@ -136,6 +136,103 @@ describe("<FilterDateRangePicker />", () => {
       // Input Start is focused when filter is opened
       expect(inputRangeStart).toHaveValue("01/05/2022")
       expect(inputRangeEnd).toHaveValue("22 May 2022")
+    })
+
+    describe("onBlur", () => {
+      it("updates start date input and calendar values correctly on blur", async () => {
+        const rangeStartOnBlur = jest.fn<void, [FocusEvent]>()
+        const rangeEndOnBlur = jest.fn<void, [FocusEvent]>()
+
+        render(
+          <FilterDateRangePickerWrapper
+            selectedRange={{
+              from: new Date("2022-05-02"),
+              to: new Date("2022-05-22"),
+            }}
+            inputRangeStartProps={{ onBlur: rangeStartOnBlur }}
+            inputRangeEndProps={{ onBlur: rangeEndOnBlur }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeStart = screen.getByLabelText("Date from")
+        const inputRangeEnd = screen.getByLabelText("Date to")
+        // Input Start is focused when filter is opened
+        expect(inputRangeStart).toHaveValue("02/05/2022")
+        expect(inputRangeEnd).toHaveValue("22 May 2022")
+
+        const firstSelectedDay = screen.getAllByRole("button", {
+          pressed: true,
+        })[0]
+        expect(firstSelectedDay.textContent).toBe("2")
+
+        await userEvent.clear(inputRangeStart)
+        await userEvent.type(inputRangeStart, "01/05/2022")
+
+        await userEvent.tab({ shift: true })
+
+        await waitFor(() => {
+          expect(inputRangeStart).toHaveValue("1 May 2022")
+          expect(rangeStartOnBlur).toHaveBeenCalled()
+          expect(inputRangeEnd).toHaveValue("22 May 2022")
+          expect(rangeEndOnBlur).not.toHaveBeenCalled()
+
+          const newFirstSelectedDay = screen.getAllByRole("button", {
+            pressed: true,
+          })[0]
+          expect(newFirstSelectedDay.textContent).toBe("1")
+        })
+      })
+
+      it("updates end date input and calendar values correctly on blur", async () => {
+        const rangeStartOnBlur = jest.fn<void, [FocusEvent]>()
+        const rangeEndOnBlur = jest.fn<void, [FocusEvent]>()
+
+        render(
+          <FilterDateRangePickerWrapper
+            selectedRange={{
+              from: new Date("2022-05-01"),
+              to: new Date("2022-05-22"),
+            }}
+            inputRangeStartProps={{ onBlur: rangeStartOnBlur }}
+            inputRangeEndProps={{ onBlur: rangeEndOnBlur }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeStart = screen.getByLabelText("Date from")
+        const inputRangeEnd = screen.getByLabelText("Date to")
+        // Input Start is focused when filter is opened
+        expect(inputRangeStart).toHaveValue("01/05/2022")
+        expect(inputRangeEnd).toHaveValue("22 May 2022")
+
+        const days = screen.getAllByRole("button", {
+          pressed: true,
+        })
+        const lastSelectedDay = days[days.length - 1]
+        expect(lastSelectedDay.textContent).toBe("22")
+
+        await userEvent.tab()
+        rangeStartOnBlur.mockClear()
+
+        await userEvent.clear(inputRangeEnd)
+        await userEvent.type(inputRangeEnd, "31/05/2022")
+
+        await userEvent.tab()
+
+        await waitFor(() => {
+          expect(inputRangeStart).toHaveValue("1 May 2022")
+          expect(rangeStartOnBlur).not.toHaveBeenCalled()
+          expect(inputRangeEnd).toHaveValue("31 May 2022")
+          expect(rangeEndOnBlur).toHaveBeenCalled()
+
+          const newDays = screen.getAllByRole("button", {
+            pressed: true,
+          })
+          const newLastSelectedDay = newDays[newDays.length - 1]
+          expect(newLastSelectedDay.textContent).toBe("31")
+        })
+      })
     })
   })
 })
