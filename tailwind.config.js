@@ -1,0 +1,15 @@
+// ts-check
+/** @type {import('tailwindcss').Config} */
+
+const { Preset } = require("@kaizen/tailwind")
+
+module.exports = {
+  content: ["./**/*.{ts,tsx}"],
+  presets: [Preset],
+  // important to add to the #root and #docs-root (for storybook) to ensure that tailwind classes supersede component styles
+  important: ["#root", "#docs-root"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
