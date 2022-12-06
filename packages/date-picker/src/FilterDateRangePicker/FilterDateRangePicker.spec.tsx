@@ -113,11 +113,12 @@ describe("<FilterDateRangePicker />", () => {
 
       const inputRangeStart = screen.getByLabelText("Date from")
       const inputRangeEnd = screen.getByLabelText("Date to")
-      expect(inputRangeStart).toHaveValue("1 May 2022")
+      // Input Start is focused when filter is opened
+      expect(inputRangeStart).toHaveValue("01/05/2022")
       expect(inputRangeEnd).toHaveValue("22 May 2022")
     })
 
-    it("allows customing the input labels", async () => {
+    it("allows customising the input labels", async () => {
       render(
         <FilterDateRangePickerWrapper
           selectedRange={{
@@ -132,33 +133,9 @@ describe("<FilterDateRangePicker />", () => {
 
       const inputRangeStart = screen.getByLabelText("Start date")
       const inputRangeEnd = screen.getByLabelText("End date")
-      expect(inputRangeStart).toHaveValue("1 May 2022")
+      // Input Start is focused when filter is opened
+      expect(inputRangeStart).toHaveValue("01/05/2022")
       expect(inputRangeEnd).toHaveValue("22 May 2022")
-    })
-
-    it("allows adding extra onFocus functionality", async () => {
-      const onStartFocus = jest.fn<void, []>()
-      const onEndFocus = jest.fn<void, []>()
-
-      render(
-        <FilterDateRangePickerWrapper
-          selectedRange={{
-            from: new Date("2022-05-01"),
-            to: new Date("2022-05-22"),
-          }}
-          inputRangeStartProps={{ onFocus: onStartFocus }}
-          inputRangeEndProps={{ onFocus: onEndFocus }}
-        />
-      )
-      await openFilter()
-
-      const inputRangeStart = screen.getByLabelText("Date from")
-      const inputRangeEnd = screen.getByLabelText("Date to")
-
-      await userEvent.click(inputRangeStart)
-      expect(onStartFocus).toHaveBeenCalled()
-      await userEvent.click(inputRangeEnd)
-      expect(onEndFocus).toHaveBeenCalled()
     })
   })
 })

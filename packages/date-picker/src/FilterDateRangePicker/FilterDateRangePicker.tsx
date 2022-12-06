@@ -23,7 +23,6 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { handleDateRangeInputFocus } from "./handlers/handleDateRangeInputFocus"
 import { formatDateRange } from "./utils/formatDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
@@ -104,6 +103,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       : ""
   )
   const inputRangeStartHandlers = useDateInputHandlers({
+    locale,
     setInputValue: setInputRangeStartValue,
     ...inputRangeStartProps,
   })
@@ -116,6 +116,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       : ""
   )
   const inputRangeEndHandlers = useDateInputHandlers({
+    locale,
     setInputValue: setInputRangeEndValue,
     ...inputRangeEndProps,
   })
@@ -135,24 +136,6 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     onClick: () => setIsOpen(!isOpen),
     isOpen,
     selectedValue: formatDateRange(selectedRange, locale),
-  }
-
-  const handleInputRangeStartFocus: InputRangeStartProps["onFocus"] = e => {
-    handleDateRangeInputFocus({
-      date: selectedRange?.from,
-      onNewInputValue: setInputRangeStartValue,
-      locale,
-    })
-    inputRangeStartProps?.onFocus?.(e)
-  }
-
-  const handleInputRangeEndFocus: InputRangeEndProps["onFocus"] = e => {
-    handleDateRangeInputFocus({
-      date: selectedRange?.to,
-      onNewInputValue: setInputRangeEndValue,
-      locale,
-    })
-    inputRangeEndProps?.onFocus?.(e)
   }
 
   return (
@@ -193,7 +176,6 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 ...inputRangeStartProps,
                 // The below props extend the values from inputRangeStartProps, therefore must be below the spread
                 ...inputRangeStartHandlers,
-                onFocus: handleInputRangeStartFocus,
               }}
               inputRangeEndProps={{
                 labelText: "Date to",
@@ -201,7 +183,6 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
                 ...inputRangeEndProps,
                 // The below props extend the values from inputRangeEndProps, therefore must be below the spread
                 ...inputRangeEndHandlers,
-                onFocus: handleInputRangeEndFocus,
               }}
               locale={locale}
             />
