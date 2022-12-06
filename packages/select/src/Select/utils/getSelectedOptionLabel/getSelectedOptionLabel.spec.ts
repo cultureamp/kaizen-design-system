@@ -1,7 +1,7 @@
 import { ItemType } from "../../types"
 import { getSelectedOptionLabel } from "./getSelectedOptionLabel"
 
-export const singleItems: ItemType[] = [
+export const singleMockItems: ItemType[] = [
   { label: "Front-End", value: "id-fe" },
   { label: "Back-End", value: "id-be" },
   { label: "SRE", value: "id-sre" },
@@ -13,15 +13,15 @@ export const singleItems: ItemType[] = [
 
 describe("getSelectedOptionLabel", () => {
   it("returns the selected key's label", () => {
-    expect(getSelectedOptionLabel("id-sre", singleItems)).toEqual("SRE")
+    expect(getSelectedOptionLabel("id-sre", singleMockItems)).toEqual("SRE")
   })
 
   it("returns null if given key is invalid", () => {
-    expect(getSelectedOptionLabel("invalid", singleItems)).toEqual(null)
+    expect(getSelectedOptionLabel("invalid", singleMockItems)).toEqual(null)
   })
 
   it("returns null if key is undefined", () => {
-    expect(getSelectedOptionLabel(undefined, singleItems)).toEqual(null)
+    expect(getSelectedOptionLabel(undefined, singleMockItems)).toEqual(null)
   })
 
   it("returns null if items is undefined", () => {

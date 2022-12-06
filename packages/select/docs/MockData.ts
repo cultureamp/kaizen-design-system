@@ -1,6 +1,6 @@
 import { ItemType } from "../src/FilterMultiSelect"
 
-export const singleItems: ItemType[] = [
+export const singleMockItems: ItemType[] = [
   { label: "Front-End", value: "id-fe" },
   { label: "Back-End", value: "id-be" },
   { label: "SRE", value: "id-sre" },
@@ -11,7 +11,7 @@ export const singleItems: ItemType[] = [
   { label: "AnotherExample", value: "id-another" },
 ]
 
-export const items: ItemType[] = [
+export const mockItems: ItemType[] = [
   { label: "Front-End", value: "id-fe", count: "1245" },
   { label: "Back-End", value: "id-be", count: "4", isDisabled: true },
   { label: "SRE", value: "id-sre", count: "4", isDisabled: true },
