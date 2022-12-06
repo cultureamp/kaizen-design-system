@@ -3,10 +3,19 @@ import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { CalendarRange, CalendarRangeProps } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
-import { DateRange, DisabledDayMatchers, SupportedLocales } from "../types"
+import {
+  DataAttributes,
+  DateRange,
+  DisabledDayMatchers,
+  SupportedLocales,
+} from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { getLocale } from "../utils/getLocale"
-import { FilterTriggerButton } from "./components/Trigger"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonProps,
+  RemovableFilterTriggerButton,
+} from "./components/Trigger"
 import { formatDateRange } from "./utils/formatDateRange"
 
 export interface FilterDateRangePickerProps
@@ -28,6 +37,7 @@ export interface FilterDateRangePickerProps
    * Date will return as `undefined` if empty, invalid or disabled.
    */
   onRangeChange: (range: DateRange | undefined) => void
+  onRemoveFilter?: () => void
 }
 
 export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
@@ -43,8 +53,16 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   disabledBeforeAfter,
   disabledBefore,
   disabledAfter,
+  onRemoveFilter,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef(
+    onRemoveFilter
+      ? {
+          triggerButtonRef: buttonRef,
+        }
+      : null
+  )
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const locale = getLocale(propsLocale)
@@ -65,17 +83,28 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     handleDateRangeChange(range)
   }
 
+  const triggerButtonProps: FilterTriggerButtonProps & DataAttributes = {
+    id,
+    label,
+    "aria-haspopup": "dialog",
+    onClick: () => setIsOpen(!isOpen),
+    isOpen,
+    selectedValue: formatDateRange(selectedRange, locale),
+  }
+
   return (
     <>
-      <FilterTriggerButton
-        ref={buttonRef}
-        id={id}
-        label={label}
-        aria-haspopup="dialog"
-        isOpen={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-        selectedValue={formatDateRange(selectedRange, locale)}
-      />
+      {onRemoveFilter ? (
+        <RemovableFilterTriggerButton
+          ref={removableButtonRefs}
+          triggerButtonProps={triggerButtonProps}
+          removeButtonProps={{
+            onClick: () => undefined,
+          }}
+        />
+      ) : (
+        <FilterTriggerButton ref={buttonRef} {...triggerButtonProps} />
+      )}
 
       {isOpen && (
         <FocusOn

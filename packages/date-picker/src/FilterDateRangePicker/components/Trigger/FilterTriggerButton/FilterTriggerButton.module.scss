@@ -1,4 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
+
+.filterTriggerButton {
+  gap: $spacing-xs;
+}
 
 .hasSelectedValues {
   font-weight: $typography-button-primary-font-weight;
