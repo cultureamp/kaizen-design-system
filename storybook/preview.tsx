@@ -31,6 +31,7 @@ addParameters({
     storySort: {
       method: "alphabetical",
       order: [
+        CATEGORIES.introduction,
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,

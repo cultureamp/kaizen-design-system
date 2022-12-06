@@ -6,7 +6,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Select } from "../src/Select/Select"
 import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
-import { singleItems } from "./MockData"
+import { singleMockItems } from "./MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -48,7 +48,10 @@ export const DefaultStory: ComponentStory<typeof Select> = props => {
       trigger={
         <Select.TriggerButton
           placeholder="Placeholder"
-          selectedOptionLabel={getSelectedOptionLabel(selectedKey, singleItems)}
+          selectedOptionLabel={getSelectedOptionLabel(
+            selectedKey,
+            singleMockItems
+          )}
         />
       }
     >
@@ -65,7 +68,7 @@ DefaultStory.storyName = "Select"
 DefaultStory.args = {
   label: "label",
   id: "single-select",
-  items: singleItems,
+  items: singleMockItems,
   isFullWidth: false,
   description: "This is a description",
   isDisabled: false,
@@ -89,7 +92,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-default"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           trigger={
             <Select.TriggerButton
@@ -108,7 +111,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-selected"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           selectedKey={"id-sre"}
           trigger={
@@ -116,7 +119,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               placeholder="Placeholder"
               selectedOptionLabel={getSelectedOptionLabel(
                 "id-sre",
-                singleItems
+                singleMockItems
               )}
             />
           }
@@ -131,7 +134,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-hovered"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           selectedKey={null}
           trigger={
@@ -152,7 +155,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-focused"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           selectedKey={null}
           trigger={
@@ -175,7 +178,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-full-width"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           isFullWidth
           trigger={
@@ -198,7 +201,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="select-custom-width"
             label="label"
             onSelectionChange={() => undefined}
-            items={singleItems}
+            items={singleMockItems}
             description="This is a description"
             isFullWidth
             trigger={
@@ -228,7 +231,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="select-dropdown-default"
             label="label"
             onSelectionChange={() => undefined}
-            items={singleItems}
+            items={singleMockItems}
             description="This is a description"
             isOpen
             trigger={
@@ -248,7 +251,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="select-dropdown-selected"
             label="label"
             onSelectionChange={() => undefined}
-            items={singleItems}
+            items={singleMockItems}
             description="This is a description"
             selectedKey={"id-sre"}
             isOpen
@@ -257,7 +260,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 placeholder="Placeholder"
                 selectedOptionLabel={getSelectedOptionLabel(
                   "id-sre",
-                  singleItems
+                  singleMockItems
                 )}
               />
             }
@@ -272,7 +275,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="select-dropdown-hovered"
             label="label"
             onSelectionChange={() => undefined}
-            items={singleItems}
+            items={singleMockItems}
             description="This is a description"
             selectedKey={null}
             isOpen
@@ -301,7 +304,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="select-dropdown-focused"
             label="label"
             onSelectionChange={() => undefined}
-            items={singleItems}
+            items={singleMockItems}
             description="This is a description"
             selectedKey={null}
             isOpen
@@ -336,7 +339,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           id="select-dropdown-default"
           label="label"
           onSelectionChange={() => undefined}
-          items={singleItems}
+          items={singleMockItems}
           description="This is a description"
           isFullWidth
           isOpen
