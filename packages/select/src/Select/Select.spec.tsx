@@ -1,11 +1,11 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { singleItems } from "../../docs/MockData"
+import { singleMockItems } from "../../docs/MockData"
 import { Select, SelectProps } from "./Select"
 
 const SelectWrapper = ({
-  items = singleItems,
+  items = singleMockItems,
   selectedKey,
   onSelectionChange,
   ...props
@@ -17,7 +17,7 @@ const SelectWrapper = ({
     <Select
       id="select"
       label="mockLabel"
-      items={singleItems}
+      items={singleMockItems}
       description="This is a description"
       selectedKey={selected}
       onSelectionChange={selection => {

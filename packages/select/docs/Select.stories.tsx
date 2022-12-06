@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Select } from "../src/Select/Select"
-import { singleItems } from "./MockData"
+import { singleMockItems } from "./MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
