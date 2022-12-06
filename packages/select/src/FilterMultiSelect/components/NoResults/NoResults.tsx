@@ -1,13 +1,16 @@
-import * as React from "react"
+import React, { HTMLAttributes } from "react"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./NoResults.module.scss"
 
-interface NoResultsProps {
+interface NoResultsProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
 }
 
-export const NoResults: React.VFC<NoResultsProps> = (props: NoResultsProps) => (
-  <div className={styles.container}>
-    <Paragraph variant="extra-small">{props.children}</Paragraph>
+export const NoResults: React.VFC<NoResultsProps> = ({
+  children,
+  ...restProps
+}) => (
+  <div className={styles.container} {...restProps}>
+    <Paragraph variant="extra-small">{children}</Paragraph>
   </div>
 )
