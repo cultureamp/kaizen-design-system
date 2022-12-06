@@ -1,6 +1,5 @@
 import React, { Key, useEffect, useState } from "react"
 import { Selection } from "@react-types/shared"
-import { Paragraph } from "@kaizen/typography"
 import {
   FilterMultiSelect,
   getSelectedOptionKeys,
