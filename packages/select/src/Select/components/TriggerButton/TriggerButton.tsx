@@ -8,11 +8,10 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { isRefObject } from "../../../../../date-picker/src/utils/isRefObject"
-import { State } from "../../types"
+import { SingleState } from "../../../types"
 import styles from "./TriggerButton.module.scss"
 
-export type TriggerButtonProps = State &
+export type TriggerButtonProps = SingleState &
   OverrideClassName<HTMLAttributes<HTMLButtonElement>> & {
     placeholder?: string
     triggerProps: AriaButtonProps<"button">

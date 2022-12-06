@@ -8,11 +8,11 @@ import {
 import { Node } from "@react-types/shared"
 import classnames from "classnames"
 import { Label, FieldMessage } from "@kaizen/draft-form"
+import { SingleItemType, SingleState } from "../types"
 import { ListBox } from "./components/ListBox"
 import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
-import { ItemType, State } from "./types"
 import selectStyles from "./Select.module.scss"
 
 type SubComponentProps = {
@@ -21,12 +21,12 @@ type SubComponentProps = {
   ListBox: typeof ListBox
 }
 
-type OptionsProps = State & {
-  items: Array<Node<ItemType>>
+type OptionsProps = SingleState & {
+  items: Array<Node<SingleItemType>>
 }
 
 export interface SelectProps
-  extends Omit<AriaSelectProps<ItemType>, "children"> {
+  extends Omit<AriaSelectProps<SingleItemType>, "children"> {
   isFullWidth?: boolean
   id: string
   trigger?: (

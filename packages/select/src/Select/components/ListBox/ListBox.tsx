@@ -1,14 +1,14 @@
 import React from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
-import { ItemType, State } from "../../types"
+import { SingleItemType, SingleState } from "../../../types"
 import styles from "./ListBox.module.scss"
 
-export type ListBoxProps = State & {
-  menuProps: AriaListBoxOptions<ItemType>
+export type SingleListBoxProps = SingleState & {
+  menuProps: AriaListBoxOptions<SingleItemType>
   children: React.ReactNode
 }
 
-export const ListBox: React.VFC<ListBoxProps> = ({
+export const ListBox: React.VFC<SingleListBoxProps> = ({
   state,
   menuProps,
   children,

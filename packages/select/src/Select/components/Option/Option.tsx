@@ -7,13 +7,13 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { ItemType, State } from "../../types"
+import { SingleItemType, SingleState } from "../../../types"
 import styles from "./Option.module.scss"
 
 export type OptionProps = OverrideClassName<HTMLAttributes<HTMLLIElement>> &
   HTMLAttributes<HTMLLIElement> &
-  State & {
-    item: Node<ItemType>
+  SingleState & {
+    item: Node<SingleItemType>
   }
 export const Option: React.VFC<OptionProps> = ({
   item,
