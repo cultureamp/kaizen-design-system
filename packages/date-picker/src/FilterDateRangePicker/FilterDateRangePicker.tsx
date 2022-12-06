@@ -95,20 +95,15 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     disabledAfter,
   })
 
+  const getInitialInputValue = (date: Date | undefined) =>
+    date ? formatDateAsText(date, disabledDays, locale) : ""
+
   const [inputRangeStartValue, setInputRangeStartValue] = useState<
     InputRangeStartProps["value"]
-  >(
-    selectedRange?.from
-      ? formatDateAsText(selectedRange.from, disabledDays, locale)
-      : ""
-  )
+  >(getInitialInputValue(selectedRange?.from))
   const [inputRangeEndValue, setInputRangeEndValue] = useState<
     InputRangeEndProps["value"]
-  >(
-    selectedRange?.to
-      ? formatDateAsText(selectedRange.to, disabledDays, locale)
-      : ""
-  )
+  >(getInitialInputValue(selectedRange?.to))
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
