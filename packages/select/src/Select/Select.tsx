@@ -43,6 +43,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
     label,
     description,
     isFullWidth,
+    placeholder,
     trigger = triggerProps => (
       <TriggerButton {...triggerProps} ref={buttonRef} />
     ),
@@ -51,7 +52,6 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   } = props
 
   const selectChildren = item => <Item key={item.value}>{item.label}</Item>
-
   const state = useSelectState({ ...props, children: selectChildren })
   const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
     { ...props, children: selectChildren },
@@ -79,7 +79,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
       />
 
       <div className={classnames([selectStyles.container])}>
-        {trigger({ triggerProps, valueProps, state }, buttonRef)}
+        {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
 
         {state.isOpen && (
           <Overlay state={state}>

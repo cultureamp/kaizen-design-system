@@ -39,6 +39,7 @@ DefaultStory.args = {
   isFullWidth: false,
   description: "This is a description",
   isDisabled: false,
+  placeholder: "Placeholder",
 }
 
 DefaultStory.parameters = {
@@ -61,6 +62,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
+          placeholder="Placeholder"
         />
         <Select
           id="select-selected"
@@ -73,7 +75,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-selected"
-              placeholder="Placeholder"
             />
           )}
         />
@@ -84,11 +85,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
+          placeholder="Placeholder"
           trigger={triggerProps => (
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-hover"
-              placeholder="Placeholder"
             />
           )}
         ></Select>
@@ -99,11 +100,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
+          placeholder="Placeholder"
           trigger={triggerProps => (
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-focus"
-              placeholder="Placeholder"
             />
           )}
         ></Select>
@@ -115,6 +116,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
+          placeholder="Placeholder"
           isFullWidth
         />
       </StoryWrapper.Row>
@@ -127,6 +129,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleMockItems}
             description="This is a description"
             isFullWidth
+            placeholder="Placeholder"
           />
         </div>
       </StoryWrapper.Row>
@@ -144,6 +147,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             onSelectionChange={() => undefined}
             items={singleMockItems}
             description="This is a description"
+            placeholder="Placeholder"
             isOpen
           />
           <Select
@@ -162,13 +166,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             items={singleMockItems}
             description="This is a description"
             selectedKey={null}
+            placeholder="Placeholder"
             isOpen
-            trigger={triggerProps => (
-              <Select.TriggerButton
-                {...triggerProps}
-                placeholder="Placeholder"
-              />
-            )}
+            trigger={triggerProps => <Select.TriggerButton {...triggerProps} />}
           >
             {({ items, state }) =>
               items.map(item => (
@@ -191,12 +191,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             selectedKey={null}
             isOpen
-            trigger={triggerProps => (
-              <Select.TriggerButton
-                {...triggerProps}
-                placeholder="Placeholder"
-              />
-            )}
+            placeholder="Placeholder"
+            trigger={triggerProps => <Select.TriggerButton {...triggerProps} />}
           >
             {({ items, state }) =>
               items.map(item => (
@@ -223,6 +219,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
+          placeholder="Placeholder"
           isFullWidth
           isOpen
         />
