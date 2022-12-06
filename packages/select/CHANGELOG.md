@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.5...@kaizen/select@5.3.0) (2022-12-06)
+
+
+### Features
+
+* Add component for 'No results found' message ([#3137](https://github.com/cultureamp/kaizen-design-system/issues/3137)) ([8ae8514](https://github.com/cultureamp/kaizen-design-system/commit/8ae8514ca26ed121533b0c70a75c608c62c67571))
+
+
+
+
+
+## [5.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.4...@kaizen/select@5.2.5) (2022-12-06)
+
+
+### Bug Fixes
+
+* Kds 1033 label issues spotted in select ([#3142](https://github.com/cultureamp/kaizen-design-system/issues/3142)) ([9a29d82](https://github.com/cultureamp/kaizen-design-system/commit/9a29d82d516d988f5c0f82b8cd042264a9787c9f))
+
+
+
+
+
 ## [5.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.3...@kaizen/select@5.2.4) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/select
