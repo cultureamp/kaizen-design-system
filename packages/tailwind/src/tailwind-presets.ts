@@ -130,6 +130,6 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
 }
 
-export const TailwindPreset: KaizenTailwindPreset = {
+export const Preset: KaizenTailwindPreset = {
   theme: kaizenTailwindTheme,
 }
