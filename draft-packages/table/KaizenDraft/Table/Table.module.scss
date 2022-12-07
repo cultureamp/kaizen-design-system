@@ -36,6 +36,8 @@ $row-height-data-variant: 48px;
   align-items: stretch;
   text-align: start;
   justify-content: flex-start;
+  // The 8px usually makes the height of the header cell 40px
+  padding: 8px $spacing-md;
   // This is required as so the tooltip will display directly above the header cell
   position: relative;
 }
@@ -86,8 +88,6 @@ $row-height-data-variant: 48px;
   display: flex;
   align-items: stretch;
   width: 100%;
-  // The 8px usually makes the height of the header cell 40px
-  padding: 8px $spacing-md;
   // Ensures that the 100% doesn't go outside of the `headerRowCell` width
   box-sizing: border-box;
 }
