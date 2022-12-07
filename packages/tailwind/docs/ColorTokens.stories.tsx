@@ -3,8 +3,8 @@ import { Story } from "@storybook/react"
 import colorString from "color-string"
 import flatMap from "lodash.flatmap"
 import { Box } from "@kaizen/component-library"
+import { useTheme } from "@kaizen/design-tokens"
 import { Heading } from "@kaizen/typography"
-import { useTheme } from "../src/react"
 
 export default {
   title: "Design Tokens/Color Tokens",

@@ -1,4 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
+import "./tailwind.scss"
 import React from "react"
 import { addParameters } from "@storybook/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
