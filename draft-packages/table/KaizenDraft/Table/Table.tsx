@@ -85,8 +85,9 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-interface TableHeaderRowCell
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
+type TableHeaderRowCellProps = OverrideClassName<
+  HTMLAttributes<HTMLElement>
+> & {
   labelText: string
   automationId?: string
   onClick?:
@@ -116,8 +117,6 @@ interface TableHeaderRowCell
   tooltipInfo?: string
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
-
-type TableHeaderRowCellProps = TableHeaderRowCell
 
 export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
   labelText,
@@ -389,14 +388,12 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-interface TableRowCell extends OverrideClassName<HTMLAttributes<HTMLElement>> {
+type TableRowCellProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   children?: React.ReactNode
   width?: number
   flex?: string
   href?: string
 }
-
-type TableRowCellProps = TableRowCell
 
 export const TableRowCell: React.VFC<TableRowCellProps> = ({
   children,
