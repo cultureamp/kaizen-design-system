@@ -11,7 +11,7 @@ import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
 export interface BaseTableProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "onChange">> {
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   width?: number
   flex?: string
   href?: string
