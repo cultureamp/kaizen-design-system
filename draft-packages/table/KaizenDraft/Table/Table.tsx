@@ -10,7 +10,6 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
-type BaseTableProps = OverrideClassName<HTMLAttributes<HTMLElement>>
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
@@ -86,7 +85,8 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-interface TableHeaderRowCell extends BaseTableProps {
+interface TableHeaderRowCell
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   labelText: string
   automationId?: string
   onClick?:
@@ -389,7 +389,7 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-interface TableRowCell extends BaseTableProps {
+interface TableRowCell extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children?: React.ReactNode
   width?: number
   flex?: string
