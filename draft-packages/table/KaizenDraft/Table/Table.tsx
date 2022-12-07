@@ -10,13 +10,7 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
-export interface BaseTableProps
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
-  width?: number
-  flex?: string
-  href?: string
-}
-
+type BaseTableProps = OverrideClassName<HTMLAttributes<HTMLElement>>
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
@@ -98,6 +92,9 @@ interface TableHeaderRowCell extends BaseTableProps {
   onClick?:
     | ((e: React.MouseEvent<HTMLButtonElement>) => any)
     | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+  width?: number
+  flex?: string
+  href?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   checkable?: boolean
   checkedStatus?: CheckedStatus
@@ -394,6 +391,9 @@ export const TableRow: React.VFC<TableRowProps> = ({
  */
 interface TableRowCell extends BaseTableProps {
   children?: React.ReactNode
+  width?: number
+  flex?: string
+  href?: string
 }
 
 type TableRowCellProps = TableRowCell
