@@ -2,10 +2,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "variables";
-@import "../../../mixins";
+@import "../variables";
+@import "../../../../mixins";
 
-@mixin button {
+.filterBaseButton {
   @include button-reset;
 
   -webkit-font-smoothing: antialiased;
@@ -15,11 +15,11 @@
   display: inline-flex;
   align-items: center;
 
-  height: $spacing-xl;
-  padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+  height: 48px;
+  padding: $spacing-sm;
 
-  border: $border-solid-border-width $border-solid-border-style;
-  border-color: $border-borderless-border-color;
+  border-width: 0;
+  border-radius: $border-solid-border-radius;
 
   background-color: $color-blue-100;
 
@@ -29,6 +29,11 @@
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
   color: $color-blue-500;
+
+  #{$selectors--filter-button--hover},
+  #{$selectors--filter-button--active} {
+    z-index: 2;
+  }
 
   #{$selectors--filter-button--hover},
   #{$selectors--filter-button--active},
@@ -41,16 +46,16 @@
   }
 
   #{$selectors--filter-button--focus} {
+    outline: none;
+
     &::after {
-      $focus-ring-offset: calc(
-        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
-      );
       content: "";
+      z-index: 3;
       position: absolute;
-      top: $focus-ring-offset;
-      bottom: $focus-ring-offset;
-      left: $focus-ring-offset;
-      right: $focus-ring-offset;
+      top: $focus-ring-offset-outer;
+      bottom: $focus-ring-offset-outer;
+      left: $focus-ring-offset-outer;
+      right: $focus-ring-offset-outer;
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
