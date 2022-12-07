@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.2...@kaizen/draft-table@5.4.0) (2022-12-07)
+
+
+### Features
+
+* add classNameOverride to TableHeaderRowCell and TableRowCell. ([#3138](https://github.com/cultureamp/kaizen-design-system/issues/3138)) ([0bcbf29](https://github.com/cultureamp/kaizen-design-system/commit/0bcbf2995f6f6cba4bc81a1529cadd8a4096e9b5))
+
+
+
+
+
 ## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.1...@kaizen/draft-table@5.3.2) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-table
