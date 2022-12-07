@@ -117,7 +117,6 @@ interface TableHeaderRowCell extends BaseTableProps {
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
-  classNameOverride?: string
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
 
