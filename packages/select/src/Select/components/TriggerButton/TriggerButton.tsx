@@ -43,7 +43,7 @@ export const TriggerButton = React.forwardRef<
         ref={ref}
         className={classnames([
           styles.button,
-          value === null && styles.placeholder,
+          (value === null || value === undefined) && styles.placeholder,
           isFocusVisible && styles.isFocusVisible,
           classNameOverride,
         ])}
