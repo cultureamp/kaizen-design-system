@@ -6,6 +6,8 @@ export type { Matcher } from "react-day-picker"
 
 export type { DateInterval, DateRange }
 
+export type DataAttributes = { [key: `data-${string}`]: string | undefined }
+
 export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 
 // This isn't recommended TS behaviour, however since we have a fallback in place
