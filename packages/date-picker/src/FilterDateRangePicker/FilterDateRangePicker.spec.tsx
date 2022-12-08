@@ -235,4 +235,106 @@ describe("<FilterDateRangePicker />", () => {
       })
     })
   })
+
+  describe("Calendar", () => {
+    it("changes the start date updates the range start input", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-15"),
+            to: new Date("2022-06-15"),
+          }}
+        />
+      )
+
+      await openFilter()
+
+      // Remove focus from input range start
+      await userEvent.tab()
+      const inputRangeStart = screen.getByLabelText("Date from")
+      expect(inputRangeStart).toHaveValue("15 May 2022")
+
+      const firstSelectedDay = screen.getAllByRole("button", {
+        pressed: true,
+      })[0]
+      expect(firstSelectedDay).toHaveAccessibleName("15th May (Sunday)")
+
+      const earlierDay = screen.getByRole("button", {
+        name: "12th May (Thursday)",
+      })
+      await userEvent.click(earlierDay)
+
+      await waitFor(() => {
+        const newFirstSelectedDay = screen.getAllByRole("button", {
+          pressed: true,
+        })[0]
+        expect(newFirstSelectedDay).toHaveAccessibleName("12th May (Thursday)")
+        expect(inputRangeStart).toHaveValue("12 May 2022")
+      })
+    })
+
+    it("changes the end date updates the range end input", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-15"),
+            to: new Date("2022-06-15"),
+          }}
+        />
+      )
+
+      await openFilter()
+
+      const inputRangeEnd = screen.getByLabelText("Date to")
+      expect(inputRangeEnd).toHaveValue("15 Jun 2022")
+
+      const days = screen.getAllByRole("button", {
+        pressed: true,
+      })
+      const lastSelectedDay = days[days.length - 1]
+      expect(lastSelectedDay).toHaveAccessibleName("15th June (Wednesday)")
+
+      const laterDay = screen.getByRole("button", {
+        name: "23rd June (Thursday)",
+      })
+      await userEvent.click(laterDay)
+
+      await waitFor(() => {
+        const newDays = screen.getAllByRole("button", {
+          pressed: true,
+        })
+        const newLastSelectedDay = newDays[newDays.length - 1]
+        expect(newLastSelectedDay).toHaveAccessibleName("23rd June (Thursday)")
+        expect(inputRangeEnd).toHaveValue("23 Jun 2022")
+      })
+    })
+
+    it("clears the inputs when clearing the calendar value", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-15"),
+            to: new Date("2022-05-22"),
+          }}
+        />
+      )
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+      // Input Start is focused when filter is opened
+      expect(inputRangeStart).toHaveValue("15/05/2022")
+      expect(inputRangeEnd).toHaveValue("22 May 2022")
+
+      const firstSelectedDay = screen.getByRole("button", {
+        name: "15th May (Sunday)",
+      })
+      await userEvent.click(firstSelectedDay)
+
+      await waitFor(() => {
+        expect(inputRangeStart).toHaveValue("")
+        expect(inputRangeEnd).toHaveValue("")
+      })
+    })
+  })
 })
