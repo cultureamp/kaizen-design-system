@@ -92,8 +92,8 @@ export const TailwindMediaQueries = () => (
     <h2 className="text-size-heading-2 font-weight-heading font-family-heading text-purple-700">
       Min width queries
     </h2>
-    <div className="flex media-min-md:flex-col">
-      <div className="mx-sm bg-orange-400 p-lg inline-flex media-min-md:bg-blue-400"></div>
+    <div className="flex md:flex-col">
+      <div className="mx-sm bg-orange-400 p-lg inline-flex md:bg-blue-400"></div>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
         nostrum accusamus nam ducimus excepturi officiis eos, suscipit
@@ -104,8 +104,8 @@ export const TailwindMediaQueries = () => (
     <h2 className="text-size-heading-2 font-weight-heading font-family-heading text-purple-700">
       Max width queries
     </h2>
-    <div className="flex media-max-md:flex-col ">
-      <div className="mx-sm bg-orange-400 p-lg inline-flex media-max-md:bg-blue-400"></div>
+    <div className="flex md-max:flex-col ">
+      <div className="mx-sm bg-orange-400 p-lg inline-flex md-max:bg-blue-400"></div>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
         nostrum accusamus nam ducimus excepturi officiis eos, suscipit

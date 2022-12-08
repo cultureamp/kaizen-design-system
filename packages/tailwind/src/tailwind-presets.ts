@@ -3,6 +3,8 @@ import { ThemeConfig } from "tailwindcss/types/config"
 
 import { defaultTheme } from "@kaizen/design-tokens"
 
+import { spacingPixel } from "./tailwind-spacing"
+
 export type KaizenTailwindTheme = Partial<ThemeConfig>
 export interface KaizenTailwindPreset {
   theme: KaizenTailwindTheme
@@ -19,7 +21,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
   spacing: {
     ...defaultTheme.spacing,
-    ...twDefaultTheme.spacing,
+    ...spacingPixel,
   },
   boxShadow: {
     none: "none",
@@ -103,30 +105,58 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "height-data-units-sm": `${defaultTheme.typography.dataSmallUnits.lineHeight}`,
   },
   letterSpacing: {
-    "spacing-normal": "normal",
+    "letter-spacing-normal": "normal",
   },
   // A mix of layout styles
   maxWidth: {
-    ...twDefaultTheme.maxWidth,
-    content: defaultTheme.layout.contentMaxWidth,
-    "content-with-side": defaultTheme.layout.contentMaxWidthWithSidebar,
+    "w-0": "0",
+    "w-25": "25%",
+    "w-50": "25%",
+    "w-75": "75%",
+    "w-100": "100%",
+    "w-auto": "auto",
+    "w-min": "min-content",
+    "w-max": "max-content",
+    "w-fit": "fit-content",
   },
   width: {
-    ...twDefaultTheme.width,
-    "content-side-margin": defaultTheme.layout.contentSideMargin,
+    "w-0": "0",
+    "w-25": "25%",
+    "w-50": "25%",
+    "w-75": "75%",
+    "w-100": "100%",
+    "w-auto": "auto",
+    "w-min": "min-content",
+    "w-max": "max-content",
+    "w-fit": "fit-content",
+  },
+  maxHeight: {
+    "h-0": "0",
+    "h-25": "25%",
+    "h-50": "25%",
+    "h-75": "75%",
+    "h-100": "100%",
+    "h-auto": "auto",
+    "h-min": "min-content",
+    "h-max": "max-content",
+    "h-fit": "fit-content",
   },
   height: {
-    ...twDefaultTheme.height,
-    "mobile-actions-drawer-height":
-      defaultTheme.layout.mobileActionsDrawerHeight,
-    "navigation-bar-height": defaultTheme.layout.navigationBarHeight,
+    "h-0": "0",
+    "h-25": "25%",
+    "h-50": "25%",
+    "h-75": "75%",
+    "h-100": "100%",
+    "h-auto": "auto",
+    "h-min": "min-content",
+    "h-max": "max-content",
+    "h-fit": "fit-content",
   },
-  // we will probably want to review viewport sizing
   screens: {
-    "media-min-md": defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
-    "media-min-lg": defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
-    "media-max-md": { max: defaultTheme.layout.breakpoints.medium }, // => @media (max-width: 768px) { ... }
-    "media-max-lg": { max: defaultTheme.layout.breakpoints.large }, // => @media (min-width: 1080px) { ... }
+    md: defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
+    lg: defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
+    "md-max": { max: defaultTheme.layout.breakpoints.medium }, // => @media (max-width: 768px) { ... }
+    "lg-max": { max: defaultTheme.layout.breakpoints.large }, // => @media (min-width: 1080px) { ... }
   },
 }
 
