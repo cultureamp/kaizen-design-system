@@ -1,5 +1,6 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
@@ -84,15 +85,17 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = React.FunctionComponent<{
+type TableHeaderRowCellProps = OverrideClassName<
+  HTMLAttributes<HTMLElement>
+> & {
   labelText: string
   automationId?: string
   onClick?:
     | ((e: React.MouseEvent<HTMLButtonElement>) => any)
     | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
-  href?: string
   width?: number
   flex?: string
+  href?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   checkable?: boolean
   checkedStatus?: CheckedStatus
@@ -113,8 +116,9 @@ type TableHeaderRowCell = React.FunctionComponent<{
   align?: "start" | "center" | "end"
   tooltipInfo?: string
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
-}>
-export const TableHeaderRowCell: TableHeaderRowCell = ({
+}
+
+export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
   labelText,
   automationId,
   onClick,
@@ -140,6 +144,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   // if set, this will show the arrow in the direction provided
   // when the header cell is hovered over.
   sortingArrowsOnHover,
+  classNameOverride,
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
@@ -218,6 +223,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
+        classNameOverride,
       })}
       href={href}
       onClick={
@@ -235,6 +241,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
+        classNameOverride,
       })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={() => updateHoverState(true)}
@@ -248,7 +255,11 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div className={styles.headerRowCellNoButton}>{cellContents}</div>
+    <div
+      className={classNames(styles.headerRowCellNoButton, classNameOverride)}
+    >
+      {cellContents}
+    </div>
   )
 
   cellContents =
@@ -377,17 +388,19 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCellProps = {
+type TableRowCellProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+  children?: React.ReactNode
   width?: number
   flex?: string
   href?: string
-  children?: React.ReactNode
 }
+
 export const TableRowCell: React.VFC<TableRowCellProps> = ({
   children,
   width,
   flex,
   href,
+  classNameOverride,
   ...otherProps
 }) =>
   href != null ? (
@@ -398,7 +411,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       href={href}
       {...otherProps}
     >
@@ -411,7 +424,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       {...otherProps}
     >
       {children}
