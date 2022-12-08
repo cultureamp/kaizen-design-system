@@ -174,6 +174,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
           >
             <DateRangeInputField
               id={`${id}--input`}
+              legend={label}
               inputRangeStartProps={{
                 labelText: "Date from",
                 value: inputRangeStartValue,

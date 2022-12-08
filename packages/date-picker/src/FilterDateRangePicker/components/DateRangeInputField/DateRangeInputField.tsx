@@ -13,6 +13,7 @@ import styles from "./DateRangeInputField.module.scss"
 
 export interface DateRangeInputFieldProps extends FieldGroupProps {
   id: string
+  legend: string
 
   inputRangeStartProps: Omit<DateInputProps, "id">
   inputRangeEndProps: Omit<DateInputProps, "id">
@@ -46,6 +47,7 @@ export const DateRangeInputField = React.forwardRef<
   (
     {
       id,
+      legend,
       inputRangeStartProps,
       inputRangeEndProps,
       description,
@@ -63,16 +65,22 @@ export const DateRangeInputField = React.forwardRef<
     const inputRangeEndRef = customRefObject?.inputRangeEndRef
 
     const descriptionId = `${id}--field-message`
+    const errorMessageId = `${id}--error-message`
 
     const shouldShowValidationMessage = !disabled && validationMessage
 
+    const inputDescribedBy = shouldShowValidationMessage
+      ? `${errorMessageId} ${descriptionId}`
+      : descriptionId
+
     return (
       <FieldGroup {...fieldGroupProps}>
-        <div className={styles.dateRangeInputContainer}>
+        <fieldset className={styles.dateRangeInputContainer}>
+          <legend className={styles.legend}>{legend}</legend>
           <DateInput
             ref={inputRangeStartRef}
             id={`${id}--from`}
-            aria-describedby={descriptionId}
+            aria-describedby={inputDescribedBy}
             autoComplete="off"
             disabled={disabled}
             status={status}
@@ -85,7 +93,7 @@ export const DateRangeInputField = React.forwardRef<
           <DateInput
             ref={inputRangeEndRef}
             id={`${id}--to`}
-            aria-describedby={descriptionId}
+            aria-describedby={inputDescribedBy}
             autoComplete="off"
             disabled={disabled}
             status={status}
@@ -95,10 +103,11 @@ export const DateRangeInputField = React.forwardRef<
               inputRangeEndProps.classNameOverride
             )}
           />
-        </div>
+        </fieldset>
 
         {shouldShowValidationMessage && (
           <FieldMessage
+            id={errorMessageId}
             message={validationMessage}
             status={status}
             reversed={isReversed}

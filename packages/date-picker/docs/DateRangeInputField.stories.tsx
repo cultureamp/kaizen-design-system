@@ -36,7 +36,8 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 DefaultStory.args = {
-  id: "datepicker-default",
+  id: "daterangeinputfield--default",
+  legend: "Legend",
   inputRangeStartProps: { labelText: "Date from" },
   inputRangeEndProps: { labelText: "Date to" },
   locale: enAU,
@@ -59,14 +60,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         />
         <StoryWrapper.Row rowTitle="Default">
           <DateRangeInputField
-            id="datepicker-default"
+            id="daterangeinputfield--default"
+            legend="Default example"
             isReversed={isReversed}
             inputRangeStartProps={inputRangeStartProps}
             inputRangeEndProps={inputRangeEndProps}
             locale={LOCALE}
           />
           <DateRangeInputField
-            id="datepicker-selected"
+            id="daterangeinputfield--selected"
+            legend="Selected example"
             isReversed={isReversed}
             inputRangeStartProps={{
               ...inputRangeStartProps,
@@ -79,7 +82,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             locale={LOCALE}
           />
           <DateRangeInputField
-            id="datepicker-description"
+            id="daterangeinputfield--description"
+            legend="Description example"
             isReversed={isReversed}
             inputRangeStartProps={inputRangeStartProps}
             inputRangeEndProps={inputRangeEndProps}
@@ -103,7 +107,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader headings={["Disabled", "Error"]} />
         <StoryWrapper.Row rowTitle="States">
           <DateRangeInputField
-            id="datepicker-disabled"
+            id="daterangeinputfield--disabled"
+            legend="Disabled example"
             isReversed={isReversed}
             inputRangeStartProps={inputRangeStartProps}
             inputRangeEndProps={inputRangeEndProps}
@@ -111,7 +116,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             disabled
           />
           <DateRangeInputField
-            id="datepicker-error"
+            id="daterangeinputfield--error"
+            legend="Error example"
             isReversed={isReversed}
             inputRangeStartProps={inputRangeStartProps}
             inputRangeEndProps={inputRangeEndProps}
