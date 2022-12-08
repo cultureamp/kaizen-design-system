@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.14...@kaizen/design-tokens@10.1.0) (2022-12-08)
+
+
+### Features
+
+* add tailwind beta release ([#3136](https://github.com/cultureamp/kaizen-design-system/issues/3136)) ([cacff22](https://github.com/cultureamp/kaizen-design-system/commit/cacff220e18ebdc6c2e24f28d5e363ad0ae3bc31)), closes [#3116](https://github.com/cultureamp/kaizen-design-system/issues/3116) [#3121](https://github.com/cultureamp/kaizen-design-system/issues/3121)
+
+
+
+
+
 ## [10.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.13...@kaizen/design-tokens@10.0.14) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/design-tokens

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.0...@kaizen/draft-table@5.4.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* move the padding to headerRowCell so that it takes the required space. ([#3150](https://github.com/cultureamp/kaizen-design-system/issues/3150)) ([5a513d4](https://github.com/cultureamp/kaizen-design-system/commit/5a513d4790e097b7ad6f87cddaf5157cfe1eb4e3))
+
+
+
+
+
 # [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.2...@kaizen/draft-table@5.4.0) (2022-12-07)
 
 
