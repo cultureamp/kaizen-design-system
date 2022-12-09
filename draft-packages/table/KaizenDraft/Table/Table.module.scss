@@ -105,11 +105,11 @@ $row-height-data-variant: 48px;
 }
 
 .headerRowCellIcon {
-  color: $color-purple-500;
+  color: rgba($color-purple-800-rgb, 0.7);
   height: 20px;
 
   .headerRowCellActive & {
-    color: $color-purple-800;
+    color: $color-purple-800-rgb;
   }
 }
 
