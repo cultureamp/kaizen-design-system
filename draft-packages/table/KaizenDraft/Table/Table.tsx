@@ -223,7 +223,6 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
-        classNameOverride,
       })}
       href={href}
       onClick={
@@ -241,7 +240,6 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
-        classNameOverride,
       })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={() => updateHoverState(true)}
@@ -255,9 +253,7 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div
-      className={classNames(styles.headerRowCellNoButton, classNameOverride)}
-    >
+    <div className={classNames(styles.headerRowCellNoButton)}>
       {cellContents}
     </div>
   )
@@ -278,12 +274,16 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
 
   return (
     <div
-      className={classNames(styles.headerRowCell, {
-        [styles.headerRowCellNoWrap]: wrapping === "nowrap",
-        [styles.headerRowCellAlignCenter]: align === "center",
-        [styles.headerRowCellAlignEnd]: align === "end",
-        [styles.headerRowCellActive]: !!sorting,
-      })}
+      className={classNames(
+        styles.headerRowCell,
+        {
+          [styles.headerRowCellNoWrap]: wrapping === "nowrap",
+          [styles.headerRowCellAlignCenter]: align === "center",
+          [styles.headerRowCellAlignEnd]: align === "end",
+          [styles.headerRowCellActive]: !!sorting,
+        },
+        classNameOverride
+      )}
       style={{
         width: ratioToPercent(width),
         flex,
