@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.1...@kaizen/draft-table@5.4.2) (2022-12-09)
+
+
+### Bug Fixes
+
+* move classNameOverride to cell with padding. ([#3158](https://github.com/cultureamp/kaizen-design-system/issues/3158)) ([aea35a2](https://github.com/cultureamp/kaizen-design-system/commit/aea35a2c4f7d7e78484d9fcbd1bcb96ce321ac07))
+
+
+
+
+
 ## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.0...@kaizen/draft-table@5.4.1) (2022-12-08)
 
 
