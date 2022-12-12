@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.2...@kaizen/draft-table@5.5.0) (2022-12-12)
+
+
+### Features
+
+* add IconVariant storybook example. ([#3160](https://github.com/cultureamp/kaizen-design-system/issues/3160)) ([7a2431d](https://github.com/cultureamp/kaizen-design-system/commit/7a2431daff164a40cb9a11bd660bb3f8b53744d0))
+
+
+
+
+
+## [5.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.1...@kaizen/draft-table@5.4.2) (2022-12-09)
+
+
+### Bug Fixes
+
+* move classNameOverride to cell with padding. ([#3158](https://github.com/cultureamp/kaizen-design-system/issues/3158)) ([aea35a2](https://github.com/cultureamp/kaizen-design-system/commit/aea35a2c4f7d7e78484d9fcbd1bcb96ce321ac07))
+
+
+
+
+
 ## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.0...@kaizen/draft-table@5.4.1) (2022-12-08)
 
 

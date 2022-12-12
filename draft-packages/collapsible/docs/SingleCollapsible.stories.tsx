@@ -1,9 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { Icon } from "@kaizen/component-library"
-import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
+import { IconButton } from "@kaizen/button"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import { Collapsible } from "@kaizen/draft-collapsible"
-import { Paragraph } from "@kaizen/typography"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
@@ -66,12 +67,27 @@ const SingleCollapsibleCustomHeader = () => (
     variant="default"
     renderHeader={title => (
       <>
-        <Icon icon={translationIcon} />
-        <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>
-          <Paragraph tag="span" variant="body">
+        <div style={{ flex: "1 0 auto" }}>
+          <Heading variant="heading-4" tag="span">
             {title}
-          </Paragraph>
+          </Heading>
         </div>
+        <IconButton
+          icon={addIcon}
+          label="Add item"
+          onClick={event => {
+            // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
+            event.stopPropagation()
+          }}
+        />
+        <IconButton
+          icon={kebabIcon}
+          label="More actions"
+          onClick={event => {
+            // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
+            event.stopPropagation()
+          }}
+        />
       </>
     )}
   >
