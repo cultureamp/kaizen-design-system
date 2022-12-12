@@ -26,7 +26,7 @@ export default {
   },
   decorators: [withDesign],
 }
-// Test test test
+// Test test test test
 // Test again
 const StickerSheetTemplate: Story = () => (
   <>
