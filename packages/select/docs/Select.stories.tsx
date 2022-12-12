@@ -1,10 +1,12 @@
 import React from "react"
+import { useSelectState } from "@react-stately/select"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Select } from "../src/Select/Select"
+import { Select, selectChildren } from "../src/Select/Select"
+import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
 import { singleMockItems } from "./MockData"
 
 export default {
@@ -47,6 +49,44 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
+type MockListBoxProps = {
+  optionClassName?: string
+  selectedKey?: React.Key | null
+  isFullWidth?: boolean
+}
+
+const MockListBox: React.VFC<MockListBoxProps> = ({
+  optionClassName,
+  selectedKey,
+  isFullWidth,
+}) => {
+  const state = useSelectState({
+    selectedKey: selectedKey ?? undefined,
+    items: singleMockItems,
+    children: selectChildren,
+  })
+
+  return (
+    <div
+      className={overlayStyles.menuPopup}
+      style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
+    >
+      <Select.ListBox menuProps={{}} state={state}>
+        {Array.from(state.collection).map(item => (
+          <Select.Option
+            key={item.key}
+            item={item}
+            state={state}
+            classNameOverride={
+              item.key === "id-sre" ? `${optionClassName}` : undefined
+            }
+          />
+        ))}
+      </Select.ListBox>
+    </div>
+  )
+}
+
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
@@ -59,7 +99,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-default"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           placeholder="Placeholder"
@@ -67,7 +106,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-selected"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={"id-sre"}
@@ -81,7 +119,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-hovered"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
@@ -96,7 +133,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-focused"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
@@ -113,7 +149,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-full-width"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           placeholder="Placeholder"
@@ -125,7 +160,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <Select
             id="select-custom-width"
             label="label"
-            onSelectionChange={() => undefined}
             items={singleMockItems}
             description="This is a description"
             isFullWidth
@@ -135,94 +169,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
     </StoryWrapper>
 
-    <div style={{ height: "550px", marginTop: "4rem" }}>
+    <div style={{ height: "550px", marginTop: "12rem" }}>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Base", "Selected", "Hover", "Focus"]}
         />
         <StoryWrapper.Row rowTitle="Dropdown">
-          <Select
-            id="select-dropdown-default"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            placeholder="Placeholder"
-            isOpen
-          />
-          <Select
-            id="select-dropdown-selected"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={"id-sre"}
-            isOpen
-          />
-          <Select
-            id="select-dropdown-hovered"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={null}
-            placeholder="Placeholder"
-            isOpen
-            trigger={triggerProps => <Select.TriggerButton {...triggerProps} />}
-          >
-            {({ items, state }) =>
-              items.map(item => (
-                <Select.Option
-                  key={item.key}
-                  item={item}
-                  state={state}
-                  classNameOverride={
-                    item.key === "id-sre" ? "story__option-hover" : undefined
-                  }
-                />
-              ))
-            }
-          </Select>
-          <Select
-            id="select-dropdown-focused"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={null}
-            isOpen
-            placeholder="Placeholder"
-            trigger={triggerProps => <Select.TriggerButton {...triggerProps} />}
-          >
-            {({ items, state }) =>
-              items.map(item => (
-                <Select.Option
-                  key={item.key}
-                  item={item}
-                  state={state}
-                  classNameOverride={
-                    item.key === "id-sre" ? "story__option-focus" : undefined
-                  }
-                />
-              ))
-            }
-          </Select>
+          <MockListBox />
+          <MockListBox selectedKey="id-sre" />
+          <MockListBox optionClassName="story__option-hover" />
+          <MockListBox optionClassName="story__option-focus" />
         </StoryWrapper.Row>
       </StoryWrapper>
     </div>
 
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
-        <Select
-          id="select-dropdown-default"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleMockItems}
-          description="This is a description"
-          placeholder="Placeholder"
-          isFullWidth
-          isOpen
-        />
+        <MockListBox isFullWidth />
       </StoryWrapper.Row>
     </StoryWrapper>
   </>

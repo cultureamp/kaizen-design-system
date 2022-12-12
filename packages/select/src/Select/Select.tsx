@@ -25,6 +25,7 @@ type OptionsProps = SingleState & {
   items: Array<Node<SingleItemType>>
 }
 
+export const selectChildren = item => <Item key={item.value}>{item.label}</Item>
 export interface SelectProps
   extends Omit<AriaSelectProps<SingleItemType>, "children"> {
   isFullWidth?: boolean
@@ -38,7 +39,6 @@ export interface SelectProps
 
 export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-
   const {
     label,
     description,
@@ -51,7 +51,6 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
       items.map(item => <Option key={item.key} item={item} state={state} />),
   } = props
 
-  const selectChildren = item => <Item key={item.value}>{item.label}</Item>
   const state = useSelectState({ ...props, children: selectChildren })
   const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
     { ...props, children: selectChildren },
