@@ -28,6 +28,17 @@ export default {
     ),
   },
   decorators: [withDesign],
+  argTypes: {
+    status: {
+      options: ["error", "caution"],
+      control: {
+        type: "select",
+      },
+    },
+    validationMessage: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof Select>
 
 export const DefaultStory: ComponentStory<typeof Select> = props => (
@@ -44,6 +55,21 @@ DefaultStory.args = {
   isDisabled: false,
   placeholder: "Placeholder",
   defaultOpen: false,
+}
+export const ValidationStory: ComponentStory<typeof Select> = props => (
+  <Select {...props} />
+)
+
+ValidationStory.args = {
+  label: "label",
+  id: "single-select-validation",
+  items: singleMockItems,
+  isFullWidth: false,
+  description: "This is a description",
+  isDisabled: false,
+  placeholder: "Placeholder",
+  status: "error",
+  validationMessage: "This is invalid",
 }
 
 DefaultStory.parameters = {

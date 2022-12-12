@@ -39,6 +39,14 @@ export interface SelectProps
     ref: React.RefObject<HTMLButtonElement>
   ) => React.ReactNode
   children?: (optionsProps: SelectOptionsProps) => React.ReactNode
+  /**
+   * Updates the styling of the validation FieldMessage.
+   */
+  status?: "error" | "caution"
+  /**
+   * A descriptive message for the 'status' states.
+   */
+  validationMessage?: React.ReactNode | undefined
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = ({
@@ -47,6 +55,9 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   description,
   isFullWidth,
   placeholder,
+  isDisabled,
+  status,
+  validationMessage,
   classNameOverride,
   trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
   children,
@@ -68,12 +79,22 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
           <Option key={item.key} item={item} />
         ))
 
-  const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
+  const invalidStatus = status === "error" ? "invalid" : "valid"
+
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    errorMessageProps,
+    descriptionProps,
+  } = useSelect(
     {
       label,
       description,
       placeholder,
       ...restProps,
+      validationState: invalidStatus,
       children: getSelectChildren,
       "aria-describedby": descriptionId,
     },
@@ -89,6 +110,8 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
       buttonRef.current?.focus()
     }
   }, [state.isOpen])
+
+  const shouldShowValidationMessage = !isDisabled && validationMessage
 
   return (
     <SelectContext.Provider
@@ -124,6 +147,17 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
 
         {description && (
           <FieldMessage id={descriptionId} message={description} />
+        )}
+        {shouldShowValidationMessage && (
+          <FieldMessage
+            message={validationMessage}
+            status={status}
+            {...errorMessageProps}
+          />
+        )}
+
+        {description && (
+          <FieldMessage {...descriptionProps} message={description} />
         )}
       </div>
     </SelectContext.Provider>
