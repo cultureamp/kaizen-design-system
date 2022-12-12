@@ -129,7 +129,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-hover"
             />
           )}
-        ></Select>
+        />
         <Select
           id="select-focused"
           label="label"
@@ -143,7 +143,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-focus"
             />
           )}
-        ></Select>
+        />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
         <Select
