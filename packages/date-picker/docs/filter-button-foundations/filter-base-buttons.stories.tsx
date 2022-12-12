@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -28,48 +28,43 @@ export default {
 }
 
 const StickerSheetTemplate: Story = () => (
-  // For Chromatic
-  <div style={{ paddingBottom: "2rem" }}>
-    <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Base", "Hover", "Active", "Focus"]} />
-      <StoryWrapper.Row rowTitle="Filter Base Button">
-        <div>
+  <>
+    <StickerSheet heading="Filter Base Button">
+      <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
           <FilterBaseButton>Label</FilterBaseButton>
-        </div>
-        <div>
           <FilterBaseButton classNameOverride="story__filter-button--hover">
             Label
           </FilterBaseButton>
-        </div>
-        <div>
           <FilterBaseButton classNameOverride="story__filter-button--active">
             Label
           </FilterBaseButton>
-        </div>
-        <div>
           <FilterBaseButton classNameOverride="story__filter-button--focus">
             Label
           </FilterBaseButton>
-        </div>
-      </StoryWrapper.Row>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.Row rowTitle="Filter Base Tooltip Button">
-        <div>
+    <StickerSheet heading="Filter Base Tooltip Button" style={{ paddingBottom: "3rem" }}>
+      <StickerSheet.Body>
+        <StickerSheet.Row>
           <FilterBaseTooltipButton
             tooltipText="Tooltip"
             isTooltipInitiallyVisible
           >
             Label
           </FilterBaseTooltipButton>
-        </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
-  </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  </>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
+  chromatic: { disable: false, disableSnapshot: false },
   controls: { disable: true },
 }
