@@ -25,7 +25,7 @@ export default {
      * To cater for false positives when the tooltip renders
      * with a different alignment (controlled by react-popper).
      */
-    chromatic: { diffThreshold: 1 },
+    // chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
@@ -273,7 +273,9 @@ export const StickerSheet = props => (
     </div>
   </div>
 )
-StickerSheet.parameters = { chromatic: { disable: false } }
+StickerSheet.parameters = {
+  chromatic: { disable: false, disableSnapshot: false },
+}
 
 export const OverflowScroll = props => (
   <>
