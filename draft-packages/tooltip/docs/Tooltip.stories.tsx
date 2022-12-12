@@ -274,7 +274,7 @@ export const StickerSheet = props => (
   </div>
 )
 StickerSheet.parameters = {
-  chromatic: { disable: false, disableSnapshot: false, delay: 800 },
+  chromatic: { disable: false, disableSnapshot: false, delay: 1200 },
 }
 
 export const OverflowScroll = props => (
