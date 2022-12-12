@@ -66,6 +66,6 @@ const StickerSheetTemplate: Story = () => (
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false, disableSnapshot: false, delay: 300 },
+  chromatic: { disable: false, disableSnapshot: false, delay: 700 },
   controls: { disable: true },
 }
