@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { singleItems } from "../../../../docs/MockData"
+import { singleMockItems } from "../../../../docs/MockData"
 import { FloatingSelectWrapper } from "../../components/FloatingSelectWrapper"
 import { SingleTriggerButton } from "../../components/Trigger/SingleTriggerButton"
 import {
@@ -12,7 +12,7 @@ import {
 const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
 ) => (
-  <MenuTriggerProvider {...props} items={singleItems}>
+  <MenuTriggerProvider {...props} items={singleMockItems}>
     <SingleTriggerButton
       placeholder="Placeholder"
       selectedOptionLabel={"trigger-display-label-mock"}
@@ -35,7 +35,7 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
 
   it("shows the trigger with placeholder when no option is selected", () => {
     render(
-      <MenuTriggerProvider items={singleItems}>
+      <MenuTriggerProvider items={singleMockItems}>
         <SingleTriggerButton
           placeholder="Placeholder"
           selectedOptionLabel={null}

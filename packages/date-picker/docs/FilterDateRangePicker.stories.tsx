@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -37,6 +38,18 @@ export default {
     description: {
       control: "text",
     },
+    onRemoveFilter: {
+      options: [undefined, "Actions"],
+      control: {
+        type: "radio",
+        labels: {
+          Actions: "Remove filter Actions",
+        },
+      },
+      mapping: {
+        Actions: action("onRemoveFilter"),
+      },
+    },
   },
 }
 
@@ -47,6 +60,11 @@ export const DefaultStory: ComponentStory<
 
   return (
     <FilterDateRangePicker
+      // Switching the trigger using the controls doesn't cause
+      // a full re-render which disassociates the floating wrapper
+      // as it uses ref.
+      // Add key to force re-render when onRemoveFiler is changed.
+      key={props.onRemoveFilter ? "defined" : "undefined"}
       {...props}
       selectedRange={range}
       onRangeChange={setRange}
@@ -59,39 +77,74 @@ DefaultStory.parameters = {
 }
 DefaultStory.args = {
   id: "filter-drp--default",
+  onRemoveFilter: undefined,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const [rangeDefault, setRangeDefault] = useState<DateRange | undefined>()
-  const [rangeExisting, setRangeExisting] = useState<DateRange | undefined>({
+  const [rangeDefaultBase, setRangeDefaultBase] = useState<
+    DateRange | undefined
+  >()
+  const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+    DateRange | undefined
+  >({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
+  const [rangeRemovableBase, setRangeRemovableBase] = useState<
+    DateRange | undefined
+  >()
+  const [rangeRemovableExisting, setRangeRemovableExisting] = useState<
+    DateRange | undefined
+  >({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
 
   return (
     <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base", "With existing value"]} />
       <StoryWrapper.Row rowTitle="Default">
         <div>
           <FilterDateRangePicker
-            id="stickersheet--filter-drp--default"
+            id="stickersheet--filter-drp--default--base"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeDefault}
-            onRangeChange={setRangeDefault}
+            selectedRange={rangeDefaultBase}
+            onRangeChange={setRangeDefaultBase}
+          />
+        </div>
+        <div>
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default--existing"
+            label="Dates"
+            locale="en-AU"
+            selectedRange={rangeDefaultExisting}
+            onRangeChange={setRangeDefaultExisting}
           />
         </div>
       </StoryWrapper.Row>
 
-      <StoryWrapper.Row rowTitle="Existing value">
+      <StoryWrapper.Row rowTitle="Removable">
         <div>
           <FilterDateRangePicker
-            id="stickersheet--filter-drp--existing"
+            id="stickersheet--filter-drp--removable--base"
             label="Dates"
             locale="en-AU"
-            selectedRange={rangeExisting}
-            onRangeChange={setRangeExisting}
+            selectedRange={rangeRemovableBase}
+            onRangeChange={setRangeRemovableBase}
+            onRemoveFilter={() => undefined}
+          />
+        </div>
+        <div>
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--removable--existing"
+            label="Dates"
+            locale="en-AU"
+            selectedRange={rangeRemovableExisting}
+            onRangeChange={setRangeRemovableExisting}
+            onRemoveFilter={() => undefined}
           />
         </div>
       </StoryWrapper.Row>

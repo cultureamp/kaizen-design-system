@@ -61,4 +61,22 @@ describe("<FilterDateRangePicker />", () => {
       })
     })
   })
+
+  describe("Remove filter button", () => {
+    it("should not show the remove button when remove filter callback is not provided", () => {
+      render(<FilterDateRangePickerWrapper />)
+      const removeButton = screen.queryByRole("button", {
+        name: "Remove filter - Dates",
+      })
+      expect(removeButton).not.toBeInTheDocument()
+    })
+
+    it("should show the remove button when remove filter callback is provided", () => {
+      render(<FilterDateRangePickerWrapper onRemoveFilter={() => undefined} />)
+      const removeButton = screen.getByRole("button", {
+        name: "Remove filter - Dates",
+      })
+      expect(removeButton).toBeVisible()
+    })
+  })
 })
