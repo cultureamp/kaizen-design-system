@@ -85,12 +85,12 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     try {
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
-          doc: value
-            ? ProseMirrorModel.Node.fromJSON(schema, {
-                type: "doc",
-                content: value,
-              })
-            : undefined,
+          doc: ProseMirrorModel.Node.fromJSON(schema, {
+            type: "doc",
+            // we're converting empty arrays to the ProseMirror default "empty" state because when
+            // given an empty array ProseMirror returns undefined, breaking the type
+            content: value?.length > 0 ? value : [{ type: "paragraph" }],
+          }),
           schema,
           plugins: getPlugins(controls, schema),
         }),

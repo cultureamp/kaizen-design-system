@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import userEvent from "@testing-library/user-event"
 import { EditorContentArray } from "../types"
 import { RichTextEditor } from "./"
 
@@ -77,7 +76,7 @@ describe("RTE receives list controls", () => {
       })
 
       await waitFor(() => {
-        userEvent.click(screen.getByRole("button", { name: "Bullet List" }))
+        fireEvent.click(screen.getByRole("button", { name: "Bullet List" }))
         screen.getByRole("list")
 
         expect(document.querySelectorAll("ul").length).toBeGreaterThan(0)
@@ -92,7 +91,7 @@ describe("RTE receives list controls", () => {
       })
 
       await waitFor(() => {
-        userEvent.click(screen.getByRole("button", { name: "Numbered List" }))
+        fireEvent.click(screen.getByRole("button", { name: "Numbered List" }))
 
         expect(document.querySelectorAll("ol").length).toBeGreaterThan(0)
       })
