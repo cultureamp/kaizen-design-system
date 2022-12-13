@@ -13,6 +13,7 @@ export const StickerSheetRow: React.VFC<StickerSheetRowProps> = ({
   children,
   rowTitle,
   isReversed = false,
+  dir,
   ...restProps
 }) => (
   <tr {...restProps}>
@@ -22,7 +23,9 @@ export const StickerSheetRow: React.VFC<StickerSheetRowProps> = ({
       </StickerSheetTableHeading>
     )}
     {React.Children.map(children, child => (
-      <td className={styles.stickerSheetCell}>{child}</td>
+      <td dir={dir} className={styles.stickerSheetCell}>
+        {child}
+      </td>
     ))}
   </tr>
 )
