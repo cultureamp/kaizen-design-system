@@ -327,11 +327,23 @@ describe("<Select>", () => {
       it("fires onSelectionChange when hits enter on a option", async () => {
         const spy = jest.fn()
         render(<SelectWrapper onSelectionChange={spy} defaultOpen />)
-
+        const trigger = screen.getByRole("button", {
+          name: "Mock Label Select",
+        })
         await userEvent.tab()
+        await waitFor(() => {
+          expect(
+            screen.getByRole("option", {
+              name: "Front-End",
+              selected: false,
+            })
+          ).toBeVisible()
+        })
         await userEvent.keyboard("{Enter}")
+
         await waitFor(() => {
           expect(spy).toHaveBeenCalledTimes(1)
+          expect(trigger).toHaveAccessibleName("Mock Label Front-End")
         })
       })
     })
