@@ -40,25 +40,42 @@ export interface SelectProps
   children?: (optionsProps: SelectOptionsProps) => React.ReactNode
 }
 
-export const Select: React.FC<SelectProps> & SubComponentProps = props => {
-  const descriptionId = `${props.id}-field-message`
+export const Select: React.FC<SelectProps> & SubComponentProps = ({
+  id,
+  label,
+  description,
+  isFullWidth,
+  placeholder,
+  classNameOverride,
+  trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
+  children,
+  ...restProps
+}) => {
+  const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const {
+  const state = useSelectState({
     label,
     description,
-    isFullWidth,
     placeholder,
-    classNameOverride,
-    trigger = triggerProps => (
-      <TriggerButton {...triggerProps} ref={buttonRef} />
-    ),
-    children = ({ items }) =>
-      items.map(item => <Option key={item.key} item={item} state={state} />),
-  } = props
+    ...restProps,
+    children: selectChildren,
+  })
+  const renderChildren = children
+    ? children
+    : ({ items }) =>
+        items.map((item: Node<SingleItemType>) => (
+          <Option key={item.key} item={item} state={state} />
+        ))
 
-  const state = useSelectState({ ...props, children: selectChildren })
   const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
-    { ...props, children: selectChildren, "aria-describedby": descriptionId },
+    {
+      label,
+      description,
+      placeholder,
+      ...restProps,
+      children: selectChildren,
+      "aria-describedby": descriptionId,
+    },
     state,
     buttonRef
   )
@@ -82,7 +99,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
       <Label {...labelProps}>{label}</Label>
       <HiddenSelect
         label={label}
-        name={props.id}
+        name={id}
         state={state}
         triggerRef={buttonRef}
       />
@@ -93,7 +110,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
         {state.isOpen && (
           <Overlay state={state}>
             <ListBox menuProps={menuProps} state={state}>
-              {children({ items, state })}
+              {renderChildren({ items, state })}
             </ListBox>
           </Overlay>
         )}
