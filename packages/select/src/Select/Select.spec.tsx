@@ -64,13 +64,10 @@ describe("<Select>", () => {
     })
     describe("when controlled", () => {
       it("shows the menu based on the isOpen prop", () => {
-        const { rerender } = render(<SelectWrapper isOpen />)
+        render(<SelectWrapper isOpen />)
         const menu = screen.queryByRole("listbox")
 
         expect(menu).toBeVisible()
-
-        rerender(<SelectWrapper isOpen={false} />)
-        expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
       })
 
       it("fires the onOpenChange callback when the trigger is interacted", async () => {
