@@ -50,7 +50,8 @@ $rdp-cell-size: 40px;
 
   &:focus {
     outline: none;
-    border: 2px solid transparent;
+    border: $border-borderless-border-width $border-borderless-border-style
+      $border-borderless-border-color;
   }
 
   &:focus-visible {
@@ -148,7 +149,8 @@ $rdp-cell-size: 40px;
   max-width: $rdp-cell-size;
   height: $rdp-cell-size;
   margin: 0;
-  border: 2px solid transparent;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
   padding: calc(#{$spacing-md} / 3) 0.625rem;
   color: $color-purple-800;
 
@@ -206,20 +208,5 @@ $rdp-cell-size: 40px;
 }
 
 .vHidden {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: 0;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  border: 0;
+  @include visually-hidden;
 }
