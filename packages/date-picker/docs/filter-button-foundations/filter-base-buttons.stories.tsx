@@ -26,8 +26,7 @@ export default {
   },
   decorators: [withDesign],
 }
-// Test test test test test test test test test test
-// Test again
+// Test
 const StickerSheetTemplate: Story = () => (
   <>
     <StickerSheet heading="Filter Base Button">
@@ -66,6 +65,6 @@ const StickerSheetTemplate: Story = () => (
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false, disableSnapshot: false, delay: 1500 },
+  chromatic: { disable: false, disableSnapshot: false, delay: 2500 },
   controls: { disable: true },
 }
