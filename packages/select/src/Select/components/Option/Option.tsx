@@ -22,7 +22,12 @@ export const Option: React.VFC<OptionProps> = ({
 }) => {
   const ref = React.useRef<HTMLLIElement>(null)
   const { state } = useSelectContext()
-  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
+  const { optionProps, isSelected, isDisabled } = useOption(
+    { key: item.key },
+    state,
+    ref
+  )
+
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
@@ -33,6 +38,7 @@ export const Option: React.VFC<OptionProps> = ({
         styles.option,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
+        isDisabled && styles.isDisabled,
         classNameOverride,
       ])}
       aria-label={item.textValue}
