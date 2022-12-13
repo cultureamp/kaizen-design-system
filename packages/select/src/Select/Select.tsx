@@ -7,6 +7,7 @@ import {
 } from "@react-stately/select"
 import { Node, CollectionChildren } from "@react-types/shared"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType, SingleState } from "../types"
 import { ListBox } from "./components/ListBox"
@@ -29,7 +30,7 @@ export const selectChildren: CollectionChildren<SingleItemType> = item => (
   <Item key={item.value}>{item.label}</Item>
 )
 export interface SelectProps
-  extends Omit<AriaSelectProps<SingleItemType>, "children"> {
+  extends OverrideClassName<Omit<AriaSelectProps<SingleItemType>, "children">> {
   isFullWidth?: boolean
   id: string
   trigger?: (
@@ -40,12 +41,14 @@ export interface SelectProps
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = props => {
+  const descriptionId = `${props.id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const {
     label,
     description,
     isFullWidth,
     placeholder,
+    classNameOverride,
     trigger = triggerProps => (
       <TriggerButton {...triggerProps} ref={buttonRef} />
     ),
@@ -55,7 +58,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
 
   const state = useSelectState({ ...props, children: selectChildren })
   const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
-    { ...props, children: selectChildren },
+    { ...props, children: selectChildren, "aria-describedby": descriptionId },
     state,
     buttonRef
   )
@@ -70,7 +73,12 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   }, [state.isOpen])
 
   return (
-    <div className={classnames(!isFullWidth && selectStyles.notFullWidth)}>
+    <div
+      className={classnames(
+        !isFullWidth && selectStyles.notFullWidth,
+        classNameOverride
+      )}
+    >
       <Label {...labelProps}>{label}</Label>
       <HiddenSelect
         label={label}
@@ -91,9 +99,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
         )}
       </div>
 
-      {description && (
-        <FieldMessage id={`${description}`} message={description} />
-      )}
+      {description && <FieldMessage id={descriptionId} message={description} />}
     </div>
   )
 }
