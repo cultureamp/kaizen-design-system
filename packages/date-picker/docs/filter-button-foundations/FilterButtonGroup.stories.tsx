@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -33,157 +33,73 @@ export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
 DefaultStory.storyName = "Filter Button Group"
 
 const StickerSheetTemplate: Story = () => (
-  // For Chromatic
-  <div style={{ paddingBottom: "1rem" }}>
-    <StoryWrapper>
-      <StoryWrapper.RowHeader
-        headings={["Group of 2", "Group of 3", "With tooltip"]}
+  <>
+    <StickerSheet heading="Filter Button Group">
+      <StickerSheet.Header headings={["Group of 2", "Group of 3"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton>Middle</FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet heading="Pseudo states">
+      <StickerSheet.Header
+        headings={["Hover", "Active", "Focus"]}
+        hasVerticalHeadings
       />
-      <StoryWrapper.Row rowTitle="Default">
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton>Middle</FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseTooltipButton
-            tooltipText="Tooltip"
-            isTooltipInitiallyVisible
-          >
-            Last
-          </FilterBaseTooltipButton>
-        </FilterButtonGroup>
-      </StoryWrapper.Row>
-    </StoryWrapper>
-
-    <StoryWrapper>
-      <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
-      <StoryWrapper.Row rowTitle="First">
-        <FilterButtonGroup>
-          <FilterBaseButton classNameOverride="story__filter-button--hover">
-            First
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton classNameOverride="story__filter-button--active">
-            First
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton classNameOverride="story__filter-button--focus">
-            First
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Last">
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--hover">
-            Last
-          </FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--active">
-            Last
-          </FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--focus">
-            Last
-          </FilterBaseButton>
-        </FilterButtonGroup>
-      </StoryWrapper.Row>
-
-      <StoryWrapper.Row rowTitle="Middle">
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--hover">
-            Middle
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--active">
-            Middle
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-        <FilterButtonGroup>
-          <FilterBaseButton>First</FilterBaseButton>
-          <FilterBaseButton classNameOverride="story__filter-button--focus">
-            Middle
-          </FilterBaseButton>
-          <FilterBaseButton>Last</FilterBaseButton>
-        </FilterButtonGroup>
-      </StoryWrapper.Row>
-
-      <StoryWrapper.Row rowTitle="(RTL) First">
-        <div dir="rtl">
-          <FilterButtonGroup>
-            <FilterBaseButton classNameOverride="story__filter-button--focus">
-              First
-            </FilterBaseButton>
-            <FilterBaseButton>Last</FilterBaseButton>
-          </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
-          <FilterButtonGroup>
-            <FilterBaseButton classNameOverride="story__filter-button--active">
-              First
-            </FilterBaseButton>
-            <FilterBaseButton>Last</FilterBaseButton>
-          </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="First">
           <FilterButtonGroup>
             <FilterBaseButton classNameOverride="story__filter-button--hover">
               First
             </FilterBaseButton>
             <FilterBaseButton>Last</FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-      </StoryWrapper.Row>
-
-      <StoryWrapper.Row rowTitle="(RTL) Last">
-        <div dir="rtl">
           <FilterButtonGroup>
-            <FilterBaseButton>First</FilterBaseButton>
-            <FilterBaseButton classNameOverride="story__filter-button--focus">
-              Last
-            </FilterBaseButton>
-          </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
-          <FilterButtonGroup>
-            <FilterBaseButton>First</FilterBaseButton>
             <FilterBaseButton classNameOverride="story__filter-button--active">
-              Last
+              First
             </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
+          <FilterButtonGroup>
+            <FilterBaseButton classNameOverride="story__filter-button--focus">
+              First
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Last">
           <FilterButtonGroup>
             <FilterBaseButton>First</FilterBaseButton>
             <FilterBaseButton classNameOverride="story__filter-button--hover">
               Last
             </FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-      </StoryWrapper.Row>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--active">
+              Last
+            </FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--focus">
+              Last
+            </FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
 
-      <StoryWrapper.Row rowTitle="(RTL) Middle">
-        <div dir="rtl">
+        <StickerSheet.Row rowTitle="Middle">
           <FilterButtonGroup>
             <FilterBaseButton>First</FilterBaseButton>
             <FilterBaseButton classNameOverride="story__filter-button--hover">
@@ -191,8 +107,6 @@ const StickerSheetTemplate: Story = () => (
             </FilterBaseButton>
             <FilterBaseButton>Last</FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
           <FilterButtonGroup>
             <FilterBaseButton>First</FilterBaseButton>
             <FilterBaseButton classNameOverride="story__filter-button--active">
@@ -200,8 +114,6 @@ const StickerSheetTemplate: Story = () => (
             </FilterBaseButton>
             <FilterBaseButton>Last</FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-        <div dir="rtl">
           <FilterButtonGroup>
             <FilterBaseButton>First</FilterBaseButton>
             <FilterBaseButton classNameOverride="story__filter-button--focus">
@@ -209,10 +121,84 @@ const StickerSheetTemplate: Story = () => (
             </FilterBaseButton>
             <FilterBaseButton>Last</FilterBaseButton>
           </FilterButtonGroup>
-        </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
-  </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet heading="RTL">
+      <StickerSheet.Header
+        headings={["Hover", "Active", "Focus"]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="First" dir="rtl">
+          <FilterButtonGroup>
+            <FilterBaseButton classNameOverride="story__filter-button--hover">
+              First
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton classNameOverride="story__filter-button--active">
+              First
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton classNameOverride="story__filter-button--focus">
+              First
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Last" dir="rtl">
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--hover">
+              Last
+            </FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--active">
+              Last
+            </FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--focus">
+              Last
+            </FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Middle" dir="rtl">
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--hover">
+              Middle
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--active">
+              Middle
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <FilterBaseButton>First</FilterBaseButton>
+            <FilterBaseButton classNameOverride="story__filter-button--focus">
+              Middle
+            </FilterBaseButton>
+            <FilterBaseButton>Last</FilterBaseButton>
+          </FilterButtonGroup>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  </>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
