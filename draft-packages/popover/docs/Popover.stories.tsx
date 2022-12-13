@@ -22,7 +22,7 @@ export default {
      * To cater for false positives when the popover renders
      * with a different alignment (controlled by react-popper).
      */
-    chromatic: { diffThreshold: 1 },
+    // chromatic: { diffThreshold: 1 },
     docs: {
       description: {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
@@ -269,7 +269,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
+  chromatic: { disable: false, disableSnapshot: false, delay: 2100 },
   controls: { disable: true },
 }
 
@@ -279,6 +279,6 @@ StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
+  chromatic: { disable: false, disableSnapshot: false, delay: 2300 },
   controls: { disable: true },
 }
