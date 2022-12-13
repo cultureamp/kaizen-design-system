@@ -1,9 +1,6 @@
-import * as twDefaultTheme from "tailwindcss/defaultTheme"
 import { ThemeConfig } from "tailwindcss/types/config"
-
 import { defaultTheme } from "@kaizen/design-tokens"
-
-import { spacingPixel } from "./tailwind-spacing"
+import { kzSpacing } from "./kz-spacing"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
 export interface KaizenTailwindPreset {
@@ -20,8 +17,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     ...defaultTheme.dataViz,
   },
   spacing: {
-    ...defaultTheme.spacing,
-    ...spacingPixel,
+    ...kzSpacing,
   },
   boxShadow: {
     none: "none",
@@ -29,8 +25,8 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     lg: defaultTheme.shadow.large.boxShadow,
   },
   borderRadius: {
+    DEFAULT: "7px",
     none: "0px",
-    default: "7px",
     "focus-ring": "10px",
     full: "100%",
   },
@@ -72,18 +68,12 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "size-data-units-md": `${defaultTheme.typography.dataMediumUnits.fontSize}`,
     "size-data-units-sm": `${defaultTheme.typography.dataSmallUnits.fontSize}`,
   },
-  // font weights could have specific tokens (current don't)
   fontWeight: {
     "weight-paragraph": "400",
     "weight-paragraph-bold": "600",
     "weight-data": "700",
     "weight-heading": "700",
     "weight-display": "800",
-    "weight-normal": "400",
-    "weight-medium": "500",
-    "weight-semibold": "600",
-    "weight-bold": "700",
-    "weight-extrabold": "800",
   },
   lineHeight: {
     "height-display": `${defaultTheme.typography.display0.lineHeight}`,

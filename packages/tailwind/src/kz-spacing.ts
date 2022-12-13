@@ -1,4 +1,6 @@
-export const spacingPixel = {
+import { defaultTheme } from "@kaizen/design-tokens"
+
+export const kzSpacing = {
   "spacing-2": ".125rem",
   "spacing-4": ".25rem",
   "spacing-8": ".5rem",
@@ -20,4 +22,13 @@ export const spacingPixel = {
   "spacing-240": "15rem",
   "spacing-280": "17.5rem",
   "spacing-320": "20rem",
+  "spacing-xs": defaultTheme.spacing.xs,
+  "spacing-sm": defaultTheme.spacing.sm,
+  "spacing-md": defaultTheme.spacing.md,
+  "spacing-lg": defaultTheme.spacing.lg,
+  "spacing-xl": defaultTheme.spacing.xl,
+  "spacing-xxl": defaultTheme.spacing.xxl,
+  "spacing-xxxl": defaultTheme.spacing.xxxl,
+  "spacing-xxxxl": defaultTheme.spacing.xxxxl,
+  "spacing-xxxxxl": defaultTheme.spacing.xxxxxl,
 }
