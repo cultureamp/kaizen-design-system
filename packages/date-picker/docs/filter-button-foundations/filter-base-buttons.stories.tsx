@@ -26,7 +26,7 @@ export default {
   },
   decorators: [withDesign],
 }
-// Test test test test test
+// Test test test test test test
 const StickerSheetTemplate: Story = () => (
   <>
     <StickerSheet heading="Filter Base Button">
