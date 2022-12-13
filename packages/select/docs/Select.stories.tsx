@@ -42,6 +42,7 @@ DefaultStory.args = {
   description: "This is a description",
   isDisabled: false,
   placeholder: "Placeholder",
+  defaultOpen: false,
 }
 
 DefaultStory.parameters = {

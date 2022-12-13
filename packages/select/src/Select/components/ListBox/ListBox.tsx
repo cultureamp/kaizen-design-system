@@ -13,7 +13,7 @@ export const ListBox: React.VFC<SingleListBoxProps> = ({
   menuProps,
   children,
 }) => {
-  const ref = React.createRef<HTMLUListElement>()
+  const ref = React.useRef<HTMLUListElement>(null)
   const { listBoxProps } = useListBox(
     { ...menuProps, disallowEmptySelection: true, autoFocus: "first" },
     state,

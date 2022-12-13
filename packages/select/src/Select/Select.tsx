@@ -5,7 +5,7 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import { Node } from "@react-types/shared"
+import { Node, CollectionChildren } from "@react-types/shared"
 import classnames from "classnames"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType, SingleState } from "../types"
@@ -21,11 +21,13 @@ type SubComponentProps = {
   ListBox: typeof ListBox
 }
 
-type OptionsProps = SingleState & {
+export type SelectOptionsProps = SingleState & {
   items: Array<Node<SingleItemType>>
 }
 
-export const selectChildren = item => <Item key={item.value}>{item.label}</Item>
+export const selectChildren: CollectionChildren<SingleItemType> = item => (
+  <Item key={item.value}>{item.label}</Item>
+)
 export interface SelectProps
   extends Omit<AriaSelectProps<SingleItemType>, "children"> {
   isFullWidth?: boolean
@@ -34,7 +36,7 @@ export interface SelectProps
     triggerProps: TriggerButtonProps,
     ref: React.RefObject<HTMLButtonElement>
   ) => React.ReactNode
-  children?: (optionsProps: OptionsProps) => React.ReactNode
+  children?: (optionsProps: SelectOptionsProps) => React.ReactNode
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = props => {
@@ -68,7 +70,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = props => {
   }, [state.isOpen])
 
   return (
-    <div className={classnames([!isFullWidth && selectStyles.notFullWidth])}>
+    <div className={classnames(!isFullWidth && selectStyles.notFullWidth)}>
       <Label {...labelProps}>{label}</Label>
       <HiddenSelect
         label={label}

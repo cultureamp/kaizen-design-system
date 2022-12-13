@@ -11,7 +11,6 @@ import { SingleItemType, SingleState } from "../../../types"
 import styles from "./Option.module.scss"
 
 export type OptionProps = OverrideClassName<HTMLAttributes<HTMLLIElement>> &
-  HTMLAttributes<HTMLLIElement> &
   SingleState & {
     item: Node<SingleItemType>
   }
