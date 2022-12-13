@@ -16,13 +16,13 @@ const SelectWrapper = ({
   return (
     <Select
       id="select"
-      label="mockLabel"
+      label="Mock Label"
       items={singleMockItems}
       description="This is a description"
       selectedKey={selected}
       onSelectionChange={selection => {
         setSelected(selection)
-        onSelectionChange && onSelectionChange(selection)
+        onSelectionChange?.(selection)
       }}
       {...props}
     />
@@ -35,7 +35,7 @@ describe("<Select>", () => {
       it("shows the trigger with placeholder when no option is selected", () => {
         render(<SelectWrapper />)
         const trigger = screen.getByRole("button", {
-          name: "mockLabel Select",
+          name: "Mock Label Select",
         })
         expect(trigger).toBeVisible()
       })
@@ -44,7 +44,7 @@ describe("<Select>", () => {
     it("makes sure the menu to be labelled by trigger", () => {
       render(<SelectWrapper selectedKey="id-sre" />)
       const menu = screen.getByRole("button", {
-        name: "mockLabel SRE",
+        name: "Mock Label SRE",
       })
       expect(menu).toHaveTextContent("SRE")
     })
@@ -83,7 +83,7 @@ describe("<Select>", () => {
           />
         )
         const trigger = screen.getByRole("button", {
-          name: "mockLabel SRE",
+          name: "Mock Label SRE",
         })
         userEvent.click(trigger)
         await waitFor(() => {
@@ -98,7 +98,7 @@ describe("<Select>", () => {
         it("is opened when user clicks on the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("button", {
-            name: "mockLabel SRE",
+            name: "Mock Label SRE",
           })
           userEvent.click(trigger)
           await waitFor(() => {
@@ -111,7 +111,7 @@ describe("<Select>", () => {
         it("is closed when user clicks on the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" defaultOpen />)
           const trigger = screen.getByRole("button", {
-            name: "mockLabel SRE",
+            name: "Mock Label SRE",
           })
 
           userEvent.click(trigger)
@@ -128,14 +128,14 @@ describe("<Select>", () => {
           })
         })
 
-        it("remains open when user clicks inside of the menu", async () => {
+        it("is closed when user clicks on an option", async () => {
           render(<SelectWrapper defaultOpen />)
           const buttonInsideMenu = screen.getByRole("option", {
             name: "Others",
           })
           userEvent.click(buttonInsideMenu)
           await waitFor(() => {
-            expect(screen.queryByRole("listbox")).toBeVisible()
+            expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
           })
         })
       })
@@ -146,7 +146,7 @@ describe("<Select>", () => {
         it("allows the user to tab to the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("button", {
-            name: "mockLabel SRE",
+            name: "Mock Label SRE",
           })
           userEvent.tab()
           userEvent.tab()
@@ -157,7 +157,7 @@ describe("<Select>", () => {
         it("opens the menu when hits enter key", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("button", {
-            name: "mockLabel SRE",
+            name: "Mock Label SRE",
           })
           trigger.focus()
           userEvent.keyboard("{Enter}")
@@ -192,7 +192,7 @@ describe("<Select>", () => {
 
   describe("Selection", () => {
     describe("Selection - Visual content", () => {
-      describe("Given no selectedKeys", () => {
+      describe("Given no selectedKey", () => {
         it("shows all the options unselected", () => {
           render(<SelectWrapper defaultOpen />)
           expect(
@@ -217,14 +217,14 @@ describe("<Select>", () => {
 
         it("shows the listbox labelled by the provided label", () => {
           render(<SelectWrapper defaultOpen />)
-          const listBox = screen.getByLabelText("mockLabel", {
+          const listBox = screen.getByLabelText("Mock Label", {
             selector: "ul",
           })
           expect(listBox).toBeInTheDocument()
         })
       })
 
-      describe("Given selectedKeys is [id-sre]", () => {
+      describe("Given selectedKey is [id-sre]", () => {
         it("shows only option is selected", () => {
           render(<SelectWrapper selectedKey="id-sre" defaultOpen />)
           expect(
@@ -291,22 +291,6 @@ describe("<Select>", () => {
         })
       })
 
-      it("moves the focus down when hits arrow down key", async () => {
-        render(<SelectWrapper selectedKey="id-be" defaultOpen />)
-        await userEvent.keyboard("{ArrowDown}")
-        await waitFor(() => {
-          expect(screen.getByRole("option", { name: "SRE" })).toHaveFocus()
-        })
-      })
-
-      it("moves the focus up when hits arrow up key", async () => {
-        render(<SelectWrapper selectedKey="id-sre" defaultOpen />)
-        await userEvent.keyboard("{ArrowUp}")
-        await waitFor(() => {
-          expect(screen.getByRole("option", { name: "Back-End" })).toHaveFocus()
-        })
-      })
-
       it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
         render(<SelectWrapper />)
         await userEvent.tab()
@@ -323,6 +307,14 @@ describe("<Select>", () => {
         render(<SelectWrapper defaultOpen />)
 
         await userEvent.tab()
+        await waitFor(() => {
+          expect(
+            screen.getByRole("option", {
+              name: "Front-End",
+              selected: false,
+            })
+          ).toBeVisible()
+        })
         await userEvent.keyboard("{Enter}")
         await userEvent.keyboard("{Enter}")
         await waitFor(() => {
