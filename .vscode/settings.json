@@ -28,5 +28,11 @@ Happy linting! 💖
     "className",
     "ngClass",
     "classNameOverride"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    "classnames\\(([^)]*)\\)",
+    "classNames\\(([^)]*)\\)",
+    "clsx\\(([^)]*)\\)",
+    "csx\\(([^)]*)\\)"
   ]
 }
