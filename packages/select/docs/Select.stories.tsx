@@ -61,7 +61,10 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
   selectedKey,
   isFullWidth,
 }) => {
-  const state = useSelectState({
+  /**
+   * The state will be created within the Select component - this is for storybook demo only.
+  You will not need to pass the state into the ListBox or the Option. */
+  const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
     children: selectChildren,
@@ -72,14 +75,15 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
       className={overlayStyles.menuPopup}
       style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
     >
-      <Select.ListBox menuProps={{}}>
-        {Array.from(state.collection).map(item => (
+      <Select.ListBox menuProps={{}} state={mockState}>
+        {Array.from(mockState.collection).map(item => (
           <Select.Option
             key={item.key}
             item={item}
             classNameOverride={
               item.key === "id-sre" ? `${optionClassName}` : undefined
             }
+            state={mockState}
           />
         ))}
       </Select.ListBox>
