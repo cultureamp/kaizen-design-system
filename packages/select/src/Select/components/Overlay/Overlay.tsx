@@ -2,7 +2,7 @@
 import React from "react"
 import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { useSelectContext } from "../../Select"
+import { useSelectContext } from "../../context/SelectContext"
 import styles from "./Overlay.module.scss"
 
 export type OverlayProps = {

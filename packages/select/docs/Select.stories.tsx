@@ -7,6 +7,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Select, selectChildren } from "../src/Select/Select"
 import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
+import { SelectContext } from "../src/Select/context/SelectContext"
 import { singleMockItems } from "./MockData"
 
 export default {
@@ -71,23 +72,24 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
   })
 
   return (
-    <div
-      className={overlayStyles.menuPopup}
-      style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
-    >
-      <Select.ListBox menuProps={{}} state={mockState}>
-        {Array.from(mockState.collection).map(item => (
-          <Select.Option
-            key={item.key}
-            item={item}
-            classNameOverride={
-              item.key === "id-sre" ? `${optionClassName}` : undefined
-            }
-            state={mockState}
-          />
-        ))}
-      </Select.ListBox>
-    </div>
+    <SelectContext.Provider value={{ state: mockState }}>
+      <div
+        className={overlayStyles.menuPopup}
+        style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
+      >
+        <Select.ListBox menuProps={{}}>
+          {Array.from(mockState.collection).map(item => (
+            <Select.Option
+              key={item.key}
+              item={item}
+              classNameOverride={
+                item.key === "id-sre" ? `${optionClassName}` : undefined
+              }
+            />
+          ))}
+        </Select.ListBox>
+      </div>
+    </SelectContext.Provider>
   )
 }
 

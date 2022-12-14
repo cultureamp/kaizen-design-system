@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useEffect } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import { Item } from "@react-stately/collections"
 import {
@@ -9,11 +9,12 @@ import { Node, CollectionChildren } from "@react-types/shared"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
-import { SingleItemType, SingleState } from "../types"
+import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
 import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
+import { SelectContext } from "./context/SelectContext"
 import selectStyles from "./Select.module.scss"
 
 type SubComponentProps = {
@@ -21,8 +22,6 @@ type SubComponentProps = {
   Option: typeof Option
   ListBox: typeof ListBox
 }
-
-const SelectContext = React.createContext<SingleState>({} as SingleState)
 
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
@@ -130,10 +129,6 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     </SelectContext.Provider>
   )
 }
-
-export const useSelectContext = () => useContext(SelectContext)
-
-export const SelectConsumer = SelectContext.Consumer
 
 Select.TriggerButton = TriggerButton
 Select.ListBox = ListBox
