@@ -82,7 +82,6 @@ $iconAndBadgeHeight: $spacing-md;
   }
 }
 
-.isDisabled,
-:global(.story__option-disabled) {
+.isDisabled {
   opacity: 0.3;
 }
