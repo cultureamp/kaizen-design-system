@@ -6,7 +6,7 @@ yarn add @kaizen/tailwind
 
 ## Caveat before use
 
-This is an early release of the Kaizen Tailwind Preset - the API for may change and evolve as we revieve feedback from our teams. We will endevour to assist where possible if classes or utilites are updated in the future.
+This is an early release of the Kaizen Tailwind Preset - the API may change and evolve as we receive feedback from our teams. We will endevour to assist where possible if classes or utilities are updated in the future.
 
 ## Getting started
 
