@@ -98,13 +98,13 @@ Be careful though! While adding in a _new_ field to `colors` won't overwrite any
 
 ## Suggested Editor Config
 
-The assumption is that you will be using VSCode as your main IDE. Your configuration may differ if you are using alternative like Webstorm, Atom, etc, but there is relatively decent support in their plugin ecosystems
+The assumption is that you will be using VSCode as your main IDE. Your configuration may differ if you are using alternatives like Webstorm, Atom, etc, but there is relatively decent support in their plugin ecosystems
 
-### Tailwindcss VSCode Intellisense plugin
+### Tailwind CSS VSCode IntelliSense plugin
 
-Basic config for the [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for Tailwind intellisense lives in your projects `settings.json`.
+Basic config for the [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for Tailwind IntelliSense lives in your project's `settings.json`.
 
-You can customise which keywords trigger intellisense using basic strings, or even regex expressions.  
+You can customise which keywords trigger IntelliSense using basic strings, or even regex expressions.  
 Here are some examples you may wish to include in your own project:
 ```
 "tailwindCSS.classAttributes": [
