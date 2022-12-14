@@ -1,5 +1,6 @@
 import React from "react"
 import { SelectionMode, Selection } from "@react-types/shared"
+import { ItemType } from "../../../types"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
@@ -11,7 +12,6 @@ import {
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
 import { MenuPopup } from "../MenuPopup/MenuPopup"
 
 export interface RootProps

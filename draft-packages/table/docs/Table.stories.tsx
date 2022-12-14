@@ -4,6 +4,8 @@ import { withDesign } from "storybook-addon-designs"
 import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.icon.svg"
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -198,6 +200,68 @@ export const DataVariant = () => (
   </Container>
 )
 DataVariant.parameters = { chromatic: { disable: false } }
+
+export const IconVariant = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="Comment"
+            icon={commentIcon}
+            width={1 / 3}
+          />
+          <TableHeaderRowCell
+            classNameOverride="px-sm"
+            labelText="This header has a classNameOverride"
+            width={1 / 3}
+          />
+          <TableHeaderRowCell
+            labelText="Report"
+            icon={effectivenessIcon}
+            tooltipInfo="This is tooltipInfo"
+            width={1 / 3}
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">
+              This header of this row has an icon.
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell classNameOverride="px-sm" width={1 / 3}>
+            <Paragraph variant="body">
+              This cell has a classNameOverride.
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">
+              The header of this row has an icon with tooltip.
+            </Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell classNameOverride="px-sm" width={1 / 3}>
+            <Paragraph variant="body">
+              This cell also has a classNameOverride
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+IconVariant.parameters = { chromatic: { disable: false } }
 
 export const LinkVariant = () => (
   <Container>
