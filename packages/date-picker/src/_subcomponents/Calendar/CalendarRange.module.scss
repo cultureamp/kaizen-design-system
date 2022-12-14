@@ -4,7 +4,7 @@
 $cell-border-radius: 3px;
 
 .month {
-  padding: 0 calc(#{$spacing-md} / 2);
+  padding: 0 $spacing-sm;
 
   &:first-child {
     padding-inline-start: 0;
