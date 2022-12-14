@@ -62,9 +62,6 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
   selectedKey,
   isFullWidth,
 }) => {
-  /**
-   * The state will be created within the Select component - this is for storybook demo only.
-  You will not need to pass the state into the ListBox or the Option. */
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
