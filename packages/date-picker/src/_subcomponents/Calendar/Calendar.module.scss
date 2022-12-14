@@ -7,29 +7,53 @@
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
 
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+$selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
+
 %focus-ring {
-  $focus-ring-offset: calc(
-    -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
-  );
-  content: "";
-  position: absolute;
-  top: $focus-ring-offset;
-  bottom: $focus-ring-offset;
-  left: $focus-ring-offset;
-  right: $focus-ring-offset;
-  border-radius: $button-border-radius;
+  position: relative;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
+      );
+      content: "";
+      position: absolute;
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-radius: $button-border-radius;
+    }
+  }
 }
 
 %focus-ring--enabled {
   @extend %focus-ring;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style
-    $color-blue-500;
+
+  #{$selectors--button-focus} {
+    &::after {
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
+  }
 }
 
 %focus-ring--disabled {
   @extend %focus-ring;
-  border: $border-focus-ring-border-width $border-dashed-border-style
-    $color-gray-300;
+
+  #{$selectors--button-focus} {
+    &::after {
+      border: $border-focus-ring-border-width $border-dashed-border-style
+        $color-gray-300;
+    }
+  }
 }
 
 .root {
@@ -46,17 +70,6 @@ $rdp-cell-size: 40px;
 
 .button {
   cursor: pointer;
-  border-radius: $button-border-radius;
-
-  &:focus {
-    outline: none;
-    border: $border-borderless-border-width $border-borderless-border-style
-      $border-borderless-border-color;
-  }
-
-  &:focus-visible {
-    outline: none;
-  }
 }
 
 .caption {
@@ -84,10 +97,12 @@ $rdp-cell-size: 40px;
 }
 
 .navButton {
-  position: relative;
+  @extend %focus-ring--enabled;
+
   display: inherit;
   padding: 0.25rem $spacing-xs;
   border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $button-border-radius;
 
   &:hover,
   &:global(.story__datepicker__calendar--hover) {
@@ -95,14 +110,9 @@ $rdp-cell-size: 40px;
     color: $color-blue-500;
   }
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     background-color: $color-blue-100;
     color: $color-blue-500;
-
-    &::after {
-      @extend %focus-ring--enabled;
-    }
   }
 }
 
@@ -140,7 +150,8 @@ $rdp-cell-size: 40px;
 }
 
 .day {
-  position: relative;
+  @extend %focus-ring--enabled;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,6 +162,7 @@ $rdp-cell-size: 40px;
   margin: 0;
   border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
+  border-radius: $button-border-radius;
   padding: calc(#{$spacing-md} / 3) 0.625rem;
   color: $color-purple-800;
 
@@ -160,14 +172,9 @@ $rdp-cell-size: 40px;
     color: $color-blue-500;
   }
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     background-color: $color-blue-100;
     color: $color-blue-500;
-
-    &::after {
-      @extend %focus-ring--enabled;
-    }
   }
 }
 
@@ -183,27 +190,24 @@ $rdp-cell-size: 40px;
 
   &:hover,
   &:global(.story__datepicker__calendar--hover),
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     background-color: $color-blue-400;
     color: $color-white;
   }
 }
 
 .dayDisabled {
+  @extend %focus-ring--disabled;
+
   background: none;
   pointer-events: none;
   color: rgba($color-purple-800-rgb, 0.3);
   opacity: 1;
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     color: rgba($color-purple-800-rgb, 0.3);
     background-color: transparent;
     opacity: 1;
-
-    &::after {
-      @extend %focus-ring--disabled;
-    }
   }
 }
 
