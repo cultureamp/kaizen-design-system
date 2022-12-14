@@ -10,8 +10,8 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Badge } from "@kaizen/draft-badge"
+import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {

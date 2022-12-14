@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react"
-import { Node } from "@react-types/shared"
-import classNames from "classnames"
-import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
+import React from "react"
+import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
+import { SingleItemType } from "../../../types"
+import { useSelectContext } from "../../context/SelectContext"
 import styles from "./ListBox.module.scss"
 
-export interface ListBoxProps {
-  children: (items: Array<Node<ItemType>>) => React.ReactNode
+export type SingleListBoxProps = {
+  menuProps: AriaListBoxOptions<SingleItemType>
+  children: React.ReactNode
 }
 
-export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
-  const { listBoxProps, listRef, selectionState } = useSelectionContext()
-
-  const items = Array.from(selectionState.collection)
+export const ListBox: React.VFC<SingleListBoxProps> = ({
+  menuProps,
+  children,
+}) => {
+  const ref = React.useRef<HTMLUListElement>(null)
+  const { state } = useSelectContext()
+  const { listBoxProps } = useListBox(
+    { ...menuProps, disallowEmptySelection: true, autoFocus: "first" },
+    state,
+    ref
+  )
 
   return (
-    <ul
-      {...listBoxProps}
-      ref={listRef}
-      className={classNames([styles.listBox])}
-    >
-      {children(items)}
+    <ul {...listBoxProps} ref={ref} className={styles.listBox}>
+      {children}
     </ul>
   )
 }

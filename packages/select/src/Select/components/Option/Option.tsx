@@ -7,26 +7,27 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../types"
+import { SingleItemType } from "../../../types"
+import { useSelectContext } from "../../context/SelectContext"
 import styles from "./Option.module.scss"
 
 export interface OptionProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  item: Node<ItemType>
+  extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
+  item: Node<SingleItemType>
 }
-
-export const Option: React.VFC<OptionProps> = ({ item, classNameOverride }) => {
-  const { selectionState: state } = useSelectionContext()
-  // Get props for the option element
+export const Option: React.VFC<OptionProps> = ({
+  item,
+  classNameOverride,
+  ...props
+}) => {
   const ref = React.useRef<HTMLLIElement>(null)
-
+  const { state } = useSelectContext()
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
     <li
-      {...mergeProps(optionProps, focusProps)}
+      {...mergeProps(optionProps, focusProps, props)}
       ref={ref}
       className={classNames([
         styles.option,
@@ -34,9 +35,8 @@ export const Option: React.VFC<OptionProps> = ({ item, classNameOverride }) => {
         isFocusVisible && styles.isFocusVisible,
         classNameOverride,
       ])}
-      aria-label={item.value.label}
+      aria-label={item.textValue}
     >
-      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
       <span
         className={classNames([styles.icon, isSelected && styles.isSelected])}

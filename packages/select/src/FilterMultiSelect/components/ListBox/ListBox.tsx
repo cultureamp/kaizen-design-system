@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
+import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
 import styles from "./ListBox.module.scss"
 
 export interface ListBoxProps {
