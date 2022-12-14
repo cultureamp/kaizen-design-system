@@ -154,7 +154,7 @@ The following example sets a `width` of `2px`, as per preset.
 <p className="hover:w-spacing-2">...
 ```
 
-Note that the functionality of core concepts like psuedo-selectors and arbitrary values is unchanged.
+Note that the functionality of core concepts like pseudo-selectors and arbitrary values is unchanged.
 
 For this reason, refer to the [Tailwind core concepts docs](https://tailwindcss.com/docs/utility-first) for getting up to speed on how Tailwind _works_, but refer to our [storybook](https://cultureamp.design/storybook/) as a reference guide for _classnames_ made available through our preset.
 
