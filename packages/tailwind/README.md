@@ -39,7 +39,7 @@ To extend this preset and add project-based configuration, please read this guid
 To learn more on how Tailwind merges its config refer to the docs [here](https://tailwindcss.com/docs/presets#merging-logic-in-depth).
 ### Example
 
-The kaizen `Preset` has following config for `borderRadius`, which will update the classes available to the Tailwind `rounded` utility:
+The Kaizen `Preset` has following config for `borderRadius`, which will update the classes available to the Tailwind `rounded` utility:
 
 ```json
 ...
