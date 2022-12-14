@@ -27,7 +27,7 @@ export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
 }
 
-export const selectChildren: CollectionChildren<SingleItemType> = item => (
+export const getSelectChildren: CollectionChildren<SingleItemType> = item => (
   <Item key={item.value}>{item.label}</Item>
 )
 export interface SelectProps
@@ -59,7 +59,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     description,
     placeholder,
     ...restProps,
-    children: selectChildren,
+    children: getSelectChildren,
   })
   const renderChildren = children
     ? children
@@ -74,7 +74,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
       description,
       placeholder,
       ...restProps,
-      children: selectChildren,
+      children: getSelectChildren,
       "aria-describedby": descriptionId,
     },
     state,

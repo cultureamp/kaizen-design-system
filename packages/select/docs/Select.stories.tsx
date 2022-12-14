@@ -5,7 +5,7 @@ import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Select, selectChildren } from "../src/Select/Select"
+import { Select, getSelectChildren } from "../src/Select/Select"
 import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
 import { SelectContext } from "../src/Select/context/SelectContext"
 import { singleMockItems } from "./MockData"
@@ -65,7 +65,7 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
-    children: selectChildren,
+    children: getSelectChildren,
   })
 
   return (
