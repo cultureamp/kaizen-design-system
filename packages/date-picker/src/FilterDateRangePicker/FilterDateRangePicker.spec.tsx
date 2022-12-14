@@ -178,7 +178,7 @@ describe("<FilterDateRangePicker />", () => {
           expect(rangeEndOnBlur).not.toHaveBeenCalled()
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
-      })
+      }, 10000)
 
       it("updates end date input and calendar values correctly on blur", async () => {
         const rangeStartOnBlur = jest.fn<void, [FocusEvent]>()
@@ -222,7 +222,7 @@ describe("<FilterDateRangePicker />", () => {
           expect(rangeEndOnBlur).toHaveBeenCalled()
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
-      })
+      }, 10000)
     })
   })
 
@@ -253,7 +253,7 @@ describe("<FilterDateRangePicker />", () => {
         expect(targetDay).toHaveAttribute("aria-pressed", "true")
         expect(inputRangeStart).toHaveValue("12 May 2022")
       })
-    })
+    }, 8000)
 
     it("updates the range end input when changing the end date", async () => {
       render(
