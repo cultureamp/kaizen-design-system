@@ -56,21 +56,6 @@ DefaultStory.args = {
   placeholder: "Placeholder",
   defaultOpen: false,
 }
-export const ValidationStory: ComponentStory<typeof Select> = props => (
-  <Select {...props} />
-)
-
-ValidationStory.args = {
-  label: "label",
-  id: "single-select-validation",
-  items: singleMockItems,
-  isFullWidth: false,
-  description: "This is a description",
-  isDisabled: false,
-  placeholder: "Placeholder",
-  status: "error",
-  validationMessage: "This is invalid",
-}
 
 DefaultStory.parameters = {
   chromatic: { disable: false },
@@ -195,6 +180,30 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             placeholder="Placeholder"
           />
         </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Error", "Caution"]} />
+      <StoryWrapper.Row rowTitle="Validation">
+        <Select
+          id="select-default"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          status="error"
+          validationMessage="This is an error"
+        />
+        <Select
+          id="select-default"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          status="caution"
+          validationMessage="This is an error"
+        />
       </StoryWrapper.Row>
     </StoryWrapper>
 
