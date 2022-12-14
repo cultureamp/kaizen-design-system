@@ -32,7 +32,7 @@ module.exports = {
 
 ## What is a Preset?
 
-A Tailwind [Preset](https://tailwindcss.com/docs/presets#creating-a-preset) is a configuration object that provides new keys and values to Tailwind's utility classes. This is merged over the top of the Tailwind's base config to provided sensible defaults that reflect Kaizen's design tokens.
+A Tailwind [Preset](https://tailwindcss.com/docs/presets#creating-a-preset) is a configuration object that provides new keys and values to Tailwind's utility classes. This is merged over the top of the Tailwind's base config to provide sensible defaults that reflect Kaizen's design tokens.
 
 To extend this preset and add project-based configuration, please read this guide [below](#extending-a-preset).
 
