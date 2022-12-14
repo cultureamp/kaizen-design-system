@@ -42,4 +42,4 @@ These suffixes are based on our [design tokens](https://github.com/cultureamp/ka
 
 For this reason, refer to the [Tailwind core concepts docs](https://tailwindcss.com/docs/utility-first) for getting up to speed on how Tailwind _works_, but refer to our [storybook](https://cultureamp.design/storybook/) as a reference guide for our _custom suffixes_.
 
-As an example, if I wanted to know which font-family values are available as Tailwind classes, I would look under Tailwind > Typography > Font Family (or just search "Font Family").
+As an example, if I wanted to know which font-family values are available as Tailwind classes, I would open our storybook and look under Tailwind > Typography > Font Family (or just search "Font Family").
