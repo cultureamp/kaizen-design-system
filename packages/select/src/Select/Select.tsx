@@ -65,21 +65,26 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
 }) => {
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const state = useSelectState({
+  const invalidStatus = status === "error" ? "invalid" : "valid"
+
+  const ariaSelectProps: AriaSelectProps<SingleItemType> = {
     label,
     description,
     placeholder,
-    ...restProps,
+    isDisabled,
+    validationState: invalidStatus,
+    errorMessage: validationMessage,
     children: getSelectChildren,
-  })
+    ...restProps,
+  }
+
+  const state = useSelectState(ariaSelectProps)
   const renderChildren = children
     ? children
     : ({ items }) =>
         items.map((item: Node<SingleItemType>) => (
           <Option key={item.key} item={item} />
         ))
-
-  const invalidStatus = status === "error" ? "invalid" : "valid"
 
   const {
     labelProps,
@@ -90,12 +95,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     descriptionProps,
   } = useSelect(
     {
-      label,
-      description,
-      placeholder,
-      ...restProps,
-      validationState: invalidStatus,
-      children: getSelectChildren,
+      ...ariaSelectProps,
       "aria-describedby": descriptionId,
     },
     state,
@@ -146,18 +146,19 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
         </div>
 
         {description && (
-          <FieldMessage id={descriptionId} message={description} />
-        )}
-        {shouldShowValidationMessage && (
           <FieldMessage
-            message={validationMessage}
-            status={status}
-            {...errorMessageProps}
+            {...descriptionProps}
+            id={descriptionId}
+            message={description}
           />
         )}
 
-        {description && (
-          <FieldMessage {...descriptionProps} message={description} />
+        {shouldShowValidationMessage && (
+          <FieldMessage
+            {...errorMessageProps}
+            message={validationMessage}
+            status={status}
+          />
         )}
       </div>
     </SelectContext.Provider>
