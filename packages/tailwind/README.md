@@ -151,7 +151,7 @@ Tailwind allows us to use atomic classes with psuedo selectors as inline styles,
 What our package changes are the presets that can be assigned. After using our preset, the above `w-1` class will not work. Instead, classes that utilize Kaizen's design tokens will be available through our preset.  
 The following example sets a `width` of `2px`, as per preset.
 ```
-<p className="hover:w-2">...
+<p className="hover:w-spacing-2">...
 ```
 
 Note that the functionality of core concepts like psuedo-selectors and arbitrary values is unchanged.
