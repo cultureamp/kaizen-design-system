@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/border";
-@import "../../../mixins";
 
 $input-disabled-opacity: 0.3;
 
@@ -8,10 +7,6 @@ $input-disabled-opacity: 0.3;
   margin: 0;
   padding: 0;
   border: none;
-}
-
-.legend {
-  @include visually-hidden;
 }
 
 .inputRangeStart {

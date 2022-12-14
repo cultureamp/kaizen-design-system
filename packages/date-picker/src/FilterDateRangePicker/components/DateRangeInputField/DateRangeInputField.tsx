@@ -1,5 +1,6 @@
 import React from "react"
 import classnames from "classnames"
+import { VisuallyHidden } from "@kaizen/a11y"
 import {
   FieldGroup,
   FieldGroupProps,
@@ -76,7 +77,9 @@ export const DateRangeInputField = React.forwardRef<
     return (
       <FieldGroup {...fieldGroupProps}>
         <fieldset className={styles.dateRangeInputContainer}>
-          <legend className={styles.legend}>{legend}</legend>
+          <legend>
+            <VisuallyHidden>{legend}</VisuallyHidden>
+          </legend>
           <DateInput
             ref={inputRangeStartRef}
             id={`${id}--from`}
