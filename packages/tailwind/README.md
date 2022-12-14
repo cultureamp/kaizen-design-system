@@ -12,7 +12,7 @@ This is an early release of the Kaizen Tailwind Preset - the API may change and 
 
 The assumption is that you have previously followed the FE Foundation guide for setting Tailwind up in your project.
 
-Install the `@kaizen/tailwind` as a dependency and require it into your tailwind config. You can destructure it as a variable or require it direction into an array within `presets`.
+Install `@kaizen/tailwind` as a dependency and require it into your tailwind config. You can destructure it as a variable or require it directly into an array within `presets`.
 
 ```js
 // this originally lived in @kaizen/desing-tokens but we've decoupled this for ease of versioning
