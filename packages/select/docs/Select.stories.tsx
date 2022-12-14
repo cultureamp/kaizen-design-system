@@ -72,12 +72,11 @@ const MockListBox: React.VFC<MockListBoxProps> = ({
       className={overlayStyles.menuPopup}
       style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
     >
-      <Select.ListBox menuProps={{}} state={state}>
+      <Select.ListBox menuProps={{}}>
         {Array.from(state.collection).map(item => (
           <Select.Option
             key={item.key}
             item={item}
-            state={state}
             classNameOverride={
               item.key === "id-sre" ? `${optionClassName}` : undefined
             }

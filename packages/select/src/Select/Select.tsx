@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import { Item } from "@react-stately/collections"
 import {
@@ -22,7 +22,9 @@ type SubComponentProps = {
   ListBox: typeof ListBox
 }
 
-export type SelectOptionsProps = SingleState & {
+const SelectContext = React.createContext<SingleState>({} as SingleState)
+
+export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
 }
 
@@ -64,7 +66,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     ? children
     : ({ items }) =>
         items.map((item: Node<SingleItemType>) => (
-          <Option key={item.key} item={item} state={state} />
+          <Option key={item.key} item={item} />
         ))
 
   const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
@@ -90,36 +92,48 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   }, [state.isOpen])
 
   return (
-    <div
-      className={classnames(
-        !isFullWidth && selectStyles.notFullWidth,
-        classNameOverride
-      )}
+    <SelectContext.Provider
+      value={{
+        state,
+      }}
     >
-      <Label {...labelProps}>{label}</Label>
-      <HiddenSelect
-        label={label}
-        name={id}
-        state={state}
-        triggerRef={buttonRef}
-      />
+      <div
+        className={classnames(
+          !isFullWidth && selectStyles.notFullWidth,
+          classNameOverride
+        )}
+      >
+        <Label {...labelProps}>{label}</Label>
+        <HiddenSelect
+          label={label}
+          name={id}
+          state={state}
+          triggerRef={buttonRef}
+        />
 
-      <div className={classnames([selectStyles.container])}>
-        {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
+        <div className={classnames([selectStyles.container])}>
+          {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
 
-        {state.isOpen && (
-          <Overlay state={state}>
-            <ListBox menuProps={menuProps} state={state}>
-              {renderChildren({ items, state })}
-            </ListBox>
-          </Overlay>
+          {state.isOpen && (
+            <Overlay>
+              <ListBox menuProps={menuProps}>
+                {renderChildren({ items })}
+              </ListBox>
+            </Overlay>
+          )}
+        </div>
+
+        {description && (
+          <FieldMessage id={descriptionId} message={description} />
         )}
       </div>
-
-      {description && <FieldMessage id={descriptionId} message={description} />}
-    </div>
+    </SelectContext.Provider>
   )
 }
+
+export const useSelectContext = () => useContext(SelectContext)
+
+export const SelectConsumer = SelectContext.Consumer
 
 Select.TriggerButton = TriggerButton
 Select.ListBox = ListBox

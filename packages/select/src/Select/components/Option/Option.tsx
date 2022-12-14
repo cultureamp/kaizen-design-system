@@ -7,20 +7,21 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { SingleItemType, SingleState } from "../../../types"
+import { SingleItemType } from "../../../types"
+import { useSelectContext } from "../../Select"
 import styles from "./Option.module.scss"
 
-export type OptionProps = OverrideClassName<HTMLAttributes<HTMLLIElement>> &
-  SingleState & {
-    item: Node<SingleItemType>
-  }
+export interface OptionProps
+  extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
+  item: Node<SingleItemType>
+}
 export const Option: React.VFC<OptionProps> = ({
   item,
   classNameOverride,
-  state,
   ...props
 }) => {
   const ref = React.useRef<HTMLLIElement>(null)
+  const { state } = useSelectContext()
 
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
   const { isFocusVisible, focusProps } = useFocusRing()
