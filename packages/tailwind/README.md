@@ -140,7 +140,7 @@ These identify where tailwind will provide intellisense in your editor.
 
 ## Prerequisite knowledge
 
-This package is essentially a custom Tailwind preset. This package does not change how Tailwind works; it only changes the  compiled classes.  
+This package is essentially a custom Tailwind preset. This package does not change how Tailwind works; it only changes the values that can be attached to utilities. 
 
 For example,
 Tailwind allows us to use atomic classes with psuedo selectors as inline styles, like so:
