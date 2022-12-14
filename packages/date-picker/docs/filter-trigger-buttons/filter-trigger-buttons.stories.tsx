@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -29,39 +29,35 @@ export default {
 }
 
 const StickerSheetTemplate: Story = () => (
-  // For Chromatic
-  <div style={{ paddingBottom: "2rem" }}>
-    <StoryWrapper>
-      <StoryWrapper.RowHeader
+  <>
+    <StickerSheet heading="Filter Trigger Button">
+      <StickerSheet.Header
         headings={["Closed", "Open", "Has selected value"]}
       />
-      <StoryWrapper.Row rowTitle="Filter Trigger Button">
-        <div>
+      <StickerSheet.Body>
+        <StickerSheet.Row>
           <FilterTriggerButton label="Desserts" />
-        </div>
-        <div>
           <FilterTriggerButton label="Desserts" isOpen />
-        </div>
-        <div>
           <FilterTriggerButton label="Desserts" selectedValue="Cake" />
-        </div>
-      </StoryWrapper.Row>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.Row rowTitle="Removable Filter Trigger Button">
-        <div>
+    <StickerSheet heading="Removable Filter Trigger Button">
+      <StickerSheet.Body>
+        <StickerSheet.Row>
           <RemovableFilterTriggerButton
             triggerButtonProps={{
               label: "Desserts",
             }}
             removeButtonProps={{
               onClick: () => undefined,
-              isTooltipInitiallyVisible: true,
             }}
           />
-        </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
-  </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  </>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
