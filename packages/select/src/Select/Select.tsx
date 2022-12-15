@@ -1,14 +1,137 @@
-import { HiddenSelectWrapper } from "./components/HiddenSelectWrapper"
+import React, { useEffect } from "react"
+import { HiddenSelect, useSelect } from "@react-aria/select"
+import { Item } from "@react-stately/collections"
+import {
+  useSelectState,
+  SelectProps as AriaSelectProps,
+} from "@react-stately/select"
+import { Node, CollectionChildren } from "@react-types/shared"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Label, FieldMessage } from "@kaizen/draft-form"
+import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
 import { Option } from "./components/Option"
-import { Root } from "./components/Root"
-import { SingleTriggerButton } from "./components/Trigger/SingleTriggerButton"
+import { Overlay } from "./components/Overlay"
+import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
+import { SelectContext } from "./context/SelectContext"
+import selectStyles from "./Select.module.scss"
 
-export const Select = Object.assign(Root, {
-  TriggerButton: SingleTriggerButton,
-  ListBox,
-  Option,
-  HiddenSelect: HiddenSelectWrapper,
-})
+type SubComponentProps = {
+  TriggerButton: typeof TriggerButton
+  Option: typeof Option
+  ListBox: typeof ListBox
+}
+
+export type SelectOptionsProps = {
+  items: Array<Node<SingleItemType>>
+}
+
+export const getSelectChildren: CollectionChildren<SingleItemType> = item => (
+  <Item key={item.value}>{item.label}</Item>
+)
+export interface SelectProps
+  extends OverrideClassName<Omit<AriaSelectProps<SingleItemType>, "children">> {
+  isFullWidth?: boolean
+  id: string
+  trigger?: (
+    triggerProps: TriggerButtonProps,
+    ref: React.RefObject<HTMLButtonElement>
+  ) => React.ReactNode
+  children?: (optionsProps: SelectOptionsProps) => React.ReactNode
+}
+
+export const Select: React.FC<SelectProps> & SubComponentProps = ({
+  id,
+  label,
+  description,
+  isFullWidth,
+  placeholder,
+  classNameOverride,
+  trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
+  children,
+  ...restProps
+}) => {
+  const descriptionId = `${id}-field-message`
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const state = useSelectState({
+    label,
+    description,
+    placeholder,
+    ...restProps,
+    children: getSelectChildren,
+  })
+  const renderChildren = children
+    ? children
+    : ({ items }) =>
+        items.map((item: Node<SingleItemType>) => (
+          <Option key={item.key} item={item} />
+        ))
+
+  const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
+    {
+      label,
+      description,
+      placeholder,
+      ...restProps,
+      children: getSelectChildren,
+      "aria-describedby": descriptionId,
+    },
+    state,
+    buttonRef
+  )
+
+  const items = Array.from(state.collection)
+
+  // Fix the issue when default open and close by keyboard, then focus is lost
+  useEffect(() => {
+    if (state.isOpen === false) {
+      buttonRef.current?.focus()
+    }
+  }, [state.isOpen])
+
+  return (
+    <SelectContext.Provider
+      value={{
+        state,
+      }}
+    >
+      <div
+        className={classnames(
+          !isFullWidth && selectStyles.notFullWidth,
+          classNameOverride
+        )}
+      >
+        <Label {...labelProps}>{label}</Label>
+        <HiddenSelect
+          label={label}
+          name={id}
+          state={state}
+          triggerRef={buttonRef}
+        />
+
+        <div className={classnames([selectStyles.container])}>
+          {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
+
+          {state.isOpen && (
+            <Overlay>
+              <ListBox menuProps={menuProps}>
+                {renderChildren({ items })}
+              </ListBox>
+            </Overlay>
+          )}
+        </div>
+
+        {description && (
+          <FieldMessage id={descriptionId} message={description} />
+        )}
+      </div>
+    </SelectContext.Provider>
+  )
+}
+
+Select.TriggerButton = TriggerButton
+Select.ListBox = ListBox
+Select.Option = Option
 
 Select.displayName = "Select"

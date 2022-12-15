@@ -4,8 +4,8 @@ import {
   FilterMultiSelect,
   getSelectedOptionKeys,
   getSelectedOptionLabels,
-  ItemType,
 } from "../../src/FilterMultiSelect"
+import { ItemType } from "../../src/types"
 import {
   departmentDemographicValues,
   locationDemographicValues,

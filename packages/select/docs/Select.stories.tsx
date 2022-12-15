@@ -1,11 +1,13 @@
-import React, { useState, Key } from "react"
+import React from "react"
+import { useSelectState } from "@react-stately/select"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Select } from "../src/Select/Select"
-import { getSelectedOptionLabel } from "../src/Select/utils/getSelectedOptionLabel"
+import { Select, getSelectChildren } from "../src/Select/Select"
+import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
+import { SelectContext } from "../src/Select/context/SelectContext"
 import { singleMockItems } from "./MockData"
 
 export default {
@@ -28,41 +30,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof Select>
 
-export const DefaultStory: ComponentStory<typeof Select> = props => {
-  const [selectedKey, setSelectedKey] = useState<Key | null>()
-  const [isOpen, setIsOpen] = useState<boolean>()
-
-  const handleSelectionChange = (key: Key) => {
-    setSelectedKey(key)
-    setIsOpen(!isOpen)
-  }
-  const handleOpenChange = () => setIsOpen(!isOpen)
-
-  return (
-    <Select
-      {...props}
-      isOpen={isOpen}
-      onOpenChange={handleOpenChange}
-      onSelectionChange={handleSelectionChange}
-      selectedKey={selectedKey}
-      trigger={
-        <Select.TriggerButton
-          placeholder="Placeholder"
-          selectedOptionLabel={getSelectedOptionLabel(
-            selectedKey,
-            singleMockItems
-          )}
-        />
-      }
-    >
-      <Select.ListBox>
-        {items =>
-          items.map(item => <Select.Option key={item.key} item={item} />)
-        }
-      </Select.ListBox>
-    </Select>
-  )
-}
+export const DefaultStory: ComponentStory<typeof Select> = props => (
+  <Select {...props} />
+)
 
 DefaultStory.storyName = "Select"
 DefaultStory.args = {
@@ -72,11 +42,52 @@ DefaultStory.args = {
   isFullWidth: false,
   description: "This is a description",
   isDisabled: false,
+  placeholder: "Placeholder",
+  defaultOpen: false,
 }
 
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
+}
+
+type MockListBoxProps = {
+  optionClassName?: string
+  selectedKey?: React.Key | null
+  isFullWidth?: boolean
+}
+
+const MockListBox: React.VFC<MockListBoxProps> = ({
+  optionClassName,
+  selectedKey,
+  isFullWidth,
+}) => {
+  const mockState = useSelectState({
+    selectedKey: selectedKey ?? undefined,
+    items: singleMockItems,
+    children: getSelectChildren,
+  })
+
+  return (
+    <SelectContext.Provider value={{ state: mockState }}>
+      <div
+        className={overlayStyles.menuPopup}
+        style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
+      >
+        <Select.ListBox menuProps={{}}>
+          {Array.from(mockState.collection).map(item => (
+            <Select.Option
+              key={item.key}
+              item={item}
+              classNameOverride={
+                item.key === "id-sre" ? `${optionClassName}` : undefined
+              }
+            />
+          ))}
+        </Select.ListBox>
+      </div>
+    </SelectContext.Provider>
+  )
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -91,273 +102,93 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Select
           id="select-default"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          placeholder="Placeholder"
+        />
         <Select
           id="select-selected"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={"id-sre"}
-          trigger={
+          trigger={triggerProps => (
             <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={getSelectedOptionLabel(
-                "id-sre",
-                singleMockItems
-              )}
+              {...triggerProps}
+              classNameOverride="story__button-selected"
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        />
         <Select
           id="select-hovered"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
-          trigger={
+          placeholder="Placeholder"
+          trigger={triggerProps => (
             <Select.TriggerButton
+              {...triggerProps}
               classNameOverride="story__button-hover"
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        />
         <Select
           id="select-focused"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
           selectedKey={null}
-          trigger={
+          placeholder="Placeholder"
+          trigger={triggerProps => (
             <Select.TriggerButton
+              {...triggerProps}
               classNameOverride="story__button-focus"
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
             />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+          )}
+        />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
         <Select
           id="select-full-width"
           label="label"
-          onSelectionChange={() => undefined}
           items={singleMockItems}
           description="This is a description"
+          placeholder="Placeholder"
           isFullWidth
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          <Select.ListBox>
-            {items =>
-              items.map(item => <Select.Option key={item.key} item={item} />)
-            }
-          </Select.ListBox>
-        </Select>
+        />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Custom Width (50%)">
         <div style={{ width: "50%" }}>
           <Select
             id="select-custom-width"
             label="label"
-            onSelectionChange={() => undefined}
             items={singleMockItems}
             description="This is a description"
             isFullWidth
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
+            placeholder="Placeholder"
+          />
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
 
-    <div style={{ height: "550px", marginTop: "4rem" }}>
+    <div style={{ height: "550px", marginTop: "12rem" }}>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Base", "Selected", "Hover", "Focus"]}
         />
         <StoryWrapper.Row rowTitle="Dropdown">
-          <Select
-            id="select-dropdown-default"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
-          <Select
-            id="select-dropdown-selected"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={"id-sre"}
-            isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={getSelectedOptionLabel(
-                  "id-sre",
-                  singleMockItems
-                )}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          </Select>
-          <Select
-            id="select-dropdown-hovered"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={null}
-            isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-hover" : undefined
-                    }
-                  />
-                ))
-              }
-            </Select.ListBox>
-          </Select>
-          <Select
-            id="select-dropdown-focused"
-            label="label"
-            onSelectionChange={() => undefined}
-            items={singleMockItems}
-            description="This is a description"
-            selectedKey={null}
-            isOpen
-            trigger={
-              <Select.TriggerButton
-                placeholder="Placeholder"
-                selectedOptionLabel={null}
-              />
-            }
-          >
-            <Select.ListBox>
-              {items =>
-                items.map(item => (
-                  <Select.Option
-                    key={item.key}
-                    item={item}
-                    classNameOverride={
-                      item.key === "id-sre" ? "story__option-focus" : undefined
-                    }
-                  />
-                ))
-              }
-            </Select.ListBox>
-          </Select>
+          <MockListBox />
+          <MockListBox selectedKey="id-sre" />
+          <MockListBox optionClassName="story__option-hover" />
+          <MockListBox optionClassName="story__option-focus" />
         </StoryWrapper.Row>
       </StoryWrapper>
     </div>
 
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
-        <Select
-          id="select-dropdown-default"
-          label="label"
-          onSelectionChange={() => undefined}
-          items={singleMockItems}
-          description="This is a description"
-          isFullWidth
-          isOpen
-          trigger={
-            <Select.TriggerButton
-              placeholder="Placeholder"
-              selectedOptionLabel={null}
-            />
-          }
-        >
-          {
-            <Select.ListBox>
-              {items =>
-                items.map(item => <Select.Option key={item.key} item={item} />)
-              }
-            </Select.ListBox>
-          }
-        </Select>
+        <MockListBox isFullWidth />
       </StoryWrapper.Row>
     </StoryWrapper>
   </>

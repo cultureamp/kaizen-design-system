@@ -1,4 +1,4 @@
-import { ItemType } from "../src/FilterMultiSelect"
+import { ItemType } from "../src/types"
 
 export const singleMockItems: ItemType[] = [
   { label: "Front-End", value: "id-fe" },

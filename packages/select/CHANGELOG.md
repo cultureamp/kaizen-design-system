@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.3.0...@kaizen/select@6.0.0) (2022-12-14)
+
+
+### Code Refactoring
+
+* **Select:** KDS-1018 - Select renders props ([#3147](https://github.com/cultureamp/kaizen-design-system/issues/3147)) ([f844ef0](https://github.com/cultureamp/kaizen-design-system/commit/f844ef0739713afa0ba2293ad76f1ec449023a15))
+
+
+### BREAKING CHANGES
+
+* **Select:** Refactor Single Select and move shared filed across `FilterMultiSelect` and `Select`
+- Update the remove the use of the `MenuTriggerProvider` and the `SelectionProvider` and create ONE `selectProvider` which holds the `state` returned from the `useSelectState` hook
+- Use the `useSelect` Hook from react-aria which combines all the state and other hooks together
+- Allow for optional `Trigger` and `ListBox`
+- Update `Trigger` to be a render function
+- Remove the `getSelectedOptionLabel` function and update the label based on the selected Key
+- Update tests to follow the new API
+- Rename `FloatingSelectWrapper` to `Overlay`
+- Move the `_mixins` file to be shared across FilterMultiSelect and Select
+- Move the `types.ts` file to be shared across FitterMultiSelect and Select
+
+
+
+
+
 # [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.2.5...@kaizen/select@5.3.0) (2022-12-06)
 
 
