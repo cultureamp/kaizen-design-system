@@ -54,4 +54,4 @@ export const TailwindPsuedoStates = () => (
   </div>
 )
 
-TailwindPsuedoStates.storyName = "Tailwind psuedo selectors"
+TailwindPsuedoStates.storyName = "Tailwind pseudo selectors"
