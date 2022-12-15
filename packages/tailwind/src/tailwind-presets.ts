@@ -3,7 +3,6 @@ import { defaultTheme } from "@kaizen/design-tokens"
 import { kzHeight } from "./kz-height"
 import { kzSpacing } from "./kz-spacing"
 import { kzWidth } from "./kz-width"
-// import * as twDefaultTheme from "tailwindcss/defaultTheme"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
 export interface KaizenTailwindPreset {
@@ -108,16 +107,18 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "md-max": { max: defaultTheme.layout.breakpoints.medium }, // => @media (max-width: 768px) { ... }
     "lg-max": { max: defaultTheme.layout.breakpoints.large }, // => @media (min-width: 1080px) { ... }
   },
-  ringWidth: {
-    "default-width": `${defaultTheme.border.focusRing.borderWidth}`,
-  },
-  ringOffsetWidth: {
-    "default-width": "2px",
-  },
-  ringColor: {
-    "default-color": `${defaultTheme.color.blue[500]}`,
-  },
-  ringOffsetColor: {},
+  // TODO: These work in TW Play but not in our Storybook config.
+  //        Add these when we get them working in Storybook.
+  // ringWidth: {
+  //   "default-width": `${defaultTheme.border.focusRing.borderWidth}`,
+  // },
+  // ringOffsetWidth: {
+  //   "default-width": "2px",
+  // },
+  // ringColor: {
+  //   "default-color": `${defaultTheme.color.blue[500]}`,
+  // },
+  // ringOffsetColor: {},
 }
 
 export const Preset: KaizenTailwindPreset = {

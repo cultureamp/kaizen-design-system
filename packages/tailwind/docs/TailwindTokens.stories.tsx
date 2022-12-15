@@ -22,11 +22,11 @@ export default {
 
 export const DefaultKaizenSiteDemo = args => (
   <div className="bg-purple-800 p-12">
-    <h1 className="flex flex-col items-center text--heading-1 font-weight-heading font-family-heading text-white ">
+    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-white ">
       {args.title}
     </h1>
     <Card classNameOverride="bg-blue-100 mb-12 p-12" tag="div">
-      <h2 className="text--heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
+      <h2 className="text-heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
         This is a card heading
       </h2>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800 bg-blue-100">
@@ -37,7 +37,7 @@ export const DefaultKaizenSiteDemo = args => (
       </p>
     </Card>
     <Card classNameOverride="bg-blue-100 p-12" tag="div">
-      <h2 className="text--heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
+      <h2 className="text-heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
         This is a card heading
       </h2>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800 bg-blue-100 mb-12">
@@ -46,7 +46,7 @@ export const DefaultKaizenSiteDemo = args => (
         neque asperiores beatae, magnam harum eos explicabo voluptas architecto!
         Autem, culpa ab?
       </p>
-      <button className="border-none rounded-default p-12 bg-blue-600 text-white font-family-paragraph font-weight-paragraph-bold text--paragraph rounded">
+      <button className="border-none rounded-default p-12 bg-blue-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded">
         Learn more
       </button>
     </Card>
@@ -58,23 +58,23 @@ DefaultKaizenSiteDemo.args = { title: "Tailwind title example" }
 
 export const TailwindPsuedoStates = () => (
   <div className="p-12">
-    <h1 className="flex flex-col items-center text--heading-1 font-weight-heading font-family-heading text-purple-700">
+    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
       Tailwind Psuedo states
     </h1>
     <div className="flex">
       <div className="inline-flex flex-col">
-        <h2 className="text--heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
+        <h2 className="text-heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
           Hover
         </h2>
-        <button className=" rounded-default border-none p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text--paragraph rounded border-width-default  hover:bg-purple-800">
+        <button className=" rounded-default border-none p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded border-width-default  hover:bg-purple-800">
           Learn more
         </button>
       </div>
       <div className="inline-flex flex-col ml-12">
-        <h2 className="text--heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
+        <h2 className="text-heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
           Focus
         </h2>
-        <button className="border-none rounded-default p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text--paragraph rounded focus:ring-2 focus:ring-offset-1 focus:bg-purple-800">
+        <button className="border-none rounded-default p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded focus:ring-2 focus:ring-offset-1 focus:bg-purple-800">
           Learn more
         </button>
       </div>
@@ -86,10 +86,10 @@ TailwindPsuedoStates.storyName = "Tailwind psuedo selectors"
 
 export const TailwindMediaQueries = () => (
   <div className="p-12">
-    <h1 className="flex flex-col items-center text--heading-1 font-weight-heading font-family-heading text-purple-700">
+    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
       Tailwind media queries
     </h1>
-    <h2 className="text--heading-2 font-weight-heading font-family-heading text-purple-700">
+    <h2 className="text-heading-2 font-weight-heading font-family-heading text-purple-700">
       Min width queries
     </h2>
     <div className="flex md:flex-col">
@@ -101,7 +101,7 @@ export const TailwindMediaQueries = () => (
         dolor voluptatum eum. Optio.≈
       </p>
     </div>
-    <h2 className="text--heading-2 font-weight-heading font-family-heading text-purple-700">
+    <h2 className="text-heading-2 font-weight-heading font-family-heading text-purple-700">
       Max width queries
     </h2>
     <div className="flex md-max:flex-col ">
