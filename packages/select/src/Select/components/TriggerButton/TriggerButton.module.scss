@@ -24,7 +24,7 @@
 }
 
 .icon {
-  margin-left: $spacing-sm; // TODO: Confirm spacing with design
+  margin-left: $spacing-sm;
   color: $color-gray-500;
 }
 
@@ -34,4 +34,12 @@
 .caution {
   border: $border-solid-border-width $border-solid-border-style
     $color-yellow-600;
+}
+
+.disabled {
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+  .icon,
+  &:hover .icon {
+    color: $color-gray-300;
+  }
 }

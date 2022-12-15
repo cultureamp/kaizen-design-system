@@ -38,7 +38,7 @@ export const Option: React.VFC<OptionProps> = ({
         styles.option,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
-        isDisabled && styles.isDisabled,
+        isDisabled && styles.disabled,
         classNameOverride,
       ])}
       aria-label={item.textValue}
