@@ -134,7 +134,10 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
         />
 
         <div className={classnames([selectStyles.container])}>
-          {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
+          {trigger(
+            { placeholder, triggerProps, valueProps, status },
+            buttonRef
+          )}
 
           {state.isOpen && (
             <Overlay>
