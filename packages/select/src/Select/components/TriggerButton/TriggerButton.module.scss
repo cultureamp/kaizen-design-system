@@ -27,3 +27,11 @@
   margin-left: $spacing-sm; // TODO: Confirm spacing with design
   color: $color-gray-500;
 }
+
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
+}
+.caution {
+  border: $border-solid-border-width $border-solid-border-style
+    $color-yellow-600;
+}
