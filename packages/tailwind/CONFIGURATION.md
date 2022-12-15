@@ -49,9 +49,34 @@ Our recommendation is to use Kaizen's custom preset as the default for your proj
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
+  content: ["<glob pattern targeting files in /src>"],
   presets: [Preset],
+  important: ["#root", "#docs-root"],
+  corePlugins: {
+    preflight: false,
+  },
 }
 ```
+Refer to the below for more on these keys.
+
+### content
+This should target the files using tailwind in you src folder. ie:
+```js
+  content: [
+    './src/page/**/*.{tsx, ts}',
+    './src/components/**/*.{tsx, ts}',
+  ],
+```
+
+ Refer to [docs](https://tailwindcss.com/docs/content-configuration) for best practice.
+
+### presets
+This should contain the Kaizen Tailwind preset. This will override the default Tailwind presets.
+### important
+It is important to add to the `#root` and `#docs-root` (for storybook) to ensure that tailwind classes supersede component styles. The ids can change as long as they match your root DOM node id.
+### corePlugins
+TWs `preflight` is an extremely opinionated CSS reset that will add a lot of default styles we don't want or need.
+
 
 This approach will overwrite the default Tailwind config. Meaning that Tailwind suffixes will no longer be available.
 
@@ -98,7 +123,7 @@ Be careful though! While adding in a _new_ field to `colors` won't overwrite any
 
 ## Suggested Editor Config
 
-The assumption is that you will be using VSCode as your main IDE. Your configuration may differ if you are using alternatives like Webstorm, Atom, etc, but there is relatively decent support in their plugin ecosystems
+The assumption is that you will be using VSCode as your main IDE. Your configuration may differ if you are using alternatives like Webstorm, Atom, etc, but there is relatively decent support in their plugin ecosystems.
 
 ### Tailwind CSS VSCode IntelliSense plugin
 
@@ -106,6 +131,7 @@ Basic config for the [VSCode plugin](https://marketplace.visualstudio.com/items?
 
 You can customise which keywords trigger IntelliSense using basic strings, or even regex expressions.  
 Here are some examples you may wish to include in your own project:
+
 ```
 "tailwindCSS.classAttributes": [
   "class",
@@ -120,3 +146,8 @@ Here are some examples you may wish to include in your own project:
   "csx\\(([^)]*)\\)"
 ]
 ```
+
+#### intelliSense in classnames package (or other functions)
+`tailwindCSS.experimental.classRegex` is used to provide intelliSense within your `classnames` functions in your codebase. Ideally you only add the pattern that is used in your repo.
+
+Calling out that this is still an experimental feature for the VSCode plugin.

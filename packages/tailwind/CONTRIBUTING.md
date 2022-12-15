@@ -1,26 +1,18 @@
 
 ## Local Development within Kaizen
 
-### Tailwindcss VSCode Intellisense plugin
-
-Basic config for the [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for Tailwind intellisense lives in your projects `settings.json`.
-
-To get the intellisense working make sure you use:
-
-```
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass",
-    "classNameOverride"
-  ]
-```
-
 #### Gotchas
+
+**New preset created but not available / rendering in DOM**
+
+Any time you update the Tailwind presets, make sure you run `yarn build` in the root @kaizen/tailwind folder. You may also need to reload the window for these to be picked up with TW IntelliSense.
+
 
 **Intellisense not working within the class attributes**
 
-Check the output in your terminal for TailwindCSS IntelliSense.
+For configuring IntelliSense refer to the [CONFIGURATION.md](CONFIGURATION.md)
+
+Check the output in your terminal output for TailwindCSS IntelliSense.
 
 If you see the following:
 
@@ -35,4 +27,3 @@ Run build in both the design-tokens and tailwind package folders.
 
 In consuming repos this will not be an issue but for local develop we are requiring on `/dist` folders having compile ts for the plugin to consume.
 
-<br>
