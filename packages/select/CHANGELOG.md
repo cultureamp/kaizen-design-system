@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.2.0...@kaizen/select@6.3.0) (2022-12-15)
+
+
+### Features
+
+* Kds 930/disabled button options ([#3170](https://github.com/cultureamp/kaizen-design-system/issues/3170)) ([a2d77da](https://github.com/cultureamp/kaizen-design-system/commit/a2d77daaf1b66cb8b1187ced1d06e890d0cf0985))
+
+
+
+
+
 # [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.1.0...@kaizen/select@6.2.0) (2022-12-15)
 
 
