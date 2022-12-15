@@ -111,8 +111,6 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     }
   }, [state.isOpen])
 
-  const shouldShowValidationMessage = !isDisabled && validationMessage
-
   return (
     <SelectContext.Provider
       value={{
@@ -156,7 +154,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
           />
         )}
 
-        {shouldShowValidationMessage && (
+        {validationMessage && (
           <FieldMessage
             {...errorMessageProps}
             message={validationMessage}
