@@ -24,13 +24,4 @@ export const kzSpacing = {
   240: "15rem",
   280: "17.5rem",
   320: "20rem",
-  xs: defaultTheme.spacing.xs,
-  sm: defaultTheme.spacing.sm,
-  md: defaultTheme.spacing.md,
-  lg: defaultTheme.spacing.lg,
-  xl: defaultTheme.spacing.xl,
-  xxl: defaultTheme.spacing.xxl,
-  xxxl: defaultTheme.spacing.xxxl,
-  xxxxl: defaultTheme.spacing.xxxxl,
-  xxxxxl: defaultTheme.spacing.xxxxxl,
 }
