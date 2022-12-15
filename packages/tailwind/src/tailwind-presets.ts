@@ -108,6 +108,16 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "md-max": { max: defaultTheme.layout.breakpoints.medium }, // => @media (max-width: 768px) { ... }
     "lg-max": { max: defaultTheme.layout.breakpoints.large }, // => @media (min-width: 1080px) { ... }
   },
+  ringWidth: {
+    "default-width": `${defaultTheme.border.focusRing.borderWidth}`,
+  },
+  ringOffsetWidth: {
+    "default-width": "2px",
+  },
+  ringColor: {
+    "default-color": "lime",
+  },
+  ringOffsetColor: {},
 }
 
 export const Preset: KaizenTailwindPreset = {
