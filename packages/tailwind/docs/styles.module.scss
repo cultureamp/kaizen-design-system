@@ -1,3 +1,7 @@
+// Would normally be imported in project's main css file.
+// Needed for shadow styles etc.
+@tailwind base;
+
 .textColorExample {
   padding: 5px;
   border-radius: 5px;
