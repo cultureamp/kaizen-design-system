@@ -7,7 +7,7 @@ import { Icon } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import { Heading } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StyledIconButton } from "../src/StyledButton/StyledIconButton"
@@ -81,16 +81,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     "secondaryDestructive",
   ]
 
-  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
-    <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
-      {heading}
-    </Heading>
-  )
-
   return (
-    <StoryWrapper isReversed={isReversed}>
-      <SectionHeading heading="StyledButton" />
-      <StoryWrapper.RowHeader
+    <>
+    <StickerSheet isReversed={isReversed}  heading="StyledButton">
+      <StickerSheet.Header
         isReversed={isReversed}
         headings={[
           "Default / Disabled",
@@ -98,10 +92,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           "Active / className",
           "Focus / classNameOverride",
         ]}
+        hasVerticalHeadings
+        headingsWidth={200}
       />
       {VARIANTS.map(variant => (
-        <React.Fragment key={variant}>
-          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+        <StickerSheet.Body key={variant}>
+          <StickerSheet.Row isReversed={isReversed} rowTitle={variant}>
             <StyledButton isReversed={isReversed} variant={variant}>
               <button>Button</button>
             </StyledButton>
@@ -129,9 +125,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             >
               <button>Button</button>
             </StyledButton>
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
+          <StickerSheet.Row isReversed={isReversed}>
+            <div />
             <StyledButton isReversed={isReversed} variant={variant} isDisabled>
               <button disabled>Button</button>
             </StyledButton>
@@ -147,9 +144,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <StyledButton isReversed={isReversed} variant={variant}>
               <CustomButton classNameOverride={styles.red}>Button</CustomButton>
             </StyledButton>
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+          <StickerSheet.Row isReversed={isReversed}>
+            <div />
             <StyledButton
               isReversed={isReversed}
               variant={variant}
@@ -166,10 +164,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             >
               <LabelButton label="Label" />
             </StyledButton>
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
-            <div>
+          <StickerSheet.Row isReversed={isReversed}>
+            <div />
               <StyledButton
                 isReversed={isReversed}
                 variant={variant}
@@ -179,9 +177,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                   Button qwerty qwerty qwerty qwerty qwerty qwerty
                 </button>
               </StyledButton>
-            </div>
 
-            <div>
               <StyledButton
                 isReversed={isReversed}
                 variant={variant}
@@ -190,13 +186,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               >
                 <button>Button</button>
               </StyledButton>
-            </div>
-          </StoryWrapper.Row>
-        </React.Fragment>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
       ))}
+      </StickerSheet>
 
-      <SectionHeading heading="StyledButton2" />
-      <StoryWrapper.RowHeader
+      <StickerSheet heading="StyledButton2">
+      <StickerSheet.Header
         isReversed={isReversed}
         headings={[
           "Default / Disabled",
@@ -204,10 +200,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           "Active / className",
           "Focus / classNameOverride",
         ]}
+        hasVerticalHeadings
+        headingsWidth={200}
       />
       {VARIANTS.map(variant => (
-        <React.Fragment key={variant}>
-          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+        <StickerSheet.Body key={variant}>
+          <StickerSheet.Row isReversed={isReversed} rowTitle={variant}>
             <StyledButton2
               isReversed={isReversed}
               element={<button>Button</button>}
@@ -234,9 +232,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               variant={variant}
               classNameOverride="story__StyledButton--focus"
             />
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
+          <StickerSheet.Row isReversed={isReversed} rowTitle="">
             <StyledButton2
               isReversed={isReversed}
               element={<button disabled>Button</button>}
@@ -266,9 +264,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               }
               variant={variant}
             />
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="">
             <StyledButton2
               isReversed={isReversed}
               variant={variant}
@@ -283,12 +281,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               element={<LabelButton label="Label" />}
               isWorking
             />
-          </StoryWrapper.Row>
-        </React.Fragment>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
       ))}
+      </StickerSheet>
 
-      <SectionHeading heading="StyledIconButton" />
-      <StoryWrapper.RowHeader
+      <StickerSheet heading="StyledIconButton">
+      <StickerSheet.Header
         isReversed={isReversed}
         headings={[
           "Default / Disabled",
@@ -296,10 +295,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           "Active / className",
           "Focus / classNameOverride",
         ]}
+        hasVerticalHeadings
+        headingsWidth={200}
       />
       {VARIANTS.map(variant => (
-        <React.Fragment key={variant}>
-          <StoryWrapper.Row isReversed={isReversed} rowTitle={variant}>
+        <StickerSheet.Body key={variant}>
+          <StickerSheet.Row isReversed={isReversed} rowTitle={variant}>
             <StyledIconButton
               isReversed={isReversed}
               element={
@@ -342,9 +343,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               variant={variant}
               classNameOverride="story__StyledButton--focus"
             />
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="">
+          <StickerSheet.Row isReversed={isReversed} rowTitle="">
             <StyledIconButton
               isReversed={isReversed}
               element={
@@ -386,9 +387,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               }
               variant={variant}
             />
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
 
-          <StoryWrapper.Row isReversed={isReversed} rowTitle="" gridColumns={4}>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="">
             <StyledIconButton
               isReversed={isReversed}
               variant={variant}
@@ -403,10 +404,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               element={<LabelButton label={<AddIcon />} />}
               isWorking
             />
-          </StoryWrapper.Row>
-        </React.Fragment>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
       ))}
-    </StoryWrapper>
+    </StickerSheet>
+    </>
   )
 }
 
