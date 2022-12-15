@@ -151,19 +151,19 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
           )}
         </div>
 
-        {description && (
-          <FieldMessage
-            {...descriptionProps}
-            id={descriptionId}
-            message={description}
-          />
-        )}
-
         {validationMessage && (
           <FieldMessage
             {...errorMessageProps}
             message={validationMessage}
             status={status}
+          />
+        )}
+
+        {description && (
+          <FieldMessage
+            {...descriptionProps}
+            id={descriptionId}
+            message={description}
           />
         )}
       </div>
