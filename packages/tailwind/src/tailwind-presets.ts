@@ -115,7 +115,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "default-width": "2px",
   },
   ringColor: {
-    "default-color": "lime",
+    "default-color": `${defaultTheme.color.blue[500]}`,
   },
   ringOffsetColor: {},
 }
