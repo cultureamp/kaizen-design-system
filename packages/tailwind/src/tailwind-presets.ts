@@ -19,9 +19,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     ...defaultTheme.color,
     ...defaultTheme.dataViz,
   },
-  spacing: {
-    ...kzSpacing,
-  },
+  spacing: kzSpacing,
   boxShadow: {
     none: "none",
     sm: defaultTheme.shadow.small.boxShadow,
@@ -102,18 +100,10 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "letter-spacing-normal": "normal",
   },
   // A mix of layout styles
-  maxWidth: {
-    ...kzWidth,
-  },
-  width: {
-    ...kzWidth,
-  },
-  maxHeight: {
-    ...kzHeight,
-  },
-  height: {
-    ...kzHeight,
-  },
+  maxWidth: kzWidth,
+  width: kzWidth,
+  maxHeight: kzHeight,
+  height: kzHeight,
   screens: {
     md: defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
     lg: defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
