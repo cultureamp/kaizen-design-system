@@ -66,7 +66,7 @@ type MockListBoxProps = {
   optionClassName?: string
   selectedKey?: React.Key | null
   isFullWidth?: boolean
-  disabledKeys?: Iterable<React.Key>
+  disabledKeys?: React.Key[]
 }
 
 const MockListBox: React.VFC<MockListBoxProps> = ({
