@@ -64,19 +64,6 @@ describe("<DateRangeInputField />", () => {
       expect(inputStart).toBeDisabled()
       expect(inputEnd).toBeDisabled()
     })
-
-    it("does not show validation message when disabled", () => {
-      render(
-        <DateRangeInputFieldWrapper
-          status="error"
-          validationMessage="This is an error"
-          disabled
-        />
-      )
-      const inputStart = screen.getByRole("textbox", { name: "Date from" })
-      expect(inputStart).toHaveAccessibleDescription("Input format: dd/mm/yyyy")
-      expect(screen.queryByText("This is an error")).not.toBeInTheDocument()
-    })
   })
 
   describe("Refs", () => {

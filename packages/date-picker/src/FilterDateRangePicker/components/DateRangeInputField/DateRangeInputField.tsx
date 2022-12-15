@@ -68,9 +68,7 @@ export const DateRangeInputField = React.forwardRef<
     const descriptionId = `${id}--field-message`
     const errorMessageId = `${id}--error-message`
 
-    const shouldShowValidationMessage = !disabled && validationMessage
-
-    const inputDescribedBy = shouldShowValidationMessage
+    const inputDescribedBy = validationMessage
       ? `${errorMessageId} ${descriptionId}`
       : descriptionId
 
@@ -108,7 +106,7 @@ export const DateRangeInputField = React.forwardRef<
           />
         </fieldset>
 
-        {shouldShowValidationMessage && (
+        {validationMessage && (
           <FieldMessage
             id={errorMessageId}
             message={validationMessage}
