@@ -37,12 +37,10 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "w-default": "2px",
     "w-focus-ring": "2px",
   },
-  // how do we want to handle our focus rings?
-  // tailwind used a `ring` property
   borderColor: {
-    DEFAULT: `${defaultTheme.border.solid.borderColor}`,
-    "color-transparent": `${defaultTheme.border.borderless.borderColor}`,
-    "color-focus-ring": defaultTheme.color.blue[600],
+    "default-color": `${defaultTheme.border.solid.borderColor}`,
+    transparent: `${defaultTheme.border.borderless.borderColor}`,
+    "focus-ring": defaultTheme.color.blue[600],
     ...defaultTheme.color,
   },
   fontFamily: {
