@@ -29,9 +29,9 @@
     outline: none;
   }
 
-  &:hover,
-  &:active,
-  &:global(.story__option-hover) {
+  &:hover:not(.disabled),
+  &:active:not(.disabled),
+  &:global(.story__option-hover):not(.disabled) {
     background-color: $color-blue-100;
     color: $color-blue-500;
     .icon {
@@ -80,4 +80,8 @@ $iconAndBadgeHeight: $spacing-md;
   &.icon {
     color: $color-blue-500;
   }
+}
+
+.disabled {
+  color: $color-gray-500;
 }

@@ -50,6 +50,7 @@ export const TriggerButton = React.forwardRef<
           isFocusVisible && styles.isFocusVisible,
           status === "error" && styles.error,
           status === "caution" && styles.caution,
+          triggerProps.isDisabled && styles.disabled,
           classNameOverride,
         ])}
         disabled={triggerProps.isDisabled}

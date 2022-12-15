@@ -66,19 +66,21 @@ type MockListBoxProps = {
   optionClassName?: string
   selectedKey?: React.Key | null
   isFullWidth?: boolean
+  disabledValues?: React.Key[]
 }
 
 const MockListBox: React.VFC<MockListBoxProps> = ({
   optionClassName,
   selectedKey,
   isFullWidth,
+  disabledValues,
 }) => {
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
     children: getSelectChildren,
+    disabledKeys: disabledValues,
   })
-
   return (
     <SelectContext.Provider value={{ state: mockState }}>
       <div
@@ -107,7 +109,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader
-        headings={["Base", "Selected", "Hover", "Focus"]}
+        headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
       />
       <StoryWrapper.Row rowTitle="Default">
         <Select
@@ -116,6 +118,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           placeholder="Placeholder"
+          disabledValues={["id-sre"]}
         />
         <Select
           id="select-selected"
@@ -157,6 +160,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-focus"
             />
           )}
+        />
+        <Select
+          id="select-focused"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          selectedKey={null}
+          placeholder="Placeholder"
+          isDisabled
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
@@ -210,13 +222,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <div style={{ height: "550px", marginTop: "12rem" }}>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Base", "Selected", "Hover", "Focus"]}
+          headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
         />
         <StoryWrapper.Row rowTitle="Dropdown">
           <MockListBox />
           <MockListBox selectedKey="id-sre" />
           <MockListBox optionClassName="story__option-hover" />
           <MockListBox optionClassName="story__option-focus" />
+          <MockListBox disabledValues={["id-sre"]} />
         </StoryWrapper.Row>
       </StoryWrapper>
     </div>
