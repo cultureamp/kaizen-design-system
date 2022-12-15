@@ -39,6 +39,14 @@ export interface SelectProps
     ref: React.RefObject<HTMLButtonElement>
   ) => React.ReactNode
   children?: (optionsProps: SelectOptionsProps) => React.ReactNode
+  /**
+   * Updates the styling of the validation FieldMessage.
+   */
+  status?: "error" | "caution"
+  /**
+   * A descriptive message for the 'status' states.
+   */
+  validationMessage?: React.ReactNode | undefined
 }
 
 export const Select: React.FC<SelectProps> & SubComponentProps = ({
@@ -47,6 +55,9 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   description,
   isFullWidth,
   placeholder,
+  isDisabled,
+  status,
+  validationMessage,
   classNameOverride,
   trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
   children,
@@ -54,13 +65,20 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
 }) => {
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const state = useSelectState({
+  const invalidStatus = status === "error" ? "invalid" : "valid"
+
+  const ariaSelectProps: AriaSelectProps<SingleItemType> = {
     label,
     description,
     placeholder,
-    ...restProps,
+    isDisabled,
+    validationState: invalidStatus,
+    errorMessage: validationMessage,
     children: getSelectChildren,
-  })
+    ...restProps,
+  }
+
+  const state = useSelectState(ariaSelectProps)
   const renderChildren = children
     ? children
     : ({ items }) =>
@@ -68,13 +86,16 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
           <Option key={item.key} item={item} />
         ))
 
-  const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    errorMessageProps,
+    descriptionProps,
+  } = useSelect(
     {
-      label,
-      description,
-      placeholder,
-      ...restProps,
-      children: getSelectChildren,
+      ...ariaSelectProps,
       "aria-describedby": descriptionId,
     },
     state,
@@ -111,7 +132,10 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
         />
 
         <div className={classnames([selectStyles.container])}>
-          {trigger({ placeholder, triggerProps, valueProps, state }, buttonRef)}
+          {trigger(
+            { placeholder, triggerProps, valueProps, status },
+            buttonRef
+          )}
 
           {state.isOpen && (
             <Overlay>
@@ -123,7 +147,19 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
         </div>
 
         {description && (
-          <FieldMessage id={descriptionId} message={description} />
+          <FieldMessage
+            {...descriptionProps}
+            id={descriptionId}
+            message={description}
+          />
+        )}
+
+        {validationMessage && (
+          <FieldMessage
+            {...errorMessageProps}
+            message={validationMessage}
+            status={status}
+          />
         )}
       </div>
     </SelectContext.Provider>

@@ -28,6 +28,17 @@ export default {
     ),
   },
   decorators: [withDesign],
+  argTypes: {
+    status: {
+      options: ["error", "caution"],
+      control: {
+        type: "select",
+      },
+    },
+    validationMessage: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof Select>
 
 export const DefaultStory: ComponentStory<typeof Select> = props => (
@@ -169,6 +180,30 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             placeholder="Placeholder"
           />
         </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Error", "Caution"]} />
+      <StoryWrapper.Row rowTitle="Validation">
+        <Select
+          id="select-default"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          status="error"
+          validationMessage="This is an error"
+        />
+        <Select
+          id="select-default"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          status="caution"
+          validationMessage="This is an error"
+        />
       </StoryWrapper.Row>
     </StoryWrapper>
 
