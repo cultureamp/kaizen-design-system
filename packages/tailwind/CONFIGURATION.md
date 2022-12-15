@@ -73,7 +73,7 @@ module.exports = {
     extend: {
       colors: {
         myCoolNewColor: "#ffffff",
-        purple-100: "lime"
+        "purple-100": "lime"
       }
     }
   }
