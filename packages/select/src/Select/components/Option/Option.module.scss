@@ -29,9 +29,9 @@
     outline: none;
   }
 
-  &:hover:not(.isDisabled),
-  &:active:not(.isDisabled),
-  &:global(.story__option-hover):not(.isDisabled) {
+  &:hover:not(.disabled),
+  &:active:not(.disabled),
+  &:global(.story__option-hover):not(.disabled) {
     background-color: $color-blue-100;
     color: $color-blue-500;
     .icon {
