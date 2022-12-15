@@ -8,15 +8,17 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { SingleState } from "../../../types"
+import { useSelectContext } from "../../context"
 import styles from "./TriggerButton.module.scss"
 
-export type TriggerButtonProps = SingleState &
-  OverrideClassName<HTMLAttributes<HTMLButtonElement>> & {
-    placeholder?: string
-    triggerProps: AriaButtonProps<"button">
-    valueProps: DOMAttributes<FocusableElement>
-  }
+export type TriggerButtonProps = OverrideClassName<
+  HTMLAttributes<HTMLButtonElement>
+> & {
+  placeholder?: string
+  triggerProps: AriaButtonProps<"button">
+  valueProps: DOMAttributes<FocusableElement>
+  status?: "error" | "caution"
+}
 
 export const TriggerButton = React.forwardRef<
   HTMLButtonElement,
@@ -25,13 +27,14 @@ export const TriggerButton = React.forwardRef<
   (
     {
       placeholder = "Select",
-      state,
       classNameOverride,
       triggerProps,
       valueProps,
+      status,
     },
     buttonRef
   ) => {
+    const { state } = useSelectContext()
     const value = state?.selectedItem?.rendered
     const ref = useObjectRef(buttonRef)
     const { buttonProps } = useButton(triggerProps, ref)
@@ -45,6 +48,8 @@ export const TriggerButton = React.forwardRef<
           styles.button,
           (value === null || value === undefined) && styles.placeholder,
           isFocusVisible && styles.isFocusVisible,
+          status === "error" && styles.error,
+          status === "caution" && styles.caution,
           classNameOverride,
         ])}
         disabled={triggerProps.isDisabled}

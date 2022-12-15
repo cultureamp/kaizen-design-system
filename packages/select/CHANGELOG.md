@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.0.0...@kaizen/select@6.1.0) (2022-12-15)
+
+
+### Features
+
+* **Select:** add validation status and message ([#3169](https://github.com/cultureamp/kaizen-design-system/issues/3169)) ([68c300c](https://github.com/cultureamp/kaizen-design-system/commit/68c300cc5618228d8dce14bc4000d115e92dd43c))
+
+
+
+
+
 # [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@5.3.0...@kaizen/select@6.0.0) (2022-12-14)
 
 
