@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { ItemType } from "../../../types"
 import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { ListBox } from "../../components/ListBox"
 import { SearchInput } from "../../components/SearchInput"
@@ -9,7 +10,6 @@ import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
-import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [

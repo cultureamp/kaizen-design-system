@@ -4,7 +4,7 @@ import React from "react"
 import { useOption } from "@react-aria/listbox"
 import { Node } from "@react-types/shared"
 import { render, screen } from "@testing-library/react"
-import { ItemType } from "../../types"
+import { ItemType } from "../../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
 jest.mock("@kaizen/component-library", () => ({
