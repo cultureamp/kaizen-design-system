@@ -66,20 +66,20 @@ type MockListBoxProps = {
   optionClassName?: string
   selectedKey?: React.Key | null
   isFullWidth?: boolean
-  disabledKeys?: React.Key[]
+  disabledValues?: React.Key[]
 }
 
 const MockListBox: React.VFC<MockListBoxProps> = ({
   optionClassName,
   selectedKey,
   isFullWidth,
-  disabledKeys,
+  disabledValues,
 }) => {
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
     children: getSelectChildren,
-    disabledKeys,
+    disabledKeys: disabledValues,
   })
   return (
     <SelectContext.Provider value={{ state: mockState }}>
@@ -118,7 +118,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           placeholder="Placeholder"
-          disabledKeys={["id-sre"]}
+          disabledValues={["id-sre"]}
         />
         <Select
           id="select-selected"
@@ -229,7 +229,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           <MockListBox selectedKey="id-sre" />
           <MockListBox optionClassName="story__option-hover" />
           <MockListBox optionClassName="story__option-focus" />
-          <MockListBox disabledKeys={["id-sre"]} />
+          <MockListBox disabledValues={["id-sre"]} />
         </StoryWrapper.Row>
       </StoryWrapper>
     </div>

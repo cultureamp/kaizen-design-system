@@ -34,7 +34,7 @@ export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
   > {
-  disabledKeys?: React.Key[]
+  disabledValues?: React.Key[]
   isFullWidth?: boolean
   id: string
   trigger?: (
@@ -59,6 +59,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   isFullWidth,
   placeholder,
   isDisabled,
+  disabledValues,
   status,
   validationMessage,
   classNameOverride,
@@ -77,6 +78,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     isDisabled,
     validationState: invalidStatus,
     errorMessage: validationMessage,
+    disabledKeys: disabledValues,
     children: getSelectChildren,
     ...restProps,
   }
