@@ -11,6 +11,7 @@
 !*.yml
 !*.scss
 !*.css
+!*.stories.mdx
 
 # Explicitly ignore...
 **/node_modules/
