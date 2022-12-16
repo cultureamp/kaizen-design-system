@@ -13,7 +13,7 @@ $input-disabled-opacity: 0.3;
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 
-  &:focus + div {
+  + [class*="focusRing"] {
     border-start-end-radius: 0;
     border-end-end-radius: 0;
   }
