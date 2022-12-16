@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.14.0...@kaizen/date-picker@5.15.0) (2022-12-16)
+
+
+### Features
+
+* **date-picker:** add inputs to FilterDateRangePicker ([#3157](https://github.com/cultureamp/kaizen-design-system/issues/3157)) ([b283c31](https://github.com/cultureamp/kaizen-design-system/commit/b283c313af0fbef3a37368df3da51ad87c6a6a09))
+
+
+
+
+
 # [5.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.13.2...@kaizen/date-picker@5.14.0) (2022-12-06)
 
 
