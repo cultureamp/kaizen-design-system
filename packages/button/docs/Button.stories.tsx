@@ -8,6 +8,7 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonProps } from ".."
+import mdx from "./Button.mdx"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -22,10 +23,7 @@ export default {
       argTypesRegex: "^on.*",
     },
     docs: {
-      description: {
-        component:
-          'import { Button, IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
-      },
+      page: mdx,
     },
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
