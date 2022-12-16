@@ -97,11 +97,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
             <StickerSheet.Row>
               <div />
-              <NewButton
-                isReversed={isReversed}
-                variant={variant}
-                disabled
-              >
+              <NewButton isReversed={isReversed} variant={variant} disabled>
                 Pancakes
               </NewButton>
 
@@ -109,21 +105,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 Pancakes
               </NewButton>
 
-              <NewButton isReversed={isReversed} variant={variant} classNameOverride={styles.red}>
+              <NewButton
+                isReversed={isReversed}
+                variant={variant}
+                classNameOverride={styles.red}
+              >
                 Pancakes
               </NewButton>
             </StickerSheet.Row>
 
-            {/* <StickerSheet.Row>
+            <StickerSheet.Row>
               <div />
               <NewButton
                 isReversed={isReversed}
                 variant={variant}
                 icon={addIcon}
               >
-                <button>
-                  Button qwerty qwerty qwerty qwerty qwerty qwerty
-                </button>
+                Icon start
               </NewButton>
 
               <NewButton
@@ -132,13 +130,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 icon={arrowRight}
                 iconPosition="end"
               >
-                Pancakes
+                Icon end
               </NewButton>
-            </StickerSheet.Row> */}
+            </StickerSheet.Row>
           </StickerSheet.Body>
         ))}
       </StickerSheet>
-          </>
+    </>
   )
 }
 

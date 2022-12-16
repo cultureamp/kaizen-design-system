@@ -7,6 +7,8 @@ export interface NewButtonProps
   variant: StyledButtonProps["variant"]
   isReversed?: StyledButtonProps["isReversed"]
   isWorking?: StyledButtonProps["isWorking"]
+  icon?: StyledButtonProps["icon"]
+  iconPosition?: StyledButtonProps["iconPosition"]
 }
 
 export const NewButton: React.VFC<NewButtonProps> = ({
@@ -14,6 +16,9 @@ export const NewButton: React.VFC<NewButtonProps> = ({
   variant,
   isReversed = false,
   isWorking = false,
+  icon,
+  iconPosition,
+  classNameOverride,
   ...buttonAttributes // maybe this is clearer than `restProps`?
 }) => (
   <StyledButton
@@ -21,6 +26,9 @@ export const NewButton: React.VFC<NewButtonProps> = ({
     isReversed={isReversed}
     isWorking={isWorking}
     isDisabled={buttonAttributes.disabled}
+    icon={icon}
+    iconPosition={iconPosition}
+    classNameOverride={classNameOverride}
   >
     <button {...buttonAttributes}>{children}</button>
   </StyledButton>
