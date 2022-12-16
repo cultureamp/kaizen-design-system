@@ -9,7 +9,7 @@ import { CATEGORIES } from "./constants"
 
 const queryClient = new QueryClient()
 
-const withQueryProvider = Story => (
+const withQueryProvider = (Story): JSX.Element => (
   <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
 )
 // Polyfill for :focus-visible pseudo-selector
@@ -64,12 +64,12 @@ export const globalTypes = {
 }
 
 export const decorators = [
-  (Story: React.ComponentType) => (
+  (Story: React.ComponentType): JSX.Element => (
     <ThemeContext.Provider value={defaultTheme}>
       <Story />
     </ThemeContext.Provider>
   ),
-  (Story, props) => {
+  (Story, props): JSX.Element => {
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>

@@ -82,7 +82,7 @@ Heading.displayName = "Heading"
  * A helper to infer the tag when not explicitly passed as a prop
  * @param headingLevel Level of the heading
  */
-const translateHeadingLevelToTag = (headingLevel: HeadingVariants) => {
+const translateHeadingLevelToTag = (headingLevel: HeadingVariants): string => {
   switch (headingLevel) {
     case "display-0":
     case "heading-1":
