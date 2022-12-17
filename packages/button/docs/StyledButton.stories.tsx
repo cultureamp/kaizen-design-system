@@ -68,7 +68,7 @@ const LabelButton: React.VFC<LabelButtonProps> = ({
   </button>
 )
 
-const AddIcon = () => <Icon icon={addIcon} title="Add" />
+const AddIcon = () => <Icon icon={addIcon} role="presentation" />
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -308,7 +308,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button>
+                  <button aria-label="Add">
                     <AddIcon />
                   </button>
                 }
@@ -318,7 +318,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button>
+                  <button aria-label="Add">
                     <AddIcon />
                   </button>
                 }
@@ -329,7 +329,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button>
+                  <button aria-label="Add">
                     <AddIcon />
                   </button>
                 }
@@ -340,7 +340,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button>
+                  <button aria-label="Add">
                     <AddIcon />
                   </button>
                 }
@@ -354,7 +354,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button disabled>
+                  <button aria-label="Add" disabled>
                     <AddIcon />
                   </button>
                 }
@@ -365,7 +365,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button>
+                  <button aria-label="Add">
                     <AddIcon />
                   </button>
                 }
@@ -376,7 +376,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <button className={styles.red}>
+                  <button aria-label="Add" className={styles.red}>
                     <AddIcon />
                   </button>
                 }
@@ -386,7 +386,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <StyledIconButton
                 isReversed={isReversed}
                 element={
-                  <CustomButton classNameOverride={styles.red}>
+                  <CustomButton aria-label="Add" classNameOverride={styles.red}>
                     <AddIcon />
                   </CustomButton>
                 }
@@ -400,14 +400,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 isReversed={isReversed}
                 variant={variant}
                 contentsPropName="label"
-                element={<LabelButton label={<AddIcon />} />}
+                element={<LabelButton label={<AddIcon />} aria-label="Add" />}
               />
 
               <StyledIconButton
                 isReversed={isReversed}
                 variant={variant}
                 contentsPropName="label"
-                element={<LabelButton label={<AddIcon />} />}
+                element={<LabelButton label={<AddIcon />} aria-label="Add" />}
                 isWorking
               />
             </StickerSheet.Row>

@@ -9,12 +9,15 @@ import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { NewButton, NewButtonProps } from "../src/StyledButton/NewButton"
+import {
+  NewIconButton,
+  NewIconButtonProps,
+} from "../src/StyledButton/NewIconButton"
 import styles from "./StyledButton.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/StyledButton/NewButton`,
-  component: NewButton,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/StyledButton/NewIconButton`,
+  component: NewIconButton,
   parameters: {
     // actions: {
     //   argTypesRegex: "^on.*",
@@ -32,19 +35,20 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory: ComponentStory<typeof NewButton> = args => (
-  <NewButton {...args} />
+export const DefaultStory: ComponentStory<typeof NewIconButton> = args => (
+  <NewIconButton {...args} />
 )
-DefaultStory.storyName = "NewButton"
+DefaultStory.storyName = "NewIconButton"
 DefaultStory.args = {
   variant: "default",
-  children: "Click for pancakes",
+  icon: addIcon,
+  "aria-label": "Click for pancakes"
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const VARIANTS: Array<NewButtonProps["variant"]> = [
+  const VARIANTS: Array<NewIconButtonProps["variant"]> = [
     "default",
     "primary",
     "secondary",
@@ -53,7 +57,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StickerSheet isReversed={isReversed} heading="NewButton">
+      <StickerSheet isReversed={isReversed} heading="NewIconButton">
         <StickerSheet.Header
           headings={[
             "Default / Disabled",
@@ -66,72 +70,63 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         {VARIANTS.map(variant => (
           <StickerSheet.Body key={variant}>
             <StickerSheet.Row rowTitle={variant}>
-              <NewButton isReversed={isReversed} variant={variant}>
-                Pancakes
-              </NewButton>
-
-              <NewButton
-                isReversed={isReversed}
-                variant={variant}
-                classNameOverride="story__StyledButton--hover"
-              >
-                Pancakes
-              </NewButton>
-
-              <NewButton
-                isReversed={isReversed}
-                variant={variant}
-                classNameOverride="story__StyledButton--active"
-              >
-                Pancakes
-              </NewButton>
-
-              <NewButton
-                isReversed={isReversed}
-                variant={variant}
-                classNameOverride="story__StyledButton--focus"
-              >
-                Pancakes
-              </NewButton>
-            </StickerSheet.Row>
-
-            <StickerSheet.Row>
-              <div />
-              <NewButton isReversed={isReversed} variant={variant} disabled>
-                Pancakes
-              </NewButton>
-
-              <NewButton isReversed={isReversed} variant={variant} isWorking>
-                Pancakes
-              </NewButton>
-
-              <NewButton
-                isReversed={isReversed}
-                variant={variant}
-                classNameOverride={styles.red}
-              >
-                Pancakes
-              </NewButton>
-            </StickerSheet.Row>
-
-            <StickerSheet.Row>
-              <div />
-              <NewButton
+              <NewIconButton
                 isReversed={isReversed}
                 variant={variant}
                 icon={addIcon}
-              >
-                Icon start
-              </NewButton>
+                aria-label="Add"
+              />
 
-              <NewButton
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
                 isReversed={isReversed}
                 variant={variant}
-                icon={arrowRight}
-                iconPosition="end"
-              >
-                Icon end
-              </NewButton>
+                classNameOverride="story__StyledButton--hover"
+              />
+
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
+                isReversed={isReversed}
+                variant={variant}
+                classNameOverride="story__StyledButton--active"
+              />
+
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
+                isReversed={isReversed}
+                variant={variant}
+                classNameOverride="story__StyledButton--focus"
+              />
+            </StickerSheet.Row>
+
+            <StickerSheet.Row>
+              <div />
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
+                isReversed={isReversed}
+                variant={variant}
+                disabled
+              />
+
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
+                isReversed={isReversed}
+                variant={variant}
+                isWorking
+              />
+
+              <NewIconButton
+                icon={addIcon}
+                aria-label="Add"
+                isReversed={isReversed}
+                variant={variant}
+                classNameOverride={styles.red}
+              />
             </StickerSheet.Row>
           </StickerSheet.Body>
         ))}
