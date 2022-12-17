@@ -10,21 +10,19 @@ export type StyledIconButtonProps = Omit<
 
 export const StyledIconButton: React.VFC<StyledIconButtonProps> = ({
   variant,
+  isReversed,
   classNameOverride,
   ...restProps
 }) => (
   <StyledButton2
     variant={variant}
+    isReversed={isReversed}
     classNameOverride={classnames(
       styles.styledIconButton,
       variant === "default" && styles.default,
+      (variant === "default" && isReversed) && styles.isReversed,
       classNameOverride
     )}
     {...restProps}
   />
 )
-
-// return React.cloneElement(element, {
-//   ...element.props,
-//   className
-// })

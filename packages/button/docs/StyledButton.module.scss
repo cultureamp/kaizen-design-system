@@ -1,3 +1,7 @@
+// Does not override combined styles (eg. .default + .isReversed)
+// and not StyledIconButton styles
 .red {
   border-color: red;
+  color: magenta;
+  padding: 2rem;
 }

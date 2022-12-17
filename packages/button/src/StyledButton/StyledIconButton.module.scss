@@ -6,11 +6,14 @@ $button-size: 48px;
   height: $button-size;
   width: $button-size;
   justify-content: center;
-  padding: unset;
+  padding: 0;
 }
 
 .default {
-  border-color: transparent;
+  &,
+  &.isReversed {
+    border-color: transparent;
 
-  @include enabled-pseudo-states-variant($border-color: transparent);
+    @include enabled-pseudo-states-variant($border-color: transparent);
+  }
 }
