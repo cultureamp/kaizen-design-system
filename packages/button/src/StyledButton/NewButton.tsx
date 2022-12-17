@@ -12,7 +12,7 @@ export interface NewButtonProps
 }
 
 export const NewButton: React.VFC<NewButtonProps> = ({
-  children,
+  children, // or maybe use `label` or similar instead if we want?
   variant,
   isReversed = false,
   isWorking = false,
