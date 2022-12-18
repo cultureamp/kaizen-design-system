@@ -477,12 +477,12 @@ export const Tooltip = () => (
         <TableRow>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell does not have a tooltip.
+              This header of this cell has no tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell does have a tooltip.
+              This header of this cell has a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
