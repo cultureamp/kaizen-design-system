@@ -115,6 +115,7 @@ type TableHeaderRowCellProps = OverrideClassName<
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
+  showTooltipIcon?: boolean
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
 
@@ -141,7 +142,11 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
   wrapping = "nowrap",
   align = "start",
   tooltipInfo,
-  // if set, this will show the arrow in the direction provided
+  // If set, this will show the tooltip exclamation icon. Useful in situations where
+  // the table header does not have enough space. Should be true by default based on
+  // design system tooltip guidelines.
+  showTooltipIcon = true,
+  // If set, this will show the arrow in the direction provided
   // when the header cell is hovered over.
   sortingArrowsOnHover,
   classNameOverride,
@@ -181,7 +186,7 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
           />
         </div>
       )}
-      {tooltipInfo != null ? (
+      {tooltipInfo != null && showTooltipIcon ? (
         <div className={styles.headerRowCellTooltipIcon}>
           <Icon icon={exclamationIcon} role="presentation" />
         </div>
