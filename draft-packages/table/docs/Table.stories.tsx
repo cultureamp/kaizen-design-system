@@ -452,25 +452,23 @@ export const Tooltip = () => (
     <TableContainer>
       <TableHeader>
         <TableHeaderRow>
+          <TableHeaderRowCell labelText="No tooltip" width={1 / 4} />
           <TableHeaderRowCell
-            labelText="This column has no tooltip"
-            width={1 / 4}
-          />
-          <TableHeaderRowCell
-            labelText="This column has a tooltip"
+            labelText="Tooltip"
             width={1 / 4}
             tooltipInfo="This is a tooltip"
           />
           <TableHeaderRowCell
-            labelText="This column has a tooltip, and has wrapped content!"
+            labelText="Tooltip with wrapped content"
             width={1 / 4}
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
           />
           <TableHeaderRowCell
-            labelText="End (right) aligned"
+            labelText="End aligned, no icon"
             width={1 / 4}
-            tooltipInfo="This is a tooltip"
+            tooltipInfo="This is a tooltip even though there was no icon"
+            showTooltipIcon={false}
             align="end"
           />
         </TableHeaderRow>
@@ -479,22 +477,23 @@ export const Tooltip = () => (
         <TableRow>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell does not have a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell does have a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has a tooltip. It's content is wrapped.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has a tooltip. It's content is end
+              (right) aligned. It does not have a tooltip icon.
             </Paragraph>
           </TableRowCell>
         </TableRow>
