@@ -21,9 +21,7 @@ export const SearchInput: React.VFC<SearchInputProps> = ({
     setSearchQuery(e.target.value)
   }
 
-  const handleClear = () => {
-    setSearchQuery("")
-  }
+  const handleClear = (): void => setSearchQuery("")
 
   const inputId = useMemo(() => id ?? v4(), [id])
 

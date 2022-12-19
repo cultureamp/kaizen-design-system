@@ -28,7 +28,7 @@ export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
         <button
           className={styles.removeButton}
           aria-label={removeButtonLabel}
-          onClick={() => onRemove()}
+          onClick={onRemove}
         >
           <Icon icon={clear} role="presentation" />
         </button>

@@ -32,7 +32,7 @@ export function MenuTriggerProvider({
   defaultOpen,
   onOpenChange,
   children,
-}: MenuTriggerProviderProps) {
+}: MenuTriggerProviderProps): JSX.Element {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
@@ -65,7 +65,7 @@ export function MenuTriggerProvider({
   )
 }
 
-export const useMenuTriggerContext = () => useContext(MenuTriggerContext)
+export const useMenuTriggerContext = (): MenuTriggerProviderContextType => useContext(MenuTriggerContext)
 
 export const MenuTriggerConsumer = MenuTriggerContext.Consumer
 

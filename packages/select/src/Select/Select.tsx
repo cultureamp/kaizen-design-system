@@ -63,7 +63,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   status,
   validationMessage,
   classNameOverride,
-  trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
+  trigger = (triggerProps): JSX.Element => <TriggerButton {...triggerProps} ref={buttonRef} />,
   children,
   ...restProps
 }) => {
@@ -86,7 +86,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   const state = useSelectState(ariaSelectProps)
   const renderChildren = children
     ? children
-    : ({ items }) =>
+    : ({ items }): JSX.Element =>
         items.map((item: Node<SingleItemType>) => (
           <Option key={item.key} item={item} />
         ))

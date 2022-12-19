@@ -18,9 +18,8 @@ export const MenuPopup: React.VFC<MenuPopupProps> = ({
 }) => {
   const { menuTriggerState, menuProps } = useMenuTriggerContext()
 
-  const onClose = () => {
-    menuTriggerState.close()
-  }
+  const onClose = (): void => menuTriggerState.close()
+
   // Handle events that should cause the menu to close,
   // e.g. blur, clicking outside, or pressing the escape key.
   const overlayRef = React.createRef<HTMLDivElement>()
