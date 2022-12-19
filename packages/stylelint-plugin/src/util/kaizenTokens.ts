@@ -28,7 +28,7 @@ import { normaliseColor } from "./colors"
  * }
  * ```
  */
-export const getCSSVarsFromJson = (json: Record<any, any>) => {
+export const getCSSVarsFromJson = (json: Record<any, any>): Record<string, string> => {
   const variables = {} as Record<string, string>
 
   mapLeafsOfObject(json, (path, value) => {
@@ -42,7 +42,12 @@ export const getCSSVarsFromJson = (json: Record<any, any>) => {
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".
   Assumes that the SASS and LESS modules contain the same variables
 */
-const getVarsFromKaizenModule = (moduleName: string) => {
+const getVarsFromKaizenModule = (moduleName: string): {
+  moduleName: string,
+  variables: Record<string, string>,
+  sassModulePath: string,
+  lessModulePath: string,
+} => {
   const sassModulePath = `@kaizen/design-tokens/sass/${moduleName}`
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`
 
@@ -168,7 +173,7 @@ export const kaizenTokensByName: Readonly<
  * ```
  */
 export const kaizenTokensByValue: Record<string, KaizenToken[] | undefined> =
-  (() => {
+  ((): Record<string, KaizenToken[] | undefined> => {
     const allKaizenTokens = Object.values(kaizenTokensByName).filter(
       <T>(token: T): token is NonNullable<T> => token !== undefined
     )

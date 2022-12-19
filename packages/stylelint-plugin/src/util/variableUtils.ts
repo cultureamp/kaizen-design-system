@@ -13,7 +13,7 @@ import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
 import { walkVariablesOnValue } from "./walkers"
 
-export const stringifyVariable = (variable: Variable) => {
+export const stringifyVariable = (variable: Variable): string => {
   const variableWithPrefix = `${variable.prefix}${variable.name}`
 
   const negated = variable.negated
@@ -81,7 +81,7 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: ChildNode | Container) => {
+const getVariablesInBlock = (block: ChildNode | Container): Record<string, string | undefined> => {
   if (!("nodes" in block)) return {}
 
   return block.nodes
@@ -153,7 +153,7 @@ const getLexicallyClosestVariables = (
 export const getLexicalTransitiveKaizenVariables = (
   stylesheetNode: Root,
   leafNode: ChildNode | Container
-) => {
+): Record<string, { value: string; kaizenVariablesInValue: ParsedKaizenVariable[] }> => {
   const stylesheetVariables = getLexicallyClosestVariables(
     stylesheetNode,
     leafNode
@@ -182,5 +182,5 @@ export const getLexicalTransitiveKaizenVariables = (
 }
 
 const variablePrefixPattern = /^(@|\$)/
-export const isVariable = (node: Declaration | AtRule) =>
+export const isVariable = (node: Declaration | AtRule): boolean =>
   node.type === "atrule" ? false : variablePrefixPattern.test(node.prop)

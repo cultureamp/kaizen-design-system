@@ -99,7 +99,7 @@ const getReplacementRgbTriple = (
 }
 
 // Does the value look like `123, 123, 123`? Used for determining whether an rgba function is used with the correct variable
-const isRgbTriple = (value: string) =>
+const isRgbTriple = (value: string): boolean =>
   /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)
 
 /**
@@ -110,7 +110,7 @@ const isRgbTriple = (value: string) =>
 export const fixAlphaModificationFunctions = (
   /** The value part of a declaration: e.g. the string "5px 10px" within "padding: 5px 10px" */
   value: string
-) => {
+): { newValue: string, errors: string[] } => {
   // We'll keep track of errors, then return them at the end so the consumer can decide what to do
   const errors: string[] = []
 
@@ -118,7 +118,7 @@ export const fixAlphaModificationFunctions = (
   const fixAlphaModificationFunction = (
     functionName: string,
     ...params: string[]
-  ) => {
+  ): string => {
     const [firstParameter, secondParameter] = params
 
     // The original value without any modifications, e.g. something unfixed `rgba($kz-color-wisteria-100, 0.1)`
