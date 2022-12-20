@@ -32,7 +32,7 @@ export interface FieldMessageProps
   automationId?: string
 }
 
-export const FieldMessage: React.VFC<FieldMessageProps> = ({
+export const FieldMessage = ({
   message,
   status = "default",
   position = "bottom",
@@ -40,7 +40,7 @@ export const FieldMessage: React.VFC<FieldMessageProps> = ({
   classNameOverride,
   automationId,
   ...restProps
-}) => {
+}: FieldMessageProps): JSX.Element => {
   const textColor =
     status === "default"
       ? reversed
