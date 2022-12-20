@@ -59,7 +59,7 @@ function chainTransactions(
 function createInitialParagraph(
   state: ProseMirrorState.EditorState,
   dispatch?: (tr: ProseMirrorState.Transaction) => void
-) {
+): boolean {
   if (dispatch) {
     const { tr, schema } = state
 
@@ -163,7 +163,7 @@ function indentListIsDisabled(state: ProseMirrorState.EditorState): boolean {
 }
 
 /** Creates an object used as an index to map the controls to respective groups */
-const createControlGroupIndex = (controls: ToolbarItems[]) =>
+const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
   controls.reduce((groups, currentControl) => {
     if (!currentControl?.name) return groups
     return {
@@ -173,7 +173,7 @@ const createControlGroupIndex = (controls: ToolbarItems[]) =>
   }, {})
 
 /** Creates an initial object used to map button configuration into its respective groups */
-const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
+const createInitialControls = (controlGroupIndex: ControlGroupTypes): GroupedToolbarControls => {
   const uniqueGroups: string[] = Array.from(
     new Set(Object.values(controlGroupIndex))
   )

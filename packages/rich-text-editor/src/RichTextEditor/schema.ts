@@ -14,7 +14,7 @@ export const defaultNodes: ProseMirrorModel.NodeSpec = {
   hardBreak: coreNodes.hardBreak,
 }
 
-export const createSchemaFromControls = (controls?: ToolbarItems[]) => {
+export const createSchemaFromControls = (controls?: ToolbarItems[]): ProseMirrorModel.Schema<string> => {
   if (!controls) {
     return createSchema()
   }
@@ -25,9 +25,10 @@ export const createSchemaFromControls = (controls?: ToolbarItems[]) => {
   ) as ToolbarControlTypes[]
   return createSchema(namesFromControls)
 }
-export const createSchemaWithAll = () => createSchema(TOOLBAR_CONTROLS)
 
-function createSchema(controls?: ToolbarControlTypes[]) {
+export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> => createSchema(TOOLBAR_CONTROLS)
+
+function createSchema(controls?: ToolbarControlTypes[]): ProseMirrorModel.Schema<string> {
   if (!controls) {
     return new ProseMirrorModel.Schema({
       nodes: defaultNodes,

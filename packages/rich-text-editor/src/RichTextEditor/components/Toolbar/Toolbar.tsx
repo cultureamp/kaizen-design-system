@@ -17,7 +17,7 @@ export interface ToolbarProps
   "aria-label": string
 }
 
-const determineValidKeypress = (event: React.KeyboardEvent<HTMLElement>) => {
+const determineValidKeypress = (event: React.KeyboardEvent<HTMLElement>): boolean => {
   const validKeys = {
     left: "ArrowLeft",
     right: "ArrowRight",
@@ -31,7 +31,7 @@ const handleKeyDown = (
   buttonFocusIndex: number,
   setFocusIndex: React.Dispatch<React.SetStateAction<number>>,
   toolbarButtons: React.MutableRefObject<any>
-) => {
+): void => {
   if (!determineValidKeypress(e)) return
   let newFocusIndex
   const lastButtonIndex = toolbarButtons.current.length - 1
@@ -88,7 +88,7 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
                   id={`rte-button-${buttonIndex}`}
                   key={`rte-button-${buttonIndex}`}
                   tabIndex={buttonIndex === buttonFocusIndex ? 0 : -1}
-                  onKeyDown={e =>
+                  onKeyDown={(e: React.KeyboardEvent<HTMLElement>): void =>
                     handleKeyDown(
                       e,
                       buttonIndex,
@@ -97,7 +97,7 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
                       toolbarButtonsRef
                     )
                   }
-                  ref={(ref: React.ReactNode | undefined) =>
+                  ref={(ref: React.ReactNode | undefined): React.ReactNode =>
                     (toolbarButtonsRef.current[buttonIndex] = ref)
                   }
                 />

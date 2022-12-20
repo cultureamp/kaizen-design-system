@@ -81,7 +81,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
 
-  const useRichTextEditorResult = (() => {
+  const useRichTextEditorResult = ((): ReturnType<typeof useRichTextEditor> | Error => {
     try {
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
@@ -146,7 +146,7 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                     disabled={controlConfig.disabled}
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
-                    onClick={() => dispatchTransaction(controlConfig.action)}
+                    onClick={(): void => dispatchTransaction(controlConfig.action)}
                   />
                 ))}
               </ToolbarSection>
@@ -185,7 +185,12 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema
-) {
+): Array<ProseMirrorState.Plugin<unknown> | ProseMirrorState.Plugin<{
+  transform: ProseMirrorState.Transaction;
+  from: number;
+  to: number;
+  text: string;
+} | null>> {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []
