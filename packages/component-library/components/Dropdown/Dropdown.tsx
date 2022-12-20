@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import classNames from "classnames"
 import chevronDownIcon from "../../icons/chevron-down.icon.svg"
 import ellipsisIcon from "../../icons/ellipsis.icon.svg"
@@ -39,13 +39,13 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     }
   }
 
-  getPosition() {
+  getPosition(): DOMRect | null {
     return this.dropdownButton && this.dropdownButton.current
       ? this.dropdownButton.current.getBoundingClientRect()
       : null
   }
 
-  renderDropdownMenu() {
+  renderDropdownMenu(): JSX.Element {
     return (
       <DropdownMenu
         hideDropdownMenu={this.hideDropdownMenu}
@@ -56,7 +56,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     )
   }
 
-  render() {
+  render(): JSX.Element {
     const { controlAction, automationId, iconPosition, reversedColor } =
       this.props
 
@@ -71,7 +71,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
         <button
           className={btnClass}
           onClick={this.toggleDropdownMenu}
-          onMouseDown={e => e.preventDefault()}
+          onMouseDown={(e): void => e.preventDefault()}
           ref={this.dropdownButton}
           data-automation-id={automationId}
         >
@@ -83,7 +83,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     )
   }
 
-  toggleDropdownMenu = (e: React.SyntheticEvent<HTMLButtonElement>) => {
+  toggleDropdownMenu = (e: React.SyntheticEvent<HTMLButtonElement>): void => {
     e.stopPropagation()
 
     const currentState = this.state.isMenuVisible
@@ -92,13 +92,13 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     })
   }
 
-  hideDropdownMenu = () => {
+  hideDropdownMenu = (): void => {
     this.setState({
       isMenuVisible: false,
     })
   }
 
-  renderIcon = (icon?: React.SVGAttributes<SVGSymbolElement>) => {
+  renderIcon = (icon?: React.SVGAttributes<SVGSymbolElement>): JSX.Element | void => {
     if (!icon) return
 
     return (
@@ -108,7 +108,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     )
   }
 
-  renderDownArrow = () => {
+  renderDownArrow = (): JSX.Element | void => {
     const { label, controlAction } = this.props
     if (!label || !controlAction) return
 
@@ -119,7 +119,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     )
   }
 
-  renderButtonContent = () => {
+  renderButtonContent = (): JSX.Element => {
     const { label } = this.props
     let { icon } = this.props
 
@@ -128,23 +128,23 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     }
 
     return (
-      <React.Fragment>
+      <>
         {this.renderIcon(icon)}
         {label && <span className={styles.dropdownLabel}>{label}</span>}
         {this.renderDownArrow()}
-      </React.Fragment>
+      </>
     )
   }
 
-  renderReversedButtonContent = () => {
+  renderReversedButtonContent = (): JSX.Element => {
     const { icon, label } = this.props
 
     return (
-      <React.Fragment>
+      <>
         {this.renderDownArrow()}
         {label && <span className={styles.dropdownLabel}>{label}</span>}
         {this.renderIcon(icon)}
-      </React.Fragment>
+      </>
     )
   }
 }
