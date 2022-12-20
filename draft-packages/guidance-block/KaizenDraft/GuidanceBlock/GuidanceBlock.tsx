@@ -79,7 +79,7 @@ type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const CancelButton = ({ onClick }: CancelButtonProps) => (
+const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   <button className={styles.cancel} type="button" onClick={onClick}>
     <span>
       <Icon icon={closeIcon} role="img" title="close notification" />
@@ -87,10 +87,10 @@ const CancelButton = ({ onClick }: CancelButtonProps) => (
   </button>
 )
 
-const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
+const WithTooltip = ({
   tooltipProps,
   children,
-}) =>
+}: WithTooltipProps): JSX.Element =>
   !!tooltipProps ? (
     <Tooltip {...tooltipProps}>{children}</Tooltip>
   ) : (
@@ -128,7 +128,7 @@ class GuidanceBlock extends React.Component<
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (this.props.layout === "inline" || this.props.layout === "stacked") {
       this.containerQuery()
     }
@@ -139,7 +139,7 @@ class GuidanceBlock extends React.Component<
     this.props.actions?.dismiss?.onClick()
   }
 
-  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
+  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>): void {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (this.state.hidden && e.propertyName === "margin-top") {
       this.setState({ removed: true })
@@ -156,7 +156,7 @@ class GuidanceBlock extends React.Component<
     resizeObserver.observe(this.containerRef.current as HTMLElement)
   }
 
-  setMediaQueryLayout(width: number) {
+  setMediaQueryLayout(width: number): void {
     if (width <= 320) {
       this.setState({
         mediaQueryLayout: "centerContent",
@@ -241,14 +241,14 @@ class GuidanceBlock extends React.Component<
   renderActions = (
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
-  ) => {
+  ): JSX.Element => {
     // Checks if container query is mobile configuration
     const componentIsMobile =
       this.state.mediaQueryLayout.includes("centerContent")
 
     return (
       <Media query="(max-width: 767px)">
-        {isMobile => (
+        {(isMobile): JSX.Element => (
           <Box
             mr={
               isMobile || componentIsMobile
@@ -280,7 +280,7 @@ class GuidanceBlock extends React.Component<
                       {...actions.secondary}
                       onClick={
                         this.props?.secondaryDismiss
-                          ? () => this.dismissBanner()
+                          ? (): void => this.dismissBanner()
                           : this.props.actions?.secondary?.onClick
                       }
                       fullWidth={isMobile || componentIsMobile}
@@ -295,7 +295,7 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  renderIllustrationType = (illustration, illustrationType) =>
+  renderIllustrationType = (illustration, illustrationType): JSX.Element =>
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration
