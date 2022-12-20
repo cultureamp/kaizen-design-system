@@ -270,8 +270,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     <FocusOn
       scrollLock={false}
       onDeactivation={handleReturnFocus}
-      onClickOutside={() => setIsOpen(false)}
-      onEscapeKey={() => setIsOpen(false)}
+      onClickOutside={(): void => setIsOpen(false)}
+      onEscapeKey={(): void => setIsOpen(false)}
       enabled={isOpen}
     >
       <div ref={containerRef}>
