@@ -28,7 +28,9 @@ import { normaliseColor } from "./colors"
  * }
  * ```
  */
-export const getCSSVarsFromJson = (json: Record<any, any>): Record<string, string> => {
+export const getCSSVarsFromJson = (
+  json: Record<any, any>
+): Record<string, string> => {
   const variables = {} as Record<string, string>
 
   mapLeafsOfObject(json, (path, value) => {
@@ -42,11 +44,13 @@ export const getCSSVarsFromJson = (json: Record<any, any>): Record<string, strin
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".
   Assumes that the SASS and LESS modules contain the same variables
 */
-const getVarsFromKaizenModule = (moduleName: string): {
-  moduleName: string,
-  variables: Record<string, string>,
-  sassModulePath: string,
-  lessModulePath: string,
+const getVarsFromKaizenModule = (
+  moduleName: string
+): {
+  moduleName: string
+  variables: Record<string, string>
+  sassModulePath: string
+  lessModulePath: string
 } => {
   const sassModulePath = `@kaizen/design-tokens/sass/${moduleName}`
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`

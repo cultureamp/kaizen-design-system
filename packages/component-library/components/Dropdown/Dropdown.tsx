@@ -98,7 +98,9 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     })
   }
 
-  renderIcon = (icon?: React.SVGAttributes<SVGSymbolElement>): JSX.Element | void => {
+  renderIcon = (
+    icon?: React.SVGAttributes<SVGSymbolElement>
+  ): JSX.Element | void => {
     if (!icon) return
 
     return (

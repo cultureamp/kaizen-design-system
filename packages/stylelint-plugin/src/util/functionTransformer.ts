@@ -11,7 +11,10 @@ const transformString = (str: string, functions: FunctionsMap): string =>
     }).nodes
   )
 
-const transformNode = (node: valueParser.Node, functions: FunctionsMap): valueParser.Node => {
+const transformNode = (
+  node: valueParser.Node,
+  functions: FunctionsMap
+): valueParser.Node => {
   if (
     node.type !== "function" ||
     !Object.prototype.hasOwnProperty.call(functions, node.value)
@@ -27,7 +30,10 @@ const transformNode = (node: valueParser.Node, functions: FunctionsMap): valuePa
   return newNode
 }
 
-const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap): string[] => {
+const extractArgs = (
+  nodes: valueParser.Node[],
+  functions: FunctionsMap
+): string[] => {
   const values = nodes.map(node => transformNode(node, functions))
 
   const args = [] as string[]

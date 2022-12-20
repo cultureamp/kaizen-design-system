@@ -19,7 +19,10 @@ export interface RadioProps
   automationId?: string
 }
 
-const renderSelected = (selectedStatus: boolean, reversed: boolean): React.ReactNode => {
+const renderSelected = (
+  selectedStatus: boolean,
+  reversed: boolean
+): React.ReactNode => {
   if (selectedStatus) {
     return (
       <div

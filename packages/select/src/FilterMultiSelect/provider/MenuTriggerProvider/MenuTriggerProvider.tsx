@@ -65,7 +65,8 @@ export function MenuTriggerProvider({
   )
 }
 
-export const useMenuTriggerContext = (): MenuTriggerProviderContextType => useContext(MenuTriggerContext)
+export const useMenuTriggerContext = (): MenuTriggerProviderContextType =>
+  useContext(MenuTriggerContext)
 
 export const MenuTriggerConsumer = MenuTriggerContext.Consumer
 

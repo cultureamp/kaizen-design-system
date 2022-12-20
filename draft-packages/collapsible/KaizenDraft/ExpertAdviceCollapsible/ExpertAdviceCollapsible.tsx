@@ -14,7 +14,9 @@ export type ExpertAdviceCollapsibleProps = Omit<
  * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible-expert-advice-collapsible--default-story Storybook}
  */
 
-export const ExpertAdviceCollapsible = (props: ExpertAdviceCollapsibleProps): JSX.Element => (
+export const ExpertAdviceCollapsible = (
+  props: ExpertAdviceCollapsibleProps
+): JSX.Element => (
   <Collapsible
     {...props}
     noSectionPadding

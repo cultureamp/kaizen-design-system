@@ -173,7 +173,9 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
   }, {})
 
 /** Creates an initial object used to map button configuration into its respective groups */
-const createInitialControls = (controlGroupIndex: ControlGroupTypes): GroupedToolbarControls => {
+const createInitialControls = (
+  controlGroupIndex: ControlGroupTypes
+): GroupedToolbarControls => {
   const uniqueGroups: string[] = Array.from(
     new Set(Object.values(controlGroupIndex))
   )

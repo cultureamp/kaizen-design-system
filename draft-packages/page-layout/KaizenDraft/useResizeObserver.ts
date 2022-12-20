@@ -1,7 +1,8 @@
 import React, { Ref, useCallback, useEffect, useRef, useState } from "react"
 import ResizeObserver from "resize-observer-polyfill"
 
-const defaultCallback = (entry: ResizeObserverEntry): ResizeObserverEntry => entry
+const defaultCallback = (entry: ResizeObserverEntry): ResizeObserverEntry =>
+  entry
 
 export interface DOMRectReadOnly {
   readonly x: number

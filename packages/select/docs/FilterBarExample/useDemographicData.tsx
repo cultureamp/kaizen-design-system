@@ -1,12 +1,12 @@
 import { useState } from "react"
 
 type DemographicData = {
-  groups: Array<{ id: string; name: string; }>,
-  selectedGroups: Array<{ id: string; name: string; }>,
-  isSelected: (id: string) => boolean,
-  addFilter: (id: string) => void,
-  clearFilters: () => void,
-  removeFilter: (id: string) => void,
+  groups: Array<{ id: string; name: string }>
+  selectedGroups: Array<{ id: string; name: string }>
+  isSelected: (id: string) => boolean
+  addFilter: (id: string) => void
+  clearFilters: () => void
+  removeFilter: (id: string) => void
 }
 
 export const useDemographicData = (): DemographicData => {

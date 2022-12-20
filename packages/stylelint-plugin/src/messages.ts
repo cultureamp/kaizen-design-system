@@ -3,15 +3,20 @@ export const missingRequiredKaizenImport = (path: string): string =>
 export const unnecessaryKaizenImport = (path: string): string =>
   `Unnecessary Kaizen token import: ${path}.`
 
-export const deprecatedTokenUsageMessage = (oldName: string, newName: string): string =>
+export const deprecatedTokenUsageMessage = (
+  oldName: string,
+  newName: string
+): string =>
   `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}".`
 
-export const containsDeprecatedKaizenTokenWithNoReplacement = (name: string): string =>
-  `Deprecated Kaizen token ${name} detected`
+export const containsDeprecatedKaizenTokenWithNoReplacement = (
+  name: string
+): string => `Deprecated Kaizen token ${name} detected`
 
 export const deprecatedTokenUsageWithoutReplacementMessage = (
   deprecatedTokenName: string
-): string => `${deprecatedTokenName} is deprecated and should not be used anymore.`
+): string =>
+  `${deprecatedTokenName} is deprecated and should not be used anymore.`
 
 export const invalidRgbaUsage = (replacementVariable: string): string =>
   `Invalid parameter to rgba or add-alpha function. Expected '-rgb' suffixed replacement: ${replacementVariable}.`

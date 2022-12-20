@@ -139,7 +139,10 @@ const renderCustomComponent = (
   </CustomComponent>
 )
 
-const renderButton = (props: Props, ref: Ref<HTMLButtonElement>): JSX.Element => {
+const renderButton = (
+  props: Props,
+  ref: Ref<HTMLButtonElement>
+): JSX.Element => {
   const {
     id,
     disabled,
@@ -238,7 +241,9 @@ const renderLoadingSpinner = (): JSX.Element => (
   </div>
 )
 
-const renderWorkingContent = (props: Extract<Props, { working: true }>): JSX.Element => {
+const renderWorkingContent = (
+  props: Extract<Props, { working: true }>
+): JSX.Element => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -308,7 +313,9 @@ const renderContent = (props: Props): JSX.Element => (
   </span>
 )
 
-const renderIcon = (icon: React.SVGAttributes<SVGSymbolElement>): JSX.Element => (
+const renderIcon = (
+  icon: React.SVGAttributes<SVGSymbolElement>
+): JSX.Element => (
   <span className={styles.iconWrapper}>
     <Icon icon={icon} role="presentation" />
   </span>

@@ -21,7 +21,9 @@ const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
 const buttonIsAction: (action: TitleBlockButtonProps) => boolean = action =>
   !("href" in action) && "onClick" in action
 
-const renderPrimaryLinks = (primaryAction: PrimaryActionProps): JSX.Element[] | null | undefined => {
+const renderPrimaryLinks = (
+  primaryAction: PrimaryActionProps
+): JSX.Element[] | null | undefined => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
     return primaryAction.menuItems
@@ -36,7 +38,9 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps): JSX.Element[] | 
   }
 }
 
-const renderPrimaryActions = (primaryAction: PrimaryActionProps): JSX.Element[][] | undefined => {
+const renderPrimaryActions = (
+  primaryAction: PrimaryActionProps
+): JSX.Element[][] | undefined => {
   if (
     isMenuGroupNotButton(primaryAction) &&
     primaryAction.menuItems.length > 0
@@ -264,10 +268,15 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
   )
 }
 
-const getAction = (primaryAction: TitleBlockButtonProps): {
-  href: TitleBlockButtonProps["href"];
-  onClick: TitleBlockButtonProps["onClick"]
-} | TitleBlockButtonProps["href"] | TitleBlockButtonProps["onClick"] => {
+const getAction = (
+  primaryAction: TitleBlockButtonProps
+):
+  | {
+      href: TitleBlockButtonProps["href"]
+      onClick: TitleBlockButtonProps["onClick"]
+    }
+  | TitleBlockButtonProps["href"]
+  | TitleBlockButtonProps["onClick"] => {
   if (primaryAction && !primaryAction.disabled) {
     if (primaryAction.onClick && primaryAction.href) {
       return {

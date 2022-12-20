@@ -46,7 +46,9 @@ const isJSXElement = (
 ): imageElementOrAvatarProps is JSX.Element =>
   "props" in imageElementOrAvatarProps
 
-const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps): JSX.Element =>
+const renderAvatar = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <>{imageElementOrAvatarProps}</>
   ) : (
@@ -153,7 +155,12 @@ const Tag = (props: TagProps): JSX.Element => {
                 onMouseLeave={onMouseLeave}
               >
                 <div className={styles.iconWrapper}>
-                  <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+                  <Icon
+                    icon={clearIcon}
+                    inheritSize
+                    role="img"
+                    title="Dismiss"
+                  />
                 </div>
               </button>
             </>

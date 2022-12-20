@@ -196,7 +196,10 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   </button>
 )
 
-const NotificationHeading = ({ titleProp, headingProps }): JSX.Element | null => {
+const NotificationHeading = ({
+  titleProp,
+  headingProps,
+}): JSX.Element | null => {
   if (headingProps) {
     return (
       <Heading

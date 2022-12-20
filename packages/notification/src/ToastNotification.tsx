@@ -3,7 +3,10 @@ import { v4 } from "uuid"
 import { addToastNotification } from "./ToastNotificationManager"
 import { ToastNotificationWithOptionals } from "./types"
 
-type ToastNotificationProps = Omit<ToastNotificationWithOptionals, "message"> & {
+type ToastNotificationProps = Omit<
+  ToastNotificationWithOptionals,
+  "message"
+> & {
   hideCloseIcon?: boolean
   children: React.ReactNode
 }

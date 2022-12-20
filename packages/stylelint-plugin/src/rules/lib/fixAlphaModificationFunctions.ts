@@ -110,7 +110,7 @@ const isRgbTriple = (value: string): boolean =>
 export const fixAlphaModificationFunctions = (
   /** The value part of a declaration: e.g. the string "5px 10px" within "padding: 5px 10px" */
   value: string
-): { newValue: string, errors: string[] } => {
+): { newValue: string; errors: string[] } => {
   // We'll keep track of errors, then return them at the end so the consumer can decide what to do
   const errors: string[] = []
 

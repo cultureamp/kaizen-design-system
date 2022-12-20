@@ -37,7 +37,10 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  */
 export function makeCSSVariableTheme<
   ThemeType extends Record<string | number, unknown>
->(theme: ThemeType, printValue = objectPathToCssVarFunction): DeepMapObjectLeafs<ThemeType, string> {
+>(
+  theme: ThemeType,
+  printValue = objectPathToCssVarFunction
+): DeepMapObjectLeafs<ThemeType, string> {
   const augmentedTheme: Record<string, unknown> = {}
 
   const mapper = (leafPath: string[], value: unknown): void => {

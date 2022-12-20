@@ -73,7 +73,7 @@ export const TextArea = ({
   const getWrapperStyle = (): { minHeight: string } | undefined =>
     autogrow ? { minHeight: parentHeight } : undefined
 
-  const getTextAreaStyle = (): { height: string } | undefined  =>
+  const getTextAreaStyle = (): { height: string } | undefined =>
     autogrow ? { height: textAreaHeight } : undefined
 
   const controlledValue = value || internalValue

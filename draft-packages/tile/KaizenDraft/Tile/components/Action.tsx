@@ -8,7 +8,11 @@ interface ActionProps {
   readonly disabled?: boolean
 }
 
-const Action = ({ action, secondary = false, disabled = false }: ActionProps): JSX.Element => {
+const Action = ({
+  action,
+  secondary = false,
+  disabled = false,
+}: ActionProps): JSX.Element => {
   const {
     label,
     href,

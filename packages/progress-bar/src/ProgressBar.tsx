@@ -85,7 +85,13 @@ export const ProgressBar = (props: ProgressBarProps): JSX.Element => {
 
 ProgressBar.displayName = "ProgressBar"
 
-const Label = ({ content, isReversed = false }: { content: ReactNode; isReversed: boolean }): JSX.Element => (
+const Label = ({
+  content,
+  isReversed = false,
+}: {
+  content: ReactNode
+  isReversed: boolean
+}): JSX.Element => (
   <div className={styles.label}>
     <Box pb={0.25}>
       <Heading

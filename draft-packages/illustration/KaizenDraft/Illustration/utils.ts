@@ -6,7 +6,9 @@ import { LottieManifestFile, LottieAnimation } from "./types"
  * Fetch and unzip dotlottie files
  * @param path
  */
-export const getAnimationData = async (path: string): Promise<LottieAnimation> => {
+export const getAnimationData = async (
+  path: string
+): Promise<LottieAnimation> => {
   const animationData = await fetchAnimationData(assetUrl(path))
   const parsedResponse = await parseAnimationData(animationData)
 

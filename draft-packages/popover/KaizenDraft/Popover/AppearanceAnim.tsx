@@ -18,7 +18,12 @@ const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't h
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-const AppearanceAnim = ({ children, isVisible, className, ...rest }: AppearanceAnimProps): JSX.Element | null => {
+const AppearanceAnim = ({
+  children,
+  isVisible,
+  className,
+  ...rest
+}: AppearanceAnimProps): JSX.Element | null => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(isVisible)

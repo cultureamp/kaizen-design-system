@@ -43,7 +43,8 @@ describe(mapLeafsOfObject.name, () => {
           imACamel: "var(--test-im-a-camel, im-a-camel)",
           one: {
             two: {
-              three: `var(--test-one-two-three, ${(): string => "i'm a function"})`,
+              three: `var(--test-one-two-three, ${(): string =>
+                "i'm a function"})`,
             },
           },
         },

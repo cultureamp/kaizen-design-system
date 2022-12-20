@@ -81,7 +81,9 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-const getVariablesInBlock = (block: ChildNode | Container): Record<string, string | undefined> => {
+const getVariablesInBlock = (
+  block: ChildNode | Container
+): Record<string, string | undefined> => {
   if (!("nodes" in block)) return {}
 
   return block.nodes
@@ -153,7 +155,10 @@ const getLexicallyClosestVariables = (
 export const getLexicalTransitiveKaizenVariables = (
   stylesheetNode: Root,
   leafNode: ChildNode | Container
-): Record<string, { value: string; kaizenVariablesInValue: ParsedKaizenVariable[] }> => {
+): Record<
+  string,
+  { value: string; kaizenVariablesInValue: ParsedKaizenVariable[] }
+> => {
   const stylesheetVariables = getLexicallyClosestVariables(
     stylesheetNode,
     leafNode

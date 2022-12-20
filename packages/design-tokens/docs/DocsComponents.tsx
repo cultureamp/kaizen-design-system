@@ -118,7 +118,9 @@ const themesBlocks: Array<
   },
 ]
 
-export const ThemesCodeBlocks = (): JSX.Element => <TabbedCodeBlocks blocks={themesBlocks} />
+export const ThemesCodeBlocks = (): JSX.Element => (
+  <TabbedCodeBlocks blocks={themesBlocks} />
+)
 const sassBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
 > = [
@@ -170,8 +172,9 @@ export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
 )
 
-export const getStoryLinkName = (storyTitle: string | undefined): string | undefined =>
-  storyTitle?.replace(/.*\//, "")
+export const getStoryLinkName = (
+  storyTitle: string | undefined
+): string | undefined => storyTitle?.replace(/.*\//, "")
 
 export const LinkToStory = ({
   storyModule,

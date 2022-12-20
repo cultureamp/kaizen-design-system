@@ -49,7 +49,9 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   public addThemeChangeListener = (listener: (theme: Theme) => void): void => {
     this.themeChangeListeners.push(listener)
   }
-  public removeThemeChangeListener = (listener: (theme: Theme) => void): void => {
+  public removeThemeChangeListener = (
+    listener: (theme: Theme) => void
+  ): void => {
     this.themeChangeListeners = this.themeChangeListeners.filter(
       l => l !== listener
     )

@@ -27,7 +27,9 @@ export interface GenericModalProps
 
 const MODAL_TRANSITION_TIMEOUT = 350
 
-const GenericModalContainer = (props: GenericModalContainerProps): JSX.Element => {
+const GenericModalContainer = (
+  props: GenericModalContainerProps
+): JSX.Element => {
   const labelledByID = v4()
   const describedByID = v4()
   return (
@@ -176,7 +178,9 @@ class GenericModal extends React.Component<GenericModalProps> {
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div
             className={styles.scrollLayer}
-            ref={(scrollLayer): HTMLDivElement | null => (this.scrollLayer = scrollLayer)}
+            ref={(scrollLayer): HTMLDivElement | null =>
+              (this.scrollLayer = scrollLayer)
+            }
             onClick={
               this.props.onOutsideModalClick && this.outsideModalClickHandler
             }
@@ -187,7 +191,9 @@ class GenericModal extends React.Component<GenericModalProps> {
               aria-labelledby={this.props.labelledByID}
               aria-describedby={this.props.describedByID}
               className={styles.modalLayer}
-              ref={(modalLayer): HTMLDivElement | null => (this.modalLayer = modalLayer)}
+              ref={(modalLayer): HTMLDivElement | null =>
+                (this.modalLayer = modalLayer)
+              }
               data-automation-id={automationId}
             >
               {children}

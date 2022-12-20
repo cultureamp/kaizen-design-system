@@ -210,9 +210,9 @@ export const useMediaQueries = (
   const customComponents = {}
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-    customComponents[componentName] = (props: HelperComponentProps): JSX.Element => (
-      <>{customMatches[key] && props.children}</>
-    )
+    customComponents[componentName] = (
+      props: HelperComponentProps
+    ): JSX.Element => <>{customMatches[key] && props.children}</>
   })
 
   return {

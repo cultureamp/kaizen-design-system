@@ -17,7 +17,9 @@ export interface ToolbarProps
   "aria-label": string
 }
 
-const determineValidKeypress = (event: React.KeyboardEvent<HTMLElement>): boolean => {
+const determineValidKeypress = (
+  event: React.KeyboardEvent<HTMLElement>
+): boolean => {
   const validKeys = {
     left: "ArrowLeft",
     right: "ArrowRight",

@@ -44,7 +44,9 @@ export const TextAreaField = ({
   )
 
   const renderDescriptionOnTop = variant === "prominent"
-  const renderDescription = (position: "top" | "bottom"): JSX.Element | null => {
+  const renderDescription = (
+    position: "top" | "bottom"
+  ): JSX.Element | null => {
     if (!description) return null
     return (
       <div

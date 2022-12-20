@@ -24,7 +24,9 @@ const handleEditableClick = (
   return onClick(e)
 }
 
-export const EditableRichTextContent = (props: EditableRichTextContentProps): JSX.Element => {
+export const EditableRichTextContent = (
+  props: EditableRichTextContentProps
+): JSX.Element => {
   const {
     onClick,
     content,

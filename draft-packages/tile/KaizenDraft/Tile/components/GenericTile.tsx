@@ -109,8 +109,14 @@ export const GenericTile = ({
     </div>
   )
 
-  const renderInformation = (informationProp: GenericTileProps["information"] | undefined): JSX.Element | React.ReactNode => {
-    if (informationProp && typeof informationProp === "object" && "text" in informationProp) {
+  const renderInformation = (
+    informationProp: GenericTileProps["information"] | undefined
+  ): JSX.Element | React.ReactNode => {
+    if (
+      informationProp &&
+      typeof informationProp === "object" &&
+      "text" in informationProp
+    ) {
       return (
         <>
           <Paragraph variant="body">{informationProp.text}</Paragraph>
