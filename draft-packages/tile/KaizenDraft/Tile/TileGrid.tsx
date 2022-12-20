@@ -18,11 +18,11 @@ export interface TileGridProps
  * {@link https://cultureamp.design/components/tile/#tilegrid Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tile--tile-grid-with-tiles Storybook}
  */
-export const TileGrid: React.VFC<TileGridProps> = ({
+export const TileGrid = ({
   children,
   classNameOverride,
   ...restProps
-}) => (
+}: TileGridProps): JSX.Element => (
   <div
     className={classnames(styles.grid, classNameOverride)}
     data-tile-grid
