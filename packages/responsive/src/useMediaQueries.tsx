@@ -4,7 +4,7 @@ import { useTheme } from "@kaizen/design-tokens"
 type Props = { [key: string]: string }
 type GenericChildrenType = { children?: ReactNode }
 
-export const subtractOnePixel = (breakpoint: string) =>
+export const subtractOnePixel = (breakpoint: string): string =>
   `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
@@ -105,7 +105,7 @@ export const useMediaQueries = (
       return
     }
 
-    const updateMatches = () => {
+    const updateMatches = (): void => {
       const isSmallAfterUpdate = smallMatchMedia.matches || false
       const isMediumAfterUpdate = mediumMatchMedia.matches || false
       const isLargeAfterUpdate = largeMatchMedia.matches || false
@@ -154,7 +154,7 @@ export const useMediaQueries = (
     const updateCustomMatches = (
       matchMedia: MediaQueryList,
       queryName: string
-    ) =>
+    ): void =>
       setCustomMatches({
         ...customQueryMatches,
         [queryName]: matchMedia.matches || false,
@@ -163,7 +163,7 @@ export const useMediaQueries = (
     const allEventListeners = new Map()
     customQueryMatchMedias.forEach((matchMedia, queryName) => {
       // Store this method so that we can reference it in the cleanup function below
-      const updateCustomMatchesForQuery = () => {
+      const updateCustomMatchesForQuery = (): void => {
         updateCustomMatches(matchMedia, queryName)
       }
       allEventListeners.set(matchMedia, updateCustomMatchesForQuery)
@@ -210,7 +210,7 @@ export const useMediaQueries = (
   const customComponents = {}
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-    customComponents[componentName] = (props: HelperComponentProps) => (
+    customComponents[componentName] = (props: HelperComponentProps): JSX.Element => (
       <>{customMatches[key] && props.children}</>
     )
   })
