@@ -27,7 +27,7 @@ const MenuDropdown = ({
   autoHide = "on",
   align = "left",
   width = "default",
-}: MenuDropdownProps) => {
+}: MenuDropdownProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
