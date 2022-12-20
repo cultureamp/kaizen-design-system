@@ -3,7 +3,7 @@ import cx from "classnames"
 import { useDebouncedCallback } from "use-debounce"
 import styles from "./AppearanceAnim.module.scss"
 
-type Props = {
+type AppearanceAnimProps = {
   children: React.ReactNode
   isVisible: boolean
   className?: string | null
@@ -18,7 +18,7 @@ const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't h
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-const AppearanceAnim = ({ children, isVisible, className, ...rest }: Props) => {
+const AppearanceAnim = ({ children, isVisible, className, ...rest }: AppearanceAnimProps): JSX.Element | null => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(isVisible)
