@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Base, BaseProps } from "./Base"
 import { AnimatedBase, AnimatedBaseProps } from "./Players/LottiePlayer"
 
@@ -19,7 +19,7 @@ export const Cautionary = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-cautionary.svg"
   const StaticIllustration = (
     <Base
@@ -47,7 +47,7 @@ export const Informative = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-informative.svg"
   const StaticIllustration = (
     <Base
@@ -75,7 +75,7 @@ export const Negative = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-negative.svg"
   const StaticIllustration = (
     <Base
@@ -106,7 +106,7 @@ export const PositiveMale = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => (
+}: AnimatedSpotProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...otherProps}
@@ -121,7 +121,7 @@ export const PositiveFemale = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-positive.svg"
   const StaticIllustration = (
     <Base
@@ -149,7 +149,7 @@ export const Positive = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-positive.svg"
   const StaticIllustration = (
     <Base
@@ -179,7 +179,7 @@ export const Assertive = ({
   isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps) => {
+}: AnimatedSpotProps): JSX.Element => {
   const illustrationPath = "illustrations/heart/spot/moods-assertive.svg"
   const StaticIllustration = (
     <Base
