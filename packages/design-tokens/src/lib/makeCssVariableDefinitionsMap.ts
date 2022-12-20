@@ -32,7 +32,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  */
 export function makeCssVariableDefinitionsMap(
   theme: Record<string | number, unknown>
-) {
+): Record<string, string> {
   let accumulatedCssVariables = {} as Record<string, string>
 
   // Shamelessly using a map function like a forEach

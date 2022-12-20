@@ -26,7 +26,7 @@ export const CodeBlock = (props: {
   language: string
   caption?: React.ReactNode
   code: string
-}) => (
+}): JSX.Element => (
   <Box py={0.5}>
     <Card>
       <div className={styles.codeWrapper}>
@@ -50,7 +50,7 @@ const TabbedCodeBlocks = ({
   blocks: Array<
     React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
   >
-}) => {
+}): JSX.Element => {
   const [currentTab, setCurrentTab] = React.useState(blocks[0])
   const { name, ...codeBlockProps } = currentTab
 
@@ -64,7 +64,7 @@ const TabbedCodeBlocks = ({
               activeTabClassName,
               tabClassName,
               disabledTabClassName,
-            }) => (
+            }): JSX.Element => (
               // eslint-disable-next-line jsx-a11y/anchor-is-valid
               <a
                 style={{ flexShrink: 0 }}
@@ -118,7 +118,7 @@ const themesBlocks: Array<
   },
 ]
 
-export const ThemesCodeBlocks = () => <TabbedCodeBlocks blocks={themesBlocks} />
+export const ThemesCodeBlocks = (): JSX.Element => <TabbedCodeBlocks blocks={themesBlocks} />
 const sassBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
 > = [
@@ -166,11 +166,11 @@ const sassBlocks: Array<
   },
 ]
 
-export const SassVariablesCodeBlocks = () => (
+export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
 )
 
-export const getStoryLinkName = (storyTitle: string | undefined) =>
+export const getStoryLinkName = (storyTitle: string | undefined): string | undefined =>
   storyTitle?.replace(/.*\//, "")
 
 export const LinkToStory = ({
@@ -182,8 +182,7 @@ export const LinkToStory = ({
   hash?: string
   /* Children can be used to override the Link text */
   children?: React.ReactNode
-}) => (
-  // @ts-ignore
+}): JSX.Element => (
   <LinkTo kind={storyModule.title}>
     {children || getStoryLinkName(storyModule.title!)}
   </LinkTo>

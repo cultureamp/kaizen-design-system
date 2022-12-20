@@ -31,7 +31,7 @@ describe(mapLeafsOfObject.name, () => {
           imACamel: "im-a-camel",
           one: {
             two: {
-              three: () => "i'm a function",
+              three: (): string => "i'm a function",
             },
           },
         },
@@ -43,7 +43,7 @@ describe(mapLeafsOfObject.name, () => {
           imACamel: "var(--test-im-a-camel, im-a-camel)",
           one: {
             two: {
-              three: `var(--test-one-two-three, ${() => "i'm a function"})`,
+              three: `var(--test-one-two-three, ${(): string => "i'm a function"})`,
             },
           },
         },
@@ -56,12 +56,12 @@ describe(mapLeafsOfObject.name, () => {
           imACamel: "im-a-camel",
           one: {
             two: {
-              three: () => "this shouldn't show",
+              three: (): string => "this shouldn't show",
             },
           },
         },
       },
-      (path: string[], value: unknown) =>
+      (path: string[], value: unknown): string =>
         `${path[path.length - 1]}: ${
           typeof value === "string" ? value : "not-a-string"
         }`,
