@@ -17,12 +17,6 @@ import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
 import selectStyles from "./Select.module.scss"
 
-type SubComponentProps = {
-  TriggerButton: typeof TriggerButton
-  Option: typeof Option
-  ListBox: typeof ListBox
-}
-
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
 }
@@ -52,7 +46,7 @@ export interface SelectProps
   validationMessage?: React.ReactNode | undefined
 }
 
-export const Select: React.FC<SelectProps> & SubComponentProps = ({
+export const Select = ({
   id,
   label,
   description,
@@ -68,7 +62,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   ),
   children,
   ...restProps
-}) => {
+}: SelectProps): JSX.Element => {
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"
