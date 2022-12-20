@@ -468,7 +468,7 @@ export const Tooltip = () => (
             labelText="End aligned, no icon"
             width={1 / 4}
             tooltipInfo="This is a tooltip even though there was no icon"
-            showTooltipIcon={false}
+            isTooltipIconHidden={true}
             align="end"
           />
         </TableHeaderRow>
