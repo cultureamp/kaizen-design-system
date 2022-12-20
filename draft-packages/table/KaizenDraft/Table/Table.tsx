@@ -10,7 +10,6 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
-type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
   variant?: "compact" | "default" | "data"
@@ -19,11 +18,11 @@ type TableContainerProps = {
  * {@link https://cultureamp.design/components/table/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-table--default-kaizen-site-demo Storybook}
  */
-export const TableContainer: TableContainer = ({
+export const TableContainer = ({
   variant = "compact",
   children,
   ...otherProps
-}) => (
+}: TableContainerProps): JSX.Element => (
   <div
     role="table"
     className={classNames(styles.container, {
@@ -45,11 +44,11 @@ type TableHeaderProps = {
   backgroundColor?: AllowedTableHeaderBackgroundColors
   children?: React.ReactNode
 }
-export const TableHeader: React.VFC<TableHeaderProps> = ({
+export const TableHeader = ({
   backgroundColor,
   children,
   ...otherProps
-}) => {
+}: TableHeaderProps): JSX.Element => {
   if (backgroundColor) {
     // eslint-disable-next-line no-console
     console.warn(
@@ -67,16 +66,17 @@ export const TableHeader: React.VFC<TableHeaderProps> = ({
 type TableHeaderRowProps = {
   children?: React.ReactNode
 }
-export const TableHeaderRow: React.VFC<TableHeaderRowProps> = ({
+
+export const TableHeaderRow = ({
   children,
   ...otherProps
-}) => (
+}: TableHeaderRowProps): JSX.Element => (
   <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
 )
 
-const ratioToPercent = (width?: number) =>
+const ratioToPercent = (width?: number): string | number | undefined =>
   width != null ? `${width * 100}%` : width
 
 /**
@@ -119,7 +119,7 @@ type TableHeaderRowCellProps = OverrideClassName<
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
 
-export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
+export const TableHeaderRowCell = ({
   labelText,
   automationId,
   onClick,
@@ -153,12 +153,12 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
-}) => {
+}: TableHeaderRowCellProps): JSX.Element => {
   // `active` is the legacy prop
   const sorting = sortingRaw || (active ? "descending" : undefined)
   const [isHovered, setIsHovered] = React.useState(false)
 
-  const updateHoverState = (hoverState: boolean) => {
+  const updateHoverState = (hoverState: boolean): void => {
     if (sortingArrowsOnHover && hoverState != isHovered)
       setIsHovered(hoverState)
   }
@@ -233,10 +233,10 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
       onClick={
         onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
       }
-      onMouseEnter={() => updateHoverState(true)}
-      onFocus={() => updateHoverState(true)}
-      onMouseLeave={() => updateHoverState(false)}
-      onBlur={() => updateHoverState(false)}
+      onMouseEnter={(): void => updateHoverState(true)}
+      onFocus={(): void => updateHoverState(true)}
+      onMouseLeave={(): void => updateHoverState(false)}
+      onBlur={(): void => updateHoverState(false)}
     >
       {cellContents}
     </a>
@@ -247,10 +247,10 @@ export const TableHeaderRowCell: React.VFC<TableHeaderRowCellProps> = ({
         [styles.headerRowCellButtonReversed]: !!reversed,
       })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
-      onMouseEnter={() => updateHoverState(true)}
-      onFocus={() => updateHoverState(true)}
-      onMouseLeave={() => updateHoverState(false)}
-      onBlur={() => updateHoverState(false)}
+      onMouseEnter={(): void => updateHoverState(true)}
+      onFocus={(): void => updateHoverState(true)}
+      onMouseLeave={(): void => updateHoverState(false)}
+      onBlur={(): void => updateHoverState(false)}
     >
       {cellContents}
     </button>
