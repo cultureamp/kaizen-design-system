@@ -20,11 +20,7 @@ export default {
   },
 }
 
-const Padding = ({
-  size = 1,
-}: {
-  size?: React.ComponentProps<typeof Box>["p"]
-}) => <Box p={size}> </Box>
+const Padding = ({ size = 1 }: { size?: React.ComponentProps<typeof Box>["p"] }): JSX.Element => <Box p={size}> </Box>
 
 /**
  * Use this for showing a simple horizontal or vertical stack of elements, with the support of padding/gaps between each of them.
@@ -74,7 +70,7 @@ const Stack = React.memo(
 /**
  * A component to show a simple color block with a name
  */
-const ColorDemo = (props: { color: string; name?: string }) => {
+const ColorDemo = (props: { color: string; name?: string }): JSX.Element => {
   const theme = useTheme()
   const parsedColor = colorString.get(props.color)
   return (
@@ -130,14 +126,8 @@ const ColorDemo = (props: { color: string; name?: string }) => {
 /**
  * A section of components, displayed as a column, with some styles such as a top and left border, a heading/title, and `contain: content` to ensure nothing bleeds out of it such as fixed or absolute positioned elements.
  */
-const ComponentsSection = React.forwardRef(
-  (
-    props: {
-      title: React.ReactNode
-      children: React.ReactNode
-    },
-    ref: React.Ref<HTMLDivElement>
-  ) => (
+const ComponentsSection = React.forwardRef<HTMLDivElement,{ title: React.ReactNode; children: React.ReactNode }>(
+  (props, ref) => (
     <>
       <Heading variant="heading-2">{props.title}</Heading>
       <Padding />
