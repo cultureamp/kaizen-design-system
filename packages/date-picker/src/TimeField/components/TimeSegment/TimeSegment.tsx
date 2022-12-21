@@ -10,10 +10,10 @@ export interface TimeSegmentProps {
   state: DateFieldState
 }
 
-export const TimeSegment: React.VFC<TimeSegmentProps> = ({
+export const TimeSegment = ({
   segment,
   state,
-}) => {
+}: TimeSegmentProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 

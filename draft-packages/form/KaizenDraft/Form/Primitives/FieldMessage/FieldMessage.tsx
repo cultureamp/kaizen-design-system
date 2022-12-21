@@ -6,7 +6,7 @@ import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-wh
 import { Paragraph } from "@kaizen/typography"
 import styles from "./FieldMessage.module.scss"
 
-const WarningIcon: React.VFC = () => (
+const WarningIcon = (): JSX.Element => (
   <span className={styles.warningIcon}>
     <Icon
       icon={exclamationWhiteIcon}

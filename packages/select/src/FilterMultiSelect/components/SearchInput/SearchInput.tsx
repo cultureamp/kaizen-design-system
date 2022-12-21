@@ -10,11 +10,11 @@ export interface SearchInputProps {
   isLoading?: boolean
 }
 
-export const SearchInput: React.VFC<SearchInputProps> = ({
+export const SearchInput = ({
   label,
   id,
   isLoading,
-}) => {
+}: SearchInputProps): JSX.Element => {
   const { setSearchQuery, searchQuery } = useSelectionContext()
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {

@@ -54,14 +54,14 @@ export interface HeadingProps
  * {@link https://cultureamp.design/components/heading/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-heading--display-0 Storybook}
  */
-export const Heading: React.VFC<HeadingProps> = ({
+export const Heading = ({
   children,
   tag,
   variant,
   color = "dark",
   classNameOverride,
   ...restProps
-}) => {
+}: HeadingProps): JSX.Element => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 

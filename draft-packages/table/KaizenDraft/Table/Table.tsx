@@ -331,7 +331,7 @@ type TableCardProps = {
   children?: React.ReactNode
 }
 
-export const TableCard: React.VFC<TableCardProps> = ({
+export const TableCard = ({
   children,
   expanded,
   expandedStyle = "well",
@@ -339,7 +339,7 @@ export const TableCard: React.VFC<TableCardProps> = ({
   href,
   forceHoverState = false,
   ...otherProps
-}) => {
+}: TableCardProps): JSX.Element => {
   const className = classNames(styles.card, {
     [styles.expanded]: expanded,
     [styles[expandedStyle]]: expanded,
@@ -378,10 +378,10 @@ export const TableCard: React.VFC<TableCardProps> = ({
 type TableRowProps = {
   children?: React.ReactNode
 }
-export const TableRow: React.VFC<TableRowProps> = ({
+export const TableRow = ({
   children,
   ...otherProps
-}) => (
+}: TableRowProps): JSX.Element => (
   <div className={styles.row} role="row" {...otherProps}>
     {children}
   </div>
@@ -400,14 +400,14 @@ type TableRowCellProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   href?: string
 }
 
-export const TableRowCell: React.VFC<TableRowCellProps> = ({
+export const TableRowCell = ({
   children,
   width,
   flex,
   href,
   classNameOverride,
   ...otherProps
-}) =>
+}: TableRowCellProps): JSX.Element =>
   href != null ? (
     <a
       // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role

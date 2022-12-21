@@ -103,7 +103,7 @@ class Layout extends React.Component<GenericChildrenProps> {
 
 const extractChildOfType = (
   children: React.ReactNode[],
-  type: React.VFC
+  type: React.FC
 ): React.ReactNode | false => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {

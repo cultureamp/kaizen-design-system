@@ -20,7 +20,7 @@ import styles from "./ToastNotification.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
-const withNavigation = (StoryChild: React.FunctionComponent) => (
+const withNavigation = (StoryChild: () => JSX.Element) => (
   <>
     <div style={{ margin: "-1rem", minHeight: "150px" }}>
       <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />

@@ -47,7 +47,7 @@ const handleKeyDown = (
   toolbarButtons.current[newFocusIndex].focus()
 }
 
-export const Toolbar: React.VFC<ToolbarProps> = props => {
+export const Toolbar = (props: ToolbarProps): JSX.Element => {
   const {
     children: toolbarChildren,
     classNameOverride,
@@ -111,3 +111,5 @@ export const Toolbar: React.VFC<ToolbarProps> = props => {
     </div>
   )
 }
+
+Toolbar.displayName = "Toolbar"

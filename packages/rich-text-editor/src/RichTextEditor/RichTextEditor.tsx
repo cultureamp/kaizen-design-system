@@ -59,7 +59,7 @@ export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
  * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
  */
-export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
+export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
   const {
     onChange,
     value,

@@ -9,7 +9,7 @@ import { MenuList, MenuItem } from "../.."
 /**
  * This is an mocked example of a Menu's children using all of the subcomponents.
  */
-export const MenuContentExample: React.FunctionComponent = () => (
+export const MenuContentExample = (): JSX.Element => (
   <>
     <MenuList heading="Links">
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />

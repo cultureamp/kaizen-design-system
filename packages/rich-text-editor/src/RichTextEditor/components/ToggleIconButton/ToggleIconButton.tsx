@@ -21,44 +21,46 @@ export interface ToggleIconButtonProps
     | "secondary-destructive"
 }
 
-export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
-  React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
-    const {
-      icon,
-      label,
-      isActive = false,
-      mood = "default",
-      disabled = false,
-      classNameOverride,
-      onClick,
-      ...nativeButtonProps
-    } = props
-    return (
-      <Tooltip
-        text={label}
-        display="inline-block"
-        position="above"
-        animationDuration={5}
+export const ToggleIconButton = React.forwardRef<
+  HTMLButtonElement,
+  ToggleIconButtonProps
+>((props, ref) => {
+  const {
+    icon,
+    label,
+    isActive = false,
+    mood = "default",
+    disabled = false,
+    classNameOverride,
+    onClick,
+    ...nativeButtonProps
+  } = props
+  return (
+    <Tooltip
+      text={label}
+      display="inline-block"
+      position="above"
+      animationDuration={5}
+    >
+      <button
+        ref={ref}
+        type="button"
+        aria-pressed={isActive}
+        aria-label={label}
+        aria-disabled={disabled}
+        onMouseDown={(e): void => e.preventDefault()}
+        onClick={!disabled ? onClick : undefined}
+        className={classnames(styles.button, classNameOverride, {
+          [styles.active]: isActive,
+          [styles[mood]]: mood,
+          [styles.disabled]: disabled,
+        })}
+        {...nativeButtonProps}
       >
-        <button
-          ref={ref}
-          type="button"
-          aria-pressed={isActive}
-          aria-label={label}
-          aria-disabled={disabled}
-          onMouseDown={(e): void => e.preventDefault()}
-          onClick={!disabled ? onClick : undefined}
-          className={classnames(styles.button, classNameOverride, {
-            [styles.active]: isActive,
-            [styles[mood]]: mood,
-            [styles.disabled]: disabled,
-          })}
-          {...nativeButtonProps}
-        >
-          <Icon icon={icon} role="presentation" />
-        </button>
-      </Tooltip>
-    )
-  })
+        <Icon icon={icon} role="presentation" />
+      </button>
+    </Tooltip>
+  )
+})
 
 ToggleIconButton.displayName = "ToggleIconButton"

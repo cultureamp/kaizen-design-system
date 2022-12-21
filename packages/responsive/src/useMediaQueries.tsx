@@ -1,4 +1,4 @@
-import React, { VFC, useEffect, useState, ReactNode, useMemo } from "react"
+import React, { useEffect, useState, ReactNode, useMemo } from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
@@ -19,12 +19,12 @@ export const useMediaQueries = (
     isMediumOrLarger: boolean
   }
   components: {
-    [key: string]: VFC<GenericChildrenType>
-    SmallOnly: VFC<GenericChildrenType>
-    MediumOnly: VFC<GenericChildrenType>
-    LargeOnly: VFC<GenericChildrenType>
-    MediumOrSmaller: VFC<GenericChildrenType>
-    MediumOrLarger: VFC<GenericChildrenType>
+    [key: string]: (props: GenericChildrenType) => JSX.Element
+    SmallOnly: (props: GenericChildrenType) => JSX.Element
+    MediumOnly: (props: GenericChildrenType) => JSX.Element
+    LargeOnly: (props: GenericChildrenType) => JSX.Element
+    MediumOrSmaller: (props: GenericChildrenType) => JSX.Element
+    MediumOrLarger: (props: GenericChildrenType) => JSX.Element
   }
 } => {
   if (typeof window === "undefined") {

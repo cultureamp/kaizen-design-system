@@ -69,12 +69,12 @@ type MockListBoxProps = {
   disabledValues?: React.Key[]
 }
 
-const MockListBox: React.VFC<MockListBoxProps> = ({
+const MockListBox = ({
   optionClassName,
   selectedKey,
   isFullWidth,
   disabledValues,
-}) => {
+}: MockListBoxProps): JSX.Element => {
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,

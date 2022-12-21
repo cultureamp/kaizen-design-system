@@ -11,11 +11,11 @@ export interface FilterButtonGroupProps
     | Array<React.ReactElement<FilterBaseButtonProps>>
 }
 
-export const FilterButtonGroup: React.VFC<FilterButtonGroupProps> = ({
+export const FilterButtonGroup = ({
   children,
   classNameOverride,
   ...restProps
-}) => {
+}: FilterButtonGroupProps): JSX.Element => {
   const childCount = React.Children.count(children)
 
   return (

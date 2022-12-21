@@ -315,12 +315,12 @@ export type CustomBreadcrumbProps = BreadcrumbProps & {
   children: React.ReactNode
 }
 
-const Breadcrumb: React.VFC<BreadcrumbProps> = ({
+const Breadcrumb = ({
   breadcrumb,
   automationId,
   textAutomationId,
   textDirection,
-}) => {
+}: BreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
   const InnerContents = (): JSX.Element => (

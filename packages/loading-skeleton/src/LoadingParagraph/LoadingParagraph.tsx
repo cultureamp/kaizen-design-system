@@ -19,7 +19,7 @@ export interface LoadingParagraphProps
   width?: number
 }
 
-export const LoadingParagraph: React.VFC<LoadingParagraphProps> = ({
+export const LoadingParagraph = ({
   isAnimated,
   isCentred,
   isReversed,
@@ -30,7 +30,7 @@ export const LoadingParagraph: React.VFC<LoadingParagraphProps> = ({
   inheritBaseline,
   classNameOverride,
   ...props
-}) => (
+}: LoadingParagraphProps): JSX.Element => (
   <div
     className={classnames(
       skeletonStyles.base,

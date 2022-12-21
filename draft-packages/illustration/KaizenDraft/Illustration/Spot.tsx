@@ -209,8 +209,8 @@ export const Assertive = ({
 
 const SPOT_ILLUSTRATION_BASE_PATH = "illustrations/heart/spot/"
 const createSpotIllustration =
-  (fileName: string): React.VFC<SpotProps> =>
-  ({ enableAspectRatio, ...props }: SpotProps) =>
+  (fileName: string) =>
+  ({ enableAspectRatio, ...props }: SpotProps): JSX.Element =>
     (
       <Base
         aspectRatio={enableAspectRatio ? "square" : undefined}
