@@ -260,7 +260,6 @@ module.exports = {
       files: ["*.stories.tsx", "*.spec.tsx", "*.docsExample.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
       },
     },
   ],
