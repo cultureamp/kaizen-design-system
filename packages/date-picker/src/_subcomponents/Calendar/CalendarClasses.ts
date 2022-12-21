@@ -25,7 +25,6 @@ const baseCalendarClasses: ClassNames = {
 
 export const calendarSingleClasses: ClassNames = {
   ...baseCalendarClasses,
-  month: calendarSingleStyles.month,
   nav: calendarSingleStyles.nav,
   nav_button_next: calendarSingleStyles.navButtonNext,
 }

@@ -1,0 +1,45 @@
+@import "~@kaizen/design-tokens/sass/border";
+
+$input-disabled-opacity: 0.3;
+
+.dateRangeInputContainer {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.inputRangeStart {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+
+  + [class*="focusRing"] {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+}
+
+.inputRangeEnd {
+  position: relative;
+  inset-inline-start: calc(-1 * #{$border-solid-border-width});
+
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+
+  + [class*="focusRing"] {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+
+    // Override position of focus ring
+    /* stylelint-disable-next-line declaration-no-important */
+    inset-inline-start: calc(
+      -1 * calc(2 * #{$border-solid-border-width} + 1px)
+    ) !important;
+    /* stylelint-disable-next-line declaration-no-important */
+    inset-inline-end: -1px !important;
+  }
+}
+
+.disabled {
+  opacity: $input-disabled-opacity;
+}

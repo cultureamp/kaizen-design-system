@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.14.0",
+  "version": "5.15.0",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.0.1",
+    "@kaizen/a11y": "^1.6.14",
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/component-library": "^16.1.11",
     "@kaizen/draft-form": "^8.3.16",

@@ -1,11 +1,11 @@
 import React from "react"
-import { getFormatDescription } from "./getFormatDescription"
+import { formatDescriptionInputFormat } from "./formatDescriptionInputFormat"
 
-export const getDescription = (
+export const formatInputDescription = (
   description: React.ReactNode,
   locale: Locale
 ): React.ReactNode => {
-  const dateFormat = getFormatDescription(locale)
+  const dateFormat = formatDescriptionInputFormat(locale)
   if (React.isValidElement(description)) {
     return (
       <>

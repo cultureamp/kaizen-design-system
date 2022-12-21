@@ -4,7 +4,57 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "../../mixins";
 
+$button-border-radius: 3px;
 $rdp-cell-size: 40px;
+
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+$selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
+
+%focus-ring {
+  position: relative;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
+      );
+      content: "";
+      position: absolute;
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-radius: $button-border-radius;
+    }
+  }
+}
+
+%focus-ring--enabled {
+  @extend %focus-ring;
+
+  #{$selectors--button-focus} {
+    &::after {
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
+  }
+}
+
+%focus-ring--disabled {
+  @extend %focus-ring;
+
+  #{$selectors--button-focus} {
+    &::after {
+      border: $border-focus-ring-border-width $border-dashed-border-style
+        $color-gray-300;
+    }
+  }
+}
 
 .root {
   display: inline-flex;
@@ -20,12 +70,6 @@ $rdp-cell-size: 40px;
 
 .button {
   cursor: pointer;
-  border-radius: 3px;
-
-  &:focus {
-    outline: none;
-    border: 2px solid transparent;
-  }
 }
 
 .caption {
@@ -53,9 +97,12 @@ $rdp-cell-size: 40px;
 }
 
 .navButton {
+  @extend %focus-ring--enabled;
+
   display: inherit;
   padding: 0.25rem $spacing-xs;
   border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $button-border-radius;
 
   &:hover,
   &:global(.story__datepicker__calendar--hover) {
@@ -63,11 +110,7 @@ $rdp-cell-size: 40px;
     color: $color-blue-500;
   }
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
-    outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
+  #{$selectors--button-focus} {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -107,8 +150,9 @@ $rdp-cell-size: 40px;
 }
 
 .day {
+  @extend %focus-ring--enabled;
+
   display: flex;
-  overflow: hidden;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -116,7 +160,9 @@ $rdp-cell-size: 40px;
   max-width: $rdp-cell-size;
   height: $rdp-cell-size;
   margin: 0;
-  border: 2px solid transparent;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
+  border-radius: $button-border-radius;
   padding: calc(#{$spacing-md} / 3) 0.625rem;
   color: $color-purple-800;
 
@@ -126,11 +172,7 @@ $rdp-cell-size: 40px;
     color: $color-blue-500;
   }
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
-    outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
+  #{$selectors--button-focus} {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -148,44 +190,27 @@ $rdp-cell-size: 40px;
 
   &:hover,
   &:global(.story__datepicker__calendar--hover),
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     background-color: $color-blue-400;
     color: $color-white;
   }
 }
 
 .dayDisabled {
+  @extend %focus-ring--disabled;
+
   background: none;
   pointer-events: none;
   color: rgba($color-purple-800-rgb, 0.3);
   opacity: 1;
 
-  &:focus-visible,
-  :global(.js-focus-visible) &:global(.focus-visible) {
+  #{$selectors--button-focus} {
     color: rgba($color-purple-800-rgb, 0.3);
-    outline-offset: 1px;
     background-color: transparent;
     opacity: 1;
-    outline: $color-gray-300 $border-dashed-border-style
-      $border-focus-ring-border-width;
   }
 }
 
 .vHidden {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: 0;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  border: 0;
+  @include visually-hidden;
 }
