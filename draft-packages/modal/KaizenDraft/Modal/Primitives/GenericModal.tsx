@@ -159,9 +159,9 @@ class GenericModal extends React.Component<GenericModalProps> {
         show={isOpen}
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
-        beforeEnter={this.onBeforeEnter}
-        afterEnter={this.onAfterEnter}
-        afterLeave={this.onAfterLeave}
+        beforeEnter={(): void => this.onBeforeEnter()}
+        afterEnter={(): void => this.onAfterEnter()}
+        afterLeave={(): void => this.onAfterLeave()}
         data-generic-modal-transition-wrapper
         onClick={(e: React.MouseEvent): void => e.stopPropagation()}
       >
