@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.5.0...@kaizen/draft-table@5.6.0) (2022-12-20)
+
+
+### Features
+
+* **Table:** Allow consumers to hide tooltip icon in table header cells ([#3176](https://github.com/cultureamp/kaizen-design-system/issues/3176)) ([bf94812](https://github.com/cultureamp/kaizen-design-system/commit/bf948124979cea72a0ef2949b41256185560e6e4))
+
+
+
+
+
 # [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.2...@kaizen/draft-table@5.5.0) (2022-12-12)
 
 
