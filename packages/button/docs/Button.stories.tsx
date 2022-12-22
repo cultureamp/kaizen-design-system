@@ -111,17 +111,19 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     iconPosition: "end",
   }
 
-  const BADGE_LEFT_PROPS: ButtonProps = {
+  const BADGE_PROPS: ButtonProps = {
     label: "Label",
-    icon: filterIcon,
     badge: { text: "4" },
+  }
+  const BADGE_LEFT_PROPS: ButtonProps = {
+    ...BADGE_PROPS,
+    icon: filterIcon,
   }
 
   const BADGE_RIGHT_PROPS: ButtonProps = {
-    label: "Label",
+    ...BADGE_PROPS,
     icon: arrowRight,
     iconPosition: "end",
-    badge: { text: "4" },
   }
 
   return (
@@ -224,8 +226,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             "Working (Focus)",
             "Icon Left",
             "Icon Right",
-            "Badge Left",
-            "Badge Right",
+            "Icon Left with Badge",
+            "Icon Right with Badge",
+            "Badge Only",
           ]}
           headingsWidth="10rem"
           hasVerticalHeadings
@@ -245,6 +248,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
               <Button reversed={isReversed} {...props} {...BADGE_LEFT_PROPS} />
               <Button reversed={isReversed} {...props} {...BADGE_RIGHT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
