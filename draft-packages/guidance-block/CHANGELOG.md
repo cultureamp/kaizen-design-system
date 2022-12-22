@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@6.0.4...@kaizen/draft-guidance-block@6.1.0) (2022-12-22)
+
+
+### Features
+
+* **GuidanceBlock:** Add content prop to allow for custom markup ([#3178](https://github.com/cultureamp/kaizen-design-system/issues/3178)) ([5fa547e](https://github.com/cultureamp/kaizen-design-system/commit/5fa547eb6464a616266de85c9d7f4059cc9e1124))
+
+
+
+
+
 ## [6.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@6.0.3...@kaizen/draft-guidance-block@6.0.4) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
