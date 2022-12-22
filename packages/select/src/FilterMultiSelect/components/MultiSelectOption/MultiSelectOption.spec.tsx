@@ -8,7 +8,7 @@ import { ItemType } from "../../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
 jest.mock("@kaizen/component-library", () => ({
-  Icon: () => <span>icon-mock</span>,
+  Icon: (): JSX.Element => <span>icon-mock</span>,
 }))
 
 jest.mock("@kaizen/draft-badge", () => ({
@@ -20,7 +20,7 @@ jest.mock("@react-aria/listbox", () => ({
 }))
 
 jest.mock("../../provider", () => ({
-  useSelectionContext: () => ({ selectionState: {} }),
+  useSelectionContext: (): { selectionState: Record<string, unknown> } => ({ selectionState: {} }),
 }))
 
 const itemMock: Node<ItemType> = {
@@ -36,7 +36,7 @@ const itemMock: Node<ItemType> = {
 
 const MultiSelectOptionWrapper = ({
   item = itemMock,
-}: Partial<MultiSelectOptionProps>) => <MultiSelectOption item={item} />
+}: Partial<MultiSelectOptionProps>): JSX.Element => <MultiSelectOption item={item} />
 
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {
