@@ -1,6 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { Box } from "@kaizen/component-library"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
@@ -10,11 +11,13 @@ import {
   EmptyStatesPositive,
   BrandMomentPositiveOutro,
 } from "@kaizen/draft-illustration"
-import { Heading } from "@kaizen/typography"
+import { Tag } from "@kaizen/draft-tag"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
+import styles from "../KaizenDraft/GuidanceBlock/GuidanceBlock.module.scss"
 
 const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
@@ -98,6 +101,10 @@ DefaultStory.argTypes = {
     description:
       "This takes a scene scene or spot element, ie: `<Informative />`. This radio button implementation is a storybook only representation to toggle between the two illustration styles.",
   },
+  content: {
+    description:
+      "If you need to render custom content inside of the `GuidanceBlock` that is more than just a title and description use this prop instead of the default `text` option.",
+  },
 }
 
 const PROPS: GuidanceBlockProps = {
@@ -113,6 +120,24 @@ const PROPS: GuidanceBlockProps = {
     },
   },
 }
+
+const CustomContent = () => (
+  <>
+    <Box mb={0.75}>
+      <Tag variant="statusLive" size="small">
+        Early Access
+      </Tag>
+    </Box>
+    <Box mb={1}>
+      <Heading tag="h3" variant="heading-3">
+        {GUIDANCE_BLOCK_TEXT.title}
+      </Heading>
+    </Box>
+    <Paragraph tag="p" variant="body">
+      {GUIDANCE_BLOCK_TEXT.description}
+    </Paragraph>
+  </>
+)
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -134,6 +159,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="Negative">
       <GuidanceBlock variant="negative" {...PROPS} />
     </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <GuidanceBlock variant="prominent" {...PROPS} />
+    </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="No arrow">
       <GuidanceBlock
         illustration={<Informative alt="" />}
@@ -152,6 +180,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           },
         }}
         persistent
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Custom Content">
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        content={<CustomContent />}
+        noMaxWidth
+        persistent
+        actions={{
+          primary: {
+            label: "Learn more",
+            onClick: () => {
+              alert("tada: 🎉")
+            },
+          },
+          secondary: {
+            label: "Dismiss",
+            href: "#",
+          },
+        }}
       />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Tooltip">

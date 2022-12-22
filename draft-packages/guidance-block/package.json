@@ -39,6 +39,7 @@
     "react-media": "^1.10.0"
   },
   "devDependencies": {
+    "@kaizen/draft-tag": "^3.2.15",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
