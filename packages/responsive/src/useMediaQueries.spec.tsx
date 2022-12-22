@@ -1,9 +1,8 @@
-import * as React from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
 import { useMediaQueries, subtractOnePixel } from "../"
-import "@testing-library/jest-dom/extend-expect"
 
-const ExampleComponent = () => {
+const ExampleComponent = (): JSX.Element => {
   const { queries, components } = useMediaQueries({
     prefersReducedMotion: "(prefers-reduced-motion: reduce)",
   })
@@ -23,7 +22,7 @@ const ExampleComponent = () => {
   )
 }
 
-const mockMatchMedia = (matches: boolean) => {
+const mockMatchMedia = (matches: boolean): void => {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: jest.fn().mockImplementation(query => ({
