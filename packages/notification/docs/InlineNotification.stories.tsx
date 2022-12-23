@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
@@ -23,22 +23,25 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenDemo = props => (
-  <InlineNotification type="positive" title="Success" {...props}>
+export const DefaultKaizenDemo: ComponentStory<typeof InlineNotification> = props => (
+  <InlineNotification {...props}>
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
 DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
+DefaultKaizenDemo.args = {
+  type: "positive",
+  title: "Success"
+}
 
 const customHeadingProps: HeadingProps = {
   variant: "heading-6",
   tag: "h2",
   children: "Custom",
 }
-export const CustomHeadingLevel = props => (
+export const CustomHeadingLevel: ComponentStory<typeof InlineNotification> = props => (
   <InlineNotification
-    type="positive"
     headingProps={customHeadingProps}
     {...props}
   >
@@ -46,6 +49,9 @@ export const CustomHeadingLevel = props => (
   </InlineNotification>
 )
 CustomHeadingLevel.storyName = "Custom heading level"
+CustomHeadingLevel.args = {
+  type: "positive"
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -157,10 +163,9 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const AutohideDemo = props => (
+export const AutohideDemo: ComponentStory<typeof InlineNotification> = props => (
   <>
     <InlineNotification
-      type="positive"
       title="Success"
       {...props}
       autohide
@@ -172,3 +177,6 @@ export const AutohideDemo = props => (
     <p>Content below the notification</p>
   </>
 )
+AutohideDemo.args = {
+  type: "positive"
+}
