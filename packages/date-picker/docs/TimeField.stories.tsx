@@ -70,7 +70,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (en-AU)"
           locale="en-AU"
           value={{ hour: 1, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           isDisabled
         />
         <TimeField
@@ -91,7 +91,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (hover on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           classNameOverride="story__timefield-hover"
         />
         <TimeField
@@ -99,7 +99,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (focus on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           classNameOverride="story__timefield-focus"
         />
       </StoryWrapper.Row>

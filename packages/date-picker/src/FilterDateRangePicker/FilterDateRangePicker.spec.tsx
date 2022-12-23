@@ -5,7 +5,7 @@ import { DateRange } from "../types"
 import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
 
 // For testing within the open filter
-const openFilter = async () => {
+const openFilter = async (): Promise<void> => {
   const filterButton = screen.getByRole("button", { expanded: false })
   await userEvent.click(filterButton)
   await waitFor(() => {
@@ -16,7 +16,7 @@ const openFilter = async () => {
 const FilterDateRangePickerWrapper = ({
   selectedRange,
   ...restProps
-}: Partial<FilterDateRangePickerProps>) => {
+}: Partial<FilterDateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<
     DateRange | undefined
   >(selectedRange)
@@ -81,7 +81,7 @@ describe("<FilterDateRangePicker />", () => {
     })
 
     it("should show the remove button when remove filter callback is provided", () => {
-      render(<FilterDateRangePickerWrapper onRemoveFilter={() => undefined} />)
+      render(<FilterDateRangePickerWrapper onRemoveFilter={(): void => undefined} />)
       const removeButton = screen.getByRole("button", {
         name: "Remove filter - Dates",
       })

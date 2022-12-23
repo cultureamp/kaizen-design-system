@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { DateRangePicker } from "../src/DateRangePicker"
+import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { DateRange } from "../src/types"
@@ -24,19 +24,19 @@ export default {
   },
 }
 
-export const DateRangePickerStoryDefault = props => (
+export const DateRangePickerStoryDefault: ComponentStory<typeof DateRangePicker> = props => (
   <DateRangePickerTemplate {...props} />
 )
 DateRangePickerStoryDefault.storyName = "Date Range Picker"
 
-const DateRangePickerTemplate: Story = props => {
+const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
   })
   const [value, setValue] = useState("")
 
-  const onDateRangeChange = (dateRange: DateRange) => {
+  const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)
   }
 
@@ -68,7 +68,7 @@ const LegacyCalendarRangeTemplate: Story = props => {
   return (
     <LegacyCalendarRange
       id="calendar-dialog"
-      onDayChange={() => undefined}
+      onDayChange={(): void => undefined}
       weekStartsOn={0}
       defaultMonth={new Date(2022, 2)}
       selectedRange={selectedDateRange}
