@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -24,7 +24,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingParagraph = args => <LoadingParagraph {...args} />
+export const DefaultLoadingParagraph: ComponentStory<typeof LoadingParagraph> = args => <LoadingParagraph {...args} />
 DefaultLoadingParagraph.storyName = "Loading Paragraph"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
