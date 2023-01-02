@@ -37,17 +37,14 @@ type VariantType =
   | "assertive"
   | "prominent"
 
-export type GuidanceBlockProps = {
+interface BaseGuidanceBlockProps {
   layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
   /*
    * Sets how the width and aspect ratio will respond to the Illustration passed in.
    */
   illustrationType?: IllustrationType
-  text: {
-    title: string
-    description: string | React.ReactNode
-  }
+
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   /*
@@ -63,6 +60,21 @@ export type GuidanceBlockProps = {
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
 }
+
+interface GuidanceBlockWithText extends BaseGuidanceBlockProps {
+  text: {
+    title: string
+    description: string | React.ReactNode
+  }
+}
+
+interface GuidanceBlockPropsWithContent extends BaseGuidanceBlockProps {
+  content: React.ReactElement
+}
+
+export type GuidanceBlockProps =
+  | GuidanceBlockWithText
+  | GuidanceBlockPropsWithContent
 
 export type GuidanceBlockState = {
   hidden: boolean
@@ -198,7 +210,6 @@ class GuidanceBlock extends React.Component<
     const {
       actions,
       illustration,
-      text,
       persistent,
       withActionButtonArrow,
       noMaxWidth,
@@ -221,14 +232,19 @@ class GuidanceBlock extends React.Component<
         </div>
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
-            <div className={styles.headingWrapper}>
-              <Heading tag="h3" variant="heading-3">
-                {text.title}
-              </Heading>
-            </div>
-            <Paragraph tag="p" variant="body">
-              {text.description}
-            </Paragraph>
+            {"content" in this.props && this.props.content}
+            {"text" in this.props && (
+              <>
+                <div className={styles.headingWrapper}>
+                  <Heading tag="h3" variant="heading-3">
+                    {this.props.text.title}
+                  </Heading>
+                </div>
+                <Paragraph tag="p" variant="body">
+                  {this.props.text.description}
+                </Paragraph>
+              </>
+            )}
           </div>
           {actions?.primary &&
             this.renderActions(actions, withActionButtonArrow)}
