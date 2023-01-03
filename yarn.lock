@@ -13564,7 +13564,6 @@ moo-color@^1.0.2:
 
 motion-ui@cultureamp/motion-ui:
   version "2.0.3"
-  uid b15622a9afe00d5bb88c07ecf1451e0affdf155c
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/b15622a9afe00d5bb88c07ecf1451e0affdf155c"
 
 move-concurrently@^1.0.1:
