@@ -62,7 +62,7 @@
     "@playwright/test": "^1.28.1",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-links": "^6.5.14",
+    "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.14",
     "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/node-logger": "^6.5.14",
