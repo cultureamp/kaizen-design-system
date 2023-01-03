@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent, waitFor } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 import * as ReactTestUtils from "react-dom/test-utils"
@@ -28,8 +28,8 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
         actions={{
-          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
-          dismiss: { onClick: () => null },
+          primary: { label: "Action!", onClick: (): void => alert("tada: 🎉") },
+          dismiss: { onClick: (): void => undefined },
         }}
       />
     )
@@ -48,7 +48,7 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
         actions={{
-          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
+          primary: { label: "Action!", onClick: (): void => alert("tada: 🎉") },
           dismiss: { onClick: onDismiss },
         }}
       />
@@ -95,7 +95,7 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
         actions={{
-          primary: { label: "Action!", onClick: () => null },
+          primary: { label: "Action!", onClick: (): void => undefined },
         }}
       />
     )
@@ -125,7 +125,7 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
         actions={{
-          primary: { label: "Action!", onClick: () => null },
+          primary: { label: "Action!", onClick: (): void => undefined },
         }}
         persistent
       />
@@ -145,8 +145,8 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
         actions={{
-          primary: { label: "Action!", onClick: () => null },
-          secondary: { label: "Secondary action", onClick: () => null },
+          primary: { label: "Action!", onClick: (): void => undefined },
+          secondary: { label: "Secondary action", onClick: (): void => undefined },
         }}
       />
     )
