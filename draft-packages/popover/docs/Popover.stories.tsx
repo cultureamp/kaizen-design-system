@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
 import { IconButton } from "@kaizen/button"
@@ -35,7 +35,7 @@ export default {
   decorators: [withDesign],
 }
 
-const Container = ({ children }: { children: React.ReactNode }) => (
+const Container = ({ children }: { children: React.ReactNode }): JSX.Element => (
   <>
     <p>
       Default Placement is 'above'. Scroll horizontally or vertically to view
@@ -82,7 +82,7 @@ const InlineBlockTargetElement = ({
   openPopover?: () => void
   ElementRef: (element: HTMLElement | null) => void
   isReversed?: boolean
-}) => (
+}): JSX.Element => (
   <div
     ref={ElementRef}
     style={{
@@ -101,11 +101,12 @@ const InlineBlockTargetElement = ({
   </div>
 )
 
-export const DefaultKaizenSiteDemo = props => {
+export const DefaultKaizenSiteDemo: ComponentStory<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   // set the popover open state to be true when testing on chromatic
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
-  const openPopover = () => setIsOpen(true)
+  const openPopover = (): void => setIsOpen(true)
+
   return (
     <div
       style={{
@@ -124,9 +125,7 @@ export const DefaultKaizenSiteDemo = props => {
           {...props}
           dismissible
           heading="Heading"
-          onClose={() => {
-            setIsOpen(false)
-          }}
+          onClose={(): void => setIsOpen(false)}
         >
           Popover body that explains something useful, is optional, and not
           critical to completing a task. <a href="#">Optional link</a>
@@ -137,10 +136,10 @@ export const DefaultKaizenSiteDemo = props => {
 }
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const OverflowScroll = props => {
+export const OverflowScroll: ComponentStory<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
-  const openPopover = () => setIsOpen(true)
+  const openPopover = (): void => setIsOpen(true)
 
   return (
     <Container>
@@ -153,9 +152,7 @@ export const OverflowScroll = props => {
         <Popover
           heading="Heading"
           dismissible
-          onClose={() => {
-            setIsOpen(false)
-          }}
+          onClose={(): void => setIsOpen(false)}
           {...props}
         >
           Popover body that explains something useful, is optional, and not
