@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -29,7 +29,7 @@ export default {
   },
 }
 
-export const MeaningfulKaizenSiteDemo = () => (
+export const MeaningfulKaizenSiteDemo: Story = () => (
   // the wrapper with the fixed with is to solve a problem when this is used
   // as a site demo: the iframe was getting a height of 0px in Firefox
   <div
@@ -48,7 +48,11 @@ export const MeaningfulKaizenSiteDemo = () => (
 )
 MeaningfulKaizenSiteDemo.storyName = "Icon"
 
-const IconExampleTile = ({ icon, figmaName, filename }) => (
+const IconExampleTile = ({ icon, figmaName, filename }: {
+  icon: React.SVGAttributes<SVGSymbolElement>,
+  figmaName: string,
+  filename: string
+}): JSX.Element => (
   <div
     style={{
       width: "200px",
@@ -84,7 +88,7 @@ const StickerSheetTemplate: Story = () => {
   const effectivenessIcons = [...Object.entries(Effectiveness)]
   const miscellaneousIcons = [...Object.entries(Miscellaneous)]
 
-  const getFileName = (id: string) => {
+  const getFileName = (id: string): string => {
     const filename = id.replace(".icon", "")
     return filename.replace("ca-icon-", "")
   }

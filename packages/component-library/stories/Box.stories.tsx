@@ -8,6 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
+import { ComponentStory } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { Box } from "../components/Box"
@@ -18,7 +19,7 @@ export default {
   component: Box,
   parameters: {
     docs: {
-      page: () => (
+      page: (): JSX.Element => (
         <>
           <Title />
           <Subtitle />
@@ -33,7 +34,7 @@ export default {
   },
 }
 
-const Documentation = ({ reversed }: { reversed?: boolean }) => (
+const Documentation = ({ reversed }: { reversed?: boolean }): JSX.Element => (
   <Box mt={2}>
     <Paragraph variant="body" color={reversed ? "white" : "dark"}>
       <ul>
@@ -62,7 +63,7 @@ const Documentation = ({ reversed }: { reversed?: boolean }) => (
   </Box>
 )
 
-export const BoxDefault = args => (
+export const BoxDefault: ComponentStory<typeof Box> = args => (
   <div className={styles.boxStoriesWrapper}>
     <Box {...args}>
       A box with no props has a default margin and padding of 0. The children of
