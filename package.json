@@ -63,7 +63,7 @@
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.14",
+    "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/node-logger": "^6.5.14",
     "@storybook/testing-library": "^0.0.13",
