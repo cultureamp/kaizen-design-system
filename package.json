@@ -31,7 +31,7 @@
     "@kaizen/design-tokens": "^10.0.11",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^6.5.15",
-    "@storybook/api": "^6.5.14",
+    "@storybook/api": "^6.5.15",
     "@storybook/components": "^6.5.14",
     "@storybook/core-events": "^6.5.14",
     "@storybook/react": "^6.5.14",
