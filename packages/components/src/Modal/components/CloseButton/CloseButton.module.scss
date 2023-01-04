@@ -1,0 +1,13 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background-color: $color-gray-200;
+  border-radius: $border-solid-border-radius;
+  padding: $spacing-sm;
+}

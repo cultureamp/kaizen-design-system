@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.backdrop {
+  background-color: #000;
+  z-index: 1040;
+  position: fixed;
+  z-index: 500;
+  inset: 0px;
+  overflow-y: auto;
+  pointer-events: initial;
+}

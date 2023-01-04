@@ -1,0 +1,55 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.scrollLayer {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.modalWrapper {
+  margin: auto;
+  z-index: 1050;
+  padding: 1.5rem 0;
+}
+
+.modal {
+  background: $color-white;
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
+  margin: auto;
+  border-radius: $border-solid-border-radius;
+
+  @media (min-width: 480px) {
+    width: 600px;
+    max-width: calc(100vw - #{$spacing-xxxl});
+  }
+}
+
+.content {
+  // max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal.small {
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
+}
+
+.modal.large {
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
+
+  @media (min-width: 480px) {
+    width: 832px;
+    max-width: calc(100vw - #{$spacing-xxxl});
+  }
+}

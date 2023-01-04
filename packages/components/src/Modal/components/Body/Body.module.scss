@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+
+.body {
+  padding: 0 $spacing-md 0 $spacing-md;
+}
+
+.formBody {
+  background-color: $color-gray-200;
+  padding: $spacing-md;
+}

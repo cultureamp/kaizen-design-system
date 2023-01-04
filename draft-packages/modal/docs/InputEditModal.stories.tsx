@@ -31,7 +31,7 @@ const withMinHeight: Decorator<InputEditModalProps> = Story => {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Modal/Input Edit Modal",
+  title: "Components/Modal/Modal Legacy",
   component: InputEditModal,
   parameters: {
     chromatic: {

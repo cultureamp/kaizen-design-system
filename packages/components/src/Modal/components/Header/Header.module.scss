@@ -1,0 +1,28 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+.header {
+  padding: $spacing-md 48px $spacing-md $spacing-md;
+  border-radius: $border-solid-border-radius;
+}
+
+.positive {
+  background-color: $color-green-100;
+}
+
+.assertive {
+  background-color: $color-orange-100;
+}
+
+.informative {
+  background-color: $color-blue-100;
+}
+
+.negative {
+  background-color: $color-red-100;
+}
+
+.cautionary {
+  background-color: $color-yellow-100;
+}
