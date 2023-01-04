@@ -4,14 +4,17 @@
 type Transformer = (functionName: string, ...params: string[]) => string
 type FunctionsMap = Record<string, Transformer>
 import valueParser from "postcss-value-parser"
-const transformString = (str: string, functions: FunctionsMap) =>
+const transformString = (str: string, functions: FunctionsMap): string =>
   valueParser.stringify(
     valueParser(str).walk(part => {
       transformNode(part, functions)
     }).nodes
   )
 
-const transformNode = (node: valueParser.Node, functions: FunctionsMap) => {
+const transformNode = (
+  node: valueParser.Node,
+  functions: FunctionsMap
+): valueParser.Node => {
   if (
     node.type !== "function" ||
     !Object.prototype.hasOwnProperty.call(functions, node.value)
@@ -27,7 +30,10 @@ const transformNode = (node: valueParser.Node, functions: FunctionsMap) => {
   return newNode
 }
 
-const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap) => {
+const extractArgs = (
+  nodes: valueParser.Node[],
+  functions: FunctionsMap
+): string[] => {
   const values = nodes.map(node => transformNode(node, functions))
 
   const args = [] as string[]
@@ -54,5 +60,5 @@ const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap) => {
  *
  * output: `solid 1px $kz-color-white`
  */
-export const transformDecl = (value: string, functions: FunctionsMap) =>
+export const transformDecl = (value: string, functions: FunctionsMap): string =>
   transformString(value, functions)

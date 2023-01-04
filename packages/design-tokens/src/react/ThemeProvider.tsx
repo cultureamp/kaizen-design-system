@@ -13,7 +13,7 @@ export const ThemeProvider = ({
 }: {
   themeManager?: ThemeManager
   children: React.ReactNode
-}) => {
+}): JSX.Element => {
   const [themeManagerInstance] = useState(
     () => themeManager || new ThemeManager(defaultTheme)
   )
@@ -23,7 +23,7 @@ export const ThemeProvider = ({
   )
   React.useEffect(() => {
     let cancelled = false
-    const listener = (newTheme: Theme) => {
+    const listener = (newTheme: Theme): void => {
       if (!cancelled) setTheme(newTheme)
     }
     themeManagerInstance.addThemeChangeListener(listener)
@@ -77,4 +77,4 @@ export const ThemeProvider = ({
   )
 }
 
-export const useTheme = () => React.useContext(ThemeContext)
+export const useTheme = (): Theme => React.useContext(ThemeContext)

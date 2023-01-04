@@ -2,7 +2,7 @@ import React from "react"
 import { Icon } from "@kaizen/component-library"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 
-export const IconRight: React.VFC = () => (
+export const IconRight = (): JSX.Element => (
   <Icon icon={arrowRight} role="presentation" />
 )
 

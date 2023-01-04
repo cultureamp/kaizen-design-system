@@ -8,16 +8,16 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 interface RenderProps {
   checkedStatus: string
-  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 interface CheckboxGroupExampleProps {
   render: (props: RenderProps) => JSX.Element
 }
 
-const CheckboxGroupExample: React.VFC<CheckboxGroupExampleProps> = ({
+const CheckboxGroupExample = ({
   render,
-}) => {
+}: CheckboxGroupExampleProps): JSX.Element => {
   const [checkedStatus, setCheckedStatus] = useState("mixed")
   const onCheckHandler = () => {
     const newStatus = checkedStatus === "on" ? "off" : "on"

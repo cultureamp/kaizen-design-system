@@ -7,12 +7,10 @@ export interface GenericModalSectionProps {
   readonly children: React.ReactNode
 }
 
-type GenericModalSection = React.FunctionComponent<GenericModalSectionProps>
-
-const GenericModalSection: GenericModalSection = ({
+const GenericModalSection = ({
   inputEdit = false,
   children,
-}) => (
+}: GenericModalSectionProps): JSX.Element => (
   <div
     className={classNames({
       [styles.inputEdit]: inputEdit,

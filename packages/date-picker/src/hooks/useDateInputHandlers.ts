@@ -37,7 +37,7 @@ export const useDateInputHandlers = ({
   onBlur,
   onKeyDown,
 }: UseDateInputHandlersArgs): UseDateInputHandlersValue => {
-  const isValidDate = (date: Date) =>
+  const isValidDate = (date: Date): boolean =>
     !isInvalidDate(date) && !isDisabledDate(date, disabledDays)
 
   const handleChange: DateInputProps["onChange"] = e => {

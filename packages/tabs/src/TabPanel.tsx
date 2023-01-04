@@ -9,7 +9,7 @@ export interface TabPanelProps {
 /**
  * Wrapper for the content that shows when tab is active
  */
-export const TabPanel = (props: TabPanelProps) => {
+export const TabPanel = (props: TabPanelProps): JSX.Element => {
   const { children } = props
   return <ReachTabPanel className={styles.tabPanel}>{children}</ReachTabPanel>
 }

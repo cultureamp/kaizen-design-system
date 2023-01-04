@@ -22,10 +22,13 @@ import {
 } from ".."
 import styles from "./Table.stories.module.scss"
 
-const Container: React.FunctionComponent<{
+const Container = ({
+  children,
+  style,
+}: {
   children: React.ReactNode
   style?: Record<string, string>
-}> = ({ children, style }) => (
+}): JSX.Element => (
   <div
     style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem", ...style }}
   >

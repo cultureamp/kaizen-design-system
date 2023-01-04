@@ -11,13 +11,13 @@ export interface StoryRowProps {
   hasColumnDivider?: boolean
 }
 
-export const StoryRow: React.VFC<StoryRowProps> = ({
+export const StoryRow = ({
   children,
   rowTitle,
   gridColumns,
   isReversed = false,
   hasColumnDivider = false,
-}) => {
+}: StoryRowProps): JSX.Element => {
   const childrenCount: number = React.Children.count(children)
   return (
     <div className={styles.storyRow}>

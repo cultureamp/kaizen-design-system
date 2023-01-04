@@ -8,12 +8,12 @@ import { AnimatedSceneProps } from "./Scene"
  *  - An "initial" animation that is only ever played once, never looping
  *  - An "ambient" animation that can be looped, depending on the props passed into it
  */
-export const BrandMomentCaptureIntro: React.VFC<AnimatedSceneProps> = ({
+export const BrandMomentCaptureIntro = ({
   isAnimated,
   alt,
   enableAspectRatio,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   const [firstAnimationComplete, setFirstAnimationComplete] =
     React.useState(false)
 
@@ -26,7 +26,7 @@ export const BrandMomentCaptureIntro: React.VFC<AnimatedSceneProps> = ({
             aspectRatio={enableAspectRatio ? "landscape" : undefined}
             fallback="illustrations/heart/scene/brand-moments-capture-intro"
             source="illustrations/heart/scene/brand-moments-capture-intro"
-            onEnded={() => setFirstAnimationComplete(true)}
+            onEnded={(): void => setFirstAnimationComplete(true)}
             loop={false}
           />
         </div>

@@ -16,7 +16,7 @@ type Props = {
 const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean
-) => {
+): JSX.Element | undefined => {
   if (!secondaryOverflowMenuItems) return undefined
   return (
     <Menu
@@ -46,7 +46,7 @@ const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   reversed = false,
-}: Props) => {
+}: Props): JSX.Element | null => {
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
   const secondaryActionsAsToolbarItems = secondaryActions

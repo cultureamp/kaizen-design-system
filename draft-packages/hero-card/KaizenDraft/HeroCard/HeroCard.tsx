@@ -25,7 +25,7 @@ export interface HeroCardProps
  * @deprecated HeroCard is deprecated.
  * No further changes will be made to it as it will be superseded by Tile.
  */
-export const HeroCard: React.VFC<HeroCardProps> = ({
+export const HeroCard = ({
   children,
   leftContent,
   title,
@@ -36,7 +36,7 @@ export const HeroCard: React.VFC<HeroCardProps> = ({
   leftBackgroundColor = "wisteria700",
   classNameOverride,
   ...props
-}) => (
+}: HeroCardProps): JSX.Element => (
   <div
     className={classnames(styles.root, classNameOverride, {
       [styles.fullWidth]: fullWidth,

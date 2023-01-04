@@ -30,7 +30,7 @@ interface KeyBinding {
   [key: string]: ProseMirrorState.Command
 }
 
-export function buildKeymap(schema: ProseMirrorModel.Schema) {
+export function buildKeymap(schema: ProseMirrorModel.Schema): KeyBinding {
   const keys: KeyBinding = {
     "Mod-z": undo,
     "Shift-Mod-z": redo,

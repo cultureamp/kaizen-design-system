@@ -25,7 +25,7 @@ export const DemographicValueSelect = ({
   onRemove,
   onSelectionChange,
   selectedKeys,
-}: DemograhicValueSelectProps) => {
+}: DemograhicValueSelectProps): JSX.Element => {
   // Mock data
   const demographicValues =
     id === "id-department"
@@ -46,7 +46,7 @@ export const DemographicValueSelect = ({
     setTimeout(() => setLoading(false), 1000)
   }, [])
 
-  const handleSelectionChange = (keys: Selection) => {
+  const handleSelectionChange = (keys: Selection): void => {
     onSelectionChange(getSelectedOptionKeys(keys, demographicValueItems))
   }
 
@@ -59,7 +59,7 @@ export const DemographicValueSelect = ({
       items={demographicValueItems}
       selectedKeys={selectedKeys}
       onSelectionChange={handleSelectionChange}
-      trigger={() => (
+      trigger={(): JSX.Element => (
         <FilterMultiSelect.RemovableTrigger
           selectedOptionLabels={getSelectedOptionLabels(
             selectedKeys,
@@ -70,7 +70,7 @@ export const DemographicValueSelect = ({
         />
       )}
     >
-      {() => (
+      {(): JSX.Element => (
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
@@ -79,7 +79,7 @@ export const DemographicValueSelect = ({
               unselectedItems,
               disabledItems,
               hasNoItems,
-            }) => (
+            }): JSX.Element => (
               <>
                 {hasNoItems && (
                   <FilterMultiSelect.NoResults>
@@ -90,7 +90,7 @@ export const DemographicValueSelect = ({
                   items={selectedItems}
                   sectionName="Selected items"
                 >
-                  {item => (
+                  {(item): JSX.Element => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
@@ -101,7 +101,7 @@ export const DemographicValueSelect = ({
                   items={unselectedItems}
                   sectionName="Unselected items"
                 >
-                  {item => (
+                  {(item): JSX.Element => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
@@ -114,7 +114,7 @@ export const DemographicValueSelect = ({
                   items={disabledItems}
                   sectionName="Disabled items"
                 >
-                  {item => (
+                  {(item): JSX.Element => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
