@@ -1,7 +1,8 @@
 import React from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
-import { Heading } from "@kaizen/typography"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -19,7 +20,7 @@ class ToggleStateContainer extends React.Component<
     toggledStatus: this.props.initialToggledStatus,
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div>
         {this.props.children({
@@ -30,7 +31,7 @@ class ToggleStateContainer extends React.Component<
     )
   }
 
-  toggle = () => {
+  toggle = (): void => {
     const { toggledStatus } = this.state
     const newStatus =
       toggledStatus === ToggledStatus.ON ? ToggledStatus.OFF : ToggledStatus.ON
@@ -53,11 +54,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof ToggleSwitchField>
 
-export const Default = props => (
+export const Default: ComponentStory<typeof ToggleSwitchField> = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-    {({ toggledStatus, toggle }) => (
+    {({ toggledStatus, toggle }): JSX.Element => (
       <ToggleSwitchField
         {...props}
         labelText="Label"
@@ -69,128 +70,65 @@ export const Default = props => (
 )
 Default.storyName = "Default (Kaizen Demo)"
 
-export const StickerSheetDefault = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
-      rowGap: "20px",
-    }}
-  >
-    <div>
-      <Heading variant="heading-5" tag="h2">
-        Default
-      </Heading>
-    </div>
-    <div>
-      <Heading variant="heading-5" tag="h2">
-        Label Position End
-      </Heading>
-    </div>
-    <div>
-      <Heading variant="heading-5" tag="h2">
-        Disabled
-      </Heading>
-    </div>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="1"
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-        />
-      )}
-    </ToggleStateContainer>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="2"
-          labelText="Label"
-          labelPosition="end"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-        />
-      )}
-    </ToggleStateContainer>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="3"
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          disabled
-        />
-      )}
-    </ToggleStateContainer>
-  </div>
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StickerSheet isReversed={isReversed}>
+    <StickerSheet.Header headings={["Default", "Label Position End", "Disabled"]} headingsWidth="12rem" />
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+          {({ toggledStatus, toggle }): JSX.Element => (
+            <ToggleSwitchField
+              reversed={isReversed}
+              id="toggle-switch-field--default"
+              labelText="Label"
+              toggledStatus={toggledStatus}
+              onToggle={toggle}
+            />
+          )}
+        </ToggleStateContainer>
+        <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+          {({ toggledStatus, toggle }): JSX.Element => (
+            <ToggleSwitchField
+              reversed={isReversed}
+              id="toggle-switch-field--label-end"
+              labelText="Label"
+              labelPosition="end"
+              toggledStatus={toggledStatus}
+              onToggle={toggle}
+            />
+          )}
+        </ToggleStateContainer>
+        <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+          {({ toggledStatus, toggle }): JSX.Element => (
+            <ToggleSwitchField
+              reversed={isReversed}
+              id="toggle-switch-field--disabled"
+              labelText="Label"
+              toggledStatus={toggledStatus}
+              onToggle={toggle}
+              disabled
+            />
+          )}
+        </ToggleStateContainer>
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
 )
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
 
-export const StickerSheetReversed = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(3, minmax(200px, 400px))",
-      rowGap: "20px",
-    }}
-  >
-    <div>
-      <Heading variant="heading-5" tag="h2" color="white">
-        Default
-      </Heading>
-    </div>
-    <div>
-      <Heading variant="heading-5" tag="h2" color="white">
-        Label Position End
-      </Heading>
-    </div>
-    <div>
-      <Heading variant="heading-5" tag="h2" color="white">
-        Disabled
-      </Heading>
-    </div>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="4"
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          reversed
-        />
-      )}
-    </ToggleStateContainer>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="5"
-          labelText="Label"
-          labelPosition="end"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          reversed
-        />
-      )}
-    </ToggleStateContainer>
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          id="6"
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          disabled
-          reversed
-        />
-      )}
-    </ToggleStateContainer>
-  </div>
-)
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
+  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }

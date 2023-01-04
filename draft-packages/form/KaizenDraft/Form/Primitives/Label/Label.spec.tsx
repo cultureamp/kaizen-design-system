@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
 
 import { LabelProps } from "./Label"
@@ -11,7 +11,7 @@ const defaultLabelProps = {
   labelText: "Some field label",
 }
 
-const renderLabel = (props?: LabelProps) => {
+const renderLabel = (props?: LabelProps): ReturnType<typeof render> => {
   const mergedLabelProps = { ...defaultLabelProps, ...props }
 
   return render(<Label {...mergedLabelProps} />)

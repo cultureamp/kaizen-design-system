@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -26,13 +26,13 @@ export default {
     },
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof CheckboxField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<
   typeof CheckboxField
 > = args => {
   const [status, setStatus] = useState<CheckedStatus>()
-  const onCheckHandler = () => {
+  const onCheckHandler = (): void => {
     const newStatus = status === "on" ? "off" : "on"
     setStatus(newStatus)
   }

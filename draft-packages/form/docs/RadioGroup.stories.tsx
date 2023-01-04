@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -19,7 +19,7 @@ class RadioGroupExample extends React.Component<Props> {
   state = {
     selectedOption: "",
   }
-  render() {
+  render(): JSX.Element {
     const { render } = this.props
     return (
       <div>
@@ -31,7 +31,7 @@ class RadioGroupExample extends React.Component<Props> {
     )
   }
 
-  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       selectedOption: event.target.value,
     })
@@ -52,11 +52,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof RadioGroup>
 
-export const DefaultKaizenSiteDemo = () => (
+export const DefaultKaizenSiteDemo: Story = () => (
   <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
+    render={({ selectedOption, onChangeHandler }): JSX.Element => (
       <RadioGroup labelText="Radio group label" labelId="RadioGroupLabel">
         <RadioField
           labelText="Option one"

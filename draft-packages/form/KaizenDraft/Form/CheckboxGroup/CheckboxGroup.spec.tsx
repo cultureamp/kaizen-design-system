@@ -9,7 +9,7 @@ const defaultCheckboxGroupProps: CheckboxGroupProps = {
   labelText: "Label",
   noBottomMargin: true,
 }
-const renderCheckboxGroupProps = (props?: CheckboxGroupProps) => {
+const renderCheckboxGroupProps = (props?: CheckboxGroupProps): ReturnType<typeof render> => {
   const mergedCheckboxGroupProps = { ...defaultCheckboxGroupProps, ...props }
 
   return render(<CheckboxGroup {...mergedCheckboxGroupProps} />)

@@ -8,7 +8,7 @@ const defaultFieldGroupProps = {
   id: "someFieldGroupId",
 }
 
-const renderFieldGroup = (props?: FieldGroupProps) => {
+const renderFieldGroup = (props?: FieldGroupProps): ReturnType<typeof render> => {
   const mergedFieldGroupProps = { ...defaultFieldGroupProps, ...props }
 
   return render(<FieldGroup {...mergedFieldGroupProps} />)
