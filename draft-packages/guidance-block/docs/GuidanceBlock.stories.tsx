@@ -64,6 +64,7 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   layout: "default",
   illustrationType: "spot",
+  // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
   illustration: "spot",
   variant: "default",
   withActionButtonArrow: true,
