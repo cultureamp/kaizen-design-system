@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.15.2",
+  "version": "5.15.3",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,11 +30,11 @@
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.0.1",
-    "@kaizen/a11y": "^1.6.16",
+    "@kaizen/a11y": "^1.6.17",
     "@kaizen/component-base": "^1.1.1",
-    "@kaizen/component-library": "^16.1.13",
-    "@kaizen/draft-form": "^8.3.18",
-    "@kaizen/draft-tooltip": "^5.4.19",
+    "@kaizen/component-library": "^16.1.14",
+    "@kaizen/draft-form": "^8.3.19",
+    "@kaizen/draft-tooltip": "^5.4.20",
     "@kaizen/typography": "^2.3.4",
     "@popperjs/core": "^2.11.6",
     "@react-aria/datepicker": "^3.2.0",
