@@ -44,7 +44,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<typeof Well> = args => (
+export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<
+  typeof Well
+> = args => (
   <Well {...args}>
     <ExampleContent />
   </Well>

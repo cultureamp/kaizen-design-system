@@ -81,7 +81,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof SplitButton>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof SplitButton> = args => <SplitButton {...args} />
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof SplitButton
+> = args => <SplitButton {...args} />
 DefaultKaizenSiteDemo.storyName = "Split Button"
 DefaultKaizenSiteDemo.args = {
   // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls

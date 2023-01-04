@@ -43,7 +43,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<typeof CheckboxField> = args => (
+export const InteractiveKaizenSiteDemo: ComponentStory<
+  typeof CheckboxField
+> = args => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label">
       <CheckboxGroupExample
@@ -81,7 +83,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<typeof CheckboxField> = a
 )
 InteractiveKaizenSiteDemo.storyName = "Checkbox Group"
 InteractiveKaizenSiteDemo.args = {
-  labelText: "Label"
+  labelText: "Label",
 }
 
 export const NestedCheckboxGroup: Story = () => {

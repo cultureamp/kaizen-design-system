@@ -24,12 +24,14 @@ export default {
   },
 }
 
-export const DateRangePickerStoryDefault: ComponentStory<typeof DateRangePicker> = props => (
-  <DateRangePickerTemplate {...props} />
-)
+export const DateRangePickerStoryDefault: ComponentStory<
+  typeof DateRangePicker
+> = props => <DateRangePickerTemplate {...props} />
 DateRangePickerStoryDefault.storyName = "Date Range Picker"
 
-const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Element => {
+const DateRangePickerTemplate = (
+  props: Partial<DateRangePickerProps>
+): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,

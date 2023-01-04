@@ -32,7 +32,7 @@ export const DefaultStory: ComponentStory<typeof Divider> = args => (
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
-  variant: "canvas"
+  variant: "canvas",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

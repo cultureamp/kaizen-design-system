@@ -34,9 +34,11 @@ export default {
   decorators: [withDesign],
 }
 
-const OffsetPadding = ({ children }: { children: React.ReactNode }): JSX.Element => (
-  <div style={{ margin: "-1rem" }}>{children}</div>
-)
+const OffsetPadding = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
 const SECONDARY_ACTIONS = [
   {
@@ -66,7 +68,8 @@ const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
   </OffsetPadding>
 )
 
-export const Default: ComponentStory<typeof TitleBlockZen> = DefaultTemplate.bind({})
+export const Default: ComponentStory<typeof TitleBlockZen> =
+  DefaultTemplate.bind({})
 Default.args = {
   title: "Page title",
   surveyStatus: { text: "Live", status: "live" },
@@ -1069,7 +1072,11 @@ export const AdminVariantNavigation: Story = () => (
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
 
 export const RenderProps: Story = () => {
-  const CustomTab = (props: { href: string, className: string, text: string }): JSX.Element => (
+  const CustomTab = (props: {
+    href: string
+    className: string
+    text: string
+  }): JSX.Element => (
     // In real life, you'll likely use this to insert a router Link component
     <a href={props.href} className={props.className}>
       {props.text}

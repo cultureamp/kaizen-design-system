@@ -9,7 +9,9 @@ const DEFAULT_PROPS: BaseButtonProps = {
   label: BUTTON_LABEL,
 }
 
-const renderBaseButton = (customProps?: Partial<BaseButtonProps>): RenderResult => {
+const renderBaseButton = (
+  customProps?: Partial<BaseButtonProps>
+): RenderResult => {
   const props = { ...DEFAULT_PROPS, ...customProps }
 
   return render(<BaseButton {...props} />)

@@ -79,7 +79,7 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 DefaultStory.args = {
-  labelId: "456"
+  labelId: "456",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

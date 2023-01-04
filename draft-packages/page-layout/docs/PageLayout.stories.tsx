@@ -26,9 +26,11 @@ export default {
   decorators: [withDesign],
 }
 
-const OffsetPadding = ({ children }: { children: React.ReactNode }): JSX.Element => (
-  <div style={{ margin: "-1rem" }}>{children}</div>
-)
+const OffsetPadding = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
 export const DefaultStory: Story = () => (
   <OffsetPadding>

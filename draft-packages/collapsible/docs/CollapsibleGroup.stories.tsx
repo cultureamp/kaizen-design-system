@@ -28,7 +28,9 @@ export default {
   },
 } as ComponentMeta<typeof CollapsibleGroup>
 
-export const CollapsibleGroupDefault: ComponentStory<typeof CollapsibleGroup> = args => (
+export const CollapsibleGroupDefault: ComponentStory<
+  typeof CollapsibleGroup
+> = args => (
   <CollapsibleGroup {...args}>
     <Collapsible id="collapsible-separate-1" open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>

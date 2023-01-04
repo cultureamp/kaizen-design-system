@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenDemo: ComponentStory<typeof InlineNotification> = props => (
+export const DefaultKaizenDemo: ComponentStory<
+  typeof InlineNotification
+> = props => (
   <InlineNotification {...props}>
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
     <a href="/">Manage users is now available</a>
@@ -32,7 +34,7 @@ export const DefaultKaizenDemo: ComponentStory<typeof InlineNotification> = prop
 DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
 DefaultKaizenDemo.args = {
   type: "positive",
-  title: "Success"
+  title: "Success",
 }
 
 const customHeadingProps: HeadingProps = {
@@ -40,17 +42,16 @@ const customHeadingProps: HeadingProps = {
   tag: "h2",
   children: "Custom",
 }
-export const CustomHeadingLevel: ComponentStory<typeof InlineNotification> = props => (
-  <InlineNotification
-    headingProps={customHeadingProps}
-    {...props}
-  >
+export const CustomHeadingLevel: ComponentStory<
+  typeof InlineNotification
+> = props => (
+  <InlineNotification headingProps={customHeadingProps} {...props}>
     New user data
   </InlineNotification>
 )
 CustomHeadingLevel.storyName = "Custom heading level"
 CustomHeadingLevel.args = {
-  type: "positive"
+  type: "positive",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -163,7 +164,9 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const AutohideDemo: ComponentStory<typeof InlineNotification> = props => (
+export const AutohideDemo: ComponentStory<
+  typeof InlineNotification
+> = props => (
   <>
     <InlineNotification
       title="Success"
@@ -178,5 +181,5 @@ export const AutohideDemo: ComponentStory<typeof InlineNotification> = props => 
   </>
 )
 AutohideDemo.args = {
-  type: "positive"
+  type: "positive",
 }

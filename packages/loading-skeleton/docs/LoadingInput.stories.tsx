@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingInput: ComponentStory<typeof LoadingInput> = args => <LoadingInput {...args} />
+export const DefaultLoadingInput: ComponentStory<
+  typeof LoadingInput
+> = args => <LoadingInput {...args} />
 DefaultLoadingInput.storyName = "Loading Input"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

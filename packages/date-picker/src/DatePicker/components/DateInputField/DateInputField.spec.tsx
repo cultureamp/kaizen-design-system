@@ -13,9 +13,9 @@ const defaultProps: DateInputFieldProps = {
   locale: enUS,
 }
 
-const DateInputFieldWrapper = (props: Partial<DateInputFieldProps>): JSX.Element => (
-  <DateInputField {...defaultProps} {...props} />
-)
+const DateInputFieldWrapper = (
+  props: Partial<DateInputFieldProps>
+): JSX.Element => <DateInputField {...defaultProps} {...props} />
 
 describe("<DateInputField />", () => {
   describe("Input", () => {
@@ -40,7 +40,10 @@ describe("<DateInputField />", () => {
 
     it("has helpful label showing the current date when one is selected", () => {
       render(
-        <DateInputFieldWrapper value="Mar 1, 2022" onChange={(): void => undefined} />
+        <DateInputFieldWrapper
+          value="Mar 1, 2022"
+          onChange={(): void => undefined}
+        />
       )
       expect(
         screen.getByRole("button", { name: "Change date, Mar 1, 2022" })

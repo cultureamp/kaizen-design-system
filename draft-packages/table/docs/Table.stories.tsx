@@ -305,7 +305,11 @@ export const LinkVariant: Story = () => (
 )
 LinkVariant.parameters = { chromatic: { disable: false } }
 
-const ExpandedPopout = ({ isReversed }: { isReversed: boolean }): JSX.Element => {
+const ExpandedPopout = ({
+  isReversed,
+}: {
+  isReversed: boolean
+}): JSX.Element => {
   const [expandedId, setExpandedId] = React.useState<string | null>("second")
   const toggleExpanded = (id: string): void => {
     if (expandedId === id) {

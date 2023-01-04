@@ -1,11 +1,17 @@
 import React, { useState } from "react"
 import { Story } from "@storybook/react"
-import { RichTextEditor, EditorContentArray, RichTextEditorProps } from "@kaizen/rich-text-editor"
+import {
+  RichTextEditor,
+  EditorContentArray,
+  RichTextEditorProps,
+} from "@kaizen/rich-text-editor"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 import dummyMalformedContent from "./dummyMalformedContent.json"
 
-type RTEStory = Story<Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby">>
+type RTEStory = Story<
+  Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby">
+>
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Rich Text Editor`,
@@ -98,7 +104,10 @@ WithBadData.args = {
   ],
 }
 
-export const WithDescriptionAndValidationMessage: RTEStory = ({ labelText, ...args }) => {
+export const WithDescriptionAndValidationMessage: RTEStory = ({
+  labelText,
+  ...args
+}) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
   return (
     <>
@@ -108,7 +117,7 @@ export const WithDescriptionAndValidationMessage: RTEStory = ({ labelText, ...ar
         onChange={setRTEData}
         status="error"
         {...args}
-        />
+      />
       <RichTextEditor
         labelText={labelText}
         value={rteData}

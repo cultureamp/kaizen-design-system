@@ -5,7 +5,9 @@ import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const ContextModalWrapper = (props: Partial<ContextModalProps>): JSX.Element => (
+const ContextModalWrapper = (
+  props: Partial<ContextModalProps>
+): JSX.Element => (
   <ContextModal
     isOpen={true}
     title="Example modal title"

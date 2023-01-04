@@ -35,7 +35,11 @@ export default {
   decorators: [withDesign],
 }
 
-const Container = ({ children }: { children: React.ReactNode }): JSX.Element => (
+const Container = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => (
   <>
     <p>
       Default Placement is 'above'. Scroll horizontally or vertically to view
@@ -101,7 +105,9 @@ const InlineBlockTargetElement = ({
   </div>
 )
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof PopoverRaw> = props => {
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof PopoverRaw
+> = props => {
   const [ElementRef, Popover] = usePopover()
   // set the popover open state to be true when testing on chromatic
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)

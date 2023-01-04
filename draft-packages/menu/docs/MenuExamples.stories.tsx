@@ -168,11 +168,7 @@ export const DefaultStatelessMenu: Story = () => {
         Menu status: {isMenuVisible ? "open" : "closed"}
       </Paragraph>
       <Box py={1}>
-        <Button
-          secondary={true}
-          onClick={toggleMenu}
-          label="Toggle menu"
-        />
+        <Button secondary={true} onClick={toggleMenu} label="Toggle menu" />
         <Button secondary={true} onClick={hideMenu} label="Hide menu" />
       </Box>
       <StatelessMenu

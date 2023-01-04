@@ -5,7 +5,9 @@ import { DateRange } from "react-day-picker"
 import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
 import { formatDateRangeValue } from "./utils/formatDateRangeValue"
 
-const DateRangePickerWrapper = (props: Partial<DateRangePickerProps>): JSX.Element => {
+const DateRangePickerWrapper = (
+  props: Partial<DateRangePickerProps>
+): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,

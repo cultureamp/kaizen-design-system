@@ -81,7 +81,9 @@ describe("<FilterDateRangePicker />", () => {
     })
 
     it("should show the remove button when remove filter callback is provided", () => {
-      render(<FilterDateRangePickerWrapper onRemoveFilter={(): void => undefined} />)
+      render(
+        <FilterDateRangePickerWrapper onRemoveFilter={(): void => undefined} />
+      )
       const removeButton = screen.getByRole("button", {
         name: "Remove filter - Dates",
       })

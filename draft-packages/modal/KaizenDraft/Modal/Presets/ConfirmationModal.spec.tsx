@@ -5,7 +5,9 @@ import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const ConfirmationModalWrapper = (props: Partial<ConfirmationModalProps>): JSX.Element => (
+const ConfirmationModalWrapper = (
+  props: Partial<ConfirmationModalProps>
+): JSX.Element => (
   <ConfirmationModal
     mood="informative"
     isOpen={true}

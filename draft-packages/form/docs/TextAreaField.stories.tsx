@@ -31,7 +31,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof TextAreaField>
 
-export const DefaultStory: ComponentStory<typeof TextAreaField> = args => <TextAreaField {...args} />
+export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (
+  <TextAreaField {...args} />
+)
 DefaultStory.args = {
   id: "reply",
   labelText: "Your reply",
@@ -56,7 +58,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
     <StoryWrapper.Row rowTitle="Default">
-      <TextAreaField reversed={isReversed} id="text-area-default-base" labelText="Default" />
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-default-base"
+        labelText="Default"
+      />
       <TextAreaField
         reversed={isReversed}
         disabled

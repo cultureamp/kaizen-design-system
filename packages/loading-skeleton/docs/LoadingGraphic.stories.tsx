@@ -30,7 +30,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingGraphic: ComponentStory<typeof LoadingGraphic> = args => <LoadingGraphic {...args} />
+export const DefaultLoadingGraphic: ComponentStory<
+  typeof LoadingGraphic
+> = args => <LoadingGraphic {...args} />
 DefaultLoadingGraphic.storyName = "Loading Graphic"
 DefaultLoadingGraphic.args = { size: "xlarge" }
 

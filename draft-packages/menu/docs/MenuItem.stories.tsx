@@ -25,7 +25,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory: ComponentStory<typeof MenuItem> = args => <MenuItem {...args} />
+export const DefaultStory: ComponentStory<typeof MenuItem> = args => (
+  <MenuItem {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 DefaultStory.args = {
   label: "Menu Item",

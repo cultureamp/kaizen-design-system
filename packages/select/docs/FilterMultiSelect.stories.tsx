@@ -517,7 +517,9 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
                       label={"View more"}
                       workingLabel={"Loading…"}
                       working={isFetchingNextPage}
-                      onClick={(): ReturnType<typeof fetchNextPage> => fetchNextPage()}
+                      onClick={(): ReturnType<typeof fetchNextPage> =>
+                        fetchNextPage()
+                      }
                     />
                   )}
                 </>

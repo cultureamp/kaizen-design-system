@@ -21,7 +21,9 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Brand> = args => <Brand {...args} />
+export const DefaultStory: ComponentStory<typeof Brand> = args => (
+  <Brand {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   alt: "Culture Amp",

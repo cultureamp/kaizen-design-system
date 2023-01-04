@@ -58,7 +58,10 @@ const Wrapper = (): JSX.Element => (
         />
       </TableHeaderRow>
     </TableHeader>
-    <TableCard data-testid={TestId.tableCard} onClick={(): void => alert("clicked!")}>
+    <TableCard
+      data-testid={TestId.tableCard}
+      onClick={(): void => alert("clicked!")}
+    >
       <TableRow data-testid={TestId.tableRow}>
         <TableRowCell width={12 / 12} data-testid={TestId.tableRowCell}>
           <div></div>

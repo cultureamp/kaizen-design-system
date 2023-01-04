@@ -17,7 +17,11 @@ const getSelectionOfNode = (node: Node): void => {
   selection?.addRange(range)
 }
 
-const TestRTE = (args: Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby"> & { rteMockData?: RichTextEditorProps["value"]}): JSX.Element => {
+const TestRTE = (
+  args: Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby"> & {
+    rteMockData?: RichTextEditorProps["value"]
+  }
+): JSX.Element => {
   const { rteMockData, ...rest } = args
   const [rteData, setRTEData] = useState<EditorContentArray>(
     args.rteMockData || []

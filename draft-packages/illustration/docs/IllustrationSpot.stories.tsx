@@ -145,14 +145,16 @@ export default {
   },
 }
 
-export const SpotStoryForKaizenSite: ComponentStory<typeof AccountBasics> = args => (
+export const SpotStoryForKaizenSite: ComponentStory<
+  typeof AccountBasics
+> = args => (
   <div style={{ width: "150px" }}>
     <AccountBasics {...args} />
   </div>
 )
 SpotStoryForKaizenSite.storyName = "Spot (Kaizen Site Demo)"
 SpotStoryForKaizenSite.args = {
-  alt: ""
+  alt: "",
 }
 
 const IllustrationExampleTile = ({ Component, name }): JSX.Element => (
@@ -756,36 +758,16 @@ AllSpotIllustrations.parameters = { chromatic: { disable: false } }
 
 export const AnimatedSpot: Story<AnimatedSpotProps> = args => (
   <div style={{ width: "156px" }}>
-    <Cautionary
-      isAnimated
-      loop
-      {...args}
-    />
-    <Informative
-      isAnimated
-      loop
-      {...args}
-    />
-    <Negative
-      isAnimated
-      loop
-      {...args}
-    />
-    <Positive
-      isAnimated
-      loop
-      {...args}
-    />
-    <Assertive
-      isAnimated
-      loop
-      {...args}
-    />
+    <Cautionary isAnimated loop {...args} />
+    <Informative isAnimated loop {...args} />
+    <Negative isAnimated loop {...args} />
+    <Positive isAnimated loop {...args} />
+    <Assertive isAnimated loop {...args} />
   </div>
 )
 AnimatedSpot.storyName = "Spot, animated"
 AnimatedSpot.args = {
-  alt: "Add useful alt text for screen readers"
+  alt: "Add useful alt text for screen readers",
 }
 AnimatedSpot.parameters = {
   chromatic: {

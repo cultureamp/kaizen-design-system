@@ -4,7 +4,9 @@ import { FilterTriggerButton, FilterTriggerButtonProps } from "."
 
 const FilterTriggerButtonWrapper = (
   props: Partial<FilterTriggerButtonProps>
-): JSX.Element => <FilterTriggerButton label="Desserts" isOpen={false} {...props} />
+): JSX.Element => (
+  <FilterTriggerButton label="Desserts" isOpen={false} {...props} />
+)
 
 describe("<FilterTriggerButton />", () => {
   it("has the required attributes when not expanded", () => {

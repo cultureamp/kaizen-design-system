@@ -149,59 +149,59 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   ]
 
   return (
-  <>
-    <StickerSheet heading="Default" isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Base", "Disabled"]}
-        headingsWidth="15rem"
-      />
-      <StickerSheet.Body>
-        {DEFAULT__ROW_PROPS.map(({ id, ...restProps }) => (
-          <StickerSheet.Row key={id}>
-            <TextField
-              reversed={isReversed}
-              id={`${id}--base`}
-              {...restProps}
+    <>
+      <StickerSheet heading="Default" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          headingsWidth="15rem"
+        />
+        <StickerSheet.Body>
+          {DEFAULT__ROW_PROPS.map(({ id, ...restProps }) => (
+            <StickerSheet.Row key={id}>
+              <TextField
+                reversed={isReversed}
+                id={`${id}--base`}
+                {...restProps}
               />
-            <TextField
-              reversed={isReversed}
-              id={`${id}--disabled`}
-              disabled
-              {...restProps}
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
+              <TextField
+                reversed={isReversed}
+                id={`${id}--disabled`}
+                disabled
+                {...restProps}
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
 
-    <StickerSheet heading="Icon" isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Base", "Disabled"]}
-        headingsWidth="15rem"
-      />
-      <StickerSheet.Body>
-        {ICON__ROW_PROPS.map(({ id, ...restProps }) => (
-          <StickerSheet.Row key={id}>
-            <TextField
-              reversed={isReversed}
-              id={`${id}--base`}
-              icon={dateIcon}
-              {...restProps}
+      <StickerSheet heading="Icon" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          headingsWidth="15rem"
+        />
+        <StickerSheet.Body>
+          {ICON__ROW_PROPS.map(({ id, ...restProps }) => (
+            <StickerSheet.Row key={id}>
+              <TextField
+                reversed={isReversed}
+                id={`${id}--base`}
+                icon={dateIcon}
+                {...restProps}
               />
-            <TextField
-              reversed={isReversed}
-              id={`${id}--disabled`}
-              disabled
-              icon={dateIcon}
-              {...restProps}
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  </>
-)
-  }
+              <TextField
+                reversed={isReversed}
+                id={`${id}--disabled`}
+                disabled
+                icon={dateIcon}
+                {...restProps}
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
+  )
+}
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"

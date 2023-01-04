@@ -32,20 +32,20 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenDirectionalLink: ComponentStory<typeof DirectionalLink> = args => (
-  <DirectionalLink {...args} />
-)
+export const DefaultKaizenDirectionalLink: ComponentStory<
+  typeof DirectionalLink
+> = args => <DirectionalLink {...args} />
 DefaultKaizenDirectionalLink.storyName = "Directional Link"
 DefaultKaizenDirectionalLink.args = {
-  direction: "prev"
+  direction: "prev",
 }
 
-export const DefaultKaizenPaginationLink: ComponentStory<typeof PaginationLink> = args => (
-  <PaginationLink {...args} />
-)
+export const DefaultKaizenPaginationLink: ComponentStory<
+  typeof PaginationLink
+> = args => <PaginationLink {...args} />
 DefaultKaizenPaginationLink.storyName = "Pagination Link"
 DefaultKaizenPaginationLink.args = {
-  pageNumber: 1
+  pageNumber: 1,
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

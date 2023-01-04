@@ -24,7 +24,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingParagraph: ComponentStory<typeof LoadingParagraph> = args => <LoadingParagraph {...args} />
+export const DefaultLoadingParagraph: ComponentStory<
+  typeof LoadingParagraph
+> = args => <LoadingParagraph {...args} />
 DefaultLoadingParagraph.storyName = "Loading Paragraph"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

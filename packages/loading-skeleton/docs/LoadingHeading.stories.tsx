@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingHeading: ComponentStory<typeof LoadingHeading> = args => <LoadingHeading {...args} />
+export const DefaultLoadingHeading: ComponentStory<
+  typeof LoadingHeading
+> = args => <LoadingHeading {...args} />
 DefaultLoadingHeading.storyName = "Loading Heading"
 DefaultLoadingHeading.args = { variant: "heading-1" }
 

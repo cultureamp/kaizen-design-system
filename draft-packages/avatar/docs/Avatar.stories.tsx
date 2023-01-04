@@ -67,7 +67,9 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof Avatar>
 
-export const DefaultStory: ComponentStory<typeof Avatar> = args => <Avatar {...args} />
+export const DefaultStory: ComponentStory<typeof Avatar> = args => (
+  <Avatar {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc:

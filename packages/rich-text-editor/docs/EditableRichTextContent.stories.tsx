@@ -23,7 +23,9 @@ export default {
   },
 }
 
-export const EditableRichTextContentStory: ComponentStory<typeof InlineEditor> = args => <InlineEditor {...args} />
+export const EditableRichTextContentStory: ComponentStory<
+  typeof InlineEditor
+> = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"
 EditableRichTextContentStory.args = {
   content: dummyContent,

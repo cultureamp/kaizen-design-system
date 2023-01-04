@@ -74,7 +74,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StickerSheet isReversed={isReversed}>
-    <StickerSheet.Header headings={["Default", "Label Position End", "Disabled"]} headingsWidth="12rem" />
+    <StickerSheet.Header
+      headings={["Default", "Label Position End", "Disabled"]}
+      headingsWidth="12rem"
+    />
     <StickerSheet.Body>
       <StickerSheet.Row>
         <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>

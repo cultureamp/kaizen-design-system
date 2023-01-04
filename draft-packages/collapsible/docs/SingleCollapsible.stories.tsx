@@ -111,7 +111,9 @@ const SingleCollapsibleLazyLoad = (): JSX.Element => (
   </Collapsible>
 )
 
-export const SingleCollapsibleKaizenSiteDemo: ComponentStory<typeof Collapsible> = args => (
+export const SingleCollapsibleKaizenSiteDemo: ComponentStory<
+  typeof Collapsible
+> = args => (
   <Collapsible {...args}>
     <Paragraph variant="body">{lipsum}</Paragraph>
   </Collapsible>

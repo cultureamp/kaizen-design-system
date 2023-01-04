@@ -48,9 +48,13 @@ export const MeaningfulKaizenSiteDemo: Story = () => (
 )
 MeaningfulKaizenSiteDemo.storyName = "Icon"
 
-const IconExampleTile = ({ icon, figmaName, filename }: {
-  icon: React.SVGAttributes<SVGSymbolElement>,
-  figmaName: string,
+const IconExampleTile = ({
+  icon,
+  figmaName,
+  filename,
+}: {
+  icon: React.SVGAttributes<SVGSymbolElement>
+  figmaName: string
   filename: string
 }): JSX.Element => (
   <div

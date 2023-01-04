@@ -83,7 +83,9 @@ export default {
   decorators: [withDesign, withNavigation],
 }
 
-export const PositiveKaizenSiteDemo: Story<ToastNotificationWithOptionals> = args => {
+export const PositiveKaizenSiteDemo: Story<
+  ToastNotificationWithOptionals
+> = args => {
   React.useEffect(() => {
     addToastNotification({ ...args })
   })

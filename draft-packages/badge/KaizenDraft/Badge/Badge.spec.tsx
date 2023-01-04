@@ -4,7 +4,8 @@ import { Badge, BadgeProps } from "./Badge"
 
 afterEach(cleanup)
 
-const renderBadge = (props?: BadgeProps): ReturnType<typeof render> => render(<Badge {...props} />)
+const renderBadge = (props?: BadgeProps): ReturnType<typeof render> =>
+  render(<Badge {...props} />)
 
 describe("<Badge />", () => {
   describe("default", () => {

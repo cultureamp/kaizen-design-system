@@ -20,7 +20,9 @@ jest.mock("@react-aria/listbox", () => ({
 }))
 
 jest.mock("../../provider", () => ({
-  useSelectionContext: (): { selectionState: Record<string, unknown> } => ({ selectionState: {} }),
+  useSelectionContext: (): { selectionState: Record<string, unknown> } => ({
+    selectionState: {},
+  }),
 }))
 
 const itemMock: Node<ItemType> = {
@@ -36,7 +38,9 @@ const itemMock: Node<ItemType> = {
 
 const MultiSelectOptionWrapper = ({
   item = itemMock,
-}: Partial<MultiSelectOptionProps>): JSX.Element => <MultiSelectOption item={item} />
+}: Partial<MultiSelectOptionProps>): JSX.Element => (
+  <MultiSelectOption item={item} />
+)
 
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {

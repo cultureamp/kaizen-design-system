@@ -20,7 +20,11 @@ export default {
   },
 }
 
-const Padding = ({ size = 1 }: { size?: React.ComponentProps<typeof Box>["p"] }): JSX.Element => <Box p={size}> </Box>
+const Padding = ({
+  size = 1,
+}: {
+  size?: React.ComponentProps<typeof Box>["p"]
+}): JSX.Element => <Box p={size}> </Box>
 
 /**
  * Use this for showing a simple horizontal or vertical stack of elements, with the support of padding/gaps between each of them.
@@ -126,26 +130,27 @@ const ColorDemo = (props: { color: string; name?: string }): JSX.Element => {
 /**
  * A section of components, displayed as a column, with some styles such as a top and left border, a heading/title, and `contain: content` to ensure nothing bleeds out of it such as fixed or absolute positioned elements.
  */
-const ComponentsSection = React.forwardRef<HTMLDivElement,{ title: React.ReactNode; children: React.ReactNode }>(
-  (props, ref) => (
-    <>
-      <Heading variant="heading-2">{props.title}</Heading>
-      <Padding />
-      <div
-        ref={ref}
-        style={{
-          maxWidth: "100vw",
-          contain: "content",
-          display: "grid",
-          gap: "2rem",
-          gridTemplateColumns: "repeat(auto-fill, 400px)",
-        }}
-      >
-        {props.children}
-      </div>
-    </>
-  )
-)
+const ComponentsSection = React.forwardRef<
+  HTMLDivElement,
+  { title: React.ReactNode; children: React.ReactNode }
+>((props, ref) => (
+  <>
+    <Heading variant="heading-2">{props.title}</Heading>
+    <Padding />
+    <div
+      ref={ref}
+      style={{
+        maxWidth: "100vw",
+        contain: "content",
+        display: "grid",
+        gap: "2rem",
+        gridTemplateColumns: "repeat(auto-fill, 400px)",
+      }}
+    >
+      {props.children}
+    </div>
+  </>
+))
 
 export const ColorTokens: Story = () => {
   const theme = useTheme()

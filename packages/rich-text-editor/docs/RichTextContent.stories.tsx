@@ -16,7 +16,9 @@ export default {
   },
 }
 
-export const RichTextContentStory: ComponentStory<typeof RichTextContent> = args => <RichTextContent {...args} />
+export const RichTextContentStory: ComponentStory<
+  typeof RichTextContent
+> = args => <RichTextContent {...args} />
 
 RichTextContentStory.storyName = "Default"
 RichTextContentStory.args = {

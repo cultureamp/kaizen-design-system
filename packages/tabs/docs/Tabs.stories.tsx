@@ -62,10 +62,7 @@ export const Controlled: Story = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   return (
     <>
-      <Tabs
-        selectedIndex={selectedIndex}
-        onChange={setSelectedIndex}
-      >
+      <Tabs selectedIndex={selectedIndex} onChange={setSelectedIndex}>
         <TabList aria-label="Tabs">
           <Tab>Tab 1</Tab>
           <Tab>Tab 2</Tab>
@@ -94,7 +91,10 @@ export const Controlled: Story = () => {
         </TabPanels>
       </Tabs>
 
-      <Button label="Switch to tab 2" onClick={(): void => setSelectedIndex(1)} />
+      <Button
+        label="Switch to tab 2"
+        onClick={(): void => setSelectedIndex(1)}
+      />
     </>
   )
 }

@@ -40,7 +40,10 @@ export default {
   ],
 }
 
-export const InformativeIntro: ComponentStory<typeof BrandMoment> = (_, { isRTL }) => (
+export const InformativeIntro: ComponentStory<typeof BrandMoment> = (
+  _,
+  { isRTL }
+) => (
   <BrandMoment
     mood="informative"
     illustration={<BrandMomentCaptureIntro isAnimated loop />}
@@ -60,7 +63,10 @@ export const InformativeIntro: ComponentStory<typeof BrandMoment> = (_, { isRTL 
 InformativeIntro.storyName = "Informative intro"
 InformativeIntro.parameters = { chromatic: { disable: false } }
 
-export const PositiveOutro: ComponentStory<typeof BrandMoment> = (_, { isRTL }) => (
+export const PositiveOutro: ComponentStory<typeof BrandMoment> = (
+  _,
+  { isRTL }
+) => (
   <BrandMoment
     mood="positive"
     illustration={<BrandMomentPositiveOutro isAnimated loop />}
@@ -85,7 +91,9 @@ export const PositiveOutro: ComponentStory<typeof BrandMoment> = (_, { isRTL }) 
 )
 PositiveOutro.storyName = "Positive outro"
 
-export const InformativeIntroCustomerFocused: ComponentStory<typeof BrandMoment> = (_, { isRTL }) => (
+export const InformativeIntroCustomerFocused: ComponentStory<
+  typeof BrandMoment
+> = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
     illustration={<BrandMomentCaptureIntro isAnimated loop />}
@@ -119,7 +127,9 @@ export const InformativeIntroCustomerFocused: ComponentStory<typeof BrandMoment>
 InformativeIntroCustomerFocused.storyName =
   "Informative intro (customer focused)"
 
-export const PositiveOutroCustomerFocused: ComponentStory<typeof BrandMoment> = (_, { isRTL }) => (
+export const PositiveOutroCustomerFocused: ComponentStory<
+  typeof BrandMoment
+> = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
     illustration={<BrandMomentPositiveOutro isAnimated loop />}

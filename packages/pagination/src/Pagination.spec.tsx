@@ -26,7 +26,9 @@ describe("<Pagination />", () => {
       { length: pageCount },
       (_, i) => i + 1
     )) {
-      expect(screen.getByRole("button", { name: `Page ${pageNumber}` })).toBeInTheDocument()
+      expect(
+        screen.getByRole("button", { name: `Page ${pageNumber}` })
+      ).toBeInTheDocument()
     }
   })
 

@@ -5,7 +5,9 @@ import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const InputEditModalWrapper = (props: Partial<InputEditModalProps>): JSX.Element => (
+const InputEditModalWrapper = (
+  props: Partial<InputEditModalProps>
+): JSX.Element => (
   <InputEditModal
     isOpen={true}
     mood="positive"

@@ -5,7 +5,9 @@ import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const RoadblockModalWrapper = (props: Partial<RoadblockModalProps>): JSX.Element => (
+const RoadblockModalWrapper = (
+  props: Partial<RoadblockModalProps>
+): JSX.Element => (
   <RoadblockModal
     isOpen={true}
     title="Example modal title"

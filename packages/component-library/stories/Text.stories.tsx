@@ -16,7 +16,9 @@ export default {
   },
 }
 
-export const H1: ComponentStory<typeof Text> = () => <Text tag="h1">This is a Page Title (H1)</Text>
+export const H1: ComponentStory<typeof Text> = () => (
+  <Text tag="h1">This is a Page Title (H1)</Text>
+)
 H1.storyName = "H1"
 
 export const H1InheritBaseline: ComponentStory<typeof Text> = () => (
@@ -26,7 +28,9 @@ export const H1InheritBaseline: ComponentStory<typeof Text> = () => (
 )
 H1InheritBaseline.storyName = "H1 (inherit baseline)"
 
-export const H2: ComponentStory<typeof Text> = () => <Text tag="h2">This is a Title (H2)</Text>
+export const H2: ComponentStory<typeof Text> = () => (
+  <Text tag="h2">This is a Title (H2)</Text>
+)
 H2.storyName = "H2"
 
 export const H2NoBottomMargin: ComponentStory<typeof Text> = () => (
@@ -36,10 +40,14 @@ export const H2NoBottomMargin: ComponentStory<typeof Text> = () => (
 )
 H2NoBottomMargin.storyName = "H2 (no bottom margin)"
 
-export const H3: ComponentStory<typeof Text> = () => <Text tag="h3">This is a Display Heading (H3)</Text>
+export const H3: ComponentStory<typeof Text> = () => (
+  <Text tag="h3">This is a Display Heading (H3)</Text>
+)
 H3.storyName = "H3"
 
-export const H4: ComponentStory<typeof Text> = () => <Text tag="h4">This is a Heading (H4)</Text>
+export const H4: ComponentStory<typeof Text> = () => (
+  <Text tag="h4">This is a Heading (H4)</Text>
+)
 H4.storyName = "H4"
 
 export const H5: ComponentStory<typeof Text> = () => (
@@ -105,7 +113,9 @@ export const DivWithPageTitleStyles: ComponentStory<typeof Text> = () => (
 )
 DivWithPageTitleStyles.storyName = "Div with Page Title styles"
 
-export const Span: ComponentStory<typeof Text> = () => <Text tag="span">Span text</Text>
+export const Span: ComponentStory<typeof Text> = () => (
+  <Text tag="span">Span text</Text>
+)
 
 export const BodyBold: ComponentStory<typeof Text> = () => (
   <Text tag="div" style="body-bold">

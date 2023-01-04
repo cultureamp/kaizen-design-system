@@ -146,7 +146,10 @@ describe("GuidanceBlock", () => {
         }}
         actions={{
           primary: { label: "Action!", onClick: (): void => undefined },
-          secondary: { label: "Secondary action", onClick: (): void => undefined },
+          secondary: {
+            label: "Secondary action",
+            onClick: (): void => undefined,
+          },
         }}
       />
     )

@@ -56,20 +56,30 @@ const BadgeAnimationStoryWrapper = ({
   )
 }
 
-export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({ variant, ...args }) => (
+export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
+  variant,
+  ...args
+}) => (
   <BadgeAnimationStoryWrapper>
     {(badgeCount, useAnimation): JSX.Element => {
       if (useAnimation) {
-        return variant === "dot"
-          ? <BadgeAnimated variant={variant} {...args} />
-          : <BadgeAnimated variant={variant} {...args}>{badgeCount}</BadgeAnimated>
+        return variant === "dot" ? (
+          <BadgeAnimated variant={variant} {...args} />
+        ) : (
+          <BadgeAnimated variant={variant} {...args}>
+            {badgeCount}
+          </BadgeAnimated>
+        )
       }
 
-      return variant === "dot"
-         ? <Badge variant={variant} {...args} />
-         : <Badge variant={variant} {...args}>{badgeCount}</Badge>
-      }
-    }
+      return variant === "dot" ? (
+        <Badge variant={variant} {...args} />
+      ) : (
+        <Badge variant={variant} {...args}>
+          {badgeCount}
+        </Badge>
+      )
+    }}
   </BadgeAnimationStoryWrapper>
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
