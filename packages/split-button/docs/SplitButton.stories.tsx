@@ -42,20 +42,40 @@ export default {
     dropdownButtonProps: DropdownButton,
   },
   argTypes: {
-    actionButtonProps: {
-      options: ["Button", "Anchor"],
-      control: {
-        type: "select",
-        labels: {
-          Button: '{ label: "Edit Survey", onClick: action("clicked") }',
-          Anchor: '{ label: "Edit Survey", href: "//example.com" }',
-        },
-      },
-      mapping: {
-        Button: ACTION_BUTTON_PROPS__BUTTON,
-        Anchor: ACTION_BUTTON_PROPS__ANCHOR,
-      },
+    actionButtonLabel: {
+      name: "actionButtonProps.label",
+      control: "text",
+      description: "Abc",
+      isRequired: true, // <-- this doesn't work
+      defaultValue: "Edit Survey",
     },
+    actionButtonClickAction: {
+      name: "actionButtonProps.onClick/href",
+      control: { type: "radio" },
+      options: ["onClick", "href"],
+      mapping: {
+        onClick: { onClick: action("clicked") },
+        href: { href: "//example.com" },
+      },
+      defaultValue: "onClick",
+    },
+    actionButtonProps: {
+      control: "disabled"
+    },
+    // actionButtonProps: {
+    //   options: ["Button", "Anchor"],
+    //   control: {
+    //     type: "select",
+    //     labels: {
+    //       Button: '{ label: "Edit Survey", onClick: action("clicked") }',
+    //       Anchor: '{ label: "Edit Survey", href: "//example.com" }',
+    //     },
+    //   },
+    //   mapping: {
+    //     Button: ACTION_BUTTON_PROPS__BUTTON,
+    //     Anchor: ACTION_BUTTON_PROPS__ANCHOR,
+    //   },
+    // },
     dropdownContent: {
       options: [
         "MenuList - MenuItems enabled",
@@ -66,9 +86,11 @@ export default {
         "MenuList - MenuItems enabled": DROPDOWN_CONTENT__ENABLED,
         "MenuList - one MenuItem disabled": DROPDOWN_CONTENT__ONE_DISABLED,
       },
+      defaultValue: "MenuList - MenuItems enabled",
     },
   },
   parameters: {
+    controls: { sort: "alpha" },
     docs: {
       description: {
         component: '`import { SplitButton } from "@kaizen/split-button"`',
@@ -81,15 +103,19 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof SplitButton>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof SplitButton
-> = args => <SplitButton {...args} />
-DefaultKaizenSiteDemo.storyName = "Split Button"
-DefaultKaizenSiteDemo.args = {
-  // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
-  actionButtonProps: "Button",
-  dropdownContent: "MenuList - MenuItems enabled",
+export const DefaultKaizenSiteDemo: Story<Omit<SplitButtonProps, "actionButtonProps"> & {
+  actionButtonLabel: string,
+  actionButtonClickAction: Record<string, unknown>,
+}> = ({ actionButtonLabel, actionButtonClickAction, ...args}) => {
+  const actionButtonProps = { label: actionButtonLabel, ...actionButtonClickAction }
+  return <SplitButton {...args} actionButtonProps={actionButtonProps} />
 }
+DefaultKaizenSiteDemo.storyName = "Split Button"
+// DefaultKaizenSiteDemo.args = {
+//   // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
+//   actionButtonProps: "Button",
+//   dropdownContent: "MenuList - MenuItems enabled",
+// }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
