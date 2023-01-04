@@ -117,9 +117,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
       <Modal
         {...props}
         isOpen={modalOpen}
-        onBackdropClick={() => setModalOpen(false)}
-        onEscPress={() => setModalOpen(false)}
-        onCloseButtonPress={() => setModalOpen(false)}
+        onDismiss={() => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
         <Modal.Header>

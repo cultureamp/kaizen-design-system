@@ -30,19 +30,21 @@ const dropIn = {
 
 export interface RootProps {
   isOpen: boolean
-  onBackdropClick: () => void
-  onEscPress: () => void
-  onCloseButtonPress: () => void
   accessibleLabelId: string
   children: React.ReactNode
+  onDismiss: () => void
+  dismissOnBackdropClick?: boolean
+  dismissOnEscPress?: boolean
+  hideCloseButton?: boolean
   size?: "sm" | "md" | "lg"
 }
 
 export const Root = ({
   isOpen,
-  onBackdropClick,
-  onEscPress,
-  onCloseButtonPress,
+  onDismiss,
+  dismissOnBackdropClick = true,
+  dismissOnEscPress = true,
+  hideCloseButton = false,
   accessibleLabelId,
   size = "md",
   children,
@@ -55,8 +57,8 @@ export const Root = ({
           <Backdrop />
           <div className={styles.modalWrapper}>
             <FocusOn
-              onClickOutside={onBackdropClick}
-              onEscapeKey={onEscPress}
+              onClickOutside={dismissOnBackdropClick ? onDismiss : undefined}
+              onEscapeKey={dismissOnEscPress ? onDismiss : undefined}
               onActivation={() => dialogRef?.current?.focus()}
               // This linting error is a false positive.
               // The autoFocus prop here is not what the linting library thinks it is.
@@ -79,7 +81,7 @@ export const Root = ({
                 aria-labelledby={accessibleLabelId}
                 ref={dialogRef}
               >
-                <CloseButton onClick={onCloseButtonPress} />
+                {!hideCloseButton && <CloseButton onClick={onDismiss} />}
                 {children}
               </motion.div>
             </FocusOn>
