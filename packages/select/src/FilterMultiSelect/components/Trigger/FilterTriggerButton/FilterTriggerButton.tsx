@@ -15,12 +15,12 @@ export type FilterTriggerButtonProps = {
   labelCharacterLimitBeforeTruncate?: number
 }
 
-export const FilterTriggerButton: React.VFC<FilterTriggerButtonProps> = ({
+export const FilterTriggerButton = ({
   selectedOptionLabels,
   label,
   classNameOverride,
   labelCharacterLimitBeforeTruncate = 50,
-}) => {
+}: FilterTriggerButtonProps): JSX.Element => {
   const hasSelectedValues = selectedOptionLabels.length > 0
 
   return (

@@ -45,11 +45,9 @@ export interface ConfirmationModalProps {
   readonly children: React.ReactNode
 }
 
-type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
-
 type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
 
-const getIcon = (mood: Mood, isProminent: boolean) => {
+const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
   switch (mood) {
     case "cautionary":
       return isProminent ? (
@@ -102,7 +100,7 @@ const ConfirmationModal = ({
   automationId,
   children,
   ...props
-}: ConfirmationModalProps) => {
+}: ConfirmationModalProps): JSX.Element => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
 
   const footerActions: ButtonProps[] = []
@@ -164,7 +162,7 @@ const ConfirmationModal = ({
         </ModalHeader>
         <ModalBody>
           <div
-            className={classnames(styles.body, {
+            className={classnames({
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}

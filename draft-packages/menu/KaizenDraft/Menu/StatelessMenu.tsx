@@ -49,7 +49,7 @@ export type StatelessMenuProps = {
   onClick?: (event: SyntheticEvent) => void
 }
 
-export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
+export const StatelessMenu = ({
   align = "left",
   dropdownWidth = "default",
   autoHide = "on",
@@ -62,7 +62,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   hideMenuDropdown,
   renderButton,
   onClick,
-}) => {
+}: StatelessMenuProps): JSX.Element => {
   const [referenceElement, setReferenceElement] =
     useState<HTMLSpanElement | null>(null)
   const portalSelectorElementRef = useRef<Element | null>(null)

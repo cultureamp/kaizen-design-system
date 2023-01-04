@@ -7,18 +7,21 @@ import styles from "./SearchInput.module.scss"
 export interface SearchInputProps {
   label?: string
   id?: string
+  isLoading?: boolean
 }
 
-export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
+export const SearchInput = ({
+  label,
+  id,
+  isLoading,
+}: SearchInputProps): JSX.Element => {
   const { setSearchQuery, searchQuery } = useSelectionContext()
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     setSearchQuery(e.target.value)
   }
 
-  const handleClear = () => {
-    setSearchQuery("")
-  }
+  const handleClear = (): void => setSearchQuery("")
 
   const inputId = useMemo(() => id ?? v4(), [id])
 
@@ -32,6 +35,7 @@ export const SearchInput: React.VFC<SearchInputProps> = ({ label, id }) => {
         value={searchQuery}
         onChange={handleChange}
         onClear={handleClear}
+        loading={isLoading}
       />
     </div>
   )

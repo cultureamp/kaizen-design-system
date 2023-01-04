@@ -177,7 +177,7 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-const renderTag = (surveyStatus: SurveyStatus) => {
+const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
 
   if (tagVariant === "profile") {
@@ -228,7 +228,7 @@ const isJSXElement = (
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
   avatarAutomationId: string
-) =>
+): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
@@ -245,7 +245,7 @@ const renderAvatar = (
 const renderSubtitle = (
   subtitle: React.ReactNode,
   subtitleAutomationId: string
-) => (
+): JSX.Element => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -262,7 +262,7 @@ const renderSectionTitle = (
   variant?: Variant,
   sectionTitleAutomationId?: string,
   sectionTitleDescriptionAutomationId?: string
-) => (
+): JSX.Element => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
       {sectionTitle && (
@@ -315,15 +315,15 @@ export type CustomBreadcrumbProps = BreadcrumbProps & {
   children: React.ReactNode
 }
 
-const Breadcrumb: React.VFC<BreadcrumbProps> = ({
+const Breadcrumb = ({
   breadcrumb,
   automationId,
   textAutomationId,
   textDirection,
-}) => {
+}: BreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
-  const InnerContents = () => (
+  const InnerContents = (): JSX.Element => (
     <>
       <div className={styles.circle}>
         <Icon icon={icon} role="presentation" />
@@ -371,7 +371,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
 const renderNavigationTabs = (
   navigationTabs: NavigationTabs | undefined,
   collapse: boolean
-) => (
+): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
       className={classNames(styles.navigationTabsContainer, {
@@ -528,7 +528,7 @@ const TitleBlockZen = ({
   sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
   breadcrumbAutomationId = "TitleBlock__Breadcrumb",
   breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
-}: TitleBlockProps) => {
+}: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
     collapseNavigationAreaWhenPossible &&
@@ -569,55 +569,57 @@ const TitleBlockZen = ({
                   />
                 )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
-                  {handleHamburgerClick && (
-                    <div className={styles.hamburger}>
-                      <IconButton
-                        onClick={handleHamburgerClick}
-                        icon={hamburgerIcon}
-                        label="Open menu"
-                        reversed={isReversed(variant)}
-                      />
-                    </div>
-                  )}
-                  {avatar && renderAvatar(avatar, avatarAutomationId)}
-                  <div className={styles.titleAndSubtitle}>
-                    <div className={styles.titleAndSubtitleInner}>
-                      <div className={styles.title}>
-                        <Heading
-                          variant="heading-1"
-                          color={isReversed(variant) ? "white" : "dark"}
-                          classNameOverride={styles.titleTextOverride}
-                          data-automation-id={titleAutomationId}
-                        >
-                          {title}
-                        </Heading>
+                  <>
+                    {handleHamburgerClick && (
+                      <div className={styles.hamburger}>
+                        <IconButton
+                          onClick={handleHamburgerClick}
+                          icon={hamburgerIcon}
+                          label="Open menu"
+                          reversed={isReversed(variant)}
+                        />
                       </div>
-                      {isSmallOrMediumViewport && pageSwitcherSelect && (
-                        <div
-                          className={styles.pageSwitcherSelectUnderneathTitle}
-                        >
-                          <Select
-                            {...pageSwitcherSelect}
-                            variant="secondary-small"
-                            reversed
-                          />
+                    )}
+                    {avatar && renderAvatar(avatar, avatarAutomationId)}
+                    <div className={styles.titleAndSubtitle}>
+                      <div className={styles.titleAndSubtitleInner}>
+                        <div className={styles.title}>
+                          <Heading
+                            variant="heading-1"
+                            color={isReversed(variant) ? "white" : "dark"}
+                            classNameOverride={styles.titleTextOverride}
+                            data-automation-id={titleAutomationId}
+                          >
+                            {title}
+                          </Heading>
                         </div>
-                      )}
-                      {subtitle &&
-                        renderSubtitle(subtitle, subtitleAutomationId)}
+                        {isSmallOrMediumViewport && pageSwitcherSelect && (
+                          <div
+                            className={styles.pageSwitcherSelectUnderneathTitle}
+                          >
+                            <Select
+                              {...pageSwitcherSelect}
+                              variant="secondary-small"
+                              reversed
+                            />
+                          </div>
+                        )}
+                        {subtitle &&
+                          renderSubtitle(subtitle, subtitleAutomationId)}
+                      </div>
                     </div>
-                  </div>
-                  {surveyStatus && renderTag(surveyStatus)}
-                  {!isSmallOrMediumViewport && pageSwitcherSelect && (
-                    <div className={styles.pageSwitcherSelectNextToTitle}>
-                      <Select
-                        {...pageSwitcherSelect}
-                        variant="secondary"
-                        reversed
-                        fullWidth
-                      />
-                    </div>
-                  )}
+                    {surveyStatus && renderTag(surveyStatus)}
+                    {!isSmallOrMediumViewport && pageSwitcherSelect && (
+                      <div className={styles.pageSwitcherSelectNextToTitle}>
+                        <Select
+                          {...pageSwitcherSelect}
+                          variant="secondary"
+                          reversed
+                          fullWidth
+                        />
+                      </div>
+                    )}
+                  </>
                 </div>
               </div>
               {(primaryAction ||

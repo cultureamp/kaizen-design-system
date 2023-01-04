@@ -24,7 +24,7 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
  * {@link https://cultureamp.design/components/toggle-switch-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-toggle-switch-field--default Storybook}
  */
-export const ToggleSwitchField: React.VFC<ToggleSwitchFieldProps> = ({
+export const ToggleSwitchField = ({
   id = "",
   labelText,
   labelPosition = "start",
@@ -34,7 +34,7 @@ export const ToggleSwitchField: React.VFC<ToggleSwitchFieldProps> = ({
   inline,
   fullWidth,
   ...restProps
-}) => (
+}: ToggleSwitchFieldProps): JSX.Element => (
   <FieldGroup
     id={`${id}-field-group`}
     inline={inline}

@@ -28,7 +28,7 @@ export enum PageAction {
  * {@link https://cultureamp.design/components/pagination/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-pagination--default Storybook}
  */
-export const Pagination: React.VFC<PaginationProps> = ({
+export const Pagination = ({
   currentPage = 1,
   pageCount,
   ariaLabelNextPage,
@@ -37,9 +37,9 @@ export const Pagination: React.VFC<PaginationProps> = ({
   onPageChange,
   classNameOverride,
   ...restProps
-}) => {
+}: PaginationProps): JSX.Element => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
-  const handleButtonClick = (newPage: number | PageAction) => {
+  const handleButtonClick = (newPage: number | PageAction): void => {
     if (newPage === PageAction.PREV) {
       onPageChange(currentPage - 1)
       return
@@ -51,7 +51,7 @@ export const Pagination: React.VFC<PaginationProps> = ({
     onPageChange(newPage)
   }
 
-  const paginationIndicator = (page: number) => (
+  const paginationIndicator = (page: number): JSX.Element => (
     <PageIndicator
       key={page}
       page={page}
@@ -61,7 +61,7 @@ export const Pagination: React.VFC<PaginationProps> = ({
     />
   )
 
-  const pagination = () => {
+  const pagination = (): JSX.Element[] => {
     const items: JSX.Element[] = []
 
     const boundaryPagesRange = 1
@@ -153,7 +153,7 @@ export const Pagination: React.VFC<PaginationProps> = ({
         className={classnames(styles.arrowIconWrapper)}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
-        onClick={() => handleButtonClick(PageAction.PREV)}
+        onClick={(): void => handleButtonClick(PageAction.PREV)}
       >
         <Icon icon={arrowBackward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />
@@ -165,7 +165,7 @@ export const Pagination: React.VFC<PaginationProps> = ({
         })}
         aria-label={ariaLabelNextPage}
         disabled={nextPageDisabled}
-        onClick={() => handleButtonClick(PageAction.NEXT)}
+        onClick={(): void => handleButtonClick(PageAction.NEXT)}
       >
         <Icon icon={arrowForward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />

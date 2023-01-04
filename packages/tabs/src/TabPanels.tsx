@@ -7,7 +7,7 @@ export interface TabPanelsProps {
 /**
  * Wrapper for the content panels
  */
-export const TabPanels = (props: TabPanelsProps) => {
+export const TabPanels = (props: TabPanelsProps): JSX.Element => {
   const { children } = props
   return <ReachTabPanels>{children}</ReachTabPanels>
 }

@@ -20,10 +20,10 @@ const output = yargs
   })
   .env().argv
 
-const formatJson = (jsonString: string) =>
+const formatJson = (jsonString: string): string =>
   format(jsonString, { parser: "json" })
 
-const run = async () => {
+const run = async (): Promise<void> => {
   // as of v17 returns a promise
   const { jsonOutput, cssOutput } = await output
   fs.mkdirSync(jsonOutput, { recursive: true })

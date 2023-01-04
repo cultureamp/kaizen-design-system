@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "variables";
-@import "../../mixins";
+@import "../../../mixins";
 
 @mixin button {
   @include button-reset;

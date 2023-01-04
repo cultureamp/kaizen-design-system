@@ -147,15 +147,17 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
-.body {
+.prominent {
   display: grid;
-  grid-template-columns: 0.2fr 2fr;
+  grid-template-columns: 1.1fr 2fr;
   align-items: center;
 
   @media (max-width: $layout-breakpoints-medium) {
     grid-template-columns: 1fr;
   }
+}
 
+<<<<<<< HEAD
   &.prominent {
     display: grid;
     grid-template-columns: 1.1fr 2fr;
@@ -172,6 +174,12 @@ $dt-assertive-header-background: $color-orange-100;
     @media (max-width: $layout-breakpoints-medium) {
       padding: $spacing-md;
     }
+=======
+.padded {
+  padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+  @media (max-width: $layout-breakpoints-medium) {
+    padding: $spacing-md;
+>>>>>>> main
   }
 }
 

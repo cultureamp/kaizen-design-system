@@ -29,7 +29,7 @@ const progressClassNames = (props: ProgressBarProps): string => {
   })
 }
 
-function calculatePercentage({ value, max }: ProgressBarProps) {
+function calculatePercentage({ value, max }: ProgressBarProps): number {
   return (value / max) * 100.0
 }
 
@@ -37,7 +37,7 @@ function calculatePercentage({ value, max }: ProgressBarProps) {
  * {@link https://cultureamp.design/components/progress-bar/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-progress-bar--default-story Storybook}
  */
-export const ProgressBar: React.VFC<ProgressBarProps> = props => {
+export const ProgressBar = (props: ProgressBarProps): JSX.Element => {
   const {
     value,
     max,
@@ -85,24 +85,22 @@ export const ProgressBar: React.VFC<ProgressBarProps> = props => {
 
 ProgressBar.displayName = "ProgressBar"
 
-function Label({
+const Label = ({
   content,
   isReversed = false,
 }: {
   content: ReactNode
   isReversed: boolean
-}) {
-  return (
-    <div className={styles.label}>
-      <Box pb={0.25}>
-        <Heading
-          variant="heading-4"
-          tag="p"
-          color={isReversed ? "white" : "dark"}
-        >
-          {content}
-        </Heading>
-      </Box>
-    </div>
-  )
-}
+}): JSX.Element => (
+  <div className={styles.label}>
+    <Box pb={0.25}>
+      <Heading
+        variant="heading-4"
+        tag="p"
+        color={isReversed ? "white" : "dark"}
+      >
+        {content}
+      </Heading>
+    </Box>
+  </div>
+)

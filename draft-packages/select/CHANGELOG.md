@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.4...@kaizen/draft-select@2.10.5) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.3...@kaizen/draft-select@2.10.4) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.2...@kaizen/draft-select@2.10.3) (2022-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.1...@kaizen/draft-select@2.10.2) (2022-12-02)
+
+
+### Bug Fixes
+
+* Resolving clearing issue of legacy multi-select [KDS-1030] ([#3140](https://github.com/cultureamp/kaizen-design-system/issues/3140)) ([df0a9f9](https://github.com/cultureamp/kaizen-design-system/commit/df0a9f9d3f644b57cd1b1cb066cf1263cdee6bfe))
+
+
+
+
+
+## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.10.0...@kaizen/draft-select@2.10.1) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.9.2...@kaizen/draft-select@2.10.0) (2022-12-01)
+
+
+### Features
+
+* **Select:** Kds 925 basic single select ([#3068](https://github.com/cultureamp/kaizen-design-system/issues/3068)) ([a8a36e0](https://github.com/cultureamp/kaizen-design-system/commit/a8a36e0da7c07db7f5ab8646c4386a36edb83d9e))
+
+
+
+
+
+## [2.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.9.1...@kaizen/draft-select@2.9.2) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [2.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.9.0...@kaizen/draft-select@2.9.1) (2022-11-17)
+
+
+### Bug Fixes
+
+* update select reversed clearable styles ([#3108](https://github.com/cultureamp/kaizen-design-system/issues/3108)) ([df868a9](https://github.com/cultureamp/kaizen-design-system/commit/df868a9771cfe4a36d72056c99fd063303690aa7))
+
+
+
+
+
 # [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@2.8.0...@kaizen/draft-select@2.9.0) (2022-11-16)
 
 

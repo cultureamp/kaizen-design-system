@@ -1,6 +1,7 @@
 import React from "react"
 import { Input, InputProps, Label } from "@kaizen/draft-form"
 import { isRefObject } from "../../utils/isRefObject"
+import styles from "./DateInput.module.scss"
 
 type OmittedInputProps =
   | "inputType"
@@ -22,7 +23,7 @@ export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
   ({ id, labelText, disabled, isReversed = false, ...inputProps }, ref) => (
-    <div>
+    <div className={styles.dateInput}>
       <Label
         htmlFor={id}
         labelText={labelText}

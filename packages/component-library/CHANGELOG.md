@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.12...@kaizen/component-library@16.1.13) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.11...@kaizen/component-library@16.1.12) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.10...@kaizen/component-library@16.1.11) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.9...@kaizen/component-library@16.1.10) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.8...@kaizen/component-library@16.1.9) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [16.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.7...@kaizen/component-library@16.1.8) (2022-11-13)
 
 **Note:** Version bump only for package @kaizen/component-library

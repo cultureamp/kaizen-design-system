@@ -13,7 +13,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
-import { items } from "./MockData"
+import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
@@ -48,10 +48,13 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         {...args}
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={args.label}
           />
         )}
@@ -60,11 +63,19 @@ export const DefaultKaizenSiteDemo: ComponentStory<
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }) => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -75,7 +86,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -121,11 +135,14 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
       <FilterMultiSelect
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         label="Engineer"
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={"Engineer"}
           />
         )}
@@ -134,8 +151,18 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ selectedItems, unselectedItems, disabledItems }) => (
+              {({
+                selectedItems,
+                unselectedItems,
+                disabledItems,
+                hasNoItems,
+              }) => (
                 <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )}
                   <FilterMultiSelect.ListBoxSection
                     items={selectedItems}
                     sectionName="Selected items"
@@ -182,7 +209,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant={"body"}>Items: </Paragraph>
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -219,10 +249,13 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
         label="Engineer"
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         trigger={() => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label="Engineer"
             labelCharacterLimitBeforeTruncate={characterLimit}
           />
@@ -232,11 +265,18 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }) => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -331,10 +371,13 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
       label="Engineer"
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
-      items={items.slice(0, 3)}
+      items={mockItems.slice(0, 3)}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          selectedOptionLabels={getSelectedOptionLabels(
+            selectedKeys,
+            mockItems
+          )}
           label="Engineer"
         />
       )}
@@ -343,11 +386,18 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
+            {({ allItems, hasNoItems }) => {
+              if (hasNoItems) {
+                return (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                )
+              }
+              return allItems.map(item => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
-            }
+            }}
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />
@@ -366,27 +416,33 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
   const queryClient = useQueryClient()
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfiniteQuery(
-      ["startrek-sg1", searchState],
-      ({ pageParam = 1 }) =>
-        fetch(
-          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
-        ).then(res => res.json()) as Promise<{
-          results: Array<{ name: string; url: string }>
-          next: string
-        }>,
-      {
-        enabled: open,
-        keepPreviousData: true,
-        getNextPageParam: lastPage => {
-          if (!lastPage.next) return undefined
-          const url = new URL(lastPage.next)
-          const params = new URLSearchParams(url.searchParams)
-          return params.get("page")
-        },
-      }
-    )
+  const {
+    data,
+    isLoading,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+    isRefetching,
+  } = useInfiniteQuery(
+    ["startrek-sg1", searchState],
+    ({ pageParam = 1 }) =>
+      fetch(
+        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+      ).then(res => res.json()) as Promise<{
+        results: Array<{ name: string; url: string }>
+        next: string
+      }>,
+    {
+      enabled: open,
+      keepPreviousData: true,
+      getNextPageParam: lastPage => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get("page")
+      },
+    }
+  )
 
   /**
    * We need access to the previously fetched people. If a user has selected a
@@ -438,10 +494,21 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
       >
         {() => (
           <>
-            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.SearchInput
+              isLoading={isRefetching && searchState !== ""}
+            />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) => (
+              {({ allItems, hasNoItems }) => (
                 <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found for{" "}
+                      <Paragraph variant="extra-small" tag="span" color="dark">
+                        {searchState}
+                      </Paragraph>
+                      .
+                    </FilterMultiSelect.NoResults>
+                  )}
                   {allItems.map(item => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   ))}

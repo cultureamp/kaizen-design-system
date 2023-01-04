@@ -12,10 +12,10 @@ export type RemovableFilterTriggerProps = {
   onRemove: () => void
 } & FilterTriggerButtonProps
 
-export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
+export const RemovableFilterTrigger = ({
   onRemove,
   ...filterTriggerProps
-}) => {
+}: RemovableFilterTriggerProps): JSX.Element => {
   const removeButtonLabel = `Remove ${filterTriggerProps.label} filter`
   return (
     <div className={styles.trigger}>
@@ -28,7 +28,7 @@ export const RemovableFilterTrigger: React.VFC<RemovableFilterTriggerProps> = ({
         <button
           className={styles.removeButton}
           aria-label={removeButtonLabel}
-          onClick={() => onRemove()}
+          onClick={onRemove}
         >
           <Icon icon={clear} role="presentation" />
         </button>

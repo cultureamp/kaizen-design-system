@@ -10,17 +10,17 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Badge } from "@kaizen/draft-badge"
+import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {
   item: Node<ItemType>
 }
 
-export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
+export const MultiSelectOption = ({
   item,
-}) => {
+}: MultiSelectOptionProps): JSX.Element => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()

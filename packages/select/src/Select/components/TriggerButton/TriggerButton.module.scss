@@ -1,0 +1,47 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
+@import "./variables";
+
+.button {
+  @include button;
+  border-radius: $border-solid-border-radius;
+  margin-top: $spacing-xs;
+  width: 100%;
+
+  &:hover .icon,
+  &:global(.story__button-hover) .icon,
+  &:active .icon,
+  &:global(.story__button-active) .icon,
+  &:focus-visible .icon {
+    color: $color-gray-600;
+  }
+
+  &.placeholder {
+    color: rgba($color-purple-800-rgb, 0.7);
+  }
+}
+
+.icon {
+  margin-left: $spacing-sm;
+  color: $color-gray-500;
+}
+
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
+}
+.caution {
+  border: $border-solid-border-width $border-solid-border-style
+    $color-yellow-600;
+}
+
+.disabled {
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+  background-color: $color-gray-100;
+  color: $color-gray-500;
+  .icon,
+  &:hover .icon {
+    color: $color-gray-400;
+  }
+}

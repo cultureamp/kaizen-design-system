@@ -17,7 +17,7 @@ export interface CalendarSingleProps
   onMount?: (calendarElement: CalendarSingleElement) => void
 }
 
-export const CalendarSingle: React.VFC<CalendarSingleProps> = ({
+export const CalendarSingle = ({
   id,
   onMount,
   classNameOverride,
@@ -26,7 +26,7 @@ export const CalendarSingle: React.VFC<CalendarSingleProps> = ({
   weekStartsOn = DayOfWeek.Mon,
   locale = enAU,
   ...restProps
-}) => {
+}: CalendarSingleProps): JSX.Element => {
   const calendarRef = useRef<CalendarSingleElement>(null)
 
   useEffect(() => {

@@ -14,13 +14,13 @@ export const PageIndicator = ({
   selected,
   ariaLabelPage,
   onPageClick,
-}: PageIndicatorProps) => (
+}: PageIndicatorProps): JSX.Element => (
   <button
     className={cx(styles.pageIndicator, {
       [styles.pageIndicatorSelected]: selected,
     })}
     aria-label={`${ariaLabelPage || "Page"} ${page}`}
-    onClick={() => onPageClick(page)}
+    onClick={(): void => onPageClick(page)}
   >
     <div className={styles.pageIndicatorFocusRing} />
     {page}

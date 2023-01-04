@@ -18,7 +18,7 @@ const noInvalidEquations = (
   postcssNode: Declaration | AtRule,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
-) => {
+): void => {
   /*
     This rule will attempt to detect whether a Kaizen token is used as a term within an equation.
     It does this by detecting whether an operator and a token are next to each other in a significant way.
@@ -172,7 +172,7 @@ export const containsEquationThatDoesntWorkWithCSSVariables = (
   postcssNode: Declaration | AtRule,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
-) => {
+): boolean => {
   let reported = 0
   noInvalidEquations(postcssNode.clone(), parsedValue, {
     ...options,

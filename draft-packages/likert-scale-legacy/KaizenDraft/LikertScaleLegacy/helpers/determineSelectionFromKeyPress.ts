@@ -52,7 +52,7 @@ const determineSelectionFromKeyPress = (
   return null
 }
 
-const oneSelectionForward = (value: ScaleValue) => {
+const oneSelectionForward = (value: ScaleValue): ScaleValue | null => {
   if (value === 5) {
     return 1
   }
@@ -60,7 +60,7 @@ const oneSelectionForward = (value: ScaleValue) => {
   return calculatedPosition || null
 }
 
-const oneSelectionBackward = (value: ScaleValue) => {
+const oneSelectionBackward = (value: ScaleValue): ScaleValue | null => {
   if (value === 1) {
     return 5
   }

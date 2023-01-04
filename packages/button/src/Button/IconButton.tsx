@@ -24,7 +24,7 @@ export type IconButtonProps = GenericProps &
  * {@link https://cultureamp.design/components/icon-button/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-button--default-kaizen-demo-icon Storybook}
  */
-export const IconButton: React.VFC<IconButtonProps> = props => (
+export const IconButton = (props: IconButtonProps): JSX.Element => (
   <GenericButton iconButton {...props} />
 )
 

@@ -5,7 +5,7 @@ export interface MenuFooterProps {
   children: React.ReactNode
 }
 
-export const MenuFooter: React.VFC<MenuFooterProps> = ({ children }) => (
+export const MenuFooter = ({ children }: MenuFooterProps): JSX.Element => (
   <div className={styles.footer}>{children}</div>
 )
 

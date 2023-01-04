@@ -1,7 +1,10 @@
 import React from "react"
-import { DayPicker, DateRange } from "react-day-picker"
-import { DayClickEventHandler } from "react-day-picker/dist/types/EventHandlers"
-import { Matcher } from "react-day-picker/dist/types/Matchers"
+import {
+  DayPicker,
+  DateRange,
+  DayClickEventHandler,
+  Matcher,
+} from "react-day-picker"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
 import { legacyCalendarRangeClasses } from "./CalendarClasses"
@@ -22,7 +25,7 @@ export type LegacyCalendarRangeProps = {
   onDayChange: DayClickEventHandler
 }
 
-export const LegacyCalendarRange: React.VFC<LegacyCalendarRangeProps> = ({
+export const LegacyCalendarRange = ({
   id,
   classNameOverride,
   defaultMonth,
@@ -31,7 +34,7 @@ export const LegacyCalendarRange: React.VFC<LegacyCalendarRangeProps> = ({
   selectedRange,
   locale,
   onDayChange,
-}) => {
+}: LegacyCalendarRangeProps): JSX.Element => {
   const monthToShow = selectedRange?.from || defaultMonth
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow

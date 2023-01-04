@@ -8,14 +8,12 @@ export interface ModalAccessibleLabelProps {
   readonly isProminent?: boolean
 }
 
-type ModalAccessibleLabel = React.FunctionComponent<ModalAccessibleLabelProps>
-
-const ModalAccessibleLabel: ModalAccessibleLabel = ({
+const ModalAccessibleLabel = ({
   children,
   isProminent = false,
-}) => (
+}: ModalAccessibleLabelProps): JSX.Element => (
   <ModalAccessibleContext.Consumer>
-    {({ labelledByID }) => (
+    {({ labelledByID }): JSX.Element => (
       <div
         id={labelledByID}
         tabIndex={-1}

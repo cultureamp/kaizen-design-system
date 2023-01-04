@@ -37,7 +37,7 @@ export const AnimatedBase = ({
   alt,
   aspectRatio,
   classNameOverride,
-}: AnimatedBaseProps & BaseProps & { fallback: string }) => {
+}: AnimatedBaseProps & BaseProps & { fallback: string }): JSX.Element => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
   const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
     AssetStatus.Loading
@@ -46,7 +46,7 @@ export const AnimatedBase = ({
 
   React.useEffect(() => {
     let didCancel = false
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         const srcParsed = await getAnimationData(name)
         if (!didCancel) {
@@ -65,7 +65,7 @@ export const AnimatedBase = ({
   }, [])
 
   useEffect(() => {
-    const initialiseLottiePlayer = () => {
+    const initialiseLottiePlayer = (): void => {
       if (asset && lottiePlayer.current !== null) {
         setPlayerLoaded(AssetStatus.Success)
         lottie.loadAnimation({

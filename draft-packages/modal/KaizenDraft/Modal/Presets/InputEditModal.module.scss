@@ -1,8 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .modal {
   composes: genericmodal from "../Primitives/GenericModal.module.scss";
@@ -19,10 +17,14 @@
   }
 
   &.padded {
+<<<<<<< HEAD
     padding: $ca-grid $ca-grid * 1.5;
 
+=======
+    padding: $spacing-md $spacing-lg;
+>>>>>>> main
     @media (max-width: $layout-breakpoints-medium) {
-      padding: $ca-grid;
+      padding: $spacing-md;
     }
   }
 }
@@ -31,10 +33,14 @@
   background: $color-gray-200;
 
   &.padded {
+<<<<<<< HEAD
     padding: $ca-grid $ca-grid * 1.5 $ca-grid $ca-grid * 1.5;
 
+=======
+    padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+>>>>>>> main
     @media (max-width: $layout-breakpoints-medium) {
-      padding: $ca-grid;
+      padding: $spacing-md;
     }
   }
 }

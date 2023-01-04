@@ -1,8 +1,11 @@
 import React from "react"
-import { Icon, Box } from "@kaizen/component-library"
-import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
+import { Story } from "@storybook/react"
+import { IconButton } from "@kaizen/button"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import { Collapsible } from "@kaizen/draft-collapsible"
-import { Paragraph } from "@kaizen/typography"
+import { Heading, Paragraph } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 
@@ -20,7 +23,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `${CATEGORIES.components}/Collapsible`,
+  title: `${CATEGORIES.components}/Collapsible/Single Collapsible`,
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
@@ -33,83 +36,126 @@ export default {
   },
 }
 
-export const SingleCollapsibleKaizenSiteDemo = () => (
-  <Box m={1}>
-    <Collapsible id="collapsible-single" open title="Single collapsible">
-      <Paragraph variant="body">{lipsum}</Paragraph>
-    </Collapsible>
-  </Box>
-)
-SingleCollapsibleKaizenSiteDemo.storyName =
-  "Single collapsible (Kaizen Site Demo)"
-
-export const SingleCollapsibleNoPadding = () => (
-  <Box m={1}>
-    <Collapsible
-      id="collapsible-single"
-      open
-      noSectionPadding
-      title="Single collapsible with no padding"
-    >
-      <ListItem>
-        <Paragraph variant="body">Maybe you would like...</Paragraph>
-      </ListItem>
-      <ListItem>
-        <Paragraph variant="body">
-          ...content items separated with full length borders?
-        </Paragraph>
-      </ListItem>
-      <ListItem>
-        <Paragraph variant="body">
-          In that case you should use the 'noSectionPadding' prop.
-        </Paragraph>
-      </ListItem>
-    </Collapsible>
-  </Box>
-)
-SingleCollapsibleNoPadding.storyName = "Single collapsible (no padding)"
-SingleCollapsibleNoPadding.parameters = { chromatic: { disable: false } }
-
-export const SingleCollapsibleCustomHeader = () => (
-  <Box m={1}>
-    <Collapsible
-      id="collapsible-single"
-      open
-      title="Custom header"
-      variant="default"
-      renderHeader={title => (
-        <>
-          <Icon icon={translationIcon} />
-          <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>
-            <Paragraph tag="span" variant="body">
-              {title}
-            </Paragraph>
-          </div>
-        </>
-      )}
-    >
+const SingleCollapsibleNoPadding = () => (
+  <Collapsible
+    id="collapsible-single"
+    open
+    noSectionPadding
+    title="Single collapsible with no padding"
+  >
+    <ListItem>
+      <Paragraph variant="body">Maybe you would like...</Paragraph>
+    </ListItem>
+    <ListItem>
       <Paragraph variant="body">
-        You can create a custom header using the renderHeader prop.
+        ...content items separated with full length borders?
       </Paragraph>
-    </Collapsible>
-  </Box>
+    </ListItem>
+    <ListItem>
+      <Paragraph variant="body">
+        In that case you should use the 'noSectionPadding' prop.
+      </Paragraph>
+    </ListItem>
+  </Collapsible>
 )
-SingleCollapsibleCustomHeader.storyName = "Single collapsible (custom header)"
-SingleCollapsibleCustomHeader.parameters = { chromatic: { disable: false } }
 
-export const SingleCollapsibleLazyLoad = () => (
-  <Box m={1}>
-    <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
-      <Paragraph variant="body">
-        This content won't be rendered until the collapsible is opened. This is
-        particularly useful when you have data being queried inside your
-        collapsible content.
-      </Paragraph>
-      <Paragraph variant="body">
-        This has a necessary side effect of removing the height animation on
-        open and close.
-      </Paragraph>
-    </Collapsible>
-  </Box>
+const SingleCollapsibleCustomHeader = () => (
+  <Collapsible
+    id="collapsible-single"
+    open
+    title="Custom header"
+    variant="default"
+    renderHeader={title => (
+      <>
+        <div style={{ flex: "1 0 auto" }}>
+          <Heading variant="heading-4" tag="span">
+            {title}
+          </Heading>
+        </div>
+        <IconButton
+          icon={addIcon}
+          label="Add item"
+          onClick={event => {
+            // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
+            event.stopPropagation()
+          }}
+        />
+        <IconButton
+          icon={kebabIcon}
+          label="More actions"
+          onClick={event => {
+            // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
+            event.stopPropagation()
+          }}
+        />
+      </>
+    )}
+  >
+    <Paragraph variant="body">
+      You can create a custom header using the renderHeader prop.
+    </Paragraph>
+  </Collapsible>
 )
-SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
+
+const SingleCollapsibleLazyLoad = () => (
+  <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
+    <Paragraph variant="body">
+      This content won't be rendered until the collapsible is opened. This is
+      particularly useful when you have data being queried inside your
+      collapsible content.
+    </Paragraph>
+    <Paragraph variant="body">
+      This has a necessary side effect of removing the height animation on open
+      and close.
+    </Paragraph>
+  </Collapsible>
+)
+
+export const SingleCollapsibleKaizenSiteDemo = args => (
+  <Collapsible id="collapsible-single" {...args}>
+    <Paragraph variant="body">{lipsum}</Paragraph>
+  </Collapsible>
+)
+SingleCollapsibleKaizenSiteDemo.storyName = "Collapsible"
+SingleCollapsibleKaizenSiteDemo.args = {
+  open: true,
+  title: "Single Collapsible",
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Single Collapsible"]} />
+    <StoryWrapper.Row rowTitle="No Padding">
+      <SingleCollapsibleNoPadding />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Custom Header">
+      <SingleCollapsibleCustomHeader />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Lazy Load">
+      <SingleCollapsibleLazyLoad />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Clear">
+      <Collapsible id="collapsible-clear" variant="clear" title="Clear Variant">
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

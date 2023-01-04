@@ -44,9 +44,11 @@ DefaultStory.args = { isActive: false, label: "Bold", icon: boldIcon }
 
 // This is used to showcase the toggle icon button within a sticker sheet
 // Implementation wise it is not required in a ToolbarSection
-const InlineWrapper: React.VFC<React.HTMLAttributes<HTMLDivElement>> = ({
+const InlineWrapper = ({
   children,
-}) => <div style={{ display: "inline-block" }}>{children}</div>
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
+  <div style={{ display: "inline-block" }}>{children}</div>
+)
 
 const StickerSheetTemplate: Story = () => (
   <>
