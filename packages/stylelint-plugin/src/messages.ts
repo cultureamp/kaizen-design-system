@@ -1,19 +1,24 @@
-export const missingRequiredKaizenImport = (path: string) =>
+export const missingRequiredKaizenImport = (path: string): string =>
   `Missing required Kaizen token import: ${path}.`
-export const unnecessaryKaizenImport = (path: string) =>
+export const unnecessaryKaizenImport = (path: string): string =>
   `Unnecessary Kaizen token import: ${path}.`
 
-export const deprecatedTokenUsageMessage = (oldName: string, newName: string) =>
+export const deprecatedTokenUsageMessage = (
+  oldName: string,
+  newName: string
+): string =>
   `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}".`
 
-export const containsDeprecatedKaizenTokenWithNoReplacement = (name: string) =>
-  `Deprecated Kaizen token ${name} detected`
+export const containsDeprecatedKaizenTokenWithNoReplacement = (
+  name: string
+): string => `Deprecated Kaizen token ${name} detected`
 
 export const deprecatedTokenUsageWithoutReplacementMessage = (
   deprecatedTokenName: string
-) => `${deprecatedTokenName} is deprecated and should not be used anymore.`
+): string =>
+  `${deprecatedTokenName} is deprecated and should not be used anymore.`
 
-export const invalidRgbaUsage = (replacementVariable: string) =>
+export const invalidRgbaUsage = (replacementVariable: string): string =>
   `Invalid parameter to rgba or add-alpha function. Expected '-rgb' suffixed replacement: ${replacementVariable}.`
 
 export const negatedKaizenVariableMessage =
@@ -25,7 +30,7 @@ export const tokenNotInterpolatedInCalcMessage =
 export const kaizenVariableUsedNextToOperatorMessage =
   "Kaizen CSS variable token used next to math operator."
 
-export const noMatchingRgbParamsVariableMessage = (tokenName: string) =>
+export const noMatchingRgbParamsVariableMessage = (tokenName: string): string =>
   `No matching -rgb variable found for ${tokenName}.`
 
 export const invalidEquationContainingKaizenTokenMessage =
@@ -40,7 +45,7 @@ export const replacementCssVariableUsedWithinUnsupportedFunction = (
   oldTokenName: string,
   newTokenName: string,
   functionName: string
-) =>
+): string =>
   `${deprecatedTokenUsageMessage(
     oldTokenName,
     newTokenName
@@ -49,17 +54,17 @@ export const replacementCssVariableUsedWithinUnsupportedFunction = (
 export const cssVariableUsedWithinUnsupportedFunction = (
   tokenName: string,
   functionName: string
-) =>
+): string =>
   `Kaizen token ${tokenName} is a CSS variable and therefore cannot be used within ${functionName}().`
 
 export const cantFindReplacementTokenForDeprecatedMessage = (
   deprecatedTokenName: string
-) => `Could not find replacement token for ${deprecatedTokenName}.`
+): string => `Could not find replacement token for ${deprecatedTokenName}.`
 
 export const cantReplaceDeprecatedTokenInAtRuleMessage = (
   oldTokenName: string,
   newTokenName: string
-) =>
+): string =>
   `${deprecatedTokenUsageMessage(
     oldTokenName,
     newTokenName
@@ -67,13 +72,13 @@ export const cantReplaceDeprecatedTokenInAtRuleMessage = (
 
 export const transitiveKaizenTokenUsage = (
   nameOfVariableThatContainsKaizen: string
-) =>
+): string =>
   `Variable ${nameOfVariableThatContainsKaizen} contains a Kaizen token, and is not allowed because it prevents other rules from detecting invalid kaizen tokens.`
 
 export const deprecatedTokenInVariableMessage = (
   oldTokenName: string,
   newTokenName: string
-) =>
+): string =>
   `${deprecatedTokenUsageMessage(
     oldTokenName,
     newTokenName

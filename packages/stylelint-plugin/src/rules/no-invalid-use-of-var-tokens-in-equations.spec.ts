@@ -2,7 +2,7 @@ import { getParser } from "../util/utils"
 import { noInvalidUseOfVarTokensInEquations } from "./no-invalid-use-of-var-tokens-in-equations"
 
 describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
-  const expectEquationIsValid = (value: string) => {
+  const expectEquationIsValid = (value: string): jest.JestMatchers<boolean> => {
     let reported = 0
     noInvalidUseOfVarTokensInEquations.ruleFunction(
       // @ts-ignore

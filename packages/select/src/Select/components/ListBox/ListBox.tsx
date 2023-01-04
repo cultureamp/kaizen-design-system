@@ -9,10 +9,10 @@ export type SingleListBoxProps = {
   children: React.ReactNode
 }
 
-export const ListBox: React.VFC<SingleListBoxProps> = ({
+export const ListBox = ({
   menuProps,
   children,
-}) => {
+}: SingleListBoxProps): JSX.Element => {
   const ref = React.useRef<HTMLUListElement>(null)
   const { state } = useSelectContext()
   const { listBoxProps } = useListBox(

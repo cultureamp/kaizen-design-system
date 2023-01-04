@@ -18,9 +18,9 @@ export interface MultiSelectOptionProps {
   item: Node<ItemType>
 }
 
-export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
+export const MultiSelectOption = ({
   item,
-}) => {
+}: MultiSelectOptionProps): JSX.Element => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()

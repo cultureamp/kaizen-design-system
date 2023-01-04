@@ -53,7 +53,7 @@ export interface DateRangePickerProps extends DisabledDayMatchers {
  * {@link https://cultureamp.design/components/date-range-picker/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-range-picker--date-range-picker-sticker-sheet Storybook}
  */
-export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
+export const DateRangePicker = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
@@ -72,7 +72,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   value,
   onChange,
   ...inputProps
-}) => {
+}: DateRangePickerProps): JSX.Element => {
   const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -173,12 +173,8 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
         <FocusOn
           scrollLock={false}
           onDeactivation={handleReturnFocus}
-          onClickOutside={() => {
-            handleOpenClose()
-          }}
-          onEscapeKey={() => {
-            handleOpenClose()
-          }}
+          onClickOutside={handleOpenClose}
+          onEscapeKey={handleOpenClose}
           enabled={isOpen}
         >
           <FloatingCalendarWrapper referenceElement={containerRef.current}>

@@ -25,7 +25,7 @@ export type LegacyCalendarRangeProps = {
   onDayChange: DayClickEventHandler
 }
 
-export const LegacyCalendarRange: React.VFC<LegacyCalendarRangeProps> = ({
+export const LegacyCalendarRange = ({
   id,
   classNameOverride,
   defaultMonth,
@@ -34,7 +34,7 @@ export const LegacyCalendarRange: React.VFC<LegacyCalendarRangeProps> = ({
   selectedRange,
   locale,
   onDayChange,
-}) => {
+}: LegacyCalendarRangeProps): JSX.Element => {
   const monthToShow = selectedRange?.from || defaultMonth
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow

@@ -27,19 +27,13 @@ export interface StickerSheetProps
   isReversed?: boolean
 }
 
-type Subcomponents = {
-  Header: typeof StickerSheetHeader
-  Body: typeof StickerSheetBody
-  Row: typeof StickerSheetRow
-}
-
-export const StickerSheet: React.VFC<StickerSheetProps> & Subcomponents = ({
+export const StickerSheet = ({
   children,
   heading,
   isReversed = false,
   className,
   ...restProps
-}) => (
+}: StickerSheetProps): JSX.Element => (
   <div className={styles.stickerSheet}>
     {heading && (
       <Heading

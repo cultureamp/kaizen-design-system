@@ -1,6 +1,6 @@
 /* !!! This component is deprecated. Please do not use for new code  !!! */
 
-import * as React from "react"
+import React from "react"
 import classNames from "classnames"
 import { Icon } from "../Icon"
 
@@ -17,7 +17,7 @@ const MenuItem = (props: {
   children: React.ReactNode
   action: string | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
   automationId?: string
-}) => {
+}): JSX.Element => {
   const {
     icon,
     hoverIcon,

@@ -5,7 +5,7 @@ import styles from "./SkirtCard.module.scss"
 
 export type SkirtCardProps = CardProps
 
-export const SkirtCard: React.VFC<SkirtCardProps> = props => {
+export const SkirtCard = (props: SkirtCardProps): JSX.Element => {
   const { classNameOverride, ...restProps } = props
   return (
     <Card

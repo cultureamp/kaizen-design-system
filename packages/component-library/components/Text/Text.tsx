@@ -1,6 +1,5 @@
-import * as React from "react"
+import React from "react"
 import classNames from "classnames"
-
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -39,13 +38,13 @@ type TextProps = {
 /**
  * @deprecated Text is deprecated. Use Paragraph or Heading instead.
  */
-const Text: React.VFC<TextProps> = ({
+const Text = ({
   tag,
   children,
   inheritBaseline = false,
   inline = false,
   style = "default-style",
-}) =>
+}: TextProps): JSX.Element =>
   React.createElement(
     tag,
     {

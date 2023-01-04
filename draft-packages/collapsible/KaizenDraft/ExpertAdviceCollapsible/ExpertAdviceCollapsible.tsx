@@ -14,14 +14,14 @@ export type ExpertAdviceCollapsibleProps = Omit<
  * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible-expert-advice-collapsible--default-story Storybook}
  */
 
-export const ExpertAdviceCollapsible: React.VFC<
-  ExpertAdviceCollapsibleProps
-> = props => (
+export const ExpertAdviceCollapsible = (
+  props: ExpertAdviceCollapsibleProps
+): JSX.Element => (
   <Collapsible
     {...props}
     noSectionPadding
     classNameOverride={styles.expertAdviceContainer}
-    renderHeader={() => (
+    renderHeader={(): JSX.Element => (
       <>
         <div className={styles.expertAdviceHeader}>
           <Brand

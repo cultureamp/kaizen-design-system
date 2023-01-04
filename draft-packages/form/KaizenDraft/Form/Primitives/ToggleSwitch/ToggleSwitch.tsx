@@ -25,13 +25,13 @@ export interface ToggleSwitchProps
   automationId?: string
 }
 
-export const ToggleSwitch: React.VFC<ToggleSwitchProps> = ({
+export const ToggleSwitch = ({
   toggledStatus,
   onToggle,
   reversed,
   automationId,
   ...restProps
-}) => {
+}: ToggleSwitchProps): JSX.Element => {
   const isOn = toggledStatus === ToggledStatus.ON
 
   return (

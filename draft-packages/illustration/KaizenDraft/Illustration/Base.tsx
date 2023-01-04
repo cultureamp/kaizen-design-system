@@ -35,7 +35,7 @@ export const Base = ({
   classNameOverride,
   aspectRatio,
   ...otherProps
-}: BaseProps) => {
+}: BaseProps): JSX.Element => {
   const className = classnames([styles.wrapper, classNameOverride])
 
   return aspectRatio ? (

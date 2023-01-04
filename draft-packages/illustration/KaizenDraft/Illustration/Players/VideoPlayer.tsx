@@ -44,7 +44,7 @@ export const VideoPlayer = ({
   source,
   aspectRatio,
   onEnded,
-}: VideoPlayerProps) => {
+}: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
@@ -81,7 +81,7 @@ export const VideoPlayer = ({
       "(prefers-reduced-motion: reduce)"
     )
     setPrefersReducedMotion(reducedMotionQuery.matches)
-    const updateMotionPreferences = () => {
+    const updateMotionPreferences = (): void => {
       const { matches = false } = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       )

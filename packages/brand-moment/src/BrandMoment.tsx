@@ -25,7 +25,7 @@ export interface BrandMomentProps
   }
 }
 
-export const BrandMoment: React.VFC<BrandMomentProps> = ({
+export const BrandMoment = ({
   mood,
   illustration,
   header,
@@ -35,7 +35,7 @@ export const BrandMoment: React.VFC<BrandMomentProps> = ({
   text,
   classNameOverride,
   ...restProps
-}) => {
+}: BrandMomentProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
   return (
@@ -124,3 +124,5 @@ export const BrandMoment: React.VFC<BrandMomentProps> = ({
     </div>
   )
 }
+
+BrandMoment.displayName = "BrandMoment"

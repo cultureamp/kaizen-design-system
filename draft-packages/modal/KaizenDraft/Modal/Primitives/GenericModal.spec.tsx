@@ -11,10 +11,10 @@ import ModalAccessibleLabel from "./ModalAccessibleLabel"
 
 configure({ testIdAttribute: "data-automation-id" })
 
-const ExampleModalWithState: React.VFC<{
+const ExampleModalWithState = (props: {
   onAfterLeave: () => void
   children: React.ReactNode
-}> = props => {
+}): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState<boolean>(true)
   const handleDismiss = () => {
     setIsOpen(false)
