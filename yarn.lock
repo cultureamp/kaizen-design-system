@@ -1781,6 +1781,21 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
+"@internationalized/date@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.0.2.tgz#1566a0bcbd82dce4dd54a5b26456bb701068cb89"
+  integrity sha512-9V1IxesP6ASZj/hYyOXOC4yPJvidbbStyWQKLCQSqhhKACMOXoo+BddXZJy47ju9mqOMpWdrJ2rTx4yTxK9oag==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
+
+"@internationalized/message@^3.0.10":
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/@internationalized/message/-/message-3.0.10.tgz#340dcfd14ace37234e09419427c991a0c466b96e"
+  integrity sha512-vfLqEop/NH68IgqMcXJNSDqZ5Leg3EEgCxhuuSefU7vvdbptD3pwpUWXaK9igYPa+aZfUU0eqv86yqm76obtsw==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
+    intl-messageformat "^10.1.0"
+
 "@internationalized/message@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@internationalized/message/-/message-3.0.9.tgz#52bc20debe5296375d66ffcf56c3df5d8118a37d"
@@ -1796,12 +1811,26 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
+"@internationalized/number@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@internationalized/number/-/number-3.1.2.tgz#4482a6ac573acfb18efd354a42008af20da6c89c"
+  integrity sha512-Mbys8SGsn0ApXz3hJLNU+d95B8luoUbwnmCpBwl7d63UmYAlcT6TRDyvaS/vwdbElXLcsQJjQCu0gox2cv/Tig==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
+
 "@internationalized/string@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@internationalized/string/-/string-3.0.0.tgz#de563871e1b19e4d0ce3246ec18d25da1a73db73"
   integrity sha512-NUSr4u+mNu5BysXFeVWZW4kvjXylPkU/YYqaWzdNuz1eABfehFiZTEYhWAAMzI3U8DTxfqF9PM3zyhk5gcfz6w==
   dependencies:
     "@babel/runtime" "^7.6.2"
+
+"@internationalized/string@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@internationalized/string/-/string-3.0.1.tgz#2c70a81ae5eb84f156f40330369c2469bad6d504"
+  integrity sha512-2+rHfXZ56YgsC6i3fKvBue/xatnSm0Jv+C/x4+n3wg5xAcLh4LPW3GvZ/9ifxNAz9+IWplgZHa1FRIbSuUvNWg==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -3222,6 +3251,20 @@
     "@react-aria/ssr" "^3.4.0"
     "@react-aria/utils" "^3.14.1"
     "@react-types/shared" "^3.16.0"
+
+"@react-aria/i18n@^3.6.3":
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.6.3.tgz#2b4d72d0baf07b514d2c35eb6ac356d0247ea84a"
+  integrity sha512-cDWl8FXJIXsw/raWcThywBueCJ5ncoogq81wYVS6hfZVmSyncONIB3bwUL12cojmjX1VEP31sN0ujT/83QP95Q==
+  dependencies:
+    "@internationalized/date" "^3.0.2"
+    "@internationalized/message" "^3.0.10"
+    "@internationalized/number" "^3.1.2"
+    "@internationalized/string" "^3.0.1"
+    "@react-aria/ssr" "^3.4.1"
+    "@react-aria/utils" "^3.14.2"
+    "@react-types/shared" "^3.16.0"
+    "@swc/helpers" "^0.4.14"
 
 "@react-aria/interactions@^3.13.0":
   version "3.13.0"
