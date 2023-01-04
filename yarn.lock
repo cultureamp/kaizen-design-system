@@ -7577,6 +7577,11 @@ color-support@^1.1.2, color-support@^1.1.3:
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
   integrity sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==
 
+colord@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/colord/-/colord-2.9.3.tgz#4f8ce919de456f1d5c1c368c307fe20f3e59fb43"
+  integrity sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==
+
 colorette@^1.2.2:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
@@ -7941,7 +7946,7 @@ cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
-cosmiconfig@^7.0.0:
+cosmiconfig@^7.0.0, cosmiconfig@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-7.1.0.tgz#1443b9afa596b670082ea46cbd8f6a62b84635f6"
   integrity sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==
@@ -8056,6 +8061,11 @@ css-blank-pseudo@^3.0.3:
   integrity sha512-VS90XWtsHGqoM0t4KpH053c4ehxZ2E6HtGI7x68YFV0pTo/QmkV/YFA+NnlvK8guxZVNWGQhVNJGC39Q8XF4OQ==
   dependencies:
     postcss-selector-parser "^6.0.9"
+
+css-functions-list@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/css-functions-list/-/css-functions-list-3.1.0.tgz#cf5b09f835ad91a00e5959bcfc627cd498e1321b"
+  integrity sha512-/9lCvYZaUbBGvYUgYGFJ4dcYiyqdhSjG7IPVluoV8A1ILjkF7ilmhp1OGUz8n+nmBcu0RNrQAzgD8B6FJbrt2w==
 
 css-has-pseudo@^3.0.4:
   version "3.0.4"
@@ -9615,7 +9625,7 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.6:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
-fastest-levenshtein@^1.0.12:
+fastest-levenshtein@^1.0.12, fastest-levenshtein@^1.0.16:
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
@@ -10880,7 +10890,7 @@ html-minifier-terser@^6.0.2:
     relateurl "^0.2.7"
     terser "^5.10.0"
 
-html-tags@^3.1.0:
+html-tags@^3.1.0, html-tags@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.2.0.tgz#dbb3518d20b726524e4dd43de397eb0a95726961"
   integrity sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==
@@ -11099,6 +11109,11 @@ ignore@^5.1.8, ignore@^5.2.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.1.tgz#c2b1f76cb999ede1502f3a226a9310fdfe88d46c"
   integrity sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==
+
+ignore@^5.2.1:
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
+  integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
 
 image-size@^0.5.1:
   version "0.5.5"
@@ -12672,6 +12687,11 @@ known-css-properties@^0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.21.0.tgz#15fbd0bbb83447f3ce09d8af247ed47c68ede80d"
   integrity sha512-sZLUnTqimCkvkgRS+kbPlYW5o8q5w1cu+uIisKpEWkj31I8mx8kNG162DwRav8Zirkva6N5uoFsm9kzK4mUXjw==
+
+known-css-properties@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.26.0.tgz#008295115abddc045a9f4ed7e2a84dc8b3a77649"
+  integrity sha512-5FZRzrZzNTBruuurWpvZnvP9pum+fe0HcK8z/ooo+U+Hmp4vtbyp1/QDsqmufirXy4egGzbaH/y2uCZf+6W5Kg==
 
 language-subtag-registry@^0.3.20:
   version "0.3.22"
@@ -15585,6 +15605,11 @@ postcss-safe-parser@^4.0.2:
   dependencies:
     postcss "^7.0.26"
 
+postcss-safe-parser@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz#bb4c29894171a94bc5c996b9a30317ef402adaa1"
+  integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
+
 postcss-sass@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/postcss-sass/-/postcss-sass-0.4.4.tgz#91f0f3447b45ce373227a98b61f8d8f0785285a3"
@@ -15612,7 +15637,7 @@ postcss-selector-not@^6.0.1:
   dependencies:
     postcss-selector-parser "^6.0.10"
 
-postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5, postcss-selector-parser@^6.0.9:
+postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.11, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5, postcss-selector-parser@^6.0.9:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz#2e41dc39b7ad74046e1615185185cd0b17d0c8dc"
   integrity sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==
@@ -18084,6 +18109,50 @@ stylelint@^13.13.1:
     v8-compile-cache "^2.3.0"
     write-file-atomic "^3.0.3"
 
+stylelint@^14.16.1:
+  version "14.16.1"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.16.1.tgz#b911063530619a1bbe44c2b875fd8181ebdc742d"
+  integrity sha512-ErlzR/T3hhbV+a925/gbfc3f3Fep9/bnspMiJPorfGEmcBbXdS+oo6LrVtoUZ/w9fqD6o6k7PtUlCOsCRdjX/A==
+  dependencies:
+    "@csstools/selector-specificity" "^2.0.2"
+    balanced-match "^2.0.0"
+    colord "^2.9.3"
+    cosmiconfig "^7.1.0"
+    css-functions-list "^3.1.0"
+    debug "^4.3.4"
+    fast-glob "^3.2.12"
+    fastest-levenshtein "^1.0.16"
+    file-entry-cache "^6.0.1"
+    global-modules "^2.0.0"
+    globby "^11.1.0"
+    globjoin "^0.1.4"
+    html-tags "^3.2.0"
+    ignore "^5.2.1"
+    import-lazy "^4.0.0"
+    imurmurhash "^0.1.4"
+    is-plain-object "^5.0.0"
+    known-css-properties "^0.26.0"
+    mathml-tag-names "^2.1.3"
+    meow "^9.0.0"
+    micromatch "^4.0.5"
+    normalize-path "^3.0.0"
+    picocolors "^1.0.0"
+    postcss "^8.4.19"
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-safe-parser "^6.0.0"
+    postcss-selector-parser "^6.0.11"
+    postcss-value-parser "^4.2.0"
+    resolve-from "^5.0.0"
+    string-width "^4.2.3"
+    strip-ansi "^6.0.1"
+    style-search "^0.1.0"
+    supports-hyperlinks "^2.3.0"
+    svg-tags "^1.0.0"
+    table "^6.8.1"
+    v8-compile-cache "^2.3.0"
+    write-file-atomic "^4.0.2"
+
 stylis@4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.3.tgz#fd2fbe79f5fed17c55269e16ed8da14c84d069f7"
@@ -18136,6 +18205,14 @@ supports-hyperlinks@^1.0.1:
   dependencies:
     has-flag "^2.0.0"
     supports-color "^5.0.0"
+
+supports-hyperlinks@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/supports-hyperlinks/-/supports-hyperlinks-2.3.0.tgz#3943544347c1ff90b15effb03fc14ae45ec10624"
+  integrity sha512-RpsAZlpWcDwOPQA22aCH4J0t7L8JmAvsCxfOSEwm7cQs3LshN36QaTkwd70DnBOXDWGssw2eUoc8CaRWT0XunA==
+  dependencies:
+    has-flag "^4.0.0"
+    supports-color "^7.0.0"
 
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
@@ -18250,7 +18327,7 @@ synckit@^0.8.4:
     "@pkgr/utils" "^2.3.1"
     tslib "^2.4.0"
 
-table@^6.6.0:
+table@^6.6.0, table@^6.8.1:
   version "6.8.1"
   resolved "https://registry.yarnpkg.com/table/-/table-6.8.1.tgz#ea2b71359fe03b017a5fbc296204471158080bdf"
   integrity sha512-Y4X9zqrCftUhMeH2EptSSERdVKt/nEdijTOacGD/97EKjhQ/Qs8RTlEGABSJNNN8lac9kheH+af7yAkEWlgneA==
@@ -19691,7 +19768,7 @@ write-file-atomic@^3.0.0, write-file-atomic@^3.0.3:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
-write-file-atomic@^4.0.1:
+write-file-atomic@^4.0.1, write-file-atomic@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-4.0.2.tgz#a9df01ae5b77858a027fd2e80768ee433555fcfd"
   integrity sha512-7KxauUdBmSdWnmpaGFg+ppNjKF8uNLry8LyzjauQDOVONfFLNKrKvQOxZ/VuTIcS/gge/YNahf5RIIQWTSarlg==
