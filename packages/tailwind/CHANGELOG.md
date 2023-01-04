@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.2.1...@kaizen/tailwind@0.2.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/tailwind
+
+
+
+
+
+## [0.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.2.0...@kaizen/tailwind@0.2.1) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/tailwind
+
+
+
+
+
 # [0.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.1.3...@kaizen/tailwind@0.2.0) (2022-12-15)
 
 

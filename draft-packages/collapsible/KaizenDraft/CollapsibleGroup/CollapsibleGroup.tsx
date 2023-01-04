@@ -27,7 +27,7 @@ export interface CollapsibleGroupProps
  * {@link https://cultureamp.design/components/collapsible/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible--collapsible-group-default Storybook}
  */
-export const CollapsibleGroup: React.VFC<CollapsibleGroupProps> = ({
+export const CollapsibleGroup = ({
   children,
   separated = false,
   sticky,
@@ -37,7 +37,7 @@ export const CollapsibleGroup: React.VFC<CollapsibleGroupProps> = ({
   automationId,
   classNameOverride,
   ...props
-}) => (
+}: CollapsibleGroupProps): JSX.Element => (
   <div
     className={classnames(classNameOverride, {
       [styles.container]: !separated,

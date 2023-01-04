@@ -78,7 +78,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     render()
   }
 
-  const removeToastNotification = (notificationID: string) => {
+  const removeToastNotification = (notificationID: string): void => {
     const notificationIndex = state.notifications.findIndex(
       notification => notification.id === notificationID
     )
@@ -88,19 +88,19 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     render()
   }
 
-  const clearToastNotifications = () => {
+  const clearToastNotifications = (): void => {
     state.notifications = []
     render()
   }
 
   const registerSetNotificationsCallback = (
     cb: React.Dispatch<React.SetStateAction<ToastNotification[]>>
-  ) => {
+  ): void => {
     setNotifications = cb
     render()
   }
 
-  const render = () => {
+  const render = (): void => {
     if (setNotifications) {
       setNotifications(state.notifications)
     }

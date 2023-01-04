@@ -84,7 +84,7 @@ export interface DatePickerProps
  * {@link https://cultureamp.design/components/date-picker/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
-export const DatePicker: React.VFC<DatePickerProps> = ({
+export const DatePicker = ({
   id,
   buttonRef: propsButtonRef = useRef<HTMLButtonElement>(null),
   locale: propsLocale,
@@ -107,7 +107,7 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
   onDayChange,
   onValidate,
   ...restDateInputFieldProps
-}) => {
+}: DatePickerProps): JSX.Element => {
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)
@@ -270,8 +270,8 @@ export const DatePicker: React.VFC<DatePickerProps> = ({
     <FocusOn
       scrollLock={false}
       onDeactivation={handleReturnFocus}
-      onClickOutside={() => setIsOpen(false)}
-      onEscapeKey={() => setIsOpen(false)}
+      onClickOutside={(): void => setIsOpen(false)}
+      onEscapeKey={(): void => setIsOpen(false)}
       enabled={isOpen}
     >
       <div ref={containerRef}>

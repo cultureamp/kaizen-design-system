@@ -8,9 +8,12 @@ export interface StickerSheetTableHeadingProps
   isReversed?: boolean
 }
 
-export const StickerSheetTableHeading: React.VFC<
-  StickerSheetTableHeadingProps
-> = ({ children, isReversed = false, className, ...restProps }) => (
+export const StickerSheetTableHeading = ({
+  children,
+  isReversed = false,
+  className,
+  ...restProps
+}: StickerSheetTableHeadingProps): JSX.Element => (
   <th
     className={classnames(
       styles.stickerSheetTableHeading,
@@ -22,3 +25,5 @@ export const StickerSheetTableHeading: React.VFC<
     {children}
   </th>
 )
+
+StickerSheetTableHeading.displayName = "StickerSheetTableHeading"

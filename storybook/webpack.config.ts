@@ -9,7 +9,7 @@ import {
   tailwind,
 } from "./webpack/rules"
 
-export default ({ config }: { config: Configuration }) => {
+export default ({ config }: { config: Configuration }): Configuration => {
   if (
     !config.resolve ||
     !config.resolve.extensions ||

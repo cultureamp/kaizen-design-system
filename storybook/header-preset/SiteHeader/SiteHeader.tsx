@@ -3,8 +3,8 @@ import React from "react"
 import { Link as NavLink, NavigationBar } from "./NavigationBar"
 import styles from "./SiteHeader.module.scss"
 
-export const SiteHeader = () => {
-  const getBaseUrl = (pathname, origin, hostname) => {
+export const SiteHeader = (): JSX.Element => {
+  const getBaseUrl = (pathname, origin, hostname): string => {
     let branch = ""
     if (hostname.match(/^dev/)) {
       // the dev branch is appended before the rest of the pathname

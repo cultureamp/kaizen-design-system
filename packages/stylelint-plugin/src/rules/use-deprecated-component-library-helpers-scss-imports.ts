@@ -39,14 +39,14 @@ export const useDeprecatedComponentLibraryHelpersScssImports: RuleDefinition = {
   },
 }
 
-const addQuotes = (newImport: string, quoteCharacter: string) =>
+const addQuotes = (newImport: string, quoteCharacter: string): string =>
   `${quoteCharacter}${newImport}${quoteCharacter}`
 
 const replaceImport = (
   styleSheetNode: Root,
   options: Options,
   { oldImport, newImport, message }: ImportToReplace
-) => {
+): void => {
   const importsToProcess: AtRule[] = []
   let containsOldImport = false
   let quoteCharacter = "'"

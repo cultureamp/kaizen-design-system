@@ -56,7 +56,7 @@ export interface FilterDateRangePickerProps
   inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
 }
 
-export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
+export const FilterDateRangePicker = ({
   id,
   label,
   locale: propsLocale,
@@ -74,7 +74,7 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   inputRangeEndProps,
   classNameOverride,
   ...restProps
-}) => {
+}: FilterDateRangePickerProps): JSX.Element => {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const removableButtonRefs = useRef(
     onRemoveFilter
@@ -165,8 +165,8 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       {isOpen && (
         <FocusOn
           scrollLock={false}
-          onClickOutside={() => setIsOpen(false)}
-          onEscapeKey={() => setIsOpen(false)}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
         >
           <FloatingCalendarWrapper
             referenceElement={buttonRef.current}

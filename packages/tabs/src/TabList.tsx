@@ -18,7 +18,7 @@ export interface TabListProps {
 /**
  * Wrapper for the tabs themselves
  */
-export const TabList = (props: TabListProps) => {
+export const TabList = (props: TabListProps): JSX.Element => {
   const { "aria-label": ariaLabel, noPadding = false, children } = props
   return (
     <ReachTabList

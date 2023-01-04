@@ -26,7 +26,7 @@ export const AnimationProvider = ({
   isVisible,
   animationDuration = ANIM_DURATION_MS,
   ...otherProps
-}) => {
+}): JSX.Element => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(false)
@@ -76,7 +76,7 @@ export const AnimationProvider = ({
   )
 }
 
-export const useAnimation = () => {
+export const useAnimation = (): AnimationProps => {
   const context = React.useContext(AnimationContext)
   if (!context) {
     throw new Error("useAnimation must be used within a AnimationProvider")

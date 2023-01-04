@@ -14,7 +14,7 @@ export const walkWithParent = (
     node: postcssValueParser.Node,
     parent?: postcssValueParser.FunctionNode
   ) => void | false
-) => {
+): void | false => {
   // We want an inner walker so that we can recurse without the context parameter (currentParent) in the parent function (users shouldn't know about it)
   const innerWalker = (
     nodes: postcssValueParser.Node[],
@@ -52,7 +52,7 @@ export const walkVariablesOnValue = (
     variable: Variable,
     parent?: FunctionNode
   ) => void | false
-) => {
+): void | false => {
   walkWithParent(parsedValue, (node, parent) => {
     if (node.type === "word") {
       const variable = parseVariable(node)
@@ -75,7 +75,7 @@ export const walkVariables = (
     variable: Variable
     value: string
   }) => void | false
-) => {
+): void | false => {
   stylesheetNode.walk(postcssNode => {
     // Only look at the values of declarations, and the parameters of atrules
     if (postcssNode.type !== "decl" && postcssNode.type !== "atrule") return
@@ -115,7 +115,7 @@ export const walkDeclsWithKaizenTokens = (
     kaizenVariables: ParsedKaizenVariable[]
     value: string
   }) => void | false
-) => {
+): void | false => {
   stylesheetNode.walk(postcssNode => {
     if (postcssNode.type !== "decl") return
 
@@ -150,7 +150,7 @@ export const walkAtRulesWithKaizenTokens = (
     kaizenVariables: ParsedKaizenVariable[]
     value: string
   }) => void | false
-) => {
+): void | false => {
   stylesheetNode.walk(postcssNode => {
     if (postcssNode.type !== "atrule") return
 
@@ -183,7 +183,7 @@ export const walkKaizenTokens = (
     variable: ParsedKaizenVariable
     value: string
   }) => void | false
-) => {
+): void | false => {
   walkVariables(stylesheetNode, params => {
     if (params.variable.kaizenToken)
       visitor(

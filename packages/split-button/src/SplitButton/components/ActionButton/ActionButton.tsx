@@ -5,10 +5,10 @@ import styles from "./ActionButton.module.scss"
 
 export type ActionButtonProps = Omit<BaseButtonProps, "icon">
 
-export const ActionButton: React.VFC<ActionButtonProps> = ({
+export const ActionButton = ({
   classNameOverride,
   ...restProps
-}) => (
+}: ActionButtonProps): JSX.Element => (
   <BaseButton
     classNameOverride={classnames(styles.actionButton, classNameOverride)}
     {...restProps}

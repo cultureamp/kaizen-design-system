@@ -28,13 +28,13 @@ export interface LoadingGraphicProps
   size: GraphicSizes
 }
 
-export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
+export const LoadingGraphic = ({
   isAnimated,
   isReversed,
   size,
   classNameOverride,
   ...props
-}) => (
+}: LoadingGraphicProps): JSX.Element => (
   <div
     className={classnames(
       skeletonStyles.base,

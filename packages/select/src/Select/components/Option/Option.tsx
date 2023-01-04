@@ -15,11 +15,11 @@ export interface OptionProps
   extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
   item: Node<SingleItemType>
 }
-export const Option: React.VFC<OptionProps> = ({
+export const Option = ({
   item,
   classNameOverride,
   ...props
-}) => {
+}: OptionProps): JSX.Element => {
   const ref = React.useRef<HTMLLIElement>(null)
   const { state } = useSelectContext()
   const { optionProps, isSelected, isDisabled } = useOption(
