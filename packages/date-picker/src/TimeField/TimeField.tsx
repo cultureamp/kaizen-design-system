@@ -43,7 +43,7 @@ export interface TimeFieldProps
 
 // This needed to be placed directly below the props because
 // the prop descriptions wouldn't show in Storybook otherwise.
-export const TimeField: React.VFC<TimeFieldProps> = props => (
+export const TimeField = (props: TimeFieldProps): JSX.Element => (
   <I18nProvider locale={props.locale}>
     <TimeFieldComponent {...props} />
   </I18nProvider>
@@ -51,7 +51,7 @@ export const TimeField: React.VFC<TimeFieldProps> = props => (
 
 TimeField.displayName = "TimeField"
 
-const TimeFieldComponent: React.VFC<TimeFieldProps> = ({
+const TimeFieldComponent = ({
   id,
   label,
   locale,
@@ -62,7 +62,7 @@ const TimeFieldComponent: React.VFC<TimeFieldProps> = ({
   isDisabled,
   classNameOverride,
   ...restProps
-}) => {
+}: TimeFieldProps): JSX.Element => {
   const handleOnChange = (timeValue: TimeValue | null): void => {
     if (timeValue === null) {
       return onChange(null)

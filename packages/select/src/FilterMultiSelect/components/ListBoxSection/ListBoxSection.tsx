@@ -13,11 +13,11 @@ export interface ListBoxSectionProps {
   children: (item: Node<ItemType>) => React.ReactNode
 }
 
-export const ListBoxSection: React.VFC<ListBoxSectionProps> = ({
+export const ListBoxSection = ({
   items,
   sectionName,
   children,
-}) => (
+}: ListBoxSectionProps): JSX.Element => (
   <div aria-label={sectionName} className={styles.listBoxSection}>
     {Array.from(items).map(node => node != undefined && children(node))}
   </div>

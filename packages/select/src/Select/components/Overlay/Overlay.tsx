@@ -9,7 +9,7 @@ export type OverlayProps = {
   children: React.ReactNode
 }
 
-export const Overlay: React.VFC<OverlayProps> = ({ children }) => {
+export const Overlay = ({ children }: OverlayProps): JSX.Element => {
   // Handle events that should cause the menu to close,
   // e.g. blur, clicking outside, or pressing the escape key.
   const overlayRef = React.useRef<HTMLDivElement>(null)

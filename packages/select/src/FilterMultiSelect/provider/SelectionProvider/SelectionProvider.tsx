@@ -30,7 +30,9 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
   {} as SelectionProviderContextType
 )
 
-export const SelectionProvider = (props: SelectionProviderProps) => {
+export const SelectionProvider = (
+  props: SelectionProviderProps
+): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
   const isFirstRender = React.useRef(true)
   const [searchQuery, setSearchQuery] = useState<string>("")
@@ -95,7 +97,8 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
   )
 }
 
-export const useSelectionContext = () => useContext(SelectionContext)
+export const useSelectionContext = (): SelectionProviderContextType =>
+  useContext(SelectionContext)
 
 export const SelectionConsumer = SelectionContext.Consumer
 

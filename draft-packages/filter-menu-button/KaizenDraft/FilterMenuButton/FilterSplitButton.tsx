@@ -26,7 +26,7 @@ export const FilterSplitButton = ({
   ariaControls,
   ariaExpanded,
   isDropdownVisible,
-}: FilterSplitButtonProps) => {
+}: FilterSplitButtonProps): JSX.Element => {
   if (metadata) {
     return (
       <div className={styles.filterSelectButton}>

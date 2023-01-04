@@ -14,13 +14,13 @@ export interface BrandProps
   reversed?: boolean
 }
 
-export const Brand: React.VFC<BrandProps> = ({
+export const Brand = ({
   variant,
   alt,
   reversed = false,
   classNameOverride,
   ...restProps
-}) => {
+}: BrandProps): JSX.Element => {
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
@@ -41,3 +41,5 @@ export const Brand: React.VFC<BrandProps> = ({
     </picture>
   )
 }
+
+Brand.displayName = "Brand"

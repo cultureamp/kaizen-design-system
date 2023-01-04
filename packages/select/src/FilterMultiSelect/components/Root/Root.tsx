@@ -40,7 +40,7 @@ interface SelectionProps {
 
 export type FilterMultiSelectProps = RootProps
 
-export const Root: React.VFC<RootProps> = ({
+export const Root = ({
   trigger,
   children,
   isOpen,
@@ -55,7 +55,7 @@ export const Root: React.VFC<RootProps> = ({
   onSelectionChange,
   selectionMode = "multiple",
   onSearchInputChange,
-}) => {
+}: RootProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(

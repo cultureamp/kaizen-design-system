@@ -16,7 +16,7 @@ import { getCSSVarsFromJson, kaizenTokensByName } from "./src/util/kaizenTokens"
 // Changing this version will change which unsupported/non-existent tokens the stylelint plugin knows about
 const version = "2.9.3"
 
-const fetchDesignTokensJsonFile = (fileName: string) =>
+const fetchDesignTokensJsonFile = (fileName: string): Promise<unknown> =>
   fetch(`https://unpkg.com/@kaizen/design-tokens@${version}/${fileName}`).then(
     r => r.json()
   )
@@ -92,7 +92,7 @@ function getReplacementForDeprecatedOrRemovedToken(tokenName: string): {
   }
 }
 
-const run = async () => {
+const run = async (): Promise<void> => {
   const deprecatedTokens = merge(
     await fetchDesignTokensJsonFile("tokens/color.json"),
     await fetchDesignTokensJsonFile("tokens/color-vars.json"),

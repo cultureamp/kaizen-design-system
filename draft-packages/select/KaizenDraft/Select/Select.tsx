@@ -167,7 +167,7 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   </components.DropdownIndicator>
 )
 
-const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const LoadingMessage = (props: NoticeProps): JSX.Element => (
   <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
@@ -195,7 +195,7 @@ const Option: typeof components.Option = props => (
   </div>
 )
 
-const NoOptionsMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const NoOptionsMessage = (props: NoticeProps): JSX.Element => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>

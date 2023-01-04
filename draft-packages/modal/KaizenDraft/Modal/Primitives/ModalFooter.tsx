@@ -23,9 +23,7 @@ export type ModalFooterProps = Readonly<{
   alignStart?: boolean
 }>
 
-type ModalFooter = React.FunctionComponent<ModalFooterProps>
-
-const ModalFooter: ModalFooter = props => {
+const ModalFooter = (props: ModalFooterProps): JSX.Element => {
   const {
     unpadded,
     actions,

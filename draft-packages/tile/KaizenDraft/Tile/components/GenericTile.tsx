@@ -41,7 +41,7 @@ export interface GenericTileProps
   footer: React.ReactNode
 }
 
-export const GenericTile: React.VFC<GenericTileProps> = ({
+export const GenericTile = ({
   children,
   title,
   titleTag = "h3",
@@ -51,10 +51,10 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
   footer,
   classNameOverride,
   ...restProps
-}) => {
+}: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
-  const renderTitle = () => (
+  const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
       <Heading variant="heading-3" tag={titleTag}>
         {title}
@@ -73,7 +73,7 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
     primaryAction?: TileAction,
     secondaryAction?: TileAction,
     disabled?: boolean
-  ) => (
+  ): JSX.Element => (
     <div className={styles.actions}>
       {secondaryAction && (
         <Action action={secondaryAction} secondary disabled={disabled} />
@@ -82,7 +82,7 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
     </div>
   )
 
-  const renderFront = () => (
+  const renderFront = (): JSX.Element => (
     <div
       className={classnames(styles.face, styles.faceFront, {
         [styles.faceMoodPositive]: mood === "positive",
@@ -98,7 +98,7 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
           <IconButton
             label="Information"
             icon={informationIcon}
-            onClick={() => setIsFlipped(true)}
+            onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
           />
         </div>
@@ -109,8 +109,14 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
     </div>
   )
 
-  const renderInformation = informationProp => {
-    if ("text" in informationProp) {
+  const renderInformation = (
+    informationProp: GenericTileProps["information"] | undefined
+  ): JSX.Element | React.ReactNode => {
+    if (
+      informationProp &&
+      typeof informationProp === "object" &&
+      "text" in informationProp
+    ) {
       return (
         <>
           <Paragraph variant="body">{informationProp.text}</Paragraph>
@@ -131,7 +137,7 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
     return informationProp
   }
 
-  const renderBack = () => {
+  const renderBack = (): JSX.Element | void => {
     if (!information) return
 
     return (
@@ -140,7 +146,7 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
           <IconButton
             label="Information"
             icon={arrowBackwardIcon}
-            onClick={() => setIsFlipped(false)}
+            onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
           />
         </div>
@@ -158,8 +164,10 @@ export const GenericTile: React.VFC<GenericTileProps> = ({
           [styles.isFlipped]: isFlipped,
         })}
       >
-        {renderFront()}
-        {renderBack()}
+        <>
+          {renderFront()}
+          {renderBack()}
+        </>
       </div>
     </div>
   )

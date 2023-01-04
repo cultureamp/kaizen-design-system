@@ -17,7 +17,11 @@ type ToolbarProps = {
   automationId?: string
 }
 
-const Toolbar = ({ items, noGap = false, automationId }: ToolbarProps) => {
+const Toolbar = ({
+  items,
+  noGap = false,
+  automationId,
+}: ToolbarProps): JSX.Element => {
   if (!items || (items && items.length === 0)) {
     return <></>
   }

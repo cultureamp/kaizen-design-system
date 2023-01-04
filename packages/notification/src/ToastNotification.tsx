@@ -1,9 +1,12 @@
-import * as React from "react"
+import React from "react"
 import { v4 } from "uuid"
 import { addToastNotification } from "./ToastNotificationManager"
 import { ToastNotificationWithOptionals } from "./types"
 
-type Props = Omit<ToastNotificationWithOptionals, "message"> & {
+type ToastNotificationProps = Omit<
+  ToastNotificationWithOptionals,
+  "message"
+> & {
   hideCloseIcon?: boolean
   children: React.ReactNode
 }
@@ -18,7 +21,7 @@ const ToastNotification = ({
   autohide = true,
   autohideDelay = "short",
   ...otherProps
-}: Props) => {
+}: ToastNotificationProps): null => {
   const [localID] = React.useState(id || v4())
   const persistent = autohide && hideCloseIcon
 

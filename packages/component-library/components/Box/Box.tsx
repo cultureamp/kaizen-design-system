@@ -17,7 +17,7 @@ export interface BoxProps
 /**
  * {@link https://cultureamp.design/storybook/?path=/docs/components-box--box-default Storybook}
  */
-export const Box: React.VFC<BoxProps> = ({
+export const Box = ({
   children,
   rtl = false,
   m,
@@ -36,7 +36,7 @@ export const Box: React.VFC<BoxProps> = ({
   py,
   classNameOverride,
   ...restProps
-}) => {
+}: BoxProps): JSX.Element => {
   const classes: string[] = [
     ...paddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
     ...marginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
@@ -48,3 +48,5 @@ export const Box: React.VFC<BoxProps> = ({
     </div>
   )
 }
+
+Box.displayName = "Box"

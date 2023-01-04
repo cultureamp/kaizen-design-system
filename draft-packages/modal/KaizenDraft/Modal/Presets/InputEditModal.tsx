@@ -29,8 +29,6 @@ export interface InputEditModalProps {
   readonly submitWorking?: { label: string; labelHidden?: boolean }
 }
 
-type InputEditModal = React.FunctionComponent<InputEditModalProps>
-
 /**
  * {@link https://cultureamp.design/components/modal/#input-edit-modal Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal-input-edit-modal--input-edit-modal-example Storybook}
@@ -51,7 +49,7 @@ const InputEditModal = ({
   children,
   unpadded = false,
   ...props
-}: InputEditModalProps) => {
+}: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : props.onDismiss
   const submitAction = { label: submitLabel, onClick: onSubmit }
   const workingProps = submitWorking

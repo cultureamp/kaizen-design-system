@@ -4,7 +4,7 @@ import { Brand } from "../../../../packages/brand"
 import { NavigationItem } from "./types"
 import styles from "./NavigationBar.module.scss"
 
-const NavItem: React.VFC<{ link: NavigationItem }> = ({ link }) => (
+const NavItem = ({ link }: { link: NavigationItem }): JSX.Element => (
   <li
     className={classNames(styles.child, {
       [styles.active]: link.props.active,
@@ -19,10 +19,10 @@ type NavigationBarProps = {
   links: NavigationItem[]
 }
 
-export const NavigationBar: React.VFC<NavigationBarProps> = ({
+export const NavigationBar = ({
   logoUrl,
   links,
-}) => (
+}: NavigationBarProps): JSX.Element => (
   <header className={classNames(styles.navigationBar, styles.cultureamp)}>
     <span className={styles.caLogoContainer}>
       <a href={logoUrl}>
@@ -38,3 +38,5 @@ export const NavigationBar: React.VFC<NavigationBarProps> = ({
     </nav>
   </header>
 )
+
+NavigationBar.displayName = "NavigationBar"

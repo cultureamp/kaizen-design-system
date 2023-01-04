@@ -18,9 +18,7 @@ export interface InputSearchProps
   onClear?: () => void
 }
 
-export const InputSearch: React.VFC<InputSearchProps> = (
-  props: InputSearchProps
-) => {
+export const InputSearch = (props: InputSearchProps): JSX.Element => {
   const {
     value,
     onChange,
