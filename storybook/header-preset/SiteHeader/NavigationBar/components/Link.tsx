@@ -13,7 +13,7 @@ class Link extends React.PureComponent<LinkProps> {
     target: "_self",
   }
 
-  render = () => {
+  render = (): JSX.Element => {
     const { icon, text, href, active, id, onClick, iconOnly, target } =
       this.props
 

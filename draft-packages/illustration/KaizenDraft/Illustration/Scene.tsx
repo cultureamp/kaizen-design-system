@@ -27,12 +27,12 @@ export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
 // Brand Moments
 
-export const BrandMomentPositiveOutro: React.VFC<AnimatedSceneProps> = ({
+export const BrandMomentPositiveOutro = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -54,12 +54,12 @@ export const BrandMomentPositiveOutro: React.VFC<AnimatedSceneProps> = ({
 }
 BrandMomentPositiveOutro.displayName = "BrandMomentPositiveOutro"
 
-export const BrandMomentLogin: React.VFC<AnimatedSceneProps> = ({
+export const BrandMomentLogin = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -81,12 +81,12 @@ export const BrandMomentLogin: React.VFC<AnimatedSceneProps> = ({
 }
 BrandMomentLogin.displayName = "BrandMomentLogin"
 
-export const BrandMomentError: React.VFC<AnimatedSceneProps> = ({
+export const BrandMomentError = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -108,10 +108,10 @@ export const BrandMomentError: React.VFC<AnimatedSceneProps> = ({
 }
 BrandMomentError.displayName = "BrandMomentError"
 
-export const BrandMomentNewAccountOnboarding: React.VFC<SceneProps> = ({
+export const BrandMomentNewAccountOnboarding = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -120,10 +120,10 @@ export const BrandMomentNewAccountOnboarding: React.VFC<SceneProps> = ({
 )
 BrandMomentNewAccountOnboarding.displayName = "BrandMomentNewAccountOnboarding"
 
-export const BrandMomentUploadEmployeeData: React.VFC<SceneProps> = ({
+export const BrandMomentUploadEmployeeData = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -132,10 +132,10 @@ export const BrandMomentUploadEmployeeData: React.VFC<SceneProps> = ({
 )
 BrandMomentUploadEmployeeData.displayName = "BrandMomentUploadEmployeeData"
 
-export const BrandMomentStarterKit: React.VFC<SceneProps> = ({
+export const BrandMomentStarterKit = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -146,12 +146,12 @@ BrandMomentStarterKit.displayName = "BrandMomentStarterKit"
 
 // Empty States
 
-export const EmptyStatesAction: React.VFC<AnimatedSceneProps> = ({
+export const EmptyStatesAction = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -173,12 +173,12 @@ export const EmptyStatesAction: React.VFC<AnimatedSceneProps> = ({
 }
 EmptyStatesAction.displayName = "EmptyStatesAction"
 
-export const EmptyStatesInformative: React.VFC<AnimatedSceneProps> = ({
+export const EmptyStatesInformative = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -200,12 +200,12 @@ export const EmptyStatesInformative: React.VFC<AnimatedSceneProps> = ({
 }
 EmptyStatesInformative.displayName = "EmptyStatesInformative"
 
-export const EmptyStatesNegative: React.VFC<AnimatedSceneProps> = ({
+export const EmptyStatesNegative = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -227,12 +227,12 @@ export const EmptyStatesNegative: React.VFC<AnimatedSceneProps> = ({
 }
 EmptyStatesNegative.displayName = "EmptyStatesNegative"
 
-export const EmptyStatesPositive: React.VFC<AnimatedSceneProps> = ({
+export const EmptyStatesPositive = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -254,12 +254,12 @@ export const EmptyStatesPositive: React.VFC<AnimatedSceneProps> = ({
 }
 EmptyStatesPositive.displayName = "EmptyStatesPositive"
 
-export const EmptyStatesNeutral: React.VFC<AnimatedSceneProps> = ({
+export const EmptyStatesNeutral = ({
   isAnimated,
   enableAspectRatio,
   alt,
   ...otherProps
-}) => {
+}: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
     return (
       <VideoPlayer
@@ -283,10 +283,10 @@ EmptyStatesNeutral.displayName = "EmptyStatesNeutral"
 
 // Information Modals
 
-export const Information360Upgrade: React.VFC<SceneProps> = ({
+export const Information360Upgrade = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -295,10 +295,10 @@ export const Information360Upgrade: React.VFC<SceneProps> = ({
 )
 Information360Upgrade.displayName = "Information360Upgrade"
 
-export const InformationDemographicFocus: React.VFC<SceneProps> = ({
+export const InformationDemographicFocus = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -307,10 +307,10 @@ export const InformationDemographicFocus: React.VFC<SceneProps> = ({
 )
 InformationDemographicFocus.displayName = "InformationDemographicFocus"
 
-export const InformationTurnoverCalculator: React.VFC<SceneProps> = ({
+export const InformationTurnoverCalculator = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -319,10 +319,10 @@ export const InformationTurnoverCalculator: React.VFC<SceneProps> = ({
 )
 InformationTurnoverCalculator.displayName = "InformationTurnoverCalculator"
 
-export const InformationTurnoverForecast: React.VFC<SceneProps> = ({
+export const InformationTurnoverForecast = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -331,10 +331,10 @@ export const InformationTurnoverForecast: React.VFC<SceneProps> = ({
 )
 InformationTurnoverForecast.displayName = "InformationTurnoverForecast"
 
-export const InformationEmergingTrends: React.VFC<SceneProps> = ({
+export const InformationEmergingTrends = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -343,10 +343,10 @@ export const InformationEmergingTrends: React.VFC<SceneProps> = ({
 )
 InformationEmergingTrends.displayName = "InformationEmergingTrends"
 
-export const InformationEmployeeLifecycle: React.VFC<SceneProps> = ({
+export const InformationEmployeeLifecycle = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -355,10 +355,10 @@ export const InformationEmployeeLifecycle: React.VFC<SceneProps> = ({
 )
 InformationEmployeeLifecycle.displayName = "InformationEmployeeLifecycle"
 
-export const InformationReportOwner: React.VFC<SceneProps> = ({
+export const InformationReportOwner = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -367,10 +367,10 @@ export const InformationReportOwner: React.VFC<SceneProps> = ({
 )
 InformationReportOwner.displayName = "InformationReportOwner"
 
-export const InformationReportOwnerByRule: React.VFC<SceneProps> = ({
+export const InformationReportOwnerByRule = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -381,10 +381,10 @@ InformationReportOwnerByRule.displayName = "InformationReportOwnerByRule"
 
 // Miscellaneous
 
-export const Collaboration: React.VFC<SceneProps> = ({
+export const Collaboration = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -393,10 +393,10 @@ export const Collaboration: React.VFC<SceneProps> = ({
 )
 Collaboration.displayName = "Collaboration"
 
-export const Communication: React.VFC<SceneProps> = ({
+export const Communication = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -405,10 +405,10 @@ export const Communication: React.VFC<SceneProps> = ({
 )
 Communication.displayName = "Communication"
 
-export const CompanyValues: React.VFC<SceneProps> = ({
+export const CompanyValues = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -417,10 +417,10 @@ export const CompanyValues: React.VFC<SceneProps> = ({
 )
 CompanyValues.displayName = "CompanyValues"
 
-export const ConnectTheDots: React.VFC<SceneProps> = ({
+export const ConnectTheDots = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -429,10 +429,10 @@ export const ConnectTheDots: React.VFC<SceneProps> = ({
 )
 ConnectTheDots.displayName = "ConnectTheDots"
 
-export const CultureLab: React.VFC<SceneProps> = ({
+export const CultureLab = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -441,10 +441,10 @@ export const CultureLab: React.VFC<SceneProps> = ({
 )
 CultureLab.displayName = "CultureLab"
 
-export const TermsAgreement: React.VFC<SceneProps> = ({
+export const TermsAgreement = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -455,10 +455,10 @@ TermsAgreement.displayName = "TermsAgreement"
 
 // Skills Coach
 
-export const SkillsCoach1On1Meetings: React.VFC<SceneProps> = ({
+export const SkillsCoach1On1Meetings = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -467,10 +467,10 @@ export const SkillsCoach1On1Meetings: React.VFC<SceneProps> = ({
 )
 SkillsCoach1On1Meetings.displayName = "SkillsCoach1On1Meetings"
 
-export const SkillsCoachCoaching: React.VFC<SceneProps> = ({
+export const SkillsCoachCoaching = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -479,10 +479,10 @@ export const SkillsCoachCoaching: React.VFC<SceneProps> = ({
 )
 SkillsCoachCoaching.displayName = "SkillsCoachCoaching"
 
-export const SkillsCoachEmployeeDevelopment: React.VFC<SceneProps> = ({
+export const SkillsCoachEmployeeDevelopment = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -491,10 +491,10 @@ export const SkillsCoachEmployeeDevelopment: React.VFC<SceneProps> = ({
 )
 SkillsCoachEmployeeDevelopment.displayName = "SkillsCoachEmployeeDevelopment"
 
-export const SkillsCoachEssentialFeedback: React.VFC<SceneProps> = ({
+export const SkillsCoachEssentialFeedback = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -503,10 +503,10 @@ export const SkillsCoachEssentialFeedback: React.VFC<SceneProps> = ({
 )
 SkillsCoachEssentialFeedback.displayName = "SkillsCoachEssentialFeedback"
 
-export const SkillsCoachEssentialProductivity: React.VFC<SceneProps> = ({
+export const SkillsCoachEssentialProductivity = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -516,10 +516,10 @@ export const SkillsCoachEssentialProductivity: React.VFC<SceneProps> = ({
 SkillsCoachEssentialProductivity.displayName =
   "SkillsCoachEssentialProductivity"
 
-export const SkillsCoachEssentialResilience: React.VFC<SceneProps> = ({
+export const SkillsCoachEssentialResilience = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -528,10 +528,10 @@ export const SkillsCoachEssentialResilience: React.VFC<SceneProps> = ({
 )
 SkillsCoachEssentialResilience.displayName = "SkillsCoachEssentialResilience"
 
-export const SkillsCoachInfluentialCommunication: React.VFC<SceneProps> = ({
+export const SkillsCoachInfluentialCommunication = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -541,10 +541,10 @@ export const SkillsCoachInfluentialCommunication: React.VFC<SceneProps> = ({
 SkillsCoachInfluentialCommunication.displayName =
   "SkillsCoachInfluentialCommunication"
 
-export const SkillsCoachLeadingChange: React.VFC<SceneProps> = ({
+export const SkillsCoachLeadingChange = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -553,10 +553,10 @@ export const SkillsCoachLeadingChange: React.VFC<SceneProps> = ({
 )
 SkillsCoachLeadingChange.displayName = "SkillsCoachLeadingChange"
 
-export const SkillsCoachFeedback: React.VFC<SceneProps> = ({
+export const SkillsCoachFeedback = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -565,10 +565,10 @@ export const SkillsCoachFeedback: React.VFC<SceneProps> = ({
 )
 SkillsCoachFeedback.displayName = "SkillsCoachFeedback"
 
-export const SkillsCoachManagerHub: React.VFC<SceneProps> = ({
+export const SkillsCoachManagerHub = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -577,10 +577,10 @@ export const SkillsCoachManagerHub: React.VFC<SceneProps> = ({
 )
 SkillsCoachManagerHub.displayName = "SkillsCoachManagerHub"
 
-export const SkillsCoachProductivity: React.VFC<SceneProps> = ({
+export const SkillsCoachProductivity = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -589,10 +589,10 @@ export const SkillsCoachProductivity: React.VFC<SceneProps> = ({
 )
 SkillsCoachProductivity.displayName = "SkillsCoachProductivity"
 
-export const SkillsCoachRemoteManager: React.VFC<SceneProps> = ({
+export const SkillsCoachRemoteManager = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -601,10 +601,10 @@ export const SkillsCoachRemoteManager: React.VFC<SceneProps> = ({
 )
 SkillsCoachRemoteManager.displayName = "SkillsCoachRemoteManager"
 
-export const SkillsCoachResilience: React.VFC<SceneProps> = ({
+export const SkillsCoachResilience = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -613,10 +613,10 @@ export const SkillsCoachResilience: React.VFC<SceneProps> = ({
 )
 SkillsCoachResilience.displayName = "SkillsCoachResilience"
 
-export const SkillsCoachStrategy: React.VFC<SceneProps> = ({
+export const SkillsCoachStrategy = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -627,10 +627,10 @@ SkillsCoachStrategy.displayName = "SkillsCoachStrategy"
 
 // Engagement
 
-export const Programs: React.VFC<SceneProps> = ({
+export const Programs = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -639,10 +639,10 @@ export const Programs: React.VFC<SceneProps> = ({
 )
 Programs.displayName = "Programs"
 
-export const EngagementSurveySummaryFemale: React.VFC<SceneProps> = ({
+export const EngagementSurveySummaryFemale = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -651,10 +651,10 @@ export const EngagementSurveySummaryFemale: React.VFC<SceneProps> = ({
 )
 EngagementSurveySummaryFemale.displayName = "EngagementSurveySummaryFemale"
 
-export const EngagementSurveySummaryMale: React.VFC<SceneProps> = ({
+export const EngagementSurveySummaryMale = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -663,10 +663,10 @@ export const EngagementSurveySummaryMale: React.VFC<SceneProps> = ({
 )
 EngagementSurveySummaryMale.displayName = "EngagementSurveySummaryMale"
 
-export const SurveyOverviewClosed: React.VFC<SceneProps> = ({
+export const SurveyOverviewClosed = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -675,10 +675,10 @@ export const SurveyOverviewClosed: React.VFC<SceneProps> = ({
 )
 SurveyOverviewClosed.displayName = "SurveyOverviewClosed"
 
-export const SurveyGetStarted: React.VFC<SceneProps> = ({
+export const SurveyGetStarted = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -687,10 +687,10 @@ export const SurveyGetStarted: React.VFC<SceneProps> = ({
 )
 SurveyGetStarted.displayName = "SurveyGetStarted"
 
-export const PerformanceCompanySettings: React.VFC<SceneProps> = ({
+export const PerformanceCompanySettings = ({
   enableAspectRatio,
   ...props
-}) => (
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}

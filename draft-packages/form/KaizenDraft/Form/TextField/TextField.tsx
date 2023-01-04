@@ -40,7 +40,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
  * {@link https://cultureamp.design/components/text-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-field--default-story Storybook}
  */
-export const TextField: React.VFC<TextFieldProps> = ({
+export const TextField = ({
   id,
   labelText,
   inline = false,
@@ -51,7 +51,7 @@ export const TextField: React.VFC<TextFieldProps> = ({
   reversed = false,
   disabled,
   ...restProps
-}) => {
+}: TextFieldProps): JSX.Element => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
     : ""

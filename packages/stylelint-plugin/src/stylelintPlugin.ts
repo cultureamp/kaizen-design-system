@@ -35,7 +35,7 @@ export default rules.map(rule =>
   stylelint.createPlugin(
     `kaizen/${rule.name}`,
     (_, secondary: StylelintPluginOptions | undefined, context) =>
-      (root, result) => {
+      (root, result): void => {
         if (root?.source) {
           const language = /\.less$/.test(root.source.input.from)
             ? "less"

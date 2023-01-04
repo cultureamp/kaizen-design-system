@@ -4,7 +4,7 @@ import { themeForTesting } from "./themeForTesting"
 describe(makeCSSVariableTheme.name, () => {
   const cssVariableTheme = makeCSSVariableTheme(themeForTesting)
 
-  const extraEntriesForColor = (colorName: string) => ({
+  const extraEntriesForColor = (colorName: string): Record<string, string> => ({
     100: `var(--color-${colorName}-100, #eee)`,
     "100-id": `--color-${colorName}-100`,
     "100-rgb": `var(--color-${colorName}-100-rgb, 238, 238, 238)`,

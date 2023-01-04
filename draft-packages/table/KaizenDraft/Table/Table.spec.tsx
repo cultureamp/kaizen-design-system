@@ -42,7 +42,7 @@ enum AriaRoles {
  *
  * @see https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
  */
-const Wrapper: React.FunctionComponent = () => (
+const Wrapper = (): JSX.Element => (
   <TableContainer data-testid={TestId.tableContainer}>
     <TableHeader data-testid={TestId.tableHeader}>
       <TableHeaderRow data-testid={TestId.tableHeaderRow}>

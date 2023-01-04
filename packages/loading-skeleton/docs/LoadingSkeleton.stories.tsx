@@ -40,9 +40,12 @@ type GuidanceBlockSkeletonTemplateProps = {
   paragraph: React.ReactElement
 }
 
-const GuidanceBlockSkeletonTemplate: React.VFC<
-  GuidanceBlockSkeletonTemplateProps
-> = ({ graphic, heading, input, paragraph }) => (
+const GuidanceBlockSkeletonTemplate = ({
+  graphic,
+  heading,
+  input,
+  paragraph,
+}: GuidanceBlockSkeletonTemplateProps): JSX.Element => (
   <div className={styles.banner}>
     <div className={styles.illustrationWrapper}>{graphic}</div>
     <div className={styles.descriptionAndActions}>

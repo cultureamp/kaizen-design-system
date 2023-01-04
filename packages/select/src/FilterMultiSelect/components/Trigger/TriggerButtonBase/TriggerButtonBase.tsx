@@ -12,10 +12,10 @@ export type TriggerButtonBaseProps = {
   classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 
-export const TriggerButtonBase: React.VFC<TriggerButtonBaseProps> = ({
+export const TriggerButtonBase = ({
   children,
   classNameOverride,
-}) => {
+}: TriggerButtonBaseProps): JSX.Element => {
   const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
 
   return (

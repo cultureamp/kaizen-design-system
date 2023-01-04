@@ -54,14 +54,14 @@ export interface HeadingProps
  * {@link https://cultureamp.design/components/heading/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-heading--display-0 Storybook}
  */
-export const Heading: React.VFC<HeadingProps> = ({
+export const Heading = ({
   children,
   tag,
   variant,
   color = "dark",
   classNameOverride,
   ...restProps
-}) => {
+}: HeadingProps): JSX.Element => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
@@ -82,7 +82,7 @@ Heading.displayName = "Heading"
  * A helper to infer the tag when not explicitly passed as a prop
  * @param headingLevel Level of the heading
  */
-const translateHeadingLevelToTag = (headingLevel: HeadingVariants) => {
+const translateHeadingLevelToTag = (headingLevel: HeadingVariants): string => {
   switch (headingLevel) {
     case "display-0":
     case "heading-1":

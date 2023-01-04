@@ -3,7 +3,10 @@ import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitions
 import { heartTheme } from "../themes"
 import { Theme } from "../types"
 
-const assertThemeIsActive = (theme: Theme, rootElement: HTMLElement | null) => {
+const assertThemeIsActive = (
+  theme: Theme,
+  rootElement: HTMLElement | null
+): void => {
   const variables = makeCssVariableDefinitionsMap(theme)
   Object.entries(variables).forEach(([key, value]) => {
     expect(rootElement?.style.getPropertyValue(key)).toBe(value)

@@ -45,14 +45,14 @@ export interface ParagraphProps
  * {@link https://cultureamp.design/components/paragraph/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-paragraph--body Storybook}
  */
-export const Paragraph: React.VFC<ParagraphProps> = ({
+export const Paragraph = ({
   children,
   tag,
   variant,
   color = "dark",
   classNameOverride,
   ...restProps
-}) => {
+}: ParagraphProps): JSX.Element => {
   const className = classnames([
     styles.paragraph,
     styles[variant],

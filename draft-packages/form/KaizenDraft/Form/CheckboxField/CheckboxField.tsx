@@ -21,7 +21,7 @@ export interface CheckboxFieldProps extends CheckboxProps {
  * {@link https://cultureamp.design/components/checkbox-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-checkbox-field--interactive-kaizen-site-demo Storybook}
  */
-export const CheckboxField: React.VFC<CheckboxFieldProps> = ({
+export const CheckboxField = ({
   id = "",
   labelText,
   checkedStatus,
@@ -31,7 +31,7 @@ export const CheckboxField: React.VFC<CheckboxFieldProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: CheckboxFieldProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.container, classNameOverride, {

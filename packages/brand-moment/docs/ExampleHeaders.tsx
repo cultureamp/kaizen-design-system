@@ -6,7 +6,7 @@ import { Select } from "@kaizen/draft-select"
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "./ExampleHeaders.scss"
 
-export const MinimalBasic = () => (
+export const MinimalBasic = (): JSX.Element => (
   <div className={styles.header}>
     <div className={styles.headerLeft}>
       <a href="/" aria-label="Home" className={styles.logoLink}>
@@ -35,7 +35,7 @@ const exampleLocales = [
   { value: "e", label: "čeština (Czech)" },
 ]
 
-export const MinimalCustomerFocused = () => (
+export const MinimalCustomerFocused = (): JSX.Element => (
   <div className={styles.headerCustomerFocused}>
     <div className={styles.logoContainer}>
       <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
@@ -51,7 +51,7 @@ export const MinimalCustomerFocused = () => (
   </div>
 )
 
-export const FakeNavBar = () => (
+export const FakeNavBar = (): JSX.Element => (
   <div className={styles.fakeNav}>
     <img
       src={assetUrl("brand/logo-horizontal-reversed.svg")}

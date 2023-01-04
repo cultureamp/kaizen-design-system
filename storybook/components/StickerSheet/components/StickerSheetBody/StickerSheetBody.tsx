@@ -9,11 +9,11 @@ export interface StickerSheetBodyProps
   isReversed?: boolean
 }
 
-export const StickerSheetBody: React.VFC<StickerSheetBodyProps> = ({
+export const StickerSheetBody = ({
   children,
   isReversed = false,
   ...restProps
-}) => (
+}: StickerSheetBodyProps): JSX.Element => (
   <tbody {...restProps}>
     {React.Children.map(children, child =>
       React.cloneElement(child, {

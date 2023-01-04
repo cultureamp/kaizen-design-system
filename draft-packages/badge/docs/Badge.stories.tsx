@@ -29,9 +29,9 @@ export default {
 type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void
 }
-const BadgeAnimationStoryWrapper: React.VFC<
-  BadgeAnimationStoryWrapperProps
-> = ({ children }) => {
+const BadgeAnimationStoryWrapper = ({
+  children,
+}: BadgeAnimationStoryWrapperProps): JSX.Element => {
   const [useAnimation, setUseAnimation] = React.useState(false)
   const [badgeCount, setBadgeCount] = React.useState(1)
 

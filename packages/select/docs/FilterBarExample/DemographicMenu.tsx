@@ -19,7 +19,7 @@ export const DemographicMenu = ({
   groups,
   isSelected,
   addFilter,
-}: DemographicMenuProps) => (
+}: DemographicMenuProps): JSX.Element => (
   <Menu
     button={
       <Button
@@ -38,7 +38,7 @@ export const DemographicMenu = ({
           <MenuItem
             label={group.name}
             key={group.id}
-            onClick={() => addFilter(group.id)}
+            onClick={(): void => addFilter(group.id)}
           />
         ))}
     </MenuList>

@@ -84,7 +84,7 @@ DefaultStory.parameters = {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
+  const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (
     <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
       {heading}
     </Heading>

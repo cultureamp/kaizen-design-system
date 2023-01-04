@@ -15,7 +15,7 @@ export interface ListBoxProps {
   }) => React.ReactNode
 }
 
-export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
+export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   const { listBoxProps, listRef, selectionState } = useSelectionContext()
   const [isOverflown, setIsOverflown] = useState(false)
   useEffect(() => {
