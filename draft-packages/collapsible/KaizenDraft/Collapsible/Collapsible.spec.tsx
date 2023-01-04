@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
 import { render } from "@testing-library/react"
 import { Collapsible, CollapsibleGroup } from ".."
@@ -106,7 +106,7 @@ it("gives precedence to renderHeader over title", () => {
       id="1"
       open
       title="Should not be rendered"
-      renderHeader={() => <div>This title should be rendered</div>}
+      renderHeader={(): JSX.Element => <div>This title should be rendered</div>}
     >
       First panel content
     </Collapsible>

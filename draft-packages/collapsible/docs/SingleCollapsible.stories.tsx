@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
@@ -9,7 +9,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 
-const ListItem = ({ children }: { children: JSX.Element }) => (
+const ListItem = ({ children }: { children: JSX.Element }): JSX.Element => (
   <div className={styles.listItem}>{children}</div>
 )
 
@@ -34,9 +34,9 @@ export default {
       },
     },
   },
-}
+} as ComponentMeta<typeof Collapsible>
 
-const SingleCollapsibleNoPadding = () => (
+const SingleCollapsibleNoPadding = (): JSX.Element => (
   <Collapsible
     id="collapsible-single"
     open
@@ -59,13 +59,13 @@ const SingleCollapsibleNoPadding = () => (
   </Collapsible>
 )
 
-const SingleCollapsibleCustomHeader = () => (
+const SingleCollapsibleCustomHeader = (): JSX.Element => (
   <Collapsible
     id="collapsible-single"
     open
     title="Custom header"
     variant="default"
-    renderHeader={title => (
+    renderHeader={(title): JSX.Element => (
       <>
         <div style={{ flex: "1 0 auto" }}>
           <Heading variant="heading-4" tag="span">
@@ -75,7 +75,7 @@ const SingleCollapsibleCustomHeader = () => (
         <IconButton
           icon={addIcon}
           label="Add item"
-          onClick={event => {
+          onClick={(event): void => {
             // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
             event.stopPropagation()
           }}
@@ -83,7 +83,7 @@ const SingleCollapsibleCustomHeader = () => (
         <IconButton
           icon={kebabIcon}
           label="More actions"
-          onClick={event => {
+          onClick={(event): void => {
             // When adding extra actions you have to stop propagation to avoid this triggering the collapse/uncollapsible behaviour
             event.stopPropagation()
           }}
@@ -97,7 +97,7 @@ const SingleCollapsibleCustomHeader = () => (
   </Collapsible>
 )
 
-const SingleCollapsibleLazyLoad = () => (
+const SingleCollapsibleLazyLoad = (): JSX.Element => (
   <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
     <Paragraph variant="body">
       This content won't be rendered until the collapsible is opened. This is
@@ -111,13 +111,14 @@ const SingleCollapsibleLazyLoad = () => (
   </Collapsible>
 )
 
-export const SingleCollapsibleKaizenSiteDemo = args => (
-  <Collapsible id="collapsible-single" {...args}>
+export const SingleCollapsibleKaizenSiteDemo: ComponentStory<typeof Collapsible> = args => (
+  <Collapsible {...args}>
     <Paragraph variant="body">{lipsum}</Paragraph>
   </Collapsible>
 )
 SingleCollapsibleKaizenSiteDemo.storyName = "Collapsible"
 SingleCollapsibleKaizenSiteDemo.args = {
+  id: "collapsible-single",
   open: true,
   title: "Single Collapsible",
 }
