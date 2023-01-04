@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.backdrop {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 1040;
+}

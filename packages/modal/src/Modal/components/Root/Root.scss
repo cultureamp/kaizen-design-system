@@ -1,0 +1,30 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.modal {
+  background: $color-white;
+  width: 600px;
+  margin: auto;
+  border-radius: $border-solid-border-radius;
+}
+
+.modal.small {
+  width: 327px;
+}
+
+.modal.large {
+  width: 832px;
+}

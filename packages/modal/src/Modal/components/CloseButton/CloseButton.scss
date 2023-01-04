@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: transparent;
+  padding: $spacing-sm;
+}

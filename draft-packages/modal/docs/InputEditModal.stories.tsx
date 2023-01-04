@@ -26,7 +26,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal/Input Edit Modal`,
+  title: `${CATEGORIES.components}/Modal/Modal Legacy/Input Edit Modal`,
   component: InputEditModal,
   parameters: {
     chromatic: {
