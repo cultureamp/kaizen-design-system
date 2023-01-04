@@ -85,8 +85,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding:
-      $button-vertical-padding
+    padding: $button-vertical-padding
       calc(#{$spacing-md} - #{$border-solid-border-width});
   }
 }

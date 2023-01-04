@@ -19,6 +19,9 @@ module.exports = {
     "annotation-no-unknown": null,
     "scss/operator-no-newline-after": null,
     "scss/operator-no-unspaced": null,
+    "function-no-unknown": null,
+    "scss/function-no-unknown": null,
+    "function-linear-gradient-no-nonstandard-direction": null,
     /**
      * "selector-pseudo-class-no-unknown": true
      * https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown

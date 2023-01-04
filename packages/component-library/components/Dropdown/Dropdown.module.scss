@@ -12,8 +12,7 @@ $caButton-verticalPadding: calc(
 
 .dropdown {
   position: relative;
-  padding:
-    $caButton-verticalPadding
+  padding: $caButton-verticalPadding
     calc(#{$ca-grid * 1} - #{$caButton-border-width});
 }
 

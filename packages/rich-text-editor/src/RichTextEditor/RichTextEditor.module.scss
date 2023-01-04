@@ -11,8 +11,7 @@
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);
   position: relative;
-  transition:
-    background-color $animation-duration-immediate,
+  transition: background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
 
   &:hover,
@@ -32,8 +31,7 @@
     pointer-events: none;
     position: absolute;
     background: transparent;
-    border-radius:
-      2px 2px $border-focus-ring-border-radius
+    border-radius: 2px 2px $border-focus-ring-border-radius
       $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;

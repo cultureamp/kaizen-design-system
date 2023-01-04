@@ -80,8 +80,7 @@
   min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
 
   :global(.js-focus-visible) &:global(.focus-visible)::after {
-    border-radius:
-      $border-borderless-border-radius
+    border-radius: $border-borderless-border-radius
       $border-borderless-border-radius 0 0;
   }
 }

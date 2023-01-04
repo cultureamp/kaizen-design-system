@@ -3,6 +3,7 @@
 $input-placeholder-line-height: 2.9rem;
 
 @mixin form-input-placeholder() {
+  /* stylelint-disable-next-line */
   &::input-placeholder {
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
@@ -32,7 +33,7 @@ $input-placeholder-line-height: 2.9rem;
     line-height: $input-placeholder-line-height;
     @content;
   }
-
+  /* stylelint-disable-next-line */
   &:input-placeholder {
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;

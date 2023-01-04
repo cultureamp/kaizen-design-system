@@ -15,7 +15,6 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
     width: auto;
   }
 
-  padding:
-    calc(#{$spacing-sm} - #{$menuContentVerticalPadding})
+  padding: calc(#{$spacing-sm} - #{$menuContentVerticalPadding})
     calc(#{$spacing-sm} - #{$menuContentHorizontalPadding});
 }

@@ -6,58 +6,51 @@
 
   &.display-0 {
     height: $typography-display-0-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-display-0-line-height} - #{$typography-display-0-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-display-0-line-height} - #{$typography-display-0-font-size}
+    );
   }
 
   &.heading-1 {
     height: $typography-heading-1-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-1-line-height} - #{$typography-heading-1-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-1-line-height} - #{$typography-heading-1-font-size}
+    );
   }
 
   &.heading-2 {
     height: $typography-heading-2-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-2-line-height} - #{$typography-heading-2-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-2-line-height} - #{$typography-heading-2-font-size}
+    );
   }
 
   &.heading-3 {
     height: $typography-heading-3-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-3-line-height} - #{$typography-heading-3-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-3-line-height} - #{$typography-heading-3-font-size}
+    );
   }
 
   &.heading-4 {
     height: $typography-heading-4-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-4-line-height} - #{$typography-heading-4-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-4-line-height} - #{$typography-heading-4-font-size}
+    );
   }
 
   &.heading-5 {
     height: $typography-heading-5-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-5-line-height} - #{$typography-heading-5-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-5-line-height} - #{$typography-heading-5-font-size}
+    );
   }
 
   &.heading-6 {
     height: $typography-heading-6-font-size;
-    margin-bottom:
-      calc(
-        #{$typography-heading-6-line-height} - #{$typography-heading-6-font-size}
-      );
+    margin-bottom: calc(
+      #{$typography-heading-6-line-height} - #{$typography-heading-6-font-size}
+    );
   }
 
   &.reversed:not(.link) {

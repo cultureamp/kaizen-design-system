@@ -119,7 +119,9 @@ $fifth: $color-red-500;
     outline: none;
   }
 
-  .reversed:not(.rated) :global([data-focus-visible-added]).likertItem:focus .likertItemFill {
+  .reversed:not(.rated)
+    :global([data-focus-visible-added]).likertItem:focus
+    .likertItemFill {
     outline-color: $color-blue-300;
   }
 
@@ -129,8 +131,7 @@ $fifth: $color-red-500;
 
   :global([data-focus-visible-added]).likertItem .likertItemFill {
     outline-offset: 1px;
-    outline:
-      $color-blue-500 $border-focus-ring-border-style
+    outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
   }
 

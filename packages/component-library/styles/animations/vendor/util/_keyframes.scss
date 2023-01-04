@@ -68,7 +68,7 @@ $-mui-custom: 0;
 
   // Split keys with multiple values into individual keys
   @each $key, $item in $map {
-    $key-type: type-of($key);
+    $key-type: meta.type-of($key);
 
     @if $key-type == "number" {
       $new-map: map.merge(

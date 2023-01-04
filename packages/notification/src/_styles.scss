@@ -32,9 +32,7 @@ $notification-slide-right: transform 300ms ease-out;
     width: 100%;
     min-height: 46px;
     padding: $notification-vertical-padding $spacing-sm;
-    transition:
-      $notification-fade-out,
-      $notification-pop-up,
+    transition: $notification-fade-out, $notification-pop-up,
       $notification-collapse-height;
   }
 
@@ -43,9 +41,7 @@ $notification-slide-right: transform 300ms ease-out;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
     padding: $notification-vertical-padding 10px;
-    transition:
-      $notification-fade-out,
-      $notification-slide-right,
+    transition: $notification-fade-out, $notification-slide-right,
       $notification-collapse-height-delayed;
     will-change: transform;
   }

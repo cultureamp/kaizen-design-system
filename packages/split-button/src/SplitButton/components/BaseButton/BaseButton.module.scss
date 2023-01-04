@@ -7,8 +7,7 @@
 .baseButton {
   border-width: $border-solid-border-width;
   border-style: $border-solid-border-style;
-  padding:
-    calc(#{$spacing-sm} - #{$border-borderless-border-width})
+  padding: calc(#{$spacing-sm} - #{$border-borderless-border-width})
     calc(#{$spacing-md} - #{$border-borderless-border-width});
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;

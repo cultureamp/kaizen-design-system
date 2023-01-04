@@ -46,8 +46,7 @@ $link-margin: $spacing-xs;
   .linkText::before {
     content: "";
     display: block;
-    transform:
-      translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
+    transform: translateY(calc(-1 * #{$ca-navigation-bar__link-item-margin}))
       translateY(-100%);
     height: $ca-navigation-bar__link-item-indicator-height;
     width: 100%;
@@ -56,8 +55,7 @@ $link-margin: $spacing-xs;
     left: 0;
     right: 0;
     background-color: white;
-    transition:
-      transform $ca-navigation-bar__animation-ease
+    transition: transform $ca-navigation-bar__animation-ease
       $ca-navigation-bar__animation-timing;
   }
 

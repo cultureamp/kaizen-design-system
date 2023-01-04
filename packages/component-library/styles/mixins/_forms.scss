@@ -18,7 +18,6 @@ $input-placeholder-line-height: 2.9rem;
 }
 
 // Cross browser mixin for styling of text input placeholder
-//
 // Example usage:
 // ```
 // @include input-placeholder {
@@ -26,6 +25,7 @@ $input-placeholder-line-height: 2.9rem;
 // }
 // ```
 @mixin form-input-placeholder() {
+  /* stylelint-disable-next-line */
   &::input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
@@ -48,6 +48,7 @@ $input-placeholder-line-height: 2.9rem;
     @content;
   }
 
+  /* stylelint-disable-next-line */
   &:input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;

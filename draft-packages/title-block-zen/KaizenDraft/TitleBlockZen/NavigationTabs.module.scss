@@ -76,8 +76,7 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius:
-          $border-solid-border-radius $border-solid-border-radius 0
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
           0;
       }
     }
@@ -101,8 +100,7 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius:
-          $border-solid-border-radius $border-solid-border-radius 0
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
           0;
       }
     }

@@ -19,8 +19,7 @@
   color: $color-blue-500;
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
-  padding:
-    $button-vertical-padding
+  padding: $button-vertical-padding
     calc(#{$spacing-sm} - #{$border-solid-border-width});
   position: relative;
   background-color: $color-blue-100;
@@ -43,8 +42,7 @@
       content: "";
       position: absolute;
       background: transparent;
-      border:
-        $border-focus-ring-border-width $border-focus-ring-border-style
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
       border-radius: $border-focus-ring-border-radius;
       top: calc(-1 * #{$focus-ring-offset});

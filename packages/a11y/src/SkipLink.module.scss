@@ -48,8 +48,7 @@ $caButtonIcon-height: 20px;
   text-align: center;
   overflow: visible; // Required for the focus ring on IE11
   text-decoration: none;
-  padding:
-    $caButton-verticalPadding
+  padding: $caButton-verticalPadding
     calc(#{$spacing-md} - #{$border-solid-border-width});
 }
 

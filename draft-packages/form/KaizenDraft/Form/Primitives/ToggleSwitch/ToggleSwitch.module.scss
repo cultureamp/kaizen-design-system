@@ -16,8 +16,7 @@ $focus-ring-offset: 1px;
 .track {
   position: relative;
   background-color: $color-gray-400;
-  border:
-    $border-borderless-border-width $border-borderless-border-style
+  border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   border-radius: $spacing-md;
   box-sizing: content-box;
@@ -49,8 +48,7 @@ $focus-ring-offset: 1px;
 
 .thumb {
   background-color: $color-white;
-  border:
-    $border-borderless-border-width $border-borderless-border-style
+  border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   box-sizing: content-box;
   width: calc(#{$spacing-md} * 0.9);
