@@ -42,7 +42,7 @@ DefaultStory.storyName = "NewIconButton"
 DefaultStory.args = {
   variant: "default",
   icon: addIcon,
-  "aria-label": "Click for pancakes"
+  "aria-label": "Click for pancakes",
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

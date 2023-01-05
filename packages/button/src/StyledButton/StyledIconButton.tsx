@@ -20,7 +20,7 @@ export const StyledIconButton: React.VFC<StyledIconButtonProps> = ({
     classNameOverride={classnames(
       styles.styledIconButton,
       variant === "default" && styles.default,
-      (variant === "default" && isReversed) && styles.isReversed,
+      variant === "default" && isReversed && styles.isReversed,
       classNameOverride
     )}
     {...restProps}

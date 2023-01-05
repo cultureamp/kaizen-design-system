@@ -5,7 +5,11 @@ import { Icon } from "@kaizen/component-library"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import styles from "./StyledButton.module.scss"
 
-const WorkingContents = ({ contents }: { contents: React.ReactNode }): JSX.Element => (
+const WorkingContents = ({
+  contents,
+}: {
+  contents: React.ReactNode
+}): JSX.Element => (
   <>
     <span className={styles.hidden} aria-hidden="true">
       {contents}
@@ -127,6 +131,8 @@ export const StyledButton2: React.VFC<StyledButtonProps2> = ({
   element,
   isWorking,
   contentsPropName = "children",
+  icon,
+  iconPosition = "start",
   ...restProps
 }) => {
   const className = getStyledButtonClassNames({
@@ -134,12 +140,20 @@ export const StyledButton2: React.VFC<StyledButtonProps2> = ({
     ...restProps,
   })
 
+  const buttonContents = (
+    <ButtonContents
+      contents={element.props[contentsPropName]}
+      icon={icon}
+      iconPosition={iconPosition}
+    />
+  )
+
   return React.cloneElement(element, {
     ...element.props,
     [contentsPropName]: isWorking ? (
       <WorkingContents contents={element.props[contentsPropName]} />
     ) : (
-      element.props[contentsPropName]
+      buttonContents
     ),
     className: classnames(
       className,

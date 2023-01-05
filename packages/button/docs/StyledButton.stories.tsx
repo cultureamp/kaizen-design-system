@@ -287,6 +287,28 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                 isWorking
               />
             </StickerSheet.Row>
+
+            <StickerSheet.Row>
+              <div />
+              <StyledButton2
+                isReversed={isReversed}
+                variant={variant}
+                icon={addIcon}
+                element={
+                  <button>
+                    Button qwerty qwerty qwerty qwerty qwerty qwerty
+                  </button>
+                }
+              />
+
+              <StyledButton2
+                isReversed={isReversed}
+                variant={variant}
+                icon={arrowRight}
+                iconPosition="end"
+                element={<button>Button</button>}
+              />
+            </StickerSheet.Row>
           </StickerSheet.Body>
         ))}
       </StickerSheet>
