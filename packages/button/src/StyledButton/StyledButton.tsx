@@ -5,7 +5,7 @@ import { Icon } from "@kaizen/component-library"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import styles from "./StyledButton.module.scss"
 
-const WorkingContents = ({ contents }: { contents: React.ReactNode }) => (
+const WorkingContents = ({ contents }: { contents: React.ReactNode }): JSX.Element => (
   <>
     <span className={styles.hidden} aria-hidden="true">
       {contents}
@@ -65,7 +65,7 @@ export const getStyledButtonClassNames = ({
   isWorking,
   isDisabled,
   classNameOverride,
-}: BaseStyledButtonProps) =>
+}: BaseStyledButtonProps): string =>
   classnames(
     styles.styledButton,
     styles[variant],

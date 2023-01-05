@@ -68,7 +68,7 @@ const LabelButton: React.VFC<LabelButtonProps> = ({
   </button>
 )
 
-const AddIcon = () => <Icon icon={addIcon} role="presentation" />
+const AddIcon = (): JSX.Element => <Icon icon={addIcon} role="presentation" />
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
