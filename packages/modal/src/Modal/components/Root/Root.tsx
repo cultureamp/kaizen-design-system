@@ -53,6 +53,7 @@ export const Root = ({
   ...restProps
 }: RootProps) => {
   const dialogRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
   return createPortal(
     <AnimatePresence exitBeforeEnter={true}>
       {isOpen && (
@@ -62,6 +63,7 @@ export const Root = ({
             <FocusOn
               onClickOutside={dismissOnBackdropClick ? onDismiss : undefined}
               onEscapeKey={dismissOnEscPress ? onDismiss : undefined}
+              shards={[contentRef]}
               onActivation={() => dialogRef?.current?.focus()}
               // This linting error is a false positive.
               // The autoFocus prop here is not what the linting library thinks it is.
@@ -86,7 +88,7 @@ export const Root = ({
                 {...restProps}
               >
                 {!hideCloseButton && <CloseButton onClick={onDismiss} />}
-                {children}
+                <div ref={contentRef}>{children}</div>
               </motion.div>
             </FocusOn>
           </div>
