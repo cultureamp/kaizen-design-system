@@ -34,11 +34,14 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         id="moods"
         onChange={e => setMood(e.target.value as HeaderMood)}
       >
-        <option value="positive">positive</option>
-        <option value="informative">informative</option>
-        <option value="negative">negative</option>
-        <option value="cautionary">cautionary</option>
-        <option value="assertive">assertive</option>
+        <option value="" selected>
+          Default
+        </option>
+        <option value="positive">Positive</option>
+        <option value="informative">Informative</option>
+        <option value="negative">Negative</option>
+        <option value="cautionary">Cautionary</option>
+        <option value="assertive">Assertive</option>
       </select>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
