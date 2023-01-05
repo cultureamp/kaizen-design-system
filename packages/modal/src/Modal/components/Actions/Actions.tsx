@@ -13,7 +13,9 @@ export const Actions = ({ children }: ActionsProps): JSX.Element => {
   } = useMediaQueries()
   return (
     <div
-      className={classnames(styles.actions, isSmall && styles.actionsFullWidth)}
+      className={classnames(styles.actions, {
+        [styles.fullWidth]: isSmall,
+      })}
     >
       {children}
     </div>

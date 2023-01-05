@@ -172,14 +172,20 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         </Modal.Body>
         <Modal.Footer>
           <Modal.Actions>
-            <Button
+            <Modal.ActionButton
+              label="Tertiary"
+              isAlignedStart
               secondary
-              label="Cancel"
               onClick={() => setModalOpen(false)}
             />
-            <Button
+            <Modal.ActionButton
+              secondary
+              label="Secondary"
+              onClick={() => setModalOpen(false)}
+            />
+            <Modal.ActionButton
               primary
-              label="Some action"
+              label="Primary"
               onClick={() => setModalOpen(false)}
             />
           </Modal.Actions>

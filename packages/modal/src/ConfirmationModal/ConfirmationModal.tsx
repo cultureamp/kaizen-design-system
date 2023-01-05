@@ -47,8 +47,16 @@ export const ConfirmationModal = ({
       </Modal.Body>
       <Modal.Footer>
         <Modal.Actions>
-          <Button label={cancelLabel} onClick={onCancel} secondary />
-          <Button label={confirmLabel} onClick={onConfirm} primary />
+          <Modal.ActionButton
+            label={cancelLabel}
+            onClick={onCancel}
+            secondary
+          />
+          <Modal.ActionButton
+            label={confirmLabel}
+            onClick={onConfirm}
+            primary
+          />
         </Modal.Actions>
       </Modal.Footer>
     </Modal>
