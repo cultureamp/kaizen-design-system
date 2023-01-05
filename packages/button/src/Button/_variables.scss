@@ -4,7 +4,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
-$button-height: $kz-spacing-xl;
+$button-height: $spacing-xl;
 $button-form-height: calc(#{$spacing-md} * 5 / 3);
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
 $button-vertical-padding--form: calc(
