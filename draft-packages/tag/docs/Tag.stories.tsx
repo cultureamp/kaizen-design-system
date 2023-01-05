@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
@@ -23,7 +23,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof Tag> = args => (
   <Tag variant="default" {...args}>
     Default
   </Tag>

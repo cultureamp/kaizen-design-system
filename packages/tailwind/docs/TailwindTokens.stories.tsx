@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from "@kaizen/draft-card"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -20,7 +21,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = args => (
+export const DefaultKaizenSiteDemo: Story = args => (
   <div className="bg-purple-800 p-12">
     <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-white ">
       {args.title}
@@ -56,10 +57,10 @@ export const DefaultKaizenSiteDemo = args => (
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { title: "Tailwind title example" }
 
-export const TailwindPsuedoStates = () => (
+export const TailwindPseudoStates: Story = () => (
   <div className="p-12">
     <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
-      Tailwind Psuedo states
+      Tailwind Pseudo states
     </h1>
     <div className="flex">
       <div className="inline-flex flex-col">
@@ -82,9 +83,9 @@ export const TailwindPsuedoStates = () => (
   </div>
 )
 
-TailwindPsuedoStates.storyName = "Tailwind psuedo selectors"
+TailwindPseudoStates.storyName = "Tailwind pseudo selectors"
 
-export const TailwindMediaQueries = () => (
+export const TailwindMediaQueries: Story = () => (
   <div className="p-12">
     <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
       Tailwind media queries

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -26,15 +26,14 @@ export default {
     },
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof RadioField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<
   typeof RadioField
 > = args => {
   const [status, setStatus] = useState<boolean>()
-  const onCheckHandler = () => {
-    setStatus(!status)
-  }
+  const onCheckHandler = (): void => setStatus(!status)
+
   return (
     <RadioField
       {...args}

@@ -1,42 +1,12 @@
 import React from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
-import { Heading } from "@kaizen/typography"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-
-const StoryContainer = ({ children }) => (
-  <div
-    style={{ display: "inline-flex", width: "100%", flexDirection: "column" }}
-  >
-    {children}
-  </div>
-)
-
-const StoryColumn = ({ children }) => (
-  <div
-    style={{
-      display: "grid",
-      rowGap: "25px",
-    }}
-  >
-    {children}
-  </div>
-)
-
-const StoryGrid = ({ children }) => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(10px, 195px))",
-      columnGap: "45px",
-      rowGap: "12px",
-    }}
-  >
-    {children}
-  </div>
-)
+import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Field`,
@@ -52,12 +22,10 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof TextField>
 
-export const DefaultStory = args => (
-  <StoryContainer>
-    <TextField {...args} />
-  </StoryContainer>
+export const DefaultStory: ComponentStory<typeof TextField> = args => (
+  <TextField {...args} />
 )
 DefaultStory.args = {
   id: "kaizen-demo-text-field",
@@ -94,568 +62,159 @@ DefaultStory.argTypes = {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-export const StickerSheetDefault = () => (
-  <>
-    <Heading variant="heading-3" tag="h2">
-      Default
-    </Heading>
-    <StoryGrid>
-      <StoryColumn>
-        <Heading variant="heading-5" tag="h3">
-          Base
-        </Heading>
-        <StoryContainer>
-          <TextField
-            id="text-default"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Default"
-            placeholder=""
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Description"
-            placeholder=""
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Placeholder"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage={<span>Error message</span>}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-          />
-        </StoryContainer>
-      </StoryColumn>
-      <StoryColumn>
-        <Heading variant="heading-5" tag="h3">
-          Disabled
-        </Heading>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Default"
-            placeholder=""
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Description"
-            placeholder=""
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Placeholder"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            disabled={true}
-          />
-        </StoryContainer>
-      </StoryColumn>
-    </StoryGrid>
-    <Heading variant="heading-3" tag="h2">
-      Icon
-    </Heading>
-    <StoryGrid>
-      <StoryColumn>
-        <Heading variant="heading-5" tag="h3">
-          Base
-        </Heading>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Default"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-      </StoryColumn>
-      <StoryColumn>
-        <Heading variant="heading-5" tag="h3">
-          Disabled
-        </Heading>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Default"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-      </StoryColumn>
-    </StoryGrid>
-  </>
-)
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const DEFAULT__ROW_PROPS: TextFieldProps[] = [
+    {
+      id: "text-field--default",
+      inputType: "email",
+      labelText: "Default",
+    },
+    {
+      id: "text-field--description",
+      inputType: "email",
+      labelText: "Description",
+      description: "Description text",
+    },
+    {
+      id: "text-field--placeholder",
+      inputType: "email",
+      labelText: "Placeholder",
+      description: "Description text",
+      placeholder: "jane.doe@email.com",
+    },
+    {
+      id: "text-field--positive",
+      inputType: "email",
+      labelText: "Positive",
+      status: "success",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+    },
+    {
+      id: "text-field--negative",
+      inputType: "email",
+      labelText: "Negative",
+      status: "error",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+      validationMessage: <span>Error message</span>,
+    },
+    {
+      id: "text-field--cautionary",
+      inputType: "email",
+      labelText: "Cautionary",
+      status: "caution",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+      validationMessage: "Warning message",
+    },
+  ]
 
-export const StickerSheetReversed = () => (
-  <>
-    <Heading color="white" variant="heading-3" tag="h2">
-      Default
-    </Heading>
-    <StoryGrid>
-      <StoryColumn>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Base
-        </Heading>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Default"
-            placeholder=""
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Description"
-            placeholder=""
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue=""
-            labelText="Placeholder"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-          />
-        </StoryContainer>
-      </StoryColumn>
-      <StoryColumn>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Disabled
-        </Heading>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            labelText="Default"
-            placeholder=""
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            labelText="Description"
-            placeholder=""
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Placeholder"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            disabled={true}
-          />
-        </StoryContainer>
-      </StoryColumn>
-    </StoryGrid>
-    <Heading color="white" variant="heading-3" tag="h2">
-      Icon
-    </Heading>
-    <StoryGrid>
-      <StoryColumn>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Base
-        </Heading>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Default"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-          />
-        </StoryContainer>
-      </StoryColumn>
-      <StoryColumn>
-        <Heading color="white" variant="heading-5" tag="h3">
-          Disabled
-        </Heading>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Default"
-            placeholder="jane.doe@email.com"
-            description="Description text"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Positive"
-            placeholder="jane.doe@email.com"
-            status="success"
-            description="Description text"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Negative"
-            placeholder="jane.doe@email.com"
-            status="error"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-        <StoryContainer>
-          <TextField
-            reversed={true}
-            id="text"
-            inputType="email"
-            defaultInputValue="Input Text"
-            labelText="Cautionary"
-            placeholder="jane.doe@email.com"
-            status="caution"
-            description="Description text"
-            validationMessage="Error message"
-            icon={dateIcon}
-            disabled={true}
-          />
-        </StoryContainer>
-      </StoryColumn>
-    </StoryGrid>
-  </>
-)
+  const ICON__ROW_PROPS: TextFieldProps[] = [
+    {
+      id: "text-field--icon--default",
+      inputType: "email",
+      labelText: "Default",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+    },
+    {
+      id: "text-field--icon--positive",
+      inputType: "email",
+      labelText: "Positive",
+      status: "success",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+    },
+    {
+      id: "text-field--icon--negative",
+      inputType: "email",
+      labelText: "Negative",
+      status: "error",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+      validationMessage: <span>Error message</span>,
+    },
+    {
+      id: "text-field--icon--cautionary",
+      inputType: "email",
+      labelText: "Cautionary",
+      status: "caution",
+      defaultInputValue: "Input Text",
+      description: "Description text",
+      validationMessage: "Warning message",
+    },
+  ]
+
+  return (
+    <>
+      <StickerSheet heading="Default" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          headingsWidth="15rem"
+        />
+        <StickerSheet.Body>
+          {DEFAULT__ROW_PROPS.map(({ id, ...restProps }) => (
+            <StickerSheet.Row key={id}>
+              <TextField
+                reversed={isReversed}
+                id={`${id}--base`}
+                {...restProps}
+              />
+              <TextField
+                reversed={isReversed}
+                id={`${id}--disabled`}
+                disabled
+                {...restProps}
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet heading="Icon" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          headingsWidth="15rem"
+        />
+        <StickerSheet.Body>
+          {ICON__ROW_PROPS.map(({ id, ...restProps }) => (
+            <StickerSheet.Row key={id}>
+              <TextField
+                reversed={isReversed}
+                id={`${id}--base`}
+                icon={dateIcon}
+                {...restProps}
+              />
+              <TextField
+                reversed={isReversed}
+                id={`${id}--disabled`}
+                disabled
+                icon={dateIcon}
+                {...restProps}
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
+  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Box } from "@kaizen/component-library"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
@@ -46,16 +46,12 @@ const GUIDANCE_BLOCK_TEXT = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof GuidanceBlock> = args => (
   <GuidanceBlock
-    illustration={args.illustration}
-    text={GUIDANCE_BLOCK_TEXT}
     actions={{
       primary: {
         label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
-        },
+        onClick: () => alert("tada: 🎉"),
       },
       dismiss: {
         onClick: () => alert("tada: 🎉"),
@@ -68,6 +64,7 @@ DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   layout: "default",
   illustrationType: "spot",
+  // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
   illustration: "spot",
   variant: "default",
   withActionButtonArrow: true,
@@ -120,7 +117,7 @@ const PROPS: GuidanceBlockProps = {
   },
 }
 
-const CustomContent = () => (
+const CustomContent = (): JSX.Element => (
   <>
     <Box mb={0.75}>
       <Tag variant="statusLive" size="small">
@@ -169,9 +166,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         actions={{
           primary: {
             label: "Learn more",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",
@@ -190,9 +185,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         actions={{
           primary: {
             label: "Learn more",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",
@@ -213,9 +206,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         actions={{
           primary: {
             label: "Learn more",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
             tooltip: {
               text: "Opens in a new tab",
               mood: "cautionary",
@@ -238,9 +229,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         actions={{
           primary: {
             label: "Action",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
         }}
         persistent
@@ -273,7 +262,7 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const Layouts = () => (
+export const Layouts: Story = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Default
@@ -285,9 +274,7 @@ export const Layouts = () => (
       actions={{
         primary: {
           label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+          onClick: () => alert("tada: 🎉"),
         },
         secondary: {
           label: "Dismiss",
@@ -306,9 +293,7 @@ export const Layouts = () => (
       actions={{
         primary: {
           label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+          onClick: () => alert("tada: 🎉"),
         },
         secondary: {
           label: "Dismiss",
@@ -328,9 +313,7 @@ export const Layouts = () => (
       actions={{
         primary: {
           label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+          onClick: () => alert("tada: 🎉"),
         },
         secondary: {
           label: "Dismiss",
@@ -349,9 +332,7 @@ export const Layouts = () => (
       actions={{
         primary: {
           label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+          onClick: () => alert("tada: 🎉"),
         },
         secondary: {
           label: "Dismiss",
@@ -372,9 +353,7 @@ export const Layouts = () => (
       actions={{
         primary: {
           label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+          onClick: () => alert("tada: 🎉"),
         },
         secondary: {
           label: "Dismiss action",
@@ -394,9 +373,7 @@ export const Layouts = () => (
         actions={{
           primary: {
             label: "Action",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",
@@ -412,9 +389,7 @@ export const Layouts = () => (
         actions={{
           primary: {
             label: "Action",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",
@@ -428,7 +403,7 @@ export const Layouts = () => (
 )
 Layouts.parameters = { chromatic: { disable: false } }
 
-export const AspectRatio = () => (
+export const AspectRatio: Story = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Scene example
@@ -464,9 +439,7 @@ export const AspectRatio = () => (
         actions={{
           primary: {
             label: "Action",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",
@@ -483,9 +456,7 @@ export const AspectRatio = () => (
         actions={{
           primary: {
             label: "Action",
-            onClick: () => {
-              alert("tada: 🎉")
-            },
+            onClick: () => alert("tada: 🎉"),
           },
           secondary: {
             label: "Dismiss",

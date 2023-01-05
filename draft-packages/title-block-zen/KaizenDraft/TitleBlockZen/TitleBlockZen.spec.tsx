@@ -1,10 +1,9 @@
-import "./matchMedia.mock"
-
-import * as React from "react"
+import React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen } from "@testing-library/react"
 import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
 import "@testing-library/jest-dom"
+import "./matchMedia.mock"
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -12,14 +11,12 @@ configure({
 
 describe("<TitleBlockZen />", () => {
   describe("when the primary action is a button with only an href", () => {
-    let primaryActionAsLink
-    beforeEach(() => {
-      primaryActionAsLink = {
-        label: "primaryActionLabel",
-        href: "#primaryActionHref",
-        primary: true,
-      }
-    })
+    const primaryActionAsLink = {
+      label: "primaryActionLabel",
+      href: "#primaryActionHref",
+      primary: true,
+    }
+
     it("renders the primary action button label and href", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
@@ -43,16 +40,17 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with only an onClick", () => {
-    let testOnClickFn
-    let primaryActionAsButton
+    const testOnClickFn = jest.fn()
+    const primaryActionAsButton = {
+      label: "primaryActionLabel",
+      onClick: testOnClickFn,
+      primary: true,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      primaryActionAsButton = {
-        label: "primaryActionLabel",
-        onClick: testOnClickFn,
-        primary: true,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders the primary action button label and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
@@ -80,24 +78,23 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is disabled", () => {
-    let testOnClickFn
-    let primaryActionAsButton
-    let primaryActionAsLink
+    const testOnClickFn = jest.fn()
+    const primaryActionAsButton = {
+      label: "primaryActionLabel",
+      onClick: testOnClickFn,
+      disabled: true,
+      primary: true,
+    }
+    const primaryActionAsLink = {
+      label: "primaryActionLabel",
+      href: "#primaryActionHref",
+      disabled: true,
+      primary: true,
+    }
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      primaryActionAsButton = {
-        label: "primaryActionLabel",
-        onClick: testOnClickFn,
-        disabled: true,
-        primary: true,
-      }
-      primaryActionAsLink = {
-        label: "primaryActionLabel",
-        href: "#primaryActionHref",
-        disabled: true,
-        primary: true,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders a disabled primary action button", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
@@ -157,17 +154,18 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with both an href and an onClick", () => {
-    let testOnClickFn
-    let primaryActionAsLinkAndOnClick
+    const testOnClickFn = jest.fn()
+    const primaryActionAsLinkAndOnClick = {
+      label: "primaryActionLabel",
+      href: "#primaryActionHref",
+      onClick: testOnClickFn,
+      primary: true,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      primaryActionAsLinkAndOnClick = {
-        label: "primaryActionLabel",
-        href: "#primaryActionHref",
-        onClick: testOnClickFn,
-        primary: true,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders the primary action button label, href and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen
@@ -205,22 +203,20 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a menu", () => {
-    let primaryActionAsMenu
-    beforeEach(() => {
-      primaryActionAsMenu = {
-        label: "primaryActionLabel",
-        menuItems: [
-          {
-            label: "Menu item 1",
-            action: "#",
-          },
-          {
-            label: "Menu item 1",
-            action: "#",
-          },
-        ],
-      }
-    })
+    const primaryActionAsMenu = {
+      label: "primaryActionLabel",
+      menuItems: [
+        {
+          label: "Menu item 1",
+          action: "#",
+        },
+        {
+          label: "Menu item 1",
+          action: "#",
+        },
+      ],
+    }
+
     it("renders the primary action menu button with label and menu items", async () => {
       const { getByTestId, getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
@@ -250,13 +246,11 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an href", () => {
-    let defaultActionAsLink
-    beforeEach(() => {
-      defaultActionAsLink = {
-        label: "defaultActionLabel",
-        href: "#defaultActionHref",
-      }
-    })
+    const defaultActionAsLink = {
+      label: "defaultActionLabel",
+      href: "#defaultActionHref",
+    }
+
     it("renders the default action button label and href", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
@@ -294,15 +288,16 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an onClick", () => {
-    let testOnClickFn
-    let defaultActionAsButton
+    const testOnClickFn = jest.fn()
+    const defaultActionAsButton = {
+      label: "defaultActionLabel",
+      onClick: testOnClickFn,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      defaultActionAsButton = {
-        label: "defaultActionLabel",
-        onClick: testOnClickFn,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders the default action button label and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
@@ -342,16 +337,17 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with both an href and an onClick", () => {
-    let testOnClickFn
-    let defaultActionAsLinkAndOnClick
+    const testOnClickFn = jest.fn()
+    const defaultActionAsLinkAndOnClick = {
+      label: "defaultActionLabel",
+      href: "#defaultActionHref",
+      onClick: testOnClickFn,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      defaultActionAsLinkAndOnClick = {
-        label: "defaultActionLabel",
-        href: "#defaultActionHref",
-        onClick: testOnClickFn,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders the default action button label, href and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen
@@ -397,22 +393,22 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is disabled", () => {
-    let testOnClickFn
-    let defaultActionAsButton
-    let defaultActionAsLink
+    const testOnClickFn = jest.fn()
+    const defaultActionAsButton = {
+      label: "defaultActionLabel",
+      onClick: testOnClickFn,
+      disabled: true,
+    }
+    const defaultActionAsLink = {
+      label: "defaultActionLabel",
+      href: "#defaultActionHref",
+      disabled: true,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      defaultActionAsButton = {
-        label: "defaultActionLabel",
-        onClick: testOnClickFn,
-        disabled: true,
-      }
-      defaultActionAsLink = {
-        label: "defaultActionLabel",
-        href: "#defaultActionHref",
-        disabled: true,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders a disabled default action button", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
@@ -472,16 +468,17 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with both an href and an onClick", () => {
-    let testOnClickFn
-    let secondaryActionWithLinkAndOnClick
+    const testOnClickFn = jest.fn()
+    const secondaryActionWithLinkAndOnClick = {
+      label: "secondaryActionLabel",
+      href: "#secondaryActionHref",
+      onClick: testOnClickFn,
+    }
+
     beforeEach(() => {
-      testOnClickFn = jest.fn()
-      secondaryActionWithLinkAndOnClick = {
-        label: "secondaryActionLabel",
-        href: "#secondaryActionHref",
-        onClick: testOnClickFn,
-      }
+      testOnClickFn.mockClear()
     })
+
     it("renders the secondary action with both the href and onClick", async () => {
       const mockWarnFn = jest.fn()
       const spy = jest
@@ -534,13 +531,11 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with only an href", () => {
-    let secondaryActionWithLinkAndOnClick
-    beforeEach(() => {
-      secondaryActionWithLinkAndOnClick = {
-        label: "secondaryActionLabel",
-        href: "#secondaryActionHref",
-      }
-    })
+    const secondaryActionWithLinkAndOnClick = {
+      label: "secondaryActionLabel",
+      href: "#secondaryActionHref",
+    }
+
     it("renders the action as a single mobile actions drawer item with the correct href", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -559,14 +554,12 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary action is passed with only an href", () => {
-    let secondaryActionWithLink
-    beforeEach(() => {
-      secondaryActionWithLink = {
-        label: "secondaryActionLabel",
-        href: "#secondaryActionHref",
-        disabled: true,
-      }
-    })
+    const secondaryActionWithLink = {
+      label: "secondaryActionLabel",
+      href: "#secondaryActionHref",
+      disabled: true,
+    }
+
     it("renders the action as a single disabled mobile actions drawer item with no href", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -585,16 +578,13 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary action is passed with only an onClick", () => {
-    let testOnClickFn
-    let secondaryActionWithOnClick
-    beforeEach(() => {
-      testOnClickFn = jest.fn()
-      secondaryActionWithOnClick = {
-        label: "secondaryActionLabel",
-        onClick: testOnClickFn,
-        disabled: true,
-      }
-    })
+    const testOnClickFn = jest.fn()
+    const secondaryActionWithOnClick = {
+      label: "secondaryActionLabel",
+      onClick: testOnClickFn,
+      disabled: true,
+    }
+
     it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -612,16 +602,13 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary overflow menu item is passed with only an onClick for the action", () => {
-    let testOnClickFn
-    let secondaryOverflowMenuItemWithOnClick
-    beforeEach(() => {
-      testOnClickFn = jest.fn()
-      secondaryOverflowMenuItemWithOnClick = {
-        label: "secondaryActionOverflowMenuItemLabel",
-        action: testOnClickFn,
-        disabled: true,
-      }
-    })
+    const testOnClickFn = jest.fn()
+    const secondaryOverflowMenuItemWithOnClick = {
+      label: "secondaryActionOverflowMenuItemLabel",
+      action: testOnClickFn,
+      disabled: true,
+    }
+
     it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -707,7 +694,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: () => jest.fn(),
+              handleClick: jest.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -745,7 +732,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: () => jest.fn(),
+              handleClick: jest.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -782,7 +769,7 @@ describe("<TitleBlockZen />", () => {
           breadcrumb={{
             text: "Back",
             path: "/path/to/somewhere",
-            handleClick: () => null,
+            handleClick: (): void => undefined,
           }}
         >
           Example
@@ -798,7 +785,7 @@ describe("<TitleBlockZen />", () => {
           title="Test Title"
           breadcrumb={{
             text: "Back",
-            handleClick: () => null,
+            handleClick: (): void => undefined,
           }}
         >
           Example
@@ -811,7 +798,7 @@ describe("<TitleBlockZen />", () => {
     it("renders a custom component when you pass a 'render' prop", () => {
       const mockFn = jest.fn()
 
-      const CustomComponent = (props: CustomBreadcrumbProps) => (
+      const CustomComponent = (props: CustomBreadcrumbProps): JSX.Element => (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <div
           data-automation-id="custom-component"

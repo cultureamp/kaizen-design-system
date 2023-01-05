@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { ToggledStatus, ToggleSwitchProps } from "./ToggleSwitch"
 import { ToggleSwitch } from "."
@@ -11,7 +11,9 @@ const defaultToggleSwitchProps = {
   onToggle: jest.fn(),
 }
 
-const renderToggleSwitch = (props?: ToggleSwitchProps) => {
+const renderToggleSwitch = (
+  props?: ToggleSwitchProps
+): ReturnType<typeof render> => {
   const mergedToggleSwitchProps = { ...defaultToggleSwitchProps, ...props }
 
   return render(<ToggleSwitch {...mergedToggleSwitchProps} />)

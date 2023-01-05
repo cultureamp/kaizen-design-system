@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Story } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
@@ -20,11 +21,11 @@ export default {
   },
 }
 
-export const Uncontrolled = () => (
+export const Uncontrolled: Story = () => (
   <Tabs
     defaultIndex={1}
     // eslint-disable-next-line no-console
-    onChange={index => console.log("Tab changed to ", index)}
+    onChange={(index): void => console.log("Tab changed to ", index)}
   >
     <TabList aria-label="Tabs">
       <Tab>Tab 1</Tab>
@@ -57,14 +58,11 @@ export const Uncontrolled = () => (
 )
 Uncontrolled.parameters = { chromatic: { disable: false } }
 
-export const Controlled = () => {
+export const Controlled: Story = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   return (
     <>
-      <Tabs
-        selectedIndex={selectedIndex}
-        onChange={index => setSelectedIndex(index)}
-      >
+      <Tabs selectedIndex={selectedIndex} onChange={setSelectedIndex}>
         <TabList aria-label="Tabs">
           <Tab>Tab 1</Tab>
           <Tab>Tab 2</Tab>
@@ -93,12 +91,15 @@ export const Controlled = () => {
         </TabPanels>
       </Tabs>
 
-      <Button label="Switch to tab 2" onClick={() => setSelectedIndex(1)} />
+      <Button
+        label="Switch to tab 2"
+        onClick={(): void => setSelectedIndex(1)}
+      />
     </>
   )
 }
 
-export const ManualKeyboardActivation = () => (
+export const ManualKeyboardActivation: Story = () => (
   <Tabs keyboardActivation="manual">
     <TabList aria-label="Tabs">
       <Tab>Tab 1</Tab>
@@ -135,11 +136,11 @@ export const ManualKeyboardActivation = () => (
   </Tabs>
 )
 
-export const UsageInCard = () => (
+export const UsageInCard: Story = () => (
   <Card>
     <Tabs
       // eslint-disable-next-line no-console
-      onChange={index => console.log("Tab changed to ", index)}
+      onChange={(index): void => console.log("Tab changed to ", index)}
     >
       <TabList aria-label="Tabs">
         <Tab>Tab 1</Tab>

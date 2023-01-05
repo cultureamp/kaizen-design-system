@@ -46,7 +46,7 @@ const Wrapper = ({
   )
 }
 
-const getDateInput = () => screen.getByLabelText("Label")
+const getDateInput = (): HTMLInputElement => screen.getByLabelText("Label")
 
 describe("useDateInputHandlers", () => {
   describe("onChange", () => {

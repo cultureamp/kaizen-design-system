@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
@@ -30,7 +30,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingGraphic = args => <LoadingGraphic {...args} />
+export const DefaultLoadingGraphic: ComponentStory<
+  typeof LoadingGraphic
+> = args => <LoadingGraphic {...args} />
 DefaultLoadingGraphic.storyName = "Loading Graphic"
 DefaultLoadingGraphic.args = { size: "xlarge" }
 

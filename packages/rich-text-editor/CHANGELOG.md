@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.11...@kaizen/rich-text-editor@1.19.12) (2023-01-04)
+
+
+### Bug Fixes
+
+* RichTextEditor empty state value is now type safe ([#3164](https://github.com/cultureamp/kaizen-design-system/issues/3164)) ([a88e3fd](https://github.com/cultureamp/kaizen-design-system/commit/a88e3fd40662bdf574e7ee97ff5640c15135aaf5))
+
+
+
+
+
 ## [1.19.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.10...@kaizen/rich-text-editor@1.19.11) (2023-01-04)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor

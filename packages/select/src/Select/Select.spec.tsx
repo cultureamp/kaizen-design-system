@@ -9,7 +9,7 @@ const SelectWrapper = ({
   selectedKey,
   onSelectionChange,
   ...props
-}: Partial<SelectProps>) => {
+}: Partial<SelectProps>): JSX.Element => {
   const [selected, setSelected] = React.useState<SelectProps["selectedKey"]>(
     selectedKey ?? null
   )
@@ -20,7 +20,7 @@ const SelectWrapper = ({
       items={singleMockItems}
       description="This is a description"
       selectedKey={selected}
-      onSelectionChange={selection => {
+      onSelectionChange={(selection): void => {
         setSelected(selection)
         onSelectionChange?.(selection)
       }}

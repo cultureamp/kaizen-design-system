@@ -143,7 +143,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               locale="en-AU"
               selectedRange={rangeRemovableBase}
               onRangeChange={setRangeRemovableBase}
-              onRemoveFilter={() => undefined}
+              onRemoveFilter={(): void => undefined}
             />
           </div>
           <div>
@@ -153,7 +153,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               locale="en-AU"
               selectedRange={rangeRemovableExisting}
               onRangeChange={setRangeRemovableExisting}
-              onRemoveFilter={() => undefined}
+              onRemoveFilter={(): void => undefined}
             />
           </div>
         </StoryWrapper.Row>
@@ -182,7 +182,7 @@ StickerSheetDefault.parameters = {
   controls: { disable: true },
 }
 
-StickerSheetDefault.play = ({ canvasElement }) => {
+StickerSheetDefault.play = ({ canvasElement }): void => {
   const canvas = within(canvasElement)
   const filterButtonOpen = canvas
     .getByTestId("test__stickersheet--filter-drp--open")
