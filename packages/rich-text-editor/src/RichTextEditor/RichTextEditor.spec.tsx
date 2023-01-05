@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import { EditorContentArray } from "../types"
-import { RichTextEditor } from "./"
+import { RichTextEditor, RichTextEditorProps } from "./"
 
 // This helper is needed to simulate selection of a component since we
 // cannot userEvent.type with contenteditable
-const getSelectionOfNode = node => {
+const getSelectionOfNode = (node: Node): void => {
   // Clear any current selection
   const selection = window.getSelection()
   selection?.removeAllRanges()
@@ -17,34 +17,33 @@ const getSelectionOfNode = node => {
   selection?.addRange(range)
 }
 
-const TestRTE = args => {
+const TestRTE = (
+  args: Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby"> & {
+    rteMockData?: RichTextEditorProps["value"]
+  }
+): JSX.Element => {
   const { rteMockData, ...rest } = args
   const [rteData, setRTEData] = useState<EditorContentArray>(
     args.rteMockData || []
   )
   return (
-    <>
-      <RichTextEditor
-        value={rteData}
-        onChange={data => setRTEData(data)}
-        {...rest}
-      />
-    </>
+    <RichTextEditor
+      labelText="List RTE"
+      rows={3}
+      controls={[
+        { name: "orderedList", group: "list" },
+        { name: "bulletList", group: "list" },
+      ]}
+      value={rteData}
+      onChange={setRTEData}
+      {...rest}
+    />
   )
 }
 
 describe("RTE receives list controls", () => {
-  const defaultListArgs = {
-    labelText: "List RTE",
-    rows: 3,
-    controls: [
-      { name: "orderedList", group: "list" },
-      { name: "bulletList", group: "list" },
-    ],
-  }
-
   it("renders list buttons when receiving a list controls", () => {
-    render(<TestRTE {...defaultListArgs} />)
+    render(<TestRTE />)
 
     const bulletButton = screen.getByRole("button", { name: "Bullet List" })
     const orderedButton = screen.getByRole("button", { name: "Numbered List" })
@@ -53,7 +52,7 @@ describe("RTE receives list controls", () => {
   })
 
   it("renders indent buttons when receiving a list controls", () => {
-    render(<TestRTE {...defaultListArgs} />)
+    render(<TestRTE />)
 
     const decreaseIndentBtn = screen.getByRole("button", {
       name: "Decrease indent",
@@ -67,7 +66,7 @@ describe("RTE receives list controls", () => {
 
   describe("Creating list nodes with buttons", () => {
     it("will create a <ul> when user clicks the bullet list button", async () => {
-      render(<TestRTE {...defaultListArgs} />)
+      render(<TestRTE />)
 
       // We would use userEvent.type but contenteditable is not supported
       // see thread: https://github.com/testing-library/user-event/issues/230
@@ -84,7 +83,7 @@ describe("RTE receives list controls", () => {
     })
 
     it("will create a <ol> when user clicks the numbered list button", async () => {
-      render(<TestRTE {...defaultListArgs} />)
+      render(<TestRTE />)
 
       fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
         target: { textContent: "this will be a ol" },
@@ -136,7 +135,7 @@ describe("RTE receives list controls", () => {
     ]
 
     it("will render indent buttons as 'disabled'", () => {
-      render(<TestRTE {...defaultListArgs} />)
+      render(<TestRTE />)
 
       const decreaseIndentBtn = screen.getByRole("button", {
         name: "Decrease indent",
@@ -150,7 +149,7 @@ describe("RTE receives list controls", () => {
     })
 
     it("will enable increase indent when on a list item", () => {
-      render(<TestRTE {...defaultListArgs} rteMockData={rteListData} />)
+      render(<TestRTE rteMockData={rteListData} />)
 
       const firstListNode = document.querySelectorAll("li")[0]
       const decreaseIndentBtn = screen.getByRole("button", {

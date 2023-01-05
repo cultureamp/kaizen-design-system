@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import {
   render,
   fireEvent,
@@ -16,9 +16,7 @@ const ExampleModalWithState = (props: {
   children: React.ReactNode
 }): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState<boolean>(true)
-  const handleDismiss = () => {
-    setIsOpen(false)
-  }
+  const handleDismiss = (): void => setIsOpen(false)
 
   return (
     <GenericModal
@@ -76,6 +74,7 @@ describe("<GenericModal />", () => {
     fireEvent.click(getByTestId("GenericModalAutomationId-scrollLayer"))
     expect(handleDismiss).toHaveBeenCalledTimes(1)
   })
+
   it("warns when a <ModalAccessibleLabel /> is not rendered", async () => {
     const mockWarnFn = jest.fn()
     const spy = jest

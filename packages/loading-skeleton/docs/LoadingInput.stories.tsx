@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingInput = args => <LoadingInput {...args} />
+export const DefaultLoadingInput: ComponentStory<
+  typeof LoadingInput
+> = args => <LoadingInput {...args} />
 DefaultLoadingInput.storyName = "Loading Input"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

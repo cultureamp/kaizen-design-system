@@ -1,9 +1,10 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, RenderResult } from "@testing-library/react"
 import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 
-const renderDropdownButton = (props?: Partial<DropdownButtonProps>) =>
-  render(<DropdownButton {...props} />)
+const renderDropdownButton = (
+  props?: Partial<DropdownButtonProps>
+): RenderResult => render(<DropdownButton {...props} />)
 
 describe("<DropdownButton />", () => {
   it("renders icon with default aria-label", () => {

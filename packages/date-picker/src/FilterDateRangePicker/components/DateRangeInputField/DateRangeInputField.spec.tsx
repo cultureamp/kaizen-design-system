@@ -9,7 +9,7 @@ import {
 
 const DateRangeInputFieldWrapper = (
   props: Partial<DateRangeInputFieldProps>
-) => (
+): JSX.Element => (
   <DateRangeInputField
     id="test__date-range-input-field"
     legend="Dates"
@@ -73,12 +73,12 @@ describe("<DateRangeInputField />", () => {
         [string | undefined, string | undefined]
       >()
 
-      const Wrapper = () => {
+      const Wrapper = (): JSX.Element => {
         const inputRangeStartRef = useRef<HTMLInputElement>(null)
         const inputRangeEndRef = useRef<HTMLInputElement>(null)
         const ref = useRef({ inputRangeStartRef, inputRangeEndRef })
 
-        const handleClick = () =>
+        const handleClick = (): void =>
           onButtonClick(
             inputRangeStartRef.current?.id,
             inputRangeEndRef.current?.id

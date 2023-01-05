@@ -1,4 +1,5 @@
 import React from "react"
+import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Box } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
@@ -25,11 +26,13 @@ export default {
   decorators: [withDesign],
 }
 
-const OffsetPadding = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ margin: "-1rem" }}>{children}</div>
-)
+const OffsetPadding = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
-export const DefaultStory = () => (
+export const DefaultStory: Story = () => (
   <OffsetPadding>
     <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
     <Container>
@@ -57,7 +60,7 @@ export const DefaultStory = () => (
 )
 DefaultStory.storyName = "Container/Content (default)"
 
-export const FullBleedBackgroundStory = () => (
+export const FullBleedBackgroundStory: Story = () => (
   <OffsetPadding>
     <Container classNameOverride={styles.pink}>
       <Content classNameOverride={styles.white}>
@@ -84,16 +87,14 @@ export const FullBleedBackgroundStory = () => (
 FullBleedBackgroundStory.storyName = "Container/Content (Full-bleed background)"
 FullBleedBackgroundStory.parameters = { chromatic: { disable: false } }
 
-export const SkirtStory = () => (
+export const SkirtStory: Story = () => (
   <>
     <TitleBlockZen
       title="Skirt"
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[<NavigationTab text="Label" href="#" active />]}
     />
@@ -146,7 +147,7 @@ export const SkirtStory = () => (
 )
 SkirtStory.storyName = "Skirt (default)"
 
-export const SkirtEducationVariant = () => (
+export const SkirtEducationVariant: Story = () => (
   <>
     <TitleBlockZen
       variant="education"
@@ -154,9 +155,7 @@ export const SkirtEducationVariant = () => (
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab variant="education" text="Label" href="#" active />,
@@ -177,16 +176,14 @@ export const SkirtEducationVariant = () => (
 SkirtEducationVariant.storyName = "Skirt (Education variant)"
 SkirtEducationVariant.parameters = { chromatic: { disable: false } }
 
-export const SkirtWithoutTitleBlockNavigation = () => (
+export const SkirtWithoutTitleBlockNavigation: Story = () => (
   <>
     <TitleBlockZen
       title="Without Title Block navigation"
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       collapseNavigationAreaWhenPossible={true}
     />
@@ -247,16 +244,14 @@ SkirtWithoutTitleBlockNavigation.storyName =
   "Skirt (Title Block without navigation)"
 SkirtWithoutTitleBlockNavigation.parameters = { chromatic: { disable: false } }
 
-export const WithoutSkirtCard = () => (
+export const WithoutSkirtCard: Story = () => (
   <>
     <TitleBlockZen
       title="Without Skirt Card"
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       collapseNavigationAreaWhenPossible
     />

@@ -8,7 +8,7 @@ import { DatePickerProps } from "."
 const DatePickerWrapper = ({
   selectedDay,
   ...restProps
-}: Partial<DatePickerProps>) => {
+}: Partial<DatePickerProps>): JSX.Element => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(selectedDay)
 
   return (

@@ -240,7 +240,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-selected"
             labelText="Label"
             selectedDay={new Date(2022, 1, 5)}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             locale="en-AU"
           />
@@ -248,7 +248,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-description"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             description={
               <>
@@ -267,7 +267,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-disabled"
             labelText="Label"
             selectedDay={undefined}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             locale="en-AU"
             disabled
@@ -276,7 +276,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-error"
             labelText="Label"
             selectedDay={new Date("potato")}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             locale="en-AU"
           />
@@ -290,7 +290,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-enAU"
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             locale="en-AU"
           />
@@ -298,7 +298,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             id="datepicker-enUS"
             labelText="Label"
             selectedDay={new Date("2022, 1, 5")}
-            onDayChange={() => undefined}
+            onDayChange={(): void => undefined}
             isReversed={isReversed}
             locale="en-US"
           />

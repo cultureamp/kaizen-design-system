@@ -1,13 +1,9 @@
 import React from "react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./Collapsible.stories.module.scss"
-
-const ListItem = ({ children }: { children: JSX.Element }) => (
-  <div className={styles.listItem}>{children}</div>
-)
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 ac scelerisque sem, vel ultricies justo. Donec eu porttitor ante,
@@ -30,9 +26,9 @@ export default {
       },
     },
   },
-}
+} as ComponentMeta<typeof ExpertAdviceCollapsible>
 
-export const DefaultStory = () => (
+export const DefaultStory: Story = () => (
   <Box m={1}>
     <ExpertAdviceCollapsible id="123" title="Expert advice collapsible">
       <Paragraph variant="body">{lipsum}</Paragraph>

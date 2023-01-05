@@ -1,6 +1,5 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-
 import { WellProps } from "./Well"
 import { Well } from "."
 
@@ -12,7 +11,7 @@ const defaultWellProps = {
   children: "",
 }
 
-const renderWell = (props?: WellProps) => {
+const renderWell = (props?: WellProps): ReturnType<typeof render> => {
   const mergedWellProps = { ...defaultWellProps, ...props }
 
   return render(<Well {...mergedWellProps} />)

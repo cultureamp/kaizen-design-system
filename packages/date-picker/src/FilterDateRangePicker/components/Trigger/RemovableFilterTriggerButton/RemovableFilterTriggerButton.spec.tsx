@@ -10,7 +10,7 @@ const RemovableFilterTriggerButtonWrapper = ({
   triggerButtonProps,
   removeButtonProps,
   ...restProps
-}: Partial<RemovableFilterTriggerButtonProps>) => (
+}: Partial<RemovableFilterTriggerButtonProps>): JSX.Element => (
   <RemovableFilterTriggerButton
     triggerButtonProps={{
       ...triggerButtonProps,
@@ -38,7 +38,7 @@ describe("<RemovableFilterTriggerButton />", () => {
         [string | null | undefined, string | null | undefined]
       >()
 
-      const Wrapper = () => {
+      const Wrapper = (): JSX.Element => {
         const triggerButtonRef = useRef<HTMLButtonElement>(null)
         const removeButtonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef({ triggerButtonRef, removeButtonRef })

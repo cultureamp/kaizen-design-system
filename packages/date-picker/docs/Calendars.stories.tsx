@@ -132,10 +132,10 @@ StickerSheetDefault.parameters = {
   controls: { disable: true },
 }
 
-StickerSheetDefault.play = ({ canvasElement }) => {
+StickerSheetDefault.play = ({ canvasElement }): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (id: string, name: string) => {
+  const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     return within(calendar).getByRole("button", {
       name,

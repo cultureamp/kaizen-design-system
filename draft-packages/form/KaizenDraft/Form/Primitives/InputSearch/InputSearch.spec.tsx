@@ -10,7 +10,7 @@ const defaultInputProps = {
   onChange: jest.fn(),
 }
 
-const renderInput = (props?: InputSearchProps) => {
+const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
   return render(<InputSearch {...mergedInputProps} />)

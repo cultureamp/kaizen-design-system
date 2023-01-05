@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import * as AppearanceAnim from "./AppearanceAnim"
 import { Tooltip } from "./index"

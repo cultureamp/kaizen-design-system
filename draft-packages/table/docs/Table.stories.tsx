@@ -40,16 +40,14 @@ const ExampleTableHeaderRow = ({
   checkable = false,
   showHover = false,
   reversed = false,
-}) => (
+}): JSX.Element => (
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
       checkedStatus={"on"}
-      onCheck={evt => {
-        alert(evt.target.value)
-      }}
+      onCheck={(evt): void => alert(evt.target.value)}
       sorting="descending"
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
       wrapping="wrap"
@@ -57,7 +55,7 @@ const ExampleTableHeaderRow = ({
       reversed={reversed}
     />
     <TableHeaderRowCell
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
       wrapping="wrap"
@@ -67,7 +65,7 @@ const ExampleTableHeaderRow = ({
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
       reversed={reversed}
@@ -75,7 +73,7 @@ const ExampleTableHeaderRow = ({
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
       reversed={reversed}
@@ -88,7 +86,7 @@ const ExampleTableRow = ({
   expandable = true,
   multiline = false,
   description = "Table row label",
-}) => (
+}): JSX.Element => (
   <TableRow>
     <TableRowCell width={4 / 12}>
       {multiline ? (
@@ -145,7 +143,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = () => (
+export const DefaultKaizenSiteDemo: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -165,7 +163,7 @@ export const DefaultKaizenSiteDemo = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-const Multiline = isReversed => (
+const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -184,7 +182,7 @@ const Multiline = isReversed => (
   </Container>
 )
 
-export const DataVariant = () => (
+export const DataVariant: Story = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
@@ -204,7 +202,7 @@ export const DataVariant = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
-export const IconVariant = () => (
+export const IconVariant: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -266,7 +264,7 @@ export const IconVariant = () => (
 )
 IconVariant.parameters = { chromatic: { disable: false } }
 
-export const LinkVariant = () => (
+export const LinkVariant: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -276,7 +274,7 @@ export const LinkVariant = () => (
           <TableHeaderRowCell labelText="Header C" width={1 / 3} />
         </TableHeaderRow>
       </TableHeader>
-      <TableCard onClick={() => alert("Clicked!")}>
+      <TableCard onClick={(): void => alert("Clicked!")}>
         <TableRow>
           <TableRowCell width={1 / 3}>
             <Paragraph variant="body">This row has an onClick</Paragraph>
@@ -307,9 +305,13 @@ export const LinkVariant = () => (
 )
 LinkVariant.parameters = { chromatic: { disable: false } }
 
-const ExpandedPopout = isReversed => {
+const ExpandedPopout = ({
+  isReversed,
+}: {
+  isReversed: boolean
+}): JSX.Element => {
   const [expandedId, setExpandedId] = React.useState<string | null>("second")
-  const toggleExpanded = id => {
+  const toggleExpanded = (id: string): void => {
     if (expandedId === id) {
       setExpandedId(null)
       return
@@ -329,7 +331,7 @@ const ExpandedPopout = isReversed => {
               key={id}
               expandedStyle="popout"
               expanded={expanded}
-              onClick={() => toggleExpanded(id)}
+              onClick={(): void => toggleExpanded(id)}
             >
               <ExampleTableRow expanded={expanded} />
               {expanded && (
@@ -359,7 +361,7 @@ const ExpandedPopout = isReversed => {
   )
 }
 
-const Compact = () => (
+const Compact = (): JSX.Element => (
   <Container>
     <TableContainer>
       <TableCard>
@@ -375,7 +377,7 @@ const Compact = () => (
   </Container>
 )
 
-const Default = () => (
+const Default = (): JSX.Element => (
   <Container>
     <TableContainer variant="default">
       <TableCard>
@@ -391,7 +393,7 @@ const Default = () => (
   </Container>
 )
 
-export const HeaderAlignmentAndWrapping = () => (
+export const HeaderAlignmentAndWrapping: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -449,7 +451,7 @@ export const HeaderAlignmentAndWrapping = () => (
 )
 HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
-export const Tooltip = () => (
+export const Tooltip: Story = () => (
   // Extra margin added, so we can see the tooltip above
   <Container style={{ marginTop: "200px" }}>
     <TableContainer>
@@ -506,7 +508,7 @@ export const Tooltip = () => (
 )
 Tooltip.parameters = { chromatic: { disable: false } }
 
-export const AnchorLink = () => (
+export const AnchorLink: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -514,7 +516,7 @@ export const AnchorLink = () => (
           <TableHeaderRowCell
             labelText="This is an anchor"
             width={1 / 2}
-            onClick={e => {
+            onClick={(e: React.MouseEvent): void => {
               e.preventDefault()
               alert("Header was clicked")
             }}
@@ -524,7 +526,7 @@ export const AnchorLink = () => (
           <TableHeaderRowCell
             labelText="This is an anchor"
             width={1 / 2}
-            onClick={e => {
+            onClick={(e: React.MouseEvent): void => {
               e.preventDefault()
               alert("Header was clicked")
             }}
@@ -563,7 +565,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <Default />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Multiline">
-      <Multiline />
+      <Multiline isReversed={isReversed} />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Expanded popout">
       <ExpandedPopout isReversed={isReversed} />

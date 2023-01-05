@@ -32,7 +32,7 @@ const SelectionProviderWrapper = ({
   selectedKeys,
   onSelectionChange,
   ...props
-}: Partial<SelectionProviderProps>) => {
+}: Partial<SelectionProviderProps>): JSX.Element => {
   const [selected, setSelected] = useState<Selection>(selectedKeys ?? new Set())
 
   return (
@@ -41,20 +41,20 @@ const SelectionProviderWrapper = ({
       items={items}
       label="selection-label-mock"
       selectedKeys={selected}
-      onSelectionChange={selection => {
+      onSelectionChange={(selection): void => {
         setSelected(selection)
         onSelectionChange && onSelectionChange(selection)
       }}
       {...props}
     >
       <ListBox>
-        {({ selectedItems, unselectedItems, disabledItems }) => (
+        {({ selectedItems, unselectedItems, disabledItems }): JSX.Element => (
           <>
             <FilterMultiSelect.ListBoxSection
               items={selectedItems}
               sectionName="selectedItems"
             >
-              {selectedItem => (
+              {(selectedItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={selectedItem.key}
                   item={selectedItem}
@@ -66,7 +66,7 @@ const SelectionProviderWrapper = ({
               items={unselectedItems}
               sectionName="selectedItems"
             >
-              {unselectedItem => (
+              {(unselectedItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={unselectedItem.key}
                   item={unselectedItem}
@@ -78,7 +78,7 @@ const SelectionProviderWrapper = ({
               items={disabledItems}
               sectionName="disabledItems"
             >
-              {disabledItem => (
+              {(disabledItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={disabledItem.key}
                   item={disabledItem}
