@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { HTMLAttributes, useRef } from "react"
 import { createPortal } from "react-dom"
 import classnames from "classnames"
 import { motion, AnimatePresence } from "framer-motion"
@@ -28,7 +28,7 @@ const dropIn = {
   },
 }
 
-export interface RootProps {
+export interface RootProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
   accessibleLabelId: string
   children: React.ReactNode

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
 import { Heading, Paragraph } from "@kaizen/typography"
+import { HeaderMood } from "../Modal/components/Header"
 import { Modal } from "../"
 
 export interface ConfirmationModalProps {
@@ -13,6 +14,7 @@ export interface ConfirmationModalProps {
   bodyText: React.ReactNode
   confirmLabel: string
   cancelLabel: string
+  mood?: HeaderMood
 }
 
 export const ConfirmationModal = ({
@@ -24,6 +26,7 @@ export const ConfirmationModal = ({
   bodyText,
   confirmLabel,
   cancelLabel,
+  mood,
 }: ConfirmationModalProps): JSX.Element => {
   const [titleId] = useState<string>(v4())
   const [descriptionId] = useState<string>(v4())
@@ -35,7 +38,7 @@ export const ConfirmationModal = ({
       aria-describedby={descriptionId}
       role="alertdialog"
     >
-      <Modal.Header>
+      <Modal.Header mood={mood}>
         <Heading variant="heading-3" tag="div" id={titleId}>
           {headingText}
         </Heading>
@@ -53,6 +56,7 @@ export const ConfirmationModal = ({
             secondary
           />
           <Modal.ActionButton
+            destructive={mood === "negative"}
             label={confirmLabel}
             onClick={onConfirm}
             primary
