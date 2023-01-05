@@ -7,3 +7,5 @@ export const Modal = Object.assign(Root, {
   Actions,
   ActionButton,
 })
+
+Modal.displayName = "Modal"

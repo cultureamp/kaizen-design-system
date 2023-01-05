@@ -1,9 +1,8 @@
-import React, { useRef, HTMLAttributes } from "react"
+import React, { useRef } from "react"
 import { createPortal } from "react-dom"
 import classnames from "classnames"
 import { motion, AnimatePresence } from "framer-motion"
 import { FocusOn } from "react-focus-on"
-import { OverrideClassName } from "@kaizen/component-base"
 import { Backdrop } from "../Backdrop"
 import { CloseButton } from "../CloseButton"
 import styles from "./Root.scss"
@@ -29,8 +28,7 @@ const dropIn = {
   },
 }
 
-export interface RootProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export interface RootProps {
   isOpen: boolean
   accessibleLabelId: string
   children: React.ReactNode
@@ -41,7 +39,7 @@ export interface RootProps
   size?: "sm" | "md" | "lg"
 }
 
-export const Root = ({
+export const Root: React.FC<RootProps> = ({
   isOpen,
   onDismiss,
   dismissOnBackdropClick = true,
@@ -51,7 +49,7 @@ export const Root = ({
   size = "md",
   children,
   ...restProps
-}: RootProps) => {
+}) => {
   const dialogRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   return createPortal(
@@ -98,3 +96,5 @@ export const Root = ({
     document.body
   )
 }
+
+Root.displayName = "Root"

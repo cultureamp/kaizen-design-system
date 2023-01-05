@@ -1,24 +1,27 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Button, ButtonProps } from "@kaizen/button"
+import { OverrideClassName } from "@kaizen/component-base"
 import { useMediaQueries } from "@kaizen/responsive"
 import styles from "./ActionButton.scss"
 
-export interface ActionButtonProps {
+export interface ActionButtonProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   isAlignedStart?: boolean
 }
 
-export const ActionButton = ({
+export const ActionButton: React.FC<ButtonProps & ActionButtonProps> = ({
   isAlignedStart = false,
+  classNameOverride,
   ...restProps
-}: ButtonProps & ActionButtonProps): JSX.Element => {
+}): JSX.Element => {
   const {
     queries: { isSmall },
   } = useMediaQueries()
 
   return (
     <div
-      className={classnames({
+      className={classnames(classNameOverride, {
         [styles.alignStart]: isAlignedStart,
       })}
     >
@@ -26,3 +29,5 @@ export const ActionButton = ({
     </div>
   )
 }
+
+ActionButton.displayName = "ActionButton"
