@@ -4,6 +4,7 @@ import { Button } from "@kaizen/button"
 import { Modal } from "@kaizen/modal"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { HeaderMood } from "../src/Modal/components/Header"
 
 export default {
   title: `${CATEGORIES.components}/Modal`,
@@ -18,14 +19,27 @@ export default {
       },
     },
   },
-  argTypes: {},
 }
 
 export const DefaultStory: ComponentStory<typeof Modal> = props => {
   const [modalOpen, setModalOpen] = useState<boolean>(true)
+  const [mood, setMood] = useState<HeaderMood>()
   return (
     <>
       <Button label="Open modal" onClick={() => setModalOpen(true)} />
+      {/* TODO - Find a nicer way to toggle the sub component props of the Header Mood */}
+      <Paragraph variant="body">Update Mood:</Paragraph>
+      <select
+        name="moods"
+        id="moods"
+        onChange={e => setMood(e.target.value as HeaderMood)}
+      >
+        <option value="positive">positive</option>
+        <option value="informative">informative</option>
+        <option value="negative">negative</option>
+        <option value="cautionary">cautionary</option>
+        <option value="assertive">assertive</option>
+      </select>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
         tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
@@ -38,7 +52,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
@@ -52,7 +66,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
@@ -66,7 +80,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
@@ -80,7 +94,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
@@ -94,7 +108,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
@@ -108,7 +122,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         Mauris molestie tortor quis lectus euismod, non tincidunt ligula
         egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
         augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.{" "}
+        turpis. Suspendisse pharetra tincidunt lobortis.
       </Paragraph>
       <Modal
         {...props}
@@ -116,7 +130,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         onDismiss={() => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
-        <Modal.Header>
+        <Modal.Header mood={mood}>
           <Heading variant="heading-3" tag="div" id="my-modal-title">
             Some heading
           </Heading>
@@ -156,7 +170,6 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
     </>
   )
 }
-DefaultStory.storyName = "Modal"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
