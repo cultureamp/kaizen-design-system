@@ -36,6 +36,7 @@
   "devDependencies": {
     "@kaizen/button": "^2.0.11",
     "@kaizen/typography": "^2.3.3",
+    "@kaizen/responsive": "^1.8.3",
     "framer-motion": "^8.1.3",
     "react-focus-on": "^3.7.0",
     "rimraf": "^3.0.2"

@@ -1988,6 +1988,79 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@kaizen/button@^1.2.8":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-1.3.5.tgz#6110cf27316cd6fbb360b20f99a30b0c6deeb838"
+  integrity sha512-4m8yTPL2rD0syisZWIGXdqVDnJFNVjKBrx5qhln+HyMdSYL86bz7D/PH1tDjWMqkL3eQ3GWWaEXhudb+47Oxgw==
+  dependencies:
+    "@kaizen/component-library" "^16.1.2"
+    "@kaizen/draft-badge" "^1.13.2"
+    "@kaizen/loading-spinner" "^2.3.2"
+    classnames "^2.3.1"
+
+"@kaizen/button@^2.0.11":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-2.0.12.tgz#94070f642aa482293616f89508b523bccd917959"
+  integrity sha512-XdjAecOaBMNSQjYvjp0e7fJ2DwbtAf8QwWHU01rcpKjCViJPrwEFXpJ3sxZpZgLQYJoc8rjKeAl6z4ys6gV5tw==
+  dependencies:
+    "@kaizen/component-library" "^16.1.14"
+    "@kaizen/draft-badge" "^1.13.4"
+    "@kaizen/loading-spinner" "^2.3.4"
+    classnames "^2.3.2"
+
+"@kaizen/component-library@^14.3.4":
+  version "14.3.6"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-14.3.6.tgz#bbc8beb7af1bd619de0e3e8c4c292050683bcd28"
+  integrity sha512-7fXTOOLuGIgsE+SmsfCCyWQfFlkhsgv0i5Va3FwSPBdO5RSkCmnxOHxNRFGydkQ0vAiBYTJmGKlXl8aGdC43dg==
+  dependencies:
+    "@kaizen/component-base" "^1.1.0"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
+    "@kaizen/hosted-assets" "^2.0.0"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.182"
+    "@types/uuid" "^3.4.10"
+    classnames "^2.3.1"
+    motion-ui cultureamp/motion-ui
+
+"@kaizen/component-library@^16.1.14":
+  version "16.1.14"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.1.14.tgz#9fcba1ea0c3b3217e9107347da359e6988b389a9"
+  integrity sha512-nkyUF5s3mLNBVGv8cUDfJotVeBcXJFqnBYD+gg96Zs1O2d7n1lmEKwkMdkHpYuHStKhI6rmNPTnLyWvpxjlzCA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.1"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@kaizen/hosted-assets" "^2.0.1"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.191"
+    "@types/uuid" "^9.0.0"
+    classnames "^2.3.2"
+
+"@kaizen/draft-badge@^1.13.4":
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.13.4.tgz#e3dcdb3d67eb8f7055423386227bfb5ccf4dd5da"
+  integrity sha512-01dJfrdgXGxWKwQV5bopmviotuGl5jdAEcDpeISuZVXgXZLTIT1r++nXfDcrsuo60QqOMBNm/P4pXaXrWX0fQQ==
+  dependencies:
+    "@kaizen/component-base" "^1.1.1"
+    classnames "^2.3.2"
+
+"@kaizen/hosted-assets@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-2.0.1.tgz#c30829d2f8a8b9add6e2d8b34f6d08eb1b01232b"
+  integrity sha512-IAsT23MILMIT3Us9SENar51oUi0SV677m9G3js56tW+Lq9rNLdynQDhrxem4RhF+W+YeaLS+wy9AshspNCyQ0Q==
+
+"@kaizen/loading-spinner@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.3.4.tgz#e7e59b043d649e60a5a1bc57e7a399701a7343bc"
+  integrity sha512-pQLgwAltBiuuHQuoAXTdqXQ7wjSF3pjo6ybJ6/e89btN8fWYdeCdode4cvUGtyGU7ZqcKnP3aQDK6BY7BFdK6A==
+  dependencies:
+    "@kaizen/component-base" "^1.1.1"
+    classnames "^2.3.2"
+
+"@kaizen/responsive@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/responsive/-/responsive-1.8.3.tgz#e2176ef4d8c4b9794fbdc4c593aee7b778a518cf"
+  integrity sha512-MueCbcGLeKNe9GL/NM6RdJyHsUu/sWw2OvfgEpR2LERPhEV0B1JPNlh9H5w9xjLlRObC7+xn7x0pCVBZvEhrbQ==
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
