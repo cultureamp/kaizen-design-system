@@ -4,7 +4,7 @@ import { Button } from "@kaizen/button"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { InformationReportOwnerByRule } from "@kaizen/draft-illustration"
 import { Modal } from "@kaizen/modal"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { HeaderMood } from "../src/Modal/components/Header"
 import styles from "./Modal.stories.module.scss"
@@ -137,9 +137,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         accessibleLabelId="my-modal-title"
       >
         <Modal.Header mood={mood}>
-          <Heading variant="heading-3" tag="div" id="my-modal-title">
-            Some heading
-          </Heading>
+          <Modal.Title id="my-modal-title">Some Modal Title</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Paragraph variant="body">
@@ -228,9 +226,7 @@ export const FormModal: ComponentStory<typeof Modal> = props => {
         accessibleLabelId="my-modal-title"
       >
         <Modal.Header>
-          <Heading variant="heading-3" tag="div" id="my-modal-title">
-            Create Skill
-          </Heading>
+          <Modal.Title id="my-modal-title">Create Skill</Modal.Title>
         </Modal.Header>
         <Modal.Body classNameOverride={styles.grayBackground}>
           <TextField
@@ -289,9 +285,9 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
           <InformationReportOwnerByRule alt="" />
         </div>
         <Modal.Header>
-          <Heading variant="heading-3" tag="div" id="my-modal-title">
+          <Modal.Title id="my-modal-title">
             Introducing a new feature
-          </Heading>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Paragraph variant="body">

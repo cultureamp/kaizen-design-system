@@ -1,7 +1,8 @@
-import { Body, Footer, Header, Root, ActionButton } from "./components"
+import { Body, Footer, Header, Root, ActionButton, Title } from "./components"
 
 export const Modal = Object.assign(Root, {
   Header,
+  Title,
   Body,
   Footer,
   ActionButton,
