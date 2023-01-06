@@ -42,7 +42,7 @@
     "@react-stately/datepicker": "^3.2.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
-    "react-day-picker": "^8.3.7",
+    "react-day-picker": "^8.4.1",
     "react-focus-on": "^3.7.0",
     "react-popper": "^2.3.0"
   },

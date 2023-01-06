@@ -16650,10 +16650,10 @@ react-clientside-effect@^1.2.6:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-react-day-picker@^8.3.7:
-  version "8.3.7"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.3.7.tgz#35de1325376984e4dbaec1fed6888f45dc46ad1d"
-  integrity sha512-sQvyJde6OKsXIB0ZFwUBmaDNb4IyKypv/uSyauQ6AUw4F6vmPijJsQNEVsxrxXQ4L3GZKIpcCD/7Pftz/sLegA==
+react-day-picker@^8.4.1:
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.4.1.tgz#341572d7110d7e286f311f8f173ed9cb304eae6a"
+  integrity sha512-uqp/d3POv7127MmL7A16BNW746zYM/CxwfFdVanHMunKh2/8Y2a188KUpiHZH2Ck8IQlcS0I5HgC7xpRbBxK9w==
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
