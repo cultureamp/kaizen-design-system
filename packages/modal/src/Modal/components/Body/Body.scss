@@ -2,4 +2,6 @@
 
 .body {
   padding: $spacing-md;
+  overflow: auto;
+  max-height: 80%;
 }

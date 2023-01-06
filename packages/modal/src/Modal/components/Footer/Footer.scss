@@ -2,4 +2,11 @@
 
 .footer {
   padding: 0px $spacing-md $spacing-md;
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-sm;
+}
+
+.footer.fullWidth {
+  display: block;
 }

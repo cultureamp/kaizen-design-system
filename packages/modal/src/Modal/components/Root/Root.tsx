@@ -86,7 +86,9 @@ export const Root: React.FC<RootProps> = ({
                 {...restProps}
               >
                 {!hideCloseButton && <CloseButton onClick={onDismiss} />}
-                <div ref={contentRef}>{children}</div>
+                <div className={styles.content} ref={contentRef}>
+                  {children}
+                </div>
               </motion.div>
             </FocusOn>
           </div>

@@ -174,24 +174,22 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
           </Paragraph>
         </Modal.Body>
         <Modal.Footer>
-          <Modal.Actions>
-            <Modal.ActionButton
-              label="Tertiary"
-              isAlignedStart
-              secondary
-              onClick={() => setModalOpen(false)}
-            />
-            <Modal.ActionButton
-              secondary
-              label="Secondary"
-              onClick={() => setModalOpen(false)}
-            />
-            <Modal.ActionButton
-              primary
-              label="Primary"
-              onClick={() => setModalOpen(false)}
-            />
-          </Modal.Actions>
+          <Modal.ActionButton
+            label="Tertiary"
+            isAlignedStart
+            secondary
+            onClick={() => setModalOpen(false)}
+          />
+          <Modal.ActionButton
+            secondary
+            label="Secondary"
+            onClick={() => setModalOpen(false)}
+          />
+          <Modal.ActionButton
+            primary
+            label="Primary"
+            onClick={() => setModalOpen(false)}
+          />
         </Modal.Footer>
       </Modal>
     </>
@@ -245,13 +243,11 @@ export const FormModal: ComponentStory<typeof Modal> = props => {
           <TextAreaField id="text-area-default" labelText="Description" />
         </Modal.Body>
         <Modal.Footer classNameOverride={styles.grayBackground}>
-          <Modal.Actions>
-            <Modal.ActionButton
-              primary
-              label="Done"
-              onClick={() => setModalOpen(false)}
-            />
-          </Modal.Actions>
+          <Modal.ActionButton
+            primary
+            label="Done"
+            onClick={() => setModalOpen(false)}
+          />
         </Modal.Footer>
       </Modal>
     </>
@@ -303,13 +299,11 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
           </Paragraph>
         </Modal.Body>
         <Modal.Footer>
-          <Modal.Actions>
-            <Modal.ActionButton
-              primary
-              label="Done"
-              onClick={() => setModalOpen(false)}
-            />
-          </Modal.Actions>
+          <Modal.ActionButton
+            primary
+            label="Done"
+            onClick={() => setModalOpen(false)}
+          />
         </Modal.Footer>
       </Modal>
     </>

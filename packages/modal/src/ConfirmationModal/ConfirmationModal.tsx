@@ -49,19 +49,13 @@ export const ConfirmationModal = ({
         </Paragraph>
       </Modal.Body>
       <Modal.Footer>
-        <Modal.Actions>
-          <Modal.ActionButton
-            label={cancelLabel}
-            onClick={onCancel}
-            secondary
-          />
-          <Modal.ActionButton
-            destructive={mood === "negative"}
-            label={confirmLabel}
-            onClick={onConfirm}
-            primary
-          />
-        </Modal.Actions>
+        <Modal.ActionButton label={cancelLabel} onClick={onCancel} secondary />
+        <Modal.ActionButton
+          destructive={mood === "negative"}
+          label={confirmLabel}
+          onClick={onConfirm}
+          primary
+        />
       </Modal.Footer>
     </Modal>
   )
