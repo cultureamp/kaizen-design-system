@@ -4,6 +4,7 @@ import isChromatic from "chromatic"
 import { withDesign } from "storybook-addon-designs"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -110,6 +111,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     iconPosition: "end",
   }
 
+  const BADGE_PROPS: ButtonProps = {
+    label: "Label",
+    badge: { text: "4" },
+  }
+  const BADGE_LEFT_PROPS: ButtonProps = {
+    ...BADGE_PROPS,
+    icon: filterIcon,
+  }
+
+  const BADGE_RIGHT_PROPS: ButtonProps = {
+    ...BADGE_PROPS,
+    icon: arrowRight,
+    iconPosition: "end",
+  }
+
   return (
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
@@ -200,9 +216,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         </StickerSheet>
       )}
 
-      <StickerSheet isReversed={isReversed} heading="Working / With Icon">
+      <StickerSheet
+        isReversed={isReversed}
+        heading="Working / With Icon / With Badge"
+      >
         <StickerSheet.Header
-          headings={["Working", "Working (Focus)", "Icon Left", "Icon Right"]}
+          headings={[
+            "Working",
+            "Working (Focus)",
+            "Icon Left",
+            "Icon Right",
+            "Icon Left with Badge",
+            "Icon Right with Badge",
+            "Badge Only",
+          ]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -219,6 +246,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               />
               <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
               <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_LEFT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_RIGHT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
