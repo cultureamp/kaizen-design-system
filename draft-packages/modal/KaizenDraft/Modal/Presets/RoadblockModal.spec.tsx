@@ -1,15 +1,17 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render, fireEvent } from "@testing-library/react"
 import RoadblockModal, { RoadblockModalProps } from "./RoadblockModal"
 import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const RoadblockModalWrapper = (props: Partial<RoadblockModalProps>) => (
+const RoadblockModalWrapper = (
+  props: Partial<RoadblockModalProps>
+): JSX.Element => (
   <RoadblockModal
     isOpen={true}
     title="Example modal title"
-    onDismiss={() => undefined}
+    onDismiss={(): void => undefined}
     children="Example modal body"
     {...props}
   />

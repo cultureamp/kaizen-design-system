@@ -15,11 +15,11 @@ export interface {{pascalCase componentName}}Props extends OverrideClassName<HTM
   exampleRequiredString: string
 }
 
-export const {{pascalCase componentName}}: React.VFC<{{pascalCase componentName}}Props> = ({
+export const {{pascalCase componentName}} = ({
   exampleRequiredString,
   classNameOverride,
   ...restProps
-}) => {
+}: {{pascalCase componentName}}Props): JSX.Element => {
   return (
     <div
       className={classnames([

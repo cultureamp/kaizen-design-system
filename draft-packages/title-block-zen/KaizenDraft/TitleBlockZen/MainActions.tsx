@@ -25,7 +25,7 @@ const MainActions = ({
   reversed = false,
   overflowMenuItems,
   showOverflowMenu = false,
-}: MainActionsProps) => {
+}: MainActionsProps): JSX.Element => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = primaryAction.menuItems.map((item, idx) => (

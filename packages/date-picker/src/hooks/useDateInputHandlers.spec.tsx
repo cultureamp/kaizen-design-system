@@ -9,9 +9,7 @@ import { useDateInputHandlers } from "./useDateInputHandlers"
 
 const onDateChange = jest.fn<void, [Date | undefined]>()
 
-const Wrapper: React.VFC<
-  Partial<DateInputProps & { disabledDays?: Matcher[] | undefined }>
-> = ({
+const Wrapper = ({
   value = "",
   onChange,
   onFocus,
@@ -19,7 +17,9 @@ const Wrapper: React.VFC<
   onKeyDown,
   disabledDays,
   ...restProps
-}) => {
+}: Partial<
+  DateInputProps & { disabledDays?: Matcher[] | undefined }
+>): JSX.Element => {
   const [inputValue, setInputValue] = useState<DateInputProps["value"]>(value)
   const handlers = useDateInputHandlers({
     locale: enAU,
@@ -46,7 +46,7 @@ const Wrapper: React.VFC<
   )
 }
 
-const getDateInput = () => screen.getByLabelText("Label")
+const getDateInput = (): HTMLInputElement => screen.getByLabelText("Label")
 
 describe("useDateInputHandlers", () => {
   describe("onChange", () => {

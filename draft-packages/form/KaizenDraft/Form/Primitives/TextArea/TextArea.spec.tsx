@@ -10,7 +10,7 @@ const defaultTextAreaProps = {
   onChange: jest.fn(),
 }
 
-const renderTextArea = (props?: TextAreaProps) => {
+const renderTextArea = (props?: TextAreaProps): ReturnType<typeof render> => {
   const mergedTextAreaProps = { ...defaultTextAreaProps, ...props }
 
   return render(<TextArea {...mergedTextAreaProps} />)

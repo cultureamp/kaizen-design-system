@@ -1,8 +1,8 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
-import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { Badge, BadgeAnimated, BadgeProps } from "@kaizen/draft-badge"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -25,13 +25,15 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof Badge>
+
 type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void
 }
-const BadgeAnimationStoryWrapper: React.VFC<
-  BadgeAnimationStoryWrapperProps
-> = ({ children }) => {
+
+const BadgeAnimationStoryWrapper = ({
+  children,
+}: BadgeAnimationStoryWrapperProps): JSX.Element => {
   const [useAnimation, setUseAnimation] = React.useState(false)
   const [badgeCount, setBadgeCount] = React.useState(1)
 
@@ -41,32 +43,43 @@ const BadgeAnimationStoryWrapper: React.VFC<
       <div style={{ height: "40px" }} />
       <ToggleSwitchField
         toggledStatus={useAnimation ? ToggledStatus.ON : ToggledStatus.OFF}
-        onToggle={() => {
-          setUseAnimation(s => !s)
-        }}
+        onToggle={(): void => setUseAnimation(s => !s)}
         labelText="Use Animation"
       />
       {useAnimation && (
         <Button
           label="Add Badge Number"
-          onClick={() => {
-            setBadgeCount(s => s + 1)
-          }}
+          onClick={(): void => setBadgeCount(s => s + 1)}
         />
       )}
     </>
   )
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
+  variant,
+  ...args
+}) => (
   <BadgeAnimationStoryWrapper>
-    {(badgeCount, useAnimation) =>
-      useAnimation ? (
-        <BadgeAnimated {...args}>{badgeCount}</BadgeAnimated>
+    {(badgeCount, useAnimation): JSX.Element => {
+      if (useAnimation) {
+        return variant === "dot" ? (
+          <BadgeAnimated variant={variant} {...args} />
+        ) : (
+          <BadgeAnimated variant={variant} {...args}>
+            {badgeCount}
+          </BadgeAnimated>
+        )
+      }
+
+      return variant === "dot" ? (
+        <Badge variant={variant} {...args} />
       ) : (
-        <Badge {...args}>{badgeCount}</Badge>
+        <Badge variant={variant} {...args}>
+          {badgeCount}
+        </Badge>
       )
-    }
+    }}
   </BadgeAnimationStoryWrapper>
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"

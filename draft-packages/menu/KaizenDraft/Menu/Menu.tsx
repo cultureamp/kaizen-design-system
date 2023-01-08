@@ -27,18 +27,18 @@ export type MenuProps = Omit<
  * {@link https://cultureamp.design/components/menu/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-menu--auto-hide-behaviours Storybook}
  */
-const Menu: React.FunctionComponent<MenuProps> = ({
+const Menu = ({
   button,
   menuVisible = false,
   ...rest
-}) => {
+}: MenuProps): JSX.Element => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(menuVisible)
 
-  const toggleMenuDropdown = () => {
+  const toggleMenuDropdown = (): void => {
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const hideMenuDropdown = () => {
+  const hideMenuDropdown = (): void => {
     setIsMenuVisible(false)
   }
 
@@ -54,7 +54,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       // to unexpected behaviour, and it doesn't self document. Hence, the switch
       // to the render function. It would be nice if the `Menu` component also
       // used this pattern, but it's probably not worth the time and effort.
-      renderButton={props =>
+      renderButton={(props): JSX.Element =>
         React.cloneElement(button, {
           ...props,
           onClick: (e: React.MouseEvent<Element, MouseEvent>) => {

@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "16.1.11",
+  "version": "16.1.14",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -33,14 +33,14 @@
   "dependencies": {
     "@kaizen/component-base": "^1.1.1",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
-    "@kaizen/hosted-assets": "^2.0.0",
+    "@kaizen/hosted-assets": "^2.0.1",
     "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.191",
     "@types/uuid": "^9.0.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.19.0",
+    "@testing-library/dom": "^8.19.1",
     "rimraf": "^3.0.2"
   },
   "scripts": {

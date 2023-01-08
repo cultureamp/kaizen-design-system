@@ -1,8 +1,8 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 
-import { CheckboxProps, CheckedStatus } from "./Checkbox"
+import { CheckboxProps } from "./Checkbox"
 import { Checkbox } from "."
 
 afterEach(cleanup)
@@ -16,7 +16,7 @@ const defaultProps: CheckboxProps = {
   onCheck: jest.fn(),
 }
 
-const renderCheckbox = (props?: CheckboxProps) => {
+const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultProps, ...props }
 
   return render(<Checkbox {...mergedInputProps} />)

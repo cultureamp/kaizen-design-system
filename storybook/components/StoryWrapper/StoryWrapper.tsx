@@ -23,18 +23,13 @@ export interface StoryWrapperProps {
   hasRowDivider?: boolean
 }
 
-type Subcomponents = {
-  Row: typeof StoryRow
-  RowHeader: typeof StoryRowHeader
-}
-
-export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
+export const StoryWrapper = ({
   children,
   hasNoRowTitles = false,
   isReversed = false,
   hasColumnDivider = false,
   hasRowDivider = false,
-}) => {
+}: StoryWrapperProps): JSX.Element => {
   const childrenCount: number = React.Children.count(children)
 
   return (

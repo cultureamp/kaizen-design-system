@@ -31,13 +31,22 @@ export function mapLeafsOfObject<
     currentPath: string[],
     obj: O
   ): DeepMapObjectLeafs<O, Value> => {
-    const handleEntry = (key: string, value: unknown) => {
+    const handleEntry = (
+      key: string,
+      value: unknown
+    ):
+      | {
+          [x: string]: unknown
+          [x: number]: unknown
+        }
+      | Value => {
       const pathToKey = [...currentPath, key]
       if (typeof value === "object" && value !== null && value !== undefined) {
         return recurser(pathToKey, value as Record<string | number, unknown>)
       }
       return mapper(pathToKey, value)
     }
+
     return Object.entries(obj).reduce(
       (acc, [nextKey, nextValue]) => ({
         ...acc,

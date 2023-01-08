@@ -32,7 +32,7 @@ export type MenuItemProps = {
   isActive?: boolean
 }
 
-const MenuItem = (props: MenuItemProps) => {
+const MenuItem = (props: MenuItemProps): JSX.Element => {
   const {
     label,
     icon,

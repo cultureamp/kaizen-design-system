@@ -1,5 +1,11 @@
 module.exports = {
   extends: ["./packages/stylelint-plugin/dev-config.js"],
+  overrides: [
+    {
+      files: ["*.scss", "**/*.scss"],
+      customSyntax: "postcss-scss",
+    },
+  ],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,

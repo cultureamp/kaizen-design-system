@@ -1,7 +1,7 @@
 import React from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
-export const App = () => {
+export const App = (): JSX.Element => {
   const theme = useTheme()
   return (
     <div

@@ -28,16 +28,16 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     if (apply) this.applyCurrentTheme()
   }
 
-  public getRootElement = () => this.rootElement
-  public getRootElementId = () => this.rootElementId
-  public getCurrentTheme = () => this.theme
+  public getRootElement = (): HTMLElement | null => this.rootElement
+  public getRootElementId = (): string => this.rootElementId
+  public getCurrentTheme = (): Theme => this.theme
 
-  public setRootElement = (element: HTMLElement) => {
+  public setRootElement = (element: HTMLElement): void => {
     this.rootElement = element
   }
-  public setRootElementId = (rootElementId: string) =>
+  public setRootElementId = (rootElementId: string): string =>
     (this.rootElementId = rootElementId)
-  public setAndApplyTheme = (theme: Theme, force?: boolean) => {
+  public setAndApplyTheme = (theme: Theme, force?: boolean): void => {
     if (!force) {
       if (this.theme === theme) return
     }
@@ -46,15 +46,17 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.notifyThemeChangeListeners(theme)
   }
 
-  public addThemeChangeListener = (listener: (theme: Theme) => void) => {
+  public addThemeChangeListener = (listener: (theme: Theme) => void): void => {
     this.themeChangeListeners.push(listener)
   }
-  public removeThemeChangeListener = (listener: (theme: Theme) => void) => {
+  public removeThemeChangeListener = (
+    listener: (theme: Theme) => void
+  ): void => {
     this.themeChangeListeners = this.themeChangeListeners.filter(
       l => l !== listener
     )
   }
-  public applyCurrentTheme = () => {
+  public applyCurrentTheme = (): void => {
     if (typeof window !== "undefined") {
       this.setRootElement(
         document.getElementById(this.rootElementId) ?? document.documentElement
@@ -66,7 +68,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     }
   }
 
-  private notifyThemeChangeListeners = (theme: Theme) => {
+  private notifyThemeChangeListeners = (theme: Theme): void => {
     this.themeChangeListeners.forEach(listener => listener(theme))
   }
 }

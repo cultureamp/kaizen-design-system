@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -23,7 +23,7 @@ export default {
       description: {
         component: 'import { Paragraph } from "@kaizen/typography"',
       },
-      page: () => (
+      page: (): JSX.Element => (
         <>
           <Title />
           <Subtitle />
@@ -42,7 +42,7 @@ export default {
   decorators: [withDesign],
 }
 
-const Documentation = () => (
+const Documentation = (): JSX.Element => (
   <Paragraph variant="body">
     <ul>
       <li>
@@ -82,7 +82,7 @@ const Documentation = () => (
   </Paragraph>
 )
 
-export const Body = args => (
+export const Body: ComponentStory<typeof Paragraph> = args => (
   <Paragraph {...args}>The quick brown fox jumps over the lazy dog.</Paragraph>
 )
 Body.storyName = "Paragraph"

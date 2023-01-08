@@ -66,12 +66,12 @@ export const FilterMenuButton = ({
   toggleDropdown,
   hideDropdown,
   onFilterClear,
-}: FilterMenuButtonProps) => {
+}: FilterMenuButtonProps): JSX.Element => {
   const dropdownId = `${id}-dropdown`
   return (
     <div id={id} className={styles.filterMenuButton}>
       <StatelessMenu
-        renderButton={({ onClick, onMouseDown }) => (
+        renderButton={({ onClick, onMouseDown }): JSX.Element => (
           <FilterSplitButton
             {...{
               isDropdownVisible,
@@ -91,7 +91,7 @@ export const FilterMenuButton = ({
         dropdownWidth="contain"
         dropdownId={dropdownId}
         autoHide={autoHide}
-        onClick={e => e.stopPropagation()}
+        onClick={(e): void => e.stopPropagation()}
       >
         {children}
       </StatelessMenu>

@@ -5,16 +5,16 @@ import { DateRange } from "react-day-picker"
 import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
 import { formatDateRangeValue } from "./utils/formatDateRangeValue"
 
-const DateRangePickerWrapper = ({
-  ...restProps
-}: Partial<DateRangePickerProps>) => {
+const DateRangePickerWrapper = (
+  props: Partial<DateRangePickerProps>
+): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
   })
   const [value, setValue] = useState("")
 
-  const onDateRangeChange = (dateRange: DateRange) => {
+  const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)
   }
 
@@ -30,7 +30,7 @@ const DateRangePickerWrapper = ({
       onChange={onDateRangeChange}
       value={value}
       defaultMonth={new Date("2022-03-01")}
-      {...restProps}
+      {...props}
     />
   )
 }

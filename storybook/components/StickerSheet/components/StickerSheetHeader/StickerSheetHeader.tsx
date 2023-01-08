@@ -10,14 +10,14 @@ export interface StickerSheetHeaderProps
   verticalHeadingsWidth?: number | string
 }
 
-export const StickerSheetHeader: React.VFC<StickerSheetHeaderProps> = ({
+export const StickerSheetHeader = ({
   headings,
   headingsWidth,
   isReversed = false,
   hasVerticalHeadings = false,
   verticalHeadingsWidth = "7rem",
   ...restProps
-}) => (
+}: StickerSheetHeaderProps): JSX.Element => (
   <thead {...restProps}>
     <tr>
       {hasVerticalHeadings && <th style={{ width: verticalHeadingsWidth }} />}

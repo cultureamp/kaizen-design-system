@@ -12,7 +12,10 @@ import {
 import { Paragraph, Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./EmptyState.module.scss"
 
-const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
+const ILLUSTRATIONS: Record<
+  string,
+  (props: AnimatedSceneProps) => JSX.Element
+> = {
   positive: EmptyStatesPositive,
   neutral: EmptyStatesNeutral,
   negative: EmptyStatesNegative,
@@ -55,7 +58,7 @@ export interface EmptyStateProps
  * {@link https://cultureamp.design/components/empty-state/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-empty-state--default-kaizen-site-demo Storybook}
  */
-export const EmptyState: React.VFC<EmptyStateProps> = ({
+export const EmptyState = ({
   children,
   id,
   illustrationType = "informative",
@@ -69,7 +72,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   automationId,
   classNameOverride,
   ...props
-}) => {
+}: EmptyStateProps): JSX.Element => {
   const IllustrationComponent = ILLUSTRATIONS[illustrationType]
 
   return (

@@ -9,13 +9,13 @@ export interface StickerSheetRowProps
   isReversed?: boolean
 }
 
-export const StickerSheetRow: React.VFC<StickerSheetRowProps> = ({
+export const StickerSheetRow = ({
   children,
   rowTitle,
   isReversed = false,
   dir,
   ...restProps
-}) => (
+}: StickerSheetRowProps): JSX.Element => (
   <tr {...restProps}>
     {rowTitle && (
       <StickerSheetTableHeading isReversed={isReversed}>

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.17...@kaizen/draft-tile@5.9.18) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.9.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.16...@kaizen/draft-tile@5.9.17) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.9.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.15...@kaizen/draft-tile@5.9.16) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [5.9.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.14...@kaizen/draft-tile@5.9.15) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-tile

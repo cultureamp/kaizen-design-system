@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.15.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.4...@kaizen/date-picker@5.15.5) (2023-01-06)
+
+
+### Bug Fixes
+
+* **deps:** upgrade stylelint to 14.x ([#3186](https://github.com/cultureamp/kaizen-design-system/issues/3186)) ([712bb81](https://github.com/cultureamp/kaizen-design-system/commit/712bb815ef534f3ad289dd96ea06e5954f3bd22c))
+
+
+
+
+
+## [5.15.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.3...@kaizen/date-picker@5.15.4) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.15.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.2...@kaizen/date-picker@5.15.3) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.15.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.1...@kaizen/date-picker@5.15.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.15.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.0...@kaizen/date-picker@5.15.1) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 # [5.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.14.0...@kaizen/date-picker@5.15.0) (2022-12-16)
 
 

@@ -18,7 +18,7 @@ export interface RadioGroupProps
   automationId?: string
 }
 
-export const RadioGroup: React.VFC<RadioGroupProps> = ({
+export const RadioGroup = ({
   children,
   labelText,
   labelId,
@@ -27,7 +27,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
   automationId = "",
   classNameOverride,
   ...restProps
-}) => (
+}: RadioGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.radioGroupContainer, classNameOverride, {

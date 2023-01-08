@@ -6,11 +6,11 @@ interface NodeData {
 
 interface Ports {
   [key: string]: {
-    subscribe: (arg?: (NodeData) => void) => void
+    subscribe: (arg?: (nodeData: NodeData) => void) => void
   }
 }
 
-export default (ports: Ports) => {
+export default (ports: Ports): void => {
   let activeMutationObserver: MutationObserver | undefined
 
   const config: MutationObserverInit = { characterData: true, subtree: true }

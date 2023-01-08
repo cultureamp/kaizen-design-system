@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentMeta, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
@@ -81,9 +81,12 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof SplitButton>
 
-export const DefaultKaizenSiteDemo = args => <SplitButton {...args} />
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof SplitButton
+> = args => <SplitButton {...args} />
 DefaultKaizenSiteDemo.storyName = "Split Button"
 DefaultKaizenSiteDemo.args = {
+  // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
   actionButtonProps: "Button",
   dropdownContent: "MenuList - MenuItems enabled",
 }

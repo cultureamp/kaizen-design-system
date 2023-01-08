@@ -1,7 +1,5 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import "@testing-library/jest-dom"
-
 import { LikertScaleLegacy, LikertScaleProps } from "./LikertScaleLegacy"
 import { Scale } from "./types"
 
@@ -32,12 +30,14 @@ const scale: Scale = [
   },
 ]
 
-const LikertScaleLegacyWrapper = (props: Partial<LikertScaleProps>) => (
+const LikertScaleLegacyWrapper = (
+  props: Partial<LikertScaleProps>
+): JSX.Element => (
   <LikertScaleLegacy
     scale={scale}
     labelId="test__likert-scale"
     selectedItem={null}
-    onSelect={() => undefined}
+    onSelect={(): void => undefined}
     {...props}
   />
 )

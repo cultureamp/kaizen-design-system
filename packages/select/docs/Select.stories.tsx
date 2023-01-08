@@ -69,12 +69,12 @@ type MockListBoxProps = {
   disabledValues?: React.Key[]
 }
 
-const MockListBox: React.VFC<MockListBoxProps> = ({
+const MockListBox = ({
   optionClassName,
   selectedKey,
   isFullWidth,
   disabledValues,
-}) => {
+}: MockListBoxProps): JSX.Element => {
   const mockState = useSelectState({
     selectedKey: selectedKey ?? undefined,
     items: singleMockItems,
@@ -126,7 +126,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={"id-sre"}
-          trigger={triggerProps => (
+          trigger={(triggerProps): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-selected"
@@ -140,7 +140,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           selectedKey={null}
           placeholder="Placeholder"
-          trigger={triggerProps => (
+          trigger={(triggerProps): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-hover"
@@ -154,7 +154,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           selectedKey={null}
           placeholder="Placeholder"
-          trigger={triggerProps => (
+          trigger={(triggerProps): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
               classNameOverride="story__button-focus"

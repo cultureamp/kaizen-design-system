@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.40...@kaizen/draft-modal@10.5.41) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.39...@kaizen/draft-modal@10.5.40) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.38...@kaizen/draft-modal@10.5.39) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.37...@kaizen/draft-modal@10.5.38) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [10.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.36...@kaizen/draft-modal@10.5.37) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-modal

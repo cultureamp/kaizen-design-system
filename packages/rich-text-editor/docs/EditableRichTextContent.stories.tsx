@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { ComponentStory } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import {
@@ -22,24 +23,25 @@ export default {
   },
 }
 
-export const EditableRichTextContentStory = args => <InlineEditor {...args} />
+export const EditableRichTextContentStory: ComponentStory<
+  typeof InlineEditor
+> = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"
 EditableRichTextContentStory.args = {
   content: dummyContent,
   labelText: "Shared notes",
-  isLabelHidden: false,
 }
 
 function InlineEditor(props: {
   content: EditorContentArray
   labelText: string
-}) {
+}): JSX.Element {
   const [editMode, setEditMode] = useState<boolean>(false)
   const [rteData, setRTEData] = useState<EditorContentArray>(
     props.content || dummyContent
   )
-  const handleContentClick = () => setEditMode(true)
-  const handleCancel = () => setEditMode(false)
+  const handleContentClick = (): void => setEditMode(true)
+  const handleCancel = (): void => setEditMode(false)
 
   if (editMode) {
     return (
@@ -55,7 +57,7 @@ function InlineEditor(props: {
             { name: "link", group: "link" },
           ]}
           value={rteData}
-          onChange={data => setRTEData(data)}
+          onChange={setRTEData}
         />
         <Box mt={0.5} style={{ display: "flex", justifyContent: "end" }}>
           <Button label="Cancel" secondary onClick={handleCancel} />

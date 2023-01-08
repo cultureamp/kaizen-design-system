@@ -19,7 +19,7 @@ export interface SliderFieldProps extends InputRangeProps {
  * {@link https://cultureamp.design/components/slider/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-slider--controlled Storybook}
  */
-export const Slider: React.VFC<SliderFieldProps> = props => {
+export const Slider = (props: SliderFieldProps): JSX.Element => {
   const {
     id,
     labelText,
