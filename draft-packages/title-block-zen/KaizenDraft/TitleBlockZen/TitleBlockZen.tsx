@@ -1,6 +1,6 @@
 import React from "react"
 import classNames from "classnames"
-import { IconButton, ButtonProps } from "@kaizen/button"
+import { IconButton, ButtonProps, CustomButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -85,9 +85,15 @@ export type TitleBlockButtonProps = DistributiveOmit<ButtonProps, "onClick"> & {
   onClick?: (e: any) => void
 }
 
-export type TitleBlockMenuItemProps = Omit<MenuItemProps, "action"> & {
-  action: ((e: any) => void) | string
+export type TitleBlockCustomButtonProps = {
+  component: (props: CustomButtonProps) => JSX.Element
 }
+
+export type TitleBlockMenuItemProps =
+  | (Omit<MenuItemProps, "action"> & {
+      action: ((e: any) => void) | string
+    })
+  | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = DistributiveOmit<ButtonProps, "onClick">
 export type ButtonWithOnClickNotHref = DistributiveOmit<
@@ -123,7 +129,7 @@ export type SelectProps = React.ComponentProps<typeof Select>
  */
 export type PrimaryActionProps =
   | (MenuGroup & { badge?: BadgeProps })
-  | (TitleBlockButtonProps & {
+  | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
       badge?: BadgeProps
     })
 
@@ -156,14 +162,18 @@ export type SecondaryActionsProps = SecondaryActionItemProps[]
 
 export type SecondaryActionItemProps =
   | MenuGroup
-  | (ButtonWithHrefNotOnClick | ButtonWithOnClickNotHref)
+  | (
+      | ButtonWithHrefNotOnClick
+      | ButtonWithOnClickNotHref
+      | TitleBlockCustomButtonProps
+    )
 
 export const isMenuItemNotButton = (
   value: TitleBlockButtonProps | MenuItemProps
 ): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
-  value: TitleBlockButtonProps | MenuGroup
+  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | MenuGroup
 ): value is MenuGroup => "menuItems" in value
 
 export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
@@ -402,6 +412,11 @@ export const convertSecondaryActionsToMenuItems = (
     if ("menuItems" in cur) {
       return [...acc, ...cur.menuItems]
     }
+
+    if ("component" in cur) {
+      return [...acc, cur]
+    }
+
     const out = {
       label: cur.label,
       icon: cur.icon,
@@ -630,6 +645,7 @@ const TitleBlockZen = ({
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
                   reversed={isReversed(variant)}
+                  // TODO: fix typing
                   overflowMenuItems={createTabletOverflowMenuItems(
                     secondaryActions,
                     secondaryOverflowMenuItems
