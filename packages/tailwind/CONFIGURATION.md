@@ -1,4 +1,20 @@
-## What is a Preset?
+## Table of contents
+- [Table of contents](#table-of-contents)
+- [What is a preset?](#what-is-a-preset)
+- [The Kaizen Preset](#the-kaizen-preset)
+  - [Example](#example)
+- [Recommended preset configuration](#recommended-preset-configuration)
+  - [content](#content)
+  - [presets](#presets)
+  - [important](#important)
+  - [corePlugins](#coreplugins)
+- [Extending the Kaizen preset](#extending-the-kaizen-preset)
+- [Suggested Editor Config](#suggested-editor-config)
+  - [Tailwind CSS VSCode IntelliSense plugin](#tailwind-css-vscode-intellisense-plugin)
+    - [intelliSense in classnames package (or other functions)](#intellisense-in-classnames-package-or-other-functions)
+
+
+## What is a preset?
 
 A Tailwind [Preset](https://tailwindcss.com/docs/presets#creating-a-preset) is a configuration object that determines which suffixes can be applied to Tailwind's utility classes.
 
@@ -68,7 +84,11 @@ This should target the files using tailwind in you src folder. ie:
   ],
 ```
 
- Refer to [docs](https://tailwindcss.com/docs/content-configuration) for best practice.
+Refer to [docs](https://tailwindcss.com/docs/content-configuration) for best practice.  
+
+For NextJS apps using the `/pages` directory structure, see [here](https://tailwindcss.com/docs/guides/nextjs#app-directory)  
+For NextJS apps using the `/app` directory structure, see [here](https://tailwindcss.com/docs/guides/nextjs#app-directory)  
+
 
 ### presets
 This should contain the Kaizen Tailwind preset. This will override the default Tailwind presets.
