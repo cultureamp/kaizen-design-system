@@ -6,9 +6,15 @@ yarn add -D @kaizen/tailwind
 
 ## Table of contents
 
-- [Caveat before use](#caveat-before-use)
-- [What our package does](#what-our-package-does)
-- [Getting started](#getting-started)
+- [Install](#install)
+  - [Table of contents](#table-of-contents)
+  - [Caveat before use](#caveat-before-use)
+  - [What our package does](#what-our-package-does)
+  - [Getting started](#getting-started)
+  - [Use cases](#use-cases)
+    - [1. Spacing and layouts](#1-spacing-and-layouts)
+    - [2. Creating bespoke components](#2-creating-bespoke-components)
+    - [3. Altering Kaizen components with classnameOverride](#3-altering-kaizen-components-with-classnameoverride)
 
 ## Caveat before use
 
@@ -51,3 +57,35 @@ module.exports = {
 
 For preset configuration options, see [CONFIGURATION.md](CONFIGURATION.md)
 
+## Use cases
+
+### 1. Spacing and layouts
+Ideally, minimal styling should be applied to KZ components, with spacing between components handled by the consumer via TW classes. This package provides all of Kaizen's spacing tokens as TW css classes, making this process quick and easy.  
+As a simple example, here one of our spacing tokens is being used to add a right margin to a `Button` component, without the need for a css file.
+```js
+<div className="mr-4">
+  <Button label="Button 1" />
+</div>
+<Button label="Button 2" />
+```
+
+### 2. Creating bespoke components
+Occasionally snowflakes need to be created. This package provides common utilities based on our design tokens, such as color, border-radius, and font-family. Ideally, as much styling of bespoke components should be handled with Tailwind, but keep in mind that scss can still be used when necessary.
+
+Here is an example of our TW package being used to create a bespoke, non-Kaizen component:
+```js
+<div className="w-[200px] rounded-default border-solid border-blue-500 bg-blue-100 text-blue-500">
+  <p className="m-0 p-12 pl-16 font-family-paragraph">Label</p>
+</div>
+```
+![Tailwind bespoke component](tailwind-bespoke-component.png)
+
+### 3. Altering Kaizen components with classnameOverride
+If a Kaizen component supports `classNameOverride`, Tailwind classes can also be used.  
+In this example, a Tailwind css rule is being applied to a Kaizen component to ensure that the first letter is capitalized.
+
+```js
+<Heading variant="heading-1" classNameOverride="first-letter:capitalize">
+  {props.heading}
+</Heading>
+```
