@@ -9,6 +9,7 @@
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
   width: 100%;
+  height: fit-content;
 
   &:hover .icon,
   &:global(.story__button-hover) .icon,
@@ -44,4 +45,22 @@
   &:hover .icon {
     color: $color-gray-400;
   }
+}
+.value {
+  width: 100%;
+  text-align: start;
+}
+
+.value.truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button.truncated {
+  height: $spacing-xl;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }

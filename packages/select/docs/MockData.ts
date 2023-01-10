@@ -6,7 +6,11 @@ export const singleMockItems: ItemType[] = [
   { label: "SRE", value: "id-sre" },
   { label: "Dev-ops", value: "id-devops" },
   { label: "Others", value: "id-others" },
-  { label: "SuperlongItem", value: "id-long" },
+  {
+    label:
+      "Super long option where the container is fixed width and the selected option goes multiline",
+    value: "id-long",
+  },
   { label: "Something", value: "id-some" },
   { label: "AnotherExample", value: "id-another" },
 ]

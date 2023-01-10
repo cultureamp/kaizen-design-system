@@ -55,6 +55,7 @@ DefaultStory.args = {
   isDisabled: false,
   placeholder: "Placeholder",
   defaultOpen: false,
+  isSelectedOptionTruncated: false,
 }
 
 DefaultStory.parameters = {
@@ -215,6 +216,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           placeholder="Placeholder"
           status="caution"
           validationMessage="This is an error"
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Multiline", "Truncated"]} />
+      <StoryWrapper.Row rowTitle="Long Texts">
+        <Select
+          id="select-long-multi"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          selectedKey={"id-long"}
+        />
+        <Select
+          id="select-long-truncated"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          selectedKey={"id-long"}
+          isSelectedOptionTruncated
         />
       </StoryWrapper.Row>
     </StoryWrapper>

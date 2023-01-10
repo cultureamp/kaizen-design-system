@@ -44,6 +44,12 @@ export interface SelectProps
    * A descriptive message for the 'status' states.
    */
   validationMessage?: React.ReactNode | undefined
+  /**
+   * Whether the selected option displayed within the Trigger button is truncated
+   * and the option has long text and the width is fixed
+   * @default false
+   */
+  isSelectedOptionTruncated?: boolean
 }
 
 export const Select = ({
@@ -57,6 +63,7 @@ export const Select = ({
   status,
   validationMessage,
   classNameOverride,
+  isSelectedOptionTruncated = false,
   trigger = (triggerProps): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
@@ -134,7 +141,13 @@ export const Select = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            { placeholder, triggerProps, valueProps, status },
+            {
+              placeholder,
+              triggerProps,
+              valueProps,
+              status,
+              isSelectedOptionTruncated,
+            },
             buttonRef
           )}
 
