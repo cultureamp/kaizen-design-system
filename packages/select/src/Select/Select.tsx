@@ -49,7 +49,7 @@ export interface SelectProps
    * when the option has long text and the trigger width is fixed
    * @default false
    */
-  isSelectedOptionTruncated?: boolean
+  isTriggerValueTruncated?: boolean
 }
 
 export const Select = ({
@@ -63,7 +63,7 @@ export const Select = ({
   status,
   validationMessage,
   classNameOverride,
-  isSelectedOptionTruncated = false,
+  isTriggerValueTruncated = false,
   trigger = (triggerProps): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
@@ -146,7 +146,7 @@ export const Select = ({
               triggerProps,
               valueProps,
               status,
-              isSelectedOptionTruncated,
+              isTriggerValueTruncated,
             },
             buttonRef
           )}
