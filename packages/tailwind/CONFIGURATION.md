@@ -1,17 +1,17 @@
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [What is a preset?](#what-is-a-preset)
-- [The Kaizen Preset](#the-kaizen-preset)
-  - [Example](#example)
-- [Recommended preset configuration](#recommended-preset-configuration)
-  - [content](#content)
-  - [presets](#presets)
-  - [important](#important)
-  - [corePlugins](#coreplugins)
-- [Extending the Kaizen preset](#extending-the-kaizen-preset)
-- [Suggested Editor Config](#suggested-editor-config)
-  - [Tailwind CSS VSCode IntelliSense plugin](#tailwind-css-vscode-intellisense-plugin)
-    - [intelliSense in classnames package (or other functions)](#intellisense-in-classnames-package-or-other-functions)
+# Configuration  
+- [Configuration](#configuration)
+  - [What is a preset?](#what-is-a-preset)
+  - [The Kaizen Preset](#the-kaizen-preset)
+    - [Example](#example)
+  - [Recommended preset configuration](#recommended-preset-configuration)
+    - [content](#content)
+    - [presets](#presets)
+    - [important](#important)
+    - [corePlugins](#coreplugins)
+  - [Extending the Kaizen preset](#extending-the-kaizen-preset)
+  - [Tailwind directives](#tailwind-directives)
+  - [Suggested Editor Config](#suggested-editor-config)
+    - [Tailwind CSS VSCode IntelliSense plugin](#tailwind-css-vscode-intellisense-plugin)
 
 
 ## What is a preset?
@@ -58,7 +58,8 @@ border-radius: 7px 7px 7px 0
 
 ## Recommended preset configuration
 
-Our recommendation is to use Kaizen's custom preset as the default for your project.
+Our recommendation is to use Kaizen's custom preset as the default for your project.  
+This approach will overwrite the default Tailind config. Meaning that Tailwind suffixes will no longer be available.
 
 ```
 // tailwind.config.js
@@ -96,9 +97,6 @@ This should contain the Kaizen Tailwind preset. This will override the default T
 It is important to add to the `#root` and `#docs-root` (for storybook) to ensure that tailwind classes supersede component styles. The ids can change as long as they match your root DOM node id.
 ### corePlugins
 TWs `preflight` is an extremely opinionated CSS reset that will add a lot of default styles we don't want or need.
-
-
-This approach will overwrite the default Tailwind config. Meaning that Tailwind suffixes will no longer be available.
 
 <br/>
 
@@ -139,6 +137,20 @@ Be careful though! While adding in a _new_ field to `colors` won't overwrite any
 
 <br/>
 
+
+---
+
+## Tailwind directives
+
+The following directives need to be included in your project's main css file.
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+These directives inject classes that are needed for certain Tailwind features. For more information, see [here](https://tailwindcss.com/docs/functions-and-directives#layer).
+
 ---
 
 ## Suggested Editor Config
@@ -167,7 +179,6 @@ Here are some examples you may wish to include in your own project:
 ]
 ```
 
-#### intelliSense in classnames package (or other functions)
 `tailwindCSS.experimental.classRegex` is used to provide intelliSense within your `classnames` functions in your codebase. Ideally you only add the pattern that is used in your repo.
 
 Calling out that this is still an experimental feature for the VSCode plugin.
