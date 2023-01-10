@@ -45,6 +45,11 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
   }
 }
 
+// UX has been updated such that disabled days do not receive focus,
+// and keyboard navigation only lands on available days.
+// If this changes at some point again, these styles are available for use.
+// https://github.com/gpbl/react-day-picker/pull/1519
+// https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033
 %focus-ring--disabled {
   @extend %focus-ring;
 
@@ -197,6 +202,8 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
 }
 
 .dayDisabled {
+  // Library currently prevents you from ever seeing these styles.
+  // See comment for this silent class for more details.
   @extend %focus-ring--disabled;
 
   background: none;
