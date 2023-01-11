@@ -112,6 +112,17 @@ export const Select = ({
     }
   }, [state.isOpen])
 
+  const triggerButtonProps: TriggerButtonProps = {
+    id,
+    isOpen: state.isOpen,
+    isDisabled,
+    valueProps,
+    status,
+    placeholder,
+    "aria-haspopup": "dialog",
+    onClick: () => state.setOpen(!state.isOpen),
+  }
+
   return (
     <SelectContext.Provider
       value={{
@@ -134,7 +145,9 @@ export const Select = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            { placeholder, triggerProps, valueProps, status },
+            {
+              ...triggerButtonProps,
+            },
             buttonRef
           )}
 
