@@ -1,6 +1,4 @@
 import * as React from "react"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
 import {
   Title,
   Subtitle,
@@ -10,6 +8,9 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
+import { Story } from "@storybook/react"
+import { Box } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { SkipLink } from "../index"
 
@@ -21,7 +22,7 @@ export default {
       description: {
         component: 'import { SkipLink } from "@kaizen/a11y"',
       },
-      page: () => (
+      page: (): JSX.Element => (
         <>
           <Title />
           <Subtitle />
@@ -54,8 +55,8 @@ export default {
   },
 }
 
-export const SkipLinkExample = () => {
-  const renderPointers = () =>
+export const SkipLinkExample: Story = () => {
+  const renderPointers = (): JSX.Element[] =>
     Array.from(Array(10)).map((_, i) => (
       <div key={`pointer-${i}`} style={{ paddingTop: "10rem" }}>
         👇

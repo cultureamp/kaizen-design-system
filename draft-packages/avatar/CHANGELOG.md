@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.17...@kaizen/draft-avatar@2.8.18) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.16...@kaizen/draft-avatar@2.8.17) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.15...@kaizen/draft-avatar@2.8.16) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.14...@kaizen/draft-avatar@2.8.15) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.13...@kaizen/draft-avatar@2.8.14) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.12...@kaizen/draft-avatar@2.8.13) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.11...@kaizen/draft-avatar@2.8.12) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.10...@kaizen/draft-avatar@2.8.11) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.9...@kaizen/draft-avatar@2.8.10) (2022-11-03)
+
+
+### Bug Fixes
+
+* margin issue when avatr group has exact two avatars ([#3056](https://github.com/cultureamp/kaizen-design-system/issues/3056)) ([e0b7134](https://github.com/cultureamp/kaizen-design-system/commit/e0b7134d3b67a0c3a60e76adc0c946cdc954afb4))
+
+
+
+
+
+## [2.8.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.8...@kaizen/draft-avatar@2.8.9) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.7...@kaizen/draft-avatar@2.8.8) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [2.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.6...@kaizen/draft-avatar@2.8.7) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [2.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.5...@kaizen/draft-avatar@2.8.6) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

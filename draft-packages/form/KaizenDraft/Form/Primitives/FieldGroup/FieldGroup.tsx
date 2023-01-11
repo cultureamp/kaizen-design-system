@@ -19,14 +19,14 @@ export interface FieldGroupProps
   automationId?: string
 }
 
-export const FieldGroup: React.VFC<FieldGroupProps> = ({
+export const FieldGroup = ({
   children,
   inline = false,
   classNameOverride,
   className,
   automationId,
   ...restProps
-}) => (
+}: FieldGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.group, className, classNameOverride, {

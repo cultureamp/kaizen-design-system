@@ -1,15 +1,15 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   AvatarGroup,
   AvatarGroupSize,
   AvatarList,
   AvatarGroupAvatarProps,
 } from "../KaizenDraft/Avatar/AvatarGroup"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const EXAMPLE_USER_1: AvatarGroupAvatarProps = {
   fullName: "Adirana Appleseed",
@@ -71,10 +71,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof AvatarGroup>
 
-export const DefaultStory = args => <AvatarGroup {...args} />
-
+export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => (
+  <AvatarGroup {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,
@@ -93,10 +94,35 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Default"]} />
+      <StoryWrapper.RowHeader
+        headings={[
+          "With counter",
+          "Without counter",
+          "With counter (RTL)",
+          "Without counter (RTL)",
+        ]}
+      />
       {ROWS.map(({ title, size }) => (
         <StoryWrapper.Row key={title} rowTitle={title}>
           <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+
+          <AvatarGroup
+            maxVisible={2}
+            avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
+            size={size}
+          />
+
+          <div dir="rtl">
+            <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+          </div>
+
+          <div dir="rtl">
+            <AvatarGroup
+              maxVisible={2}
+              avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
+              size={size}
+            />
+          </div>
         </StoryWrapper.Row>
       ))}
     </StoryWrapper>
@@ -105,7 +131,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -113,4 +142,5 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  controls: { disable: true },
 }

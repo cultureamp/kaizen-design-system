@@ -1,6 +1,6 @@
-import { Selection } from "@react-types/shared"
 import React from "react"
-import { ItemType } from "../../types"
+import { Selection } from "@react-types/shared"
+import { ItemType } from "../../../types"
 
 export const getSelectedOptionKeys = (
   keys?: Selection,

@@ -1,18 +1,24 @@
 import React from "react"
+import classNames from "classnames"
 import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import { MenuFooter } from "../MenuFooter"
 import styles from "./MenuLoadingSkeleton.module.scss"
 
-export const MenuLoadingSkeleton = (
-  <div>
-    <LoadingInput classNameOverride={styles.loadingInput} />
-    <LoadingParagraph />
-    <LoadingParagraph />
-    <LoadingParagraph />
-    <LoadingParagraph />
-    <LoadingParagraph />
+export const MenuLoadingSkeleton = (): JSX.Element => (
+  <>
+    <div className={classNames(styles.loadingContainer)}>
+      <LoadingInput classNameOverride={styles.loadingInput} />
+      <LoadingParagraph />
+      <LoadingParagraph />
+      <LoadingParagraph />
+      <LoadingParagraph />
+      <LoadingParagraph />
+    </div>
     <MenuFooter>
-      <LoadingParagraph classNameOverride={styles.loadingControlButtons} />
+      <LoadingInput width={40} height={36} />
+      <LoadingInput width={30} height={36} />
     </MenuFooter>
-  </div>
+  </>
 )
+
+MenuLoadingSkeleton.displayName = "MenuLoadingSkeleton"

@@ -1,5 +1,5 @@
-import path from "path"
 import fs from "fs"
+import path from "path"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -23,6 +23,7 @@ const getStoryPathsFromEnv = (): string[] | false => {
 const defaultStoryPaths = [
   "../packages/**/*.stories.tsx",
   "../packages/**/*.stories.mdx",
+  "../docs/**/*.stories.mdx",
   "../draft-packages/**/!(deprecated.)*.stories.tsx",
 ]
 

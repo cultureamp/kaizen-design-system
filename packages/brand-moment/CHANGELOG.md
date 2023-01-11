@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.45...@kaizen/brand-moment@1.12.46) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.44...@kaizen/brand-moment@1.12.45) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.43...@kaizen/brand-moment@1.12.44) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.42...@kaizen/brand-moment@1.12.43) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.41...@kaizen/brand-moment@1.12.42) (2022-12-08)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.40...@kaizen/brand-moment@1.12.41) (2022-12-02)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.39...@kaizen/brand-moment@1.12.40) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.38...@kaizen/brand-moment@1.12.39) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.37...@kaizen/brand-moment@1.12.38) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.36...@kaizen/brand-moment@1.12.37) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.35...@kaizen/brand-moment@1.12.36) (2022-11-16)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.34...@kaizen/brand-moment@1.12.35) (2022-11-16)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.33...@kaizen/brand-moment@1.12.34) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.32...@kaizen/brand-moment@1.12.33) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.31...@kaizen/brand-moment@1.12.32) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.30...@kaizen/brand-moment@1.12.31) (2022-11-08)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.29...@kaizen/brand-moment@1.12.30) (2022-11-03)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.28...@kaizen/brand-moment@1.12.29) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.27...@kaizen/brand-moment@1.12.28) (2022-10-31)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.26...@kaizen/brand-moment@1.12.27) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.25...@kaizen/brand-moment@1.12.26) (2022-10-25)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.24...@kaizen/brand-moment@1.12.25) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.23...@kaizen/brand-moment@1.12.24) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
 ## [1.12.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.22...@kaizen/brand-moment@1.12.23) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/brand-moment

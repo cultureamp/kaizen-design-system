@@ -1,13 +1,13 @@
 import React from "react"
+import classnames from "classnames"
+import Media from "react-media"
 import { Button, ButtonProps } from "@kaizen/button"
 import { Box, Icon } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import classnames from "classnames"
-import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
-import Media from "react-media"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
+import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
+import { Heading, Paragraph } from "@kaizen/typography"
 import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
@@ -37,17 +37,14 @@ type VariantType =
   | "assertive"
   | "prominent"
 
-export type GuidanceBlockProps = {
+interface BaseGuidanceBlockProps {
   layout?: LayoutType
   illustration: React.ReactElement<SpotProps | SceneProps>
   /*
    * Sets how the width and aspect ratio will respond to the Illustration passed in.
    */
   illustrationType?: IllustrationType
-  text: {
-    title: string
-    description: string | React.ReactNode
-  }
+
   smallScreenTextAlignment?: TextAlignment
   actions?: GuidanceBlockActions
   /*
@@ -64,6 +61,21 @@ export type GuidanceBlockProps = {
   noMaxWidth?: boolean
 }
 
+interface GuidanceBlockWithText extends BaseGuidanceBlockProps {
+  text: {
+    title: string
+    description: string | React.ReactNode
+  }
+}
+
+interface GuidanceBlockPropsWithContent extends BaseGuidanceBlockProps {
+  content: React.ReactElement
+}
+
+export type GuidanceBlockProps =
+  | GuidanceBlockWithText
+  | GuidanceBlockPropsWithContent
+
 export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
@@ -79,7 +91,7 @@ type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const CancelButton = ({ onClick }: CancelButtonProps) => (
+const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   <button className={styles.cancel} type="button" onClick={onClick}>
     <span>
       <Icon icon={closeIcon} role="img" title="close notification" />
@@ -87,10 +99,10 @@ const CancelButton = ({ onClick }: CancelButtonProps) => (
   </button>
 )
 
-const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
+const WithTooltip = ({
   tooltipProps,
   children,
-}) =>
+}: WithTooltipProps): JSX.Element =>
   !!tooltipProps ? (
     <Tooltip {...tooltipProps}>{children}</Tooltip>
   ) : (
@@ -128,7 +140,7 @@ class GuidanceBlock extends React.Component<
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (this.props.layout === "inline" || this.props.layout === "stacked") {
       this.containerQuery()
     }
@@ -139,7 +151,7 @@ class GuidanceBlock extends React.Component<
     this.props.actions?.dismiss?.onClick()
   }
 
-  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
+  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>): void {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (this.state.hidden && e.propertyName === "margin-top") {
       this.setState({ removed: true })
@@ -156,7 +168,7 @@ class GuidanceBlock extends React.Component<
     resizeObserver.observe(this.containerRef.current as HTMLElement)
   }
 
-  setMediaQueryLayout(width: number) {
+  setMediaQueryLayout(width: number): void {
     if (width <= 320) {
       this.setState({
         mediaQueryLayout: "centerContent",
@@ -198,7 +210,6 @@ class GuidanceBlock extends React.Component<
     const {
       actions,
       illustration,
-      text,
       persistent,
       withActionButtonArrow,
       noMaxWidth,
@@ -221,14 +232,19 @@ class GuidanceBlock extends React.Component<
         </div>
         <div className={styles.descriptionAndActions}>
           <div className={styles.descriptionContainer}>
-            <div className={styles.headingWrapper}>
-              <Heading tag="h3" variant="heading-3">
-                {text.title}
-              </Heading>
-            </div>
-            <Paragraph tag="p" variant="body">
-              {text.description}
-            </Paragraph>
+            {"content" in this.props && this.props.content}
+            {"text" in this.props && (
+              <>
+                <div className={styles.headingWrapper}>
+                  <Heading tag="h3" variant="heading-3">
+                    {this.props.text.title}
+                  </Heading>
+                </div>
+                <Paragraph tag="p" variant="body">
+                  {this.props.text.description}
+                </Paragraph>
+              </>
+            )}
           </div>
           {actions?.primary &&
             this.renderActions(actions, withActionButtonArrow)}
@@ -241,14 +257,14 @@ class GuidanceBlock extends React.Component<
   renderActions = (
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
-  ) => {
+  ): JSX.Element => {
     // Checks if container query is mobile configuration
     const componentIsMobile =
       this.state.mediaQueryLayout.includes("centerContent")
 
     return (
       <Media query="(max-width: 767px)">
-        {isMobile => (
+        {(isMobile): JSX.Element => (
           <Box
             mr={
               isMobile || componentIsMobile
@@ -280,7 +296,7 @@ class GuidanceBlock extends React.Component<
                       {...actions.secondary}
                       onClick={
                         this.props?.secondaryDismiss
-                          ? () => this.dismissBanner()
+                          ? (): void => this.dismissBanner()
                           : this.props.actions?.secondary?.onClick
                       }
                       fullWidth={isMobile || componentIsMobile}
@@ -295,7 +311,7 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  renderIllustrationType = (illustration, illustrationType) =>
+  renderIllustrationType = (illustration, illustrationType): JSX.Element =>
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration

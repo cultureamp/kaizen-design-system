@@ -18,14 +18,14 @@ export interface LoadingInputProps
   height?: number
 }
 
-export const LoadingInput: React.VFC<LoadingInputProps> = ({
+export const LoadingInput = ({
   isAnimated,
   isReversed,
   width,
   classNameOverride,
   height = 48,
   ...props
-}) => (
+}: LoadingInputProps): JSX.Element => (
   <div
     className={classnames(
       skeletonStyles.base,

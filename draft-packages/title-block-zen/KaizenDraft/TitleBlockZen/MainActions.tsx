@@ -1,14 +1,14 @@
 import React from "react"
 import { Button, IconButton } from "@kaizen/button"
-import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import Toolbar from "./Toolbar"
+import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
 } from "./TitleBlockZen"
+import Toolbar from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {
@@ -25,7 +25,7 @@ const MainActions = ({
   reversed = false,
   overflowMenuItems,
   showOverflowMenu = false,
-}: MainActionsProps) => {
+}: MainActionsProps): JSX.Element => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = primaryAction.menuItems.map((item, idx) => (

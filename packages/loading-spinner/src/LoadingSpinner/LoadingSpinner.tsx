@@ -19,13 +19,13 @@ export interface LoadingSpinnerProps
  * {@link https://cultureamp.design/components/loading-spinner/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-loading-spinner--default-story Storybook}
  */
-export const LoadingSpinner: React.VFC<LoadingSpinnerProps> = ({
+export const LoadingSpinner = ({
   children,
   accessibilityLabel = "Loading",
   size = "md",
   classNameOverride,
   ...props
-}) => (
+}: LoadingSpinnerProps): JSX.Element => (
   <div
     data-automation-id="loading-spinner"
     className={classnames(styles.wrapper, classNameOverride)}
@@ -86,3 +86,5 @@ export const LoadingSpinner: React.VFC<LoadingSpinnerProps> = ({
     )}
   </div>
 )
+
+LoadingSpinner.displayName = "LoadingSpinner"

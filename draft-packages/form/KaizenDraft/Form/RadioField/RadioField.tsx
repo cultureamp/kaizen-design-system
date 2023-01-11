@@ -21,7 +21,7 @@ export interface RadioFieldProps extends RadioProps {
  * {@link https://cultureamp.design/components/radio-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-radio-field--interactive-kaizen-site-demo Storybook}
  */
-export const RadioField: React.VFC<RadioFieldProps> = ({
+export const RadioField = ({
   id,
   labelText,
   selectedStatus = false,
@@ -31,7 +31,7 @@ export const RadioField: React.VFC<RadioFieldProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: RadioFieldProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.container, classNameOverride, {

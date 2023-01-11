@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.3.0...@kaizen/draft-well@4.3.1) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.11...@kaizen/draft-well@4.3.0) (2022-11-15)
+
+
+### Features
+
+* remove deprecated styles ([#3092](https://github.com/cultureamp/kaizen-design-system/issues/3092)) ([2ae240b](https://github.com/cultureamp/kaizen-design-system/commit/2ae240b701298c862bc75e18481bbafef2bdbde3))
+
+
+
+
+
+## [4.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.10...@kaizen/draft-well@4.2.11) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [4.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.9...@kaizen/draft-well@4.2.10) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [4.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.8...@kaizen/draft-well@4.2.9) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [4.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.7...@kaizen/draft-well@4.2.8) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [4.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.6...@kaizen/draft-well@4.2.7) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [4.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@4.2.5...@kaizen/draft-well@4.2.6) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/draft-well

@@ -1,14 +1,14 @@
 import { setImmediate } from "timers"
-import { act } from "react-test-renderer"
 import { renderHook } from "@testing-library/react-hooks"
+import { act } from "react-test-renderer"
 import { useResizeObserver } from "./useResizeObserver"
 
-function MockResizeObserver(callback) {
+function MockResizeObserver(callback: unknown): void {
   // @ts-ignore
   this.callback = callback
 }
 
-MockResizeObserver.prototype.observe = async function observe() {
+MockResizeObserver.prototype.observe = async function observe(): Promise<void> {
   this.callback(["first"])
   await new Promise(r => setImmediate(r))
   this.callback(["second"])

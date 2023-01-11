@@ -8,7 +8,7 @@ import { DatePickerProps } from "."
 const DatePickerWrapper = ({
   selectedDay,
   ...restProps
-}: Partial<DatePickerProps>) => {
+}: Partial<DatePickerProps>): JSX.Element => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(selectedDay)
 
   return (
@@ -44,23 +44,23 @@ describe("<DatePicker />", () => {
     render(<DatePickerWrapper />)
     const input = screen.getByLabelText("Input label")
 
-    userEvent.tab()
+    await userEvent.tab()
     expect(input).toHaveFocus()
 
-    userEvent.keyboard("{arrowDown}")
+    await userEvent.keyboard("{arrowDown}")
 
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeVisible()
     })
 
-    userEvent.tab()
+    await userEvent.tab()
     expect(input).toHaveFocus()
 
-    userEvent.tab()
+    await userEvent.tab()
     const calendarButton = screen.getByRole("button", { name: "Choose date" })
     expect(calendarButton).toHaveFocus()
 
-    userEvent.tab()
+    await userEvent.tab()
     const arrowButton = screen.getByRole("button", {
       name: "Go to previous month",
     })
@@ -75,14 +75,14 @@ describe("<DatePicker />", () => {
     ).not.toBeInTheDocument()
 
     const input = screen.getByLabelText("Input label")
-    userEvent.click(input)
+    await userEvent.click(input)
 
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).toBeVisible()
     })
 
-    userEvent.type(input, "05/01/2022")
-    userEvent.keyboard("{Enter}")
+    await userEvent.type(input, "05/01/2022")
+    await userEvent.keyboard("{Enter}")
 
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
@@ -100,30 +100,38 @@ describe("<DatePicker /> - Focus element", () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label")
-      userEvent.click(input)
+      await userEvent.click(input)
+    })
 
+    it("keeps focus on input", async () => {
       await waitFor(() => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
-    })
-
-    it("keeps focus on input", () => {
-      const input = screen.getByLabelText("Input label")
-      expect(input).toHaveFocus()
-    })
-
-    it("keeps focus on input when the user escapes from the calendar", () => {
-      userEvent.keyboard("{Escape}")
 
       const input = screen.getByLabelText("Input label")
       expect(input).toHaveFocus()
     })
 
-    it("returns focus to the input when the user clicks a valid day on the calendar", () => {
-      const dateToSelect = screen.getByRole("button", {
-        name: "6th March (Sunday)",
+    it("keeps focus on input when the user escapes from the calendar", async () => {
+      await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeVisible()
+
+        userEvent.keyboard("{Escape}")
       })
-      userEvent.click(dateToSelect)
+
+      const input = screen.getByLabelText("Input label")
+      expect(input).toHaveFocus()
+    })
+
+    it("returns focus to the input when the user clicks a valid day on the calendar", async () => {
+      await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeVisible()
+
+        const dateToSelect = screen.getByRole("button", {
+          name: "6th March (Sunday)",
+        })
+        userEvent.click(dateToSelect)
+      })
 
       const input = screen.getByLabelText("Input label")
       expect(input).toHaveFocus()
@@ -135,25 +143,29 @@ describe("<DatePicker /> - Focus element", () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label")
-      userEvent.tab()
+      await userEvent.tab()
       expect(input).toHaveFocus()
 
       userEvent.keyboard("{ArrowDown}")
+    })
 
+    it("shows focus within the calendar", async () => {
       await waitFor(() => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
-    })
 
-    it("shows focus within the calendar", () => {
       const selectedDate = screen.getByRole("button", {
         name: "1st March (Tuesday)",
       })
       expect(selectedDate).toHaveFocus()
     })
 
-    it("returns focus to the input when the user escapes from the calendar", () => {
-      userEvent.keyboard("{Escape}")
+    it("returns focus to the input when the user escapes from the calendar", async () => {
+      await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeVisible()
+      })
+
+      await userEvent.keyboard("{Escape}")
 
       const input = screen.getByLabelText("Input label")
       expect(input).toHaveFocus()
@@ -161,28 +173,32 @@ describe("<DatePicker /> - Focus element", () => {
   })
 
   describe("Click on calendar button", () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
       })
       userEvent.click(calendarButton)
+    })
 
+    it("shows focus within the calendar", async () => {
       await waitFor(() => {
         expect(screen.getByRole("dialog")).toBeVisible()
       })
-    })
 
-    it("shows focus within the calendar", () => {
       const selectedDate = screen.getByRole("button", {
         name: "1st March (Tuesday)",
       })
       expect(selectedDate).toHaveFocus()
     })
 
-    it("returns focus to the calendar button when the user escapes from the calendar", () => {
-      userEvent.keyboard("{Escape}")
+    it("returns focus to the calendar button when the user escapes from the calendar", async () => {
+      await waitFor(() => {
+        expect(screen.getByRole("dialog")).toBeVisible()
+      })
+
+      await userEvent.keyboard("{Escape}")
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
@@ -199,27 +215,31 @@ describe("<DatePicker /> - Focus element", () => {
         name: "Change date, Mar 1, 2022",
       })
 
-      userEvent.tab()
-      userEvent.tab()
+      await userEvent.tab()
+      await userEvent.tab()
 
       expect(calendarButton).toHaveFocus()
 
       userEvent.keyboard("{Enter}")
+    })
 
+    it("shows focus within the calendar", async () => {
       await waitFor(() => {
         expect(screen.getByRole("dialog")).toBeVisible()
       })
-    })
 
-    it("shows focus within the calendar", () => {
       const selectedDate = screen.getByRole("button", {
         name: "1st March (Tuesday)",
       })
       expect(selectedDate).toHaveFocus()
     })
 
-    it("returns focus to the input when the user escapes from the calendar", () => {
-      userEvent.keyboard("{Escape}")
+    it("returns focus to the input when the user escapes from the calendar", async () => {
+      await waitFor(() => {
+        expect(screen.getByRole("dialog")).toBeVisible()
+      })
+
+      await userEvent.keyboard("{Escape}")
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
@@ -255,7 +275,7 @@ describe("<DatePicker /> - Input format", () => {
       expect(input).toHaveValue("03/01/2022")
     })
 
-    userEvent.tab()
+    await userEvent.tab()
 
     await waitFor(() => {
       expect(input).toHaveValue("Mar 1, 2022")
@@ -338,16 +358,16 @@ describe("<DatePicker /> - Validation", () => {
         />
       )
       const input = screen.getByLabelText("Input label")
-      userEvent.click(input)
+      await userEvent.click(input)
       await waitFor(() => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
       const dateToSelect = screen.getByRole("button", {
         name: "6th March (Sunday)",
       })
-      userEvent.click(dateToSelect)
-      // @TODO Fix to only run onValidate once
-      expect(onValidate).toBeCalledTimes(2)
+      await userEvent.click(dateToSelect)
+
+      expect(onValidate).toBeCalledTimes(1)
     })
   })
 
@@ -375,9 +395,9 @@ describe("<DatePicker /> - Validation", () => {
       render(<DatePickerWrapper />)
 
       const input = screen.getByLabelText("Input label")
-      userEvent.type(input, "05/05/2022Blah")
+      await userEvent.type(input, "05/05/2022Blah")
 
-      userEvent.tab()
+      await userEvent.tab()
 
       await waitFor(() => {
         expect(
@@ -390,9 +410,9 @@ describe("<DatePicker /> - Validation", () => {
       render(<DatePickerWrapper disabledBefore={new Date("2022-05-15")} />)
 
       const input = screen.getByLabelText("Input label")
-      userEvent.type(input, "05/05/2022")
+      await userEvent.type(input, "05/05/2022")
 
-      userEvent.tab()
+      await userEvent.tab()
 
       await waitFor(() => {
         expect(

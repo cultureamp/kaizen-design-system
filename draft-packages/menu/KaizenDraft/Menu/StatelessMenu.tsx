@@ -1,7 +1,7 @@
 import React, { useEffect, useState, SyntheticEvent, useRef } from "react"
 import ReactDOM from "react-dom"
-import styles from "./StatelessMenu.module.scss"
 import MenuDropdown from "./MenuDropdown"
+import styles from "./StatelessMenu.module.scss"
 
 export type StatelessMenuProps = {
   /**
@@ -49,7 +49,7 @@ export type StatelessMenuProps = {
   onClick?: (event: SyntheticEvent) => void
 }
 
-export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
+export const StatelessMenu = ({
   align = "left",
   dropdownWidth = "default",
   autoHide = "on",
@@ -62,18 +62,19 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   hideMenuDropdown,
   renderButton,
   onClick,
-}) => {
+}: StatelessMenuProps): JSX.Element => {
   const [referenceElement, setReferenceElement] =
     useState<HTMLSpanElement | null>(null)
   const portalSelectorElementRef = useRef<Element | null>(null)
 
   const menuButton = renderButton({
-    onClick: (e: any) => {
+    onClick: (e: React.MouseEvent<Element, MouseEvent>) => {
       e.preventDefault()
       e.stopPropagation()
       toggleMenuDropdown()
     },
-    onMouseDown: (e: any) => e.preventDefault(),
+    onMouseDown: (e: React.MouseEvent<Element, MouseEvent>) =>
+      e.preventDefault(),
     "aria-haspopup": true,
     "aria-expanded": isMenuVisible,
   })

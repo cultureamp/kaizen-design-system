@@ -36,6 +36,11 @@
   a {
     color: $color-blue-500;
     text-decoration: none;
+
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   @include nestedListStyles {

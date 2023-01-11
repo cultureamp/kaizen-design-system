@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/deprecated-component-library-helpers",
-  "version": "2.5.7",
-  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/deprecated-comonent-library-helpers",
+  "version": "2.5.8",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/deprecated-comonent-library-helpers",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"

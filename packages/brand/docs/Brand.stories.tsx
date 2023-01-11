@@ -1,9 +1,9 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Brand`,
@@ -21,7 +21,9 @@ export default {
   },
 }
 
-export const DefaultStory = args => <Brand {...args} />
+export const DefaultStory: ComponentStory<typeof Brand> = args => (
+  <Brand {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   alt: "Culture Amp",

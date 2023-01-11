@@ -1,11 +1,11 @@
+import React from "react"
 import { cleanup, render, screen } from "@testing-library/react"
-import * as React from "react"
-
 import { Badge, BadgeProps } from "./Badge"
 
 afterEach(cleanup)
 
-const renderBadge = (props?: BadgeProps) => render(<Badge {...props} />)
+const renderBadge = (props?: BadgeProps): ReturnType<typeof render> =>
+  render(<Badge {...props} />)
 
 describe("<Badge />", () => {
   describe("default", () => {

@@ -1,11 +1,11 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { InlineNotification } from "@kaizen/notification"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
@@ -23,29 +23,36 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenDemo = props => (
-  <InlineNotification type="positive" title="Success" {...props}>
+export const DefaultKaizenDemo: ComponentStory<
+  typeof InlineNotification
+> = props => (
+  <InlineNotification {...props}>
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
     <a href="/">Manage users is now available</a>
   </InlineNotification>
 )
 DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
+DefaultKaizenDemo.args = {
+  type: "positive",
+  title: "Success",
+}
 
 const customHeadingProps: HeadingProps = {
   variant: "heading-6",
   tag: "h2",
   children: "Custom",
 }
-export const CustomHeadingLevel = props => (
-  <InlineNotification
-    type="positive"
-    headingProps={customHeadingProps}
-    {...props}
-  >
+export const CustomHeadingLevel: ComponentStory<
+  typeof InlineNotification
+> = props => (
+  <InlineNotification headingProps={customHeadingProps} {...props}>
     New user data
   </InlineNotification>
 )
 CustomHeadingLevel.storyName = "Custom heading level"
+CustomHeadingLevel.args = {
+  type: "positive",
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -143,7 +150,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -151,12 +161,14 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  controls: { disable: true },
 }
 
-export const AutohideDemo = props => (
+export const AutohideDemo: ComponentStory<
+  typeof InlineNotification
+> = props => (
   <>
     <InlineNotification
-      type="positive"
       title="Success"
       {...props}
       autohide
@@ -168,3 +180,6 @@ export const AutohideDemo = props => (
     <p>Content below the notification</p>
   </>
 )
+AutohideDemo.args = {
+  type: "positive",
+}

@@ -1,8 +1,8 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "10.0.4",
-  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens",
+  "version": "10.1.4",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/design-tokens",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
@@ -36,20 +36,20 @@
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.7",
     "@types/react-highlight": "^0.12.5",
-    "@types/yargs": "^16.0.4",
+    "@types/yargs": "^17.0.19",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.20",
     "prettier": "*",
-    "react-highlight": "^0.14.0",
+    "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
-    "ts-node": "^10.4.0",
-    "yargs": "^16.2.0"
+    "ts-node": "^10.9.1",
+    "yargs": "^17.6.2"
   },
   "dependencies": {
     "@types/color-string": "^1.5.2",
     "@types/lodash.kebabcase": "^4.1.7",
-    "color-string": "^1.8.2",
+    "color-string": "^1.9.1",
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {

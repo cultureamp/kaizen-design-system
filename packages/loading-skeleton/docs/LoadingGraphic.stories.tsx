@@ -1,15 +1,18 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { HumanityAtWork, Informative } from "@kaizen/draft-illustration"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
+import {
+  BrandMomentPositiveOutro,
+  Informative,
+} from "@kaizen/draft-illustration"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingGraphic } from ".."
 
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { LoadingGraphic } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Graphic`,
@@ -27,7 +30,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingGraphic = args => <LoadingGraphic {...args} />
+export const DefaultLoadingGraphic: ComponentStory<
+  typeof LoadingGraphic
+> = args => <LoadingGraphic {...args} />
 DefaultLoadingGraphic.storyName = "Loading Graphic"
 DefaultLoadingGraphic.args = { size: "xlarge" }
 
@@ -83,7 +88,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Scene (scene)">
       <LoadingGraphic size="scene" isReversed={isReversed} />
-      <HumanityAtWork alt="humanity-at-work" />
+      <BrandMomentPositiveOutro alt="positive-outro" />
     </StoryWrapper.Row>
   </StoryWrapper>
 )

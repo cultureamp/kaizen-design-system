@@ -1,15 +1,15 @@
 import React, { useState } from "react"
+import { Selection } from "@react-types/shared"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Selection } from "@react-types/shared"
-import { SearchInput } from "../../components/SearchInput"
+import { ItemType } from "../../../types"
+import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { ListBox } from "../../components/ListBox"
+import { SearchInput } from "../../components/SearchInput"
 import {
   ClearButton,
   SelectAllButton,
 } from "../../components/SelectionControlButton"
-import { ItemType } from "../../types"
-import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const itemsMock: ItemType[] = [
@@ -32,7 +32,7 @@ const SelectionProviderWrapper = ({
   selectedKeys,
   onSelectionChange,
   ...props
-}: Partial<SelectionProviderProps>) => {
+}: Partial<SelectionProviderProps>): JSX.Element => {
   const [selected, setSelected] = useState<Selection>(selectedKeys ?? new Set())
 
   return (
@@ -41,20 +41,20 @@ const SelectionProviderWrapper = ({
       items={items}
       label="selection-label-mock"
       selectedKeys={selected}
-      onSelectionChange={selection => {
+      onSelectionChange={(selection): void => {
         setSelected(selection)
         onSelectionChange && onSelectionChange(selection)
       }}
       {...props}
     >
       <ListBox>
-        {({ selectedItems, unselectedItems, disabledItems }) => (
+        {({ selectedItems, unselectedItems, disabledItems }): JSX.Element => (
           <>
             <FilterMultiSelect.ListBoxSection
               items={selectedItems}
               sectionName="selectedItems"
             >
-              {selectedItem => (
+              {(selectedItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={selectedItem.key}
                   item={selectedItem}
@@ -66,7 +66,7 @@ const SelectionProviderWrapper = ({
               items={unselectedItems}
               sectionName="selectedItems"
             >
-              {unselectedItem => (
+              {(unselectedItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={unselectedItem.key}
                   item={unselectedItem}
@@ -78,7 +78,7 @@ const SelectionProviderWrapper = ({
               items={disabledItems}
               sectionName="disabledItems"
             >
-              {disabledItem => (
+              {(disabledItem): JSX.Element => (
                 <FilterMultiSelect.Option
                   key={disabledItem.key}
                   item={disabledItem}
@@ -183,13 +183,13 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
 })
 
 describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
-  it("selects the option when clicks on a non-selected option", () => {
+  it("selects the option when clicks on a non-selected option", async () => {
     render(<SelectionProviderWrapper />)
     const option1 = screen.getByRole("option", {
       name: "option-1-label-mock",
     })
 
-    userEvent.click(option1)
+    await userEvent.click(option1)
 
     expect(
       screen.getByRole("option", {
@@ -199,24 +199,24 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     ).toBeVisible()
   })
 
-  it("fires onSelectionChange when clicks on a option", () => {
+  it("fires onSelectionChange when clicks on a option", async () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
     const option1 = screen.getByRole("option", {
       name: "option-1-label-mock",
     })
 
-    userEvent.click(option1)
+    await userEvent.click(option1)
     expect(spy).toHaveBeenCalledTimes(1)
   })
 
-  it("selects all options when clicks on Select all button", () => {
+  it("selects all options when clicks on Select all button", async () => {
     render(<SelectionProviderWrapper />)
     const selectAll = screen.getByRole("button", {
       name: "Select all",
     })
 
-    userEvent.click(selectAll)
+    await userEvent.click(selectAll)
 
     expect(
       screen.getByRole("option", {
@@ -240,18 +240,18 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     ).toBeVisible()
   })
 
-  it("fires onSelectionChange when clicks on Select all button", () => {
+  it("fires onSelectionChange when clicks on Select all button", async () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
     const selectAll = screen.getByRole("button", {
       name: "Select all",
     })
 
-    userEvent.click(selectAll)
+    await userEvent.click(selectAll)
     expect(spy).toHaveBeenCalledTimes(1)
   })
 
-  it("clears all the selection when clicks on Clear button", () => {
+  it("clears all the selection when clicks on Clear button", async () => {
     render(
       <SelectionProviderWrapper
         selectedKeys={new Set(["option-2-value-mock"])}
@@ -261,7 +261,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Clear",
     })
 
-    userEvent.click(clear)
+    await userEvent.click(clear)
 
     expect(
       screen.getByRole("option", {
@@ -283,7 +283,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     ).toBeVisible()
   })
 
-  it("fires onSelectionChange when clicks on Clear all button", () => {
+  it("fires onSelectionChange when clicks on Clear all button", async () => {
     const spy = jest.fn()
     render(
       <SelectionProviderWrapper
@@ -295,12 +295,12 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Clear",
     })
 
-    userEvent.click(clear)
+    await userEvent.click(clear)
 
     expect(spy).toHaveBeenCalledTimes(1)
   })
 
-  it("de-selects the option when clicks on a selected option", () => {
+  it("de-selects the option when clicks on a selected option", async () => {
     render(
       <SelectionProviderWrapper
         selectedKeys={new Set(["option-2-value-mock"])}
@@ -311,7 +311,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       selected: true,
     })
 
-    userEvent.click(option2)
+    await userEvent.click(option2)
 
     expect(
       screen.getByRole("option", {
@@ -324,9 +324,9 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
 
 describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   describe("Given no selectedKeys", () => {
-    it("focuses on the frist option when tabs onto the list", () => {
+    it("focuses on the frist option when tabs onto the list", async () => {
       render(<SelectionProviderWrapper />)
-      userEvent.tab()
+      await userEvent.tab()
 
       expect(
         screen.getByRole("option", { name: "option-1-label-mock" })
@@ -335,13 +335,13 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   })
 
   describe("Given selectedKeys is [option-2-value-mock, option-3-value-mock]", () => {
-    it("focuses the frist selected option when tabs onto the list", () => {
+    it("focuses the frist selected option when tabs onto the list", async () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
         />
       )
-      userEvent.tab()
+      await userEvent.tab()
 
       expect(
         screen.getByRole("option", { name: "option-2-label-mock" })
@@ -349,59 +349,59 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     })
   })
 
-  it("moves the focus down when hits arrow down key", () => {
+  it("moves the focus down when hits arrow down key", async () => {
     render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowDown}")
 
     expect(
       screen.getByRole("option", { name: "option-2-label-mock" })
     ).toHaveFocus()
   })
 
-  it("keeps the focus at the last element when hits arrow down key on it", () => {
+  it("keeps the focus at the last element when hits arrow down key on it", async () => {
     render(
       <SelectionProviderWrapper
         selectedKeys={new Set(["option-3-value-mock"])}
       />
     )
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowDown}")
 
     expect(
       screen.getByRole("option", { name: "option-3-label-mock" })
     ).toHaveFocus()
   })
 
-  it("moves the focus up when hits arrow up key", () => {
+  it("moves the focus up when hits arrow up key", async () => {
     render(
       <SelectionProviderWrapper
         selectedKeys={new Set(["option-3-value-mock"])}
       />
     )
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowUp}")
 
     expect(
       screen.getByRole("option", { name: "option-2-label-mock" })
     ).toHaveFocus()
   })
 
-  it("keeps the focus ring at the first element when hits arrow up key on it", () => {
+  it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
     render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
+    await userEvent.tab()
+    await userEvent.keyboard("{ArrowUp}")
 
     expect(
       screen.getByRole("option", { name: "option-1-label-mock" })
     ).toHaveFocus()
   })
 
-  it("selects the option when hits enter on a non-selected option", () => {
+  it("selects the option when hits enter on a non-selected option", async () => {
     render(<SelectionProviderWrapper />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await userEvent.tab()
+    await userEvent.keyboard("{Enter}")
 
     expect(
       screen.getByRole("option", {
@@ -411,15 +411,15 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     ).toBeVisible()
   })
 
-  it("de-selects the option when hits enter on a selected option", () => {
+  it("de-selects the option when hits enter on a selected option", async () => {
     render(
       <SelectionProviderWrapper
         selectedKeys={new Set(["option-2-value-mock"])}
       />
     )
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await userEvent.tab()
+    await userEvent.keyboard("{Enter}")
 
     expect(
       screen.getByRole("option", {
@@ -429,36 +429,117 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     ).toBeVisible()
   })
 
-  it("fires onSelectionChange when hits enter on a option", () => {
+  it("fires onSelectionChange when hits enter on a option", async () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await userEvent.tab()
+    await userEvent.keyboard("{Enter}")
 
     expect(spy).toHaveBeenCalledTimes(1)
   })
 })
 
 describe("<SelectionProviderWrapper /> - Search Filtering", () => {
-  it("shows only the matched options", () => {
-    render(<SelectionProviderWrapper />)
-    const searchInput = screen.getByRole("searchbox")
-    userEvent.type(searchInput, "1")
+  describe("With no onSearchInputChange callback", () => {
+    it("shows only the matched options", async () => {
+      render(<SelectionProviderWrapper />)
+      const searchInput = screen.getByRole("searchbox")
+      await userEvent.type(searchInput, "1")
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).not.toBeInTheDocument()
+    })
+  })
+  describe("With a onSearchInputChange callback", () => {
+    it("Does not filter the matched options", async () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      await userEvent.type(searchInput, searchString)
+
+      expect(
+        screen.getByRole("option", {
+          name: "option-1-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-2-label-mock",
+        })
+      ).toBeVisible()
+      expect(
+        screen.getByRole("option", {
+          name: "option-3-label-mock",
+        })
+      ).toBeVisible()
+    })
+    it("Calls back to the consumer with the search text", async () => {
+      const onSearchInputChange = jest.fn()
+
+      render(
+        <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+      )
+      const searchInput = screen.getByRole("searchbox")
+      const searchString = "1"
+      await userEvent.type(searchInput, searchString)
+
+      expect(onSearchInputChange).toBeCalledTimes(1)
+      expect(onSearchInputChange).toBeCalledWith(searchString)
+    })
+  })
+})
+
+describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
+  it("renders only items passed", () => {
+    const { rerender } = render(<SelectionProviderWrapper />)
     expect(
       screen.getByRole("option", {
         name: "option-1-label-mock",
       })
     ).toBeVisible()
     expect(
+      screen.getByRole("option", {
+        name: "option-2-label-mock",
+      })
+    ).toBeVisible()
+    expect(
+      screen.getByRole("option", {
+        name: "option-3-label-mock",
+      })
+    ).toBeVisible()
+
+    rerender(<SelectionProviderWrapper items={itemsMock.slice(2)} />)
+    expect(
+      screen.queryByRole("option", {
+        name: "option-1-label-mock",
+      })
+    ).not.toBeInTheDocument()
+    expect(
       screen.queryByRole("option", {
         name: "option-2-label-mock",
       })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole("option", {
+      screen.getByRole("option", {
         name: "option-3-label-mock",
       })
-    ).not.toBeInTheDocument()
+    ).toBeVisible()
   })
 })

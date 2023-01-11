@@ -1,14 +1,15 @@
 import React, { useState } from "react"
+import { DecoratorFunction } from "@storybook/addons"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -16,7 +17,7 @@ const IS_CHROMATIC = isChromatic()
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
-const withMinHeight = Story => {
+const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
   if (IS_CHROMATIC) {
     return <div style={{ minHeight: "100vh" }}>{Story()}</div>
   }
@@ -44,13 +45,13 @@ export default {
     ),
   },
   decorators: [withDesign, withMinHeight],
-}
+} as ComponentMeta<typeof InputEditModal>
 
 const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
 
-  const handleOpen = () => setIsOpen(true)
-  const handleClose = () => setIsOpen(false)
+  const handleOpen = (): void => setIsOpen(true)
+  const handleClose = (): void => setIsOpen(false)
 
   const SELECT_OPTIONS = [
     { value: "Mindy", label: "Mindy" },

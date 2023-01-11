@@ -1,6 +1,4 @@
 import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
-import { v4 } from "uuid"
-import classnames from "classnames"
 import {
   ProseMirrorCommands,
   ProseMirrorState,
@@ -10,16 +8,18 @@ import {
   useRichTextEditor,
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
-import { Label } from "@kaizen/draft-form"
+import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
+import { FieldMessage, Label } from "@kaizen/draft-form"
 import { InlineNotification } from "@kaizen/notification"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
-import { createSchemaFromControls } from "./schema"
-import { buildKeymap } from "./keymap"
 import { buildControlMap } from "./controlmap"
 import { buildInputRules } from "./inputrules"
-import styles from "./RichTextEditor.module.scss"
+import { buildKeymap } from "./keymap"
+import { createSchemaFromControls } from "./schema"
 import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
+import styles from "./RichTextEditor.module.scss"
 
 export interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
@@ -33,6 +33,15 @@ export interface BaseRichTextEditorProps
   rows?: EditorRows
   dataError?: React.ReactElement
   onDataError?: () => void
+  status?: "default" | "error" | "caution"
+  /**
+   * A descriptive message for `error` or `caution` states
+   */
+  validationMessage?: React.ReactNode
+  /**
+   * A description that provides context
+   */
+  description?: React.ReactNode
 }
 
 interface RTEWithLabelText extends BaseRichTextEditorProps {
@@ -50,7 +59,7 @@ export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
  * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
  */
-export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
+export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
   const {
     onChange,
     value,
@@ -61,6 +70,9 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     rows = 3,
     dataError = "Something went wrong",
     onDataError,
+    validationMessage,
+    description,
+    status = "default",
     ...restProps
   } = props
   const [schema] = useState<ProseMirrorModel.Schema>(
@@ -69,16 +81,18 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
   const [labelId] = useState<string>(labelledBy || v4())
   const [editorId] = useState<string>(v4())
 
-  const useRichTextEditorResult = (() => {
+  const useRichTextEditorResult = (():
+    | ReturnType<typeof useRichTextEditor>
+    | Error => {
     try {
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
-          doc: value
-            ? ProseMirrorModel.Node.fromJSON(schema, {
-                type: "doc",
-                content: value,
-              })
-            : undefined,
+          doc: ProseMirrorModel.Node.fromJSON(schema, {
+            type: "doc",
+            // we're converting empty arrays to the ProseMirror default "empty" state because when
+            // given an empty array ProseMirror returns undefined, breaking the type
+            content: value?.length > 0 ? value : [{ type: "paragraph" }],
+          }),
           schema,
           plugins: getPlugins(controls, schema),
         }),
@@ -107,11 +121,18 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
 
+  const validationMessageAria = validationMessage
+    ? `${editorId}-rte-validation-message`
+    : ""
+  const descriptionAria = description ? `${editorId}-rte-description` : ""
+
+  const ariaDescribedBy = `${validationMessageAria} ${descriptionAria}`
+
   return (
     <>
       {!labelledBy && labelText && <Label id={labelId} labelText={labelText} />}
       {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
-      <div className={styles.editorWrapper}>
+      <div className={classnames(styles.editorWrapper, styles[status])}>
         {controls && (
           <Toolbar
             aria-controls={editorId}
@@ -127,7 +148,9 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
                     disabled={controlConfig.disabled}
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
-                    onClick={() => dispatchTransaction(controlConfig.action)}
+                    onClick={(): void =>
+                      dispatchTransaction(controlConfig.action)
+                    }
                   />
                 ))}
               </ToolbarSection>
@@ -143,9 +166,22 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
             classNameOverride,
             { [styles.hasToolbar]: controls != null && controls.length > 0 }
           )}
+          aria-describedby={ariaDescribedBy}
           {...restProps}
         />
       </div>
+
+      {validationMessage && (
+        <FieldMessage
+          id={validationMessageAria}
+          message={validationMessage}
+          status={status}
+        />
+      )}
+
+      {description && (
+        <FieldMessage id={descriptionAria} message={description} />
+      )}
     </>
   )
 }
@@ -153,7 +189,15 @@ export const RichTextEditor: React.VFC<RichTextEditorProps> = props => {
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema
-) {
+): Array<
+  | ProseMirrorState.Plugin<unknown>
+  | ProseMirrorState.Plugin<{
+      transform: ProseMirrorState.Transaction
+      from: number
+      to: number
+      text: string
+    } | null>
+> {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []

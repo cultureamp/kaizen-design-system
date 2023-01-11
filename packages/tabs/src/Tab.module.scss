@@ -44,7 +44,7 @@
   }
 }
 
-.tab.selected {
+.tab[data-selected] {
   position: relative;
   color: $color-blue-500;
 

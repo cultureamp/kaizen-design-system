@@ -1,6 +1,6 @@
-import * as React from "react"
-import skipWhite from "@kaizen/component-library/icons/skip.icon.svg"
+import React from "react"
 import { Icon } from "@kaizen/component-library"
+import skipWhite from "@kaizen/component-library/icons/skip.icon.svg"
 import styles from "./SkipLink.module.scss"
 
 export interface SkipLinkProps {
@@ -17,7 +17,7 @@ export interface SkipLinkProps {
 /**
  * The skip link should be the first focusable element in the page.
  */
-export const SkipLink: React.VFC<SkipLinkProps> = ({ label, skipTo }) => (
+export const SkipLink = ({ label, skipTo }: SkipLinkProps): JSX.Element => (
   <a className={styles.skipLinkContainer} href={`#${skipTo}`}>
     <span className={styles.skipLinkContent}>
       <span className={styles.skipLinkIcon}>
@@ -27,3 +27,5 @@ export const SkipLink: React.VFC<SkipLinkProps> = ({ label, skipTo }) => (
     </span>
   </a>
 )
+
+SkipLink.displayName = "SkipLink"

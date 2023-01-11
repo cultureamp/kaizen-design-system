@@ -1,8 +1,7 @@
+import React from "react"
 import { Button, ButtonRef } from "@kaizen/button"
 import addWhiteIcon from "@kaizen/component-library/icons/add-white.icon.svg"
 import { Menu, MenuItem, MenuList } from "@kaizen/draft-menu"
-
-import React from "react"
 
 export interface DemographicMenuProps {
   isAddFilterDisabled: boolean
@@ -20,7 +19,7 @@ export const DemographicMenu = ({
   groups,
   isSelected,
   addFilter,
-}: DemographicMenuProps) => (
+}: DemographicMenuProps): JSX.Element => (
   <Menu
     button={
       <Button
@@ -39,7 +38,7 @@ export const DemographicMenu = ({
           <MenuItem
             label={group.name}
             key={group.id}
-            onClick={() => addFilter(group.id)}
+            onClick={(): void => addFilter(group.id)}
           />
         ))}
     </MenuList>

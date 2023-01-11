@@ -1,4 +1,4 @@
-export const createRange = (start: number, end: number) => {
+export const createRange = (start: number, end: number): number[] => {
   const range: number[] = []
 
   for (let i = start; i <= end; i++) {

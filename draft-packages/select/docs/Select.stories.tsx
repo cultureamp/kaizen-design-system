@@ -1,12 +1,12 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { withDesign } from "storybook-addon-designs"
 import { Label } from "@kaizen/draft-form"
+import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const OPTIONS = [
   { value: "Mindy", label: "Mindy" },
@@ -26,7 +26,7 @@ const OPTIONS = [
 ]
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select Legacy`,
   component: Select,
   parameters: {
     docs: {
@@ -53,12 +53,54 @@ DefaultSelectStory.args = {
   fullWidth: true,
   reversed: false,
   status: "default",
+  isClearable: false,
+  isSearchable: false,
+}
+
+export const GroupedStory: ComponentStory<typeof Select> = args => {
+  const COLOUR_OPTIONS = [
+    { value: "blue", label: "blue" },
+    { value: "red", label: "red", isDisabled: true },
+    { value: "green", label: "green" },
+  ]
+
+  const FLAVOUR_OPTIONS = [
+    { value: "vanilla", label: "Vanilla" },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+  ]
+
+  const GROUPED_OPTIONS = [
+    {
+      label: "Colours",
+      options: COLOUR_OPTIONS,
+    },
+    {
+      label: "Flavours",
+      options: FLAVOUR_OPTIONS,
+    },
+  ]
+  return (
+    <Select
+      options={GROUPED_OPTIONS}
+      defaultValue={COLOUR_OPTIONS[0]}
+      {...args}
+    />
+  )
+}
+GroupedStory.storyName = "Grouped Options"
+GroupedStory.args = {
+  label: "Label",
+  placeholder: "Placeholder",
+  fullWidth: true,
+  reversed: false,
+  status: "default",
 }
 
 export const DefaultAsyncSelectStory: ComponentStory<
   typeof AsyncSelect
 > = args => {
-  const filterNames = (inputValue: string) =>
+  const filterNames = (inputValue: string): typeof OPTIONS =>
     OPTIONS.filter(({ label }) =>
       label.toLowerCase().includes(inputValue.toLowerCase())
     )
@@ -92,77 +134,73 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div>
-    {/* {!isReversed && ( */}
-    <>
-      <StoryWrapper isReversed={isReversed}>
-        <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
-          Default Select
-        </Heading>
-        <StoryWrapper.RowHeader headings={["Base", "Clearable", "Disabled"]} />
-        <StoryWrapper.Row rowTitle="Default">
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            placeholder="Edit survey"
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[0]}
-            isClearable
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            placeholder="Edit survey"
-            isDisabled
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Ellipsis">
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-            isClearable
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-            isDisabled
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+    <StoryWrapper isReversed={isReversed}>
+      <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
+        Default Select
+      </Heading>
+      <StoryWrapper.RowHeader headings={["Base", "Clearable", "Disabled"]} />
+      <StoryWrapper.Row rowTitle="Default">
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          placeholder="Edit survey"
+        />
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          defaultValue={OPTIONS[0]}
+          isClearable
+        />
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          placeholder="Edit survey"
+          isDisabled
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Ellipsis">
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          defaultValue={OPTIONS[9]}
+          placeholder="Edit survey"
+        />
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          defaultValue={OPTIONS[9]}
+          placeholder="Edit survey"
+          isClearable
+        />
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          defaultValue={OPTIONS[9]}
+          placeholder="Edit survey"
+          isDisabled
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
 
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
-        <StoryWrapper.Row rowTitle="Multi Select">
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            isMulti={true}
-            defaultValue={OPTIONS[0]}
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[0]}
-            placeholder="Edit survey"
-            isDisabled
-            isMulti
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </>
-    {/* )} */}
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+      <StoryWrapper.Row rowTitle="Multi Select">
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          isMulti={true}
+          defaultValue={OPTIONS[0]}
+        />
+        <Select
+          options={OPTIONS}
+          reversed={isReversed}
+          defaultValue={OPTIONS[0]}
+          placeholder="Edit survey"
+          isDisabled
+          isMulti
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
 
     <StoryWrapper isReversed={isReversed}>
       <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>

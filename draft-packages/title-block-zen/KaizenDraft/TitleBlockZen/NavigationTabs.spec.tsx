@@ -1,9 +1,9 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
 import { fireEvent } from "@storybook/testing-library"
+import { render, screen } from "@testing-library/react"
 import NavigationTab, { CustomNavigationTabProps } from "./NavigationTabs"
 
-const CustomComponent = (props: CustomNavigationTabProps) => (
+const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
   <button
     onClick={props.handleClick}
     className={props.className}

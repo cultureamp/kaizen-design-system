@@ -1,26 +1,26 @@
 import React, { useMemo } from "react"
-import { v4 } from "uuid"
 
-import { mergeProps } from "@react-aria/utils"
 import { useFocusRing } from "@react-aria/focus"
-import { Node } from "@react-types/shared"
 import { useOption } from "@react-aria/listbox"
+import { mergeProps } from "@react-aria/utils"
+import { Node } from "@react-types/shared"
 import classNames from "classnames"
-import check from "@kaizen/component-library/icons/check.icon.svg"
-import { Icon } from "@kaizen/component-library"
-import { Badge } from "@kaizen/draft-badge"
+import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
+import { Icon } from "@kaizen/component-library"
+import check from "@kaizen/component-library/icons/check.icon.svg"
+import { Badge } from "@kaizen/draft-badge"
+import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider"
-import { ItemType } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {
   item: Node<ItemType>
 }
 
-export const MultiSelectOption: React.VFC<MultiSelectOptionProps> = ({
+export const MultiSelectOption = ({
   item,
-}) => {
+}: MultiSelectOptionProps): JSX.Element => {
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()

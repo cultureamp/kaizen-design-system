@@ -1,5 +1,5 @@
-import { Tab as ReachTab } from "@reach/tabs"
 import React, { ReactNode, useState, SyntheticEvent } from "react"
+import { Tab as ReachTab } from "@reach/tabs"
 import classnames from "classnames"
 import { Badge } from "@kaizen/draft-badge"
 import styles from "./Tab.module.scss"
@@ -23,20 +23,20 @@ export interface TabProps {
 /**
  * A tab button
  */
-export const Tab = (props: TabProps) => {
+export const Tab = (props: TabProps): JSX.Element => {
   const { isSelected, badge, disabled, children } = props
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const showActiveBadge = isSelected || isHovered || isFocused
 
-  const onFocus = (event: SyntheticEvent) => {
+  const onFocus = (event: SyntheticEvent): void => {
     setIsFocused(true)
-    props.onFocus && props.onFocus(event)
+    props.onFocus?.(event)
   }
 
-  const onBlur = (event: SyntheticEvent) => {
+  const onBlur = (event: SyntheticEvent): void => {
     setIsFocused(false)
-    props.onBlur && props.onBlur(event)
+    props.onBlur?.(event)
   }
 
   return (
@@ -45,8 +45,8 @@ export const Tab = (props: TabProps) => {
       className={classnames(styles.tab, { [styles.selected]: isSelected })}
       onFocus={onFocus}
       onBlur={onBlur}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={(): void => setIsHovered(true)}
+      onMouseLeave={(): void => setIsHovered(false)}
     >
       {children}
       {badge && (

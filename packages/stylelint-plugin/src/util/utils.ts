@@ -1,6 +1,6 @@
+import type * as postcss from "postcss"
 import postcssLess from "postcss-less"
 import postcssScss from "postcss-scss"
-import type * as postcss from "postcss"
 import { Language } from "../types"
 
 export const getLanguageFromFilePath = (filePath: string): Language =>
@@ -20,8 +20,8 @@ type ParserAndStringifier = {
   parse: postcss.Parser<postcss.Root>
   stringify: postcss.Stringifier
 }
-export const getParser = (language: Language) =>
+export const getParser = (language: Language): ParserAndStringifier =>
   (language === "scss" ? postcssScss : postcssLess) as ParserAndStringifier
 
-export const variablePrefixForLanguage = (language: Language) =>
+export const variablePrefixForLanguage = (language: Language): "@" | "$" =>
   language === "less" ? "@" : "$"

@@ -1,15 +1,15 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   Avatar,
   AvatarSizes,
   CompanyAvatarProps,
   GenericAvatarProps,
 } from "../../avatar/KaizenDraft/Avatar/Avatar"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const PROPS_PHOTO_PERSONAL: GenericAvatarProps = {
   fullName: "Jane Doe",
@@ -65,9 +65,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof Avatar>
 
-export const DefaultStory = args => <Avatar {...args} />
+export const DefaultStory: ComponentStory<typeof Avatar> = args => (
+  <Avatar {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc:

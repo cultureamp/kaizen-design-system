@@ -1,6 +1,6 @@
 import React from "react"
+import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Story } from "@storybook/react"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -25,9 +25,10 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => <MenuItem {...args} />
-
+export const DefaultStory: ComponentStory<typeof MenuItem> = args => (
+  <MenuItem {...args} />
+)
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 DefaultStory.args = {
   label: "Menu Item",
 }
-DefaultStory.storyName = "Default (Kaizen Site Demo)"

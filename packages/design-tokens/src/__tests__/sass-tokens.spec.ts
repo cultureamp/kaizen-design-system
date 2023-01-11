@@ -4,7 +4,7 @@ import PostCSS, { Declaration } from "postcss"
 
 import { heartColorNamePattern } from "../lib/patterns"
 
-const readSassFile = (fileName: string) =>
+const readSassFile = (fileName: string): Buffer =>
   fs.readFileSync(path.join(`${__dirname}../../../sass/`, fileName))
 
 describe("SASS tokens", () => {

@@ -1,5 +1,5 @@
-import classnames from "classnames"
 import React, { useCallback, useEffect, useState } from "react"
+import classnames from "classnames"
 import { usePopper } from "react-popper"
 import styles from "./MenuDropdown.module.scss"
 
@@ -27,7 +27,7 @@ const MenuDropdown = ({
   autoHide = "on",
   align = "left",
   width = "default",
-}: MenuDropdownProps) => {
+}: MenuDropdownProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )

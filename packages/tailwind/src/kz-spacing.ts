@@ -1,0 +1,27 @@
+import { defaultTheme } from "@kaizen/design-tokens"
+
+export const kzSpacing = {
+  0: "0",
+  1: ".0625rem",
+  2: ".125rem",
+  4: ".25rem",
+  8: ".5rem",
+  12: ".75rem",
+  16: "1rem",
+  24: "1.5rem",
+  32: "2rem",
+  40: "2.5rem",
+  48: "3rem",
+  56: "3.5rem",
+  64: "4rem",
+  72: "4.5rem",
+  80: "5rem",
+  96: "6rem",
+  112: "7rem",
+  128: "8rem",
+  160: "10rem",
+  200: "12.5rem",
+  240: "15rem",
+  280: "17.5rem",
+  320: "20rem",
+}

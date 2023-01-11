@@ -1,12 +1,12 @@
 import React from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Label`,
@@ -18,7 +18,7 @@ export default {
       },
     },
   },
-}
+} as ComponentMeta<typeof Label>
 
 export const DefaultKaizenSiteDemo: ComponentStory<typeof Label> = args => (
   <Label {...args}></Label>

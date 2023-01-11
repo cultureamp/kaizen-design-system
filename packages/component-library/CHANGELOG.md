@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.13...@kaizen/component-library@16.1.14) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.12...@kaizen/component-library@16.1.13) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.11...@kaizen/component-library@16.1.12) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.10...@kaizen/component-library@16.1.11) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.9...@kaizen/component-library@16.1.10) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.8...@kaizen/component-library@16.1.9) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.7...@kaizen/component-library@16.1.8) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.6...@kaizen/component-library@16.1.7) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.5...@kaizen/component-library@16.1.6) (2022-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/uuid to v8 ([#3024](https://github.com/cultureamp/kaizen-design-system/issues/3024)) ([6615034](https://github.com/cultureamp/kaizen-design-system/commit/66150341d521ae46cfc2dbdee45a53e8a4d8a312))
+
+
+
+
+
+## [16.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.4...@kaizen/component-library@16.1.5) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.3...@kaizen/component-library@16.1.4) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [16.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.2...@kaizen/component-library@16.1.3) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/component-library
@@ -1504,7 +1595,7 @@ import KaizenDraft.Button.Button as Button
 
 ### Features
 
-* point legacy Open Sans vars at Inter (release canary PR to master) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
+* point legacy Open Sans vars at Inter (release canary PR to main) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
 
 
 

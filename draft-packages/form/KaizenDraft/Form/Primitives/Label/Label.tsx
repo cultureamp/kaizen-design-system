@@ -21,7 +21,7 @@ export interface LabelProps
   automationId?: string
 }
 
-export const Label: React.VFC<LabelProps> = ({
+export const Label = ({
   children,
   labelText = "",
   labelType = "text",
@@ -32,7 +32,7 @@ export const Label: React.VFC<LabelProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: LabelProps): JSX.Element => (
   <label
     data-automation-id={automationId}
     className={classnames(styles.label, classNameOverride, {

@@ -1,6 +1,6 @@
-import { HeadingProps } from "@kaizen/typography"
-import { cleanup, render, screen } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, screen } from "@testing-library/react"
+import { HeadingProps } from "@kaizen/typography"
 import InlineNotification from "./InlineNotification"
 
 afterEach(cleanup)

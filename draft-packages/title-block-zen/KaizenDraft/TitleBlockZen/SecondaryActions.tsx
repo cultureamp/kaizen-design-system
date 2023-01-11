@@ -1,8 +1,8 @@
 import React from "react"
 import { Button, IconButton } from "@kaizen/button"
-import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import styles from "./TitleBlockZen.module.scss"
@@ -16,7 +16,7 @@ type Props = {
 const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean
-) => {
+): JSX.Element | undefined => {
   if (!secondaryOverflowMenuItems) return undefined
   return (
     <Menu
@@ -46,7 +46,7 @@ const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   reversed = false,
-}: Props) => {
+}: Props): JSX.Element | null => {
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
   const secondaryActionsAsToolbarItems = secondaryActions

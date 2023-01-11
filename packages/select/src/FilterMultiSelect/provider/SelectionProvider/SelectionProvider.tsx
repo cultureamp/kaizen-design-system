@@ -1,10 +1,10 @@
 import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
-import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { useListBox } from "@react-aria/listbox"
-import { ListState, useListState } from "@react-stately/list"
-import { VisuallyHidden } from "@kaizen/a11y"
 import { Item } from "@react-stately/collections"
-import { ItemType } from "../../types"
+import { ListState, useListState } from "@react-stately/list"
+import { SelectionMode, Node, Selection } from "@react-types/shared"
+import { VisuallyHidden } from "@kaizen/a11y"
+import { ItemType } from "../../../types"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
@@ -14,6 +14,7 @@ export interface SelectionProviderProps {
   selectedKeys?: Selection
   label: string
   disabledKeys?: Selection
+  onSearchInputChange?: (searchInput: string) => void
 }
 
 export interface SelectionProviderContextType {
@@ -29,8 +30,27 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
   {} as SelectionProviderContextType
 )
 
-export const SelectionProvider = (props: SelectionProviderProps) => {
+export const SelectionProvider = (
+  props: SelectionProviderProps
+): JSX.Element => {
+  const { onSearchInputChange, ...otherProps } = props
+  const isFirstRender = React.useRef(true)
   const [searchQuery, setSearchQuery] = useState<string>("")
+
+  /**
+   * While the onSearchInputChange  is a side-effect, this useEffect should be fine.
+   * If the search input state becomes controlled, this useEffect could cause synchronisation
+   * issues and should be replaced.
+   */
+  React.useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    if (onSearchInputChange) {
+      onSearchInputChange(searchQuery)
+    }
+  }, [searchQuery, onSearchInputChange])
 
   const searchFilter = useCallback(
     (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
@@ -44,16 +64,16 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
 
   // Create state based on the incoming props to manage the selection
   const state = useListState({
-    ...props,
+    ...otherProps,
     children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
-    filter: searchFilter,
+    filter: onSearchInputChange ? undefined : searchFilter, // If the user has passed an `onSearchInputChange` we opt them out of the default filtering
   })
 
   // Get A11y attributes and events for the listbox
   const ref = React.createRef<HTMLUListElement>()
   const { listBoxProps, labelProps } = useListBox(
     {
-      ...props,
+      ...otherProps,
       disallowEmptySelection: true, // stop escape key from clearing selection
     },
     state,
@@ -71,13 +91,14 @@ export const SelectionProvider = (props: SelectionProviderProps) => {
         searchQuery,
       }}
     >
-      <VisuallyHidden {...labelProps}>{props.label}</VisuallyHidden>
-      {props.children}
+      <VisuallyHidden {...labelProps}>{otherProps.label}</VisuallyHidden>
+      {otherProps.children}
     </SelectionContext.Provider>
   )
 }
 
-export const useSelectionContext = () => useContext(SelectionContext)
+export const useSelectionContext = (): SelectionProviderContextType =>
+  useContext(SelectionContext)
 
 export const SelectionConsumer = SelectionContext.Consumer
 

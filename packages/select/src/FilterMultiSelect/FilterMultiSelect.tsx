@@ -1,10 +1,12 @@
 import { ListBox } from "./components/ListBox"
 import { ListBoxSection } from "./components/ListBoxSection"
-import { SectionDivider } from "./components/SectionDivider"
+import { LoadMoreButton } from "./components/LoadMoreButton"
 import { MenuFooter, MenuLoadingSkeleton } from "./components/MenuLayout"
 import { MultiSelectOption } from "./components/MultiSelectOption"
+import { NoResults } from "./components/NoResults"
 import { Root } from "./components/Root"
 import { SearchInput } from "./components/SearchInput/SearchInput"
+import { SectionDivider } from "./components/SectionDivider"
 import {
   ClearButton,
   SelectAllButton,
@@ -26,6 +28,8 @@ export const FilterMultiSelect = Object.assign(Root, {
   ClearButton,
   MenuFooter, // For layout
   MenuLoadingSkeleton, // Menu Loading Skeleton example
+  LoadMoreButton,
+  NoResults,
 })
 
 FilterMultiSelect.displayName = "FilterMultiSelect"

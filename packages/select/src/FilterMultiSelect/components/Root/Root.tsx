@@ -1,18 +1,18 @@
 import React from "react"
 import { SelectionMode, Selection } from "@react-types/shared"
+import { ItemType } from "../../../types"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
   MenuTriggerProviderProps,
 } from "../../provider/MenuTriggerProvider"
-import { MenuPopup } from "../MenuPopup/MenuPopup"
 import {
   SelectionConsumer,
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
+import { MenuPopup } from "../MenuPopup/MenuPopup"
 
 export interface RootProps
   extends MenuPopupProps,
@@ -35,11 +35,12 @@ interface SelectionProps {
   selectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
+  onSearchInputChange?: (searchInput: string) => void
 }
 
 export type FilterMultiSelectProps = RootProps
 
-export const Root: React.VFC<RootProps> = ({
+export const Root = ({
   trigger,
   children,
   isOpen,
@@ -53,7 +54,8 @@ export const Root: React.VFC<RootProps> = ({
   selectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
-}) => {
+  onSearchInputChange,
+}: RootProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
@@ -68,6 +70,7 @@ export const Root: React.VFC<RootProps> = ({
     onSelectionChange,
     selectionMode,
     disabledKeys,
+    onSearchInputChange,
   }
 
   return (

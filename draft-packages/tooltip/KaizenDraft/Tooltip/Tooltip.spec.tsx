@@ -1,5 +1,5 @@
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
 import * as AppearanceAnim from "./AppearanceAnim"
 import { Tooltip } from "./index"
 import "@testing-library/jest-dom"

@@ -1,5 +1,5 @@
-import { heartColorNamePattern } from "../patterns"
 import { makeCssVariableDefinitionsMap } from "../makeCssVariableDefinitionsMap"
+import { heartColorNamePattern } from "../patterns"
 import { themeForTesting } from "./themeForTesting"
 
 describe(makeCssVariableDefinitionsMap.name, () => {

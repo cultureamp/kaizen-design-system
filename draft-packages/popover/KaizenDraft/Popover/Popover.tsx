@@ -5,7 +5,6 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { Size, Variant, Placement } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -14,6 +13,7 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+import { Size, Variant, Placement } from "./types"
 import styles from "./Popover.module.scss"
 
 export interface PopoverProps
@@ -47,7 +47,7 @@ const arrowHeight = 7
  * {@link https://cultureamp.design/components/popover/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-popover--default-kaizen-site-demo Storybook}
  */
-export const Popover: React.VFC<PopoverProps> = ({
+export const Popover = ({
   children,
   variant = "default",
   placement = "top",
@@ -61,7 +61,7 @@ export const Popover: React.VFC<PopoverProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => {
+}: PopoverProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -197,7 +197,7 @@ type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
  */
 export const usePopover = (): [
   (element: HTMLElement | null) => void,
-  React.FunctionComponent<PopoverPropsWithoutRef>
+  (props: PopoverPropsWithoutRef) => JSX.Element | null
 ] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null

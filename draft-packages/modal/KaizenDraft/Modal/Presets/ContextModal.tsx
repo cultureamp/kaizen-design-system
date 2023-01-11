@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
-import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "@kaizen/button"
+import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleLabel,
@@ -42,8 +42,6 @@ export type ContextModalProps = Readonly<
   } & ContextModalSecondaryActionProps
 >
 
-type ContextModal = React.FunctionComponent<ContextModalProps>
-
 /**
  * {@link https://cultureamp.design/components/modal/#context-modals-previously-information-modal Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--context-modal-example Storybook}
@@ -63,7 +61,7 @@ const ContextModal = ({
   contentHeader,
   image,
   ...props
-}: ContextModalProps) => {
+}: ContextModalProps): JSX.Element => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
 
   const footerActions: ButtonProps[] = []
@@ -122,7 +120,7 @@ const ContextModal = ({
               [styles.landscapeContentlayout]: layout === "landscape",
             })}
           >
-            <div className={styles.image}>{image}</div>
+            {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>
               {children}
               {onConfirm != null && (

@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, RenderResult } from "@testing-library/react"
 import { BaseButton, BaseButtonProps } from "./BaseButton"
 import styles from "./BaseButton.scss"
 
@@ -9,7 +9,9 @@ const DEFAULT_PROPS: BaseButtonProps = {
   label: BUTTON_LABEL,
 }
 
-const renderBaseButton = (customProps?: Partial<BaseButtonProps>) => {
+const renderBaseButton = (
+  customProps?: Partial<BaseButtonProps>
+): RenderResult => {
   const props = { ...DEFAULT_PROPS, ...customProps }
 
   return render(<BaseButton {...props} />)

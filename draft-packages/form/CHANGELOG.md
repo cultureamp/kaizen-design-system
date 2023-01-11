@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.18...@kaizen/draft-form@8.3.19) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.17...@kaizen/draft-form@8.3.18) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.16...@kaizen/draft-form@8.3.17) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.15...@kaizen/draft-form@8.3.16) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.14...@kaizen/draft-form@8.3.15) (2022-12-01)
+
+
+### Bug Fixes
+
+* **input:** add z-index to input pseudo styles ([#3133](https://github.com/cultureamp/kaizen-design-system/issues/3133)) ([77ab25b](https://github.com/cultureamp/kaizen-design-system/commit/77ab25b6252bf41d8325f4cfb0474c726c3ae136))
+
+
+
+
+
+## [8.3.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.13...@kaizen/draft-form@8.3.14) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.12...@kaizen/draft-form@8.3.13) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.11...@kaizen/draft-form@8.3.12) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.10...@kaizen/draft-form@8.3.11) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.9...@kaizen/draft-form@8.3.10) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.8...@kaizen/draft-form@8.3.9) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.7...@kaizen/draft-form@8.3.8) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.6...@kaizen/draft-form@8.3.7) (2022-10-24)
+
+
+### Bug Fixes
+
+* **searchfield:** update onClear to return focus to input ([#3043](https://github.com/cultureamp/kaizen-design-system/issues/3043)) ([5efd41c](https://github.com/cultureamp/kaizen-design-system/commit/5efd41c6fca7040e9b2529378dcf1989c1286f67))
+
+
+
+
+
 ## [8.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.5...@kaizen/draft-form@8.3.6) (2022-10-19)
 
 **Note:** Version bump only for package @kaizen/draft-form

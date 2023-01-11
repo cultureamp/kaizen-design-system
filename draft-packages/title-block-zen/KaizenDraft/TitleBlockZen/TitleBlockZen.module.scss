@@ -15,8 +15,8 @@ $breadcrumb-breakpoint-width: $layout-content-max-width +
 $title-block-separator-height: 0.1875rem;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
-$tab-container-height-default-collapsed: $ca-grid + 0.1875rem;
-$tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
+$tab-container-height-default-collapsed: 0;
+$tab-container-height-medium-and-small-collapsed: 0;
 
 .titleBlock {
   position: relative;
@@ -86,7 +86,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     border-bottom-color: rgba($color-purple-700-rgb, 0.2);
   }
 
-  .adminVariant & {
+  .adminVariant &,
+  .collapseNavigationArea & {
     border-bottom-color: transparent;
   }
 

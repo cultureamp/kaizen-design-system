@@ -1,7 +1,10 @@
 import React from "react"
 import classnames from "classnames"
+import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import {
   Assertive,
   Cautionary,
@@ -9,10 +12,7 @@ import {
   Negative,
   Positive,
 } from "@kaizen/draft-illustration"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
-import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
-import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
-import { ButtonProps } from "@kaizen/button"
+import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -45,11 +45,9 @@ export interface ConfirmationModalProps {
   readonly children: React.ReactNode
 }
 
-type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
-
 type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
 
-const getIcon = (mood: Mood, isProminent: boolean) => {
+const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
   switch (mood) {
     case "cautionary":
       return isProminent ? (
@@ -102,7 +100,7 @@ const ConfirmationModal = ({
   automationId,
   children,
   ...props
-}: ConfirmationModalProps) => {
+}: ConfirmationModalProps): JSX.Element => {
   const onDismiss = confirmWorking ? undefined : props.onDismiss
 
   const footerActions: ButtonProps[] = []
@@ -164,7 +162,7 @@ const ConfirmationModal = ({
         </ModalHeader>
         <ModalBody>
           <div
-            className={classnames(styles.body, {
+            className={classnames({
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}

@@ -1,0 +1,42 @@
+{
+  "name": "@kaizen/tailwind",
+  "version": "0.2.4",
+  "description": "Kaizen Tailwind presets",
+  "scripts": {
+    "build": "yarn clean && yarn prepublish",
+    "build:ts": "tsc --project tsconfig.dist.json",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/tailwind"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "src",
+    "dist",
+    "!**/*.spec.*",
+    "!docs"
+  ],
+  "main": "dist/index.js",
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "@kaizen/design-tokens": "^10.1.4",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@kaizen/draft-divider": "^2.2.4",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.2.4"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+  }
+}

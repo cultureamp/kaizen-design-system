@@ -1,12 +1,12 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
-import { OverrideClassName } from "@kaizen/component-base"
 import { IconButton } from "@kaizen/button"
-import { Heading } from "@kaizen/typography"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { OverrideClassName } from "@kaizen/component-base"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import { Sticky } from "./CollapsibleGroup"
+import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { Heading } from "@kaizen/typography"
+import { Sticky } from "../CollapsibleGroup/CollapsibleGroup"
 import styles from "./Collapsible.module.scss"
 
 type Variant = "default" | "clear"
@@ -59,7 +59,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     open: !!this.props.open,
   }
 
-  public render() {
+  public render(): JSX.Element {
     const {
       id,
       children,
@@ -158,10 +158,10 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     )
   }
 
-  private getOpen = () =>
+  private getOpen = (): boolean | undefined =>
     this.props.controlled ? this.props.open : this.state.open
 
-  private handleSectionToggle = () => {
+  private handleSectionToggle = (): void => {
     const { onToggle, id, controlled } = this.props
     const open = this.getOpen()
 
@@ -174,7 +174,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     }
   }
 
-  private handleButtonPress = (event: React.MouseEvent) => {
+  private handleButtonPress = (event: React.MouseEvent): void => {
     event.stopPropagation()
     this.handleSectionToggle()
   }

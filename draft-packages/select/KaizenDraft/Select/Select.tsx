@@ -6,11 +6,11 @@ import ReactSelect, {
   NoticeProps,
 } from "react-select"
 import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
-import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./Select.module.scss"
 
@@ -87,6 +87,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           Placeholder,
           DropdownIndicator,
           Menu,
+          GroupHeading,
           Option,
           NoOptionsMessage,
           Input,
@@ -166,12 +167,19 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   </components.DropdownIndicator>
 )
 
-const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const LoadingMessage = (props: NoticeProps): JSX.Element => (
   <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
 const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
+)
+
+const GroupHeading: typeof components.GroupHeading = props => (
+  <components.GroupHeading
+    {...props}
+    className={classNames(styles.groupHeading)}
+  />
 )
 
 const Option: typeof components.Option = props => (
@@ -187,7 +195,7 @@ const Option: typeof components.Option = props => (
   </div>
 )
 
-const NoOptionsMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const NoOptionsMessage = (props: NoticeProps): JSX.Element => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>
@@ -212,7 +220,10 @@ const MultiValue: typeof components.MultiValue = props => (
 )
 
 const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
-  <components.IndicatorsContainer {...props} />
+  <components.IndicatorsContainer
+    {...props}
+    className={styles.indicatorsContainer}
+  />
 )
 
 const Input: typeof components.Input = props => (
@@ -223,7 +234,7 @@ const ValueContainer: typeof components.ValueContainer = props => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
-  <components.ClearIndicator {...props}>
+  <components.ClearIndicator {...props} className={styles.clearIndicator}>
     <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
 )

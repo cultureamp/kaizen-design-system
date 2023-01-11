@@ -3,6 +3,7 @@ import { Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -22,8 +23,6 @@ import {
   CompanyValues,
   ConnectTheDots,
   CultureLab,
-  DataCatching,
-  HumanityAtWork,
   TermsAgreement,
   Programs,
   PerformanceCompanySettings,
@@ -55,7 +54,6 @@ import {
   AnimatedSceneProps,
   SceneProps,
 } from ".."
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -85,11 +83,15 @@ export default {
   },
 }
 
-const SceneWrapper: React.VFC<{
+const SceneWrapper = ({
+  children,
+  heading,
+  width,
+}: {
   children: React.ReactNode
   heading: string
   width: string
-}> = ({ children, heading, width }) => (
+}): JSX.Element => (
   <Box mb={3}>
     <div style={{ width }}>
       <Box mb={1}>
@@ -107,8 +109,8 @@ type StaticSceneProps = SceneProps & {
   loop?: never
   autoplay?: never
 }
-type AnimatedScene = React.VFC<AnimatedSceneProps>
-type StaticScene = React.VFC<StaticSceneProps>
+type AnimatedScene = (props: AnimatedSceneProps) => JSX.Element
+type StaticScene = (props: StaticSceneProps) => JSX.Element
 type IllustrationScene = AnimatedScene | StaticScene
 
 type SceneComponents = Array<{
@@ -291,14 +293,6 @@ const MISCELLANEOUS_COMPONENTS: SceneComponents = [
   {
     Component: CultureLab,
     heading: "Culture Lab",
-  },
-  {
-    Component: DataCatching,
-    heading: "Data Catching",
-  },
-  {
-    Component: HumanityAtWork,
-    heading: "Humanity At Work",
   },
   {
     Component: TermsAgreement,

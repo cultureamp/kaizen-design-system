@@ -1,5 +1,5 @@
-import { TabPanels as ReachTabPanels } from "@reach/tabs"
 import React, { ReactNode } from "react"
+import { TabPanels as ReachTabPanels } from "@reach/tabs"
 export interface TabPanelsProps {
   children: ReactNode
 }
@@ -7,7 +7,7 @@ export interface TabPanelsProps {
 /**
  * Wrapper for the content panels
  */
-export const TabPanels = (props: TabPanelsProps) => {
+export const TabPanels = (props: TabPanelsProps): JSX.Element => {
   const { children } = props
   return <ReachTabPanels>{children}</ReachTabPanels>
 }

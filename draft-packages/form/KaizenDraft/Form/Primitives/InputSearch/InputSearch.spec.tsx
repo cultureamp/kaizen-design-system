@@ -1,6 +1,6 @@
 import React from "react"
-import { render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
+import { render } from "@testing-library/react"
 import { InputSearchProps } from "./InputSearch"
 import { InputSearch } from "."
 
@@ -10,7 +10,7 @@ const defaultInputProps = {
   onChange: jest.fn(),
 }
 
-const renderInput = (props?: InputSearchProps) => {
+const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
   return render(<InputSearch {...mergedInputProps} />)

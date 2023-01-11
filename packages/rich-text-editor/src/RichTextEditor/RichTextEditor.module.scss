@@ -60,6 +60,34 @@
       border-color: $color-gray-600;
     }
   }
+
+  &.error {
+    &,
+    .toolbar {
+      border-color: $color-red-500;
+    }
+
+    &:hover {
+      &,
+      .toolbar {
+        border-color: $color-red-600;
+      }
+    }
+  }
+
+  &.caution {
+    &,
+    .toolbar {
+      border-color: $color-yellow-600;
+    }
+
+    &:hover {
+      &,
+      .toolbar {
+        border-color: $color-yellow-700;
+      }
+    }
+  }
 }
 
 @for $i from 1 through 20 {

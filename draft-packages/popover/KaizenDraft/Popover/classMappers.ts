@@ -1,7 +1,7 @@
 import React from "react"
+import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
-import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Size, Variant } from "./types"
 import styles from "./Popover.module.scss"
 
@@ -20,7 +20,7 @@ export const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-export const mapVariantToIconClass = (variant: Variant) => {
+export const mapVariantToIconClass = (variant: Variant): string | undefined => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon

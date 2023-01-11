@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.22...@kaizen/draft-menu@4.8.23) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.21...@kaizen/draft-menu@4.8.22) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.20...@kaizen/draft-menu@4.8.21) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.19...@kaizen/draft-menu@4.8.20) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.18...@kaizen/draft-menu@4.8.19) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.17...@kaizen/draft-menu@4.8.18) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.16...@kaizen/draft-menu@4.8.17) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.15...@kaizen/draft-menu@4.8.16) (2022-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v9 ([#3025](https://github.com/cultureamp/kaizen-design-system/issues/3025)) ([46c513c](https://github.com/cultureamp/kaizen-design-system/commit/46c513c8b84fd48e57f2bf3f7802a06c018366ce))
+
+
+
+
+
+## [4.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.14...@kaizen/draft-menu@4.8.15) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.13...@kaizen/draft-menu@4.8.14) (2022-11-09)
+
+
+### Bug Fixes
+
+* **component:** accept consumers onClick event for button within Menu ([#3070](https://github.com/cultureamp/kaizen-design-system/issues/3070)) ([643bfe0](https://github.com/cultureamp/kaizen-design-system/commit/643bfe063a1f649594c97ba6290d1ba7933d0933))
+
+
+
+
+
+## [4.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.12...@kaizen/draft-menu@4.8.13) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.11...@kaizen/draft-menu@4.8.12) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [4.8.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.10...@kaizen/draft-menu@4.8.11) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [4.8.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.9...@kaizen/draft-menu@4.8.10) (2022-10-20)
 
 **Note:** Version bump only for package @kaizen/draft-menu

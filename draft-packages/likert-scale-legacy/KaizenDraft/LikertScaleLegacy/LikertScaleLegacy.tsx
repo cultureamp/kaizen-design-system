@@ -1,7 +1,7 @@
 import React, { useState, createRef } from "react"
 import classnames from "classnames"
-import { Paragraph } from "@kaizen/typography"
 import { FieldMessage } from "@kaizen/draft-form"
+import { Paragraph } from "@kaizen/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
 import styles from "./LikertScaleLegacy.module.scss"
@@ -35,7 +35,7 @@ export const LikertScaleLegacy = ({
   validationMessage,
   status,
   labelId,
-}: LikertScaleProps) => {
+}: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map(s => ({
     value: s.value,
@@ -158,12 +158,12 @@ export const LikertScaleLegacy = ({
                 [styles.unselected]:
                   selectedItem && selectedItem.value < item.value,
               })}
-              onClick={() => handleRadioClick(item)}
+              onClick={(): void => handleRadioClick(item)}
               key={item.value}
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`
               }
-              onMouseEnter={() => handleRadioMouseEnter(item)}
+              onMouseEnter={(): void => handleRadioMouseEnter(item)}
               onMouseLeave={handleRadioMouseLeave}
               role="radio"
               aria-label={item.label}
@@ -174,7 +174,7 @@ export const LikertScaleLegacy = ({
               aria-setsize={5}
               tabIndex={tabIndex}
               ref={itemRef && itemRef.ref}
-              onKeyDown={event => handleKeyDown(event, item)}
+              onKeyDown={(event): void => handleKeyDown(event, item)}
             >
               <div
                 className={classnames(
