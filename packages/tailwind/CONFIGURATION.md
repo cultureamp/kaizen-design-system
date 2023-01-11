@@ -77,7 +77,7 @@ module.exports = {
 Refer to the below for more on these keys.
 
 ### content
-This should target the files using tailwind in you src folder. ie:
+This should target the files using tailwind in your src folder. ie:
 ```js
   content: [
     './src/page/**/*.{tsx, ts}',
