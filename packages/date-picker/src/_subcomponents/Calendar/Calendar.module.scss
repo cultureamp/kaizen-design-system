@@ -103,6 +103,10 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
+
+  [dir="rtl"] & {
+    transform: rotate(180deg);
+  }
 }
 
 .table {
