@@ -220,15 +220,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </StoryWrapper>
 
     <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Multiline", "Truncated"]} />
+      <StoryWrapper.RowHeader headings={["Truncated"]} />
       <StoryWrapper.Row rowTitle="Long Texts">
-        <Select
-          id="select-long-multi"
-          label="label"
-          items={singleMockItems}
-          description="This is a description"
-          selectedKey={"id-long"}
-        />
         <Select
           id="select-long-truncated"
           label="label"
