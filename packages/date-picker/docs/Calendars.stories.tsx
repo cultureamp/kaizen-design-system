@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -37,91 +37,102 @@ const CalendarSingleExample = (
   </div>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+const StickerSheetTemplate: Story = () => (
   <>
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
-      <StoryWrapper.Row rowTitle="Default" gridColumns={3}>
-        <CalendarSingleExample id="default-hover" />
-        <CalendarSingleExample id="default-focus" />
-      </StoryWrapper.Row>
+    <StickerSheet heading="Calendars - Day">
+      <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <CalendarSingleExample id="default-hover" />
+          <CalendarSingleExample id="default-focus" />
+          <CalendarSingleExample
+            disabled={[
+              new Date("2021-09-15"),
+              { after: new Date("2021-09-17") },
+            ]}
+            id="disabled-default"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.RowHeader headings={["Default", "Focus"]} gridColumns={3} />
-      <StoryWrapper.Row rowTitle="Disabled" gridColumns={3}>
-        <CalendarSingleExample
-          disabled={[new Date("2021-09-15"), { after: new Date("2021-09-17") }]}
-          id="disabled-default"
-        />
-        <CalendarSingleExample
-          disabled={[new Date("2021-09-15"), { after: new Date("2021-09-17") }]}
-          id="disabled-focus"
-        />
-      </StoryWrapper.Row>
+    <StickerSheet heading="Calendars - Selected Day">
+      <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <CalendarSingleExample
+            selected={new Date("2021-09-05")}
+            id="selected-default"
+          />
+          <CalendarSingleExample
+            selected={new Date("2021-09-05")}
+            id="selected-hover"
+          />
+          <CalendarSingleExample
+            selected={new Date("2021-09-05")}
+            id="selected-focus"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.RowHeader headings={["Default", "Hover", "Focus"]} />
-      <StoryWrapper.Row rowTitle="Selected">
-        <CalendarSingleExample
-          selected={new Date("2021-09-05")}
-          id="selected-default"
-        />
-        <CalendarSingleExample
-          selected={new Date("2021-09-05")}
-          id="selected-hover"
-        />
-        <CalendarSingleExample
-          selected={new Date("2021-09-05")}
-          id="selected-focus"
-        />
-      </StoryWrapper.Row>
+    <StickerSheet heading="Calendars - Today">
+      <StickerSheet.Header headings={["Default", "Selected", "Disabled"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="today-default"
+          />
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="today-selected"
+            selected={new Date("2022-05-01")}
+          />
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="today-disabled"
+            selected={new Date("2022-05-01")}
+            disabled={[new Date("2022-05-01")]}
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.RowHeader headings={["Default", "Selected", "Disabled"]} />
-      <StoryWrapper.Row rowTitle="Today">
-        <CalendarSingleExample
-          defaultMonth={new Date("2022-05-01")}
-          id="today-default"
-        />
-        <CalendarSingleExample
-          defaultMonth={new Date("2022-05-01")}
-          id="today-selected"
-          selected={new Date("2022-05-01")}
-        />
-        <CalendarSingleExample
-          defaultMonth={new Date("2022-05-01")}
-          id="today-disabled"
-          selected={new Date("2022-05-01")}
-          disabled={[new Date("2022-05-01")]}
-        />
-      </StoryWrapper.Row>
+    <StickerSheet heading="Calendars - Navigation Buttons">
+      <StickerSheet.Header headings={["Hover", "Focus"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <CalendarSingleExample id="navigation-hover" />
+          <CalendarSingleExample id="navigation-focus" />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
 
-      <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
-      <StoryWrapper.Row rowTitle="Navigation Buttons" gridColumns={3}>
-        <CalendarSingleExample id="navigation-hover" />
-        <CalendarSingleExample id="navigation-focus" />
-      </StoryWrapper.Row>
+    <StickerSheet heading="Calendar Range">
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Default">
+          <CalendarRange
+            selected={{
+              from: new Date("2022-02-19"),
+              to: new Date("2022-03-04"),
+            }}
+          />
+        </StickerSheet.Row>
 
-      <StoryWrapper.RowHeader headings={["Default"]} gridColumns={3} />
-      <StoryWrapper.Row rowTitle="Range" gridColumns={3}>
-        <CalendarRange
-          selected={{
-            from: new Date("2022-02-19"),
-            to: new Date("2022-03-04"),
-          }}
-        />
-      </StoryWrapper.Row>
-
-      <StoryWrapper.RowHeader headings={["Default"]} gridColumns={3} />
-      <StoryWrapper.Row rowTitle="Range with divider" gridColumns={3}>
-        <CalendarRange
-          selected={{
-            from: new Date("2022-02-19"),
-            to: new Date("2022-03-04"),
-          }}
-          hasDivider
-        />
-      </StoryWrapper.Row>
-    </StoryWrapper>
+        <StickerSheet.Row rowTitle="With divider">
+          <div style={{ padding: "1.5rem 0" }}>
+            <CalendarRange
+              selected={{
+                from: new Date("2022-02-19"),
+                to: new Date("2022-03-04"),
+              }}
+              hasDivider
+            />
+          </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   </>
 )
 
@@ -164,9 +175,4 @@ StickerSheetDefault.play = ({ canvasElement }): void => {
       "focus-visible"
     )
   })
-
-  getElementWithinCalendar(
-    "disabled-focus",
-    "15th September (Wednesday)"
-  ).classList.add("focus-visible")
 }
