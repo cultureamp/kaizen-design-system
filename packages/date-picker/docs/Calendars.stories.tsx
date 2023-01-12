@@ -136,14 +136,7 @@ const StickerSheetTemplate: Story = () => (
   </>
 )
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
-
-StickerSheetDefault.play = ({ canvasElement }): void => {
+const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
   const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
@@ -175,4 +168,27 @@ StickerSheetDefault.play = ({ canvasElement }): void => {
       "focus-visible"
     )
   })
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetDefault.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl", // Global control; see storybook/preview.tsx
+}
+StickerSheetRTL.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
 }
