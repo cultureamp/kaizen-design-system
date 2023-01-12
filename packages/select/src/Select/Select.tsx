@@ -134,12 +134,7 @@ export const Select = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            {
-              placeholder,
-              triggerProps,
-              valueProps,
-              status,
-            },
+            { placeholder, triggerProps, valueProps, status },
             buttonRef
           )}
 
