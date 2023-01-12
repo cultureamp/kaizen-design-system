@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.5...@kaizen/select@6.4.0) (2023-01-12)
+
+
+### Features
+
+* handle long text multiline or truncated ([#3196](https://github.com/cultureamp/kaizen-design-system/issues/3196)) ([ae409b1](https://github.com/cultureamp/kaizen-design-system/commit/ae409b129bd2e93976b3ef52bdf3e045d09c3ffd))
+
+
+
+
+
 ## [6.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.4...@kaizen/select@6.3.5) (2023-01-04)
 
 **Note:** Version bump only for package @kaizen/select
