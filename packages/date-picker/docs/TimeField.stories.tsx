@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { TimeField } from "../index"
+import { TimeField } from "../../components/src"
 import { ValueType } from "../src/TimeField/types"
 
 export default {
@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { TimeField } from "@kaizen/date-picker"',
+        component: 'import { TimeField } from "@kaizen/time-field"',
       },
     },
     ...figmaEmbed(
