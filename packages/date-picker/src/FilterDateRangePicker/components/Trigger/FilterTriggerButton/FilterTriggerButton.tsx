@@ -9,7 +9,7 @@ import styles from "./FilterTriggerButton.module.scss"
 export interface FilterTriggerButtonProps
   extends Omit<FilterBaseButtonProps, "children"> {
   label: string
-  selectedValue?: string
+  selectedValue?: string | JSX.Element
   isOpen?: boolean
 }
 

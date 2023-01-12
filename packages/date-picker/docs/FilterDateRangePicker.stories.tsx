@@ -121,14 +121,14 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--default--base"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeDefaultBase}
               onRangeChange={setRangeDefaultBase}
             />
             <FilterDateRangePicker
               id="stickersheet--filter-drp--default--existing"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeDefaultExisting}
               onRangeChange={setRangeDefaultExisting}
             />
@@ -137,14 +137,14 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--default--base--rtl"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeDefaultBase}
               onRangeChange={setRangeDefaultBase}
             />
             <FilterDateRangePicker
               id="stickersheet--filter-drp--default--existing--rtl"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeDefaultExisting}
               onRangeChange={setRangeDefaultExisting}
             />
@@ -163,7 +163,7 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--removable--base"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeRemovableBase}
               onRangeChange={setRangeRemovableBase}
               onRemoveFilter={(): void => undefined}
@@ -171,7 +171,7 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--removable--existing"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeRemovableExisting}
               onRangeChange={setRangeRemovableExisting}
               onRemoveFilter={(): void => undefined}
@@ -181,7 +181,7 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--removable--base--rtl"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeRemovableBase}
               onRangeChange={setRangeRemovableBase}
               onRemoveFilter={(): void => undefined}
@@ -189,7 +189,7 @@ const StickerSheetTemplate: Story = () => {
             <FilterDateRangePicker
               id="stickersheet--filter-drp--removable--existing--rtl"
               label="Dates"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeRemovableExisting}
               onRangeChange={setRangeRemovableExisting}
               onRemoveFilter={(): void => undefined}
@@ -208,7 +208,7 @@ const StickerSheetTemplate: Story = () => {
               data-testid="test__stickersheet--filter-drp--open"
               id="stickersheet--filter-drp--open"
               label="Open"
-              locale="en-AU"
+              locale="en-US"
               selectedRange={rangeOpen}
               onRangeChange={setRangeOpen}
               description="This is a custom description"

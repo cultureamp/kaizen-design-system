@@ -23,7 +23,7 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { formatDateRange } from "./utils/formatDateRange"
+import { getDateRangeDisplayLabel } from "./utils/getDateRangeDisplayLabel"
 import styles from "./FilterDateRangePicker.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -144,7 +144,7 @@ export const FilterDateRangePicker = ({
     "aria-haspopup": "dialog",
     onClick: () => setIsOpen(!isOpen),
     isOpen,
-    selectedValue: formatDateRange(selectedRange, locale),
+    selectedValue: getDateRangeDisplayLabel(selectedRange, locale),
   }
 
   return (
