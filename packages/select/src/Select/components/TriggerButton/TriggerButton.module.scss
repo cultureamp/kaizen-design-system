@@ -9,7 +9,11 @@
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
   width: 100%;
-  height: fit-content;
+  height: $spacing-xl;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 
   &:hover .icon,
   &:global(.story__button-hover) .icon,
@@ -27,7 +31,6 @@
 .icon {
   margin-left: $spacing-sm;
   color: $color-gray-500;
-  align-self: flex-start;
 }
 
 .error {
@@ -47,21 +50,11 @@
     color: $color-gray-400;
   }
 }
+
 .value {
   width: 100%;
   text-align: start;
-}
-
-.value.truncated {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.button.truncated {
-  height: $spacing-xl;
-  overflow: hidden;
-  white-space: nowrap;
-  flex: 1;
-  min-width: 0;
 }
