@@ -1,3 +1,9 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../storybook/constants"
+import BespokeComponent from './tailwind-bespoke-component.png';
+
+<Meta title={`${CATEGORIES.tailwind}/Docs/README`} />
+
 # Install
 
 ```
@@ -6,15 +12,13 @@ yarn add -D @kaizen/tailwind
 
 ## Table of contents
 
-- [Install](#install)
-  - [Table of contents](#table-of-contents)
-  - [Caveat before use](#caveat-before-use)
-  - [What our package does](#what-our-package-does)
-  - [Getting started](#getting-started)
-  - [Use cases](#use-cases)
-    - [1. Spacing and layouts](#1-spacing-and-layouts)
-    - [2. Creating bespoke components](#2-creating-bespoke-components)
-    - [3. Altering Kaizen components with classnameOverride](#3-altering-kaizen-components-with-classnameoverride)
+- [Caveat before use](#caveat-before-use)
+- [What our package does](#what-our-package-does)
+- [Getting started](#getting-started)
+- [Use cases](#use-cases)
+  - [1. Spacing and layouts](#1-spacing-and-layouts)
+  - [2. Creating bespoke components](#2-creating-bespoke-components)
+  - [3. Altering Kaizen components with classnameOverride](#3-altering-kaizen-components-with-classnameoverride)
 
 ## Caveat before use
 
@@ -78,7 +82,8 @@ Here is an example of our TW package being used to create a bespoke, non-Kaizen 
   <p className="m-0 p-12 pl-16 font-family-paragraph">Label</p>
 </div>
 ```
-![Tailwind bespoke component](tailwind-bespoke-component.png)
+
+<img src={BespokeComponent} />
 
 ### 3. Altering Kaizen components with classnameOverride
 If a Kaizen component supports `classNameOverride`, Tailwind classes can also be used.  
