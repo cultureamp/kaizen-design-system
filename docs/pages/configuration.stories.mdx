@@ -1,24 +1,30 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../storybook/constants"
+import AnatomyDiagram from './tailwind-anatomy.jpg';
+
+<Meta title={`${CATEGORIES.tailwind}/Docs/CONFIGURATION`} />
+
 # Configuration  
-- [Configuration](#configuration)
-  - [What is a preset?](#what-is-a-preset)
-  - [The Kaizen Preset](#the-kaizen-preset)
-    - [Example](#example)
-  - [Recommended preset configuration](#recommended-preset-configuration)
-    - [content](#content)
-    - [presets](#presets)
-    - [important](#important)
-    - [corePlugins](#coreplugins)
-  - [Extending the Kaizen preset](#extending-the-kaizen-preset)
-  - [Tailwind directives](#tailwind-directives)
-  - [Suggested Editor Config](#suggested-editor-config)
-    - [Tailwind CSS VSCode IntelliSense plugin](#tailwind-css-vscode-intellisense-plugin)
+
+- [What is a preset?](#what-is-a-preset)
+- [The Kaizen Preset](#the-kaizen-preset)
+  - [Example](#example)
+- [Recommended preset configuration](#recommended-preset-configuration)
+  - [content](#content)
+  - [presets](#presets)
+  - [important](#important)
+  - [corePlugins](#coreplugins)
+- [Extending the Kaizen preset](#extending-the-kaizen-preset)
+- [Tailwind directives](#tailwind-directives)
+- [Suggested Editor Config](#suggested-editor-config)
+  - [Tailwind CSS VSCode IntelliSense plugin](#tailwind-css-vscode-intellisense-plugin)
 
 
 ## What is a preset?
 
 A Tailwind [Preset](https://tailwindcss.com/docs/presets#creating-a-preset) is a configuration object that determines which suffixes can be applied to Tailwind's utility classes.
 
-![Tailwind anatomy diagram](tailwind-anatomy.jpg "Tailwind anatomy")
+<img src={AnatomyDiagram}/>
 
 ## The Kaizen Preset
 
@@ -133,7 +139,6 @@ Be careful though! While adding in a _new_ field to `colors` won't overwrite any
 `<p className="text-purple-100">` ️❗️ Value from `Preset` overwritten to "Lime"
 
 `<p className="text-purple-200">` ✅ Value from `Preset` not overwritten
-</details>
 
 <br/>
 
