@@ -55,7 +55,9 @@ export const TriggerButton = React.forwardRef<
         ])}
         disabled={triggerProps.isDisabled}
       >
-        <span {...valueProps}>{value ?? placeholder}</span>
+        <span {...valueProps} className={styles.value}>
+          {value ?? placeholder}
+        </span>
         <Icon
           icon={state.isOpen ? chevronUp : chevronDown}
           role="presentation"

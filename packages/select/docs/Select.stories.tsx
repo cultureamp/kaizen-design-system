@@ -219,7 +219,32 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
     </StoryWrapper>
 
-    <div style={{ height: "550px", marginTop: "12rem" }}>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Truncated"]} />
+      <StoryWrapper.Row rowTitle="Long Texts">
+        <Select
+          id="select-long-truncated"
+          label="label"
+          items={[
+            { label: "Dev-ops", value: "id-devops" },
+            { label: "Others", value: "id-others" },
+            {
+              label:
+                "Super long option where the container is fixed width and the selected option goes multiline",
+              value: "id-long",
+            },
+            {
+              label: "Metallblasinstrumentenbauermeisterbrief",
+              value: "id-long-word",
+            },
+          ]}
+          description="This is a description"
+          selectedKey={"id-long"}
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+
+    <div style={{ height: "550px", marginTop: "18rem" }}>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}

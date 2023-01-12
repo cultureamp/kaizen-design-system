@@ -9,6 +9,10 @@
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
   width: 100%;
+  height: $spacing-xl;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 
   &:hover .icon,
   &:global(.story__button-hover) .icon,
@@ -44,4 +48,12 @@
   &:hover .icon {
     color: $color-gray-400;
   }
+}
+
+.value {
+  width: 100%;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
