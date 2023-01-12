@@ -112,6 +112,13 @@ export const Select = ({
     }
   }, [state.isOpen])
 
+  const handleKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      state.setOpen(!state.isOpen)
+    }
+  }
+
   const triggerButtonProps: TriggerButtonProps = {
     id,
     isOpen: state.isOpen,
@@ -121,6 +128,7 @@ export const Select = ({
     placeholder,
     "aria-haspopup": "dialog",
     onClick: () => state.setOpen(!state.isOpen),
+    onKeyDown: handleKeyDown,
   }
 
   return (
