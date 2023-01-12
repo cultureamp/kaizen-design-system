@@ -196,6 +196,7 @@ export const FilterDateRangePicker = ({
               }}
               locale={locale}
               description={description}
+              classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange
               defaultMonth={defaultMonth}

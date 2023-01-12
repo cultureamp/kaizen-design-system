@@ -1,18 +1,15 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
-import {
-  FieldGroup,
-  FieldGroupProps,
-  FieldMessage,
-  FieldMessageStatus,
-} from "@kaizen/draft-form"
+import { OverrideClassName } from "@kaizen/component-base"
+import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
 import { DateInput, DateInputProps } from "../../../_subcomponents/DateInput"
 import { formatInputDescription } from "../../../utils/formatInputDescription"
 import { isRefObject } from "../../../utils/isRefObject"
 import styles from "./DateRangeInputField.module.scss"
 
-export interface DateRangeInputFieldProps extends FieldGroupProps {
+export interface DateRangeInputFieldProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   legend: string
 
@@ -57,7 +54,8 @@ export const DateRangeInputField = React.forwardRef<
       status,
       validationMessage,
       locale,
-      ...fieldGroupProps
+      classNameOverride,
+      ...restProps
     },
     ref
   ) => {
@@ -73,7 +71,7 @@ export const DateRangeInputField = React.forwardRef<
       : descriptionId
 
     return (
-      <FieldGroup {...fieldGroupProps}>
+      <div className={classNameOverride} {...restProps}>
         <fieldset className={styles.dateRangeInputContainer}>
           <legend>
             <VisuallyHidden>{legend}</VisuallyHidden>
@@ -120,7 +118,7 @@ export const DateRangeInputField = React.forwardRef<
           reversed={isReversed}
           classNameOverride={disabled ? styles.disabled : undefined}
         />
-      </FieldGroup>
+      </div>
     )
   }
 )
