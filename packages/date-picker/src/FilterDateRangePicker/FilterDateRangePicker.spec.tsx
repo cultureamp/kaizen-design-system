@@ -50,7 +50,7 @@ describe("<FilterDateRangePicker />", () => {
         />
       )
       const filterButton = screen.getByRole("button", {
-        name: "Dates: 1 May 2022 - 25 Nov 2022",
+        name: "Dates : 1 May 2022 - 25 Nov 2022",
       })
       expect(filterButton).toBeVisible()
     })

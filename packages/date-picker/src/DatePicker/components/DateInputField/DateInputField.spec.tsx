@@ -24,7 +24,7 @@ describe("<DateInputField />", () => {
       expect(
         screen.getByRole("textbox", {
           name: "Bacon expiry",
-          description: "Input format: mm/dd/yyyy",
+          description: "Input format : mm/dd/yyyy",
         })
       ).toBeInTheDocument()
     })
