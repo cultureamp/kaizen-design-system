@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { enAU } from "date-fns/locale"
+import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
@@ -12,8 +12,7 @@ import {
   DateRangeInputField,
   DateRangeInputFieldProps,
 } from "../src/FilterDateRangePicker/components/DateRangeInputField"
-
-const LOCALE = enAU
+import { formatDateAsText } from "../src/utils/formatDateAsText"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Date Range Input Field`,
@@ -43,9 +42,11 @@ DefaultStory.args = {
   locale: enAU,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: Story<{
+  textDirection: "ltr" | "rtl" // Global control; see storybook/preview.tsx
+  isReversed: boolean
+  locale: DateRangeInputFieldProps["locale"]
+}> = ({ isReversed, locale }) => {
   const inputRangeStartProps: DateRangeInputFieldProps["inputRangeStartProps"] =
     { labelText: "Date from" }
   const inputRangeEndProps: DateRangeInputFieldProps["inputRangeEndProps"] = {
@@ -66,7 +67,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               inputRangeStartProps={inputRangeStartProps}
               inputRangeEndProps={inputRangeEndProps}
-              locale={LOCALE}
+              locale={locale}
             />
             <DateRangeInputField
               id="daterangeinputfield--selected"
@@ -74,13 +75,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               inputRangeStartProps={{
                 ...inputRangeStartProps,
-                value: "8 Jun 2022",
+                value: formatDateAsText(
+                  new Date("2022-06-08"),
+                  undefined,
+                  locale
+                ),
               }}
               inputRangeEndProps={{
                 ...inputRangeEndProps,
-                value: "25 Nov 2022",
+                value: formatDateAsText(
+                  new Date("2022-12-17"),
+                  undefined,
+                  locale
+                ),
               }}
-              locale={LOCALE}
+              locale={locale}
             />
             <DateRangeInputField
               id="daterangeinputfield--description"
@@ -99,7 +108,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
                   </Paragraph>
                 </>
               }
-              locale={LOCALE}
+              locale={locale}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -115,7 +124,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               inputRangeStartProps={inputRangeStartProps}
               inputRangeEndProps={inputRangeEndProps}
-              locale={LOCALE}
+              locale={locale}
               disabled
             />
             <DateRangeInputField
@@ -124,7 +133,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               inputRangeStartProps={inputRangeStartProps}
               inputRangeEndProps={inputRangeEndProps}
-              locale={LOCALE}
+              locale={locale}
               status="error"
               validationMessage="Error message"
             />
@@ -140,4 +149,18 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+StickerSheetDefault.args = {
+  locale: enUS,
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl",
+  locale: enUS,
 }

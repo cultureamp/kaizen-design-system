@@ -4,7 +4,10 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
 import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
 import { DateInput, DateInputProps } from "../../../_subcomponents/DateInput"
-import { formatInputDescription } from "../../../utils/formatInputDescription"
+import {
+  DateInputDescription,
+  DateInputDescriptionProps,
+} from "../../../_subcomponents/DateInputDescription"
 import { isRefObject } from "../../../utils/isRefObject"
 import styles from "./DateRangeInputField.module.scss"
 
@@ -20,7 +23,7 @@ export interface DateRangeInputFieldProps
   /**
    * A description that provides context for the text field
    */
-  description?: React.ReactNode
+  description?: DateInputDescriptionProps["description"]
   isReversed?: boolean
   /**
    * Updates the styling of the validation FieldMessage
@@ -114,7 +117,9 @@ export const DateRangeInputField = React.forwardRef<
         )}
         <FieldMessage
           id={descriptionId}
-          message={formatInputDescription(description, locale)}
+          message={
+            <DateInputDescription description={description} locale={locale} />
+          }
           reversed={isReversed}
           classNameOverride={disabled ? styles.disabled : undefined}
         />
