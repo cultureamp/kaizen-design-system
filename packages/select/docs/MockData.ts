@@ -11,7 +11,6 @@ export const singleMockItems: ItemType[] = [
       "Super long option where the container is fixed width and the selected option goes multiline",
     value: "id-long",
   },
-  { label: "Metallblasinstrumentenbauermeisterbrief", value: "id-long-word" },
   { label: "AnotherExample", value: "id-another" },
 ]
 
