@@ -18,6 +18,7 @@ const OPTIONS = [
   { value: "Prince", label: "Prince" },
   { value: "Charith", label: "Charith" },
   { value: "Nick", label: "Nick" },
+  { value: "id-long-word", label: "Metallblasinstrumentenbauermeisterbrief" },
   {
     value: "Long option",
     label:
@@ -55,6 +56,7 @@ DefaultSelectStory.args = {
   status: "default",
   isClearable: false,
   isSearchable: false,
+  menuIsOpen: true,
 }
 
 export const GroupedStory: ComponentStory<typeof Select> = args => {

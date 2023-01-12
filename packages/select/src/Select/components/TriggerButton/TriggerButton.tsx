@@ -18,7 +18,6 @@ export type TriggerButtonProps = OverrideClassName<
   triggerProps: AriaButtonProps<"button">
   valueProps: DOMAttributes<FocusableElement>
   status?: "error" | "caution"
-  isTriggerValueTruncated?: boolean
 }
 
 export const TriggerButton = React.forwardRef<
@@ -32,7 +31,6 @@ export const TriggerButton = React.forwardRef<
       triggerProps,
       valueProps,
       status,
-      isTriggerValueTruncated,
     },
     buttonRef
   ) => {
@@ -52,7 +50,7 @@ export const TriggerButton = React.forwardRef<
           isFocusVisible && styles.isFocusVisible,
           status === "error" && styles.error,
           status === "caution" && styles.caution,
-          isTriggerValueTruncated && styles.truncated,
+          styles.truncated,
           triggerProps.isDisabled && styles.disabled,
           classNameOverride,
         ])}
@@ -60,10 +58,7 @@ export const TriggerButton = React.forwardRef<
       >
         <span
           {...valueProps}
-          className={classnames(
-            styles.value,
-            isTriggerValueTruncated && styles.truncated
-          )}
+          className={classnames(styles.value, styles.truncated)}
         >
           {value ?? placeholder}
         </span>

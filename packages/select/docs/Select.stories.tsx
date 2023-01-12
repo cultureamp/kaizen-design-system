@@ -55,7 +55,6 @@ DefaultStory.args = {
   isDisabled: false,
   placeholder: "Placeholder",
   defaultOpen: false,
-  isTriggerValueTruncated: false,
 }
 
 DefaultStory.parameters = {
@@ -236,7 +235,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey={"id-long"}
-          isTriggerValueTruncated
         />
       </StoryWrapper.Row>
     </StoryWrapper>
