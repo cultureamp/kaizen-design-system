@@ -200,7 +200,7 @@ const StickerSheetTemplate: Story = () => {
 
       <StickerSheet
         heading="Open"
-        style={{ paddingBottom: IS_CHROMATIC ? "32rem" : undefined }}
+        style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
       >
         <StickerSheet.Body>
           <StickerSheet.Row>
