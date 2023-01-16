@@ -54,6 +54,10 @@ export interface FilterDateRangePickerProps
   onRemoveFilter?: () => void
   inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
   inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
+  /**
+   * Custom description to provide extra context (input format help text remains).
+   */
+  description?: DateRangeInputFieldProps["description"]
 }
 
 export const FilterDateRangePicker = ({
@@ -72,6 +76,7 @@ export const FilterDateRangePicker = ({
   onRemoveFilter,
   inputRangeStartProps,
   inputRangeEndProps,
+  description,
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
@@ -190,6 +195,7 @@ export const FilterDateRangePicker = ({
                 ...inputRangeEndHandlers,
               }}
               locale={locale}
+              description={description}
             />
             <CalendarRange
               defaultMonth={defaultMonth}
