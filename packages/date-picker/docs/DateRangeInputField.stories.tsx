@@ -60,7 +60,7 @@ const StickerSheetTemplate: Story<{
           headings={["Base", "Selected value", "Custom description"]}
         />
         <StickerSheet.Body>
-          <StickerSheet.Row>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
             <DateRangeInputField
               id="daterangeinputfield--default"
               legend="Default example"
@@ -117,7 +117,7 @@ const StickerSheetTemplate: Story<{
       <StickerSheet heading="States">
         <StickerSheet.Header headings={["Disabled", "Error"]} />
         <StickerSheet.Body>
-          <StickerSheet.Row>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
             <DateRangeInputField
               id="daterangeinputfield--disabled"
               legend="Disabled example"

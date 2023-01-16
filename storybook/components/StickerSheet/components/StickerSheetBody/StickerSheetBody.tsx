@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import { StickerSheetRowProps } from "../StickerSheetRow"
-import styles from "./StickerSheetBody.module.scss"
 
 export interface StickerSheetBodyProps
   extends HTMLAttributes<HTMLTableSectionElement> {
@@ -15,7 +14,7 @@ export const StickerSheetBody = ({
   isReversed = false,
   ...restProps
 }: StickerSheetBodyProps): JSX.Element => (
-  <tbody className={styles.stickerSheetBody} {...restProps}>
+  <tbody {...restProps}>
     {React.Children.map(children, child =>
       React.cloneElement(child, {
         isReversed,
