@@ -167,6 +167,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               locale="en-AU"
               selectedRange={rangeOpen}
               onRangeChange={setRangeOpen}
+              description="This is a custom description"
             />
           </div>
         </StoryWrapper.Row>
