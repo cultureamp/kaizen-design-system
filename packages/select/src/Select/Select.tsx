@@ -55,6 +55,7 @@ export const Select = ({
   isDisabled,
   disabledValues,
   status,
+  defaultOpen,
   validationMessage,
   classNameOverride,
   trigger = (triggerProps): JSX.Element => (
@@ -72,6 +73,7 @@ export const Select = ({
     description,
     placeholder,
     isDisabled,
+    defaultOpen,
     validationState: invalidStatus,
     errorMessage: validationMessage,
     disabledKeys: disabledValues,

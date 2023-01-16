@@ -38,7 +38,6 @@
       outline: none;
     }
 
-    &.isFocusVisible,
     #{$selectors--button-focus} {
       background-color: $color-gray-200;
       border-color: $color-gray-600;
