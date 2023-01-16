@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.16.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.16.0...@kaizen/date-picker@5.16.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ([#3202](https://github.com/cultureamp/kaizen-design-system/issues/3202)) ([1922224](https://github.com/cultureamp/kaizen-design-system/commit/1922224c7f3b16a1e72f481fcd44e8a7b73f9e9f))
+
+
+
+
+
 # [5.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.6...@kaizen/date-picker@5.16.0) (2023-01-16)
 
 
