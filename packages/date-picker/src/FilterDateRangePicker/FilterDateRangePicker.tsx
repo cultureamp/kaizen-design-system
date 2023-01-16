@@ -14,6 +14,7 @@ import {
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
+import { DateRangeDisplayLabel } from "./components/DateRangeDisplayLabel"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -23,7 +24,7 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { getDateRangeDisplayLabel } from "./utils/getDateRangeDisplayLabel"
+import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -144,7 +145,9 @@ export const FilterDateRangePicker = ({
     "aria-haspopup": "dialog",
     onClick: () => setIsOpen(!isOpen),
     isOpen,
-    selectedValue: getDateRangeDisplayLabel(selectedRange, locale),
+    selectedValue: isCompleteDateRange(selectedRange) ? (
+      <DateRangeDisplayLabel dateRange={selectedRange} locale={locale} />
+    ) : undefined,
   }
 
   return (
