@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^8.19.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.0.7"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
