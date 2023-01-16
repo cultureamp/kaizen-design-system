@@ -38,7 +38,6 @@
       outline: none;
     }
 
-    // &.isFocusVisible,
     &:focus-visible,
     &:global(.js-focus-visible) &:global(.focus-visible),
     #{$selectors--button-focus} {

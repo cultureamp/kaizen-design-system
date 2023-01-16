@@ -12,8 +12,8 @@ import styles from "./TriggerButton.module.scss"
 export interface TriggerButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder?: string
-  valueProps: DOMAttributes<FocusableElement>
   triggerProps: AriaButtonProps<"button">
+  valueProps: DOMAttributes<FocusableElement>
   status?: "error" | "caution"
 }
 
@@ -25,8 +25,8 @@ export const TriggerButton = React.forwardRef<
     {
       placeholder = "Select",
       classNameOverride,
-      valueProps,
       triggerProps,
+      valueProps,
       status,
       ...restProps
     },
