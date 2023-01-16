@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { useObjectRef } from "@react-aria/utils"
+import { AriaButtonProps, useButton } from "@react-aria/button"
+import { mergeProps, useObjectRef } from "@react-aria/utils"
 import { DOMAttributes, FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -8,14 +9,12 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { useSelectContext } from "../../context"
 import styles from "./TriggerButton.module.scss"
-
 export interface TriggerButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder?: string
   valueProps: DOMAttributes<FocusableElement>
+  triggerProps: AriaButtonProps<"button">
   status?: "error" | "caution"
-  isOpen?: boolean
-  isDisabled?: boolean
 }
 
 export const TriggerButton = React.forwardRef<
@@ -27,9 +26,8 @@ export const TriggerButton = React.forwardRef<
       placeholder = "Select",
       classNameOverride,
       valueProps,
+      triggerProps,
       status,
-      isDisabled,
-      isOpen,
       ...restProps
     },
     buttonRef
@@ -37,28 +35,26 @@ export const TriggerButton = React.forwardRef<
     const { state } = useSelectContext()
     const value = state?.selectedItem?.rendered
     const ref = useObjectRef(buttonRef)
+    const { buttonProps } = useButton(triggerProps, ref)
 
     return (
       <button
+        {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames([
           styles.button,
           (value === null || value === undefined) && styles.placeholder,
           status === "error" && styles.error,
           status === "caution" && styles.caution,
-          isDisabled && styles.disabled,
+          triggerProps.isDisabled && styles.disabled,
           classNameOverride,
         ])}
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        disabled={isDisabled}
-        {...restProps}
       >
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}
         </span>
         <Icon
-          icon={isOpen ? chevronUp : chevronDown}
+          icon={state.isOpen ? chevronUp : chevronDown}
           role="presentation"
           classNameOverride={styles.icon}
         />

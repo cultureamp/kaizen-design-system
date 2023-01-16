@@ -55,6 +55,7 @@ export const Select = ({
   isDisabled,
   disabledValues,
   status,
+  defaultOpen,
   validationMessage,
   classNameOverride,
   trigger = (triggerProps): JSX.Element => (
@@ -72,6 +73,7 @@ export const Select = ({
     description,
     placeholder,
     isDisabled,
+    defaultOpen,
     validationState: invalidStatus,
     errorMessage: validationMessage,
     disabledKeys: disabledValues,
@@ -112,25 +114,6 @@ export const Select = ({
     }
   }, [state.isOpen])
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = e => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault()
-      state.setOpen(!state.isOpen)
-    }
-  }
-
-  const triggerButtonProps: TriggerButtonProps = {
-    id,
-    isOpen: state.isOpen,
-    isDisabled,
-    valueProps,
-    status,
-    placeholder,
-    "aria-haspopup": "dialog",
-    onClick: () => state.setOpen(!state.isOpen),
-    onKeyDown: handleKeyDown,
-  }
-
   return (
     <SelectContext.Provider
       value={{
@@ -153,9 +136,7 @@ export const Select = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            {
-              ...triggerButtonProps,
-            },
+            { placeholder, triggerProps, valueProps, status },
             buttonRef
           )}
 
