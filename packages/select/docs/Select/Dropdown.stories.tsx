@@ -42,76 +42,78 @@ export default {
 
 const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
   <>
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader
-        headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
-      />
-      <StoryWrapper.Row rowTitle="Dropdown">
-        <Select
-          id="select-dropdown-base"
-          label="label"
-          items={singleMockItems}
-          placeholder="Placeholder"
-          isOpen
+    <div style={{ marginBottom: "28rem" }}>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
         />
-        <Select
-          id="select-dropdown-selected"
-          label="label"
-          items={singleMockItems}
-          placeholder="Placeholder"
-          selectedKey="id-sre"
-          isOpen
-        />
-        <Select
-          id="select-dropdown-hover"
-          label="label"
-          items={singleMockItems}
-          placeholder="Placeholder"
-          isOpen
-        >
-          {(optionsProps): JSX.Element[] =>
-            optionsProps.items.map((item: Node<SingleItemType>) => (
-              <Select.Option
-                {...optionsProps}
-                key={item.key}
-                item={item}
-                classNameOverride={
-                  item.key === "id-sre" ? "story__option-hover" : undefined
-                }
-              />
-            ))
-          }
-        </Select>
-        <Select
-          id="select-dropdown-focus"
-          label="label"
-          items={singleMockItems}
-          placeholder="Placeholder"
-          isOpen
-        >
-          {(optionsProps): JSX.Element[] =>
-            optionsProps.items.map((item: Node<SingleItemType>) => (
-              <Select.Option
-                {...optionsProps}
-                key={item.key}
-                item={item}
-                classNameOverride={
-                  item.key === "id-sre" ? "story__option-focus" : undefined
-                }
-              />
-            ))
-          }
-        </Select>
-        <Select
-          id="select-dropdown-disabled"
-          label="label"
-          items={singleMockItems}
-          placeholder="Placeholder"
-          disabledValues={["id-sre"]}
-          isOpen
-        />
-      </StoryWrapper.Row>
-    </StoryWrapper>
+        <StoryWrapper.Row rowTitle="Dropdown">
+          <Select
+            id="select-dropdown-base"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-selected"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            selectedKey="id-sre"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-hover"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-hover" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-focus"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-focus" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-disabled"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            disabledValues={["id-sre"]}
+            isOpen
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </div>
 
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
