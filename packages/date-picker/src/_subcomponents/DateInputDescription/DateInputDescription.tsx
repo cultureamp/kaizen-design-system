@@ -32,7 +32,7 @@ export const DateInputDescription = ({
     return (
       <span className={styles.dateInputDescription}>
         <span>{description}</span>
-        <span>
+        <span className={styles.dateInputFormatContainer}>
           (<DescriptionInputFormat locale={locale} />)
         </span>
       </span>
