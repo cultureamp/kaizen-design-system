@@ -1,3 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .filterDateRangePickerContainer {
   display: contents;
+}
+
+.dateRangeInputField {
+  margin-bottom: $spacing-md;
 }

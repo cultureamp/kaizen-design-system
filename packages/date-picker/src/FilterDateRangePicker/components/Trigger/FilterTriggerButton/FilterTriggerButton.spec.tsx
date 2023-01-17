@@ -32,7 +32,9 @@ describe("<FilterTriggerButton />", () => {
 
   it("should show the label and selected value when defined", () => {
     render(<FilterTriggerButtonWrapper selectedValue="Cake" />)
-    expect(screen.getByRole("button", { name: "Desserts: Cake" })).toBeVisible()
+    expect(
+      screen.getByRole("button", { name: "Desserts : Cake" })
+    ).toBeVisible()
   })
 
   it("should only show the label when selected value is an empty string", () => {
