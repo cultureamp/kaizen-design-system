@@ -6,14 +6,17 @@ import {
   DateInputWithIconButtonProps,
   DateInputWithIconButtonRefs,
 } from "../../../_subcomponents/DateInput/DateInputWithIconButton"
-import { formatInputDescription } from "../../../utils/formatInputDescription"
+import {
+  DateInputDescription,
+  DateInputDescriptionProps,
+} from "../../../_subcomponents/DateInputDescription"
 import styles from "./DateInputField.module.scss"
 
 export interface DateInputFieldProps extends DateInputWithIconButtonProps {
   /**
    * A description that provides context for the text field
    */
-  description?: React.ReactNode
+  description?: DateInputDescriptionProps["description"]
   /**
    * Updates the styling of the validation FieldMessage
    */
@@ -67,7 +70,9 @@ export const DateInputField = React.forwardRef<
         <div className={classnames(disabled && styles.disabled)}>
           <FieldMessage
             id={descriptionId}
-            message={formatInputDescription(description, locale)}
+            message={
+              <DateInputDescription description={description} locale={locale} />
+            }
             reversed={isReversed}
           />
         </div>
