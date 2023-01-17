@@ -109,7 +109,7 @@ const StickerSheetTemplate: Story = () => {
   })
 
   return (
-    <>
+    <div style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
       <StickerSheet heading="Default">
         <StickerSheet.Header
           headings={["Base", "With existing value"]}
@@ -198,10 +198,7 @@ const StickerSheetTemplate: Story = () => {
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet
-        heading="Open"
-        style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
-      >
+      <StickerSheet heading="Open">
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDateRangePicker
@@ -216,7 +213,7 @@ const StickerSheetTemplate: Story = () => {
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </>
+    </div>
   )
 }
 
