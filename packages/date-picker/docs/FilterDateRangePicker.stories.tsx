@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { FilterDateRangePicker } from "../src/FilterDateRangePicker"
@@ -84,9 +84,7 @@ DefaultStory.args = {
   onRemoveFilter: undefined,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: Story = () => {
   const [rangeDefaultBase, setRangeDefaultBase] = useState<
     DateRange | undefined
   >()
@@ -111,69 +109,71 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   })
 
   return (
-    <div style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Base", "With existing value"]} />
-        <StoryWrapper.Row rowTitle="Default">
-          <div>
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--base"
-              label="Dates"
-              locale="en-AU"
-              selectedRange={rangeDefaultBase}
-              onRangeChange={setRangeDefaultBase}
-            />
-          </div>
-          <div>
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--existing"
-              label="Dates"
-              locale="en-AU"
-              selectedRange={rangeDefaultExisting}
-              onRangeChange={setRangeDefaultExisting}
-            />
-          </div>
-        </StoryWrapper.Row>
+    <StickerSheet style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
+      <StickerSheet.Header
+        headings={["Base", "With existing value"]}
+        hasVerticalHeadings
+        verticalHeadingsWidth={70}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Default">
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default--base"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeDefaultBase}
+            onRangeChange={setRangeDefaultBase}
+          />
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default--existing"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeDefaultExisting}
+            onRangeChange={setRangeDefaultExisting}
+          />
+        </StickerSheet.Row>
 
-        <StoryWrapper.Row rowTitle="Removable">
-          <div>
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--base"
-              label="Dates"
-              locale="en-AU"
-              selectedRange={rangeRemovableBase}
-              onRangeChange={setRangeRemovableBase}
-              onRemoveFilter={(): void => undefined}
-            />
-          </div>
-          <div>
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--existing"
-              label="Dates"
-              locale="en-AU"
-              selectedRange={rangeRemovableExisting}
-              onRangeChange={setRangeRemovableExisting}
-              onRemoveFilter={(): void => undefined}
-            />
-          </div>
-        </StoryWrapper.Row>
+        <StickerSheet.Row rowTitle="Removable">
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--removable--base"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeRemovableBase}
+            onRangeChange={setRangeRemovableBase}
+            onRemoveFilter={(): void => undefined}
+          />
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--removable--existing"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeRemovableExisting}
+            onRangeChange={setRangeRemovableExisting}
+            onRemoveFilter={(): void => undefined}
+          />
+        </StickerSheet.Row>
 
-        <StoryWrapper.Row rowTitle="Open">
-          <div>
-            <FilterDateRangePicker
-              data-testid="test__stickersheet--filter-drp--open"
-              id="stickersheet--filter-drp--open"
-              label="Open"
-              locale="en-AU"
-              selectedRange={rangeOpen}
-              onRangeChange={setRangeOpen}
-              description="This is a custom description"
-            />
-          </div>
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </div>
+        <StickerSheet.Row rowTitle="Open">
+          <FilterDateRangePicker
+            data-testid="test__stickersheet--filter-drp--open"
+            id="stickersheet--filter-drp--open"
+            label="Open"
+            locale="en-US"
+            selectedRange={rangeOpen}
+            onRangeChange={setRangeOpen}
+            description="This is a custom description"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   )
+}
+
+const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
+  const canvas = within(canvasElement)
+  const filterButtonOpen = canvas
+    .getByTestId("test__stickersheet--filter-drp--open")
+    .getElementsByTagName("button")[0]
+  userEvent.click(filterButtonOpen)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -182,11 +182,19 @@ StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }
-
 StickerSheetDefault.play = ({ canvasElement }): void => {
-  const canvas = within(canvasElement)
-  const filterButtonOpen = canvas
-    .getByTestId("test__stickersheet--filter-drp--open")
-    .getElementsByTagName("button")[0]
-  userEvent.click(filterButtonOpen)
+  applyStickerSheetStyles(canvasElement)
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl",
+}
+StickerSheetRTL.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
 }
