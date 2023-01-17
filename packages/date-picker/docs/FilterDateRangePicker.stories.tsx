@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
-import { within, userEvent, waitFor } from "@storybook/testing-library"
+import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -224,11 +224,10 @@ StickerSheetDefault.parameters = {
   controls: { disable: true },
 }
 
-StickerSheetDefault.play = async ({ canvasElement }): Promise<void> => {
+StickerSheetDefault.play = ({ canvasElement }): void => {
   const canvas = within(canvasElement)
   const filterButtonOpen = canvas
     .getByTestId("test__stickersheet--filter-drp--open")
     .getElementsByTagName("button")[0]
-
-  await waitFor(() => userEvent.click(filterButtonOpen))
+  userEvent.click(filterButtonOpen)
 }
