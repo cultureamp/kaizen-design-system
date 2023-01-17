@@ -109,7 +109,7 @@ const StickerSheetTemplate: Story = () => {
   })
 
   return (
-    <div style={{ paddingBottom: IS_CHROMATIC ? "34rem" : undefined }}>
+    <div style={{ paddingBottom: IS_CHROMATIC ? "36rem" : undefined }}>
       <StickerSheet heading="Default">
         <StickerSheet.Header
           headings={["Base", "With existing value"]}
