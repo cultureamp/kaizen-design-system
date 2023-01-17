@@ -1,0 +1,171 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "mixins";
+@import "variables";
+
+.styledButton {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  text-align: left;
+
+  border-width: $border-solid-border-width;
+  border-style: $border-solid-border-style;
+  border-radius: $border-solid-border-radius;
+
+  #{$selectors--button-active} {
+    transform: translateY(1px);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    &::after {
+      $focus-ring-offset: calc(
+        -1 * calc((#{$border-solid-border-width} * 2) + 1px)
+      );
+      position: absolute;
+      content: "";
+      top: $focus-ring-offset;
+      bottom: $focus-ring-offset;
+      left: $focus-ring-offset;
+      right: $focus-ring-offset;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: $border-focus-ring-border-radius;
+      border-color: $color-blue-500;
+    }
+  }
+}
+
+.isWorking,
+.isDisabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.hidden {
+  display: contents;
+  visibility: hidden;
+}
+
+.loadingSpinner {
+  position: absolute;
+  left: calc(50% - 12px);
+}
+
+.buttonContents {
+  position: relative;
+  display: flex;
+  gap: 0.5rem; // We don't have a token for this :')
+}
+
+.iconPositionEnd {
+  flex-direction: row-reverse;
+}
+
+.iconContainer {
+  position: relative;
+  top: 2px;
+  margin-bottom: -2px;
+}
+
+%button-base--primary {
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width})
+    calc(#{$spacing-md} - #{$border-solid-border-width});
+  font-family: $typography-button-primary-font-family;
+  font-weight: $typography-button-primary-font-weight;
+  font-size: $typography-button-primary-font-size;
+  line-height: $typography-button-primary-line-height;
+  letter-spacing: $typography-button-primary-letter-spacing;
+}
+
+.default {
+  @extend %button-base--primary;
+  border-color: $color-gray-500;
+  background-color: $color-white;
+  color: $color-purple-800;
+
+  @include enabled-pseudo-states-variant(
+    $background-color: $color-gray-200,
+    $border-color: $color-gray-600
+  );
+
+  &.isReversed {
+    background-color: transparent;
+    border-color: rgba($color-white-rgb, 0.65);
+    color: $color-white;
+
+    @include enabled-pseudo-states-variant(
+      rgba($color-white-rgb, 0.1),
+      $color-white
+    );
+  }
+}
+
+.primary {
+  @extend %button-base--primary;
+  border-color: $border-borderless-border-color;
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  @include enabled-pseudo-states-variant($background-color: $color-blue-600);
+
+  &.isReversed {
+    border-color: $border-borderless-border-color;
+    background-color: $color-green-300;
+    color: $color-purple-800;
+
+    @include enabled-pseudo-states-variant(
+      $color-green-400,
+      $border-borderless-border-color
+    );
+  }
+}
+
+%button-base--secondary {
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+  border-color: $border-borderless-border-color;
+  background-color: transparent;
+}
+
+.secondary {
+  @extend %button-base--secondary;
+  color: $color-blue-500;
+
+  @include enabled-pseudo-states-variant($background-color: $color-blue-100);
+
+  &.isReversed {
+    border-color: $border-borderless-border-color;
+    color: $color-white;
+
+    @include enabled-pseudo-states-variant(
+      rgba($color-white-rgb, 0.2),
+      $border-borderless-border-color
+    );
+  }
+}
+
+.secondaryDestructive {
+  @extend %button-base--secondary;
+  color: $color-red-600;
+
+  @include enabled-pseudo-states-variant($background-color: $color-red-100);
+}

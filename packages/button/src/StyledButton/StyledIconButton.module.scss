@@ -1,0 +1,19 @@
+@import "./mixins";
+
+$button-size: 48px;
+
+.styledIconButton {
+  height: $button-size;
+  width: $button-size;
+  justify-content: center;
+  padding: 0;
+}
+
+.default {
+  &,
+  &.isReversed {
+    border-color: transparent;
+
+    @include enabled-pseudo-states-variant($border-color: transparent);
+  }
+}

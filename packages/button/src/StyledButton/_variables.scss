@@ -1,0 +1,12 @@
+// Polyfill
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+
+// Classnames to simulate pseudo states in storybook
+$story-className--button-hover: ":global(.story__StyledButton--hover)";
+$story-className--button-active: ":global(.story__StyledButton--active)";
+$story-className--button-focus: ":global(.story__StyledButton--focus)";
+
+// Combined pseudo state classes
+$selectors--button-hover: "&:hover, &#{$story-className--button-hover}";
+$selectors--button-active: "&:active, &#{$story-className--button-active}";
+$selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}, &#{$story-className--button-focus}";
