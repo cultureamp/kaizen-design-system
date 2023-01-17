@@ -1,13 +1,12 @@
 import React from "react"
-import { useSelectState } from "@react-stately/select"
+import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Select, getSelectChildren } from "../src/Select/Select"
-import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
-import { SelectContext } from "../src/Select/context/SelectContext"
+import { Select } from "../src/Select/Select"
+import { SingleItemType } from "../src/types"
 import { singleMockItems } from "./MockData"
 
 export default {
@@ -60,47 +59,6 @@ DefaultStory.args = {
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
-}
-
-type MockListBoxProps = {
-  optionClassName?: string
-  selectedKey?: React.Key | null
-  isFullWidth?: boolean
-  disabledValues?: React.Key[]
-}
-
-const MockListBox = ({
-  optionClassName,
-  selectedKey,
-  isFullWidth,
-  disabledValues,
-}: MockListBoxProps): JSX.Element => {
-  const mockState = useSelectState({
-    selectedKey: selectedKey ?? undefined,
-    items: singleMockItems,
-    children: getSelectChildren,
-    disabledKeys: disabledValues,
-  })
-  return (
-    <SelectContext.Provider value={{ state: mockState }}>
-      <div
-        className={overlayStyles.menuPopup}
-        style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
-      >
-        <Select.ListBox menuProps={{}}>
-          {Array.from(mockState.collection).map(item => (
-            <Select.Option
-              key={item.key}
-              item={item}
-              classNameOverride={
-                item.key === "id-sre" ? `${optionClassName}` : undefined
-              }
-            />
-          ))}
-        </Select.ListBox>
-      </div>
-    </SelectContext.Provider>
-  )
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -250,18 +208,84 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
         />
         <StoryWrapper.Row rowTitle="Dropdown">
-          <MockListBox />
-          <MockListBox selectedKey="id-sre" />
-          <MockListBox optionClassName="story__option-hover" />
-          <MockListBox optionClassName="story__option-focus" />
-          <MockListBox disabledValues={["id-sre"]} />
+          <Select
+            id="select-dropdown-base"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-selected"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            selectedKey="id-sre"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-hover"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-hover" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-focus"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-focus" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-disabled"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            disabledValues={["id-sre"]}
+            isOpen
+          />
         </StoryWrapper.Row>
       </StoryWrapper>
     </div>
 
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
-        <MockListBox isFullWidth />
+        <Select
+          id="select-dropdown-fullwidth"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          isOpen
+          isFullWidth
+        />
       </StoryWrapper.Row>
     </StoryWrapper>
   </>
