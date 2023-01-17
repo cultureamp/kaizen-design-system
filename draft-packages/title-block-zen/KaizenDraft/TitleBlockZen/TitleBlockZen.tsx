@@ -38,6 +38,10 @@ type AvatarProps =
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+export type DefaultActionProps =
+  | TitleBlockButtonProps
+  | TitleBlockCustomButtonProps
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -60,7 +64,7 @@ export interface TitleBlockProps {
   pageSwitcherSelect?: SelectProps
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
@@ -81,11 +85,19 @@ export type BadgeProps = {
   animateChange?: boolean
 }
 
-export type TitleBlockButtonProps = DistributiveOmit<ButtonProps, "onClick"> & {
+export type TitleBlockButtonProps = DistributiveOmit<
+  ButtonProps,
+  "onClick" | "component"
+> & {
   onClick?: (e: any) => void
 }
 
-export type TitleBlockCustomButtonProps = {
+export type TitleBlockCustomButtonProps = DistributiveOmit<
+  TitleBlockButtonProps,
+  "label" | "component"
+> & {
+  label?: string
+  className?: string
   component: (props: CustomButtonProps) => JSX.Element
 }
 
@@ -127,6 +139,7 @@ export type SelectProps = React.ComponentProps<typeof Select>
  * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
  * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
  */
+
 export type PrimaryActionProps =
   | (MenuGroup & { badge?: BadgeProps })
   | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
@@ -645,7 +658,6 @@ const TitleBlockZen = ({
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
                   reversed={isReversed(variant)}
-                  // TODO: fix typing
                   overflowMenuItems={createTabletOverflowMenuItems(
                     secondaryActions,
                     secondaryOverflowMenuItems

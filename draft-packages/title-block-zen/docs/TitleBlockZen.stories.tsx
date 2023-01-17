@@ -1121,14 +1121,14 @@ export const RenderProps: Story = () => {
 
 // A mock implementation of Link router implementation
 const MockRouterLink = (
-  props: CustomButtonProps & { to?: string }
+  mockRouterProps: CustomButtonProps & { to?: string }
 ): JSX.Element => (
   <button
-    {...props}
+    {...mockRouterProps}
     // this is in place of using Link's `to` prop
-    onClick={(): void => alert(`Mock route change to ${props.to}`)}
+    onClick={(): void => alert(`Mock route change to ${mockRouterProps.to}`)}
   >
-    {props.children}
+    {mockRouterProps.children}
   </button>
 )
 
@@ -1147,42 +1147,67 @@ export const RenderPropsForBothActions: Story = () => {
     <OffsetPadding>
       <TitleBlockZen
         title="Page title"
-        primaryAction={{
+        defaultAction={{
+          // label: "Default action",
           component: props => (
-            <MockRouterLink to="#primary-1" {...props}>
-              Primary action 1
+            <MockRouterLink to="#default-1" {...props}>
+              Default action 1
             </MockRouterLink>
           ),
+        }}
+        primaryAction={{
+          label: "Primary action",
+          // TODO: set stricter types on the primary action with menu list
+          // component: props => (
+          //   <MockRouterLink to="#primary-1" {...props}>
+          //     Primary action 1
+          //   </MockRouterLink>
+          // ),
           // label: "Primary",
-          // menuItems: [
-          //   {
-          //     component: props => (
-          //       <MockRouterLink to="#primary-1" {...props}>
-          //         Primary action 1
-          //       </MockRouterLink>
-          //     ),
-          //   },
-          //   {
-          //     label: "Regular primary action",
-          //     action: () => alert("I am a regular action"),
-          //   },
-          // ],
+          menuItems: [
+            {
+              component: props => (
+                <MockRouterLink to="#primary-1" {...props}>
+                  Primary action menu
+                </MockRouterLink>
+              ),
+            },
+            {
+              label: "Regular primary action",
+              action: () => alert("I am a regular action"),
+            },
+          ],
         }}
         secondaryActions={[
+          {
+            label: "Test href",
+            href: "#",
+          },
+          {
+            label: "Test",
+            onClick: () => alert("regular action"),
+          },
+          {
+            component: props => (
+              <MockRouterLink to="#secondary-1" {...props}>
+                Secondary action 1
+              </MockRouterLink>
+            ),
+          },
           {
             label: "Secondary menu",
             menuItems: [
               {
                 component: props => (
                   <MockRouterLink to="#secondary-1" {...props}>
-                    Secondary menu action 1
+                    Secondary action 2
                   </MockRouterLink>
                 ),
               },
               {
                 component: props => (
                   <MockRouterLink to="#secondary-2" {...props}>
-                    Secondary menu action 2
+                    Secondary action 3
                   </MockRouterLink>
                 ),
               },

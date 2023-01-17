@@ -3,21 +3,22 @@ import { Button, IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Menu, MenuList } from "@kaizen/draft-menu"
+import { TitleBlockButton } from "./TitleBlockButton"
 import {
   TitleBlockMenuItem,
   TitleBlockMenuItemProps,
 } from "./TitleBlockMenuItem"
 import {
-  TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
+  DefaultActionProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   reversed?: boolean
   overflowMenuItems?: TitleBlockMenuItemProps[]
   showOverflowMenu?: boolean
@@ -31,6 +32,7 @@ const MainActions = ({
   showOverflowMenu = false,
 }: MainActionsProps): JSX.Element => {
   let items
+  // TODO: may need to tighten up the types here
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = primaryAction.menuItems.map((item, idx) => (
       <TitleBlockMenuItem
@@ -46,7 +48,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
-                <Button
+                <TitleBlockButton
                   {...{
                     ...defaultAction,
                     reversed:
@@ -100,7 +102,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
-                <Button
+                <TitleBlockButton
                   {...{
                     ...defaultAction,
                     reversed:
@@ -119,7 +121,7 @@ const MainActions = ({
             {
               key: "primaryAction",
               node: (
-                <Button
+                <TitleBlockButton
                   {...{
                     ...primaryAction,
                     primary:

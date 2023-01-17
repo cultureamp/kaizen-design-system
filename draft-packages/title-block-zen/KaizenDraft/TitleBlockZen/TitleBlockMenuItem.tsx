@@ -23,11 +23,13 @@ export const TitleBlockMenuItem = (
     return (
       <li className={styles.menuListItem}>
         <props.component
+          {...props}
           className={className}
           data-automation-id={props.automationId}
         />
       </li>
     )
   }
+
   return <MenuItem {...props} />
 }
