@@ -90,7 +90,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
     "eslint-plugin-ssr-friendly": "^1.2.0",
     "eslint-plugin-storybook": "^0.6.10",
