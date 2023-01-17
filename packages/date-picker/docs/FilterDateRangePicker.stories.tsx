@@ -109,112 +109,71 @@ const StickerSheetTemplate: Story = () => {
   })
 
   return (
-    <div style={{ paddingBottom: IS_CHROMATIC ? "36rem" : undefined }}>
-      <StickerSheet heading="Default">
-        <StickerSheet.Header
-          headings={["Base", "With existing value"]}
-          hasVerticalHeadings
-          verticalHeadingsWidth={70}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="LTR">
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--base"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeDefaultBase}
-              onRangeChange={setRangeDefaultBase}
-            />
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--existing"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeDefaultExisting}
-              onRangeChange={setRangeDefaultExisting}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="RTL" dir="rtl">
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--base--rtl"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeDefaultBase}
-              onRangeChange={setRangeDefaultBase}
-            />
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--default--existing--rtl"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeDefaultExisting}
-              onRangeChange={setRangeDefaultExisting}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+    <StickerSheet style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
+      <StickerSheet.Header
+        headings={["Base", "With existing value"]}
+        hasVerticalHeadings
+        verticalHeadingsWidth={70}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Default">
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default--base"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeDefaultBase}
+            onRangeChange={setRangeDefaultBase}
+          />
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--default--existing"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeDefaultExisting}
+            onRangeChange={setRangeDefaultExisting}
+          />
+        </StickerSheet.Row>
 
-      <StickerSheet heading="Removable">
-        <StickerSheet.Header
-          headings={["Base", "With existing value"]}
-          hasVerticalHeadings
-          verticalHeadingsWidth={70}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="LTR">
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--base"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeRemovableBase}
-              onRangeChange={setRangeRemovableBase}
-              onRemoveFilter={(): void => undefined}
-            />
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--existing"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeRemovableExisting}
-              onRangeChange={setRangeRemovableExisting}
-              onRemoveFilter={(): void => undefined}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="RTL" dir="rtl">
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--base--rtl"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeRemovableBase}
-              onRangeChange={setRangeRemovableBase}
-              onRemoveFilter={(): void => undefined}
-            />
-            <FilterDateRangePicker
-              id="stickersheet--filter-drp--removable--existing--rtl"
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeRemovableExisting}
-              onRangeChange={setRangeRemovableExisting}
-              onRemoveFilter={(): void => undefined}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+        <StickerSheet.Row rowTitle="Removable">
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--removable--base"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeRemovableBase}
+            onRangeChange={setRangeRemovableBase}
+            onRemoveFilter={(): void => undefined}
+          />
+          <FilterDateRangePicker
+            id="stickersheet--filter-drp--removable--existing"
+            label="Dates"
+            locale="en-US"
+            selectedRange={rangeRemovableExisting}
+            onRangeChange={setRangeRemovableExisting}
+            onRemoveFilter={(): void => undefined}
+          />
+        </StickerSheet.Row>
 
-      <StickerSheet heading="Open">
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterDateRangePicker
-              data-testid="test__stickersheet--filter-drp--open"
-              id="stickersheet--filter-drp--open"
-              label="Open"
-              locale="en-US"
-              selectedRange={rangeOpen}
-              onRangeChange={setRangeOpen}
-              description="This is a custom description"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </div>
+        <StickerSheet.Row rowTitle="Open">
+          <FilterDateRangePicker
+            data-testid="test__stickersheet--filter-drp--open"
+            id="stickersheet--filter-drp--open"
+            label="Open"
+            locale="en-US"
+            selectedRange={rangeOpen}
+            onRangeChange={setRangeOpen}
+            description="This is a custom description"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   )
+}
+
+const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
+  const canvas = within(canvasElement)
+  const filterButtonOpen = canvas
+    .getByTestId("test__stickersheet--filter-drp--open")
+    .getElementsByTagName("button")[0]
+  userEvent.click(filterButtonOpen)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -223,11 +182,19 @@ StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }
-
 StickerSheetDefault.play = ({ canvasElement }): void => {
-  const canvas = within(canvasElement)
-  const filterButtonOpen = canvas
-    .getByTestId("test__stickersheet--filter-drp--open")
-    .getElementsByTagName("button")[0]
-  userEvent.click(filterButtonOpen)
+  applyStickerSheetStyles(canvasElement)
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl",
+}
+StickerSheetRTL.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
 }
