@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.16.1...@kaizen/date-picker@5.17.0) (2023-01-17)
+
+
+### Features
+
+* **date-picker:** add RTL support to FilterDateRangePicker ([#3199](https://github.com/cultureamp/kaizen-design-system/issues/3199)) ([c5a3d65](https://github.com/cultureamp/kaizen-design-system/commit/c5a3d65f3cb00cc432ab19faa6c6615e90d71233))
+
+
+
+
+
 ## [5.16.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.16.0...@kaizen/date-picker@5.16.1) (2023-01-16)
 
 
