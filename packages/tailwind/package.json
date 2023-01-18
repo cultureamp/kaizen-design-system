@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "yarn clean && yarn prepublish",
@@ -32,7 +32,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-divider": "^2.2.4",
+    "@kaizen/draft-divider": "^2.2.5",
     "rimraf": "^4.1.1",
     "tailwindcss": "^3.2.4"
   },

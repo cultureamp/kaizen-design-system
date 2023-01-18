@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-divider",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "The draft divider component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,7 +29,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.1",
+    "@kaizen/component-base": "^1.1.2",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
