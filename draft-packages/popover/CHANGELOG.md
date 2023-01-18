@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.2.19...@kaizen/draft-popover@5.2.20) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [5.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.2.18...@kaizen/draft-popover@5.2.19) (2023-01-04)
 
 **Note:** Version bump only for package @kaizen/draft-popover
