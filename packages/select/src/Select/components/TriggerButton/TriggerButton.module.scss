@@ -14,15 +14,17 @@
   flex: 1;
   min-width: 0;
 
-  &:hover .icon,
-  &:global(.story__button-hover) .icon,
-  &:active .icon,
-  &:global(.story__button-active) .icon,
-  &:focus-visible .icon {
-    color: $color-gray-600;
+  &:not(:disabled) {
+    &:hover .icon,
+    &:global(.story__button-hover) .icon,
+    &:active .icon,
+    &:global(.story__button-active) .icon,
+    &:focus-visible .icon {
+      color: $color-gray-600;
+    }
   }
 
-  &.placeholder {
+  &.placeholder:not(.reversed) {
     color: rgba($color-purple-800-rgb, 0.7);
   }
 }
@@ -35,15 +37,17 @@
 .error {
   border: $border-solid-border-width $border-solid-border-style $color-red-500;
 }
+
 .caution {
   border: $border-solid-border-width $border-solid-border-style
     $color-yellow-600;
 }
 
-.disabled {
+.disabled:not(.reversed) {
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   background-color: $color-gray-100;
   color: $color-gray-500;
+
   .icon,
   &:hover .icon {
     color: $color-gray-400;
@@ -56,4 +60,68 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.reversed {
+  border: $border-solid-border-width $border-solid-border-style
+    rgba($color-white-rgb, 0.8);
+  background-color: transparent;
+  color: $color-white;
+
+  &.placeholder {
+    color: rgba($color-white-rgb, 0.65);
+  }
+
+  .icon {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:not(:disabled) {
+    #{$story-className--button-active},
+    #{$selectors--button-hover} {
+      background-color: rgba($color-white-rgb, 0.1);
+      border: $border-solid-border-width $border-solid-border-style $color-white;
+
+      .icon {
+        color: $color-white;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    #{$selectors--button-focus} {
+      background-color: rgba($color-white-rgb, 0.1);
+      border: $border-solid-border-width $border-solid-border-style $color-white;
+
+      .icon {
+        color: $color-white;
+      }
+
+      &::after {
+        $focus-ring-offset: calc(
+          (#{$border-focus-ring-border-width} * 2) + 1px
+        );
+        content: "";
+        position: absolute;
+        background: transparent;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style
+          $color-blue-300;
+        border-radius: $border-focus-ring-border-radius;
+        top: calc(-1 * #{$focus-ring-offset});
+        left: calc(-1 * #{$focus-ring-offset});
+        right: calc(-1 * #{$focus-ring-offset});
+        bottom: calc(-1 * #{$focus-ring-offset});
+      }
+    }
+  }
+
+  .error {
+    border-color: $color-red-300;
+  }
+
+  .caution {
+    border-color: $color-yellow-400;
+  }
 }
