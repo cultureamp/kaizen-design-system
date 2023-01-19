@@ -1,4 +1,5 @@
 import React from "react"
+import { Section } from "@react-stately/collections"
 import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
@@ -7,7 +8,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
 import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
-import { singleMockItems } from "../MockData"
+import { groupedMockItems, singleMockItems } from "../MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -60,6 +61,15 @@ DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
 }
+
+export const WithSections: ComponentStory<typeof Select> = () => (
+  <Select
+    id="select-grouped"
+    label="label"
+    items={groupedMockItems}
+    placeholder="Placeholder"
+  />
+)
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,

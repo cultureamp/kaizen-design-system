@@ -1,0 +1,20 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHeading {
+  padding: 0.5rem $spacing-xs 0.5rem $spacing-sm;
+}
+
+.sectionList {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-xs 0px 0px 0px;
+}
+
+.sectionWrapper + .sectionWrapper {
+  padding-top: $spacing-xs;
+}
