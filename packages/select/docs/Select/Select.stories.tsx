@@ -77,6 +77,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           placeholder="Placeholder"
           disabledValues={["id-sre"]}
+          isReversed={isReversed}
         />
         <Select
           id="select-selected"
@@ -90,6 +91,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-selected"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-hovered"
@@ -104,6 +106,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-hover"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-focused"
@@ -118,6 +121,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-focus"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-focused"
@@ -127,6 +131,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           selectedKey={null}
           placeholder="Placeholder"
           isDisabled
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
@@ -137,6 +142,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           placeholder="Placeholder"
           isFullWidth
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Custom Width (50%)">
@@ -148,6 +154,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             isFullWidth
             placeholder="Placeholder"
+            isReversed={isReversed}
           />
         </div>
       </StoryWrapper.Row>
@@ -164,6 +171,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           placeholder="Placeholder"
           status="error"
           validationMessage="This is an error"
+          isReversed={isReversed}
         />
         <Select
           id="select-default"
@@ -173,6 +181,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           placeholder="Placeholder"
           status="caution"
           validationMessage="This is an error"
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -198,6 +207,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           ]}
           description="This is a description"
           selectedKey={"id-long"}
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -209,6 +219,15 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  controls: { disable: true },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
 }
 
 const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (

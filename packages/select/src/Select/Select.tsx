@@ -44,6 +44,7 @@ export interface SelectProps
    * A descriptive message for the 'status' states.
    */
   validationMessage?: React.ReactNode | undefined
+  isReversed?: boolean
 }
 
 export const Select = ({
@@ -53,6 +54,7 @@ export const Select = ({
   isFullWidth,
   placeholder,
   isDisabled,
+  isReversed = false,
   disabledValues,
   status,
   defaultOpen,
@@ -126,7 +128,9 @@ export const Select = ({
           classNameOverride
         )}
       >
-        <Label {...labelProps}>{label}</Label>
+        <Label {...labelProps} reversed={isReversed}>
+          {label}
+        </Label>
         <HiddenSelect
           label={label}
           name={id}
@@ -136,7 +140,7 @@ export const Select = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            { placeholder, triggerProps, valueProps, status },
+            { placeholder, triggerProps, valueProps, status, isReversed },
             buttonRef
           )}
 
@@ -154,6 +158,7 @@ export const Select = ({
             {...errorMessageProps}
             message={validationMessage}
             status={status}
+            reversed={isReversed}
           />
         )}
 
@@ -162,6 +167,7 @@ export const Select = ({
             {...descriptionProps}
             id={descriptionId}
             message={description}
+            reversed={isReversed}
           />
         )}
       </div>
