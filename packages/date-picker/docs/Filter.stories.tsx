@@ -13,6 +13,7 @@ import {
   RemovableFilterTriggerButtonContext,
   RemovableFilterTriggerButtonRefs,
 } from "../src/Filter/components"
+import { FilterContents } from "../src/Filter/components/FilterContents"
 import { DateRangeDisplayLabel } from "../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
 import { isCompleteDateRange } from "../src/FilterDateRangePicker/utils/isCompleteDateRange"
 import { getLocale } from "../src/utils/getLocale"
@@ -52,8 +53,18 @@ export const FilterSolution2: ComponentStory<
           <FilterTriggerButton label="1. Component controlled ref" />
         }
       >
-        Contents in here
+        <FilterContents>Contents in here</FilterContents>
       </FilterSolution2Ref>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2Ref
+          {...args}
+          filterButton={<FilterTriggerButton label="1.5 Multiple contents" />}
+        >
+          <FilterContents>Contents in here</FilterContents>
+          <FilterContents>More contents in here</FilterContents>
+        </FilterSolution2Ref>
+      </div>
 
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2Ref
@@ -63,7 +74,7 @@ export const FilterSolution2: ComponentStory<
             <FilterTriggerButton label="2. Consumer controlled ref" />
           }
         >
-          Contents in here
+          <FilterContents>Contents in here</FilterContents>
         </FilterSolution2Ref>
 
         <br />
@@ -91,7 +102,7 @@ export const FilterSolution2: ComponentStory<
             />
           }
         >
-          Contents in here
+          <FilterContents>Contents in here</FilterContents>
         </FilterSolution2Ref>
 
         <br />
@@ -142,13 +153,15 @@ export const Solution2DRP: ComponentStory<
         label="Dates"
         filterButton={<FilterTriggerButtonContext />}
       >
-        <FilterDateRangePickerField
-          id="filterdrp"
-          // label="Dates"
-          locale="en-AU"
-          selectedRange={range}
-          onRangeChange={setRange}
-        />
+        <FilterContents>
+          <FilterDateRangePickerField
+            id="filterdrp"
+            // label="Dates"
+            locale="en-AU"
+            selectedRange={range}
+            onRangeChange={setRange}
+          />
+        </FilterContents>
       </FilterSolution2Context>
 
       <div style={{ marginTop: "2rem" }}>
@@ -159,17 +172,24 @@ export const Solution2DRP: ComponentStory<
           // NOTE:
           // Since the button is mounted before the contents within the popover,
           // to pre-fill the button we must provide the initial selected value here
-          defaultSelectedValuesLabel={isCompleteDateRange(rangeDefaultExisting) ? (
-            <DateRangeDisplayLabel dateRange={rangeDefaultExisting} locale={getLocale("en-AU")} />
-          ) : undefined}
+          defaultSelectedValuesLabel={
+            isCompleteDateRange(rangeDefaultExisting) ? (
+              <DateRangeDisplayLabel
+                dateRange={rangeDefaultExisting}
+                locale={getLocale("en-AU")}
+              />
+            ) : undefined
+          }
         >
-          <FilterDateRangePickerField
-            id="filterdrp-existing"
-            // label="Dates"
-            locale="en-AU"
-            selectedRange={rangeDefaultExisting}
-            onRangeChange={setRangeDefaultExisting}
-          />
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp-existing"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeDefaultExisting}
+              onRangeChange={setRangeDefaultExisting}
+            />
+          </FilterContents>
         </FilterSolution2Context>
       </div>
 
@@ -186,13 +206,15 @@ export const Solution2DRP: ComponentStory<
             />
           }
         >
-          <FilterDateRangePickerField
-            id="filterdrp--remove"
-            // label="Dates"
-            locale="en-AU"
-            selectedRange={rangeRemovable}
-            onRangeChange={setRangeRemovable}
-          />
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp--remove"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovable}
+              onRangeChange={setRangeRemovable}
+            />
+          </FilterContents>
         </FilterSolution2Context>
       </div>
     </>

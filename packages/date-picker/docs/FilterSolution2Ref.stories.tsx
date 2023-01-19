@@ -16,6 +16,7 @@ import {
   RemovableFilterTriggerButton,
   RemovableFilterTriggerButtonRefs,
 } from "../src/Filter/components"
+import { FilterContents } from "../src/Filter/components/FilterContents"
 
 export default {
   title: `${CATEGORIES.introduction}/Filter Solution 2`,
@@ -55,7 +56,7 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
         ref={buttonRef1}
         filterButton={<FilterTriggerButton label="Pancakes" />}
       >
-        Contents in here
+        <FilterContents>Contents in here</FilterContents>
       </FilterWithRef>
 
       <div style={{ marginTop: "2rem" }}>
@@ -70,7 +71,7 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
             />
           }
         >
-          Contents in here
+          <FilterContents>Contents in here</FilterContents>
         </FilterWithRef>
       </div>
     </>
@@ -103,7 +104,7 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
         ref={buttonRef}
         filterButton={<FilterTriggerButtonWithFilterRef label="Pancakes" />}
       >
-        Contents in here
+        <FilterContents>Contents in here</FilterContents>
       </FilterWithForcedShapeRef>
 
       <div style={{ marginTop: "2rem" }}>
@@ -117,7 +118,7 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
             />
           }
         >
-          Contents in here
+          <FilterContents>Contents in here</FilterContents>
         </FilterWithForcedShapeRef>
       </div>
     </>
@@ -146,7 +147,7 @@ export const ConsumerRef: ComponentStory<typeof FilterConsumerRef> = args => {
         ref={buttonRef1}
         filterButton={<FilterTriggerButton ref={buttonRef1} label="Pancakes" />}
       >
-        Contents in here
+        <FilterContents>Contents in here</FilterContents>
       </FilterConsumerRef>
 
       <div style={{ marginTop: "2rem" }}>
@@ -161,7 +162,7 @@ export const ConsumerRef: ComponentStory<typeof FilterConsumerRef> = args => {
             />
           }
         >
-          Contents in here
+          <FilterContents>Contents in here</FilterContents>
         </FilterConsumerRef>
       </div>
     </>
