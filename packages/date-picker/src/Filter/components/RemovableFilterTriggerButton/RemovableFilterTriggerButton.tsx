@@ -3,6 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { DataAttributes } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
+import { useFilterContext } from "../../context/useFilterContext"
 import {
   FilterBaseTooltipButton,
   FilterBaseTooltipButtonProps,
@@ -10,6 +11,8 @@ import {
 import { FilterButtonGroup, FilterButtonGroupProps } from "../FilterButtonGroup"
 import {
   FilterTriggerButton,
+  FilterTriggerButtonContext,
+  FilterTriggerButtonContextProps,
   FilterTriggerButtonProps,
 } from "../FilterTriggerButton"
 
@@ -52,3 +55,48 @@ export const RemovableFilterTriggerButton = forwardRef<
 })
 
 RemovableFilterTriggerButton.displayName = "RemovableFilterTriggerButton"
+
+export interface RemovableFilterTriggerButtonContextProps
+  extends Omit<FilterButtonGroupProps, "children"> {
+  triggerButtonProps?: FilterTriggerButtonContextProps & DataAttributes
+  removeButtonProps: Partial<Omit<FilterBaseTooltipButtonProps, "children">> &
+    DataAttributes
+}
+
+export type RemovableFilterTriggerButtonContextRefs = {
+  triggerButtonRef?: React.RefObject<HTMLButtonElement>
+  removeButtonRef?: React.RefObject<HTMLButtonElement>
+}
+
+export const RemovableFilterTriggerButtonContext = forwardRef<
+  RemovableFilterTriggerButtonContextRefs,
+  RemovableFilterTriggerButtonContextProps
+>(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
+  const { label } = useFilterContext()
+
+  const customRefObject = isRefObject(ref) ? ref.current : null
+  const triggerButtonRef = customRefObject?.triggerButtonRef
+  const removeButtonRef = customRefObject?.removeButtonRef
+
+  const removeButtonLabel =
+    removeButtonProps?.tooltipText ?? `Remove filter - ${label}`
+
+  return (
+    <FilterButtonGroup {...restProps}>
+      <FilterTriggerButtonContext
+        ref={triggerButtonRef}
+        {...triggerButtonProps}
+      />
+      <FilterBaseTooltipButton
+        ref={removeButtonRef}
+        {...removeButtonProps}
+        tooltipText={removeButtonLabel}
+      >
+        <Icon icon={iconClear} title={removeButtonLabel} />
+      </FilterBaseTooltipButton>
+    </FilterButtonGroup>
+  )
+})
+
+RemovableFilterTriggerButtonContext.displayName =
+  "RemovableFilterTriggerButtonContext"
