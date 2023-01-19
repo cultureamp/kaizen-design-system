@@ -5,10 +5,9 @@ import { MenuItemProps, MenuItem } from "@kaizen/draft-menu"
 import styles from "./TitleBlockMenuItem.module.scss"
 
 export type TitleBlockMenuItemProps =
-  | {
+  | ({
       component: (props: CustomButtonProps) => JSX.Element
-      automationId?: string
-    }
+    } & MenuItemProps)
   | MenuItemProps
 
 export const TitleBlockMenuItem = (
@@ -20,13 +19,12 @@ export const TitleBlockMenuItem = (
     [styles["menuItem--active"]]: styles.isActive,
   })
   if ("component" in props) {
+    const { component: CustomMenuItem, label, ...otherProps } = props
     return (
       <li className={styles.menuListItem}>
-        <props.component
-          {...props}
-          className={className}
-          data-automation-id={props.automationId}
-        />
+        <CustomMenuItem {...otherProps} className={className}>
+          {label}
+        </CustomMenuItem>
       </li>
     )
   }

@@ -94,9 +94,8 @@ export type TitleBlockButtonProps = DistributiveOmit<
 
 export type TitleBlockCustomButtonProps = DistributiveOmit<
   TitleBlockButtonProps,
-  "label" | "component"
+  "component"
 > & {
-  label?: string
   className?: string
   component: (props: CustomButtonProps) => JSX.Element
 }

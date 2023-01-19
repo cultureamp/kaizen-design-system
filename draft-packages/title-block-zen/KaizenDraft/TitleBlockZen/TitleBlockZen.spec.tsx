@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen } from "@testing-library/react"
 import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
@@ -244,6 +244,49 @@ describe("<TitleBlockZen />", () => {
       expect(menuItems.length).toEqual(2)
     })
   })
+
+  // TODO: fix up these tests and add coverage across the other actions
+  // describe("when using `component` render prop with actions", () => {
+  //   const MockRouterLink = (mockRouterProps: {
+  //     href: string | undefined
+  //     as?: string
+  //     replace?: boolean
+  //     scroll?: boolean
+  //     shallow?: boolean
+  //     passHref?: boolean
+  //     prefetch?: boolean
+  //     locale?: string | false
+  //     legacyBehavior?: boolean
+  //     onMouseEnter?: (e: any) => void
+  //     onTouchStart?: (e: any) => void
+  //     onClick?: (e: any) => void
+  //   }): JSX.Element => (
+  //     <button
+  //       {...mockRouterProps}
+  //       // this is in place of using Link's `to` prop
+  //       onClick={(): void =>
+  //         alert(`Mock route change to ${mockRouterProps.href}`)
+  //       }
+  //     />
+  //   )
+
+  //   it("it renders label content within the primary action custom component", async () => {
+  //     render(
+  //       <TitleBlockZen
+  //         title="Test Title"
+  //         primaryAction={{
+  //           label: "Primary action",
+  //           component: (props): JSX.Element => (
+  //             <MockRouterLink href="#" {...props} />
+  //           ),
+  //         }}
+  //       >
+  //         Example
+  //       </TitleBlockZen>
+  //     )
+  //     screen.getByText("Primary action")
+  //   })
+  // })
 
   describe("when the default action is a button with only an href", () => {
     const defaultActionAsLink = {
@@ -672,6 +715,7 @@ describe("<TitleBlockZen />", () => {
       }
     )
   })
+
   describe("automation ID behaviour", () => {
     describe("when default automation IDs are not provided alongside required conditional renders", () => {
       it("renders the default automation IDs", () => {

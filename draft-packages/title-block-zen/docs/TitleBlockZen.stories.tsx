@@ -13,6 +13,10 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import {
+  TitleBlockButtonProps,
+  TitleBlockCustomButtonProps,
+} from "../KaizenDraft/TitleBlockZen/TitleBlockZen"
 import { NavigationTab, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
@@ -1120,116 +1124,69 @@ export const RenderProps: Story = () => {
 }
 
 // A mock implementation of Link router implementation
-const MockRouterLink = (
-  mockRouterProps: CustomButtonProps & { to?: string }
-): JSX.Element => (
+const MockRouterLink = (mockRouterProps: {
+  href: string | undefined
+  as?: string
+  replace?: boolean
+  scroll?: boolean
+  shallow?: boolean
+  passHref?: boolean
+  prefetch?: boolean
+  locale?: string | false
+  legacyBehavior?: boolean
+  onMouseEnter?: (e: any) => void
+  onTouchStart?: (e: any) => void
+  onClick?: (e: any) => void
+}): JSX.Element => (
   <button
     {...mockRouterProps}
     // this is in place of using Link's `to` prop
-    onClick={(): void => alert(`Mock route change to ${mockRouterProps.to}`)}
-  >
-    {mockRouterProps.children}
-  </button>
+    onClick={(): void => alert(`Mock route change to ${mockRouterProps.href}`)}
+  />
 )
 
-export const RenderPropsForBothActions: Story = () => {
-  const CustomTab = (props: {
-    href: string
-    className: string
-    text: string
-  }): JSX.Element => (
-    // In real life, you'll likely use this to insert a router Link component
-    <a href={props.href} className={props.className}>
-      {props.text}
-    </a>
-  )
-  return (
-    <OffsetPadding>
-      <TitleBlockZen
-        title="Page title"
-        defaultAction={{
-          // label: "Default action",
-          component: props => (
-            <MockRouterLink to="#default-1" {...props}>
-              Default action 1
-            </MockRouterLink>
-          ),
-        }}
-        primaryAction={{
-          label: "Primary action",
-          // TODO: set stricter types on the primary action with menu list
-          // component: props => (
-          //   <MockRouterLink to="#primary-1" {...props}>
-          //     Primary action 1
-          //   </MockRouterLink>
-          // ),
-          // label: "Primary",
-          menuItems: [
-            {
-              component: props => (
-                <MockRouterLink to="#primary-1" {...props}>
-                  Primary action menu
-                </MockRouterLink>
-              ),
-            },
-            {
-              label: "Regular primary action",
-              action: () => alert("I am a regular action"),
-            },
-          ],
-        }}
-        secondaryActions={[
+export const UsingComponentRenderPropsForActions: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default action",
+        // if you want to use sort your custom components in the top half for with links
+        // you will need to pass href in like this
+        href: "#default",
+        // while this * could * take children it would not be able to use the custom button's
+        // `renderContent` function reliably - this is why component requires a label ^
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      // TODO: figure out why there is no divider like int he perf story
+      primaryAction={{
+        label: "Primary action",
+        component: props => <MockRouterLink href="#primary" {...props} />,
+        menuItems: [
           {
-            label: "Test href",
-            href: "#",
+            label: "primary list action",
+            component: props => <MockRouterLink href="#primary" {...props} />,
           },
           {
-            label: "Test",
-            onClick: () => alert("regular action"),
+            label: "primary list action 2",
+            component: props => <MockRouterLink href="#primary-2" {...props} />,
           },
-          {
-            component: props => (
-              <MockRouterLink to="#secondary-1" {...props}>
-                Secondary action 1
-              </MockRouterLink>
-            ),
-          },
-          {
-            label: "Secondary menu",
-            menuItems: [
-              {
-                component: props => (
-                  <MockRouterLink to="#secondary-1" {...props}>
-                    Secondary action 2
-                  </MockRouterLink>
-                ),
-              },
-              {
-                component: props => (
-                  <MockRouterLink to="#secondary-2" {...props}>
-                    Secondary action 3
-                  </MockRouterLink>
-                ),
-              },
-            ],
-          },
-        ]}
-        breadcrumb={{
-          path: "#",
-          text: "Back to home",
-          render: props => (
-            // In real life, you'll likely use this to insert a router Link component
-            <a href={props.breadcrumb.path} className={props.className}>
-              {props.children}
-            </a>
-          ),
-        }}
-        navigationTabs={[
-          <NavigationTab text="Label" href="#" active render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
-        ]}
-      />
-    </OffsetPadding>
-  )
-}
+        ],
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)

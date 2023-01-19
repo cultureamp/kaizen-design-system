@@ -64,6 +64,14 @@ const renderDefaultLink = (
       />
     )
   }
+  if ("component" in defaultAction && defaultActionIsLink(defaultAction)) {
+    return (
+      <TitleBlockMenuItem
+        {...defaultAction}
+        automationId="title-block-mobile-actions-default-custom"
+      />
+    )
+  }
 }
 
 const renderDefaultAction = (
