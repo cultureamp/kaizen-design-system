@@ -14,7 +14,7 @@
   flex: 1;
   min-width: 0;
 
-  &:not(:disabled) {
+  &:not(.disabled) {
     &:hover .icon,
     &:global(.story__button-hover) .icon,
     &:active .icon,
@@ -76,7 +76,7 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  &:not(:disabled) {
+  &:not(.disabled) {
     #{$story-className--button-active},
     #{$selectors--button-hover} {
       background-color: rgba($color-white-rgb, 0.1);
