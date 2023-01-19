@@ -5,7 +5,8 @@
   "main": "dist/src/index.js",
   "files": [
     "future",
-    "src"
+    "src",
+    "dist"
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -51,6 +52,7 @@
     "@kaizen/draft-likert-scale-legacy": "^1.10.27",
     "@kaizen/draft-menu": "^4.8.23",
     "@kaizen/draft-radio": "^2.2.46",
+    "@kaizen/draft-select": "^2.10.7",
     "@kaizen/draft-slider": "^1.8.12",
     "@kaizen/draft-table": "^5.6.3",
     "@kaizen/draft-tile": "^5.9.18",

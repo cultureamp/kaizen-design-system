@@ -1,1 +1,1 @@
-export * from "./Button"
+export * from "@kaizen/select"
