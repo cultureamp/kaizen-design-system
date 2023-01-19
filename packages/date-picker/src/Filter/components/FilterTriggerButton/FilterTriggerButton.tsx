@@ -4,7 +4,7 @@ import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { isRefObject } from "../../../utils/isRefObject"
-import { FilterRef } from "../../Filter"
+import { FilterRef } from "../../FilterSolution2"
 import { FilterBaseButton, FilterBaseButtonProps } from "../FilterBaseButton"
 import styles from "./FilterTriggerButton.module.scss"
 
@@ -57,7 +57,6 @@ export const FilterTriggerButton = forwardRef<
 
 FilterTriggerButton.displayName = "FilterTriggerButton"
 
-
 export const FilterTriggerButtonWithFilterRef = forwardRef<
   FilterRef,
   FilterTriggerButtonProps
@@ -100,4 +99,5 @@ export const FilterTriggerButtonWithFilterRef = forwardRef<
   }
 )
 
-FilterTriggerButtonWithFilterRef.displayName = "FilterTriggerButtonWithFilterRef"
+FilterTriggerButtonWithFilterRef.displayName =
+  "FilterTriggerButtonWithFilterRef"

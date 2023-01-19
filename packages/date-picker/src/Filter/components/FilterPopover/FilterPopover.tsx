@@ -46,10 +46,7 @@ export const FilterPopover = ({
       ref={setPopperElement}
       style={popperStyles?.popper}
       {...popperAttributes?.popper}
-      className={classnames(
-        styles.filterPopover,
-        classNameOverride
-      )}
+      className={classnames(styles.filterPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"
       {...restProps}

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useRef, useState } from "react"
+import React, { forwardRef, HTMLAttributes, useRef, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -9,63 +9,59 @@ import styles from "./Filter.module.scss"
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
-  filterButton: React.ReactElement
+  // This ensures `ref` exists
+  // The `any` can probably be scoped better
+  filterButton: React.FunctionComponentElement<any>
 }
 
-export const FilterWithRef = React.forwardRef<HTMLButtonElement, FilterProps>(({
-  children,
-  filterButton,
-  classNameOverride,
-  ...restProps
-}, ref) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+export const FilterWithRef = React.forwardRef<HTMLButtonElement, FilterProps>(
+  ({ children, filterButton, classNameOverride, ...restProps }, ref) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  return (
-    <div
-      className={classnames(
-        styles.filterDateRangePickerContainer,
-        classNameOverride
-      )}
-      {...restProps}
-    >
-      {React.cloneElement(filterButton, {
-        // ref,
-        ref: filterButton.ref ?? ref,
-        onClick: () => setIsOpen(!isOpen),
-        isOpen,
-        ...filterButton.props,
-      })}
-      {isOpen && (
-        <FocusOn
-          scrollLock={false}
-          onClickOutside={(): void => setIsOpen(false)}
-          onEscapeKey={(): void => setIsOpen(false)}
-        >
-          <FilterPopover
-            referenceElement={ref.current}
-            // Does the popper need this or just the contents?
-            // aria-label={label}
+    return (
+      <div
+        className={classnames(
+          styles.filterDateRangePickerContainer,
+          classNameOverride
+        )}
+        {...restProps}
+      >
+        {React.cloneElement(filterButton, {
+          ref: filterButton.ref ?? ref,
+          onClick: () => setIsOpen(!isOpen),
+          isOpen,
+          ...filterButton.props,
+        })}
+        {isOpen && (
+          <FocusOn
+            scrollLock={false}
+            onClickOutside={(): void => setIsOpen(false)}
+            onEscapeKey={(): void => setIsOpen(false)}
           >
-            {children}
-          </FilterPopover>
-        </FocusOn>
-      )}
-    </div>
-  )
-})
-
+            <FilterPopover
+              // If the consumer uses the legacy `createRef`, it will not work
+              referenceElement={isRefObject(ref) ? ref.current : null}
+              // Does the popper need this or just the contents?
+              // aria-label={label}
+            >
+              {children}
+            </FilterPopover>
+          </FocusOn>
+        )}
+      </div>
+    )
+  }
+)
 FilterWithRef.displayName = "FilterWithRef"
 
 export type FilterRef = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const FilterWithForcedShapeRef = React.forwardRef<FilterRef, FilterProps>(({
-  children,
-  filterButton,
-  classNameOverride,
-  ...restProps
-}, ref) => {
+export const FilterWithForcedShapeRef = React.forwardRef<
+  FilterRef,
+  FilterProps
+>(({ children, filterButton, classNameOverride, ...restProps }, ref) => {
   const customRefObject = isRefObject(ref) ? ref.current : null
   const triggerButtonRef = customRefObject?.triggerButtonRef
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -105,12 +101,10 @@ export const FilterWithForcedShapeRef = React.forwardRef<FilterRef, FilterProps>
 
 FilterWithForcedShapeRef.displayName = "FilterWithForcedShapeRef"
 
-export const FilterConsumerRef = React.forwardRef<HTMLButtonElement, FilterProps>(({
-  children,
-  filterButton,
-  classNameOverride,
-  ...restProps
-}, ref) => {
+export const FilterConsumerRef = React.forwardRef<
+  HTMLButtonElement,
+  FilterProps
+>(({ children, filterButton, classNameOverride, ...restProps }, ref) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -133,7 +127,8 @@ export const FilterConsumerRef = React.forwardRef<HTMLButtonElement, FilterProps
           onEscapeKey={(): void => setIsOpen(false)}
         >
           <FilterPopover
-            referenceElement={ref.current}
+            // If the consumer uses the legacy `createRef`, it will not work
+            referenceElement={isRefObject(ref) ? ref.current : null}
             // Does the popper need this or just the contents?
             // aria-label={label}
           >
