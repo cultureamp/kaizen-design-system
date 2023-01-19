@@ -12,6 +12,7 @@ import styles from "./TriggerButton.module.scss"
 export interface TriggerButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder?: string
+  isReversed?: boolean
   triggerProps: AriaButtonProps<"button">
   valueProps: DOMAttributes<FocusableElement>
   status?: "error" | "caution"
@@ -25,6 +26,7 @@ export const TriggerButton = React.forwardRef<
     {
       placeholder = "Select",
       classNameOverride,
+      isReversed,
       triggerProps,
       valueProps,
       status,
@@ -47,6 +49,7 @@ export const TriggerButton = React.forwardRef<
           status === "error" && styles.error,
           status === "caution" && styles.caution,
           triggerProps.isDisabled && styles.disabled,
+          isReversed && styles.reversed,
           classNameOverride,
         ])}
       >

@@ -70,7 +70,7 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.28.0-focal
+          image: mcr.microsoft.com/playwright:v1.29.2-focal
           propagate-environment: true
 
   - name: "LinearB: Record deployment time"
