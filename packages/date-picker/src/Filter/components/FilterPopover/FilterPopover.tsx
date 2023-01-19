@@ -1,10 +1,11 @@
 import React, { HTMLAttributes, useState } from "react"
 import { Options } from "@popperjs/core"
 import classnames from "classnames"
+import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import { OverrideClassName } from "@kaizen/component-base"
+import { useFilterContextSol3 } from "../../context/useFilterContextSol3"
 import styles from "./FilterPopover.module.scss"
-import { FocusOn } from "react-focus-on"
 
 export interface FilterPopoverProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -116,3 +117,60 @@ export const FilterPopoverWithFocusLock = ({
 }
 
 FilterPopoverWithFocusLock.displayName = "FilterPopoverWithFocusLock"
+
+
+export const FilterPopoverWithFocusLockExtraContext = ({
+  children,
+  referenceElement,
+  popperOptions,
+  classNameOverride,
+  ...restProps
+}: FilterPopoverProps): JSX.Element => {
+  const { isOpen, setIsOpen } = useFilterContextSol3()
+
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+
+  const { styles: popperStyles, attributes: popperAttributes } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 15],
+          },
+        },
+      ],
+      placement: "bottom-start",
+      strategy: "fixed",
+      ...popperOptions,
+    }
+  )
+
+  if (!isOpen) return <></>
+
+  return (
+    <FocusOn
+            scrollLock={false}
+            onClickOutside={(): void => setIsOpen(false)}
+            onEscapeKey={(): void => setIsOpen(false)}
+          >
+      <div
+        ref={setPopperElement}
+        style={popperStyles?.popper}
+        {...popperAttributes?.popper}
+        className={classnames(styles.filterPopover, classNameOverride)}
+        role="dialog"
+        aria-modal="true"
+        {...restProps}
+      >
+        {children}
+      </div>
+    </FocusOn>
+  )
+}
+
+FilterPopoverWithFocusLockExtraContext.displayName = "FilterPopoverWithFocusLockExtraContext"
