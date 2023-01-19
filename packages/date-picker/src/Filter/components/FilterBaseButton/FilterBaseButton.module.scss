@@ -43,6 +43,8 @@
 
   &:focus {
     outline: none;
+    // For testing only
+    background-color: pink !important;
   }
 
   #{$selectors--filter-button--focus} {
