@@ -9,7 +9,7 @@ import styles from "./FilterTriggerButton.module.scss"
 export interface FilterTriggerButtonProps
   extends Omit<FilterBaseButtonProps, "children"> {
   label: string
-  selectedValue?: string
+  selectedValue?: string | JSX.Element
   isOpen?: boolean
 }
 
@@ -34,10 +34,13 @@ export const FilterTriggerButton = forwardRef<
         aria-expanded={isOpen}
         {...restProps}
       >
-        <span>
+        <span className={styles.labelContainer}>
           {hasSelectedValue ? (
             <>
-              <span className={styles.hasSelectedValues}>{label}:&nbsp;</span>
+              <span className={styles.hasSelectedValues}>
+                <span>{label}</span>
+                <span className={styles.labelSeparator}>:</span>
+              </span>
               <span>{selectedValue}</span>
             </>
           ) : (

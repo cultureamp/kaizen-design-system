@@ -14,6 +14,7 @@ import {
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
+import { DateRangeDisplayLabel } from "./components/DateRangeDisplayLabel"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -23,7 +24,7 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { formatDateRange } from "./utils/formatDateRange"
+import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -54,6 +55,10 @@ export interface FilterDateRangePickerProps
   onRemoveFilter?: () => void
   inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
   inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
+  /**
+   * Custom description to provide extra context (input format help text remains).
+   */
+  description?: DateRangeInputFieldProps["description"]
 }
 
 export const FilterDateRangePicker = ({
@@ -72,6 +77,7 @@ export const FilterDateRangePicker = ({
   onRemoveFilter,
   inputRangeStartProps,
   inputRangeEndProps,
+  description,
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
@@ -139,7 +145,9 @@ export const FilterDateRangePicker = ({
     "aria-haspopup": "dialog",
     onClick: () => setIsOpen(!isOpen),
     isOpen,
-    selectedValue: formatDateRange(selectedRange, locale),
+    selectedValue: isCompleteDateRange(selectedRange) ? (
+      <DateRangeDisplayLabel dateRange={selectedRange} locale={locale} />
+    ) : undefined,
   }
 
   return (
@@ -190,6 +198,8 @@ export const FilterDateRangePicker = ({
                 ...inputRangeEndHandlers,
               }}
               locale={locale}
+              description={description}
+              classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange
               defaultMonth={defaultMonth}

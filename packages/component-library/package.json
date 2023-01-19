@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "16.1.14",
+  "version": "16.1.15",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -31,7 +31,7 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.1.1",
+    "@kaizen/component-base": "^1.1.2",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/hosted-assets": "^2.0.1",
     "@types/classnames": "^2.3.0",
@@ -40,8 +40,8 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.19.1",
-    "rimraf": "^3.0.2"
+    "@testing-library/dom": "^8.20.0",
+    "rimraf": "^4.1.1"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

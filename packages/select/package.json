@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "6.3.5",
+  "version": "6.5.1",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,17 +29,17 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/a11y": "^1.6.17",
-    "@kaizen/button": "^2.0.12",
-    "@kaizen/component-base": "^1.1.1",
-    "@kaizen/component-library": "^16.1.14",
-    "@kaizen/draft-badge": "^1.13.4",
-    "@kaizen/draft-divider": "^2.2.4",
-    "@kaizen/draft-form": "^8.3.19",
-    "@kaizen/draft-menu": "^4.8.23",
-    "@kaizen/draft-tooltip": "^5.4.20",
-    "@kaizen/loading-skeleton": "^2.0.0",
-    "@kaizen/typography": "^2.3.4",
+    "@kaizen/a11y": "^1.6.18",
+    "@kaizen/button": "^2.0.13",
+    "@kaizen/component-base": "^1.1.2",
+    "@kaizen/component-library": "^16.1.15",
+    "@kaizen/draft-badge": "^1.13.5",
+    "@kaizen/draft-divider": "^2.2.5",
+    "@kaizen/draft-form": "^8.3.20",
+    "@kaizen/draft-menu": "^4.8.24",
+    "@kaizen/draft-tooltip": "^5.4.21",
+    "@kaizen/loading-skeleton": "^2.0.1",
+    "@kaizen/typography": "^2.3.5",
     "@react-aria/button": "^3.6.4",
     "@react-aria/focus": "^3.10.1",
     "@react-aria/listbox": "^3.7.2",
@@ -57,7 +57,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.1.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

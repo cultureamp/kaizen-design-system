@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.5.0...@kaizen/select@6.5.1) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.4.0...@kaizen/select@6.5.0) (2023-01-16)
+
+
+### Features
+
+* remove useFocusRing for the Select button ([#3201](https://github.com/cultureamp/kaizen-design-system/issues/3201)) ([9164f46](https://github.com/cultureamp/kaizen-design-system/commit/9164f4639c354cb79f2090e0bce31c34448bba99))
+
+
+
+
+
+# [6.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.5...@kaizen/select@6.4.0) (2023-01-12)
+
+
+### Features
+
+* handle long text multiline or truncated ([#3196](https://github.com/cultureamp/kaizen-design-system/issues/3196)) ([ae409b1](https://github.com/cultureamp/kaizen-design-system/commit/ae409b129bd2e93976b3ef52bdf3e045d09c3ffd))
+
+
+
+
+
 ## [6.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.4...@kaizen/select@6.3.5) (2023-01-04)
 
 **Note:** Version bump only for package @kaizen/select

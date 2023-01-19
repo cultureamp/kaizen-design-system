@@ -50,7 +50,21 @@ describe("<FilterDateRangePicker />", () => {
         />
       )
       const filterButton = screen.getByRole("button", {
-        name: "Dates: 1 May 2022 - 25 Nov 2022",
+        name: "Dates : 1 May 2022 - 25 Nov 2022",
+      })
+      expect(filterButton).toBeVisible()
+    })
+
+    it("should not show a selected value in the button if there is only a partial date range", () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+          }}
+        />
+      )
+      const filterButton = screen.getByRole("button", {
+        name: "Dates",
       })
       expect(filterButton).toBeVisible()
     })

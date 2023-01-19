@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.0...@kaizen/date-picker@5.17.1) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.16.1...@kaizen/date-picker@5.17.0) (2023-01-17)
+
+
+### Features
+
+* **date-picker:** add RTL support to FilterDateRangePicker ([#3199](https://github.com/cultureamp/kaizen-design-system/issues/3199)) ([c5a3d65](https://github.com/cultureamp/kaizen-design-system/commit/c5a3d65f3cb00cc432ab19faa6c6615e90d71233))
+
+
+
+
+
+## [5.16.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.16.0...@kaizen/date-picker@5.16.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ([#3202](https://github.com/cultureamp/kaizen-design-system/issues/3202)) ([1922224](https://github.com/cultureamp/kaizen-design-system/commit/1922224c7f3b16a1e72f481fcd44e8a7b73f9e9f))
+
+
+
+
+
+# [5.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.6...@kaizen/date-picker@5.16.0) (2023-01-16)
+
+
+### Features
+
+* **date-picker:** allow custom description for FilterDRP ([#3200](https://github.com/cultureamp/kaizen-design-system/issues/3200)) ([e216b0f](https://github.com/cultureamp/kaizen-design-system/commit/e216b0f560ec0bee44b87a54dc7d03232bb9cd73))
+
+
+
+
+
+## [5.15.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.5...@kaizen/date-picker@5.15.6) (2023-01-11)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
 ## [5.15.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.15.4...@kaizen/date-picker@5.15.5) (2023-01-06)
 
 
