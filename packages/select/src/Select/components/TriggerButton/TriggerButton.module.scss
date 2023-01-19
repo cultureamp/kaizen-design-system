@@ -14,17 +14,15 @@
   flex: 1;
   min-width: 0;
 
-  &:not(.disabled) {
-    &:hover .icon,
-    &:global(.story__button-hover) .icon,
-    &:active .icon,
-    &:global(.story__button-active) .icon,
-    &:focus-visible .icon {
-      color: $color-gray-600;
-    }
+  &:hover .icon,
+  &:global(.story__button-hover) .icon,
+  &:active .icon,
+  &:global(.story__button-active) .icon,
+  &:focus-visible .icon {
+    color: $color-gray-600;
   }
 
-  &.placeholder:not(.reversed) {
+  &.placeholder {
     color: rgba($color-purple-800-rgb, 0.7);
   }
 }
@@ -62,7 +60,7 @@
   text-overflow: ellipsis;
 }
 
-.reversed {
+.reversed:not(.disabled) {
   border: $border-solid-border-width $border-solid-border-style
     rgba($color-white-rgb, 0.8);
   background-color: transparent;
@@ -76,44 +74,40 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  &:not(.disabled) {
-    #{$story-className--button-active},
-    #{$selectors--button-hover} {
-      background-color: rgba($color-white-rgb, 0.1);
-      border: $border-solid-border-width $border-solid-border-style $color-white;
+  #{$story-className--button-active},
+  #{$selectors--button-hover} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
 
-      .icon {
-        color: $color-white;
-      }
+    .icon {
+      color: $color-white;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
+
+    .icon {
+      color: $color-white;
     }
 
-    &:focus {
-      outline: none;
-    }
-
-    #{$selectors--button-focus} {
-      background-color: rgba($color-white-rgb, 0.1);
-      border: $border-solid-border-width $border-solid-border-style $color-white;
-
-      .icon {
-        color: $color-white;
-      }
-
-      &::after {
-        $focus-ring-offset: calc(
-          (#{$border-focus-ring-border-width} * 2) + 1px
-        );
-        content: "";
-        position: absolute;
-        background: transparent;
-        border: $border-focus-ring-border-width $border-focus-ring-border-style
-          $color-blue-300;
-        border-radius: $border-focus-ring-border-radius;
-        top: calc(-1 * #{$focus-ring-offset});
-        left: calc(-1 * #{$focus-ring-offset});
-        right: calc(-1 * #{$focus-ring-offset});
-        bottom: calc(-1 * #{$focus-ring-offset});
-      }
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
+      border-radius: $border-focus-ring-border-radius;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
     }
   }
 
@@ -123,5 +117,23 @@
 
   .caution {
     border-color: $color-yellow-400;
+  }
+}
+
+.reversed.disabled {
+  border-color: rgba($color-white-rgb, 0.3);
+  color: rgba($color-white-rgb, 0.3);
+
+  .icon,
+  &:hover .icon {
+    color: rgba($color-white-rgb, 0.3);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.placeholder {
+    color: rgba($color-white-rgb, 0.3);
   }
 }
