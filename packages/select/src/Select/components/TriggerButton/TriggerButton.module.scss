@@ -18,7 +18,7 @@
   &:global(.story__button-hover) .icon,
   &:active .icon,
   &:global(.story__button-active) .icon,
-  &:focus-visible .icon {
+  &:focus .icon {
     color: $color-gray-600;
   }
 
