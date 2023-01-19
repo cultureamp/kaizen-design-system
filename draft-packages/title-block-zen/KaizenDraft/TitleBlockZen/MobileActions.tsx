@@ -35,7 +35,7 @@ const renderPrimaryActionDrawerContent = (
       const itemType =
         "component" in item
           ? "component"
-          : item.action === "string"
+          : typeof item.action === "string"
           ? "link"
           : "action"
 
