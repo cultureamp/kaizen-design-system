@@ -2,7 +2,11 @@
   "name": "@kaizen/components",
   "version": "1.0.0",
   "description": "Kaizen component library",
-  "main": "src/index.ts",
+  "main": "dist/src/index.js",
+  "files": [
+    "future",
+    "src"
+  ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
