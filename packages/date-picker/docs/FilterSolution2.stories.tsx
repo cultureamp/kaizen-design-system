@@ -4,28 +4,41 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { FilterWithRef, FilterConsumerRef, FilterWithForcedShapeRef, FilterRef } from "../index"
-import { FilterTriggerButton, FilterTriggerButtonWithFilterRef, RemovableFilterTriggerButton, RemovableFilterTriggerButtonRefs } from "../src/Filter/components"
+import {
+  FilterWithRef,
+  FilterConsumerRef,
+  FilterWithForcedShapeRef,
+  FilterRef,
+} from "../index"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonWithFilterRef,
+  RemovableFilterTriggerButton,
+  RemovableFilterTriggerButtonRefs,
+} from "../src/Filter/components"
 
 export default {
-  title: `${CATEGORIES.introduction}/Filter`,
+  title: `${CATEGORIES.introduction}/Filter Solution 2`,
   component: FilterWithRef,
   parameters: {
     docs: {
       description: {
-        component:
-          'import { Filter } from "@kaizen/date-picker"',
+        component: 'import { Filter } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
+    ...figmaEmbed(
+      "REPLACE_THIS_WITH_FIGMA_URL"
+    ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterWithRef>
 
 // Pros:
-// - Ref can be optional for the consumer
+// - Putting a ref in the Button can be optional for the consumer
 // Cons:
-// - Does not currently work with obj type refs (can it even work??)
+// - Consumer MUST use useRef, otherwise it will not work
+// Notes:
+// - When the button refs are an object, the consumer must provide it
 export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
   const buttonRef2 = useRef<HTMLButtonElement>(null)
@@ -46,19 +59,14 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
       </FilterWithRef>
 
       <div style={{ marginTop: "2rem" }}>
-        {/*
-          This doesn't work because ref is
-          an object for Removable button,
-          and it gets replaced with a non-object
-         */}
         <FilterWithRef
           {...args}
           ref={buttonRef2}
           filterButton={
             <RemovableFilterTriggerButton
               ref={removableButtonRefs}
-              triggerButtonProps={{label:"Pancakes"}}
-              removeButtonProps={{ onClick: () => undefined}}
+              triggerButtonProps={{ label: "Pancakes" }}
+              removeButtonProps={{ onClick: () => undefined }}
             />
           }
         >
@@ -71,10 +79,11 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
 WithRef.storyName = "Filter - button ref not provided by consumer"
 
 // Pros:
-// - Ref can be optional for the consumer
+// - Putting a ref in the Button can be optional for the consumer
 // Cons:
 // - Consumers are tied into a shape for the refs (must have `triggerButtonRef`)
 // - The obj ref means at least 2 usages of useRef
+// - Consumer MUST use useRef, otherwise it will not work
 export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
   const buttonRef = useRef<FilterRef>({
@@ -92,11 +101,7 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
       <FilterWithForcedShapeRef
         {...args}
         ref={buttonRef}
-        filterButton={
-          <FilterTriggerButtonWithFilterRef
-            label="Pancakes"
-          />
-        }
+        filterButton={<FilterTriggerButtonWithFilterRef label="Pancakes" />}
       >
         Contents in here
       </FilterWithForcedShapeRef>
@@ -107,8 +112,8 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
           ref={removableButtonRefs}
           filterButton={
             <RemovableFilterTriggerButton
-              triggerButtonProps={{label:"Pancakes"}}
-              removeButtonProps={{ onClick: () => undefined}}
+              triggerButtonProps={{ label: "Pancakes" }}
+              removeButtonProps={{ onClick: () => undefined }}
             />
           }
         >
@@ -118,8 +123,8 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
     </>
   )
 }
-ForcedShapeRef.storyName = "Filter - button ref not provided by consumer (forced shape)"
-
+ForcedShapeRef.storyName =
+  "Filter - button ref not provided by consumer (forced shape)"
 
 // Pros:
 // - Component code is simpler
@@ -151,8 +156,8 @@ export const ConsumerRef: ComponentStory<typeof FilterConsumerRef> = args => {
           filterButton={
             <RemovableFilterTriggerButton
               ref={removableButtonRefs}
-              triggerButtonProps={{label:"Pancakes"}}
-              removeButtonProps={{ onClick: () => undefined}}
+              triggerButtonProps={{ label: "Pancakes" }}
+              removeButtonProps={{ onClick: () => undefined }}
             />
           }
         >

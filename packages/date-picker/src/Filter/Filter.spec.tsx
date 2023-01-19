@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import { Filter, FilterProps } from "./Filter"
+import { Filter, FilterProps } from "./FilterSolution2"
 
 const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => (
   <Filter
