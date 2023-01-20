@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.1...@kaizen/date-picker@5.17.2) (2023-01-20)
+
+
+### Bug Fixes
+
+* **date-picker:** fix function wiring to onRemove ([#3219](https://github.com/cultureamp/kaizen-design-system/issues/3219)) ([67f9004](https://github.com/cultureamp/kaizen-design-system/commit/67f90049106162dc8c79e674d4ae339d8c88f021))
+
+
+
+
+
 ## [5.17.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.0...@kaizen/date-picker@5.17.1) (2023-01-18)
 
 **Note:** Version bump only for package @kaizen/date-picker
