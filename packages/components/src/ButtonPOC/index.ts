@@ -1,7 +1,7 @@
-export { Button } from "./Button"
+export { default as Button } from "./Button"
 export * from "./IconButton"
-export { DirectionalLink } from "./DirectionalLink"
-export { PaginationLink } from "./PaginationLink"
+export { default as DirectionalLink } from "./DirectionalLink"
+export { default as PaginationLink } from "./PaginationLink"
 export type {
   ButtonRef,
   CustomButtonProps,

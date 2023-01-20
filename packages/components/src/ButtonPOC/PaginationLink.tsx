@@ -27,3 +27,5 @@ PaginationLink.defaultProps = {
 }
 
 PaginationLink.displayName = "PaginationLink"
+
+export default PaginationLink

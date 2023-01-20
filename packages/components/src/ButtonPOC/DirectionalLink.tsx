@@ -22,7 +22,7 @@ const iconMap = {
  * {@link https://cultureamp.design/components/pagination/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/story/components-button-pagination-buttons--default-kaizen-directional-link Storybook}
  */
-export const DirectionalLink = (props: DirectionalLinkProps): JSX.Element => (
+const DirectionalLink = (props: DirectionalLinkProps): JSX.Element => (
   <GenericButton
     {...props}
     iconButton
@@ -37,3 +37,5 @@ DirectionalLink.defaultProps = {
 }
 
 DirectionalLink.displayName = "DirectionalLink"
+
+export default DirectionalLink
