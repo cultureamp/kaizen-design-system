@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Kaizen component library",
   "main": "dist/src/index.js",
+  "jsnext:main": "dist/es2015/index.js",
+  "module": "dist/es2015/index.js",
+  "types": "dist/es5/index.d.ts",
   "files": [
     "future",
-    "src",
     "dist"
   ],
   "scripts": {
