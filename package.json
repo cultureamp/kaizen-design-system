@@ -82,7 +82,7 @@
     "@typescript-eslint/parser": "^5.48.2",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.14.0",
-    "commitizen": "^4.2.6",
+    "commitizen": "^4.3.0",
     "css-loader": "^6.7.3",
     "cz-conventional-changelog": "3.3.0",
     "danger": "^11.2.2",
@@ -126,7 +126,7 @@
   },
   "resolutions": {
     "@types/react": "^18.0.27",
-    "commitizen": "^4.2.6"
+    "commitizen": "^4.3.0"
   },
   "resolutionsComments": {
     "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want",
