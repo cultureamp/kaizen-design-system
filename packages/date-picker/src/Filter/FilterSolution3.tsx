@@ -30,9 +30,10 @@ export const FilterSolution3 = React.forwardRef<
     },
     ref
   ) => {
+    const hi = true
     // If the consumer uses the legacy `createRef`, it will not work
-    const consumerRef = isRefObject(ref) ? ref : null
-    const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+    // const consumerRef = isRefObject(ref) ? ref : null
+    // const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
     // const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
@@ -45,13 +46,12 @@ export const FilterSolution3 = React.forwardRef<
           defaultSelectedValuesLabel={defaultSelectedValuesLabel}
         >
           {children}
-      </FilterProvider>
-    </div>
+        </FilterProvider>
+      </div>
     )
   }
 )
 FilterSolution3.displayName = "FilterSolution3"
-
 
 export const FilterSolution3ExtraContext = React.forwardRef<
   HTMLButtonElement,
@@ -82,8 +82,8 @@ export const FilterSolution3ExtraContext = React.forwardRef<
           defaultSelectedValuesLabel={defaultSelectedValuesLabel}
         >
           {children}
-      </FilterProviderSol3>
-    </div>
+        </FilterProviderSol3>
+      </div>
     )
   }
 )

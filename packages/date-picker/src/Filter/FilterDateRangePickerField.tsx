@@ -180,7 +180,6 @@ export const FilterDateRangePickerField = ({
 
 FilterDateRangePickerField.displayName = "FilterDateRangePickerField"
 
-
 export const FilterDateRangePickerFieldSol3 = ({
   id,
   // label,

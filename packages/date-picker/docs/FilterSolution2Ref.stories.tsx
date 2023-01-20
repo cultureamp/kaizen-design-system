@@ -54,7 +54,9 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
       <FilterWithRef
         {...args}
         ref={buttonRef1}
-        filterButton={<FilterTriggerButton label="Pancakes" />}
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButton label="Pancakes" {...props} />
+        )}
       >
         <FilterContents>Contents in here</FilterContents>
       </FilterWithRef>
@@ -63,13 +65,15 @@ export const WithRef: ComponentStory<typeof FilterWithRef> = args => {
         <FilterWithRef
           {...args}
           ref={buttonRef2}
-          filterButton={
+          filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButton
+              // Could we just pass in the ref here and not L65?
+              // Perhaps with the 2nd ref solution?
               ref={removableButtonRefs}
-              triggerButtonProps={{ label: "Pancakes" }}
+              triggerButtonProps={{ label: "Pancakes", ...props }}
               removeButtonProps={{ onClick: () => undefined }}
             />
-          }
+          )}
         >
           <FilterContents>Contents in here</FilterContents>
         </FilterWithRef>
