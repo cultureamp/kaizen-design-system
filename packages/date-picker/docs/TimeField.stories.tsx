@@ -4,8 +4,8 @@ import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
-import { TimeField } from "../"
 
 export default {
   title: `${CATEGORIES.components}/Time Field`,
