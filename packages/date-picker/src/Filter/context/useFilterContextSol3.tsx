@@ -13,9 +13,9 @@ export type FilterContextSol3Value = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const FilterContextSol3 = React.createContext<FilterContextSol3Value | undefined>(
-  undefined
-)
+const FilterContextSol3 = React.createContext<
+  FilterContextSol3Value | undefined
+>(undefined)
 FilterContextSol3.displayName = "FilterContextSol3"
 
 type FilterProviderSol3Props = {

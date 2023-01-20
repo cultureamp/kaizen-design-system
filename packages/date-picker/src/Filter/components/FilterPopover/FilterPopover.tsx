@@ -60,7 +60,6 @@ export const FilterPopover = ({
 
 FilterPopover.displayName = "FilterPopover"
 
-
 interface FilterPopoverWithFocusLockProps extends FilterPopoverProps {
   onClose?: () => void
 }
@@ -96,11 +95,7 @@ export const FilterPopoverWithFocusLock = ({
   )
 
   return (
-    <FocusOn
-            scrollLock={false}
-            onClickOutside={onClose}
-            onEscapeKey={onClose}
-          >
+    <FocusOn scrollLock={false} onClickOutside={onClose} onEscapeKey={onClose}>
       <div
         ref={setPopperElement}
         style={popperStyles?.popper}
@@ -117,7 +112,6 @@ export const FilterPopoverWithFocusLock = ({
 }
 
 FilterPopoverWithFocusLock.displayName = "FilterPopoverWithFocusLock"
-
 
 export const FilterPopoverWithFocusLockExtraContext = ({
   children,
@@ -154,10 +148,10 @@ export const FilterPopoverWithFocusLockExtraContext = ({
 
   return (
     <FocusOn
-            scrollLock={false}
-            onClickOutside={(): void => setIsOpen(false)}
-            onEscapeKey={(): void => setIsOpen(false)}
-          >
+      scrollLock={false}
+      onClickOutside={(): void => setIsOpen(false)}
+      onEscapeKey={(): void => setIsOpen(false)}
+    >
       <div
         ref={setPopperElement}
         style={popperStyles?.popper}
@@ -173,4 +167,5 @@ export const FilterPopoverWithFocusLockExtraContext = ({
   )
 }
 
-FilterPopoverWithFocusLockExtraContext.displayName = "FilterPopoverWithFocusLockExtraContext"
+FilterPopoverWithFocusLockExtraContext.displayName =
+  "FilterPopoverWithFocusLockExtraContext"

@@ -3,6 +3,7 @@ import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { isRefObject } from "../utils/isRefObject"
+import { FilterTriggerButtonProps } from "./components"
 import { FilterPopover } from "./components/FilterPopover"
 import styles from "./Filter.module.scss"
 
@@ -14,44 +15,53 @@ export interface FilterProps
   filterButton: React.FunctionComponentElement<any>
 }
 
-export const FilterWithRef = React.forwardRef<HTMLButtonElement, FilterProps>(
-  ({ children, filterButton, classNameOverride, ...restProps }, ref) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+interface FilterWithRefProps extends Omit<FilterProps, "filterButton"> {
+  filterButton: (
+    props?: Partial<FilterTriggerButtonProps>
+  ) => React.FunctionComponentElement<any>
+}
 
-    return (
-      <div
-        className={classnames(
-          styles.filterDateRangePickerContainer,
-          classNameOverride
-        )}
-        {...restProps}
-      >
-        {React.cloneElement(filterButton, {
-          ref: filterButton.ref ?? ref,
-          onClick: () => setIsOpen(!isOpen),
-          isOpen,
-          ...filterButton.props,
-        })}
-        {isOpen && (
-          <FocusOn
-            scrollLock={false}
-            onClickOutside={(): void => setIsOpen(false)}
-            onEscapeKey={(): void => setIsOpen(false)}
+export const FilterWithRef = React.forwardRef<
+  HTMLButtonElement,
+  FilterWithRefProps
+>(({ children, filterButton, classNameOverride, ...restProps }, ref) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const filterButtonComponent = filterButton({
+    onClick: (): void => setIsOpen(!isOpen),
+    isOpen,
+  })
+
+  return (
+    <div
+      className={classnames(
+        styles.filterDateRangePickerContainer,
+        classNameOverride
+      )}
+      {...restProps}
+    >
+      {React.cloneElement(filterButtonComponent, {
+        ref: filterButtonComponent.ref ?? ref,
+      })}
+      {isOpen && (
+        <FocusOn
+          scrollLock={false}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
+        >
+          <FilterPopover
+            // If the consumer uses the legacy `createRef`, it will not work
+            referenceElement={isRefObject(ref) ? ref.current : null}
+            // Does the popper need this or just the contents?
+            // aria-label={label}
           >
-            <FilterPopover
-              // If the consumer uses the legacy `createRef`, it will not work
-              referenceElement={isRefObject(ref) ? ref.current : null}
-              // Does the popper need this or just the contents?
-              // aria-label={label}
-            >
-              {children}
-            </FilterPopover>
-          </FocusOn>
-        )}
-      </div>
-    )
-  }
-)
+            {children}
+          </FilterPopover>
+        </FocusOn>
+      )}
+    </div>
+  )
+})
 FilterWithRef.displayName = "FilterWithRef"
 
 export type FilterRef = {

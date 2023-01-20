@@ -149,7 +149,6 @@ export const FilterTriggerButtonContext = forwardRef<
 
 FilterTriggerButtonContext.displayName = "FilterTriggerButtonContext"
 
-
 export type FilterTriggerButtonSol3Props = Omit<
   FilterTriggerButtonProps,
   "label" | "isOpen"
@@ -159,7 +158,8 @@ export const FilterTriggerButtonSol3 = forwardRef<
   HTMLButtonElement,
   FilterTriggerButtonSol3Props
 >(({ selectedValue, classNameOverride, onClick, ...restProps }, ref) => {
-  const { label, selectedValuesLabel, isOpen, setIsOpen } = useFilterContextSol3()
+  const { label, selectedValuesLabel, isOpen, setIsOpen } =
+    useFilterContextSol3()
   // Maybe we shouldn't check; would we ever receive an empty string?
   // Maybe we would want to show it to show something went wrong?
   // const hasSelectedValue = selectedValue && selectedValue !== ""
