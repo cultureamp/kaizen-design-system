@@ -163,7 +163,7 @@ export const FilterDateRangePicker = ({
           ref={removableButtonRefs}
           triggerButtonProps={triggerButtonProps}
           removeButtonProps={{
-            onClick: () => undefined,
+            onClick: onRemoveFilter,
           }}
         />
       ) : (

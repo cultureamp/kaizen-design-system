@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.6.0...@kaizen/select@6.7.0) (2023-01-19)
+
+
+### Features
+
+* update focus selector to :focus ([#3214](https://github.com/cultureamp/kaizen-design-system/issues/3214)) ([b1b7a9b](https://github.com/cultureamp/kaizen-design-system/commit/b1b7a9bbe5aad8f233ad030b37f32414fd148d03))
+
+
+
+
+
+# [6.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.5.1...@kaizen/select@6.6.0) (2023-01-19)
+
+
+### Features
+
+* add reversed styles to Select ([#3211](https://github.com/cultureamp/kaizen-design-system/issues/3211)) ([4613971](https://github.com/cultureamp/kaizen-design-system/commit/461397136503f39b08b00562b1610ce2f6dd5995))
+
+
+
+
+
 ## [6.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.5.0...@kaizen/select@6.5.1) (2023-01-18)
 
 **Note:** Version bump only for package @kaizen/select
