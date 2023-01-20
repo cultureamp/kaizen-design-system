@@ -1,4 +1,9 @@
-export * from "./Button"
+export { Button } from "./Button"
 export * from "./IconButton"
-export * from "./PaginationLink"
-export * from "./DirectionalLink"
+export { DirectionalLink } from "./DirectionalLink"
+export { PaginationLink } from "./PaginationLink"
+export type {
+  ButtonRef,
+  CustomButtonProps,
+} from "./GenericButton/GenericButton"
+export type { ButtonProps } from "./Button"
