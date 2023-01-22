@@ -14,6 +14,14 @@ export default {
       },
     },
   },
+  argTypes: {
+    readOnlyMessage: {
+      control: "text",
+    },
+    description: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof Slider>
 
 export const DefaultKaizenSiteDemo: ComponentStory<typeof Slider> = args => (
