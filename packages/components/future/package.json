@@ -1,7 +1,5 @@
 {
   "internal": true,
-  "main": "../dist/es5/future.js",
-  "jsnext:main": "../dist/es2015/future.js",
-  "module": "../dist/es2015/future.js",
-  "types": "../dist/es5/future.d.ts"
+  "main": "../dist/future.js",
+  "types": "../dist/future.d.ts"
 }
