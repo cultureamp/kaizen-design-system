@@ -49,9 +49,9 @@ export const FilterSolution2: ComponentStory<
     <>
       <FilterSolution2Ref
         // {...args}
-        filterButton={
-          <FilterTriggerButton label="1. Component controlled ref" />
-        }
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButton label="1. Component controlled ref" {...props} />
+        )}
       >
         <FilterContents>Contents in here</FilterContents>
       </FilterSolution2Ref>
@@ -59,7 +59,9 @@ export const FilterSolution2: ComponentStory<
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2Ref
           {...args}
-          filterButton={<FilterTriggerButton label="1.5 Multiple contents" />}
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButton label="1.5 Multiple contents" {...props} />
+          )}
         >
           <FilterContents>Contents in here</FilterContents>
           <FilterContents>More contents in here</FilterContents>
@@ -70,9 +72,12 @@ export const FilterSolution2: ComponentStory<
         <FilterSolution2Ref
           {...args}
           ref={buttonRef1}
-          filterButton={
-            <FilterTriggerButton label="2. Consumer controlled ref" />
-          }
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButton
+              label="2. Consumer controlled ref"
+              {...props}
+            />
+          )}
         >
           <FilterContents>Contents in here</FilterContents>
         </FilterSolution2Ref>
@@ -92,15 +97,16 @@ export const FilterSolution2: ComponentStory<
         <FilterSolution2Ref
           // {...args}
           ref={buttonRef2}
-          filterButton={
+          filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButton
               ref={removableButtonRefs}
               triggerButtonProps={{
                 label: "3. Consumer controlled ref (removable)",
+                ...props,
               }}
               removeButtonProps={{ onClick: () => undefined }}
             />
-          }
+          )}
         >
           <FilterContents>Contents in here</FilterContents>
         </FilterSolution2Ref>
@@ -151,7 +157,9 @@ export const Solution2DRP: ComponentStory<
       <FilterSolution2Context
         // {...args}
         label="Dates"
-        filterButton={<FilterTriggerButtonContext />}
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButtonContext {...props} />
+        )}
       >
         <FilterContents>
           <FilterDateRangePickerField
@@ -168,7 +176,9 @@ export const Solution2DRP: ComponentStory<
         <FilterSolution2Context
           // {...args}
           label="Dates existing"
-          filterButton={<FilterTriggerButtonContext />}
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContext {...props} />
+          )}
           // NOTE:
           // Since the button is mounted before the contents within the popover,
           // to pre-fill the button we must provide the initial selected value here
@@ -198,13 +208,13 @@ export const Solution2DRP: ComponentStory<
           // {...args}
           ref={buttonRef2}
           label="Dates"
-          filterButton={
+          filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
               ref={removableButtonRefs}
-              // triggerButtonProps={{ label: "Dates" }}
+              triggerButtonProps={{ ...props }}
               removeButtonProps={{ onClick: () => undefined }}
             />
-          }
+          )}
         >
           <FilterContents>
             <FilterDateRangePickerField
