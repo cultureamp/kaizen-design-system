@@ -1,2 +1,2 @@
 // Placeholder for illustration
-export default (): boolean => true
+export const DragAndDrop = (): boolean => true
