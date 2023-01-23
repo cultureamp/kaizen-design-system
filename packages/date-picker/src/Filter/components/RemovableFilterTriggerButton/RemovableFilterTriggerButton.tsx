@@ -103,32 +103,32 @@ export const RemovableFilterTriggerButtonContext = forwardRef<
 RemovableFilterTriggerButtonContext.displayName =
   "RemovableFilterTriggerButtonContext"
 
-export const RemovableFilterTriggerButtonContextSol3 = forwardRef<
-  RemovableFilterTriggerButtonContextRefs,
-  RemovableFilterTriggerButtonContextProps
->(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
-  const { label } = useFilterContextSol3()
+// export const RemovableFilterTriggerButtonContextSol3 = forwardRef<
+//   RemovableFilterTriggerButtonContextRefs,
+//   RemovableFilterTriggerButtonContextProps
+// >(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
+//   const { label } = useFilterContextSol3()
 
-  const customRefObject = isRefObject(ref) ? ref.current : null
-  const triggerButtonRef = customRefObject?.triggerButtonRef
-  const removeButtonRef = customRefObject?.removeButtonRef
+//   const customRefObject = isRefObject(ref) ? ref.current : null
+//   const triggerButtonRef = customRefObject?.triggerButtonRef
+//   const removeButtonRef = customRefObject?.removeButtonRef
 
-  const removeButtonLabel =
-    removeButtonProps?.tooltipText ?? `Remove filter - ${label}`
+//   const removeButtonLabel =
+//     removeButtonProps?.tooltipText ?? `Remove filter - ${label}`
 
-  return (
-    <FilterButtonGroup {...restProps}>
-      <FilterTriggerButtonSol3 ref={triggerButtonRef} {...triggerButtonProps} />
-      <FilterBaseTooltipButton
-        ref={removeButtonRef}
-        {...removeButtonProps}
-        tooltipText={removeButtonLabel}
-      >
-        <Icon icon={iconClear} title={removeButtonLabel} />
-      </FilterBaseTooltipButton>
-    </FilterButtonGroup>
-  )
-})
+//   return (
+//     <FilterButtonGroup {...restProps}>
+//       <FilterTriggerButtonSol3 ref={triggerButtonRef} {...triggerButtonProps} />
+//       <FilterBaseTooltipButton
+//         ref={removeButtonRef}
+//         {...removeButtonProps}
+//         tooltipText={removeButtonLabel}
+//       >
+//         <Icon icon={iconClear} title={removeButtonLabel} />
+//       </FilterBaseTooltipButton>
+//     </FilterButtonGroup>
+//   )
+// })
 
-RemovableFilterTriggerButtonContextSol3.displayName =
-  "RemovableFilterTriggerButtonContextSol3"
+// RemovableFilterTriggerButtonContextSol3.displayName =
+//   "RemovableFilterTriggerButtonContextSol3"
