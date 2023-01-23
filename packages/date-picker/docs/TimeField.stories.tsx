@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { TimeField } from "@kaizen/time-field"',
+        component: 'import { TimeField } from "@kaizen/date-picker"',
       },
     },
     ...figmaEmbed(
