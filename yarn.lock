@@ -2002,60 +2002,6 @@
     "@kaizen/loading-spinner" "^2.3.2"
     classnames "^2.3.1"
 
-"@kaizen/component-library@^10.3.0":
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-10.3.1.tgz#d07ad3a69b81f98a7e8dd20900136674a6c089cc"
-  integrity sha512-Bscw+UiX7xFWU77ZAciagBaJFzUqorw701rhZCJQXinTTFT1x/LJOZBsj54W5jftQTiXYQ6tDL/Q7Ay1rvHjgg==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^2.3.0"
-    "@kaizen/draft-button" "^4.2.5"
-    "@kaizen/hosted-assets" "^1.2.0"
-    "@kaizen/react-deprecate-warning" "^1.1.5"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/uuid" "^3.3.2"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    uuid "^3.3.2"
-
-"@kaizen/component-library@^11.1.1", "@kaizen/component-library@^11.5.6":
-  version "11.5.9"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-11.5.9.tgz#286aec96958cf908c5450488a89ede5e075b6b1f"
-  integrity sha512-9fnrh8hFyl7ARldCCYgu07zeVPeUQ/OEbbqahAtXmOzy5C0/Ma0XueM68WbdWGfTQH/gknmUr//pGbWDLe99MA==
-  dependencies:
-    "@kaizen/brand" "^1.1.5"
-    "@kaizen/deprecated-component-library-helpers" "^2.4.1"
-    "@kaizen/draft-button" "^5.3.4"
-    "@kaizen/hosted-assets" "^1.2.0"
-    "@kaizen/react-deprecate-warning" "^1.1.5"
-    "@types/classnames" "^2.3.0"
-    "@types/lodash" "^4.14.177"
-    "@types/uuid" "^3.4.10"
-    classnames "^2.3.1"
-    lodash "^4.17.21"
-    motion-ui cultureamp/motion-ui
-    react-focus-lock "^1.19.1"
-    react-media "^1.10.0"
-    uuid "^3.4.0"
-
-"@kaizen/component-library@^13.2.6":
-  version "13.2.6"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-13.2.6.tgz#3c7086d727ee9a68a93c7bbf6d0267874aeb21bd"
-  integrity sha512-hk7ufWmOuYtG2kPPNgEGP1GeLiw5zGtfXbc/MpKpW2xixEDG+5xKcVav2VJ3BBGVeW/HHgO8iUmhcGjplY2Twg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.2"
-    "@kaizen/draft-button" "^5.6.25"
-    "@kaizen/hosted-assets" "^1.2.0"
-    "@types/classnames" "^2.3.0"
-    "@types/lodash" "^4.14.181"
-    "@types/uuid" "^3.4.10"
-    classnames "^2.3.1"
-    motion-ui cultureamp/motion-ui
-
 "@kaizen/component-library@^14.3.4":
   version "14.3.6"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-14.3.6.tgz#bbc8beb7af1bd619de0e3e8c4c292050683bcd28"
@@ -2069,113 +2015,6 @@
     "@types/uuid" "^3.4.10"
     classnames "^2.3.1"
     motion-ui cultureamp/motion-ui
-
-"@kaizen/component-library@^8.1.0":
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-8.4.0.tgz#98dfc2212bdbc057436a1c104ff02ee8ff9e745e"
-  integrity sha512-MzCmbgs7du0iI2B1TJA7FK0mo4VE7n+Y+YIS5Zj1amFF7QCE/AtzIglU0LySY+uSKDTCi4zURj3P6Sx071G/nQ==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^2.1.0"
-    "@kaizen/hosted-assets" "^1.1.0"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/uuid" "^3.3.2"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    uuid "^3.3.2"
-
-"@kaizen/draft-button@^4.2.5":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-4.3.1.tgz#28b1afee063389d91423dda718da783043ec453f"
-  integrity sha512-5FAZ7y0ktR7gKI1IBj6RIX1SBKEZzNl4sftoZL7k8+90CZP5PljdoZ91z0In/SfDmkhQXbUPAQDCrnKFygjvfg==
-  dependencies:
-    "@kaizen/component-library" "^11.1.1"
-    "@kaizen/draft-badge" "^1.7.0"
-    "@kaizen/draft-loading-spinner" "^2.3.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
-"@kaizen/draft-button@^5.3.1", "@kaizen/draft-button@^5.3.4", "@kaizen/draft-button@^5.6.25":
-  version "5.6.25"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-5.6.25.tgz#041db38c4d99a1f1c2fb7dd9578ea3f75de708bd"
-  integrity sha512-WmkpyPMGc/IzOPUej38pSyTGaNuj5/RV4MY3aAwrKrb+ut70FmjarMdqBTG6Z7HQnE0fapxB5E44izDBXi+dOg==
-  dependencies:
-    "@kaizen/component-library" "^13.2.6"
-    "@kaizen/draft-badge" "^1.11.0"
-    "@kaizen/loading-spinner" "^2.1.2"
-    "@types/classnames" "^2.3.0"
-    classnames "^2.3.1"
-
-"@kaizen/draft-form@^2.12.0":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-2.12.0.tgz#8ce788081567c76ac20197938e7ba15bdff816fc"
-  integrity sha512-JOCX77V/FiLqHuAI73eWeOjlcFvbTrxsgSRGnJ8qNDYTXggJMAIh4W+gXGiXH21x4GxaVJrst9Beunus9RjIBg==
-  dependencies:
-    "@kaizen/component-library" "^8.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.0.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
-"@kaizen/draft-loading-spinner@^2.3.0":
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-loading-spinner/-/draft-loading-spinner-2.7.2.tgz#e6a1a1dc25625d24291f7d4e0c80497411ba5ef2"
-  integrity sha512-cVcn7vpDRXtocKlP5uMIxQayQVseSL5qgUsUcNeBVpvchURZR5tC/EEBP+9eLwCS6MtOtZXpW5gi3/R3rcFDkg==
-
-"@kaizen/draft-radio@^2.2.46":
-  version "2.2.46"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-radio/-/draft-radio-2.2.46.tgz#2129cc93484038c4ce5cf66d36d23459ff807a9c"
-  integrity sha512-2d4rL9XSvm1WYgy/ulCTDcint7O43w/p2rwI6IwUzRDbSvXPF87ZFitqUHEx4RzmNBlfiaBOyZlgbXt56q2OTQ==
-  dependencies:
-    "@kaizen/component-library" "^8.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.0.0"
-    "@kaizen/draft-form" "^2.12.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
-"@kaizen/draft-slider@^1.8.12":
-  version "1.8.12"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-slider/-/draft-slider-1.8.12.tgz#18354f8b306c7870d71e42c6f6e4dc860b27c780"
-  integrity sha512-5uXkfD6JNyimjIroxSZrPJWcIQaROOAinW0G1k64YT4w3w7YndFaspOBcVQXfJfFV8iLki2gjofc+/FAPEgV+Q==
-  dependencies:
-    "@kaizen/component-library" "^11.5.6"
-    classnames "^2.3.1"
-    lodash "^4.17.21"
-
-"@kaizen/draft-vertical-progress-step@^1.9.4":
-  version "1.9.4"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-vertical-progress-step/-/draft-vertical-progress-step-1.9.4.tgz#660bcf100be1bc1abef92911437b76a0dd8bc742"
-  integrity sha512-og5RH57GiVZVzkMr1yGIB0L3tEpUQIL49EOww2vqfq8JIkDlNfsl90+DgXTyLFtvuaKAgHxyH8azhj6IRiUztg==
-  dependencies:
-    "@kaizen/component-library" "^10.3.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
-"@kaizen/draft-zen-navigation-bar@^3.5.22":
-  version "3.5.22"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-zen-navigation-bar/-/draft-zen-navigation-bar-3.5.22.tgz#c28c6e18fb260dd8181031d18a23370044f981d8"
-  integrity sha512-bNETVNWMxCpA+AuxY+aGvn9iecnyoYhsg3osI9o6SS8Zv48M3eqWON5jqyC6N5CPcXGeQyOnBgHEMktDABgs6Q==
-  dependencies:
-    "@kaizen/component-library" "^11.5.6"
-    "@kaizen/draft-button" "^5.3.1"
-    "@kaizen/react-deprecate-warning" "^1.1.5"
-    "@types/classnames" "^2.3.0"
-    classnames "^2.3.1"
-    react-media "^1.10.0"
-    react-tooltip "^4.2.21"
-    uuid "^3.4.0"
-
-"@kaizen/hosted-assets@^1.1.0", "@kaizen/hosted-assets@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.2.0.tgz#2c7979fb04fda220cf27c8a714be493f305ef6a3"
-  integrity sha512-/5Ih+xA/2SpnKLOZH8aFo+ppA304NMcOwFMbOUmRHUpXfqrLgas/sGnfSTuUoN8jCt3XabuvV5fmba5SLCHU8w==
-
-"@kaizen/react-deprecate-warning@^1.1.5":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/react-deprecate-warning/-/react-deprecate-warning-1.2.0.tgz#1d96cd739df0e4c0101e8f13fcd6541c635a300e"
-  integrity sha512-rn9SmzMRs7So48S0UInEvUBtuZMNFibd74Pd/ya5yHpLnizrCQv3R8JhQnt5e2Zo7ZiRYvVE4F3KAwePbeNJ9A==
 
 "@lerna/add@3.21.0":
   version "3.21.0"
@@ -4835,7 +4674,7 @@
     "@types/node" "*"
     "@types/responselike" "^1.0.0"
 
-"@types/classnames@^2.2.10", "@types/classnames@^2.2.6", "@types/classnames@^2.3.0", "@types/classnames@^2.3.1":
+"@types/classnames@^2.3.0", "@types/classnames@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.3.1.tgz#3c2467aa0f1a93f1f021e3b9bcf938bd5dfdc0dd"
   integrity sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==
@@ -5037,7 +4876,7 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*", "@types/lodash@^4.14.132", "@types/lodash@^4.14.167", "@types/lodash@^4.14.177", "@types/lodash@^4.14.181", "@types/lodash@^4.14.182", "@types/lodash@^4.14.191":
+"@types/lodash@*", "@types/lodash@^4.14.167", "@types/lodash@^4.14.182", "@types/lodash@^4.14.191":
   version "4.14.191"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.191.tgz#09511e7f7cba275acd8b419ddac8da9a6a79e2fa"
   integrity sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==
@@ -5264,7 +5103,7 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
-"@types/uuid@^3.3.2", "@types/uuid@^3.4.10":
+"@types/uuid@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.10.tgz#637d3c8431f112edf6728ac9bdfadfe029540f48"
   integrity sha512-BgeaZuElf7DEYZhWYDTc/XcLZXdVgFkVSTa13BqKvbnmUrxr3TJFKofUxCtDO9UQOdhnV+HPOESdHiHKZOJV1A==
@@ -7460,7 +7299,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@*, classnames@^2.2.6, classnames@^2.3.1, classnames@^2.3.2:
+classnames@*, classnames@^2.3.1, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -10013,11 +9852,6 @@ focus-lock@^0.11.2:
   integrity sha512-LzZWJcOBIcHslQ46N3SUu/760iLPSrUtp8omM4gh9du438V2CQdks8TcOu1yvmu2C68nVOBnl1WFiKGPbQ8L6g==
   dependencies:
     tslib "^2.0.3"
-
-focus-lock@^0.6.3:
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.6.8.tgz#61985fadfa92f02f2ee1d90bc738efaf7f3c9f46"
-  integrity sha512-vkHTluRCoq9FcsrldC0ulQHiyBYgVJB2CX53I8r0nTC6KnEij7Of0jpBspjt3/CuNb6fyoj3aOh9J2HgQUM0og==
 
 focus-visible@^5.2.0:
   version "5.2.0"
@@ -16129,7 +15963,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -16459,7 +16293,7 @@ react-animate-height@^3.1.0:
   resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.1.0.tgz#f7def40acfe857f936621fe9d7bad601467d0e31"
   integrity sha512-+0pW2OzB8PzVn10dpTB9q5jFI+GwQTnCDLbzyqPBUzKXJfpBrlWW954uud/59Mreo+laRN/fPzvckuA+WTptXA==
 
-react-clientside-effect@^1.2.0, react-clientside-effect@^1.2.6:
+react-clientside-effect@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz#29f9b14e944a376b03fb650eed2a754dd128ea3a"
   integrity sha512-XGGGRQAKY+q25Lz9a/4EPqom7WRjz3z9R2k4jhVKA/puQFH/5Nt27vFZYql4m4NVNdUvX8PS3O7r/Zzm7cjUlg==
@@ -16540,16 +16374,6 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-focus-lock@^1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-1.19.1.tgz#2f3429793edaefe2d077121f973ce5a3c7a0651a"
-  integrity sha512-TPpfiack1/nF4uttySfpxPk4rGZTLXlaZl7ncZg/ELAk24Iq2B1UUaUioID8H8dneUXqznT83JTNDHDj+kwryw==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    focus-lock "^0.6.3"
-    prop-types "^15.6.2"
-    react-clientside-effect "^1.2.0"
-
 react-focus-lock@^2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.2.tgz#a57dfd7c493e5a030d87f161c96ffd082bd920f2"
@@ -16616,7 +16440,7 @@ react-map-interaction@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-map-interaction/-/react-map-interaction-2.1.0.tgz#fa76d42d27bf1124c65a5312c98c08922fedc208"
   integrity sha512-bD6Gz2nuf60HF4WAYfBOjsqttrFlTd1u/TrCQSxdl3KITiTpTxr1vvLIr1k+NR2w3Jln+gux+oWDbjnh8Dhv7w==
 
-react-media@^1.10.0, react-media@^1.9.2:
+react-media@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.10.0.tgz#7b0c5fe8ac55a53ce31b5249db3aaf8a22ff7703"
   integrity sha512-FjgYmFoaPTImST06jqotuu0Mk8LOXiGYS/fIyiXuLnf20l3DPniBwtrxi604/HxxjqvmHS3oz5rAwnqdvosV4A==
@@ -16726,14 +16550,6 @@ react-textfit@^1.1.1:
   dependencies:
     process "^0.11.10"
     prop-types "^15.7.2"
-
-react-tooltip@^4.2.21:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.5.1.tgz#77eccccdf16adec804132e558ec20ca5783b866a"
-  integrity sha512-Zo+CSFUGXar1uV+bgXFFDe7VeS2iByeIp5rTgTcc2HqtuOS5D76QapejNNfx320MCY91TlhTQat36KGFTqgcvw==
-  dependencies:
-    prop-types "^15.8.1"
-    uuid "^7.0.3"
 
 react-transition-group@^4.3.0:
   version "4.4.5"
@@ -19657,15 +19473,10 @@ uuid-browser@^3.1.0:
   resolved "https://registry.yarnpkg.com/uuid-browser/-/uuid-browser-3.1.0.tgz#0f05a40aef74f9e5951e20efbf44b11871e56410"
   integrity sha512-dsNgbLaTrd6l3MMxTtouOCFw4CBFc/3a+GgYA2YyrJvyQ1u6q4pcu3ktLoUZ/VN/Aw9WsauazbgsgdfVWgAKQg==
 
-uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
+uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
-  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 uuid@^8.3.0:
   version "8.3.2"
