@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/pagination",
-  "version": "1.6.19",
+  "version": "1.6.20",
   "description": "The pagination component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-base": "^1.1.2",
-    "@kaizen/component-library": "^16.1.15",
+    "@kaizen/component-library": "^16.1.16",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
