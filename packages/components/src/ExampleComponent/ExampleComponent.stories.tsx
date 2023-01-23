@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ExampleComponent } from ".."
+import { ExampleComponent } from "."
 
 export default {
   title: "AIO/ExampleComponent (Do Not Use)",

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { render } from "@testing-library/react"
-import { ExampleComponent } from ".."
+import { ExampleComponent } from "."
 import "@testing-library/jest-dom"
 
 describe("<ExampleComponent />", () => {
