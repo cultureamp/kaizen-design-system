@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.20...@kaizen/draft-form@8.3.21) (2023-01-23)
+
+
+### Bug Fixes
+
+* update Slider story argTypes to allow text input ([#3222](https://github.com/cultureamp/kaizen-design-system/issues/3222)) ([00a1ade](https://github.com/cultureamp/kaizen-design-system/commit/00a1ade066ad7c540ca6c9eaba92a7c943856d19))
+
+
+
+
+
 ## [8.3.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.19...@kaizen/draft-form@8.3.20) (2023-01-18)
 
 **Note:** Version bump only for package @kaizen/draft-form
