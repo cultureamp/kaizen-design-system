@@ -6,7 +6,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   FilterWithRef,
-  FilterConsumerRef,
+  // FilterConsumerRef,
   FilterWithForcedShapeRef,
   FilterRef,
 } from "../index"
@@ -106,7 +106,9 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
       <FilterWithForcedShapeRef
         {...args}
         ref={buttonRef}
-        filterButton={<FilterTriggerButtonWithFilterRef label="Pancakes" />}
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButtonWithFilterRef label="Pancakes" {...props} />
+        )}
       >
         <FilterContents>Contents in here</FilterContents>
       </FilterWithForcedShapeRef>
@@ -115,12 +117,12 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
         <FilterWithForcedShapeRef
           {...args}
           ref={removableButtonRefs}
-          filterButton={
+          filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButton
-              triggerButtonProps={{ label: "Pancakes" }}
+              triggerButtonProps={{ label: "Pancakes", ...props }}
               removeButtonProps={{ onClick: () => undefined }}
             />
-          }
+          )}
         >
           <FilterContents>Contents in here</FilterContents>
         </FilterWithForcedShapeRef>
@@ -131,45 +133,46 @@ export const ForcedShapeRef: ComponentStory<typeof FilterWithRef> = args => {
 ForcedShapeRef.storyName =
   "Filter - button ref not provided by consumer (forced shape)"
 
+// Removed option; handled by render prop so there is no benefit to consumer passing in ref
 // Pros:
 // - Component code is simpler
 // Cons:
 // - Consumer MUST provide refs, otherwise the Popover and Button will not be attached
-export const ConsumerRef: ComponentStory<typeof FilterConsumerRef> = args => {
-  const buttonRef1 = useRef<HTMLButtonElement>(null)
-  const buttonRef2 = useRef<HTMLButtonElement>(null)
-  const removeButtonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-    triggerButtonRef: buttonRef2,
-    removeButtonRef,
-  })
+// export const ConsumerRef: ComponentStory<typeof FilterConsumerRef> = args => {
+//   const buttonRef1 = useRef<HTMLButtonElement>(null)
+//   const buttonRef2 = useRef<HTMLButtonElement>(null)
+//   const removeButtonRef = useRef<HTMLButtonElement>(null)
+//   const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+//     triggerButtonRef: buttonRef2,
+//     removeButtonRef,
+//   })
 
-  return (
-    <>
-      <FilterConsumerRef
-        {...args}
-        ref={buttonRef1}
-        filterButton={<FilterTriggerButton ref={buttonRef1} label="Pancakes" />}
-      >
-        <FilterContents>Contents in here</FilterContents>
-      </FilterConsumerRef>
+//   return (
+//     <>
+//       <FilterConsumerRef
+//         {...args}
+//         ref={buttonRef1}
+//         filterButton={<FilterTriggerButton ref={buttonRef1} label="Pancakes" />}
+//       >
+//         <FilterContents>Contents in here</FilterContents>
+//       </FilterConsumerRef>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterConsumerRef
-          {...args}
-          ref={buttonRef2}
-          filterButton={
-            <RemovableFilterTriggerButton
-              ref={removableButtonRefs}
-              triggerButtonProps={{ label: "Pancakes" }}
-              removeButtonProps={{ onClick: () => undefined }}
-            />
-          }
-        >
-          <FilterContents>Contents in here</FilterContents>
-        </FilterConsumerRef>
-      </div>
-    </>
-  )
-}
-ConsumerRef.storyName = "Filter - button ref(s) provided by consumer"
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterConsumerRef
+//           {...args}
+//           ref={buttonRef2}
+//           filterButton={
+//             <RemovableFilterTriggerButton
+//               ref={removableButtonRefs}
+//               triggerButtonProps={{ label: "Pancakes" }}
+//               removeButtonProps={{ onClick: () => undefined }}
+//             />
+//           }
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//         </FilterConsumerRef>
+//       </div>
+//     </>
+//   )
+// }
+// ConsumerRef.storyName = "Filter - button ref(s) provided by consumer"

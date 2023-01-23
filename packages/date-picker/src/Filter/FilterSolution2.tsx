@@ -13,7 +13,9 @@ export interface FilterSolution2RefProps
   children: React.ReactNode
   // This ensures `ref` exists
   // The `any` can probably be scoped better
-  filterButton: React.FunctionComponentElement<any>
+  filterButton: (
+    props?: Partial<FilterTriggerButtonProps>
+  ) => React.FunctionComponentElement<any>
 }
 
 export const FilterSolution2Ref = React.forwardRef<
@@ -25,16 +27,19 @@ export const FilterSolution2Ref = React.forwardRef<
   const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
+  const filterButtonComponent = filterButton({
+    onClick: (): void => setIsOpen(!isOpen),
+    isOpen,
+  })
+
   return (
     <div
       className={classnames(styles.filter, classNameOverride)}
       {...restProps}
     >
-      {React.cloneElement(filterButton, {
-        ref: filterButton.ref ?? consumerRef ?? inbuiltButtonRef,
-        onClick: () => setIsOpen(!isOpen),
-        isOpen,
-        ...filterButton.props,
+      {React.cloneElement(filterButtonComponent, {
+        ref: filterButtonComponent.ref ?? consumerRef ?? inbuiltButtonRef,
+        ...filterButtonComponent.props,
       })}
       {isOpen && (
         <FocusOn
@@ -63,7 +68,9 @@ export interface FilterSolution2ContextProps
   defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
   // This ensures `ref` exists
   // The `any` can probably be scoped better
-  filterButton: React.FunctionComponentElement<any>
+  filterButton: (
+    props?: Partial<FilterTriggerButtonProps>
+  ) => React.FunctionComponentElement<any>
 }
 
 export const FilterSolution2Context = React.forwardRef<
@@ -86,6 +93,11 @@ export const FilterSolution2Context = React.forwardRef<
     const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
+    const filterButtonComponent = filterButton({
+      onClick: (): void => setIsOpen(!isOpen),
+      isOpen,
+    })
+
     return (
       <FilterProvider
         label={label}
@@ -95,11 +107,9 @@ export const FilterSolution2Context = React.forwardRef<
           className={classnames(styles.filter, classNameOverride)}
           {...restProps}
         >
-          {React.cloneElement(filterButton, {
-            ref: filterButton.ref ?? consumerRef ?? inbuiltButtonRef,
-            onClick: () => setIsOpen(!isOpen),
-            isOpen,
-            ...filterButton.props,
+          {React.cloneElement(filterButtonComponent, {
+            ref: filterButtonComponent.ref ?? consumerRef ?? inbuiltButtonRef,
+            ...filterButtonComponent.props,
           })}
           {isOpen && (
             <FocusOn
