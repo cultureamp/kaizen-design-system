@@ -20,7 +20,7 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-discourse/issues"
   },

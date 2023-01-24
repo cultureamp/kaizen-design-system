@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ExampleComponent } from "../ExampleComponent"
 
 export default {
-  title: "AIO/ExampleComponent (Do Not Use)",
+  title: "AIO/future/ExampleComponent (Do Not Use)",
   component: ExampleComponent,
   parameters: {},
 } as ComponentMeta<typeof ExampleComponent>
