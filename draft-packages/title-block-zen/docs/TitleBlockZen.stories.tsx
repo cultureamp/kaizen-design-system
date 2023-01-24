@@ -13,10 +13,6 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import {
-  TitleBlockButtonProps,
-  TitleBlockCustomButtonProps,
-} from "../KaizenDraft/TitleBlockZen/TitleBlockZen"
 import { NavigationTab, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
@@ -62,10 +58,38 @@ const SECONDARY_ACTIONS = [
   },
   {
     onClick: (): void => alert("test"),
-    href: "foo",
     label: "Secondary action",
   },
 ]
+
+const PRIMARY_ACTIONS_MIXED_MENU = {
+  label: "Primary Menu",
+  menuItems: [
+    {
+      label: "Mock primary router",
+      href: "#",
+      compoennt: (props): JSX.Element => (
+        // In real life, you'll likely use this to insert a router Link component
+        <a href={props.href} className={props.className}>
+          {props.children}
+        </a>
+      ),
+    },
+    {
+      action: "#",
+      label: "Primary menu href action 1",
+    },
+    {
+      onClick: (): void => alert("test"),
+      label: "Primary menu button action 1",
+    },
+    {
+      onClick: (): void => alert("test"),
+      label: "Primary menu button action 2",
+      icon: starIcon,
+    },
+  ],
+}
 
 const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
   <OffsetPadding>
@@ -1103,6 +1127,11 @@ export const RenderProps: Story = () => {
             </a>
           ),
         }}
+        secondaryActions={SECONDARY_ACTIONS}
+        defaultAction={{
+          href: "#",
+          label: "Default action",
+        }}
         breadcrumb={{
           path: "#",
           text: "Back to home",
@@ -1122,6 +1151,8 @@ export const RenderProps: Story = () => {
     </OffsetPadding>
   )
 }
+
+RenderProps.storyName = "Navigation tabs with render props"
 
 // A mock implementation of Link router implementation
 const MockRouterLink = (mockRouterProps: {
@@ -1145,7 +1176,7 @@ const MockRouterLink = (mockRouterProps: {
   />
 )
 
-export const UsingComponentRenderPropsForActions: Story = () => (
+export const ActionRenderProps: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1162,16 +1193,6 @@ export const UsingComponentRenderPropsForActions: Story = () => (
       primaryAction={{
         label: "Primary action",
         component: props => <MockRouterLink href="#primary" {...props} />,
-        menuItems: [
-          {
-            label: "primary list action",
-            component: props => <MockRouterLink href="#primary" {...props} />,
-          },
-          {
-            label: "primary list action 2",
-            component: props => <MockRouterLink href="#primary-2" {...props} />,
-          },
-        ],
       }}
       secondaryActions={[
         {
@@ -1190,3 +1211,5 @@ export const UsingComponentRenderPropsForActions: Story = () => (
     />
   </OffsetPadding>
 )
+
+ActionRenderProps.storyName = "Custom actions with component render props"

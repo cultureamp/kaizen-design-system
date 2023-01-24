@@ -5,7 +5,6 @@ import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
-import { TitleBlockButton } from "./TitleBlockButton"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import {
@@ -20,29 +19,45 @@ import {
 } from "./TitleBlockZen"
 import styles from "./MobileActions.module.scss"
 
+const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = item =>
+  "href" in item || (!("component" in item) && typeof item.action === "string")
+
 const defaultActionIsLink: (action: DefaultActionProps) => boolean = action =>
   "href" in action
 
 const defaultActionIsButton: (action: DefaultActionProps) => boolean = action =>
   (!("href" in action) && "onClick" in action) || "component" in action
 
+const filterActions = (
+  menuItems: TitleBlockMenuItemProps[],
+  filterType: "link" | "action"
+): TitleBlockMenuItemProps[] =>
+  menuItems.filter(item => {
+    if (filterType === "link") {
+      return menuItemIsLink(item)
+    }
+    if (filterType === "action") return !menuItemIsLink(item)
+  })
+
+/** Returns a filtered array of TitleBlockMenuItem based on actionType
+ * This is use to sort a selectively render the action into a specifc order
+ */
 const renderPrimaryActionDrawerContent = (
-  primaryAction: PrimaryActionProps
+  primaryAction: PrimaryActionProps,
+  actionType: "link" | "action"
 ): JSX.Element[] | null | undefined => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
-    return primaryAction.menuItems.map((item, idx) => {
-      const itemType =
-        "component" in item
-          ? "component"
-          : typeof item.action === "string"
-          ? "link"
-          : "action"
+    const filteredActions = filterActions(primaryAction.menuItems, actionType)
+    return filteredActions.map((item, idx) => {
+      const itemType = menuItemIsLink(item) ? "link" : "action"
 
       return (
+        // used to ensure key and automation id
+
         <TitleBlockMenuItem
           {...item}
-          key={`title-block-mobile-actions-primary-custom-${idx}`}
+          key={`title-block-mobile-actions-primary-${itemType}-${idx}`}
           automationId={`title-block-mobile-actions-primary-${itemType}-${idx}`}
         />
       )
@@ -53,42 +68,36 @@ const renderPrimaryActionDrawerContent = (
 const renderDefaultLink = (
   defaultAction: DefaultActionProps
 ): JSX.Element | undefined => {
-  if (!("component" in defaultAction) && defaultActionIsLink(defaultAction)) {
+  if (!defaultActionIsLink(defaultAction)) return
+  if ("component" in defaultAction) {
     return (
-      <MenuItem
-        href={defaultAction.href}
-        label={defaultAction.label}
-        icon={defaultAction.icon}
-        disabled={defaultAction.disabled}
+      <TitleBlockMenuItem
+        {...defaultAction}
+        key={"title-block-mobile-actions-default-link"}
         automationId="title-block-mobile-actions-default-link"
       />
     )
   }
-  if ("component" in defaultAction && defaultActionIsLink(defaultAction)) {
-    return (
-      <TitleBlockMenuItem
-        {...defaultAction}
-        automationId="title-block-mobile-actions-default-custom"
-      />
-    )
-  }
+  return (
+    <MenuItem
+      href={defaultAction.href}
+      label={defaultAction.label}
+      icon={defaultAction.icon}
+      disabled={defaultAction.disabled}
+      key={"title-block-mobile-actions-default-link"}
+      automationId="title-block-mobile-actions-default-link"
+    />
+  )
 }
 
 const renderDefaultAction = (
   defaultAction: DefaultActionProps
 ): JSX.Element | undefined => {
   if (!defaultActionIsLink(defaultAction)) {
-    return "component" in defaultAction ? (
+    return (
       <TitleBlockMenuItem
         {...defaultAction}
-        automationId="title-block-mobile-actions-default-custom"
-      />
-    ) : (
-      <MenuItem
-        onClick={defaultAction.onClick}
-        label={defaultAction.label}
-        icon={defaultAction.icon}
-        disabled={defaultAction.disabled}
+        key={"title-block-mobile-actions-default-action"}
         automationId="title-block-mobile-actions-default-action"
       />
     )
@@ -103,13 +112,11 @@ const renderSecondaryActions = (
     convertSecondaryActionsToMenuItems(secondaryActions)
 
   return secondaryActionMenuItems.map((item, idx) => (
-    <>
-      <TitleBlockMenuItem
-        {...item}
-        key={`title-block-mobile-actions-secondary-action-${idx}`}
-        automationId={"title-block-mobile-actions-secondary-action"}
-      />
-    </>
+    <TitleBlockMenuItem
+      {...item}
+      key={`title-block-mobile-actions-secondary-action-${idx}`}
+      automationId={"title-block-mobile-actions-secondary-action"}
+    />
   ))
 }
 
@@ -144,12 +151,16 @@ const DrawerMenuContent = ({
 
   return (
     <>
-      <MenuList>
+      <MenuList key={"title-block-primary-actions-list"}>
         {defaultAction && renderDefaultLink(defaultAction)}
-        {primaryAction && renderPrimaryActionDrawerContent(primaryAction)}
+        {primaryAction &&
+          renderPrimaryActionDrawerContent(primaryAction, "link")}
+        {primaryAction &&
+          renderPrimaryActionDrawerContent(primaryAction, "action")}
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
+          key={"title-block-secondary-actions-list"}
           heading={showOtherActionsHeading ? "Other actions" : undefined}
         >
           {defaultAction && renderDefaultAction(defaultAction)}
