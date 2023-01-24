@@ -4,10 +4,5 @@
     "outDir": "dist"
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.stories.tsx"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "docs"]
 }
