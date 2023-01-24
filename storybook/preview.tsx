@@ -36,6 +36,7 @@ addParameters({
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
+        CATEGORIES.tailwind,
         CATEGORIES.deprecated,
       ],
     },
