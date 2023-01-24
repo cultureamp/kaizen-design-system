@@ -25,7 +25,7 @@ export const ListBoxSection = ({
           <Heading
             variant="heading-6"
             {...headingProps}
-            classNameOverride={styles.sectionWrapper}
+            classNameOverride={styles.sectionHeading}
           >
             {section.rendered}
           </Heading>

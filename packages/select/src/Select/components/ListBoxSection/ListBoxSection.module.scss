@@ -6,7 +6,7 @@
 }
 
 .sectionHeading {
-  padding: 0.5rem $spacing-xs 0.5rem $spacing-sm;
+  padding-left: 4px;
 }
 
 .sectionList {
@@ -17,4 +17,5 @@
 
 .sectionWrapper + .sectionWrapper {
   padding-top: $spacing-xs;
+  margin-top: 1rem;
 }
