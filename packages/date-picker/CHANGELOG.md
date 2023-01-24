@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.3...@kaizen/date-picker@5.17.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* **date-picker:** remove Calendar global class for dayToday ([#3226](https://github.com/cultureamp/kaizen-design-system/issues/3226)) ([cf15706](https://github.com/cultureamp/kaizen-design-system/commit/cf15706cbabc0a85520506f23432196291ee4b4f))
+
+
+
+
+
 ## [5.17.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.2...@kaizen/date-picker@5.17.3) (2023-01-23)
 
 **Note:** Version bump only for package @kaizen/date-picker
