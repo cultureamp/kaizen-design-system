@@ -12,6 +12,7 @@ import {
   CalendarSingle,
   CalendarSingleProps,
 } from "../src/_subcomponents/Calendar"
+import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
@@ -150,7 +151,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
 
   todayCalendarIds.forEach(id => {
     getElementWithinCalendar(id, "1st May (Sunday)").classList.add(
-      "story__datepicker__calendar--day-today"
+      styles.dayToday
     )
   })
 
