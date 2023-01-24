@@ -8,7 +8,7 @@ export default {
   parameters: {},
 } as ComponentMeta<typeof ExampleComponent>
 
-export const DefaultStory: ComponentStory<typeof ExampleComponent> = args => (
+export const DefaultStory: ComponentStory<typeof ExampleComponent> = () => (
   <ExampleComponent />
 )
 DefaultStory.storyName = "ExampleComponent"
