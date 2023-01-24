@@ -33,6 +33,7 @@ addParameters({
       method: "alphabetical",
       order: [
         CATEGORIES.introduction,
+        CATEGORIES.systems,
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
