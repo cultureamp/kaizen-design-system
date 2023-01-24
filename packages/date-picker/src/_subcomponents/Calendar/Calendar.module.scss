@@ -172,7 +172,7 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
 }
 
 .dayToday,
-:global(.story__datepicker__calendar--day-today) {
+.dayToday:global(.story__datepicker__calendar--day-today) {
   color: $color-blue-500;
   font-weight: bold;
 }
