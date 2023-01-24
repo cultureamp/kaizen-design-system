@@ -5,6 +5,7 @@ export const CATEGORIES = {
   designTokens: "Design Tokens",
   deprecated: "Deprecated",
   tailwind: "Tailwind",
+  systems: "Systems",
 }
 
 export const SUB_CATEGORIES = {
