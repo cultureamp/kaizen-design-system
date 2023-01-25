@@ -71,6 +71,44 @@ export const WithSections: ComponentStory<typeof Select> = () => (
   />
 )
 
+WithSections.parameters = {
+  docs: {
+    source: {
+      code: `
+      const groupedMockItems: SingleItemType[] = [
+        {
+          label: "Colours",
+          value: [
+            { label: "Blue", value: "blue" },
+            { label: "Red", value: "red" },
+            { label: "Green", value: "green" },
+          ],
+        },
+        {
+          label: "Flavours",
+          value: [
+            { label: "Vanilla", value: "Vanilla" },
+            { label: "Chocolate", value: "Chocolate" },
+            { label: "Strawberry", value: "Strawberry" },
+          ],
+        },
+      ]
+      
+      () => (
+        <Select
+          id="select-grouped"
+          label="label"
+          items={groupedMockItems}
+          placeholder="Placeholder"
+        />
+      )
+      `,
+      language: "tsx",
+      type: "auto",
+    },
+  },
+}
+
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
