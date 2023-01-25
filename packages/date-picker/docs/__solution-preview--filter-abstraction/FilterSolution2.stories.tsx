@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionFlexiRef } from "../index"
-import { FilterDateRangePickerField } from "../src/Filter/FilterDateRangePickerField"
-import { FilterRef } from "../src/Filter/FilterSolution2"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
+import { CATEGORIES } from "../../../../storybook/constants"
+import { figmaEmbed } from "../../../../storybook/helpers"
+import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionFlexiRef } from "../../index"
+import { FilterDateRangePickerField } from "../../src/Filter/FilterDateRangePickerField"
+import { FilterRef } from "../../src/Filter/FilterSolution2"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -14,14 +14,14 @@ import {
   RemovableFilterTriggerButton,
   RemovableFilterTriggerButtonContext,
   RemovableFilterTriggerButtonRefs,
-} from "../src/Filter/components"
-import { FilterContents } from "../src/Filter/components/FilterContents"
-import { DateRangeDisplayLabel } from "../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
-import { isCompleteDateRange } from "../src/FilterDateRangePicker/utils/isCompleteDateRange"
-import { getLocale } from "../src/utils/getLocale"
+} from "../../src/Filter/components"
+import { FilterContents } from "../../src/Filter/components/FilterContents"
+import { DateRangeDisplayLabel } from "../../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
+import { isCompleteDateRange } from "../../src/FilterDateRangePicker/utils/isCompleteDateRange"
+import { getLocale } from "../../src/utils/getLocale"
 
 export default {
-  title: `${CATEGORIES.solutionPreview}/Filter`,
+  title: `${CATEGORIES.solutionPreview}/Filter Solution 2`,
   component: FilterSolution2Ref,
   parameters: {
     docs: {

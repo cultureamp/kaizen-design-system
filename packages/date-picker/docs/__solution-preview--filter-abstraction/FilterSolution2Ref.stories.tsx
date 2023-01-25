@@ -1,25 +1,25 @@
 import React, { useRef } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
+import { CATEGORIES } from "../../../../storybook/constants"
+import { figmaEmbed } from "../../../../storybook/helpers"
 import {
   FilterWithRef,
   // FilterConsumerRef,
   FilterWithForcedShapeRef,
   FilterRef,
-} from "../index"
+} from "../../index"
 import {
   FilterTriggerButton,
   FilterTriggerButtonWithFilterRef,
   RemovableFilterTriggerButton,
   RemovableFilterTriggerButtonRefs,
-} from "../src/Filter/components"
-import { FilterContents } from "../src/Filter/components/FilterContents"
+} from "../../src/Filter/components"
+import { FilterContents } from "../../src/Filter/components/FilterContents"
 
 export default {
-  title: `${CATEGORIES.solutionPreview}/Filter Solution 2 Ref`,
+  title: `${CATEGORIES.solutionPreview}/Ref experiments/Filter Solution 2`,
   component: FilterWithRef,
   parameters: {
     docs: {
