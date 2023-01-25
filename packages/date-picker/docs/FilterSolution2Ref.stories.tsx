@@ -19,7 +19,7 @@ import {
 import { FilterContents } from "../src/Filter/components/FilterContents"
 
 export default {
-  title: `${CATEGORIES.introduction}/Filter Solution 2`,
+  title: `${CATEGORIES.solutionPreview}/Filter Solution 2 Ref`,
   component: FilterWithRef,
   parameters: {
     docs: {

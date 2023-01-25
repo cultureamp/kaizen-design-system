@@ -32,6 +32,7 @@ addParameters({
     storySort: {
       method: "alphabetical",
       order: [
+        CATEGORIES.solutionPreview,
         CATEGORIES.introduction,
         CATEGORIES.systems,
         CATEGORIES.tailwind,
