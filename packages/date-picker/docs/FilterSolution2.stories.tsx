@@ -206,6 +206,7 @@ export const Solution2DRP: ComponentStory<
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2Context
           // {...args}
+          // @todo: Do we still need to pass ref in here as well as L214?
           ref={buttonRef2}
           label="Dates"
           filterButton={(props): JSX.Element => (
@@ -227,6 +228,24 @@ export const Solution2DRP: ComponentStory<
           </FilterContents>
         </FilterSolution2Context>
       </div>
+
+      <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef2.current?.focus()
+          }}
+        >
+          Focus on Filter 3 - trigger button
+        </button>
+        <button
+          onClick={(): void => {
+            removeButtonRef.current?.focus()
+          }}
+          style={{ marginLeft: "1rem" }}
+        >
+          Focus on Filter 3 - remove button
+        </button>
     </>
   )
 }
