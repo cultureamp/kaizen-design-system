@@ -20,7 +20,7 @@ import {
   FilterTriggerButtonSol3,
   RemovableFilterTriggerButton,
   RemovableFilterTriggerButtonContext,
-  RemovableFilterTriggerButtonContextSol3,
+  // RemovableFilterTriggerButtonContextSol3,
   RemovableFilterTriggerButtonRefs,
 } from "../src/Filter/components"
 import { FilterContents } from "../src/Filter/components/FilterContents"

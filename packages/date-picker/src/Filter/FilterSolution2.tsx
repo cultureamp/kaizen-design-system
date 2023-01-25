@@ -145,90 +145,73 @@ export interface FilterSolutionFlexiRefProps
   // The `any` can probably be scoped better
   filterButton: (
     triggerButtonProps:
-    { ref?: React.RefObject<HTMLButtonElement> }
+    // { ref?: React.RefObject<HTMLButtonElement> }
     & Partial<FilterTriggerButtonProps>
-  ) => React.FunctionComponentElement<any>
+  // ) => React.FunctionComponentElement<any>
+  ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
 }
 
 export type FilterRef = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-const isCurrentFilterRef = (refCurrent: FilterRef | HTMLElement): refCurrent is FilterRef =>  (refCurrent as FilterRef).triggerButtonRef !== undefined
-const isFilterRef = (ref: React.MutableRefObject<FilterRef | HTMLElement | null>): ref is React.MutableRefObject<FilterRef> =>  (ref.current as FilterRef).triggerButtonRef !== undefined
-// const isFilterRef = (refCurrent: FilterRef | HTMLElement): refCurrent is FilterRef =>  (refCurrent as FilterRef).triggerButtonRef !== undefined
+export const FilterSolutionFlexiRef = ({
+  label,
+  defaultSelectedValuesLabel,
+  children, filterButton, classNameOverride, ...restProps
+}: FilterSolutionFlexiRefProps): JSX.Element => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
-export const FilterSolutionFlexiRef = React.forwardRef<
-  HTMLButtonElement | FilterRef,
-  FilterSolutionFlexiRefProps
->(
-  (
-    {
-      children,
-      label,
-      defaultSelectedValuesLabel,
-      filterButton,
-      classNameOverride,
-      ...restProps
-    },
-    ref
-  ) => {
-    const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+  const filterButtonComponent = filterButton({
+    onClick: (): void => setIsOpen(!isOpen),
+    isOpen,
+  })
 
-    // If the consumer uses the legacy `createRef`, it will not work
-    const consumerRef = isRefObject(ref) ? ref : null
-    const theRef = consumerRef && isFilterRef(consumerRef)
-      ? consumerRef.current.triggerButtonRef
-      : consumerRef
+  // If the consumer uses the legacy `createRef`, it will not work
+  // const consumerRef = isRefObject(filterButtonComponent.ref) ? filterButtonComponent.ref : null
 
-    const refCurrent = theRef?.current
-    const refElement = refCurrent && isCurrentFilterRef(refCurrent)
-      ? refCurrent.triggerButtonRef?.current
-      : refCurrent
-    // const refCurrent = consumerRef?.current
-    // const refElement = refCurrent && isCurrentFilterRef(refCurrent)
-    //   ? refCurrent.triggerButtonRef?.current
-    //   : refCurrent
+  const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+  const inbuiltRef = useRef<FilterRef>({
+    triggerButtonRef: inbuiltButtonRef
+  })
+  // const theButtonRef = useRef<FilterRef>(filterButtonComponent.ref || null)
 
-    const filterButtonComponent = filterButton({
-      ref: theRef ?? inbuiltButtonRef,
-      onClick: (): void => setIsOpen(!isOpen),
-      isOpen,
-    })
+  const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
+// console.log("filterButtonComponent.ref", filterButtonComponent.ref)
 
-    return (
-      <FilterProvider
-        label={label}
-        defaultSelectedValuesLabel={defaultSelectedValuesLabel}
-      >
-        <div
-          className={classnames(styles.filter, classNameOverride)}
-          {...restProps}
+  // const filterButtonRef = filterButtonComponent.ref && isRefObject(filterButtonComponent.ref)
+  //   ? filterButtonComponent.ref
+  //   : inbuiltRef
+
+  return (
+    <FilterProvider
+    label={label}
+    defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+  >
+    <div
+      className={classnames(styles.filter, classNameOverride)}
+      {...restProps}
+    >
+      {React.cloneElement(filterButtonComponent, {
+        ref: filterButtonRef,
+      })}
+      {isOpen && (
+        <FocusOn
+          scrollLock={false}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
         >
-          {React.cloneElement(filterButtonComponent, {
-            // ref: filterButtonComponent.ref ?? consumerRef ?? inbuiltButtonRef,
-          })}
-          {/* {filterButtonComponent} */}
-          {isOpen && (
-            <FocusOn
-              scrollLock={false}
-              onClickOutside={(): void => setIsOpen(false)}
-              onEscapeKey={(): void => setIsOpen(false)}
-            >
-              <FilterPopover
-                // referenceElement={theRef?.current ?? inbuiltButtonRef.current}
-                referenceElement={refElement ?? inbuiltButtonRef.current}
-                // Does the popper need this or just the contents?
-                // aria-label={label}
-              >
-                {children}
-              </FilterPopover>
-            </FocusOn>
-          )}
-        </div>
-      </FilterProvider>
-    )
-  }
-)
+          <FilterPopover
+            referenceElement={filterButtonRef.current?.triggerButtonRef?.current || null}
+            // Does the popper need this or just the contents?
+            // aria-label={label}
+          >
+            {children}
+          </FilterPopover>
+        </FocusOn>
+      )}
+    </div>
+    </FilterProvider>
+  )
+}
 FilterSolutionFlexiRef.displayName = "FilterSolutionFlexiRef"
