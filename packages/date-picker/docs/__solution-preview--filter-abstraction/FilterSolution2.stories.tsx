@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionFlexiRef } from "../../index"
+import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionForcedButtonRef } from "../../index"
 import { FilterDateRangePickerField } from "../../src/Filter/FilterDateRangePickerField"
 import { FilterRef } from "../../src/Filter/FilterSolution2"
 import {
@@ -260,7 +260,7 @@ Solution2DRP.storyName = "Solution 2 - FilterDRP"
 // - Consumers are tied into a shape for the refs (must have `triggerButtonRef`)
 // - The obj ref means at least 2 usages of useRef
 // - Consumer MUST use useRef, otherwise it will not work
-export const Solution2FlexiRef: ComponentStory<
+export const Solution2ForcedButtonRef: ComponentStory<
   typeof FilterSolution2Context
 > = args => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
@@ -279,7 +279,7 @@ export const Solution2FlexiRef: ComponentStory<
 
   return (
     <>
-      <FilterSolutionFlexiRef
+      <FilterSolutionForcedButtonRef
         // ref={buttonRef1}
         // {...args}
         label="Dates (no ref)"
@@ -296,11 +296,11 @@ export const Solution2FlexiRef: ComponentStory<
             onRangeChange={setRange}
           />
         </FilterContents>
-      </FilterSolutionFlexiRef>
+      </FilterSolutionForcedButtonRef>
 
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionFlexiRef
+        <FilterSolutionForcedButtonRef
           // {...args}
           label="Dates"
           filterButton={(props): JSX.Element => (
@@ -319,7 +319,7 @@ export const Solution2FlexiRef: ComponentStory<
               onRangeChange={setRange}
             />
           </FilterContents>
-        </FilterSolutionFlexiRef>
+        </FilterSolutionForcedButtonRef>
 
         <br />
         <br />
@@ -334,7 +334,7 @@ export const Solution2FlexiRef: ComponentStory<
 
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionFlexiRef
+        <FilterSolutionForcedButtonRef
           label="Dates (no ref)"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
@@ -352,11 +352,11 @@ export const Solution2FlexiRef: ComponentStory<
               onRangeChange={setRangeRemovable}
             />
           </FilterContents>
-        </FilterSolutionFlexiRef>
+        </FilterSolutionForcedButtonRef>
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionFlexiRef
+        <FilterSolutionForcedButtonRef
           label="Dates"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
@@ -375,7 +375,7 @@ export const Solution2FlexiRef: ComponentStory<
               onRangeChange={setRangeRemovable}
             />
           </FilterContents>
-        </FilterSolutionFlexiRef>
+        </FilterSolutionForcedButtonRef>
 
         <br />
         <br />
@@ -398,4 +398,4 @@ export const Solution2FlexiRef: ComponentStory<
     </>
   )
 }
-Solution2FlexiRef.storyName = "Solution 2 - FilterDRP flexible ref"
+Solution2ForcedButtonRef.storyName = "Solution 2 - FilterDRP forced shape ref"

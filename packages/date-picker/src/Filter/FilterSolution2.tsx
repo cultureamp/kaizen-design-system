@@ -136,7 +136,7 @@ export const FilterSolution2Context = React.forwardRef<
 FilterSolution2Context.displayName = "FilterSolution2Context"
 
 
-export interface FilterSolutionFlexiRefProps
+export interface FilterSolutionForcedButtonRefProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
   label: string
@@ -155,11 +155,11 @@ export type FilterRef = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const FilterSolutionFlexiRef = ({
+export const FilterSolutionForcedButtonRef = ({
   label,
   defaultSelectedValuesLabel,
   children, filterButton, classNameOverride, ...restProps
-}: FilterSolutionFlexiRefProps): JSX.Element => {
+}: FilterSolutionForcedButtonRefProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const filterButtonComponent = filterButton({
@@ -214,4 +214,4 @@ export const FilterSolutionFlexiRef = ({
     </FilterProvider>
   )
 }
-FilterSolutionFlexiRef.displayName = "FilterSolutionFlexiRef"
+FilterSolutionForcedButtonRef.displayName = "FilterSolutionForcedButtonRef"
