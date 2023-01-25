@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CustomButtonProps } from "@kaizen/button"
@@ -1154,8 +1154,8 @@ export const RenderProps: Story = () => {
 
 RenderProps.storyName = "Navigation tabs with render props"
 
-// A mock implementation of Link router implementation
-const MockRouterLink = (mockRouterProps: {
+/** A mock implementation of Next.js's Link types */
+type MockRouterPropsType = {
   href: string | undefined
   as?: string
   replace?: boolean
@@ -1168,12 +1168,24 @@ const MockRouterLink = (mockRouterProps: {
   onMouseEnter?: (e: any) => void
   onTouchStart?: (e: any) => void
   onClick?: (e: any) => void
-}): JSX.Element => (
+  children?: ReactNode
+  automationId?: string
+}
+/** A mock implementation of Next.js's Link component */
+const MockRouterLink = ({
+  href,
+  automationId,
+  children,
+  ...otherProps
+}: MockRouterPropsType): JSX.Element => (
   <button
-    {...mockRouterProps}
+    {...otherProps}
     // this is in place of using Link's `to` prop
-    onClick={(): void => alert(`Mock route change to ${mockRouterProps.href}`)}
-  />
+    onClick={(): void => alert(`Mock route change to ${href}`)}
+    data-automation-id={automationId}
+  >
+    {children}
+  </button>
 )
 
 export const ActionRenderProps: Story = () => (
@@ -1185,18 +1197,22 @@ export const ActionRenderProps: Story = () => (
         // if you want to use sort your custom components in the top half for with links
         // you will need to pass href in like this
         href: "#default",
-        // while this * could * take children it would not be able to use the custom button's
-        // `renderContent` function reliably - this is why component requires a label ^
+        icon: starIcon,
+        // while this *could* take children it would not be able to use the custom button's
+        // `renderContent` for label and icon styling. If you do use children here you will
+        // have to byo styles
         component: props => <MockRouterLink href={props.href} {...props} />,
       }}
-      // TODO: figure out why there is no divider like int he perf story
       primaryAction={{
         label: "Primary action",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
         component: props => <MockRouterLink href="#primary" {...props} />,
       }}
       secondaryActions={[
         {
           label: "secondary action",
+          icon: reportSharingIcon,
           component: props => <MockRouterLink href="#secondary" {...props} />,
         },
         {

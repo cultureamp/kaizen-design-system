@@ -32,7 +32,6 @@ const MainActions = ({
   showOverflowMenu = false,
 }: MainActionsProps): JSX.Element => {
   let items
-  // TODO: may need to tighten up the types here
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = primaryAction.menuItems.map((item, idx) => (
       <TitleBlockMenuItem
