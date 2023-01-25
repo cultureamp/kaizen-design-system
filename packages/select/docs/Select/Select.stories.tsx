@@ -1,4 +1,5 @@
 import React from "react"
+import { Section } from "@react-stately/collections"
 import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
@@ -7,7 +8,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
 import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
-import { singleMockItems } from "../MockData"
+import { groupedMockItems, singleMockItems } from "../MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -59,6 +60,53 @@ DefaultStory.args = {
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
+}
+
+export const WithSections: ComponentStory<typeof Select> = () => (
+  <Select
+    id="select-grouped"
+    label="label"
+    items={groupedMockItems}
+    placeholder="Placeholder"
+  />
+)
+
+WithSections.parameters = {
+  docs: {
+    source: {
+      code: `
+      const groupedMockItems: SingleItemType[] = [
+        {
+          label: "Colours",
+          value: [
+            { label: "Blue", value: "blue" },
+            { label: "Red", value: "red" },
+            { label: "Green", value: "green" },
+          ],
+        },
+        {
+          label: "Flavours",
+          value: [
+            { label: "Vanilla", value: "Vanilla" },
+            { label: "Chocolate", value: "Chocolate" },
+            { label: "Strawberry", value: "Strawberry" },
+          ],
+        },
+      ]
+      
+      () => (
+        <Select
+          id="select-grouped"
+          label="label"
+          items={groupedMockItems}
+          placeholder="Placeholder"
+        />
+      )
+      `,
+      language: "tsx",
+      type: "auto",
+    },
+  },
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

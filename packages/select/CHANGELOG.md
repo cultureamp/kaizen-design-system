@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.7.1...@kaizen/select@6.8.0) (2023-01-25)
+
+
+### Features
+
+* allow grouped sections for Select ([#3217](https://github.com/cultureamp/kaizen-design-system/issues/3217)) ([cebcb2b](https://github.com/cultureamp/kaizen-design-system/commit/cebcb2b2526563a1f319e9672423921b6d6efcfd))
+
+
+
+
+
 ## [6.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.7.0...@kaizen/select@6.7.1) (2023-01-23)
 
 **Note:** Version bump only for package @kaizen/select
