@@ -1,9 +1,10 @@
 import React, { ReactNode } from "react"
 import { configure, fireEvent } from "@testing-library/dom"
-import { render, waitFor, screen } from "@testing-library/react"
+import { render, waitFor, screen, within } from "@testing-library/react"
 import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
 import "@testing-library/jest-dom"
 import "./matchMedia.mock"
+import { CustomButtonProps } from "@kaizen/button"
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -244,49 +245,6 @@ describe("<TitleBlockZen />", () => {
       expect(menuItems.length).toEqual(2)
     })
   })
-
-  // TODO: fix up these tests and add coverage across the other actions
-  // describe("when using `component` render prop with actions", () => {
-  //   const MockRouterLink = (mockRouterProps: {
-  //     href: string | undefined
-  //     as?: string
-  //     replace?: boolean
-  //     scroll?: boolean
-  //     shallow?: boolean
-  //     passHref?: boolean
-  //     prefetch?: boolean
-  //     locale?: string | false
-  //     legacyBehavior?: boolean
-  //     onMouseEnter?: (e: any) => void
-  //     onTouchStart?: (e: any) => void
-  //     onClick?: (e: any) => void
-  //   }): JSX.Element => (
-  //     <button
-  //       {...mockRouterProps}
-  //       // this is in place of using Link's `to` prop
-  //       onClick={(): void =>
-  //         alert(`Mock route change to ${mockRouterProps.href}`)
-  //       }
-  //     />
-  //   )
-
-  //   it("it renders label content within the primary action custom component", async () => {
-  //     render(
-  //       <TitleBlockZen
-  //         title="Test Title"
-  //         primaryAction={{
-  //           label: "Primary action",
-  //           component: (props): JSX.Element => (
-  //             <MockRouterLink href="#" {...props} />
-  //           ),
-  //         }}
-  //       >
-  //         Example
-  //       </TitleBlockZen>
-  //     )
-  //     screen.getByText("Primary action")
-  //   })
-  // })
 
   describe("when the default action is a button with only an href", () => {
     const defaultActionAsLink = {
@@ -869,6 +827,70 @@ describe("<TitleBlockZen />", () => {
       expect(customElement).toHaveTextContent("Back")
       fireEvent.click(customElement)
       expect(mockFn).toBeCalled()
+    })
+  })
+
+  describe("renders a custom component when you pass a 'component' prop to a action", () => {
+    const MockLinkComponent = (props: any): JSX.Element => (
+      <a
+        className={props.className}
+        href={props.href}
+        data-automation-id={props.automationId}
+      >
+        {props.children}
+      </a>
+    )
+
+    describe("primaryActions", () => {
+      it("will render a custom anchor component in the toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              href: "#test-primary",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
+        within(toolbar).getByRole("link", {
+          name: "Primary action",
+        })
+        expect(
+          within(toolbar).getByRole("link", {
+            name: "Primary action",
+          })
+        ).toHaveAttribute("href", "#test-primary")
+      })
+
+      it("will render a custom anchor component in the drawer", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              href: "#test-primary",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        within(drawer).getByRole("link", {
+          name: "Primary action",
+        })
+        expect(
+          within(drawer).getByRole("link", {
+            name: "Primary action",
+          })
+        ).toHaveAttribute("href", "#test-primary")
+      })
     })
   })
 })
