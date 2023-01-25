@@ -86,8 +86,8 @@ export const RemovableFilterTriggerButtonContext = forwardRef<
   return (
     <FilterButtonGroup {...restProps}>
       <FilterTriggerButtonContext
-        ref={triggerButtonRef}
         {...triggerButtonProps}
+        ref={triggerButtonRef}
       />
       <FilterBaseTooltipButton
         ref={removeButtonRef}

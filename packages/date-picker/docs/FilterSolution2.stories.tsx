@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { DateRange, FilterSolution2Context, FilterSolution2Ref } from "../index"
+import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionFlexiRef } from "../index"
 import { FilterDateRangePickerField } from "../src/Filter/FilterDateRangePickerField"
 import {
   FilterTriggerButton,
@@ -250,3 +250,86 @@ export const Solution2DRP: ComponentStory<
   )
 }
 Solution2DRP.storyName = "Solution 2 - FilterDRP"
+
+
+// THIS DOES NOT WORK
+// Would be nice if we could solve this
+export const Solution2FlexiRef: ComponentStory<
+  typeof FilterSolution2Context
+> = args => {
+  const buttonRef1 = useRef<HTMLButtonElement>(null)
+  const buttonRef2 = useRef<HTMLButtonElement>(null)
+  const removeButtonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+    triggerButtonRef: buttonRef2,
+    removeButtonRef,
+  })
+
+  const [range, setRange] = useState<DateRange | undefined>()
+  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+
+  return (
+    <>
+      <FilterSolutionFlexiRef
+        // ref={buttonRef1}
+        // {...args}
+        label="Dates"
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButtonContext {...props} />
+        )}
+      >
+        <FilterContents>
+          <FilterDateRangePickerField
+            id="filterdrp"
+            // label="Dates"
+            locale="en-AU"
+            selectedRange={range}
+            onRangeChange={setRange}
+          />
+        </FilterContents>
+      </FilterSolutionFlexiRef>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolutionFlexiRef
+          label="Dates"
+          filterButton={(props): JSX.Element => (
+            <RemovableFilterTriggerButtonContext
+              ref={removableButtonRefs}
+              triggerButtonProps={{ ...props }}
+              removeButtonProps={{ onClick: () => undefined }}
+            />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp--remove"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovable}
+              onRangeChange={setRangeRemovable}
+            />
+          </FilterContents>
+        </FilterSolutionFlexiRef>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef2.current?.focus()
+          }}
+        >
+          Focus on Filter 3 - trigger button
+        </button>
+        <button
+          onClick={(): void => {
+            removeButtonRef.current?.focus()
+          }}
+          style={{ marginLeft: "1rem" }}
+        >
+          Focus on Filter 3 - remove button
+        </button>
+      </div>
+    </>
+  )
+}
+Solution2FlexiRef.storyName = "Solution 2 - FilterDRP flexible ref"
