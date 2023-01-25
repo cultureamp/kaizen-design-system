@@ -85,3 +85,15 @@
     color: rgba($color-red-600-rgb, 0.3);
   }
 }
+
+.menuItem__Label {
+  flex-grow: 1;
+}
+
+.menuItem__Icon {
+  margin-inline-end: calc(#{$spacing-md} / 3);
+  display: flex;
+  align-self: flex-start;
+  transform: translateY(0.2em);
+  color: rgba($color-purple-800-rgb, 0.75);
+}

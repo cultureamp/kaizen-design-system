@@ -151,7 +151,7 @@ const DrawerMenuContent = ({
 
   return (
     <>
-      <MenuList key={"title-block-primary-actions-list"}>
+      <MenuList>
         {defaultAction && renderDefaultLink(defaultAction)}
         {primaryAction &&
           renderPrimaryActionDrawerContent(primaryAction, "link")}
@@ -160,7 +160,6 @@ const DrawerMenuContent = ({
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
-          key={"title-block-secondary-actions-list"}
           heading={showOtherActionsHeading ? "Other actions" : undefined}
         >
           {defaultAction && renderDefaultAction(defaultAction)}
