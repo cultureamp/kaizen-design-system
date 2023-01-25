@@ -4,9 +4,10 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange, FilterSolution2Context, FilterSolution2Ref, FilterSolutionForcedButtonRef } from "../../index"
+import { DateRange,
+  FilterSolution2ForcedButtonRef } from "../../index"
 import { FilterDateRangePickerField } from "../../src/Filter/FilterDateRangePickerField"
-import { FilterRef } from "../../src/Filter/FilterSolution2"
+import { FilterRef, FilterSolution2FlexiButtonRef } from "../../src/Filter/FilterSolution2"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -22,7 +23,7 @@ import { getLocale } from "../../src/utils/getLocale"
 
 export default {
   title: `${CATEGORIES.solutionPreview}/Filter Solution 2`,
-  component: FilterSolution2Ref,
+  component: FilterSolution2FlexiButtonRef,
   parameters: {
     docs: {
       description: {
@@ -34,118 +35,123 @@ export default {
     ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof FilterSolution2Ref>
+} as ComponentMeta<typeof FilterSolution2FlexiButtonRef>
 
-export const FilterSolution2: ComponentStory<
-  typeof FilterSolution2Ref
-> = args => {
-  const buttonRef1 = useRef<HTMLButtonElement>(null)
-  const buttonRef2 = useRef<HTMLButtonElement>(null)
-  const removeButtonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-    triggerButtonRef: buttonRef2,
-    removeButtonRef,
-  })
+// export const FilterSolution2: ComponentStory<
+//   typeof FilterSolution2Ref
+// > = args => {
+//   const buttonRef1 = useRef<HTMLButtonElement>(null)
+//   const buttonRef2 = useRef<HTMLButtonElement>(null)
+//   const removeButtonRef = useRef<HTMLButtonElement>(null)
+//   const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+//     triggerButtonRef: buttonRef2,
+//     removeButtonRef,
+//   })
 
-  return (
-    <>
-      <FilterSolution2Ref
-        // {...args}
-        filterButton={(props): JSX.Element => (
-          <FilterTriggerButton label="1. Component controlled ref" {...props} />
-        )}
-      >
-        <FilterContents>Contents in here</FilterContents>
-      </FilterSolution2Ref>
+//   return (
+//     <>
+//       <FilterSolution2Ref
+//         // {...args}
+//         filterButton={(props): JSX.Element => (
+//           <FilterTriggerButton label="1. Component controlled ref" {...props} />
+//         )}
+//       >
+//         <FilterContents>Contents in here</FilterContents>
+//       </FilterSolution2Ref>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution2Ref
-          {...args}
-          filterButton={(props): JSX.Element => (
-            <FilterTriggerButton label="1.5 Multiple contents" {...props} />
-          )}
-        >
-          <FilterContents>Contents in here</FilterContents>
-          <FilterContents>More contents in here</FilterContents>
-        </FilterSolution2Ref>
-      </div>
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution2Ref
+//           {...args}
+//           filterButton={(props): JSX.Element => (
+//             <FilterTriggerButton label="1.5 Multiple contents" {...props} />
+//           )}
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//           <FilterContents>More contents in here</FilterContents>
+//         </FilterSolution2Ref>
+//       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution2Ref
-          {...args}
-          ref={buttonRef1}
-          filterButton={(props): JSX.Element => (
-            <FilterTriggerButton
-              label="2. Consumer controlled ref"
-              {...props}
-            />
-          )}
-        >
-          <FilterContents>Contents in here</FilterContents>
-        </FilterSolution2Ref>
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution2Ref
+//           {...args}
+//           ref={buttonRef1}
+//           filterButton={(props): JSX.Element => (
+//             <FilterTriggerButton
+//               label="2. Consumer controlled ref"
+//               {...props}
+//             />
+//           )}
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//         </FilterSolution2Ref>
 
-        <br />
-        <br />
-        <button
-          onClick={(): void => {
-            buttonRef1.current?.focus()
-          }}
-        >
-          Focus on Filter 2
-        </button>
-      </div>
+//         <br />
+//         <br />
+//         <button
+//           onClick={(): void => {
+//             buttonRef1.current?.focus()
+//           }}
+//         >
+//           Focus on Filter 2
+//         </button>
+//       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution2Ref
-          // {...args}
-          ref={buttonRef2}
-          filterButton={(props): JSX.Element => (
-            <RemovableFilterTriggerButton
-              ref={removableButtonRefs}
-              triggerButtonProps={{
-                label: "3. Consumer controlled ref (removable)",
-                ...props,
-              }}
-              removeButtonProps={{ onClick: () => undefined }}
-            />
-          )}
-        >
-          <FilterContents>Contents in here</FilterContents>
-        </FilterSolution2Ref>
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution2Ref
+//           // {...args}
+//           ref={buttonRef2}
+//           filterButton={(props): JSX.Element => (
+//             <RemovableFilterTriggerButton
+//               ref={removableButtonRefs}
+//               triggerButtonProps={{
+//                 label: "3. Consumer controlled ref (removable)",
+//                 ...props,
+//               }}
+//               removeButtonProps={{ onClick: () => undefined }}
+//             />
+//           )}
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//         </FilterSolution2Ref>
 
-        <br />
-        <br />
-        <button
-          onClick={(): void => {
-            buttonRef2.current?.focus()
-          }}
-        >
-          Focus on Filter 3 - trigger button
-        </button>
-        <button
-          onClick={(): void => {
-            removeButtonRef.current?.focus()
-          }}
-          style={{ marginLeft: "1rem" }}
-        >
-          Focus on Filter 3 - remove button
-        </button>
-      </div>
-    </>
-  )
-}
+//         <br />
+//         <br />
+//         <button
+//           onClick={(): void => {
+//             buttonRef2.current?.focus()
+//           }}
+//         >
+//           Focus on Filter 3 - trigger button
+//         </button>
+//         <button
+//           onClick={(): void => {
+//             removeButtonRef.current?.focus()
+//           }}
+//           style={{ marginLeft: "1rem" }}
+//         >
+//           Focus on Filter 3 - remove button
+//         </button>
+//       </div>
+//     </>
+//   )
+// }
 
 export const Solution2DRP: ComponentStory<
-  typeof FilterSolution2Context
-> = args => {
+  typeof FilterSolution2FlexiButtonRef
+> = () => {
+  const buttonRef1 = useRef<HTMLButtonElement>(null)
   const buttonRef2 = useRef<HTMLButtonElement>(null)
+  const buttonRef3 = useRef<HTMLButtonElement>(null)
   const removeButtonRef = useRef<HTMLButtonElement>(null)
   const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-    triggerButtonRef: buttonRef2,
+    triggerButtonRef: buttonRef3,
     removeButtonRef,
   })
 
   const [range, setRange] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeRefParent, setRangeRefParent] = useState<DateRange | undefined>()
+  const [rangeRefButton, setRangeRefButton] = useState<DateRange | undefined>()
   const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
     DateRange | undefined
   >({
@@ -156,9 +162,8 @@ export const Solution2DRP: ComponentStory<
 
   return (
     <>
-      <FilterSolution2Context
-        // {...args}
-        label="Dates"
+      <FilterSolution2FlexiButtonRef
+        label="Single button; No ref"
         filterButton={(props): JSX.Element => (
           <FilterTriggerButtonContext {...props} />
         )}
@@ -172,12 +177,107 @@ export const Solution2DRP: ComponentStory<
             onRangeChange={setRange}
           />
         </FilterContents>
-      </FilterSolution2Context>
+      </FilterSolution2FlexiButtonRef>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution2Context
+        <FilterSolution2FlexiButtonRef
+          label="Multi contents"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContext {...props} />
+          )}
+        >
+          <FilterContents>
+            Some more contents
+          </FilterContents>
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeMultiContents}
+              onRangeChange={setRangeMultiContents}
+            />
+          </FilterContents>
+        </FilterSolution2FlexiButtonRef>
+      </div>
+
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2FlexiButtonRef
           // {...args}
-          label="Dates existing"
+          // @note: confusing having this here?
+          ref={buttonRef1}
+          label="Single button; Has ref on parent"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContext {...props} />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRefParent}
+              onRangeChange={setRangeRefParent}
+            />
+          </FilterContents>
+        </FilterSolution2FlexiButtonRef>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef1.current?.focus()
+          }}
+        >
+          Focus on single button with ref on parent
+        </button>
+      </div>
+
+      {/*
+        THIS DOES NOT WORK
+        Since we do not know the shape of the button,
+        the component cannot figure out the correct
+        path to the ref element, so it must always exist on
+        the parent (putting it on the button in addition is
+        fine though).
+      */}
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2FlexiButtonRef
+          // {...args}
+          label="Single button; Has ref on button (THIS DOES NOT WORK)"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContext
+            ref={buttonRef2}
+            {...props}
+            />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRefButton}
+              onRangeChange={setRangeRefButton}
+            />
+          </FilterContents>
+        </FilterSolution2FlexiButtonRef>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef2.current?.focus()
+          }}
+        >
+          Focus on single button with ref on button (popover does not work)
+        </button>
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2FlexiButtonRef
+          label="Existing value; No ref"
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContext {...props} />
           )}
@@ -202,15 +302,14 @@ export const Solution2DRP: ComponentStory<
               onRangeChange={setRangeDefaultExisting}
             />
           </FilterContents>
-        </FilterSolution2Context>
+        </FilterSolution2FlexiButtonRef>
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution2Context
-          // {...args}
-          // @todo: Do we still need to pass ref in here as well as L214?
-          ref={buttonRef2}
-          label="Dates"
+        <FilterSolution2FlexiButtonRef
+          // We must provide the button ref here, and the whole object within the button
+          ref={buttonRef3}
+          label="Removeable; Has ref on parent + button"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
               ref={removableButtonRefs}
@@ -228,17 +327,17 @@ export const Solution2DRP: ComponentStory<
               onRangeChange={setRangeRemovable}
             />
           </FilterContents>
-        </FilterSolution2Context>
+        </FilterSolution2FlexiButtonRef>
       </div>
 
       <br />
         <br />
         <button
           onClick={(): void => {
-            buttonRef2.current?.focus()
+            buttonRef3.current?.focus()
           }}
         >
-          Focus on Filter 3 - trigger button
+          Focus on Removable button - trigger button
         </button>
         <button
           onClick={(): void => {
@@ -246,12 +345,12 @@ export const Solution2DRP: ComponentStory<
           }}
           style={{ marginLeft: "1rem" }}
         >
-          Focus on Filter 3 - remove button
+          Focus on Removable button - remove button
         </button>
     </>
   )
 }
-Solution2DRP.storyName = "Solution 2 - FilterDRP"
+Solution2DRP.storyName = "Flexible button ref"
 
 
 // Pros:
@@ -261,8 +360,8 @@ Solution2DRP.storyName = "Solution 2 - FilterDRP"
 // - The obj ref means at least 2 usages of useRef
 // - Consumer MUST use useRef, otherwise it will not work
 export const Solution2ForcedButtonRef: ComponentStory<
-  typeof FilterSolution2Context
-> = args => {
+  typeof FilterSolution2FlexiButtonRef
+> = () => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
   const singleButtonRef = useRef<FilterRef>({
     triggerButtonRef: buttonRef1,
@@ -275,14 +374,21 @@ export const Solution2ForcedButtonRef: ComponentStory<
   })
 
   const [range, setRange] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeRef, setRangeRef] = useState<DateRange | undefined>()
+  const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+    DateRange | undefined
+  >({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
   const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+  const [rangeRemovableRef, setRangeRemovableRef] = useState<DateRange | undefined>()
 
   return (
     <>
-      <FilterSolutionForcedButtonRef
-        // ref={buttonRef1}
-        // {...args}
-        label="Dates (no ref)"
+      <FilterSolution2ForcedButtonRef
+        label="No ref"
         filterButton={(props): JSX.Element => (
           <FilterTriggerButtonContextWithFilterRef {...props} />
         )}
@@ -296,13 +402,35 @@ export const Solution2ForcedButtonRef: ComponentStory<
             onRangeChange={setRange}
           />
         </FilterContents>
-      </FilterSolutionForcedButtonRef>
+      </FilterSolution2ForcedButtonRef>
 
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionForcedButtonRef
-          // {...args}
-          label="Dates"
+        <FilterSolution2ForcedButtonRef
+          label="Multi contents"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContextWithFilterRef {...props} />
+          )}
+        >
+          <FilterContents>
+            Some more contents
+          </FilterContents>
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeMultiContents}
+              onRangeChange={setRangeMultiContents}
+            />
+          </FilterContents>
+        </FilterSolution2ForcedButtonRef>
+      </div>
+
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ForcedButtonRef
+          label="Single button ref"
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
               ref={singleButtonRef}
@@ -315,11 +443,11 @@ export const Solution2ForcedButtonRef: ComponentStory<
               id="filterdrp"
               // label="Dates"
               locale="en-AU"
-              selectedRange={range}
-              onRangeChange={setRange}
+              selectedRange={rangeRef}
+              onRangeChange={setRangeRef}
             />
           </FilterContents>
-        </FilterSolutionForcedButtonRef>
+        </FilterSolution2ForcedButtonRef>
 
         <br />
         <br />
@@ -328,14 +456,45 @@ export const Solution2ForcedButtonRef: ComponentStory<
             buttonRef1.current?.focus()
           }}
         >
-          Focus on Filter 2
+          Focus on Single button with ref
         </button>
       </div>
 
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ForcedButtonRef
+          label="Existing value"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContextWithFilterRef
+              {...props}
+              />
+          )}
+          // NOTE:
+          // Since the button is mounted before the contents within the popover,
+          // to pre-fill the button we must provide the initial selected value here
+          defaultSelectedValuesLabel={
+            isCompleteDateRange(rangeDefaultExisting) ? (
+              <DateRangeDisplayLabel
+                dateRange={rangeDefaultExisting}
+                locale={getLocale("en-AU")}
+              />
+            ) : undefined
+          }
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeDefaultExisting}
+              onRangeChange={setRangeDefaultExisting}
+            />
+          </FilterContents>
+        </FilterSolution2ForcedButtonRef>
+      </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionForcedButtonRef
-          label="Dates (no ref)"
+        <FilterSolution2ForcedButtonRef
+          label="Removable no ref"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
               triggerButtonProps={{ ...props }}
@@ -352,12 +511,12 @@ export const Solution2ForcedButtonRef: ComponentStory<
               onRangeChange={setRangeRemovable}
             />
           </FilterContents>
-        </FilterSolutionForcedButtonRef>
+        </FilterSolution2ForcedButtonRef>
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolutionForcedButtonRef
-          label="Dates"
+        <FilterSolution2ForcedButtonRef
+          label="Removable with ref"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
               ref={removableButtonRefs}
@@ -371,11 +530,11 @@ export const Solution2ForcedButtonRef: ComponentStory<
               id="filterdrp--remove"
               // label="Dates"
               locale="en-AU"
-              selectedRange={rangeRemovable}
-              onRangeChange={setRangeRemovable}
+              selectedRange={rangeRemovableRef}
+              onRangeChange={setRangeRemovableRef}
             />
           </FilterContents>
-        </FilterSolutionForcedButtonRef>
+        </FilterSolution2ForcedButtonRef>
 
         <br />
         <br />
@@ -384,7 +543,7 @@ export const Solution2ForcedButtonRef: ComponentStory<
             buttonRef2.current?.focus()
           }}
         >
-          Focus on Filter 3 - trigger button
+          Focus on Removable with ref - trigger button
         </button>
         <button
           onClick={(): void => {
@@ -392,10 +551,10 @@ export const Solution2ForcedButtonRef: ComponentStory<
           }}
           style={{ marginLeft: "1rem" }}
         >
-          Focus on Filter 3 - remove button
+          Focus on Removable with ref - remove button
         </button>
       </div>
     </>
   )
 }
-Solution2ForcedButtonRef.storyName = "Solution 2 - FilterDRP forced shape ref"
+Solution2ForcedButtonRef.storyName = "Forced shape button ref"
