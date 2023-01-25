@@ -24,6 +24,10 @@ import {
 import styles from "./ConfirmationModal.module.scss"
 
 export interface ConfirmationModalProps {
+  /**
+   * Gives the modal content full width if needed
+   */
+  readonly isContentFullWidth?: boolean
   readonly isOpen: boolean
   readonly unpadded?: boolean
   /**
@@ -87,6 +91,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--confirmation-modal-example Storybook}
  */
 const ConfirmationModal = ({
+  isContentFullWidth = false,
   isOpen,
   isProminent = false,
   unpadded = false,
@@ -140,6 +145,7 @@ const ConfirmationModal = ({
               [styles.negativeHeader]: mood === "negative",
               [styles.positiveHeader]: mood === "positive",
               [styles.assertiveHeader]: mood === "assertive",
+              [styles.contentFullWidth]: isContentFullWidth,
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}
@@ -163,6 +169,7 @@ const ConfirmationModal = ({
         <ModalBody>
           <div
             className={classnames({
+              [styles.contentFullWidthBody]: isContentFullWidth,
               [styles.prominent]: isProminent,
               [styles.padded]: !unpadded,
             })}

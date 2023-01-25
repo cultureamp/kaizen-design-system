@@ -72,6 +72,14 @@ $dt-assertive-header-background: $color-orange-100;
         height: 86px;
       }
     }
+    &.contentFullWidth {
+      grid-template-columns: 0.9fr 2fr;
+      .spotIcon,
+      .svgIcon > svg {
+        width: 130px;
+        height: 130px;
+      }
+    }
   }
   .iconContainer {
     align-self: flex-start;
@@ -142,6 +150,11 @@ $dt-assertive-header-background: $color-orange-100;
   align-items: center;
   @media (max-width: $layout-breakpoints-medium) {
     grid-template-columns: 1fr;
+  }
+
+  &.contentFullWidthBody {
+    grid-template-columns: 1fr;
+    padding-top: $spacing-xl;
   }
 }
 
