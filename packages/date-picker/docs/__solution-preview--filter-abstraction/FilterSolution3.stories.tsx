@@ -2,18 +2,18 @@ import React, { useRef, useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { FocusOn } from "react-focus-on"
 import { withDesign } from "storybook-addon-designs"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
+import { CATEGORIES } from "../../../../storybook/constants"
+import { figmaEmbed } from "../../../../storybook/helpers"
 import {
   DateRange,
   FilterSolution3,
   FilterSolution3ExtraContext,
-} from "../index"
+} from "../../index"
 import {
   FilterDateRangePickerField,
   FilterDateRangePickerFieldSol3,
-} from "../src/Filter/FilterDateRangePickerField"
+} from "../../src/Filter/FilterDateRangePickerField"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -22,19 +22,19 @@ import {
   RemovableFilterTriggerButtonContext,
   // RemovableFilterTriggerButtonContextSol3,
   RemovableFilterTriggerButtonRefs,
-} from "../src/Filter/components"
-import { FilterContents } from "../src/Filter/components/FilterContents"
+} from "../../src/Filter/components"
+import { FilterContents } from "../../src/Filter/components/FilterContents"
 import {
   FilterPopover,
   FilterPopoverWithFocusLock,
   FilterPopoverWithFocusLockExtraContext,
-} from "../src/Filter/components/FilterPopover"
-import { DateRangeDisplayLabel } from "../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
-import { isCompleteDateRange } from "../src/FilterDateRangePicker/utils/isCompleteDateRange"
-import { getLocale } from "../src/utils/getLocale"
+} from "../../src/Filter/components/FilterPopover"
+import { DateRangeDisplayLabel } from "../../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
+import { isCompleteDateRange } from "../../src/FilterDateRangePicker/utils/isCompleteDateRange"
+import { getLocale } from "../../src/utils/getLocale"
 
 export default {
-  title: `${CATEGORIES.solutionPreview}/Filter`,
+  title: `${CATEGORIES.solutionPreview}/Filter Solution 3`,
   component: FilterSolution3,
   parameters: {
     docs: {
