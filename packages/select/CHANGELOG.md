@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.9.0...@kaizen/select@6.10.0) (2023-01-25)
+
+
+### Features
+
+* update max-height of filterSelect listbox ([#3234](https://github.com/cultureamp/kaizen-design-system/issues/3234)) ([e695472](https://github.com/cultureamp/kaizen-design-system/commit/e695472380c7ec7151028254214e83c7bbf74a80))
+
+
+
+
+
 # [6.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.8.0...@kaizen/select@6.9.0) (2023-01-25)
 
 
