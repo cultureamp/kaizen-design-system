@@ -1,4 +1,5 @@
 export const CATEGORIES = {
+  solutionPreview: "Solution Preview POC",
   introduction: "Introduction",
   components: "Components",
   helpers: "Helpers",

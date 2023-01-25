@@ -21,7 +21,7 @@ import { isCompleteDateRange } from "../src/FilterDateRangePicker/utils/isComple
 import { getLocale } from "../src/utils/getLocale"
 
 export default {
-  title: `${CATEGORIES.introduction}/Filter`,
+  title: `${CATEGORIES.solutionPreview}/Filter`,
   component: FilterSolution2Ref,
   parameters: {
     docs: {
