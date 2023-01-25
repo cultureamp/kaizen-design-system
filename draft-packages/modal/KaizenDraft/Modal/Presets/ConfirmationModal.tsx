@@ -25,7 +25,7 @@ import styles from "./ConfirmationModal.module.scss"
 
 export interface ConfirmationModalProps {
   /**
-   * Gives the modal content full width if needed
+   * Gives the modal body full width
    */
   readonly isContentFullWidth?: boolean
   readonly isOpen: boolean
