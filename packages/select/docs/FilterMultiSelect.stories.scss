@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 
 .row {
   display: inline-grid;
@@ -18,4 +19,8 @@
     flex-wrap: wrap;
     gap: $spacing-xs;
   }
+}
+
+.showingNumbers {
+  padding-bottom: 0.5rem;
 }
