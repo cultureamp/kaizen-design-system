@@ -53,8 +53,6 @@ const renderPrimaryActionDrawerContent = (
       const itemType = menuItemIsLink(item) ? "link" : "action"
 
       return (
-        // used to ensure key and automation id
-
         <TitleBlockMenuItem
           {...item}
           key={`title-block-mobile-actions-primary-${itemType}-${idx}`}

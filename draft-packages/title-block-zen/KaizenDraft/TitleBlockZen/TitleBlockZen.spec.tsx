@@ -1,10 +1,9 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
 import "@testing-library/jest-dom"
 import "./matchMedia.mock"
-import { CustomButtonProps } from "@kaizen/button"
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -840,9 +839,18 @@ describe("<TitleBlockZen />", () => {
         {props.children}
       </a>
     )
+    const MockButtonComponent = (props: any): JSX.Element => (
+      <button
+        className={props.className}
+        onClick={props.onClick}
+        data-automation-id={props.automationId}
+      >
+        {props.children}
+      </button>
+    )
 
-    describe("primaryActions", () => {
-      it("will render a custom anchor component in the toolbar", () => {
+    describe("primaryAction", () => {
+      it("will render a custom anchor component in the main action toolbar", () => {
         render(
           <TitleBlockZen
             title="Test Title"
@@ -866,7 +874,7 @@ describe("<TitleBlockZen />", () => {
         ).toHaveAttribute("href", "#test-primary")
       })
 
-      it("will render a custom anchor component in the drawer", () => {
+      it("will render a custom anchor component in the mobile drawer", () => {
         render(
           <TitleBlockZen
             title="Test Title"
@@ -890,6 +898,177 @@ describe("<TitleBlockZen />", () => {
             name: "Primary action",
           })
         ).toHaveAttribute("href", "#test-primary")
+      })
+
+      it("will render custom button with functional onClick", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              onClick: testClickFunc,
+              component: MockButtonComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        const drawerBtn = within(drawer).getByRole("button", {
+          name: "Primary action",
+        })
+        fireEvent.click(drawerBtn)
+        expect(testClickFunc).toBeCalledTimes(1)
+      })
+
+      it("will render custom button with children and not label", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              onClick: testClickFunc,
+              component: (props): JSX.Element => (
+                <MockButtonComponent {...props}>
+                  This will replace label
+                </MockButtonComponent>
+              ),
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        within(drawer).getByRole("button", {
+          name: "This will replace label",
+        })
+        expect(
+          within(drawer).queryByRole("button", {
+            name: "Primary action",
+          })
+        ).toBeFalsy()
+      })
+    })
+
+    describe("secondaryActions", () => {
+      it("will render multiple custom anchor components in the secondary actions toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            secondaryActions={[
+              {
+                label: "Secondary action 1",
+                href: "#test-secondary",
+                component: MockLinkComponent,
+              },
+              {
+                label: "Secondary action 2",
+                href: "#test-secondary-2",
+                component: MockLinkComponent,
+              },
+            ]}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId(
+          "title-block-secondary-actions-toolbar"
+        )
+        const links = within(toolbar).getAllByRole("link")
+        expect(links.length).toBe(2)
+        expect(links[0]).toHaveAttribute("href", "#test-secondary")
+        expect(links[1]).toHaveAttribute("href", "#test-secondary-2")
+      })
+
+      it("will render multiple custom anchor components in the secondary actions mobile Drawer", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            secondaryActions={[
+              {
+                label: "Secondary action 1",
+                href: "#test-secondary",
+                component: MockLinkComponent,
+              },
+              {
+                label: "Secondary action 2",
+                href: "#test-secondary-2",
+                component: MockLinkComponent,
+              },
+            ]}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const links = screen.getAllByTestId(
+          "title-block-mobile-actions-secondary-action"
+        )
+        expect(links.length).toBe(2)
+        expect(links[0]).toHaveAttribute("href", "#test-secondary")
+        expect(links[1]).toHaveAttribute("href", "#test-secondary-2")
+      })
+    })
+
+    describe("defaultAction", () => {
+      it("will render a custom anchor components in the main action toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              href: "#test-default",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
+        const defaultActionAnchor = within(toolbar).getByRole("link", {
+          name: "Default action",
+        })
+        expect(defaultActionAnchor).toHaveAttribute("href", "#test-default")
+      })
+
+      it("will render the component above primary action in the Drawer content if it is a link", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              href: "#test-default",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        screen.getByTestId("title-block-mobile-actions-default-link")
+      })
+      it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              onClick: testClickFunc,
+              component: MockButtonComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        expect(
+          screen.queryByTestId("title-block-mobile-actions-default-link")
+        ).toBeFalsy()
+        screen.getByTestId("title-block-mobile-actions-default-action")
       })
     })
   })
