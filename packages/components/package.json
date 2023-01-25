@@ -2,15 +2,17 @@
   "name": "@kaizen/components",
   "version": "1.0.0",
   "description": "Kaizen component library",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "future",
     "dist"
   ],
   "scripts": {
-    "prepublish": "node esbuild.config.js",
-    "build": "yarn clean && yarn prepublish",
+    "prepublish": "node esbuild.config.js && yarn build:tailwind",
+    "build:postprocess": "node esbuild_post.config.js",
+    "build:tailwind": "npx tailwind -i ./styles/tailwind.css -o dist/tailwind.css",
+    "build": "yarn clean && yarn prepublish && yarn build:postprocess",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
   },
@@ -29,14 +31,15 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "esbuild": "^0.17.4",
-    "esbuild-sass-plugin": "^2.4.5"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@csstools/postcss-cascade-layers": "^3.0.0",
     "@kaizen/tailwind": "^0.2.7",
     "autoprefixer": "^10.4.13",
+    "esbuild": "^0.17.4",
+    "esbuild-css-modules-plugin": "^2.7.1",
+    "esbuild-sass-plugin": "^2.4.5",
     "esbuild-style-plugin": "^1.6.1",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
