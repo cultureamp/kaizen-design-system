@@ -34,7 +34,6 @@ export const SelectionProvider = (
   props: SelectionProviderProps
 ): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
-  const isFirstRender = React.useRef(true)
   const [searchQuery, setSearchQuery] = useState<string>("")
 
   /**
@@ -42,11 +41,8 @@ export const SelectionProvider = (
    * If the search input state becomes controlled, this useEffect could cause synchronisation
    * issues and should be replaced.
    */
+
   React.useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-      return
-    }
     if (onSearchInputChange) {
       onSearchInputChange(searchQuery)
     }
