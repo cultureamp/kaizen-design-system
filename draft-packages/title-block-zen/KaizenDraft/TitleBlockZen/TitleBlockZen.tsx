@@ -557,7 +557,7 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.collapseNavigationArea]:
             collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription),
+            !(sectionTitle || sectionTitleDescription || renderSectionTitle),
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]:
             subtitle && typeof subtitle === "string" && subtitle.length >= 18,
