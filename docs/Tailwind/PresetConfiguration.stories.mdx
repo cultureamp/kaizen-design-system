@@ -1,0 +1,45 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../storybook/constants"
+
+<Meta title={`${CATEGORIES.tailwind}/Preset configuration`} />
+
+# Configuration  
+
+<br/>
+
+## Extending the Kaizen preset
+
+> Extending your config is a good option when you intend to _reuse_ the style.  
+> If you need a value not available in our preset for a specific use case, consider using [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) instead.
+
+To extend upon the preset with values specific to your project, we recommend passing a theme object to `theme.extend`.
+
+```
+const { Preset } = require("@kaizen/tailwind")
+
+module.exports = {
+  presets: [Preset],
+  theme: {
+    extend: {
+      colors: {
+        myCoolNewColor: "#ffffff",
+        "purple-100": "lime"
+      }
+    }
+  }
+}
+```
+
+Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.  
+Be careful though! While adding in a _new_ field to `colors` won't overwrite any existing ones, passing in an existing field _will_. In this example, `purple-100` has unfortunately been overwritten.
+
+`<p className="text-sky">...` ❌ Default TW config overwritten by `Preset`
+
+`<p className="text-myCoolNewColor">` ✅ New color added
+
+`<p className="text-purple-100">` ️❗️ Value from `Preset` overwritten to "Lime"
+
+`<p className="text-purple-200">` ✅ Value from `Preset` not overwritten
+
+<br/>
+
