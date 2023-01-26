@@ -34,10 +34,10 @@ addParameters({
       order: [
         CATEGORIES.introduction,
         CATEGORIES.systems,
+        CATEGORIES.tailwind,
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
-        CATEGORIES.tailwind,
         CATEGORIES.deprecated,
       ],
     },

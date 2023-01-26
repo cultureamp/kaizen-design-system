@@ -1,0 +1,57 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../storybook/constants"
+
+<Meta title={`${CATEGORIES.tailwind}/Getting Started`} />
+
+# Getting Started  
+
+This page describes the steps needed to use our [Kaizen Tailwind preset](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/tailwind), not Tailwind itself.  
+To learn more about Tailwind and how to install it in your project, check out there docs [here](https://tailwindcss.com/docs/installation).
+
+- [Install the preset](#install-the-preset)
+- [Implement the preset](#implement-the-preset)
+- [Add the Tailwind directives](#add-the-tailwind-directives)
+
+## Install the preset
+
+```bash
+yarn add -D @kaizen/tailwind
+```
+
+## Implement the Preset
+
+In your tailwind config file, import the preset and add it to your `presets` array. This will override the default Tailwind preset, and make ours available for use.
+
+
+```json
+// tailwind.config.js
+
+const { Preset } = require("@kaizen/tailwind")
+
+module.exports = {
+  // Glob pattern to match files containing TW classes. May be different for your project.
+  content: ["./**/*.{ts,tsx}"], 
+  // Override the default Tailwind preset with the Kaizen one.
+  presets: [Preset],
+  // Important to add to the #root and #docs-root (for storybook) to ensure that Tailwind classes supersede component styles
+  important: ["#root", "#docs-root"],
+  // Preflight is a heavy-handed css reset. We recommend disabling it in your project.
+  corePlugins: {
+    preflight: false,
+  },
+}
+```
+
+For preset configuration options, see our [configuration docs](#) <LINK_NEEDED>
+
+## Add the Tailwind Directives
+
+The following directives need to be included in your project's main css file.
+
+```scss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+These directives inject classes that are needed for certain Tailwind features. For more information, see [here](https://tailwindcss.com/docs/functions-and-directives).

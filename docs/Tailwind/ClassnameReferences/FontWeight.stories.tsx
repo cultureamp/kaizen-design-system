@@ -3,15 +3,15 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import styles from "./styles.module.scss"
 
-const prefix = "leading-"
+const prefix = "font-"
 const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.lineHeight || []
+  kaizenTailwindTheme?.fontWeight || []
 )
 
 export default {
-  title: "Tailwind/Typography/Line Height",
+  title: "Tailwind/ClassName References/Typography/Font Weight",
+  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
@@ -28,20 +28,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {classKeyVal.map((presetData, index) => {
-        const [leadingHeightClassName, leadingHeightValue] = presetData
+        const [fontWeightClassName, fontWeightValue] = presetData
 
         return (
           <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>leading-{leadingHeightClassName}</p>
-              <p>{leadingHeightValue}</p>
-              <p
-                style={{ lineHeight: leadingHeightValue }}
-                className={styles.wrappedText}
-              >
-                Tutant Meenage Neetle Teetles
-              </p>
+              <p className="height">font-{fontWeightClassName}</p>
+              <p>{fontWeightValue}</p>
+              <p style={{ fontWeight: fontWeightValue }}>Aa</p>
             </StoryWrapper.Row>
           </React.Fragment>
         )
@@ -51,5 +46,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Line Height"
+StickerSheetDefault.storyName = "Font Weight"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

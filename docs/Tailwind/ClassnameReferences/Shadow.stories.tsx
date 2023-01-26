@@ -3,18 +3,15 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-
-const prefix = "text-"
-const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.fontSize || []
-)
+import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Typography/Font Size",
+  title: "Tailwind/Classname References/Effects/Box Shadow",
+  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
+        component: 'import { Avatar } from "@kaizen/draft-avatar"',
       },
     },
   },
@@ -26,18 +23,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {classKeyVal.map((presetData, index) => {
-        const [fontSizeName, fontSizeValue] = presetData
+      {Object.entries(
+        kaizenTailwindTheme.boxShadow as { [key: string]: string }
+      ).map(presetData => {
+        const [shadowClassName, shadowValue] = presetData
+        if (!shadowValue) return <></>
 
         return (
-          <React.Fragment key={index}>
+          <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>text-{fontSizeName}</p>
-              <p>{fontSizeValue}</p>
-              <p style={{ fontSize: fontSizeValue }}>Aa</p>
+              <p>shadow-{shadowClassName}</p>
+              <p>{shadowValue}</p>
+              <div style={{ boxShadow: shadowValue }} className={styles.box} />
             </StoryWrapper.Row>
-          </React.Fragment>
+          </>
         )
       })}
     </StoryWrapper>
@@ -45,5 +45,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Size"
+StickerSheetDefault.storyName = "Box Shadow"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
