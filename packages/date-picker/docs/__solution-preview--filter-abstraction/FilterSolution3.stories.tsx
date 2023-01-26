@@ -49,107 +49,107 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterSolution3>
 
-export const FilterSolution3Story: ComponentStory<
-  typeof FilterSolution3
-> = args => {
-  const buttonRef1 = useRef<HTMLButtonElement>(null)
-  // const buttonRef2 = useRef<HTMLButtonElement>(null)
-  // const removeButtonRef = useRef<HTMLButtonElement>(null)
-  // const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-  //   triggerButtonRef: buttonRef2,
-  //   removeButtonRef,
-  // })
+// export const FilterSolution3Story: ComponentStory<
+//   typeof FilterSolution3
+// > = args => {
+//   const buttonRef1 = useRef<HTMLButtonElement>(null)
+//   // const buttonRef2 = useRef<HTMLButtonElement>(null)
+//   // const removeButtonRef = useRef<HTMLButtonElement>(null)
+//   // const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+//   //   triggerButtonRef: buttonRef2,
+//   //   removeButtonRef,
+//   // })
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+//   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  return (
-    <>
-      <FilterSolution3 label="First button">
-        <FilterTriggerButtonContext
-          ref={buttonRef1}
-          isOpen={isOpen}
-          onClick={(): void => setIsOpen(!isOpen)}
-        />
-        {isOpen && (
-          <FilterPopoverWithFocusLock
-            referenceElement={buttonRef1.current}
-            onClose={(): void => setIsOpen(false)}
-          >
-            <FilterContents>Contents in here</FilterContents>
-          </FilterPopoverWithFocusLock>
-        )}
-      </FilterSolution3>
+//   return (
+//     <>
+//       <FilterSolution3 label="First button">
+//         <FilterTriggerButtonContext
+//           ref={buttonRef1}
+//           isOpen={isOpen}
+//           onClick={(): void => setIsOpen(!isOpen)}
+//         />
+//         {isOpen && (
+//           <FilterPopoverWithFocusLock
+//             referenceElement={buttonRef1.current}
+//             onClose={(): void => setIsOpen(false)}
+//           >
+//             <FilterContents>Contents in here</FilterContents>
+//           </FilterPopoverWithFocusLock>
+//         )}
+//       </FilterSolution3>
 
-      {/* <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          {...args}
-          filterButton={<FilterTriggerButton label="1.5 Multiple contents" />}
-        >
-          <FilterContents>Contents in here</FilterContents>
-          <FilterContents>More contents in here</FilterContents>
-        </FilterSolution3>
-      </div>
+//       {/* <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution3
+//           {...args}
+//           filterButton={<FilterTriggerButton label="1.5 Multiple contents" />}
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//           <FilterContents>More contents in here</FilterContents>
+//         </FilterSolution3>
+//       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          {...args}
-          ref={buttonRef1}
-          filterButton={
-            <FilterTriggerButton label="2. Consumer controlled ref" />
-          }
-        >
-          <FilterContents>Contents in here</FilterContents>
-        </FilterSolution3>
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution3
+//           {...args}
+//           ref={buttonRef1}
+//           filterButton={
+//             <FilterTriggerButton label="2. Consumer controlled ref" />
+//           }
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//         </FilterSolution3>
 
-        <br />
-        <br />
-        <button
-          onClick={(): void => {
-            buttonRef1.current?.focus()
-          }}
-        >
-          Focus on Filter 2
-        </button>
-      </div>
+//         <br />
+//         <br />
+//         <button
+//           onClick={(): void => {
+//             buttonRef1.current?.focus()
+//           }}
+//         >
+//           Focus on Filter 2
+//         </button>
+//       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          // {...args}
-          ref={buttonRef2}
-          filterButton={
-            <RemovableFilterTriggerButton
-              ref={removableButtonRefs}
-              triggerButtonProps={{
-                label: "3. Consumer controlled ref (removable)",
-              }}
-              removeButtonProps={{ onClick: () => undefined }}
-            />
-          }
-        >
-          <FilterContents>Contents in here</FilterContents>
-        </FilterSolution3>
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution3
+//           // {...args}
+//           ref={buttonRef2}
+//           filterButton={
+//             <RemovableFilterTriggerButton
+//               ref={removableButtonRefs}
+//               triggerButtonProps={{
+//                 label: "3. Consumer controlled ref (removable)",
+//               }}
+//               removeButtonProps={{ onClick: () => undefined }}
+//             />
+//           }
+//         >
+//           <FilterContents>Contents in here</FilterContents>
+//         </FilterSolution3>
 
-        <br />
-        <br />
-        <button
-          onClick={(): void => {
-            buttonRef2.current?.focus()
-          }}
-        >
-          Focus on Filter 3 - trigger button
-        </button>
-        <button
-          onClick={(): void => {
-            removeButtonRef.current?.focus()
-          }}
-          style={{ marginLeft: "1rem" }}
-        >
-          Focus on Filter 3 - remove button
-        </button>
-      </div> */}
-    </>
-  )
-}
+//         <br />
+//         <br />
+//         <button
+//           onClick={(): void => {
+//             buttonRef2.current?.focus()
+//           }}
+//         >
+//           Focus on Filter 3 - trigger button
+//         </button>
+//         <button
+//           onClick={(): void => {
+//             removeButtonRef.current?.focus()
+//           }}
+//           style={{ marginLeft: "1rem" }}
+//         >
+//           Focus on Filter 3 - remove button
+//         </button>
+//       </div> */}
+//     </>
+//   )
+// }
 
 // Pros:
 // - No magic ref handling in the component
