@@ -6,7 +6,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Effects/Box Shadow",
+  title: "Tailwind/Classname References/Borders/Border Width",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -24,18 +24,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.boxShadow as { [key: string]: string }
+        kaizenTailwindTheme.borderWidth as { [key: string]: string }
       ).map(presetData => {
-        const [shadowClassName, shadowValue] = presetData
-        if (!shadowValue) return <></>
+        const [borderWidthClassName, borderWidthValue] = presetData
+        if (!borderWidthValue) return <></>
 
         return (
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>shadow-{shadowClassName}</p>
-              <p>{shadowValue}</p>
-              <div style={{ boxShadow: shadowValue }} className={styles.box} />
+              <p>border-{borderWidthClassName}</p>
+              <p>{borderWidthValue}</p>
+              <div
+                style={{ borderWidth: borderWidthValue }}
+                className={styles.boxWithBorder}
+              />
             </StoryWrapper.Row>
           </>
         )
@@ -45,5 +48,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Box Shadow"
+StickerSheetDefault.storyName = "Border Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

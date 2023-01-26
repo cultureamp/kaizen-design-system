@@ -3,15 +3,18 @@ import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import styles from "./styles.module.scss"
+
+const prefix = "text-"
+const classKeyVal: string[][] = Object.entries(
+  kaizenTailwindTheme?.fontSize || []
+)
 
 export default {
-  title: "Tailwind/Borders/Border Width",
-  component: <div>Hello</div>,
+  title: "Tailwind/Classname References/Typography/Font Size",
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
       },
     },
   },
@@ -23,24 +26,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.borderWidth as { [key: string]: string }
-      ).map(presetData => {
-        const [borderWidthClassName, borderWidthValue] = presetData
-        if (!borderWidthValue) return <></>
+      {classKeyVal.map((presetData, index) => {
+        const [fontSizeName, fontSizeValue] = presetData
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>border-{borderWidthClassName}</p>
-              <p>{borderWidthValue}</p>
-              <div
-                style={{ borderWidth: borderWidthValue }}
-                className={styles.boxWithBorder}
-              />
+              <p>text-{fontSizeName}</p>
+              <p>{fontSizeValue}</p>
+              <p style={{ fontSize: fontSizeValue }}>Aa</p>
             </StoryWrapper.Row>
-          </>
+          </React.Fragment>
         )
       })}
     </StoryWrapper>
@@ -48,5 +45,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Width"
+StickerSheetDefault.storyName = "Font Size"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

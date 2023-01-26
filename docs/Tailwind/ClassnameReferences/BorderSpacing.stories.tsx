@@ -6,7 +6,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Borders/Border Spacing",
+  title: "Tailwind/Classname References/Borders/Border Spacing",
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -35,10 +35,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <StoryWrapper.Row rowTitle="">
               <p>border-{borderSpacingClassName}</p>
               <p>{borderSpacingValue}</p>
-              {/* <div
-                style={{ borderSpacing: borderSpacingValue }}
-                className={styles.boxWithBorder}
-              /> */}
               <table style={{ borderSpacing: borderSpacingValue }}>
                 <tr>
                   <td className={styles.outlined}>Tutant</td>

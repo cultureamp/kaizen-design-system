@@ -9,7 +9,7 @@ const classKeyVal: string[][] = Object.entries(
   kaizenTailwindTheme?.fontFamily || []
 )
 export default {
-  title: "Tailwind/Typography/Font Family",
+  title: "Tailwind/Classname References/Typography/Font Family",
   parameters: {
     docs: {
       description: {

@@ -6,7 +6,7 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Tailwind/Psuedo Selectors/MediaQueries",
+  title: "Tailwind/Classname References/Psuedo Selectors/MediaQueries",
   parameters: {
     docs: {
       description: {
