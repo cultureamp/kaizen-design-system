@@ -266,14 +266,14 @@ const renderSubtitle = (
 )
 
 const defaultRenderSectionTitle = (
-  sectionTitle?: React.ReactNode,
+  sectionTitle?: string,
   sectionTitleDescription?: string,
   variant?: Variant,
   sectionTitleAutomationId?: string,
   sectionTitleDescriptionAutomationId?: string
 ): JSX.Element => (
   <>
-    {sectionTitle && typeof sectionTitle === "string" && (
+    {sectionTitle && (
       <div className={styles.sectionTitle}>
         <Heading
           variant="heading-2"
@@ -284,9 +284,6 @@ const defaultRenderSectionTitle = (
           {sectionTitle}
         </Heading>
       </div>
-    )}
-    {sectionTitle && typeof sectionTitle !== "string" && (
-      <div className={styles.sectionTitle}>{sectionTitle}</div>
     )}
     {sectionTitleDescription && (
       <div
