@@ -16,40 +16,24 @@ export interface FilterSolution3Props
   defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
 }
 
-export const FilterSolution3 = React.forwardRef<
-  HTMLButtonElement,
-  FilterSolution3Props
->(
-  (
-    {
-      children,
-      label,
-      defaultSelectedValuesLabel,
-      classNameOverride,
-      ...restProps
-    },
-    ref
-  ) => {
-    const hi = true
-    // If the consumer uses the legacy `createRef`, it will not work
-    // const consumerRef = isRefObject(ref) ? ref : null
-    // const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-    // const [isOpen, setIsOpen] = useState<boolean>(false)
-
-    return (
-      <div
-        className={classnames(styles.filter, classNameOverride)}
-        {...restProps}
-      >
-        <FilterProvider
-          label={label}
-          defaultSelectedValuesLabel={defaultSelectedValuesLabel}
-        >
-          {children}
-        </FilterProvider>
-      </div>
-    )
-  }
+export const FilterSolution3 = ({
+  children,
+  label,
+  defaultSelectedValuesLabel,
+  classNameOverride,
+  ...restProps
+}: FilterSolution3Props): JSX.Element => (
+  <div
+    className={classnames(styles.filter, classNameOverride)}
+    {...restProps}
+  >
+    <FilterProvider
+      label={label}
+      defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+    >
+      {children}
+    </FilterProvider>
+  </div>
 )
 FilterSolution3.displayName = "FilterSolution3"
 
