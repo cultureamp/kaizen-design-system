@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { withDesign } from "storybook-addon-designs"
 import { Button, ButtonRef } from "@kaizen/button"
@@ -15,7 +15,6 @@ import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelec
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Filter Multi-Select`,
