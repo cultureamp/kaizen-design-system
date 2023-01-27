@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs'
+import { CATEGORIES } from "../../../../../storybook/constants"
+
+<Meta title={`${CATEGORIES.components}/KaizenProvider`} />
+
+# KaizenProvider
+
+Provides the necessary theming context for all components, as well as facilitate the use of global UI components and translations.
+
+## Usage
+
+Ideally, the `KaizenProvider` should wrap your entire application, and that there only be one per application.
+
+```jsx
+import { KaizenProvider } from '@kaizen/components';
+
+<KaizenProvider>
+  <App />
+</KaizenProvider>
+```
+
+## Theme-ing
+
+For more details on how theme-ing works, checkout our [design tokens documentation](/story/design-tokens-getting-started--page).
