@@ -151,7 +151,6 @@ export const Reversed: ComponentStory<typeof FilterMultiSelect> = args => {
   )
 }
 
-Reversed.storyName = "Reversed"
 Reversed.args = { label: "Engineer", isReversed: true }
 Reversed.parameters = {
   backgrounds: { default: "Purple 700" },
