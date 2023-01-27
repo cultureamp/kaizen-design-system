@@ -47,6 +47,7 @@ export const Root = ({
   defaultOpen,
   onOpenChange,
   isLoading,
+  isReversed,
   loadingSkeleton,
 
   label,
@@ -56,7 +57,7 @@ export const Root = ({
   selectionMode = "multiple",
   onSearchInputChange,
 }: RootProps): JSX.Element => {
-  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
+  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, isReversed }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
     items

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { withDesign } from "storybook-addon-designs"
 import { Button, ButtonRef } from "@kaizen/button"
@@ -15,6 +15,7 @@ import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelec
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Filter Multi-Select`,
@@ -97,6 +98,65 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
+
+export const Reversed: ComponentStory<typeof FilterMultiSelect> = args => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+
+  const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
+
+  return (
+    <>
+      <FilterMultiSelect
+        {...args}
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={mockItems}
+        trigger={(): JSX.Element => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
+            label={args.label}
+          />
+        )}
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+
+                return allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+    </>
+  )
+}
+
+Reversed.storyName = "Reversed"
+Reversed.args = { label: "Engineer", isReversed: true }
+Reversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+}
 
 export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
   <>

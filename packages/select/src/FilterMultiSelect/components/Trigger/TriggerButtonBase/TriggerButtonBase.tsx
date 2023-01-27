@@ -16,13 +16,18 @@ export const TriggerButtonBase = ({
   children,
   classNameOverride,
 }: TriggerButtonBaseProps): JSX.Element => {
-  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
+  const { buttonProps, buttonRef, menuTriggerState, isReversed } =
+    useMenuTriggerContext()
 
   return (
     <button
       {...buttonProps}
       ref={buttonRef}
-      className={classNames(styles.button, classNameOverride)}
+      className={classNames([
+        styles.button,
+        isReversed && styles.reversed,
+        classNameOverride,
+      ])}
     >
       {children}
 

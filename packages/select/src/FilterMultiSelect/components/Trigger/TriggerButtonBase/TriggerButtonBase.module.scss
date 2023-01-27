@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../mixins";
+@import "../variables";
 
 .button {
   @include button;
@@ -11,4 +12,64 @@
 
 .icon {
   margin-left: $spacing-xs;
+}
+
+.reversed {
+  border: $border-solid-border-width $border-solid-border-style
+    rgba($color-white-rgb, 0.8);
+  background-color: transparent;
+  color: $color-white;
+
+  &.placeholder {
+    color: rgba($color-white-rgb, 0.65);
+  }
+
+  .icon {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  #{$story-className--button-active},
+  #{$selectors--button-hover} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
+
+    .icon {
+      color: $color-white;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
+
+    .icon {
+      color: $color-white;
+    }
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
+      border-radius: $border-focus-ring-border-radius;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+
+  .error {
+    border-color: $color-red-300;
+  }
+
+  .caution {
+    border-color: $color-yellow-400;
+  }
 }

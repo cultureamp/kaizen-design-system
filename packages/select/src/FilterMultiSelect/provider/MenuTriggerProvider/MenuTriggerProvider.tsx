@@ -13,6 +13,7 @@ export interface MenuTriggerProviderProps {
   defaultOpen?: boolean
   onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
+  isReversed?: boolean
 }
 
 export interface MenuTriggerProviderContextType {
@@ -20,6 +21,7 @@ export interface MenuTriggerProviderContextType {
   menuProps: HTMLAttributes<HTMLElement>
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
   menuTriggerState: MenuTriggerState
+  isReversed?: boolean
 
   buttonRef: React.RefObject<HTMLButtonElement>
 }
@@ -32,6 +34,7 @@ export function MenuTriggerProvider({
   defaultOpen,
   onOpenChange,
   children,
+  isReversed,
 }: MenuTriggerProviderProps): JSX.Element {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
@@ -56,6 +59,7 @@ export function MenuTriggerProvider({
         menuTriggerProps,
         menuProps,
         buttonProps,
+        isReversed,
         menuTriggerState: state,
         buttonRef: ref,
       }}
