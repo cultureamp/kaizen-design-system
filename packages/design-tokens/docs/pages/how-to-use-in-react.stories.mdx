@@ -35,23 +35,3 @@ const Component = () => {
 }
 ```
 
-
-## Customising the theme
-
-Out of the box, the `KaizenProvider` utilises the `defaultTheme` from `@kaizen/design-tokens`. However if you want to roll your own theme, we provide a `ThemeManager` function which can apply your custom theme.
-
-```jsx
-import { ThemeManager } from '@kaizen/components'
-
-export const themeManager = new ThemeManager({
-  themeKey: "custom",
-  spacing: {
-    md: "1rem",
-  },
-});
-
-<KaizenProvider themeManager={themeManager}>
-  <App />
-</KaizenProvider>
-```
-
