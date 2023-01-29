@@ -1,7 +1,7 @@
-import { ThemeManager } from "../ThemeManager"
-import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
-import { heartTheme } from "../themes"
-import { Theme } from "../types"
+import { ThemeManager } from "@kaizen/design-tokens/src/ThemeManager"
+import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens/src/lib/makeCssVariableDefinitionsMap"
+import { heartTheme } from "@kaizen/design-tokens/src/themes"
+import { Theme } from "@kaizen/design-tokens/src/types"
 
 const assertThemeIsActive = (
   theme: Theme,
