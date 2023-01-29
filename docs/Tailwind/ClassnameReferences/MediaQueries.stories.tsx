@@ -6,12 +6,12 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Tailwind/Classname References/Psuedo Selectors/MediaQueries",
+  title: "Tailwind/Classname References",
   parameters: {
     docs: {
       description: {
         component:
-          'Add `presets: [require("@kaizen/design-tokens").TailwindPreset]` into your tailwind config',
+          "Require @kaizen/tailwind and add it into your tailwind config",
       },
     },
     ...figmaEmbed(
