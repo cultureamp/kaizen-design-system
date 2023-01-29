@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { defaultTheme, Theme } from "@kaizen/design-tokens"
-import { ThemeManager } from "./themeManager"
+import { ThemeManager } from "./ThemeManager"
 
 export const ThemeContext = React.createContext<Theme>(defaultTheme)
 
