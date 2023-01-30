@@ -25,3 +25,8 @@ $menu-container-max-height: 312px;
     text-align: right;
   }
 }
+
+.menuPopupRight {
+  @extend .menuPopup;
+  right: 0;
+}

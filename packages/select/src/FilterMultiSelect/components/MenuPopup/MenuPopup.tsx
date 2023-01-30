@@ -8,12 +8,14 @@ import styles from "./MenuPopup.module.scss"
 export interface MenuPopupProps {
   isLoading?: boolean
   loadingSkeleton?: React.ReactNode
+  alignPopup?: "left" | "right"
   children: React.ReactNode
 }
 
 export const MenuPopup = ({
   isLoading,
   loadingSkeleton,
+  alignPopup,
   children,
 }: MenuPopupProps): JSX.Element => {
   const { menuTriggerState, menuProps } = useMenuTriggerContext()
@@ -40,7 +42,9 @@ export const MenuPopup = ({
     <div
       {...mergeProps(overlayProps, menuProps)}
       ref={overlayRef}
-      className={styles.menuPopup}
+      className={
+        alignPopup === "right" ? styles.menuPopupRight : styles.menuPopup
+      }
     >
       {isLoading && loadingSkeleton ? (
         <>

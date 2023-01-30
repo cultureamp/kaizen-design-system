@@ -12,22 +12,17 @@ import {
   SelectionProvider,
   SelectionProviderContextType,
 } from "../../provider/SelectionProvider"
-import { MenuPopup } from "../MenuPopup/MenuPopup"
+import { MenuPopup, MenuPopupProps } from "../MenuPopup/MenuPopup"
 
 export interface RootProps
-  extends MenuPopupProps,
+  extends Omit<MenuPopupProps, "children">,
     MenuTriggerProps,
     SelectionProps {
-  trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
+  trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
 }
 
 type MenuTriggerProps = Omit<MenuTriggerProviderProps, "children">
-
-interface MenuPopupProps {
-  isLoading?: boolean
-  loadingSkeleton?: React.ReactNode
-}
 
 interface SelectionProps {
   label: string // provide A11y context for listbox
@@ -48,6 +43,7 @@ export const Root = ({
   onOpenChange,
   isLoading,
   loadingSkeleton,
+  alignPopup,
 
   label,
   items,
@@ -57,7 +53,7 @@ export const Root = ({
   onSearchInputChange,
 }: RootProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
-  const menuPopupProps = { isLoading, loadingSkeleton }
+  const menuPopupProps = { isLoading, loadingSkeleton, alignPopup }
   const disabledKeys: Selection = new Set(
     items
       ?.filter(item => item.isDisabled === true)
@@ -75,7 +71,7 @@ export const Root = ({
 
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
-      <div>
+      <div className="relative">
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
         <MenuPopup {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
