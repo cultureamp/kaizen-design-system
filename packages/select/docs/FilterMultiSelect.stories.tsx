@@ -508,7 +508,7 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
                     </FilterMultiSelect.NoResults>
                   ) : searchState !== "" ? (
                     <Paragraph
-                      classNameOverride={styles.showingNumbers}
+                      classNameOverride={styles.helperMessage}
                       variant="extra-small"
                       tag="span"
                       color="dark-reduced-opacity"
@@ -518,7 +518,7 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
                   ) : (
                     hasNextPage && (
                       <Paragraph
-                        classNameOverride={styles.showingNumbers}
+                        classNameOverride={styles.helperMessage}
                         variant="extra-small"
                         tag="span"
                         color="dark-reduced-opacity"
