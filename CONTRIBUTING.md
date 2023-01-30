@@ -8,11 +8,11 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 
 An issue is a way to track ideas, enhancements and bugs.
 
-Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to see if any relevant issues already exist.
+Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) to see if any relevant issues already exist.
 
 To create a new issue for changes to design documentation or missing documentation:
 
-1. Visit [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) and click the "**New issue**" button.
+1. Visit [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) and click the "**New issue**" button.
 3. Give the issue a **title** framed as a problem, e.g. "There's no date picker guidance".
 4. Give the issue a **description** that provides enough information that people can act on it without including any sensitive information, e.g. "As a designer, I want to know how to position coach marks because I'm designing an onboarding workflow."
 5. Click **Submit**. Add a "Label" of "content" for design system content and "discussion" if you want feedback.
@@ -32,7 +32,7 @@ You can edit Kaizen Site documentation using GitHub's interface.
 6. **PR description and branch preview**:
     - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
     - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
-    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-design-system/issues).
+    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-discourse/issues).
     - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
