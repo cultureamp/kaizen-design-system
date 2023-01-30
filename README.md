@@ -10,6 +10,7 @@ This document serves to orient you within the repository — to get you set up a
 
 ## Quick links
 
+- [Kaizen Issues](https://github.com/cultureamp/kaizen-discourse/issues)
 - [Kaizen Design Tokens README](./packages/design-tokens/README.md)
 - [Kaizen Component Library README](./packages/component-library/README.md)
 - [Contributing guidelines](./CONTRIBUTING.md)
