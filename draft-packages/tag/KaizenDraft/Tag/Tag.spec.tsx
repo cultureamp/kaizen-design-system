@@ -121,11 +121,11 @@ describe("<Tag />", () => {
 
     it("renders a statusAction Tag", () => {
       const { container } = renderTag({
-        variant: "statusAction",
+        variant: "statusActionRequired",
         children: "Label",
       })
 
-      expect(container.querySelector(".statusAction")).toBeTruthy()
+      expect(container.querySelector(".statusActionRequired")).toBeTruthy()
     })
 
     it("renders a profile Tag with a Avatar component provided", () => {

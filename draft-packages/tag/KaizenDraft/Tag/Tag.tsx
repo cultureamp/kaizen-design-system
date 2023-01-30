@@ -21,7 +21,7 @@ type Variant =
   | "statusLive"
   | "statusDraft"
   | "statusClosed"
-  | "statusAction"
+  | "statusActionRequired"
 interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
@@ -90,7 +90,7 @@ const Tag = (props: TagProps): JSX.Element => {
         [styles.statusLive]: variant === "statusLive",
         [styles.statusDraft]: variant === "statusDraft",
         [styles.statusClosed]: variant === "statusClosed",
-        [styles.statusAction]: variant === "statusAction",
+        [styles.statusActionRequired]: variant === "statusActionRequired",
         [styles.medium]: size === "medium",
         [styles.small]: size === "small",
         [styles.inline]: inline,
