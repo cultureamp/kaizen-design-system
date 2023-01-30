@@ -2053,7 +2053,7 @@
     "@types/lodash" "^4.14.182"
     "@types/uuid" "^3.4.10"
     classnames "^2.3.1"
-    motion-ui "github:cultureamp/motion-ui"
+    motion-ui cultureamp/motion-ui
 
 "@lerna/add@3.21.0":
   version "3.21.0"
@@ -13840,7 +13840,6 @@ moo-color@^1.0.2:
 
 "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
-  uid b15622a9afe00d5bb88c07ecf1451e0affdf155c
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/b15622a9afe00d5bb88c07ecf1451e0affdf155c"
 
 move-concurrently@^1.0.1:
@@ -16219,10 +16218,10 @@ react-clientside-effect@^1.2.6:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-react-day-picker@^8.4.1:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.5.1.tgz#c0ab712f33753b70cd5e2aab85665bb4e947c69c"
-  integrity sha512-ee3+PUGAEiLHaS3als6LYO7NQW2MPw00cvDSk5oNPLk4axIE5JhXRbIr//r9eX5Zsg1S1NFQpJoeJJ5LtJ0/SA==
+react-day-picker@8.4.1:
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.4.1.tgz#341572d7110d7e286f311f8f173ed9cb304eae6a"
+  integrity sha512-uqp/d3POv7127MmL7A16BNW746zYM/CxwfFdVanHMunKh2/8Y2a188KUpiHZH2Ck8IQlcS0I5HgC7xpRbBxK9w==
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
