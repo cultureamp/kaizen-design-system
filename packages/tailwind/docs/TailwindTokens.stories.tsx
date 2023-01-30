@@ -23,14 +23,14 @@ export default {
 
 export const DefaultKaizenSiteDemo: Story = args => (
   <div className="bg-purple-800 p-12">
-    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-white ">
+    <h1 className="flex flex-col items-center font-family-heading text-heading-1 font-weight-heading text-white ">
       {args.title}
     </h1>
     <Card classNameOverride="bg-blue-100 mb-12 p-12" tag="div">
-      <h2 className="text-heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
+      <h2 className="mb-12 font-family-heading text-heading-2 font-weight-heading text-purple-800">
         This is a card heading
       </h2>
-      <p className="font-family-paragraph font-weight-paragraph text-purple-800 bg-blue-100">
+      <p className="bg-blue-100 font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis,
         ad. Adipisci voluptates consectetur dignissimos commodi hic ipsa eius
         neque asperiores beatae, magnam harum eos explicabo voluptas architecto!
@@ -38,16 +38,16 @@ export const DefaultKaizenSiteDemo: Story = args => (
       </p>
     </Card>
     <Card classNameOverride="bg-blue-100 p-12" tag="div">
-      <h2 className="text-heading-2 font-family-heading font-weight-heading text-purple-800 mb-12">
+      <h2 className="mb-12 font-family-heading text-heading-2 font-weight-heading text-purple-800">
         This is a card heading
       </h2>
-      <p className="font-family-paragraph font-weight-paragraph text-purple-800 bg-blue-100 mb-12">
+      <p className="mb-12 bg-blue-100 font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis,
         ad. Adipisci voluptates consectetur dignissimos commodi hic ipsa eius
         neque asperiores beatae, magnam harum eos explicabo voluptas architecto!
         Autem, culpa ab?
       </p>
-      <button className="border-none rounded-default p-12 bg-blue-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded">
+      <button className="rounded rounded-default border-none bg-blue-600 p-12 font-family-paragraph text-paragraph font-weight-paragraph-bold text-white">
         Learn more
       </button>
     </Card>
@@ -59,23 +59,23 @@ DefaultKaizenSiteDemo.args = { title: "Tailwind title example" }
 
 export const TailwindPseudoStates: Story = () => (
   <div className="p-12">
-    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
-      Tailwind Pseudo states
+    <h1 className="flex flex-col items-center font-family-heading text-heading-1 font-weight-heading text-purple-700">
+      Tailwind Psuedo states
     </h1>
     <div className="flex">
       <div className="inline-flex flex-col">
-        <h2 className="text-heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
+        <h2 className="font-family-heading-2 font-weight-heading-2 mb-12 text-heading-2 text-purple-800">
           Hover
         </h2>
-        <button className=" rounded-default border-none p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded border-width-default  hover:bg-purple-800">
+        <button className=" rounded border-width-default rounded-default border-none bg-purple-600 p-12 font-family-paragraph text-paragraph font-weight-paragraph-bold text-white  hover:bg-purple-800">
           Learn more
         </button>
       </div>
-      <div className="inline-flex flex-col ml-12">
-        <h2 className="text-heading-2 font-family-heading-2 font-weight-heading-2 text-purple-800 mb-12">
+      <div className="ml-12 inline-flex flex-col">
+        <h2 className="font-family-heading-2 font-weight-heading-2 mb-12 text-heading-2 text-purple-800">
           Focus
         </h2>
-        <button className="border-none rounded-default p-12 bg-purple-600 text-white font-family-paragraph font-weight-paragraph-bold text-paragraph rounded focus:ring-2 focus:ring-offset-1 focus:bg-purple-800">
+        <button className="rounded rounded-default border-none bg-purple-600 p-12 font-family-paragraph text-paragraph font-weight-paragraph-bold text-white focus:bg-purple-800 focus:ring-2 focus:ring-offset-1">
           Learn more
         </button>
       </div>
@@ -87,14 +87,14 @@ TailwindPseudoStates.storyName = "Tailwind pseudo selectors"
 
 export const TailwindMediaQueries: Story = () => (
   <div className="p-12">
-    <h1 className="flex flex-col items-center text-heading-1 font-weight-heading font-family-heading text-purple-700">
+    <h1 className="flex flex-col items-center font-family-heading text-heading-1 font-weight-heading text-purple-700">
       Tailwind media queries
     </h1>
-    <h2 className="text-heading-2 font-weight-heading font-family-heading text-purple-700">
+    <h2 className="font-family-heading text-heading-2 font-weight-heading text-purple-700">
       Min width queries
     </h2>
     <div className="flex md:flex-col">
-      <div className="mx-12 bg-orange-400 p-32 inline-flex md:bg-blue-400"></div>
+      <div className="mx-12 inline-flex bg-orange-400 p-32 md:bg-blue-400"></div>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
         nostrum accusamus nam ducimus excepturi officiis eos, suscipit
@@ -102,11 +102,11 @@ export const TailwindMediaQueries: Story = () => (
         dolor voluptatum eum. Optio.≈
       </p>
     </div>
-    <h2 className="text-heading-2 font-weight-heading font-family-heading text-purple-700">
+    <h2 className="font-family-heading text-heading-2 font-weight-heading text-purple-700">
       Max width queries
     </h2>
     <div className="flex md-max:flex-col ">
-      <div className="mx-12 bg-orange-400 p-32 inline-flex md-max:bg-blue-400"></div>
+      <div className="mx-12 inline-flex bg-orange-400 p-32 md-max:bg-blue-400"></div>
       <p className="font-family-paragraph font-weight-paragraph text-purple-800">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime numquam
         nostrum accusamus nam ducimus excepturi officiis eos, suscipit

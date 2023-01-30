@@ -38,6 +38,14 @@ type AvatarProps =
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+export type SectionTitleRenderProps = Pick<
+  TitleBlockProps,
+  | "sectionTitle"
+  | "sectionTitleAutomationId"
+  | "sectionTitleDescription"
+  | "sectionTitleDescriptionAutomationId"
+>
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -57,6 +65,7 @@ export interface TitleBlockProps {
   subtitle?: React.ReactNode
   sectionTitle?: string
   sectionTitleDescription?: string
+  renderSectionTitle?: (renderProps: SectionTitleRenderProps) => React.ReactNode
   pageSwitcherSelect?: SelectProps
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
@@ -256,39 +265,37 @@ const renderSubtitle = (
   </div>
 )
 
-const renderSectionTitle = (
+const defaultRenderSectionTitle = (
   sectionTitle?: string,
   sectionTitleDescription?: string,
   variant?: Variant,
   sectionTitleAutomationId?: string,
   sectionTitleDescriptionAutomationId?: string
 ): JSX.Element => (
-  <div className={styles.sectionTitleContainer}>
-    <div className={styles.sectionTitleInner}>
-      {sectionTitle && (
-        <div className={styles.sectionTitle}>
-          <Heading
-            variant="heading-2"
-            color={isReversed(variant) ? "white" : "dark"}
-            classNameOverride={styles.sectionTitleOverride}
-            data-automation-id={sectionTitleAutomationId}
-          >
-            {sectionTitle}
-          </Heading>
-        </div>
-      )}
-      {sectionTitleDescription && (
-        <div
-          data-automation-id={sectionTitleDescriptionAutomationId}
-          className={classNames(styles.sectionTitleDescription, {
-            [styles.dark]: !isReversed(variant),
-          })}
+  <>
+    {sectionTitle && (
+      <div className={styles.sectionTitle}>
+        <Heading
+          variant="heading-2"
+          color={isReversed(variant) ? "white" : "dark"}
+          classNameOverride={styles.sectionTitleOverride}
+          data-automation-id={sectionTitleAutomationId}
         >
-          {sectionTitleDescription}
-        </div>
-      )}
-    </div>
-  </div>
+          {sectionTitle}
+        </Heading>
+      </div>
+    )}
+    {sectionTitleDescription && (
+      <div
+        data-automation-id={sectionTitleDescriptionAutomationId}
+        className={classNames(styles.sectionTitleDescription, {
+          [styles.dark]: !isReversed(variant),
+        })}
+      >
+        {sectionTitleDescription}
+      </div>
+    )}
+  </>
 )
 
 type BreadcrumbType = {
@@ -511,6 +518,7 @@ const TitleBlockZen = ({
   subtitle,
   sectionTitle,
   sectionTitleDescription,
+  renderSectionTitle,
   pageSwitcherSelect,
   handleHamburgerClick,
   primaryAction,
@@ -549,7 +557,7 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.collapseNavigationArea]:
             collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription),
+            !(sectionTitle || sectionTitleDescription || renderSectionTitle),
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]:
             subtitle && typeof subtitle === "string" && subtitle.length >= 18,
@@ -643,14 +651,28 @@ const TitleBlockZen = ({
         <div className={styles.rowBelowSeparator}>
           <div className={styles.rowBelowSeparatorInner}>
             <div className={styles.rowBelowSeparatorInnerContent}>
-              {(sectionTitle || sectionTitleDescription) &&
-                renderSectionTitle(
-                  sectionTitle,
-                  sectionTitleDescription,
-                  variant,
-                  sectionTitleAutomationId,
-                  sectionTitleDescriptionAutomationId
-                )}
+              {(sectionTitle ||
+                sectionTitleDescription ||
+                renderSectionTitle) && (
+                <div className={styles.sectionTitleContainer}>
+                  <div className={styles.sectionTitleInner}>
+                    {!!renderSectionTitle
+                      ? renderSectionTitle({
+                          sectionTitle,
+                          sectionTitleAutomationId,
+                          sectionTitleDescription,
+                          sectionTitleDescriptionAutomationId,
+                        })
+                      : defaultRenderSectionTitle(
+                          sectionTitle,
+                          sectionTitleDescription,
+                          variant,
+                          sectionTitleAutomationId,
+                          sectionTitleDescriptionAutomationId
+                        )}
+                  </div>
+                </div>
+              )}
               {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions
