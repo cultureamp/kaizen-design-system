@@ -2,10 +2,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../../storybook/constants"
 
 export default {
-  title: "Tailwind/Classname References",
+  title: `${CATEGORIES.tailwind}/Classname References`,
   parameters: {
     docs: {
       description: {

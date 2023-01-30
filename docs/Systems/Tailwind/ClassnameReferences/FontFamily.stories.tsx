@@ -2,16 +2,15 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 
 const prefix = "font-"
 const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.fontWeight || []
+  kaizenTailwindTheme?.fontFamily || []
 )
-
 export default {
-  title: "Tailwind/ClassName References/Typography/Font Weight",
-  component: <div>Hello</div>,
+  title: `${CATEGORIES.tailwind}/Classname References/Typography/Font Family`,
   parameters: {
     docs: {
       description: {
@@ -28,15 +27,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {classKeyVal.map((presetData, index) => {
-        const [fontWeightClassName, fontWeightValue] = presetData
+        const [fontFamilyClassName, fontFamilyValue] = presetData
 
         return (
           <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p className="height">font-{fontWeightClassName}</p>
-              <p>{fontWeightValue}</p>
-              <p style={{ fontWeight: fontWeightValue }}>Aa</p>
+              <p>font-{fontFamilyClassName}</p>
+              <p>{fontFamilyValue}</p>
+              <p style={{ fontFamily: fontFamilyValue[0] }}>Aa</p>
             </StoryWrapper.Row>
           </React.Fragment>
         )
@@ -46,5 +45,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Weight"
+StickerSheetDefault.storyName = "Font Family"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
