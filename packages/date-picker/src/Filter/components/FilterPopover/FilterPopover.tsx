@@ -24,7 +24,7 @@ export const FilterPopover = ({
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
-
+console.log("referenceElement", referenceElement)
   const { styles: popperStyles, attributes: popperAttributes } = usePopper(
     referenceElement,
     popperElement,
@@ -113,36 +113,10 @@ export const FilterPopoverWithFocusLock = ({
 
 FilterPopoverWithFocusLock.displayName = "FilterPopoverWithFocusLock"
 
-export const FilterPopoverWithFocusLockExtraContext = ({
+export const FilterSol3FocusLock = ({
   children,
-  referenceElement,
-  popperOptions,
-  classNameOverride,
-  ...restProps
-}: FilterPopoverProps): JSX.Element => {
+}: { children: React.ReactNode }): JSX.Element => {
   const { isOpen, setIsOpen } = useFilterContextSol3()
-
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
-
-  const { styles: popperStyles, attributes: popperAttributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 15],
-          },
-        },
-      ],
-      placement: "bottom-start",
-      strategy: "fixed",
-      ...popperOptions,
-    }
-  )
 
   if (!isOpen) return <></>
 
@@ -152,20 +126,10 @@ export const FilterPopoverWithFocusLockExtraContext = ({
       onClickOutside={(): void => setIsOpen(false)}
       onEscapeKey={(): void => setIsOpen(false)}
     >
-      <div
-        ref={setPopperElement}
-        style={popperStyles?.popper}
-        {...popperAttributes?.popper}
-        className={classnames(styles.filterPopover, classNameOverride)}
-        role="dialog"
-        aria-modal="true"
-        {...restProps}
-      >
-        {children}
-      </div>
+      {children}
     </FocusOn>
   )
 }
 
-FilterPopoverWithFocusLockExtraContext.displayName =
-  "FilterPopoverWithFocusLockExtraContext"
+FilterSol3FocusLock.displayName =
+  "FilterSol3FocusLock"
