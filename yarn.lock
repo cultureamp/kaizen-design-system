@@ -1375,16 +1375,16 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz#c9c61d9fe5ca5ac664e1153bb0aa0eba1c6d6308"
   integrity sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==
 
-"@cultureamp/rich-text-toolkit@^2.0.0":
-  version "2.0.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.0/3782e700674cf4e5d3b244371c106b2f02188efd#3782e700674cf4e5d3b244371c106b2f02188efd"
-  integrity sha512-o9lvtRB/108uTBEon64ovM0QnbwUKmX5zUfeJ38gqPODdDnrfsdQt87qvjXuIgtZFRrpljUt5FJpcwhTdKNqEw==
+"@cultureamp/rich-text-toolkit@^2.0.1":
+  version "2.0.1"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.1/0916bd9ecf3ede66863304eef6c78f44f694a022#0916bd9ecf3ede66863304eef6c78f44f694a022"
+  integrity sha512-i10H4D21faYS3l405/tafhVIPBSfCumWsY/W84sBgD/mXS8T2SN8kyVYmgLfW4AGFkoxdBZ60Ydq65KseF2vhA==
   dependencies:
-    "@kaizen/button" "^1.2.8"
-    "@kaizen/component-library" "^14.3.4"
-    "@kaizen/draft-modal" "^10.3.1"
-    "@kaizen/draft-popover" "^5.1.6"
-    "@kaizen/typography" "^2.2.1"
+    "@kaizen/button" "^2.0.14"
+    "@kaizen/component-library" "^16.1.16"
+    "@kaizen/draft-modal" "^10.5.44"
+    "@kaizen/draft-popover" "^5.2.21"
+    "@kaizen/typography" "^2.3.5"
     lodash.debounce "^4.0.8"
     nanobus "^4.5.0"
     prosemirror-commands "^1.3.0"
@@ -2030,30 +2030,6 @@
   dependencies:
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
-
-"@kaizen/button@^1.2.8":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-1.3.5.tgz#6110cf27316cd6fbb360b20f99a30b0c6deeb838"
-  integrity sha512-4m8yTPL2rD0syisZWIGXdqVDnJFNVjKBrx5qhln+HyMdSYL86bz7D/PH1tDjWMqkL3eQ3GWWaEXhudb+47Oxgw==
-  dependencies:
-    "@kaizen/component-library" "^16.1.2"
-    "@kaizen/draft-badge" "^1.13.2"
-    "@kaizen/loading-spinner" "^2.3.2"
-    classnames "^2.3.1"
-
-"@kaizen/component-library@^14.3.4":
-  version "14.3.6"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-14.3.6.tgz#bbc8beb7af1bd619de0e3e8c4c292050683bcd28"
-  integrity sha512-7fXTOOLuGIgsE+SmsfCCyWQfFlkhsgv0i5Va3FwSPBdO5RSkCmnxOHxNRFGydkQ0vAiBYTJmGKlXl8aGdC43dg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.6"
-    "@kaizen/hosted-assets" "^2.0.0"
-    "@types/classnames" "^2.3.0"
-    "@types/lodash" "^4.14.182"
-    "@types/uuid" "^3.4.10"
-    classnames "^2.3.1"
-    motion-ui cultureamp/motion-ui
 
 "@lerna/add@3.21.0":
   version "3.21.0"
@@ -4888,7 +4864,7 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*", "@types/lodash@^4.14.167", "@types/lodash@^4.14.182", "@types/lodash@^4.14.191":
+"@types/lodash@*", "@types/lodash@^4.14.167", "@types/lodash@^4.14.191":
   version "4.14.191"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.191.tgz#09511e7f7cba275acd8b419ddac8da9a6a79e2fa"
   integrity sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==
@@ -5109,11 +5085,6 @@
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
-
-"@types/uuid@^3.4.10":
-  version "3.4.10"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.10.tgz#637d3c8431f112edf6728ac9bdfadfe029540f48"
-  integrity sha512-BgeaZuElf7DEYZhWYDTc/XcLZXdVgFkVSTa13BqKvbnmUrxr3TJFKofUxCtDO9UQOdhnV+HPOESdHiHKZOJV1A==
 
 "@types/uuid@^9.0.0":
   version "9.0.0"
@@ -7246,7 +7217,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@*, classnames@^2.3.1, classnames@^2.3.2:
+classnames@*, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -13837,10 +13808,6 @@ moo-color@^1.0.2:
   integrity sha512-i/+ZKXMDf6aqYtBhuOcej71YSlbjT3wCO/4H1j8rPvxDJEifdwgg5MaFyu6iYAT8GBZJg2z0dkgK4YMzvURALQ==
   dependencies:
     color-name "^1.1.4"
-
-"motion-ui@github:cultureamp/motion-ui":
-  version "2.0.3"
-  resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/b15622a9afe00d5bb88c07ecf1451e0affdf155c"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
