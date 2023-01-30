@@ -465,6 +465,8 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
     [data]
   )
 
+  const filteredCount = currentPeople.length
+  const totalCount = cachedPeople.length
   return (
     <>
       <FilterMultiSelect
@@ -500,14 +502,31 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
             <FilterMultiSelect.ListBox>
               {({ allItems, hasNoItems }): JSX.Element => (
                 <>
-                  {hasNoItems && (
+                  {hasNoItems ? (
                     <FilterMultiSelect.NoResults>
-                      No results found for{" "}
-                      <Paragraph variant="extra-small" tag="span" color="dark">
-                        {searchState}
-                      </Paragraph>
-                      .
+                      No results found for {searchState}.
                     </FilterMultiSelect.NoResults>
+                  ) : searchState !== "" ? (
+                    <Paragraph
+                      classNameOverride={styles.helperMessage}
+                      variant="extra-small"
+                      tag="span"
+                      color="dark-reduced-opacity"
+                    >
+                      Showing {filteredCount} of {totalCount}
+                    </Paragraph>
+                  ) : (
+                    hasNextPage && (
+                      <Paragraph
+                        classNameOverride={styles.helperMessage}
+                        variant="extra-small"
+                        tag="span"
+                        color="dark-reduced-opacity"
+                      >
+                        There are a lot of options. Narrow them further by
+                        searching for a more precise term.
+                      </Paragraph>
+                    )
                   )}
                   {allItems.map(item => (
                     <FilterMultiSelect.Option key={item.key} item={item} />
