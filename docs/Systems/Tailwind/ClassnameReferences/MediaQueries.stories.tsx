@@ -3,10 +3,11 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../../storybook/constants"
+import { figmaEmbed } from "../../../../storybook/helpers"
 
 export default {
-  title: "Tailwind/Classname References",
+  title: `${CATEGORIES.tailwind}/Classname References`,
   parameters: {
     docs: {
       description: {

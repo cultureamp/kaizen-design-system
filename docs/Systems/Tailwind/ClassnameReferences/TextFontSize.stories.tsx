@@ -2,7 +2,8 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 
 const prefix = "text-"
 const classKeyVal: string[][] = Object.entries(
@@ -10,7 +11,7 @@ const classKeyVal: string[][] = Object.entries(
 )
 
 export default {
-  title: "Tailwind/Classname References/Typography/Font Size",
+  title: `${CATEGORIES.tailwind}/Classname References/Typography/Font Size`,
   parameters: {
     docs: {
       description: {

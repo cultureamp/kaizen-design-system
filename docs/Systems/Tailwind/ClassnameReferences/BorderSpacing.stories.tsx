@@ -2,11 +2,12 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Classname References/Effects/Box Shadow",
+  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Spacing`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -24,18 +25,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.boxShadow as { [key: string]: string }
+        kaizenTailwindTheme.spacing as { [key: string]: string }
       ).map(presetData => {
-        const [shadowClassName, shadowValue] = presetData
-        if (!shadowValue) return <></>
+        const [borderSpacingClassName, borderSpacingValue] = presetData
+        if (!borderSpacingValue) return <></>
 
         return (
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>shadow-{shadowClassName}</p>
-              <p>{shadowValue}</p>
-              <div style={{ boxShadow: shadowValue }} className={styles.box} />
+              <p>border-{borderSpacingClassName}</p>
+              <p>{borderSpacingValue}</p>
+              <table style={{ borderSpacing: borderSpacingValue }}>
+                <tr>
+                  <td className={styles.outlined}>Tutant</td>
+                  <td className={styles.outlined}>Meenage</td>
+                </tr>
+                <tr>
+                  <td className={styles.outlined}>Neetle</td>
+                  <td className={styles.outlined}>Teetles</td>
+                </tr>
+              </table>
             </StoryWrapper.Row>
           </>
         )
@@ -45,5 +55,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Box Shadow"
+StickerSheetDefault.storyName = "Border Spacing"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

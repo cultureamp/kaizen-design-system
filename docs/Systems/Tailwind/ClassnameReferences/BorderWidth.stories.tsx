@@ -2,11 +2,12 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Classname References/Borders/Border Spacing",
+  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Width`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -24,27 +25,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.spacing as { [key: string]: string }
+        kaizenTailwindTheme.borderWidth as { [key: string]: string }
       ).map(presetData => {
-        const [borderSpacingClassName, borderSpacingValue] = presetData
-        if (!borderSpacingValue) return <></>
+        const [borderWidthClassName, borderWidthValue] = presetData
+        if (!borderWidthValue) return <></>
 
         return (
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>border-{borderSpacingClassName}</p>
-              <p>{borderSpacingValue}</p>
-              <table style={{ borderSpacing: borderSpacingValue }}>
-                <tr>
-                  <td className={styles.outlined}>Tutant</td>
-                  <td className={styles.outlined}>Meenage</td>
-                </tr>
-                <tr>
-                  <td className={styles.outlined}>Neetle</td>
-                  <td className={styles.outlined}>Teetles</td>
-                </tr>
-              </table>
+              <p>border-{borderWidthClassName}</p>
+              <p>{borderWidthValue}</p>
+              <div
+                style={{ borderWidth: borderWidthValue }}
+                className={styles.boxWithBorder}
+              />
             </StoryWrapper.Row>
           </>
         )
@@ -54,5 +49,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Spacing"
+StickerSheetDefault.storyName = "Border Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

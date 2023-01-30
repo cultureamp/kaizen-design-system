@@ -2,11 +2,12 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Classname References/Borders/Border Width",
+  title: `${CATEGORIES.tailwind}/Classname References/Effects/Box Shadow`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -24,21 +25,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {Object.entries(
-        kaizenTailwindTheme.borderWidth as { [key: string]: string }
+        kaizenTailwindTheme.boxShadow as { [key: string]: string }
       ).map(presetData => {
-        const [borderWidthClassName, borderWidthValue] = presetData
-        if (!borderWidthValue) return <></>
+        const [shadowClassName, shadowValue] = presetData
+        if (!shadowValue) return <></>
 
         return (
           <>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>border-{borderWidthClassName}</p>
-              <p>{borderWidthValue}</p>
-              <div
-                style={{ borderWidth: borderWidthValue }}
-                className={styles.boxWithBorder}
-              />
+              <p>shadow-{shadowClassName}</p>
+              <p>{shadowValue}</p>
+              <div style={{ boxShadow: shadowValue }} className={styles.box} />
             </StoryWrapper.Row>
           </>
         )
@@ -48,5 +46,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Width"
+StickerSheetDefault.storyName = "Box Shadow"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
