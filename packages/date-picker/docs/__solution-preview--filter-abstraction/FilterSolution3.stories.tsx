@@ -27,7 +27,7 @@ import { FilterContents } from "../../src/Filter/components/FilterContents"
 import {
   FilterPopover,
   FilterPopoverWithFocusLock,
-  FilterPopoverWithFocusLockExtraContext,
+  FilterSol3FocusLock,
 } from "../../src/Filter/components/FilterPopover"
 import { DateRangeDisplayLabel } from "../../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
 import { isCompleteDateRange } from "../../src/FilterDateRangePicker/utils/isCompleteDateRange"
@@ -321,55 +321,57 @@ Solution3DRP.storyName = "Solution 3 - FilterDRP"
 // The isOpen check must happen before the popover mounts, and to try and
 // get the context to handle the isOpen does not allow for this with
 // the proposed structure.
+//
+// EDIT: THIS ALSO DOES NOT WORK
 // We could potentially separate the FocusLock from the Popper,
 // But then it will create a lot of layers for the consumer
+//
+// ^ Seems the above does not work because the component does not re-render
+// at the correct time to allow the ref to attach on the first open of the popover.
 export const Solution3DRPExtraContext: ComponentStory<
   typeof FilterSolution3
 > = args => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
   const [range, setRange] = useState<DateRange | undefined>()
+  // const buttonRef2 = useRef<HTMLButtonElement>(null)
+  // const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
+  // const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+  //   DateRange | undefined
+  // >({
+  //   from: new Date("2022-05-15"),
+  //   to: new Date("2022-06-22"),
+  // })
 
-  const buttonRef2 = useRef<HTMLButtonElement>(null)
-  const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
-  const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
-
-  const buttonRef3 = useRef<HTMLButtonElement>(null)
-  const removeButtonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-    triggerButtonRef: buttonRef3,
-    removeButtonRef,
-  })
-  const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
-  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+  // const buttonRef3 = useRef<HTMLButtonElement>(null)
+  // const removeButtonRef = useRef<HTMLButtonElement>(null)
+  // const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+  //   triggerButtonRef: buttonRef3,
+  //   removeButtonRef,
+  // })
+  // const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
+  // const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
 
   return (
     <>
       <FilterSolution3ExtraContext
-        // {...args}
         label="Dates"
       >
-        {/* The popover cannot do the isOpen check as if it mounts at
-        the same time as the button, it cannot position itself as it should
-      */}
         <FilterTriggerButtonSol3 ref={buttonRef1} />
-        <FilterPopoverWithFocusLockExtraContext
-          referenceElement={buttonRef1.current}
-        >
-          <FilterContents>
-            <FilterDateRangePickerFieldSol3
-              id="filterdrp"
-              // label="Dates"
-              locale="en-AU"
-              selectedRange={range}
-              onRangeChange={setRange}
-            />
-          </FilterContents>
-        </FilterPopoverWithFocusLockExtraContext>
+        <FilterSol3FocusLock>
+          <FilterPopover
+            referenceElement={buttonRef1.current}
+          >
+            <FilterContents>
+              <FilterDateRangePickerFieldSol3
+                id="filterdrp"
+                // label="Dates"
+                locale="en-AU"
+                selectedRange={range}
+                onRangeChange={setRange}
+              />
+            </FilterContents>
+          </FilterPopover>
+        </FilterSol3FocusLock>
       </FilterSolution3ExtraContext>
 
       {/* <div style={{ marginTop: "2rem" }}>
@@ -392,7 +394,7 @@ export const Solution3DRPExtraContext: ComponentStory<
           ref={buttonRef2}
         />
         {isOpenExisting && (
-          <FilterPopoverWithFocusLockExtraContext
+          <FilterSol3FocusLock
             referenceElement={buttonRef2.current}
           >
             <FilterContents>
@@ -404,7 +406,7 @@ export const Solution3DRPExtraContext: ComponentStory<
                 onRangeChange={setRangeDefaultExisting}
               />
             </FilterContents>
-          </FilterPopoverWithFocusLockExtraContext>
+          </FilterSol3FocusLock>
         )}
         </FilterSolution3ExtraContext>
       </div>
@@ -420,7 +422,7 @@ export const Solution3DRPExtraContext: ComponentStory<
             removeButtonProps={{ onClick: () => undefined }}
           />
           {isOpenRemovable && (
-          <FilterPopoverWithFocusLockExtraContext
+          <FilterSol3FocusLock
             referenceElement={buttonRef3.current}
           >
             <FilterContents>
@@ -432,7 +434,7 @@ export const Solution3DRPExtraContext: ComponentStory<
                 onRangeChange={setRangeRemovable}
               />
             </FilterContents>
-          </FilterPopoverWithFocusLockExtraContext>
+          </FilterSol3FocusLock>
           )}
         </FilterSolution3ExtraContext>
       </div> */}
