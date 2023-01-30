@@ -1,3 +1,10 @@
 .contentContainer {
   background: #eee;
 }
+
+.flex-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
