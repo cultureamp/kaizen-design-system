@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/responsive",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "description": "A collection of helpers for responsive UIs",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
