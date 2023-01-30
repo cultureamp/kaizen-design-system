@@ -1,8 +1,8 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { enAU } from "date-fns/locale"
+import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
@@ -12,8 +12,7 @@ import {
   DateRangeInputField,
   DateRangeInputFieldProps,
 } from "../src/FilterDateRangePicker/components/DateRangeInputField"
-
-const LOCALE = enAU
+import { formatDateAsText } from "../src/utils/formatDateAsText"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Date Range Input Field`,
@@ -43,9 +42,11 @@ DefaultStory.args = {
   locale: enAU,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: Story<{
+  textDirection: "ltr" | "rtl" // Global control; see storybook/preview.tsx
+  isReversed: boolean
+  locale: DateRangeInputFieldProps["locale"]
+}> = ({ isReversed, locale }) => {
   const inputRangeStartProps: DateRangeInputFieldProps["inputRangeStartProps"] =
     { labelText: "Date from" }
   const inputRangeEndProps: DateRangeInputFieldProps["inputRangeEndProps"] = {
@@ -54,79 +55,91 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
+      <StickerSheet isReversed={isReversed} heading="Default">
+        <StickerSheet.Header
           headings={["Base", "Selected value", "Custom description"]}
         />
-        <StoryWrapper.Row rowTitle="Default">
-          <DateRangeInputField
-            id="daterangeinputfield--default"
-            legend="Default example"
-            isReversed={isReversed}
-            inputRangeStartProps={inputRangeStartProps}
-            inputRangeEndProps={inputRangeEndProps}
-            locale={LOCALE}
-          />
-          <DateRangeInputField
-            id="daterangeinputfield--selected"
-            legend="Selected example"
-            isReversed={isReversed}
-            inputRangeStartProps={{
-              ...inputRangeStartProps,
-              value: "8 Jun 2022",
-            }}
-            inputRangeEndProps={{
-              ...inputRangeEndProps,
-              value: "25 Nov 2022",
-            }}
-            locale={LOCALE}
-          />
-          <DateRangeInputField
-            id="daterangeinputfield--description"
-            legend="Description example"
-            isReversed={isReversed}
-            inputRangeStartProps={inputRangeStartProps}
-            inputRangeEndProps={inputRangeEndProps}
-            description={
-              <>
-                <Paragraph
-                  tag="span"
-                  variant="small"
-                  color={isReversed ? "white" : "dark"}
-                >
-                  My <strong>Custom</strong> Description Paragraph
-                </Paragraph>
-              </>
-            }
-            locale={LOCALE}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+        <StickerSheet.Body>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
+            <DateRangeInputField
+              id="daterangeinputfield--default"
+              legend="Default example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--selected"
+              legend="Selected example"
+              isReversed={isReversed}
+              inputRangeStartProps={{
+                ...inputRangeStartProps,
+                value: formatDateAsText(
+                  new Date("2022-06-08"),
+                  undefined,
+                  locale
+                ),
+              }}
+              inputRangeEndProps={{
+                ...inputRangeEndProps,
+                value: formatDateAsText(
+                  new Date("2022-12-17"),
+                  undefined,
+                  locale
+                ),
+              }}
+              locale={locale}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--description"
+              legend="Description example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              description={
+                <>
+                  <Paragraph
+                    tag="span"
+                    variant="small"
+                    color={isReversed ? "white" : "dark"}
+                  >
+                    My <strong>Custom</strong> Description Paragraph
+                  </Paragraph>
+                </>
+              }
+              locale={locale}
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
 
-      <StoryWrapper>
-        <StoryWrapper.RowHeader headings={["Disabled", "Error"]} />
-        <StoryWrapper.Row rowTitle="States">
-          <DateRangeInputField
-            id="daterangeinputfield--disabled"
-            legend="Disabled example"
-            isReversed={isReversed}
-            inputRangeStartProps={inputRangeStartProps}
-            inputRangeEndProps={inputRangeEndProps}
-            locale={LOCALE}
-            disabled
-          />
-          <DateRangeInputField
-            id="daterangeinputfield--error"
-            legend="Error example"
-            isReversed={isReversed}
-            inputRangeStartProps={inputRangeStartProps}
-            inputRangeEndProps={inputRangeEndProps}
-            locale={LOCALE}
-            status="error"
-            validationMessage="Error message"
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+      <StickerSheet heading="States">
+        <StickerSheet.Header headings={["Disabled", "Error"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
+            <DateRangeInputField
+              id="daterangeinputfield--disabled"
+              legend="Disabled example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              disabled
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--error"
+              legend="Error example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              status="error"
+              validationMessage="Error message"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
     </>
   )
 }
@@ -136,4 +149,18 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+StickerSheetDefault.args = {
+  locale: enUS,
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl",
+  locale: enUS,
 }

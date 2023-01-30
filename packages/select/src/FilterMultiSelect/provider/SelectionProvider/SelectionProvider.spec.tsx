@@ -500,7 +500,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
       const searchString = "1"
       await userEvent.type(searchInput, searchString)
 
-      expect(onSearchInputChange).toBeCalledTimes(1)
+      expect(onSearchInputChange).toBeCalledTimes(2)
       expect(onSearchInputChange).toBeCalledWith(searchString)
     })
   })

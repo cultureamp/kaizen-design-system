@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import { AriaButtonProps, useButton } from "@react-aria/button"
-import { useFocusRing } from "@react-aria/focus"
 import { mergeProps, useObjectRef } from "@react-aria/utils"
 import { DOMAttributes, FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
@@ -10,11 +9,10 @@ import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { useSelectContext } from "../../context"
 import styles from "./TriggerButton.module.scss"
-
-export type TriggerButtonProps = OverrideClassName<
-  HTMLAttributes<HTMLButtonElement>
-> & {
+export interface TriggerButtonProps
+  extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder?: string
+  isReversed?: boolean
   triggerProps: AriaButtonProps<"button">
   valueProps: DOMAttributes<FocusableElement>
   status?: "error" | "caution"
@@ -28,9 +26,11 @@ export const TriggerButton = React.forwardRef<
     {
       placeholder = "Select",
       classNameOverride,
+      isReversed,
       triggerProps,
       valueProps,
       status,
+      ...restProps
     },
     buttonRef
   ) => {
@@ -38,22 +38,20 @@ export const TriggerButton = React.forwardRef<
     const value = state?.selectedItem?.rendered
     const ref = useObjectRef(buttonRef)
     const { buttonProps } = useButton(triggerProps, ref)
-    const { isFocusVisible, focusProps } = useFocusRing()
 
     return (
       <button
-        {...mergeProps(buttonProps, focusProps)}
+        {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames([
           styles.button,
           (value === null || value === undefined) && styles.placeholder,
-          isFocusVisible && styles.isFocusVisible,
           status === "error" && styles.error,
           status === "caution" && styles.caution,
           triggerProps.isDisabled && styles.disabled,
+          isReversed && styles.reversed,
           classNameOverride,
         ])}
-        disabled={triggerProps.isDisabled}
       >
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}

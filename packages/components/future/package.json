@@ -1,0 +1,5 @@
+{
+  "internal": true,
+  "main": "../dist/future.js",
+  "types": "../dist/future.d.ts"
+}

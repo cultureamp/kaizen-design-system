@@ -1,14 +1,14 @@
 import React from "react"
-import { useSelectState } from "@react-stately/select"
+import { Section } from "@react-stately/collections"
+import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { Select, getSelectChildren } from "../src/Select/Select"
-import overlayStyles from "../src/Select/components/Overlay/Overlay.module.scss"
-import { SelectContext } from "../src/Select/context/SelectContext"
-import { singleMockItems } from "./MockData"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
+import { figmaEmbed } from "../../../../storybook/helpers"
+import { Select } from "../../src/Select/Select"
+import { SingleItemType } from "../../src/types"
+import { groupedMockItems, singleMockItems } from "../MockData"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -62,45 +62,51 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-type MockListBoxProps = {
-  optionClassName?: string
-  selectedKey?: React.Key | null
-  isFullWidth?: boolean
-  disabledValues?: React.Key[]
-}
+export const WithSections: ComponentStory<typeof Select> = () => (
+  <Select
+    id="select-grouped"
+    label="label"
+    items={groupedMockItems}
+    placeholder="Placeholder"
+  />
+)
 
-const MockListBox = ({
-  optionClassName,
-  selectedKey,
-  isFullWidth,
-  disabledValues,
-}: MockListBoxProps): JSX.Element => {
-  const mockState = useSelectState({
-    selectedKey: selectedKey ?? undefined,
-    items: singleMockItems,
-    children: getSelectChildren,
-    disabledKeys: disabledValues,
-  })
-  return (
-    <SelectContext.Provider value={{ state: mockState }}>
-      <div
-        className={overlayStyles.menuPopup}
-        style={{ position: "relative", width: !isFullWidth ? "180px" : "100%" }}
-      >
-        <Select.ListBox menuProps={{}}>
-          {Array.from(mockState.collection).map(item => (
-            <Select.Option
-              key={item.key}
-              item={item}
-              classNameOverride={
-                item.key === "id-sre" ? `${optionClassName}` : undefined
-              }
-            />
-          ))}
-        </Select.ListBox>
-      </div>
-    </SelectContext.Provider>
-  )
+WithSections.parameters = {
+  docs: {
+    source: {
+      code: `
+      const groupedMockItems: SingleItemType[] = [
+        {
+          label: "Colours",
+          value: [
+            { label: "Blue", value: "blue" },
+            { label: "Red", value: "red" },
+            { label: "Green", value: "green" },
+          ],
+        },
+        {
+          label: "Flavours",
+          value: [
+            { label: "Vanilla", value: "Vanilla" },
+            { label: "Chocolate", value: "Chocolate" },
+            { label: "Strawberry", value: "Strawberry" },
+          ],
+        },
+      ]
+      
+      () => (
+        <Select
+          id="select-grouped"
+          label="label"
+          items={groupedMockItems}
+          placeholder="Placeholder"
+        />
+      )
+      `,
+      language: "tsx",
+      type: "auto",
+    },
+  },
 }
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -119,6 +125,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           placeholder="Placeholder"
           disabledValues={["id-sre"]}
+          isReversed={isReversed}
         />
         <Select
           id="select-selected"
@@ -132,6 +139,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-selected"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-hovered"
@@ -146,6 +154,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-hover"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-focused"
@@ -160,6 +169,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               classNameOverride="story__button-focus"
             />
           )}
+          isReversed={isReversed}
         />
         <Select
           id="select-focused"
@@ -169,6 +179,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           selectedKey={null}
           placeholder="Placeholder"
           isDisabled
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Full Width">
@@ -179,6 +190,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           description="This is a description"
           placeholder="Placeholder"
           isFullWidth
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Custom Width (50%)">
@@ -190,6 +202,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             description="This is a description"
             isFullWidth
             placeholder="Placeholder"
+            isReversed={isReversed}
           />
         </div>
       </StoryWrapper.Row>
@@ -206,6 +219,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           placeholder="Placeholder"
           status="error"
           validationMessage="This is an error"
+          isReversed={isReversed}
         />
         <Select
           id="select-default"
@@ -215,6 +229,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           placeholder="Placeholder"
           status="caution"
           validationMessage="This is an error"
+          isReversed={isReversed}
         />
       </StoryWrapper.Row>
     </StoryWrapper>
@@ -240,28 +255,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           ]}
           description="This is a description"
           selectedKey={"id-long"}
+          isReversed={isReversed}
         />
-      </StoryWrapper.Row>
-    </StoryWrapper>
-
-    <div style={{ height: "550px", marginTop: "18rem" }}>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
-          headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
-        />
-        <StoryWrapper.Row rowTitle="Dropdown">
-          <MockListBox />
-          <MockListBox selectedKey="id-sre" />
-          <MockListBox optionClassName="story__option-hover" />
-          <MockListBox optionClassName="story__option-focus" />
-          <MockListBox disabledValues={["id-sre"]} />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-    </div>
-
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
-        <MockListBox isFullWidth />
       </StoryWrapper.Row>
     </StoryWrapper>
   </>
@@ -270,6 +265,113 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  controls: { disable: true },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}
+
+const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
+  <>
+    <div style={{ marginBottom: "28rem" }}>
+      <StoryWrapper isReversed={isReversed}>
+        <StoryWrapper.RowHeader
+          headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}
+        />
+        <StoryWrapper.Row rowTitle="Dropdown">
+          <Select
+            id="select-dropdown-base"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-selected"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            selectedKey="id-sre"
+            isOpen
+          />
+          <Select
+            id="select-dropdown-hover"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-hover" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-focus"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            isOpen
+          >
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-focus" : undefined
+                  }
+                />
+              ))
+            }
+          </Select>
+          <Select
+            id="select-dropdown-disabled"
+            label="label"
+            items={singleMockItems}
+            placeholder="Placeholder"
+            disabledValues={["id-sre"]}
+            isOpen
+          />
+        </StoryWrapper.Row>
+      </StoryWrapper>
+    </div>
+
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.Row rowTitle="Dropdown Fullwidth">
+        <Select
+          id="select-dropdown-fullwidth"
+          label="label"
+          items={singleMockItems}
+          description="This is a description"
+          placeholder="Placeholder"
+          isOpen
+          isFullWidth
+        />
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
+)
+
+export const DropdownStickerSheet = DropdownSheet.bind({})
+DropdownStickerSheet.storyName = "Sticker Sheet Dropdown"
+DropdownStickerSheet.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }

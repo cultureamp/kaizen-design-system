@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-guidance-block",
-  "version": "6.1.4",
+  "version": "6.1.7",
   "description": "The draft Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,18 +29,18 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/button": "^2.0.12",
-    "@kaizen/component-library": "^16.1.14",
-    "@kaizen/draft-illustration": "^6.0.8",
-    "@kaizen/draft-tooltip": "^5.4.20",
-    "@kaizen/typography": "^2.3.4",
+    "@kaizen/button": "^2.0.14",
+    "@kaizen/component-library": "^16.1.16",
+    "@kaizen/draft-illustration": "^6.0.11",
+    "@kaizen/draft-tooltip": "^5.4.22",
+    "@kaizen/typography": "^2.3.5",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2",
     "react-media": "^1.10.0"
   },
   "devDependencies": {
-    "@kaizen/draft-tag": "^3.2.18",
-    "rimraf": "^3.0.2"
+    "@kaizen/draft-tag": "^3.2.20",
+    "rimraf": "^4.1.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

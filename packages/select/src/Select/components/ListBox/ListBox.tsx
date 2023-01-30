@@ -20,7 +20,6 @@ export const ListBox = ({
     state,
     ref
   )
-
   return (
     <ul {...listBoxProps} ref={ref} className={styles.listBox}>
       {children}

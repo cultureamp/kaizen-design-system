@@ -12,6 +12,7 @@ import {
   CalendarSingle,
   CalendarSingleProps,
 } from "../src/_subcomponents/Calendar"
+import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
@@ -136,14 +137,7 @@ const StickerSheetTemplate: Story = () => (
   </>
 )
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
-
-StickerSheetDefault.play = ({ canvasElement }): void => {
+const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
   const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
@@ -157,7 +151,7 @@ StickerSheetDefault.play = ({ canvasElement }): void => {
 
   todayCalendarIds.forEach(id => {
     getElementWithinCalendar(id, "1st May (Sunday)").classList.add(
-      "story__datepicker__calendar--day-today"
+      styles.dayToday
     )
   })
 
@@ -175,4 +169,27 @@ StickerSheetDefault.play = ({ canvasElement }): void => {
       "focus-visible"
     )
   })
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetDefault.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl", // Global control; see storybook/preview.tsx
+}
+StickerSheetRTL.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
 }

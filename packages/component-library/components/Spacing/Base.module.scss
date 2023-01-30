@@ -1,19 +1,19 @@
 @import "~@kaizen/component-library/styles/fonts";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type"; // just for the grid unit @TODO - update when we move to dart-sass
+@import "~@kaizen/design-tokens/sass/spacing";
 
 // this should always be parity with util.ts
 $spacing-list: (
   ("0", 0),
-  ("0-point-25", 0.25 * $ca-grid),
-  ("0-point-5", 0.5 * $ca-grid),
-  ("0-point-75", 0.75 * $ca-grid),
-  ("1", $ca-grid),
-  ("1-point-25", calc(1.25 * calc(#{$ca-grid}/ 4))),
-  ("1-point-5", 1.5 * $ca-grid),
-  ("1-point-75", 1.75 * $ca-grid),
-  ("2", $ca-grid * 2),
-  ("2-point-5", 2.5 * $ca-grid),
-  ("3", 3 * $ca-grid),
-  ("3-point-5", 3.5 * $ca-grid),
-  ("4", $ca-grid * 4)
+  ("0-point-25", calc(0.25 * #{$spacing-md})),
+  ("0-point-5", calc(0.5 * #{$spacing-md})),
+  ("0-point-75", calc(0.75 * #{$spacing-md})),
+  ("1", $spacing-md),
+  ("1-point-25", calc(1.25 * #{$spacing-md})),
+  ("1-point-5", calc(1.5 * #{$spacing-md})),
+  ("1-point-75", calc(1.75 * #{$spacing-md})),
+  ("2", calc(2 * #{$spacing-md})),
+  ("2-point-5", calc(2.5 * #{$spacing-md})),
+  ("3", calc(3 * #{$spacing-md})),
+  ("3-point-5", calc(3.5 * #{$spacing-md})),
+  ("4", calc(4 * #{$spacing-md}))
 );

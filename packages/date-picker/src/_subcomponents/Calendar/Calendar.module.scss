@@ -103,6 +103,10 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
+
+  [dir="rtl"] & {
+    transform: rotate(180deg);
+  }
 }
 
 .table {
@@ -122,7 +126,7 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
 }
 
 .weekday {
-  padding: 0.5em;
+  padding: 0.5rem 0;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
   letter-spacing: $typography-paragraph-body-letter-spacing;
@@ -167,8 +171,7 @@ $selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
   }
 }
 
-.dayToday,
-:global(.story__datepicker__calendar--day-today) {
+.dayToday {
   color: $color-blue-500;
   font-weight: bold;
 }
