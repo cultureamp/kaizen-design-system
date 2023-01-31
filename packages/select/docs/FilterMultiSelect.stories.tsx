@@ -500,7 +500,11 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
               isLoading={isRefetching && searchState !== ""}
             />
             <FilterMultiSelect.ListBox>
-              {({ allItems, hasNoItems }): JSX.Element => (
+              {({
+                selectedItems,
+                unselectedItems,
+                hasNoItems,
+              }): JSX.Element => (
                 <>
                   {hasNoItems ? (
                     <FilterMultiSelect.NoResults>
@@ -528,9 +532,26 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
                       </Paragraph>
                     )
                   )}
-                  {allItems.map(item => (
-                    <FilterMultiSelect.Option key={item.key} item={item} />
-                  ))}
+
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
                   {hasNextPage && (
                     <FilterMultiSelect.LoadMoreButton
                       label={"View more"}
