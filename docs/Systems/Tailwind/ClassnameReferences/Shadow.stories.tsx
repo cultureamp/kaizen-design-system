@@ -2,11 +2,12 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Effects/Box Shadow",
+  title: `${CATEGORIES.tailwind}/Classname References/Effects/Box Shadow`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
