@@ -2,11 +2,12 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 import styles from "./styles.module.scss"
 
 export default {
-  title: "Tailwind/Borders/Border Spacing",
+  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Spacing`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -35,10 +36,6 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <StoryWrapper.Row rowTitle="">
               <p>border-{borderSpacingClassName}</p>
               <p>{borderSpacingValue}</p>
-              {/* <div
-                style={{ borderSpacing: borderSpacingValue }}
-                className={styles.boxWithBorder}
-              /> */}
               <table style={{ borderSpacing: borderSpacingValue }}>
                 <tr>
                   <td className={styles.outlined}>Tutant</td>

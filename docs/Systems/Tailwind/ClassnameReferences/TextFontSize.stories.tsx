@@ -2,16 +2,16 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 
-const prefix = "font-"
+const prefix = "text-"
 const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.fontWeight || []
+  kaizenTailwindTheme?.fontSize || []
 )
 
 export default {
-  title: "Tailwind/Typography/Font Weight",
-  component: <div>Hello</div>,
+  title: `${CATEGORIES.tailwind}/Classname References/Typography/Font Size`,
   parameters: {
     docs: {
       description: {
@@ -28,15 +28,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {classKeyVal.map((presetData, index) => {
-        const [fontWeightClassName, fontWeightValue] = presetData
+        const [fontSizeName, fontSizeValue] = presetData
 
         return (
           <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p className="height">font-{fontWeightClassName}</p>
-              <p>{fontWeightValue}</p>
-              <p style={{ fontWeight: fontWeightValue }}>Aa</p>
+              <p>text-{fontSizeName}</p>
+              <p>{fontSizeValue}</p>
+              <p style={{ fontSize: fontSizeValue }}>Aa</p>
             </StoryWrapper.Row>
           </React.Fragment>
         )
@@ -46,5 +46,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Weight"
+StickerSheetDefault.storyName = "Font Size"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
