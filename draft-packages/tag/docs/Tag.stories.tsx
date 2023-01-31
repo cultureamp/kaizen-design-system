@@ -36,10 +36,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <>
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader
-        gridColumns={10}
-        headings={["Default", "Live", "Draft"]}
+        gridColumns={6}
+        headings={["Default", "Live", "Draft", "Action", "Closed"]}
       />
-      <StoryWrapper.Row gridColumns={10} rowTitle="Status (md)">
+      <StoryWrapper.Row gridColumns={6} rowTitle="Status (md)">
         <Tag variant="default" size="medium">
           Report
         </Tag>
@@ -49,8 +49,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <Tag variant="statusDraft" size="medium">
           Draft
         </Tag>
+        <Tag variant="statusAction" size="medium">
+          Ready for review
+        </Tag>
+        <Tag variant="statusClosed" size="medium">
+          Closed
+        </Tag>
       </StoryWrapper.Row>
-      <StoryWrapper.Row gridColumns={10} rowTitle="Status (sm)">
+      <StoryWrapper.Row gridColumns={6} rowTitle="Status (sm)">
         <Tag variant="default" size="small">
           Report
         </Tag>
@@ -59,6 +65,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         </Tag>
         <Tag variant="statusDraft" size="small">
           Draft
+        </Tag>
+        <Tag variant="statusAction" size="small">
+          Ready for review
+        </Tag>
+        <Tag variant="statusClosed" size="small">
+          Closed
         </Tag>
       </StoryWrapper.Row>
     </StoryWrapper>
