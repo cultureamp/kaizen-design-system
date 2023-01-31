@@ -7,7 +7,7 @@ import { useTheme } from "@kaizen/design-tokens"
 import { Heading } from "@kaizen/typography"
 
 export default {
-  title: "Design Tokens/Color Tokens",
+  title: "Design Tokens/Classname References/Color Tokens",
   parameters: {
     chromatic: { disable: false },
     layout: "fullscreen",
