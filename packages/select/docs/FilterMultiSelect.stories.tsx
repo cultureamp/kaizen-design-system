@@ -469,13 +469,19 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
     [data]
   )
 
-  // Combine current and cached and remove the duplicates
+  /**
+   * To expose the selected items and float them to the top we need to merge the current
+   * and cached people, to be passed as the items.
+   * Make sure we remove the duplicates.
+   */
   const mergedPeople = [...currentPeople, ...cachedPeople].filter(
     (item, index, a) =>
       a.findIndex(currItem => currItem.value === item.value) === index
   )
 
-  // Show the only the current people when there is a search query
+  /**
+   * Show the only the filtered current people when there is a search query
+   */
   const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
 
   const filteredCount = currentPeople.length

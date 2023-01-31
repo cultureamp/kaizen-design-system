@@ -30,7 +30,6 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
     disabledKeys,
     selectionManager: { selectedKeys },
   } = selectionState
-
   const disabledItems = Array.from(disabledKeys)
     .map(key => items.getItem(key))
     .filter(item => item !== undefined)
