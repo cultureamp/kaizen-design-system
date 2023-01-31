@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.7.1...@kaizen/draft-title-block-zen@7.8.0) (2023-01-31)
+
+
+### Features
+
+* Swap action and draft colors in tag element ([#3238](https://github.com/cultureamp/kaizen-design-system/issues/3238)) ([a31ff1a](https://github.com/cultureamp/kaizen-design-system/commit/a31ff1a09f21e81c15ad056bffc2e20ad4b0d2b5))
+
+
+
+
+
 ## [7.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.7.0...@kaizen/draft-title-block-zen@7.7.1) (2023-01-30)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
