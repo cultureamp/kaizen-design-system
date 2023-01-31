@@ -1,0 +1,78 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../../storybook/constants"
+import { Button } from "@kaizen/button"
+import { Heading } from "@kaizen/typography"
+
+<Meta title={`${CATEGORIES.tailwind}/Working with Tailwind`} />
+
+# Working with Tailwind
+
+This page describes the main intended use cases for this package, and provides examples.
+
+<br/>
+
+## Spacing and layouts
+
+For information about Cultureamp's spacing and layout system in general, see [here](/story/systems-layout-and-spacing--page)
+
+When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.
+
+<Canvas>
+<div className="flex justify-center border-solid p-16">
+  <Button label="Kaizen Button" primary />
+</div>
+</Canvas>
+
+- `flex`: Adds `display: flex`
+- `justify-center`: Adds `justify-content: center`
+- `border-solid`: Adds `border-style: solid`
+- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the for more on this)
+
+<br/>
+
+## Creating bespoke components
+Occasionally snowflakes need to be created. This package provides common utilities based on our design tokens, such as color, border-radius, and font-family. Ideally, as much styling of bespoke components should be handled with Tailwind, but keep in mind that scss can still be used when necessary.
+
+Here is an example of our TW package being used to create a bespoke, non-Kaizen component:
+
+<Canvas>
+<div className="flex justify-center">
+  <div className="w-[250px] rounded-default border-dashed border-red-500 bg-blue-100">
+    <p className="m-0 p-12 pl-16 font-family-paragraph text-blue-500 text-center">
+      Not a Kaizen Component
+    </p>
+  </div>
+</div>
+</Canvas>
+
+<br/>
+
+### The container div
+- `w-[250px]`: Adds `width: 250px`. This is an example of an arbitrary value being used to inject a custom suffix
+- `rounded-default`: Adds `border-radius: 7px`. This is one of our custom preset values, defined here
+- `border-dashed`: Adds `border-style: dashed`
+- `border-red-500`: Adds `border-color: #c93b55` (our red-500 design token)
+- `bg-blue-100`: Adds `background: #e6f6ff` (our blue-100 design token)
+- `text-center`: Adds `text-align: center`
+
+### The p tag
+- `m-0`: Adds `margin: 0`
+- `p-12`: Adds `padding: .75rem` (12px = 0.75rem)
+- `pl-16`: Adds `padding-left: 1rem` (16px = 1rem)
+- `font-family-paragraph`: Adds `font-family: "Inter", "Noto Sans", ...` (defined in our preset here)
+- `text-blue-500`: Adds `color: #0168b3` (our blue-500 design token)
+
+<br/>
+
+## Altering Kaizen components with classnameOverride
+
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
+In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
+
+<Canvas>
+<Heading variant="heading-1" classNameOverride="first-letter:capitalize">
+  capitalize me with tailwind
+</Heading>
+</Canvas>
+
+- first-letter:capitalize: Adds text-transform: capitalize on the first-letter psuedo selector
