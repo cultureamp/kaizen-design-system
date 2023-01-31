@@ -480,7 +480,7 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
   )
 
   /**
-   * Show the only the filtered current people when there is a search query
+   * Only show the current filtered people when there is a search query
    */
   const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
 
