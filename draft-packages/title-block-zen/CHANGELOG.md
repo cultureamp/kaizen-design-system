@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.7.0...@kaizen/draft-title-block-zen@7.7.1) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.6.20...@kaizen/draft-title-block-zen@7.7.0) (2023-01-30)
+
+
+### Features
+
+* add renderSectionTitle render prop ([#3227](https://github.com/cultureamp/kaizen-design-system/issues/3227)) ([c9a6c1a](https://github.com/cultureamp/kaizen-design-system/commit/c9a6c1a3e09cb5b3dae3a59d7c47de117e0756b5))
+
+
+
+
+
 ## [7.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.6.19...@kaizen/draft-title-block-zen@7.6.20) (2023-01-23)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
