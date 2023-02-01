@@ -9,6 +9,10 @@ import { Heading } from "@kaizen/typography"
 
 This page describes the main intended use cases for this package, and provides examples.
 
+- [Spacing and layouts](#spacing-and-layouts)
+- [Altering Kaizen components with classnameOverride](#altering-kaizen-components-with-classnameoverride)
+- [Creating bespoke components](#creating-bespoke-components)
+
 <br/>
 
 ## Spacing and layouts
@@ -27,6 +31,21 @@ When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-desi
 - `justify-center`: Adds `justify-content: center`
 - `border-solid`: Adds `border-style: solid`
 - `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the for more on this)
+
+<br/>
+
+## Altering Kaizen components with classnameOverride
+
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
+In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
+
+<Canvas>
+<Heading variant="heading-1" classNameOverride="first-letter:capitalize">
+  capitalize me with tailwind
+</Heading>
+</Canvas>
+
+- first-letter:capitalize: Adds text-transform: capitalize on the first-letter psuedo selector
 
 <br/>
 
@@ -61,18 +80,3 @@ Here is an example of our TW package being used to create a bespoke, non-Kaizen 
 - `pl-16`: Adds `padding-left: 1rem` (16px = 1rem)
 - `font-family-paragraph`: Adds `font-family: "Inter", "Noto Sans", ...` (defined in our preset here)
 - `text-blue-500`: Adds `color: #0168b3` (our blue-500 design token)
-
-<br/>
-
-## Altering Kaizen components with classnameOverride
-
-If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
-In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
-
-<Canvas>
-<Heading variant="heading-1" classNameOverride="first-letter:capitalize">
-  capitalize me with tailwind
-</Heading>
-</Canvas>
-
-- first-letter:capitalize: Adds text-transform: capitalize on the first-letter psuedo selector
