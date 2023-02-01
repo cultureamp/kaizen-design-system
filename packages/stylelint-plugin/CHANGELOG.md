@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.37...@kaizen/stylelint-plugin@2.4.38) (2023-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nano-memoize to ^3.0.2 ([#3251](https://github.com/cultureamp/kaizen-design-system/issues/3251)) ([8af5d85](https://github.com/cultureamp/kaizen-design-system/commit/8af5d852f22f50d64f1eb99f8b5793d017cd9677))
+
+
+
+
+
 ## [2.4.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.36...@kaizen/stylelint-plugin@2.4.37) (2023-01-31)
 
 **Note:** Version bump only for package @kaizen/stylelint-plugin
