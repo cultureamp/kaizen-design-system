@@ -234,3 +234,39 @@ run the following command and follow the prompts:
 ```
 yarn plop
 ```
+
+### Adding icons to Kaizen
+
+First check in with the team in the #prod_design_system channel - even if the icon already exists in the Figma UI Kit it's great to get a heads up so we can plan support.
+
+If you're given the all clear to add the icon follow these steps:
+
+- Create a new branch on the kaizen-design-system repo (ie: ${your-name}/add-pumpkin-icon) and move the icon SVG into `packages/component-library/icons` folder
+    - Make sure the file has a `.icon.svg` suffix
+- Create a PR (see the [contributing guide](https://cultureamp.design/components/overview)) and get it reviewed by a Design Systems Team member
+
+#### Important SVG properties
+
+It is important that the SVG's properties have these exact values when creating a PR:
+
+- `width` and `height` should be set to 20 on the component layer, ie: `width="20"` and `height="20"`
+- `fill` should be set to true black `#000000`, ie: `fill="#000000"`
+    - this is important in how the SVG will inherit the parents elements `color` CSS property
+
+**Example:**
+```jsx
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.01 5L14 1H12V5H8V1H6V5H5.99C5 4.99 4 5.99 4 6.99V12.48L7.5 16V19H12.5V16L16 12.49V6.99C16 5.99 15 4.99 14.01 5Z" fill="black"/>
+</svg>
+```
+
+#### Adding it to Storybook
+
+We ask that all new icons are included in the "All icons" story.
+
+You can do this by importing the new icon into the `.component-library/stories/Icons.ts` file, and then exporting it from the relevant object (ie: `Actions`, `Performance`, `Miscellaneous`, etc).
+
+These should be grouped in the Figma UI Kit but if not there, please confer with a Kaizen designer.
+
+#### Compression
+Murmur's webpack will compress the SVG as needed. IF you need to compress an SVG icon that will be used somewhere else, you can clean up and compress it by using SVGO or SVGOMG with the default settings. Check that the output visibly looks the same as the original icon. 
