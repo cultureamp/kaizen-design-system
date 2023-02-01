@@ -67,7 +67,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/node-logger": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
-    "@tanstack/react-query": "^4.23.0",
+    "@tanstack/react-query": "^4.24.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-12": "npm:@testing-library/react@^12.1.5",
@@ -78,8 +78,8 @@
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.15.0",
     "commitizen": "^4.3.0",
@@ -121,7 +121,7 @@
     "svgo-loader": "~4.0.0",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.5",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "webpack": "^5.75.0"
   },
   "resolutions": {
