@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-guidance-block",
-  "version": "6.1.8",
+  "version": "6.1.9",
   "description": "The draft Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -39,7 +39,7 @@
     "react-media": "^1.10.0"
   },
   "devDependencies": {
-    "@kaizen/draft-tag": "^3.2.21",
+    "@kaizen/draft-tag": "^3.3.0",
     "rimraf": "^4.1.2"
   },
   "peerDependencies": {
