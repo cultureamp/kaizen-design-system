@@ -2,6 +2,12 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { CATEGORIES } from "../../../storybook/constants"
 import { Button } from "@kaizen/button"
 import { Heading } from "@kaizen/typography"
+import { CardContent } from "./components/CardContent"
+import { Card } from "@kaizen/draft-card"
+import {
+  CustomSurvey,
+  CustomUnattributedSurvey,
+} from "@kaizen/draft-illustration"
 
 <Meta title={`${CATEGORIES.tailwind}/Working with Tailwind`} />
 
@@ -30,13 +36,34 @@ When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-desi
 - `flex`: Adds `display: flex`
 - `justify-center`: Adds `justify-content: center`
 - `border-solid`: Adds `border-style: solid`
-- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the for more on this)
+- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the [layout and spacing docs](/story/systems-layout-and-spacing--page) for more on this)
 
 <br/>
 
 ## Altering Kaizen components with classnameOverride
 
-If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.  
+This is particularly useful for adding margins to Kaizen components. In this example, our preset is being used to add `margin-right: 1.5rem` to Kaizen's `<Card/>` component, without the need to wrap it in a div.
+
+<Canvas>
+<div className="flex justify-center">
+  <Card classNameOverride="mr-24"> {/* Adds margin-right: 24px */} 
+    <CardContent
+      title="Card 1"
+      Illustration={<CustomSurvey alt="custom-survey" />}
+    />
+  </Card>
+  <Card>
+    <CardContent
+      title="Card 2"
+      Illustration={
+        <CustomUnattributedSurvey alt="custom-unattributed-survey" />
+      }
+    />
+  </Card>
+</div>
+</Canvas>
+
 In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
 
 <Canvas>
