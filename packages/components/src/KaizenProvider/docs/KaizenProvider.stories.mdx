@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs'
+import { CATEGORIES } from "../../../../../storybook/constants"
+
+<Meta title={`${CATEGORIES.components}/KaizenProvider`} />
+
+# KaizenProvider
+
+Provides the necessary theming context for all components, as well as facilitates the use of global UI components and translations.
+
+## Usage
+
+Ideally, there should only be one `KaizenProvider` that should wrap your entire application.
+
+```jsx
+import { KaizenProvider } from '@kaizen/components';
+
+<KaizenProvider>
+  <App />
+</KaizenProvider>
+```
+
+## Customising the theme
+
+Out of the box, the `KaizenProvider` utilises the `defaultTheme` from `@kaizen/design-tokens`. However if you want to roll your own theme, we provide a `ThemeManager` function which can apply your custom theme.
+
+```jsx
+import { ThemeManager } from '@kaizen/components'
+
+export const themeManager = new ThemeManager({
+  themeKey: "custom",
+  spacing: {
+    md: "1rem",
+  },
+});
+
+<KaizenProvider themeManager={themeManager}>
+  <App />
+</KaizenProvider>
+```
+
+## Using the theme
+
+For more details on how theme-ing works, checkout our [design tokens documentation](/story/design-tokens-how-to-use-design-tokens-in-react-components--page).
