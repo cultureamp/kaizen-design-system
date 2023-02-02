@@ -6,7 +6,11 @@ import { withDesign } from "storybook-addon-designs"
 import { Button, ButtonRef } from "@kaizen/button"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { Label } from "@kaizen/draft-form"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
+import {
+  FilterMultiSelect,
+  getSelectedOptionLabels,
+  ItemType,
+} from "@kaizen/select"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -465,13 +469,31 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
     [data]
   )
 
+  /**
+   * To expose the selected items and float them to the top we need to merge the current
+   * and cached people, to be passed as the items.
+   * Make sure we remove the duplicates.
+   */
+  const mergedPeople = [...currentPeople, ...cachedPeople].filter(
+    (item, index, a) =>
+      a.findIndex(currItem => currItem.value === item.value) === index
+  )
+
+  /**
+   * Only show the current filtered people when there is a search query
+   */
+  const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
+
+  const filteredCount = currentPeople.length
+  const totalCount = cachedPeople.length
+
   return (
     <>
       <FilterMultiSelect
         {...args}
         isLoading={isLoading}
         loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
-        items={currentPeople}
+        items={items}
         trigger={(): JSX.Element => (
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(
@@ -498,20 +520,58 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
               isLoading={isRefetching && searchState !== ""}
             />
             <FilterMultiSelect.ListBox>
-              {({ allItems, hasNoItems }): JSX.Element => (
+              {({
+                selectedItems,
+                unselectedItems,
+                hasNoItems,
+              }): JSX.Element => (
                 <>
-                  {hasNoItems && (
+                  {hasNoItems ? (
                     <FilterMultiSelect.NoResults>
-                      No results found for{" "}
-                      <Paragraph variant="extra-small" tag="span" color="dark">
-                        {searchState}
-                      </Paragraph>
-                      .
+                      No results found for {searchState}.
                     </FilterMultiSelect.NoResults>
+                  ) : searchState !== "" ? (
+                    <Paragraph
+                      classNameOverride={styles.helperMessage}
+                      variant="extra-small"
+                      tag="span"
+                      color="dark-reduced-opacity"
+                    >
+                      Showing {filteredCount} of {totalCount}
+                    </Paragraph>
+                  ) : (
+                    hasNextPage && (
+                      <Paragraph
+                        classNameOverride={styles.helperMessage}
+                        variant="extra-small"
+                        tag="span"
+                        color="dark-reduced-opacity"
+                      >
+                        There are a lot of options. Narrow them further by
+                        searching for a more precise term.
+                      </Paragraph>
+                    )
                   )}
-                  {allItems.map(item => (
-                    <FilterMultiSelect.Option key={item.key} item={item} />
-                  ))}
+
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
                   {hasNextPage && (
                     <FilterMultiSelect.LoadMoreButton
                       label={"View more"}

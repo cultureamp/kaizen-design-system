@@ -2,8 +2,9 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { flattenEntries } from "./helpers/flatten-entries"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
+import { flattenEntries } from "../helpers/flatten-entries"
 import styles from "./styles.module.scss"
 
 const prefix = "border-"
@@ -13,7 +14,7 @@ const classEntries = flattenEntries(
 )
 
 export default {
-  title: "Tailwind/Borders/Border Color",
+  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Color`,
   parameters: {
     docs: {
       description: {

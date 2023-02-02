@@ -11,7 +11,9 @@ export const NoResults = ({
   ...restProps
 }: NoResultsProps): JSX.Element => (
   <div className={styles.container} {...restProps}>
-    <Paragraph variant="extra-small">{children}</Paragraph>
+    <Paragraph variant="extra-small" color="dark-reduced-opacity">
+      {children}
+    </Paragraph>
   </div>
 )
 

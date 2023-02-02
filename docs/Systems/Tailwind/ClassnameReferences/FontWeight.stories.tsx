@@ -2,14 +2,17 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../storybook/constants"
 
 const prefix = "font-"
 const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.fontFamily || []
+  kaizenTailwindTheme?.fontWeight || []
 )
+
 export default {
-  title: "Tailwind/Typography/Font Family",
+  title: `${CATEGORIES.tailwind}/ClassName References/Typography/Font Weight`,
+  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
@@ -26,15 +29,15 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {classKeyVal.map((presetData, index) => {
-        const [fontFamilyClassName, fontFamilyValue] = presetData
+        const [fontWeightClassName, fontWeightValue] = presetData
 
         return (
           <React.Fragment key={index}>
             <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
-              <p>font-{fontFamilyClassName}</p>
-              <p>{fontFamilyValue}</p>
-              <p style={{ fontFamily: fontFamilyValue[0] }}>Aa</p>
+              <p className="height">font-{fontWeightClassName}</p>
+              <p>{fontWeightValue}</p>
+              <p style={{ fontWeight: fontWeightValue }}>Aa</p>
             </StoryWrapper.Row>
           </React.Fragment>
         )
@@ -44,5 +47,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Family"
+StickerSheetDefault.storyName = "Font Weight"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

@@ -1,6 +1,6 @@
-import { ItemType } from "../src/types"
+import { ItemType, SingleItemType } from "../src/types"
 
-export const singleMockItems: ItemType[] = [
+export const singleMockItems: SingleItemType[] = [
   { label: "Front-End", value: "id-fe" },
   { label: "Back-End", value: "id-be" },
   { label: "SRE", value: "id-sre" },
@@ -12,6 +12,25 @@ export const singleMockItems: ItemType[] = [
     value: "id-long",
   },
   { label: "AnotherExample", value: "id-another" },
+]
+
+export const groupedMockItems: SingleItemType[] = [
+  {
+    label: "Colours",
+    value: [
+      { label: "Blue", value: "blue" },
+      { label: "Red", value: "red" },
+      { label: "Green", value: "green" },
+    ],
+  },
+  {
+    label: "Flavours",
+    value: [
+      { label: "Vanilla", value: "Vanilla" },
+      { label: "Chocolate", value: "Chocolate" },
+      { label: "Strawberry", value: "Strawberry" },
+    ],
+  },
 ]
 
 export const mockItems: ItemType[] = [

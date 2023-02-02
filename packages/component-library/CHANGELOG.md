@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.17...@kaizen/component-library@16.2.0) (2023-02-01)
+
+
+### Features
+
+* Add connect icon ([#3249](https://github.com/cultureamp/kaizen-design-system/issues/3249)) ([148c9f4](https://github.com/cultureamp/kaizen-design-system/commit/148c9f45b8617da2124f70d9ca245b504b9dc663)), closes [#000000](https://github.com/cultureamp/kaizen-design-system/issues/000000)
+
+
+
+
+
+## [16.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.16...@kaizen/component-library@16.1.17) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [16.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.15...@kaizen/component-library@16.1.16) (2023-01-23)
 
 

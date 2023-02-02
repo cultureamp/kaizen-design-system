@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.22...@kaizen/draft-form@8.3.23) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [8.3.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.21...@kaizen/draft-form@8.3.22) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [8.3.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@8.3.20...@kaizen/draft-form@8.3.21) (2023-01-23)
 
 
