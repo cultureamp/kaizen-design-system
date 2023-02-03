@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.5.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.46...@kaizen/draft-modal@10.5.47) (2023-02-03)
+
+
+### Bug Fixes
+
+* add box-sizing:content-box to modal to prevent incorrect sizing in environments that use a border-box default ([#3254](https://github.com/cultureamp/kaizen-design-system/issues/3254)) ([2f74819](https://github.com/cultureamp/kaizen-design-system/commit/2f74819e1c90864bdea7dd43f4dcb43074f10ebf))
+
+
+
+
+
 ## [10.5.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.45...@kaizen/draft-modal@10.5.46) (2023-02-01)
 
 **Note:** Version bump only for package @kaizen/draft-modal
