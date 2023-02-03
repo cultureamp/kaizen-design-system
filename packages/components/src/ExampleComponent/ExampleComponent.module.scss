@@ -1,3 +1,5 @@
 .exampleComponent {
-  color: blue;
+  &.hello {
+    color: blue;
+  }
 }

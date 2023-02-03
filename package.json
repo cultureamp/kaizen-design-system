@@ -25,7 +25,8 @@
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
     "commit": "cz",
-    "plop": "plop"
+    "plop": "plop",
+    "pkg:aio": "yarn workspace @kaizen/components"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",

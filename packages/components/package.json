@@ -9,8 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "prepublish": "node esbuild.config.js && yarn build:tailwind",
+    "prepublish": "node esbuild.config.js",
     "build:postprocess": "node esbuild_post.config.js",
+    "build:components": "yarn clean && node esbuild.config.js",
     "build:tailwind": "npx tailwind -i ./styles/tailwind.css -o dist/tailwind.css",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@csstools/postcss-cascade-layers": "^3.0.0",
+    "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@kaizen/tailwind": "^0.2.7",
     "autoprefixer": "^10.4.13",
     "esbuild": "^0.17.4",

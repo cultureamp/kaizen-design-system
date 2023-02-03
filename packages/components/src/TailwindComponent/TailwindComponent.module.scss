@@ -1,3 +1,5 @@
-.exampleComponent {
-  color: blue;
+@layer components {
+  .exampleComponent {
+    color: blue;
+  }
 }

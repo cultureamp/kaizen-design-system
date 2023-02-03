@@ -1,6 +1,7 @@
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
+  prefix: "kz-",
   corePlugins: {
     preflight: false,
   },
