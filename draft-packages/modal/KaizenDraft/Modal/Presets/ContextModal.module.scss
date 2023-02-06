@@ -42,6 +42,7 @@
 .portraitContentlayout {
   padding: $spacing-md;
   display: block;
+  box-sizing: content-box;
   @media (min-width: $layout-breakpoints-medium) {
     display: grid;
     max-width: 800px;
