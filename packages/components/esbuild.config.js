@@ -20,10 +20,10 @@ esbuild
       cssModulesPlugin({
         localsConvention: "dashes",
       }),
-      ScssModulesPlugin({
-        inject: false,
-        localsConvention: "dashes",
-      }),
+      // ScssModulesPlugin({
+      //   inject: false,
+      //   localsConvention: "dashes",
+      // }),
       sassPlugin(),
     ],
   })
