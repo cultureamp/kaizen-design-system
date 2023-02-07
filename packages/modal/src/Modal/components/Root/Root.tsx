@@ -34,7 +34,6 @@ export interface RootProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   onDismiss: () => void
   dismissOnBackdropClick?: boolean
-  dismissOnEscPress?: boolean
   hideCloseButton?: boolean
   size?: "sm" | "md" | "lg"
 }
@@ -43,7 +42,6 @@ export const Root: React.FC<RootProps> = ({
   isOpen,
   onDismiss,
   dismissOnBackdropClick = true,
-  dismissOnEscPress = true,
   hideCloseButton = false,
   accessibleLabelId,
   size = "md",
@@ -60,7 +58,7 @@ export const Root: React.FC<RootProps> = ({
           <div className={styles.modalWrapper}>
             <FocusOn
               onClickOutside={dismissOnBackdropClick ? onDismiss : undefined}
-              onEscapeKey={dismissOnEscPress ? onDismiss : undefined}
+              onEscapeKey={onDismiss}
               shards={[contentRef]}
               onActivation={() => dialogRef?.current?.focus()}
               // This linting error is a false positive.
