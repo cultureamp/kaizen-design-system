@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
 
 .footer {
   padding: 0px $spacing-md $spacing-md;
@@ -9,4 +10,8 @@
 
 .footer.fullWidth {
   display: block;
+}
+
+.formFooter {
+  background-color: $color-gray-200;
 }

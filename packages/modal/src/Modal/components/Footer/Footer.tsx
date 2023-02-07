@@ -7,10 +7,13 @@ import styles from "./Footer.scss"
 export interface FooterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
+  hasFormControls?: boolean
 }
 
 export const Footer: React.FC<FooterProps> = ({
   children,
+  hasFormControls = false,
+
   classNameOverride,
 }): JSX.Element => {
   const {
@@ -18,9 +21,14 @@ export const Footer: React.FC<FooterProps> = ({
   } = useMediaQueries()
   return (
     <div
-      className={classnames(styles.footer, classNameOverride, {
-        [styles.fullWidth]: isSmall,
-      })}
+      className={classnames(
+        styles.footer,
+        hasFormControls && styles.formFooter,
+        classNameOverride,
+        {
+          [styles.fullWidth]: isSmall,
+        }
+      )}
     >
       {children}
     </div>

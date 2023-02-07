@@ -7,7 +7,6 @@ import { Modal } from "@kaizen/modal"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { HeaderMood } from "../src/Modal/components/Header"
-import styles from "./Modal.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/Modal`,
@@ -29,13 +28,13 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
   const [mood, setMood] = useState<HeaderMood>()
   return (
     <>
-      <Button label="Open modal" onClick={() => setModalOpen(true)} />
+      <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
       {/* TODO - Find a nicer way to toggle the sub component props of the Header Mood */}
       <Paragraph variant="body">Update Mood:</Paragraph>
       <select
         name="moods"
         id="moods"
-        onChange={e => setMood(e.target.value as HeaderMood)}
+        onChange={(e): void => setMood(e.target.value as HeaderMood)}
       >
         <option value="" selected>
           Default
@@ -133,7 +132,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
       <Modal
         {...props}
         isOpen={modalOpen}
-        onDismiss={() => setModalOpen(false)}
+        onDismiss={(): void => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
         <Modal.Header mood={mood}>
@@ -176,17 +175,17 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
             label="Tertiary"
             isAlignedStart
             secondary
-            onClick={() => setModalOpen(false)}
+            onClick={(): void => setModalOpen(false)}
           />
           <Modal.ActionButton
             secondary
             label="Secondary"
-            onClick={() => setModalOpen(false)}
+            onClick={(): void => setModalOpen(false)}
           />
           <Modal.ActionButton
             primary
             label="Primary"
-            onClick={() => setModalOpen(false)}
+            onClick={(): void => setModalOpen(false)}
           />
         </Modal.Footer>
       </Modal>
@@ -204,7 +203,7 @@ export const FormModal: ComponentStory<typeof Modal> = props => {
   const [modalOpen, setModalOpen] = useState<boolean>(true)
   return (
     <>
-      <Button label="Open modal" onClick={() => setModalOpen(true)} />
+      <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
         tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
@@ -222,13 +221,13 @@ export const FormModal: ComponentStory<typeof Modal> = props => {
       <Modal
         {...props}
         isOpen={modalOpen}
-        onDismiss={() => setModalOpen(false)}
+        onDismiss={(): void => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
         <Modal.Header>
           <Modal.Title id="my-modal-title">Create Skill</Modal.Title>
         </Modal.Header>
-        <Modal.Body classNameOverride={styles.grayBackground}>
+        <Modal.Body hasFormControls>
           <TextField
             id="text-default"
             inputType="text"
@@ -238,11 +237,11 @@ export const FormModal: ComponentStory<typeof Modal> = props => {
           <TextField id="text-email" inputType="email" labelText="Email" />
           <TextAreaField id="text-area-default" labelText="Description" />
         </Modal.Body>
-        <Modal.Footer classNameOverride={styles.grayBackground}>
+        <Modal.Footer hasFormControls>
           <Modal.ActionButton
             primary
             label="Done"
-            onClick={() => setModalOpen(false)}
+            onClick={(): void => setModalOpen(false)}
           />
         </Modal.Footer>
       </Modal>
@@ -260,7 +259,7 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
   const [modalOpen, setModalOpen] = useState<boolean>(true)
   return (
     <>
-      <Button label="Open modal" onClick={() => setModalOpen(true)} />
+      <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
         tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
@@ -278,7 +277,7 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
       <Modal
         {...props}
         isOpen={modalOpen}
-        onDismiss={() => setModalOpen(false)}
+        onDismiss={(): void => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
         <div style={{ backgroundColor: "#dfc9ea" }}>
@@ -298,7 +297,7 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
           <Modal.ActionButton
             primary
             label="Done"
-            onClick={() => setModalOpen(false)}
+            onClick={(): void => setModalOpen(false)}
           />
         </Modal.Footer>
       </Modal>

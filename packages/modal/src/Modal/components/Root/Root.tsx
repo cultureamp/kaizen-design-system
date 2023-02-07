@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { FocusOn } from "react-focus-on"
 import { Backdrop } from "../Backdrop"
 import { CloseButton } from "../CloseButton"
+
 import styles from "./Root.scss"
 
 const dropIn = {
@@ -60,14 +61,14 @@ export const Root: React.FC<RootProps> = ({
               onClickOutside={dismissOnBackdropClick ? onDismiss : undefined}
               onEscapeKey={onDismiss}
               shards={[contentRef]}
-              onActivation={() => dialogRef?.current?.focus()}
+              onActivation={(): void => dialogRef?.current?.focus()}
               // This linting error is a false positive.
               // The autoFocus prop here is not what the linting library thinks it is.
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus={false}
             >
               <motion.div
-                onClick={e => e.stopPropagation()}
+                onClick={(e: React.MouseEvent): void => e.stopPropagation()}
                 className={classnames(styles.modal, {
                   [styles.small]: size === "sm",
                   [styles.large]: size === "lg",
