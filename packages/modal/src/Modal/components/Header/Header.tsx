@@ -19,19 +19,16 @@ export const Header: React.FC<HeaderProps> = ({
   children,
   mood,
   classNameOverride,
-}): JSX.Element => {
-  const something = "asdasd"
-  return (
-    <div
-      className={classnames(
-        styles.header,
-        mood && styles[mood],
-        classNameOverride
-      )}
-    >
-      {children}
-    </div>
-  )
-}
+}): JSX.Element => (
+  <div
+    className={classnames(
+      styles.header,
+      mood && styles[mood],
+      classNameOverride
+    )}
+  >
+    {children}
+  </div>
+)
 
 Header.displayName = "Header"
