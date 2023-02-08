@@ -2,6 +2,14 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { CATEGORIES } from "../../../storybook/constants"
 import { Button } from "@kaizen/button"
 import { Heading } from "@kaizen/typography"
+import { CardContent } from "./components/CardContent"
+import { Card } from "@kaizen/draft-card"
+import {
+  CustomSurvey,
+  CustomUnattributedSurvey,
+} from "@kaizen/draft-illustration"
+import DemoBox from "./components/DemoBox"
+import { Skirt } from "@kaizen/draft-page-layout"
 
 <Meta title={`${CATEGORIES.tailwind}/Working with Tailwind`} />
 
@@ -19,7 +27,9 @@ This page describes the main intended use cases for this package, and provides e
 
 For information about Cultureamp's spacing and layout system in general, see [here](/story/systems-layout-and-spacing--page)
 
-When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.
+When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.  
+
+Here, Tailwind has been used to center a Kaizen button within a div.
 
 <Canvas>
 <div className="flex justify-center border-solid p-16">
@@ -30,13 +40,69 @@ When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-desi
 - `flex`: Adds `display: flex`
 - `justify-center`: Adds `justify-content: center`
 - `border-solid`: Adds `border-style: solid`
-- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the for more on this)
+- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the [layout and spacing docs](/story/systems-layout-and-spacing--page) for more on this)
+
+Here's a more complex example, where some `<Card>` components and text have been spaced and layed out with Tailwind:
+
+<Canvas>
+<>
+<Skirt>
+    <Heading variant="heading-2" color="white" classNameOverride="pt-24">
+      Layed out with Tailwind
+    </Heading>
+      <Card variant="informative" classNameOverride="mt-24">
+        <div className="h-[300px]"/>
+      </Card>
+</Skirt>
+<div className="flex w-100 justify-center"> {/* Adds flex, makes the width 100% and centers content */}
+    <div className="mx-72 my-24 w-100 max-w-[1392px]"> {/* Adds margins, width, and max width */}
+      <a
+        className="font-weight-[500px] font-family-paragraph text-heading-5 text-blue-500"
+        href="#"
+      >
+        Clickable link
+      </a>
+      <p className="mt-12 font-family-paragraph text-heading-6 font-weight-paragraph leading-paragraph-sm text-purple-800">
+        Supporting text
+      </p> {/* Adds spacing with margin-top */}
+      <div className="mt-64 flex h-[200px]"> {/* Adds margin-top, flex, and a height of 200px */}
+        {[0, 1, 2, 3].map(() => (
+          <Card variant="informative" classNameOverride="mr-24 last:mr-0 w-100">
+            <div className="w-100 h-100"/> {/* Adds height and width of 100% */}
+          </Card>
+        ))}
+      </div>
+    </div>
+</div>
+</>
+</Canvas>
 
 <br/>
 
 ## Altering Kaizen components with classnameOverride
 
-If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.  
+This is particularly useful for adding margins to Kaizen components. In this example, our preset is being used to add `margin-right: 1.5rem` to Kaizen's `<Card/>` component, without the need to wrap it in a div.
+
+<Canvas>
+<div className="flex justify-center">
+  <Card classNameOverride="mr-24"> {/* Adds margin-right: 24px */} 
+    <CardContent
+      title="Card 1"
+      Illustration={<CustomSurvey alt="custom-survey" />}
+    />
+  </Card>
+  <Card>
+    <CardContent
+      title="Card 2"
+      Illustration={
+        <CustomUnattributedSurvey alt="custom-unattributed-survey" />
+      }
+    />
+  </Card>
+</div>
+</Canvas>
+
 In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
 
 <Canvas>
