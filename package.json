@@ -102,7 +102,7 @@
     "lerna": "3.22.1",
     "node-fetch": "^3.3.0",
     "node-sass": "^8.0.0",
-    "plop": "^3.1.1",
+    "plop": "^3.1.2",
     "postcss": "^8.4.19",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
