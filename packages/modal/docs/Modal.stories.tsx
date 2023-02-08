@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { InformationReportOwnerByRule } from "@kaizen/draft-illustration"
@@ -11,6 +11,12 @@ import { HeaderMood } from "../src/Modal/components/Header"
 export default {
   title: `${CATEGORIES.components}/Modal`,
   component: Modal,
+  subcomponents: {
+    Header: Modal.Header,
+    Body: Modal.Body,
+    Footer: Modal.Footer,
+    "Action Button": Modal.ActionButton,
+  },
   parameters: {
     actions: {
       argTypesRegex: "^on.*",
@@ -21,7 +27,7 @@ export default {
       },
     },
   },
-}
+} as ComponentMeta<typeof Modal>
 
 export const DefaultStory: ComponentStory<typeof Modal> = props => {
   const [modalOpen, setModalOpen] = useState<boolean>(true)
@@ -45,62 +51,7 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         <option value="cautionary">Cautionary</option>
         <option value="assertive">Assertive</option>
       </select>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-        tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
-        orci ullamcorper, volutpat erat eget, facilisis lacus. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas. Sed rutrum, libero malesuada ornare porttitor, metus diam
-        scelerisque mauris, sit amet mollis lorem tortor iaculis risus.
-        Vestibulum et fringilla sem. Cras placerat lectus a auctor facilisis.
-        Cras ac porta diam. Donec auctor risus non ligula scelerisque accumsan.
-        Mauris molestie tortor quis lectus euismod, non tincidunt ligula
-        egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
-        augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.
-      </Paragraph>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-        tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
-        orci ullamcorper, volutpat erat eget, facilisis lacus. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas. Sed rutrum, libero malesuada ornare porttitor, metus diam
-        scelerisque mauris, sit amet mollis lorem tortor iaculis risus.
-        Vestibulum et fringilla sem. Cras placerat lectus a auctor facilisis.
-        Cras ac porta diam. Donec auctor risus non ligula scelerisque accumsan.
-        Mauris molestie tortor quis lectus euismod, non tincidunt ligula
-        egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
-        augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.
-      </Paragraph>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-        tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
-        orci ullamcorper, volutpat erat eget, facilisis lacus. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas. Sed rutrum, libero malesuada ornare porttitor, metus diam
-        scelerisque mauris, sit amet mollis lorem tortor iaculis risus.
-        Vestibulum et fringilla sem. Cras placerat lectus a auctor facilisis.
-        Cras ac porta diam. Donec auctor risus non ligula scelerisque accumsan.
-        Mauris molestie tortor quis lectus euismod, non tincidunt ligula
-        egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
-        augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.
-      </Paragraph>
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-        tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
-        orci ullamcorper, volutpat erat eget, facilisis lacus. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas. Sed rutrum, libero malesuada ornare porttitor, metus diam
-        scelerisque mauris, sit amet mollis lorem tortor iaculis risus.
-        Vestibulum et fringilla sem. Cras placerat lectus a auctor facilisis.
-        Cras ac porta diam. Donec auctor risus non ligula scelerisque accumsan.
-        Mauris molestie tortor quis lectus euismod, non tincidunt ligula
-        egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
-        augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.
-      </Paragraph>
+
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
         tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
@@ -133,7 +84,6 @@ export const DefaultStory: ComponentStory<typeof Modal> = props => {
         {...props}
         isOpen={modalOpen}
         onDismiss={(): void => setModalOpen(false)}
-        accessibleLabelId="my-modal-title"
       >
         <Modal.Header mood={mood}>
           <Modal.Title id="my-modal-title">Some Modal Title</Modal.Title>
@@ -197,6 +147,7 @@ DefaultStory.parameters = {
 }
 DefaultStory.args = {
   size: "md",
+  accessibleLabelId: "my-modal-title",
 }
 
 export const FormModal: ComponentStory<typeof Modal> = props => {

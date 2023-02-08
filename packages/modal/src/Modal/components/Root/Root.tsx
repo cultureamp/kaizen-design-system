@@ -30,12 +30,30 @@ const dropIn = {
 }
 
 export interface RootProps extends HTMLAttributes<HTMLDivElement> {
+  /** Sets the open state of the modal. */
   isOpen: boolean
+  /**
+   * Identifies the element (or elements) that labels the current element.
+   */
   accessibleLabelId: string
+  /** The contents of the modal. */
   children: React.ReactNode
+  /** Handler that is called when the modal should close. */
   onDismiss: () => void
+  /**
+   * Whether to close the overlay when the user interacts outside it.
+   * @default true
+   */
   dismissOnBackdropClick?: boolean
+  /**
+   * Whether to show the close button.
+   * @default false
+   */
   hideCloseButton?: boolean
+  /**
+   * Supports three sizes
+   *  * @default md
+   */
   size?: "sm" | "md" | "lg"
 }
 
