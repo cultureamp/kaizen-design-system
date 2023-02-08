@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentStory } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { InformationReportOwnerByRule } from "@kaizen/draft-illustration"
@@ -7,16 +7,11 @@ import { Modal } from "@kaizen/modal"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { HeaderMood } from "../src/Modal/components/Header"
+import { modalControls } from "./controls/modalControls"
 
 export default {
   title: `${CATEGORIES.components}/Modal`,
   component: Modal,
-  subcomponents: {
-    Header: Modal.Header,
-    Body: Modal.Body,
-    Footer: Modal.Footer,
-    "Action Button": Modal.ActionButton,
-  },
   parameters: {
     actions: {
       argTypesRegex: "^on.*",
@@ -27,7 +22,10 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Modal>
+  argTypes: {
+    ...modalControls,
+  },
+}
 
 export const DefaultStory: ComponentStory<typeof Modal> = props => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -148,6 +146,8 @@ DefaultStory.parameters = {
 DefaultStory.args = {
   size: "md",
   accessibleLabelId: "my-modal-title",
+  dismissOnBackdropClick: true,
+  hideCloseButton: false,
 }
 
 export const FormModal: ComponentStory<typeof Modal> = props => {
