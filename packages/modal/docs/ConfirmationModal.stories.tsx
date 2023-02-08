@@ -21,15 +21,15 @@ export default {
 }
 
 export const DefaultStory: ComponentStory<typeof ConfirmationModal> = props => {
-  const [modalOpen, setModalOpen] = useState<boolean>(true)
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   return (
     <>
-      <Button label="Open modal" onClick={() => setModalOpen(true)} />
+      <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
       <ConfirmationModal
         {...props}
         isOpen={modalOpen}
-        onDismiss={() => setModalOpen(false)}
-        onConfirm={() => setModalOpen(false)}
+        onDismiss={(): void => setModalOpen(false)}
+        onConfirm={(): void => setModalOpen(false)}
       />
     </>
   )

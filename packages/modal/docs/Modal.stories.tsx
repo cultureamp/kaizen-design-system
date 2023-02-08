@@ -30,7 +30,7 @@ export default {
 } as ComponentMeta<typeof Modal>
 
 export const DefaultStory: ComponentStory<typeof Modal> = props => {
-  const [modalOpen, setModalOpen] = useState<boolean>(true)
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [mood, setMood] = useState<HeaderMood>()
   return (
     <>
@@ -151,7 +151,7 @@ DefaultStory.args = {
 }
 
 export const FormModal: ComponentStory<typeof Modal> = props => {
-  const [modalOpen, setModalOpen] = useState<boolean>(true)
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   return (
     <>
       <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
@@ -207,7 +207,7 @@ FormModal.args = {
 }
 
 export const FeatureModal: ComponentStory<typeof Modal> = props => {
-  const [modalOpen, setModalOpen] = useState<boolean>(true)
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   return (
     <>
       <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
