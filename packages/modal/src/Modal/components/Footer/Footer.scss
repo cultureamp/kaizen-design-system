@@ -1,8 +1,9 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 
 .footer {
-  padding: 0px $spacing-md $spacing-md;
+  padding: 2rem $spacing-md $spacing-md;
   display: flex;
   justify-content: flex-end;
   gap: $spacing-sm;
@@ -14,4 +15,5 @@
 
 .formFooter {
   background-color: $color-gray-200;
+  border-radius: $border-solid-border-radius;
 }
