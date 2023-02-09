@@ -15,7 +15,7 @@ export const Title: React.FC<TitleProps> = ({
 }): JSX.Element => (
   <Heading
     id={id}
-    variant="heading-3"
+    variant="heading-4"
     tag="div"
     classNameOverride={classNameOverride}
   >
