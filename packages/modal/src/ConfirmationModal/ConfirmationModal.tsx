@@ -1,9 +1,12 @@
 import React, { useState } from "react"
+import classnames from "classnames"
 import { v4 } from "uuid"
-import { Button } from "@kaizen/button"
+import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { HeaderMood } from "../Modal/components/Header"
+import { HeaderMood } from "../types"
 import { Modal } from "../"
+import { getIconSvg } from "./utils/getIconSvg"
+import styles from "./ConfirmationModal.scss"
 
 export interface ConfirmationModalProps {
   isOpen: boolean
@@ -30,6 +33,7 @@ export const ConfirmationModal = ({
 }: ConfirmationModalProps): JSX.Element => {
   const [titleId] = useState<string>(v4())
   const [descriptionId] = useState<string>(v4())
+
   return (
     <Modal
       isOpen={isOpen}
@@ -38,8 +42,13 @@ export const ConfirmationModal = ({
       aria-describedby={descriptionId}
       role="alertdialog"
     >
-      <Modal.Header mood={mood}>
-        <Heading variant="heading-3" tag="div" id={titleId}>
+      <Modal.Header classNameOverride={mood && styles.iconHeader}>
+        {mood && (
+          <div className={classnames(styles.iconContainer, styles[mood])}>
+            {<Icon icon={getIconSvg(mood)} inheritSize role="presentation" />}
+          </div>
+        )}
+        <Heading variant="heading-4" tag="div" id={titleId}>
           {headingText}
         </Heading>
       </Modal.Header>

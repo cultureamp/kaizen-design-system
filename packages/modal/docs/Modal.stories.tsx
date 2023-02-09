@@ -6,7 +6,6 @@ import { InformationReportOwnerByRule } from "@kaizen/draft-illustration"
 import { Modal } from "@kaizen/modal"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
-import { HeaderMood } from "../src/Modal/components/Header"
 import { modalControls } from "./controls/modalControls"
 
 export default {

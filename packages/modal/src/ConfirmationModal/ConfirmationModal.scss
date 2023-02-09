@@ -1,0 +1,34 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+
+.iconContainer {
+  width: $spacing-md;
+  height: $spacing-md;
+  margin-right: $spacing-sm;
+}
+
+.iconHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.positive {
+  color: $color-green-500;
+}
+
+.assertive {
+  color: $color-orange-500;
+}
+
+.informative {
+  color: $color-blue-500;
+}
+
+.negative {
+  color: $color-red-500;
+}
+
+.cautionary {
+  color: $color-yellow-500;
+}

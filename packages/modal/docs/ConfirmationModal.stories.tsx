@@ -5,7 +5,7 @@ import { ConfirmationModal } from "@kaizen/modal"
 import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/Modal/Confirmation Modal`,
+  title: `${CATEGORIES.components}/Modal/Confirmation/Confirmation Modal`,
   component: ConfirmationModal,
   parameters: {
     actions: {
