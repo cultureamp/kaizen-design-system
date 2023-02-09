@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.2.0...@kaizen/component-library@16.2.1) (2023-02-09)
+
+
+### Bug Fixes
+
+* Update department icon fill color to [#000000](https://github.com/cultureamp/kaizen-design-system/issues/000000) ([#3262](https://github.com/cultureamp/kaizen-design-system/issues/3262)) ([7f60dc6](https://github.com/cultureamp/kaizen-design-system/commit/7f60dc60ff503732ab03081eda8e627c736549cd))
+
+
+
+
+
 # [16.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.1.17...@kaizen/component-library@16.2.0) (2023-02-01)
 
 
