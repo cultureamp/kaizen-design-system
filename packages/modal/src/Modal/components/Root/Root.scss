@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .modalWrapper {
   position: fixed;
@@ -16,9 +17,15 @@
 
 .modal {
   background: $color-white;
-  max-width: 600px;
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
   margin: auto;
   border-radius: $border-solid-border-radius;
+
+  @media (min-width: 480px) {
+    width: 600px;
+    max-width: calc(100vw - #{$spacing-xxxl});
+  }
 }
 
 .content {
@@ -28,9 +35,16 @@
 }
 
 .modal.small {
-  width: 327px;
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
 }
 
 .modal.large {
-  width: 832px;
+  max-width: 327px;
+  width: calc(100vw - #{$spacing-md});
+
+  @media (min-width: 480px) {
+    width: 832px;
+    max-width: calc(100vw - #{$spacing-xxxl});
+  }
 }
