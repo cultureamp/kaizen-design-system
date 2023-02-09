@@ -16,7 +16,7 @@ export const RemovableFilterTrigger = ({
   onRemove,
   ...filterTriggerProps
 }: RemovableFilterTriggerProps): JSX.Element => {
-  const removeButtonLabel = `Remove ${filterTriggerProps.label} filter`
+  const removeButtonLabel = `Remove filter - ${filterTriggerProps.label}`
   return (
     <div className={styles.trigger}>
       <FilterTriggerButton
