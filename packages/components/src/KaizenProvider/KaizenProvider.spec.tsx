@@ -2,8 +2,8 @@ import React from "react"
 import { render } from "@testing-library/react"
 import { KaizenProvider, KaizenProviderProps } from "./KaizenProvider"
 
-const KaizenProviderWrapper = (props: KaizenProviderProps): JSX.Element => (
-  <KaizenProvider>{props?.children}</KaizenProvider>
+const KaizenProviderWrapper = ({ children, ...restProps }: KaizenProviderProps): JSX.Element => (
+  <KaizenProvider {...restProps}>{children}</KaizenProvider>
 )
 
 describe("<KaizenProvider />", () => {
