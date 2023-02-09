@@ -4,7 +4,7 @@ import { IconButton } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import styles from "./CloseButton.scss"
+import styles from "./CloseButton.module.scss"
 
 export interface CloseButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

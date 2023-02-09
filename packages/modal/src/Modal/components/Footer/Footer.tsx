@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { useMediaQueries } from "@kaizen/responsive"
-import styles from "./Footer.scss"
+import styles from "./Footer.module.scss"
 
 export interface FooterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

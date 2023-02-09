@@ -6,7 +6,7 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { HeaderMood } from "../types"
 import { Modal } from "../"
 import { getIconSvg } from "./utils/getIconSvg"
-import styles from "./ConfirmationModal.scss"
+import styles from "./ConfirmationModal.module.scss"
 
 export interface ConfirmationModalProps {
   isOpen: boolean

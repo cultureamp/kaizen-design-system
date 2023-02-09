@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { motion } from "framer-motion"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./Backdrop.scss"
+import styles from "./Backdrop.module.scss"
 
 export const Backdrop: React.FC<
   OverrideClassName<HTMLAttributes<HTMLDivElement>>

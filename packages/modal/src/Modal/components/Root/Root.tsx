@@ -6,7 +6,7 @@ import { FocusOn } from "react-focus-on"
 import { Backdrop } from "../Backdrop"
 import { CloseButton } from "../CloseButton"
 
-import styles from "./Root.scss"
+import styles from "./Root.module.scss"
 
 const dropIn = {
   hidden: {

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { Button, ButtonProps } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
 import { useMediaQueries } from "@kaizen/responsive"
-import styles from "./ActionButton.scss"
+import styles from "./ActionButton.module.scss"
 
 export interface ActionButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

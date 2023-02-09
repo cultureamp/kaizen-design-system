@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { useScrollWithShadow } from "../../../hooks/useScrollWithShadow"
-import styles from "./Body.scss"
+import styles from "./Body.module.scss"
 export interface BodyProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
