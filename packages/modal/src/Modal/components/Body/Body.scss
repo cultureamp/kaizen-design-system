@@ -2,11 +2,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 .body {
-  padding: $spacing-md;
+  padding: 0 $spacing-md 0 $spacing-md;
   overflow: auto;
   max-height: 80%;
 }
 
 .formBody {
   background-color: $color-gray-200;
+  padding: $spacing-md;
 }
