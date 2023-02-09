@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.11.0...@kaizen/select@6.11.1) (2023-02-09)
+
+
+### Bug Fixes
+
+* **filtermultiselect:** trigger button tooltip consistency ([#3265](https://github.com/cultureamp/kaizen-design-system/issues/3265)) ([effefdc](https://github.com/cultureamp/kaizen-design-system/commit/effefdcf4d3d4166f1d8b0058bc27325e4a29206))
+
+
+
+
+
 # [6.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.4...@kaizen/select@6.11.0) (2023-02-07)
 
 
