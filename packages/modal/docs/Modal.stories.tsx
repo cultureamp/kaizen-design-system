@@ -260,35 +260,29 @@ export const FeatureModal: ComponentStory<typeof Modal> = props => {
   return (
     <>
       <Button label="Open modal" onClick={(): void => setModalOpen(true)} />
-      <Paragraph variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-        tortor sit amet lorem sollicitudin placerat et quis mauris. Proin at
-        orci ullamcorper, volutpat erat eget, facilisis lacus. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas. Sed rutrum, libero malesuada ornare porttitor, metus diam
-        scelerisque mauris, sit amet mollis lorem tortor iaculis risus.
-        Vestibulum et fringilla sem. Cras placerat lectus a auctor facilisis.
-        Cras ac porta diam. Donec auctor risus non ligula scelerisque accumsan.
-        Mauris molestie tortor quis lectus euismod, non tincidunt ligula
-        egestas. Phasellus at nibh lobortis, porttitor lectus tempor, lobortis
-        augue. Quisque augue dolor, hendrerit tincidunt dapibus et, tempus eget
-        turpis. Suspendisse pharetra tincidunt lobortis.
-      </Paragraph>
+
       <Modal
         {...props}
         isOpen={modalOpen}
         onDismiss={(): void => setModalOpen(false)}
         accessibleLabelId="my-modal-title"
       >
-        <div style={{ backgroundColor: "#dfc9ea" }}>
-          <InformationReportOwnerByRule alt="" />
-        </div>
         <Modal.Header>
           <Modal.Title id="my-modal-title">
             Introducing a new feature
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <div
+            style={{
+              backgroundColor: "#dfc9ea",
+              maxHeight: "355px",
+              borderRadius: "7px",
+              marginBottom: "24px",
+            }}
+          >
+            <InformationReportOwnerByRule alt="" />
+          </div>
           <Paragraph variant="body">
             Instructive text to drive user selection goes here.
           </Paragraph>
