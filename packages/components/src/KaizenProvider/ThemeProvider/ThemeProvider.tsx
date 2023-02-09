@@ -1,8 +1,14 @@
-import React, { useState } from "react"
+import React, {
+  Context,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
 import { defaultTheme, Theme } from "@kaizen/design-tokens"
 import { ThemeManager } from "./ThemeManager"
 
-export const ThemeContext = React.createContext<Theme>(defaultTheme)
+export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
 
 /**
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
@@ -15,14 +21,15 @@ export const ThemeProvider = ({
   themeManager?: ThemeManager
   children: React.ReactNode
 }): JSX.Element => {
-  const [themeManagerInstance] = useState(
+  const [themeManagerInstance] = useState<ThemeManager>(
     () => themeManager || new ThemeManager(defaultTheme)
   )
 
-  const [theme, setTheme] = React.useState<Theme>(
+  const [theme, setTheme] = useState<Theme>(
     themeManagerInstance.getCurrentTheme()
   )
-  React.useEffect(() => {
+
+  useEffect(() => {
     let cancelled = false
     const listener = (newTheme: Theme): void => {
       if (!cancelled) setTheme(newTheme)
@@ -78,4 +85,4 @@ export const ThemeProvider = ({
   )
 }
 
-export const useTheme = (): Theme => React.useContext(ThemeContext)
+export const useTheme = (): Theme => useContext(ThemeContext)
