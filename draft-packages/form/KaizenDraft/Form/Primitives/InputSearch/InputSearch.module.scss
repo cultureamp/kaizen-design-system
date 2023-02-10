@@ -8,249 +8,114 @@
 $input-height: 48px;
 $input-base-padding-horizontal: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
+// @note: had *2 at first, but the gap looked too big compared to UI Kit
+$input-padding-with-icon: calc(
+  calc(#{$input-base-padding-horizontal} * 1.5) + #{$input-icon-size}
+);
 $input-disabled-opacity: 0.3;
-$input-disabled-border-alpha: 50%;
-
-$search-input-placeholder-opacity: 0.7;
-$search-input-disabled-icon-opacity: 0.8;
 $border-solid-border-radius-curved: $input-height;
+
+$input-placeholder-opacity--default: 0.7;
+$start-icon-opacity--default: $input-placeholder-opacity--default;
+$input-placeholder-opacity--reversed: 0.8;
+$start-icon-opacity--reversed: $input-placeholder-opacity--reversed;
+
+// [type="search"] is required to override performance-ui global materialize CSS >:|
+$classname--input: '.input[type="search"]';
+
+// Classnames to simulate pseudo states in storybook
+$story-className--input-search-hover: ":global(.story__input-search-hover)";
+$story-className--input-search-focus: ":global(.story__input-search-focus)";
 
 .wrapper {
   position: relative;
 }
 
-.withLoading .startIconAdornment {
-  margin-top: -2px;
-}
-
-// [type="search"] is required to override performance-ui global materialize CSS >:|
-.input[type="search"] {
+#{$classname--input} {
   @include form-input-reset;
-  background-color: transparent;
-  background-clip: padding-box;
-  border: $border-solid-border-width $border-solid-border-style transparent;
-  border-radius: $border-solid-border-radius-curved;
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 0 $input-base-padding-horizontal;
-  height: $input-height;
-  width: 100%;
-  margin-bottom: 2px;
-
-  &.disabled {
-    &:not(.reversed) {
-      background: $color-white;
-      opacity: $input-disabled-opacity;
-    }
-
-    @include form-input-placeholder {
-      color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
-    }
-  }
 
   @include form-input-placeholder {
     opacity: 1;
   }
 
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    @include form-input-placeholder {
-      opacity: 0;
-    }
-  }
+  display: flex;
+  align-items: center;
+  height: $input-height;
+  width: 100%;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius-curved;
+  padding-block: 0;
+  padding-inline-start: $input-padding-with-icon;
+  padding-inline-end: $input-base-padding-horizontal;
+  font-size: 1rem;
+  line-height: 1.5;
 
   &::-webkit-search-cancel-button {
     -webkit-appearance: none;
   }
+
+  .hasEndIconAdornment & {
+    padding-inline-end: $input-padding-with-icon;
+  }
+
+  &:focus,
+  #{$story-className--input-search-focus} &,
+  &:hover,
+  #{$story-className--input-search-hover} & {
+    @include form-input-placeholder {
+      opacity: 0;
+    }
+  }
 }
 
-.input[type="search"]:focus + .focusRing {
-  $focus-ring-offset: 3px;
-  position: absolute;
-  background: transparent;
-  border-radius: $border-solid-border-radius-curved;
-  border-width: $border-focus-ring-border-width;
-  border-style: $border-focus-ring-border-style;
-  border-color: transparent;
-  top: -$focus-ring-offset;
-  left: -$focus-ring-offset;
-  right: -$focus-ring-offset;
-  bottom: -$focus-ring-offset;
-  pointer-events: none;
+.focusRing {
+  #{$classname--input}:focus + &,
+  #{$story-className--input-search-focus} & {
+    $focus-ring-offset: 3px;
+    position: absolute;
+    background: transparent;
+    border-radius: $border-solid-border-radius-curved;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    top: -$focus-ring-offset;
+    left: -$focus-ring-offset;
+    right: -$focus-ring-offset;
+    bottom: -$focus-ring-offset;
+    pointer-events: none;
+  }
 }
-
-///////////////////////////////////////////////////
-// ICON ADORNMENT STYLES
-///////////////////////////////////////////////////
 
 @mixin vertically-center-icon {
   position: absolute;
   height: $input-icon-size;
+  width: $input-icon-size;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
 }
 
-.withStartIconAdornment {
-  .startIconAdornment {
-    @include vertically-center-icon;
-    right: auto;
-    left: $spacing-sm;
+.startIconAdornment {
+  @include vertically-center-icon;
+  inset-inline-start: $spacing-sm;
+}
 
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: $spacing-sm;
-      left: auto;
-    }
-  }
+.endIconAdornment {
+  @include vertically-center-icon;
+  inset-inline-end: $spacing-sm;
+}
 
-  &.withDisabled {
-    .startIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
+.clearButton {
+  @include button-reset;
+  display: inline-flex;
 
-  .input[type="search"] {
-    padding-right: $input-base-padding-horizontal;
-    padding-left: calc(#{$spacing-md} + #{$input-icon-size});
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: calc(#{$spacing-md} + #{$input-icon-size});
-      padding-left: $input-base-padding-horizontal;
-    }
+  &:hover {
+    cursor: pointer;
   }
 }
 
-.withEndIconAdornment {
-  .endIconAdornment {
-    @include vertically-center-icon;
-    right: $spacing-sm;
-    left: auto;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: auto;
-      left: $spacing-sm;
-    }
-  }
-
-  &.isDisabled {
-    .endIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  .input[type="search"] {
-    padding-right: calc(#{$spacing-md} + #{$input-icon-size});
-    padding-left: $input-base-padding-horizontal;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: $input-base-padding-horizontal;
-      padding-left: calc(#{$spacing-md} + #{$input-icon-size});
-    }
-  }
-}
-
-.withStartIconAdornment.withEndIconAdornment {
-  .input[type="search"] {
-    padding-right: calc(#{$spacing-md} + #{$input-icon-size});
-    padding-left: calc(#{$spacing-md} + #{$input-icon-size});
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: calc(#{$spacing-md} + #{$input-icon-size});
-      padding-left: calc(#{$spacing-md} + #{$input-icon-size});
-    }
-  }
-}
-
-// Default theme
-/* stylelint-disable-next-line no-duplicate-selectors */
-.withStartIconAdornment {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .startIconAdornment {
-    color: $color-purple-800;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  &:focus-within:not(.withDisabled),
-  &:hover:not(.withDisabled) {
-    .startIconAdornment {
-      opacity: 1;
-    }
-  }
-
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  &.withDisabled {
-    /* stylelint-disable-next-line no-duplicate-selectors */
-    .startIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-}
-
-/* stylelint-disable-next-line no-duplicate-selectors */
-.withEndIconAdornment {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .endIconAdornment {
-    color: $color-gray-600;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  &.withDisabled {
-    /* stylelint-disable-next-line no-duplicate-selectors */
-    .endIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-}
-
-// Reversed
-.withStartIconAdornment.withReversed {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .startIconAdornment {
-    color: $color-white;
-    opacity: $search-input-disabled-icon-opacity;
-  }
-
-  &.withDisabled {
-    .startIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  &:hover:not(.withDisabled),
-  &:focus-within:not(.withDisabled) {
-    .startIconAdornment {
-      opacity: 1;
-    }
-  }
-}
-
-/* stylelint-disable-next-line no-duplicate-selectors */
-.withEndIconAdornment.withReversed {
-  /* stylelint-disable-next-line no-duplicate-selectors */
-  .endIconAdornment .cancelButton {
-    color: $color-white;
-    opacity: $search-input-disabled-icon-opacity;
-  }
-
-  &.withDisabled {
-    .endIconAdornment {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  &:hover:not(.withDisabled),
-  &:focus-within:not(.withDisabled) {
-    .endIconAdornment {
-      opacity: $search-input-disabled-icon-opacity;
-    }
-  }
+.disabled {
+  pointer-events: none;
+  opacity: $input-disabled-opacity;
 }
 
 ///////////////////////////////////////////////////
@@ -258,159 +123,131 @@ $border-solid-border-radius-curved: $input-height;
 ///////////////////////////////////////////////////
 
 // Default
-.input[type="search"].default {
-  background-color: $color-white;
-  color: $color-purple-800;
-  border-color: $color-gray-500;
-  display: flex;
-  align-items: center;
-
-  @include form-input-placeholder {
-    color: $color-purple-800;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    background-color: $color-gray-200;
-  }
-
-  &:hover:not([disabled]) {
+.default {
+  #{$classname--input} {
     @include form-input-placeholder {
-      opacity: 1;
+      color: $color-purple-800;
+      opacity: $input-placeholder-opacity--default;
     }
+
+    border-color: $color-gray-500;
+    background-color: $color-white;
+    color: $color-purple-800;
   }
 
-  &:focus + .focusRing {
+  .focusRing {
     border-color: $color-blue-500;
   }
 
-  &.disabled {
-    color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
-
-    @include form-input-placeholder {
-      opacity: $search-input-placeholder-opacity;
-    }
+  .startIconAdornment {
+    color: $color-purple-800;
+    opacity: $start-icon-opacity--default;
   }
 
-  &.error:not(:focus) {
-    border-color: $color-red-500;
+  .clearButton {
+    color: $color-gray-500;
+  }
+
+  &:hover,
+  &#{$story-className--input-search-hover},
+  &:focus-within,
+  &#{$story-className--input-search-focus} {
+    #{$classname--input} {
+      @include form-input-placeholder {
+        opacity: 1;
+      }
+      border-color: $color-gray-600;
+      background-color: $color-gray-200;
+    }
+
+    .startIconAdornment {
+      opacity: 1;
+    }
   }
 }
 
-// Secondary default
-.input[type="search"].secondary.default {
-  background-color: $color-gray-200;
-  color: $color-purple-800;
-  border: transparent;
-  display: flex;
-  align-items: center;
+// Secondary
+.secondary {
+  #{$classname--input} {
+    @include form-input-placeholder {
+      color: $color-purple-800;
+      opacity: $input-placeholder-opacity--default;
+    }
 
-  @include form-input-placeholder {
-    color: $color-purple-800;
-    opacity: $search-input-placeholder-opacity;
-  }
-
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    background-color: $color-gray-300;
     border-color: transparent;
+    background-color: $color-gray-200;
+    color: $color-purple-800;
   }
 
-  &:focus + .focusRing {
+  .focusRing {
     border-color: $color-blue-500;
   }
 
-  &.disabled {
-    color: rgba($color-purple-800-rgb, $search-input-placeholder-opacity);
+  .startIconAdornment {
+    color: $color-purple-800;
+    opacity: $start-icon-opacity--default;
+  }
 
-    @include form-input-placeholder {
-      opacity: $search-input-placeholder-opacity;
+  .clearButton {
+    color: $color-gray-500;
+  }
+
+  &:hover,
+  &#{$story-className--input-search-hover},
+  &:focus-within,
+  &#{$story-className--input-search-focus} {
+    #{$classname--input} {
+      @include form-input-placeholder {
+        opacity: 1;
+      }
+      border-color: transparent;
+      background-color: $color-gray-300;
     }
-  }
-}
 
-// Reversed (Dark Backgrounds)
-.input[type="search"].reversed {
-  color: $color-white;
-  border-color: rgba($color-white-rgb, 0.65);
-  background: rgba($color-white-rgb, 0.1);
-
-  @include form-input-placeholder {
-    color: $color-white;
-    opacity: $search-input-disabled-icon-opacity;
-  }
-
-  &:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    background: rgba($color-white-rgb, 0.2);
-    color: $color-white;
-  }
-
-  &:hover:not([disabled]) {
-    @include form-input-placeholder {
+    .startIconAdornment {
       opacity: 1;
     }
   }
-
-  &:focus + .focusRing {
-    border-color: $color-blue-300;
-  }
-
-  &.disabled {
-    color: rgba($color-white-rgb, $input-disabled-opacity);
-    border-color: rgba($color-white-rgb, $input-disabled-border-alpha);
-
-    @include form-input-placeholder {
-      opacity: $input-disabled-opacity;
-    }
-  }
-
-  &.error:not(:focus) {
-    border-color: $color-red-200;
-
-    @include form-input-placeholder {
-      opacity: $search-input-placeholder-opacity;
-    }
-  }
 }
 
-// Reversed Secondary (Dark Backgrounds)
-.input[type="search"].reversed.secondary {
-  color: $color-white;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.1);
+// Reversed
+.reversed {
+  #{$classname--input} {
+    @include form-input-placeholder {
+      color: $color-white;
+      opacity: $input-placeholder-opacity--reversed;
+    }
 
-  @include form-input-placeholder {
+    background: rgba($color-white-rgb, 0.1);
     color: $color-white;
-    opacity: rgba(255, 255, 255, $search-input-disabled-icon-opacity);
   }
 
-  &:focus:not([disabled]),
-  &:hover:not([disabled]) {
-    background: rgba($color-white-rgb, 0.2);
-    border: none;
-  }
-
-  &:focus + .focusRing {
+  .focusRing {
     border-color: $color-blue-300;
   }
 
-  &.disabled {
-    color: rgba($color-white-rgb, $input-disabled-opacity);
+  .startIconAdornment {
+    color: $color-white;
+    opacity: $start-icon-opacity--reversed;
+  }
 
-    @include form-input-placeholder {
-      opacity: $input-disabled-opacity;
+  .clearButton {
+    color: rgba($color-white-rgb, 0.8);
+  }
+
+  &:hover,
+  &#{$story-className--input-search-hover},
+  &:focus-within,
+  &#{$story-className--input-search-focus} {
+    #{$classname--input} {
+      border-color: transparent;
+      background-color: rgba($color-white-rgb, 0.2);
     }
   }
-}
 
-.cancelButton {
-  @include button-reset;
-
-  &:hover {
-    cursor: pointer;
+  &.default {
+    #{$classname--input} {
+      border-color: rgba($color-white-rgb, 0.65);
+    }
   }
 }
