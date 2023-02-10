@@ -9,8 +9,12 @@ export const Backdrop: React.FC<
 > = ({ classNameOverride }) => (
   <motion.div
     className={classnames(styles.backdrop, classNameOverride)}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 0.5 }}
+    initial={{
+      opacity: 0,
+      animationTimingFunction: "cubic-bezier(0.5, 0.01, 0.01, 0.96)",
+      animationDuration: "200ms",
+    }}
+    animate={{ opacity: 0.35 }}
     exit={{ opacity: 0 }}
   />
 )

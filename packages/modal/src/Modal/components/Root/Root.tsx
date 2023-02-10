@@ -8,23 +8,19 @@ import { CloseButton } from "../CloseButton"
 
 import styles from "./Root.module.scss"
 
-const dropIn = {
+const modalMotion = {
   hidden: {
-    y: "-100vh",
+    y: "-64px",
     opacity: 0,
   },
   visible: {
     y: "0",
     opacity: 1,
-    transition: {
-      duration: 0.1,
-      type: "spring",
-      damping: 25,
-      stiffness: 500,
-    },
+    animationTimingFunction: "cubic-bezier(0.5, 0.01, 0.01, 0.96)",
+    animationDuration: "200ms",
   },
   exit: {
-    y: "100vh",
+    y: "-64px",
     opacity: 0,
   },
 }
@@ -74,7 +70,7 @@ export const Root: React.FC<RootProps> = ({
       {isOpen && (
         <>
           <Backdrop />
-          <div className={styles.modalWrapper}>
+          <div className={styles.modalWrapper} {...restProps}>
             <FocusOn
               onClickOutside={dismissOnBackdropClick ? onDismiss : undefined}
               onEscapeKey={onDismiss}
@@ -86,24 +82,23 @@ export const Root: React.FC<RootProps> = ({
               autoFocus={false}
             >
               <motion.div
+                ref={dialogRef}
+                role="dialog"
+                aria-modal="true"
+                tabIndex={-1}
+                aria-labelledby={accessibleLabelId}
                 onClick={(e: React.MouseEvent): void => e.stopPropagation()}
                 className={classnames(styles.modal, {
                   [styles.small]: size === "sm",
                   [styles.large]: size === "lg",
                 })}
-                variants={dropIn}
+                variants={modalMotion}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                role="dialog"
-                aria-modal="true"
-                tabIndex={-1}
-                aria-labelledby={accessibleLabelId}
-                ref={dialogRef}
-                {...restProps}
               >
-                {!hideCloseButton && <CloseButton onClick={onDismiss} />}
                 <div className={styles.content} ref={contentRef}>
+                  {!hideCloseButton && <CloseButton onClick={onDismiss} />}
                   {children}
                 </div>
               </motion.div>
