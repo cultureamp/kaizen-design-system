@@ -67,7 +67,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/node-logger": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
-    "@tanstack/react-query": "^4.24.4",
+    "@tanstack/react-query": "^4.24.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-12": "npm:@testing-library/react@^12.1.5",
