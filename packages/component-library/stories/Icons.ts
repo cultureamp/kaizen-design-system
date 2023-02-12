@@ -69,6 +69,7 @@ import maximize from "../icons/maximize.icon.svg"
 import repeats from "../icons/repeats.icon.svg"
 import zoomIn from "../icons/zoom-in.icon.svg"
 import zoomOut from "../icons/zoom-out.icon.svg"
+import connect from "../icons/connect.icon.svg"
 
 // INFORMATIONAL
 import success from "../icons/success.icon.svg"
@@ -251,6 +252,7 @@ export const Actions = {
   repeats,
   zoomIn,
   zoomOut,
+  connect,
 }
 
 export const Informational = {

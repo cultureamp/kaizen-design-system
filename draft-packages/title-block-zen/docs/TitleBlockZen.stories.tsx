@@ -8,11 +8,12 @@ import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
+import { Tag } from "@kaizen/draft-tag"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { NavigationTab, TitleBlockZen } from ".."
+import { NavigationTab, SectionTitleRenderProps, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
 const TESTING_VIEWPORTS = [320, 768, 1200]
@@ -1117,3 +1118,34 @@ export const RenderProps: Story = () => {
     </OffsetPadding>
   )
 }
+
+export const WithCustomSectionTitle: Story = () => {
+  const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
+    <div className={styles["flex-wrapper"]}>
+      <Heading color="white" variant="heading-3">
+        {props.sectionTitle}
+      </Heading>
+      <Tag variant="statusDraft">My custom element</Tag>
+    </div>
+  )
+  return (
+    <OffsetPadding>
+      <TitleBlockZen
+        title="Page title"
+        primaryAction={{
+          label: "Primary action",
+          onClick: () => alert("primary action clicked"),
+        }}
+        subtitle="Subtitle"
+        sectionTitle="Section title"
+        renderSectionTitle={CustomComponent}
+        breadcrumb={{
+          text: "Back",
+          handleClick: () => undefined,
+        }}
+      />
+    </OffsetPadding>
+  )
+}
+WithCustomSectionTitle.storyName = "With custom section title"
+WithCustomSectionTitle.parameters = { chromatic: { disable: false } }

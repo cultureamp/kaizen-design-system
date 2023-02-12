@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.2...@kaizen/draft-title-block-zen@7.8.3) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.1...@kaizen/draft-title-block-zen@7.8.2) (2023-02-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.0...@kaizen/draft-title-block-zen@7.8.1) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.7.1...@kaizen/draft-title-block-zen@7.8.0) (2023-01-31)
+
+
+### Features
+
+* Swap action and draft colors in tag element ([#3238](https://github.com/cultureamp/kaizen-design-system/issues/3238)) ([a31ff1a](https://github.com/cultureamp/kaizen-design-system/commit/a31ff1a09f21e81c15ad056bffc2e20ad4b0d2b5))
+
+
+
+
+
+## [7.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.7.0...@kaizen/draft-title-block-zen@7.7.1) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.6.20...@kaizen/draft-title-block-zen@7.7.0) (2023-01-30)
+
+
+### Features
+
+* add renderSectionTitle render prop ([#3227](https://github.com/cultureamp/kaizen-design-system/issues/3227)) ([c9a6c1a](https://github.com/cultureamp/kaizen-design-system/commit/c9a6c1a3e09cb5b3dae3a59d7c47de117e0756b5))
+
+
+
+
+
 ## [7.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.6.19...@kaizen/draft-title-block-zen@7.6.20) (2023-01-23)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

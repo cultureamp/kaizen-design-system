@@ -1,7 +1,11 @@
 import React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen } from "@testing-library/react"
-import { TitleBlockZen, CustomBreadcrumbProps } from "./index"
+import {
+  TitleBlockZen,
+  CustomBreadcrumbProps,
+  SectionTitleRenderProps,
+} from "./index"
 import "@testing-library/jest-dom"
 import "./matchMedia.mock"
 
@@ -527,6 +531,31 @@ describe("<TitleBlockZen />", () => {
       fireEvent.click(btn[0])
       expect(testOnClickFn).toHaveBeenCalled()
       spy.mockRestore()
+    })
+  })
+
+  describe("when a custom compent is provided for section title", () => {
+    it("renders a custom element in section title", async () => {
+      const expectedText = "This is a button"
+      const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
+        <button>{props.sectionTitle}</button>
+      )
+      render(
+        <TitleBlockZen
+          title="Test title"
+          sectionTitle={expectedText}
+          renderSectionTitle={CustomComponent}
+        />
+      )
+      const el = await screen.findByRole("button")
+      expect(el.textContent).toBe(expectedText)
+    })
+
+    it("renders a heading when no render prop is provided", async () => {
+      const expectedText = "My expected text"
+      render(<TitleBlockZen title="Test title" sectionTitle={expectedText} />)
+      const el = await screen.findByRole("heading", { level: 2 })
+      expect(el.textContent).toBe(expectedText)
     })
   })
 
