@@ -106,15 +106,6 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   inset-inline-end: $spacing-sm;
 }
 
-.clearButton {
-  @include button-reset;
-  display: inline-flex;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .disabled {
   pointer-events: none;
   opacity: $input-disabled-opacity;
@@ -144,10 +135,6 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   .startIconAdornment {
     color: $color-purple-800;
     opacity: $start-icon-opacity--default;
-  }
-
-  .clearButton {
-    color: $color-gray-500;
   }
 
   &:hover,
@@ -190,10 +177,6 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     opacity: $start-icon-opacity--default;
   }
 
-  .clearButton {
-    color: $color-gray-500;
-  }
-
   &:hover,
   &#{$story-className--input-search-hover},
   &:focus-within,
@@ -231,10 +214,6 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   .startIconAdornment {
     color: $color-white;
     opacity: $start-icon-opacity--reversed;
-  }
-
-  .clearButton {
-    color: rgba($color-white-rgb, 0.8);
   }
 
   &:hover,

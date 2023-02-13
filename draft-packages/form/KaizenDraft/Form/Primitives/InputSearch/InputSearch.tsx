@@ -2,9 +2,9 @@ import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import clear from "@kaizen/component-library/icons/clear.icon.svg"
 import search from "@kaizen/component-library/icons/search.icon.svg"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
+import { ClearButton } from "../ClearButton"
 import styles from "./InputSearch.module.scss"
 
 export interface InputSearchProps
@@ -74,17 +74,12 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
       <div className={styles.focusRing} />
 
       {value && (
-        <div className={styles.endIconAdornment}>
-          <button
-            type="button"
-            className={styles.clearButton}
-            aria-label="clear"
-            onClick={handleOnClear}
-            disabled={disabled}
-          >
-            <Icon icon={clear} role="presentation" />
-          </button>
-        </div>
+        <ClearButton
+          isReversed={reversed}
+          onClick={handleOnClear}
+          disabled={disabled}
+          classNameOverride={styles.endIconAdornment}
+        />
       )}
     </div>
   )
