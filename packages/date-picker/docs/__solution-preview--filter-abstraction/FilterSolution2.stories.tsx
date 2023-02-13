@@ -140,7 +140,7 @@ export const Solution2DRP: ComponentStory<
   typeof FilterSolution2FlexiButtonRef
 > = () => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
-  const buttonRef2 = useRef<HTMLButtonElement>(null)
+  // const buttonRef2 = useRef<HTMLButtonElement>(null)
   const buttonRef3 = useRef<HTMLButtonElement>(null)
   const removeButtonRef = useRef<HTMLButtonElement>(null)
   const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
@@ -151,7 +151,7 @@ export const Solution2DRP: ComponentStory<
   const [range, setRange] = useState<DateRange | undefined>()
   const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
   const [rangeRefParent, setRangeRefParent] = useState<DateRange | undefined>()
-  const [rangeRefButton, setRangeRefButton] = useState<DateRange | undefined>()
+  // const [rangeRefButton, setRangeRefButton] = useState<DateRange | undefined>()
   const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
     DateRange | undefined
   >({
@@ -242,7 +242,7 @@ export const Solution2DRP: ComponentStory<
         the parent (putting it on the button in addition is
         fine though).
       */}
-      <div style={{ marginTop: "2rem" }}>
+      {/* <div style={{ marginTop: "2rem" }}>
         <FilterSolution2FlexiButtonRef
           // {...args}
           label="Single button; Has ref on button (THIS DOES NOT WORK)"
@@ -273,7 +273,7 @@ export const Solution2DRP: ComponentStory<
         >
           Focus on single button with ref on button (popover does not work)
         </button>
-      </div>
+      </div> */}
 
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2FlexiButtonRef
