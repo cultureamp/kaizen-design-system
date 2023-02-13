@@ -12,10 +12,12 @@ const KaizenProviderWrapper = ({
 describe("<KaizenProvider />", () => {
   it("renders it's children", () => {
     const ReactApp = (): JSX.Element => <div>Hello App</div>
-    render(
+    const screen = render(
       <KaizenProviderWrapper>
         <ReactApp />
       </KaizenProviderWrapper>
     )
+
+    expect(screen.getByText("Hello App"))
   })
 })
