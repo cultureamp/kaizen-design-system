@@ -25,10 +25,28 @@
 
 .cancel {
   @extend %ca-notification__cancel;
-}
-
-.cancelInner {
-  @extend %ca-notification__cancel__inner;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:focus {
+    outline: none;
+  }
+  &:global(.focus-visible)::after {
+    content: "";
+    $focus-ring-offset: 6px;
+    pointer-events: none;
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    top: $focus-ring-offset;
+    bottom: $focus-ring-offset;
+    left: $focus-ring-offset;
+    right: $focus-ring-offset;
+  }
 }
 
 .cancelLabel {

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-likert-scale-legacy",
-  "version": "1.10.31",
+  "version": "1.10.33",
   "description": "The draft likert-scale component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,8 +29,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^16.2.0",
-    "@kaizen/draft-form": "^8.3.23",
+    "@kaizen/component-library": "^16.2.1",
+    "@kaizen/draft-form": "^9.0.1",
     "@kaizen/typography": "^2.3.6",
     "classnames": "^2.3.2"
   },
