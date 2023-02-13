@@ -328,22 +328,6 @@ $notification-slide-right: transform 300ms ease-out;
   }
 }
 
-%ca-notification__cancel__inner {
-  margin-right: $spacing-sm;
-  margin-left: 0;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    margin-right: 0;
-    margin-left: $spacing-sm;
-  }
-  // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
-  line-height: 0;
-  float: right;
-  display: flex;
-  align-items: center;
-}
-
 %ca-notification__cancel__label {
   position: absolute;
   width: 1px;
