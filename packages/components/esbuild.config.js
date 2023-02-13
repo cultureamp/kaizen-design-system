@@ -17,9 +17,9 @@ esbuild
     format: "cjs",
     external: ["react", "react-dom"],
     plugins: [
-      cssModulesPlugin({
-        localsConvention: "dashes",
-      }),
+      // cssModulesPlugin({
+      //   localsConvention: "dashes",
+      // }),
       // ScssModulesPlugin({
       //   inject: false,
       //   localsConvention: "dashes",
