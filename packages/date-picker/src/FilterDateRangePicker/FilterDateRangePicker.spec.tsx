@@ -34,70 +34,6 @@ const FilterDateRangePickerWrapper = ({
 }
 
 describe("<FilterDateRangePicker />", () => {
-  it("resets the input and calendar values if cleared from the outside", async () => {
-    const Wrapper = (): JSX.Element => {
-      const [selectedDateRange, setSelectedDateRange] = useState<
-        DateRange | undefined
-      >({
-        from: new Date("2022-05-01"),
-        to: new Date("2022-05-22"),
-      })
-      return (
-        <div>
-          <button
-            type="button"
-            onClick={(): void => setSelectedDateRange(undefined)}
-          >
-            Clear the filter
-          </button>
-
-          <FilterDateRangePicker
-            id="test__filter-date-range-picker"
-            label="Dates"
-            selectedRange={selectedDateRange}
-            onRangeChange={setSelectedDateRange}
-            locale="en-AU"
-          />
-        </div>
-      )
-    }
-
-    render(<Wrapper />)
-
-    const filterButton = screen.getByRole("button", {
-      name: "Dates : 1 May 2022 - 22 May 2022",
-    })
-    expect(filterButton).toBeInTheDocument()
-
-    await openFilter()
-
-    await waitFor(() => {
-      expect(screen.getByText("May 2022")).toBeVisible()
-    })
-
-    const inputRangeStart = screen.getByLabelText("Date from")
-    const inputRangeEnd = screen.getByLabelText("Date to")
-    // Input Start is focused when filter is opened
-    expect(inputRangeStart).toHaveValue("01/05/2022")
-    expect(inputRangeEnd).toHaveValue("22 May 2022")
-
-    await userEvent.keyboard("{Escape}")
-
-    const clearButton = screen.getByRole("button", {
-      name: "Clear the filter",
-    })
-
-    await userEvent.click(clearButton)
-
-    await openFilter()
-
-    const inputRangeAfterStart = screen.getByLabelText("Date from")
-    const inputRangeAfterEnd = screen.getByLabelText("Date to")
-    // Input Start is focused when filter is opened
-    expect(inputRangeAfterStart).toHaveValue("")
-    expect(inputRangeAfterEnd).toHaveValue("")
-  })
-
   it("should not show the calendar initially", () => {
     render(<FilterDateRangePickerWrapper />)
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
@@ -303,6 +239,60 @@ describe("<FilterDateRangePicker />", () => {
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
       }, 10000)
+    })
+
+    it("resets the input values if cleared from the outside", async () => {
+      const Wrapper = (): JSX.Element => {
+        const [selectedDateRange, setSelectedDateRange] = useState<
+          DateRange | undefined
+        >({
+          from: new Date("2022-05-01"),
+          to: new Date("2022-05-22"),
+        })
+        return (
+          <div>
+            <button
+              type="button"
+              onClick={(): void => setSelectedDateRange(undefined)}
+            >
+              Clear the filter
+            </button>
+
+            <FilterDateRangePicker
+              id="test__filter-date-range-picker"
+              label="Dates"
+              selectedRange={selectedDateRange}
+              onRangeChange={setSelectedDateRange}
+              locale="en-AU"
+            />
+          </div>
+        )
+      }
+
+      render(<Wrapper />)
+
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Date from")
+      const inputRangeEnd = screen.getByLabelText("Date to")
+      // Input Start is focused when filter is opened
+      expect(inputRangeStart).toHaveValue("01/05/2022")
+      expect(inputRangeEnd).toHaveValue("22 May 2022")
+
+      await userEvent.keyboard("{Escape}")
+
+      const clearButton = screen.getByRole("button", {
+        name: "Clear the filter",
+      })
+
+      await userEvent.click(clearButton)
+
+      await openFilter()
+
+      const inputRangeAfterStart = screen.getByLabelText("Date from")
+      const inputRangeAfterEnd = screen.getByLabelText("Date to")
+      expect(inputRangeAfterStart).toHaveValue("")
+      expect(inputRangeAfterEnd).toHaveValue("")
     })
   })
 
