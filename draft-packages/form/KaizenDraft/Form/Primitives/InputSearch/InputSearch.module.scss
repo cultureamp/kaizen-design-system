@@ -8,9 +8,8 @@
 $input-height: 48px;
 $input-base-padding-horizontal: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
-// @note: had *2 at first, but the gap looked too big compared to UI Kit
 $input-padding-with-icon: calc(
-  calc(#{$input-base-padding-horizontal} * 1.5) + #{$input-icon-size}
+  calc(#{$input-base-padding-horizontal} * 2) + #{$input-icon-size}
 );
 $input-disabled-opacity: 0.3;
 $border-solid-border-radius-curved: $input-height;
@@ -88,7 +87,6 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 @mixin vertically-center-icon {
   position: absolute;
   height: $input-icon-size;
-  width: $input-icon-size;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
@@ -97,6 +95,10 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 .startIconAdornment {
   @include vertically-center-icon;
   inset-inline-start: $spacing-sm;
+}
+
+.loadingSpinner {
+  margin-top: -2px;
 }
 
 .endIconAdornment {

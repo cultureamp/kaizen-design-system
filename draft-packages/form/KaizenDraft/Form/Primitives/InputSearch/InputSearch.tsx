@@ -49,7 +49,11 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
     >
       <div className={styles.startIconAdornment}>
         {loading ? (
-          <LoadingSpinner accessibilityLabel="" size="sm" />
+          <LoadingSpinner
+            accessibilityLabel=""
+            size="sm"
+            classNameOverride={styles.loadingSpinner}
+          />
         ) : (
           <Icon icon={search} role="presentation" />
         )}
