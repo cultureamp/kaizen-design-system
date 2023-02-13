@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs'
+import { CATEGORIES } from "../../../../../storybook/constants"
+
+<Meta title={`${CATEGORIES.components}/KaizenProvider/Installation`} />
+
+# KaizenProvider
+
+Provides the necessary global contexts (eg. Theme-ing) for all Kaizen components, as well as any global level Kaizen component/wrappers.
+
+## Usage
+
+Ideally, there should only be one `KaizenProvider` that should wrap your entire application.
+
+```jsx
+import { KaizenProvider } from '@kaizen/components';
+
+<KaizenProvider>
+  <App />
+</KaizenProvider>
+```

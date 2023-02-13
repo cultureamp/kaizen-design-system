@@ -190,9 +190,7 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
     onClick={onClick}
     data-testid="close-button"
   >
-    <span className={styles.cancelInner}>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
+    <Icon icon={closeIcon} role="img" title="close notification" />
   </button>
 )
 
