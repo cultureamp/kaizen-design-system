@@ -2102,14 +2102,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kaizen/tailwind@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/tailwind/-/tailwind-0.4.0.tgz#45ecef96e48031b3e4061c6280e8b771591b0631"
-  integrity sha512-+jVvtwR89fiqGbcxfv5azzn4YsOlLuzjZy/EUCPUNTnjfvHZY1cENoK/cRSZC5JeJpMLA9kQ3adDxTThcJ8BfQ==
-  dependencies:
-    "@kaizen/design-tokens" "^10.2.0"
-    classnames "^2.3.2"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
