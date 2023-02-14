@@ -5,6 +5,7 @@ import { useSelectContext } from "../../context/SelectContext"
 import styles from "./ListBox.module.scss"
 
 export type SingleListBoxProps = {
+  /** Props for the popup. */
   menuProps: AriaListBoxOptions<SingleItemType>
   children: React.ReactNode
 }

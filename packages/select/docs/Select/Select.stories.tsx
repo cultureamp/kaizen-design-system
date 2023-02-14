@@ -9,6 +9,7 @@ import { figmaEmbed } from "../../../../storybook/helpers"
 import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
 import { groupedMockItems, singleMockItems } from "../MockData"
+import { selectControls } from "../controls/selectControls"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -29,15 +30,7 @@ export default {
   },
   decorators: [withDesign],
   argTypes: {
-    status: {
-      options: ["error", "caution"],
-      control: {
-        type: "select",
-      },
-    },
-    validationMessage: {
-      control: "text",
-    },
+    ...selectControls,
   },
 } as ComponentMeta<typeof Select>
 
@@ -55,6 +48,7 @@ DefaultStory.args = {
   isDisabled: false,
   placeholder: "Placeholder",
   defaultOpen: false,
+  selectedKey: undefined,
 }
 
 DefaultStory.parameters = {
