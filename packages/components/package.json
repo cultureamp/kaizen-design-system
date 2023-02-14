@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn clean && yarn build:css && yarn prepublish",
     "build:css": "node esbuild.config.js",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
