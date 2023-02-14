@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.8...@kaizen/date-picker@5.17.9) (2023-02-13)
+
+
+### Bug Fixes
+
+* **filter-drp:** allow updating FilterDRP input values via external trigger ([#3268](https://github.com/cultureamp/kaizen-design-system/issues/3268)) ([d677832](https://github.com/cultureamp/kaizen-design-system/commit/d677832e3d7d68e9105480ab2181b37294f47d75))
+
+
+
+
+
 ## [5.17.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.7...@kaizen/date-picker@5.17.8) (2023-02-09)
 
 **Note:** Version bump only for package @kaizen/date-picker

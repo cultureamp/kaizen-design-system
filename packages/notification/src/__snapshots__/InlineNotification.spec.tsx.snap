@@ -76,22 +76,18 @@ exports[`The basic notification renders correctly 1`] = `
     data-testid="close-button"
     type="button"
   >
-    <span
-      class="cancelInner"
+    <svg
+      class="icon"
+      focusable="false"
+      role="img"
     >
-      <svg
-        class="icon"
-        focusable="false"
-        role="img"
-      >
-        <title>
-          close notification
-        </title>
-        <use
-          xlink:href="#undefined"
-        />
-      </svg>
-    </span>
+      <title>
+        close notification
+      </title>
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
   </button>
 </div>
 `;

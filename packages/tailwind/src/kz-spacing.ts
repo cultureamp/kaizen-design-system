@@ -5,6 +5,7 @@ export const kzSpacing = {
   1: ".0625rem",
   2: ".125rem",
   4: ".25rem",
+  6: ".375rem",
   8: ".5rem",
   12: ".75rem",
   16: "1rem",

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useRef, useState } from "react"
+import React, { useEffect, HTMLAttributes, useRef, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -110,6 +110,18 @@ export const FilterDateRangePicker = ({
   const [inputRangeEndValue, setInputRangeEndValue] = useState<
     InputRangeEndProps["value"]
   >(transformDateToInputValue(selectedRange?.to))
+
+  useEffect(() => {
+    const rangeStart = transformDateToInputValue(selectedRange?.from)
+    const rangeEnd = transformDateToInputValue(selectedRange?.to)
+
+    if (rangeStart !== inputRangeStartValue) {
+      setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+    }
+    if (rangeEnd !== inputRangeEndValue) {
+      setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
+    }
+  }, [selectedRange?.from, selectedRange?.to])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
