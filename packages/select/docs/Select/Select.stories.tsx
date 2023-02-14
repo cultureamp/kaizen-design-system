@@ -3,6 +3,8 @@ import { Section } from "@react-stately/collections"
 import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
@@ -57,51 +59,22 @@ DefaultStory.parameters = {
 }
 
 export const WithSections: ComponentStory<typeof Select> = () => (
-  <Select
-    id="select-grouped"
-    label="label"
-    items={groupedMockItems}
-    placeholder="Placeholder"
-  />
+  <>
+    <Select
+      id="select-grouped"
+      label="label"
+      items={groupedMockItems}
+      placeholder="Placeholder"
+    />
+    <div style={{ marginTop: 4 }}>
+      <Paragraph variant="body">Items: </Paragraph>
+      <CodeBlock
+        language="json"
+        code={JSON.stringify(groupedMockItems, null, 2)}
+      />
+    </div>
+  </>
 )
-
-WithSections.parameters = {
-  docs: {
-    source: {
-      code: `
-      const groupedMockItems: SingleItemType[] = [
-        {
-          label: "Colours",
-          value: [
-            { label: "Blue", value: "blue" },
-            { label: "Red", value: "red" },
-            { label: "Green", value: "green" },
-          ],
-        },
-        {
-          label: "Flavours",
-          value: [
-            { label: "Vanilla", value: "Vanilla" },
-            { label: "Chocolate", value: "Chocolate" },
-            { label: "Strawberry", value: "Strawberry" },
-          ],
-        },
-      ]
-      
-      () => (
-        <Select
-          id="select-grouped"
-          label="label"
-          items={groupedMockItems}
-          placeholder="Placeholder"
-        />
-      )
-      `,
-      language: "tsx",
-      type: "auto",
-    },
-  },
-}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,

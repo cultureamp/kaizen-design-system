@@ -90,10 +90,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock
-          language="json"
-          code={JSON.stringify(mockItems, null, "\t")}
-        />
+        <CodeBlock language="json" code={JSON.stringify(mockItems, null, 2)} />
       </div>
     </>
   )
