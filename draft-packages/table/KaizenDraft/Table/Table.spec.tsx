@@ -42,23 +42,26 @@ enum AriaRoles {
  *
  * @see https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
  */
-const Wrapper: React.FunctionComponent = () => (
+const Wrapper = (): JSX.Element => (
   <TableContainer data-testid={TestId.tableContainer}>
     <TableHeader data-testid={TestId.tableHeader}>
       <TableHeaderRow data-testid={TestId.tableHeaderRow}>
         <TableHeaderRowCell
           checkable={true}
           checkedStatus={"on"}
-          onCheck={_ => true}
+          onCheck={(): void => undefined}
           active={true}
-          onClick={_ => true}
+          onClick={(): void => undefined}
           labelText="Resource name"
           width={12 / 12}
           data-testid={TestId.tableHeaderRowCell}
         />
       </TableHeaderRow>
     </TableHeader>
-    <TableCard data-testid={TestId.tableCard} onClick={() => alert("clicked!")}>
+    <TableCard
+      data-testid={TestId.tableCard}
+      onClick={(): void => alert("clicked!")}
+    >
       <TableRow data-testid={TestId.tableRow}>
         <TableRowCell width={12 / 12} data-testid={TestId.tableRowCell}>
           <div></div>

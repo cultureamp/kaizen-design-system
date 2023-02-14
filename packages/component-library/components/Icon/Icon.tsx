@@ -21,7 +21,7 @@ export interface IconProps
  * {@link https://cultureamp.design/components/icon/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-icon--meaningful-kaizen-site-demo Storybook}
  */
-export const Icon: React.VFC<IconProps> = ({
+export const Icon = ({
   icon,
   inheritSize = false,
   role = "img",
@@ -29,7 +29,7 @@ export const Icon: React.VFC<IconProps> = ({
   desc = "",
   classNameOverride,
   ...props
-}) => {
+}: IconProps): JSX.Element => {
   const isMeaningfulImg = role === "img"
 
   if (isMeaningfulImg && !title) {
@@ -76,3 +76,5 @@ export const Icon: React.VFC<IconProps> = ({
     </svg>
   )
 }
+
+Icon.displayName = "Icon"

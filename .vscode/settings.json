@@ -22,5 +22,17 @@ Happy linting! 💖
   "playwright.env": {
     "IS_DEV": true
   },
-  "playwright.reuseBrowser": true
+  "playwright.reuseBrowser": true,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "classNameOverride"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    "classnames\\(([^)]*)\\)",
+    "classNames\\(([^)]*)\\)",
+    "clsx\\(([^)]*)\\)",
+    "csx\\(([^)]*)\\)"
+  ]
 }

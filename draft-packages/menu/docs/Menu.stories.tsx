@@ -1,14 +1,12 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-
 import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
-
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -32,7 +30,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof Menu> = args => (
   <Menu
     {...args}
     button={
@@ -41,7 +39,7 @@ export const DefaultStory = args => (
   >
     <MenuList>
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to duplicate content")
         }}
@@ -49,7 +47,7 @@ export const DefaultStory = args => (
         label="Duplicate item"
       />
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to edit content")
         }}
@@ -57,7 +55,7 @@ export const DefaultStory = args => (
         label="Edit Item"
       />
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to delete content")
         }}
@@ -71,7 +69,7 @@ export const DefaultStory = args => (
       />
       <MenuList heading="Deprecated props">
         <MenuItem
-          action={e => {
+          action={(e): void => {
             e.preventDefault()
             alert("action prop has has been deprecated - use onClick")
           }}
@@ -82,7 +80,6 @@ export const DefaultStory = args => (
     </MenuList>
   </Menu>
 )
-
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
@@ -141,15 +138,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-
 StickerSheetDefault.decorators = [
-  (StoryComponent: Story) => (
+  (StoryComponent: Story): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>
   ),
 ]
-
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
@@ -158,15 +153,13 @@ StickerSheetDefault.parameters = {
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
-
 StickerSheetReversed.decorators = [
-  (StoryComponent: Story) => (
+  (StoryComponent: Story): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>
   ),
 ]
-
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },

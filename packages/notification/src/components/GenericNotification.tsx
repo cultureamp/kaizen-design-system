@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 
@@ -59,7 +59,7 @@ class GenericNotification extends React.Component<Props, State> {
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     requestAnimationFrame(() => {
       if (this.containerRef.current) {
         this.setState({ hidden: false })
@@ -71,14 +71,14 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     if (this.autoHideTimeoutId) {
       clearTimeout(this.autoHideTimeoutId)
       this.autoHideTimeoutId = null
     }
   }
 
-  autohideDelayMs() {
+  autohideDelayMs(): number {
     if (this.props.autohideDelay == "long") {
       return 30_000
     } else {
@@ -86,7 +86,7 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render(): JSX.Element | null {
     if (this.state.removed) {
       return null
     }
@@ -149,7 +149,7 @@ class GenericNotification extends React.Component<Props, State> {
     return "0"
   }
 
-  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
+  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>): void {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (this.state.hidden && e.propertyName === "margin-top") {
       this.setState({ removed: true })
@@ -159,7 +159,7 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  iconType() {
+  iconType(): HTMLAttributes<SVGElement> {
     switch (this.props.type) {
       case "positive":
         return successIcon
@@ -174,7 +174,7 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  hide() {
+  hide(): void {
     this.setState({ hidden: true })
   }
 }
@@ -183,20 +183,21 @@ type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const CancelButton = ({ onClick }: CancelButtonProps) => (
+const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   <button
     className={styles.cancel}
     type="button"
     onClick={onClick}
     data-testid="close-button"
   >
-    <span className={styles.cancelInner}>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
+    <Icon icon={closeIcon} role="img" title="close notification" />
   </button>
 )
 
-const NotificationHeading = ({ titleProp, headingProps }) => {
+const NotificationHeading = ({
+  titleProp,
+  headingProps,
+}): JSX.Element | null => {
   if (headingProps) {
     return (
       <Heading

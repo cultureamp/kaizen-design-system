@@ -17,7 +17,7 @@ import { variablePrefixForLanguage } from "../util/utils"
  *
  * You can extend this function if you have similar token conflicts in the future.
  */
-function getTokenRank(_tokenName: string) {
+function getTokenRank(_tokenName: string): number {
   const tokenName = _tokenName.toLowerCase()
   return 1 - tokenName.indexOf("color") / tokenName.length
 }

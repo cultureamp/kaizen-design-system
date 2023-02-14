@@ -4,7 +4,7 @@ import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import { MenuFooter } from "../MenuFooter"
 import styles from "./MenuLoadingSkeleton.module.scss"
 
-export const MenuLoadingSkeleton: React.VFC = () => (
+export const MenuLoadingSkeleton = (): JSX.Element => (
   <>
     <div className={classNames(styles.loadingContainer)}>
       <LoadingInput classNameOverride={styles.loadingInput} />
@@ -20,3 +20,5 @@ export const MenuLoadingSkeleton: React.VFC = () => (
     </MenuFooter>
   </>
 )
+
+MenuLoadingSkeleton.displayName = "MenuLoadingSkeleton"

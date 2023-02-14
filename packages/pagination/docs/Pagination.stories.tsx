@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { ComponentStory } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
 import { CATEGORIES } from "../../../storybook/constants"
 
@@ -13,7 +14,7 @@ export default {
     },
   },
   decorators: [
-    (story, { globals: { textDirection } }) => (
+    (story, { globals: { textDirection } }): JSX.Element => (
       <div
         style={{
           display: "flex",
@@ -27,7 +28,7 @@ export default {
   ],
 }
 
-export const Default = args => {
+export const Default: ComponentStory<typeof Pagination> = args => {
   const [currentPage, setCurrentPage] = useState(1)
 
   return (
@@ -37,7 +38,7 @@ export const Default = args => {
       ariaLabelNextPage="Next page"
       ariaLabelPreviousPage="Previous page"
       pageCount={10}
-      onPageChange={(newPage: number) => setCurrentPage(newPage)}
+      onPageChange={setCurrentPage}
     />
   )
 }

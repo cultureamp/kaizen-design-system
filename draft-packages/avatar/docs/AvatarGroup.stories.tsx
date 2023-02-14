@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -71,12 +71,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof AvatarGroup>
 
 export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => (
   <AvatarGroup {...args} />
 )
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   maxVisible: 2,

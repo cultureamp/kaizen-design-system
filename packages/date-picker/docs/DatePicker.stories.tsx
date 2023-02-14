@@ -5,7 +5,7 @@ import { Button } from "@kaizen/button"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { DatePicker } from "../src/DatePicker"
@@ -217,8 +217,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader
+      <StickerSheet isReversed={isReversed} heading="Input">
+        <StickerSheet.Header
           headings={[
             "Default",
             "Selected Value",
@@ -227,83 +227,87 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             "Error",
           ]}
         />
-        <StoryWrapper.Row rowTitle="Input">
-          <DatePicker
-            id="datepicker-default"
-            labelText="Label"
-            selectedDay={selectedDate}
-            onDayChange={setValueDate}
-            isReversed={isReversed}
-            locale="en-AU"
-          />
-          <DatePicker
-            id="datepicker-selected"
-            labelText="Label"
-            selectedDay={new Date(2022, 1, 5)}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            locale="en-AU"
-          />
-          <DatePicker
-            id="datepicker-description"
-            labelText="Label"
-            selectedDay={undefined}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            description={
-              <>
-                <Paragraph
-                  tag="span"
-                  variant="small"
-                  color={isReversed ? "white" : "dark"}
-                >
-                  My <strong>Custom</strong> Description Paragraph
-                </Paragraph>
-              </>
-            }
-            locale="en-AU"
-          />
-          <DatePicker
-            id="datepicker-disabled"
-            labelText="Label"
-            selectedDay={undefined}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            locale="en-AU"
-            disabled
-          />
-          <DatePicker
-            id="datepicker-error"
-            labelText="Label"
-            selectedDay={new Date("potato")}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            locale="en-AU"
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+        <StickerSheet.Body>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
+            <DatePicker
+              id="datepicker-default"
+              labelText="Label"
+              selectedDay={selectedDate}
+              onDayChange={setValueDate}
+              isReversed={isReversed}
+              locale="en-AU"
+            />
+            <DatePicker
+              id="datepicker-selected"
+              labelText="Label"
+              selectedDay={new Date(2022, 1, 5)}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              locale="en-AU"
+            />
+            <DatePicker
+              id="datepicker-description"
+              labelText="Label"
+              selectedDay={undefined}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              description={
+                <>
+                  <Paragraph
+                    tag="span"
+                    variant="small"
+                    color={isReversed ? "white" : "dark"}
+                  >
+                    My <strong>Custom</strong> Description Paragraph
+                  </Paragraph>
+                </>
+              }
+              locale="en-AU"
+            />
+            <DatePicker
+              id="datepicker-disabled"
+              labelText="Label"
+              selectedDay={undefined}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              locale="en-AU"
+              disabled
+            />
+            <DatePicker
+              id="datepicker-error"
+              labelText="Label"
+              selectedDay={new Date("potato")}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              locale="en-AU"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
 
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["en-AU", "en-US"]} />
-        <StoryWrapper.Row rowTitle="Localisation">
-          <DatePicker
-            id="datepicker-enAU"
-            labelText="Label"
-            selectedDay={new Date("2022, 1, 5")}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            locale="en-AU"
-          />
-          <DatePicker
-            id="datepicker-enUS"
-            labelText="Label"
-            selectedDay={new Date("2022, 1, 5")}
-            onDayChange={() => undefined}
-            isReversed={isReversed}
-            locale="en-US"
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
+      <StickerSheet isReversed={isReversed} heading="Localisation">
+        <StickerSheet.Header headings={["en-AU", "en-US"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <DatePicker
+              id="datepicker-enAU"
+              labelText="Label"
+              selectedDay={new Date("2022, 1, 5")}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              locale="en-AU"
+            />
+            <DatePicker
+              id="datepicker-enUS"
+              labelText="Label"
+              selectedDay={new Date("2022, 1, 5")}
+              onDayChange={(): void => undefined}
+              isReversed={isReversed}
+              locale="en-US"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
     </>
   )
 }

@@ -50,7 +50,7 @@ export interface SplitButtonProps
  * {@link https://cultureamp.design/components/split-button/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-split-button--default-kaizen-site-demo Storybook}
  */
-export const SplitButton: React.VFC<SplitButtonProps> = ({
+export const SplitButton = ({
   actionButtonProps,
   dropdownButtonProps,
   dropdownContent,
@@ -60,7 +60,7 @@ export const SplitButton: React.VFC<SplitButtonProps> = ({
   dir,
   classNameOverride,
   ...restProps
-}) => (
+}: SplitButtonProps): JSX.Element => (
   <div
     dir={dir}
     className={classnames(styles.splitButton, classNameOverride)}

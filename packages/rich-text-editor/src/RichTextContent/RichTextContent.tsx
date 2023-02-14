@@ -15,7 +15,7 @@ export interface RichTextContentProps
   content: EditorContentArray
 }
 
-export const RichTextContent = (props: RichTextContentProps) => {
+export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
   const { content, classNameOverride, ...restProps } = props
   const [schema] = useState<ProseMirrorModel.Schema>(createSchemaWithAll())
 

@@ -1,17 +1,17 @@
-import * as React from "react"
+import React from "react"
 import styles from "./Layout.module.scss"
 
 type GenericChildrenProps = {
   children?: React.ReactNode
 }
 
-const NavigationBar: React.VFC<GenericChildrenProps> = ({ children }) => (
+const NavigationBar = ({ children }: GenericChildrenProps): JSX.Element => (
   <div className={styles.navigationBar}>{children}</div>
 )
 
 NavigationBar.displayName = "NavigationBar"
 
-const Sidebar: React.VFC<GenericChildrenProps> = ({ children }) => (
+const Sidebar = ({ children }: GenericChildrenProps): JSX.Element => (
   <div className={styles.sidebar}>
     <div className={styles.sidebarInner}>{children}</div>
   </div>
@@ -19,13 +19,13 @@ const Sidebar: React.VFC<GenericChildrenProps> = ({ children }) => (
 
 Sidebar.displayName = "Sidebar"
 
-const Header: React.VFC<GenericChildrenProps> = ({ children }) => (
+const Header = ({ children }: GenericChildrenProps): JSX.Element => (
   <aside className={styles.header}>{children}</aside>
 )
 
 Header.displayName = "Header"
 
-const Footer: React.VFC<GenericChildrenProps> = ({ children }) => (
+const Footer = ({ children }: GenericChildrenProps): JSX.Element => (
   <footer className={styles.footer}>{children}</footer>
 )
 
@@ -38,7 +38,7 @@ Footer.displayName = "Footer"
  * focus. You can safely add and remove toasts without worrying about the screen reader announcement being interrupted
  * or repeated.
  */
-const Toasts: React.VFC<GenericChildrenProps> = ({ children }) => (
+const Toasts = ({ children }: GenericChildrenProps): JSX.Element => (
   <div className={styles.toasts} aria-live="assertive">
     {children}
   </div>
@@ -52,7 +52,7 @@ Toasts.displayName = "Toasts"
  * without losing focus. You can safely override the contents when adding a new announcement rather than
  * appending the contents.
  */
-const Announcers: React.VFC<GenericChildrenProps> = ({ children }) => (
+const Announcers = ({ children }: GenericChildrenProps): JSX.Element => (
   <div className={styles.announcers} aria-live="assertive">
     {children}
   </div>
@@ -72,7 +72,7 @@ class Layout extends React.Component<GenericChildrenProps> {
   static Toasts = Toasts
   static Announcers = Announcers
 
-  render() {
+  render(): JSX.Element {
     const content = React.Children.toArray(this.props.children)
     const navbar = extractChildOfType(content, NavigationBar)
     const header = extractChildOfType(content, Header)
@@ -101,7 +101,10 @@ class Layout extends React.Component<GenericChildrenProps> {
   }
 }
 
-const extractChildOfType = (children: React.ReactNode[], type: React.VFC) => {
+const extractChildOfType = (
+  children: React.ReactNode[],
+  type: React.FC
+): React.ReactNode | false => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {
       return (child.type as React.FC).displayName === type.displayName

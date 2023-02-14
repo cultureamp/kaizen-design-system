@@ -133,7 +133,7 @@ export const PancakeStack = ({
   onCustomFunction,
   classNameOverride,
   ...restProps
-}: PancakeStackProps) => {
+}: PancakeStackProps): JSX.Element => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
   const handleCustomFunction = (): boolean => {
@@ -200,7 +200,7 @@ export type ButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonEleme
 ```tsx
 export interface NewComponentProps extends PancakeStackProps {}
 
-export const NewComponent: React.VFC<NewComponentProps> = props => <PancakeStack {...props} />
+export const NewComponent = (props: NewComponentProps): JSX.Element => <PancakeStack {...props} />
 ```
 
 - Declare the `children` prop if you require it
@@ -235,7 +235,7 @@ export const PancakeStack = ({
   onCustomFunction,
   classNameOverride,
   ...restProps
-}: PancakeStackProps) => {
+}: PancakeStackProps): JSX.Element => {
   const [hasSyrup, setHasSyrup] = useState<boolean>(false)
 
   const handleCustomFunction = (): boolean => {
@@ -261,8 +261,8 @@ export const PancakeStack = ({
 }
 ```
 
-- Directly type all your arguments (eg. `const MyComponent = ({ ... }: MyComponentTypes): void => {}`)
-  - **Do not** utilise `React.FC` or `React.VFC` as these are no longer supported in React 18+.
+
+- Ensure you explicitly state your return type (in most cases it would be `JSX.Element`)
 - Destructure your props within the parentheses
   - If appropriate to your use case, you may choose not to destructure your props (eg. you wish to pass the whole object)
 - Always be explicit and include the expected generic type (eg. `useState<string>()`)

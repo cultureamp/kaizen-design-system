@@ -3,6 +3,168 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.8...@kaizen/draft-table@5.6.9) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.7...@kaizen/draft-table@5.6.8) (2023-02-06)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.6...@kaizen/draft-table@5.6.7) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.5...@kaizen/draft-table@5.6.6) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.4...@kaizen/draft-table@5.6.5) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.3...@kaizen/draft-table@5.6.4) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.2...@kaizen/draft-table@5.6.3) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.1...@kaizen/draft-table@5.6.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.0...@kaizen/draft-table@5.6.1) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.5.0...@kaizen/draft-table@5.6.0) (2022-12-20)
+
+
+### Features
+
+* **Table:** Allow consumers to hide tooltip icon in table header cells ([#3176](https://github.com/cultureamp/kaizen-design-system/issues/3176)) ([bf94812](https://github.com/cultureamp/kaizen-design-system/commit/bf948124979cea72a0ef2949b41256185560e6e4))
+
+
+
+
+
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.2...@kaizen/draft-table@5.5.0) (2022-12-12)
+
+
+### Features
+
+* add IconVariant storybook example. ([#3160](https://github.com/cultureamp/kaizen-design-system/issues/3160)) ([7a2431d](https://github.com/cultureamp/kaizen-design-system/commit/7a2431daff164a40cb9a11bd660bb3f8b53744d0))
+
+
+
+
+
+## [5.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.1...@kaizen/draft-table@5.4.2) (2022-12-09)
+
+
+### Bug Fixes
+
+* move classNameOverride to cell with padding. ([#3158](https://github.com/cultureamp/kaizen-design-system/issues/3158)) ([aea35a2](https://github.com/cultureamp/kaizen-design-system/commit/aea35a2c4f7d7e78484d9fcbd1bcb96ce321ac07))
+
+
+
+
+
+## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.0...@kaizen/draft-table@5.4.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* move the padding to headerRowCell so that it takes the required space. ([#3150](https://github.com/cultureamp/kaizen-design-system/issues/3150)) ([5a513d4](https://github.com/cultureamp/kaizen-design-system/commit/5a513d4790e097b7ad6f87cddaf5157cfe1eb4e3))
+
+
+
+
+
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.2...@kaizen/draft-table@5.4.0) (2022-12-07)
+
+
+### Features
+
+* add classNameOverride to TableHeaderRowCell and TableRowCell. ([#3138](https://github.com/cultureamp/kaizen-design-system/issues/3138)) ([0bcbf29](https://github.com/cultureamp/kaizen-design-system/commit/0bcbf2995f6f6cba4bc81a1529cadd8a4096e9b5))
+
+
+
+
+
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.1...@kaizen/draft-table@5.3.2) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.3.0...@kaizen/draft-table@5.3.1) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.25...@kaizen/draft-table@5.3.0) (2022-11-27)
+
+
+### Features
+
+* On hover add a gray-100 background colour to TableCard with href or onClick. ([#3119](https://github.com/cultureamp/kaizen-design-system/issues/3119)) ([7e39c80](https://github.com/cultureamp/kaizen-design-system/commit/7e39c80500e98c80d6d2740975c2050ed04e66bf))
+
+
+
+
+
+## [5.2.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.24...@kaizen/draft-table@5.2.25) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [5.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.2.23...@kaizen/draft-table@5.2.24) (2022-11-17)
 
 **Note:** Version bump only for package @kaizen/draft-table

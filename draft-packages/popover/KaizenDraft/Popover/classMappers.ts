@@ -20,7 +20,7 @@ export const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-export const mapVariantToIconClass = (variant: Variant) => {
+export const mapVariantToIconClass = (variant: Variant): string | undefined => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon

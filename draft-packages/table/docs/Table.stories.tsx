@@ -4,6 +4,8 @@ import { withDesign } from "storybook-addon-designs"
 import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.icon.svg"
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -20,10 +22,13 @@ import {
 } from ".."
 import styles from "./Table.stories.module.scss"
 
-const Container: React.FunctionComponent<{
+const Container = ({
+  children,
+  style,
+}: {
   children: React.ReactNode
   style?: Record<string, string>
-}> = ({ children, style }) => (
+}): JSX.Element => (
   <div
     style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem", ...style }}
   >
@@ -35,16 +40,14 @@ const ExampleTableHeaderRow = ({
   checkable = false,
   showHover = false,
   reversed = false,
-}) => (
+}): JSX.Element => (
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
       checkedStatus={"on"}
-      onCheck={evt => {
-        alert(evt.target.value)
-      }}
+      onCheck={(evt): void => alert(evt.target.value)}
       sorting="descending"
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
       wrapping="wrap"
@@ -52,7 +55,7 @@ const ExampleTableHeaderRow = ({
       reversed={reversed}
     />
     <TableHeaderRowCell
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
       wrapping="wrap"
@@ -62,7 +65,7 @@ const ExampleTableHeaderRow = ({
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
       reversed={reversed}
@@ -70,7 +73,7 @@ const ExampleTableHeaderRow = ({
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
-      onClick={() => alert("Sort!")}
+      onClick={(): void => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
       reversed={reversed}
@@ -83,7 +86,7 @@ const ExampleTableRow = ({
   expandable = true,
   multiline = false,
   description = "Table row label",
-}) => (
+}): JSX.Element => (
   <TableRow>
     <TableRowCell width={4 / 12}>
       {multiline ? (
@@ -140,7 +143,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = () => (
+export const DefaultKaizenSiteDemo: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -160,7 +163,7 @@ export const DefaultKaizenSiteDemo = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-const Multiline = isReversed => (
+const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -179,7 +182,7 @@ const Multiline = isReversed => (
   </Container>
 )
 
-export const DataVariant = () => (
+export const DataVariant: Story = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
@@ -199,9 +202,116 @@ export const DataVariant = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
-const ExpandedPopout = isReversed => {
+export const IconVariant: Story = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="Comment"
+            icon={commentIcon}
+            width={1 / 3}
+          />
+          <TableHeaderRowCell
+            classNameOverride="px-sm"
+            labelText="This header has a classNameOverride"
+            width={1 / 3}
+          />
+          <TableHeaderRowCell
+            labelText="Report"
+            icon={effectivenessIcon}
+            tooltipInfo="This is tooltipInfo"
+            width={1 / 3}
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">
+              This header of this row has an icon.
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell classNameOverride="px-sm" width={1 / 3}>
+            <Paragraph variant="body">
+              This cell has a classNameOverride.
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">
+              The header of this row has an icon with tooltip.
+            </Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell classNameOverride="px-sm" width={1 / 3}>
+            <Paragraph variant="body">
+              This cell also has a classNameOverride
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+IconVariant.parameters = { chromatic: { disable: false } }
+
+export const LinkVariant: Story = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell labelText="Header A" width={1 / 3} />
+          <TableHeaderRowCell labelText="Header B" width={1 / 3} />
+          <TableHeaderRowCell labelText="Header C" width={1 / 3} />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard onClick={(): void => alert("Clicked!")}>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">This row has an onClick</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard href="#?foo=bar">
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">This row has a href</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+LinkVariant.parameters = { chromatic: { disable: false } }
+
+const ExpandedPopout = ({
+  isReversed,
+}: {
+  isReversed: boolean
+}): JSX.Element => {
   const [expandedId, setExpandedId] = React.useState<string | null>("second")
-  const toggleExpanded = id => {
+  const toggleExpanded = (id: string): void => {
     if (expandedId === id) {
       setExpandedId(null)
       return
@@ -221,7 +331,7 @@ const ExpandedPopout = isReversed => {
               key={id}
               expandedStyle="popout"
               expanded={expanded}
-              onClick={() => toggleExpanded(id)}
+              onClick={(): void => toggleExpanded(id)}
             >
               <ExampleTableRow expanded={expanded} />
               {expanded && (
@@ -251,7 +361,7 @@ const ExpandedPopout = isReversed => {
   )
 }
 
-const Compact = () => (
+const Compact = (): JSX.Element => (
   <Container>
     <TableContainer>
       <TableCard>
@@ -267,7 +377,7 @@ const Compact = () => (
   </Container>
 )
 
-const Default = () => (
+const Default = (): JSX.Element => (
   <Container>
     <TableContainer variant="default">
       <TableCard>
@@ -283,7 +393,7 @@ const Default = () => (
   </Container>
 )
 
-export const HeaderAlignmentAndWrapping = () => (
+export const HeaderAlignmentAndWrapping: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -341,31 +451,29 @@ export const HeaderAlignmentAndWrapping = () => (
 )
 HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
-export const Tooltip = () => (
+export const Tooltip: Story = () => (
   // Extra margin added, so we can see the tooltip above
   <Container style={{ marginTop: "200px" }}>
     <TableContainer>
       <TableHeader>
         <TableHeaderRow>
+          <TableHeaderRowCell labelText="No tooltip" width={1 / 4} />
           <TableHeaderRowCell
-            labelText="This column has no tooltip"
-            width={1 / 4}
-          />
-          <TableHeaderRowCell
-            labelText="This column has a tooltip"
+            labelText="Tooltip"
             width={1 / 4}
             tooltipInfo="This is a tooltip"
           />
           <TableHeaderRowCell
-            labelText="This column has a tooltip, and has wrapped content!"
+            labelText="Tooltip with wrapped content"
             width={1 / 4}
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
           />
           <TableHeaderRowCell
-            labelText="End (right) aligned"
+            labelText="End aligned, no icon"
             width={1 / 4}
-            tooltipInfo="This is a tooltip"
+            tooltipInfo="This is a tooltip even though there was no icon"
+            isTooltipIconHidden={true}
             align="end"
           />
         </TableHeaderRow>
@@ -374,22 +482,23 @@ export const Tooltip = () => (
         <TableRow>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has no tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has a tooltip. It's content is wrapped.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This is a cell
+              This header of this cell has a tooltip. It's content is end
+              (right) aligned. It does not have a tooltip icon.
             </Paragraph>
           </TableRowCell>
         </TableRow>
@@ -399,7 +508,7 @@ export const Tooltip = () => (
 )
 Tooltip.parameters = { chromatic: { disable: false } }
 
-export const AnchorLink = () => (
+export const AnchorLink: Story = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -407,7 +516,7 @@ export const AnchorLink = () => (
           <TableHeaderRowCell
             labelText="This is an anchor"
             width={1 / 2}
-            onClick={e => {
+            onClick={(e: React.MouseEvent): void => {
               e.preventDefault()
               alert("Header was clicked")
             }}
@@ -417,7 +526,7 @@ export const AnchorLink = () => (
           <TableHeaderRowCell
             labelText="This is an anchor"
             width={1 / 2}
-            onClick={e => {
+            onClick={(e: React.MouseEvent): void => {
               e.preventDefault()
               alert("Header was clicked")
             }}
@@ -456,7 +565,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <Default />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Multiline">
-      <Multiline />
+      <Multiline isReversed={isReversed} />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Expanded popout">
       <ExpandedPopout isReversed={isReversed} />

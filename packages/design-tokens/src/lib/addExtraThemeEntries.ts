@@ -30,7 +30,7 @@ export const addExtraThemeEntries = (
     /** Setting this to true will add `${key}-id` and ${key}-rgb-id` */
     augmentWithId: boolean
   }
-) => {
+): Record<string, string> => {
   const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
   const result = {
     [key]: printValue(path, value),

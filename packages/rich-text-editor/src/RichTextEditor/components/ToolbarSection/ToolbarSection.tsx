@@ -6,6 +6,8 @@ export interface ToolbarSectionProps
   children: React.ReactNode
 }
 
-export const ToolbarSection: React.VFC<ToolbarSectionProps> = props => (
+export const ToolbarSection = (props: ToolbarSectionProps): JSX.Element => (
   <div className={styles.toolbarSection} {...props}></div>
 )
+
+ToolbarSection.displayName = "ToolbarSection"

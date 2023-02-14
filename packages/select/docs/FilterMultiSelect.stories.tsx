@@ -6,14 +6,18 @@ import { withDesign } from "storybook-addon-designs"
 import { Button, ButtonRef } from "@kaizen/button"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { Label } from "@kaizen/draft-form"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
+import {
+  FilterMultiSelect,
+  getSelectedOptionLabels,
+  ItemType,
+} from "@kaizen/select"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
-import { items } from "./MockData"
+import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
@@ -40,7 +44,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
     new Set(["id-fe"])
   )
 
-  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+  const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
 
   return (
     <>
@@ -48,23 +52,34 @@ export const DefaultKaizenSiteDemo: ComponentStory<
         {...args}
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
-        trigger={() => (
+        items={mockItems}
+        trigger={(): JSX.Element => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={args.label}
           />
         )}
       >
-        {() => (
+        {(): JSX.Element => (
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -75,7 +90,10 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -91,14 +109,14 @@ export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
       isLoading
       isOpen
       loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
-      trigger={() => (
+      trigger={(): JSX.Element => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={["Front-End"]}
           label={args.label}
         />
       )}
     >
-      {() => <></>}
+      {(): JSX.Element => <></>}
     </FilterMultiSelect>
   </>
 )
@@ -114,33 +132,46 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
     new Set(["id-fe"])
   )
 
-  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+  const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
 
   return (
     <>
       <FilterMultiSelect
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
+        items={mockItems}
         label="Engineer"
-        trigger={() => (
+        trigger={(): JSX.Element => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label={"Engineer"}
           />
         )}
       >
-        {() => (
+        {(): JSX.Element => (
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ selectedItems, unselectedItems, disabledItems }) => (
+              {({
+                selectedItems,
+                unselectedItems,
+                disabledItems,
+                hasNoItems,
+              }): JSX.Element => (
                 <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )}
                   <FilterMultiSelect.ListBoxSection
                     items={selectedItems}
                     sectionName="Selected items"
                   >
-                    {item => (
+                    {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
@@ -152,7 +183,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                     items={unselectedItems}
                     sectionName="Unselected items"
                   >
-                    {item => (
+                    {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
@@ -166,7 +197,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
                     items={disabledItems}
                     sectionName="Disabled items"
                   >
-                    {item => (
+                    {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>
@@ -182,7 +213,10 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant={"body"}>Items: </Paragraph>
-        <CodeBlock language="json" code={JSON.stringify(items, null, "\t")} />
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
       </div>
     </>
   )
@@ -194,7 +228,7 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   )
   const [characterLimit, setCharacterLimit] = useState<number>(50)
 
-  const handleSelectionChange = (keys: Selection) => setSelectedKeys(keys)
+  const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
 
   const handleCharacterLimitChange: React.ChangeEventHandler<
     HTMLInputElement
@@ -219,24 +253,34 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
         label="Engineer"
         onSelectionChange={handleSelectionChange}
         selectedKeys={selectedKeys}
-        items={items}
-        trigger={() => (
+        items={mockItems}
+        trigger={(): JSX.Element => (
           <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
             label="Engineer"
             labelCharacterLimitBeforeTruncate={characterLimit}
           />
         )}
       >
-        {() => (
+        {(): JSX.Element => (
           <>
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
-                allItems.map(item => (
+              {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                if (hasNoItems) {
+                  return (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )
+                }
+                return allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))
-              }
+              }}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -249,7 +293,7 @@ export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
   )
 }
 
-export const FilterBarDemo = () => {
+export const FilterBarDemo = (): JSX.Element => {
   const {
     groups,
     selectedGroups,
@@ -260,7 +304,7 @@ export const FilterBarDemo = () => {
   } = useDemographicData()
 
   const addFilterButtonRef = React.useRef<ButtonRef>()
-  const focusAddFilter = () => {
+  const focusAddFilter = (): void => {
     addFilterButtonRef.current?.focus()
   }
 
@@ -277,7 +321,7 @@ export const FilterBarDemo = () => {
               label={name}
               selectedKeys={new Set(selectedDemographicValues[id])}
               id={id}
-              onRemove={() => {
+              onRemove={(): void => {
                 focusAddFilter()
 
                 // exclude demographic from both selectedGroups and selectedDemographicValues
@@ -285,7 +329,7 @@ export const FilterBarDemo = () => {
                 const { [id]: omitted, ...rest } = selectedDemographicValues
                 setSelectedDemographicValues(rest)
               }}
-              onSelectionChange={selectedKeys => {
+              onSelectionChange={(selectedKeys): void => {
                 setSelectedDemographicValues({
                   ...selectedDemographicValues,
                   [id]: selectedKeys,
@@ -317,12 +361,12 @@ export const FilterBarDemo = () => {
 
 FilterBarDemo.storyName = "Advanced FilterBar Demo"
 
-export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
+export const DefaultKaizenSiteDemoWithoutScrollbar = (): JSX.Element => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
 
-  const handleSelectionChange = (keys: Selection) => {
+  const handleSelectionChange = (keys: Selection): void => {
     keys && setSelectedKeys(keys)
   }
 
@@ -331,23 +375,33 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = () => {
       label="Engineer"
       onSelectionChange={handleSelectionChange}
       selectedKeys={selectedKeys}
-      items={items.slice(0, 3)}
-      trigger={() => (
+      items={mockItems.slice(0, 3)}
+      trigger={(): JSX.Element => (
         <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={getSelectedOptionLabels(selectedKeys, items)}
+          selectedOptionLabels={getSelectedOptionLabels(
+            selectedKeys,
+            mockItems
+          )}
           label="Engineer"
         />
       )}
     >
-      {() => (
+      {(): JSX.Element => (
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ allItems }) =>
-              allItems.map(item => (
+            {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+              if (hasNoItems) {
+                return (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                )
+              }
+              return allItems.map(item => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
-            }
+            }}
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />
@@ -415,14 +469,32 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
     [data]
   )
 
+  /**
+   * To expose the selected items and float them to the top we need to merge the current
+   * and cached people, to be passed as the items.
+   * Make sure we remove the duplicates.
+   */
+  const mergedPeople = [...currentPeople, ...cachedPeople].filter(
+    (item, index, a) =>
+      a.findIndex(currItem => currItem.value === item.value) === index
+  )
+
+  /**
+   * Only show the current filtered people when there is a search query
+   */
+  const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
+
+  const filteredCount = currentPeople.length
+  const totalCount = cachedPeople.length
+
   return (
     <>
       <FilterMultiSelect
         {...args}
         isLoading={isLoading}
         loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
-        items={currentPeople}
-        trigger={() => (
+        items={items}
+        trigger={(): JSX.Element => (
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(
               new Set(selectedPeople),
@@ -431,9 +503,9 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
             label={"People"}
           />
         )}
-        onSearchInputChange={searchInput => setSearchState(searchInput)}
-        onOpenChange={isOpen => setOpen(isOpen)}
-        onSelectionChange={keys => {
+        onSearchInputChange={setSearchState}
+        onOpenChange={setOpen}
+        onSelectionChange={(keys): void => {
           if (keys === "all") {
             return
           }
@@ -442,23 +514,72 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
         isOpen={open}
         selectedKeys={new Set(selectedPeople)}
       >
-        {() => (
+        {(): JSX.Element => (
           <>
             <FilterMultiSelect.SearchInput
               isLoading={isRefetching && searchState !== ""}
             />
             <FilterMultiSelect.ListBox>
-              {({ allItems }) => (
+              {({
+                selectedItems,
+                unselectedItems,
+                hasNoItems,
+              }): JSX.Element => (
                 <>
-                  {allItems.map(item => (
-                    <FilterMultiSelect.Option key={item.key} item={item} />
-                  ))}
+                  {hasNoItems ? (
+                    <FilterMultiSelect.NoResults>
+                      No results found for {searchState}.
+                    </FilterMultiSelect.NoResults>
+                  ) : searchState !== "" ? (
+                    <Paragraph
+                      classNameOverride={styles.helperMessage}
+                      variant="extra-small"
+                      tag="span"
+                      color="dark-reduced-opacity"
+                    >
+                      Showing {filteredCount} of {totalCount}
+                    </Paragraph>
+                  ) : (
+                    hasNextPage && (
+                      <Paragraph
+                        classNameOverride={styles.helperMessage}
+                        variant="extra-small"
+                        tag="span"
+                        color="dark-reduced-opacity"
+                      >
+                        There are a lot of options. Narrow them further by
+                        searching for a more precise term.
+                      </Paragraph>
+                    )
+                  )}
+
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
                   {hasNextPage && (
                     <FilterMultiSelect.LoadMoreButton
                       label={"View more"}
                       workingLabel={"Loading…"}
                       working={isFetchingNextPage}
-                      onClick={() => fetchNextPage()}
+                      onClick={(): ReturnType<typeof fetchNextPage> =>
+                        fetchNextPage()
+                      }
                     />
                   )}
                 </>

@@ -3,7 +3,7 @@ import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
 
-type Props = {
+type GlobalNotificationProps = {
   type: NotificationType
   children: React.ReactNode
   onHide?: () => void
@@ -11,7 +11,7 @@ type Props = {
   persistent?: boolean
 }
 
-const GlobalNotification = (props: Props) => (
+const GlobalNotification = (props: GlobalNotificationProps): JSX.Element => (
   <GenericNotification style="global" {...props} />
 )
 GlobalNotification.defaultProps = {

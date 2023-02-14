@@ -6,11 +6,11 @@ export interface ModalAccessibleDescriptionProps {
   children: React.ReactNode
 }
 
-export const ModalAccessibleDescription: React.VFC<
-  ModalAccessibleDescriptionProps
-> = ({ children }) => (
+export const ModalAccessibleDescription = ({
+  children,
+}: ModalAccessibleDescriptionProps): JSX.Element => (
   <ModalAccessibleContext.Consumer>
-    {({ describedByID }) => (
+    {({ describedByID }): JSX.Element => (
       <div id={describedByID} className={styles.modalDescription}>
         {children}
       </div>

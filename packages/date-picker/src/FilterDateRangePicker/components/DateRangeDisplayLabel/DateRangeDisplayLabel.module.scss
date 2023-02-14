@@ -1,0 +1,6 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.dateRangeDisplayLabel {
+  display: inline-flex;
+  gap: $spacing-xs;
+}

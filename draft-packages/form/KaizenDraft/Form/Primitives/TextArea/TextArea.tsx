@@ -21,7 +21,7 @@ export interface TextAreaProps
   automationId?: string
 }
 
-export const TextArea: React.VFC<TextAreaProps> = ({
+export const TextArea = ({
   textAreaRef: propsTextAreaRef,
   status = "default",
   autogrow = false,
@@ -33,7 +33,7 @@ export const TextArea: React.VFC<TextAreaProps> = ({
   disabled,
   onChange: propsOnChange,
   ...restProps
-}) => {
+}: TextAreaProps): JSX.Element => {
   const [textAreaHeight, setTextAreaHeight] = useState<string>("auto")
   const [parentHeight, setParentHeight] = useState<string>("auto")
   const [internalValue, setInternalValue] = useState<
@@ -59,7 +59,7 @@ export const TextArea: React.VFC<TextAreaProps> = ({
 
   const onChange = !autogrow
     ? undefined
-    : (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    : (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         setTextAreaHeight("auto")
         // ^ this is required to avoid the textarea height from building up indefinitely
         // see https://medium.com/@lucasalgus/creating-a-custom-auto-resize-textarea-component-for-your-react-web-application-6959c0ad68bc#2dee
@@ -70,10 +70,10 @@ export const TextArea: React.VFC<TextAreaProps> = ({
         }
       }
 
-  const getWrapperStyle = () =>
+  const getWrapperStyle = (): { minHeight: string } | undefined =>
     autogrow ? { minHeight: parentHeight } : undefined
 
-  const getTextAreaStyle = () =>
+  const getTextAreaStyle = (): { height: string } | undefined =>
     autogrow ? { height: textAreaHeight } : undefined
 
   const controlledValue = value || internalValue

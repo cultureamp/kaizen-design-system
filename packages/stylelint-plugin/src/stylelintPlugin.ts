@@ -1,5 +1,5 @@
 import { Root } from "postcss"
-import stylelint from "stylelint"
+import stylelint, { PostcssResult, RuleContext } from "stylelint"
 import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
 import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
 import { noInvalidUseOfTokens } from "./rules/no-invalid-use-of-tokens"
@@ -31,29 +31,37 @@ const rules: StyleLintRule[] = [
   useDeprecatedComponentLibraryHelpersScssImports,
 ]
 
-export default rules.map(rule =>
-  stylelint.createPlugin(
-    `kaizen/${rule.name}`,
-    (_, secondary: StylelintPluginOptions | undefined, context) =>
-      (root, result) => {
-        if (root?.source) {
-          const language = /\.less$/.test(root.source.input.from)
-            ? "less"
-            : "scss"
-          rule.ruleFunction(root, {
-            fix: Boolean(!secondary?.disableFixing && context?.fix),
-            language,
-            reporter: ({ message, node, autofixAvailable }) =>
-              stylelint.utils.report({
-                ruleName: `kaizen/${rule.name}`,
-                message: `${message}${
-                  autofixAvailable ? " (autofix available)" : ""
-                }`,
-                node,
-                result,
-              }),
-          })
-        }
+export default rules.map(rule => {
+  const innerRuleFunction =
+    (
+      _primaryOption: any,
+      secondaryOptions: StylelintPluginOptions | undefined,
+      context: RuleContext
+    ) =>
+    (root: Root, result: PostcssResult): void => {
+      if (root?.source) {
+        const language = /\.less$/.test(root.source.input.from)
+          ? "less"
+          : "scss"
+        rule.ruleFunction(root, {
+          fix: Boolean(!secondaryOptions?.disableFixing && context?.fix),
+          language,
+          reporter: ({ message, node, autofixAvailable }) =>
+            stylelint.utils.report({
+              ruleName: `kaizen/${rule.name}`,
+              message: `${message}${
+                autofixAvailable ? " (autofix available)" : ""
+              }`,
+              node,
+              result,
+            }),
+        })
       }
-  )
-)
+    }
+
+  innerRuleFunction.ruleName = rule.name
+  // All rules include their own custom messages so this function is not necessary however required by stylelint to be provided.
+  innerRuleFunction.messages = stylelint.utils.ruleMessages(rule.name, {})
+
+  return stylelint.createPlugin(`kaizen/${rule.name}`, innerRuleFunction)
+})

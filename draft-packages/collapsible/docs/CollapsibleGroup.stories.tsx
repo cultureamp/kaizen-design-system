@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -26,9 +26,11 @@ export default {
       },
     },
   },
-}
+} as ComponentMeta<typeof CollapsibleGroup>
 
-export const CollapsibleGroupDefault = args => (
+export const CollapsibleGroupDefault: ComponentStory<
+  typeof CollapsibleGroup
+> = args => (
   <CollapsibleGroup {...args}>
     <Collapsible id="collapsible-separate-1" open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
@@ -43,7 +45,7 @@ export const CollapsibleGroupDefault = args => (
 )
 CollapsibleGroupDefault.storyName = "Collapsible Group"
 
-const CollapsibleGroupVariantClear = () => (
+const CollapsibleGroupVariantClear = (): JSX.Element => (
   <CollapsibleGroup>
     <Collapsible
       variant="clear"
@@ -69,7 +71,8 @@ const CollapsibleGroupVariantClear = () => (
     </Collapsible>
   </CollapsibleGroup>
 )
-const CollapsibleGroupSeparated = () => (
+
+const CollapsibleGroupSeparated = (): JSX.Element => (
   <CollapsibleGroup separated>
     <Collapsible id="collapsible-separate-1" open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
@@ -83,7 +86,7 @@ const CollapsibleGroupSeparated = () => (
   </CollapsibleGroup>
 )
 
-const CollapsibleGroupStickyHeaders = () => (
+const CollapsibleGroupStickyHeaders = (): JSX.Element => (
   <CollapsibleGroup separated sticky={{ top: "0" }}>
     <Collapsible id="collapsible-separate-1" title="First panel" open>
       <Paragraph variant="body">{lipsum}</Paragraph>

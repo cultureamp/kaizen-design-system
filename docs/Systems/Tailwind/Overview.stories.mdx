@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../../storybook/constants"
+import AnatomyDiagram from './assets/tailwind-anatomy.jpg';
+
+<Meta title={`${CATEGORIES.tailwind}/Overview`} />
+
+# Overview
+
+<br/>
+
+## Caveat before use
+This is an early release of the Kaizen Tailwind Preset - the API may change and evolve as we receive feedback from our teams. We will endeavour to assist where possible if classes or utilities are updated in the future.
+
+## What our package does
+The `@kaizen/tailwind` package is essentially a custom Tailwind preset. For more information about Tailwind presets, see their docs [here](https://tailwindcss.com/docs/presets). This package does not change how Tailwind works; it only changes the suffixes that can be attached to utilities.  
+In the following diagram, the modifier `md:` and the utility `font-` are part of Tailwind. The suffix `family-heading` is defined by our preset, and represents one of our font-family design tokens.  
+
+
+<img src={AnatomyDiagram} />

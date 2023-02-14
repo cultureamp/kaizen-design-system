@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 
@@ -13,7 +13,7 @@ const defaultInputProps = {
   onChange: jest.fn(),
 }
 
-const renderInput = (props?: InputProps) => {
+const renderInput = (props?: InputProps): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
   return render(<Input {...mergedInputProps} />)

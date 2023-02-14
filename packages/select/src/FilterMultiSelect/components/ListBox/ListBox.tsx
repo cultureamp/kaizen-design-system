@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Node } from "@react-types/shared"
 import classNames from "classnames"
+import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider/SelectionProvider"
-import { ItemType } from "../../types"
 import styles from "./ListBox.module.scss"
 
 export interface ListBoxProps {
@@ -11,10 +11,11 @@ export interface ListBoxProps {
     unselectedItems: Array<Node<ItemType>>
     disabledItems: Array<Node<ItemType>>
     allItems: Array<Node<ItemType>>
+    hasNoItems: boolean
   }) => React.ReactNode
 }
 
-export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
+export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   const { listBoxProps, listRef, selectionState } = useSelectionContext()
   const [isOverflown, setIsOverflown] = useState(false)
   useEffect(() => {
@@ -39,12 +40,14 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
   const allItems = Array.from(items)
+  const hasNoItems = allItems.length === 0
 
   const [itemsState, setItemsState] = useState({
     selectedItems,
     unselectedItems,
     disabledItems,
     allItems,
+    hasNoItems,
   })
 
   // Only update rendering of items when filtering.
@@ -55,8 +58,19 @@ export const ListBox: React.VFC<ListBoxProps> = ({ children }) => {
       disabledItems,
       unselectedItems,
       allItems,
+      hasNoItems,
     })
   }, [selectionState.collection.size])
+
+  if (hasNoItems) {
+    return (
+      <>
+        <div>{children(itemsState)}</div>
+        {/* This ul with the ref needs to exist otherwise it fatals */}
+        <ul ref={listRef} className={styles.hidden} />
+      </>
+    )
+  }
 
   return (
     <ul

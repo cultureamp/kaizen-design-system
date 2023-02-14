@@ -74,6 +74,7 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/explicit-member-accessibility": [
       "off",
       {

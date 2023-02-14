@@ -2,15 +2,17 @@
 
 .listBox {
   list-style: none;
-  padding-left: $spacing-sm;
-  padding-top: $spacing-sm;
-  padding-right: $spacing-sm;
+  padding: $spacing-sm;
   margin: 0 $spacing-sm 0 0;
   display: grid;
-  max-height: 210px;
+  max-height: 22rem;
   overflow-y: auto;
 }
 
 .overflown {
   padding-right: $spacing-sm;
+}
+
+.hidden {
+  display: none;
 }

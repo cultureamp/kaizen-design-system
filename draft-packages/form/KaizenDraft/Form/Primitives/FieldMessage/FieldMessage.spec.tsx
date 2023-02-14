@@ -9,7 +9,9 @@ const defaultFieldMessageProps = {
   message: "Some FieldMessage.",
 }
 
-const renderFieldMessage = (props?: FieldMessageProps) => {
+const renderFieldMessage = (
+  props?: FieldMessageProps
+): ReturnType<typeof render> => {
   const mergedFieldMessageProps = { ...defaultFieldMessageProps, ...props }
 
   return render(<FieldMessage {...mergedFieldMessageProps} />)

@@ -83,11 +83,15 @@ export default {
   },
 }
 
-const SceneWrapper: React.VFC<{
+const SceneWrapper = ({
+  children,
+  heading,
+  width,
+}: {
   children: React.ReactNode
   heading: string
   width: string
-}> = ({ children, heading, width }) => (
+}): JSX.Element => (
   <Box mb={3}>
     <div style={{ width }}>
       <Box mb={1}>
@@ -105,8 +109,8 @@ type StaticSceneProps = SceneProps & {
   loop?: never
   autoplay?: never
 }
-type AnimatedScene = React.VFC<AnimatedSceneProps>
-type StaticScene = React.VFC<StaticSceneProps>
+type AnimatedScene = (props: AnimatedSceneProps) => JSX.Element
+type StaticScene = (props: StaticSceneProps) => JSX.Element
 type IllustrationScene = AnimatedScene | StaticScene
 
 type SceneComponents = Array<{

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 
@@ -67,7 +67,7 @@ describe("Tabs", () => {
             tabClassName,
             activeTabClassName,
             disabledTabClassName,
-          }) => (
+          }): JSX.Element => (
             <div key={tab.label}>
               <span>{tab.label}</span>
               <span>{tabClassName}</span>

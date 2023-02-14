@@ -14,7 +14,7 @@ const defaultRadioProps: RadioProps = {
   onChange: jest.fn(),
   value: "radio-1",
 }
-const renderRadio = (props?: RadioProps) => {
+const renderRadio = (props?: RadioProps): ReturnType<typeof render> => {
   const mergedRadioProps = { ...defaultRadioProps, ...props }
 
   return render(<Radio {...mergedRadioProps} />)
