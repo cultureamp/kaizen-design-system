@@ -7,7 +7,7 @@ esbuild
   .build({
     entryPoints: ["./src/styles.css"],
     outfile: "./dist/styles.css",
-    minify: true,
+    // minify: true,
     bundle: true,
     plugins: [
       postCssPlugin({
