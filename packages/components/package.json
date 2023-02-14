@@ -11,7 +11,7 @@
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
-    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "build:css": "node esbuild.config.js",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
   },
@@ -29,7 +29,10 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
+    "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@kaizen/tailwind": "^0.3.4",
+    "autoprefixer": "^10.4.13",
+    "esbuild": "^0.17.8",
     "tailwind": "^4.0.0"
   },
   "peerDependencies": {
