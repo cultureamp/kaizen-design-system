@@ -6,6 +6,7 @@ lerna-*.log
 /draft-packages/**/*.js.map
 /draft-packages/**/*.d.ts
 /packages/**/*.js
+!/packages/**/*.config.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
 /playwright/test-results

@@ -10,7 +10,9 @@ export const KaizenProvider = ({
   children,
   themeManager,
 }: KaizenProviderProps): JSX.Element => (
-  <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
+  <div className="gap-3">
+    <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
+  </div>
 )
 
 KaizenProvider.displayName = "KaizenProvider"

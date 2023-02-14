@@ -3,5 +3,7 @@ import styles from "./ExampleComponent.module.scss"
 
 // Placeholder for illustration DO NOT COPY
 export const ExampleComponent = (): JSX.Element => (
-  <div className={styles.exampleComponent}>ExampleComponent FUTURE</div>
+  <div className={`${styles.exampleComponent} flex`}>
+    ExampleComponent FUTURE
+  </div>
 )
