@@ -4,7 +4,7 @@ import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../../../storybook/constants"
 import { figmaEmbed } from "../../../../../storybook/helpers"
 import { Select } from "../../../src/Select"
-import { ListBoxSection } from "../../../src/Select/components/ListBoxSection"
+import { ListBoxSectionWithSubtitle } from "./ListBoxSectionWithSubtitle"
 import {
   CustomOptionWithSubtitle,
   WithSubtitleType,
@@ -76,9 +76,9 @@ export const CustomOptionWithSections: ComponentStory<
     {
       label: "Colours",
       value: [
-        { label: "Blue", value: "blue" },
-        { label: "Red", value: "red" },
-        { label: "Green", value: "green" },
+        { label: "Blue", value: "blue", subtitle: "Royal Blue" },
+        { label: "Red", value: "red", subtitle: "Ruby Red" },
+        { label: "Green", value: "green", subtitle: "Mossy Green" },
       ],
       subtitle: "My Pretty Colours",
     },
@@ -98,7 +98,7 @@ export const CustomOptionWithSections: ComponentStory<
       {(optionsProps): JSX.Element[] =>
         optionsProps.items.map(item =>
           item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
+            <ListBoxSectionWithSubtitle key={item.key} section={item} />
           ) : (
             <CustomOptionWithSubtitle
               {...optionsProps}

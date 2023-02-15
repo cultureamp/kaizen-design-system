@@ -12,8 +12,14 @@ import { useSelectContext } from "../../../src/Select/context/SelectContext"
 import { SingleItemType } from "../../../src/types"
 import styles from "./OptionWithSubtitle.module.scss"
 
-export interface WithSubtitleType extends SingleItemType {
-  subtitle: string
+export type SectionChildType = {
+  label: string
+  value: React.Key
+  subtitle?: string
+}
+export interface WithSubtitleType extends Omit<SingleItemType, "value"> {
+  subtitle?: string
+  value: React.Key | SectionChildType[]
 }
 
 export interface OptionWithSubtitleProps
