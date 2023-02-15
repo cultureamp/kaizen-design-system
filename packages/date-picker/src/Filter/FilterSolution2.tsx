@@ -199,3 +199,74 @@ export const FilterSolution2ForcedButtonRef = ({
   )
 }
 FilterSolution2ForcedButtonRef.displayName = "FilterSolution2ForcedButtonRef"
+
+// Consumer controlled isOpen
+export interface FilterSolution2ManualOpenProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  children: React.ReactNode
+  label: string
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
+  filterButton: (
+    triggerButtonProps:
+    & Partial<FilterTriggerButtonProps>
+  ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
+}
+
+// export type FilterRef = {
+//   triggerButtonRef?: React.RefObject<HTMLButtonElement>
+// }
+
+export const FilterSolution2ManualOpen = ({
+  label,
+  defaultSelectedValuesLabel,
+  isOpen,
+  setIsOpen,
+  children, filterButton, classNameOverride, ...restProps
+}: FilterSolution2ManualOpenProps): JSX.Element => {
+  // const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const filterButtonComponent = filterButton({
+    onClick: (): void => setIsOpen(!isOpen),
+    isOpen,
+  })
+
+  const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+  const inbuiltRef = useRef<FilterRef>({
+    triggerButtonRef: inbuiltButtonRef
+  })
+  const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
+
+  return (
+    <FilterProvider
+    label={label}
+    defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+  >
+    <div
+      className={classnames(styles.filter, classNameOverride)}
+      {...restProps}
+    >
+      {React.cloneElement(filterButtonComponent, {
+        ref: filterButtonRef,
+      })}
+      {isOpen && (
+        <FocusOn
+          scrollLock={false}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
+        >
+          <FilterPopover
+            referenceElement={filterButtonRef.current?.triggerButtonRef?.current || null}
+            // Does the popper need this or just the contents?
+            // aria-label={label}
+          >
+            {children}
+          </FilterPopover>
+        </FocusOn>
+      )}
+    </div>
+    </FilterProvider>
+  )
+}
+FilterSolution2ManualOpen.displayName = "FilterSolution2ManualOpen"

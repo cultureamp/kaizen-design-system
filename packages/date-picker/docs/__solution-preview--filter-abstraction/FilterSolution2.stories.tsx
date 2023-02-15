@@ -7,7 +7,7 @@ import { figmaEmbed } from "../../../../storybook/helpers"
 import { DateRange,
   FilterSolution2ForcedButtonRef } from "../../index"
 import { FilterDateRangePickerField } from "../../src/Filter/FilterDateRangePickerField"
-import { FilterRef, FilterSolution2FlexiButtonRef } from "../../src/Filter/FilterSolution2"
+import { FilterRef, FilterSolution2FlexiButtonRef, FilterSolution2ManualOpen } from "../../src/Filter/FilterSolution2"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -558,3 +558,231 @@ export const Solution2ForcedButtonRef: ComponentStory<
   )
 }
 Solution2ForcedButtonRef.storyName = "Forced shape button ref"
+
+export const Solution2ManualOpen: ComponentStory<
+  typeof FilterSolution2ManualOpen
+> = () => {
+  const buttonRef1 = useRef<HTMLButtonElement>(null)
+  const singleButtonRef = useRef<FilterRef>({
+    triggerButtonRef: buttonRef1,
+  })
+  const buttonRef2 = useRef<HTMLButtonElement>(null)
+  const removeButtonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+    triggerButtonRef: buttonRef2,
+    removeButtonRef,
+  })
+
+  const [isOpenNoRef, setIsOpenNoRef] = useState<boolean>(false)
+  const [range, setRange] = useState<DateRange | undefined>()
+  const [isOpenMultiContents, setIsOpenMultiContents] = useState<boolean>(false)
+  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [isOpenRef, setIsOpenRef] = useState<boolean>(false)
+  const [rangeRef, setRangeRef] = useState<DateRange | undefined>()
+  const [isOpenDefaultExisting, setIsOpenDefaultExisting] = useState<boolean>(false)
+  const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+  DateRange | undefined
+  >({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
+  const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
+  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+  const [isOpenRemovableRef, setIsOpenRemovableRef] = useState<boolean>(false)
+  const [rangeRemovableRef, setRangeRemovableRef] = useState<DateRange | undefined>()
+
+  return (
+    <>
+      <FilterSolution2ManualOpen
+        isOpen={isOpenNoRef}
+        setIsOpen={setIsOpenNoRef}
+        label="No ref"
+        filterButton={(props): JSX.Element => (
+          <FilterTriggerButtonContextWithFilterRef {...props} />
+        )}
+      >
+        <FilterContents>
+          <FilterDateRangePickerField
+            id="filterdrp"
+            // label="Dates"
+            locale="en-AU"
+            selectedRange={range}
+            onRangeChange={setRange}
+          />
+        </FilterContents>
+      </FilterSolution2ManualOpen>
+
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ManualOpen
+          isOpen={isOpenMultiContents}
+          setIsOpen={setIsOpenMultiContents}
+          label="Multi contents"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContextWithFilterRef {...props} />
+          )}
+        >
+          <FilterContents>
+            Some more contents
+          </FilterContents>
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeMultiContents}
+              onRangeChange={setRangeMultiContents}
+            />
+          </FilterContents>
+        </FilterSolution2ManualOpen>
+      </div>
+
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ManualOpen
+          isOpen={isOpenRef}
+          setIsOpen={setIsOpenRef}
+          label="Single button ref"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContextWithFilterRef
+              ref={singleButtonRef}
+              {...props}
+            />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRef}
+              onRangeChange={setRangeRef}
+            />
+          </FilterContents>
+        </FilterSolution2ManualOpen>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef1.current?.focus()
+          }}
+        >
+          Focus on Single button with ref
+        </button>
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ManualOpen
+          isOpen={isOpenDefaultExisting}
+          setIsOpen={setIsOpenDefaultExisting}
+          label="Existing value"
+          filterButton={(props): JSX.Element => (
+            <FilterTriggerButtonContextWithFilterRef
+              {...props}
+              />
+          )}
+          // NOTE:
+          // Since the button is mounted before the contents within the popover,
+          // to pre-fill the button we must provide the initial selected value here
+          defaultSelectedValuesLabel={
+            isCompleteDateRange(rangeDefaultExisting) ? (
+              <DateRangeDisplayLabel
+                dateRange={rangeDefaultExisting}
+                locale={getLocale("en-AU")}
+              />
+            ) : undefined
+          }
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeDefaultExisting}
+              onRangeChange={setRangeDefaultExisting}
+            />
+          </FilterContents>
+        </FilterSolution2ManualOpen>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            setRangeDefaultExisting(undefined)
+          }}
+        >
+          Clear value
+        </button>
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ManualOpen
+          isOpen={isOpenRemovable}
+          setIsOpen={setIsOpenRemovable}
+          label="Removable no ref"
+          filterButton={(props): JSX.Element => (
+            <RemovableFilterTriggerButtonContext
+              triggerButtonProps={{ ...props }}
+              removeButtonProps={{ onClick: () => undefined }}
+            />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp--remove"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovable}
+              onRangeChange={setRangeRemovable}
+            />
+          </FilterContents>
+        </FilterSolution2ManualOpen>
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <FilterSolution2ManualOpen
+          isOpen={isOpenRemovableRef}
+          setIsOpen={setIsOpenRemovableRef}
+          label="Removable with ref"
+          filterButton={(props): JSX.Element => (
+            <RemovableFilterTriggerButtonContext
+              ref={removableButtonRefs}
+              triggerButtonProps={{ ...props }}
+              removeButtonProps={{ onClick: () => undefined }}
+            />
+          )}
+        >
+          <FilterContents>
+            <FilterDateRangePickerField
+              id="filterdrp--remove"
+              // label="Dates"
+              locale="en-AU"
+              selectedRange={rangeRemovableRef}
+              onRangeChange={setRangeRemovableRef}
+            />
+          </FilterContents>
+        </FilterSolution2ManualOpen>
+
+        <br />
+        <br />
+        <button
+          onClick={(): void => {
+            buttonRef2.current?.focus()
+          }}
+        >
+          Focus on Removable with ref - trigger button
+        </button>
+        <button
+          onClick={(): void => {
+            removeButtonRef.current?.focus()
+          }}
+          style={{ marginLeft: "1rem" }}
+        >
+          Focus on Removable with ref - remove button
+        </button>
+      </div>
+    </>
+  )
+}
+Solution2ManualOpen.storyName = "Forced shape button ref; manual isOpen"
