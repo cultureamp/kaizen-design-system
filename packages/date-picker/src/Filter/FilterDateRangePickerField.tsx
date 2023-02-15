@@ -189,119 +189,119 @@ export const FilterDateRangePickerField = ({
 
 FilterDateRangePickerField.displayName = "FilterDateRangePickerField"
 
-export const FilterDateRangePickerFieldSol3 = ({
-  id,
-  // label,
-  locale: propsLocale,
-  defaultMonth,
-  selectedRange,
-  onRangeChange,
-  disabledDates,
-  disabledDaysOfWeek,
-  disabledRange,
-  disabledBeforeAfter,
-  disabledBefore,
-  disabledAfter,
-  // onRemoveFilter,
-  inputRangeStartProps,
-  inputRangeEndProps,
-  description,
-  classNameOverride,
-  ...restProps
-}: FilterDateRangePickerProps): JSX.Element => {
-  const { label, setSelectedValuesLabel } = useFilterContextSol3()
+// export const FilterDateRangePickerFieldSol3 = ({
+//   id,
+//   // label,
+//   locale: propsLocale,
+//   defaultMonth,
+//   selectedRange,
+//   onRangeChange,
+//   disabledDates,
+//   disabledDaysOfWeek,
+//   disabledRange,
+//   disabledBeforeAfter,
+//   disabledBefore,
+//   disabledAfter,
+//   // onRemoveFilter,
+//   inputRangeStartProps,
+//   inputRangeEndProps,
+//   description,
+//   classNameOverride,
+//   ...restProps
+// }: FilterDateRangePickerProps): JSX.Element => {
+//   const { label, setSelectedValuesLabel } = useFilterContextSol3()
 
-  const locale = getLocale(propsLocale)
-  const disabledDays = calculateDisabledDays({
-    disabledDates,
-    disabledDaysOfWeek,
-    disabledRange,
-    disabledBeforeAfter,
-    disabledBefore,
-    disabledAfter,
-  })
+//   const locale = getLocale(propsLocale)
+//   const disabledDays = calculateDisabledDays({
+//     disabledDates,
+//     disabledDaysOfWeek,
+//     disabledRange,
+//     disabledBeforeAfter,
+//     disabledBefore,
+//     disabledAfter,
+//   })
 
-  const transformDateToInputValue = (date: Date | undefined): string =>
-    date ? formatDateAsText(date, disabledDays, locale) : ""
+//   const transformDateToInputValue = (date: Date | undefined): string =>
+//     date ? formatDateAsText(date, disabledDays, locale) : ""
 
-  const [inputRangeStartValue, setInputRangeStartValue] = useState<
-    InputRangeStartProps["value"]
-  >(transformDateToInputValue(selectedRange?.from))
-  const [inputRangeEndValue, setInputRangeEndValue] = useState<
-    InputRangeEndProps["value"]
-  >(transformDateToInputValue(selectedRange?.to))
+//   const [inputRangeStartValue, setInputRangeStartValue] = useState<
+//     InputRangeStartProps["value"]
+//   >(transformDateToInputValue(selectedRange?.from))
+//   const [inputRangeEndValue, setInputRangeEndValue] = useState<
+//     InputRangeEndProps["value"]
+//   >(transformDateToInputValue(selectedRange?.to))
 
-  const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
-    setSelectedValuesLabel(
-      isCompleteDateRange(dateRange) ? (
-        <DateRangeDisplayLabel dateRange={dateRange} locale={locale} />
-      ) : undefined
-    )
-    onRangeChange(dateRange)
-  }
+//   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
+//     setSelectedValuesLabel(
+//       isCompleteDateRange(dateRange) ? (
+//         <DateRangeDisplayLabel dateRange={dateRange} locale={locale} />
+//       ) : undefined
+//     )
+//     onRangeChange(dateRange)
+//   }
 
-  const inputRangeStartHandlers = useDateInputHandlers({
-    locale,
-    disabledDays,
-    setInputValue: setInputRangeStartValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: date, to: selectedRange?.to }),
-    ...inputRangeStartProps,
-  })
+//   const inputRangeStartHandlers = useDateInputHandlers({
+//     locale,
+//     disabledDays,
+//     setInputValue: setInputRangeStartValue,
+//     onDateChange: date =>
+//       handleDateRangeChange({ from: date, to: selectedRange?.to }),
+//     ...inputRangeStartProps,
+//   })
 
-  const inputRangeEndHandlers = useDateInputHandlers({
-    locale,
-    disabledDays,
-    setInputValue: setInputRangeEndValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: selectedRange?.from, to: date }),
-    ...inputRangeEndProps,
-  })
+//   const inputRangeEndHandlers = useDateInputHandlers({
+//     locale,
+//     disabledDays,
+//     setInputValue: setInputRangeEndValue,
+//     onDateChange: date =>
+//       handleDateRangeChange({ from: selectedRange?.from, to: date }),
+//     ...inputRangeEndProps,
+//   })
 
-  const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
-    setInputRangeStartValue(transformDateToInputValue(range?.from))
-    setInputRangeEndValue(transformDateToInputValue(range?.to))
-    handleDateRangeChange(range)
-  }
+//   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
+//     setInputRangeStartValue(transformDateToInputValue(range?.from))
+//     setInputRangeEndValue(transformDateToInputValue(range?.to))
+//     handleDateRangeChange(range)
+//   }
 
-  return (
-    <div
-      className={classnames(
-        // styles.filterDateRangePickerContainer,
-        classNameOverride
-      )}
-      {...restProps}
-    >
-      <DateRangeInputField
-        id={`${id}--input`}
-        legend={label}
-        inputRangeStartProps={{
-          labelText: "Date from",
-          value: inputRangeStartValue,
-          ...inputRangeStartProps,
-          // The below props extend the values from inputRangeStartProps, therefore must be below the spread
-          ...inputRangeStartHandlers,
-        }}
-        inputRangeEndProps={{
-          labelText: "Date to",
-          value: inputRangeEndValue,
-          ...inputRangeEndProps,
-          // The below props extend the values from inputRangeEndProps, therefore must be below the spread
-          ...inputRangeEndHandlers,
-        }}
-        locale={locale}
-        description={description}
-        classNameOverride={styles.dateRangeInputField}
-      />
-      <CalendarRange
-        defaultMonth={defaultMonth}
-        disabled={disabledDays}
-        locale={locale}
-        selected={selectedRange}
-        onSelect={handleCalendarSelectRange}
-      />
-    </div>
-  )
-}
+//   return (
+//     <div
+//       className={classnames(
+//         // styles.filterDateRangePickerContainer,
+//         classNameOverride
+//       )}
+//       {...restProps}
+//     >
+//       <DateRangeInputField
+//         id={`${id}--input`}
+//         legend={label}
+//         inputRangeStartProps={{
+//           labelText: "Date from",
+//           value: inputRangeStartValue,
+//           ...inputRangeStartProps,
+//           // The below props extend the values from inputRangeStartProps, therefore must be below the spread
+//           ...inputRangeStartHandlers,
+//         }}
+//         inputRangeEndProps={{
+//           labelText: "Date to",
+//           value: inputRangeEndValue,
+//           ...inputRangeEndProps,
+//           // The below props extend the values from inputRangeEndProps, therefore must be below the spread
+//           ...inputRangeEndHandlers,
+//         }}
+//         locale={locale}
+//         description={description}
+//         classNameOverride={styles.dateRangeInputField}
+//       />
+//       <CalendarRange
+//         defaultMonth={defaultMonth}
+//         disabled={disabledDays}
+//         locale={locale}
+//         selected={selectedRange}
+//         onSelect={handleCalendarSelectRange}
+//       />
+//     </div>
+//   )
+// }
 
-FilterDateRangePickerFieldSol3.displayName = "FilterDateRangePickerFieldSol3"
+// FilterDateRangePickerFieldSol3.displayName = "FilterDateRangePickerFieldSol3"

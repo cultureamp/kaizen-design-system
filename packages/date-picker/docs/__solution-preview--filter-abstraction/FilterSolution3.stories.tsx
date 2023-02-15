@@ -328,117 +328,117 @@ Solution3DRP.storyName = "Solution 3 - FilterDRP"
 //
 // ^ Seems the above does not work because the component does not re-render
 // at the correct time to allow the ref to attach on the first open of the popover.
-export const Solution3DRPExtraContext: ComponentStory<
-  typeof FilterSolution3
-> = args => {
-  const buttonRef1 = useRef<HTMLButtonElement>(null)
-  const [range, setRange] = useState<DateRange | undefined>()
-  // const buttonRef2 = useRef<HTMLButtonElement>(null)
-  // const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
-  // const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
-  //   DateRange | undefined
-  // >({
-  //   from: new Date("2022-05-15"),
-  //   to: new Date("2022-06-22"),
-  // })
+// export const Solution3DRPExtraContext: ComponentStory<
+//   typeof FilterSolution3
+// > = args => {
+//   const buttonRef1 = useRef<HTMLButtonElement>(null)
+//   const [range, setRange] = useState<DateRange | undefined>()
+//   // const buttonRef2 = useRef<HTMLButtonElement>(null)
+//   // const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
+//   // const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
+//   //   DateRange | undefined
+//   // >({
+//   //   from: new Date("2022-05-15"),
+//   //   to: new Date("2022-06-22"),
+//   // })
 
-  // const buttonRef3 = useRef<HTMLButtonElement>(null)
-  // const removeButtonRef = useRef<HTMLButtonElement>(null)
-  // const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
-  //   triggerButtonRef: buttonRef3,
-  //   removeButtonRef,
-  // })
-  // const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
-  // const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+//   // const buttonRef3 = useRef<HTMLButtonElement>(null)
+//   // const removeButtonRef = useRef<HTMLButtonElement>(null)
+//   // const removableButtonRefs = useRef<RemovableFilterTriggerButtonRefs>({
+//   //   triggerButtonRef: buttonRef3,
+//   //   removeButtonRef,
+//   // })
+//   // const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
+//   // const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
 
-  return (
-    <>
-      <FilterSolution3ExtraContext
-        label="Dates"
-      >
-        <FilterTriggerButtonSol3 ref={buttonRef1} />
-        <FilterSol3FocusLock>
-          <FilterPopover
-            referenceElement={buttonRef1.current}
-          >
-            <FilterContents>
-              <FilterDateRangePickerFieldSol3
-                id="filterdrp"
-                // label="Dates"
-                locale="en-AU"
-                selectedRange={range}
-                onRangeChange={setRange}
-              />
-            </FilterContents>
-          </FilterPopover>
-        </FilterSol3FocusLock>
-      </FilterSolution3ExtraContext>
+//   return (
+//     <>
+//       <FilterSolution3ExtraContext
+//         label="Dates"
+//       >
+//         <FilterTriggerButtonSol3 ref={buttonRef1} />
+//         <FilterSol3FocusLock>
+//           <FilterPopover
+//             referenceElement={buttonRef1.current}
+//           >
+//             <FilterContents>
+//               <FilterDateRangePickerFieldSol3
+//                 id="filterdrp"
+//                 // label="Dates"
+//                 locale="en-AU"
+//                 selectedRange={range}
+//                 onRangeChange={setRange}
+//               />
+//             </FilterContents>
+//           </FilterPopover>
+//         </FilterSol3FocusLock>
+//       </FilterSolution3ExtraContext>
 
-      {/* <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3ExtraContext
-          // {...args}
-          label="Dates existing"
-          // NOTE:
-          // Since the button is mounted before the contents within the popover,
-          // to pre-fill the button we must provide the initial selected value here
-          defaultSelectedValuesLabel={
-            isCompleteDateRange(rangeDefaultExisting) ? (
-              <DateRangeDisplayLabel
-                dateRange={rangeDefaultExisting}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined
-          }
-        >
-        <FilterTriggerButtonSol3
-          ref={buttonRef2}
-        />
-        {isOpenExisting && (
-          <FilterSol3FocusLock
-            referenceElement={buttonRef2.current}
-          >
-            <FilterContents>
-              <FilterDateRangePickerFieldSol3
-                id="filterdrp-existing"
-                // label="Dates"
-                locale="en-AU"
-                selectedRange={rangeDefaultExisting}
-                onRangeChange={setRangeDefaultExisting}
-              />
-            </FilterContents>
-          </FilterSol3FocusLock>
-        )}
-        </FilterSolution3ExtraContext>
-      </div>
+//       {/* <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution3ExtraContext
+//           // {...args}
+//           label="Dates existing"
+//           // NOTE:
+//           // Since the button is mounted before the contents within the popover,
+//           // to pre-fill the button we must provide the initial selected value here
+//           defaultSelectedValuesLabel={
+//             isCompleteDateRange(rangeDefaultExisting) ? (
+//               <DateRangeDisplayLabel
+//                 dateRange={rangeDefaultExisting}
+//                 locale={getLocale("en-AU")}
+//               />
+//             ) : undefined
+//           }
+//         >
+//         <FilterTriggerButtonSol3
+//           ref={buttonRef2}
+//         />
+//         {isOpenExisting && (
+//           <FilterSol3FocusLock
+//             referenceElement={buttonRef2.current}
+//           >
+//             <FilterContents>
+//               <FilterDateRangePickerFieldSol3
+//                 id="filterdrp-existing"
+//                 // label="Dates"
+//                 locale="en-AU"
+//                 selectedRange={rangeDefaultExisting}
+//                 onRangeChange={setRangeDefaultExisting}
+//               />
+//             </FilterContents>
+//           </FilterSol3FocusLock>
+//         )}
+//         </FilterSolution3ExtraContext>
+//       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3ExtraContext
-          // {...args}
-          ref={buttonRef3}
-          label="Dates"
-        >
-          <RemovableFilterTriggerButtonContextSol3
-            ref={removableButtonRefs}
-            removeButtonProps={{ onClick: () => undefined }}
-          />
-          {isOpenRemovable && (
-          <FilterSol3FocusLock
-            referenceElement={buttonRef3.current}
-          >
-            <FilterContents>
-              <FilterDateRangePickerFieldSol3
-                id="filterdrp--remove"
-                // label="Dates"
-                locale="en-AU"
-                selectedRange={rangeRemovable}
-                onRangeChange={setRangeRemovable}
-              />
-            </FilterContents>
-          </FilterSol3FocusLock>
-          )}
-        </FilterSolution3ExtraContext>
-      </div> */}
-    </>
-  )
-}
-Solution3DRPExtraContext.storyName = "Solution 3 extra context - FilterDRP"
+//       <div style={{ marginTop: "2rem" }}>
+//         <FilterSolution3ExtraContext
+//           // {...args}
+//           ref={buttonRef3}
+//           label="Dates"
+//         >
+//           <RemovableFilterTriggerButtonContextSol3
+//             ref={removableButtonRefs}
+//             removeButtonProps={{ onClick: () => undefined }}
+//           />
+//           {isOpenRemovable && (
+//           <FilterSol3FocusLock
+//             referenceElement={buttonRef3.current}
+//           >
+//             <FilterContents>
+//               <FilterDateRangePickerFieldSol3
+//                 id="filterdrp--remove"
+//                 // label="Dates"
+//                 locale="en-AU"
+//                 selectedRange={rangeRemovable}
+//                 onRangeChange={setRangeRemovable}
+//               />
+//             </FilterContents>
+//           </FilterSol3FocusLock>
+//           )}
+//         </FilterSolution3ExtraContext>
+//       </div> */}
+//     </>
+//   )
+// }
+// Solution3DRPExtraContext.storyName = "Solution 3 extra context - FilterDRP"
