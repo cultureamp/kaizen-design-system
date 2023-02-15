@@ -1,0 +1,14 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../../src/Select/components/Option/Option.module.scss";
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+}
+
+.small {
+  opacity: 0.7;
+}

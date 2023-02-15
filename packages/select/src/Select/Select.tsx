@@ -18,21 +18,25 @@ import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
 import selectStyles from "./Select.module.scss"
 
-export type SelectOptionsProps = {
-  items: Array<Node<SingleItemType>>
+export type SelectOptionsProps<T> = {
+  items: Array<Node<T>>
 }
 
-export const getSelectChildren: CollectionChildren<SingleItemType> = item =>
-  Array.isArray(item.value) ? (
-    <Section key={item.label} title={item.label} items={item.value}>
-      {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
-    </Section>
-  ) : (
-    <Item key={item.value}>{item.label}</Item>
-  )
-export interface SelectProps
+export function getSelectChildren<
+  T extends SingleItemType
+>(): CollectionChildren<T> {
+  return item =>
+    Array.isArray(item.value) ? (
+      <Section key={item.label} title={item.label} items={item.value}>
+        {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
+      </Section>
+    ) : (
+      <Item key={item.value}>{item.label}</Item>
+    )
+}
+export interface SelectProps<T>
   extends OverrideClassName<
-    Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
+    Omit<AriaSelectProps<T>, "children" | "disabledKeys">
   > {
   /** The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. */
   disabledValues?: React.Key[]
@@ -54,7 +58,7 @@ export interface SelectProps
   /**
    * Replaces the contents of the Listbox and describes how the options are displayed
    * Exposes the option properties which contains the items */
-  children?: (optionsProps: SelectOptionsProps) => React.ReactNode
+  children?: (optionsProps: SelectOptionsProps<T>) => React.ReactNode
   /**
    * Updates the styling of the validation FieldMessage.
    */
@@ -69,7 +73,7 @@ export interface SelectProps
   isReversed?: boolean
 }
 
-export const Select = ({
+export const Select = <T extends SingleItemType>({
   id,
   label,
   description,
@@ -87,12 +91,12 @@ export const Select = ({
   ),
   children,
   ...restProps
-}: SelectProps): JSX.Element => {
+}: SelectProps<T>): JSX.Element => {
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"
 
-  const ariaSelectProps: AriaSelectProps<SingleItemType> = {
+  const ariaSelectProps: AriaSelectProps<T> = {
     label,
     description,
     placeholder,
@@ -101,7 +105,7 @@ export const Select = ({
     validationState: invalidStatus,
     errorMessage: validationMessage,
     disabledKeys: disabledValues,
-    children: getSelectChildren,
+    children: getSelectChildren<T>(),
     ...restProps,
   }
 
@@ -109,7 +113,7 @@ export const Select = ({
   const renderChildren = children
     ? children
     : ({ items }): JSX.Element =>
-        items.map((item: Node<SingleItemType>) =>
+        items.map((item: Node<T>) =>
           item.type === "section" ? (
             <ListBoxSection key={item.key} section={item} />
           ) : (
