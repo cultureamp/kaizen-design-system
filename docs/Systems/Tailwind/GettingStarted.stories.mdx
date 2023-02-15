@@ -42,8 +42,8 @@ module.exports = {
   content: ["./**/*.{ts,tsx}"], 
   // Override the default Tailwind preset with the Kaizen one.
   presets: [Preset],
-  // Important to add to the #root and #docs-root (for storybook) to ensure that Tailwind classes supersede component styles
-  important: ["#root", "#docs-root"],
+  // This should be a selector that wraps your app. It ensures that your Tailwind classes supersede component styles, by increasing their specificity with the chosen selector.
+  important: "#root",
   // Preflight is a heavy-handed css reset. We recommend disabling it in your project.
   corePlugins: {
     preflight: false,
