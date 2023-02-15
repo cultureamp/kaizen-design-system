@@ -25,7 +25,7 @@ export const FilterTriggerButton = forwardRef<
     { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
     ref
   ) => {
-    const hasSelectedValue = selectedValue && selectedValue !== ""
+    const selectedValuesLabel = selectedValue
 
     return (
       <FilterBaseButton
@@ -39,13 +39,13 @@ export const FilterTriggerButton = forwardRef<
         {...restProps}
       >
         <span className={styles.labelContainer}>
-          {hasSelectedValue ? (
+          {selectedValuesLabel ? (
             <>
               <span className={styles.hasSelectedValues}>
                 <span>{label}</span>
                 <span className={styles.labelSeparator}>:</span>
               </span>
-              <span>{selectedValue}</span>
+              <span>{selectedValuesLabel}</span>
             </>
           ) : (
             label
@@ -113,10 +113,13 @@ export const FilterTriggerButtonContext = forwardRef<
   HTMLButtonElement,
   FilterTriggerButtonContextProps
 >(({ selectedValue, isOpen = false, classNameOverride, ...restProps }, ref) => {
-  const { label, selectedValuesLabel } = useFilterContext()
+  // const { label, selectedValuesLabel } = useFilterContext()
+  const { label } = useFilterContext()
   // Maybe we shouldn't check; would we ever receive an empty string?
   // Maybe we would want to show it to show something went wrong?
   // const hasSelectedValue = selectedValue && selectedValue !== ""
+
+  const selectedValuesLabel = selectedValue
 
   return (
     <FilterBaseButton
