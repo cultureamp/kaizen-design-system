@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.2.0...@kaizen/components@1.3.0) (2023-02-15)
+
+
+### Features
+
+* 44-processing-tailwind-css ([#3273](https://github.com/cultureamp/kaizen-design-system/issues/3273)) ([4f2ace5](https://github.com/cultureamp/kaizen-design-system/commit/4f2ace55edb1d3b5fc0005b65165fd584357a0d2))
+
+
+
+
+
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.1.0...@kaizen/components@1.2.0) (2023-02-13)
 
 
