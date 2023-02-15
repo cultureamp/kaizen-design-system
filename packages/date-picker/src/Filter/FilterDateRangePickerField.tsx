@@ -189,7 +189,7 @@ export const FilterDateRangePickerField = ({
 
 FilterDateRangePickerField.displayName = "FilterDateRangePickerField"
 
-export interface FilterDateRangePickerFieldNoContext extends FilterDateRangePickerProps {
+export interface FilterDateRangePickerFieldNoContextProps extends FilterDateRangePickerProps {
   label: string
 }
 
@@ -212,7 +212,7 @@ export const FilterDateRangePickerFieldNoContext = ({
   description,
   classNameOverride,
   ...restProps
-}: FilterDateRangePickerFieldNoContext): JSX.Element => {
+}: FilterDateRangePickerFieldNoContextProps): JSX.Element => {
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
     disabledDates,
