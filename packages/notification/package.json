@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/notification",
-  "version": "1.1.16",
+  "version": "1.2.0",
   "description": "Collection of notification components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,7 +30,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^16.1.17",
+    "@kaizen/component-library": "^16.2.1",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },

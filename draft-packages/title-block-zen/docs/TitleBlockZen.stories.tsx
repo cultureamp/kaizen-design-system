@@ -1159,7 +1159,7 @@ export const WithCustomSectionTitle: Story = () => {
       <Heading color="white" variant="heading-3">
         {props.sectionTitle}
       </Heading>
-      <Tag variant="statusAction">My custom element</Tag>
+      <Tag variant="statusDraft">My custom element</Tag>
     </div>
   )
   return (

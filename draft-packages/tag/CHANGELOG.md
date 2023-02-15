@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.3.1...@kaizen/draft-tag@3.3.2) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.3.0...@kaizen/draft-tag@3.3.1) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.2.21...@kaizen/draft-tag@3.3.0) (2023-01-31)
+
+
+### Features
+
+* Swap action and draft colors in tag element ([#3238](https://github.com/cultureamp/kaizen-design-system/issues/3238)) ([a31ff1a](https://github.com/cultureamp/kaizen-design-system/commit/a31ff1a09f21e81c15ad056bffc2e20ad4b0d2b5))
+
+
+
+
+
 ## [3.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.2.20...@kaizen/draft-tag@3.2.21) (2023-01-30)
 
 **Note:** Version bump only for package @kaizen/draft-tag
