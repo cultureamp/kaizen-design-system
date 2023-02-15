@@ -65,7 +65,7 @@ export const WithSubLabel: ComponentStory<typeof Select> = props => (
   <Select {...props} />
 )
 
-WithSubLabel.storyName = "Select Items with sublabels"
+WithSubLabel.storyName = "Select Items with subLabels"
 WithSubLabel.args = {
   label: "label",
   id: "select-items-sublabels",

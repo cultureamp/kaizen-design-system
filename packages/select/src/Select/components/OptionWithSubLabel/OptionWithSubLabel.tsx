@@ -43,10 +43,10 @@ export const OptionWithSubLabel = ({
       ])}
       aria-label={item.textValue}
     >
-        <div className={styles.label}>
-            <div>{item.value.label}</div>
-            <div className={styles.small}>{item.value.subLabel}</div>
-        </div>
+      <div className={styles.label}>
+        <div>{item.value.label}</div>
+        <div className={styles.small}>{item.value.subLabel}</div>
+      </div>
       <span
         className={classNames([styles.icon, isSelected && styles.isSelected])}
       >
