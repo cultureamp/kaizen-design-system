@@ -7,11 +7,7 @@ import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
-import {
-  ourCustomFunction,
-  Select,
-  SelectOption,
-} from "../../src/Select/Select"
+import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
 import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
@@ -248,11 +244,6 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
 }
 
-type CustomOption = {
-  label: { title: string }
-  value: string
-}
-
 const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
   <>
     <div style={{ marginBottom: "28rem" }}>
@@ -283,14 +274,20 @@ const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
             placeholder="Placeholder"
             isOpen
           >
-            {({ items }): any =>
-              ourCustomFunction<CustomOption>({
-                items,
-                component: Select.Option,
-              })
+            {(optionsProps): JSX.Element[] =>
+              optionsProps.items.map((item: Node<SingleItemType>) => (
+                <Select.Option
+                  {...optionsProps}
+                  key={item.key}
+                  item={item}
+                  classNameOverride={
+                    item.key === "id-sre" ? "story__option-hover" : undefined
+                  }
+                />
+              ))
             }
           </Select>
-          {/* <Select
+          <Select
             id="select-dropdown-focus"
             label="label"
             items={singleMockItems}
@@ -309,7 +306,7 @@ const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
                 />
               ))
             }
-          </Select> */}
+          </Select>
           <Select
             id="select-dropdown-disabled"
             label="label"

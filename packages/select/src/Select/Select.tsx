@@ -1,4 +1,4 @@
-import React, { createElement, ReactNode, useEffect } from "react"
+import React, { useEffect } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import { Item, Section } from "@react-stately/collections"
 import {
@@ -69,26 +69,6 @@ export interface SelectProps
   isReversed?: boolean
 }
 
-export function ourCustomFunction<T>({
-  items,
-  component,
-}: {
-  items: any
-  component: JSX.Element
-}): JSX.Element {
-  return items.map((item: Node<T>) =>
-    item.type === "section" ? (
-      <ListBoxSection
-        key={item.key}
-        section={item}
-        component={OptionComponent}
-      />
-    ) : (
-      <OptionComponent key={item.key} item={item} />
-    )
-  )
-}
-
 export const Select = ({
   id,
   label,
@@ -126,7 +106,6 @@ export const Select = ({
   }
 
   const state = useSelectState(ariaSelectProps)
-
   const renderChildren = children
     ? children
     : ({ items }): JSX.Element =>
