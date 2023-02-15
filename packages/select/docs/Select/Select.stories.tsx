@@ -9,7 +9,11 @@ import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
 import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
-import { groupedMockItems, singleMockItems } from "../MockData"
+import {
+  groupedMockItems,
+  singleMockItems,
+  singleMockItemsWithSubLabel,
+} from "../MockData"
 import { selectControls } from "../controls/selectControls"
 
 export default {
@@ -53,6 +57,27 @@ DefaultStory.args = {
 }
 
 DefaultStory.parameters = {
+  chromatic: { disable: false },
+  docs: { source: { type: "code" } },
+}
+
+export const WithSubLabel: ComponentStory<typeof Select> = props => (
+  <Select {...props} />
+)
+
+WithSubLabel.storyName = "Select Items with sublabels"
+WithSubLabel.args = {
+  label: "label",
+  id: "select-items-sublabels",
+  items: singleMockItemsWithSubLabel,
+  isFullWidth: false,
+  description: "This is a description",
+  isDisabled: false,
+  placeholder: "Placeholder",
+  defaultOpen: false,
+}
+
+WithSubLabel.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
 }

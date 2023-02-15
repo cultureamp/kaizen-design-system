@@ -14,6 +14,14 @@ export const singleMockItems: SingleItemType[] = [
   { label: "AnotherExample", value: "id-another" },
 ]
 
+export const singleMockItemsWithSubLabel: SingleItemType[] = [
+  { label: "Front-End", value: "id-fe", subLabel: "React" },
+  { label: "Back-End", value: "id-be", subLabel: "Ruby on rails" },
+  { label: "SRE", value: "id-sre", subLabel: "Infrastructure" },
+  { label: "Dev-ops", value: "id-devops", subLabel: "Site reliability engineering" },
+  { label: "Others", value: "id-others", subLabel: "Sublabel" },
+]
+
 export const groupedMockItems: SingleItemType[] = [
   {
     label: "Colours",

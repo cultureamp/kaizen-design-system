@@ -12,6 +12,7 @@ export interface ItemType {
 export interface SingleItemType {
   label: string
   value: ValueType | SectionChildType[]
+  subLabel?: string
 }
 
 export type SectionChildType = {
