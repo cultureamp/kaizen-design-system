@@ -7,24 +7,24 @@ import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
-import { Paragraph } from "../../../typography"
-import { useSelectContext } from "../../src/Select/context/SelectContext"
-import { SingleItemType } from "../../src/types"
-import styles from "./OptionWithSubLabel.module.scss"
+import { Paragraph } from "@kaizen/typography"
+import { useSelectContext } from "../../../src/Select/context/SelectContext"
+import { SingleItemType } from "../../../src/types"
+import styles from "./OptionWithSubtitle.module.scss"
 
-export interface SingleItemTypeWithSubtitle extends SingleItemType {
+export interface WithSubtitleType extends SingleItemType {
   subtitle: string
 }
 
-export interface OptionWithSubLabelProps
+export interface OptionWithSubtitleProps
   extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
-  item: Node<SingleItemTypeWithSubtitle>
+  item: Node<WithSubtitleType>
 }
-export const OptionWithSubLabel = ({
+export const CustomOptionWithSubtitle = ({
   item,
   classNameOverride,
   ...props
-}: OptionWithSubLabelProps): JSX.Element => {
+}: OptionWithSubtitleProps): JSX.Element => {
   const ref = React.useRef<HTMLLIElement>(null)
   const { state } = useSelectContext()
   const { optionProps, isSelected, isDisabled } = useOption(
@@ -49,7 +49,8 @@ export const OptionWithSubLabel = ({
       aria-label={item.textValue}
     >
       <div className={styles.label}>
-        <div>{item.value.label}</div>
+        {item.rendered}
+
         <Paragraph variant="small">{item.value.subtitle}</Paragraph>
       </div>
       <span
@@ -61,4 +62,4 @@ export const OptionWithSubLabel = ({
   )
 }
 
-OptionWithSubLabel.displayName = "OptionWithSubLabel"
+CustomOptionWithSubtitle.displayName = "CustomOptionWithSubtitle"

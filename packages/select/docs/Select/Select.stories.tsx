@@ -11,10 +11,6 @@ import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
 import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
-import {
-  OptionWithSubLabel,
-  SingleItemTypeWithSubtitle,
-} from "./OptionWithSubLabel"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -59,33 +55,6 @@ DefaultStory.args = {
 DefaultStory.parameters = {
   chromatic: { disable: false },
   docs: { source: { type: "code" } },
-}
-export const CustomOption: ComponentStory<typeof Select> = props => {
-  const singleMockItemsWithSubLabel: SingleItemTypeWithSubtitle[] = [
-    { label: "Front-End", value: "id-fe", subtitle: "React" },
-    { label: "Back-End", value: "id-be", subtitle: "Ruby on rails" },
-    { label: "SRE", value: "id-sre", subtitle: "Infrastructure" },
-    {
-      label: "Dev-ops",
-      value: "id-devops",
-      subtitle: "Site reliability engineering",
-    },
-    { label: "Others", value: "id-others", subtitle: "Sublabel" },
-  ]
-  return (
-    <Select<SingleItemTypeWithSubtitle>
-      id="select-custom-option"
-      label="label"
-      items={singleMockItemsWithSubLabel}
-      placeholder="Placeholder"
-    >
-      {(optionsProps): JSX.Element[] =>
-        optionsProps.items.map(item => (
-          <OptionWithSubLabel {...optionsProps} key={item.key} item={item} />
-        ))
-      }
-    </Select>
-  )
 }
 export const WithSections: ComponentStory<typeof Select> = () => (
   <>
