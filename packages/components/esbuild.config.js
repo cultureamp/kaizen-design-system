@@ -5,6 +5,17 @@ const esbuild = require("esbuild")
 
 esbuild
   .build({
+    entryPoints: ["./src/index.ts", "./src/future.ts"],
+    outdir: "./dist",
+    bundle: true,
+    loader: { ".module.scss": "copy" },
+  })
+  .catch(e => {
+    process.exit()
+  })
+
+esbuild
+  .build({
     entryPoints: ["./src/styles.css"],
     outfile: "./dist/styles.css",
     minify: true,
