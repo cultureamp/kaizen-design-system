@@ -34,13 +34,26 @@ export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
   > {
+  /** The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. */
   disabledValues?: React.Key[]
+  /**
+   * Use the `fullWidth` styles.
+   */
   isFullWidth?: boolean
+  /**
+   * Identifies the element that labels the current element.
+   */
   id: string
+  /**
+   * Replaces the trigger button
+   * Exposes the trigger properties and the ref to be used on the replacing trigger */
   trigger?: (
     triggerProps: TriggerButtonProps,
     ref: React.RefObject<HTMLButtonElement>
   ) => React.ReactNode
+  /**
+   * Replaces the contents of the Listbox and describes how the options are displayed
+   * Exposes the option properties which contains the items */
   children?: (optionsProps: SelectOptionsProps) => React.ReactNode
   /**
    * Updates the styling of the validation FieldMessage.
@@ -50,6 +63,9 @@ export interface SelectProps
    * A descriptive message for the 'status' states.
    */
   validationMessage?: React.ReactNode | undefined
+  /**
+   * Use the `reversed` styles.
+   */
   isReversed?: boolean
 }
 
