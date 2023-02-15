@@ -47,8 +47,8 @@ export const RemovableFilterTriggerButton = forwardRef<
       <FilterTriggerButton ref={triggerButtonRef} {...triggerButtonProps} />
       <FilterBaseTooltipButton
         ref={removeButtonRef}
-        {...removeButtonProps}
         tooltipText={removeButtonLabel}
+        {...removeButtonProps}
       >
         <Icon icon={iconClear} title={removeButtonLabel} />
       </FilterBaseTooltipButton>

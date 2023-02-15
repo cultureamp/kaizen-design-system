@@ -69,7 +69,7 @@ export const FilterTriggerButtonWithFilterRef = forwardRef<
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
     const triggerButtonRef = customRefObject?.triggerButtonRef
-    const hasSelectedValue = selectedValue && selectedValue !== ""
+    const selectedValuesLabel = selectedValue
 
     return (
       <FilterBaseButton
@@ -83,13 +83,13 @@ export const FilterTriggerButtonWithFilterRef = forwardRef<
         {...restProps}
       >
         <span className={styles.labelContainer}>
-          {hasSelectedValue ? (
+          {selectedValuesLabel ? (
             <>
               <span className={styles.hasSelectedValues}>
                 <span>{label}</span>
                 <span className={styles.labelSeparator}>:</span>
               </span>
-              <span>{selectedValue}</span>
+              <span>{selectedValuesLabel}</span>
             </>
           ) : (
             label
