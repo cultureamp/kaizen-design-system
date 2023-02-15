@@ -598,7 +598,15 @@ export const Solution2ManualOpen: ComponentStory<
         setIsOpen={setIsOpenNoRef}
         label="No ref"
         filterButton={(props): JSX.Element => (
-          <FilterTriggerButtonContextWithFilterRef {...props} />
+          <FilterTriggerButtonContextWithFilterRef
+            selectedValue={isCompleteDateRange(range) ? (
+              <DateRangeDisplayLabel
+                dateRange={range}
+                locale={getLocale("en-AU")}
+              />
+            ) : undefined}
+           {...props}
+           />
         )}
       >
         <FilterContents>
@@ -619,7 +627,14 @@ export const Solution2ManualOpen: ComponentStory<
           setIsOpen={setIsOpenMultiContents}
           label="Multi contents"
           filterButton={(props): JSX.Element => (
-            <FilterTriggerButtonContextWithFilterRef {...props} />
+            <FilterTriggerButtonContextWithFilterRef
+            selectedValue={isCompleteDateRange(rangeMultiContents) ? (
+              <DateRangeDisplayLabel
+                dateRange={rangeMultiContents}
+                locale={getLocale("en-AU")}
+              />
+            ) : undefined}
+            {...props} />
           )}
         >
           <FilterContents>
@@ -646,6 +661,12 @@ export const Solution2ManualOpen: ComponentStory<
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
               ref={singleButtonRef}
+              selectedValue={isCompleteDateRange(rangeRef) ? (
+                <DateRangeDisplayLabel
+                  dateRange={rangeRef}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined}
               {...props}
             />
           )}
@@ -679,20 +700,15 @@ export const Solution2ManualOpen: ComponentStory<
           label="Existing value"
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
+              selectedValue={isCompleteDateRange(rangeDefaultExisting) ? (
+                <DateRangeDisplayLabel
+                  dateRange={rangeDefaultExisting}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined}
               {...props}
               />
           )}
-          // NOTE:
-          // Since the button is mounted before the contents within the popover,
-          // to pre-fill the button we must provide the initial selected value here
-          defaultSelectedValuesLabel={
-            isCompleteDateRange(rangeDefaultExisting) ? (
-              <DateRangeDisplayLabel
-                dateRange={rangeDefaultExisting}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined
-          }
         >
           <FilterContents>
             <FilterDateRangePickerField
@@ -723,7 +739,15 @@ export const Solution2ManualOpen: ComponentStory<
           label="Removable no ref"
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
-              triggerButtonProps={{ ...props }}
+              triggerButtonProps={{
+                selectedValue: isCompleteDateRange(rangeRemovable) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeRemovable}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined,
+                ...props
+               }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}
@@ -748,7 +772,15 @@ export const Solution2ManualOpen: ComponentStory<
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButtonContext
               ref={removableButtonRefs}
-              triggerButtonProps={{ ...props }}
+              triggerButtonProps={{
+                selectedValue: isCompleteDateRange(rangeRemovableRef) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeRemovableRef}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined,
+                ...props
+               }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}

@@ -61,84 +61,153 @@ import styles from "./Filter.module.scss"
 // })
 // FilterSolution2Ref.displayName = "FilterSolution2Select"
 
-export interface FilterSolution2FlexiButtonRefProps
+// export interface FilterSolution2FlexiButtonRefProps
+//   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+//   children: React.ReactNode
+//   label: string
+//   defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
+//   filterButton: (
+//     props?: Partial<FilterTriggerButtonProps>
+//   ) => JSX.Element & { ref?: React.RefObject<any> }
+// }
+
+// export const FilterSolution2FlexiButtonRef = React.forwardRef<
+//   HTMLButtonElement,
+//   FilterSolution2FlexiButtonRefProps
+// >(
+//   (
+//     {
+//       children,
+//       label,
+//       defaultSelectedValuesLabel,
+//       filterButton,
+//       classNameOverride,
+//       ...restProps
+//     },
+//     ref
+//   ) => {
+//     // If the consumer uses the legacy `createRef`, it will not work
+//     const consumerRef = isRefObject(ref) ? ref : null
+//     const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+//     const [isOpen, setIsOpen] = useState<boolean>(false)
+
+//     const filterButtonComponent = filterButton({
+//       onClick: (): void => setIsOpen(!isOpen),
+//       isOpen,
+//     })
+
+//     return (
+//       <FilterProvider
+//         label={label}
+//         defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+//       >
+//         <div
+//           className={classnames(styles.filter, classNameOverride)}
+//           {...restProps}
+//         >
+//           {React.cloneElement(filterButtonComponent, {
+//             ref: filterButtonComponent.ref ?? consumerRef ?? inbuiltButtonRef,
+//             ...filterButtonComponent.props,
+//           })}
+//           {isOpen && (
+//             <FocusOn
+//               scrollLock={false}
+//               onClickOutside={(): void => setIsOpen(false)}
+//               onEscapeKey={(): void => setIsOpen(false)}
+//             >
+//               <FilterPopover
+//                 referenceElement={
+//                   consumerRef?.current ?? inbuiltButtonRef.current
+//                 }
+//                 // Does the popper need this or just the contents?
+//                 // aria-label={label}
+//               >
+//                 {children}
+//               </FilterPopover>
+//             </FocusOn>
+//           )}
+//         </div>
+//       </FilterProvider>
+//     )
+//   }
+// )
+// FilterSolution2FlexiButtonRef.displayName = "FilterSolution2FlexiButtonRef"
+
+
+// export interface FilterSolution2ForcedButtonRefProps
+//   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+//   children: React.ReactNode
+//   label: string
+//   defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
+//   filterButton: (
+//     triggerButtonProps:
+//     & Partial<FilterTriggerButtonProps>
+//   ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
+// }
+
+// export type FilterRef = {
+//   triggerButtonRef?: React.RefObject<HTMLButtonElement>
+// }
+
+// export const FilterSolution2ForcedButtonRef = ({
+//   label,
+//   defaultSelectedValuesLabel,
+//   children, filterButton, classNameOverride, ...restProps
+// }: FilterSolution2ForcedButtonRefProps): JSX.Element => {
+//   const [isOpen, setIsOpen] = useState<boolean>(false)
+
+//   const filterButtonComponent = filterButton({
+//     onClick: (): void => setIsOpen(!isOpen),
+//     isOpen,
+//   })
+
+//   const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+//   const inbuiltRef = useRef<FilterRef>({
+//     triggerButtonRef: inbuiltButtonRef
+//   })
+//   const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
+
+//   return (
+//     <FilterProvider
+//     label={label}
+//     defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+//   >
+//     <div
+//       className={classnames(styles.filter, classNameOverride)}
+//       {...restProps}
+//     >
+//       {React.cloneElement(filterButtonComponent, {
+//         ref: filterButtonRef,
+//       })}
+//       {isOpen && (
+//         <FocusOn
+//           scrollLock={false}
+//           onClickOutside={(): void => setIsOpen(false)}
+//           onEscapeKey={(): void => setIsOpen(false)}
+//         >
+//           <FilterPopover
+//             referenceElement={filterButtonRef.current?.triggerButtonRef?.current || null}
+//             // Does the popper need this or just the contents?
+//             // aria-label={label}
+//           >
+//             {children}
+//           </FilterPopover>
+//         </FocusOn>
+//       )}
+//     </div>
+//     </FilterProvider>
+//   )
+// }
+// FilterSolution2ForcedButtonRef.displayName = "FilterSolution2ForcedButtonRef"
+
+// Consumer controlled isOpen
+export interface FilterSolution2ManualOpenProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
   label: string
-  defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
-  filterButton: (
-    props?: Partial<FilterTriggerButtonProps>
-  ) => JSX.Element & { ref?: React.RefObject<any> }
-}
-
-export const FilterSolution2FlexiButtonRef = React.forwardRef<
-  HTMLButtonElement,
-  FilterSolution2FlexiButtonRefProps
->(
-  (
-    {
-      children,
-      label,
-      defaultSelectedValuesLabel,
-      filterButton,
-      classNameOverride,
-      ...restProps
-    },
-    ref
-  ) => {
-    // If the consumer uses the legacy `createRef`, it will not work
-    const consumerRef = isRefObject(ref) ? ref : null
-    const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-
-    const filterButtonComponent = filterButton({
-      onClick: (): void => setIsOpen(!isOpen),
-      isOpen,
-    })
-
-    return (
-      <FilterProvider
-        label={label}
-        defaultSelectedValuesLabel={defaultSelectedValuesLabel}
-      >
-        <div
-          className={classnames(styles.filter, classNameOverride)}
-          {...restProps}
-        >
-          {React.cloneElement(filterButtonComponent, {
-            ref: filterButtonComponent.ref ?? consumerRef ?? inbuiltButtonRef,
-            ...filterButtonComponent.props,
-          })}
-          {isOpen && (
-            <FocusOn
-              scrollLock={false}
-              onClickOutside={(): void => setIsOpen(false)}
-              onEscapeKey={(): void => setIsOpen(false)}
-            >
-              <FilterPopover
-                referenceElement={
-                  consumerRef?.current ?? inbuiltButtonRef.current
-                }
-                // Does the popper need this or just the contents?
-                // aria-label={label}
-              >
-                {children}
-              </FilterPopover>
-            </FocusOn>
-          )}
-        </div>
-      </FilterProvider>
-    )
-  }
-)
-FilterSolution2FlexiButtonRef.displayName = "FilterSolution2FlexiButtonRef"
-
-
-export interface FilterSolution2ForcedButtonRefProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  children: React.ReactNode
-  label: string
-  defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  // defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
   filterButton: (
     triggerButtonProps:
     & Partial<FilterTriggerButtonProps>
@@ -149,78 +218,9 @@ export type FilterRef = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const FilterSolution2ForcedButtonRef = ({
-  label,
-  defaultSelectedValuesLabel,
-  children, filterButton, classNameOverride, ...restProps
-}: FilterSolution2ForcedButtonRefProps): JSX.Element => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  const filterButtonComponent = filterButton({
-    onClick: (): void => setIsOpen(!isOpen),
-    isOpen,
-  })
-
-  const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-  const inbuiltRef = useRef<FilterRef>({
-    triggerButtonRef: inbuiltButtonRef
-  })
-  const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
-
-  return (
-    <FilterProvider
-    label={label}
-    defaultSelectedValuesLabel={defaultSelectedValuesLabel}
-  >
-    <div
-      className={classnames(styles.filter, classNameOverride)}
-      {...restProps}
-    >
-      {React.cloneElement(filterButtonComponent, {
-        ref: filterButtonRef,
-      })}
-      {isOpen && (
-        <FocusOn
-          scrollLock={false}
-          onClickOutside={(): void => setIsOpen(false)}
-          onEscapeKey={(): void => setIsOpen(false)}
-        >
-          <FilterPopover
-            referenceElement={filterButtonRef.current?.triggerButtonRef?.current || null}
-            // Does the popper need this or just the contents?
-            // aria-label={label}
-          >
-            {children}
-          </FilterPopover>
-        </FocusOn>
-      )}
-    </div>
-    </FilterProvider>
-  )
-}
-FilterSolution2ForcedButtonRef.displayName = "FilterSolution2ForcedButtonRef"
-
-// Consumer controlled isOpen
-export interface FilterSolution2ManualOpenProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  children: React.ReactNode
-  label: string
-  isOpen: boolean
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-  defaultSelectedValuesLabel?: FilterTriggerButtonProps["selectedValue"]
-  filterButton: (
-    triggerButtonProps:
-    & Partial<FilterTriggerButtonProps>
-  ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
-}
-
-// export type FilterRef = {
-//   triggerButtonRef?: React.RefObject<HTMLButtonElement>
-// }
-
 export const FilterSolution2ManualOpen = ({
   label,
-  defaultSelectedValuesLabel,
+  // defaultSelectedValuesLabel,
   isOpen,
   setIsOpen,
   children, filterButton, classNameOverride, ...restProps
@@ -241,7 +241,7 @@ export const FilterSolution2ManualOpen = ({
   return (
     <FilterProvider
     label={label}
-    defaultSelectedValuesLabel={defaultSelectedValuesLabel}
+    // defaultSelectedValuesLabel={defaultSelectedValuesLabel}
   >
     <div
       className={classnames(styles.filter, classNameOverride)}
