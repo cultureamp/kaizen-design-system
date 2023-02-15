@@ -2,6 +2,7 @@ import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { singleMockItems } from "../../docs/MockData"
+import { SingleItemType } from "../types"
 import { Select, SelectProps } from "./Select"
 
 const SelectWrapper = ({
@@ -9,10 +10,10 @@ const SelectWrapper = ({
   selectedKey,
   onSelectionChange,
   ...props
-}: Partial<SelectProps>): JSX.Element => {
-  const [selected, setSelected] = React.useState<SelectProps["selectedKey"]>(
-    selectedKey ?? null
-  )
+}: Partial<SelectProps<SingleItemType>>): JSX.Element => {
+  const [selected, setSelected] = React.useState<
+    SelectProps<SingleItemType>["selectedKey"]
+  >(selectedKey ?? null)
   return (
     <Select
       id="select"
