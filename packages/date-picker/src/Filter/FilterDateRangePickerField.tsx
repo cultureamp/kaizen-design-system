@@ -189,6 +189,133 @@ export const FilterDateRangePickerField = ({
 
 FilterDateRangePickerField.displayName = "FilterDateRangePickerField"
 
+export interface FilterDateRangePickerFieldNoContext extends FilterDateRangePickerProps {
+  label: string
+}
+
+export const FilterDateRangePickerFieldNoContext = ({
+  id,
+  label,
+  locale: propsLocale,
+  defaultMonth,
+  selectedRange,
+  onRangeChange,
+  disabledDates,
+  disabledDaysOfWeek,
+  disabledRange,
+  disabledBeforeAfter,
+  disabledBefore,
+  disabledAfter,
+  // onRemoveFilter,
+  inputRangeStartProps,
+  inputRangeEndProps,
+  description,
+  classNameOverride,
+  ...restProps
+}: FilterDateRangePickerFieldNoContext): JSX.Element => {
+  const locale = getLocale(propsLocale)
+  const disabledDays = calculateDisabledDays({
+    disabledDates,
+    disabledDaysOfWeek,
+    disabledRange,
+    disabledBeforeAfter,
+    disabledBefore,
+    disabledAfter,
+  })
+
+  const transformDateToInputValue = (date: Date | undefined): string =>
+    date ? formatDateAsText(date, disabledDays, locale) : ""
+
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<
+    InputRangeStartProps["value"]
+  >(transformDateToInputValue(selectedRange?.from))
+  const [inputRangeEndValue, setInputRangeEndValue] = useState<
+    InputRangeEndProps["value"]
+  >(transformDateToInputValue(selectedRange?.to))
+
+  const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
+    onRangeChange(dateRange)
+  }
+
+  // @note: this isn't needed as the Filter will reset the state
+  // useEffect(() => {
+  //   const rangeStart = transformDateToInputValue(selectedRange?.from)
+  //   const rangeEnd = transformDateToInputValue(selectedRange?.to)
+
+  //   if (rangeStart !== inputRangeStartValue) {
+  //     setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+  //   }
+  //   if (rangeEnd !== inputRangeEndValue) {
+  //     setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
+  //   }
+  // }, [selectedRange?.from, selectedRange?.to])
+
+  const inputRangeStartHandlers = useDateInputHandlers({
+    locale,
+    disabledDays,
+    setInputValue: setInputRangeStartValue,
+    onDateChange: date =>
+      handleDateRangeChange({ from: date, to: selectedRange?.to }),
+    ...inputRangeStartProps,
+  })
+
+  const inputRangeEndHandlers = useDateInputHandlers({
+    locale,
+    disabledDays,
+    setInputValue: setInputRangeEndValue,
+    onDateChange: date =>
+      handleDateRangeChange({ from: selectedRange?.from, to: date }),
+    ...inputRangeEndProps,
+  })
+
+  const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
+    setInputRangeStartValue(transformDateToInputValue(range?.from))
+    setInputRangeEndValue(transformDateToInputValue(range?.to))
+    handleDateRangeChange(range)
+  }
+
+  return (
+    <div
+      className={classnames(
+        // styles.filterDateRangePickerContainer,
+        classNameOverride
+      )}
+      {...restProps}
+    >
+      <DateRangeInputField
+        id={`${id}--input`}
+        legend={label}
+        inputRangeStartProps={{
+          labelText: "Date from",
+          value: inputRangeStartValue,
+          ...inputRangeStartProps,
+          // The below props extend the values from inputRangeStartProps, therefore must be below the spread
+          ...inputRangeStartHandlers,
+        }}
+        inputRangeEndProps={{
+          labelText: "Date to",
+          value: inputRangeEndValue,
+          ...inputRangeEndProps,
+          // The below props extend the values from inputRangeEndProps, therefore must be below the spread
+          ...inputRangeEndHandlers,
+        }}
+        locale={locale}
+        description={description}
+        classNameOverride={styles.dateRangeInputField}
+      />
+      <CalendarRange
+        defaultMonth={defaultMonth}
+        disabled={disabledDays}
+        locale={locale}
+        selected={selectedRange}
+        onSelect={handleCalendarSelectRange}
+      />
+    </div>
+  )
+}
+
+FilterDateRangePickerFieldNoContext.displayName = "FilterDateRangePickerFieldNoContext"
+
 // export const FilterDateRangePickerFieldSol3 = ({
 //   id,
 //   // label,
