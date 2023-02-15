@@ -162,10 +162,13 @@ export const FilterTriggerButtonContextWithFilterRef = forwardRef<
   const customRefObject = isRefObject(ref) ? ref.current : null
   const triggerButtonRef = customRefObject?.triggerButtonRef
 
-  const { label, selectedValuesLabel } = useFilterContext()
+  // const { label, selectedValuesLabel } = useFilterContext()
+  const { label } = useFilterContext()
   // Maybe we shouldn't check; would we ever receive an empty string?
   // Maybe we would want to show it to show something went wrong?
   // const hasSelectedValue = selectedValue && selectedValue !== ""
+
+  const selectedValuesLabel = selectedValue
 
   return (
     <FilterBaseButton

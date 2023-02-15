@@ -19,6 +19,7 @@ FilterContext.displayName = "FilterContext"
 type FilterProviderProps = {
   children: React.ReactNode
   label: string
+  // not required in FilterSolution2ManualOpen
   defaultSelectedValuesLabel?: SelectedValuesLabel
 }
 

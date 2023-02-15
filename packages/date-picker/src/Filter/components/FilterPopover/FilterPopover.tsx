@@ -24,7 +24,7 @@ export const FilterPopover = ({
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
-console.log("referenceElement", referenceElement)
+
   const { styles: popperStyles, attributes: popperAttributes } = usePopper(
     referenceElement,
     popperElement,

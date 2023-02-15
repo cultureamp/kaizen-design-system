@@ -83,7 +83,8 @@ export const FilterDateRangePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
-  const { label, setSelectedValuesLabel } = useFilterContext()
+  // const { label, setSelectedValuesLabel } = useFilterContext()
+  const { label } = useFilterContext()
 
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
@@ -106,13 +107,21 @@ export const FilterDateRangePickerField = ({
   >(transformDateToInputValue(selectedRange?.to))
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
-    setSelectedValuesLabel(
-      isCompleteDateRange(dateRange) ? (
-        <DateRangeDisplayLabel dateRange={dateRange} locale={locale} />
-      ) : undefined
-    )
     onRangeChange(dateRange)
   }
+
+  // @note: this isn't needed as the Filter will reset the state
+  // useEffect(() => {
+  //   const rangeStart = transformDateToInputValue(selectedRange?.from)
+  //   const rangeEnd = transformDateToInputValue(selectedRange?.to)
+
+  //   if (rangeStart !== inputRangeStartValue) {
+  //     setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+  //   }
+  //   if (rangeEnd !== inputRangeEndValue) {
+  //     setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
+  //   }
+  // }, [selectedRange?.from, selectedRange?.to])
 
   const inputRangeStartHandlers = useDateInputHandlers({
     locale,
