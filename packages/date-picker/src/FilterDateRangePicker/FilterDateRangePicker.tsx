@@ -59,6 +59,14 @@ export interface FilterDateRangePickerProps
    * Custom description to provide extra context (input format help text remains).
    */
   description?: DateRangeInputFieldProps["description"]
+  /**
+   * Updates the styling of the validation FieldMessage.
+   */
+  status?: DateRangeInputFieldProps["status"] | undefined
+  /**
+   * A descriptive message for the 'status' states.
+   */
+  validationMessage?: DateRangeInputFieldProps["validationMessage"] | undefined
 }
 
 export const FilterDateRangePicker = ({
@@ -78,6 +86,8 @@ export const FilterDateRangePicker = ({
   inputRangeStartProps,
   inputRangeEndProps,
   description,
+  status,
+  validationMessage,
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
@@ -211,6 +221,8 @@ export const FilterDateRangePicker = ({
               }}
               locale={locale}
               description={description}
+              status={status}
+              validationMessage={validationMessage}
               classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange

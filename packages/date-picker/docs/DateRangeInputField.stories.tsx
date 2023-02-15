@@ -115,7 +115,9 @@ const StickerSheetTemplate: Story<{
       </StickerSheet>
 
       <StickerSheet heading="States">
-        <StickerSheet.Header headings={["Disabled", "Error"]} />
+        <StickerSheet.Header
+          headings={["Disabled", "Error - DateStart", "Error - DateEnd"]}
+        />
         <StickerSheet.Body>
           <StickerSheet.Row style={{ verticalAlign: "top" }}>
             <DateRangeInputField
@@ -128,14 +130,28 @@ const StickerSheetTemplate: Story<{
               disabled
             />
             <DateRangeInputField
-              id="daterangeinputfield--error"
+              id="daterangeinputfield--error-start"
               legend="Error example"
               isReversed={isReversed}
               inputRangeStartProps={inputRangeStartProps}
               inputRangeEndProps={inputRangeEndProps}
               locale={locale}
-              status="error"
-              validationMessage="Error message"
+              status={{
+                dateStart: "error",
+              }}
+              validationMessage={"Error Message"}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--error-end"
+              legend="Error example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              status={{
+                dateEnd: "error",
+              }}
+              validationMessage={"Error Message"}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

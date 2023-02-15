@@ -28,11 +28,12 @@ export interface DateRangeInputFieldProps
   /**
    * Updates the styling of the validation FieldMessage
    */
-  status?: FieldMessageStatus
+  status?: { dateStart?: FieldMessageStatus; dateEnd?: FieldMessageStatus }
   /**
    * A descriptive message for `status` states
    */
   validationMessage?: React.ReactNode
+
   disabled?: boolean
 }
 
@@ -85,7 +86,7 @@ export const DateRangeInputField = React.forwardRef<
             aria-describedby={inputDescribedBy}
             autoComplete="off"
             disabled={disabled}
-            status={status}
+            status={status?.dateStart}
             {...inputRangeStartProps}
             classNameOverride={classnames(
               styles.inputRangeStart,
@@ -98,7 +99,7 @@ export const DateRangeInputField = React.forwardRef<
             aria-describedby={inputDescribedBy}
             autoComplete="off"
             disabled={disabled}
-            status={status}
+            status={status?.dateEnd}
             {...inputRangeEndProps}
             classNameOverride={classnames(
               styles.inputRangeEnd,
@@ -111,7 +112,7 @@ export const DateRangeInputField = React.forwardRef<
           <FieldMessage
             id={errorMessageId}
             message={validationMessage}
-            status={status}
+            status={status?.dateStart || status?.dateEnd}
             reversed={isReversed}
           />
         )}
