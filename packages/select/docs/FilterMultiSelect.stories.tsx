@@ -4,16 +4,12 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { withDesign } from "storybook-addon-designs"
 import { Button, ButtonRef } from "@kaizen/button"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { Label } from "@kaizen/draft-form"
-import {
-  FilterMultiSelect,
-  getSelectedOptionLabels,
-  ItemType,
-} from "@kaizen/select"
+import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
