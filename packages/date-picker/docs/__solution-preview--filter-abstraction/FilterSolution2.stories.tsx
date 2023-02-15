@@ -4,10 +4,13 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange,
-  FilterSolution2ForcedButtonRef } from "../../index"
+import { DateRange, FilterSolution3, FilterSolution3NoContext,
+  // FilterSolution2ForcedButtonRef
+} from "../../index"
 import { FilterDateRangePickerField, FilterDateRangePickerFieldNoContext } from "../../src/Filter/FilterDateRangePickerField"
-import { FilterRef, FilterSolution2FlexiButtonRef, FilterSolution2ManualOpen, FilterSolution2NoContext } from "../../src/Filter/FilterSolution2"
+import { FilterRef,
+  // FilterSolution2FlexiButtonRef,
+  FilterSolution2ManualOpen, FilterSolution2NoContext } from "../../src/Filter/FilterSolution2"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -18,13 +21,14 @@ import {
   RemovableFilterTriggerButtonRefs,
 } from "../../src/Filter/components"
 import { FilterContents } from "../../src/Filter/components/FilterContents"
+import { FilterPopoverWithFocusLock } from "../../src/Filter/components/FilterPopover"
 import { DateRangeDisplayLabel } from "../../src/FilterDateRangePicker/components/DateRangeDisplayLabel"
 import { isCompleteDateRange } from "../../src/FilterDateRangePicker/utils/isCompleteDateRange"
 import { getLocale } from "../../src/utils/getLocale"
 
 export default {
   title: `${CATEGORIES.solutionPreview}/Filter Solution 2`,
-  component: FilterSolution2FlexiButtonRef,
+  component: FilterSolution2NoContext,
   parameters: {
     docs: {
       description: {
@@ -36,7 +40,7 @@ export default {
     ) /** @todo: Replace with Figma frame url */,
   },
   decorators: [withDesign],
-} as ComponentMeta<typeof FilterSolution2FlexiButtonRef>
+} as ComponentMeta<typeof FilterSolution2NoContext>
 
 // export const FilterSolution2: ComponentStory<
 //   typeof FilterSolution2Ref
