@@ -13,11 +13,11 @@ import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
 import { ListBoxSection } from "./components/ListBoxSection"
 import { Option } from "./components/Option"
+import { OptionWithSubLabel } from "./components/OptionWithSubLabel"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
 import selectStyles from "./Select.module.scss"
-import { OptionWithSubLabel } from "./components/OptionWithSubLabel"
 
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
@@ -107,9 +107,12 @@ export const Select = ({
   }
 
   const state = useSelectState(ariaSelectProps)
-  const renderOption = (item: Node<SingleItemType>) => item.value && item.value.subLabel 
-    ? <OptionWithSubLabel key={item.key} item={item} /> 
-    : <Option key={item.key} item={item} />
+  const renderOption = (item: Node<SingleItemType>): JSX.Element =>
+    item.value && item.value.subLabel ? (
+      <OptionWithSubLabel key={item.key} item={item} />
+    ) : (
+      <Option key={item.key} item={item} />
+    )
   const renderChildren = children
     ? children
     : ({ items }): JSX.Element =>

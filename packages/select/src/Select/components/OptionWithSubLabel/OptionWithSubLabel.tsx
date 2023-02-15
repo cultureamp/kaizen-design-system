@@ -9,7 +9,6 @@ import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { SingleItemType } from "../../../types"
 import { useSelectContext } from "../../context/SelectContext"
-import optionStyles from "../Option/Option.module.scss"
 import styles from "./OptionWithSubLabel.module.scss"
 
 export interface OptionWithSubLabelProps
@@ -36,10 +35,10 @@ export const OptionWithSubLabel = ({
       {...mergeProps(optionProps, focusProps, props)}
       ref={ref}
       className={classNames([
-        optionStyles.option,
-        isSelected && optionStyles.isSelected,
-        isFocusVisible && optionStyles.isFocusVisible,
-        isDisabled && optionStyles.disabled,
+        styles.option,
+        isSelected && styles.isSelected,
+        isFocusVisible && styles.isFocusVisible,
+        isDisabled && styles.disabled,
         classNameOverride,
       ])}
       aria-label={item.textValue}
@@ -49,7 +48,7 @@ export const OptionWithSubLabel = ({
             <div className={styles.small}>{item.value.subLabel}</div>
         </div>
       <span
-        className={classNames([optionStyles.icon, isSelected && optionStyles.isSelected])}
+        className={classNames([styles.icon, isSelected && styles.isSelected])}
       >
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>
