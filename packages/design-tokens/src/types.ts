@@ -174,6 +174,31 @@ export type Theme = {
     xxxl: string
     xxxxl: string
     xxxxxl: string
+
+    0: string
+    1: string
+    2: string
+    4: string
+    6: string
+    8: string
+    12: string
+    16: string
+    24: string
+    32: string
+    40: string
+    48: string
+    56: string
+    64: string
+    72: string
+    80: string
+    96: string
+    112: string
+    128: string
+    160: string
+    200: string
+    240: string
+    280: string
+    320: string
   }
   typography: {
     dataLarge: TypographyFont
