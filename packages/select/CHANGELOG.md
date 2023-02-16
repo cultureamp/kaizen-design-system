@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.12.1...@kaizen/select@6.13.0) (2023-02-16)
+
+
+### Features
+
+* Update the useEffect only trigger when defaultOpen ([#3284](https://github.com/cultureamp/kaizen-design-system/issues/3284)) ([cd58480](https://github.com/cultureamp/kaizen-design-system/commit/cd584800230c72bf632215ae829e8b2c9de9d9d7))
+
+
+
+
+
 ## [6.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.12.0...@kaizen/select@6.12.1) (2023-02-16)
 
 **Note:** Version bump only for package @kaizen/select
