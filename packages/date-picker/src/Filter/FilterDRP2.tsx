@@ -11,7 +11,7 @@ import { FilterContents } from "./components/FilterContents"
 export interface FilterDRP2Props extends FilterDateRangePickerFieldNoContextProps {
   isOpen: FilterSolution2NoContextProps["isOpen"]
   setIsOpen: FilterSolution2NoContextProps["setIsOpen"]
-  filterButton: (triggerButtonProps: FilterTriggerButtonProps & DataAttributes) => JSX.Element
+  filterButton: (triggerButtonProps: FilterTriggerButtonProps) => JSX.Element
 }
 
 export const FilterDRP2 = ({

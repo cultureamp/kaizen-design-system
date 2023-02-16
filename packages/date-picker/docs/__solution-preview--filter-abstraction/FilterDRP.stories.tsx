@@ -71,7 +71,7 @@ export const FilterSolution2: ComponentStory<
           filterButton={(triggerButtonProps): JSX.Element => (
             <RemovableFilterTriggerButton
               ref={removableButtonRefs}
-              triggerButtonProps={triggerButtonProps}
+              triggerButtonProps={{ ...triggerButtonProps }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}
