@@ -146,7 +146,6 @@ export const heartTheme: Theme = {
     xxxl: "4.5rem",
     xxxxl: "5.25rem",
     xxxxxl: "6rem",
-
     0: "0",
     1: ".0625rem",
     2: ".125rem",
