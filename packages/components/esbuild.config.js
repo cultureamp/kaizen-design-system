@@ -14,14 +14,6 @@ if (!existsSync(dist)) {
   mkdirSync(dist)
 }
 
-// const entryPoints = readdirSync(join(process.cwd(), "src"))
-//   .filter(
-//     file =>
-//       file.endsWith(".ts") &&
-//       statSync(join(process.cwd(), "src", file)).isFile()
-//   )
-//   .map(file => `src/${file}`)
-
 // esm output bundles with code splitting
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 ;(async () => {
