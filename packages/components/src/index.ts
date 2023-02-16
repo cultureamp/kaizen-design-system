@@ -8,17 +8,6 @@ export * from "@kaizen/brand-moment"
 export * from "@kaizen/button"
 export * from "@kaizen/component-base"
 export * from "@kaizen/date-picker"
-
-// Part of design tokens is already exported from KaizenProvider
-export {
-  makeCssVariableDefinitionsMap,
-  makeCSSVariableTheme,
-  mapLeafsOfObject,
-} from "@kaizen/design-tokens"
-export * from "@kaizen/design-tokens/src/themes"
-export * from "@kaizen/design-tokens/src/types"
-// --- //
-
 export * from "@kaizen/draft-avatar"
 export * from "@kaizen/draft-badge"
 export * from "@kaizen/draft-card"
@@ -35,10 +24,6 @@ export * from "@kaizen/draft-menu"
 export * from "@kaizen/draft-modal"
 export * from "@kaizen/draft-page-layout"
 export * from "@kaizen/draft-popover"
-
-export { Select, AsyncSelect } from "@kaizen/draft-select"
-export type { ValueType as SelectValueType } from "@kaizen/draft-select"
-
 export * from "@kaizen/draft-table"
 export * from "@kaizen/draft-tabs"
 export * from "@kaizen/draft-tag"
@@ -55,3 +40,20 @@ export * from "@kaizen/progress-bar"
 export * from "@kaizen/responsive"
 export * from "@kaizen/rich-text-editor"
 export * from "@kaizen/split-button"
+
+// Special cases
+
+// Part of design tokens is already exported from KaizenProvider
+export {
+  makeCssVariableDefinitionsMap,
+  makeCSSVariableTheme,
+  mapLeafsOfObject,
+} from "@kaizen/design-tokens"
+export * from "@kaizen/design-tokens/src/themes"
+export * from "@kaizen/design-tokens/src/types"
+// --- //
+
+// ValueType naming clash with @kaizen/date-picker requires us to export individual parts of draft-select
+export { Select, AsyncSelect } from "@kaizen/draft-select"
+export type { ValueType as SelectValueType } from "@kaizen/draft-select"
+// --- //
