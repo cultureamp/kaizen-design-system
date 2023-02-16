@@ -14,6 +14,15 @@ if (!existsSync(dist)) {
   mkdirSync(dist)
 }
 
+const tailwindPlugins = [
+  postCssPlugin({
+    plugins: [tailwindcss, autoprefixer],
+  }),
+]
+
+const commonLoaders = { ".scss": "copy" }
+const commonPlugins = [...tailwindPlugins]
+
 // esm output bundles with code splitting
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 ;(async () => {
@@ -29,7 +38,8 @@ if (!existsSync(dist)) {
       format: "esm",
       define: { global: "window" },
       target: ["esnext"],
-      loader: { ".scss": "copy" },
+      loader: { ...commonLoaders },
+      plugins: [...commonPlugins],
     })
     .catch(() => process.exit(1))
 })()
@@ -44,7 +54,8 @@ esbuild
     minify: true,
     platform: "node",
     target: ["node16"],
-    loader: { ".scss": "copy" },
+    loader: { ...commonLoaders },
+    plugins: [...commonPlugins],
   })
   .catch(() => process.exit(1))
 
@@ -62,17 +73,14 @@ writeFileSync(
   "module.exports = require('./cjs/future.cjs.js');"
 )
 
+// Tailwind build
 esbuild
   .build({
     entryPoints: ["./src/styles.css"],
     outfile: "./dist/styles.css",
     minify: true,
     bundle: true,
-    plugins: [
-      postCssPlugin({
-        plugins: [tailwindcss, autoprefixer],
-      }),
-    ],
+    plugins: tailwindPlugins,
   })
   .catch(e => {
     process.exit()
