@@ -7,7 +7,7 @@ import { SceneProps } from "@kaizen/draft-illustration"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { useMediaQueries } from "@kaizen/responsive"
 import { Heading, Paragraph } from "@kaizen/typography"
-import styles from "./BrandMoment.scss"
+import styles from "./BrandMoment.module.scss"
 
 export interface BrandMomentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
