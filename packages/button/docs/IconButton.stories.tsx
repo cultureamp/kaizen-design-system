@@ -4,11 +4,10 @@ import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
-import { IconButtonProps } from "@kaizen/components"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { IconButton, ButtonProps } from ".."
+import { IconButton, IconButtonProps, ButtonProps } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button`,
