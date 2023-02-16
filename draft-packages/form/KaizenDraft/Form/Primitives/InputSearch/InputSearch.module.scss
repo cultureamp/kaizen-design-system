@@ -6,10 +6,12 @@
 @import "../mixins";
 
 $input-height: 48px;
-$input-base-padding-horizontal: $spacing-sm;
+$input-padding-before-start-icon: 1rem;
+$input-padding-between-icon-input: $spacing-sm;
+$input-padding-after-end-icon: $spacing-sm;
 $input-icon-size: 1.25rem; // 20px
 $input-padding-with-icon: calc(
-  calc(#{$input-base-padding-horizontal} * 2) + #{$input-icon-size}
+  #{$input-padding-before-start-icon} + #{$input-icon-size} + #{$input-padding-between-icon-input}
 );
 $input-disabled-opacity: 0.3;
 $border-solid-border-radius-curved: $input-height;
@@ -45,7 +47,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   border-radius: $border-solid-border-radius-curved;
   padding-block: 0;
   padding-inline-start: $input-padding-with-icon;
-  padding-inline-end: $input-base-padding-horizontal;
+  padding-inline-end: $input-padding-after-end-icon;
   font-size: 1rem;
   line-height: 1.5;
 
@@ -54,7 +56,9 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   }
 
   .hasEndIconAdornment & {
-    padding-inline-end: $input-padding-with-icon;
+    padding-inline-end: calc(
+      #{$input-padding-between-icon-input} + #{$input-icon-size} + #{$input-padding-after-end-icon}
+    );
   }
 
   &:focus,
@@ -94,7 +98,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 
 .startIconAdornment {
   @include vertically-center-icon;
-  inset-inline-start: $spacing-sm;
+  inset-inline-start: $input-padding-before-start-icon;
 }
 
 .loadingSpinner {
@@ -103,7 +107,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 
 .endIconAdornment {
   @include vertically-center-icon;
-  inset-inline-end: $spacing-sm;
+  inset-inline-end: $input-padding-after-end-icon;
 }
 
 .disabled {
