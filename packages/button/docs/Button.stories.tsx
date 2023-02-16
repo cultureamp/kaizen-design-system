@@ -161,36 +161,36 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StoryWrapper.Row rowTitle={title}>
-              <Button reversed={isReversed} {...props} form />
+              <Button reversed={isReversed} {...props} compact />
               <Button
                 reversed={isReversed}
                 classNameOverride="story__button-hover"
                 {...props}
-                form
+                compact
               />
               <Button
                 reversed={isReversed}
                 classNameOverride="story__button-active"
                 {...props}
-                form
+                compact
               />
               <Button
                 reversed={isReversed}
                 classNameOverride="story__button-focus"
                 {...props}
-                form
+                compact
               />
-              <Button reversed={isReversed} {...props} disabled form />
+              <Button reversed={isReversed} {...props} disabled compact />
               <Button
                 reversed={isReversed}
                 {...props}
-                form
+                compact
                 {...WORKING_PROPS}
               />
               <Button
                 reversed={isReversed}
                 {...props}
-                form
+                compact
                 classNameOverride="story__button-focus"
                 {...WORKING_PROPS}
               />

@@ -31,8 +31,8 @@
   }
 }
 
-.form {
-  @extend %variant-form;
+.compact {
+  @extend %variant-compact;
 }
 
 .label {

@@ -7,14 +7,15 @@ import GenericButton, {
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
-export type ButtonProps = GenericProps &
+export type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "ref"> &
+  GenericProps &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
-    form?: boolean
     badge?: BadgeProps
+    compact?: boolean
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
     iconPosition?: "start" | "end"
@@ -34,7 +35,7 @@ const Button = forwardRef(
 
 Button.defaultProps = {
   fullWidth: false,
-  form: false,
+  compact: false,
   primary: false,
   secondary: false,
   destructive: false,

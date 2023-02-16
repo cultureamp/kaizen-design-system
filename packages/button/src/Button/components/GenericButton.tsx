@@ -220,7 +220,7 @@ const buttonClass = (props: Props) => {
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
-    props.form && styles.form,
+    props.compact && styles.compact,
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
