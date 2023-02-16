@@ -15,11 +15,12 @@ import { Skirt } from "@kaizen/draft-page-layout"
 
 # Working with Tailwind
 
-This page describes the main intended use cases for this package, and provides examples.
+This page describes and demonstrates the main intended use cases for this package, as well as our recommended escape hatch.
 
 - [Spacing and layouts](#spacing-and-layouts)
 - [Altering Kaizen components with classnameOverride](#altering-kaizen-components-with-classnameoverride)
 - [Creating bespoke components](#creating-bespoke-components)
+- [Recommended escape hatch](#recommended-escape-hatch)
 
 <br/>
 
@@ -146,3 +147,15 @@ Here is an example of our TW package being used to create a bespoke, non-Kaizen 
 - `pl-16`: Adds `padding-left: 1rem` (16px = 1rem)
 - `font-family-paragraph`: Adds `font-family: "Inter", "Noto Sans", ...` (defined in our preset here)
 - `text-blue-500`: Adds `color: #0168b3` (our blue-500 design token)
+
+<br/>
+
+## Recommended Escape Hatch
+
+If you find yourself needing to add styles in a way that is unsupported or otherwise difficult in Tailwind, the recommended alternative is CSS. CSS classes can be added alongside Tailwind utility classes without trouble, and the Tailwind docs recommend some useful post-css plugins [here](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).
+
+### Why not SCSS?
+- SCSS is currently a contained option, so writing new SCSS in our codebases is discouraged.
+- The Tailwind docs explicitly recommend <em>not</em> using Tailwind with preprocessors, as it leads to all sorts of quirks and work-arounds. Read more [here](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).
+
+<br/>
