@@ -1,6 +1,6 @@
 // @ts-nocheck
 /* eslint-disable import/no-extraneous-dependencies */
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "fs"
+import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"

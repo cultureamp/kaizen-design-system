@@ -36,7 +36,6 @@
     "@kaizen/tailwind": "^0.4.0",
     "autoprefixer": "^10.4.13",
     "esbuild": "^0.17.8",
-    "fs": "^0.0.1-security",
     "tailwindcss": "^3.2.6",
     "tiny-glob": "^0.2.9"
   },
