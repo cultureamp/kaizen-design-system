@@ -18,12 +18,12 @@ const dummyData = {
 describe("filterOutNonPixelTokens", () => {
   const result = filterOutNonPixelTokens(dummyData)
 
-  test("It removes pairs with non-numeric keys", () => {
+  it("It removes pairs with non-numeric keys", () => {
     Object.keys(nonNumericKeyPairs).forEach(key => {
       expect(result).not.toHaveProperty(key)
     })
   })
-  test("Keeps all numeric keys", () => {
+  it("Keeps all numeric keys", () => {
     expect(result).toEqual(numericKeyPairs)
   })
 })
