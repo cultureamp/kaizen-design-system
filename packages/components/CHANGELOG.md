@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.5...@kaizen/components@1.3.6) (2023-02-17)
+
+
+### Bug Fixes
+
+* try to resolve regression issue ([#3293](https://github.com/cultureamp/kaizen-design-system/issues/3293)) ([f335590](https://github.com/cultureamp/kaizen-design-system/commit/f3355903f457fa46e81faac9dc5ee893784dfe9d))
+
+
+
+
+
 ## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.4...@kaizen/components@1.3.5) (2023-02-17)
 
 
