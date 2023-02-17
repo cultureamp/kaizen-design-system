@@ -7,9 +7,14 @@ const themeManager = new ThemeManager(defaultTheme)
 ...
 
 return(
--  <ThemeProvider themeManager={themeManager}>
-+  <KaizenProvider themeManager={themeManager}>
-     <App />
-+  </KaizenProvider>
--  </ThemeProvider>
+  <FrontendServices
+-     services={[...defaultPreset, ThemeProvider]}
++     services={[...defaultPreset, KaizenProvider]}
+      options={{
+        ...
+      themeManager,
+      }}
+  >
+  ...
+  </FrontendServices>
 )
