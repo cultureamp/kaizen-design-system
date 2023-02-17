@@ -40,7 +40,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.20.0",
+    "@testing-library/dom": "^9.0.0",
     "rimraf": "^4.1.2"
   },
   "scripts": {
