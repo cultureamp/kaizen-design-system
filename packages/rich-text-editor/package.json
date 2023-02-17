@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/rich-text-editor",
-  "version": "1.19.21",
+  "version": "1.19.22",
   "description": "The RichTextEditor component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,7 +35,7 @@
     "@kaizen/component-library": "^16.2.1",
     "@kaizen/draft-form": "^10.0.0",
     "@kaizen/draft-tooltip": "^5.4.25",
-    "@kaizen/notification": "^1.2.0",
+    "@kaizen/notification": "^1.2.1",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },
