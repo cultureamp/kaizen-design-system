@@ -112,6 +112,7 @@
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.4",
     "raw-loader": "^4.0.2",
+    "react-highlight": "^0.15.0",
     "react-test-renderer": "^18.2.0",
     "react-test-renderer-17": "npm:react-test-renderer@^17.0.2",
     "sass-loader": "^13.2.0",
