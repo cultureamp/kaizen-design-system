@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.4...@kaizen/components@1.3.5) (2023-02-17)
+
+
+### Bug Fixes
+
+* future package.json routes ([#3292](https://github.com/cultureamp/kaizen-design-system/issues/3292)) ([99d46c7](https://github.com/cultureamp/kaizen-design-system/commit/99d46c7b9ccb5eee2057b2153c956e66958fc236))
+
+
+
+
+
 ## [1.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.3...@kaizen/components@1.3.4) (2023-02-17)
 
 
