@@ -38,6 +38,7 @@ const commonPlugins = [...tailwindPlugins]
       format: "esm",
       define: { global: "window" },
       target: ["esnext"],
+      external: ["react", "react-dom"],
       loader: { ...commonLoaders },
       plugins: [...commonPlugins],
     })
@@ -54,6 +55,7 @@ esbuild
     minify: true,
     platform: "node",
     target: ["node16"],
+    external: ["react", "react-dom"],
     loader: { ...commonLoaders },
     plugins: [...commonPlugins],
   })
