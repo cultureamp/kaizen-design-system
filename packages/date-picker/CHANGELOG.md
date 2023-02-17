@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.9...@kaizen/date-picker@5.17.10) (2023-02-16)
+
+
+### Bug Fixes
+
+* increase timeout for filter DRP long test ([#3283](https://github.com/cultureamp/kaizen-design-system/issues/3283)) ([dd878ff](https://github.com/cultureamp/kaizen-design-system/commit/dd878ff6cdb59fbc322e8250f4c09355dcd80738))
+
+
+
+
+
 ## [5.17.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.8...@kaizen/date-picker@5.17.9) (2023-02-13)
 
 

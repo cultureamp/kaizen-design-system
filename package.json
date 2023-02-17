@@ -112,6 +112,7 @@
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.4",
     "raw-loader": "^4.0.2",
+    "react-highlight": "^0.15.0",
     "react-test-renderer": "^18.2.0",
     "react-test-renderer-17": "npm:react-test-renderer@^17.0.2",
     "sass-loader": "^13.2.0",
@@ -120,7 +121,7 @@
     "stylelint": "^14.16.1",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "~4.0.0",
-    "tailwindcss": "^3.2.6",
+    "tailwindcss": "^3.2.7",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
