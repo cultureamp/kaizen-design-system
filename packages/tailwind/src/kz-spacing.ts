@@ -1,9 +1,9 @@
 import { heartTheme } from "@kaizen/design-tokens"
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
-export const filterOutNonPixelTokens = (spacingTokensObject: {
-  [key: string]: string
-}): { [key: string]: string } => {
+export const filterOutNonPixelTokens = (
+  spacingTokensObject: Record<string, string>
+): Record<string, string> => {
   const keyValuePairs = Object.entries(spacingTokensObject)
 
   return Object.fromEntries(
