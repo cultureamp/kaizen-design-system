@@ -1,4 +1,4 @@
-const { heartTheme } = require("@kaizen/design-tokens")
+import { heartTheme } from "@kaizen/design-tokens"
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
 export const filterOutNonPixelTokens = (spacingTokensObject: {
