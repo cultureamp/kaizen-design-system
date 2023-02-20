@@ -127,12 +127,14 @@ export const DateRangeInputField = React.forwardRef<
               message={validationMessage.dateStart}
               status={status?.dateStart}
               reversed={isReversed}
+              classNameOverride={styles.fieldMessageIcon}
             />
             <FieldMessage
               id={errorMessageId}
               message={validationMessage.dateEnd}
               status={status?.dateEnd}
               reversed={isReversed}
+              classNameOverride={styles.fieldMessageIcon}
             />
           </>
         )}
