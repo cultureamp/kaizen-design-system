@@ -90,6 +90,18 @@ export const FilterDateRangePicker = ({
       : null
   )
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [startMonth, setStartMonth] = useState<Date>(
+    selectedRange?.from || defaultMonth || new Date()
+  )
+
+  useEffect(() => {
+    if (!isOpen) {
+      const rangeStart = selectedRange?.from
+      if (rangeStart !== startMonth) {
+        setStartMonth(rangeStart || defaultMonth || new Date())
+      }
+    }
+  }, [isOpen, selectedRange?.from])
 
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
@@ -131,8 +143,10 @@ export const FilterDateRangePicker = ({
     locale,
     disabledDays,
     setInputValue: setInputRangeStartValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: date, to: selectedRange?.to }),
+    onDateChange: date => {
+      handleDateRangeChange({ from: date, to: selectedRange?.to })
+      if (date) setStartMonth(date)
+    },
     ...inputRangeStartProps,
   })
 
@@ -214,11 +228,12 @@ export const FilterDateRangePicker = ({
               classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange
-              defaultMonth={defaultMonth}
               disabled={disabledDays}
               locale={locale}
               selected={selectedRange}
               onSelect={handleCalendarSelectRange}
+              month={startMonth}
+              onMonthChange={setStartMonth}
             />
           </FloatingCalendarWrapper>
         </FocusOn>
