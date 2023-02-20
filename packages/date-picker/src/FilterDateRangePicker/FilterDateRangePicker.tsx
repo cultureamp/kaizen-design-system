@@ -81,6 +81,16 @@ export const FilterDateRangePicker = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
+  const locale = getLocale(propsLocale)
+  const disabledDays = calculateDisabledDays({
+    disabledDates,
+    disabledDaysOfWeek,
+    disabledRange,
+    disabledBeforeAfter,
+    disabledBefore,
+    disabledAfter,
+  })
+
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
 
@@ -109,16 +119,6 @@ export const FilterDateRangePicker = ({
       }
     }
   }, [isOpen, rangeStart])
-
-  const locale = getLocale(propsLocale)
-  const disabledDays = calculateDisabledDays({
-    disabledDates,
-    disabledDaysOfWeek,
-    disabledRange,
-    disabledBeforeAfter,
-    disabledBefore,
-    disabledAfter,
-  })
 
   const [inputRangeStartValue, setInputRangeStartValue] = useState<
     InputRangeStartProps["value"]
