@@ -73,7 +73,7 @@ const ESMBuild = (() => {
     await esbuild
       .build({
         ...ESMConfig,
-        loader: [...commonLoaders],
+        loader: { ...commonLoaders },
         // Handle CSS Processing:
         plugins: [...CSSPlugins],
       })
@@ -116,7 +116,7 @@ const CJSBuild = (() => {
   esbuild
     .build({
       ...CJSConfig,
-      loader: [...commonLoaders],
+      loader: { ...commonLoaders },
       // Handle CSS Processing:
       plugins: [...CSSPlugins],
     })
