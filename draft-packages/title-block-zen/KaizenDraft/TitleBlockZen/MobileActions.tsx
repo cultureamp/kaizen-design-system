@@ -150,9 +150,9 @@ const DrawerMenuContent = ({
   return (
     <>
       <MenuList>
-        {defaultAction && renderDefaultLink(defaultAction)}
         {primaryAction &&
           renderPrimaryActionDrawerContent(primaryAction, "link")}
+        {defaultAction && renderDefaultLink(defaultAction)}
         {primaryAction &&
           renderPrimaryActionDrawerContent(primaryAction, "action")}
       </MenuList>

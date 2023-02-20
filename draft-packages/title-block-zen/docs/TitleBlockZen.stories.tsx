@@ -63,35 +63,6 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
-const PRIMARY_ACTIONS_MIXED_MENU = {
-  label: "Primary Menu",
-  menuItems: [
-    {
-      label: "Mock primary router",
-      href: "#",
-      compoennt: (props): JSX.Element => (
-        // In real life, you'll likely use this to insert a router Link component
-        <a href={props.href} className={props.className}>
-          {props.children}
-        </a>
-      ),
-    },
-    {
-      action: "#",
-      label: "Primary menu href action 1",
-    },
-    {
-      onClick: (): void => alert("test"),
-      label: "Primary menu button action 1",
-    },
-    {
-      onClick: (): void => alert("test"),
-      label: "Primary menu button action 2",
-      icon: starIcon,
-    },
-  ],
-}
-
 const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
   <OffsetPadding>
     <TitleBlockZen {...args} />
