@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.17.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.10...@kaizen/date-picker@5.17.11) (2023-02-20)
+
+
+### Bug Fixes
+
+* **filter-trigger-button:** prevent trigger label text wrapping ([#3298](https://github.com/cultureamp/kaizen-design-system/issues/3298)) ([0e0511d](https://github.com/cultureamp/kaizen-design-system/commit/0e0511d873663e0b11195844cafbd1aa0e4d861c))
+
+
+
+
+
 ## [5.17.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.9...@kaizen/date-picker@5.17.10) (2023-02-16)
 
 
