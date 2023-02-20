@@ -1,4 +1,5 @@
 // @ts-nocheck
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable import/no-extraneous-dependencies */
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { join } from "path"
@@ -21,21 +22,19 @@ const tailwindPlugins = [
   }),
 ]
 
-// const commonLoaders = { ".scss": "copy" }
-const commonLoaders = {}
-const commonPlugins = [
+const SCSSModulesLoader = { ".scss": "copy" }
+const CSSPlugins = [
   ...tailwindPlugins,
   ScssModulesPlugin({
     inject: false,
-    minify: true,
     cssCallback: css => {
       writeFileSync(join(dist, "scss-components.css"), css)
     },
   }),
 ]
 
-// esm output bundles with code splitting
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// ===== ESM ===== //
+
 ;(async () => {
   const entryPoints = await glob("./src/**/*.ts")
   await esbuild
@@ -50,13 +49,38 @@ const commonPlugins = [
       define: { global: "window" },
       target: ["esnext"],
       external: ["react", "react-dom"],
-      loader: { ...commonLoaders },
-      plugins: [...commonPlugins],
+      // Handle SCSS Modules:
+      loader: { ...SCSSModulesLoader },
+    })
+    .catch(() => process.exit(1))
+})()
+;(async () => {
+  const entryPoints = await glob("./src/**/*.ts")
+  await esbuild
+    .build({
+      entryPoints,
+      outdir: "dist/esm",
+      bundle: true,
+      sourcemap: true,
+      minify: true,
+      splitting: true,
+      format: "esm",
+      define: { global: "window" },
+      target: ["esnext"],
+      external: ["react", "react-dom"],
+      // Handle CSS Processing:
+      plugins: [...CSSPlugins],
     })
     .catch(() => process.exit(1))
 })()
 
-// cjs output bundle
+// Create entry files
+writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
+writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
+
+// -----
+
+// ===== CJS ===== //
 esbuild
   .build({
     entryPoints: ["src/index.ts", "src/future.ts"],
@@ -67,16 +91,26 @@ esbuild
     platform: "node",
     target: ["node16"],
     external: ["react", "react-dom"],
-    loader: { ...commonLoaders },
-    plugins: [...commonPlugins],
+    // Handle SCSS Modules:
+    loader: { ...SCSSModulesLoader },
+  })
+  .catch(() => process.exit(1))
+esbuild
+  .build({
+    entryPoints: ["src/index.ts", "src/future.ts"],
+    outdir: "dist/cjs",
+    bundle: true,
+    sourcemap: true,
+    minify: true,
+    platform: "node",
+    target: ["node16"],
+    external: ["react", "react-dom"],
+    // Handle CSS Processing:
+    plugins: [...CSSPlugins],
   })
   .catch(() => process.exit(1))
 
-// an entry file for cjs at the root of the bundle
-writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
-writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
-
-// an entry file for esm at the root of the bundle
+// Create entry files
 writeFileSync(
   join(dist, "index.cjs.js"),
   "module.exports = require('./cjs/index.cjs.js');"
@@ -86,7 +120,9 @@ writeFileSync(
   "module.exports = require('./cjs/future.cjs.js');"
 )
 
-// Tailwind build
+// -----
+
+// ===== TAILWIND ===== //
 esbuild
   .build({
     entryPoints: ["./src/tailwind.css"],
