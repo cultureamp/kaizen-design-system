@@ -27,6 +27,7 @@ const commonPlugins = [
   ...tailwindPlugins,
   ScssModulesPlugin({
     inject: false,
+    minify: true,
     cssCallback: css => {
       writeFileSync(join(dist, "scss-components.css"), css)
     },
