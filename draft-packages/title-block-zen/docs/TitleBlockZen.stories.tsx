@@ -1232,3 +1232,61 @@ export const ActionRenderProps: Story = () => (
 )
 
 ActionRenderProps.storyName = "Custom actions with component render props"
+
+export const MenuHierarchyExample: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default link action",
+        href: "#default",
+        icon: starIcon,
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary actions",
+        menuItems: [
+          {
+            label: "Component prop with link 1",
+
+            href: "#priamry-2",
+            component: props => <MockRouterLink href={props.href} {...props} />,
+          },
+          {
+            label: "Component prop with link 2",
+            href: "#priamry-3",
+            component: props => <a {...props}>{props.children}</a>,
+          },
+          // on mobile, anything not supplied an href will be sorted below the default (link) action
+          // to match to the existing pattern of link on top, actions on bottom. See "Default
+          // with content" Story for example.
+          {
+            label: "Component prop with onclick",
+            icon: reportSharingIcon,
+            iconPosition: "end",
+            onClick: (): void => alert("a primary action"),
+            component: props => <button {...props} />,
+          },
+        ],
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+MenuHierarchyExample.storyName =
+  "Sorting menu list actions using component render props"
