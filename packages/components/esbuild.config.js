@@ -6,6 +6,7 @@ import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"
 import esbuild from "esbuild"
+import nodeExternalsPlugin from "esbuild-node-externals"
 import { ScssModulesPlugin } from "esbuild-scss-modules-plugin"
 import tailwindcss from "tailwindcss"
 import glob from "tiny-glob"
@@ -25,6 +26,7 @@ const tailwindPlugins = [
 const SCSSModulesLoader = { ".scss": "copy" }
 
 const CSSPlugins = [
+  nodeExternalsPlugin(),
   ...tailwindPlugins,
   ScssModulesPlugin({
     inject: false,
