@@ -2,12 +2,17 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
-import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
+import { FieldMessage } from "@kaizen/draft-form"
 import { DateInput, DateInputProps } from "../../../_subcomponents/DateInput"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
+import {
+  DateRangeValidatioMessage,
+  DateRangeValidationStatus,
+  isDateRangeMessageType,
+} from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
 import styles from "./DateRangeInputField.module.scss"
 
@@ -28,12 +33,11 @@ export interface DateRangeInputFieldProps
   /**
    * Updates the styling of the validation FieldMessage
    */
-  status?: { dateStart?: FieldMessageStatus; dateEnd?: FieldMessageStatus }
+  status?: DateRangeValidationStatus
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: React.ReactNode
-
+  validationMessage?: DateRangeValidatioMessage
   disabled?: boolean
 }
 
@@ -108,13 +112,29 @@ export const DateRangeInputField = React.forwardRef<
           />
         </fieldset>
 
-        {validationMessage && (
+        {!isDateRangeMessageType(validationMessage) ? (
           <FieldMessage
             id={errorMessageId}
             message={validationMessage}
             status={status?.dateStart || status?.dateEnd}
             reversed={isReversed}
+            classNameOverride={styles.fieldMessageIcon}
           />
+        ) : (
+          <>
+            <FieldMessage
+              id={errorMessageId}
+              message={validationMessage.dateStart}
+              status={status?.dateStart}
+              reversed={isReversed}
+            />
+            <FieldMessage
+              id={errorMessageId}
+              message={validationMessage.dateEnd}
+              status={status?.dateEnd}
+              reversed={isReversed}
+            />
+          </>
         )}
         <FieldMessage
           id={descriptionId}

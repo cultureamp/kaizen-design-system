@@ -43,3 +43,7 @@ $input-disabled-opacity: 0.3;
 .disabled {
   opacity: $input-disabled-opacity;
 }
+
+.fieldMessageIcon > span {
+  align-self: flex-start;
+}

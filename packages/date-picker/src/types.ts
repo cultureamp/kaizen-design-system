@@ -66,3 +66,25 @@ export interface DisabledDayMatchers {
    */
   disabledAfter?: Date
 }
+
+export type DateRangeValidationStatus = {
+  dateStart?: FieldMessageStatus
+  dateEnd?: FieldMessageStatus
+}
+
+export type DateRangeMessageType = {
+  dateStart: React.ReactNode
+  dateEnd: React.ReactNode
+}
+
+export type DateRangeValidatioMessage = React.ReactNode | DateRangeMessageType
+
+export function isDateRangeMessageType(
+  message: DateRangeValidatioMessage
+): message is DateRangeMessageType {
+  return (
+    message != undefined &&
+    (message as DateRangeMessageType).dateStart !== undefined &&
+    (message as DateRangeMessageType).dateEnd !== undefined
+  )
+}
