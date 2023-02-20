@@ -54,10 +54,10 @@ export const TailwindMediaQueries: Story = () => (
         that bg-blue-500 will be applied when the screen gets <em>wider</em>.
       </Heading>
       <QueryInfo selector="md" selectorValue="768px">
-        <div className="h-[50px] w-100 border-solid border-blue-500 md:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 md:bg-blue-500" />
       </QueryInfo>
       <QueryInfo selector="lg" selectorValue="1080px">
-        <div className="h-[50px] w-100 border-solid border-blue-500 lg:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 lg:bg-blue-500" />
       </QueryInfo>
     </div>
 
@@ -73,10 +73,10 @@ export const TailwindMediaQueries: Story = () => (
         <em>slimmer</em>.
       </Heading>
       <QueryInfo selector="md-max" selectorValue="768px">
-        <div className="h-[50px] w-100 border-solid border-blue-500 md-max:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 md-max:bg-blue-500" />
       </QueryInfo>
       <QueryInfo selector="lg-max" selectorValue="1080px">
-        <div className="h-[50px] w-100 border-solid border-blue-500 lg-max:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 lg-max:bg-blue-500" />
       </QueryInfo>
     </div>
   </div>

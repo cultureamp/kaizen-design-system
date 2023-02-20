@@ -1,6 +1,5 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { Divider } from "@kaizen/draft-divider"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
@@ -26,14 +25,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
-    <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper hasRowDivider isReversed={isReversed}>
       <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
       {classKeyVal.map((presetData, index) => {
         const [fontWeightClassName, fontWeightValue] = presetData
 
         return (
           <React.Fragment key={index}>
-            <Divider variant="canvas" />
             <StoryWrapper.Row rowTitle="">
               <p className="height">font-{fontWeightClassName}</p>
               <p>{fontWeightValue}</p>
