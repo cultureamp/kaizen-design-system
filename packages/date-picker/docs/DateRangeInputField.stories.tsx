@@ -171,7 +171,7 @@ const StickerSheetTemplate: Story<{
                 dateStart: "error",
               }}
               validationMessage={
-                <ul style={{ margin: "0px" }}>
+                <ul style={{ margin: "0px", paddingInlineStart: "24px" }}>
                   <li>'Date from' is invalid</li>
                   <li>'Date to' is invalid</li>
                 </ul>
