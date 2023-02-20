@@ -195,11 +195,12 @@ $notification-slide-right: transform 300ms ease-out;
   flex-direction: row;
   flex-wrap: wrap;
   flex: 1 0 0;
-  width: 80%;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
     margin-left: 6px;
+    max-width: calc(100% - #{$spacing-xl});
+    word-break: break-word;
   }
 
   %ca-notification---global & {
