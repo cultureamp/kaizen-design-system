@@ -5,6 +5,7 @@ import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"
 import esbuild from "esbuild"
+import { ScssModulesPlugin } from "esbuild-scss-modules-plugin"
 import tailwindcss from "tailwindcss"
 import glob from "tiny-glob"
 
@@ -20,8 +21,17 @@ const tailwindPlugins = [
   }),
 ]
 
-const commonLoaders = { ".scss": "copy" }
-const commonPlugins = [...tailwindPlugins]
+// const commonLoaders = { ".scss": "copy" }
+const commonLoaders = {}
+const commonPlugins = [
+  ...tailwindPlugins,
+  ScssModulesPlugin({
+    inject: false,
+    cssCallback: css => {
+      writeFileSync(join(dist, "scss-components.css"), css)
+    },
+  }),
+]
 
 // esm output bundles with code splitting
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -78,8 +88,8 @@ writeFileSync(
 // Tailwind build
 esbuild
   .build({
-    entryPoints: ["./src/styles.css"],
-    outfile: "./dist/styles.css",
+    entryPoints: ["./src/tailwind.css"],
+    outfile: "./dist/tailwind.css",
     minify: true,
     bundle: true,
     plugins: tailwindPlugins,
