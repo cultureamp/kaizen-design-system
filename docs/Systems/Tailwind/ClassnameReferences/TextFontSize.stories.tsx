@@ -1,12 +1,16 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
+import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
+import { utilityDescription } from "../helpers/utilityDescription"
 
 const prefix = "text-"
-const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.fontSize || []
+const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
+  ([suffix, cssProperty]) => ({
+    utilityClassName: `${prefix}${suffix}`,
+    cssProperty,
+  })
 )
 
 export default {
@@ -14,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
@@ -23,24 +27,13 @@ export default {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <>
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {classKeyVal.map((presetData, index) => {
-        const [fontSizeName, fontSizeValue] = presetData
-
-        return (
-          <React.Fragment key={index}>
-            <StoryWrapper.Row rowTitle="">
-              <p>text-{fontSizeName}</p>
-              <p>{fontSizeValue}</p>
-              <p style={{ fontSize: fontSizeValue }}>Aa</p>
-            </StoryWrapper.Row>
-          </React.Fragment>
-        )
-      })}
-    </StoryWrapper>
-  </>
+  <UtilityClassTemplate
+    classKeyValues={classEntries}
+    renderExampleComponent={(cssProperty): React.ReactElement => (
+      <p style={{ fontSize: cssProperty }}>Aa</p>
+    )}
+    isReversed={isReversed}
+  />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

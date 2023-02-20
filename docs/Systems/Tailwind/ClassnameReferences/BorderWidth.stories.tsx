@@ -3,7 +3,18 @@ import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
+import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
+import { utilityDescription } from "../helpers/utilityDescription"
 import styles from "./styles.module.scss"
+
+const prefix = "border-"
+const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
+  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    })
+  )
 
 export default {
   title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Width`,
@@ -11,7 +22,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
@@ -20,30 +31,16 @@ export default {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <>
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {Object.entries(
-        kaizenTailwindTheme.borderWidth as { [key: string]: string }
-      ).map(presetData => {
-        const [borderWidthClassName, borderWidthValue] = presetData
-        if (!borderWidthValue) return <></>
-
-        return (
-          <>
-            <StoryWrapper.Row rowTitle="">
-              <p>border-{borderWidthClassName}</p>
-              <p>{borderWidthValue}</p>
-              <div
-                style={{ borderWidth: borderWidthValue }}
-                className={styles.boxWithBorder}
-              />
-            </StoryWrapper.Row>
-          </>
-        )
-      })}
-    </StoryWrapper>
-  </>
+  <UtilityClassTemplate
+    classKeyValues={classEntries}
+    renderExampleComponent={(cssProperty): React.ReactElement => (
+      <div
+        style={{ borderWidth: cssProperty }}
+        className={styles.boxWithBorder}
+      />
+    )}
+    isReversed={isReversed}
+  />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

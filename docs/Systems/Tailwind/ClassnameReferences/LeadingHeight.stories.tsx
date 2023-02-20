@@ -3,19 +3,25 @@ import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
+import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
+import { utilityDescription } from "../helpers/utilityDescription"
 import styles from "./styles.module.scss"
 
 const prefix = "leading-"
-const classKeyVal: string[][] = Object.entries(
-  kaizenTailwindTheme?.lineHeight || []
-)
+const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
+  Object.entries(kaizenTailwindTheme?.lineHeight || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    })
+  )
 
 export default {
   title: `${CATEGORIES.tailwind}/Classname References/Typography/Line Height`,
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classKeyVal[0][0]}"`,
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
@@ -24,29 +30,15 @@ export default {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <>
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {classKeyVal.map((presetData, index) => {
-        const [leadingHeightClassName, leadingHeightValue] = presetData
-
-        return (
-          <React.Fragment key={index}>
-            <StoryWrapper.Row rowTitle="">
-              <p>leading-{leadingHeightClassName}</p>
-              <p>{leadingHeightValue}</p>
-              <p
-                style={{ lineHeight: leadingHeightValue }}
-                className={styles.wrappedText}
-              >
-                Tutant Meenage Neetle Teetles
-              </p>
-            </StoryWrapper.Row>
-          </React.Fragment>
-        )
-      })}
-    </StoryWrapper>
-  </>
+  <UtilityClassTemplate
+    classKeyValues={classEntries}
+    renderExampleComponent={(cssProperty): React.ReactElement => (
+      <p style={{ lineHeight: cssProperty }} className={styles.wrappedText}>
+        Tutant Meenage Neetle Teetles
+      </p>
+    )}
+    isReversed={isReversed}
+  />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

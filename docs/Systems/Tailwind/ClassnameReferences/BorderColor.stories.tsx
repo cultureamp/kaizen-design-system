@@ -1,9 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
+import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
 import { flattenEntries } from "../helpers/flatten-entries"
+import { utilityDescription } from "../helpers/utilityDescription"
 import styles from "./styles.module.scss"
 
 const prefix = "border-"
@@ -17,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classEntries[0].className}"`,
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
@@ -26,23 +27,16 @@ export default {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <>
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Class", "Properties", "Example"]} />
-      {classEntries.map(({ className, classValue }, index) => (
-        <React.Fragment key={index}>
-          <StoryWrapper.Row rowTitle="">
-            <p>{className}</p>
-            <p>{classValue}</p>
-            <div
-              style={{ borderColor: classValue }}
-              className={styles.boxWithBorder}
-            />
-          </StoryWrapper.Row>
-        </React.Fragment>
-      ))}
-    </StoryWrapper>
-  </>
+  <UtilityClassTemplate
+    classKeyValues={classEntries}
+    renderExampleComponent={(cssProperty): React.ReactElement => (
+      <div
+        style={{ borderColor: cssProperty }}
+        className={styles.boxWithBorder}
+      />
+    )}
+    isReversed={isReversed}
+  />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

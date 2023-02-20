@@ -1,19 +1,22 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { flattenEntries } from "../helpers/flatten-entries"
+import { utilityDescription } from "../helpers/utilityDescription"
 import styles from "./styles.module.scss"
 
 const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
+
 export default {
   title: `${CATEGORIES.tailwind}/Classname References/Typography/Text Color`,
   parameters: {
     docs: {
       description: {
-        component: `Use class "${prefix}\\$\\{modifier}", ie: className="${prefix}${classEntries[0].className}"`,
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
@@ -26,28 +29,32 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <StoryWrapper hasRowDivider isReversed={isReversed}>
       <StoryWrapper.RowHeader
         headings={[
-          "Class",
-          "Properties",
+          "Utility Class",
+          "CSS Property",
           "Example",
           "Example (dark background)",
         ]}
       />
-      {classEntries.map(({ className, classValue }, index) => (
+      {classEntries.map(({ utilityClassName, cssProperty }, index) => (
         <React.Fragment key={index}>
           <StoryWrapper.Row rowTitle="">
-            <p className={className}>{className}</p>
-            <p>{classValue}</p>
-            {/* TODO: Figure out why colorValue can't be used as a TW class here */}
-            {/* (too dynamic? Constructing a similar {colorName, colorValue}[] array and looping over it works, but not the one declared above) */}
+            <p className="font-family-paragraph">{utilityClassName}</p>
+            <p className="font-family-paragraph">{cssProperty}</p>
             <p
-              className={styles.textColorExample}
-              style={{ color: classValue }}
+              className={classnames(
+                "font-family-paragraph",
+                styles.textColorExample
+              )}
+              style={{ color: cssProperty }}
             >
               Aa
             </p>
             <p
-              className={styles.textColorExampleDark}
-              style={{ color: classValue }}
+              className={classnames(
+                "font-family-paragraph",
+                styles.textColorExampleDark
+              )}
+              style={{ color: cssProperty }}
             >
               Aa
             </p>
