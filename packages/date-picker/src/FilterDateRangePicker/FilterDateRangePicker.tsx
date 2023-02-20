@@ -81,6 +81,14 @@ export const FilterDateRangePicker = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
+  const transformDateToInputValue = (date: Date | undefined): string =>
+    date ? formatDateAsText(date, disabledDays, locale) : ""
+
+  const rangeStart = selectedRange?.from
+  const rangeEnd = selectedRange?.to
+  const transformedRangeStart = transformDateToInputValue(rangeStart)
+  const transformedRangeEnd = transformDateToInputValue(rangeEnd)
+
   const buttonRef = useRef<HTMLButtonElement>(null)
   const removableButtonRefs = useRef(
     onRemoveFilter
@@ -91,17 +99,16 @@ export const FilterDateRangePicker = ({
   )
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [startMonth, setStartMonth] = useState<Date>(
-    selectedRange?.from || defaultMonth || new Date()
+    rangeStart || defaultMonth || new Date()
   )
 
   useEffect(() => {
     if (!isOpen) {
-      const rangeStart = selectedRange?.from
       if (rangeStart !== startMonth) {
         setStartMonth(rangeStart || defaultMonth || new Date())
       }
     }
-  }, [isOpen, selectedRange?.from])
+  }, [isOpen, rangeStart])
 
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
@@ -113,29 +120,22 @@ export const FilterDateRangePicker = ({
     disabledAfter,
   })
 
-  const transformDateToInputValue = (date: Date | undefined): string =>
-    date ? formatDateAsText(date, disabledDays, locale) : ""
-
   const [inputRangeStartValue, setInputRangeStartValue] = useState<
     InputRangeStartProps["value"]
-  >(transformDateToInputValue(selectedRange?.from))
-  const [inputRangeEndValue, setInputRangeEndValue] = useState<
-    InputRangeEndProps["value"]
-  >(transformDateToInputValue(selectedRange?.to))
+  >(transformedRangeStart)
+  const [inputRangeEndValue, setInputRangeEndValue] =
+    useState<InputRangeEndProps["value"]>(transformedRangeEnd)
 
   useEffect(() => {
     if (!isOpen) {
-      const rangeStart = transformDateToInputValue(selectedRange?.from)
-      const rangeEnd = transformDateToInputValue(selectedRange?.to)
-
-      if (rangeStart !== inputRangeStartValue) {
-        setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+      if (transformedRangeStart !== inputRangeStartValue) {
+        setInputRangeStartValue(transformedRangeStart)
       }
-      if (rangeEnd !== inputRangeEndValue) {
-        setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
+      if (transformedRangeEnd !== inputRangeEndValue) {
+        setInputRangeEndValue(transformedRangeEnd)
       }
     }
-  }, [isOpen, selectedRange?.from, selectedRange?.to])
+  }, [isOpen, rangeStart, rangeEnd])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
@@ -146,7 +146,7 @@ export const FilterDateRangePicker = ({
     disabledDays,
     setInputValue: setInputRangeStartValue,
     onDateChange: date => {
-      handleDateRangeChange({ from: date, to: selectedRange?.to })
+      handleDateRangeChange({ from: date, to: rangeEnd })
       if (date) setStartMonth(date)
     },
     ...inputRangeStartProps,
@@ -156,8 +156,7 @@ export const FilterDateRangePicker = ({
     locale,
     disabledDays,
     setInputValue: setInputRangeEndValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: selectedRange?.from, to: date }),
+    onDateChange: date => handleDateRangeChange({ from: rangeStart, to: date }),
     ...inputRangeEndProps,
   })
 
