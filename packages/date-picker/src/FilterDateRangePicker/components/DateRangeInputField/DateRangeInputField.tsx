@@ -9,11 +9,11 @@ import {
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
 import {
-  DateRangeValidatioMessage,
+  DateRangeValidationMessageType,
   DateRangeValidationStatus,
-  isDateRangeMessageType,
 } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
+import { DateRangeValidationMessage } from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
 export interface DateRangeInputFieldProps
@@ -37,7 +37,7 @@ export interface DateRangeInputFieldProps
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: DateRangeValidatioMessage
+  validationMessage?: DateRangeValidationMessageType
   disabled?: boolean
 }
 
@@ -112,32 +112,13 @@ export const DateRangeInputField = React.forwardRef<
           />
         </fieldset>
 
-        {!isDateRangeMessageType(validationMessage) ? (
-          <FieldMessage
-            id={errorMessageId}
-            message={validationMessage}
-            status={status?.dateStart || status?.dateEnd}
-            reversed={isReversed}
-            classNameOverride={styles.fieldMessageIcon}
-          />
-        ) : (
-          <>
-            <FieldMessage
-              id={errorMessageId}
-              message={validationMessage.dateStart}
-              status={status?.dateStart}
-              reversed={isReversed}
-              classNameOverride={styles.fieldMessageIcon}
-            />
-            <FieldMessage
-              id={errorMessageId}
-              message={validationMessage.dateEnd}
-              status={status?.dateEnd}
-              reversed={isReversed}
-              classNameOverride={styles.fieldMessageIcon}
-            />
-          </>
-        )}
+        <DateRangeValidationMessage
+          status={status}
+          validationMessage={validationMessage}
+          isReversed={isReversed}
+          errorMessageId={errorMessageId}
+        />
+
         <FieldMessage
           id={descriptionId}
           message={

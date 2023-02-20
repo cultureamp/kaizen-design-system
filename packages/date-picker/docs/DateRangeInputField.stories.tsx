@@ -181,14 +181,11 @@ const StickerSheetTemplate: Story<{
                 dateEnd: "error",
                 dateStart: "error",
               }}
-              validationMessage={
-                <ul style={{ margin: "0px", paddingInlineStart: "24px" }}>
-                  <li>
-                    "Date to" cannot be earlier than the "Date from" selection.
-                  </li>
-                  <li>"Date from" is not a valid date selection.</li>
-                </ul>
-              }
+              validationMessage={{
+                dateStart: '"Date from" is not a valid date selection.',
+                dateEnd:
+                  'Date to" cannot be earlier than the "Date from" selection.',
+              }}
             />
             <DateRangeInputField
               id="daterangeinputfield--error-different"

@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/border";
+.fieldMessageList {
+  margin: 0px;
+  padding-inline-start: 24px;
+}
+
+// TODO: Remove once the FieldMessage component has been updated
+.fieldMessageIcon > span {
+  align-self: flex-start;
+}

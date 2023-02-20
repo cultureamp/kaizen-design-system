@@ -77,10 +77,12 @@ export type DateRangeMessageType = {
   dateEnd: React.ReactNode
 }
 
-export type DateRangeValidatioMessage = React.ReactNode | DateRangeMessageType
+export type DateRangeValidationMessageType =
+  | React.ReactNode
+  | DateRangeMessageType
 
 export function isDateRangeMessageType(
-  message: DateRangeValidatioMessage
+  message: DateRangeValidationMessageType
 ): message is DateRangeMessageType {
   return (
     message != undefined &&
