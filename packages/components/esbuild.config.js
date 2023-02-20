@@ -23,6 +23,7 @@ const tailwindPlugins = [
 ]
 
 const SCSSModulesLoader = { ".scss": "copy" }
+
 const CSSPlugins = [
   ...tailwindPlugins,
   ScssModulesPlugin({
@@ -52,6 +53,13 @@ const ESMBuild = (() => {
       external: ["react", "react-dom"],
     }
 
+    // Why are there double esbuilds?
+    // We need to double handle the build files to get the right CSS output for two scenarios.
+    // Combining these approaches (both loader and plugin) doesn't seem to work as of writing this file,
+    // as I believe the result of the scss files being copied via loaders is then passed into the plugins, which results in the plugins
+    // being unable to find the scss files.
+
+    // 1. Copies the SCSS files over to the dist so that SCSS Modules imports work.
     await esbuild
       .build({
         ...ESMConfig,
@@ -60,6 +68,7 @@ const ESMBuild = (() => {
       })
       .catch(() => process.exit(1))
 
+    // 2. Runs the CSS plugins over the SCSS Modules and converts it into `scss-components.css`
     await esbuild
       .build({
         ...ESMConfig,
@@ -68,10 +77,6 @@ const ESMBuild = (() => {
       })
       .catch(() => process.exit(1))
   })()
-
-  // Create entry files
-  writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
-  writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
 })()
 
 // -----
@@ -90,6 +95,13 @@ const CJSBuild = (() => {
     external: ["react", "react-dom"],
   }
 
+  // Why are there double esbuilds?
+  // We need to double handle the build files to get the right CSS output for two scenarios.
+  // Combining these approaches (both loader and plugin) doesn't seem to work as of writing this file,
+  // as I believe the result of the scss files being copied via loaders is then passed into the plugins, which results in the plugins
+  // being unable to find the scss files.
+
+  // 1. Copies the SCSS files over to the dist so that SCSS Modules imports work.
   esbuild
     .build({
       ...CJSConfig,
@@ -97,6 +109,8 @@ const CJSBuild = (() => {
       loader: { ...SCSSModulesLoader },
     })
     .catch(() => process.exit(1))
+
+  // 2. Runs the CSS plugins over the SCSS Modules and converts it into `scss-components.css`
   esbuild
     .build({
       ...CJSConfig,
@@ -104,16 +118,6 @@ const CJSBuild = (() => {
       plugins: [...CSSPlugins],
     })
     .catch(() => process.exit(1))
-
-  // Create entry files
-  writeFileSync(
-    join(dist, "index.cjs.js"),
-    "module.exports = require('./cjs/index.cjs.js');"
-  )
-  writeFileSync(
-    join(dist, "future.cjs.js"),
-    "module.exports = require('./cjs/future.cjs.js');"
-  )
 })()
 
 // -----
