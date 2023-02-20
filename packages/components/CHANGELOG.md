@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.7...@kaizen/components@1.4.0) (2023-02-20)
+
+
+### Features
+
+* re-export-all-existing-components-from-the-new-aio ([#3285](https://github.com/cultureamp/kaizen-design-system/issues/3285)) ([c9a483d](https://github.com/cultureamp/kaizen-design-system/commit/c9a483db2fe6b21f0b75552dc7b6735df6ae68df))
+
+
+
+
+
 ## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.6...@kaizen/components@1.3.7) (2023-02-19)
 
 **Note:** Version bump only for package @kaizen/components
