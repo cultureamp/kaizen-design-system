@@ -124,16 +124,18 @@ export const FilterDateRangePicker = ({
   >(transformDateToInputValue(selectedRange?.to))
 
   useEffect(() => {
-    const rangeStart = transformDateToInputValue(selectedRange?.from)
-    const rangeEnd = transformDateToInputValue(selectedRange?.to)
+    if (!isOpen) {
+      const rangeStart = transformDateToInputValue(selectedRange?.from)
+      const rangeEnd = transformDateToInputValue(selectedRange?.to)
 
-    if (rangeStart !== inputRangeStartValue) {
-      setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+      if (rangeStart !== inputRangeStartValue) {
+        setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+      }
+      if (rangeEnd !== inputRangeEndValue) {
+        setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
+      }
     }
-    if (rangeEnd !== inputRangeEndValue) {
-      setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
-    }
-  }, [selectedRange?.from, selectedRange?.to])
+  }, [isOpen, selectedRange?.from, selectedRange?.to])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
