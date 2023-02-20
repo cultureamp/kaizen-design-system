@@ -36,7 +36,7 @@ const QueryInfo = ({
     <Paragraph variant="intro-lede">Psuedo selector: {selector}</Paragraph>
     <Paragraph variant="body">Breakpoint: {selectorValue}</Paragraph>
     <Paragraph variant="body">
-      In this example: {selector}:bg-blue-500
+      In this example: {selector}:bg-blue-400
     </Paragraph>
     {/* Passing in as children, as dynamically creating the media query with interpolation fails */}
     {children}
@@ -51,13 +51,13 @@ export const TailwindMediaQueries: Story = () => (
       </Heading>
       <Heading variant="heading-4" classNameOverride="text-center">
         These breakpoints activate <em>over</em> a certain screen width. Meaning
-        that bg-blue-500 will be applied when the screen gets <em>wider</em>.
+        that bg-blue-400 will be applied when the screen gets <em>wider</em>.
       </Heading>
       <QueryInfo selector="md" selectorValue="768px">
-        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 md:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid  md:bg-blue-400" />
       </QueryInfo>
       <QueryInfo selector="lg" selectorValue="1080px">
-        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 lg:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid  lg:bg-blue-400" />
       </QueryInfo>
     </div>
 
@@ -69,14 +69,14 @@ export const TailwindMediaQueries: Story = () => (
       </Heading>
       <Heading variant="heading-4" classNameOverride="text-center">
         These breakpoints activate <em>under</em> a certain screen width.
-        Meaning that bg-blue-500 will be applied when the screen gets{" "}
+        Meaning that bg-blue-400 will be applied when the screen gets{" "}
         <em>slimmer</em>.
       </Heading>
       <QueryInfo selector="md-max" selectorValue="768px">
-        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 md-max:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid  md-max:bg-blue-400" />
       </QueryInfo>
       <QueryInfo selector="lg-max" selectorValue="1080px">
-        <div className="h-[50px] w-100 rounded-default border-solid border-blue-500 lg-max:bg-blue-500" />
+        <div className="h-[50px] w-100 rounded-default border-solid  lg-max:bg-blue-400" />
       </QueryInfo>
     </div>
   </div>
