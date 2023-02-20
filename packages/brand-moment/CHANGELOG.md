@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.57](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.56...@kaizen/brand-moment@1.12.57) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.12.56](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.55...@kaizen/brand-moment@1.12.56) (2023-02-16)
+
+
+### Bug Fixes
+
+* **brandmoment:** change stylesheet to module.scss ([#3289](https://github.com/cultureamp/kaizen-design-system/issues/3289)) ([28e2c42](https://github.com/cultureamp/kaizen-design-system/commit/28e2c425fe8e211b0decac4a2f992586b037c291))
+
+
+
+
+
 ## [1.12.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.12.54...@kaizen/brand-moment@1.12.55) (2023-02-09)
 
 **Note:** Version bump only for package @kaizen/brand-moment

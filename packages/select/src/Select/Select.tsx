@@ -137,7 +137,7 @@ export const Select = ({
 
   // Fix the issue when default open and close by keyboard, then focus is lost
   useEffect(() => {
-    if (state.isOpen === false) {
+    if (state.isOpen === false && defaultOpen) {
       buttonRef.current?.focus()
     }
   }, [state.isOpen])

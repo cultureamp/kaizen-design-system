@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "10.2.0",
+  "version": "10.2.2",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "ts-node": "^10.9.1",
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.0"
   },
   "dependencies": {
     "@types/color-string": "^1.5.2",

@@ -1,0 +1,17 @@
+import { KaizenProvider } from "@kaizen/components"
+
+- const themeManager = new ThemeManager(defaultTheme)
+
+...
+
+return(
+  <FrontendServices
+      services={[...defaultPreset, KaizenProvider]}
+      options={{
+        ...
+-       themeManager,
+      }}
+  >
+   ...
+  </FrontendServices>
+)
