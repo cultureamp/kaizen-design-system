@@ -35,90 +35,86 @@ const CSSPlugins = [
 
 // ===== ESM ===== //
 
-;(async () => {
-  const entryPoints = await glob("./src/**/*.ts")
-  await esbuild
-    .build({
-      entryPoints,
-      outdir: "dist/esm",
-      bundle: true,
-      sourcemap: true,
-      minify: true,
-      splitting: true,
-      format: "esm",
-      define: { global: "window" },
-      target: ["esnext"],
-      external: ["react", "react-dom"],
-      // Handle SCSS Modules:
-      loader: { ...SCSSModulesLoader },
-    })
-    .catch(() => process.exit(1))
-})()
-;(async () => {
-  const entryPoints = await glob("./src/**/*.ts")
-  await esbuild
-    .build({
-      entryPoints,
-      outdir: "dist/esm",
-      bundle: true,
-      sourcemap: true,
-      minify: true,
-      splitting: true,
-      format: "esm",
-      define: { global: "window" },
-      target: ["esnext"],
-      external: ["react", "react-dom"],
-      // Handle CSS Processing:
-      plugins: [...CSSPlugins],
-    })
-    .catch(() => process.exit(1))
-})()
+const ESMBuild = (() => {
+  ;(async () => {
+    const entryPoints = await glob("./src/**/*.ts")
 
-// Create entry files
-writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
-writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
+    const ESMConfig = {
+      entryPoints,
+      outdir: "dist/esm",
+      bundle: true,
+      sourcemap: true,
+      minify: true,
+      splitting: true,
+      format: "esm",
+      define: { global: "window" },
+      target: ["esnext"],
+      external: ["react", "react-dom"],
+    }
+
+    await esbuild
+      .build({
+        ...ESMConfig,
+        // Handle SCSS Modules:
+        loader: { ...SCSSModulesLoader },
+      })
+      .catch(() => process.exit(1))
+
+    await esbuild
+      .build({
+        ...ESMConfig,
+        // Handle CSS Processing:
+        plugins: [...CSSPlugins],
+      })
+      .catch(() => process.exit(1))
+  })()
+
+  // Create entry files
+  writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
+  writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
+})()
 
 // -----
 
 // ===== CJS ===== //
-esbuild
-  .build({
-    entryPoints: ["src/index.ts", "src/future.ts"],
-    outdir: "dist/cjs",
-    bundle: true,
-    sourcemap: true,
-    minify: true,
-    platform: "node",
-    target: ["node16"],
-    external: ["react", "react-dom"],
-    // Handle SCSS Modules:
-    loader: { ...SCSSModulesLoader },
-  })
-  .catch(() => process.exit(1))
-esbuild
-  .build({
-    entryPoints: ["src/index.ts", "src/future.ts"],
-    outdir: "dist/cjs",
-    bundle: true,
-    sourcemap: true,
-    minify: true,
-    platform: "node",
-    target: ["node16"],
-    external: ["react", "react-dom"],
-    // Handle CSS Processing:
-    plugins: [...CSSPlugins],
-  })
-  .catch(() => process.exit(1))
 
-// Create entry files
-writeFileSync(
-  join(dist, "index.cjs.js"),
-  "module.exports = require('./cjs/index.cjs.js');"
-)
-writeFileSync(
-  join(dist, "future.cjs.js"),
-  "module.exports = require('./cjs/future.cjs.js');"
-)
+const CJSBuild = (() => {
+  const CJSConfig = {
+    entryPoints: ["src/index.ts", "src/future.ts"],
+    outdir: "dist/cjs",
+    bundle: true,
+    sourcemap: true,
+    minify: true,
+    platform: "node",
+    target: ["node16"],
+    external: ["react", "react-dom"],
+  }
+
+  esbuild
+    .build({
+      ...CJSConfig,
+      // Handle SCSS Modules:
+      loader: { ...SCSSModulesLoader },
+    })
+    .catch(() => process.exit(1))
+  esbuild
+    .build({
+      ...CJSConfig,
+      // Handle CSS Processing:
+      plugins: [...CSSPlugins],
+    })
+    .catch(() => process.exit(1))
+
+  // Create entry files
+  writeFileSync(
+    join(dist, "index.cjs.js"),
+    "module.exports = require('./cjs/index.cjs.js');"
+  )
+  writeFileSync(
+    join(dist, "future.cjs.js"),
+    "module.exports = require('./cjs/future.cjs.js');"
+  )
+})()
 
 // -----
 
