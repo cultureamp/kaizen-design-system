@@ -152,7 +152,6 @@ export const FilterTriggerButtonContext = forwardRef<
 
 FilterTriggerButtonContext.displayName = "FilterTriggerButtonContext"
 
-
 export type FilterTriggerButtonContextWithFilterRefProps = Omit<
   FilterTriggerButtonProps,
   "label"
@@ -202,7 +201,8 @@ export const FilterTriggerButtonContextWithFilterRef = forwardRef<
   )
 })
 
-FilterTriggerButtonContextWithFilterRef.displayName = "FilterTriggerButtonContextWithFilterRef"
+FilterTriggerButtonContextWithFilterRef.displayName =
+  "FilterTriggerButtonContextWithFilterRef"
 
 export type FilterTriggerButtonSol3Props = Omit<
   FilterTriggerButtonProps,

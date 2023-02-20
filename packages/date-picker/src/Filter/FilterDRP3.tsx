@@ -3,17 +3,27 @@ import { DateRangeDisplayLabel } from "../FilterDateRangePicker/components/DateR
 import { isCompleteDateRange } from "../FilterDateRangePicker/utils/isCompleteDateRange"
 import { DataAttributes } from "../types"
 import { getLocale } from "../utils/getLocale"
-import { FilterDateRangePickerFieldNoContext, FilterDateRangePickerFieldNoContextProps } from "./FilterDateRangePickerField"
-import { FilterRef, FilterSolution2NoContext, FilterSolution2NoContextProps } from "./FilterSolution2"
+import {
+  FilterDateRangePickerFieldNoContext,
+  FilterDateRangePickerFieldNoContextProps,
+} from "./FilterDateRangePickerField"
+import {
+  FilterRef,
+  FilterSolution2NoContext,
+  FilterSolution2NoContextProps,
+} from "./FilterSolution2"
 import { FilterSolution3NoContext } from "./FilterSolution3"
 import { FilterTriggerButtonProps } from "./components"
 import { FilterContents } from "./components/FilterContents"
 import { FilterPopoverWithFocusLock } from "./components/FilterPopover"
 
-export interface FilterDRP3Props extends FilterDateRangePickerFieldNoContextProps {
+export interface FilterDRP3Props
+  extends FilterDateRangePickerFieldNoContextProps {
   isOpen: FilterSolution2NoContextProps["isOpen"]
   setIsOpen: FilterSolution2NoContextProps["setIsOpen"]
-  filterButton: (triggerButtonProps: FilterTriggerButtonProps & DataAttributes) => JSX.Element & { ref?: React.RefObject<FilterRef> }
+  filterButton: (
+    triggerButtonProps: FilterTriggerButtonProps & DataAttributes
+  ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
 }
 
 export const FilterDRP3 = ({
@@ -22,33 +32,36 @@ export const FilterDRP3 = ({
   filterButton,
   selectedRange,
   label,
-  ...drpProps }: FilterDRP3Props): JSX.Element => {
-    const filterButtonComponent = filterButton({
-      selectedValue: isCompleteDateRange(selectedRange) ? (
-        <DateRangeDisplayLabel
-          dateRange={selectedRange}
-          locale={getLocale("en-AU")}
-        />
-      ) : undefined,
-      label,
-      isOpen,
-      onClick: (): void => setIsOpen(!isOpen),
-    })
+  ...drpProps
+}: FilterDRP3Props): JSX.Element => {
+  const filterButtonComponent = filterButton({
+    selectedValue: isCompleteDateRange(selectedRange) ? (
+      <DateRangeDisplayLabel
+        dateRange={selectedRange}
+        locale={getLocale("en-AU")}
+      />
+    ) : undefined,
+    label,
+    isOpen,
+    onClick: (): void => setIsOpen(!isOpen),
+  })
 
-    const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-    const inbuiltRef = useRef<FilterRef>({
-      triggerButtonRef: inbuiltButtonRef
-    })
-    const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
+  const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+  const inbuiltRef = useRef<FilterRef>({
+    triggerButtonRef: inbuiltButtonRef,
+  })
+  const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
 
-    return (
+  return (
     <FilterSolution3NoContext>
       {React.cloneElement(filterButtonComponent, {
         ref: filterButtonRef,
       })}
       {isOpen && (
         <FilterPopoverWithFocusLock
-          referenceElement={filterButtonRef.current?.triggerButtonRef?.current || null}
+          referenceElement={
+            filterButtonRef.current?.triggerButtonRef?.current || null
+          }
           onClose={(): void => setIsOpen(false)}
         >
           <FilterContents>
@@ -62,4 +75,4 @@ export const FilterDRP3 = ({
       )}
     </FilterSolution3NoContext>
   )
-      }
+}

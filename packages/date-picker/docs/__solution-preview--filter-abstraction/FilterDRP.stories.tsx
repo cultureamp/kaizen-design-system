@@ -3,8 +3,7 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange,
-} from "../../index"
+import { DateRange } from "../../index"
 import { FilterDRP2 } from "../../src/Filter/FilterDRP2"
 import { FilterDRP3 } from "../../src/Filter/FilterDRP3"
 import {
@@ -29,9 +28,7 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterDRP2>
 
-export const FilterSolution2: ComponentStory<
-  typeof FilterDRP2
-> = args => {
+export const FilterSolution2: ComponentStory<typeof FilterDRP2> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
 
@@ -52,9 +49,7 @@ export const FilterSolution2: ComponentStory<
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           filterButton={(triggerButtonProps): JSX.Element => (
-            <FilterTriggerButtonWithFilterRef
-              {...triggerButtonProps}
-            />
+            <FilterTriggerButtonWithFilterRef {...triggerButtonProps} />
           )}
           id="filterdrp-sol2"
           label="Field label"
@@ -113,10 +108,7 @@ export const FilterSolution2: ComponentStory<
   )
 }
 
-
-export const FilterSolution3: ComponentStory<
-  typeof FilterDRP3
-> = args => {
+export const FilterSolution3: ComponentStory<typeof FilterDRP3> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
 
@@ -137,9 +129,7 @@ export const FilterSolution3: ComponentStory<
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           filterButton={(triggerButtonProps): JSX.Element => (
-            <FilterTriggerButtonWithFilterRef
-              {...triggerButtonProps}
-            />
+            <FilterTriggerButtonWithFilterRef {...triggerButtonProps} />
           )}
           id="filterdrp-sol3"
           label="Field label"

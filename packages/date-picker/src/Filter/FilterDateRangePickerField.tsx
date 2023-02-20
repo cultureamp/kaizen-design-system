@@ -189,7 +189,8 @@ export const FilterDateRangePickerField = ({
 
 FilterDateRangePickerField.displayName = "FilterDateRangePickerField"
 
-export interface FilterDateRangePickerFieldNoContextProps extends FilterDateRangePickerProps {
+export interface FilterDateRangePickerFieldNoContextProps
+  extends FilterDateRangePickerProps {
   label: string
 }
 
@@ -314,7 +315,8 @@ export const FilterDateRangePickerFieldNoContext = ({
   )
 }
 
-FilterDateRangePickerFieldNoContext.displayName = "FilterDateRangePickerFieldNoContext"
+FilterDateRangePickerFieldNoContext.displayName =
+  "FilterDateRangePickerFieldNoContext"
 
 // export const FilterDateRangePickerFieldSol3 = ({
 //   id,

@@ -22,6 +22,7 @@ export const SUB_CATEGORIES = {
   datePicker: "Date Picker",
   select: "Select",
   menu: "Menu",
+  filter: "Filter",
 }
 
 export const SUB_COMPONENTS_FOLDER_NAME = "Subcomponents"

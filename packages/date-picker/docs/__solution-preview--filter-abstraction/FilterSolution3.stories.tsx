@@ -3,9 +3,15 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange, FilterSolution3, FilterSolution3NoContext,
+import {
+  DateRange,
+  FilterSolution3,
+  FilterSolution3NoContext,
 } from "../../index"
-import { FilterDateRangePickerField, FilterDateRangePickerFieldNoContext } from "../../src/Filter/FilterDateRangePickerField"
+import {
+  FilterDateRangePickerField,
+  FilterDateRangePickerFieldNoContext,
+} from "../../src/Filter/FilterDateRangePickerField"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -35,16 +41,16 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof FilterSolution3NoContext>
 
-export const Solution3: ComponentStory<
-  typeof FilterSolution3
-> = () => {
+export const Solution3: ComponentStory<typeof FilterSolution3> = () => {
   const buttonRef1 = useRef<HTMLButtonElement>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
 
   const buttonRefMultiContents = useRef<HTMLButtonElement>(null)
   const [isOpenMultiContents, setIsOpenMultiContents] = useState<boolean>(false)
-  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<
+    DateRange | undefined
+  >()
 
   const buttonRef2 = useRef<HTMLButtonElement>(null)
   const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
@@ -66,46 +72,44 @@ export const Solution3: ComponentStory<
 
   return (
     <>
-      <p><strong>Note:</strong> Consumer must provide the refs for all</p>
-<React.StrictMode>
-      <FilterSolution3
-        label="Single button"
-      >
-        <FilterTriggerButtonContext
-          ref={buttonRef1}
-          isOpen={isOpen}
-          onClick={(): void => setIsOpen(!isOpen)}
-          selectedValue={
-            isCompleteDateRange(range) ? (
-              <DateRangeDisplayLabel
-                dateRange={range}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined
-          }
-        />
-        {isOpen && (
-          <FilterPopoverWithFocusLock
-            referenceElement={buttonRef1.current}
-            onClose={(): void => setIsOpen(false)}
-          >
-            <FilterContents>
-              <FilterDateRangePickerField
-                id="filterdrp"
-                locale="en-AU"
-                selectedRange={range}
-                onRangeChange={setRange}
-              />
-            </FilterContents>
-          </FilterPopoverWithFocusLock>
-        )}
-      </FilterSolution3>
+      <p>
+        <strong>Note:</strong> Consumer must provide the refs for all
+      </p>
+      <React.StrictMode>
+        <FilterSolution3 label="Single button">
+          <FilterTriggerButtonContext
+            ref={buttonRef1}
+            isOpen={isOpen}
+            onClick={(): void => setIsOpen(!isOpen)}
+            selectedValue={
+              isCompleteDateRange(range) ? (
+                <DateRangeDisplayLabel
+                  dateRange={range}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined
+            }
+          />
+          {isOpen && (
+            <FilterPopoverWithFocusLock
+              referenceElement={buttonRef1.current}
+              onClose={(): void => setIsOpen(false)}
+            >
+              <FilterContents>
+                <FilterDateRangePickerField
+                  id="filterdrp"
+                  locale="en-AU"
+                  selectedRange={range}
+                  onRangeChange={setRange}
+                />
+              </FilterContents>
+            </FilterPopoverWithFocusLock>
+          )}
+        </FilterSolution3>
       </React.StrictMode>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          label="Multi contents"
-        >
+        <FilterSolution3 label="Multi contents">
           <FilterTriggerButtonContext
             ref={buttonRefMultiContents}
             isOpen={isOpenMultiContents}
@@ -124,9 +128,7 @@ export const Solution3: ComponentStory<
               referenceElement={buttonRefMultiContents.current}
               onClose={(): void => setIsOpenMultiContents(false)}
             >
-              <FilterContents>
-                Some more contents
-              </FilterContents>
+              <FilterContents>Some more contents</FilterContents>
               <FilterContents>
                 <FilterDateRangePickerField
                   id="filterdrp"
@@ -141,9 +143,7 @@ export const Solution3: ComponentStory<
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          label="Dates existing"
-        >
+        <FilterSolution3 label="Dates existing">
           <FilterTriggerButtonContext
             ref={buttonRef2}
             isOpen={isOpenExisting}
@@ -187,21 +187,18 @@ export const Solution3: ComponentStory<
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3
-          label="Dates"
-        >
+        <FilterSolution3 label="Dates">
           <RemovableFilterTriggerButtonContext
             ref={removableButtonRefs}
             triggerButtonProps={{
               isOpen: isOpenRemovable,
               onClick: (): void => setIsOpenRemovable(!isOpenRemovable),
-              selectedValue:
-                isCompleteDateRange(rangeRemovable) ? (
-                  <DateRangeDisplayLabel
-                    dateRange={rangeRemovable}
-                    locale={getLocale("en-AU")}
-                  />
-                ) : undefined
+              selectedValue: isCompleteDateRange(rangeRemovable) ? (
+                <DateRangeDisplayLabel
+                  dateRange={rangeRemovable}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined,
             }}
             removeButtonProps={{ onClick: () => undefined }}
           />
@@ -237,7 +234,9 @@ export const Solution3NoContext: ComponentStory<
 
   const buttonRefMultiContents = useRef<HTMLButtonElement>(null)
   const [isOpenMultiContents, setIsOpenMultiContents] = useState<boolean>(false)
-  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<
+    DateRange | undefined
+  >()
 
   const buttonRef2 = useRef<HTMLButtonElement>(null)
   const [isOpenExisting, setIsOpenExisting] = useState<boolean>(false)
@@ -259,12 +258,13 @@ export const Solution3NoContext: ComponentStory<
 
   return (
     <>
-      <p><strong>Note:</strong> Consumer must provide the refs for all</p>
+      <p>
+        <strong>Note:</strong> Consumer must provide the refs for all
+      </p>
 
-      <FilterSolution3NoContext
-      >
+      <FilterSolution3NoContext>
         <FilterTriggerButton
-        label="Single button"
+          label="Single button"
           ref={buttonRef1}
           isOpen={isOpen}
           onClick={(): void => setIsOpen(!isOpen)}
@@ -296,10 +296,9 @@ export const Solution3NoContext: ComponentStory<
       </FilterSolution3NoContext>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3NoContext
-        >
+        <FilterSolution3NoContext>
           <FilterTriggerButton
-          label="Multi contents"
+            label="Multi contents"
             ref={buttonRefMultiContents}
             isOpen={isOpenMultiContents}
             onClick={(): void => setIsOpenMultiContents(!isOpenMultiContents)}
@@ -317,9 +316,7 @@ export const Solution3NoContext: ComponentStory<
               referenceElement={buttonRefMultiContents.current}
               onClose={(): void => setIsOpenMultiContents(false)}
             >
-              <FilterContents>
-                Some more contents
-              </FilterContents>
+              <FilterContents>Some more contents</FilterContents>
               <FilterContents>
                 <FilterDateRangePickerFieldNoContext
                   id="filterdrp"
@@ -335,8 +332,7 @@ export const Solution3NoContext: ComponentStory<
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3NoContext
-        >
+        <FilterSolution3NoContext>
           <FilterTriggerButton
             ref={buttonRef2}
             label="Dates existing"
@@ -381,21 +377,19 @@ export const Solution3NoContext: ComponentStory<
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <FilterSolution3NoContext
-        >
+        <FilterSolution3NoContext>
           <RemovableFilterTriggerButton
             ref={removableButtonRefs}
             triggerButtonProps={{
               label: "Dates",
               isOpen: isOpenRemovable,
               onClick: (): void => setIsOpenRemovable(!isOpenRemovable),
-              selectedValue:
-                isCompleteDateRange(rangeRemovable) ? (
-                  <DateRangeDisplayLabel
-                    dateRange={rangeRemovable}
-                    locale={getLocale("en-AU")}
-                  />
-                ) : undefined
+              selectedValue: isCompleteDateRange(rangeRemovable) ? (
+                <DateRangeDisplayLabel
+                  dateRange={rangeRemovable}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined,
             }}
             removeButtonProps={{ onClick: () => undefined }}
           />

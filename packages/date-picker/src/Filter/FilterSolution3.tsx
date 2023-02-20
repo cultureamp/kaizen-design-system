@@ -23,10 +23,7 @@ export const FilterSolution3 = ({
   classNameOverride,
   ...restProps
 }: FilterSolution3Props): JSX.Element => (
-  <div
-    className={classnames(styles.filter, classNameOverride)}
-    {...restProps}
-  >
+  <div className={classnames(styles.filter, classNameOverride)} {...restProps}>
     <FilterProvider
       label={label}
       // defaultSelectedValuesLabel={defaultSelectedValuesLabel}
@@ -47,10 +44,7 @@ export const FilterSolution3NoContext = ({
   classNameOverride,
   ...restProps
 }: FilterSolution3NoContextProps): JSX.Element => (
-  <div
-    className={classnames(styles.filter, classNameOverride)}
-    {...restProps}
-  >
+  <div className={classnames(styles.filter, classNameOverride)} {...restProps}>
     {children}
   </div>
 )

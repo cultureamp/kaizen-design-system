@@ -4,13 +4,22 @@ import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { DateRange, FilterSolution3, FilterSolution3NoContext,
+import {
+  DateRange,
+  FilterSolution3,
+  FilterSolution3NoContext,
   // FilterSolution2ForcedButtonRef
 } from "../../index"
-import { FilterDateRangePickerField, FilterDateRangePickerFieldNoContext } from "../../src/Filter/FilterDateRangePickerField"
-import { FilterRef,
+import {
+  FilterDateRangePickerField,
+  FilterDateRangePickerFieldNoContext,
+} from "../../src/Filter/FilterDateRangePickerField"
+import {
+  FilterRef,
   // FilterSolution2FlexiButtonRef,
-  FilterSolution2ManualOpen, FilterSolution2NoContext } from "../../src/Filter/FilterSolution2"
+  FilterSolution2ManualOpen,
+  FilterSolution2NoContext,
+} from "../../src/Filter/FilterSolution2"
 import {
   FilterTriggerButton,
   FilterTriggerButtonContext,
@@ -206,7 +215,6 @@ export default {
 //         </FilterSolution2FlexiButtonRef>
 //       </div>
 
-
 //       <div style={{ marginTop: "2rem" }}>
 //         <FilterSolution2FlexiButtonRef
 //           // {...args}
@@ -357,7 +365,6 @@ export default {
 // }
 // Solution2DRP.storyName = "Flexible button ref"
 
-
 // // Pros:
 // // - Putting a ref in the Button can be optional for the consumer
 // // Cons:
@@ -409,7 +416,6 @@ export default {
 //         </FilterContents>
 //       </FilterSolution2ForcedButtonRef>
 
-
 //       <div style={{ marginTop: "2rem" }}>
 //         <FilterSolution2ForcedButtonRef
 //           label="Multi contents"
@@ -431,7 +437,6 @@ export default {
 //           </FilterContents>
 //         </FilterSolution2ForcedButtonRef>
 //       </div>
-
 
 //       <div style={{ marginTop: "2rem" }}>
 //         <FilterSolution2ForcedButtonRef
@@ -581,12 +586,15 @@ export const Solution2ManualOpen: ComponentStory<
   const [isOpenNoRef, setIsOpenNoRef] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
   const [isOpenMultiContents, setIsOpenMultiContents] = useState<boolean>(false)
-  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<
+    DateRange | undefined
+  >()
   const [isOpenRef, setIsOpenRef] = useState<boolean>(false)
   const [rangeRef, setRangeRef] = useState<DateRange | undefined>()
-  const [isOpenDefaultExisting, setIsOpenDefaultExisting] = useState<boolean>(false)
+  const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
+    useState<boolean>(false)
   const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
-  DateRange | undefined
+    DateRange | undefined
   >({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
@@ -594,7 +602,9 @@ export const Solution2ManualOpen: ComponentStory<
   const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
   const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
   const [isOpenRemovableRef, setIsOpenRemovableRef] = useState<boolean>(false)
-  const [rangeRemovableRef, setRangeRemovableRef] = useState<DateRange | undefined>()
+  const [rangeRemovableRef, setRangeRemovableRef] = useState<
+    DateRange | undefined
+  >()
 
   return (
     <>
@@ -604,14 +614,16 @@ export const Solution2ManualOpen: ComponentStory<
         label="No ref"
         filterButton={(props): JSX.Element => (
           <FilterTriggerButtonContextWithFilterRef
-            selectedValue={isCompleteDateRange(range) ? (
-              <DateRangeDisplayLabel
-                dateRange={range}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined}
-           {...props}
-           />
+            selectedValue={
+              isCompleteDateRange(range) ? (
+                <DateRangeDisplayLabel
+                  dateRange={range}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined
+            }
+            {...props}
+          />
         )}
       >
         <FilterContents>
@@ -625,7 +637,6 @@ export const Solution2ManualOpen: ComponentStory<
         </FilterContents>
       </FilterSolution2ManualOpen>
 
-
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2ManualOpen
           isOpen={isOpenMultiContents}
@@ -633,18 +644,19 @@ export const Solution2ManualOpen: ComponentStory<
           label="Multi contents"
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
-            selectedValue={isCompleteDateRange(rangeMultiContents) ? (
-              <DateRangeDisplayLabel
-                dateRange={rangeMultiContents}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined}
-            {...props} />
+              selectedValue={
+                isCompleteDateRange(rangeMultiContents) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeMultiContents}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
+              {...props}
+            />
           )}
         >
-          <FilterContents>
-            Some more contents
-          </FilterContents>
+          <FilterContents>Some more contents</FilterContents>
           <FilterContents>
             <FilterDateRangePickerField
               id="filterdrp"
@@ -657,7 +669,6 @@ export const Solution2ManualOpen: ComponentStory<
         </FilterSolution2ManualOpen>
       </div>
 
-
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2ManualOpen
           isOpen={isOpenRef}
@@ -666,12 +677,14 @@ export const Solution2ManualOpen: ComponentStory<
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
               ref={singleButtonRef}
-              selectedValue={isCompleteDateRange(rangeRef) ? (
-                <DateRangeDisplayLabel
-                  dateRange={rangeRef}
-                  locale={getLocale("en-AU")}
-                />
-              ) : undefined}
+              selectedValue={
+                isCompleteDateRange(rangeRef) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeRef}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
               {...props}
             />
           )}
@@ -705,14 +718,16 @@ export const Solution2ManualOpen: ComponentStory<
           label="Existing value"
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonContextWithFilterRef
-              selectedValue={isCompleteDateRange(rangeDefaultExisting) ? (
-                <DateRangeDisplayLabel
-                  dateRange={rangeDefaultExisting}
-                  locale={getLocale("en-AU")}
-                />
-              ) : undefined}
+              selectedValue={
+                isCompleteDateRange(rangeDefaultExisting) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeDefaultExisting}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
               {...props}
-              />
+            />
           )}
         >
           <FilterContents>
@@ -751,8 +766,8 @@ export const Solution2ManualOpen: ComponentStory<
                     locale={getLocale("en-AU")}
                   />
                 ) : undefined,
-                ...props
-               }}
+                ...props,
+              }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}
@@ -784,8 +799,8 @@ export const Solution2ManualOpen: ComponentStory<
                     locale={getLocale("en-AU")}
                   />
                 ) : undefined,
-                ...props
-               }}
+                ...props,
+              }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}
@@ -843,12 +858,15 @@ export const Solution2NoContext: ComponentStory<
   const [isOpenNoRef, setIsOpenNoRef] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
   const [isOpenMultiContents, setIsOpenMultiContents] = useState<boolean>(false)
-  const [rangeMultiContents, setRangeMultiContents] = useState<DateRange | undefined>()
+  const [rangeMultiContents, setRangeMultiContents] = useState<
+    DateRange | undefined
+  >()
   const [isOpenRef, setIsOpenRef] = useState<boolean>(false)
   const [rangeRef, setRangeRef] = useState<DateRange | undefined>()
-  const [isOpenDefaultExisting, setIsOpenDefaultExisting] = useState<boolean>(false)
+  const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
+    useState<boolean>(false)
   const [rangeDefaultExisting, setRangeDefaultExisting] = useState<
-  DateRange | undefined
+    DateRange | undefined
   >({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
@@ -856,7 +874,9 @@ export const Solution2NoContext: ComponentStory<
   const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
   const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
   const [isOpenRemovableRef, setIsOpenRemovableRef] = useState<boolean>(false)
-  const [rangeRemovableRef, setRangeRemovableRef] = useState<DateRange | undefined>()
+  const [rangeRemovableRef, setRangeRemovableRef] = useState<
+    DateRange | undefined
+  >()
 
   return (
     <>
@@ -865,15 +885,17 @@ export const Solution2NoContext: ComponentStory<
         setIsOpen={setIsOpenNoRef}
         filterButton={(props): JSX.Element => (
           <FilterTriggerButtonWithFilterRef
-          label="No ref"
-            selectedValue={isCompleteDateRange(range) ? (
-              <DateRangeDisplayLabel
-                dateRange={range}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined}
-           {...props}
-           />
+            label="No ref"
+            selectedValue={
+              isCompleteDateRange(range) ? (
+                <DateRangeDisplayLabel
+                  dateRange={range}
+                  locale={getLocale("en-AU")}
+                />
+              ) : undefined
+            }
+            {...props}
+          />
         )}
       >
         <FilterContents>
@@ -887,26 +909,26 @@ export const Solution2NoContext: ComponentStory<
         </FilterContents>
       </FilterSolution2NoContext>
 
-
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2NoContext
           isOpen={isOpenMultiContents}
           setIsOpen={setIsOpenMultiContents}
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonWithFilterRef
-            label="Multi contents"
-            selectedValue={isCompleteDateRange(rangeMultiContents) ? (
-              <DateRangeDisplayLabel
-                dateRange={rangeMultiContents}
-                locale={getLocale("en-AU")}
-              />
-            ) : undefined}
-            {...props} />
+              label="Multi contents"
+              selectedValue={
+                isCompleteDateRange(rangeMultiContents) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeMultiContents}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
+              {...props}
+            />
           )}
         >
-          <FilterContents>
-            Some more contents
-          </FilterContents>
+          <FilterContents>Some more contents</FilterContents>
           <FilterContents>
             <FilterDateRangePickerFieldNoContext
               id="filterdrp"
@@ -919,21 +941,22 @@ export const Solution2NoContext: ComponentStory<
         </FilterSolution2NoContext>
       </div>
 
-
       <div style={{ marginTop: "2rem" }}>
         <FilterSolution2NoContext
           isOpen={isOpenRef}
           setIsOpen={setIsOpenRef}
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonWithFilterRef
-            label="Single button ref"
+              label="Single button ref"
               ref={singleButtonRef}
-              selectedValue={isCompleteDateRange(rangeRef) ? (
-                <DateRangeDisplayLabel
-                  dateRange={rangeRef}
-                  locale={getLocale("en-AU")}
-                />
-              ) : undefined}
+              selectedValue={
+                isCompleteDateRange(rangeRef) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeRef}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
               {...props}
             />
           )}
@@ -966,15 +989,17 @@ export const Solution2NoContext: ComponentStory<
           setIsOpen={setIsOpenDefaultExisting}
           filterButton={(props): JSX.Element => (
             <FilterTriggerButtonWithFilterRef
-            label="Existing value"
-              selectedValue={isCompleteDateRange(rangeDefaultExisting) ? (
-                <DateRangeDisplayLabel
-                  dateRange={rangeDefaultExisting}
-                  locale={getLocale("en-AU")}
-                />
-              ) : undefined}
+              label="Existing value"
+              selectedValue={
+                isCompleteDateRange(rangeDefaultExisting) ? (
+                  <DateRangeDisplayLabel
+                    dateRange={rangeDefaultExisting}
+                    locale={getLocale("en-AU")}
+                  />
+                ) : undefined
+              }
               {...props}
-              />
+            />
           )}
         >
           <FilterContents>
@@ -1005,7 +1030,7 @@ export const Solution2NoContext: ComponentStory<
           setIsOpen={setIsOpenRemovable}
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButton
-            triggerButtonProps={{
+              triggerButtonProps={{
                 label: "Removable no ref",
                 selectedValue: isCompleteDateRange(rangeRemovable) ? (
                   <DateRangeDisplayLabel
@@ -1013,8 +1038,8 @@ export const Solution2NoContext: ComponentStory<
                     locale={getLocale("en-AU")}
                   />
                 ) : undefined,
-                ...props
-               }}
+                ...props,
+              }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}
@@ -1037,8 +1062,8 @@ export const Solution2NoContext: ComponentStory<
           setIsOpen={setIsOpenRemovableRef}
           filterButton={(props): JSX.Element => (
             <RemovableFilterTriggerButton
-            ref={removableButtonRefs}
-            triggerButtonProps={{
+              ref={removableButtonRefs}
+              triggerButtonProps={{
                 label: "Removable with ref",
                 selectedValue: isCompleteDateRange(rangeRemovableRef) ? (
                   <DateRangeDisplayLabel
@@ -1046,8 +1071,8 @@ export const Solution2NoContext: ComponentStory<
                     locale={getLocale("en-AU")}
                   />
                 ) : undefined,
-                ...props
-               }}
+                ...props,
+              }}
               removeButtonProps={{ onClick: () => undefined }}
             />
           )}

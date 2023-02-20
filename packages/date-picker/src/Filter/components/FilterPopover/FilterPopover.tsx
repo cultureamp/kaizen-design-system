@@ -115,7 +115,9 @@ FilterPopoverWithFocusLock.displayName = "FilterPopoverWithFocusLock"
 
 export const FilterSol3FocusLock = ({
   children,
-}: { children: React.ReactNode }): JSX.Element => {
+}: {
+  children: React.ReactNode
+}): JSX.Element => {
   const { isOpen, setIsOpen } = useFilterContextSol3()
 
   if (!isOpen) return <></>
@@ -131,5 +133,4 @@ export const FilterSol3FocusLock = ({
   )
 }
 
-FilterSol3FocusLock.displayName =
-  "FilterSol3FocusLock"
+FilterSol3FocusLock.displayName = "FilterSol3FocusLock"
