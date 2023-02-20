@@ -3,7 +3,6 @@ import { Button, IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Menu, MenuList } from "@kaizen/draft-menu"
-import { TitleBlockButton } from "./TitleBlockButton"
 import {
   TitleBlockMenuItem,
   TitleBlockMenuItemProps,
@@ -47,7 +46,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
-                <TitleBlockButton
+                <Button
                   {...{
                     ...defaultAction,
                     reversed:
@@ -101,7 +100,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
-                <TitleBlockButton
+                <Button
                   {...{
                     ...defaultAction,
                     reversed:
@@ -120,7 +119,7 @@ const MainActions = ({
             {
               key: "primaryAction",
               node: (
-                <TitleBlockButton
+                <Button
                   {...{
                     ...primaryAction,
                     primary:

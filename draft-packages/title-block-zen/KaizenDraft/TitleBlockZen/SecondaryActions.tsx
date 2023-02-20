@@ -3,7 +3,6 @@ import { Button, IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Menu, MenuList } from "@kaizen/draft-menu"
-import { TitleBlockButton } from "./TitleBlockButton"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
@@ -88,7 +87,7 @@ const SecondaryActions = ({
           return {
             key: `${i}`, // We shouldn't use an index here, see note above
             node: (
-              <TitleBlockButton
+              <Button
                 secondary
                 reversed={reversed}
                 {...action}
