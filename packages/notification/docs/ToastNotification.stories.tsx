@@ -224,6 +224,20 @@ const StickerSheetTemplate: Story = () => {
       ),
       autohide: !IS_CHROMATIC,
     })
+    addToastNotification({
+      type: "positive",
+      title: "VerylongTitleExampleVerylongtitleExample ",
+      automationId: "notification1",
+      message: (
+        <>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
+          odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
+          luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
+          Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
   })
   return <></>
 }
