@@ -1,8 +1,10 @@
 {
   "extends": "../../tsconfig.dist.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
+    "declaration": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "docs"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/docs"]
 }

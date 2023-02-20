@@ -6,6 +6,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
+import "highlight.js/styles/a11y-light.css"
 
 const queryClient = new QueryClient()
 

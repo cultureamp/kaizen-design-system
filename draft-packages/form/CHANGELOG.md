@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@9.0.1...@kaizen/draft-form@10.0.0) (2023-02-16)
+
+
+### Bug Fixes
+
+* **searchfield:** update styles to match UI kit ([#3266](https://github.com/cultureamp/kaizen-design-system/issues/3266)) ([68d54b3](https://github.com/cultureamp/kaizen-design-system/commit/68d54b3d0284c31c4c0c74871deb20b8a4939d45)), closes [cultureamp/kaizen-discourse#4](https://github.com/cultureamp/kaizen-discourse/issues/4)
+
+
+### BREAKING CHANGES
+
+* **searchfield:** classNameOverride has been moved to the outermost div
+
+* feat(searchfield): remove bottom margin
+* **searchfield:** remove bottom margin from SearchField
+
+
+
+
+
 ## [9.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@9.0.0...@kaizen/draft-form@9.0.1) (2023-02-09)
 
 **Note:** Version bump only for package @kaizen/draft-form
