@@ -6,7 +6,6 @@ import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"
 import esbuild from "esbuild"
-import nodeExternalsPlugin from "esbuild-node-externals"
 import { ScssModulesPlugin } from "esbuild-scss-modules-plugin"
 import tailwindcss from "tailwindcss"
 import glob from "tiny-glob"
@@ -24,9 +23,9 @@ const tailwindPlugins = [
 ]
 
 const SCSSModulesLoader = { ".scss": "copy" }
+const commonLoaders = { ".svg": "copy" }
 
 const CSSPlugins = [
-  nodeExternalsPlugin(),
   ...tailwindPlugins,
   ScssModulesPlugin({
     inject: false,
@@ -66,7 +65,7 @@ const ESMBuild = (() => {
       .build({
         ...ESMConfig,
         // Handle SCSS Modules:
-        loader: { ...SCSSModulesLoader },
+        loader: { ...SCSSModulesLoader, ...commonLoaders },
       })
       .catch(() => process.exit(1))
 
@@ -74,6 +73,7 @@ const ESMBuild = (() => {
     await esbuild
       .build({
         ...ESMConfig,
+        loader: [...commonLoaders],
         // Handle CSS Processing:
         plugins: [...CSSPlugins],
       })
@@ -108,7 +108,7 @@ const CJSBuild = (() => {
     .build({
       ...CJSConfig,
       // Handle SCSS Modules:
-      loader: { ...SCSSModulesLoader },
+      loader: { ...SCSSModulesLoader, ...commonLoaders },
     })
     .catch(() => process.exit(1))
 
@@ -116,6 +116,7 @@ const CJSBuild = (() => {
   esbuild
     .build({
       ...CJSConfig,
+      loader: [...commonLoaders],
       // Handle CSS Processing:
       plugins: [...CSSPlugins],
     })
