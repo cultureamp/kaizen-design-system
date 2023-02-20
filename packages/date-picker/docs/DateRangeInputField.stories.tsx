@@ -153,7 +153,7 @@ const StickerSheetTemplate: Story<{
                 dateStart: "error",
               }}
               validationMessage={
-                '"Date from" cannot be after than the "Date to" selection.'
+                '"Date from" cannot be after the "Date to" selection.'
               }
             />
             <DateRangeInputField
