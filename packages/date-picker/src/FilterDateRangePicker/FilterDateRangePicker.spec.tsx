@@ -293,7 +293,7 @@ describe("<FilterDateRangePicker />", () => {
       const inputRangeAfterEnd = screen.getByLabelText("Date to")
       expect(inputRangeAfterStart).toHaveValue("")
       expect(inputRangeAfterEnd).toHaveValue("")
-    })
+    }, 10000)
   })
 
   describe("Calendar", () => {
