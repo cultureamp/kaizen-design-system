@@ -116,7 +116,7 @@ export const DateRangeInputField = React.forwardRef<
           status={status}
           validationMessage={validationMessage}
           isReversed={isReversed}
-          errorMessageId={errorMessageId}
+          id={errorMessageId}
         />
 
         <FieldMessage
