@@ -2101,24 +2101,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kaizen/design-tokens@^10.3.0":
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/design-tokens/-/design-tokens-10.3.0.tgz#5bf9cbbfc43a4d1a01f90b9624018beb5e971408"
-  integrity sha512-dOrFK5y6lfAulHap7Kg3NOmjPBVHgbyW08An0ynvy/23cUyvg/0vq/oCdlAql9qfYNMWPKzmJ1k/N1ewaF8udw==
-  dependencies:
-    "@types/color-string" "^1.5.2"
-    "@types/lodash.kebabcase" "^4.1.7"
-    color-string "^1.9.1"
-    lodash.kebabcase "^4.1.1"
-
-"@kaizen/tailwind@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/tailwind/-/tailwind-0.5.0.tgz#e29263b5c25291c3d4e302f617832738daea18ee"
-  integrity sha512-Dx/KSfgamthnqiRp+w76y52hbjRR8p/ffVXeC8X//w0VPef0CPwDKXthPXu9uReIL9uzu7eHLFUYx8imJpEuYA==
-  dependencies:
-    "@kaizen/design-tokens" "^10.3.0"
-    classnames "^2.3.2"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
