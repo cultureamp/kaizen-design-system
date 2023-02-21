@@ -1,45 +1,13 @@
-import React, { useRef } from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import {
-  DateRangeValidationMessage,
-  DateRangeValidationMessageProps,
-} from "./DateRangeValidationMessage"
-
-const DateRangeInputFieldWrapper = (
-  props: Partial<DateRangeValidationMessageProps>
-): JSX.Element => (
-  <DateRangeValidationMessage
-    status={{
-      dateEnd: "error",
-      dateStart: "caution",
-    }}
-    validationMessage={{
-      dateStart: '"Date from" is close to the submission date.',
-      dateEnd: '"Date to" cannot be earlier than the "Date from" selection.',
-    }}
-  />
-)
+import { DateRangeValidationMessage } from "./DateRangeValidationMessage"
 
 describe("<DateRangeValidationMessage />", () => {
   describe("will render a single validation field message", () => {
-    it("when the consumer has given it a string", () => {
+    test("when the consumer has given it a node", () => {
       render(
         <DateRangeValidationMessage
-          errorMessageId="error-message-id"
-          status={{
-            dateEnd: "error",
-          }}
-          validationMessage={"Validation message"}
-        />
-      )
-      expect(screen.getByText("Validation message")).toBeVisible()
-    })
-
-    it("when the consumer has given it a node", () => {
-      render(
-        <DateRangeValidationMessage
-          errorMessageId="error-message-id"
+          id="error-message-id"
           status={{
             dateEnd: "error",
           }}
@@ -49,10 +17,10 @@ describe("<DateRangeValidationMessage />", () => {
       expect(screen.getByText("Validation message")).toBeVisible()
     })
 
-    it("when consumer passes validationMessage object but has the same status", () => {
+    it("combines multiple validation messages with the same status", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          errorMessageId="error-message-id"
+          id="error-message-id"
           status={{
             dateEnd: "error",
             dateStart: "error",
@@ -67,10 +35,10 @@ describe("<DateRangeValidationMessage />", () => {
       expect(container.getElementsByClassName("error").length).toBe(1)
     })
     describe("will render two validation field messages", () => {
-      it("when consumer passes validationMessage object and has different status", () => {
+      test("when consumer passes validationMessage object and has different status", () => {
         const { container } = render(
           <DateRangeValidationMessage
-            errorMessageId="error-message-id"
+            id="error-message-id"
             status={{
               dateEnd: "error",
               dateStart: "caution",

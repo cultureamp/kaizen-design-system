@@ -58,22 +58,6 @@ describe("<DateRangeInputField />", () => {
     expect(screen.getByText("Date Start has an error")).toBeVisible()
   })
 
-  it("adds validation message to description if it exists", () => {
-    render(
-      <DateRangeInputFieldWrapper
-        status={{
-          dateEnd: "error",
-        }}
-        validationMessage="Date End has an error"
-      />
-    )
-    const inputEnd = screen.getByRole("textbox", { name: "Date to" })
-    expect(inputEnd).toHaveAccessibleDescription(
-      "Error message Date End has an error Input format : dd/mm/yyyy"
-    )
-    expect(screen.getByText("Date End has an error")).toBeVisible()
-  })
-
   describe("Disabled", () => {
     it("disables both inputs", () => {
       render(<DateRangeInputFieldWrapper disabled />)
