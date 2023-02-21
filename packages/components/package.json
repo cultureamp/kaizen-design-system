@@ -77,7 +77,7 @@
     "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@kaizen/tailwind": "^0.5.0",
     "autoprefixer": "^10.4.13",
-    "esbuild": "^0.17.9",
+    "esbuild": "^0.17.10",
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9"
   },
