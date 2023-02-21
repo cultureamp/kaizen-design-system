@@ -6,7 +6,7 @@ import { CATEGORIES } from "../../../../storybook/constants"
 import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
 import { utilityDescription } from "../helpers/utilityDescription"
 
-const prefix = "p-"
+const prefix = "m-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme?.spacing || []).map(
     ([suffix, cssProperty]) => ({
@@ -16,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Spacing & layouts/Padding`,
+  title: `${CATEGORIES.tailwind}/Classname References/Spacing & layouts/Margin`,
   parameters: {
     docs: {
       description: {
@@ -33,25 +33,27 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <Card variant="informative" classNameOverride="mb-24">
       <div className="font-family-paragraph max-w-[1000px] p-24">
         <p>
-          The padding prefix 'p-' has been used in the examples in this
-          document, which compiles to the `padding` property in CSS.
+          The padding prefix 'm-' has been used in the examples in this
+          document, which compiles to the `margin` property in CSS.
         </p>
         <p>
-          Note that there are other prefixes (such as `pl-` for `padding-left`)
+          Note that there are other prefixes (such as `ml-` for `margin-left`)
           that can be used instead. Available padding prefixes can be referenced{" "}
-          <a href="https://tailwindcss.com/docs/padding#basic-usage">here</a>.
+          <a href="https://tailwindcss.com/docs/margin#basic-usage">here</a>.
         </p>
       </div>
     </Card>
     <UtilityClassTemplate
       classKeyValues={classEntries}
       renderExampleComponent={(cssProperty): React.ReactElement => (
-        <p
-          className="border-solid w-min rounded-default bg-blue-100"
-          style={{ padding: cssProperty }}
-        >
-          Padding
-        </p>
+        <div className="border-solid w-min rounded-default">
+          <p
+            className="p-4 border-dashed w-min rounded-default bg-blue-100"
+            style={{ margin: cssProperty }}
+          >
+            Margin
+          </p>
+        </div>
       )}
       isReversed={isReversed}
     />
@@ -59,5 +61,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Padding"
+StickerSheetDefault.storyName = "Margin"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
