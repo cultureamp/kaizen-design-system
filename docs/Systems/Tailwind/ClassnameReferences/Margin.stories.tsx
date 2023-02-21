@@ -16,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Spacing & layouts/Margin`,
+  title: `${CATEGORIES.tailwind}/Classname References/Spacing & Layouts/Margin`,
   parameters: {
     docs: {
       description: {

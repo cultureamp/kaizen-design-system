@@ -2,45 +2,65 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { Card } from "@kaizen/draft-card"
+import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References`,
+  title: `${CATEGORIES.tailwind}/Classname References/Modifiers/Pseudo Selectors`,
   parameters: {
     docs: {
       description: {
         component:
-          "Require @kaizen/tailwind and add it into your tailwind config",
+          "Add a modifier before a standard tailwind utility class to have it apply in certain states. For example, hover:text-blue-500 will set the font color to blue-500 on hover.",
       },
     },
   },
   decorators: [withDesign],
 }
 
-export const TailwindPseudoStates: Story = () => (
-  <div className="p-12">
-    <h1 className="flex flex-col items-center font-family-heading text-heading-1 font-weight-heading text-purple-700">
-      Tailwind Pseudo states
-    </h1>
-    <div className="flex">
-      <div className="inline-flex flex-col">
-        <h2 className="font-family-heading-2 font-weight-heading-2 mb-12 text-heading-2 text-purple-800">
-          Hover
-        </h2>
-        <button className=" rounded border-width-default rounded-default border-none bg-purple-600 p-12 font-family-paragraph text-paragraph font-weight-paragraph-bold text-white  hover:bg-purple-800">
-          Learn more
-        </button>
+export const TailwindPseudoSelectors: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <div className="flex flex-col items-center">
+    <Card variant="informative" classNameOverride="mb-24">
+      <div className="font-family-paragraph max-w-[1000px] p-24">
+        <p>
+          Psuedo selectors can be used to apply standard Tailwind utility
+          classes under certain pseudo states, such as on hover or focus.
+        </p>
+        <p>
+          Read more on Tailwind's pseudo selectors{" "}
+          <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-classes">
+            here
+          </a>
+          .
+        </p>
       </div>
-      <div className="ml-12 inline-flex flex-col">
-        <h2 className="font-family-heading-2 font-weight-heading-2 mb-12 text-heading-2 text-purple-800">
-          Focus
-        </h2>
-        <button className="rounded rounded-default border-none bg-purple-600 p-12 font-family-paragraph text-paragraph font-weight-paragraph-bold text-white focus:bg-purple-800 focus:ring-2 focus:ring-offset-1">
-          Learn more
+    </Card>
+    <StoryWrapper hasRowDivider isReversed={isReversed}>
+      <StoryWrapper.RowHeader
+        headings={["Utility Class", "Compiled CSS", "Example"]}
+      />
+      <StoryWrapper.Row rowTitle="hover">
+        <p className="font-family-paragraph">hover:bg-blue-200</p>
+        <p className="font-family-paragraph">background-color: #bde2f5</p>
+        <button className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default hover:bg-blue-200 py-16 px-12 text-center">
+          Hover me
         </button>
-      </div>
-    </div>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="focus">
+        <p className="font-family-paragraph">focus:bg-blue-200</p>
+        <p className="font-family-paragraph">background-color: #bde2f5</p>
+        <button
+          tabIndex={0}
+          className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default focus:bg-blue-200 py-16 px-12 text-center"
+        >
+          Focus me
+        </button>
+      </StoryWrapper.Row>
+    </StoryWrapper>
   </div>
 )
 
-TailwindPseudoStates.storyName = "Pseudo selectors"
+TailwindPseudoSelectors.storyName = "Pseudo Selectors"

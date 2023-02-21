@@ -7,7 +7,7 @@ import { CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References`,
+  title: `${CATEGORIES.tailwind}/Classname References/Modifiers/Media Queries`,
   parameters: {
     docs: {
       description: {
@@ -82,4 +82,4 @@ export const TailwindMediaQueries: Story = () => (
   </div>
 )
 
-TailwindMediaQueries.storyName = "Media queries"
+TailwindMediaQueries.storyName = "Media Queries"
