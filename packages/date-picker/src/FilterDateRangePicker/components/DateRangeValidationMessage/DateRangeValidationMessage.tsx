@@ -16,30 +16,34 @@ export type DateRangeValidationMessageProps = {
    * A descriptive message for `status` states
    */
   validationMessage?: DateRangeValidationMessageType
-  errorMessageId?: string
+  id?: string
   isReversed?: boolean
 }
 
 export const DateRangeValidationMessage = ({
   status,
   validationMessage,
-  errorMessageId,
+  id,
   isReversed,
 }: DateRangeValidationMessageProps): JSX.Element | null => {
+  if (!validationMessage) return null
+
   if (!isDateRangeMessageType(validationMessage)) {
     return (
       <FieldMessage
-        id={errorMessageId}
+        id={id}
         message={validationMessage}
         status={status?.dateStart || status?.dateEnd}
         reversed={isReversed}
         classNameOverride={styles.fieldMessageIcon}
       />
     )
-  } else if (status?.dateEnd === status?.dateStart) {
+  }
+
+  if (status?.dateEnd === status?.dateStart) {
     return (
       <FieldMessage
-        id={errorMessageId}
+        id={id}
         message={
           <ul className={styles.fieldMessageList}>
             <li>{validationMessage.dateEnd}</li>
@@ -51,26 +55,26 @@ export const DateRangeValidationMessage = ({
         classNameOverride={styles.fieldMessageIcon}
       />
     )
-  } else {
-    return (
-      <>
-        <FieldMessage
-          id={errorMessageId}
-          message={validationMessage.dateStart}
-          status={status?.dateStart}
-          reversed={isReversed}
-          classNameOverride={styles.fieldMessageIcon}
-        />
-        <FieldMessage
-          id={errorMessageId}
-          message={validationMessage.dateEnd}
-          status={status?.dateEnd}
-          reversed={isReversed}
-          classNameOverride={styles.fieldMessageIcon}
-        />
-      </>
-    )
   }
+
+  return (
+    <>
+      <FieldMessage
+        id={id}
+        message={validationMessage.dateStart}
+        status={status?.dateStart}
+        reversed={isReversed}
+        classNameOverride={styles.fieldMessageIcon}
+      />
+      <FieldMessage
+        id={id}
+        message={validationMessage.dateEnd}
+        status={status?.dateEnd}
+        reversed={isReversed}
+        classNameOverride={styles.fieldMessageIcon}
+      />
+    </>
+  )
 }
 
 DateRangeValidationMessage.displayName = "DateRangeValidationMessage"

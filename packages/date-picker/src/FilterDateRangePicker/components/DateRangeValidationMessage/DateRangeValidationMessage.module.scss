@@ -1,7 +1,9 @@
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .fieldMessageList {
-  margin: 0px;
-  padding-inline-start: 24px;
+  margin: $spacing-0;
+  padding-inline-start: $spacing-24;
 }
 
 // TODO: Remove once the FieldMessage component has been updated
