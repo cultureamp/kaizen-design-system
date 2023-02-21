@@ -31,6 +31,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
+    compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
       <p style={{ lineHeight: cssProperty }} className={styles.wrappedText}>

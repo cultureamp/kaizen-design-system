@@ -29,6 +29,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
+    compiledCssPropertyName="width"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
       <div className="w-100 border-solid rounded-default h-100">

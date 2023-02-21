@@ -31,6 +31,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
+    compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
       <div style={{ boxShadow: cssProperty }} className={styles.box} />

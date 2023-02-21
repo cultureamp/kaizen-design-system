@@ -31,6 +31,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
+    compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
       <table style={{ borderSpacing: cssProperty }}>

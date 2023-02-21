@@ -30,7 +30,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader
         headings={[
           "Utility Class",
-          "CSS Property",
+          "Compiled CSS",
           "Example",
           "Example (dark background)",
         ]}
@@ -39,7 +39,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <React.Fragment key={index}>
           <StoryWrapper.Row rowTitle="">
             <p className="font-family-paragraph">{utilityClassName}</p>
-            <p className="font-family-paragraph">{cssProperty}</p>
+            <p className="font-family-paragraph">color: {cssProperty}</p>
             <p
               className={classnames(
                 "font-family-paragraph",

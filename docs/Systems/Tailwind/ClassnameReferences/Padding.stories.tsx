@@ -44,6 +44,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </div>
     </Card>
     <UtilityClassTemplate
+      compiledCssPropertyName="padding"
       classKeyValues={classEntries}
       renderExampleComponent={(cssProperty): React.ReactElement => (
         <p

@@ -44,6 +44,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </div>
     </Card>
     <UtilityClassTemplate
+      compiledCssPropertyName="margin"
       classKeyValues={classEntries}
       renderExampleComponent={(cssProperty): React.ReactElement => (
         <div className="border-solid w-min rounded-default">
