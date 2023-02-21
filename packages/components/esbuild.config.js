@@ -69,12 +69,7 @@ const ESMBuild = (() => {
         ...ESMConfig,
         loader: { ...commonLoaders },
         // Handle CSS Processing:
-        plugins: [
-          sassPlugin({
-            cssImports: true,
-            transform: postcssModules({ basedir: "./dist" }, tailwindPlugins),
-          }),
-        ],
+        plugins: [...SCSSPlugins],
       })
       .catch(() => process.exit(1))
   })()
