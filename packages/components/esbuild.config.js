@@ -6,7 +6,8 @@ import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"
 import esbuild from "esbuild"
-import { ScssModulesPlugin } from "esbuild-scss-modules-plugin"
+import { sassPlugin, postcssModules } from "esbuild-sass-plugin"
+import postcss from "postcss"
 import tailwindcss from "tailwindcss"
 import glob from "tiny-glob"
 
@@ -16,22 +17,15 @@ if (!existsSync(dist)) {
   mkdirSync(dist)
 }
 
-const tailwindPlugins = [
-  postCssPlugin({
-    plugins: [tailwindcss, autoprefixer],
-  }),
-]
+const tailwindPlugins = [tailwindcss, autoprefixer]
 
 const SCSSModulesLoader = { ".scss": "copy" }
 const commonLoaders = { ".svg": "copy" }
 
-const CSSPlugins = [
-  ...tailwindPlugins,
-  ScssModulesPlugin({
-    inject: false,
-    cssCallback: css => {
-      writeFileSync(join(dist, "scss-components.css"), css)
-    },
+const SCSSPlugins = [
+  sassPlugin({
+    cssImports: true,
+    transform: postcssModules({ basedir: "./dist" }, tailwindPlugins),
   }),
 ]
 
@@ -75,7 +69,12 @@ const ESMBuild = (() => {
         ...ESMConfig,
         loader: { ...commonLoaders },
         // Handle CSS Processing:
-        plugins: [...CSSPlugins],
+        plugins: [
+          sassPlugin({
+            cssImports: true,
+            transform: postcssModules({ basedir: "./dist" }, tailwindPlugins),
+          }),
+        ],
       })
       .catch(() => process.exit(1))
   })()
@@ -118,7 +117,7 @@ const CJSBuild = (() => {
       ...CJSConfig,
       loader: { ...commonLoaders },
       // Handle CSS Processing:
-      plugins: [...CSSPlugins],
+      plugins: [...SCSSPlugins],
     })
     .catch(() => process.exit(1))
 })()
@@ -132,7 +131,11 @@ esbuild
     outfile: "./dist/tailwind.css",
     minify: true,
     bundle: true,
-    plugins: tailwindPlugins,
+    plugins: [
+      postCssPlugin({
+        plugins: [...tailwindPlugins],
+      }),
+    ],
   })
   .catch(e => {
     process.exit()
