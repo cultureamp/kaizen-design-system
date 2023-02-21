@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Spacing & Layouts/Height`,
+  title: `${CATEGORIES.tailwind}/Classname References/Spacing/Height`,
   parameters: {
     docs: {
       description: {
