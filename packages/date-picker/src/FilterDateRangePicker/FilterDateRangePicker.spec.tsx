@@ -241,6 +241,36 @@ describe("<FilterDateRangePicker />", () => {
       }, 10000)
     })
 
+    it("updates the calendar month to match the new start date input", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-02"),
+            to: new Date("2022-12-17"),
+          }}
+        />
+      )
+      await openFilter()
+
+      const inputRangeStart = screen.getByLabelText("Date from")
+      // Input Start is focused when filter is opened
+      expect(inputRangeStart).toHaveValue("02/05/2022")
+
+      expect(screen.getByText("May 2022")).toBeVisible()
+      expect(screen.getByText("June 2022")).toBeVisible()
+
+      await userEvent.clear(inputRangeStart)
+      await userEvent.type(inputRangeStart, "19/02/2020")
+
+      await userEvent.tab({ shift: true })
+
+      await waitFor(() => {
+        expect(screen.queryByText("May 2022")).not.toBeInTheDocument()
+        expect(screen.getByText("February 2020")).toBeVisible()
+        expect(screen.getByText("March 2020")).toBeVisible()
+      })
+    }, 10000)
+
     it("resets the input values if cleared from the outside", async () => {
       const Wrapper = (): JSX.Element => {
         const [selectedDateRange, setSelectedDateRange] = useState<
@@ -297,6 +327,31 @@ describe("<FilterDateRangePicker />", () => {
   })
 
   describe("Calendar", () => {
+    it("shows the default month as the start month when there isn't a selected value", async () => {
+      render(
+        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-02")} />
+      )
+      await openFilter()
+
+      expect(screen.getByText("May 2022")).toBeVisible()
+      expect(screen.getByText("June 2022")).toBeVisible()
+    })
+
+    it("shows the selected start date month as the start month when provided", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-12-17"),
+          }}
+        />
+      )
+      await openFilter()
+
+      expect(screen.getByText("May 2022")).toBeVisible()
+      expect(screen.getByText("June 2022")).toBeVisible()
+    })
+
     it("updates the range start input when changing the start date", async () => {
       render(
         <FilterDateRangePickerWrapper
