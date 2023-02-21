@@ -226,7 +226,8 @@ const StickerSheetTemplate: Story = () => {
     })
     addToastNotification({
       type: "positive",
-      title: "VerylongTitleExampleVerylongtitleExample ",
+      title:
+        "Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample ",
       automationId: "notification1",
       message: (
         <>
@@ -236,7 +237,7 @@ const StickerSheetTemplate: Story = () => {
           Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
         </>
       ),
-      autohide: !IS_CHROMATIC,
+      autohide: false,
     })
   })
   return <></>
