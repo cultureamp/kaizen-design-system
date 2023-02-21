@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import { DateRangeValidationMessage } from "./DateRangeValidationMessage"
 
 describe("<DateRangeValidationMessage />", () => {
@@ -32,6 +32,12 @@ describe("<DateRangeValidationMessage />", () => {
           }}
         />
       )
+      const validationList = screen.getByRole("list")
+      const { getAllByRole } = within(validationList)
+      const items = getAllByRole("listitem")
+
+      expect(items.length).toBe(2)
+
       expect(container.getElementsByClassName("error").length).toBe(1)
     })
     describe("will render two validation field messages", () => {
