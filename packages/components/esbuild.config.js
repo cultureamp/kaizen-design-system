@@ -20,7 +20,7 @@ const tailwindPlugins = [
   }),
 ]
 
-const commonLoaders = { ".scss": "copy" }
+const commonLoaders = { ".scss": "copy", ".svg": "copy" }
 const commonPlugins = [...tailwindPlugins]
 
 // esm output bundles with code splitting
@@ -62,18 +62,18 @@ esbuild
   .catch(() => process.exit(1))
 
 // an entry file for cjs at the root of the bundle
-writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
-writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
+// writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
+// writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
 
 // an entry file for esm at the root of the bundle
-writeFileSync(
-  join(dist, "index.cjs.js"),
-  "module.exports = require('./cjs/index.cjs.js');"
-)
-writeFileSync(
-  join(dist, "future.cjs.js"),
-  "module.exports = require('./cjs/future.cjs.js');"
-)
+// writeFileSync(
+//   join(dist, "index.cjs.js"),
+//   "module.exports = require('./cjs/index.cjs.js');"
+// )
+// writeFileSync(
+//   join(dist, "future.cjs.js"),
+//   "module.exports = require('./cjs/future.cjs.js');"
+// )
 
 // Tailwind build
 esbuild
