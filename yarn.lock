@@ -16326,10 +16326,10 @@ raw-loader@^4.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-react-animate-height@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.1.0.tgz#f7def40acfe857f936621fe9d7bad601467d0e31"
-  integrity sha512-+0pW2OzB8PzVn10dpTB9q5jFI+GwQTnCDLbzyqPBUzKXJfpBrlWW954uud/59Mreo+laRN/fPzvckuA+WTptXA==
+react-animate-height@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.1.1.tgz#3e324c417a5d18afcdd78d2ad71108c14868a28b"
+  integrity sha512-UkC6+V3ZlCneBRaSM7aUctDJ+PRP6ztcGtxvU7MTeoMMWPhz8BQNaX7QWaZrkzp1ih1G8uZZ+DI9nfLvtD6OdQ==
 
 react-clientside-effect@^1.2.6:
   version "1.2.6"
