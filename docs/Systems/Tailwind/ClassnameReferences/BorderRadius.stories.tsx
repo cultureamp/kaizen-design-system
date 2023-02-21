@@ -6,9 +6,9 @@ import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
 import { utilityDescription } from "../helpers/utilityDescription"
 import styles from "./styles.module.scss"
 
-const prefix = "border-"
+const prefix = "rounded-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
+  Object.entries(kaizenTailwindTheme?.borderRadius || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -16,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Width`,
+  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Radius`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -31,11 +31,11 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-width"
+    compiledCssPropertyName="border-radius"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
       <div
-        style={{ borderWidth: cssProperty }}
+        style={{ borderRadius: cssProperty }}
         className={styles.boxWithBorder}
       />
     )}
@@ -44,5 +44,5 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Width"
+StickerSheetDefault.storyName = "Border Radius"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
