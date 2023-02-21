@@ -1,5 +1,6 @@
 // @ts-nocheck
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { join } from "path"
 import postCssPlugin from "@deanc/esbuild-plugin-postcss"
@@ -24,7 +25,7 @@ const commonLoaders = { ".scss": "copy", ".svg": "copy" }
 const commonPlugins = [...tailwindPlugins]
 
 // esm output bundles with code splitting
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
 ;(async () => {
   const entryPoints = await glob("./src/**/*.ts")
   await esbuild
@@ -61,20 +62,6 @@ esbuild
   })
   .catch(() => process.exit(1))
 
-// an entry file for cjs at the root of the bundle
-// writeFileSync(join(dist, "index.js"), "export * from './esm/index.js';")
-// writeFileSync(join(dist, "future.js"), "export * from './esm/future.js';")
-
-// an entry file for esm at the root of the bundle
-// writeFileSync(
-//   join(dist, "index.cjs.js"),
-//   "module.exports = require('./cjs/index.cjs.js');"
-// )
-// writeFileSync(
-//   join(dist, "future.cjs.js"),
-//   "module.exports = require('./cjs/future.cjs.js');"
-// )
-
 // Tailwind build
 esbuild
   .build({
@@ -87,3 +74,17 @@ esbuild
   .catch(e => {
     process.exit()
   })
+;(async () => {
+  const entryPoints = await glob("./node_modules/@kaizen/**/*.scss")
+  await esbuild
+    .build({
+      entryPoints,
+      outfile: "./dist/variables.scss",
+      minify: true,
+      bundle: true,
+      loader: { ".scss": "copy" },
+    })
+    .catch(e => {
+      process.exit()
+    })
+})()
