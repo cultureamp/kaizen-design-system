@@ -22,15 +22,22 @@ export const UtilityClassTemplate = ({
   const [copiedText, setCopiedText] = useState<null | string>(null)
 
   return (
-    <StickerSheet isReversed={isReversed} border={1} frame={false} rules="rows">
+    <StickerSheet
+      className="border-none"
+      isReversed={isReversed}
+      border={1}
+      frame={false}
+      rules="rows"
+    >
       <StickerSheet.Header
+        className="border-transparent border-b-gray-400 border-solid"
         headings={["Utility Class", "Compiled CSS", "Example"]}
       />
       {classKeyValues.map((presetData, index) => {
         const { utilityClassName, cssProperty } = presetData
 
         return (
-          <StickerSheet.Row rowTitle="">
+          <StickerSheet.Row rowTitle="" className="border-gray-400">
             <div className="mr-32">
               <CodeSnippet
                 text={utilityClassName}
