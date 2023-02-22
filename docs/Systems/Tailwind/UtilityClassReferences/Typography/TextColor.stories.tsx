@@ -31,7 +31,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div className="flex items-center">
+      <div className="flex items-center h-100">
         <p
           className={classnames(
             "font-family-paragraph p-8 rounded-default font-weight-display text-heading-3 m-0 mr-16"
