@@ -7,27 +7,6 @@ import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.ic
 import { Paragraph } from "@kaizen/typography"
 import styles from "./FieldMessage.module.scss"
 
-const ErrorIcon = (): JSX.Element => (
-  <span className={styles.warningIcon}>
-    <Icon
-      icon={errorWhiteIcon}
-      title="Error message"
-      role="img"
-      inheritSize={false}
-    />
-  </span>
-)
-const CautionIcon = (): JSX.Element => (
-  <span className={styles.warningIcon}>
-    <Icon
-      icon={cautionWhiteIcon}
-      title="Cautionary message"
-      role="img"
-      inheritSize={false}
-    />
-  </span>
-)
-
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
 export interface FieldMessageProps
@@ -69,8 +48,16 @@ export const FieldMessage = ({
       })}
       {...restProps}
     >
-      {status === "error" && <ErrorIcon />}
-      {status === "caution" && <CautionIcon />}
+      {(status === "error" || status === "caution") && (
+        <span className={styles.warningIcon}>
+          <Icon
+            icon={status === "error" ? errorWhiteIcon : cautionWhiteIcon}
+            title={`${status} message`}
+            role="img"
+            inheritSize={false}
+          />
+        </span>
+      )}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}
