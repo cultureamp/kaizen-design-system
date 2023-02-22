@@ -3,11 +3,11 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Card } from "@kaizen/draft-card"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../../storybook/constants"
+import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Modifiers/Pseudo Selectors`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Modifiers/Pseudo Selectors`,
   parameters: {
     docs: {
       description: {

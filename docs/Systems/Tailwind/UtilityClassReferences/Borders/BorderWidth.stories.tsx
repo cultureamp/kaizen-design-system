@@ -1,14 +1,14 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
-import styles from "./styles.module.scss"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
+import styles from "../styles.module.scss"
 
 const prefix = "border-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.spacing || []).map(
+  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -16,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Spacing`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Borders/Border Width`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -31,24 +31,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-spacing"
+    compiledCssPropertyName="border-width"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <table style={{ borderSpacing: cssProperty }}>
-        <tr>
-          <td className={styles.outlined}>Tutant</td>
-          <td className={styles.outlined}>Meenage</td>
-        </tr>
-        <tr>
-          <td className={styles.outlined}>Neetle</td>
-          <td className={styles.outlined}>Teetles</td>
-        </tr>
-      </table>
+      <div
+        style={{ borderWidth: cssProperty }}
+        className={styles.boxWithBorder}
+      />
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Spacing"
+StickerSheetDefault.storyName = "Border Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

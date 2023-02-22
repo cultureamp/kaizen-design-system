@@ -1,13 +1,13 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "font-"
+const prefix = "w-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.fontWeight || []).map(
+  Object.entries(kaizenTailwindTheme?.width || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,8 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/ClassName References/Typography/Font Weight`,
-  component: <div>Hello</div>,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Spacing/Width`,
   parameters: {
     docs: {
       description: {
@@ -30,17 +29,26 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="font-weight"
+    compiledCssPropertyName="width"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <p className="font-family-paragraph" style={{ fontWeight: cssProperty }}>
-        Aa
-      </p>
+      <div className="w-100 border-solid rounded-default h-100">
+        <div
+          className="h-100 flex items-center bg-blue-400"
+          style={{ width: cssProperty }}
+        >
+          {cssProperty.includes("content") ? (
+            <div className="font-family-paragraph bg-blue-100 p-4 border-dashed border-w-[1px]">
+              Inner content
+            </div>
+          ) : null}
+        </div>
+      </div>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Weight"
+StickerSheetDefault.storyName = "Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

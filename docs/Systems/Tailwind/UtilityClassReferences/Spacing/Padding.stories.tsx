@@ -2,9 +2,9 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "p-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -16,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Spacing/Padding`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Spacing/Padding`,
   parameters: {
     docs: {
       description: {

@@ -1,15 +1,14 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
-import styles from "./styles.module.scss"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
+import styles from "../styles.module.scss"
 
-const prefix = "leading-"
+const prefix = "rounded-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.lineHeight || []).map(
+  Object.entries(kaizenTailwindTheme?.borderRadius || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -17,7 +16,8 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Typography/Line Height`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Borders/Border Radius`,
+  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
@@ -31,17 +31,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="line-height"
+    compiledCssPropertyName="border-radius"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <p style={{ lineHeight: cssProperty }} className={styles.wrappedText}>
-        Tutant Meenage Neetle Teetles
-      </p>
+      <div
+        style={{ borderRadius: cssProperty }}
+        className={styles.boxWithBorder}
+      />
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Line Height"
+StickerSheetDefault.storyName = "Border Radius"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

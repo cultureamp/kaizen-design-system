@@ -1,14 +1,15 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
-import styles from "./styles.module.scss"
+import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
+import styles from "../styles.module.scss"
 
-const prefix = "shadow-"
+const prefix = "leading-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.boxShadow || []).map(
+  Object.entries(kaizenTailwindTheme?.lineHeight || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -16,8 +17,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Effects/Box Shadow`,
-  component: <div>Hello</div>,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Typography/Line Height`,
   parameters: {
     docs: {
       description: {
@@ -31,15 +31,17 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="box-shadow"
+    compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div style={{ boxShadow: cssProperty }} className={styles.box} />
+      <p style={{ lineHeight: cssProperty }} className={styles.wrappedText}>
+        Tutant Meenage Neetle Teetles
+      </p>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Box Shadow"
+StickerSheetDefault.storyName = "Line Height"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

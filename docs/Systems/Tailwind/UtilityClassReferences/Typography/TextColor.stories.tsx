@@ -2,17 +2,17 @@ import React from "react"
 import { Story } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { flattenEntries } from "../helpers/flatten-entries"
-import { utilityDescription } from "../helpers/utilityDescription"
-import styles from "./styles.module.scss"
+import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { flattenEntries } from "../../helpers/flatten-entries"
+import { utilityDescription } from "../../helpers/utilityDescription"
+import styles from "../styles.module.scss"
 
 const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Typography/Text Color`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Typography/Text Color`,
   parameters: {
     docs: {
       description: {

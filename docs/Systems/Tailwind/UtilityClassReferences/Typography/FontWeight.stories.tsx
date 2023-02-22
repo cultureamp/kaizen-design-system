@@ -1,14 +1,13 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../storybook/constants"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
-import { utilityDescription } from "../helpers/utilityDescription"
-import styles from "./styles.module.scss"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "rounded-"
+const prefix = "font-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderRadius || []).map(
+  Object.entries(kaizenTailwindTheme?.fontWeight || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -16,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Classname References/Borders/Border Radius`,
+  title: `${CATEGORIES.tailwind}/Utility Class References/Typography/Font Weight`,
   component: <div>Hello</div>,
   parameters: {
     docs: {
@@ -31,18 +30,17 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-radius"
+    compiledCssPropertyName="font-weight"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div
-        style={{ borderRadius: cssProperty }}
-        className={styles.boxWithBorder}
-      />
+      <p className="font-family-paragraph" style={{ fontWeight: cssProperty }}>
+        Aa
+      </p>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Radius"
+StickerSheetDefault.storyName = "Font Weight"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
