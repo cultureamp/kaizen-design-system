@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { Story } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
