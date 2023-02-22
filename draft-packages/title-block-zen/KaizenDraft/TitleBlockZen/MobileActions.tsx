@@ -5,6 +5,8 @@ import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
+
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
@@ -13,77 +15,88 @@ import {
   SecondaryActionsProps,
   TitleBlockMenuItemProps,
   convertSecondaryActionsToMenuItems,
+  DefaultActionProps,
 } from "./TitleBlockZen"
 import styles from "./MobileActions.module.scss"
 
-const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
-  "href" in action
-const buttonIsAction: (action: TitleBlockButtonProps) => boolean = action =>
-  !("href" in action) && "onClick" in action
+const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = item =>
+  "href" in item || (!("component" in item) && typeof item.action === "string")
 
-const renderPrimaryLinks = (
-  primaryAction: PrimaryActionProps
+const defaultActionIsLink: (action: DefaultActionProps) => boolean = action =>
+  "href" in action
+
+const defaultActionIsButton: (action: DefaultActionProps) => boolean = action =>
+  (!("href" in action) && "onClick" in action) || "component" in action
+
+const filterActions = (
+  menuItems: TitleBlockMenuItemProps[],
+  filterType: "link" | "action"
+): TitleBlockMenuItemProps[] =>
+  menuItems.filter(item => {
+    if (filterType === "link") {
+      return menuItemIsLink(item)
+    }
+    if (filterType === "action") return !menuItemIsLink(item)
+  })
+
+/** Returns a filtered array of TitleBlockMenuItem based on actionType
+ * This is use to sort a selectively render the action into a specifc order
+ */
+const renderPrimaryActionDrawerContent = (
+  primaryAction: PrimaryActionProps,
+  actionType: "link" | "action"
 ): JSX.Element[] | null | undefined => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
-    return primaryAction.menuItems
-      .filter(item => typeof item.action === "string")
-      .map((item, idx) => (
-        <MenuItem
+    const filteredActions = filterActions(primaryAction.menuItems, actionType)
+    return filteredActions.map((item, idx) => {
+      const itemType = menuItemIsLink(item) ? "link" : "action"
+
+      return (
+        <TitleBlockMenuItem
           {...item}
-          key={`title-block-mobile-actions-primary-link-${idx}`}
-          automationId={`title-block-mobile-actions-primary-link-${idx}`}
-        />
-      ))
-  }
-}
-
-const renderPrimaryActions = (
-  primaryAction: PrimaryActionProps
-): JSX.Element[][] | undefined => {
-  if (
-    isMenuGroupNotButton(primaryAction) &&
-    primaryAction.menuItems.length > 0
-  ) {
-    return [
-      primaryAction.menuItems
-        .filter(item => typeof item.action !== "string")
-        .map((item, idx) => (
-          <MenuItem
-            {...item}
-            key={`title-block-mobile-actions-primary-action-${idx}`}
-            automationId={`title-block-mobile-actions-primary-action-${idx}`}
-          />
-        )),
-    ]
-  }
-}
-
-const renderDefaultLinkOrAction = (
-  defaultAction: TitleBlockButtonProps,
-  kind: "action" | "link"
-): JSX.Element | undefined => {
-  if (kind === "action" && buttonIsAction(defaultAction)) {
-    return (
-      defaultAction.onClick && (
-        <MenuItem
-          action={defaultAction.onClick}
-          label={defaultAction.label}
-          icon={defaultAction.icon}
-          disabled={defaultAction.disabled}
-          automationId="title-block-mobile-actions-default-action"
+          key={`title-block-mobile-actions-primary-${itemType}-${idx}`}
+          automationId={`title-block-mobile-actions-primary-${itemType}-${idx}`}
         />
       )
+    })
+  }
+}
+
+const renderDefaultLink = (
+  defaultAction: DefaultActionProps
+): JSX.Element | undefined => {
+  if (!defaultActionIsLink(defaultAction)) return
+  if ("component" in defaultAction) {
+    return (
+      <TitleBlockMenuItem
+        {...defaultAction}
+        key={"title-block-mobile-actions-default-link"}
+        automationId="title-block-mobile-actions-default-link"
+      />
     )
   }
-  if (kind === "link" && buttonIsLink(defaultAction) && defaultAction.href) {
+  return (
+    <MenuItem
+      href={defaultAction.href}
+      label={defaultAction.label}
+      icon={defaultAction.icon}
+      disabled={defaultAction.disabled}
+      key={"title-block-mobile-actions-default-link"}
+      automationId="title-block-mobile-actions-default-link"
+    />
+  )
+}
+
+const renderDefaultAction = (
+  defaultAction: DefaultActionProps
+): JSX.Element | undefined => {
+  if (!defaultActionIsLink(defaultAction)) {
     return (
-      <MenuItem
-        action={defaultAction.href}
-        label={defaultAction.label}
-        icon={defaultAction.icon}
-        disabled={defaultAction.disabled}
-        automationId="title-block-mobile-actions-default-link"
+      <TitleBlockMenuItem
+        {...defaultAction}
+        key={"title-block-mobile-actions-default-action"}
+        automationId="title-block-mobile-actions-default-action"
       />
     )
   }
@@ -97,7 +110,7 @@ const renderSecondaryActions = (
     convertSecondaryActionsToMenuItems(secondaryActions)
 
   return secondaryActionMenuItems.map((item, idx) => (
-    <MenuItem
+    <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-secondary-action-${idx}`}
       automationId={"title-block-mobile-actions-secondary-action"}
@@ -109,7 +122,7 @@ const renderSecondaryOverflowMenuItems = (
   secondaryOverflowMenuItems: TitleBlockMenuItemProps[]
 ): JSX.Element[] =>
   secondaryOverflowMenuItems.map((item, idx) => (
-    <MenuItem
+    <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
       automationId={"title-block-mobile-actions-overflow-menu-item"}
@@ -118,7 +131,7 @@ const renderSecondaryOverflowMenuItems = (
 
 type DrawerMenuContentProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
 }
@@ -130,22 +143,24 @@ const DrawerMenuContent = ({
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps): JSX.Element => {
   const showOtherActionsHeading =
-    (defaultAction && buttonIsAction(defaultAction)) ||
+    (defaultAction && defaultActionIsButton(defaultAction)) ||
     secondaryActions ||
     secondaryOverflowMenuItems
 
   return (
     <>
       <MenuList>
-        {primaryAction && renderPrimaryLinks(primaryAction)}
-        {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
-        {primaryAction && renderPrimaryActions(primaryAction)}
+        {primaryAction &&
+          renderPrimaryActionDrawerContent(primaryAction, "link")}
+        {defaultAction && renderDefaultLink(defaultAction)}
+        {primaryAction &&
+          renderPrimaryActionDrawerContent(primaryAction, "action")}
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
           heading={showOtherActionsHeading ? "Other actions" : undefined}
         >
-          {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
+          {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
           {secondaryOverflowMenuItems &&
             renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
@@ -200,12 +215,12 @@ const renderDrawerHandleLabel = (
 }
 
 type HrefAndOnClick = Pick<TitleBlockButtonProps, "href" | "onClick">
-
+type ButtonOrLinkActionProps =
+  | HrefAndOnClick
+  | TitleBlockButtonProps["href"]
+  | TitleBlockButtonProps["onClick"]
 type ButtonOrLinkProps = {
-  action?:
-    | TitleBlockButtonProps["href"]
-    | TitleBlockButtonProps["onClick"]
-    | HrefAndOnClick
+  action?: ButtonOrLinkActionProps
   children: React.ReactNode
 }
 
@@ -270,13 +285,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
 
 const getAction = (
   primaryAction: TitleBlockButtonProps
-):
-  | {
-      href: TitleBlockButtonProps["href"]
-      onClick: TitleBlockButtonProps["onClick"]
-    }
-  | TitleBlockButtonProps["href"]
-  | TitleBlockButtonProps["onClick"] => {
+): ButtonOrLinkActionProps => {
   if (primaryAction && !primaryAction.disabled) {
     if (primaryAction.onClick && primaryAction.href) {
       return {
@@ -298,7 +307,7 @@ const getAction = (
 type DrawerHandleProps = {
   primaryAction: PrimaryActionProps | undefined
   secondaryActions: SecondaryActionsProps | undefined
-  defaultAction?: TitleBlockButtonProps | MenuGroup
+  defaultAction?: DefaultActionProps | MenuGroup
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
   toggleDisplay: () => void
@@ -353,7 +362,22 @@ const DrawerHandle = ({
           })}
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
-          {
+          {"component" in primaryAction ? (
+            <primaryAction.component
+              className={classnames(
+                styles.mobileActionsPrimaryLabel,
+                styles.mobileActionsPrimaryButton
+              )}
+              {...primaryAction}
+            >
+              {primaryAction.label &&
+                renderDrawerHandleLabel(
+                  primaryAction.label,
+                  primaryAction.icon,
+                  drawerHandleLabelIconPosition
+                )}
+            </primaryAction.component>
+          ) : (
             <ButtonOrLink action={getAction(primaryAction)}>
               {renderDrawerHandleLabel(
                 primaryAction.label,
@@ -361,7 +385,7 @@ const DrawerHandle = ({
                 drawerHandleLabelIconPosition
               )}
             </ButtonOrLink>
-          }
+          )}
 
           {/* If there are no secondary etc. actions, just show the button without drawer */}
           {showDrawer && (
@@ -412,7 +436,7 @@ const DrawerHandle = ({
 
 export type MobileActionsProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
@@ -436,18 +460,6 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
     } = this.props
 
     this.toggleDisplay = this.toggleDisplay.bind(this)
-
-    // If things are disabled, strip hrefs/onClicks
-    const newPrimaryAction =
-      primaryAction &&
-      "disabled" in primaryAction &&
-      primaryAction.disabled &&
-      "href" in primaryAction
-        ? {
-            ...primaryAction,
-            href: "",
-          }
-        : primaryAction
 
     return (
       <div
