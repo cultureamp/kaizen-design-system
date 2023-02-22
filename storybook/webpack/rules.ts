@@ -1,10 +1,10 @@
 // Call the pre-build script -- used for validation, setup, etc.
 import "../pre-build"
-import { resolve } from "path"
+import postcssPresetEnv from "postcss-preset-env"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
 import { browsersList } from "./browserslist"
 
-const isEnabled = require("./isEnabled")
+require("./isEnabled")
 
 export const babel: RuleSetRule = {
   test: /\.(j|t)sx?$/,
@@ -22,17 +22,14 @@ export const stylePreprocessors: RuleSetUseItem[] = [
           require("postcss-import"),
           require("tailwindcss/nesting"),
           require("tailwindcss"),
-          [
-            require("postcss-preset-env"),
-            {
-              autoprefixer: {
-                flexbox: "no-2009",
-                grid: "no-autoplace",
-              },
-              browsers: browsersList,
-              stage: 3,
+          postcssPresetEnv({
+            autoprefixer: {
+              flexbox: "no-2009",
+              grid: "no-autoplace",
             },
-          ],
+            browsers: browsersList,
+            stage: 3,
+          }),
         ],
       },
     },
