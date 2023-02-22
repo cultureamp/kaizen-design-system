@@ -1,6 +1,7 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { CustomButtonProps } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -58,7 +59,6 @@ const SECONDARY_ACTIONS = [
   },
   {
     onClick: (): void => alert("test"),
-    href: "foo",
     label: "Secondary action",
   },
 ]
@@ -1099,6 +1099,11 @@ export const RenderProps: Story = () => {
             </a>
           ),
         }}
+        secondaryActions={SECONDARY_ACTIONS}
+        defaultAction={{
+          href: "#",
+          label: "Default action",
+        }}
         breadcrumb={{
           path: "#",
           text: "Back to home",
@@ -1149,3 +1154,139 @@ export const WithCustomSectionTitle: Story = () => {
 }
 WithCustomSectionTitle.storyName = "With custom section title"
 WithCustomSectionTitle.parameters = { chromatic: { disable: false } }
+
+RenderProps.storyName = "Navigation tabs with render props"
+
+/** A mock implementation of Next.js's Link types */
+type MockRouterPropsType = {
+  href: string | undefined
+  as?: string
+  replace?: boolean
+  scroll?: boolean
+  shallow?: boolean
+  passHref?: boolean
+  prefetch?: boolean
+  locale?: string | false
+  legacyBehavior?: boolean
+  onMouseEnter?: (e: any) => void
+  onTouchStart?: (e: any) => void
+  onClick?: (e: any) => void
+  children?: ReactNode
+  automationId?: string
+}
+/** A mock implementation of Next.js's Link component */
+const MockRouterLink = ({
+  href,
+  automationId,
+  children,
+  ...otherProps
+}: MockRouterPropsType): JSX.Element => (
+  <button
+    {...otherProps}
+    // this is in place of using Link's `to` prop
+    onClick={(): void => alert(`Mock route change to ${href}`)}
+    data-automation-id={automationId}
+  >
+    {children}
+  </button>
+)
+
+export const ActionRenderProps: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default action",
+        // if you want to use sort your custom components in the top half for with links
+        // you will need to pass href in like this
+        href: "#default",
+        icon: starIcon,
+        // while this *could* take children it would not be able to use the custom button's
+        // `renderContent` for label and icon styling. If you do use children here you will
+        // have to byo styles
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary action",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        component: props => <MockRouterLink href="#primary" {...props} />,
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+ActionRenderProps.storyName = "Custom actions with component render props"
+
+export const MenuHierarchyExample: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default link action",
+        href: "#default",
+        icon: starIcon,
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary actions",
+        menuItems: [
+          {
+            label: "Component prop with link 1",
+
+            href: "#priamry-2",
+            component: props => <MockRouterLink href={props.href} {...props} />,
+          },
+          {
+            label: "Component prop with link 2",
+            href: "#priamry-3",
+            component: props => <a {...props}>{props.children}</a>,
+          },
+          // on mobile, anything not supplied an href will be sorted below the default (link) action
+          // to match to the existing pattern of link on top, actions on bottom. See "Default
+          // with content" Story for example.
+          {
+            label: "Component prop with onclick",
+            icon: reportSharingIcon,
+            iconPosition: "end",
+            onClick: (): void => alert("a primary action"),
+            component: props => <button {...props} />,
+          },
+        ],
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+MenuHierarchyExample.storyName =
+  "Sorting menu list actions using component render props"

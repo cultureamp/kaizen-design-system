@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "Kaizen component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -57,7 +57,7 @@
     "@kaizen/draft-tabs": "^5.2.24",
     "@kaizen/draft-tag": "^3.3.3",
     "@kaizen/draft-tile": "^5.9.24",
-    "@kaizen/draft-title-block-zen": "^7.8.5",
+    "@kaizen/draft-title-block-zen": "^7.9.0",
     "@kaizen/draft-tooltip": "^5.4.26",
     "@kaizen/draft-well": "^4.3.3",
     "@kaizen/hosted-assets": "^2.0.1",
