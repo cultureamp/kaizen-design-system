@@ -7,7 +7,7 @@ import postCssPlugin from "@deanc/esbuild-plugin-postcss"
 import autoprefixer from "autoprefixer"
 import esbuild from "esbuild"
 import tailwindcss from "tailwindcss"
-import glob from "tiny-glob"
+// import glob from "tiny-glob"
 
 const dist = join(process.cwd(), "dist")
 
@@ -24,27 +24,27 @@ const tailwindPlugins = [
 const commonLoaders = { ".scss": "copy", ".svg": "copy" }
 const commonPlugins = [...tailwindPlugins]
 
-// esm output bundles with code splitting
-
-;(async () => {
-  const entryPoints = await glob("./src/**/*.ts")
-  await esbuild
-    .build({
-      entryPoints,
-      outdir: "dist/esm",
-      bundle: true,
-      sourcemap: true,
-      minify: true,
-      splitting: true,
-      format: "esm",
-      define: { global: "window" },
-      target: ["esnext"],
-      external: ["react", "react-dom"],
-      loader: { ...commonLoaders },
-      plugins: [...commonPlugins],
-    })
-    .catch(() => process.exit(1))
-})()
+// Temporarily disabling ESM bundling due to unknown solution to remove `require`.
+// Marking this as out of scope, but keeping the config here for future debugging.
+// ;(async () => {
+//   const entryPoints = await glob("./src/**/*.ts")
+//   await esbuild
+//     .build({
+//       entryPoints,
+//       outdir: "dist/esm",
+//       bundle: true,
+//       sourcemap: true,
+//       minify: true,
+//       splitting: true,
+//       format: "esm",
+//       define: { global: "window" },
+//       target: ["esnext"],
+//       external: ["react", "react-dom"],
+//       loader: { ...commonLoaders },
+//       plugins: [...commonPlugins],
+//     })
+//     .catch(() => process.exit(1))
+// })()
 
 // cjs output bundle
 esbuild
