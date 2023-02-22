@@ -48,7 +48,7 @@ describe("<DateRangeInputField />", () => {
         status={{
           dateStart: "error",
         }}
-        validationMessage="Date Start has an error"
+        validationMessage={{ dateStart: "Date Start has an error" }}
       />
     )
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
