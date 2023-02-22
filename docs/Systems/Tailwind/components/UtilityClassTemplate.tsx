@@ -54,7 +54,7 @@ export const UtilityClassTemplate = ({
             </StickerSheet.Row>
           )
         })}
-        <div className="absolute top-0 left-0">
+        <div className="fixed top-[10px] left-[10px]">
           {copiedText && (
             <InlineNotification
               type="positive"
