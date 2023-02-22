@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
 
 afterEach(cleanup)
@@ -51,5 +51,13 @@ describe("<FieldMessage />", () => {
     const { container } = renderFieldMessage({ status: "error" })
 
     expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Error message"))
+  })
+
+  it("should render a warning icon with an error status", () => {
+    const { container } = renderFieldMessage({ status: "caution" })
+
+    expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Caution message"))
   })
 })
