@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 
-import { UtilityClass } from "./UtilityClass"
+import { CodeSnippet } from "./CodeSnippet"
 
 type Props = {
   compiledCssPropertyName: string
@@ -25,7 +25,7 @@ export const UtilityClassTemplate = ({
 
       return (
         <StoryWrapper.Row rowTitle="">
-          <UtilityClass utilityClassName={utilityClassName} />
+          <CodeSnippet text={utilityClassName} />
           <p className="font-family-paragraph">
             {compiledCssPropertyName}: {cssProperty}
           </p>

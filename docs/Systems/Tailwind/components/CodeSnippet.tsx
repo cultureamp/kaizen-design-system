@@ -4,27 +4,25 @@ import clipboardChecked from "@kaizen/component-library/icons/closed.icon.svg"
 import clipboard from "@kaizen/component-library/icons/surveys.icon.svg"
 
 type Props = {
-  utilityClassName: string
+  text: string
 }
 
-export const UtilityClass = ({
-  utilityClassName,
-}: Props): React.ReactElement => {
+export const CodeSnippet = ({ text }: Props): React.ReactElement => {
   const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
-    navigator.clipboard.writeText(utilityClassName)
+    navigator.clipboard.writeText(text)
     setCopyIconIsChecked(true)
   }
 
   return (
     <button
       className="flex bg-[#00182e] h-min rounded-default justify-between items-center px-12 border-none cursor-pointer"
-      onClick={(): void => handleCopy(utilityClassName)}
+      onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >
-      <p className="font-family-paragraph text-white">{utilityClassName}</p>
+      <p className="font-family-paragraph text-white">{text}</p>
       <Icon
-        color="white"
+        color={copyIconIsChecked ? "#18d992" : "white"}
         icon={copyIconIsChecked ? clipboardChecked : clipboard}
       />
     </button>
