@@ -16,6 +16,7 @@ const openFilter = async (): Promise<void> => {
 const FilterDateRangePickerWrapper = ({
   selectedRange,
   status,
+  validationMessage,
   ...restProps
 }: Partial<FilterDateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<
