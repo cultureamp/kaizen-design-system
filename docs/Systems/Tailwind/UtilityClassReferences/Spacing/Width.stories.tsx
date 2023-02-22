@@ -32,13 +32,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     compiledCssPropertyName="width"
     classKeyValues={classEntries}
     renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div className="w-100 border-solid rounded-default h-100">
+      <div className="w-100 border-solid rounded-default">
         <div
-          className="h-100 flex items-center bg-blue-400"
+          className="h-100 min-h-[50px] flex items-center bg-blue-400"
           style={{ width: cssProperty }}
         >
           {cssProperty.includes("content") ? (
-            <div className="font-family-paragraph bg-blue-100 p-4 border-dashed border-w-[1px]">
+            <div className="my-12 font-family-paragraph bg-blue-100 p-4 border-dashed border-w-[1px]">
               Inner content
             </div>
           ) : null}
