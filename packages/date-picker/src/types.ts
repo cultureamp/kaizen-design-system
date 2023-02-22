@@ -82,7 +82,7 @@ export type DateStartValidationProps = Omit<
   CommonFilterDateRangePickerProps,
   "status" | "validationMessage"
 > & {
-  status: { dateStart: "success" | "error" | "caution"; dateEnd?: undefined }
+  status: { dateStart: FieldMessageStatus; dateEnd?: undefined }
   validationMessage: { dateStart: React.ReactNode }
 }
 
@@ -90,7 +90,7 @@ export type DateEndValidationProps = Omit<
   CommonFilterDateRangePickerProps,
   "status" | "validationMessage"
 > & {
-  status: { dateStart?: undefined; dateEnd: "success" | "error" | "caution" }
+  status: { dateStart?: undefined; dateEnd: FieldMessageStatus }
   validationMessage: { dateEnd: React.ReactNode }
 }
 
@@ -99,8 +99,8 @@ export type DateRangeValidationProps = Omit<
   "status" | "validationMessage"
 > & {
   status: {
-    dateStart: "success" | "error" | "caution"
-    dateEnd: "success" | "error" | "caution"
+    dateStart: FieldMessageStatus
+    dateEnd: FieldMessageStatus
   }
   validationMessage: { dateStart: React.ReactNode; dateEnd: React.ReactNode }
 }
