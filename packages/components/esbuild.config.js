@@ -74,17 +74,3 @@ esbuild
   .catch(e => {
     process.exit()
   })
-;(async () => {
-  const entryPoints = await glob("./node_modules/@kaizen/**/*.scss")
-  await esbuild
-    .build({
-      entryPoints,
-      outfile: "./dist/variables.scss",
-      minify: true,
-      bundle: true,
-      loader: { ".scss": "copy" },
-    })
-    .catch(e => {
-      process.exit()
-    })
-})()
