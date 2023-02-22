@@ -23,7 +23,7 @@ export const UtilityClassTemplate = ({
 
   return (
     <StickerSheet
-      className="border-none"
+      className="border-none w-100"
       isReversed={isReversed}
       border={1}
       frame={false}
@@ -38,7 +38,7 @@ export const UtilityClassTemplate = ({
 
         return (
           <StickerSheet.Row rowTitle="" className="border-gray-400">
-            <div className="mr-32">
+            <div className="mr-32 min-w-max max-w-[300px]">
               <CodeSnippet
                 text={utilityClassName}
                 onCopy={(text: string): void => setCopiedText(text)}
