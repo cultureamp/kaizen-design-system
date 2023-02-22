@@ -2,15 +2,26 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import cautionWhiteIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
+import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./FieldMessage.module.scss"
 
-const WarningIcon = (): JSX.Element => (
+const ErrorIcon = (): JSX.Element => (
   <span className={styles.warningIcon}>
     <Icon
-      icon={exclamationWhiteIcon}
+      icon={errorWhiteIcon}
       title="Error message"
+      role="img"
+      inheritSize={false}
+    />
+  </span>
+)
+const CautionIcon = (): JSX.Element => (
+  <span className={styles.warningIcon}>
+    <Icon
+      icon={cautionWhiteIcon}
+      title="Cautionary message"
       role="img"
       inheritSize={false}
     />
@@ -58,7 +69,8 @@ export const FieldMessage = ({
       })}
       {...restProps}
     >
-      {(status === "error" || status === "caution") && <WarningIcon />}
+      {status === "error" && <ErrorIcon />}
+      {status === "caution" && <CautionIcon />}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}
