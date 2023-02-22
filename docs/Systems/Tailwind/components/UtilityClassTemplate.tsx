@@ -48,6 +48,7 @@ export const UtilityClassTemplate = ({
             type="positive"
             hideCloseIcon
             autohide
+            onHide={(): void => setCopiedText(null)}
             title="Copied to clipboard: "
           >
             {copiedText}
