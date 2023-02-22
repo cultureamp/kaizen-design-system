@@ -152,9 +152,10 @@ const StickerSheetTemplate: Story<{
               status={{
                 dateStart: "error",
               }}
-              validationMessage={
-                '"Date from" cannot be after the "Date to" selection.'
-              }
+              validationMessage={{
+                dateStart:
+                  '"Date from" cannot be after the "Date to" selection.',
+              }}
             />
             <DateRangeInputField
               id="daterangeinputfield--error-end"
@@ -166,9 +167,10 @@ const StickerSheetTemplate: Story<{
               status={{
                 dateEnd: "error",
               }}
-              validationMessage={
-                '"Date to" cannot be earlier than the "Date from" selection.'
-              }
+              validationMessage={{
+                dateEnd:
+                  '"Date to" cannot be earlier than the "Date from" selection.',
+              }}
             />
             <DateRangeInputField
               id="daterangeinputfield--error-both"

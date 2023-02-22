@@ -11,7 +11,9 @@ describe("<DateRangeValidationMessage />", () => {
           status={{
             dateEnd: "error",
           }}
-          validationMessage={<p>Validation message</p>}
+          validationMessage={{
+            dateEnd: <p>Validation message</p>,
+          }}
         />
       )
       expect(screen.getByText("Validation message")).toBeVisible()

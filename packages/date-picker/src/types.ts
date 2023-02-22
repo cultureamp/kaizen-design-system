@@ -1,5 +1,6 @@
 import { DateInterval, DateRange } from "react-day-picker"
 import { FieldMessageStatus } from "@kaizen/draft-form"
+import { CommonDateRangeInputFieldProps } from "./FilterDateRangePicker/components/DateRangeInputField"
 import { DayOfWeek } from "./enums"
 
 export type { Matcher } from "react-day-picker"
@@ -68,25 +69,37 @@ export interface DisabledDayMatchers {
 }
 
 export type DateRangeValidationStatus = {
-  dateStart?: FieldMessageStatus
-  dateEnd?: FieldMessageStatus
+  dateStart?: "default"
+  dateEnd?: "default"
+}
+export type DateRangeValidationMessageType = {
+  dateStart?: React.ReactNode
+  dateEnd?: React.ReactNode
 }
 
-export type DateRangeMessageType = {
-  dateStart: React.ReactNode
-  dateEnd: React.ReactNode
+export type DateStartValidationProps = Omit<
+  CommonDateRangeInputFieldProps,
+  "status" | "validationMessage"
+> & {
+  status: { dateStart: "success" | "error" | "caution"; dateEnd?: undefined }
+  validationMessage: { dateStart: React.ReactNode }
 }
 
-export type DateRangeValidationMessageType =
-  | React.ReactNode
-  | DateRangeMessageType
+export type DateEndValidationProps = Omit<
+  CommonDateRangeInputFieldProps,
+  "status" | "validationMessage"
+> & {
+  status: { dateStart?: undefined; dateEnd: "success" | "error" | "caution" }
+  validationMessage: { dateEnd: React.ReactNode }
+}
 
-export function isDateRangeMessageType(
-  message: DateRangeValidationMessageType
-): message is DateRangeMessageType {
-  return (
-    message != undefined &&
-    (message as DateRangeMessageType).dateStart !== undefined &&
-    (message as DateRangeMessageType).dateEnd !== undefined
-  )
+export type DateRangeValidationProps = Omit<
+  CommonDateRangeInputFieldProps,
+  "status" | "validationMessage"
+> & {
+  status: {
+    dateStart: "success" | "error" | "caution"
+    dateEnd: "success" | "error" | "caution"
+  }
+  validationMessage: { dateStart: React.ReactNode; dateEnd: React.ReactNode }
 }

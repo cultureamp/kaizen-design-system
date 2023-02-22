@@ -9,14 +9,17 @@ import {
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
 import {
+  DateEndValidationProps,
   DateRangeValidationMessageType,
+  DateRangeValidationProps,
   DateRangeValidationStatus,
+  DateStartValidationProps,
 } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
 import { DateRangeValidationMessage } from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
-export interface DateRangeInputFieldProps
+export interface CommonDateRangeInputFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   legend: string
@@ -40,6 +43,12 @@ export interface DateRangeInputFieldProps
   validationMessage?: DateRangeValidationMessageType
   disabled?: boolean
 }
+
+export type DateRangeInputFieldProps =
+  | CommonDateRangeInputFieldProps
+  | DateStartValidationProps
+  | DateEndValidationProps
+  | DateRangeValidationProps
 
 export type DateRangeInputFieldRefs = {
   inputRangeStartRef?: React.RefObject<HTMLInputElement>
@@ -111,13 +120,14 @@ export const DateRangeInputField = React.forwardRef<
             )}
           />
         </fieldset>
-
-        <DateRangeValidationMessage
-          status={status}
-          validationMessage={validationMessage}
-          isReversed={isReversed}
-          id={errorMessageId}
-        />
+        {status && validationMessage && (
+          <DateRangeValidationMessage
+            status={status}
+            validationMessage={validationMessage}
+            isReversed={isReversed}
+            id={errorMessageId}
+          />
+        )}
 
         <FieldMessage
           id={descriptionId}
