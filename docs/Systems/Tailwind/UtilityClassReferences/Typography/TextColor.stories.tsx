@@ -5,6 +5,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { CodeSnippet } from "../../components/CodeSnippet"
+import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 import styles from "../styles.module.scss"
@@ -26,44 +27,31 @@ export default {
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <>
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader
-        headings={[
-          "Utility Class",
-          "Compiled CSS",
-          "Example",
-          "Example (dark background)",
-        ]}
-      />
-      {classEntries.map(({ utilityClassName, cssProperty }, index) => (
-        <React.Fragment key={index}>
-          <StoryWrapper.Row rowTitle="">
-            <CodeSnippet text={utilityClassName} />
-            <p className="font-family-paragraph">color: {cssProperty}</p>
-            <p
-              className={classnames(
-                "font-family-paragraph",
-                styles.textColorExample
-              )}
-              style={{ color: cssProperty }}
-            >
-              Aa
-            </p>
-            <p
-              className={classnames(
-                "font-family-paragraph",
-                styles.textColorExampleDark
-              )}
-              style={{ color: cssProperty }}
-            >
-              Aa
-            </p>
-          </StoryWrapper.Row>
-        </React.Fragment>
-      ))}
-    </StoryWrapper>
-  </>
+  <UtilityClassTemplate
+    compiledCssPropertyName="color"
+    classKeyValues={classEntries}
+    renderExampleComponent={(cssProperty): React.ReactElement => (
+      <div className="flex items-center">
+        <p
+          className={classnames(
+            "font-family-paragraph p-8 rounded-default font-weight-display text-heading-3 m-0 mr-16"
+          )}
+          style={{ color: cssProperty }}
+        >
+          Light bg
+        </p>
+        <p
+          className={classnames(
+            "font-family-paragraph p-8 bg-[black] rounded-default font-weight-display text-heading-3 m-0"
+          )}
+          style={{ color: cssProperty }}
+        >
+          Dark bg
+        </p>
+      </div>
+    )}
+    isReversed={isReversed}
+  />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
