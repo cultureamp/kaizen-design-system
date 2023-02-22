@@ -4,6 +4,7 @@ import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../../storybook/constants"
+import { UtilityClass } from "../../components/UtilityClass"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 import styles from "../styles.module.scss"
@@ -38,7 +39,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       {classEntries.map(({ utilityClassName, cssProperty }, index) => (
         <React.Fragment key={index}>
           <StoryWrapper.Row rowTitle="">
-            <p className="font-family-paragraph">{utilityClassName}</p>
+            <UtilityClass utilityClassName={utilityClassName} />
             <p className="font-family-paragraph">color: {cssProperty}</p>
             <p
               className={classnames(
