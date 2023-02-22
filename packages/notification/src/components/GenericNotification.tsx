@@ -112,6 +112,7 @@ class GenericNotification extends React.Component<Props, State> {
             <NotificationHeading
               titleProp={this.props.title}
               headingProps={this.props.headingProps}
+              isToast={this.props.style === "toast"}
             />
           )}
           {this.props.children && (
@@ -197,6 +198,7 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
 const NotificationHeading = ({
   titleProp,
   headingProps,
+  isToast = false,
 }): JSX.Element | null => {
   if (headingProps) {
     return (
@@ -204,7 +206,10 @@ const NotificationHeading = ({
         variant={headingProps.variant || "heading-6"}
         tag={headingProps.tag || "div"}
         color={headingProps.color || "dark"}
-        classNameOverride={styles.notificationTitle}
+        classNameOverride={classnames(
+          styles.notificationTitle,
+          isToast && styles.toastTitle
+        )}
       >
         {headingProps.children}
       </Heading>
@@ -215,7 +220,10 @@ const NotificationHeading = ({
         variant="heading-6"
         tag="div"
         color="dark"
-        classNameOverride={styles.notificationTitle}
+        classNameOverride={classnames(
+          styles.notificationTitle,
+          isToast && styles.toastTitle
+        )}
       >
         {titleProp}
       </Heading>

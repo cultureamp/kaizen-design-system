@@ -199,6 +199,10 @@ $notification-slide-right: transform 300ms ease-out;
   %ca-notification---inline &,
   %ca-notification---toast & {
     margin-left: 6px;
+  }
+
+  %ca-notification---toast & {
+    margin-left: 6px;
     max-width: calc(100% - #{$spacing-xl});
     overflow-wrap: break-word;
     hyphens: auto;
@@ -259,6 +263,8 @@ $notification-slide-right: transform 300ms ease-out;
     flex: 0 1 auto;
     padding-bottom: $spacing-sm;
     top: 0.21em;
+  }
+  %ca-notification---toast & {
     width: 100%;
   }
 
